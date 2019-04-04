@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255419"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918414"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Résoudre les problèmes de démarrage des rôles de service cloud
 Voici des solutions à quelques problèmes courants liés à l’échec du démarrage des rôles Azure Cloud Services.
@@ -75,8 +75,8 @@ Vous pouvez utiliser le Bureau à distance pour accéder au rôle et afficher de
 L’accès au site web renvoie maintenant des messages d’erreur plus explicites :
 
 * Erreur de serveur dans l’application « / ».
-* Description : une exception non gérée s’est produite lors de l’exécution de la requête Web en cours. Veuillez consulter l’arborescence des appels de procédure pour plus d’informations sur l’erreur et sa source dans le code.
-* Détails de l’exception : System.IO.FIleNotFoundException : impossible de charger le fichier ou l’assembly « Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35 » ou l’une de ses dépendances. Le système ne peut pas trouver le fichier spécifié.
+* Description : Une exception non gérée s’est produite pendant l’exécution de la requête web actuelle. Veuillez consulter l’arborescence des appels de procédure pour plus d’informations sur l’erreur et sa source dans le code.
+* Détails de l’exception : System.IO.FIleNotFoundException: Impossible de charger le fichier ou l’assembly « Microsoft.WindowsAzure.StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 » ou une de ses dépendances. Le système ne peut pas trouver le fichier spécifié.
 
 Par exemple : 
 
@@ -96,7 +96,7 @@ Pour obtenir de meilleurs résultats à l’aide de cette méthode de diagnostic
 7. Au démarrage du rôle, le détail de l’erreur s’affiche dans Internet Explorer. Vous pouvez également utiliser les outils de dépannage Windows standard pour diagnostiquer le problème.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnostiquer les problèmes à l’aide d’IntelliTrace
-Pour les rôles de travail et les rôles web qui utilisent .NET Framework 4, vous pouvez utiliser l’utilitaire [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), qui est disponible dans Microsoft Visual Studio Enterprise.
+Pour les rôles de travail et les rôles web qui utilisent .NET Framework 4, vous pouvez utiliser l’utilitaire [IntelliTrace](/visualstudio/debugger/intellitrace), qui est disponible dans Microsoft Visual Studio Enterprise.
 
 Pour déployer le service avec la fonction IntelliTrace activée, procédez comme suit :
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086817"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894763"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -93,7 +93,10 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 ![Portail Azure : Volet Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> L’authentification unique fluide crée un compte d’ordinateur nommé `AZUREADSSOACC` (c’est-à-dire Azure AD) sur votre instance Active Directory (AD) locale, dans chaque forêt AD. Ce compte d’ordinateur est nécessaire pour que la fonctionnalité soit opérationnelle. Si vous utilisez des architectures de type « Pass-The-Hash » et Atténuation des vols d'informations d'identification dans votre environnement local, veillez à ce que le compte d'ordinateur `AZUREADSSOACC` ne se retrouve pas dans le conteneur Quarantaine. Apportez les modifications qui conviennent pour créer le compte d'ordinateur dans le conteneur Ordinateurs. Une fois l'authentification unique transparente activée dans l'Assistant Azure AD Connect, déplacez le compte d'ordinateur `AZUREADSSOACC` vers une unité d'organisation où d'autres comptes d'ordinateur sont gérés afin d'éviter une suppression accidentelle de celui-ci.
+> L’authentification unique transparente crée un compte d’ordinateur nommé `AZUREADSSOACC` dans votre Active Directory (AD) dans chaque forêt Active Directory sur site. Le `AZUREADSSOACC` compte d’ordinateur doit être fortement protégé pour des raisons de sécurité. Seuls les administrateurs de domaine doit être en mesure de gérer le compte d’ordinateur. Assurez-vous que la délégation Kerberos sur le compte d’ordinateur est désactivée. Store le compte d’ordinateur dans une unité d’organisation (UO) dans lequel ils sont sécurisés contre les suppressions accidentelles.
+
+>[!NOTE]
+> Si vous utilisez des architectures Pass-the-Hash et réduction des risques de vol d’informations d’identification dans votre environnement local, apporter les modifications nécessaires pour vous assurer que le `AZUREADSSOACC` compte d’ordinateur ne s’arrête pas dans le conteneur de mise en quarantaine. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
@@ -129,7 +132,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
      Le résultat ressemble à :
 
-     Nom de la valeur : `https://autologon.microsoftazuread-sso.com`
+     Nom de la valeur : `https://autologon.microsoftazuread-sso.com`
   
      Valeur (données) : 1
 

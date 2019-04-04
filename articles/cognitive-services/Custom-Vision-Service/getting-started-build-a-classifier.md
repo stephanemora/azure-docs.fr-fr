@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886435"
+ms.locfileid: "58891478"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Comment créer un classifieur avec Custom Vision
 
@@ -125,9 +125,7 @@ L’interprétation des appels de prédiction avec un seuil de probabilité éle
 
 ## <a name="manage-training-iterations"></a>Gérer les itérations d’entraînement
 
-Chaque fois vous entraînez votre classifieur, vous créez une nouvelle _itération_ avec ses propres métriques de performances mises à jour. Vous pouvez afficher toutes vos itérations dans le volet gauche de l’onglet **Performance**. Quand vous en sélectionnez une, vous avez la possibilité d’en faire l’_itération par défaut_ en cliquant sur le bouton **Make default** (Par défaut) en haut. L’_itération par défaut_ est le modèle qui sera utilisé par défaut quand vous interrogez celui-ci via l’API Prediction (par exemple à partir d’une application). Si vous choisissez de ne pas mettre à jour l’_itération par défaut_, vous pouvez continuer à entraîner le modèle sans affecter le comportement actuel de votre application ; ensuite, une fois que vous êtes satisfait du modèle amélioré, vous pouvez mettre à jour l’itération par défaut.
-
-Dans le volet gauche, vous trouvez également le bouton **Delete** (Supprimer), que vous pouvez utiliser pour supprimer une itération si elle est obsolète. Quand vous supprimez une itération, vous supprimez également toutes les images qui lui sont spécifiquement associées.
+Chaque fois vous entraînez votre classifieur, vous créez une nouvelle _itération_ avec ses propres métriques de performances mises à jour. Vous pouvez afficher toutes vos itérations dans le volet gauche de l’onglet **Performance**. Dans le volet gauche, vous trouvez également le bouton **Delete** (Supprimer), que vous pouvez utiliser pour supprimer une itération si elle est obsolète. Quand vous supprimez une itération, vous supprimez également toutes les images qui lui sont spécifiquement associées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

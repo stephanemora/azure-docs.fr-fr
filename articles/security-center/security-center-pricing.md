@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 680e39b291cbaa1012cd972e188ab4e5f7aef694
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449018"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905288"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée
 Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyberattaques en constante évolution.
@@ -46,7 +46,7 @@ Pour obtenir le niveau Standard :
 4. Sélectionnez **Standard** pour effectuer la mise à niveau.
 5. Cliquez sur **Enregistrer**.
 
-![Tarification de Security Center](./media/security-center-pricing/get-standard.png)
+(Les prix de l’image sont par exemple uniquement à des fins). ![Tarification de Security Center](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
 > Pour activer toutes les fonctionnalités de Security Center, vous devez appliquer la norme niveau tarifaire vers l’abonnement contenant les machines virtuelles concernées. La configuration de la tarification d’un espace de travail n’active pas l’accès juste à temps à la machine virtuelle, les contrôles d’application adaptatifs, ni les détections réseau pour les ressources Azure.
@@ -65,7 +65,7 @@ Security Center offre une sécurité renforcée et une meilleure protection cont
 Cet article vous a présenté la tarification de Security Center. Pour en savoir plus sur la sécurité renforcée et la protection avancée contre les menaces du niveau Standard, consultez :
 
 - [Détection avancée des menaces](security-center-threat-report.md)
-- [Gérer l’accès Juste à temps à la machine virtuelle](security-center-just-in-time.md)
+- [Uniquement dans le contrôle d’accès de machine virtuelle de temps](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

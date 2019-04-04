@@ -3,19 +3,19 @@ title: Référence de l’API de traduction de texte Translator Text V3.0
 titlesuffix: Azure Cognitive Services
 description: Documentation de référence pour l’API de traduction de texte Translator Text V3.0.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0260ecbf23e0240b836f6d6004959a9604085fc1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194960"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918805"
 ---
 # <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
@@ -58,7 +58,7 @@ Trois en-têtes sont à votre disposition pour authentifier votre abonnement. Ce
 |headers|Description|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*À utiliser avec un abonnement à Cognitive Services si vous transmettez votre clé secrète*.<br/>La valeur est la clé secrète Azure pour votre abonnement à l’API de traduction de texte Translator Text.|
-|Authorization|*À utiliser avec un abonnement à Cognitive Services si vous transmettez un jeton d'authentification.*<br/>La valeur est le jeton du porteur : `Bearer <token>`.|
+|Authorization|*Utiliser avec abonnement Cognitive Services si vous passez un jeton d’authentification.*<br/>La valeur est le jeton du porteur : `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Si vous transmettez une clé secrète multiservice, utiliser avec abonnement multiservice Cognitive Services.*<br/>La valeur est la région de l’abonnement multiservice. Cette valeur est facultative lorsque vous N'utilisez pas un abonnement multiservice.|
 
 ###  <a name="secret-key"></a>Clé secrète

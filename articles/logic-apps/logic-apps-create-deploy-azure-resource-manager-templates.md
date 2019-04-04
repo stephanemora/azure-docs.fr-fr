@@ -1,6 +1,6 @@
 ---
-title: Créer des applications logiques avec des modèles Azure Resource Manager | Microsoft Docs
-description: Créer et déployer des flux de travail d’applications logiques avec des modèles Azure Resource Manager dans Azure Logic Apps
+title: Déployer des applications logiques avec les modèles Azure Resource Manager - Azure Logic Apps
+description: Déployer des applications logiques à l’aide de modèles Azure Resource Manager
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,122 +10,114 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 8ad70c5d22ca73258fa9e6501d03d5409a4e45d8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 7543859a916de97d471db2894887e640db51dfc2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652482"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893416"
 ---
-# <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Créer et déployer des applications logiques à l’aide des modèles Azure Resource Manager
+# <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Déployer des applications logiques avec des modèles Azure Resource Manager
 
-Azure Logic Apps fournit des modèles Azure Resource Manager que vous pouvez utiliser pour créer des applications logiques destinées à automatiser les flux de travail, mais également pour définir les ressources et les paramètres utilisés pour le déploiement.
-Vous pouvez utiliser ce modèle pour vos propres scénarios professionnels, ou le personnaliser selon vos besoins. En savoir plus sur le [modèle Resource Manager pour les applications logiques](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) et sur la [structure et la syntaxe du modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Pour plus d’informations sur la syntaxe JSON et les propriétés, consultez [Types de ressources Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
+Après avoir créé un modèle Azure Resource Manager pour déployer votre application logique, vous pouvez déployer votre modèle des façons suivantes :
 
-## <a name="define-the-logic-app"></a>Définir l’application logique
-Cet exemple de définition d’application logique est lancé une fois par heure et exécute une commande ping sur l’emplacement spécifié dans le paramètre `testUri`.
-Le modèle utilise les valeurs du paramètre pour le nom de l’application logique (```logicAppName```) et l’emplacement du test ping (```testUri```). En savoir plus sur la [définition de ces paramètres dans votre modèle](#define-parameters).
-Le modèle définit également l’emplacement de l’application logique sur le même emplacement que le groupe de ressources.
+* [Portail Azure](#portal)
+* [Azure PowerShell](#powershell)
+* [Azure CLI](#cli)
+* [API REST Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Azure DevOps Azure Pipelines](#azure-pipelines)
 
-```json
-{
-   "type": "Microsoft.Logic/workflows",
-   "apiVersion": "2016-06-01",
-   "name": "[parameters('logicAppName')]",
-   "location": "[resourceGroup().location]",
-   "tags": {
-      "displayName": "LogicApp"
-   },
-   "properties": {
-      "definition": {
-         "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-            "testURI": {
-               "type": "string",
-               "defaultValue": "[parameters('testUri')]"
-            }
-         },
-         "triggers": {
-            "Recurrence": {
-               "type": "Recurrence",
-               "recurrence": {
-                  "frequency": "Hour",
-                  "interval": 1
-               }
-            }
-         },
-         "actions": {
-            "Http": {
-              "type": "Http",
-              "inputs": {
-                  "method": "GET",
-                  "uri": "@parameters('testUri')"
-              },
-              "runAfter": {}
-           }
-         },
-         "outputs": {}
-      },
-      "parameters": {}
-   }
-}
-```
+<a name="portal"></a>
 
-<a name="define-parameters"></a>
+## <a name="deploy-through-azure-portal"></a>Déployer via le portail Azure
 
-### <a name="define-parameters"></a>Définir les paramètres
+Pour déployer automatiquement un modèle d’application logique sur Azure, vous pouvez choisir les éléments suivants **déployer sur Azure** bouton, ce qui se connecte au portail Azure et vous demande les informations relatives à votre application logique. Vous pouvez puis apporter les modifications nécessaires pour le modèle d’application logique ou les paramètres.
 
-[!INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
+[![Déployer vers Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Voici une description des paramètres du modèle :
-
-| Paramètre | Description | Exemple de définition JSON |
-| --------- | ----------- | ----------------------- |
-| `logicAppName` | Définit le nom de l’application logique créée par ce modèle. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | Définit l’emplacement sur lequel exécuter le test ping. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} |
-||||
-
-En savoir plus sur [la définition et les propriétés de l’API REST de flux de travail d’applications logiques](https://docs.microsoft.com/rest/api/logic/workflows) et sur la [création de définitions d’applications logiques avec JSON](logic-apps-author-definitions.md).
-
-## <a name="deploy-logic-apps-automatically"></a>Déployer automatiquement des applications logiques
-
-Pour créer et déployer automatiquement une application logique dans Azure, choisissez **Déployer sur Azure** ici :
-
-[![Déployer sur Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
-
-Vous êtes alors connecté au portail Azure où vous pouvez indiquer les détails de votre application logique et apporter des modifications au modèle ou aux paramètres.
-Par exemple, le portail Azure vous invite à indiquer les détails suivants :
+Par exemple, vous êtes invité à entrer ces informations après que vous être connecté au portail Azure :
 
 * Nom de l’abonnement Azure
 * Groupe de ressources que vous souhaitez utiliser
 * Emplacement de l’application logique
-* Nom de votre application logique
+* Nom de l’application logique.
 * URI de test
 * Acceptation des termes et conditions spécifiés
 
-## <a name="deploy-logic-apps-with-commands"></a>Déployer des applications logiques à l’aide de commandes
+Pour plus d’informations, consultez [déployer des ressources avec des modèles Azure Resource Manager et le portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+## <a name="authorize-oauth-connections"></a>Autoriser des connexions OAuth
 
-### <a name="powershell"></a>PowerShell
+Après le déploiement, l’application logique fonctionne de bout en bout avec des paramètres valides. Toutefois, vous devez autoriser des connexions OAuth pour générer un jeton d’accès valide. Pour les déploiements automatisés, vous pouvez utiliser un script qui donne son consentement à chacune des connexions OAuth, telle que celle-ci [exemple de script dans le projet GitHub LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth). Vous pouvez également autoriser les connexions OAuth via le portail Azure ou dans Visual Studio en ouvrant votre application logique dans le Concepteur d’applications logiques.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+<a name="powershell"></a>
+
+## <a name="deploy-with-azure-powershell"></a>Déployer avec Azure PowerShell
+
+Pour déployer à un spécifique *groupe de ressources Azure*, utilisez la commande suivante :
 
 ```powershell
-New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+Pour déployer sur un abonnement Azure spécifique, utilisez cette commande :
+
+```powershell
+New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
+```
+
+* [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [`New-AzDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azdeployment)
+
+<a name="cli"></a>
+
+## <a name="deploy-with-azure-cli"></a>Déploiement avec l’interface de ligne de commande Azure
+
+Pour déployer à un spécifique *groupe de ressources Azure*, utilisez la commande suivante :
 
 ```azurecli
-azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
+az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
+
+Pour déployer sur un abonnement Azure spécifique, utilisez cette commande :
+
+```azurecli
+az deployment create --location <location> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
+```
+
+Pour plus d’informations, consultez les rubriques suivantes : 
+
+* [Déployer des ressources à l’aide de modèles Resource Manager et dAzure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 
+* [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
+* [`az deployment create`](https://docs.microsoft.com/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)
+
+<a name="azure-pipelines"></a>
+
+## <a name="deploy-with-azure-devops"></a>Déployer avec Azure DevOps
+
+Pour déployer des modèles d’application logique et gérer des environnements, les équipes utilisent généralement un outil tel que [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) dans [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services). Les Pipelines Azure fournit un [tâche Déploiement de groupe de ressources Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) que vous pouvez ajouter à n’importe quel build ou mise en production de pipeline.
+Pour l’autorisation déployer et générer le pipeline de mise en production, vous devez également un Azure Active Directory (AD) [principal du service](../active-directory/develop/app-objects-and-service-principals.md). En savoir plus sur [à l’aide des principaux de service avec les Pipelines Azure](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure). 
+
+Voici les étapes générales pour l’utilisation des Pipelines d’Azure :
+
+1. Dans les Pipelines d’Azure, créez un pipeline vide.
+
+1. Choisissez les ressources que vous avez besoin pour le pipeline, telles que votre modèle d’application logique et les fichiers de paramètres de modèle, ce qui vous générez manuellement ou dans le cadre du processus de génération.
+
+1. Votre travail d’agent, rechercher et ajouter la **déploiement de groupe de ressources Azure** tâche.
+
+   ![Ajouter la tâche « Déploiement de groupe de ressources Azure »](./media/logic-apps-create-deploy-template/add-azure-resource-group-deployment-task.png)
+
+1. Configurer avec un [principal du service](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure). 
+
+1. Ajoutez des références à votre modèle d’application logique et les fichiers de paramètres de modèle.
+
+1. Continuez à suivre les étapes du processus de version pour les autres environnements, tests automatisés ou approbateurs dont vous avez besoin.
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

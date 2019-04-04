@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 575b6384d910abac1c0a1184aef4aa72f686538c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ed3029f2e336c03de616bc00733f1b9c104ddb86
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648571"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917887"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
 
@@ -30,40 +30,40 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 
 \* indique qu’une planification spécifique pour la région est actuellement non disponible.
 
-| **Région** | **Gen2 inférieur disponible** | **Commencement de la mise à niveau automatique** |
+| **Région** | **Inférieur Gen2 disponibles** | **Commencent des mises à niveau automatiques** |
 |:--- |:--- |:--- |
-| Australie Est |Disponible |1er mai 2019 |
-| Australie Sud-Est |2 avril 2019 |1 juin 2019 |
+| Australie Est |Disponible |1 juin 2019 |
+| Australie Sud-Est |2 avril 2019 |1er mai 2019 |
 | Brésil Sud |15 mai 2019 |\* |
-| Centre du Canada |Disponible |1er mai 2019 |
+| Centre du Canada |Disponible |1 juin 2019 |
 | Est du Canada |\* |\* |
-| USA Centre |Disponible |1er mai 2019 |
+| USA Centre |Disponible |1 juin 2019 |
 | Chine orientale |\* |\* |
 | Chine orientale 2 |\* |\* |
 | Chine du Nord |\* |\* |
 | Chine Nord 2 |\* |\* |
-| Asie Est |Disponible |1er mai 2019 |
-| USA Est |Disponible |1er mai 2019 |
-| USA Est 2 |Disponible |Le 1er mai. 2019 |
+| Asie Est |Disponible |1 juin 2019 |
+| USA Est |Disponible |1 juin 2019 |
+| USA Est 2 |Disponible |Le 1er juin. 2019 |
 | France Centre |\* |\* |
 | Centre de l’Allemagne |\* |\* |
 | Ouest-Centre de l’Allemagne |1 septembre 2019|2 janvier 2020 |
-| Inde Centre |Disponible |1er mai 2019 |
+| Inde Centre |Disponible |1 juin 2019 |
 | Sud de l’Inde |2 avril 2019 |1 juin 2019 |
-| Japon Est |Disponible |1er mai 2019 |
-| Japon Ouest |Disponible |1 juin 2019 |
-| Centre de la Corée |2 avril 2019 |1er mai 2019 |
-| Corée du Sud |2 avril 2019 |1 juin 2019 |
-| USA Centre Nord |2 avril 2019 |1 juin 2019 |
-| Europe Nord |Disponible |1er mai 2019 |
-| USA Centre Sud |Disponible |1er mai 2019 |
-| Asie Sud-Est |Disponible |1er mai 2019 |
-| Sud du Royaume-Uni |2 avril 2019 |1er mai 2019 |
+| Japon Est |Disponible |1 juin 2019 |
+| Japon Ouest |Disponible |1er mai 2019 |
+| Centre de la Corée |2 avril 2019 |1 juin 2019 |
+| Corée du Sud |2 avril 2019 |1er mai 2019 |
+| USA Centre Nord |2 avril 2019 |1er mai 2019 |
+| Europe Nord |Disponible |1 juin 2019 |
+| USA Centre Sud |Disponible |1 juin 2019 |
+| Asie Sud-Est |Disponible |1 juin 2019 |
+| Sud du Royaume-Uni |2 avril 2019 |1 juin 2019 |
 | Ouest du Royaume-Uni |\*|\* |
 | USA Centre-Ouest |2 septembre 2019 |2 janvier 2020|
-| Europe Ouest |Disponible |1er mai 2019 |
+| Europe Ouest |Disponible |1 juin 2019 |
 | USA Ouest |2 avril 2019 |1 juin 2019 |
-| USA Ouest 2 |Disponible |1er mai 2019 |
+| USA Ouest 2 |Disponible |1 juin 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Processus de mise à niveau automatique
 
@@ -101,47 +101,47 @@ Pour plus d’informations, consultez [Mettre à niveau vers Gen2](upgrade-to-la
 
 ## <a name="migration-frequently-asked-questions"></a>Questions fréquentes sur la migration
 
-**Q : Le coût de Gen2 est-il le même que celui de Gen1 ?**
+**Q : Gen2 coûte le même que la génération 1 ?**
 
 - R : Oui.
 
-**Q : Comment les mises à niveau affecteront-elles mes scripts d’automatisation ?**
+**Q : Les mises à niveau répercussions mes scripts d’automatisation ?**
 
 - R : Tout script d’automatisation qui fait référence à un objectif de niveau de service doit être changé pour correspondre à l’équivalent Gen2.  Consultez les informations détaillées [ici](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
-**Q : Combien de temps prend normalement une mise à niveau automatique ?**
+**Q : Combien de temps à une mise à niveau automatique normalement faut-il ?**
 
 - R : Vous pouvez effectuer une mise à niveau sur place ou à partir d’un point de restauration.  
    - Une mise à niveau sur place provoque une suspension momentanée puis une reprise de votre entrepôt de données.  Un processus en arrière-plan continuera pendant que l’entrepôt de données sera en ligne.  
    - L’opération prend plus de temps si vous effectuez la mise à niveau par le biais d’un point de restauration, car la mise à niveau passera par le processus de restauration complète.
 
-**Q : Combien de temps prend la mise à niveau automatique ?**
+**Q : Temps que prendra la mise à niveau automatique ?**
 
 - R : Le temps d’arrêt réel pour la mise à niveau est uniquement le temps nécessaire pour suspendre et reprendre le service, qui est compris entre 5 et 10 minutes. Après la courte interruption, un processus en arrière-plan exécutera une migration de stockage. La durée du processus en arrière-plan dépend de la taille de votre entrepôt de données.
 
-**Q : Quand cette mise à niveau automatique aura-t-elle lieu ?**
+**Q : Lorsque cette mise à niveau automatique aura lieu ?**
 
 - R : Pendant votre planification de maintenance. Exploiter la planification de maintenance que vous avez choisie limite les perturbations pour votre activité.
 
-**Q : Que dois-je faire si mon processus de mise à niveau en arrière-plan semble être bloqué ?**
+**Q : Que dois-je faire si mon processus de mise à niveau en arrière-plan semblent être bloqués ?**
 
  - R : Lancez une réindexation de vos tables Columnstore. Notez que la réindexation de la table s’effectuera hors connexion.
 
-**Q : Que se passe-t-il si Gen2 n’a pas l’objectif de niveau de service que j’ai sur Gen1 ?**
+**Q : Que se passe-t-il si la génération 2 n’a pas l’objectif de niveau de Service ont sur la génération 1 ?**
 - R : Si vous exécutez DW600 ou DW1200 sur Gen1, il est conseillé d’utiliser DW500c ou DW1000c, respectivement, car Gen2 fournit plus de mémoire, plus de ressources et des performances plus élevées que Gen1.
 
-**Q : Puis-je désactiver la géosauvegarde ?**
+**Q : Puis-je désactiver la géo-sauvegarde ?**
 - R : Non. La géosauvegarde est une fonctionnalité d’entreprise permettant de préserver la disponibilité de votre entrepôt de données dans le cas où une région n’est plus disponible. Si vous avez d’autres questions, ouvrez une [demande de support](sql-data-warehouse-get-started-create-support-ticket.md).
 
-**Q : Existe-t-il une différence de syntaxe T-SQL entre Gen1 et Gen2 ?**
+**Q : Existe-t-il une différence dans la syntaxe T-SQL entre Gen1 et Gen2 ?**
 
 - R : Aucun changement n’affecte la syntaxe du langage T-SQL entre Gen1 et Gen2.
 
-**Q : Gen2 prend-il en charge les fenêtres de maintenance ?**
+**Q : Génération 2 prend-il en charge la Maintenance Windows ?**
 
 - R : Oui.
 
-**Q : Pourrai-je créer une instance Gen1 après la mise à niveau de ma région ?**
+**Q : J’ai sera en mesure de créer une nouvelle instance de la génération 1 après que ma région a été mis à niveau ?**
 
 - R : Non. Une fois qu’une région aura été mise à niveau, la création d’instances Gen1 sera désactivée.
 
@@ -149,9 +149,9 @@ Pour plus d’informations, consultez [Mettre à niveau vers Gen2](upgrade-to-la
 
 - [Étapes de la mise à niveau](upgrade-to-latest-generation.md)
 - [Fenêtres de maintenance](maintenance-scheduling.md)
-- [Supervision de l’intégrité des ressources](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Revue avant de commencer une migration](upgrade-to-latest-generation.md#before-you-begin)
-- [Mise à niveau sur place et mise à niveau à partir d’un point de restauration](upgrade-to-latest-generation.md)
+- [Moniteur d’intégrité de ressource](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Passez en revue avant de commencer une migration](upgrade-to-latest-generation.md#before-you-begin)
+- [Mise à niveau sur place et de mettre à niveau à partir d’un point de restauration](upgrade-to-latest-generation.md)
 - [Créer un point de restauration défini par l’utilisateur](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
-- [Découvrir comment effectuer une restauration vers Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
-- [Ouvrir une demande de support SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Découvrez comment restaurer vers Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [Ouvrez une demande de prise en charge de SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)

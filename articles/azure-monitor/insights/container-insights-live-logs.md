@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187992"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904744"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Affichage des journaux de conteneur en temps réel avec Azure Monitor pour les conteneurs (préversion)
-Cette fonctionnalité, qui est actuellement en préversion, fournit une vue en temps réel de vos journaux de conteneur Azure Kubernetes Service (AKS) (stdout/stderr) sans nécessiter l’exécution des commandes kubectl. Lorsque vous sélectionnez cette option, le nouveau volet apparaît au-dessous la table de données de performances de conteneurs de la vue **Conteneurs**.  Il affiche la journalisation dynamique générée par le moteur du conteneur afin de faciliter la résolution des problèmes en temps réel.  
+Cette fonctionnalité, qui est actuellement en préversion, fournit une vue en temps réel de vos journaux de conteneur Azure Kubernetes Service (AKS) (stdout/stderr) sans nécessiter l’exécution des commandes kubectl. Lorsque vous sélectionnez cette option, le nouveau volet apparaît au-dessous la table de données de performances de conteneurs de la vue **Conteneurs**.  Il affiche la journalisation dynamique générée par le moteur du conteneur afin de faciliter la résolution des problèmes en temps réel. **Contributeur** accès à la ressource de cluster est requis pour cette fonctionnalité soit opérationnelle.
 
 Les journaux dynamiques prennent en charge trois méthodes de contrôle d’accès aux journaux :
 

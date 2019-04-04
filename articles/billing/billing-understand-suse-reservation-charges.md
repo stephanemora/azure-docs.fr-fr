@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649254"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917785"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Comprendre comment la remise de plan de réservation de logiciel SUSE Linux Enterprise est appliquée pour Azure
 
@@ -38,7 +38,7 @@ Par exemple, si vous achetez un abonnement SUSE Linux Enterprise Server for HPC 
 - 1 machine virtuelle déployée avec 3 ou 4 processeurs virtuels
 - ou 0,77 (soit environ 77 %) d’une machine virtuelle avec au moins 5 processeurs virtuels.
 
-Le ratio pour au moins 5 processeurs virtuels est 2,6. Par conséquent, une réservation de SUSE avec une machine virtuelle contenant au moins 5 processeurs virtuels couvre seulement une partie du coût du logiciel, en l’occurrence environ 77 %.
+Le ratio pour au moins 5 processeurs virtuels est 2,6. Par conséquent, une réservation pour SUSE avec une machine virtuelle avec 5 ou plus de processeurs virtuels couvre une seule partie du coût logiciel, qui est d’environ 77 %.
 
 ## <a name="understand-suse-vm-usage-before-you-buy"></a>Comprendre l’utilisation de SUSE VM avant de l’acheter
 
@@ -127,11 +127,11 @@ Noms dans la place de marché du portail Azure :
 Pour plus d’informations sur les réservations, consultez les articles suivants :
 
 - [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
-- [Prépayer les abonnements logiciels SUSE avec les réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prépayer les plans de logiciel SUSE avec les réservations de Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Prépayer les machines virtuelles avec Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)
-- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
-- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
+- [Comprendre l’utilisation de la réservation pour votre abonnement de paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation de la réservation pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 

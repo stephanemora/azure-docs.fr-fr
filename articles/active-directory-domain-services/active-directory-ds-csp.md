@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
-ms.openlocfilehash: 7210610f8a082c34f8e87ef715b8252c2821bc83
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8beba4f66cf24a937eec77e4bfdee2057b417269
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187094"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892804"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services pour les fournisseurs de solutions cloud (CSP) Azure
 Cet article explique comment vous pouvez utiliser Azure AD Domain Services dans un abonnement Azure CSP.
@@ -41,7 +41,7 @@ Pour plus d’informations, consultez la [présentation d’Azure CSP](https://d
 ## <a name="benefits-of-using-azure-ad-domain-services-in-an-azure-csp-subscription"></a>Avantages d’utiliser Azure Active Directory Domain Services dans un abonnement Azure CSP
 Azure AD Domain Services fournit des services compatibles avec Windows Server AD dans Azure, tels que LDAP, l’authentification Kerberos/NTLM, la jonction de domaine, la stratégie de groupe et DNS. Au fil des décennies, de nombreuses applications ont été générées pour fonctionner avec Active Directory à l’aide de ces fonctionnalités. De nombreux éditeurs de logiciels indépendants (ISV) ont généré et déployé des applications dans les locaux de leurs clients. La prise en charge de ces applications est onéreuse, car elle requiert souvent l’accès aux différents environnements dans lesquels elles sont déployées. Avec des abonnements Azure CSP, vous avez une solution plus simple avec l’adaptabilité et la flexibilité d’Azure.
 
-Azure AD Domain Services prend désormais en charge les abonnements Azure CSP. Vous pouvez déployer votre application dans un abonnement Azure CSP lié à l’annuaire Azure AD de votre client. Ainsi, vos employés (équipes du support) peuvent gérer, administrer et réviser les machines virtuelles sur lesquelles votre application est déployée à l’aide des informations d’identification d’entreprise de votre organisation. De plus, vous pouvez provisionner un domaine managé Azure AD Domain Services pour l’annuaire Azure AD de votre client. Votre application est connectée au domaine managé de votre client. Ainsi, les fonctionnalités au sein de votre application qui s’appuient sur Kerberos/NTLM, LDAP ou [l’API System.DirectoryServices](https://msdn.microsoft.com/library/system.directoryservices) fonctionnent de manière fluide sur l’annuaire de votre client. Vos clients profitent pleinement de la consommation de votre application en tant que service, sans avoir à se soucier de la gestion de l’infrastructure sur laquelle l’application est déployée.
+Azure AD Domain Services prend désormais en charge les abonnements Azure CSP. Vous pouvez déployer votre application dans un abonnement Azure CSP lié à l’annuaire Azure AD de votre client. Ainsi, vos employés (équipes du support) peuvent gérer, administrer et réviser les machines virtuelles sur lesquelles votre application est déployée à l’aide des informations d’identification d’entreprise de votre organisation. De plus, vous pouvez provisionner un domaine managé Azure AD Domain Services pour l’annuaire Azure AD de votre client. Votre application est connectée au domaine managé de votre client. Ainsi, les fonctionnalités au sein de votre application qui s’appuient sur Kerberos/NTLM, LDAP ou [l’API System.DirectoryServices](/dotnet/api/system.directoryservices) fonctionnent de manière fluide sur l’annuaire de votre client. Vos clients profitent pleinement de la consommation de votre application en tant que service, sans avoir à se soucier de la gestion de l’infrastructure sur laquelle l’application est déployée.
 
 Vous acquittez toute la facturation des ressources Azure que vous utilisez dans cet abonnement, y compris Azure AD Domain Services. Vous contrôlez en totalité la relation avec le client en ce qui concerne les ventes, la facturation, le support technique, etc. Grâce à la flexibilité de la plateforme Azure CSP, une petite équipe d’agents de support peut prendre en charge de nombreux clients pour lesquels des instances de votre application sont déployées.
 
@@ -79,7 +79,7 @@ Tenez compte des considérations importantes suivantes quand vous administrez un
 * **Les agents d’administration CSP ne peuvent pas effectuer de tâches de gestion en continu sur le domaine managé à l’aide de leurs informations d’identification :** les utilisateurs administrateurs CSP ne peuvent pas effectuer de tâches de gestion courantes dans le domaine managé à l’aide de leurs informations d’identification. Ces utilisateurs étant externes à l’annuaire Azure AD du client, leurs informations d’identification ne sont pas disponibles dans l’annuaire Azure AD du client. Ainsi, Azure AD Domain Services n’a pas accès aux hachages de mot de passe Kerberos et NTLM pour ces utilisateurs. Ces utilisateurs ne peuvent donc pas être authentifiés sur les domaines managés Azure AD Domain Services.
 
   > [!WARNING]
-  > **Vous devez créer un compte d’utilisateur dans l’annuaire du client pour effectuer des tâches d’administration courantes sur le domaine managé.**
+  > **Vous devez créer un compte d’utilisateur dans l’annuaire du client pour effectuer des tâches d’administration courantes sur le domaine géré.**
   > Vous ne pouvez pas vous connecter au domaine managé à l’aide des informations d’identification d’un utilisateur administrateur CSP. Pour ce faire, utilisez les informations d’identification d’un compte d’utilisateur appartenant à l’annuaire Azure AD du client. Vous avez besoin de ces informations d’identification pour les tâches telles que la jonction de machines virtuelles au domaine managé, l’administration du système DNS ou l’administration de la stratégie de groupe.
   >
 
@@ -89,5 +89,5 @@ Tenez compte des considérations importantes suivantes quand vous administrez un
 ## <a name="next-steps"></a>Étapes suivantes
 * [S’inscrire au programme Azure CSP](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) et commencer à développer une activité par le biais d’Azure CSP.
 * Passer en revue la liste des [services Azure disponibles dans Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
-* [Activer les services de domaine Azure AD à l’aide de PowerShell](active-directory-ds-enable-using-powershell.md)
+* [Activer Azure AD Domain Services à l’aide de PowerShell](active-directory-ds-enable-using-powershell.md)
 * [Prise en main des services de domaine Azure AD](active-directory-ds-getting-started.md)

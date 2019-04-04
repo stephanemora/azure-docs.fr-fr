@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170392"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918550"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilisation d’Azure CDN avec SAP
 
@@ -86,10 +86,11 @@ Cette option est disponible uniquement pour les profils **Azure CDN Premium de V
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Règle de réécriture d’URL CDN – gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Règle de réécriture d’URL CDN – droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Règle de réécriture d’URL CDN - gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![règle de réécriture d’URL CDN - droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Une fois la nouvelle règle active, tous les utilisateurs peuvent accéder aux fichiers dans le conteneur spécifié sur le point de terminaison CDN, même s’ils n’utilisent pas de jeton SAP dans l’URL. Voici le format : `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Une fois la nouvelle règle active, tous les utilisateurs peuvent accéder aux fichiers dans le conteneur spécifié sur le point de terminaison CDN, même s’ils n’utilisent pas de jeton SAP dans l’URL. Voici le format :
+   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Par exemple :    
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -124,8 +125,8 @@ Pour utiliser l’authentification de jeton de sécurité d’Azure CDN, vous de
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Règle de réécriture d’URL CDN – gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Règle de réécriture d’URL CDN – droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Règle de réécriture d’URL CDN - gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![règle de réécriture d’URL CDN - droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Si vous renouvelez la signature SAP, n’oubliez pas de mettre à jour la règle de réécriture d’URL avec le nouveau jeton SAP. 
 
@@ -137,13 +138,13 @@ Azure CDN ne peut pas changer son comportement de remise en se basant sur les pa
 | --- | --- |
 | Démarrer | Heure à laquelle Azure CDN peut commencer à accéder au fichier blob. En raison des variations d’horloges (quand un signal d’horloge arrive à des moments différents pour différents composants), vous devez choisir une heure 15 minutes plus tôt si vous souhaitez que la ressource soit disponible immédiatement. |
 | Terminer | Heure après laquelle Azure CDN ne peut plus accéder au fichier blob. Les fichiers précédemment mis en cache sur Azure CDN sont toujours accessibles. Pour contrôler le délai d’expiration de fichier, définissez le délai d’expiration approprié sur le jeton de sécurité Azure CDN ou nettoyez la ressource. |
-| Adresses IP autorisées | facultatif. Si vous utilisez **Azure CDN de Verizon**, vous pouvez affecter à ce paramètre les plages définies dans [Azure CDN from Verizon Edge Server IP Ranges (Plages d’adresses IP de serveur Edge Azure CDN de Verizon)](https://msdn.microsoft.com/library/mt757330.aspx). Si vous utilisez **CDN Azure d’Akamai**, vous ne pouvez pas définir le paramètre de plages IP, car les adresses IP ne sont pas statiques.|
+| Adresses IP autorisées | facultatif. Si vous utilisez **Azure CDN de Verizon**, vous pouvez affecter à ce paramètre les plages définies dans [Azure CDN from Verizon Edge Server IP Ranges (Plages d’adresses IP de serveur Edge Azure CDN de Verizon)](/azure/cdn/cdn-pop-list-api). Si vous utilisez **CDN Azure d’Akamai**, vous ne pouvez pas définir le paramètre de plages IP, car les adresses IP ne sont pas statiques.|
 | Protocoles autorisés | Protocole(s) autorisé(s) pour une requête effectuée avec la SAP de compte. Le paramètre HTTPS est recommandé.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d'informations sur les SAP, voir les articles suivants :
 - [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Signatures d’accès partagé, partie 2 : Créer et utiliser une signature d’accès partagé avec Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [Signatures d'accès partagé, partie 2 : Créer et utiliser une signature d'accès partagé avec le service Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 Pour plus d’informations sur la configuration de l’authentification par jeton, voir [Sécuriser des ressources Azure Content Delivery Network avec l’authentification par jeton](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

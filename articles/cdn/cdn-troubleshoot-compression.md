@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 2a41316eadb43145628d6c625935c751bfbc6ad6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b885098ff0efeb4d723cbaaac46fbb57cb40f2ea
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531523"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918822"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Résolution des problèmes de compression des fichiers CDN
 Cet article vous aide à résoudre les problèmes de [compression des fichiers CDN](cdn-improve-performance.md).
@@ -116,6 +116,6 @@ Afin d’être éligible pour la compression, un fichier doit respecter les exig
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Vérifiez la requête sur le serveur d’origine pour un en-tête **Via**
 L’en-tête HTTP **Via** indique au serveur web que la requête est transmise par un serveur proxy.  Par défaut, des serveurs web Microsoft IIS ne compressent pas les réponses lorsque la requête contient un en-tête **Via** .  Pour modifier ce comportement, procédez comme suit :
 
-* **IIS 6**: [Définissez HcNoCompressionForProxies = « FALSE » dans les propriétés de la métabase IIS](https://msdn.microsoft.com/library/ms525390.aspx)
+* **IIS 6**: [Définissez HcNoCompressionForProxies = « FALSE » dans les propriétés de la métabase IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
 * **IIS 7 et jusqu'à**: [Définissez les options **noCompressionForHttp10** et **noCompressionForProxies** sur False dans la configuration du serveur](http://www.iis.net/configreference/system.webserver/httpcompression)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27963670"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893722"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Prise en main des actions Retarder et Retarder jusqu’à
 Les actions Retarder et Retarder jusqu’à vous permettent d’exécuter des scénarios de workflow.
@@ -33,9 +33,11 @@ Vous pouvez par exemple :
 Pour commencer à utiliser l’action Retarder dans une application logique, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Utilisation d’actions Retarder
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](connectors-overview.md).
 
-Voici un exemple de séquence d’utilisation d’une étape de retard dans une application logique :
+Une action est une opération effectuée par le flux de travail défini dans une application logique. 
+[En savoir plus sur les actions](../connectors/apis-list.md).
+
+Voici un exemple de séquence de l’utilisation d’une étape de retard dans une application logique :
 
 1. Après avoir ajouté un déclencheur, cliquez sur **Nouvelle étape** pour ajouter une action.
 2. Recherchez **Retarder** pour afficher les actions Retarder. Dans cet exemple, nous sélectionnons **Retarder**.
@@ -56,7 +58,7 @@ Le symbole * désigne est un champ obligatoire.
 | Nom complet | Nom de la propriété | Description |
 | --- | --- | --- |
 | Count* |count |Le nombre d’unités à retarder |
-| Unit* |unité |L’unité de temps : `Second`, `Minute`, `Hour` ou `Day` |
+| Unit* |unité |L’unité de temps : `Second`, `Minute`, `Hour`, ou `Day` |
 
 <br>
 
@@ -72,6 +74,6 @@ Le symbole * désigne est un champ obligatoire.
 
 <br>
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 

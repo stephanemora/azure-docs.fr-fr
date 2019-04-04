@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: e7e4e898142d6f9d1a93e91c1f1476ff81fc7d3c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 981ffce34c56f4becee2ed0c72da72baa220e395
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734657"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894353"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Informations de référence pour les développeurs F# sur Azure Functions
 
@@ -115,7 +115,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>Jeton d’annulation
-Si votre fonction doit gérer les arrêts de manière appropriée, vous pouvez lui fournir un argument [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) . conjointement utilisable avec `async`. Par exemple :
+Si votre fonction doit gérer les arrêts de manière appropriée, vous pouvez lui fournir un argument [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) . conjointement utilisable avec `async`. Par exemple :
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -166,7 +166,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 
 Les assemblys suivants sont ajoutés automatiquement par l’environnement hébergeant Azure Functions :
 
-* `mscorlib`
+* `mscorlib`.
 * `System`
 * `System.Core`
 * `System.Xml`
@@ -285,18 +285,18 @@ let mylog(log: ILogger, text: string) =
 Les chemins d’accès fournis à la directive `#load` sont relatifs à l’emplacement de votre fichier `.fsx`.
 
 * `#load "logger.fsx"` charge un fichier situé dans le dossier de la fonction.
-* `#load "package\logger.fsx"` charge un fichier situé dans le dossier `package` du dossier de la fonction.
-* `#load "..\shared\mylogger.fsx"` charge un fichier situé dans le dossier `shared` au même niveau que le dossier de la fonction, c’est-à-dire, directement sous `wwwroot`.
+* `#load "package\logger.fsx"` charge un fichier situé dans le `package` dans le dossier de la fonction.
+* `#load "..\shared\mylogger.fsx"` charge un fichier situé dans le `shared` dossier au même niveau que le dossier de fonction, autrement dit, directement sous `wwwroot`.
 
 La directive `#load` ne fonctionne qu’avec des fichiers `.fsx` (script F#), et non avec des fichiers `.fs`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
-* [F# Guide](/dotnet/articles/fsharp/index) (Guide F#)
-* [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
+* [F#Guide](/dotnet/articles/fsharp/index)
+* [Bonnes pratiques pour Azure Functions](functions-best-practices.md)
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
-* [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
+* [Liaisons et déclencheurs de fonctions azure](functions-triggers-bindings.md)
 * [Test des fonctions Azure](functions-test-a-function.md)
 * [Mise à l’échelle d’Azure Functions](functions-scale.md)
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6dee4ac7cb863a08e9046b16189e7f4a7b04b810
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 38f86bd19c85440fbad0e7fd56a3dd9ba836c7b8
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201668"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903300"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Utiliser Apache Phoenix avec les clusters Apache HBase basés sur Linux dans HDInsight
 Découvrez comment utiliser [Apache Phoenix](https://phoenix.apache.org/) dans Azure HDInsight et comment utiliser SQLLine. Pour plus d’informations sur Phoenix, consultez [Apache Phoenix en 15 minutes ou moins](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Pour en savoir plus sur la grammaire Phoenix, consultez [Grammaire Apache Phoenix](https://phoenix.apache.org/language/index.html).
@@ -34,7 +34,7 @@ Avant de pouvoir utiliser SQLLine, vous devez disposer des éléments suivants 
 
 Quand vous vous connectez à un cluster HBase, vous devez vous connecter à l’une des machines virtuelles [Apache ZooKeeper](https://zookeeper.apache.org/). Chaque cluster HDInsight a trois machines virtuelles ZooKeeper.
 
-**Pour connaître le nom d’hôte ZooKeeper**
+**Pour obtenir le nom d’hôte ZooKeeper**
 
 1. Ouvrez [Apache Ambari](https://ambari.apache.org/) en accédant à la page **https://\<nom du cluster\>.azurehdinsight.net**.
 2. Pour vous connecter, entrez le nom d’utilisateur (cluster) HTTP et le mot de passe.
@@ -47,7 +47,7 @@ Quand vous vous connectez à un cluster HBase, vous devez vous connecter à l’
 
 2. Dans SSH, utilisez les commandes suivantes pour exécuter SQLLine :
 
-        cd /usr/hdp/current/phoenix/bin
+        cd /usr/hdp/current/phoenix-client/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. Pour créer une table HBase et insérer des données, exécutez les commandes suivantes :
 

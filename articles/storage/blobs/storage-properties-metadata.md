@@ -5,30 +5,29 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2641e1653e14a7c101d95b02b8a5af71ceb9fdc6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
-ms.translationtype: HT
+ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398172"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916578"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Définir et récupérer des propriétés et métadonnées d’objet
 
 Les objets dans Stockage Azure prennent en charge des propriétés système et des métadonnées définies par l’utilisateur, en plus des données qu’ils contiennent. Cet article décrit la gestion des propriétés système et des métadonnées définies par l’utilisateur avec la [Bibliothèque cliente Stockage Azure pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
-* **Propriétés système** : des propriétés système s’appliquent à chaque ressource de stockage. Certaines d'entre elles peuvent être lues ou configurées, alors que d'autres sont en lecture seule. En arrière-plan, certaines propriétés système correspondent à certains en-têtes HTTP standard. Les bibliothèques clientes de Stockage Azure conservent ces propriétés pour vous.
+* **Propriétés système**:  propriétés existant sur chaque ressource de stockage. Certaines d'entre elles peuvent être lues ou configurées, alors que d'autres sont en lecture seule. En arrière-plan, certaines propriétés système correspondent à certains en-têtes HTTP standard. Les bibliothèques clientes de Stockage Azure conservent ces propriétés pour vous.
 
-* **Métadonnées définies par l’utilisateur** : ces métadonnées se composent d’une ou plusieurs paires nom/valeur que vous spécifiez pour une ressource de Stockage Azure. Vous pouvez les utiliser pour stocker des valeurs supplémentaires avec une ressource. Les valeurs de métadonnées sont destinées à votre usage personnel et n’affectent pas le comportement de la ressource.
+* **Métadonnées définies par l’utilisateur**: Métadonnées définies par l’utilisateur se composent d’une ou plusieurs paires nom-valeur que vous spécifiez pour une ressource de stockage Azure. Vous pouvez les utiliser pour stocker des valeurs supplémentaires avec une ressource. Les valeurs de métadonnées sont destinées à votre usage personnel et n’affectent pas le comportement de la ressource.
 
 La récupération des valeurs des propriétés et des métadonnées d’une ressource se déroule en deux étapes. Pour pouvoir lire ces valeurs, vous devez les récupérer explicitement en appelant l’une des méthodes **FetchAttributesAsync** ou **FetchAttributesAsync**. L’exception est si vous appelez l’une des méthodes **Exists** ou **ExistsAsync** sur une ressource. Lorsque vous appelez l’une de ces méthodes, le Stockage Azure appelle la méthode **FetchAttributes** appropriée en arrière-plan dans le cadre de l’appel de la méthode **Exists**.
 
 > [!IMPORTANT]
 > Si vous constatez que les valeurs de propriété ou de métadonnées pour une ressource de stockage n’ont pas été complétées, vérifiez que votre code appelle l’une des méthodes **FetchAttributes** ou **FetchAttributesAsync**.
 >
-> Les paires nom/valeur de métadonnées ne peuvent contenir que des caractères ASCII. Les paires nom/valeur de métadonnées sont des en-têtes HTTP valides, et doivent donc respecter toutes les restrictions régissant les en-têtes HTTP. Il est recommandé d’utiliser l’encodage URL ou l’encodage Base64 pour les noms et valeurs contenant des caractères non-ASCII.
->
+> Paires nom/valeur de métadonnées sont des en-têtes HTTP valides et par conséquent, doivent respecter toutes les restrictions régissant les en-têtes HTTP. Les noms de métadonnées doivent être des noms d’en-tête HTTP valides peuvent contenir uniquement des caractères ASCII et doivent respecter la casse. Les valeurs de métadonnées contenant des caractères non-ASCII doivent être codée en Base64 ou encodé en URL.
 
 ## <a name="setting-and-retrieving-properties"></a>Définition et récupération de propriétés
 Pour récupérer des valeurs de propriétés, appelez la méthode **FetchAttributesAsync** sur votre blob ou votre conteneur pour renseigner les propriétés, puis lisez les valeurs.
@@ -100,5 +99,5 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Référence de la bibliothèque cliente Stockage Azure pour .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [Package NuGet de la bibliothèque cliente Stockage Azure pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Bibliothèque cliente stockage Azure pour .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
+* [Bibliothèque cliente Azure Storage, du package NuGet .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

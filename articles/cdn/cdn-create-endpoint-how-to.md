@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093678"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916816"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Créer un point de terminaison CDN Azure
-Cet article décrit tous les paramètres de création d’un point de terminaison [Azure Content Delivery Network (CDN)](cdn-overview.md) dans un profil CDN existant. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients. Pour créer rapidement un profil et un point de terminaison, consultez [Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
+Cet article décrit tous les paramètres de création d’un point de terminaison [Azure Content Delivery Network (CDN)](cdn-overview.md) dans un profil CDN existant. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients. Pour un démarrage rapide sur la création d’un profil et un point de terminaison, consultez [Guide de démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de créer un point de terminaison CDN, vous devez avoir créé au moins un profil CDN, qui peut contenir un ou plusieurs points de terminaison CDN. Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d’autres critères. La tarification CDN s’applique au niveau du profil CDN. Vous devez donc créer plusieurs profils CDN si vous souhaitez utiliser plusieurs niveaux tarifaires Azure CDN. Pour créer un profil CDN, consultez [Créer un profil CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
@@ -67,7 +67,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
    > [!NOTE]
    > La valeur **Port de l’origine** ne concerne que le port utilisé par le point de terminaison pour récupérer des informations à partir du serveur d’origine. Le point de terminaison est uniquement disponible pour les clients sur les ports HTTP et HTTPS par défaut (80 et 443), quel que soit la valeur **port d’origine**.  
    > 
-   > Les points de terminaison **CDN Azure fournis par Akamai** n’autorisent pas la plage de ports TCP complète pour les ports d’origine. Pour obtenir la liste des ports d’origine non autorisés, consultez l’article [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx)(Ports d’origine autorisés du CDN Azure fourni par Akamai).  
+   > Les points de terminaison **CDN Azure fournis par Akamai** n’autorisent pas la plage de ports TCP complète pour les ports d’origine. Pour obtenir la liste des ports d’origine non autorisés, consultez l’article [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100))(Ports d’origine autorisés du CDN Azure fourni par Akamai).  
    > 
    > HTTPS pour les domaines personnalisés Azure CDN n’est pas pris en charge sur les produits **Azure CDN fourni par Akamai**. Pour plus d’informations, consultez [Activer ou désactiver HTTPS sur un domaine personnalisé Azure CDN](cdn-custom-ssl.md).
     
@@ -84,7 +84,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
     - Profils **CDN Azure Standard fourni par Akamai** :
        - [**Livraison web générale**](cdn-optimization-overview.md#general-web-delivery)
        - [**Diffusion multimédia en continu générale**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Diffusion multimédia en continu de vidéos à la demande**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Streaming de vidéo à la demande**](cdn-optimization-overview.md#video-on-demand-media-streaming)
        - [**Téléchargement de fichiers volumineux**](cdn-optimization-overview.md#large-file-download)
        - [**Accélération de site dynamique**](cdn-optimization-overview.md#dynamic-site-acceleration)
 

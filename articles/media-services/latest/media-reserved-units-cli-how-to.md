@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3f0d3c5748afaac2544232fc1ff84316d9eb7347
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351063"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915683"
 ---
 # <a name="scaling-media-processing"></a>Mise à l’échelle du traitement multimédia
 
@@ -47,7 +47,7 @@ Le reste de cet article montre comment utiliser [Media Services v3 CLI](https://
 > [!NOTE]
 > Pour les travaux d’analyse audio et vidéo déclenchés par Media Services v3 ou Video Indexer, nous vous recommandons de provisionner votre compte avec des MRU 10 S3. Si vous avez besoin de plus de 10 MRU S3, ouvrez un ticket de support à l’aide du [Portail Azure](https://portal.azure.com/).
 >
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer les autres ressources v3. Utilisez le [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou l’un des prises en charge [kits de développement logiciel](developers-guide.md).
+> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer les autres ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](developers-guide.md) pris en charge.
 
 ## <a name="prerequisites"></a>Conditions préalables 
 
@@ -67,7 +67,7 @@ az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 ## <a name="billing"></a>Facturation
 
-Vous êtes facturé en fonction du nombre, du type et de la durée pendant laquelle les MRU sont provisionnées dans votre compte. Des frais s’appliquent, que vous exécutiez des tâches ou non. Pour plus d’informations, consultez la section FAQ de la page [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).   
+Vous êtes facturé en nombre de minutes pendant que les unités réservées multimédia sont configurées dans votre compte. Cela se produit indépendamment de si il existe des travaux en cours d’exécution dans votre compte. Pour plus d’informations, consultez la section FAQ de la page [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="next-step"></a>Étape suivante
 
@@ -76,4 +76,4 @@ Vous êtes facturé en fonction du nombre, du type et de la durée pendant laque
 ## <a name="see-also"></a>Voir aussi
 
 * [Quotas et limitations](limits-quotas-constraints.md)
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: c1b26b8a59ac0306fc06bf90f01642d4585a45be
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8c1e50064491032d78e467496f0c53300dd6acd1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991567"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892787"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Afficher et modifier les insights Video Indexer
 
@@ -34,17 +34,11 @@ Cette rubrique vous montre comment afficher et modifier les insights Video Index
 
     Le lecteur et les insights sont synchronisés. Par exemple, si vous cliquez sur un mot clé ou la ligne de transcription, le lecteur vous amène au moment précis de la vidéo. Vous pouvez obtenir la vue et la synchronisation du lecteur/des insights dans votre application. Pour plus d’informations, consultez [Incorporer des widgets Azure Video Indexer dans votre application](video-indexer-embed-widgets.md). 
 
-3. Modifiez les insights Video Indexer.
-
-    Appuyez sur Modifier sous la vidéo. La page qui apparait montre la répartition complète d’une vidéo. La répartition est divisée en blocs. Les blocs sont là pour simplifier le parcours des données. Par exemple, un bloc peut être défini par un changement d’intervenant ou une pause prolongée. Vous pouvez créer votre propre playlist contenant uniquement les lignes souhaitées. Pour afficher uniquement certaines parties de la vidéo source, vous pouvez filtrer par rubriques/mots clés, sentiments, personnes, intervenants. Vous pouvez choisir d’afficher uniquement la transcription ou la reconnaissance optique des caractères (OCR) de la vidéo.  
-
-    ![Insights](./media/video-indexer-view-edit/video-indexer-create-new-playlist.png)
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Découvrez comment créer vos propres insights Video Indexer à partir de certaines autres vidéos](video-indexer-create-new.md).
 
 ## <a name="see-also"></a>Voir aussi
 
-[Présentation de Video Indexer](video-indexer-overview.md)
+[Présentation de l’indexeur vidéo](video-indexer-overview.md)
 

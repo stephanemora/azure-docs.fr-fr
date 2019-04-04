@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552178"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892821"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Familiarisation avec les composants de requête et de réponse
 Avec les composants de requête et réponse dans une application logique, vous pouvez répondre en temps réel aux événements.
@@ -34,9 +34,10 @@ Vous pouvez par exemple :
 Pour commencer à utiliser les actions de requête et de réponse dans une application logique, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Utilisation d’un déclencheur de requête HTTP
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](connectors-overview.md).
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. 
+[En savoir plus sur les déclencheurs](../connectors/apis-list.md).
 
-Voici un exemple de séquence de configuration d’une requête HTTP dans le concepteur d’application logique.
+Voici un exemple de séquence de la configuration d’une requête HTTP dans le Concepteur d’application logique.
 
 1. Ajoutez le déclencheur **Requête quand une demande HTTP est reçue** à votre application logique. Vous pouvez éventuellement fournir un schéma JSON (à l’aide d’un outil tel que [JSONSchema.net](https://jsonschema.net)) pour le corps de texte de la requête. Ainsi, le concepteur peut générer des jetons pour les propriétés dans la requête HTTP.
 2. Ajoutez une autre action afin d’enregistrer l’application logique.

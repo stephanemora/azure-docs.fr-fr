@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540429"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905985"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter et analyser les journaux d’activité Azure dans l’espace de travail Analytique de journal dans Azure Monitor
 
@@ -31,7 +31,7 @@ Avec le journal d’activité, vous pouvez déterminer *qui*, *quand* et *quoi* 
 Lorsque vous vous connectez vos journaux d’activité Azure à un espace de travail Analytique de journal, vous pouvez :
 
 - Analyser les journaux d’activité avec des affichages prédéfinis
-- Analyser et rechercher des journaux d’activité parmi plusieurs abonnements Azure
+- Analyser et rechercher les journaux d’activité à partir de plusieurs abonnements Azure
 - Conserver les journaux d’activité pendant plus de 90 jours<sup>1</sup>
 - Mettre en corrélation des journaux d’activité avec d’autres données d’application et de plateforme Azure
 - Consulter les activités opérationnelles regroupées par état
@@ -71,7 +71,7 @@ Procédez comme suit pour configurer la solution Activity Log Analytics pour vos
     2. Pour chaque abonnement, cliquez sur le nom de l’abonnement.  
         ![ajouter un abonnement](./media/collect-activity-logs/add-subscription.png)
     3. Dans le panneau *SubscriptionName*, cliquez sur **Connecter**.  
-        ![connecter un abonnement](./media/collect-activity-logs/subscription-connect.png)
+        ![Connecter un abonnement](./media/collect-activity-logs/subscription-connect.png)
 
 Connectez-vous au portail Azure pour connecter un abonnement Azure à votre espace de travail.  
 

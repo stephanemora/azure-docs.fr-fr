@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b03e02a783245459fa28126b73eac2459f6aad67
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 62846fe744e7295f58902481400ce91770c916da
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182844"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893093"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gérer les données utilisateur dans Azure Active Directory B2C
 
- Cet article explique comment gérer les données utilisateur dans Azure Active Directory (Azure AD) B2C en utilisant les opérations fournies par l’[API Graph Azure Active Directory](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog). La gestion des données utilisateur inclut la suppression ou l’exportation de données à partir des journaux d’audit.
+ Cet article explique comment gérer les données utilisateur dans Azure Active Directory (Azure AD) B2C en utilisant les opérations fournies par l’[API Graph Azure Active Directory](/previous-versions/azure/ad/graph/api/api-catalog). La gestion des données utilisateur inclut la suppression ou l’exportation de données à partir des journaux d’audit.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>Supprimer des données utilisateur
 
-Les données utilisateur sont stockées dans l’annuaire Azure AD B2C et dans les journaux d’audit. Toutes les données d’audit utilisateur sont conservées pendant 30 jours dans Azure AD B2C. Si vous souhaitez supprimer des données utilisateur avant l’expiration de ces 30 jours, vous pouvez utiliser l’opération [Supprimer un utilisateur](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#DeleteUser). Une opération DELETE est requise pour chacun des clients Azure AD B2C susceptibles de contenir des données. 
+Les données utilisateur sont stockées dans l’annuaire Azure AD B2C et dans les journaux d’audit. Toutes les données d’audit utilisateur sont conservées pendant 30 jours dans Azure AD B2C. Si vous souhaitez supprimer des données utilisateur avant l’expiration de ces 30 jours, vous pouvez utiliser l’opération [Supprimer un utilisateur](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser). Une opération DELETE est requise pour chacun des clients Azure AD B2C susceptibles de contenir des données. 
 
 Un ID objet est attribué à chaque utilisateur dans Azure AD B2C. L’ID objet constitue un identificateur non ambigu que vous pouvez utiliser pour supprimer des données utilisateur dans Azure AD B2C. En fonction de votre architecture, l’ID objet peut être un identificateur de corrélation utile pour d’autres services, tels que des bases de données de gestion des finances, du marketing et de la relation client. 
 

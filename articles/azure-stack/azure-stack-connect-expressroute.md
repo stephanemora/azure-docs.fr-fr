@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 0ebd17eca363d7fc02daeb851bb24b8d1d307efc
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: bd5e5a3b6fa72698f04969219b1db3cdb0bde3a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339599"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486697"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connexion d’Azure Stack à Azure à l’aide d’Azure ExpressRoute
 
@@ -232,7 +232,7 @@ Le routeur est une machine virtuelle Windows Server (AzS-BGPNAT01) qui exécute
 1. Connectez-vous à l’ordinateur hôte Azure Stack avec votre compte Administrateur.
 1. Copiez et modifiez le script PowerShell suivant. Remplacez `your administrator password` par votre mot de passe administrateur, puis exécutez le script dans une fenêtre PowerShell ISE avec élévation de privilèges. Le script renvoie votre **adresse BGPNAT externe**.
 
-   ```PowerShell
+   ```powershell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
    $Password = ConvertTo-SecureString "your administrator password" `
@@ -250,7 +250,7 @@ Le routeur est une machine virtuelle Windows Server (AzS-BGPNAT01) qui exécute
 
    Exécutez le script suivant depuis une session PowerShell ISE avec élévation de privilèges :
 
-   ```PowerShell
+   ```powershell
    $ExtBgpNat = 'External BGPNAT address'
    $IntBgpNat = 'Internal IP address'
 
@@ -599,7 +599,7 @@ Effectuez les tests ping suivants :
 
 Par défaut, Windows Server 2016 n’autorise pas la transmission des paquets ICMP entrants via le pare-feu. Pour chaque machine virtuelle que vous utilisez pour des tests ping, vous devez autoriser les paquets ICMP entrants. Pour créer une règle de pare-feu pour ICMP, exécutez l’applet de commande suivante dans une fenêtre PowerShell avec élévation de privilèges :
 
-```PowerShell
+```powershell
 # Create ICMP firewall rule.
 New-NetFirewallRule `
   –DisplayName “Allow ICMPv4-In” `

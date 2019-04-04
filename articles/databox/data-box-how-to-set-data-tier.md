@@ -8,18 +8,21 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 44fa81ddf6b0892c6d900fd065589b3d6ac5a0bd
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517145"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905560"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utiliser Azure Data Box pour envoyer des données au niveau Stockage Blob Azure approprié
 
 Azure Data Box déplace de grandes quantités de données vers Azure en vous fournissant un dispositif de stockage propriétaire. Vous remplissez le dispositif avec des données et vous le renvoyez. Les données de Data Box sont chargées sur un niveau par défaut associé au compte de stockage. Vous pouvez ensuite déplacer les données vers un autre niveau de stockage.
 
 Cet article décrit comment déplacer les données qui sont chargées par Data Box vers un niveau d’objets blob chaud, froid ou archive.  
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-correct-storage-tier-for-your-data"></a>Choisir le niveau de stockage approprié pour vos données
 
@@ -58,7 +61,7 @@ Les étapes suivantes décrivent comment affecter les objets blob au niveau Arch
 
 2. Connectez-vous à Azure PowerShell. 
 
-   `Login-AzureRmAccount`  
+   `Login-AzAccount`  
 
 3. Définissez les variables de compte de stockage, de clé d’accès, de conteneur et de contexte de stockage.
 
@@ -66,12 +69,12 @@ Les étapes suivantes décrivent comment affecter les objets blob au niveau Arch
     $StorageAccountName = "<enter account name>"
     $StorageAccountKey = "<enter account key>"
     $ContainerName = "<enter container name>"
-    $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
     ```
 
 4. Obtenez tous les objets blob du conteneur.
 
-    `$blobs = Get-AzureStorageBlob -Container "<enter container name>" -Context $ctx`
+    `$blobs = Get-AzStorageBlob -Container "<enter container name>" -Context $ctx`
  
 5. Définissez le niveau de tous les objets blob dans le conteneur sur « Archive ».
 
@@ -91,7 +94,7 @@ Les étapes suivantes décrivent comment affecter les objets blob au niveau Arch
     Major  Minor  Build  Revision
     -----  -----  -----  --------
     5      1      17763  134
-    PS C:\WINDOWS\system32> Login-AzureRmAccount
+    PS C:\WINDOWS\system32> Login-AzAccount
 
     Account          : gus@contoso.com
     SubscriptionName : MySubscription
@@ -102,8 +105,8 @@ Les étapes suivantes décrivent comment affecter les objets blob au niveau Arch
     PS C:\WINDOWS\system32> $StorageAccountName = "mygpv2storacct"
     PS C:\WINDOWS\system32> $StorageAccountKey = "mystorageacctkey"
     PS C:\WINDOWS\system32> $ContainerName = "test"
-    PS C:\WINDOWS\system32> $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-    PS C:\WINDOWS\system32> $blobs = Get-AzureStorageBlob -Container "test" -Context $ctx
+    PS C:\WINDOWS\system32> $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    PS C:\WINDOWS\system32> $blobs = Get-AzStorageBlob -Container "test" -Context $ctx
     PS C:\WINDOWS\system32> Foreach ($blob in $blobs) {
     >> $blob.ICloudBlob.SetStandardBlobTier("Archive")
     >> }

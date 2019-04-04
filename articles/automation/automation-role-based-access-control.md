@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b929182ce1c89e7508aeae91a95b5c9b0d599774
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621377"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918788"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Contrôle d’accès en fonction du rôle dans Azure Automation
 
@@ -58,7 +58,7 @@ Un contributeur peut tout gérer, sauf les accès. Le tableau suivant indique le
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/|Créer et gérer les ressources de tous les types|
-|**NotActions**||
+|**Pas d’Actions**||
 |Microsoft.Authorization/*/Delete| Supprimer des rôles et des attributions de rôles.       |
 |Microsoft.Authorization/*/Write     |  Créer des rôles et des attributions de rôles.       |
 |Microsoft.Authorization/elevateAccess/Action    | Refuse la possibilité de créer un administrateur de l’accès utilisateur.       |
@@ -159,7 +159,7 @@ Un lecteur Log Analytics peut afficher et rechercher toutes les données de surv
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Gérer les requêtes dans les journaux Azure Monitor.|
 |Microsoft.OperationalInsights/workspaces/search/action|Rechercher des données de journal Azure Monitor.|
 |Microsoft.Support/*|Créer et gérer les tickets de support.|
-|**NotActions**| |
+|**Pas d’Actions**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Impossible de lire les clés d’accès partagé.|
 
 ### <a name="monitoring-contributor"></a>Contributeur d’analyse
@@ -214,7 +214,7 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 
 ### <a name="onboarding-from-a-virtual-machine"></a>Intégration à partir d’une machine virtuelle
 
-|**Action**  |**Permission**  |**Étendue minimale**  |
+|**Action**  |**Autorisation**  |**Étendue minimale**  |
 |---------|---------|---------|
 |Écrire le nouveau déploiement      | Microsoft.Resources/deployments/*          |Abonnement          |
 |Écrire le nouveau groupe de ressources      | Microsoft.Resources/subscriptions/resourceGroups/write        | Abonnement          |
@@ -237,7 +237,7 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 
 ### <a name="onboarding-from-automation-account"></a>Intégration à partir du compte Automation
 
-|**Action**  |**Permission** |**Étendue minimale**  |
+|**Action**  |**Autorisation** |**Étendue minimale**  |
 |---------|---------|---------|
 |Créer un déploiement     | Microsoft.Resources/deployments/*        | Abonnement         |
 |Créer un groupe de ressources     | Microsoft.Resources/subscriptions/resourceGroups/write         | Abonnement        |
@@ -251,7 +251,7 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 |Créer/modifier la recherche enregistrée     | Microsoft.OperationalInsights/workspaces/write        | Espace de travail        |
 |Créer/modifier la configuration d’étendue     | Microsoft.OperationalInsights/workspaces/write        | Espace de travail        |
 |Lier la solution à la configuration d’étendue      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
-|**Étape 2 : Intégrer plusieurs machines virtuelles**     |         |         |
+|**Étape 2 : intégrer plusieurs machines virtuelles**     |         |         |
 |Panneau VMOnboarding - Créer l’extension MMA     | Microsoft.Compute/virtualMachines/write           | Machine virtuelle        |
 |Créer/modifier la recherche enregistrée     | Microsoft.OperationalInsights/workspaces/write           | Espace de travail        |
 |Créer/modifier la configuration d’étendue  | Microsoft.OperationalInsights/workspaces/write   | Espace de travail|
@@ -260,7 +260,7 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 
 La gestion des mises à jour s’étend à plusieurs services pour fournir son service. Le tableau suivant présente les autorisations nécessaires pour gérer les déploiements de gestion des mises à jour :
 
-|**Ressource**  |**Rôle**  |**Portée**  |
+|**Ressource**  |**Rôle**  |**Étendue**  |
 |---------|---------|---------|
 |Compte Automation     | Contributeur Log Analytics       | Compte Automation        |
 |Compte Automation    | Contributeur de machine virtuelle        | Groupe de ressources pour le compte        |
@@ -317,7 +317,7 @@ Vous pouvez supprimer l’autorisation d’accès d’un utilisateur qui ne gèr
 
 L’accès en fonction du rôle peut également être configuré pour un compte Automation à l’aide des [applets de commande Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) ci-dessous :
 
-[Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) répertorie tous les rôles RBAC qui sont disponibles dans Azure Active Directory. Vous pouvez utiliser cette commande avec la propriété **Name** pour dresser la liste de toutes les actions qui peuvent être effectuées par un rôle spécifique.
+[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) répertorie tous les rôles RBAC qui sont disponibles dans Azure Active Directory. Vous pouvez utiliser cette commande avec la propriété **Name** pour dresser la liste de toutes les actions qui peuvent être effectuées par un rôle spécifique.
 
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
@@ -336,7 +336,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) répertorie les affectations de rôle RBAC d’Azure AD dans l’étendue spécifiée. Sans paramètres, cette commande renvoie toutes les affectations de rôle effectuées dans l’abonnement. Utilisez le paramètre **ExpandPrincipalGroups** pour répertorier les affectations d’accès de l’utilisateur spécifié et des groupes dont il est membre.
+[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) répertorie les affectations de rôle RBAC d’Azure AD dans l’étendue spécifiée. Sans paramètres, cette commande renvoie toutes les affectations de rôle effectuées dans l’abonnement. Utilisez le paramètre **ExpandPrincipalGroups** pour répertorier les affectations d’accès de l’utilisateur spécifié et des groupes dont il est membre.
     **Exemple :** Utilisez la commande suivante pour lister tous les utilisateurs et leurs rôles dans un compte Automation.
 
 ```azurepowershell-interactive
@@ -357,7 +357,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-Utilisez [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) pour affecter un accès à des utilisateurs, des groupes et des applications à une étendue particulière.
+Utilisez [New-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) pour affecter un accès à des utilisateurs, des groupes et des applications à une étendue particulière.
     **Exemple :** Utilisez la commande suivante pour attribuer le rôle « Opérateur d’Automation » à un utilisateur dans l’étendue du compte Automation.
 
 ```azurepowershell-interactive
@@ -378,7 +378,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Utilisez [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) pour supprimer l’accès d’un utilisateur, groupe ou application spécifié dans une étendue particulière.
+Utilisez [Remove-AzureRmRoleAssignment](/previous-versions/azure/mt603781(v=azure.100)) pour supprimer l’accès d’un utilisateur, groupe ou application spécifié dans une étendue particulière.
     **Exemple :** Utilisez la commande suivante pour supprimer l’utilisateur du rôle « Opérateur d’Automation » dans l’étendue du compte Automation.
 
 ```azurepowershell-interactive

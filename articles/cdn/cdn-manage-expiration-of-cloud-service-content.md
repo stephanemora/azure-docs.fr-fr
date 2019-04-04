@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: b070b302917d69e0145c1a10c90685b55aa4dcc2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6e17b110cbfc293e19714399d5b2cdb753aa1ac4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540224"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917955"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gérer l’expiration du contenu web dans Azure CDN
 > [!div class="op_single_selector"]
 > * [Contenu web Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [stockage d’objets blob Azure](cdn-manage-expiration-of-blob-content.md)
+> * [Stockage d'objets blob Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 
 Les fichiers d’un serveur web d’origine accessible à tous peuvent être mis en cache dans Azure Content Delivery Network (CDN) jusqu’à l’expiration de leur durée de vie (TTL). La durée de vie est déterminée par l’en-tête `Cache-Control`dans la réponse HTTP du serveur d’origine. Cet article explique comment définir les en-têtes `Cache-Control` pour la fonctionnalité Web Apps de Microsoft Azure App Service, Services cloud Azure, les applications ASP.NET et les sites IIS (Internet Information Services), qui sont tous configurés de façon similaire. Vous pouvez définir l’en-tête `Cache-Control` à l’aide de fichiers de configuration ou par programme. 
@@ -56,7 +56,7 @@ La méthode recommandée pour définir l’en-tête `Cache-Control` d’un serve
    ![Page de mise en cache du CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
-**Pour définir les en-têtes Cache-Control du serveur web à l’aide de règles de mise en cache générales :**
+**Pour définir des en-têtes de Cache-Control du serveur web à l’aide des règles de mise en cache globales :**
 
 1. Sous **Règles de mise en cache générales**, définissez **Comportement de mise en cache des chaînes de requête** sur **Ignorer les chaînes de requête**, puis définissez **Comportement de mise en cache** sur **Remplacer**.
       
@@ -68,7 +68,7 @@ La méthode recommandée pour définir l’en-tête `Cache-Control` d’un serve
 
 1. Sélectionnez **Enregistrer**.
 
-**Pour définir les en-têtes Cache-Control d’un fichier de serveur web à l’aide de règles de mise en cache personnalisées :**
+**Pour définir des en-têtes de Cache-Control du fichier un serveur web à l’aide des règles de mise en cache personnalisées :**
 
 1. Sous **Règles de mise en cache personnalisées**, créez deux conditions de correspondance :
 
@@ -109,7 +109,7 @@ L’exemple de fichier de configuration XML suivant montre comment configurer l�
 Pour utiliser l’attribut **cacheControlMaxAge**, vous devez définir la valeur de l’attribut **cacheControlMode** sur `UseMaxAge`. Ce paramètre a provoqué l’ajout de l’en-tête HTTP et de la directive `Cache-Control: max-age=<nnn>` à la réponse. Le format de la valeur de période pour l’attribut **cacheControlMaxAge** est `<days>.<hours>:<min>:<sec>`. Sa valeur est convertie en secondes et est utilisée comme valeur de la directive `Cache-Control` `max-age`. Pour plus d’informations sur l’élément `<clientCache>`, consultez [Cache client <clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Définition d’en-têtes Cache-Control par programme
-Pour les applications ASP.NET, contrôlez par programme le comportement de mise en cache dans CDN en définissant la propriété **HttpResponse.Cache** de l’API .NET. Pour plus d’informations sur la propriété **HttpResponse.Cache**, consultez les pages [HttpResponse.Cache, propriété](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) et [HttpCachePolicy, classe](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+Pour les applications ASP.NET, contrôlez par programme le comportement de mise en cache dans CDN en définissant la propriété **HttpResponse.Cache** de l’API .NET. Pour plus d’informations sur la propriété **HttpResponse.Cache**, consultez les pages [HttpResponse.Cache, propriété](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) et [HttpCachePolicy, classe](/dotnet/api/system.web.httpcachepolicy).  
 
 Pour mettre en cache par programmation le contenu d’application dans ASP.NET, suivez ces étapes :
    1. Vérifiez que le contenu est marqué comme pouvant être mis en cache en définissant `HttpCacheability` sur `Public`. 
@@ -131,7 +131,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 Vous pouvez facilement vérifier les paramètres de durée de vie de votre contenu web. Avec les [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur, vérifiez que votre contenu web comprend l’en-tête de réponse `Cache-Control`. Vous pouvez également utiliser un outil tel que **wget**, [Postman](https://www.getpostman.com/) ou [Fiddler](https://www.telerik.com/fiddler) pour examiner les en-têtes de réponse.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Découvrir les détails de l’élément **clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Consulter la documentation de la propriété **HttpResponse.Cache**](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Lire la documentation concernant la **classe HttpCachePolicy**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
-* [En savoir plus sur les concepts de mise en cache](cdn-how-caching-works.md)
+* [En savoir plus d’informations sur la **clientCache** élément](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Lisez la documentation relative à la **HttpResponse.Cache** propriété](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
+* [Lisez la documentation relative à la **HttpCachePolicy, classe**](/dotnet/api/system.web.httpcachepolicy)  
+* [En savoir plus sur les concepts de la mise en cache](cdn-how-caching-works.md)

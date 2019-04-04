@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b518235efa4cd236afd8f79cb70cf30696931fdb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1aca8eb16e9474f8ec834178748c27682372f7b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086766"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905390"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Exemples de code Azure Active Directory (point de terminaison v2.0)
 
@@ -48,8 +48,8 @@ Vous pouvez également contribuer aux exemples sur GitHub. Pour en savoir plus, 
 Ces exemples montrent comment écrire une application monopage sécurisée avec Azure AD. Ils utilisent l’une des versions suivantes de MSAL.js :
 
 * [Bibliothèque d’authentification Microsoft pour JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)
-* [Bibliothèque d’authentification Microsoft pour Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)
-* [Bibliothèque d’authentification Microsoft pour AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)
+* [Bibliothèque d’authentification de Microsoft pour Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)
+* [Bibliothèque d’authentification de Microsoft pour AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)
 
   Plateforme |  Appelle Microsoft Graph
   -------- |  ---------------------
@@ -64,8 +64,8 @@ Les exemples suivants illustrent des applications web qui connectent les utilisa
  Plateforme | Connecte uniquement les utilisateurs | Connecte les utilisateurs et appelle Microsoft Graph
  -------- | ------------------- | ---------------------------------
 ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.1 | [Didacticiel d’utilisateurs se connecte en ASP.NET Core WebApp](https://aka.ms/aspnetcore-webapp-sign-in) | Même exemple dans le [application Web ASP.NET Core appelle Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) phase
-![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Démarrage rapide avec ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
-![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Démarrage rapide avec Node.js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
+![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Guide de démarrage rapide ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Guide de démarrage rapide Node.js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
 ![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Applications clientes publiques mobiles et de bureau
@@ -74,7 +74,7 @@ Les exemples suivants illustrent des applications clientes publiques (applicatio
 
 Application cliente | Plateforme | Flux/Grant | Appelle Microsoft Graph | Appelle une API web ASP.NET Core 2.0
 ------------------ | -------- |  ----------| ---------- | -------------------------
-Bureau (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | interactive | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+Bureau (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | interactive | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi)
 Bureau (Console)   | ![.NET /C# (bureau)](media/sample-v2-code/logo_NET.png) | Authentification Windows intégrée |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
 Bureau (Console)   | ![.NET /C# (bureau)](media/sample-v2-code/logo_NETcore.png) | Nom d’utilisateur/mot de passe |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 Mobile (UWP)   | ![.NET/C# (UWP)](media/sample-v2-code/logo_windows.png) | interactive |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
@@ -101,11 +101,11 @@ Bureau (Console)   | ![.NET /C# (bureau)](media/sample-v2-code/logo_NETcore.png)
 
 ## <a name="web-apis"></a>API Web
 
-L’exemple suivant montre comment protéger une API web avec le point de terminaison Azure AD version 2.0. Cette API est utilisée par une application WPF, mais peut être appelée par n’importe quelle application.
+L’exemple suivant montre comment protéger une API web avec le point de terminaison Azure AD version 2.0. Cette API est utilisée par une application WPF, mais peut être appelée par n’importe quelle application. L’API web appelle également Microsoft Graph.
 
 Plateforme | Exemple
  -------- | -------------------
-![.NET/C#](media/sample-v2-code/logo_NET.png) | WebAPI (service) associé à [dotnet-native-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+![.NET/C#](media/sample-v2-code/logo_NET.png) | WebAPI (service) associé à [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)
 
 ## <a name="other-microsoft-graph-samples"></a>Autres exemples Microsoft Graph
 
@@ -115,6 +115,6 @@ Pour découvrir des [exemples](https://github.com/microsoftgraph/msgraph-communi
 
 [Guide du développeur Azure Active Directory](v1-overview.md)
 
-[Concept et référence de l’API Graph Azure AD](https://msdn.microsoft.com/library/azure/hh974476.aspx)
+[Azure AD Graph API conceptuel et référence](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 
-[Bibliothèque d’assistance de l’API Azure AD Graph](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
+[Bibliothèque d’aide d’API Azure AD Graph](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)

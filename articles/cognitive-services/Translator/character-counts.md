@@ -3,19 +3,19 @@ title: 'Nombre de caractères : API de traduction de texte Translator Text'
 titlesuffix: Azure Cognitive Services
 description: Comment l’API de traduction de texte Translator Text compte les caractères.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 2164070c8f0efe2898e3780cac30a80c9f1ca986
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874411"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917411"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Comment l’API de traduction de texte Translator Text compte les caractères
 
@@ -24,8 +24,8 @@ L’API de traduction de texte Translator Text comptabilise chaque point de code
 Voici ce qui est pris en compte :
 
 * Le texte passé à l’API de traduction de texte Translator Text dans le corps de la requête
-   * `Text` lorsque vous utilisez les méthodes Translate, Transliterate et Dictionary Lookup
-   * `Text` et `Translation` lorsque vous utilisez la méthode Dictionary Examples
+   * `Text` Lorsque vous utilisez les méthodes de recherche dans le dictionnaire, Translate et Transliterate
+   * `Text` et `Translation` lors de l’utilisation de la méthode d’exemples de dictionnaire
 * Toutes les balises : balises HTML, XML, etc. dans le champ de texte du corps de la requête. La notation JSON utilisée pour générer la requête (par exemple « Text: ») n’est pas prise en compte.
 * Une lettre seule
 * Ponctuation

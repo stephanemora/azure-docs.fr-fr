@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: ec3952f2bb0b4180f5c72d948d1835a903152f0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181824"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916650"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tâches courantes de démarrage dans le service cloud
 Cet article fournit des exemples courants de tâches de démarrage que vous pouvez effectuer dans votre service cloud. Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations avant le démarrage d’un rôle. Parmi les opérations que vous pouvez effectuer figurent l’installation d’un composant, l’enregistrement de composants COM, la définition des clés du Registre ou le démarrage d’un processus de longue durée. 
@@ -31,7 +31,7 @@ Consultez [cet article](cloud-services-startup-tasks.md) pour comprendre comment
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Définir des variables d’environnement avant le démarrage d’un rôle
-Si des variables d’environnement doivent être définies pour une tâche spécifique, utilisez l’élément [Environment] à l’intérieur de l’élément [Tâche].
+Si des variables d’environnement doivent être définies pour une tâche spécifique, utilisez l’élément [Environment] à l’intérieur de l’élément [Task].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -68,12 +68,12 @@ Toutefois, tenez compte des points suivants quand vous utilisez *AppCmd.exe* en 
 
 Il est recommandé de vérifier le paramètre **errorlevel** arès avoir appelé *AppCmd.exe*, opération que vous pouvez effectuez facilement si vous encapsulez l’appel à *AppCmd.exe* avec un fichier *.cmd*. Si vous détectez une réponse **errorlevel** connue, vous pouvez l’ignorer, ou bien la retransmettre.
 
-Les codes errorlevel retournés par *AppCmd.exe* sont répertoriés dans le fichier winerror.h, et peuvent également être consultés sur [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+Les codes errorlevel retournés par *AppCmd.exe* sont répertoriés dans le fichier winerror.h, et peuvent également être consultés sur [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Exemple de gestion de niveau d’erreur
 Cet exemple ajoute une section de compression et une entrée de compression pour JSON au fichier *Web.config* , avec gestion et journalisation des erreurs.
 
-Les sections pertinentes du fichier [ServiceDefinition.csdef] indiquées ici, avec notamment l’attribut [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) défini sur `elevated` pour qu’*AppCmd.exe* soit autorisé à modifier les paramètres du fichier *Web.config* :
+Les sections pertinentes du fichier [ServiceDefinition.csdef] indiquées ici, avec notamment l’attribut [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) défini sur `elevated` pour qu’*AppCmd.exe* soit autorisé à modifier les paramètres du fichier *Web.config* :
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -125,13 +125,13 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>Ajouter des règles de pare-feu
-Dans Azure, il existe en fait deux pare-feu. Le premier pare-feu contrôle les connexions entre la machine virtuelle et le monde extérieur. Ce pare-feu est contrôlé par l’élément [Points de terminaison] du fichier [ServiceDefinition.csdef].
+Dans Azure, il existe en fait deux pare-feu. Le premier pare-feu contrôle les connexions entre la machine virtuelle et le monde extérieur. Ce pare-feu est contrôlé par l’élément [EndPoints] du fichier [ServiceDefinition.csdef].
 
 Le second pare-feu contrôle les connexions entre la machine virtuelle et les processus au sein de cette dernière. Ce pare-feu peut être contrôlé par l’outil de ligne de commande `netsh advfirewall firewall`.
 
 Azure crée des règles de pare-feu pour les processus démarrés au sein de vos rôles. Par exemple, quand vous démarrez un service ou un programme, Azure crée automatiquement les règles de pare-feu nécessaires pour permettre à ce service de communiquer avec Internet. Toutefois, si vous créez un service qui est démarré par un processus en dehors de votre rôle (par exemple, un service COM+ ou une tâche planifiée Windows), vous devez créer manuellement une règle de pare-feu pour autoriser l’accès à ce service. Ces règles de pare-feu peuvent être créées à l’aide d’une tâche de démarrage.
 
-Une tâche de démarrage qui crée une règle de pare-feu doit avoir [executionContext][tâche] défini sur **elevated**. Ajoutez la tâche de démarrage suivante au fichier [ServiceDefinition.csdef] .
+Une tâche de démarrage qui crée une règle de pare-feu doit avoir [executionContext][Task] défini sur **elevated**. Ajoutez la tâche de démarrage suivante au fichier [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -293,7 +293,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-Vous pouvez accéder au dossier de stockage local à partir du Kit de développement logiciel (SDK) Azure à l’aide de la méthode [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx).
+Vous pouvez accéder au dossier de stockage local à partir du Kit de développement logiciel (SDK) Azure à l’aide de la méthode [GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)).
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -401,7 +401,7 @@ ServiceDefinition.cmd :
 </Startup>
 ```
 
-**logwrap.cmd :**
+**logwrap.cmd:**
 
 ```cmd
 @ECHO OFF
@@ -472,12 +472,12 @@ Exemple de sortie dans le fichier **StartupLog.txt** :
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Définir executionContext convenablement pour les tâches de démarrage
 Définissez les privilèges convenablement pour la tâche de démarrage. Parfois, les tâches de démarrage doivent s’exécuter avec des privilèges élevés même si le rôle s’exécute avec des privilèges normaux.
 
-L’outil en ligne de commande [executionContext][tâche] définit le niveau de privilège de la tâche de démarrage. Si `executionContext="limited"` est utilisé, la tâche de démarrage a le même niveau de privilège que le rôle. Si `executionContext="elevated"` est utilisé, la tâche de démarrage a des privilèges d’administrateur, ce qui lui permet d’effectuer des tâches d’administrateur sans accorder de privilèges d’administrateur à votre rôle.
+L’outil en ligne de commande [executionContext][Task] définit le niveau de privilège de la tâche de démarrage. Si `executionContext="limited"` est utilisé, la tâche de démarrage a le même niveau de privilège que le rôle. Si `executionContext="elevated"` est utilisé, la tâche de démarrage a des privilèges d’administrateur, ce qui lui permet d’effectuer des tâches d’administrateur sans accorder de privilèges d’administrateur à votre rôle.
 
 Un exemple de tâche de démarrage qui nécessite des privilèges élevés est une tâche de démarrage qui utilise **AppCmd.exe** pour configurer IIS. **AppCmd.exe** nécessite `executionContext="elevated"`.
 
 ### <a name="use-the-appropriate-tasktype"></a>Utiliser l’attribut taskType approprié
-L’outil en ligne de commande [taskType][tâche] détermine la façon dont la tâche de démarrage est exécutée. Trois valeurs sont possibles : **simple**, **background** et **foreground**. Les tâches en arrière-plan et de premier plan sont lancées de manière asynchrone, puis les tâches simples sont exécutées de façon synchrone une par une.
+L’outil en ligne de commande [taskType][Task] détermine la façon dont la tâche de démarrage est exécutée. Trois valeurs sont possibles : **simple**, **background** et **foreground**. Les tâches en arrière-plan et de premier plan sont lancées de manière asynchrone, puis les tâches simples sont exécutées de façon synchrone une par une.
 
 Dans le cas des tâches de démarrage **simple**, vous pouvez définir l’ordre dans lequel les tâches s’exécutent en fonction de l’ordre dans lequel elles sont répertoriées dans le fichier ServiceDefinition.csdef. Si une tâche **simple** se termine par un code de sortie différent de zéro, la procédure de démarrage s’arrête et le rôle ne démarre pas.
 
@@ -510,7 +510,7 @@ En savoir plus sur le fonctionnement des [tâches](cloud-services-startup-tasks.
 [Tâche]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[Environnement]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

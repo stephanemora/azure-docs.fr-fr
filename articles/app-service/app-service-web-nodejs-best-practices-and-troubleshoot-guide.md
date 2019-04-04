@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898854"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895781"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Bonnes pratiques et guide de résolution des problèmes pour les applications Node sur Azure App Service
 
@@ -90,7 +90,7 @@ En outre, pour les applications de streaming, vous devez également définir le 
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-Liste de fichiers séparés par des points-virgules dont les modifications font l’objet d’une surveillance. Toute modification apportée à un fichier entraînera un recyclage de l’application. Chaque entrée se compose d’un nom de répertoire facultatif, ainsi que d’un nom de fichier obligatoire. Ces noms dépendent du répertoire où se trouve le point d’entrée principal de l’application. Les caractères génériques sont autorisés uniquement dans la partie de nom de fichier. La valeur par défaut est `*.js;iisnode.yml`.
+Liste de fichiers séparés par des points-virgules dont les modifications font l’objet d’une surveillance. Toute modification apportée à un fichier entraînera un recyclage de l’application. Chaque entrée se compose d’un nom de répertoire facultatif, ainsi que d’un nom de fichier obligatoire. Ces noms dépendent du répertoire où se trouve le point d’entrée principal de l’application. Les caractères génériques sont autorisés uniquement dans la partie de nom de fichier. La valeur par défaut est `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
@@ -98,7 +98,7 @@ La valeur par défaut est false. Si ce paramètre est activé, votre application
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-La valeur par défaut est 0, ce qui signifie que cette fonctionnalité est désactivée. Si ce paramètre est défini sur une valeur supérieure à 0, iisnode effectuera un page-out sur tous ses processus enfants toutes les « idlePageOutTimePeriod » millisecondes. Consultez cette [documentation](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx) pour mieux comprendre le concept de page-out. Ce paramètre est utile pour les applications qui consomment une grande quantité de mémoire et qui cherchent à déplacer occasionnellement des données de la mémoire vers le disque (page-out) pour libérer de la mémoire RAM.
+La valeur par défaut est 0, ce qui signifie que cette fonctionnalité est désactivée. Si ce paramètre est défini sur une valeur supérieure à 0, iisnode effectuera un page-out sur tous ses processus enfants toutes les « idlePageOutTimePeriod » millisecondes. Consultez cette [documentation](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) pour mieux comprendre le concept de page-out. Ce paramètre est utile pour les applications qui consomment une grande quantité de mémoire et qui cherchent à déplacer occasionnellement des données de la mémoire vers le disque (page-out) pour libérer de la mémoire RAM.
 
 > [!WARNING]
 > Soyez vigilant lorsque vous activez les paramètres de configuration suivants sur les applications de production. Nous vous recommandons de ne pas les activer sur les applications de production en direct.
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Accédez au site de la console de débogage `https://yoursite.scm.azurewebsites.net/DebugConsole`.
+Accédez au site de la Console de débogage `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Allez dans votre répertoire site/wwwroot. Il contient une invite de commande, comme illustré dans l’exemple suivant :
 
@@ -274,7 +274,7 @@ Activez FREB pour votre application afin de voir le code d’erreur win32 (pour 
 | 503 |1002 |Vérifiez le code d’erreur win32 pour connaître la raison : impossible de distribuer la requête à un node.exe. |
 | 503 |1003 |Le canal nommé est trop occupé : vérifiez si node.exe consomme trop de ressources processeur |
 
-NODE.exe possède un paramètre appelé `NODE_PENDING_PIPE_INSTANCES`. Sur Azure App Service, cette valeur est 5000. Cela signifie que node.exe peut accepter 5 000 requêtes à la fois sur le canal nommé. Cette valeur doit être suffisante pour la plupart des applications node exécutées sur Azure App Service. Vous ne devriez pas rencontrer l’état 503.1003 sur Azure App Service en raison de la valeur élevée de `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe possède un paramètre appelé `NODE_PENDING_PIPE_INSTANCES`. Sur Azure App Service, cette valeur est 5000. Cela signifie que node.exe peut accepter 5 000 requêtes à la fois sur le canal nommé. Cette valeur doit être suffisante pour la plupart des applications node exécutées sur Azure App Service. Vous ne verrez pas 503.1003 sur Azure App Service en raison de la valeur élevée de la `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Autres ressources
 
@@ -285,4 +285,4 @@ Cliquez sur ces liens pour en savoir plus sur les applications node.js dans Azur
 * [Utilisation de modules Node.js avec des applications Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps : Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Centre de développement Node.js](../nodejs-use-node-modules-azure-apps.md)
-* [Exploring the Super Secret Kudu Debug Console (Exploration de la console de débogage Kudu Super Secret)](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
+* [Exploration de la Console de débogage Kudu Super Secret](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

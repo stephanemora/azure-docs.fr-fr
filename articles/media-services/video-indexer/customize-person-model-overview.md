@@ -7,21 +7,26 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 03/19/2019
 ms.author: anzaman
-ms.openlocfilehash: 073cff22f17f496c2ff85cfbf716751dfea1e03e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: b491120639421d85d2fbb1a0efb2b6dd09ec1d4c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283235"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893892"
 ---
 # <a name="customize-a-person-model-in-video-indexer"></a>Personnaliser un modèle de personne dans Video Indexer
 
+Video Indexer prend en charge la reconnaissance de célébrités dans vos vidéos. La fonctionnalité de reconnaissance de célébrités couvre environ un million de visages en fonction de la source de données couramment demandée comme IMDB, Wikipedia et les principaux influenceurs LinkedIn. Les visages qui ne sont pas reconnus par Video Indexer sont toujours détectés mais sont laissés sans nom. Les clients peuvent créer des modèles de personne personnalisés et activer Video Indexer à identifier des visages qui ne sont pas reconnues par défaut. Les clients peuvent créer ces modèles de la personne en associant le nom d’une personne contenant les fichiers d’image du visage de la personne.  
 
-Video Indexer prend en charge la détection de visage et la reconnaissance de célébrités pour le contenu vidéo. La fonctionnalité de reconnaissance de célébrités couvre environ un million de visages en fonction de la source de données couramment demandée comme IMDB, Wikipedia et les principaux influenceurs LinkedIn. Les visages qui ne sont pas reconnus par la fonctionnalité de reconnaissance de célébrités sont détectés ; toutefois, ils sont laissés sans nom. Après avoir chargé votre vidéo sur Video Indexer et obtenu des résultats, vous pouvez revenir en arrière et nommer les visages qui n’ont pas été reconnus. Une fois que vous étiquetez un visage avec un nom, le visage et le nom sont ajoutés au modèle de personne de votre compte. Video Indexer peut alors reconnaître ce visage dans vos vidéos, futures et anciennes.
+Si votre compte destinée aux cas d’utilisation différents, vous pouvez bénéficier de la possibilité de créer plusieurs modèles de personne par compte. Par exemple, si le contenu de votre compte est destiné à être triées dans différents canaux, vous souhaiterez créer un modèle de personne distinct pour chaque canal. 
 
-Vous pouvez utiliser le site web ou l’API Video Indexer pour modifier des visages détectés dans une vidéo sur votre compte, comme décrit dans les rubriques suivantes :
+> [!NOTE]
+> Chaque modèle de personne prend en charge jusqu'à 1 million de personnes, et chaque compte a une limite de 50 modèles de personne. 
 
-- [Personnaliser le modèle de personne à l’aide des API](customize-person-model-with-api.md)
-- [Personnaliser le modèle de personne à l’aide du site web](customize-person-model-with-website.md)
+Une fois un modèle créé, vous pouvez l’utiliser en fournissant l’ID d’un modèle de personne spécifique lors du chargement /de l’indexation ou de la réindexation d’une vidéo. Un nouveau visage pour obtenir une vidéo de formation, des mises à jour votre modèle personnalisé qui a été associée à la vidéo. 
+
+Si vous n’avez pas besoin de la prise en charge de plusieurs modèles de personne, n’affectez aucun ID de modèle de personne à votre vidéo lors de son chargement/de son indexation ou de sa réindexation. Dans ce cas, Video Indexer utilisera le modèle de personne par défaut dans votre compte. 
+
+Vous pouvez utiliser le site Web de Video Indexer pour modifier les visages qui ont été détectées dans une vidéo et pour gérer plusieurs modèles de personne personnalisés dans votre compte, comme décrit dans la [personnaliser un modèle de personne à l’aide d’un site Web](customize-person-model-with-website.md) rubrique. Vous pouvez également utiliser l’API, comme décrit dans [personnaliser un modèle de personne à l’aide des API](customize-person-model-with-api.md).

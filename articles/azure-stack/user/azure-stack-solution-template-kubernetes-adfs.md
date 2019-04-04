@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 7e11da971e86b605e3e17b07ebcdab97eef5b957
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bdb46a5e11b26f04d008160fa5a782050211b56e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122941"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484371"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Déployer Kubernetes sur Azure Stack à l’aide d’Active Directory Federation Services
 
@@ -85,7 +85,7 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
 
    - Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges et [connectez-vous à Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Exécutez le script suivant, en utilisant vos valeurs pour les paramètres :
 
-     ```PowerShell  
+   ```powershell  
        $armEndpoint="<Azure Resource Manager Endpoint>"
        $subscriptionId="<Your Subscription ID>"
        $username="<your user name >"
@@ -126,7 +126,7 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
 
    - Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges et [connectez-vous à Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Exécutez le script suivant, en utilisant vos valeurs pour les paramètres :
 
-     ```PowerShell  
+    ```powershell
         
      # upload the pfx to key vault
      $tempPFXFilePath = "<certificate path>"

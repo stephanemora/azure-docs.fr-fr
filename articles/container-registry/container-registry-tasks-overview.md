@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: f2fc187518070bf199a3959889afd1ede4ef5b77
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660712"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915918"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatiser les mises à jour correctives du système d’exploitation et du framework avec ACR Tasks
 
@@ -27,7 +27,7 @@ Générer et tester des images de conteneur avec ACR Tasks de quatre manières :
 * [Tâche rapide](#quick-task) : générer et envoyer les images de conteneur à la demande dans Azure, sans avoir besoin d’une installation locale de Docker Engine. Pensez `docker build`, `docker push` dans le cloud. Générez un build à partir du code source local ou d’un référentiel Git.
 * [Génération lors de la validation du code source](#automatic-build-on-source-code-commit) : déclenchez automatiquement une génération d’image de conteneur lors de la validation du code dans un référentiel Git.
 * [Génération lors de la mise à jour d'images de base](#automate-os-and-framework-patching) : déclenchez une image de conteneur lors de la mise à jour de l’image de base de cette image.
-* [Tâches à plusieurs étapes](#multi-step-tasks-preview) (préversion) : définissez les tâches à plusieurs étapes qui génèrent des images, exécutent des conteneurs comme des commandes et envoient des images à un registre. Cette fonctionnalité d’évaluation d’ACR Tasks prend en charge l’exécution de tâches à la demande, ainsi que les opérations de génération, de test et d’envoi (push) d’images.
+* [Tâches multi-étapes](#multi-step-tasks): définissez les tâches à plusieurs étapes qui génèrent des images, exécutent des conteneurs comme des commandes et envoient des images à un registre. Cette fonctionnalité d’opérations push et de build d’image parallèles, de test et de l’exécution des tâches de la demande ACR tâches prend en charge.
 
 ## <a name="quick-task"></a>Tâche rapide
 
@@ -36,6 +36,8 @@ Le cycle de développement « en boucle interne », c’est-à-dire le process
 Avant de valider votre première ligne de code, les fonctionnalité [tâche rapide](container-registry-tutorial-quick-task.md) d’ACR Tasks peut fournir un environnement de développement intégré en déchargeant vos builds d’image de conteneur dans Azure. Avec les tâches rapides, vous pouvez vérifier vos définitions de build automatisées et identifier les problèmes potentiels avant de valider votre code.
 
 En utilisant le format `docker build` bien connu, la commande [az acr build][az-acr-build] dans Azure CLI prend un *contexte* (ensemble de fichiers à générer), l’envoie à ACR Tasks et, par défaut, envoie (push) l’image générée à son registre lors de son achèvement.
+
+Pour une introduction, consultez le Guide de démarrage rapide pour [générer et exécuter une image de conteneur](container-registry-quickstart-task-cli.md) dans Azure Container Registry.  
 
 Le tableau suivant présente quelques exemples d’emplacements de contexte pris en charge pour ACR Tasks :
 
@@ -76,9 +78,9 @@ Pour en savoir plus sur la mise à jour corrective du système d’exploitation 
 > [!NOTE]
 > Les mises à jour de l’image de base ne déclenchent des générations que lorsque les images de base et d’application se trouvent dans le même registre de conteneurs Azure ou lorsque l’image de base réside dans un référentiel Docker Hub public.
 
-## <a name="multi-step-tasks-preview"></a>Tâches à plusieurs étapes (préversion)
+## <a name="multi-step-tasks"></a>Tâches multi-étapes
 
-Les tâches à plusieurs étapes, une fonctionnalité en préversion d’ACR Tasks, permet la définition et l’exécution de tâches en plusieurs étapes pour la génération, le test et la mise à jour corrective d’images de conteneur dans le cloud. Les étapes de la tâche définissent les opérations build et push d’une image de conteneur individuelle. Elles permettent également de définir l’exécution d’un ou plusieurs conteneurs, en utilisant à chaque étape le conteneur comme son environnement d’exécution.
+Tâches multi-étapes fournissent la définition de tâche basée sur une étape et de l’exécution de la conception, test et de mise à jour corrective des images de conteneur dans le cloud. Les étapes de la tâche définissent les opérations build et push d’une image de conteneur individuelle. Elles permettent également de définir l’exécution d’un ou plusieurs conteneurs, en utilisant à chaque étape le conteneur comme son environnement d’exécution.
 
 Par exemple, vous pouvez créer une tâche à plusieurs étapes qui automatise les opérations suivantes :
 
@@ -93,15 +95,12 @@ Les tâches à plusieurs étapes vous permettent de fractionner la génération,
 
 Pour en savoir plus sur les tâches à plusieurs étapes, consultez [Run multi-step build, test, and patch tasks in ACR Tasks (Exécuter des tâches à plusieurs étapes de génération, de test et de correction dans ACR Tasks)](container-registry-tasks-multi-step.md).
 
-> [!IMPORTANT]
-> La fonctionnalité de tâche à plusieurs étapes d’ACR Tasks est actuellement en préversion. Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Lorsque vous êtes prêt à automatiser les mises à jour correctives du système d’exploitation et du framework en générant vos images de conteneur dans le cloud, consultez les trois didacticiels d’ACR Tasks.
 
 > [!div class="nextstepaction"]
-> [Générer des images de conteneur dans le cloud avec Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
+> [Générer des images de conteneur dans le cloud avec les tâches de Registre de conteneur Azure](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 18e65fc51f99aa19162daa3f6e5b9b7012214f64
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 347ea75673336574f7517f2f7d0c802b0ed16560
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765541"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918295"
 ---
 # <a name="hybrid-connections-overview"></a>Aperçu des connexions hybrides
 
@@ -91,12 +91,12 @@ Les ports TCP suivants sont utilisés par les connexions hybrides :
 | 80, 443 |Ces ports sont utilisés pour certaines requêtes de données vers Azure. En outre, si les ports 9352 et 5671 ne sont pas utilisables, *alors* les ports 80 et 443 sont les ports de secours utilisés pour la transmission de données et le canal de contrôle.<br/><br/>Autoriser les connexions sortantes à ces ports. <br/><br/>**Remarque** Il est déconseillé d’utiliser ces ports comme ports de secours à la place des autres ports TCP. HTTP/WebSocket est utilisé comme protocole au lieu du protocole TCP natif pour les canaux de données. Cela peut entraîner une dégradation des performances. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
+[Créer et gérer des connexions hybrides](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Voir aussi
-[API REST pour gérer BizTalk Services sur Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[BizTalk Services : Tableau comparatif des éditions](biztalk-editions-feature-chart.md)  
-[Créer un service BizTalk](biztalk-provision-services.md)  
+[API REST de gestion des Services BizTalk sur Microsoft Azure](/previous-versions/azure/reference/dn232347(v=azure.100))  
+[BizTalk Services : Graphique des éditions](biztalk-editions-feature-chart.md)  
+[Création d'un service BizTalk](biztalk-provision-services.md)  
 [BizTalk Services : Onglets tableau de bord, surveiller et mettre à l’échelle](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

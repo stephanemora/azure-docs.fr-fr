@@ -5,15 +5,15 @@ services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850718"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904115"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection pour le stockage Azure
 
@@ -22,8 +22,8 @@ Protection avancée contre les menaces pour le stockage Azure fournit une couche
 Alertes de sécurité sont déclenchés lorsque des anomalies dans l’activité se produisent.  Ces alertes de sécurité sont intégrées avec [Azure Security Center](https://azure.microsoft.com/services/security-center/)et sont également envoyées par courrier électronique aux administrateurs d’abonnement, avec les détails des activités suspectes et des recommandations sur la façon d’examiner et corriger les menaces.
 
 > [!NOTE]
-> * Protection avancée contre les menaces pour le stockage Azure est actuellement disponible uniquement pour le stockage d’objets Blob. 
-> * Plus d’informations sur la nouvelle tarification est disponible dans le [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-pricing) page, y compris une option pour une période d’essai pendant les 30 premiers jours sans frais de tarification. 
+> * Protection avancée contre les menaces pour le stockage Azure est actuellement disponible uniquement pour le stockage d’objets Blob.
+> * Pour plus d’informations, y compris une version d’évaluation gratuite de 30 jours, consultez le [page de tarification Azure Security Center]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
 > * ATP pour la fonctionnalité de stockage Azure n’est actuellement pas disponible dans Azure government et régions de cloud souverain.
 
 Protection avancée contre les menaces pour le stockage Azure reçoit des journaux de diagnostic de requêtes de lecture, écriture et delete pour le stockage d’objets Blob pour la détection des menaces. Pour examiner les alertes à partir de la protection contre les menaces avancées, vous pouvez afficher l’activité de stockage associé à l’aide de la journalisation du stockage Analytique. Pour plus d’informations, consultez Comment [configurer la journalisation du stockage Analytique](storage-monitor-storage-account.md#configure-logging).
@@ -80,7 +80,7 @@ Utilisez les commandes de l’API Rest pour créer, mettre à jour ou obtenir le
 
 Utilisez les applets de commande PowerShell suivante :
 
-  * [Activer la Protection avancée contre les menaces](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Activer Protection avancée contre les menaces](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
   * [Bénéficiez de la Protection contre les menaces avancées](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Désactiver la Protection avancée contre les menaces](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 

@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182113"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895577"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Créer des actions ou des workflows basés sur les événements avec des Webhooks et Azure Logic Apps
 
@@ -29,11 +29,11 @@ En savoir plus sur la [création d’API personnalisées qui prennent en charge 
 
 ## <a name="use-the-webhook-trigger"></a>Utilisation du déclencheur webhook
 
-Un [*déclencheur*](connectors-overview.md) est un événement qui démarre un flux de travail d’application logique. Le déclencheur webhook est basée sur les événements qui ne dépend pas d’interrogation pour les nouveaux éléments. Lorsque vous enregistrez votre application logique avec un déclencheur de webhook, ou lorsque vous modifiez votre application logique de désactivé à activé, le déclencheur de webhook *s’abonne* vers le service spécifié ou d’un point de terminaison en inscrivant un *URL de rappel* avec ce service ou d’un point de terminaison. Le déclencheur utilise ensuite cette URL pour exécuter l’application logique en fonction des besoins. Comme le [déclencheur de requête](connectors-native-reqres.md), l’application logique se déclenche immédiatement lorsque se produit l’événement attendu. Le déclencheur *annule l’abonnement* si vous supprimez le déclencheur et que vous enregistrez votre application logique, ou lorsque vous modifiez votre application logique à partir d’activé à désactivé.
+Un [*déclencheur*](../connectors/apis-list.md) est un événement qui démarre un flux de travail d’application logique. Le déclencheur webhook est basée sur les événements qui ne dépend pas d’interrogation pour les nouveaux éléments. Lorsque vous enregistrez votre application logique avec un déclencheur de webhook, ou lorsque vous modifiez votre application logique de désactivé à activé, le déclencheur de webhook *s’abonne* vers le service spécifié ou d’un point de terminaison en inscrivant un *URL de rappel* avec ce service ou d’un point de terminaison. Le déclencheur utilise ensuite cette URL pour exécuter l’application logique en fonction des besoins. Comme le [déclencheur de requête](connectors-native-reqres.md), l’application logique se déclenche immédiatement lorsque se produit l’événement attendu. Le déclencheur *annule l’abonnement* si vous supprimez le déclencheur et que vous enregistrez votre application logique, ou lorsque vous modifiez votre application logique à partir d’activé à désactivé.
 
 Voici un exemple de configuration d’un déclencheur HTTP dans le concepteur d’application logique. Ces étapes supposent que vous avez déjà déployé ou que vous accédez à une API qui suit [le modèle d’abonnement et de résiliation d’abonnement au webhook dans les applications logiques](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
-**Pour ajouter le déclencheur webhook**
+**Pour ajouter le déclencheur de webhook**
 
 1. Ajoutez le déclencheur **HTTP Webhook** en tant que première étape dans une application logique.
 2. Renseignez les paramètres pour les appels d’abonnement et de résiliation d’abonnement au webhook.
@@ -48,7 +48,7 @@ Voici un exemple de configuration d’un déclencheur HTTP dans le concepteur d�
 
 ## <a name="use-the-webhook-action"></a>Utilisation de l’action webhook
 
-Un [ *action* ](connectors-overview.md) est une opération qui est définie et l’exécution par flux de travail de votre application logique. Quand une application logique s’exécute une action de webhook, cette action *s’abonne* vers le service spécifié ou d’un point de terminaison en inscrivant un *URL de rappel* avec ce service ou d’un point de terminaison. Puis l’action de webhook attend que l’URL avant de l’application logique reprend l’exécution d’appels de service. Annule l’abonnement de l’application logique à partir du service ou d’un point de terminaison dans ce cas : 
+Un [ *action* ](../connectors/apis-list.md) est une opération qui est définie et l’exécution par flux de travail de votre application logique. Quand une application logique s’exécute une action de webhook, cette action *s’abonne* vers le service spécifié ou d’un point de terminaison en inscrivant un *URL de rappel* avec ce service ou d’un point de terminaison. Puis l’action de webhook attend que l’URL avant de l’application logique reprend l’exécution d’appels de service. Annule l’abonnement de l’application logique à partir du service ou d’un point de terminaison dans ce cas : 
 
 * Lorsque l’action de webhook est terminée avec succès
 * Si l’exécution de l’application logique est annulée en attendant une réponse
@@ -104,7 +104,7 @@ Une * signifie que le champ est obligatoire.
 | Authentification de l’abonnement |Authentification |Authentification HTTP à utiliser pour s’abonner. [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
 | Corps de résiliation d’abonnement |body |Corps de la demande HTTP de résiliation d’abonnement |
 | En-têtes de résiliation d’abonnement |headers |En-têtes de la demande HTTP de résiliation d’abonnement |
-| Authentification de la résiliation d’abonnement |authentication |Authentification HTTP à utiliser pour la résiliation d’abonnement. Voir [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
+| Authentification de la résiliation d’abonnement |authentication |Authentification HTTP à utiliser pour la résiliation d’abonnement. [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
 
 **Détails des résultats**
 
@@ -140,7 +140,7 @@ Une * signifie que le champ est obligatoire.
 | Authentification de l’abonnement |Authentification |Authentification HTTP à utiliser pour s’abonner. [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
 | Corps de résiliation d’abonnement |body |Corps de la demande HTTP de résiliation d’abonnement |
 | En-têtes de résiliation d’abonnement |headers |En-têtes de la demande HTTP de résiliation d’abonnement |
-| Authentification de la résiliation d’abonnement |authentication |Authentification HTTP à utiliser pour la résiliation d’abonnement. Voir [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
+| Authentification de la résiliation d’abonnement |authentication |Authentification HTTP à utiliser pour la résiliation d’abonnement. [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
 
 **Détails des résultats**
 

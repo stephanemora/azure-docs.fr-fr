@@ -8,18 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: f37c8290defa5e7c9baa3b705393aba376936fd8
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 5c348adea0847929b37d1b61f024859b1d634fe7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539375"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903401"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gérer l’espace de travail Analytique de journal dans Azure Monitor à l’aide de PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Vous pouvez utiliser la [applets de commande PowerShell d’Analytique de journal](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) pour effectuer diverses fonctions sur un journal Analytique espace de travail dans Azure Monitor à partir d’une ligne de commande ou dans le cadre d’un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
+Vous pouvez utiliser la [applets de commande PowerShell d’Analytique de journal](https://docs.microsoft.com/powershell/module/az.operationalinsights/) pour effectuer diverses fonctions sur un journal Analytique espace de travail dans Azure Monitor à partir d’une ligne de commande ou dans le cadre d’un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
 
 * Créer un espace de travail
 * Ajouter ou supprimer une solution
@@ -33,10 +31,12 @@ Vous pouvez utiliser la [applets de commande PowerShell d’Analytique de journa
 * Ajouter l’agent Log Analytics à une machine virtuelle Azure
 * Configurer Log Analytics pour indexer les données collectées à l’aide des diagnostics Azure
 
-Cet article fournit deux exemples de code qui illustrent quelques-unes des fonctions que vous pouvez effectuer à partir de PowerShell.  Pour obtenir des informations sur d’autres fonctions, consultez [Informations de référence sur les applets de commande PowerShell Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) .
+Cet article fournit deux exemples de code qui illustrent quelques-unes des fonctions que vous pouvez effectuer à partir de PowerShell.  Pour obtenir des informations sur d’autres fonctions, consultez [Informations de référence sur les applets de commande PowerShell Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) .
 
 > [!NOTE]
 > Avant, Log Analytics s’appelait Operational Insights, ce qui explique pourquoi ce nom est présent dans les applets de commande.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Conditions préalables
 Ces exemples fonctionnent avec la version 1.0.0 ou ultérieure du module Az.OperationalInsights.
@@ -272,5 +272,5 @@ Vous pouvez également utiliser le script précédent pour collecter les journau
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Passez en revue les applets de commande PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) pour obtenir plus d’informations sur l’utilisation de PowerShell pour configurer Log Analytics.
+* [Passez en revue les applets de commande PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) pour obtenir plus d’informations sur l’utilisation de PowerShell pour configurer Log Analytics.
 

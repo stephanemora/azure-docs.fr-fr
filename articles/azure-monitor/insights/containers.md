@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 5eec77084e104f7bd541405e2ef18e5a178e869c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: fbc9e0f8e7dfda86b5c53e28aa3aa3b733bb9600
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877786"
+ms.locfileid: "58905747"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solution Container Monitoring dans Azure Monitor
 
@@ -192,7 +192,7 @@ Il existe trois façons d’ajouter l’agent Log Analytics pour Red Hat OpenShi
 
 * [Installer l’agent Log Analytics pour Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) directement sur chaque nœud OpenShift  
 * [Activer l’extension de machine virtuelle Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md) sur chaque nœud OpenShift résidant dans Azure  
-* Installer l’agent Log Analytics comme un daemon-set OpenShift  
+* Installez l’agent d’Analytique de journal comme un daemon-set OpenShift  
 
 Dans cette section, nous allons aborder les étapes nécessaires à l’installation de l’agent Log Analytics comme un daemon-set OpenShift.  
 

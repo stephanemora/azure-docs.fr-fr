@@ -3,17 +3,17 @@ title: Connecter un appareil DevKit à votre application Azure IoT Central | Mic
 description: En tant que développeur d’appareils, apprenez à connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/05/2019
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 44af0ccab45f1335d9dfec06287303a34391eded
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3055bf4be024065bcd8db9cf523de93a5ab6b22b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113195"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905934"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -21,45 +21,47 @@ Cet article vous explique comment, en tant que développeur d’appareils, vous 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes décrites dans cet article, vous devez les ressources suivantes :
 
 1. Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
 1. Un appareil DevKit. Pour acheter un appareil DevKit, accédez à [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 ## <a name="sample-devkits-application"></a>Exemple d'application Devkits
 
-Une application créée à partir du modèle d’application **Exemples de Devkits** comprend un modèle d’appareil **MXChip** qui présente les caractéristiques suivantes :
+Une application créée à partir de la **exemple Devkits** ce modèle d’application inclut un **MXChip** modèle de périphérique qui définit les caractéristiques d’appareil suivantes :
 
-- Données de télémétrie qui contiennent les mesures d'**humidité**, de **température**, de **pression**, du **magnétomètre** (mesurées le long des axes X, Y et Z), de l'**accéléromètre** (mesurées le long des axes X, Y et Z) et du **gyroscope** (mesurées le long des axes X, Y et Z) de l'appareil.
-- État qui contient un exemple de mesure pour l’**État de l’appareil**.
-- Mesure d’événement avec un événement **Bouton B enfoncé**. 
-- Paramètres montrant la **tension**, le **courant**, la **vitesse du ventilateur** et un bouton bascule **Infrarouge**.
-- Propriétés contenant la propriété de l’appareil **Numéro gravé** et l’**Emplacement de l’appareil**, qui est une propriété d’emplacement, ainsi qu’une propriété cloud **Fabriqué en**. 
+- Mesures de télémétrie pour **humidité**, **température**, **pression**, **magnétomètre** (mesuré le long de X, Y, l’axe Z), **Accéléromètre** (mesuré le long de X, Y, l’axe Z), et **Gyroscope** (mesuré le long de X, Y, l’axe Z).
+- Mesure de l’état **état de l’appareil**.
+- Mesure des événements pour **bouton B enfoncé**.
+- Paramètres pour **Voltage**, **actuel**, **vitesse du ventilateur**et un **IR** activer/désactiver.
+- Propriétés de l’appareil **meurent numéro** et **emplacement de l’appareil**, qui est une propriété d’emplacement.
+- Propriété en nuage **fabriqués dans**.
+- Commandes **Echo** et **compte à rebours**. Quand un appareil réel reçoit un **Echo** commande, il affiche la valeur envoyée sur l’affichage du périphérique. Quand un appareil réel reçoit un **compte à rebours** commande, les cycles de LED via un modèle, et l’appareil envoie des valeurs de compte à rebours à IoT Central.
 
-Pour plus d’informations sur la configuration, consultez [Détails du modèle d’appareil MXChip](#mxchip-device-template-details).
-
+Pour plus d’informations sur la configuration, consultez [détails du modèle MXChip appareil](#mxchip-device-template-details)
 
 ## <a name="add-a-real-device"></a>Ajouter un appareil réel
 
-Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil **MXChip** et notez les informations de connexion de l’appareil (**ID d’étendue, ID d’appareil, et Clé primaire**).
+### <a name="get-your-device-connection-details"></a>Obtenir des détails de la connexion de votre appareil
+
+Dans votre application Azure IoT Central, ajoutez un appareil réel à partir de la **MXChip** modèle d’appareil et notez les détails de connexion d’appareil : **Étendue d’ID, ID de l’appareil et la clé primaire**:
 
 1. Ajouter un **appareil réel** dans Device Explorer, sélectionnez **+ Nouveau > réel** pour ajouter un appareil réel.
 
-   * Entrez l’ID d’appareil **<span style="color:Red">(doit être en minuscules)</span>** ou utilisez l’ID d’appareil suggéré.
-   * Entrez le nom de l’appareil ou utilisez le nom suggéré
+    * Entrez un caractère minuscule **ID d’appareil**, ou utilisez le texte suggéré **ID d’appareil**.
+    * Entrez un **nom de l’appareil**, ou utilisez le nom suggéré
 
-     ![Ajout d’un appareil](media/howto-connect-devkit/add-device.png)
+    ![Ajout d’un appareil](media/howto-connect-devkit/add-device.png)
 
-1. Obtenir des informations de connexion telles que **clé étendue ID, ID de l’appareil et principal** pour l’appareil ajouté en sélectionnant **Connect** sur la page de l’appareil.
+1. Pour obtenir des informations de connexion, de l’appareil **ID de portée**, **ID d’appareil**, et **clé primaire**, sélectionnez **Connect** sur la page de l’appareil.
 
     ![Informations de connexion](media/howto-connect-devkit/device-connect.png)
 
-1. Veillez à enregistrer ces informations, car vous serez momentanément déconnecté d'Internet lorsque vous préparerez l'appareil DevKit.
+1. Prenez note des détails de connexion. Vous êtes temporairement déconnecté d’internet lorsque vous préparez votre appareil DevKit à l’étape suivante.
 
 ### <a name="prepare-the-devkit-device"></a>Préparer l’appareil DevKit
 
-> [!NOTE]
-> Si vous avez précédemment utilisé l’appareil et que vous avez des informations d’identification Wi-Fi stockées, et si vous voulez reconfigurer l’appareil de façon à utiliser un autre réseau Wi-Fi, une autre chaîne de connexion ou une autre mesure de télémétrie, appuyez simultanément sur les boutons **A** et **B** de la carte. Si cela ne fonctionne pas, appuyez sur le bouton de **réinitialisation**, puis réessayez.
+Si vous avez déjà utilisé l’appareil et vous souhaitez reconfigurer pour qu’il utilise un autre réseau Wi-Fi, la chaîne de connexion ou la mesure de télémétrie, appuyez sur les deux le **A** et **B** boutons en même temps. Si cela ne fonctionne pas, appuyez sur **réinitialiser** bouton, puis réessayez.
 
 #### <a name="to-prepare-the-devkit-device"></a>Pour préparer l'appareil DevKit
 
@@ -81,25 +83,24 @@ Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du
 
 1. L’appareil est maintenant en mode AP (point d’accès). Vous pouvez vous connecter à ce point d’accès Wi-Fi à partir de votre ordinateur ou appareil mobile.
 
-1. Sur votre ordinateur, téléphone ou tablette, connectez-vous au réseau Wi-Fi dont le nom est affiché sur l’écran de l’appareil. Quand vous vous connectez à ce réseau, vous n’avez pas accès à Internet. Il s’agit d’un état normal. Vous êtes connecté uniquement à ce réseau pendant un bref laps de temps, le temps de configurer l’appareil.
+1. Sur votre ordinateur, téléphone ou tablette, connectez-vous au réseau Wi-Fi dont le nom est affiché sur l’écran de l’appareil. Lorsque vous vous connectez à ce réseau, vous n’avez accès à internet. Cet état est prévu et que vous êtes connecté uniquement à ce réseau pendant une courte période pendant la configuration de l’appareil.
 
 1. Ouvrez votre navigateur web et accédez à [http://192.168.0.1/start](http://192.168.0.1/start). La page web suivante s’affiche à l’écran :
 
     ![Page de configuration de l’appareil](media/howto-connect-devkit/configpage.png)
 
-    Dans la page web : 
-    - ajoutez le nom de votre réseau Wi-Fi 
-    - le mot de passe de votre réseau Wi-Fi
-    - le code PIN (PIN CODE) indiqué sur l’écran de l’appareil 
-    - les informations de connexion **ID d’étendue, ID d’appareil, et Clé primaire** de votre appareil (vous devez déjà les avoir enregistrées en suivant les étapes)      
-    - Sélectionnez toutes les mesures de télémétrie disponibles. 
+    Dans la page web, entrez :
+    - Le nom de votre réseau Wi-Fi
+    - votre mot de passe réseau Wi-Fi
+    - Le code PIN qui apparaît sur l’affichage du périphérique
+    - Les détails de connexion **ID de portée**, **ID d’appareil**, et **clé primaire** de votre appareil (vous devez avez déjà enregistré cette suivant les étapes)
+    - Sélectionnez toutes les mesures de télémétrie disponibles
 
 1. Après avoir choisi **Configurer l’appareil**, cette page apparaît :
 
     ![Appareil configuré](media/howto-connect-devkit/deviceconfigured.png)
 
 1. Appuyez sur le bouton de **réinitialisation** de votre appareil.
-
 
 ## <a name="view-the-telemetry"></a>Afficher les données de télémétrie
 
@@ -110,9 +111,9 @@ Pendant le redémarrage de l’appareil DevKit, l’écran de l’appareil affic
 * Nombre de propriétés souhaitées reçues et nombre de propriétés signalés envoyées.
 
 > [!NOTE]
-> Si l’appareil semble être en boucle lors de la connexion, vérifiez si l’appareil est *bloqué* dans IoT Central, et *Débloquez* l’appareil pour qu’il se connecte à l’application.
+> Si l’appareil pour effectuer une boucle quand il tente de se connecter, vérifiez si l’appareil est **bloqué** dans IoT Central, et **Unblock** l’appareil pour se connecter à l’application.
 
-Le fait de secouer l’appareil a pour effet d’augmenter le nombre de propriétés signalées envoyées. L’appareil envoie un nombre aléatoire pour la propriété de l’appareil **Numéro gravé**.
+Secouez l’appareil pour envoyer une propriété signalée. L’appareil envoie un nombre aléatoire pour la propriété de l’appareil **Numéro gravé**.
 
 Vous pouvez consulter les mesures de télémétrie et les valeurs des propriétés signalées et configurer les paramètres dans Azure IoT Central :
 
@@ -132,10 +133,13 @@ Vous pouvez consulter les mesures de télémétrie et les valeurs des propriét�
 
     ![Afficher les paramètres de l’appareil](media/howto-connect-devkit/devicesettingsnew.png)
 
+1. Sur le **commandes** page, vous pouvez appeler la **Echo** et **compte à rebours** commandes :
+
+    ![Commandes d’appel](media/howto-connect-devkit/devicecommands.png)
+
 1. Dans la page **Tableau de bord**, vous pouvez voir la carte de l’emplacement
 
     ![Afficher le tableau de bord d’un appareil](media/howto-connect-devkit/devicedashboardnew.png)
-
 
 ## <a name="download-the-source-code"></a>Télécharger le code source
 
@@ -147,30 +151,38 @@ Pour télécharger le code source, exécutez la commande suivante sur votre ordi
 git clone https://github.com/Azure/iot-central-firmware
 ```
 
-La commande précédente télécharge le code source dans un dossier appelé `iot-central-firmware`. 
+La commande précédente télécharge le code source dans un dossier appelé `iot-central-firmware`.
 
 > [!NOTE]
 > Si **git** n’est pas installé dans votre environnement de développement, vous pouvez le télécharger à partir de [https://git-scm.com/download](https://git-scm.com/download).
 
 ## <a name="review-the-code"></a>Vérifier le code
 
-Utilisez Visual Studio Code, qui a été installé pendant la préparation de votre environnement de développement, pour ouvrir le dossier `AZ3166` à l’intérieur du dossier `iot-central-firmware` : 
+Utilisez Visual Studio Code pour ouvrir le `MXCHIP/mxchip_advanced` dossier dans le `iot-central-firmware` dossier :
 
 ![Visual Studio Code](media/howto-connect-devkit/vscodeview.png)
 
-Pour voir comment les données de télémétrie sont envoyées à l’application Azure IoT Central, ouvrez le fichier **main_telemetry.cpp** dans le dossier source.
+Pour voir comment les données de télémétrie sont envoyée à l’application Azure IoT Central, ouvrez le **telemetry.cpp** de fichiers dans le `src` dossier :
 
-La fonction `buildTelemetryPayload` crée la charge utile de télémétrie JSON en utilisant les données issues des capteurs de l’appareil.
+- La fonction `TelemetryController::buildTelemetryPayload` crée la charge utile de télémétrie JSON en utilisant les données issues des capteurs de l’appareil.
 
-La fonction `sendTelemetryPayload` appelle `sendTelemetry` dans **iotHubClient.cpp** pour envoyer la charge utile JSON au hub IoT qu’utilise votre application Azure IoT Central.
+- La fonction `TelemetryController::sendTelemetryPayload` appels `sendTelemetry` dans le **AzureIOTClient.cpp** pour envoyer la charge utile JSON à IoT Hub à votre application utilise Azure IoT Central.
 
-Pour voir comment les valeurs des propriétés sont signalées à l’application Azure IoT Central, ouvrez le fichier **main_telemetry.cpp** dans le dossier source.
+Pour voir la façon dont les valeurs de propriété sont signalées à l’application Azure IoT Central, ouvrez le **telemetry.cpp** de fichiers dans le `src` dossier :
 
-La fonction `telemetryLoop` envoie la propriété signalée **doubleTap** quand l’accéléromètre détecte un double appui. Elle utilise la fonction `sendReportedProperty` dans le fichier source **iotHubClient.cpp**.
+- La fonction `TelemetryController::loop` envoie le **emplacement** propriété signalée environ toutes les 30 secondes. Il utilise le `sendReportedProperty` fonctionner dans le **AzureIOTClient.cpp** fichier source.
 
-Le code du fichier source **iotHubClient.cpp** utilise les fonctions des [kits SDK Microsoft Azure IoT et des bibliothèques pour C](https://github.com/Azure/azure-iot-sdk-c) pour interagir avec IoT Hub.
+- La fonction `TelemetryController::loop` envoie le **dieNumber** propriété signalée lors de l’accéléromètre appareil détecte un double clic. Il utilise le `sendReportedProperty` fonctionner dans le **AzureIOTClient.cpp** fichier source.
 
-Pour plus d’informations sur la façon de modifier, générer et charger l’exemple de code sur votre appareil, consultez le fichier **readme.md** dans le dossier`AZ3166`.
+Pour voir comment l’appareil répond aux commandes appelées à partir de l’application IoT Central, ouvrez le **registeredMethodHandlers.cpp** de fichiers dans le `src` dossier :
+
+- Le **dmEcho** (fonction) est le gestionnaire pour le **echo** commande. Il montre le **displayedValue** classé dans la charge utile sur l’écran du périphérique.
+
+- Le **dmCountdown** (fonction) est le gestionnaire pour le **compte à rebours** commande. Il modifie la couleur du voyant de l’appareil et utilise une propriété signalée à renvoyer la valeur du compte à rebours à l’application IoT Central. La propriété signalée a le même nom que la commande. La fonction utilise le `sendReportedProperty` fonctionner dans le **AzureIOTClient.cpp** fichier source.
+
+Le code dans le **AzureIOTClient.cpp** fichier source utilise des fonctions à partir de la [Microsoft Azure IoT SDK et bibliothèques pour C](https://github.com/Azure/azure-iot-sdk-c) pour interagir avec IoT Hub.
+
+Pour plus d’informations sur la façon de modifier, générer et charger l’exemple de code sur votre appareil, consultez le fichier **readme.md** dans le dossier`MXCHIP/mxchip_advanced`.
 
 ## <a name="mxchip-device-template-details"></a>Détails du modèle d’appareil MXChip
 
@@ -178,7 +190,7 @@ Une application créée à partir du modèle d’application Exemples de Devkits
 
 ### <a name="measurements"></a>Mesures
 
-#### <a name="telemetry"></a>Télémétrie 
+#### <a name="telemetry"></a>Télémétrie
 
 | Nom du champ     | Units  | Minimale | Maximale | Nombre de décimales |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -194,7 +206,6 @@ Une application créée à partir du modèle d’application Exemples de Devkits
 | gyroscopeX     | mdps   | -2 000   | 2000    | 0              |
 | gyroscopeY     | mdps   | -2 000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2 000   | 2000    | 0              |
-
 
 #### <a name="states"></a>États 
 | Nom          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
@@ -230,10 +241,13 @@ Paramètres de bascule
 | Propriété d’appareil | Emplacement de l’appareil   | location  | location    |
 | Texte            | Fabriqué dans     | manufacturedIn   | S.O.       |
 
+### <a name="commands"></a>Commandes
 
+| Nom complet | Nom du champ | Type de retour | Nom complet du champ d’entrée | Nom du champ d’entrée | Type de champ d’entrée |
+| ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
+| Echo         | echo       | texte        | valeur à afficher         | displayedValue   | texte             |
+| Compte à rebours    | countdown  | number      | Nombre à partir de               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous savez comment connecter un appareil DevKit à votre application Azure IoT Central, voici les étapes suivantes suggérées :
-
-* [Préparer et connecter un Raspberry Pi](howto-connect-raspberry-pi-python.md)
+Maintenant que vous avez appris à connecter un appareil DevKit à votre application Azure IoT Central, l’étape suivante suggérée consiste à [préparer et connecter un Raspberry Pi](howto-connect-raspberry-pi-python.md).

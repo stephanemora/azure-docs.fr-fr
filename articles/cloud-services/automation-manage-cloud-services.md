@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 40e91b4ba7ee62976b49975769bd1d1e656525f2
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: b3660901c86dd644369e6d1913e825cbd5ea316b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328866"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918465"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Gestion d'Azure Cloud Services à l'aide d'Azure Automation
 Ce guide vous présente le service Azure Automation et la manière de l'utiliser pour gérer plus simplement vos services de cloud computing Azure.
@@ -32,16 +32,16 @@ Azure Automation fournit un moteur d'exécution de workflow hautement fiable et
 Réduisez les coûts opérationnels et dégagez du temps pour votre personnel informatique/DevOps afin de lui permettre de se concentrer sur des tâches générant une valeur ajoutée pour l'entreprise, en configurant Azure Automation pour exécuter automatiquement vos tâches de gestion de cloud.
 
 ## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Comment Azure Automation peut-il aider à gérer des services de cloud computing Azure ?
-Les services cloud Azure peuvent être gérés dans Azure Automation à l'aide des applets de commande PowerShell qui sont disponibles dans les [outils Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation dispose dès le départ de ces applets de commande PowerShell de services de cloud computing, de sorte que vous pouvez effectuer toutes vos tâches de gestion de services de cloud computing au sein du service. Dans Azure Automation, vous pouvez également associer ces applets de commande à des applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
+Les services cloud Azure peuvent être gérés dans Azure Automation à l'aide des applets de commande PowerShell qui sont disponibles dans les [outils Azure PowerShell](/powershell/). Azure Automation dispose dès le départ de ces applets de commande PowerShell de services de cloud computing, de sorte que vous pouvez effectuer toutes vos tâches de gestion de services de cloud computing au sein du service. Dans Azure Automation, vous pouvez également associer ces applets de commande à des applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
 
 Voici quelques exemples qui utilisent Azure Automation pour gérer Azure Cloud Services :
 
-* [Déploiement continu d’un service cloud si cscfg ou cspkg est mis à jour dans Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
-* [Redémarrage des instances de service cloud en parallèle, un domaine de mise à niveau à la fois](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
+* [Déploiement continu d’un Service Cloud si cscfg ou cspkg est mis à jour dans le stockage Blob Azure](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+* [Le redémarrage des instances de Service Cloud en parallèle, un seul domaine de mise à niveau à la fois](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les bases d'Azure Automation et la manière de l'utiliser pour gérer les services de cloud computing Azure, cliquez sur ces liens pour en savoir plus sur Azure Automation.
 
-* [Vue d’ensemble de Microsoft Azure Automation](../automation/automation-intro.md)
+* [Vue d’ensemble d’Azure Automation](../automation/automation-intro.md)
 * [Mon premier Runbook](../automation/automation-first-runbook-graphical.md)
-* [Plan d’apprentissage pour Azure Automation](https://azure.microsoft.com/documentation/learning-paths/automation/)
+* [Carte d’apprentissage pour Azure Automation](https://azure.microsoft.com/documentation/learning-paths/automation/)

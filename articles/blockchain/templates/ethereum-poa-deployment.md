@@ -10,14 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 50d24fd41a0a933d9cfec37477773463a918ca0a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549066"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905917"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum Proof-of-Authority Consortium
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Présentation
 [Cette solution](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) a été conçue pour faciliter et accélérer le déploiement, la configuration et la gouvernance d’un réseau Proof-of-authority Ethereum pour un consortium de plusieurs membres avec des connaissances minimales d’Azure et d’Ethereum.
@@ -218,7 +220,7 @@ Abonnement|Abonnement vers lequel vous déployez le réseau de consortium.||N/D
 Groupe de ressources|Groupe de ressources sur lequel déployez le réseau de consortium.||N/D
 Lieu|Région Azure du groupe de ressources.||N/D
 
-Voici un exemple de déploiement : ![panneau de base](./media/ethereum-poa-deployment/basic-blade.png)
+Voici un exemple de déploiement : ![Panneau de base](./media/ethereum-poa-deployment/basic-blade.png)
 
 #### <a name="deployment-regions"></a>Régions de déploiement
 
@@ -235,7 +237,7 @@ Voici une description détaillée de chaque paramètre :
   Quatrième région|Quatrième région dans laquelle déployer le réseau de consortium (visible uniquement lorsque le nombre de régions sélectionné est 4).|Toutes les régions sont autorisées.|N/D
   Cinquième région|Cinquième région dans laquelle déployer le réseau de consortium (visible uniquement lorsque le nombre de régions sélectionné est 5).|Toutes les régions sont autorisées.|N/D
 
-Voici un exemple de déploiement : ![régions de déploiement](./media/ethereum-poa-deployment/deployment-regions.png)
+Voici un exemple de déploiement : ![régions de déploiement](./media/ethereum-poa-deployment/deployment-regions.png)
 
 #### <a name="network-size-and-performance"></a>Taille et performances du réseau
 
@@ -250,9 +252,9 @@ Voici une description détaillée de chaque paramètre :
   Performances de stockage des nœuds de validateur|Type de disque managé prenant en charge chacun des nœuds de validateur déployés.|SSD Standard ou Premium|SSD Standard
   Taille de machine virtuelle du nœud de validateur|Taille de machine virtuelle utilisée pour les nœuds de validateur.|Standard A, Standard D, Standard D-v2, Standard F series, Standard DS et Standard FS|Standard D1 v2
 
-[Tarification Azure Storage](https://azure.microsoft.com/pricing/details/managed-disks/)
+[Tarification – Stockage](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-[Détails des tarifs des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+[Détails de tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 
 Machine virtuelle et le niveau de stockage affecte les performances du réseau.  Nous vous recommandons les références SKU suivantes selon la rentabilité voulue :
 
@@ -262,7 +264,7 @@ Machine virtuelle et le niveau de stockage affecte les performances du réseau. 
   D2_v3|SSD Standard|moyen|moyen|moyenne
   F16s|SSD Premium|élevée|élevée|basse
 
-Voici un exemple de déploiement : ![taille et performances du réseau](./media/ethereum-poa-deployment/network-size-and-performance.png)
+Voici un exemple de déploiement : ![taille et les performances du réseau](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
 #### <a name="ethereum-settings"></a>Paramètres Ethereum
 
@@ -281,7 +283,7 @@ Limite de gaz par bloc (Options avancées = Activer)|Limite de gaz par bloc de d
 Période de rescellage des blocs (s)|Fréquence à laquelle des blocs vides sont créés en l’absence de transaction sur le réseau. Une fréquence supérieure aboutit à une finalité plus rapide, mais avec des coûts de stockage plus élevés.|Toute valeur numérique|15
 Contrat d’autorisation de transaction (Options avancées = Activer)|Bytecode du contrat d’autorisation de transaction. Restreint le déploiement de contrat actives et d’exécution à une liste autorisée des comptes de Ethereum.|Bytecode du contrat|N/D
 
-Voici un exemple de déploiement : ![paramètres ethereum](./media/ethereum-poa-deployment/ethereum-settings.png)
+Voici un exemple de déploiement : ![ethereum paramètres](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>Surveillance
 
@@ -298,7 +300,7 @@ ID d’espace de travail existant log analytique (se connecter à des journaux A
 Clé primaire d’analytique de journal existant (se connecter à des journaux Azure Monitor existants = joindre existant)|La clé primaire est utilisée pour se connecter à l’instance de journaux Azure Monitor existante||N/D
 
 
-Voici un exemple de déploiement : ![azure monitor](./media/ethereum-poa-deployment/azure-monitor.png)
+Voici un exemple de déploiement : ![azure monitor](./media/ethereum-poa-deployment/azure-monitor.png)
 
 #### <a name="summary"></a>Résumé
 
@@ -395,7 +397,7 @@ $MyGatewayName = $splitValue[8]
 
 ## $otherGatewayResourceid tells me what the subscription and VNet GatewayName are
 $OtherGatewayName = $OtherGatewayResourceId.Split('/')[8]
-$Subscription=Select-AzureRmSubscription -SubscriptionId $MySubscriptionid
+$Subscription=Select-AzSubscription -SubscriptionId $MySubscriptionid
 
 ## create a PSVirtualNetworkGateway instance for the gateway I want to connect to
 $OtherGateway=New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -405,10 +407,10 @@ $OtherGateway.GatewayType = "Vpn"
 $OtherGateway.VpnType = "RouteBased"
 
 ## get a PSVirtualNetworkGateway instance for my gateway
-$MyGateway = Get-AzureRmVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
+$MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
 
 ## create the connection
-New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
+New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
 ### <a name="service-monitoring"></a>Surveillance des services

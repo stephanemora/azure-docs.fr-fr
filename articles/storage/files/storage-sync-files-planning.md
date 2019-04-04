@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480717"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918635"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -170,9 +170,9 @@ Le clustering de basculement Windows Server est pris en charge par Azure File Sy
 
 ### <a name="data-deduplication"></a>Déduplication des données
 **Agent version 5.0.2.0**   
-La déduplication des données est prise en charge sur les volumes avec hiérarchisation cloud sur Windows Server 2016 et Windows Server 2019. L’activation de la déduplication sur un volume avec hiérarchisation cloud vous permet de mettre en cache plusieurs fichiers en local sans approvisionner davantage de stockage.
+La déduplication des données est prise en charge sur les volumes avec hiérarchisation cloud sur Windows Server 2016 et Windows Server 2019. Le fait d’activer la déduplication sur un volume pour lequel la hiérarchisation cloud est activée permet de mettre en cache plus de fichiers en local sans avoir à approvisionner davantage de stockage.
 
-**Windows Server 2012 R2 ou versions d’agent plus anciennes**  
+**Windows Server 2012 R2 ou versions plus anciennes de l’agent**  
 Pour les volumes sur lesquels la hiérarchisation cloud n’est pas activée, Azure File Sync prend en charge la déduplication des données Windows Server quand elle est activée sur le volume.
 
 ### <a name="distributed-file-system-dfs"></a>Système de fichiers DFS
@@ -278,6 +278,8 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 | Asie Est           | Asie Sud-Est     |
 | USA Est             | USA Ouest            |
 | USA Est 2           | USA Centre         |
+| Centre de la Corée       | Corée du Sud        |
+| Corée du Sud         | Centre de la Corée      |
 | Europe Nord        | Europe Ouest        |
 | USA Centre Nord    | USA Centre Sud   |
 | Inde Sud         | Inde Centre      |
@@ -291,7 +293,7 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Prenez en compte les paramètres de pare-feu et de proxy](storage-sync-files-firewall-and-proxy.md)
+* [Tient compte des paramètres de pare-feu et proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planification d’un déploiement Azure Files](storage-files-planning.md)
 * [Déployer Azure Files](storage-files-deployment-guide.md)
 * [Déployer Azure File Sync](storage-sync-files-deployment-guide.md)

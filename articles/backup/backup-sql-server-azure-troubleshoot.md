@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847449"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916680"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Résoudre les problèmes de sauvegarde SQL Server sur Azure
 
@@ -67,7 +67,7 @@ Les tableaux suivants sont organisés par code d’erreur.
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-| Azure Backup is not able to connect to the SQL instance. (Sauvegarde Azure n’est pas en mesure de se connecter à l’instance SQL.) | Sauvegarde Azure ne peut pas se connecter à l’instance SQL. | Utilisez les informations supplémentaires dans le menu d’erreur du Portail Azure pour mieux déterminer les causes racines. Consultez [Résoudre les problèmes de connexion au moteur de base de données SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) pour corriger l’erreur.<br/><ul><li>Si les paramètres SQL par défaut n’autorisent pas les connexions à distance, modifiez les paramètres. Consultez les liens ci-dessous pour modifier les paramètres.<ul><li>[https://msdn.microsoft.com/library/bb326495.aspx](https://msdn.microsoft.com/library/bb326495.aspx)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>En cas de problèmes de connexion, reportez-vous aux liens ci-dessous pour apporter les corrections :<ul><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup is not able to connect to the SQL instance. (Sauvegarde Azure n’est pas en mesure de se connecter à l’instance SQL.) | Sauvegarde Azure ne peut pas se connecter à l’instance SQL. | Utilisez les informations supplémentaires dans le menu d’erreur du Portail Azure pour mieux déterminer les causes racines. Consultez [Résoudre les problèmes de connexion au moteur de base de données SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) pour corriger l’erreur.<br/><ul><li>Si les paramètres SQL par défaut n’autorisent pas les connexions à distance, modifiez les paramètres. Consultez les articles suivants pour plus d’informations sur la modification des paramètres.<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>En cas de problèmes de connexion, reportez-vous aux liens ci-dessous pour apporter les corrections :<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
@@ -169,7 +169,8 @@ Ces problèmes peuvent survenir en raison d’une ou plusieurs des raisons suiva
   * Machine virtuelle a été arrêté pendant une période prolongée en raison de laquelle la configuration d’extension dessus expiré
   * Machine virtuelle a été supprimée et une autre machine virtuelle a été créée avec le même nom et du même groupe de ressources en tant que la machine virtuelle supprimée
   * Un des nœuds du groupe de disponibilité n’a pas reçu la configuration de la sauvegarde complète, cela peut se produire au moment de l’inscription du groupe de disponibilité dans le coffre ou quand un nouveau nœud est ajouté  <br>
-    Dans les scénarios ci-dessus, il est recommandé pour déclencher l’opération de Re-register sur la machine virtuelle. Cette option est uniquement disponible via PowerShell et sera bientôt disponible dans le portail Azure également.
+   
+Dans les scénarios ci-dessus, il est recommandé pour déclencher l’opération de Re-register sur la machine virtuelle. Cette option est uniquement disponible via PowerShell et sera bientôt disponible dans le portail Azure également.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 11/07/2018
-ms.openlocfilehash: 96b6b4866b17e15f544a10124d07e651d747b58b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 04/03/2019
+ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306440"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916170"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
 
@@ -43,11 +43,11 @@ La séquence est la suivante :
 
 1. ADO.NET 4.5 (ou version ultérieure) initie une brève interaction avec le cloud Azure et reçoit un numéro de port identifié de manière dynamique.
 
-   * Le numéro de port identifié de manière dynamique appartient à la plage 11000-11999 ou 14000-14999.
+   * Le numéro de port identifié de manière dynamique est dans la plage 11000-11999.
 2. ADO.NET se connecte ensuite au serveur SQL Database directement, sans passer par un intergiciel.
 3. Les requêtes sont envoyées directement à la base de données et les résultats sont retournés directement au client.
 
-Vérifiez que les plages de ports 11000-11999 et 14000-14999 sur votre ordinateur client Azure restent disponibles pour les interactions du client ADO.NET 4.5 avec SQL Database.
+Vérifiez que les plages de ports 11000-11999 sur votre ordinateur client Azure sont restent disponibles pour les interactions du client ADO.NET 4.5 avec SQL Database.
 
 * En particulier, les ports dans la plage doivent être libres de tout autre bloqueur sortant.
 * Sur votre machine virtuelle Azure, le **Pare-feu Windows avec fonctions avancées de sécurité** contrôle les paramètres des ports.
@@ -81,9 +81,9 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 
 * Se connecter à Azure SQL Database V12 via la redirection https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [Liste des versions du protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
+* [Liste de version de protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
-* [Guide pratique pour Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
+* [Activation Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
 
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: 05a2bd5334fe2836a96bd9437121252fe6ef6eff
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882316"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893195"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Stockage et suppression des données dans Language Understanding (LUIS) Cognitive Services
 LUIS stocke les données chiffrées dans un magasin de données Azure correspondant à la région spécifiée par la clé. Ces données sont stockées pendant 30 jours. 
@@ -24,13 +24,33 @@ LUIS stocke les données chiffrées dans un magasin de données Azure correspond
 ## <a name="export-and-delete-app"></a>Exporter et supprimer l’application
 Les utilisateurs ont le contrôle total sur l’[exportation](luis-how-to-start-new-app.md#export-app) et la [suppression](luis-how-to-start-new-app.md#delete-app) de l’application. 
 
-## <a name="utterances-in-an-intent"></a>Énoncés dans une intention
+## <a name="utterances"></a>Énoncés
+
+Énoncés peuvent être stockées dans deux emplacements différents. 
+
+* Au cours de **le processus de création**, énoncés sont créées et stockées dans l’intention. Énoncés dans les intentions sont requis pour une application LUIS réussie. Une fois que l’application est publiée et reçoit des requêtes au point de terminaison, chaîne de requête de la demande de point de terminaison, `log=false`, détermine si l’énoncé de point de terminaison est stocké. Si le point de terminaison est stocké, il devient partie énoncés apprentissage actif trouvé dans le **Build** section du portail, dans le **passez en revue les énoncés de point de terminaison** section. 
+* Lorsque vous **passez en revue les énoncés de point de terminaison**et ajouter un énoncé à une intention, l’énoncé n’est plus stocké dans le cadre des énoncés de point de terminaison à réviser. Il est ajouté à intentions de l’application. 
+
+<a name="utterances-in-an-intent"></a>
+
+### <a name="delete-example-utterances-from-an-intent"></a>Supprimer des énoncés d’exemple à partir d’une intention
 Supprimer des exemples d’énoncés utilisés pour l’apprentissage de [LUIS](luis-reference-regions.md). Si vous supprimez un exemple d’énoncé de votre application LUIS, il est supprimé du service web LUIS et n’est plus disponible pour l’exportation.
 
-## <a name="utterances-in-review"></a>Énoncés et révision
-Vous pouvez supprimer des énoncés de la liste des énoncés d’utilisateurs que LUIS suggère dans la page **[Réviser les énoncés de point de terminaison](luis-how-to-review-endoint-utt.md)**. La suppression d’énoncés de cette liste a pour effet d’empêcher leur suggestion, mais pas de les supprimer des journaux.
+<a name="utterances-in-review"></a>
 
-## <a name="accounts"></a>Comptes
+### <a name="delete-utterances-in-review-from-active-learning"></a>Supprimer des énoncés dans la révision d’apprentissage actif
+
+Vous pouvez supprimer des énoncés de la liste des énoncés d’utilisateurs que LUIS suggère dans la page **[Réviser les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md)**. La suppression d’énoncés de cette liste a pour effet d’empêcher leur suggestion, mais pas de les supprimer des journaux.
+
+Si vous ne souhaitez pas énoncés d’apprentissage actif, vous pouvez [désactiver apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). La désactivation d’apprentissage actif désactive également la journalisation.
+
+### <a name="disable-logging-utterances"></a>Désactiver la journalisation des énoncés
+[La désactivation d’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning) désactive ouvre une session.
+
+
+<a name="accounts"></a>
+
+## <a name="delete-an-account"></a>Supprimer un compte
 Si vous supprimez un compte, toutes les applications sont supprimées, ainsi que leurs exemples d’énoncés et journaux. Les données sont conservées pendant 60 jours avant que le compte et les données ne soient définitivement supprimés.
 
 La suppression d’un compte est possible à partir de la page **Paramètres**. Sélectionnez le nom de votre compte en haut à droite dans la barre de navigation supérieure pour accéder à la page **Paramètres**.
@@ -46,4 +66,4 @@ Dans le cadre de la conservation et de la suppression des données, une applicat
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur l’exportation et la suppression d’une application](luis-how-to-start-new-app.md)
+> [En savoir plus sur l’exportation et suppression d’une application](luis-how-to-start-new-app.md)

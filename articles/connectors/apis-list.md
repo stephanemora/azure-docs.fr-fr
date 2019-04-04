@@ -1,5 +1,5 @@
 ---
-title: Connecteurs pour Azure Logic Apps | Microsoft Docs
+title: Connecteurs pour Azure Logic Apps
 description: Automatiser les flux de travail avec des connecteurs pour Azure Logic Apps, notamment des connecteurs intégrés, gérés, locaux, de compte d’intégration et d’entreprise
 services: logic-apps
 ms.service: logic-apps
@@ -9,25 +9,27 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: b320696a56855baaa4af10177d25dfe9973ee73a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: HT
+ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635439"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895881"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
 
-Les connecteurs jouent un rôle important lorsque vous créez des flux de travail automatisés avec Azure Logic Apps. En utilisant des connecteurs dans vos applications logiques, vous développez les fonctionnalités de vos applications locales et cloud pour effectuer des opérations sur les données que vous créez et dont vous disposez déjà. 
+Connecteurs de fournissent un accès rapide à partir d’Azure Logic Apps aux événements, les données et les actions sur les autres applications, les services, les systèmes, les protocoles et les plateformes. À l’aide de connecteurs dans vos applications logiques, vous développez les fonctionnalités pour vos applications cloud et locaux effectuer des tâches avec les données que vous créez et que vous avez déjà.
 
-Logic Apps offre [plus de 200 connecteurs](https://docs.microsoft.com/connectors). Cet article décrit les connecteurs les plus courants et les plus utilisés par des milliers d’applications et des millions d’exécutions pour le traitement des données et des informations. Les connecteurs sont disponibles en tant que connecteurs intégrés ou gérés. 
+Logic Apps offre [plus de 200 connecteurs](https://docs.microsoft.com/connectors). Cet article décrit les connecteurs les plus courants et les plus utilisés par des milliers d’applications et des millions d’exécutions pour le traitement des données et des informations. Pour trouver la liste complète des connecteurs et des informations de référence de chaque connecteur, tels que les déclencheurs, actions et limites, examinez le connecteur fait référence à pages sous [vue d’ensemble des connecteurs](https://docs.microsoft.com/connectors). En outre, en savoir plus sur [déclencheurs et actions](#triggers-actions).
 
 > [!NOTE]
-> Pour obtenir la liste complète des connecteurs et des informations de référence sur chaque connecteur, telles que les actions, les déclencheurs et les limites, consultez la [vue d’ensemble des connecteurs](https://docs.microsoft.com/connectors).
+> Pour intégrer un service ou l’API n’ayant pas de connecteur, vous pouvez directement appeler le service via un protocole tel que HTTP, ou créer un [connecteur personnalisé](#custom).
 
-* [**Intégrés**](#built-ins) : ces actions et déclencheurs intégrés vous permettent de créer des applications logiques qui s’exécutent selon des planifications personnalisées, communiquent avec d’autres points de terminaison, reçoivent et répondent aux requêtes et appellent des fonctions Azure, Azure API Apps (Web Apps), vos propres API gérées et publiées avec Gestion des API Azure et des applications logiques imbriquées qui peuvent recevoir des requêtes. Vous pouvez également utiliser des actions intégrées pour organiser et contrôler le flux de travail de votre application logique et exploiter vos données.
+Les connecteurs sont disponibles en tant que déclencheurs intégrés et les actions ou en tant que connecteurs gérés :
 
-* **Connecteurs gérés** : ces connecteurs fournissent des déclencheurs et des actions pour accéder à d’autres services et systèmes. Pour certains connecteurs, vous devez d’abord créer les connexions gérées par Azure Logic Apps. Les connecteurs gérés sont organisés dans les groupes suivants :
+* [**Intégrés**](#built-ins): Ces actions intégrées et les déclencheurs sont « natives » pour Azure Logic Apps et vous aident à que créer des applications logiques qui s’exécutent sur des planifications personnalisées, communiquent avec d’autres points de terminaison, recevant et répondent aux demandes et appellent des fonctions Azure, Azure API Apps (applications Web), vos propres API géré et publié avec gestion des API Azure et les applications logiques imbriquées qui peuvent recevoir des requêtes. Vous pouvez également utiliser des actions intégrées pour organiser et contrôler le flux de travail de votre application logique et exploiter vos données.
+
+* **Connecteurs managés** : Déployés et gérés par Microsoft, ces connecteurs fournissent des déclencheurs et actions pour l’accès à d’autres services et les systèmes tels que Office 365, le stockage Blob Azure, SQL Server, Salesforce et bien plus encore. Certains connecteurs nécessitent que vous créez tout d’abord les connexions, qui sont gérées par Azure Logic Apps. Les connecteurs gérés sont organisés dans les groupes suivants :
 
   |   |   |
   |---|---|
@@ -40,7 +42,7 @@ Logic Apps offre [plus de 200 connecteurs](https://docs.microsoft.com/connector
   Par exemple, si vous utilisez Microsoft BizTalk Server, vos applications logiques peuvent se connecter et communiquer avec votre instance BizTalk Server en utilisant le [connecteur BizTalk Server](#on-premises-connectors). 
   Vous pouvez ensuite étendre ou exécuter des opérations de type BizTalk dans vos applications logiques à l’aide de [connecteurs de compte d’intégration](#integration-account-connectors). 
 
-> [!NOTE] 
+> [!NOTE]
 > Pour obtenir la liste complète des connecteurs et des informations de référence sur chaque connecteur, telles que les actions et les déclencheurs, qui sont définis par une description Swagger, ainsi que les limites, consultez la [vue d’ensemble des connecteurs](/connectors/). Pour des informations sur les tarifs, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) et le [Modèle de tarification de Logic Apps](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
@@ -74,9 +76,9 @@ Voici les actions intégrées pour travailler avec les sorties de données et le
 
 |   |   | 
 |---|---| 
-| [![Icône intégrée][data-operations-icon]<br/>**Opérations avec les données**][data-operations-doc] | Effectuez des opérations avec les données : <p>- **Composer** : créez une sortie unique à partir de plusieurs entrées avec différents types. <br>- **Créer une table CSV** : créez une table CSV (valeurs séparées par des virgules) à partir d’un tableau avec des objets JSON. <br>- **Créer une table HTML** : créez une table HTML à partir d’un tableau avec des objets JSON. <br>- **Filtrer le tableau** : créez un tableau à partir des éléments d’un autre tableau correspondant à vos critères. <br>- **Joindre** : créez une chaîne à partir de tous les éléments d’un tableau et séparez ces éléments avec le séparateur spécifié. <br>- **Analyser JSON** : créez des jetons conviviaux à partir des propriétés et de leurs valeurs dans le contenu JSON afin de pouvoir utiliser ces propriétés dans votre flux de travail. <br>- **Sélectionner** : créez un tableau avec des objets JSON en transformant les éléments ou les valeurs d’un autre tableau et en mappant ces éléments sur les propriétés spécifiées. | 
-| ![Icône d’élément intégré][date-time-icon]<br/>**Date Heure** | Effectuez des opérations avec les horodatages : <p>- **Ajouter au timestamp** : ajoutez le nombre spécifié d’unités à un timestamp. <br>- **Convertir le fuseau horaire** : convertissez un timestamp du fuseau horaire source au fuseau horaire cible. <br>- **Timestamp actuel** : renvoyez le timestamp actuel sous forme de chaîne. <br>- **Obtenir le timestamp futur** : renvoyez le timestamp actuel plus les unités de temps spécifiées. <br>- **Obtenir le timestamp passé** : renvoyez le timestamp actuel moins les unités de temps spécifiées. <br>- **Soustraire du timestamp** : soustrayez un nombre d’unités de temps d’un timestamp. |
-| [![Icône d’élément intégré][variables-icon]<br/>**Variables**][variables-doc] | Effectuez des opérations avec les variables : <p>- **Ajouter à la variable du tableau** : insérez une valeur en tant que dernier élément dans un tableau stocké par une variable. <br>- **Ajouter à la variable de chaîne** : insérez une valeur en tant que dernier caractère dans une chaîne stockée par une variable. <br>- **Décrémenter une variable** : diminuez une variable d’une valeur constante. <br>- **Incrémenter une variable** : augmentez une variable d’une valeur constante. <br>- **Initialiser une variable** : créez une variable et déclarez son type de données et sa valeur initiale. <br>- **Définir une variable** : attribuez une valeur différente à une variable existante. |
+| [![Icône intégrée][data-operations-icon]<br/>**Opérations avec les données**][data-operations-doc] | Effectuez des opérations avec les données : <p>- **Compose**: Créer une sortie unique à partir de plusieurs entrées avec différents types. <br>- **Créer un tableau CSV**: Créer une table (CSV) de valeurs séparées par des virgules à partir d’un tableau avec des objets JSON. <br>- **Créer un tableau HTML**: Créer un tableau HTML à partir d’un tableau avec des objets JSON. <br>- **Filtrer le tableau**: Créer un tableau des éléments dans un autre tableau qui répondent à vos critères. <br>- **Joindre**: Créer une chaîne à partir de tous les éléments dans un tableau et séparer ces éléments avec le séparateur spécifié. <br>- **Analyser JSON**: Créer des jetons conviviaux à partir des propriétés et leurs valeurs dans le contenu JSON afin de pouvoir utiliser ces propriétés dans votre flux de travail. <br>- **Sélectionnez**: Créer un tableau avec des objets JSON par transformation des éléments ou des valeurs dans un autre tableau et le mappage de ces éléments pour les propriétés spécifiées. | 
+| ![Icône intégrée][date-time-icon]<br/>**Date Heure** | Effectuez des opérations avec les horodatages : <p>- **Ajouter à la fois**: Ajouter le nombre spécifié d’unités à un horodateur. <br>- **Convertir le fuseau horaire**: Convertit un horodatage du fuseau horaire source au fuseau horaire cible. <br>- **Heure actuelle**: Renvoyer le timestamp actuel sous forme de chaîne. <br>- **Obtenir l’heure future**: Retourne l’horodatage actuel plus les unités de temps spécifiées. <br>- **Obtenir l’heure passée**: Retourne l’horodatage actuel moins les unités de temps spécifiées. <br>- **Soustraire de temps**: Soustrait un nombre d’unités de temps d’un horodatage. |
+| [![Icône d’élément intégré][variables-icon]<br/>**Variables**][variables-doc] | Effectuez des opérations avec les variables : <p>- **Ajouter à la variable de tableau**: Insérer une valeur en tant que le dernier élément dans un tableau stocké par une variable. <br>- **Ajouter à la variable de chaîne**: Insérer une valeur en tant que le dernier caractère dans une chaîne stockée par une variable. <br>- **Décrémenter une variable**: Réduire une variable par une valeur constante. <br>- **Incrémenter la variable**: Augmenter une variable par une valeur constante. <br>- **Initialiser la variable**: Créez une variable et déclarer son type de données et sa valeur initiale. <br>- **Définir la variable**: Affectez une valeur différente dans une variable existante. |
 |  |  | 
 
 <a name="managed-api-connectors"></a>
@@ -103,7 +105,7 @@ Les connecteurs suivants sont couramment utilisés pour fournir un accès aux do
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
-| ![Icône API][biztalk-server-icon]<br/>**BizTalk**</br> **Serveur** | [![Icône d’API][file-system-icon]<br/>**Système de</br> fichiers**][file-system-doc] | [![Icône d’API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![Icône d’API][ibm-informix-icon]<br/>**IBM**</br>**Informix**][ibm-informix-doc] | ![Icône d’API][mysql-icon]<br/>**MySQL** | 
+| ![Icône d’API][biztalk-server-icon]<br/>**BizTalk**</br> **Serveur** | [![Icône d’API][file-system-icon]<br/>**Système de</br> fichiers**][file-system-doc] | [![Icône d’API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![Icône d’API][ibm-informix-icon]<br/>**IBM**</br>**Informix**][ibm-informix-doc] | ![Icône d’API][mysql-icon]<br/>**MySQL** | 
 | [![Icône d’API][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![Icône d’API][postgre-sql-icon]<br/>**PostgreSQL** | [![Icône d’API][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![Icône d’API][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![Icône d’API][teradata-icon]<br/>**Teradata** | 
 ||||| 
 
@@ -131,25 +133,36 @@ Vos applications logiques peuvent accéder aux systèmes d’entreprise, tels qu
 | [![Icône d’API][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![Icône d’API][sap-icon]<br/>**SAP**][sap-connector-doc] |
 ||| 
 
-## <a name="more-about-triggers-and-actions"></a>Informations supplémentaires sur les déclencheurs et les actions
+<a name="triggers-actions"></a>
 
-Certains connecteurs fournissent des *déclencheurs* qui préviennent votre application logique lorsque des événements spécifiques se produisent. Ainsi, lorsque ces événements se produisent, le déclencheur crée et exécute une instance de votre application logique. Par exemple, le connecteur FTP comporte un déclencheur « lors de l’ajout ou de la modification d’un fichier » qui démarre votre application logique lorsqu’un fichier est mis à jour. 
+## <a name="triggers-and-actions---more-info"></a>Déclencheurs et actions - plus d’informations
 
-Logic Apps fournit les types de déclencheurs suivants :  
+Connecteurs peuvent assurer *déclencheurs*, *actions*, ou les deux. Un *déclencheur* est la première étape dans n’importe quelle application logique, généralement en spécifiant l’événement qui active le déclencheur et commence à s’exécuter votre application logique. Par exemple, le connecteur FTP comporte un déclencheur qui démarre votre application logique « quand un fichier est ajouté ou modifié ». Certains déclencheurs vérifier régulièrement si l’événement spécifié ou les données et puis déclenchent lorsqu’ils détectent l’événement spécifié ou les données. Autres déclencheurs attendez mais se déclenchent instantanément quand un événement spécifique survient ou lorsque de nouvelles données sont disponibles. Déclencheurs transmettent également les données requises à votre application logique. Votre application logique peut lire et utiliser ces données tout au long du flux de travail.
+Par exemple, le connecteur Twitter comporte un déclencheur, « Lorsqu’un nouveau tweet est publié », qui transmet le tweet du contenu dans les flux de travail de votre application logique. 
 
-* *Déclencheurs d’interrogation* : ces déclencheurs interrogent votre service selon une fréquence spécifiée et vérifient l’existence de nouvelles données. 
+Une fois un déclencheur est activé, Azure Logic Apps crée une instance de votre application logique et démarre l’exécution le *actions* dans le flux de travail de votre application logique. Les actions sont les étapes qui suivent le déclencheur et d’effectuer des tâches dans le flux de travail de votre application logique. Par exemple, vous pouvez créer une application logique qui obtient des données client à partir d’une base de données SQL et traiter ces données dans les actions ultérieures. 
 
-  Quand de nouvelles données sont disponibles, une nouvelle instance de votre application logique est créée et s’exécute avec les données transmises en entrée. 
+Voici les principaux types de déclencheurs Azure Logic Apps fournit :
 
-* *Déclencheurs d’émission* : ces déclencheurs écoutent les nouvelles données sur un point de terminaison ou attendent qu’un événement se produise, qui crée et exécute une nouvelle instance de votre application logique.
+* *Déclencheur de périodicité*: Ce déclencheur s’exécute selon une planification définie et n’est pas étroitement associé à un système ou un service particulier.
 
-* *Déclencheur récurrence* : ce déclencheur crée et exécute une instance de votre application logique en fonction d’une planification spécifiée.
+* *Déclencheur d’interrogation*: Ce déclencheur interroge régulièrement un service spécifique ou un système basé sur la planification spécifiée, en recherchant les nouvelles données ou indique si un événement spécifique s’est produit. Si de nouvelles données sont disponibles, ou l’événement spécifique s’est produit, le déclencheur crée et exécute une nouvelle instance de votre application logique, qui peut maintenant utiliser les données qui sont passées en tant qu’entrée.
 
-Les connecteurs fournissent également des *actions* qui effectuent des tâches dans le flux de travail de votre application. Par exemple, votre application logique peut lire des données et les utiliser par la suite. Plus spécifiquement, votre application logique peut rechercher des données client dans une base de données SQL et traiter ces données ultérieurement dans le flux de travail de votre application logique. 
+* *Déclencheurs d’émission :*: Ce déclencheur attend et écoute pour les nouvelles données ou pour un événement se produise. Lorsque de nouvelles données sont disponibles ou lorsque l’événement se produit, le déclencheur crée et exécute la nouvelle instance de votre application logique, qui peut maintenant utiliser les données qui sont passées en tant qu’entrée.
 
-Pour plus d’informations sur les déclencheurs et les actions, consultez la [Vue d’ensemble des connecteurs](connectors-overview.md). 
+<a name="custom"></a>
 
-## <a name="custom-apis-and-connectors"></a>Connecteurs et API personnalisés 
+## <a name="connector-configuration"></a>Configuration du connecteur
+
+Déclencheurs et les actions de chaque connecteur fournissent leurs propres propriétés, vous pouvez configurer. Nombre de connecteurs nécessite également que vous créez tout d’abord un *connexion* au service cible ou au système et fournir des informations d’identification d’authentification ou d’autres détails de configuration avant de pouvoir utiliser un déclencheur ou une action dans votre application logique. Par exemple, vous devez autoriser une connexion à un compte Twitter pour accéder aux données ou pour publier de votre part. 
+
+Pour les connecteurs utilisant OAuth, la création d’une connexion signifie se connecter au service, comme Office 365, Salesforce ou GitHub, où votre jeton d’accès est chiffré et stocké en toute sécurité dans un magasin des secrets Azure. Autres connecteurs, tels que FTP et SQL, nécessitent une connexion qui a des détails de configuration, telles que l’adresse du serveur, le nom d’utilisateur et le mot de passe. Détails de configuration de la connexion sont également chiffrées et stockées en toute sécurité. 
+
+Connexions peuvent accéder au service cible ou un système pour tant que ce service ou le système permet. Pour les services qui utilisent des connexions OAuth d’Azure Active Directory (AD), tels que Office 365 et Dynamics, Azure Logic Apps actualise les jetons d’accès indéfiniment. Autres services peuvent placer des limites sur la durée pendant laquelle Azure Logic Apps peut utiliser un jeton sans actualiser. En règle générale, certaines actions invalident tous les jetons d’accès, telles que la modification de votre mot de passe.
+
+<a name="custom"></a>
+
+## <a name="custom-apis-and-connectors"></a>Connecteurs et API personnalisés
 
 Pour appeler des API qui exécutent du code personnalisé ou qui ne sont pas disponibles en tant que connecteurs, vous pouvez étendre la plateforme Logic Apps [en créant des applications API personnalisées](../logic-apps/logic-apps-create-api-app.md). Vous pouvez également [créer des connecteurs personnalisés](../logic-apps/custom-connector-overview.md) pour *n’importe quelle* API REST ou SOAP, ce qui rend ces API disponibles pour n’importe quelle application logique dans votre abonnement Azure.
 Pour rendre les applications API ou les connecteurs personnalisés publics afin que tout le monde puisse les utiliser dans Azure, vous pouvez [soumettre des connecteurs à la certification Microsoft](../logic-apps/custom-connector-submit-certification.md).
@@ -160,12 +173,10 @@ Pour rendre les applications API ou les connecteurs personnalisés publics afin 
 
 * Pour voter pour des idées ou en soumettre pour Azure Logic Apps et les connecteurs, rendez-vous sur le [site de commentaires des utilisateurs de Logic Apps](https://aka.ms/logicapps-wish).
 
-* Des articles ou des détails vous semblant importants manquent-ils dans les documents ? Si oui, vous pouvez contribuer en ajoutant des informations aux articles existants ou en écrivant le vôtre. Notre documentation est open source et hébergée sur GitHub. Prise en main dans le [référentiel GitHub](https://github.com/Microsoft/azure-docs) de la documentation Azure. 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Rechercher la [liste complète des connecteurs](https://docs.microsoft.com/connectors)
-* [Créez votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Créer des connecteurs personnalisés pour les applications logiques](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Créer des API personnalisées pour les applications logiques](../logic-apps/logic-apps-create-api-app.md)
 

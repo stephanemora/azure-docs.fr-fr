@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 4e91e193b3980901e7778a8826989e729517a29a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481754"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905696"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
 
@@ -41,6 +41,9 @@ Lorsque vous utilisez la solution, vous pouvez :
 - Mettre en corrélation les données d’infrastructure et les données d’application
 - Visualiser les données d’application avec des perspectives dans la recherche dans les journaux
 - Passer des données Log Analytics à votre application Application Insights dans les portails Azure
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="connected-sources"></a>Sources connectées
 
@@ -96,9 +99,9 @@ Le tableau de bord comprend les panneaux figurant dans le tableau. Chaque pannea
 
 | **Colonne** | **Description** |
 | --- | --- |
-| Applications - Nombre d’applications | Affiche le nombre d’applications dans les ressources Application. Répertorie également le nom des applications et pour chacune, le nombre d’enregistrements de l’application. Cliquez sur le nombre pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Cliquez sur le nom d’une application pour exécuter une recherche dans les journaux de l’application, afin d’afficher les enregistrements d’application par hôte, les enregistrements par type de donnée de télémétrie et toutes les données par type (en fonction du dernier jour). |
-| Volume de données – Hôtes envoyant des données | Affiche le nombre d’ordinateurs hôtes qui envoient des données. Répertorie également les ordinateurs hôtes et le nombre d’enregistrements pour chaque hôte. Cliquez sur le nombre pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code>. <br><br> Cliquez sur le nom d’un ordinateur pour exécuter une recherche dans les journaux de l’hôte, afin d’afficher les enregistrements d’application par hôte, les enregistrements par type de donnée de télémétrie et toutes les données par type (en fonction du dernier jour). |
-| Disponibilité – Résultats du test web | Affiche un graphique en anneau pour les résultats du test web, spécifiant si le test a réussi ou échoué. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code>. <br><br> Les résultats indiquent le nombre de réussites et d’échecs pour tous les tests. Toutes les applications web sont présentées avec le trafic pour la dernière minute. Cliquez sur le nom d’une application pour afficher une recherche dans les journaux présentant les détails des tests web ayant échoué. |
+| Applications - Nombre d’applications | Affiche le nombre d’applications dans les ressources Application. Répertorie également le nom des applications et pour chacune, le nombre d’enregistrements de l’application. Cliquez sur le nombre pour exécuter une recherche de journal pour <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Cliquez sur le nom d’une application pour exécuter une recherche dans les journaux de l’application, afin d’afficher les enregistrements d’application par hôte, les enregistrements par type de donnée de télémétrie et toutes les données par type (en fonction du dernier jour). |
+| Volume de données – Hôtes envoyant des données | Affiche le nombre d’ordinateurs hôtes qui envoient des données. Répertorie également les ordinateurs hôtes et le nombre d’enregistrements pour chaque hôte. Cliquez sur le nombre pour exécuter une recherche de journal pour <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Cliquez sur le nom d’un ordinateur pour exécuter une recherche dans les journaux de l’hôte, afin d’afficher les enregistrements d’application par hôte, les enregistrements par type de donnée de télémétrie et toutes les données par type (en fonction du dernier jour). |
+| Disponibilité – Résultats du test web | Affiche un graphique en anneau pour les résultats du test web, spécifiant si le test a réussi ou échoué. Cliquez sur le graphique pour exécuter une recherche de journal pour <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Les résultats indiquent le nombre de réussites et d’échecs pour tous les tests. Toutes les applications web sont présentées avec le trafic pour la dernière minute. Cliquez sur le nom d’une application pour afficher une recherche dans les journaux présentant les détails des tests web ayant échoué. |
 | Requêtes de serveur – Requêtes par heure | Affiche un graphique en courbes des requêtes de serveur par heure pour différentes applications. Placez le curseur sur une ligne du graphique pour afficher les 3 applications ayant reçu le plus de requêtes à un moment donné. Affiche également une liste des applications recevant des requêtes et le nombre de requêtes pour la période sélectionnée. <br><br>Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> et afficher un graphique en courbes plus détaillé des requêtes de serveur par heure pour diverses applications. <br><br> Cliquez sur une application dans la liste pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> et afficher une liste des requêtes, des graphiques pour les requêtes en fonction du temps, la durée des requêtes et une liste des codes de réponse aux requêtes.   |
 | Échecs – Requêtes ayant échoué par heure | Affiche un graphique en courbes des requêtes d’application ayant échoué par heure. Placez le curseur sur le graphique pour afficher les 3 applications ayant le plus de requêtes en échec à un moment donné. Affiche également une liste d’applications avec le nombre de requêtes ayant échoué pour chacune. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> et afficher un graphique en courbes plus détaillé des requêtes d’application ayant échoué. <br><br>Cliquez sur un élément dans la liste pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> et afficher les requêtes ayant échoué, des graphiques pour les requêtes ayant échoué en fonction du temps, la durée des requêtes et une liste des codes de réponse aux requêtes ayant échoué. |
 | Exceptions – Exceptions par heure | Affiche un graphique en courbes des exceptions par heure. Placez le curseur sur le graphique pour afficher les 3 applications ayant le plus d’exceptions à un moment donné. Affiche également une liste d’applications avec le nombre d’exceptions pour chacune. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> et afficher un graphique en courbes plus détaillé des exceptions. <br><br>Cliquez sur un élément dans la liste pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> et afficher la liste des exceptions, des graphiques pour les exceptions en fonction du temps et des demandes ayant échoué, et une liste des types d’exception.  |
@@ -280,25 +283,25 @@ $Subscription_workspace = "Workspace Subscription Name"
 $ResourceGroup_workspace = "Workspace ResourceGroup"
 $Workspace = "Workspace Name"
 
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId $Subscription_app
-$AIApp = Get-AzureRmApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
-Set-AzureRmContext -SubscriptionId $Subscription_workspace
-Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
+Connect-AzAccount
+Set-AzContext -SubscriptionId $Subscription_app
+$AIApp = Get-AzApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
+Set-AzContext -SubscriptionId $Subscription_workspace
+Remove-AzOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
 ```
 
 Vous pouvez récupérer une liste d’applications avec le script PowerShell suivant, qui invoque un appel d’API REST. 
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 $Tenant = "TenantId"
 $Subscription_workspace = "Workspace Subscription Name"
 $ResourceGroup_workspace = "Workspace ResourceGroup"
 $Workspace = "Workspace Name"
 $AccessToken = "AAD Authentication Token" 
 
-Set-AzureRmContext -SubscriptionId $Subscription_workspace
-$LAWorkspace = Get-AzureRmOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
+Set-AzContext -SubscriptionId $Subscription_workspace
+$LAWorkspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
 
 $Headers = @{
     "Authorization" = "Bearer $($AccessToken)"

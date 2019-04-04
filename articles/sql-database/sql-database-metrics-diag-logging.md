@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863132"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905201"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -64,14 +64,14 @@ Vous pouvez configurer les bases de données SQL Azure et instance pour collecte
 | :------------------- | ----- | ----- |
 | [Toutes les métriques](#all-metrics) : Pourcentage DTU/CPU, Limite DTU/CPU, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP. | Oui | Non  |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics) : contient des informations sur les statistiques d’exécution de requête comme les statistiques concernant l’utilisation du processeur et la durée des requêtes. | Oui | Oui |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics) : contient des informations sur les statistiques d’attente des requêtes (ce que vos requêtes ont attendu) comme CPU, LOG et LOCKING. | Oui | Oui |
-| [Errors](#errors-dataset) : contient des informations sur les erreurs SQL au niveau de la base de données. | Oui | Oui |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset) : contient des informations sur le temps que la base de données a passé à attendre différents types d’attente. | Oui | Non  |
-| [Timeouts](#time-outs-dataset) : contient des informations sur les délais d’expiration au niveau de la base de données. | Oui | Non  |
-| [Blocks](#blockings-dataset) : contient des informations sur les événements bloquants au niveau de la base de données. | Oui | Non  |
-| [Blocages](#deadlocks-dataset): Contient des informations sur les événements de blocage sur la base de données. | Oui | Non  |
-| [AutomaticTuning](#automatic-tuning-dataset): Contient des informations sur les recommandations de réglage automatique sur la base de données. | Oui | Non  |
-| [SQLInsights](#intelligent-insights-dataset) : contient des informations Intelligent Insights relatives aux performances. Pour plus d’informations, consultez [Intelligent Insights](sql-database-intelligent-insights.md). | Oui | Oui |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics) : Contient des informations sur les statistiques d’attente de requête (ce que vos requêtes attendue) par exemple sont des UC, de journal et de verrouillage. | Oui | Oui |
+| [Erreurs](#errors-dataset) : Contient des informations sur les erreurs SQL sur une base de données. | Oui | Oui |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset) : Contient des informations sur combien de temps une base de données a passé à attendre différents types d’attente. | Oui | Non  |
+| [Timeouts](#time-outs-dataset) : Contient des informations sur les délais d’attente sur une base de données. | Oui | Non  |
+| [Blocks](#blockings-dataset) : Contient des informations sur le blocage des événements sur une base de données. | Oui | Non  |
+| [Blocages](#deadlocks-dataset): Contient des informations sur les événements de blocage sur une base de données. | Oui | Non  |
+| [AutomaticTuning](#automatic-tuning-dataset): Contient des informations sur les recommandations de réglage automatique pour une base de données. | Oui | Non  |
+| [SQLInsights](#intelligent-insights-dataset) : Contient Intelligent Insights des performances pour une base de données. Pour plus d’informations, consultez [Intelligent Insights](sql-database-intelligent-insights.md). | Oui | Oui |
 
 > [!IMPORTANT]
 > Les pools élastiques et des instances gérées ont son propre télémétrie de diagnostic distincts à partir de bases de données qu’ils contiennent. Ceci est important de noter que les données de télémétrie de diagnostic sont configurée séparément pour chacune de ces ressources, comme indiqué ci-dessous.

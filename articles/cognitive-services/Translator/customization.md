@@ -3,19 +3,19 @@ title: Personnalisation de la traduction - API de traduction de texte Translator
 titlesuffix: Azure Cognitive Services
 description: Utilisez Microsoft Translator Hub pour générer votre propre système de traduction automatique à l’aide de la terminologie et du style de votre choix.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: e66387a904f0026eb862178b19fd1b005212d674
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124012"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918227"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
 
@@ -47,7 +47,7 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator ou hub
 
-|   | **Concentrateur** | **Custom Translator**|
+|   | **Hub** | **Custom Translator**|
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2 uniquement   | V3 uniquement |
@@ -66,4 +66,4 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Configurer un système de langue personnalisé à l’aide de Custom Translator](https://aka.ms/CustomTranslatorDocs)
+> [Configurer un système de langage personnalisés à l’aide personnalisée Translator](https://aka.ms/CustomTranslatorDocs)

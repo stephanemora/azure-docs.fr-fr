@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: d775fff16380ebe08159123aa9e6084055a5be8d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877565"
+ms.locfileid: "58891582"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
 
@@ -30,7 +30,7 @@ Un widget **Insight cognitifs** inclut tous les insights visuels extraits à par
 
 |Nom|Définition|Description|
 |---|---|---|
-|widgets|Chaînes séparées par des virgules|Vous permet de contrôler les insights dont vous voulez faire le rendu. <br/>Exemple : `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` affichera uniquement les insights d’IU des marques (brands) et des personnes (people)<br/>Options disponibles : personnes (people), mots clés (keywords), annotations, marques (brands), sentiments, transcription (transcript), recherche (search).<br/>non pris en charge via l’URL dans la version=2<br/><br/>**Remarque :** le paramètre d’URL des **widgets** n’est pas pris en charge si la **version=2** est utilisée. |
+|widgets|Chaînes séparées par des virgules|Vous permet de contrôler les insights dont vous voulez faire le rendu. <br/>Exemple : `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` affichera uniquement les insights d’IU des marques (brands) et des personnes (people)<br/>Options disponibles : personnes (people), mots clés (keywords), annotations, marques (brands), sentiments, transcription (transcript), recherche (search).<br/>non pris en charge via l’URL dans la version=2<br/><br/>**Remarque :** Le paramètre d’URL de widgets n’est pas pris en charge dans la version 2. |
 
 ### <a name="player-widget"></a>Widget Lecteur
 
@@ -254,4 +254,4 @@ Lecture d’automatique : par défaut, le lecteur démarrera la lecture de la vi
 
 Pour plus d’informations sur la façon d’afficher et de modifier les insights de Video Indexer, consultez [cet](video-indexer-view-edit.md) article.
 
-Consultez également la section [Codepen d’indexeur vidéo](https://codepen.io/videoindexer/pen/eGxebZ).
+Découvrez également [Video indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).

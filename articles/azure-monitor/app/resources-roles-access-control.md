@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 36b49002a5e947f2803e00974f242e49eb26d45b
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 213f4313e96638e4d94455be5f16aa3221d35b73
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309248"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905679"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Contrôle d’accès, rôles et ressources dans Application Insights
 
@@ -25,6 +25,9 @@ Vous pouvez contrôler qui a lu et mis à jour l’accès à vos données dans A
 
 > [!IMPORTANT]
 > Accordez l’accès aux utilisateurs dans le **groupe de ressources ou l’abonnement** auquel appartient votre ressource d’application et non dans la ressource elle-même. Affectez le rôle de **collaborateur de composants Application Insights** . Cela garantit un contrôle d’accès uniforme aux tests et aux alertes Web, ainsi qu’aux ressources de votre application. [En savoir plus](#access).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="resources-groups-and-subscriptions"></a>Ressources, groupes et abonnements
 
@@ -82,7 +85,7 @@ Le cas échéant, le lien est établi vers la documentation de référence offic
 | --- | --- |
 | [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Peut tout modifier, y compris l’accès utilisateur. |
 | [Contributeur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Peut tout modifier, y compris l’ensemble des ressources. |
-| [Contributeur de composants Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Peut modifier les ressources, les tests web et les alertes Application Insights. |
+| [collaborateur de composants Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Peut modifier les ressources, les tests web et les alertes Application Insights. |
 | [Lecteur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Peut afficher les éléments, mais ne peut rien modifier. |
 | [Débogueur de capture instantanée d’Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Autorise l’utilisateur à utiliser les fonctionnalités du débogueur de capture instantanée d’Application Insights. Remarquez que ce rôle n’est pas inclus dans les rôles de propriétaire et de contributeur. |
 | Contributeur de gestion des mises en production de déploiement Azure Service | Rôle de contributeur pour le déploiement de services via le déploiement Azure Service. |
@@ -91,9 +94,9 @@ Le cas échéant, le lien est établi vers la documentation de référence offic
 | [Contributeur Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Peut lire toutes les données de surveillance et modifier les paramètres de surveillance. La modification des paramètres de surveillance inclut l’ajout de l’extension de machine virtuelle aux machines virtuelles, la lecture des clés de comptes de stockage permettant de configurer la collection de journaux du stockage Azure, la création et la configuration de comptes Automation, l’ajout de solutions et la configuration de diagnostics Azure sur toutes les ressources Azure.  |
 | [Lecteur Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Peut afficher et rechercher toutes les données de surveillance, ainsi qu’afficher les paramètres de surveillance, notamment la configuration des diagnostics Azure sur toutes les ressources Azure. |
 | masterreader | Permet à un utilisateur d’afficher tous les éléments, mais sans apporter de modifications. |
-| [Contributeur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Peut lire toutes les données de surveillance et mettre à jour les paramètres de surveillance. |
+| [Contributeur d’analyse](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Peut lire toutes les données de surveillance et mettre à jour les paramètres de surveillance. |
 | [Publication des métriques de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Permet de publier les métriques relatives aux ressources Azure. |
-| [Lecteur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Peut lire toutes les données de surveillance. |
+| [Lecteur d’analyse](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Peut lire toutes les données de surveillance. |
 | Contributeur de stratégie de ressource (préversion) | Utilisateurs renvoyés de EA, avec des droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire une ressource/hiérarchie.  |
 | [Administrateur de l'accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) | Permet à un utilisateur de gérer l’accès d’autres utilisateurs à des ressources Azure.|
 | [Contributeur de site web](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#website-contributor) | Vous permet de gérer des sites web (pas des plans web), mais pas d’y accéder.|
@@ -112,7 +115,7 @@ Si l’utilisateur n’est pas dans le répertoire, vous pouvez inviter toute pe
 
 ## <a name="related-content"></a>Contenu connexe
 
-* [Contrôle d’accès en fonction du rôle dans Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Contrôle d’accès dans Azure en fonction du rôle](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Requête PowerShell permettant de déterminer l’appartenance au rôle
 
@@ -121,7 +124,7 @@ Dans la mesure où certains rôles peuvent être liés aux notifications et aux 
 ### <a name="query-entire-subscription-for-admin-roles--contributor-roles"></a>Interroger l’ensemble de l’abonnement pour les rôles d’administrateur + des rôles de contributeur
 
 ```powershell
-(Get-AzureRmRoleAssignment -IncludeClassicAdministrators | Where-Object {$_.RoleDefinitionName -in @('ServiceAdministrator', 'CoAdministrator', 'Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+(Get-AzRoleAssignment -IncludeClassicAdministrators | Where-Object {$_.RoleDefinitionName -in @('ServiceAdministrator', 'CoAdministrator', 'Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 ### <a name="query-within-the-context-of-a-specific-application-insights-resource-for-owners-and-contributors"></a>Requête dans le contexte d’une ressource Application Insights spécifique pour les propriétaires et les collaborateurs
@@ -130,14 +133,14 @@ Dans la mesure où certains rôles peuvent être liés aux notifications et aux 
 $resourceGroup = “RGNAME”
 $resourceName = “AppInsightsName”
 $resourceType = “microsoft.insights/components”
-(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+(Get-AzRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 ### <a name="query-within-the-context-of-a-specific-resource-group-for-owners-and-contributors"></a>Requête dans le contexte d’un groupe de ressources spécifique pour les propriétaires et les collaborateurs
 
 ```powershell
 $resourceGroup = “RGNAME”
-(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+(Get-AzRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 <!--Link references-->

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 720f4433c1e7b0d271e5729236f439c92a84687e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884650"
+ms.locfileid: "58905237"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Configuration requise Edge de zone de données Azure
 
@@ -80,15 +80,23 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 ### <a name="url-patterns-for-compute-feature"></a>Modèles d’URL pour la fonctionnalité de calcul
 
-| Modèle d’URL                      | Composant ou fonctionnalité                     |   |
-|----------------------------------|---------------------------------------------|---|
-| `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Registre de conteneurs Microsoft (obligatoire)               |   |
-| https://\*.azurecr.io                     | Registres de conteneurs personnels et tiers (facultatif) |   |
-| https://\*.azure-devices.net              | Accès IoT Hub (obligatoire)                             |   |
+| Modèle d’URL                      | Composant ou fonctionnalité                     |   
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registre de conteneurs Microsoft (obligatoire)               |
+| https://\*.azurecr.io                     | Registres de conteneurs personnels et tiers (facultatif) | 
+| https://\*.azure-devices.net              | Accès IoT Hub (obligatoire)                             | 
 
-### <a name="url-patterns-for-azure-government"></a>Modèles d’URL pour Azure Government
+### <a name="url-patterns-for-gateway-for-azure-government"></a>Modèles d’URL pour la passerelle pour Azure Government
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
+### <a name="url-patterns-for-compute-for-azure-government"></a>Modèles d’URL pour le calcul pour Azure Government
+
+| Modèle d’URL                      | Composant ou fonctionnalité                     |  
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registre de conteneurs Microsoft (obligatoire)               |
+| https://\*.azure-devices.us              | Accès IoT Hub (obligatoire)           |
+| https://\*.azurecr.us                    | Registres de conteneurs personnels et tiers (facultatif) | 
 
 ## <a name="internet-bandwidth"></a>Bande passante Internet
 

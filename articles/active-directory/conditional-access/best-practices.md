@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0e20e9c8e248b446b7b938ae4180ffb546d823
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517593"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895560"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques l’accès conditionnel dans Azure Active Directory
 
@@ -46,11 +46,11 @@ Lorsque vous créez une stratégie, aucun utilisateur, groupe, application ou co
 Pour que votre stratégie fonctionne, vous devez configurer les éléments suivants :
 
 
-|Quoi           | Comment                                  | Pourquoi|
-|:--            | :--                                  | :-- |
-|**Applications cloud** |Sélection d’une ou de plusieurs applications.  | Une stratégie d’accès conditionnel a pour fonction de vous permettre de contrôler la manière dont les utilisateurs autorisés peuvent accéder à vos applications cloud.|
+| Quoi           | Comment                                  | Pourquoi |
+| :--            | :--                                  | :-- |
+| **Applications cloud** |Sélection d’une ou de plusieurs applications.  | Une stratégie d’accès conditionnel a pour fonction de vous permettre de contrôler la manière dont les utilisateurs autorisés peuvent accéder à vos applications cloud.|
 | **Utilisateurs et groupes** | Sélection d’au moins un utilisateur ou un groupe autorisé à accéder à vos applications cloud sélectionnées. | Une stratégie d’accès conditionnel, à laquelle aucun utilisateur ou groupe n’est affecté, n’est jamais déclenchée. |
-| **Contrôles d’accès** | Sélection d’au moins un contrôle d’accès. | Si vos conditions sont remplies, votre processeur de stratégies doit connaître la procédure à suivre.|
+| **Contrôles d’accès** | Sélection d’au moins un contrôle d’accès. | Si vos conditions sont remplies, votre processeur de stratégies doit connaître la procédure à suivre. |
 
 
 
@@ -111,6 +111,13 @@ Azure Active Directory applique les deux stratégies et l’utilisateur n’obti
 
 Oui, vous pouvez utiliser Exchange ActiveSync dans une stratégie d’accès conditionnel.
 
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Comment devez-vous configurer l’accès conditionnel avec les applications Office 365 ?
+
+Étant donné que les applications Office 365 sont interconnectées, nous vous recommandons d’affectation couramment applications utilisées ensemble lors de la création de stratégies.
+
+Applications interconnectées courantes incluent Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online et Office 365 Yammer.
+
+Il est important pour les stratégies qui requièrent des interactions de l’utilisateur, comme l’authentification multifacteur, lorsque l’accès est contrôlé au début d’une session ou une tâche. Si vous ne le faites, les utilisateurs ne pourront pas effectuer certaines tâches dans une application. Par exemple, si vous avez besoin de l’authentification multifacteur sur des appareils non gérés pour accéder à SharePoint, mais pas à la messagerie, les utilisateurs qui travaillent dans leur courrier électronique ne sera en mesure de joindre des fichiers de SharePoint à un message. Vous trouverez plus d’informations dans l’article [quelles sont les dépendances de service dans l’accès conditionnel Azure Active Directory ?](service-dependencies.md).
 
 
 
@@ -123,7 +130,7 @@ L’infrastructure d’accès conditionnel vous offre une souplesse de configura
 Dans votre environnement, vous devez éviter les configurations suivantes :
 
 
-**Pour tous les utilisateurs, toutes les applications cloud :**
+**Pour tous les utilisateurs, toutes les applications cloud :**
 
 - **Bloquer l’accès** : cette configuration bloque toute votre organisation, ce qui n’est pas une bonne idée.
 
@@ -132,7 +139,7 @@ Dans votre environnement, vous devez éviter les configurations suivantes :
 - **Exiger la jonction de domaine** : ce blocage d’accès par stratégie peut également bloquer l’accès pour tous les utilisateurs de votre organisation si vous n’avez pas encore d’appareil joint à un domaine.
 
 
-**Pour tous les utilisateurs, toutes les applications cloud, toutes les plates-formes d’appareils :**
+**Pour tous les utilisateurs, toutes les applications cloud, toutes les plateformes d’appareils :**
 
 - **Bloquer l’accès** : cette configuration bloque toute votre organisation, ce qui n’est pas une bonne idée.
 

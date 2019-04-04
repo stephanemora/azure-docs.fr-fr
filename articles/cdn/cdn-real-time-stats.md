@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: e9b9522de6b2c54dc794b00100ffe358296ecfdd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997904"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916561"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Statistiques en temps réel dans Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Ce document explique les statistiques en temps réel dans Microsoft Azure CDN.  Cette fonctionnalité fournit des données en temps réel (par exemple, relatives à la bande passante, aux états du cache et aux connexions simultanées) à votre profil CDN lors de la diffusion de contenu à vos clients. Elle permet une surveillance continue de l’intégrité de votre service à tout moment, y compris lors des événements de mise en service.
 
 Les graphiques suivants sont disponibles :
@@ -32,13 +32,13 @@ Les graphiques suivants sont disponibles :
 * [Bande passante](#bandwidth)
 * [Codes d’état](#status-codes)
 * [États du cache](#cache-statuses)
-* [Connexions](#connections)
+* [connexions](#connections)
 
 ## <a name="accessing-real-time-stats"></a>Accès à des statistiques en temps réel
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil CDN.
    
     ![Panneau du profil CDN](./media/cdn-real-time-stats/cdn-profile-blade.png)
-2. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer** .
+2. Dans le panneau Profil CDN, cliquez sur le bouton **Gérer** .
    
     ![Bouton de gestion du panneau de profil CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
    
@@ -62,7 +62,7 @@ Le graphique **Bande passante** montre la quantité de bande passante utilisée 
 Le graphique **Codes d’état** indique la fréquence à laquelle certains codes de réponse HTTP se produisent sur l’intervalle de temps sélectionné.
 
 > [!TIP]
-> Pour obtenir une description de chaque option de code d’état HTTP, consultez la page [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx)(Codes d’état HTTP d’Azure CDN).
+> Pour obtenir une description de chaque option de code d’état HTTP, consultez la page [Azure CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100))(Codes d’état HTTP d’Azure CDN).
 > 
 > 
 
@@ -76,7 +76,7 @@ Vous pouvez masquer temporairement les données consignées pour un code d’ét
 Le graphique **États du cache** indique la fréquence à laquelle certains types d’états du cache se produisent sur l’intervalle de temps sélectionné. 
 
 > [!TIP]
-> Pour obtenir une description de chaque option de code d’état du cache, consultez la page [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx)(Codes d’état du cache d’Azure CDN).
+> Pour obtenir une description de chaque option de code d’état du cache, consultez la page [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100))(Codes d’état du cache d’Azure CDN).
 > 
 > 
 
@@ -84,7 +84,7 @@ La liste des codes d’état du cache s’affiche directement au-dessus du graph
 
 Vous pouvez masquer temporairement les données consignées pour un code d’état spécifique.  Dans la légende qui se trouve directement sous le graphique, cliquez sur le code d’état que vous souhaitez masquer. Le code d’état est immédiatement masqué dans le graphique. Pour le faire réapparaître, cochez de nouveau cette option de code d’état.
 
-## <a name="connections"></a>Connexions
+## <a name="connections"></a>connexions
 ![Graphique Connexions](./media/cdn-real-time-stats/cdn-connections.png)
 
 Ce graphique indique le nombre de connexions qui ont été établies pour vos serveurs Edge. Chaque demande de ressource qui traverse notre CDN entraîne une connexion.

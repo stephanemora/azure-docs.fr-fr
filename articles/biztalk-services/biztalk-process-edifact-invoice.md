@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Traitement des factures EDIFACT à l’aide d’Azure BizTalk Services | Microsoft Docs'
+title: 'Didacticiel : Traitement des factures EDIFACT à l’aide d’Azure BizTalk Services | Microsoft Docs'
 description: Comment créer et configurer le connecteur Box ou une application API et l'utiliser dans une application logique d’Azure App Service
 services: biztalk-services
 documentationcenter: .net,nodejs,java
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7093be36e34785d4153c257d411128efe463dee1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550120"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918958"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Didacticiel : Traiter les factures EDIFACT à l’aide d’Azure BizTalk Services
 
@@ -55,9 +55,9 @@ Pour réaliser ce scénario d’entreprise, Contoso utilise les fonctionnalités
 Pour achever le scénario, nous utilisons des files d’attente Service Bus pour envoyer la facture de Contoso à Northwind ou recevoir l’accusé de réception de la part de Northwind. Ces files d’attente peuvent être créées à l’aide d’une application cliente disponible au téléchargement incluse dans l’exemple de package disponible dans le cadre de ce didacticiel.  
 
 ## <a name="prerequisites"></a>Conditions préalables
-* Vous devez disposer d’un espace de noms Azure Service Bus. Pour obtenir des instructions sur la création d’un espace de noms, consultez [How To : Créer ou modifier un Namespace de Service Service Bus](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supposons que vous disposez déjà d’un espace de noms Service Bus configuré appelé **edifactbts**.
+* Vous devez disposer d’un espace de noms Azure Service Bus. Pour obtenir des instructions sur la création d’un espace de noms, consultez [How To : Créer ou modifier un Namespace de Service Service Bus](/previous-versions/azure/azure-services/hh674478(v=azure.100)). Supposons que vous disposez déjà d’un espace de noms Service Bus configuré appelé **edifactbts**.
 * Vous devez posséder un abonnement BizTalk Services. Pour ce didacticiel, supposons que vous disposez d’un abonnement BizTalk Services, appelé **contosowabs**.
-* Enregistrez votre abonnement BizTalk Services sur le portail BizTalk Services. Pour obtenir des instructions, consultez la page [Enregistrement d’un déploiement de BizTalk Services sur le portail BizTalk Services](https://msdn.microsoft.com/library/hh689837.aspx)
+* Enregistrez votre abonnement BizTalk Services sur le portail BizTalk Services. Pour obtenir des instructions, consultez la page [Enregistrement d’un déploiement de BizTalk Services sur le portail BizTalk Services](/previous-versions/azure/hh689837(v=azure.100))
 * Visual Studio doit être installé sur votre machine.
 * Vous devez disposer du kit de développement logiciel BizTalk Services. Vous pouvez télécharger le Kit de développement logiciel (SDK) à partir de [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 

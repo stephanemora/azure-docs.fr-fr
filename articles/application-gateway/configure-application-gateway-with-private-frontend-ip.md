@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
-ms.openlocfilehash: 4755eeda6a254389f0e0fbceec602fef718a9c45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100170"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905535"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurer une passerelle d’application avec un point de terminaison d’équilibreur de charge interne
 
@@ -25,13 +25,16 @@ Dans cet article, vous allez apprendre à :
 - Créer une configuration IP frontale privée pour une passerelle d’Application
 - Créer une passerelle d’application avec la configuration IP frontale privée
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure à l’adresse suivante : <https://portal.azure.com>
+Connectez-vous au portail Azure à <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
-Azure a besoin d’un réseau virtuel pour communiquer avec les différentes ressources que vous créez. Vous pouvez créer un réseau virtuel ou utilisez-en un existant. Dans cet exemple, nous allons créer un nouveau réseau virtuel. Vous pouvez créer un réseau virtuel en même temps que la passerelle d’application. Instances de passerelle d’application sont créés dans des sous-réseaux distincts. Vous créez deux sous-réseaux dans cet exemple : un pour la passerelle d’application et un autre pour les serveurs back-end.
+Azure a besoin d’un réseau virtuel pour communiquer avec les différentes ressources que vous créez. Vous pouvez créer un réseau virtuel ou en utiliser un. Pour les besoins de cet exemple, nous allons créer un réseau virtuel. Vous pouvez créer un réseau virtuel en même temps que la passerelle d’application. Les instances Application Gateway sont créées dans des sous-réseaux séparés. Vous créez deux sous-réseaux dans cet exemple : un pour la passerelle d’application et un autre pour les serveurs back-end.
 
 1. Cliquez sur **Nouveau** dans le coin supérieur gauche du portail Azure.
 2. Sélectionnez **Mise en réseau**, puis sélectionnez **Application Gateway** dans la liste de suggestions.
@@ -54,11 +57,11 @@ Azure a besoin d’un réseau virtuel pour communiquer avec les différentes res
 
 ## <a name="add-backend-pool"></a>Ajouter le pool principal
 
-Le pool principal est utilisé pour acheminer les demandes vers les serveurs principaux qui prendra en charge la demande. Back-end peut être composé de cartes réseau, les machines virtuelles identiques, les adresses IP publiques, adresses IP internes, nom de domaine complet (FQDN) et le principaux architecture mutualisée comme Azure App Service. Dans cet exemple, nous allons utiliser des machines virtuelles que le serveur principal cible. Nous pouvons utiliser des machines virtuelles existantes ou créer de nouveaux. Dans cet exemple, nous allons créer deux machines virtuelles qu’Azure utilise en tant que serveurs principaux pour la passerelle d’application. Pour ce faire, nous allons :
+Le pool principal est utilisé pour acheminer les requêtes vers les serveurs principaux qui les traiteront. La partie principale peut se composer de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’adresses IP publiques, d’adresses IP internes, de noms de domaine complets et de serveurs back-end multi-locataires comme Azure App Service. Dans cet exemple, nous utiliserons des machines virtuelles comme cibles principales. Nous pouvons utiliser des machines virtuelles existantes ou en créer de nouvelles. Dans cet exemple, nous créons deux machines virtuelles qu’Azure va utiliser comme serveurs back-end pour la passerelle d’application. Pour ce faire, nous allons :
 
-1. Créer des machines 2 virtuelles, *myVM* et *myVM2*, pour être utilisé en tant que serveurs principaux.
-2. Installez IIS sur les machines virtuelles pour vérifier que la passerelle d’application a été créée avec succès.
-3. Ajoutez les serveurs principaux pour le pool principal.
+1. Créez deux machines virtuelles, *myVM* et *myVM2*, à utiliser comme serveurs principaux.
+2. Installer IIS sur les machines virtuelles pour vérifier que la passerelle d’application a bien été créée.
+3. Ajoutez les serveurs principaux au pool principal.
 
 ### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
@@ -67,7 +70,7 @@ Le pool principal est utilisé pour acheminer les demandes vers les serveurs pri
 3. Entrez ces valeurs pour la machine virtuelle :
    - *myVM* : pour le nom de la machine virtuelle.
    - *azureuser* : pour le nom d’utilisateur administrateur.
-   - *Azure123456!* pour le mot de passe.
+   - *Azure123456 !* pour le mot de passe.
    - Sélectionnez **Utiliser l’existant**, puis *myResourceGroupAG*.
 4. Cliquez sur **OK**.
 5. Sélectionnez **DS1_V2** pour la taille de la machine virtuelle et cliquez sur **sélectionnez**.
@@ -82,7 +85,7 @@ Le pool principal est utilisé pour acheminer les demandes vers les serveurs pri
 2. Exécutez la commande suivante pour installer IIS sur la machine virtuelle :
 
    ```azurepowershell
-   Set-AzureRmVMExtension `
+   Set-AzVMExtension `
    
      -ResourceGroupName myResourceGroupAG `
    
@@ -100,7 +103,7 @@ Le pool principal est utilisé pour acheminer les demandes vers les serveurs pri
 
 
 
-3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzureRmVMExtension.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzVMExtension.
 
 ### Add backend servers to backend pool
 

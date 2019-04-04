@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4d29602581531e9e42edbf4e00eca810757a8a99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116896"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895730"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test par lot avec un ensemble d’exemples d’énoncés
 
@@ -100,7 +100,7 @@ Les deux sections du graphique en vert correspondent à la prédiction attendue.
 
 Si le test indique que votre application LUIS ne reconnaît pas les entités et les intentions correctes, vous pouvez travailler à l’amélioration des performances de votre application LUIS en étiquetant plus d’énoncés ou en ajoutant des fonctionnalités. 
 
-* [Étiqueter des énoncés suggérés avec LUIS](luis-how-to-review-endoint-utt.md) 
+* [Étiquette suggérées énoncés avec LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Utiliser les fonctionnalités pour améliorer les performances de votre application LUIS](luis-how-to-add-features.md) 
-* [Comprendre le test par lot avec ce tutoriel](luis-tutorial-batch-testing.md)
+* [Comprendre le traitement par lots de test avec ce didacticiel](luis-tutorial-batch-testing.md)
 * [Découvrir les concepts du test par lot](luis-concept-batch-test.md).

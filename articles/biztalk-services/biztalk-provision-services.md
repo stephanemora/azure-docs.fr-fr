@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f5ffd1a9d0e7ff515b0819bb678bf0263f53e0d2
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097438"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918771"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Créer des services BizTalk Services à l’aide du portail Azure
 
@@ -40,7 +40,7 @@ Selon l'état du service BizTalk, certaines opérations ne peuvent pas être eff
 ## <a name="post-provisioning-steps"></a>Étapes postérieures à l’approvisionnement
 * [Installer le certificat sur un ordinateur local](#InstallCert)
 * [Ajouter un certificat prêt pour la production](#AddCert)
-* [Obtenir l'espace de noms Access Control](#ACS)
+* [Obtenir de l’espace de noms de contrôle d’accès](#ACS)
 
 #### <a name="InstallCert"></a>Installer le certificat sur un ordinateur local
 
@@ -59,16 +59,16 @@ Lorsque vous déployez un projet BizTalk Services à partir de Visual Studio, vo
 Les valeurs Access Control values peuvent être utilisées avec n'importe quelle application. Lorsqu'Azure BizTalk Services est créé, cet espace de noms Access Control contrôle l'authentification avec votre déploiement de service BizTalk. Si vous souhaitez modifier l'abonnement ou gérer l'espace de noms, sélectionnez **ACTIVE DIRECTORY** dans le volet de navigation gauche, puis votre espace de noms. La barre des tâches affiche la liste des options.
 
 Cliquez sur **Manage** pour ouvrir le portail de gestion Access Control. Dans le portail de gestion de contrôle d’accès, le service BizTalk utilise les **identités de service** :  
-![Identités de service ACS dans le portail de gestion de contrôle d'accès][ACSServiceIdentities]
+![Contrôlent les identités de Service ACS dans l’accès portail de gestion][ACSServiceIdentities]
 
 L'identité de service Access Control est un ensemble d'informations d'identification qui permet aux applications ou aux clients de s'authentifier directement auprès du contrôle d'accès et de recevoir un jeton.
 
 > [!IMPORTANT]
-> Le service BizTalk utilise **Propriétaire** comme identité de service par défaut et la valeur **Mot de passe**. Si vous utilisez la valeur de clé symétrique plutôt que la valeur de mot de passe, l’erreur ci-après peut survenir.<br/><br/>*Impossible de se connecter au compte de service de gestion de contrôle d’accès avec les informations d’identification spécifiées.*
+> Le service BizTalk utilise **Propriétaire** comme identité de service par défaut et la valeur **Mot de passe**. Si vous utilisez la valeur de clé symétrique plutôt que la valeur de mot de passe, l’erreur ci-après peut survenir.<br/><br/>*Impossible de créer le compte de Service de gestion Access Control avec les informations d’identification spécifiées*
 > 
 > 
 
-[Gestion de votre espace de noms ACS](https://msdn.microsoft.com/library/azure/hh674478.aspx) répertorie quelques instructions et recommandations.
+[Gestion de votre espace de noms ACS](/previous-versions/azure/azure-services/hh674478(v=azure.100)) répertorie quelques instructions et recommandations.
 
 ## <a name="requirements-explained"></a>Explication des exigences
 Ces exigences ne s’appliquent pas à l’édition gratuite.
@@ -93,9 +93,9 @@ Le compte Azure peut avoir plusieurs abonnements et peut être géré par toute 
 <br/><br/>
 Lorsque vous créez un service BizTalk, vous pouvez utiliser un serveur SQL Azure existant, une base de données SQL Azure existante ou créer automatiquement un serveur ou une base de données.
 <br/><br/>
-La mise à l'échelle de la base de données SQL est automatiquement configurée. En général, la mise à l'échelle par défaut est suffisante pour un service BizTalk. La modification de la mise à l'échelle a des conséquences sur la tarification. Voir <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930">Comptes et facturation dans la base de données SQL Azure</a>
+La mise à l'échelle de la base de données SQL est automatiquement configurée. En général, la mise à l'échelle par défaut est suffisante pour un service BizTalk. La modification de la mise à l'échelle a des conséquences sur la tarification. Consultez <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> comptes et facturation dans la base de données SQL Azure</a>
 <br/><br/>
-<strong>Remarques</strong>
+<strong>Notes</strong>
 <br/>
 <ul>
 <li> Lorsque vous créez un serveur et une base de données SQL Azure, les services Azure sont automatiquement activés. Le service BizTalk nécessite l'activation des services Azure.</li>
@@ -132,7 +132,7 @@ Pour plus d’informations, consultez <a HREF="https://go.microsoft.com/fwlink/p
 <td>
 Quand un service Azure BizTalk est créé, une URL HTTPS qui inclut le nom de votre service BizTalk est également créée. Cette URL est automatiquement configurée pour utiliser un certificat auto-signé à des fins de développement uniquement. Pour la production, vous avez besoin d'un certificat SSL privé.
 <br/><br/>
-<strong>Informations importantes sur le certificat SSL</strong>
+<strong>Informations du certificat SSL important</strong>
 
 <ul>
 <li>La date d'expiration du certificat doit être comprise dans les 5 prochaines années.</li>
@@ -168,13 +168,13 @@ Les connexions hybrides permettent de connecter un site web Azure ou un service 
 Maintenant qu’un BizTalk Service est créé, familiarisez-vous avec les différentes [BizTalk Services : Onglets tableau de bord, surveiller et mettre à l’échelle](biztalk-dashboard-monitor-scale-tabs.md). Votre service BizTalk est prêt pour vos applications. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Voir aussi
-* [BizTalk Services : Tableau comparatif des éditions](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services : Graphique des éditions](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services : Tableau comparatif des États](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services : Sauvegarde et restauration](biztalk-backup-restore.md)<br/>
-* [BizTalk Services : la limitation](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk Services : Limitation](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services : Nom de l’émetteur et la clé de l’émetteur](biztalk-issuer-name-issuer-key.md)<br/>
-* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [connexions hybrides](integration-hybrid-connection-overview.md)
+* [Comment faire pour démarrer à l’aide du SDK Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [les connexions hybrides](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png

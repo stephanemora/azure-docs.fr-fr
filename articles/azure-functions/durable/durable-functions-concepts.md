@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e5be81efcd655f1f0361d8c00d978a81c3e6caa5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443417"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892753"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Les modèles de fonctions durables et concepts techniques (Azure Functions)
 
@@ -415,7 +415,7 @@ En raison du comportement de réexécution du répartiteur de l’infrastructure
 
 L’extension fonctions durables utilise des files d’attente, tables et objets BLOB dans le stockage Azure pour conserver l’exécution historique état et déclencher l’exécution des fonctions. Vous pouvez utiliser le compte de stockage par défaut pour l’application de fonction, ou vous pouvez configurer un compte de stockage distinct. Vous souhaiterez un compte distinct en fonction des limites de débit de stockage. Le code d’orchestrateur que vous écrivez n’interagit pas avec les entités dans ces comptes de stockage. Durable Task Framework gère les entités directement comme un détail d’implémentation.
 
-Les fonctions d’orchestrateur planifient les fonctions d’activité et reçoivent leurs réponses via des messages internes en file d’attente. Lorsqu’une application de fonction s’exécute dans le plan de consommation Azure Functions, le [contrôleur de mise à l’échelle Azure Functions](../functions-scale.md#how-the-consumption-plan-works) surveille ces files d’attente. Nouvelles instances de calcul sont ajoutées en fonction des besoins. Lorsqu’il est étendu à plusieurs machines virtuelles, une fonction d’orchestrateur peut s’exécuter sur une machine virtuelle, tout en fonctions d’activité qui les appels de fonction d’orchestrateur peuvent s’exécuter sur plusieurs machines virtuelles différentes. Pour plus d’informations sur le comportement de mise à l’échelle de fonctions durables, consultez [performances et évolutivité](durable-functions-perf-and-scale.md).
+Les fonctions d’orchestrateur planifient les fonctions d’activité et reçoivent leurs réponses via des messages internes en file d’attente. Lorsqu’une application de fonction s’exécute dans le plan de consommation Azure Functions, le [contrôleur de mise à l’échelle Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) surveille ces files d’attente. Nouvelles instances de calcul sont ajoutées en fonction des besoins. Lorsqu’il est étendu à plusieurs machines virtuelles, une fonction d’orchestrateur peut s’exécuter sur une machine virtuelle, tout en fonctions d’activité qui les appels de fonction d’orchestrateur peuvent s’exécuter sur plusieurs machines virtuelles différentes. Pour plus d’informations sur le comportement de mise à l’échelle de fonctions durables, consultez [performances et évolutivité](durable-functions-perf-and-scale.md).
 
 L’historique d’exécution pour les comptes d’orchestrateur est stockée dans le stockage table. Chaque fois qu’une instance est réalimentée sur une machine virtuelle spécifique, l’orchestrateur extrait son historique d’exécution à partir du stockage de table afin de reconstruire son état local. Un aspect pratique d’avoir l’historique n’est disponible dans le stockage table est que vous pouvez utiliser des outils tels que [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) pour consulter l’historique de vos orchestrations.
 
@@ -437,6 +437,6 @@ Pour en savoir plus sur les fonctions durables, consultez [fonctions durables fo
 Pour commencer :
 
 > [!div class="nextstepaction"]
-> [Créer une première fonction durable](durable-functions-create-first-csharp.md)
+> [Créer votre première fonction durable](durable-functions-create-first-csharp.md)
 
 [DurableOrchestrationContext]: https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html

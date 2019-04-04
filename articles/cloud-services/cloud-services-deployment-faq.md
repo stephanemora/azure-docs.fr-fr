@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: adaed4c7af1d325f85d6fc349ac9a4faf73c1169
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08d74f866fe28a4c424ba504795b4a22f09785ca
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078809"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916255"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de déploiement pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -70,7 +70,7 @@ Pour plus d’informations, consultez [Comment mettre à jour un service clou](c
  
 - Déploiement via l’API REST.
 
-    Quand vous déployez via l’API REST Gestion des services, vous pouvez obtenir la limitation en spécifiant une URL SAS pour le stockage d’objets blob, qui fonctionnera à la fois avec un compte de stockage Azure Resource Manager et classique. Pour en savoir plus sur la propriété 'PackageUrl', cliquez [ici](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+    Quand vous déployez via l’API REST Gestion des services, vous pouvez obtenir la limitation en spécifiant une URL SAS pour le stockage d’objets blob, qui fonctionnera à la fois avec un compte de stockage Azure Resource Manager et classique. Pour en savoir plus sur la propriété 'PackageUrl', cliquez [ici](/previous-versions/azure/reference/ee460813(v=azure.100)).
   
 - Déploiement via le [portail Azure](https://portal.azure.com).
 

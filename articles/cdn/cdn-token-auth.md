@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 6ff7b018cea8bedd93d3c9aef3b3250ecf5251b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123723"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918890"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Sécurisation des ressources CDN Azure avec l’authentification du jeton
 
@@ -33,7 +33,7 @@ L’authentification du jeton est un mécanisme qui vous permet d’empêcher Az
 
 L’authentification du jeton s’assure que les requêtes sont générées par un site de confiance en vérifiant qu’elles comportent une valeur de jeton contenant des informations codées sur le demandeur. Le contenu est fourni à un demandeur uniquement si les informations codées respectent les exigences définies. Dans le cas contraire, les requêtes sont refusées. Vous pouvez procéder à la configuration à l’aide d’un ou de plusieurs des paramètres suivants :
 
-- Pays : Autoriser ou refuser les demandes provenant des pays spécifiés par leurs [code pays](https://msdn.microsoft.com/library/mt761717.aspx).
+- Pays : Autoriser ou refuser les demandes provenant des pays spécifiés par leurs [code pays](/previous-versions/azure/mt761717(v=azure.100)).
 - URL : Autoriser uniquement les demandes qui correspondent à l’élément multimédia spécifié ou le chemin d’accès.
 - Hôte : Autoriser ou refuser les demandes qui utilisent les ordinateurs hôtes indiqués dans l’en-tête de demande.
 - Référent : Autoriser ou refuser la demande provenant du référent spécifié.
@@ -120,7 +120,7 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Autorise uniquement les requêtes provenant d’un ou de plusieurs pays spécifiés. Les requêtes provenant de tous les autres pays sont refusées. Utilisez un [code de pays ISO 3166](https://msdn.microsoft.com/library/mt761717.aspx) de deux lettres pour chaque pays, en séparant les codes par une virgule ; n’ajoutez pas d’espace. Par exemple, pour autoriser l’accès aux requêtes provenant uniquement des États-Unis et de France, entrez `US,FR`.</td>
+      >    <td>Autorise uniquement les requêtes provenant d’un ou de plusieurs pays spécifiés. Les requêtes provenant de tous les autres pays sont refusées. Utilisez un [code de pays ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) de deux lettres pour chaque pays, en séparant les codes par une virgule ; n’ajoutez pas d’espace. Par exemple, pour autoriser l’accès aux requêtes provenant uniquement des États-Unis et de France, entrez `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: d627c3c4419affa0d71cdb23df945c96d9fd7585
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: bd4285a2d0f882b8c766563f2304031f1f6e2898
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652431"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904795"
 ---
 # <a name="glossary"></a>Glossaire
 
@@ -233,13 +233,13 @@ Pour plus d’informations, consultez la documentation de référence : [LargeP
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace est une structure de données dans l’API Visage. PersistedFace est fourni avec un ID de PersistedFace, ainsi que d’autres attributs tels que le nom et les données utilisateur.
+PersistedFace est une structure de données dans l’API Visage. PersistedFace est fourni avec un [PersistedFace ID](#persisted-face-id), ainsi que d’autres attributs comme le nom et les données utilisateur.
 
 Pour plus d’informations, consultez la documentation de référence : [LargeFaceList - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [ PersonGroup Person - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
-#### <a name="person-id"></a>ID de personne
+#### <a name="persisted-face-id"></a>Persistantes Face ID
 
-L’ID de personne est généré quand un [PersistedFace](#persistedface) est créé avec succès. Une chaîne est créée pour représenter ce visage dans l’[API Visage](#face-api).
+Persistantes Face ID est générée quand un [PersistedFace](#persistedface) est créé avec succès. Une chaîne est créée pour représenter ce visage dans l’[API Visage](#face-api).
 
 Pour plus d’informations, consultez la documentation de référence : [LargeFaceList - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [ PersonGroup Person - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 

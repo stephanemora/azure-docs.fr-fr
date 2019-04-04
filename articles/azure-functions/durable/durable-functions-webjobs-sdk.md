@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e8473ece2ed08798836dc66067e1ce042924f469
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431253"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905085"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Comment exécuter des fonctions durables en tant que tâches Web
 
@@ -32,7 +32,7 @@ L’exemple de fonctions durables chaînage est disponible dans une version 2.x 
 Cet article suppose que vous connaissez les principes de base du SDK WebJobs, du développement de bibliothèque de classes C# pour Azure Functions et de l’extension Fonctions durables. Si vous souhaitez consulter une présentation de ces thématiques, accédez aux ressources suivantes :
 
 * [Prise en main du Kit de développement logiciel (SDK) WebJobs](../../app-service/webjobs-sdk-get-started.md)
-* [Créer votre première fonction à l’aide de Visual Studio](../functions-create-your-first-function-visual-studio.md)
+* [Créer votre première fonction à l’aide de Visual Studio](../functions-create-your-first-function-visual-studio.md)
 * [Fonctions durables](durable-functions-sequence.md)
 
 Pour accomplir les étapes décrites dans cet article :
@@ -133,7 +133,7 @@ Le SDK WebJobs ne prend pas en charge les fonctions suivantes d’Azure Function
 
 * [Attribut FunctionName](#functionname-attribute)
 * [Déclencheur HTTP](#http-trigger)
-* [API de gestion HTTP de Fonctions durables](#http-management-api)
+* [API de gestion HTTP Functions durable](#http-management-api)
 
 ### <a name="functionname-attribute"></a>Attribut FunctionName
 
@@ -218,50 +218,60 @@ Cette section fournit une vue d’ensemble de l’exécution de l’[exemple de 
 
 ## <a name="webjobs-sdk-3x"></a>SDK WebJobs 3.x
 
-Cet article explique comment développer un projet 2.x de SDK WebJobs. Si vous développez un projet de 3.x SDK WebJobs, cette section vous permet de comprendre les différences.
+Cet article explique comment développer un projet 2.x de SDK WebJobs. Si vous développez un [SDK WebJobs 3.x](../../app-service/webjobs-sdk-get-started.md) projet, cette section vous aidera à comprendre les différences.
 
 Le principal changement introduit est l’utilisation de .NET Core au lieu de .NET Framework. Pour créer un projet de 3.x SDK WebJobs, les instructions sont les mêmes, à ces exceptions près :
 
-1. Créez une application console .NET Core. Dans Visual Studio **nouveau projet** boîte de dialogue, sélectionnez **.NET Core** > **application Console (.NET Core)**. Le fichier de projet spécifie que l’élément `TargetFramework` est défini sur `netcoreapp2.0`.
+1. Créez une application console .NET Core. Dans Visual Studio **nouveau projet** boîte de dialogue, sélectionnez **.NET Core** > **application Console (.NET Core)**. Le fichier de projet spécifie que l’élément `TargetFramework` est défini sur `netcoreapp2.x`.
 
-1. Choisissez la version préliminaire SDK WebJobs 3.x des packages suivants :
+1. Choisissez la version SDK WebJobs 3.x des packages suivants :
 
     * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. Obtenir la chaîne de connexion de stockage et la clé d’instrumentation Application Insights à partir d’un *appsettings.json* fichier, à l’aide de l’infrastructure de configuration de .NET Core. Modifier le `Main` code de méthode pour ce faire. Voici un exemple :
+1. Définir la chaîne de connexion de stockage et la clé d’instrumentation Application Insights dans un *appsettings.json* fichier, à l’aide de l’infrastructure de configuration de .NET Core. Voici un exemple :
+
+    ```json
+        {
+            "AzureWebJobsStorage": "<replace with storage connection string>",
+            "APPINSIGHTS_INSTRUMENTATIONKEY": "<replace with Application Insights instrumentation key>"
+        }
+    ```
+
+1. Modifier le `Main` code de méthode pour ce faire. Voici un exemple :
 
    ```cs
    static void Main(string[] args)
    {
-       var builder = new ConfigurationBuilder()
-           .SetBasePath(Directory.GetCurrentDirectory())
-           .AddJsonFile("appsettings.json");
+        var hostBuilder = new HostBuilder()
+            .ConfigureWebJobs(config =>
+            {
+                config.AddAzureStorageCoreServices();
+                config.AddAzureStorage();
+                config.AddTimers();
+                config.AddDurableTask(options =>
+                {
+                    options.HubName = "MyTaskHub";
+                    options.AzureStorageConnectionStringName = "AzureWebJobsStorage";
+                });
+            })
+            .ConfigureLogging((context, logging) =>
+            {
+                logging.AddConsole();
+                logging.AddApplicationInsights(config =>
+                {
+                    config.InstrumentationKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
+                });
+            })
+            .UseConsoleLifetime();
 
-       var appSettingsConfig = builder.Build();
+        var host = hostBuilder.Build();
 
-       using (var loggerFactory = new LoggerFactory())
-       {
-           var config = new JobHostConfiguration();
-
-           config.DashboardConnectionString = "";
-           config.StorageConnectionString =
-               appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
-           var instrumentationKey =
-               appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
-
-           config.LoggerFactory = loggerFactory
-               .AddApplicationInsights(instrumentationKey, null)
-               .AddConsole();
-
-           config.UseTimers();
-           config.UseDurableTask(new DurableTaskExtension
-           {
-               HubName = "MyTaskHub",
-           });
-           var host = new JobHost(config);
-           host.RunAndBlock();
-       }
+        using (host)
+        {
+            host.Run();
+        }
    }
    ```
 

@@ -3,16 +3,17 @@ title: Autorisations et rôles Azure Container Registry
 description: Utilisez le contrôle d’accès en fonction du rôle (RBAC) et la gestion des identités et des accès (IAM) d’Azure pour fournir des autorisations de granularité fine aux ressources dans un registre de conteneurs Azure.
 services: container-registry
 author: dlepow
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: 0148894bb013dc9f8cce595f14919f87d6292df8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593622"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894266"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry
 
@@ -23,8 +24,9 @@ Le service Azure Container Registry prend en charge un ensemble de rôles Azure 
 | Propriétaire | X | X | X | X | X | X |  |  
 | Contributeur | X | X | X |  X | X | X |  |  
 | Lecteur | X |  |  | X |  |  |  |
-| AcrPush |  |  | X | X | X |  |  |  
+| AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
+| AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>Différencier utilisateurs et services
@@ -61,7 +63,7 @@ Possibilité de `docker pull` une image qui n’est pas en quarantaine ou de tir
 
 ## <a name="delete-image-data"></a>Supprimer les données d’image
 
-La possibilité de [supprimer les images de conteneur ou de référentiels](container-registry-delete.md).
+La possibilité de [supprimer les images de conteneur](container-registry-delete.md), ou supprimer l’autre [pris en charge les artefacts](container-registry-image-formats.md) tels que des graphiques Helm, à partir d’un Registre.
 
 ## <a name="change-policies"></a>Changer de stratégies
 

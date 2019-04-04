@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
-ms.openlocfilehash: d2dc8ad1e4b7e429dc758a96e49aa4825ae108e5
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091315"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918363"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Préchargement d’éléments multimédias sur un point de terminaison CDN Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -49,9 +49,9 @@ Ce didacticiel vous guide tout au long du préchargement de contenu mis en cache
    > [!TIP]
    > Après avoir commencé à saisir du texte, d’autres zones de texte **Chemin du contenu** s’afficheront pour vous permettre de créer une liste de plusieurs ressources. Pour supprimer des ressources de la liste, sélectionnez le bouton avec les points de suspension (...), puis sélectionnez **Supprimer**.
    > 
-   > Chaque chemin du contenu doit être une URL relative qui satisfait aux [expressions régulières](https://msdn.microsoft.com/library/az24scfc.aspx) suivantes :  
-   > - Chargement d’un fichier unique : `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - Chargement d’un fichier unique avec chaîne de requête : `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > Chaque chemin du contenu doit être une URL relative qui satisfait aux [expressions régulières](/dotnet/standard/base-types/regular-expression-language-quick-reference) suivantes :  
+   > - Chargement d’un seul fichier : `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Chargement d’un fichier unique avec chaîne de requête : `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > Étant donné que chaque ressource doit avoir son propre chemin, il n’existe aucune fonctionnalité générique pour le préchargement des ressources.
    > 
@@ -68,6 +68,6 @@ Ce didacticiel vous guide tout au long du préchargement de contenu mis en cache
 
 ## <a name="see-also"></a>Voir aussi
 * [Purger un point de terminaison CDN Azure](cdn-purge-endpoint.md)
-* [Référence API REST du CDN Azure : précharger le contenu d’un point de terminaison](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Référence API REST du CDN Azure : vider le contenu d’un point de terminaison](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Référence API REST du CDN Azure : Précharger du contenu sur un point de terminaison](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Référence API REST du CDN Azure : Vider le contenu à partir d’un point de terminaison](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

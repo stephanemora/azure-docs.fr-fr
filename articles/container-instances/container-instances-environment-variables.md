@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: 3e7e292f36296ce09af89f03e8b154b57e18b55c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369988"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904897"
 ---
 # <a name="set-environment-variables"></a>Définition des variables d'environnement
 
@@ -25,6 +25,8 @@ Par exemple, si vous exécutez Microsoft [aci-wordcount] [ aci-wordcount] image 
 *MinLength* : Nombre minimal de caractères dans un mot pour que celui-ci soit comptabilisé. Cela vous permet d’ignorer les mots communs tels que « de » et « le ».
 
 Si vous devez transmettre des secrets en tant que variables d’environnement, Azure Container Instances prend en charge des [valeurs sécurisées](#secure-values) pour les conteneurs Windows et Linux.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-cli-example"></a>Exemple Azure CLI
 
@@ -141,7 +143,7 @@ Azure:\
 
 Pour définir des variables d’environnement lorsque vous démarrez un conteneur dans le portail Azure, spécifiez-les dans la page **Configuration** lors de la création du conteneur.
 
-Lorsque vous effectuez un déploiement à partir du portail, vous êtes limité à trois variables, que vous devez entrer au format suivant : `"variableName":"value"`
+Lorsque vous déployez avec le portail, vous êtes actuellement limité à trois variables, et vous devez les entrer au format suivant : `"variableName":"value"`
 
 Pour voir un exemple, démarrer le [aci-wordcount] [ aci-wordcount] conteneur avec la *NumWords* et *MinLength* variables.
 
@@ -255,6 +257,6 @@ Les scénarios basés sur des tâches, telles que le traitement par lots d’un 
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/azurerm/install-Az-ps
+[azure-powershell-install]: /powershell/azure/install-Az-ps
 [new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
 [portal]: https://portal.azure.com

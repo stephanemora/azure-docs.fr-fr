@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 730d32fd5b9451c2b4edfe0fb1e50c06c2156815
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159469"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916765"
 ---
-# <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OpenId Connect dans une stratégie personnalisée Azure Active Directory B2C
+# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OpenId Connect dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -104,9 +104,9 @@ Si vous utilisez le domaine **b2clogin.com** à la place de **login.microsoftonl
 
 Exemples :
 
-- [Ajouter Compte Microsoft (MSA) comme fournisseur d’identité utilisant des stratégies personnalisées](active-directory-b2c-custom-setup-msa-idp.md)
-- [Se connecter à l’aide de comptes Azure AD](active-directory-b2c-setup-aad-custom.md)
-- [Autoriser la connexion d’utilisateurs à un fournisseur d’identité Azure AD mutualisé à l’aide de stratégies personnalisées](active-directory-b2c-setup-commonaad-custom.md)
+- [Ajouter un compte Microsoft (MSA) comme fournisseur d’identité à l’aide de stratégies personnalisées](active-directory-b2c-custom-setup-msa-idp.md)
+- [Connectez-vous à l’aide de compte Azure AD.](active-directory-b2c-setup-aad-custom.md)
+- [Autoriser les utilisateurs à se connecter à un fournisseur d’identité Azure AD mutualisé à l’aide de stratégies personnalisées](active-directory-b2c-setup-commonaad-custom.md)
 
  
 

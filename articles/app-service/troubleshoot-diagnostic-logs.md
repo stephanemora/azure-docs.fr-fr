@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339633"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894916"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Présentation
@@ -36,10 +36,10 @@ Vous pouvez activer ou désactiver les types de journaux suivants :
 
 * **Erreur détaillés** -des informations détaillées pour toute demande ayant entraîné dans le code d’état HTTP 400 ou supérieur. Il peut s’agir d’informations permettant de déterminer la raison pour laquelle le serveur a renvoyé le code d’erreur. Un fichier HTML est généré pour chaque erreur dans le système de fichiers de l’application et jusqu'à 50 erreurs (fichiers) sont conservés. Lorsque le nombre de fichiers HTML dépasse 50, les fichiers de 26 plus anciens sont automatiquement supprimés.
 * **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique. Un dossier est généré pour chaque erreur dans le système de fichiers de l’application. Stratégies de rétention de fichier sont les mêmes que l’enregistrement ci-dessus détaillé des erreurs.
-* **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ces informations peuvent se révéler utiles pour déterminer les métriques globales d’un site, comme le nombre de requêtes traitées ou le nombre de requêtes émanant d’une adresse IP spécifique.
+* **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Ces informations peuvent se révéler utiles pour déterminer les métriques globales d’un site, comme le nombre de requêtes traitées ou le nombre de requêtes émanant d’une adresse IP spécifique.
 
 ### <a name="application-diagnostics"></a>Diagnostic d'application
-Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple : 
+Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple : 
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -60,8 +60,8 @@ Quand vous activez les **diagnostics d’application**, choisissez également le
 |**Désactivé** | Aucun |
 |**Error** | Erreur, Critique |
 |**Avertissement** | Avertissement, Erreur, Critique|
-|**Informations** | Info, Avertissement, Erreur, Critique|
-|**Verbose** | Trace, Débogage, Info, Avertissement, Erreur, Critique (toutes les catégories) |
+|**Information** | Info, Avertissement, Erreur, Critique|
+|**Détaillé** | Trace, Débogage, Info, Avertissement, Erreur, Critique (toutes les catégories) |
 |-|-|
 
 Pour **Journal des applications**, vous pouvez temporairement activer l’option système à des fins de débogage. Cette option se désactive automatiquement au bout de 12 heures. Vous pouvez également activer l’option de stockage Blob pour sélectionner un conteneur d’objets blob pour y écrire des journaux.
@@ -101,7 +101,7 @@ La structure de répertoires dans laquelle les journaux sont stockés est la sui
 * **Journaux d'application** : /LogFiles/Application/. Ce dossier contient un ou plusieurs fichiers texte contenant des informations générées dans le cadre de la journalisation des applications.
 * **Suivi des demandes ayant échoué** : /LogFiles/W3SVC#########/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
 * **Journaux d'erreurs détaillés** : /LogFiles/DetailedErrors/. Ce dossier contient un ou plusieurs fichiers .htm fournissant des informations détaillées sur toute erreur HTTP qui s'est produite.
-* **Journaux des serveurs Web** : /LogFiles/http/RawLogs. Ce dossier contient un ou plusieurs fichiers texte au format [de fichier journal étendu W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Journaux des serveurs Web** : /LogFiles/http/RawLogs. Ce dossier contient un ou plusieurs fichiers texte au format [de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging).
 * **Journaux de déploiement** : /LogFiles/Git. Ce dossier contient les journaux générés par les processus de déploiement internes utilisés par Azure App Service, ainsi que les journaux des déploiements Git. Vous trouverez également les journaux de déploiement sous D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
@@ -132,7 +132,7 @@ Visual Studio Application Insights fournit des outils de filtrage et de reche
 3. Téléchargez votre projet et exécutez-le pour générer des données de journal.
 4. Dans le [portail Azure](https://portal.azure.com/), accédez à votre nouvelle ressource Application Insights, puis ouvrez la fonction de **recherche**. Vous devriez voir vos données de journal, ainsi que la requête, l’utilisation et les autres mesures de télémétrie. Vous devrez parfois patienter quelques minutes pour accéder à certaines mesures de télémétrie : dans ce cas, cliquez sur Actualiser. [En savoir plus](../azure-monitor/app/diagnostic-search.md)
 
-[En savoir plus sur le suivi des performances avec Application Insights](../azure-monitor/app/azure-web-apps.md)
+[En savoir plus sur les performances de suivi avec Application Insights](../azure-monitor/app/azure-web-apps.md)
 
 ## <a name="streamlogs"></a>Guide pratique : Diffuser les journaux en continu
 Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi réel. Vous pouvez diffuser ces informations vers votre environnement de développement en utilisant Azure CLI.
@@ -183,7 +183,7 @@ Par exemple, un événement d’erreur peut se présenter comme suit :
 
 Parmi les trois méthodes disponibles, la journalisation d’informations dans le système de fichiers est celle qui fournit les informations les plus élémentaires. L’heure, l’ID de processus, le niveau d’événement et le message sont, en effet, les seules informations fournies.
 
-**Stockage Blob**
+**Stockage d'objets blob**
 
 Lorsque vous consignez des données dans un stockage d'objets blob, elles sont stockées au format CSV (valeurs séparées par des virgules). Des champs supplémentaires sont consignés afin de fournir des informations plus précises sur l’événement. Les propriétés suivantes sont utilisées pour chaque ligne du fichier CSV :
 
@@ -222,7 +222,7 @@ Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés *
 Les journaux d'erreurs détaillés sont des documents HTML qui fournissent des informations plus détaillées sur les erreurs HTTP qui se sont produites. Puisqu'il s'agit simplement de documents HTML, ils peuvent être consultés à l'aide d'un navigateur Web.
 
 ### <a name="web-server-logs"></a>Journaux des serveurs Web
-Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ces informations peuvent être lues à l'aide d'un éditeur de texte ou analysées à l'aide d'utilitaires tels que [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
+Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Ces informations peuvent être lues à l'aide d'un éditeur de texte ou analysées à l'aide d'utilitaires tels que [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > Les journaux générés par Azure App Service ne prennent pas en charge les champs **s-computername**, **s-ip** ou **cs-version**.
@@ -230,6 +230,6 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 >
 
 ## <a name="nextsteps"></a> Étapes suivantes
-* [Surveillance des applications dans Azure App Service](web-sites-monitor.md)
-* [Dépannage d’une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Analyse des journaux d’application dans HDInsight (en anglais)](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Comment surveiller Azure App Service](web-sites-monitor.md)
+* [Résolution des problèmes d’Azure App Service dans Visual Studio](troubleshoot-dotnet-visual-studio.md)
+* [Analyser les journaux d’application dans HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

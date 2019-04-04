@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9e4b9d8cf3300f977824f95aeb14a614d8897abd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430265"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916969"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios de recherche cognitive
 
@@ -34,7 +34,7 @@ Vous ne pouvez pas désactiver la normalisation d’image. Les compétences qui 
 
 | Paramètre de configuration | Description |
 |--------------------|-------------|
-| imageAction   | Défini sur « none » si aucune action ne doit être effectuée quand des images incorporées ou des fichiers image sont rencontrés. <br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées dans le cadre du décodage de document.<br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées où, pour les PDF de votre source de données, chaque page s’affiche en tant qu’image de sortie unique.  La fonctionnalité est la même que « generateNormalizedImages » pour les types de fichiers autres que PDF.<br/>Pour toute option autre que « none », les images seront exposées dans le champ *normalized_images*. <br/>La valeur par défaut est « none ». Cette configuration est pertinente uniquement pour des sources de données d’objet blob quand le paramètre « dataToExtract » est défini sur « contentAndMetadata ». |
+| imageAction   | Défini sur « none » si aucune action ne doit être effectuée quand des images incorporées ou des fichiers image sont rencontrés. <br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées dans le cadre du décodage de document.<br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées où, pour les PDF de votre source de données, chaque page s’affiche en tant qu’image de sortie unique.  La fonctionnalité est la même que « generateNormalizedImages » pour les types de fichiers autres que PDF.<br/>Pour toute option autre que « none », les images seront exposées dans le champ *normalized_images*. <br/>La valeur par défaut est « none ». Cette configuration est pertinente uniquement pour des sources de données d’objet blob quand le paramètre « dataToExtract » est défini sur « contentAndMetadata ». <br/>Un maximum de 1000 images est extraits à partir d’un document donné. S’il existe plus de 1000 images dans un document, les 1 000 premières seront extraites et un avertissement est généré. |
 |  normalizedImageMaxWidth | Largeur maximale (en pixels) des images normalisées générées. La valeur par défaut est 2000.|
 |  normalizedImageMaxHeight | Hauteur maximale (en pixels) des images normalisées générées. La valeur par défaut est 2000.|
 
@@ -109,7 +109,7 @@ La compétence de reconnaissance optique des caractères vous permet de sélecti
 
 Un scénario courant implique la création d’une chaîne comprenant tous les contenus d’un fichier, tant le texte que le texte d’origine de l’image, en procédant comme suit :  
 
-1. [Extraction de normalized_images](#get-normalized-images).
+1. [Extraire normalized_images](#get-normalized-images)
 1. Exécution de la compétence de reconnaissance optique des caractères en utilisant `"/document/normalized_images"` en entrée.
 1. Fusion de la représentation textuelle de ces images avec le texte brut extrait du fichier. Vous pouvez utiliser la compétence de [fusion de texte](cognitive-search-skill-textmerger.md) pour combiner les deux blocs de texte dans une seule chaîne de grande taille.
 
@@ -218,9 +218,9 @@ Pour vous aider, si vous avez besoin de convertir des coordonnées normalisées 
 ```
 
 ## <a name="see-also"></a>Voir aussi
-+ [Créer un indexeur (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Compétence d’analyse d’image](cognitive-search-skill-image-analysis.md)
++ [Création d’indexeur (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Analyser les compétences de l’image](cognitive-search-skill-image-analysis.md)
 + [Compétence de reconnaissance optique des caractères](cognitive-search-skill-ocr.md)
-+ [Compétence de fusion de texte](cognitive-search-skill-textmerger.md)
-+ [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)
-+ [Guide pratique pour mapper des champs enrichis](cognitive-search-output-field-mapping.md)
++ [Qualification de fusion de texte](cognitive-search-skill-textmerger.md)
++ [Comment définir des compétences](cognitive-search-defining-skillset.md)
++ [Comment mapper des champs enrichies](cognitive-search-output-field-mapping.md)

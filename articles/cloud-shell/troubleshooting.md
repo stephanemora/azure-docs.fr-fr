@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: ad389cfaa92ad487fad8b7ecb6feac40324572f0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: eb7deacc068661ca9a4f473ee2d36b7d4464c81c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100565"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905509"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Résolution des problèmes et limitations d’Azure Cloud Shell
 
 Les solutions connues pour la résolution des problèmes d’Azure Cloud Shell sont les suivantes :
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-troubleshooting"></a>Résolution générale des problèmes
 
@@ -39,7 +41,7 @@ Les solutions connues pour la résolution des problèmes d’Azure Cloud Shell s
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Boîte de dialogue Stockage – Erreur : 403 RequestDisallowedByPolicy
 
-- **Détails** : lorsque vous créez un compte de stockage par le biais de Cloud Shell, l’opération échoue en raison d’une stratégie Azure appliquée par votre administrateur. Le message d’erreur inclut le texte suivant :`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Détails** : lorsque vous créez un compte de stockage par le biais de Cloud Shell, l’opération échoue en raison d’une stratégie Azure appliquée par votre administrateur. Message d’erreur inclut : `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Résolution** : contactez votre administrateur Azure pour supprimer ou mettre à jour la stratégie Azure refusant la création du stockage.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Boîte de dialogue Stockage – Erreur : 400 DisallowedOperation
@@ -74,7 +76,7 @@ Les solutions connues pour la résolution des problèmes d’Azure Cloud Shell s
 > Les machines virtuelles Azure doivent avoir une adresse IP publique.
 
 - **Détails** : en raison des paramètres de pare-feu Windows par défaut pour WinRM, l’erreur suivante peut s’afficher :`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Résolution** :  exécutez `Enable-AzureRmVMPSRemoting` pour activer tous les aspects de la communication à distance PowerShell sur l’ordinateur cible.
+- **Résolution** :  exécutez `Enable-AzVMPSRemoting` pour activer tous les aspects de la communication à distance PowerShell sur l’ordinateur cible.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` ne met pas à jour le résultat dans le lecteur Azure.
 
@@ -158,7 +160,7 @@ Azure Cloud Shell prend très au sérieux vos données personnelles ; les donné
 ### <a name="export"></a>Exportation
 Pour **exporter** les paramètres utilisateur que Cloud Shell enregistre pour vous, tels que l’interpréteur de commandes, la taille de police et le type de police par défaut, exécutez les commandes suivantes.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Lancer Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Lancer Azure Cloud Shell")](https://shell.azure.com)
 2. Exécutez les commandes suivantes dans Bash ou PowerShell :
 
 Bash :
@@ -181,7 +183,7 @@ Pour **supprimer** vos paramètres utilisateur que Cloud Shell enregistre pour v
 >[!Note]
 > Si vous supprimez vos paramètres utilisateur, le partage Azure Files proprement dit n’est pas supprimé. Accédez à Azure Files pour effectuer cette action.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Lancer Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Lancer Azure Cloud Shell")](https://shell.azure.com)
 2. Exécutez les commandes suivantes dans Bash ou PowerShell :
 
 Bash :

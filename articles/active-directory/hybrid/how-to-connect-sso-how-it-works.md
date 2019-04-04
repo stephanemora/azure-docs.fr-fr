@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813ab2a349ba843e9f41675234e395470bef9740
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083935"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896123"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : Présentation technique approfondie
 
@@ -39,15 +39,12 @@ Cette section est composée de trois parties :
 
 L’authentification unique transparente s’active via Azure AD Connect comme indiqué [ici](how-to-connect-sso-quick-start.md). Voici ce qu’il se passe pendant l’activation de la fonctionnalité :
 
-- Un compte d’ordinateur nommé `AZUREADSSOACC` (c’est-à-dire Azure AD) est créé sur votre instance Active Directory (AD) locale, dans chaque forêt AD.
-- La clé de déchiffrement Kerberos du compte d’ordinateur est partagée en toute sécurité avec Azure AD. S’il existe plusieurs forêts AD, chacun a sa propre clé de déchiffrement Kerberos.
-- Par ailleurs, deux noms de principal du service (SPN) Kerberos sont créés pour représenter les deux URL utilisées pendant la connexion à Azure AD.
-
->[!NOTE]
-> Le compte d’ordinateur et les SPN Kerberos sont créés dans chaque forêt AD que vous synchronisez avec Azure AD (via Azure AD Connect) et pour les utilisateurs qui doivent bénéficier de l’authentification unique transparente. Déplacez le compte d’ordinateur `AZUREADSSOACC` vers une unité d’organisation (UO) où d’autres comptes d’ordinateurs sont stockés. Vous serez ainsi assuré qu’il sera géré de la même façon et qu’il ne sera pas supprimé.
+- Un compte d’ordinateur (`AZUREADSSOACC`) est créé dans votre réseau local Active Directory (AD) dans chaque forêt AD que vous synchronisez avec Azure AD (à l’aide d’Azure AD Connect).
+- En outre, un nombre de noms de principaux de service Kerberos (SPN) est créé pour être utilisé pendant le processus de connexion Azure AD.
+- La clé de déchiffrement Kerberos du compte d’ordinateur est partagée en toute sécurité avec Azure AD. S’il existe plusieurs forêts Active Directory, chaque compte d’ordinateur aura sa propre clé de déchiffrement Kerberos unique.
 
 >[!IMPORTANT]
->Il est fortement recommandé que vous [substituiez la clé de déchiffrement Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) du `AZUREADSSOACC` compte d’ordinateur au moins tous les 30 jours.
+> Le `AZUREADSSOACC` compte d’ordinateur doit être fortement protégé pour des raisons de sécurité. Seuls les administrateurs de domaine doit être en mesure de gérer le compte d’ordinateur. Assurez-vous que la délégation Kerberos sur le compte d’ordinateur est désactivée. Store le compte d’ordinateur dans une unité d’organisation (UO) dans lequel ils sont sécurisés contre les suppressions accidentelles. La clé de déchiffrement Kerberos sur le compte d’ordinateur doit également être traitée comme sensible. Il est fortement recommandé que vous [substituiez la clé de déchiffrement Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) du `AZUREADSSOACC` compte d’ordinateur au moins tous les 30 jours.
 
 Une fois la configuration terminée, l’authentification unique transparente fonctionne de la même façon que n’importe quelle autre connexion utilisant l’authentification Windows intégrée (IWA).
 

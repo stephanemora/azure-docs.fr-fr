@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5d6ec0197699f603c79f414e015cdebcde6b9f60
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095991"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905611"
 ---
 # <a name="azure-application-skus-tab"></a>Onglet Références de l’application Azure
 
@@ -57,7 +57,7 @@ Public Azure : cette machine virtuelle peut être déployée vers des clients da
   >[!NOTE] 
   >Microsoft Azure Government est un cloud communautaire pour le secteur public, accessible à des clients d’administrations fédérales, étatiques, locales ou tribales des États-Unis, ainsi qu’à des partenaires éligibles pour servir ces entités.
 
-- **Is this a Private SKU?** (SKU privée ?) : si cette référence SKU est accessible uniquement à un groupe choisi de clients, sélectionnez Oui.
+- **S’agit-il d’une référence (SKU) privé ?** si cette référence SKU est accessible uniquement à un groupe choisi de clients, sélectionnez Oui.
 
     ![Détails de la référence SKU pour un modèle de solution](./media/azureapp-sku-details-solutiontemplate.png)
 
@@ -80,7 +80,7 @@ Configurez les paramètres de référence SKU suivants :
   >[!NOTE] 
   >Microsoft Azure Government est un cloud communautaire pour le secteur public, accessible à des clients d’administrations fédérales, étatiques, locales ou tribales des États-Unis, ainsi qu’à des partenaires éligibles pour servir ces entités.
 
-- **Is this a Private SKU?** (SKU privée ?) : si cette référence SKU est accessible uniquement à un groupe choisi de clients, sélectionnez Oui.
+- **S’agit-il d’une référence (SKU) privé ?** si cette référence SKU est accessible uniquement à un groupe choisi de clients, sélectionnez Oui.
 - **Disponibilité par pays/région** : utilisez **Sélectionner des régions** pour afficher la liste des pays/régions disponibles. Sélectionnez chaque pays/région, puis cliquez sur **OK** pour enregistrer votre sélection. 
 
    ![Liste des pays et régions disponibles](./media/azure-app-select-country-region.png)
@@ -124,7 +124,7 @@ Notez les propriétés de clé suivantes de cette ressource :
   >Ce package doit contenir tous les modèles ou scripts imbriqués nécessaires à l’approvisionnement de cette application. Les fichiers suivants doivent être dans le dossier racine :  MainTemplate.json, applianceMainTemplate.json et applianceCreateUIDefinition.json.
 
 - **ID de locataire** : ID de locataire Azure Active Directory de votre organisation.
-- **Activer l’accès JIT ?** : sélectionnez **Oui** pour activer l’accès à l’administration juste-à-temps pour les déploiements de clients utilisant cette offre.
+- **Activer l’accès JIT ?** sélectionnez **Oui** pour activer l’accès à l’administration juste-à-temps pour les déploiements de clients utilisant cette offre.
 
   >[!NOTE] 
   >Si vous activez le juste-à-temps, vous devez mettre à jour le fichier CreateUiDefinition.json pour prendre en charge l’accès JIT.
@@ -135,7 +135,7 @@ Pour une application managée, vous devez configurer l’autorisation et les par
 
 #### <a name="authorization"></a>Authorization
 
-Ajoutez l’identificateur Azure Active Directory de l’utilisateur, du groupe ou de l’application à laquelle vous souhaitez accorder l’autorisation pour le groupe de ressources managées. L’autorisation accordée est indiquée par l’ID de définition de rôle. Il peut s’agir d’un propriétaire, d’un contributeur ou de n’importe quel rôle personnalisé.
+Ajoutez l’identificateur Azure Active Directory de l’utilisateur, du groupe ou de l’application à laquelle vous souhaitez accorder l’autorisation pour le groupe de ressources managées. L’autorisation accordée est indiquée par l’ID de définition de rôle. Il peut être un propriétaire, contributeur ou un rôle personnalisé.
 
 #### <a name="policy-settings"></a>Paramètres de stratégie
 
@@ -144,7 +144,7 @@ Ajoutez les stratégies auxquelles l’application managée est conforme. Pour e
 
    ![Autorisation et paramètres de stratégie pour une application managée](./media/azureapp-sku-details-managedapp-auth-policy.png)
 
-**Pour créer une nouvelle autorisation :**
+**Pour créer une nouvelle autorisation :**
 
 1. Sous **Autorisation**, sélectionnez **+ Nouvelle autorisation**.
 2. Dans **ID du principal**, indiquez l’identificateur Azure Active Directory de l’utilisateur, du groupe ou de l’application à laquelle vous souhaitez accorder l’autorisation pour le groupe de ressources managées. L’autorisation accordée est indiquée par la définition de rôle.
@@ -153,7 +153,7 @@ Ajoutez les stratégies auxquelles l’application managée est conforme. Pour e
 >[!NOTE] 
 >Plusieurs autorisations peuvent être ajoutées. Toutefois, il est recommandé de créer un groupe d’utilisateurs Active Directory et de spécifier son ID au niveau de la propriété « PrincipalId ». Cela permettra d’ajouter davantage d’utilisateurs au groupe d’utilisateurs sans avoir à mettre à jour la référence SKU.
 
-**Pour créer une nouvelle stratégie :**
+**Pour créer une nouvelle stratégie :**
 
 1. Dans **Paramètres de stratégie**, sélectionnez **+ Nouvelle stratégie**.
 2. Dans **Nom de la stratégie**, entrez le nom de la stratégie. La longueur maximale de ce nom est de 50 caractères.
@@ -165,4 +165,4 @@ Ajoutez les stratégies auxquelles l’application managée est conforme. Pour e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Onglet de la Place de marché](./cpp-marketplace-tab.md)
+[Onglet Place de marché](./cpp-marketplace-tab.md)

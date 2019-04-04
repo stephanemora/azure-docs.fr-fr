@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286378"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895747"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -56,7 +56,7 @@ L’extension tâche durable implémente un algorithme exponentiel et aléatoire
 Le délai d’interrogation maximal est configurable via la `maxQueuePollingInterval` propriété dans le [fichier host.json](../functions-host-json.md#durabletask). Affectation d’une valeur plus élevée peut entraîner une latence de traitement des messages plus élevé. Latences supérieures peuvent être attendus uniquement après les périodes d’inactivité. Affectation d’une valeur inférieure peut entraîner des coûts de stockage plus élevés en raison de transactions de stockage.
 
 > [!NOTE]
-> Lors de l’exécution dans les plans de consommation Azure Functions et Premium, le [contrôleur de mise à l’échelle Azure Functions](../functions-scale.md#how-the-consumption-plan-works) interroge chaque file d’attente de contrôle et d’élément de travail une fois toutes les 10 secondes. Cette interrogation supplémentaire est nécessaire pour déterminer le moment d’activation d’instances d’application de fonction et de prendre des décisions de mise à l’échelle. Au moment de la rédaction de, cette deuxième intervalle 10 est constant et ne peut pas être configuré.
+> Lors de l’exécution dans les plans de consommation Azure Functions et Premium, le [contrôleur de mise à l’échelle Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) interroge chaque file d’attente de contrôle et d’élément de travail une fois toutes les 10 secondes. Cette interrogation supplémentaire est nécessaire pour déterminer le moment d’activation d’instances d’application de fonction et de prendre des décisions de mise à l’échelle. Au moment de la rédaction de, cette deuxième intervalle 10 est constant et ne peut pas être configuré.
 
 ## <a name="storage-account-selection"></a>Sélection du compte de stockage
 
@@ -244,4 +244,4 @@ Si vous n’obtenez pas les débits que vous attendiez et si l’utilisation de 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer votre première fonction durable en C#](durable-functions-create-first-csharp.md)
+> [Créer votre première fonction durable dansC#](durable-functions-create-first-csharp.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 574227e010a37340ce7248d2e4657f6a3f231d0a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984526"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903101"
 ---
 # <a name="download-the-template-for-a-vm"></a>Télécharger le modèle d’une machine virtuelle
 Lorsque vous créez une machine virtuelle dans Azure à l’aide du portail ou de PowerShell, un modèle Resource Manager est automatiquement créé pour vous. Vous pouvez utiliser ce modèle pour dupliquer rapidement un déploiement. Le modèle contient des informations sur toutes les ressources d’un groupe de ressources. Pour une machine virtuelle, cela signifie que le modèle contient tout ce qui est créé pour prendre en charge la machine virtuelle dans ce groupe de ressources, notamment les ressources réseau.
@@ -29,7 +29,7 @@ Lorsque vous créez une machine virtuelle dans Azure à l’aide du portail ou d
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche, sélectionnez **Machines virtuelles**.
 3. Sélectionnez la machine virtuelle dans la liste.
-4. Sélectionnez **Script Automation**.
+4. Sélectionnez **exporter le modèle**.
 5. Sélectionnez **Télécharger** depuis le menu en haut et enregistrez le fichier .zip sur votre ordinateur local.
 6. Ouvrez le fichier .zip et extrayez les fichiers dans un dossier. Le fichier .zip contient :
    

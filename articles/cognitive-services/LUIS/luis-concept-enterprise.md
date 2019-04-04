@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 27217b1bdf49f5d2b22ac23a092270be42df9abf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e5d7e2bfe1ee4e3ca248f40701aa65e757fc4d74
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861033"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895086"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Stratégies d’entreprise pour une application LUIS
 Révisez ces stratégies de conception pour votre application d’entreprise.
@@ -31,7 +31,7 @@ Pour obtenir la même intention principale dans toutes les applications, vérifi
 
 Désigner une seule application en tant que le maître. Tous les énoncés dont la révision est suggérée doivent être ajoutés à l’application maître, puis déplacés vers toutes les autres applications. Il s’agit d’une exportation complète de l’application, ou du chargement des énoncés étiquetés du maître vers les enfants. Le chargement peut être effectué à partir du site web [LUIS](luis-reference-regions.md) ou de l’API de création pour un [seul énoncé](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) ou pour un [lot](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
 
-Pour un apprentissage actif, planifiez une [révision d’énoncés de point de terminaison](luis-how-to-review-endoint-utt.md) à intervalles réguliers, par exemple toutes les deux semaines, puis entraînez et publiez à nouveau. 
+Pour un apprentissage actif, planifiez une [révision d’énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md) à intervalles réguliers, par exemple toutes les deux semaines, puis entraînez et publiez à nouveau. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Affecter plusieurs clés LUIS à la même application
 Si votre application LUIS reçoit plus d’accès au point de terminaison que les quotas de votre clé unique ne le permettent, créez et affectez plusieurs clés à l’application LUIS. Créez un gestionnaire de trafic ou un équilibreur de charge afin de gérer les requêtes de point de terminaison pour toutes les clés de point de terminaison. 
@@ -39,7 +39,7 @@ Si votre application LUIS reçoit plus d’accès au point de terminaison que le
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>Lorsque votre application monolithique retourne une intention incorrecte
 Si votre application est destinée à prédire une grande variété d’énoncés de l’utilisateur, envisagez d’implémenter le [modèle de répartition](#dispatch-tool-and-model). La rupture d’une application monolithique permet à LUIS de concentrer avec succès la détection sur les intentions au lieu d’être perturbée par les intentions des applications parent et enfants. 
 
-Pour un apprentissage actif, planifiez une [révision d’énoncés de point de terminaison](luis-how-to-review-endoint-utt.md) à intervalles réguliers, par exemple toutes les deux semaines, puis entraînez et publiez à nouveau. 
+Pour un apprentissage actif, planifiez une [révision d’énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md) à intervalles réguliers, par exemple toutes les deux semaines, puis entraînez et publiez à nouveau. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Lorsque vous avez besoin de plus de 500 intentions
 Par exemple, supposons que vous développez un assistant office qui a plus de 500 intentions. Si 200 intentions sont liées à la planification des réunions, 200 sont des rappels, 200 concernent l’obtention d’informations sur les collègues et 200 sont destinées à l’envoi de courrier électronique, groupez les intentions afin que chaque groupe soit dans une même application, puis créez une application de niveau supérieur qui contient chaque intention. Utilisez l’[l’outil et l’architecture de répartition](#dispatch-tool-and-model) pour générer l’application de niveau supérieur. Modifiez ensuite votre bot pour utiliser l’appel en cascade comme indiqué dans le [tutoriel de répartition][dispatcher-application-tutorial]. 

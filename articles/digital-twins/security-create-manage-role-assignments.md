@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118589"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905305"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Créer et gérer des attributions de rôle dans Azure Digital Twins
 
 Azure Digital Twins utilise le contrôle d’accès en fonction du rôle ([RBAC](./security-role-based-access-control.md)) pour gérer l’accès aux ressources.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>Vue d’ensemble des attributions de rôle
 
@@ -36,7 +39,7 @@ Chaque attribution de rôle est conforme à la définition suivante :
 
 Le tableau suivant décrit chaque attribut :
 
-| Attribut | NOM | Obligatoire | type | Description |
+| Attribut | Nom | Obligatoire | Type | Description |
 | --- | --- | --- | --- | --- |
 | roleId | Identificateur de la définition de rôle | Oui | Chaîne | ID unique de l’attribution de rôle souhaitée. Pour connaître les définitions de rôles et leurs identificateurs, interrogez l’API système ou reportez-vous au tableau ci-dessous. |
 | objectId | Identificateur d’objet | Oui | Chaîne | ID Azure Active Directory, ID objet de principal de service ou nom de domaine. À quoi ou à qui le rôle est attribué. L’attribution de rôle doit être mise en forme en fonction du type qui lui est associé. Pour l’objectIdType `DomainName`, objectId doit commencer par le caractère `“@”`. |
@@ -83,8 +86,8 @@ Votre ID d’application vous est attribué dans Azure Active Directory. Pour en
 Une fois que vous possédez l’ID d’application, exécutez les commandes PowerShell suivantes :
 
 ```shell
-Login-AzureRmAccount
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+Login-AzAccount
+Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
 Un utilisateur ayant le rôle **Admin** peut alors assigner le rôle Administrateur d’espace à un autre utilisateur en soumettant une requête HTTP POST authentifiée à l’URL :

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2f5a82fac18ab34bfa9d6b46f553227ed44a994a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008091"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917223"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Mettre à jour un service cloud
 
@@ -28,7 +28,7 @@ La mise à jour d’un service cloud, et notamment de ses rôles et du système 
 ## <a name="update-an-azure-service"></a>Mettre à jour un Service Azure
 Azure organise vos instances de rôle en regroupements logiques appelés domaines de mise à niveau (UD). Les domaines de mise à niveau (UD) sont des ensembles logiques d’instances de rôle qui sont mis à jour en tant que groupe.  Azure met à jour un domaine de mise à niveau de Service Cloud à la fois, ce qui permet aux instances présentes sur les autres domaines de mise à niveau de maintenir le trafic.
 
-Le nombre de domaines de mise à niveau par défaut est de 5. Vous pouvez spécifier un nombre différent de domaines de mise à niveau en incluant l’attribut upgradeDomainCount dans le fichier de définition du service (.csdef). Pour plus d’informations sur l’attribut upgradeDomainCount, consultez [Schéma WebRole](https://msdn.microsoft.com/library/azure/gg557553.aspx) ou [Schéma WorkerRole](https://msdn.microsoft.com/library/azure/gg557552.aspx).
+Le nombre de domaines de mise à niveau par défaut est de 5. Vous pouvez spécifier un nombre différent de domaines de mise à niveau en incluant l’attribut upgradeDomainCount dans le fichier de définition du service (.csdef). Pour plus d’informations sur l’attribut upgradeDomainCount, consultez [Schéma WebRole](/previous-versions/azure/reference/gg557553(v=azure.100)) ou [Schéma WorkerRole](/previous-versions/azure/reference/gg557552(v=azure.100)).
 
 Lorsque vous effectuez la mise à jour sur place d’un ou de plusieurs rôles dans votre service, Azure met à jour les ensembles d’instances de rôle en fonction du domaine de mise à niveau auquel ils appartiennent. Azure met à jour toutes les instances dans un domaine de mise à niveau donné (les arrête, les met à jour, les remet en ligne) puis passe au domaine suivant. En arrêtant uniquement les instances en cours d’exécution dans le domaine de mise à niveau en cours, Azure garantit que l’opération aura un impact minimal sur le service en cours d’exécution. Pour plus d’informations, consultez [Déroulement de la mise à niveau](#howanupgradeproceeds) plus loin dans cet article.
 
@@ -54,18 +54,18 @@ Le tableau suivant présente les modifications de service autorisées au cours d
 
 | Modifications autorisées de l’hébergement, des services et des rôles | Mise à jour sur place | Intermédiaire (échange d’adresses IP virtuelles) | Supprimer et redéployer |
 | --- | --- | --- | --- |
-| Version de système d’exploitation |Oui |Oui |Oui |
-| Niveau de confiance .NET |Oui |Oui |Oui |
+| Version de système d’exploitation |Oui |OUI |Oui |
+| Niveau de confiance .NET |Oui |OUI |Oui |
 | Taille de la machine virtuelle<sup>1</sup> |Oui<sup>2</sup> |Oui |Oui |
 | Paramètres de stockage locaux |Augmentation uniquement<sup>2</sup> |Oui |Oui |
-| Ajouter et supprimer les rôles dans un service |Oui |Oui |Oui |
-| Nombre d’instances d’un rôle particulier |Oui |Oui |Oui |
+| Ajouter et supprimer les rôles dans un service |Oui |OUI |Oui |
+| Nombre d’instances d’un rôle particulier |Oui |OUI |Oui |
 | Nombre ou type de points de terminaison pour un service |Oui<sup>2</sup> |Non  |Oui |
-| Noms et valeurs de paramètres de configuration |Oui |Oui |Oui |
-| Valeurs (et non noms) des paramètres de configuration |Oui |Oui |Oui |
-| Ajouter de nouveau certificats |Oui |Oui |Oui |
-| Modifier les certificats existants |Oui |Oui |Oui |
-| Déployer un nouveau code |Oui |Oui |Oui |
+| Noms et valeurs de paramètres de configuration |Oui |OUI |Oui |
+| Valeurs (et non noms) des paramètres de configuration |Oui |OUI |Oui |
+| Ajouter de nouveau certificats |Oui |OUI |Oui |
+| Modifier les certificats existants |Oui |OUI |Oui |
+| Déployer un nouveau code |Oui |OUI |Oui |
 
 <sup>1</sup> Modification de la taille limitée au sous-ensemble des tailles disponibles pour le service cloud.
 
@@ -82,7 +82,7 @@ Les éléments suivants ne sont pas pris en charge pendant une mise à jour :
 * Modification du nombre de domaines de mise à niveau.
 * Réduction de la taille des ressources locales.
 
-Si vous exécutez d’autres mises à jour de votre définition de service, comme la réduction des ressources de taille locale, vous devez exécuter une mise à jour de l’échange d’adresses IP virtuelles. Pour plus d’informations, consultez [Déploiement d’échange](https://msdn.microsoft.com/library/azure/ee460814.aspx).
+Si vous exécutez d’autres mises à jour de votre définition de service, comme la réduction des ressources de taille locale, vous devez exécuter une mise à jour de l’échange d’adresses IP virtuelles. Pour plus d’informations, consultez [Déploiement d’échange](/previous-versions/azure/reference/ee460814(v=azure.100)).
 
 <a name="howanupgradeproceeds"></a>
 
@@ -121,7 +121,7 @@ Pour réduire les temps d’arrêt en cas de mise à niveau d’un service à in
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>Restauration d’une mise à jour
-Azure offre une flexibilité dans la gestion des services pendant la mise à jour en vous permettant de lancer des opérations supplémentaires sur un service, une fois la demande de mise à jour initiale acceptée par le contrôleur d’architecture Azure. Une restauration ne peut être effectuée que lorsqu’une mise à jour (modification de configuration) ou une mise à niveau se trouve dans l’état **en cours** du déploiement. Une mise à jour ou mise à niveau est considérée comme en cours tant qu’il existe au moins une instance du service qui n’a pas encore été mise à jour vers la nouvelle version. Pour vérifier si une restauration est autorisée, assurez-vous que la valeur de l’indicateur RollbackAllowed retournée par les opérations [Obtention du déploiement](https://msdn.microsoft.com/library/azure/ee460804.aspx) et [Obtention des propriétés de service cloud](https://msdn.microsoft.com/library/azure/ee460806.aspx) est bien définie sur true.
+Azure offre une flexibilité dans la gestion des services pendant la mise à jour en vous permettant de lancer des opérations supplémentaires sur un service, une fois la demande de mise à jour initiale acceptée par le contrôleur d’architecture Azure. Une restauration ne peut être effectuée que lorsqu’une mise à jour (modification de configuration) ou une mise à niveau se trouve dans l’état **en cours** du déploiement. Une mise à jour ou mise à niveau est considérée comme en cours tant qu’il existe au moins une instance du service qui n’a pas encore été mise à jour vers la nouvelle version. Pour vérifier si une restauration est autorisée, assurez-vous que la valeur de l’indicateur RollbackAllowed retournée par les opérations [Obtention du déploiement](/previous-versions/azure/reference/ee460804(v=azure.100)) et [Obtention des propriétés de service cloud](/previous-versions/azure/reference/ee460806(v=azure.100)) est bien définie sur true.
 
 > [!NOTE]
 > Il convient d’appeler la restauration uniquement sur une mise à jour ou une mise à niveau **sur place** , parce que les mises à niveau d’échange d’adresse virtuelle impliquent le remplacement d’une instance complète s’exécutant sur votre service avec une autre.
@@ -135,13 +135,13 @@ Le rétablissement d’une mise à jour en cours a les effets suivants sur le d�
 
 Cette fonction est assurée par les fonctionnalités suivantes :
 
-* La [restauration de mise à jour ou de mise à niveau](https://msdn.microsoft.com/library/azure/hh403977.aspx), qui peut être appelée sur une mise à jour de configuration (déclenchée par un appel [Modifier la configuration du déploiement](https://msdn.microsoft.com/library/azure/ee460809.aspx)) ou une mise à niveau (déclenchée par l’appel [Mettre à niveau un déploiement](https://msdn.microsoft.com/library/azure/ee460793.aspx)) tant qu’il reste au moins une instance du service qui n’a pas encore été mise à jour vers la nouvelle version.
-* L’élément Verrouillé et l’élément RollbackAllowed, qui sont retournés comme parties intégrantes du corps de réponse des opérations [Obtention du déploiement](https://msdn.microsoft.com/library/azure/ee460804.aspx) et [Obtention des propriétés de service cloud](https://msdn.microsoft.com/library/azure/ee460806.aspx) :
+* La [restauration de mise à jour ou de mise à niveau](/previous-versions/azure/reference/hh403977(v=azure.100)), qui peut être appelée sur une mise à jour de configuration (déclenchée par un appel [Modifier la configuration du déploiement](/previous-versions/azure/reference/ee460809(v=azure.100))) ou une mise à niveau (déclenchée par l’appel [Mettre à niveau un déploiement](/previous-versions/azure/reference/ee460793(v=azure.100))) tant qu’il reste au moins une instance du service qui n’a pas encore été mise à jour vers la nouvelle version.
+* L’élément Verrouillé et l’élément RollbackAllowed, qui sont retournés comme parties intégrantes du corps de réponse des opérations [Obtention du déploiement](/previous-versions/azure/reference/ee460804(v=azure.100)) et [Obtention des propriétés de service cloud](/previous-versions/azure/reference/ee460806(v=azure.100)) :
 
   1. L’élément Verrouillé permet de détecter si une opération de mutation peut être appelée sur un déploiement donné.
-  2. L’élément RollbackAllowed vous permet de détecter lorsque l’opération de [restauration de mise à jour ou de mise à niveau](https://msdn.microsoft.com/library/azure/hh403977.aspx) peut être appelée sur un déploiement donné.
+  2. L’élément RollbackAllowed vous permet de détecter lorsque l’opération de [restauration de mise à jour ou de mise à niveau](/previous-versions/azure/reference/hh403977(v=azure.100)) peut être appelée sur un déploiement donné.
 
-  Pour effectuer une restauration, il est inutile de vérifier les éléments Verrouillés et RollbackAllowed. Il suffit de vérifier que RollbackAllowed est défini sur true. Ces éléments sont retournés uniquement si ces méthodes sont appelées avec l’en-tête de demande défini sur « x-ms-version : 2011-10-01 » ou une version ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+  Pour effectuer une restauration, il est inutile de vérifier les éléments Verrouillés et RollbackAllowed. Il suffit de vérifier que RollbackAllowed est défini sur true. Ces éléments sont retournés uniquement si ces méthodes sont appelées à l’aide de l’en-tête de demande défini sur « x-ms-version : 2011-10-01 » ou une version ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](/previous-versions/azure/gg592580(v=azure.100)).
 
 Dans certaines situations, la restauration d’une mise à jour ou d’une mise à niveau n’est pas prise en charge, notamment les suivantes :
 
@@ -149,9 +149,9 @@ Dans certaines situations, la restauration d’une mise à jour ou d’une mise 
 * Limitations de quota : si la mise à jour correspond à une opération de réduction, vous pouvez ne plus avoir suffisamment de capacité de calcul pour effectuer l’opération de restauration. Chaque abonnement Azure a un quota associé qui spécifie le nombre maximal de cœurs qui peuvent être utilisés par les services hébergés appartenant à cet abonnement. Si l’exécution de la restauration d’une mise à jour donnée met votre abonnement au dessus du quota, la restauration ne sera pas activée.
 * Condition de concurrence : si la mise à jour initiale est terminée, la restauration est impossible.
 
-Exemple de la situation où le déploiement d’une mise à jour peut être utile si vous utilisez l’opération de [mise à niveau de déploiement](https://msdn.microsoft.com/library/azure/ee460793.aspx) en mode manuel pour contrôler la fréquence à laquelle la mise à niveau majeure d’un service hébergé Azure est exécutée.
+Exemple de la situation où le déploiement d’une mise à jour peut être utile si vous utilisez l’opération de [mise à niveau de déploiement](/previous-versions/azure/reference/ee460793(v=azure.100)) en mode manuel pour contrôler la fréquence à laquelle la mise à niveau majeure d’un service hébergé Azure est exécutée.
 
-Lors du déploiement de la mise à niveau, vous appelez [Mettre à niveau un déploiement](https://msdn.microsoft.com/library/azure/ee460793.aspx) en mode manuel et commencez à parcourir les domaines de mise à niveau. Si à un moment donné, lorsque vous surveillez la mise à niveau, vous notez que des instances de rôle dans les premiers domaines de mise à niveau ne répondent plus, vous pouvez appeler une opération de [restauration de mise à jour ou de mise à niveau](https://msdn.microsoft.com/library/azure/hh403977.aspx) sur le déploiement, ce qui laissera les instances non mises à jour intactes, et restaurera les instances ayant été mises à niveau vers le package et la configuration de service à leur niveau antérieur.
+Lors du déploiement de la mise à niveau, vous appelez [Mettre à niveau un déploiement](/previous-versions/azure/reference/ee460793(v=azure.100)) en mode manuel et commencez à parcourir les domaines de mise à niveau. Si à un moment donné, lorsque vous surveillez la mise à niveau, vous notez que des instances de rôle dans les premiers domaines de mise à niveau ne répondent plus, vous pouvez appeler une opération de [restauration de mise à jour ou de mise à niveau](/previous-versions/azure/reference/hh403977(v=azure.100)) sur le déploiement, ce qui laissera les instances non mises à jour intactes, et restaurera les instances ayant été mises à niveau vers le package et la configuration de service à leur niveau antérieur.
 
 <a name="multiplemutatingoperations"></a>
 
@@ -162,11 +162,11 @@ Une fois que le contrôleur de structure Azure a reçu la demande initiale de mi
 
 Le lancement d’une deuxième opération de mise à jour pendant que la première mise à jour est en cours permet d’effectuer une opération similaire à l’opération de restauration. Si la deuxième mise à jour est en mode automatique, le premier domaine de mise à niveau sera immédiatement, mis à niveau, ce qui pourra éventuellement provoquer la mise hors ligne de plusieurs domaines de mise à niveau hors ligne au même moment dans le temps.
 
-Les opérations de mutation sont les suivantes : [Modification de la configuration du déploiement](https://msdn.microsoft.com/library/azure/ee460809.aspx), [Mise à niveau du déploiement](https://msdn.microsoft.com/library/azure/ee460793.aspx), [Mise à jour de l’état du déploiement](https://msdn.microsoft.com/library/azure/ee460808.aspx), [Suppression du déploiement](https://msdn.microsoft.com/library/azure/ee460815.aspx) et [Restauration de mise à jour ou de mise à niveau](https://msdn.microsoft.com/library/azure/hh403977.aspx).
+Les opérations de mutation sont les suivantes : [Modifier la Configuration de déploiement](/previous-versions/azure/reference/ee460809(v=azure.100)), [mise à niveau de déploiement](/previous-versions/azure/reference/ee460793(v=azure.100)), [mettre à jour d’état du déploiement](/previous-versions/azure/reference/ee460808(v=azure.100)), [supprimer le déploiement](/previous-versions/azure/reference/ee460815(v=azure.100)), et [Rollback Mettre à jour ou de mettre à niveau](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
-Deux opérations, [Obtention du déploiement](https://msdn.microsoft.com/library/azure/ee460804.aspx) et [Obtention des propriétés de service cloud](https://msdn.microsoft.com/library/azure/ee460806.aspx), retournent l’indicateur Verrouillé qui peut être examiné pour déterminer si une opération de mutation peut être appelée sur un déploiement donné.
+Deux opérations, [Obtention du déploiement](/previous-versions/azure/reference/ee460804(v=azure.100)) et [Obtention des propriétés de service cloud](/previous-versions/azure/reference/ee460806(v=azure.100)), retournent l’indicateur Verrouillé qui peut être examiné pour déterminer si une opération de mutation peut être appelée sur un déploiement donné.
 
-Pour appeler la version de ces méthodes qui renvoie un indicateur Verrouillé, vous devez définir un en-tête de requête « x-ms-version: 2011-10-01 » ou ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+Pour appeler la version de ces méthodes qui renvoie un indicateur verrouillé, vous devez définir l’en-tête de demande sur « x-ms-version : 2011-10-01 » ou une version ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: ef07def377b74fb74d57372f471efcf48fcf7aa2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bbaf651233d4cebad3f45e5cf3823bcaf6ce38b6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881093"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905781"
 ---
 # <a name="how-application-gateway-works"></a>Fonctionne de la passerelle d’Application
 
@@ -36,7 +36,7 @@ Une fois un serveur principal a été déterminé, passerelle d’application ou
 
 Une passerelle d’Application interne a uniquement les adresse IP privée. Le nom DNS d’une passerelle d’Application interne est en interne peut être résolu à son adresse IP privée. Par conséquent, les équilibreurs de charge interne peuvent uniquement acheminer des demandes des clients ayant accès au réseau virtuel pour la passerelle d’Application.
 
-Notez que les passerelles d’Application accessible sur Internet et interne acheminer des demandes à vos serveurs principaux à l’aide d’adresses IP privées, si votre ressource de pool principal contient une adresse IP privée, configuration de VM NIC ou une adresse peut être résolue en interne et si votre pool principal est un point de terminaison public, Application Gateway utilise son adresse IP publique de serveur frontal pour atteindre le serveur. Si vous n’avez pas configuré une adresse IP publique de serveur frontal, un est affecté pour la connectivité externe sortante.
+Si votre pool principal contient un nom de domaine complet peut être résolu en interne ou une adresse IP privée, Application Gateway achemine la demande vers le serveur principal à l’aide de ses adresses IP privées d’instance. Si votre pool principal contient un point de terminaison externe ou un nom de domaine complet peut être résolu en externe, Application Gateway achemine la demande vers le serveur principal à l’aide de son adresse IP publique de serveur frontal. La résolution DNS est basée sur une zone DNS privée ou d’un serveur DNS personnalisé si configuré ou qu’il prend la valeur par défaut fourni par Azure DNS. Si vous n’avez pas configuré une adresse IP publique de serveur frontal, un est affecté pour la connectivité externe sortante.
 
 ### <a name="modifications-to-the-request"></a>Modifications apportées à la demande
 

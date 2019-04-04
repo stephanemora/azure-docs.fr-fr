@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 51dce1680be5f5f4387c2ba02827195bcdbe9b48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998324"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917853"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertes en temps réel dans Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Ce document explique les alertes en temps réel dans Microsoft Azure CDN. Cette fonctionnalité fournit des notifications en temps réel sur les performances des points de terminaison dans votre profil CDN.  Vous pouvez configurer des alertes par courrier électronique ou HTTP en fonction des éléments suivants :
 
 * Bande passante
 * Codes d’état
 * États du cache
-* Connexions
+* connexions
 
 ## <a name="creating-a-real-time-alert"></a>Création d’une alerte en temps réel
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil CDN.
    
     ![Profil CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
-1. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer** .
+1. Dans le panneau Profil CDN, cliquez sur le bouton **Gérer** .
    
     ![Bouton de gestion du profil CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
    
@@ -65,7 +65,7 @@ Ce document explique les alertes en temps réel dans Microsoft Azure CDN. Cette 
    > 
 8. Créez une **Expression** à surveiller en sélectionnant **Mesure**, **Opérateur** et **Valeur de déclenchement**.
    
-   * Pour **Mesure**, sélectionnez le type de condition que vous souhaitez surveiller.  **Bandwidth Mbps (Mbits/s de bande passante)** est la quantité de bande passante en mégabits par seconde.  **Nombre total de connexions** est le nombre de connexions HTTP simultanées à nos serveurs Edge.  Pour obtenir les définitions des différents états de cache et les codes d’état, voir [Azure CDN Cache Status Codes (Codes d’état du cache Azure CDN)](https://msdn.microsoft.com/library/mt759237.aspx) et [Azure CDN HTTP Status Codes (Codes d’état HTTP d’Azure CDN)](https://msdn.microsoft.com/library/mt759238.aspx)
+   * Pour **Mesure**, sélectionnez le type de condition que vous souhaitez surveiller.  **Bandwidth Mbps (Mbits/s de bande passante)** est la quantité de bande passante en mégabits par seconde.  **Nombre total de connexions** est le nombre de connexions HTTP simultanées à nos serveurs Edge.  Pour obtenir les définitions des différents états de cache et les codes d’état, voir [Azure CDN Cache Status Codes (Codes d’état du cache Azure CDN)](/previous-versions/azure/mt759237(v=azure.100)) et [Azure CDN HTTP Status Codes (Codes d’état HTTP d’Azure CDN)](/previous-versions/azure/mt759238(v=azure.100))
    * **Opérateur** est l’opérateur mathématique qui établit la relation entre la mesure et la valeur du déclencheur.
    * **Valeur de déclenchement** est la valeur de seuil qui doit être atteinte avant l’envoi d’une notification.
      

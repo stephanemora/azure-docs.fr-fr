@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 5b4f9715e47483fa64840c521620bec79f3041cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106404"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905067"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Démarrage rapide de PowerShell dans Azure Cloud Shell
 
@@ -36,7 +36,7 @@ Ce document explique comment utiliser PowerShell dans Cloud Shell dans le [porta
 
    ![](media/quickstart-powershell/shell-icon.png)
 
-2. Sélectionnez l’environnement PowerShell à partir de la liste déroulante pour basculer vers le lecteur Azure`(Azure:)`
+2. Sélectionnez l’environnement PowerShell à partir de la liste déroulante et vous serez dans le lecteur Azure `(Azure:)`
 
    ![](media/quickstart-powershell/environment-ps.png)
 
@@ -267,7 +267,7 @@ Pour vous authentifier auprès des serveurs ou machines virtuelles à l’aide d
 
 ### <a name="using-ssh"></a>Utilisation de SSH
 
-Suivez les instructions fournies [ici](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) pour créer une configuration de machine virtuelle à l’aide d’applets de commande AzureRM.
+Suivez les instructions [ici](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) pour créer une nouvelle configuration de machine virtuelle à l’aide des applets de commande Azure PowerShell.
 Avant d’appeler `New-AzVM` pour lancer le déploiement, ajoutez la clé publique SSH à la configuration de machine virtuelle.
 La machine virtuelle créée contient la clé publique à l’emplacement `~\.ssh\authorized_keys` ; vous pouvez ainsi ouvrir une session SSH sur la machine virtuelle sans recourir à des informations d’identification.
 
@@ -292,7 +292,7 @@ ssh azureuser@MyVM.Domain.Com
 
 Sous le lecteur `Azure`, tapez `Get-AzCommand` pour obtenir les commandes Azure spécifiques au contexte.
 
-Vous pouvez également continuer d’utiliser `Get-Command *azurerm* -Module AzureRM.*` pour rechercher les commandes Azure disponibles.
+Vous pouvez également continuer d’utiliser `Get-Command *az* -Module Az.*` pour rechercher les commandes Azure disponibles.
 
 ## <a name="install-custom-modules"></a>Installer des modules personnalisés
 

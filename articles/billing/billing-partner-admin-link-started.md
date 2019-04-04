@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5a03805fc055583f1f965854d4da3ae6b0c90e20
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444888"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904829"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
 En tant que partenaire, vous pouvez suivre votre impact dans tous vos engagements avec les clients. Vous pouvez lier votre ID partenaire aux comptes utilisés pour gérer les ressources d’un client.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-access-from-your-customer"></a>Accéder à votre client
 
@@ -57,9 +59,8 @@ Lorsque vous avez accès aux ressources du client, utilisez le portail Azure, Po
 2. Connectez-vous au locataire du client avec le compte d’utilisateur ou le principal du service. Pour plus d’informations, consultez [Se connecter avec PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
  
    ```azurepowershell-interactive
-    C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
-
 
 3. Définissez le lien vers le nouvel ID partenaire. L’ID partenaire est l’ID [Microsoft Partner Network](https://partner.microsoft.com/) de votre organisation.
 
@@ -121,11 +122,11 @@ Participez à la discussion dans la [Communauté de partenaires Microsoft](https
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-**Qui peut lier l’ID partenaire ?**
+**Qui peut lier l’ID partenaire ?**
 
 Tout utilisateur de l’organisation partenaire qui gère les ressources Azure du client peut lier l’ID partenaire au compte.
 
-**Un ID partenaire peut-il être modifié une fois qu’il est lié ?**
+**Un ID de partenaire peut-elle être modifié une fois qu’il est lié ?**
 
 Oui. Un ID partenaire lié peut être modifié, ajouté ou supprimé.
 
@@ -133,7 +134,7 @@ Oui. Un ID partenaire lié peut être modifié, ajouté ou supprimé.
 
 Le lien entre l’ID partenaire et le compte est établi pour chaque locataire client. Liez l’ID partenaire dans chaque locataire client.
 
-**D’autres partenaires ou clients peuvent-ils modifier ou supprimer le lien vers l’ID partenaire ?**
+**Peuvent autres partenaires ou des clients de modifier ou de supprimer le lien vers l’ID partenaire ?**
 
 Le lien est associé au niveau du compte d'utilisateur. Vous seul pouvez modifier ou supprimer le lien vers l’ID partenaire. Le client et les autres partenaires ne peuvent pas modifier le lien vers l’ID partenaire. 
 

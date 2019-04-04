@@ -1,19 +1,17 @@
 ---
 title: Environnements de développement/test micro-charges Focus sur Azure | Microsoft Docs
 description: Ré-héberger votre IBM z/OS mainframe les charges de travail à l’aide de solutions de Micro Focus sur les machines virtuelles (VM) Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 23a650698f8484e3ed8f033331693484c2e02fac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740357"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893773"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>Environnements de développement/test micro-charges Focus sur Azure
 
@@ -25,5 +23,6 @@ Micro Focus offre réhébergement du développement et test du réhébergement d
 
 **Étapes suivantes**
 
-- [Installation de Micro Focus Enterprise Server 4.0 et code Enterprise Developer 4.0 sur Azure](./set-up-micro-focus-on-azure.md)
+- [Installation de Micro Focus Enterprise Server 4.0 et code Enterprise Developer 4.0 sur Azure](./set-up-micro-focus-azure.md)
 - [Configurer Micro Focus CICS BankDemo pour Micro Focus Enterprise Developer 4.0 dans Azure](./demo.md)
+- [Exécuter le serveur d’entreprise dans des conteneurs Docker sur Azure](./run-enterprise-server-container.md)

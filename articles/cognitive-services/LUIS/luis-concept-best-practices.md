@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984201"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895813"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bonnes pratiques pour la création d’une application Language Understanding avec Cognitive Services
 Suivez le processus de création d’applications pour générer votre application LUIS. 
@@ -36,13 +36,13 @@ La liste suivante indique les meilleures pratiques pour les applications LUIS :
 
 |À faire|À ne pas faire|
 |--|--|
-|[Définir des intentions distinctes](#do-define-distinct-intents) |[Ajouter de nombreux exemples d’énoncés aux intentions](#dont-add-many-example-utterances-to-intents) |
-|[Trouver l’équilibre idéal, ni trop générique ni trop spécifique, pour chaque intention](#do-find-sweet-spot-for-intents)|[Utiliser LUIS comme plateforme d’apprentissage](#dont-use-luis-as-a-training-platform)|
-|[Générer l’application de manière itérative](#do-build-the-app-iteratively)|[Ajouter de nombreux exemples d’énoncés du même format, en ignorant les autres formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
-|[Ajouter des listes d’expression et des modèles dans les itérations ultérieures](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Mélanger la définition des intentions et des entités](#dont-mix-the-definition-of-intents-and-entities)|
-|[Équilibrer vos énoncés entre toutes les intentions](#balance-your-utterances-across-all-intents), sauf l’intention None.<br>[Ajouter des exemples d’énoncés à l’intention None](#do-add-example-utterances-to-none-intent)|[Créer des listes d’expressions avec toutes les valeurs possibles](#dont-create-phrase-lists-with-all-the-possible-values)|
-|[Tirer parti de la fonctionnalité de suggestion pour l’apprentissage actif](#do-leverage-the-suggest-feature-for-active-learning)|[Ajouter trop de modèles](#dont-add-many-patterns).|
-|[Analyser les performances de l’application](#do-monitor-the-performance-of-your-app)|[Effectuer l’apprentissage et publier à chaque ajout d’exemple d’énoncé](#dont-train-and-publish-with-every-single-example-utterance)|
+|[Définir des intentions distinctes](#do-define-distinct-intents) |[Ajouter des énoncés exemple nombreux à intentions](#dont-add-many-example-utterances-to-intents) |
+|[Trouver constitue-t-il un entre les génériques trop et trop spécifiques pour chaque objectif](#do-find-sweet-spot-for-intents)|[Utiliser LUIS comme une plate-forme de formation](#dont-use-luis-as-a-training-platform)|
+|[Générer votre application de manière itérative](#do-build-the-app-iteratively)|[Ajouter des nombreuses énoncés exemple du même format, en ignorant les autres formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Ajouter des listes d’expressions et des modèles dans les itérations ultérieures](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Combinaison de la définition d’intentions et entités](#dont-mix-the-definition-of-intents-and-entities)|
+|[Équilibrer vos énoncés entre toutes les intentions](#balance-your-utterances-across-all-intents), sauf l’intention None.<br>[Ajouter des exemples d’énoncés à l’intention None](#do-add-example-utterances-to-none-intent)|[Créer des listes de phrase avec toutes les valeurs possibles](#dont-create-phrase-lists-with-all-the-possible-values)|
+|[Tirer parti de la fonctionnalité de suggérer pour un apprentissage actif](#do-leverage-the-suggest-feature-for-active-learning)|[Ajouter des modèles trop nombreux](#dont-add-many-patterns)|
+|[Surveiller les performances de votre application](#do-monitor-the-performance-of-your-app)|[Formez et publiez avec chaque énoncé exemple unique ajouté](#dont-train-and-publish-with-every-single-example-utterance)|
 |[Utiliser des versions pour chaque itération de l’application](#do-use-versions-for-each-app-iteration)||
 
 ## <a name="do-define-distinct-intents"></a>Définir des intentions distinctes
@@ -61,7 +61,7 @@ Prenons les exemples d’énoncés suivants :
 
 Pour plus d'informations :
 * Concept : [Concepts relatifs aux intentions dans votre application LUIS](luis-concept-intent.md)
-* Tutoriel : [Générer une application LUIS pour déterminer les intentions d’un utilisateur](luis-quickstart-intents-only.md)
+* Didacticiel : [Générer une application LUIS pour déterminer les intentions d’un utilisateur](luis-quickstart-intents-only.md)
 * Activation [Ajouter des intentions pour déterminer l’intention de l’utilisateur des énoncés](luis-how-to-add-intents.md)
 
 
@@ -122,12 +122,12 @@ Pour plus d'informations :
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Tirer parti de la fonctionnalité de suggestion pour l’apprentissage actif
 
-Utilisez régulièrement la fonctionnalité **Vérifier les énoncés du point de terminaison** de [l’apprentissage actif](luis-how-to-review-endoint-utt.md), au lieu d’ajouter d’autres exemples d’énoncés aux intentions. L’application reçoit constamment des énoncés du point de terminaison, ce qui allonge et fait évoluer cette liste.
+Utilisez régulièrement la fonctionnalité **Vérifier les énoncés du point de terminaison** de [l’apprentissage actif](luis-how-to-review-endpoint-utterances.md), au lieu d’ajouter d’autres exemples d’énoncés aux intentions. L’application reçoit constamment des énoncés du point de terminaison, ce qui allonge et fait évoluer cette liste.
 
 Pour plus d'informations :
 * Concept : [Concepts pour l’activation de l’apprentissage actif en passant en revue les énoncés de point de terminaison](luis-concept-review-endpoint-utterances.md)
 * Didacticiel : [Tutoriel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison](luis-tutorial-review-endpoint-utterances.md)
-* Procédure : [Comment passer en revue les énoncés de point de terminaison dans le portail LUIS](luis-how-to-review-endoint-utt.md)
+* Procédure : [Comment passer en revue les énoncés de point de terminaison dans le portail LUIS](luis-how-to-review-endpoint-utterances.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Analyser les performances de l’application
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 8b42361e7b94bf017dde4eaec882f9fed4d42ed6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861993"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918516"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scénarios d’automatisation de la facturation et de la gestion des coûts
 
@@ -80,9 +80,9 @@ Les clients Web Direct et Entreprise peuvent utiliser toutes les API suivantes, 
 
 -   [API Usage Details](https://docs.microsoft.com/rest/api/consumption/usagedetails) : Obtenez des informations de paiement et d’utilisation sur toutes les ressources Azure de Microsoft. Les informations sont sous la forme d’enregistrements détaillés de l’utilisation, qui sont actuellement émis une fois par compteur par jour. Vous pouvez utiliser ces informations pour additionner les coûts de toutes les ressources ou examiner les coûts/l’utilisation de ressources spécifiques.
 
--   [API RateCard](https://msdn.microsoft.com/library/azure/mt219005.aspx) : Obtenez des tarifs spéciaux si vous êtes client Web Direct. Vous pouvez alors utiliser les informations retournées avec vos informations sur l’utilisation de la ressource pour calculer manuellement la facture prévue. 
+-   [API RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)) : Obtenez des tarifs spéciaux si vous êtes client Web Direct. Vous pouvez alors utiliser les informations retournées avec vos informations sur l’utilisation de la ressource pour calculer manuellement la facture prévue. 
 
--   [API Unrated Usage](https://msdn.microsoft.com/library/azure/mt219003.aspx) : Obtenez des informations sur l’utilisation brute avant tout décompte/toute facturation Azure.
+-   [API Unrated Usage](/previous-versions/azure/reference/mt219003(v=azure.100)) : Obtenez des informations sur l’utilisation brute avant tout décompte/toute facturation Azure.
 
 ### <a name="billing"></a>Facturation
 -   [API Billing Periods](https://docs.microsoft.com/rest/api/billing/billingperiods) : Déterminez une période de facturation à analyser, ainsi que les ID de facture de cette période. Vous pouvez utiliser des ID de facture avec l’API Invoices.
@@ -121,7 +121,7 @@ Ces API fournissent des données fondamentalement différentes :
    - Changements pour tenir compte de l’utilisation des engagements monétaires prépayés
    - Changements pour tenir compte des différences d’utilisation découvertes par Azure
 
-- L’[API Usage](https://msdn.microsoft.com/library/Mt219003.aspx) fournit des informations brutes sur l’utilisation d’Azure avant qu’elles ne passent par le système de comptage des coûts dans Azure. Ces données peuvent ne présenter aucune corrélation avec l’utilisation ou les frais constatés après leur passage dans le système de comptage des coûts d’Azure.
+- L’[API Usage](/previous-versions/azure/reference/mt219003(v=azure.100)) fournit des informations brutes sur l’utilisation d’Azure avant qu’elles ne passent par le système de comptage des coûts dans Azure. Ces données peuvent ne présenter aucune corrélation avec l’utilisation ou les frais constatés après leur passage dans le système de comptage des coûts d’Azure.
 
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Quelle est la différence entre les API Invoice et Usage Details ?
 Ces API offrent un aperçu différent des mêmes données :
@@ -135,7 +135,7 @@ Ces API fournissent des jeux de données similaires, mais concernent des publics
 
 - [l’API Price Sheet](https://docs.microsoft.com/rest/api/consumption/pricesheet) fournit les tarifs personnalisés qui ont été négociés pour un client Enterprise.
 
-- L’[API RateCard](https://msdn.microsoft.com/library/mt219005.aspx) fournit les tarifs publics applicables aux clients Web Direct.
+- L’[API RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)) fournit les tarifs publics applicables aux clients Web Direct.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

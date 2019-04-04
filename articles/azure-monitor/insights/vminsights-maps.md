@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984847"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916731"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles (préversion) dans le but de comprendre les composants d’application
 Lorsque vous visualisez les composants d’application détectés sur des machines virtuelles Windows et Linux s’exécutant dans Azure, vous pouvez observer votre environnement de deux manières avec Azure Monitor pour machines virtuelles : directement à partir d’une machine virtuelle ou à l’échelle des groupes de machines virtuelles à partir d’Azure Monitor. 
@@ -43,7 +43,7 @@ Dans la partie droite du volet, cliquez sur le **les événements du journal** i
 
 ![Liste de recherche dans les journaux dans le volet Propriétés](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Fermez la page *Journaux** et revenez au volet **Propriétés**. Sélectionnez **Alertes** pour afficher les alertes déclenchées pour la machine virtuelle à partir de critères d’intégrité. Map intègre les alertes Azure pour afficher les alertes déclenchées pour le serveur sélectionné pendant l’intervalle de temps sélectionné. Le serveur affiche une icône s’il existe des alertes, et le volet Alertes de la machine répertorie les alertes. 
+Fermer **journaux** et revenir à la **propriétés** volet et sélectionnez **alertes** pour afficher les alertes qui alerte déclenchées pour la machine virtuelle à partir de critères d’intégrité. Map intègre les alertes Azure pour afficher les alertes déclenchées pour le serveur sélectionné pendant l’intervalle de temps sélectionné. Le serveur affiche une icône s’il existe des alertes, et le volet Alertes de la machine répertorie les alertes. 
 
 ![Alertes de la machine dans le volet Propriétés](./media/vminsights-maps/properties-pane-alerts-01.png)
 

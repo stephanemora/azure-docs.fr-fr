@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: de737f20147e8208dd18388eedcac11583c8cb97
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403389"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891801"
 ---
 # <a name="data-box-edge-security-and-data-protection"></a>Données boîte Edge security et protection des données
 
@@ -35,6 +35,7 @@ Le service de passerelle de zone de données boîte Edge/Data est un service de 
 
 - L’accès au service de passerelle de données boîte Edge/données zone requiert votre organisation a un contrat entreprise (EA) ou un abonnement de fournisseur de solutions Cloud (CSP). Pour plus d’informations, accédez à [souscrire un abonnement Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
 - Étant donné que votre service de gestion est hébergé dans Azure, il est protégé par les fonctionnalités de sécurité Azure. Pour plus d’informations sur les fonctionnalités de sécurité fournies par Microsoft Azure, accédez au [Centre de confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
+- Pour les opérations de gestion du Kit de développement logiciel, la clé de chiffrement est disponible pour votre Edge Data Box / ressource de passerelle de données boîte sous **propriétés de l’appareil**. Vous pouvez afficher la clé de chiffrement uniquement si vous disposez des autorisations pour l’API Graph de ressources.
 
 ## <a name="data-box-edge-device-protection"></a>Protection des appareils Edge de la zone données
 
@@ -44,7 +45,8 @@ Le périphérique périmétrique de zone de données est un périphérique local
 - Est protégé à tout moment par un mot de passe du périphérique.
 - Est un appareil verrouillé. Le périphérique BMC et BIOS sont protégés par mot de passe avec un utilisateur-accès limité pour le BIOS.
 - Le démarrage sécurisé est activé.
-- Exécute Windows Defender Device Guard. Device Guard vous autorise à exécuter uniquement les applications de confiance que vous définissez dans vos stratégies d’intégrité du code. 
+- Exécute Windows Defender Device Guard. Device Guard vous autorise à exécuter uniquement les applications de confiance que vous définissez dans vos stratégies d’intégrité du code.
+- Possède une clé à l’intérieur de la couverture qui peut être utilisée pour verrouiller l’appareil. Nous recommandons une fois que vous configurez l’appareil, ouvrez le capot. Recherchez la clé et puis verrouiller le capot pour empêcher tout accès non autorisé aux disques de données situés au début de l’appareil.
 
 ### <a name="protect-the-device-via-activation-key"></a>Protéger l’appareil via la clé d’activation
 

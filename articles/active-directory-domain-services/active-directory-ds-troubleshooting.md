@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: 963ee7e952e566952a80903a739b093dbd9f0c21
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 48831767f72dd1b978fad5b0a9a8f2c7a11ec89d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184187"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893110"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Services de domaine Azure AD : guide de dépannage
 Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer pendant la configuration ou l’administration des services de domaine Azure Active Directory (AD).
@@ -32,15 +32,15 @@ Choisissez les étapes de résolution qui correspondent au message d’erreur qu
 
 | **Message d’erreur** | **Résolution :** |
 | --- |:--- |
-| *Le nom contoso100.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.* |[Conflit de nom de domaine dans le réseau virtuel](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. Le service ne dispose pas des autorisations adéquates pour l’application appelée « Synchronisation des services de domaine Azure AD ». Supprimez l’application appelée « Synchronisation des services de domaine Azure AD » et réessayez d’activer les services de domaine pour votre client Azure AD.* |[Les services de domaine ne disposent pas des autorisations adéquates pour l’application Synchronisation des services de domaine Azure AD.](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application de services de domaine dans votre client Azure AD n’a pas les autorisations requises pour activer les services de domaine. Supprimez l’application avec l’identificateur d’application d87dcbc6-a371-462e-88e3-28ad15ec4e64 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application de services de domaine n’est pas configurée correctement dans votre client.](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application Microsoft Azure AD est désactivée dans votre client Azure AD. Activez l’application avec l’identificateur d’application 00000002-0000-0000-c000-000000000000 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application Microsoft Graph est désactivée dans votre client Azure AD.](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *Le nom contoso100.com est déjà en cours d’utilisation sur ce réseau. Spécifiez un nom qui n’est pas en cours d’utilisation.* |[Conflit de nom de domaine dans le réseau virtuel](active-directory-ds-troubleshooting.md#domain-name-conflict) |
+| *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. Le service ne dispose pas des autorisations adéquates pour l’application appelée « Synchronisation des services de domaine Azure AD ». Supprimer l’application appelée « Synchronisation des Services Azure AD Domain » et essayez ensuite d’activer les Services de domaine pour votre client Azure AD.* |[Les Services de domaine n’a pas les autorisations adéquates pour l’application Azure AD Domain Services Sync](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application de services de domaine dans votre client Azure AD n’a pas les autorisations requises pour activer les services de domaine. Supprimer l’application avec l’identificateur d’application d87dcbc6-a371-462e-88e3-28ad15ec4e64 et essayez ensuite d’activer les Services de domaine pour votre client Azure AD.* |[L’application de Services de domaine n’est pas correctement configurée dans votre client](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application Microsoft Azure AD est désactivée dans votre client Azure AD. Activez l’application avec l’identificateur d’application 00000002-0000-0000-c000-000000000000 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application Microsoft Graph est désactivée dans votre locataire Azure AD](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Conflit de nom de domaine
 **Message d’erreur :**
 
-*Le nom contoso100.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.*
+*Le nom contoso100.com est déjà en cours d’utilisation sur ce réseau. Spécifiez un nom qui n’est pas en cours d’utilisation.*
 
 **Correction :**
 
@@ -51,7 +51,7 @@ en raison des conflits de noms de domaine sur ce réseau virtuel. Dans ce cas, v
 ### <a name="inadequate-permissions"></a>Autorisations inappropriées
 **Message d’erreur :**
 
-*Les services de domaine n’ont pas pu être activés pour ce client Azure AD. Le service ne dispose pas des autorisations adéquates pour l’application appelée « Synchronisation des services de domaine Azure AD ». Supprimez l’application appelée « Synchronisation des services de domaine Azure AD » et réessayez d’activer les services de domaine pour votre client Azure AD.*
+*Les services de domaine n’ont pas pu être activés pour ce client Azure AD. Le service ne dispose pas des autorisations adéquates pour l’application appelée « Synchronisation des services de domaine Azure AD ». Supprimer l’application appelée « Synchronisation des Services Azure AD Domain » et essayez ensuite d’activer les Services de domaine pour votre client Azure AD.*
 
 **Correction :**
 
@@ -67,7 +67,7 @@ Pour vérifier la présence de cette application et la supprimer le cas échant,
 ### <a name="invalid-configuration"></a>Configuration non valide
 **Message d’erreur :**
 
-*Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application de services de domaine dans votre client Azure AD n’a pas les autorisations requises pour activer les services de domaine. Supprimez l’application avec l’identificateur d’application d87dcbc6-a371-462e-88e3-28ad15ec4e64 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.*
+*Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application de services de domaine dans votre client Azure AD n’a pas les autorisations requises pour activer les services de domaine. Supprimer l’application avec l’identificateur d’application d87dcbc6-a371-462e-88e3-28ad15ec4e64 et essayez ensuite d’activer les Services de domaine pour votre client Azure AD.*
 
 **Correction :**
 
@@ -157,7 +157,7 @@ Azure AD vous protège contre la suppression accidentelle d’objets utilisateur
 
 Le compte d’utilisateur reste dans un état désactivé dans votre domaine managé, même si vous recréez un compte d’utilisateur avec le même nom d’utilisateur principal dans votre annuaire Azure AD. Pour supprimer le compte d’utilisateur de votre domaine managé, vous devez forcer sa suppression de votre locataire Azure AD.
 
-Pour supprimer complètement le compte d’utilisateur de votre domaine géré, supprimez définitivement l’utilisateur de votre client Azure AD. Utilisez l’applet de commande PowerShell `Remove-MsolUser` avec l’option `-RemoveFromRecycleBin`, comme décrit dans cet [article MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Pour supprimer complètement le compte d’utilisateur de votre domaine géré, supprimez définitivement l’utilisateur de votre client Azure AD. Utilisez l’applet de commande PowerShell `Remove-MsolUser` avec l’option `-RemoveFromRecycleBin`, comme décrit dans cet [article MSDN](/previous-versions/azure/dn194132(v=azure.100)).
 
 
 ## <a name="contact-us"></a>Nous contacter
