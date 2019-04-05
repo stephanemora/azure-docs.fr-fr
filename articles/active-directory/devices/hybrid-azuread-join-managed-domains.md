@@ -69,7 +69,7 @@ L’accès des appareils aux ressources Microsoft suivantes depuis le réseau de
 - https://enterpriseregistration.windows.net
 - https://login.microsoftonline.com
 - https://device.login.microsoftonline.com
-- https://autologon.microsoftazuread-sso.com (Si vous utilisez ou prévoyez d’utiliser l’authentification unique fluide)
+- [https://autologon.microsoftazuread-sso.com](https://autologon.microsoftazuread-sso.com) (Si vous utilisez ou prévoyez d’utiliser l’authentification unique fluide)
 
 Si votre organisation nécessite l’accès à Internet via un proxy sortant, à compter de Windows 10 1709, vous pouvez [configurer les paramètres du proxy sur votre ordinateur à l’aide d’un objet de stratégie de groupe (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Si la version de Windows qui s’exécute sur votre ordinateur est antérieure à Windows 10 1709, vous devez implémenter la détection automatique de proxy Web (WPAD) pour permettre aux ordinateurs Windows 10 de procéder à l’inscription des appareils auprès d’Azure AD. 
 
