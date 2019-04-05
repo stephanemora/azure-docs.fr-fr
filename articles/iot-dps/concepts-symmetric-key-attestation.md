@@ -3,17 +3,17 @@ title: Service Azure IoT Hub Device Provisioning - Attestation de clé symétriq
 description: Cet article donne une vue d’ensemble conceptuelle des attestations de clé symétrique avec le service IoT Device Provisioning.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/18/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 80828876ffe8b58697cfaacad4991354ac070730
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+manager: philmea
+ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971788"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050942"
 ---
 # <a name="symmetric-key-attestation"></a>Attestation de clé symétrique
 
@@ -48,7 +48,7 @@ Voici les composants de chaque jeton :
 
 | Valeur | Description |
 | --- | --- |
-| {signature} |Chaîne de signature HMAC-SHA256. Pour les inscriptions individuelles, cette signature est produite avec la clé symétrique (principale ou secondaire) pour effectuer le hachage. Pour les groupes d’inscription, une clé dérivée de la clé d’inscription du groupe est utilisée pour effectuer le hachage. Le hachage est effectué sur un message de la forme : `URL-encoded-resourceURI + "\n" + expiry`. **Important** : La clé doit être décodée depuis base64 avec d’être utilisée pour effectuer le calcul HMAC-SHA256. En outre, le résultat de la signature doit être encodé sous forme d’URL. |
+| {signature} |Chaîne de signature HMAC-SHA256. Pour les inscriptions individuelles, cette signature est produite avec la clé symétrique (principale ou secondaire) pour effectuer le hachage. Pour les groupes d’inscription, une clé dérivée de la clé d’inscription du groupe est utilisée pour effectuer le hachage. Le hachage est effectué sur un message de la forme : `URL-encoded-resourceURI + "\n" + expiry`. **Important !** La clé doit être décodée à partir de base64 avant d’être utilisées pour effectuer le calcul HMAC-SHA256. En outre, le résultat de la signature doit être encodé sous forme d’URL. |
 | {resourceURI} |URI du point de terminaison d’inscription qui est accessible avec ce jeton, commençant par l’ID d’étendue pour l’instance du service Device Provisioning. Par exemple, `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |Chaînes UTF8 pour le nombre de secondes depuis l’époque 00:00:00 UTC 1er janvier 1970. |
 | {URL-encoded-resourceURI} |Encodage en URL minuscules de l’URI de ressource en minuscules |
@@ -114,6 +114,6 @@ Si les clés d’appareil ne sont pas installés en usine, un [module de sécuri
 
 Maintenant que vous avez une meilleure compréhension de l’attestation de clé symétrique, consultez les articles suivants pour découvrir plus d’informations :
 
-* [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
-* [Découvrir plus d’informations sur les concepts du provisionnement automatique](./concepts-auto-provisioning.md)
-* [Bien démarrer avec le provisionnement automatique](./quick-setup-auto-provision.md) 
+* [Démarrage rapide : Provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
+* [En savoir plus sur les concepts de provisionnement automatique](./concepts-auto-provisioning.md)
+* [Prise en main le provisionnement automatique](./quick-setup-auto-provision.md) 

@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871060"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045762"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
 Cet article vous aide à démarrer en effectuant plusieurs actions qui optimisent les avantages qu’offre Azure Security Center. En effet, en effectuant ces actions, vous obtenez une meilleure visibilité de tous les abonnements Azure qui sont liés à votre locataire Azure Active Directory et vous gérez efficacement la sécurité de votre organisation à grande échelle en appliquant des stratégies de sécurité sur plusieurs abonnements en même temps.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Groupes d’administration
 Avec les groupes d’administration Azure, vous avez la possibilité de gérer efficacement non seulement l’accès, les stratégies et les rapports de groupes d’abonnements, mais aussi l’intégralité du domaine Azure en intervenant sur le groupe d’administration racine. Chaque locataire Azure AD reçoit un seul groupe d’administration de niveau supérieur appelé groupe d’administration racine. Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des attributions de rôles RBAC au niveau de l’annuaire. 
@@ -188,8 +191,8 @@ Vous pouvez ajouter des abonnements au groupe d’administration que vous avez c
 Dans cet article, vous avez appris à gagner en visibilité au niveau locataire dans Azure Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md)
+> [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md)
 
 > [!div class="nextstepaction"]
-> [Gérer et répondre aux alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md)
+> [Gérer et résoudre les alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md)
 

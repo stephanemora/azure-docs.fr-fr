@@ -1,19 +1,18 @@
 ---
-title: Analyse de séries chronologiques dans Azure Data Explorer
-description: 'Découvrir l’analyse de séries chronologiques dans Azure Data Explorer '
-services: data-explorer
+title: Analyser les données de série chronologique à l’aide de l’Explorateur de données Azure
+description: Découvrez comment analyser les données de série chronologique dans le cloud à l’aide de l’Explorateur de données Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 6a77e399e4de6ec41e74d1e5b9f9f518126958c2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 496c033e3df096cdada2b3facba3e73092ffd755
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756780"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051493"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analyse des séries chronologiques dans Azure Data Explorer
 
@@ -58,10 +57,10 @@ demo_make_series1
 ```
 
 - Utilisez l’opérateur [`make-series`](/azure/kusto/query/make-seriesoperator) pour créer un ensemble de trois séries chronologiques dans lequel :
-    - `num=count()` : est la série chronologique du trafic
-    - `range(min_t, max_t, 1h)` : la série chronologique est créée en compartiments de 1 heure dans l’intervalle de temps (timestamps les plus anciens et les plus récents des enregistrements de la table)
-    - `default=0` : spécifie la méthode de remplissage des compartiments manquants pour créer une série chronologique régulière. Vous pouvez également utiliser [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) et [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) pour des modifications
-    - `byOsVer` : partitionne par système d’exploitation
+    - `num=count()`: heure de série du trafic
+    - `range(min_t, max_t, 1h)`: série chronologique est créé dans les emplacements de 1 heure de l’intervalle de temps (plus ancienne et la plus récente horodatages des enregistrements de la table)
+    - `default=0`: spécifiez la méthode de remplissage pour les emplacements manquants pour créer la série de temps réguliers. Vous pouvez également utiliser [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) et [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) pour des modifications
+    - `byOsVer`: partition par système d’exploitation
 - La structure de données d’une série chronologique réelle est un tableau numérique de la valeur agrégée par compartiment de temps. Nous utilisons `render timechart` pour la visualisation.
 
 Dans le tableau ci-dessus, nous avons trois partitions. Nous pouvons créer une série chronologique distincte : Windows 10 (en rouge), Windows 7 (en bleu) et Windows 8.1 (en vert) pour chaque version du système d’exploitation, comme dans le graphique ci-dessous :
@@ -79,7 +78,7 @@ Le filtrage est une pratique courante dans le traitement de signal, utile pour l
 - Il existe deux fonctions de filtrage génériques :
     - [`series_fir()`](/azure/kusto/query/series-firfunction) : appliquant un filtre FIR. Utilisée pour effectuer un calcul simple de moyenne mobile et de différenciation des séries chronologiques pour la détection des modifications.
     - [`series_iir()`](/azure/kusto/query/series-iirfunction) : appliquant un filtre IIR. Utilisée pour effectuer un lissage exponentiel et calculer une somme cumulée.
-- Étendre (`Extend`) l’ensemble de séries chronologiques en ajoutant une nouvelle série de moyennes mobiles de 5 compartiments (nommée *ma_num*) à la requête :
+- `Extend` taille de la série chronologique en ajoutant une nouvelle série de moyenne mobile de 5 emplacements (nommé *ma_num*) à la requête :
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));

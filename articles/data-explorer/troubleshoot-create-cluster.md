@@ -1,21 +1,20 @@
 ---
-title: Échec de création d’un cluster dans l’Explorateur de données Azure
+title: Résoudre les problèmes d’échec de la création du cluster Explorateur de données Azure
 description: Cet article décrit la procédure de résolution des problèmes pour la création d’un cluster dans l’Explorateur de données Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b95dabbdecd98902da3bf8217a14f41019c31e82
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9e6b3f53f07ac86d6b648a8562be4ef45879c37e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757692"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044108"
 ---
-# <a name="troubleshoot-failure-to-create-a-cluster-in-azure-data-explorer"></a>Résolution de problèmes : Échec de création d’un cluster dans l’Explorateur de données Azure
+# <a name="troubleshoot-failed-cluster-creation-of-azure-data-explorer"></a>Résolution de problèmes : Création du cluster ayant échoué de l’Explorateur de données Azure
 
 Dans le cas peu probable où la création de cluster échouerait dans l’Explorateur de données Azure, effectuez les étapes suivantes.
 

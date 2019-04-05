@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122367"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046153"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles
 
@@ -45,7 +45,7 @@ La prise en charge par Azure Machine Learning service varie selon les cibles de 
 |[Machine virtuelle distante](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
 |[Service Analytique Azure Data Lake](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 **Toutes les cibles de calcul peuvent être réutilisées pour plusieurs travaux de formation**. Par exemple, une fois que vous avez joint une machine virtuelle distante à votre espace de travail, vous pouvez la réutiliser pour différents travaux.
@@ -91,8 +91,8 @@ Reportez-vous aux sections ci-dessous pour configurer ces cibles de calcul :
 
 * [Ordinateur local](#local)
 * [Capacité de calcul Azure Machine Learning](#amlcompute)
-* [Machines virtuelles distantes](#vm)
-* [Azure HDInsight](#hdinsight)
+* [Machines virtuelles à distance](#vm)
+* [Azure HDInsight](#hdinsight)
 
 
 ### <a id="local"></a>Ordinateur local
@@ -118,7 +118,10 @@ Vous pouvez créer un environnement Compute Azure Machine Learning à la demande
 
 #### <a name="run-based-creation"></a>Création basée sur l’exécution
 
-Vous pouvez créer une capacité de calcul Azure Machine Learning en tant que cible de calcul au moment de l’exécution. La capacité de calcul est automatiquement créée pour votre exécution. Le cluster monte en puissance jusqu’à atteindre le nombre **max_nodes** que vous spécifiez dans votre configuration de série de tests. La capacité de calcul est automatiquement supprimée une fois l’exécution terminée.
+Vous pouvez créer une capacité de calcul Azure Machine Learning en tant que cible de calcul au moment de l’exécution. La capacité de calcul est automatiquement créée pour votre exécution. La capacité de calcul est automatiquement supprimée une fois l’exécution terminée. 
+
+> [!NOTE]
+> Pour spécifier le nombre maximal de nœuds à utiliser, vous définiriez normalement `node_count` au nombre de nœuds. Il existe actuellement (04/04/2019) un bogue qui empêche cela de fonctionner. Pour résoudre ce problème, utilisez le `amlcompute._cluster_max_node_count` propriété de la configuration d’exécution. Par exemple : `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > La création de la capacité de calcul Azure Machine Learning basée sur l’exécution est actuellement en préversion. N’utilisez pas la création basée sur l’exécution si vous utilisez l’optimisation automatisée des hyperparamètres ou le machine learning automatisé. Pour utiliser un réglage d’hyperparamètre ou un apprentissage automatique, créez plutôt un cible de [calcul persistante](#persistent).
@@ -425,4 +428,4 @@ Pour des exemples d’apprentissage avec différentes cibles de calcul, voir les
 * [Tutoriel : Former un modèle](tutorial-train-models-with-aml.md) utilise une cible de calcul gérée pour former un modèle.
 * Une fois le modèle formé, découvrez [comment et où déployer les modèles](how-to-deploy-and-where.md).
 * Consultez la documentation de référence du Kit de développement logiciel (SDK) de la [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
-* [Utiliser Azure Machine Learning service avec des réseaux virtuels Azure](how-to-enable-virtual-network.md)
+* [Utiliser le service Azure Machine Learning avec des réseaux virtuels Azure](how-to-enable-virtual-network.md)

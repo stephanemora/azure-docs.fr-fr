@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007945"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048297"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considérations sur les performances de Traffic Manager
 
@@ -56,7 +56,7 @@ Les outils sur ces sites mesurent les latences DNS et affichent les adresses IP 
 
     ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
 
-* [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
+* [Moniteur d’application synthétique autorité de certification](https://asm.ca.com/en/checkit.php)
 
     Anciennement appelé l’outil de surveillance de la souris Check Website, ce site affiche le temps de résolution DNS à partir de plusieurs zones géographiques simultanément. Entrez l’URL pour voir le temps de résolution DNS, l’heure de la connexion et la vitesse à partir de plusieurs emplacements géographiques. Ce test permet de voir quel service hébergé est retourné pour différents emplacements dans le monde entier.
 
@@ -66,21 +66,21 @@ Les outils sur ces sites mesurent les latences DNS et affichent les adresses IP 
 
     Cet outil fournit des statistiques de performances pour chaque élément d’une page web. L’onglet Analyse de la page affiche le pourcentage de temps consacré à la recherche DNS.
 
-* [Qu’est-ce que Mon DNS ?](https://www.whatsmydns.net/)
+* [Quel est mon DNS ?](https://www.whatsmydns.net/)
 
     Ce site effectue une recherche DNS à partir de 20 emplacements différents et affiche les résultats sur une carte.
 
-* [Dig Web Interface](https://www.digwebinterface.com)
+* [Explorer l’Interface Web](https://www.digwebinterface.com)
 
     Ce site affiche plus d’informations DNS détaillées, notamment les enregistrements CNAME et A. Veillez à cocher « Coloriser la sortie » et « Statistiques » sous les options et sélectionnez « Tous » sous Noms de serveurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md)
+[À propos des méthodes de routage du trafic Traffic Manager](traffic-manager-routing-methods.md)
 
 [Tester vos paramètres de Traffic Manager](traffic-manager-testing-settings.md)
 
-[Opérations sur Traffic Manager (Référence sur l’API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Opérations sur Traffic Manager (référence des API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Applets de commande Azure Traffic Manager](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
+[Applets de commande Azure Traffic Manager](https://docs.microsoft.com/powershell/module/az.trafficmanager)
 

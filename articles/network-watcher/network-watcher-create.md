@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615199"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051561"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Créer une instance d’Azure Network Watcher
 
 Network Watcher est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans, vers et depuis Azure. La surveillance au niveau des scénarios vous permet de diagnostiquer les problèmes avec une vue de bout en bout du réseau. Les outils de visualisation et de diagnostic réseau disponibles avec Network Watcher vous aident à comprendre, diagnostiquer et obtenir des informations sur votre réseau dans Azure. Network Watcher est activé par la création d’une ressource Network Watcher. Cette ressource vous permet d’utiliser les fonctionnalités de Network Watcher.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher est activé automatiquement
 Lorsque vous créez ou mettez à jour un réseau virtuel dans votre abonnement, Network Watcher sera automatiquement activé dans la région de votre réseau virtuel. L’activation automatique de Network Watcher n’a aucun impact sur vos ressources ni sur les frais associés.
@@ -35,8 +38,8 @@ Si vous souhaitez désactiver l’activation automatique de Network Watcher, vou
 > Le refus d’activation automatique de Network Watcher est définitif. Si vous changez d’avis après avoir fait ce choix, vous devrez [recontacter le support](https://azure.microsoft.com/support/options/)
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
-Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ```azurecli-interactive
@@ -63,7 +66,7 @@ Si vous souhaitez personnaliser le nom d’une instance de Network Watcher et le
 Pour créer une instance de Network Watcher, exécutez l’exemple suivant :
 
 ```powershell
-New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
+New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
 ## <a name="create-a-network-watcher-with-the-azure-cli"></a>Créer un Network Watcher avec Azure CLI
@@ -105,11 +108,11 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 Maintenant que vous avez une instance de Network Watcher, découvrez les fonctionnalités disponibles :
 
 * [Topologie](network-watcher-topology-overview.md)
-* [Capture de paquets](network-watcher-packet-capture-overview.md)
-* [Vérification des flux IP](network-watcher-ip-flow-verify-overview.md)
+* [Capture de paquet](network-watcher-packet-capture-overview.md)
+* [Vérification du flux IP](network-watcher-ip-flow-verify-overview.md)
 * [Tronçon suivant](network-watcher-next-hop-overview.md)
-* [Affichage des groupes de sécurité](network-watcher-security-group-view-overview.md)
+* [Vue du groupe de sécurité](network-watcher-security-group-view-overview.md)
 * [Journalisation des flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md)
-* [Résolution des problèmes de passerelle de réseau virtuel](network-watcher-troubleshoot-overview.md)
+* [Dépannage de passerelle de réseau virtuel](network-watcher-troubleshoot-overview.md)
 
 Dès qu’une instance de Network Watcher est créée, vous pouvez activer la capture de paquets dans les machines virtuelles. Pour savoir comment faire, consultez [Créer une capture de paquets déclenchée par alerte](network-watcher-alert-triggered-packet-capture.md)

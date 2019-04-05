@@ -3,17 +3,17 @@ title: Service Device Provisioning IoT Hub - Concepts de provisionnement automat
 description: Cet article fournit une vue d’ensemble conceptuelle des phases de provisionnement automatique d’appareils à l’aide du service Device Provisioning IoT, d’IoT Hub et des kits SDK clients.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 06/01/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6ba21e29673da176c380d6b367e84b2ea7536955
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0df4eb664accd828c47d834fb0014d0d60f57458
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080029"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051731"
 ---
 # <a name="auto-provisioning-concepts"></a>Concepts de provisionnement automatique
 
@@ -59,7 +59,7 @@ Dans la table des matières à gauche, vous trouverez une série de guides de d�
 
 Le diagramme suivant récapitule les rôles et l’ordre des opérations lors du provisionnement automatique d’un appareil :
 <br><br>
-[![Séquence d’approvisionnement automatique d’un appareil](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
+[![Séquence de provisionnement automatique pour un appareil](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
 > Éventuellement, le fabricant peut aussi effectuer l’opération « Inscrire l’identité de l’appareil » à l’aide des API du service Device Provisioning (plutôt que par le biais de l’Opérateur). Pour une discussion détaillée de cette mise en séquence et des informations supplémentaires, consultez la [vidéo sur l’inscription d’appareils sans intervention avec Azure IoT](https://youtu.be/cSbDRNg72cU?t=2460) (à partir du marqueur 41:00).
@@ -97,8 +97,8 @@ Nous vous conseillons de mettre cet article dans vos Favoris afin de pouvoir le 
 
 Commencez par suivre le guide de démarrage rapide « Configuration du provisionnement automatique » qui convient le mieux à vos préférences d’outil de gestion. Il vous guidera tout au long de la phase de « Configuration du service » :
 
-- [Configurer le provisionnement automatique avec Azure CLI](quick-setup-auto-provision-cli.md)
-- [Configurer le provisionnement automatique avec le portail Azure](quick-setup-auto-provision.md)
+- [Configurer le provisionnement automatique à l’aide d’Azure CLI](quick-setup-auto-provision-cli.md)
+- [Configurer le provisionnement automatique à l’aide du portail Azure](quick-setup-auto-provision.md)
 - [Configurer le provisionnement automatique à l’aide d’un modèle Resource Manager](quick-setup-auto-provision-rm.md)
 
 Ensuite, continuez avec le guide de démarrage rapide « Provisionner automatiquement un appareil simulé » qui convient le mieux à votre mécanisme d’attestation d’appareil et votre préférence en matière de langage/SDK de service Device Provisioning. Ce guide de démarrage rapide concerne les phases « Inscription d’appareils » et « Configuration et inscription d’appareils » : 
@@ -106,7 +106,7 @@ Ensuite, continuez avec le guide de démarrage rapide « Provisionner automatiq
 |  | Mécanisme d’attestation d’appareil simulé | SDK/langage de guide de démarrage rapide |  |
 |--|--|--|--|
 |  | Module de plateforme sécurisée (TPM) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |  |
-|  | Certificat X.509 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.JS](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
+|  | Certificat X.509 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
 
 
 

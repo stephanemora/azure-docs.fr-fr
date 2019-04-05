@@ -7,13 +7,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: robin.shahan
-ms.openlocfilehash: 9754fe2bedae9c1eaf6b18614014485dbe8051f2
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: 4f1a5d59c340a02dcdc0291046ef6361c6f41c86
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010475"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044910"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurer les chargements de fichiers IoT Hub à l’aide de Powershell
 
@@ -130,11 +130,11 @@ Pour plus d’informations sur les fonctionnalités de chargement des fichiers d
 Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
 * [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
-* [Métriques d’IoT Hub](iot-hub-metrics.md)
+* [Métriques IoT Hub](iot-hub-metrics.md)
 * [Surveillance des opérations](iot-hub-operations-monitoring.md)
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur d’IoT Hub](iot-hub-devguide.md)
-* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-* [Sécuriser votre solution IoT de bout en bout](../iot-fundamentals/iot-security-ground-up.md)
+* [Guide du développeur IoT Hub](iot-hub-devguide.md)
+* [Déploiement d’une IA sur des appareils edge avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Sécuriser votre solution IoT de bout en bout des](../iot-fundamentals/iot-security-ground-up.md)

@@ -3,17 +3,17 @@ title: Présentation des tâches Azure IoT Hub | Microsoft Docs
 description: Guide du développeur - Planification des travaux à exécuter sur plusieurs appareils connectés à votre IoT Hub. Les tâches peuvent mettre à jour les balises et les propriétés souhaitées, et appeler des méthodes directes sur plusieurs appareils.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011362"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044370"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Planifier des travaux sur plusieurs appareils
 
@@ -32,7 +32,7 @@ Envisagez d’utiliser les travaux quand vous devez planifier et suivre la progr
 Les travaux sont lancés par l’application principale de la solution et maintenus par IoT Hub. Vous pouvez lancer un travail via une URI de service (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`) et vérifier la progression d’un travail en cours via une URI de service (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`). Pour actualiser l’état des travaux en cours d’exécution une fois qu’un travail a démarré, exécutez une requête de travail.
 
 > [!NOTE]
-> Lorsque vous initiez un travail, les noms et valeurs de propriété peuvent contenir uniquement des caractères alphanumériques US-ASCII imprimables, à l’exception des caractères suivants : `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+> Lorsque vous lancez un travail, les valeurs et les noms de propriété peuvent contenir uniquement US-ASCII imprimables alphanumérique, à l’exception des suivants : `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
 ## <a name="jobs-to-execute-direct-methods"></a>Tâches pour exécuter des méthodes directes
 
@@ -118,10 +118,10 @@ La liste suivante montre les propriétés et les descriptions correspondantes qu
 | **jobId** |L’application a fourni un ID pour le travail. |
 | **startTime** |L’application a fourni l’heure de début (ISO-8601) pour le travail. |
 | **endTime** |IoT Hub a fourni la date (ISO-8601) de fin du travail. Valide uniquement lorsque la tâche atteint l’état « terminé ». |
-| **type** |Types de tâches : |
+| **Type** |Types de tâches : |
 | | **scheduledUpdateTwin**: Un travail utilisé pour mettre à jour un ensemble de propriétés souhaitées ou tags. |
 | | **scheduledDeviceMethod**: Un travail utilisé pour appeler une méthode d’appareil sur un ensemble de représentations d’appareil. |
-| **statut** |État actuel du travail. Valeurs possibles pour l'état : |
+| **status** |État actuel du travail. Valeurs possibles pour l'état : |
 | | **En attente**: Planifié et en attente d’être récupéré par le service de travail. |
 | | **planifiée**: Planifiée pendant une période à l’avenir. |
 | | **En cours d’exécution**: Travail est actuellement actif. |

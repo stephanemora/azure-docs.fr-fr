@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: feea57122d805ae065278458f90afbc960221a9d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670249"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049895"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modèles de mise en réseau de Service Fabric
 Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctionnalités de mise en réseau Azure. Dans cet article, nous vous expliquons comment créer des clusters qui utilisent les fonctionnalités suivantes :
@@ -34,6 +34,9 @@ Service Fabric s’exécute dans un groupe de machines virtuelles identiques sta
 Service Fabric se distingue d’autres fonctionnalités de mise en réseau sur un aspect. Le [Portail Azure](https://portal.azure.com) utilise en interne le fournisseur de ressources Service Fabric pour effectuer des appels dans un cluster afin d’obtenir des informations sur les nœuds et les applications. Le fournisseur de ressources Service Fabric requiert un accès entrant accessible publiquement au port de la passerelle HTTP (port 19080, par défaut) sur le point de terminaison de gestion. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) utilise le point de terminaison de gestion pour gérer votre cluster. Le fournisseur de ressources Service Fabric utilise également ce port pour demander des informations sur votre cluster, à afficher sur le Portail Azure. 
 
 Si le port 19080 n’est pas accessible à partir du fournisseur de ressources Service Fabric, un message du type *Nœuds introuvables* apparaît sur le portail et votre liste de nœuds et d’applications apparaît vide. Si vous souhaitez voir votre cluster sur le Portail Azure, votre équilibreur de charge doit exposer une adresse IP publique et votre groupe de sécurité réseau doit autoriser le trafic entrant du port 19080. Si votre configuration ne respecte pas ces conditions, le Portail Azure n’affiche pas l’état de votre cluster.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>Modèles
 
@@ -51,7 +54,7 @@ Dans l’exemple suivant, nous commençons avec un réseau virtuel existant nomm
 Une adresse IP publique statique est généralement une ressource dédiée gérée de façon distincte de la ou des machines virtuelles auxquelles elle est affectée. Elle est approvisionnée dans un groupe de ressources réseau dédié (et non dans le groupe de ressources du cluster Service Fabric proprement dit). Créez une adresse IP publique statique nommée staticIP1 dans le même groupe de ressources ExistingRG, soit sur le Portail Azure soit avec PowerShell :
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
@@ -166,8 +169,8 @@ Dans les exemples de cet article, nous utilisons le modèle Service Fabric templ
 6. Déployez le modèle :
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
     Après le déploiement, votre réseau virtuel doit normalement inclure les nouvelles machines virtuelles du groupe identique. Le type de nœud du groupe de machines virtuelles identiques doit afficher le réseau virtuel et le sous-réseau existants. Vous pouvez également utiliser le protocole RDP (Remote Desktop) pour accéder à la machine virtuelle qui était déjà dans le réseau virtuel, et exécuter une commande ping sur les nouvelles machines virtuelles du groupe identique :
@@ -276,13 +279,13 @@ Vous pouvez également consulter un [exemple qui n’est pas propre à Service F
 8. Déployez le modèle :
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
+    New-AzResourceGroup -Name sfnetworkingstaticip -Location westus
 
-    $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
+    $staticip = Get-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
     $staticip
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
 Après le déploiement, votre équilibreur de charge est lié à l’adresse IP statique publique de l’autre groupe de ressources. Le point de terminaison de connexion du client Service Fabric et le point de terminaison [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) pointent vers le nom de domaine complet du DNS de l’adresse IP statique.
@@ -378,9 +381,9 @@ Ce scénario remplace l’équilibreur de charge externe dans le modèle Service
 7. Déployez le modèle :
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 Après le déploiement, votre équilibreur de charge utilise l’adresse IP statique privée 10.0.0.250. Si vous avez un autre ordinateur dans le même réseau virtuel, vous pouvez accéder au point de terminaison [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) interne. Notez qu’il se connecte à l’un des nœuds derrière l’équilibreur de charge.
@@ -595,9 +598,15 @@ Dans un cluster à deux types de nœuds, l’un des types de nœuds est sur l’
 7. Déployez le modèle :
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternalexternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    ```
+
+Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources. Si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (ports 19000 et 19080) affectés à l’adresse IP publique. L’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne apparaissent également. Les deux équilibreurs de charge utilisent le même pool back-end de groupe de machines virtuelles identiques.
+
+## <a name="next-steps"></a>Étapes suivantes
+[Créer un cluster](service-fabric-cluster-creation-via-arm.md) ternalLB.json
     ```
 
 Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources. Si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (ports 19000 et 19080) affectés à l’adresse IP publique. L’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne apparaissent également. Les deux équilibreurs de charge utilisent le même pool back-end de groupe de machines virtuelles identiques.

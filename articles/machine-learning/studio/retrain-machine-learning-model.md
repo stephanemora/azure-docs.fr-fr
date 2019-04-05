@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: ea73c16687d393cd1e61c4aee83fbf74cc4ae9a7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 903f2700ad127c9bcc69e69ee125ba62fccf52e0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108118"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051629"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Recycler et déployer un modèle Machine Learning
 
@@ -28,6 +28,8 @@ Pour recycler et déployer un nouveau service web Machine Learning, vous allez s
 1. Déployer un **service web de recyclage**.
 1. Effectuer l’apprentissage d’un nouveau modèle à l’aide du **service web de recyclage**.
 1. Mettre à jour **l’expérience prédictive** de façon à utiliser le nouveau modèle.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-retraining-web-service"></a>Déployez le service web de reformation
 
@@ -130,15 +132,15 @@ Enregistrez *BaseLocation*, *RelativeLocation* et *SasBlobToken* dans les résul
 
 ### <a name="sign-in-to-azure-resource-manager"></a>Se connecter à Azure Resource Manager
 
-Tout d’abord, connectez-vous à votre compte Azure dans l’environnement PowerShell avec la cmdlet [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
+Tout d’abord, connectez-vous à votre compte Azure à partir de l’environnement PowerShell à l’aide de la [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) applet de commande.
 
 ### <a name="get-the-web-service-definition-object"></a>Obtenir l’objet Définition du service web
 
-Ensuite, obtenez l’objet Définition du service web en appelant l’applet de commande [Get-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservice).
+Ensuite, obtenez l’objet de définition de Service Web en appelant le [Get-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) applet de commande.
 
-    $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+    $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-Pour déterminer le nom du groupe de ressources d’un service web existant, exécutez l’applet de commande Get-AzureRmMlWebService sans paramètres pour afficher les services web dans votre abonnement. Recherchez le service web et examinez son ID de service web. Le nom du groupe de ressources est le quatrième élément de l’ID, juste après l’élément *resourceGroups* . Dans l’exemple suivant, le nom du groupe de ressources est Default-MachineLearning-SouthCentralUS.
+Pour déterminer le nom du groupe de ressources d’un service web existant, exécutez l’applet de commande Get-AzMlWebService sans aucun paramètre pour afficher les services web dans votre abonnement. Recherchez le service web et examinez son ID de service web. Le nom du groupe de ressources est le quatrième élément de l’ID, juste après l’élément *resourceGroups* . Dans l’exemple suivant, le nom du groupe de ressources est Default-MachineLearning-SouthCentralUS.
 
     Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
     Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
@@ -153,9 +155,9 @@ Pour déterminer le nom du groupe de ressources d’un service web existant, vou
 
 ### <a name="export-the-web-service-definition-object-as-json"></a>Exporter l’objet Définition du service web en tant que JSON
 
-Pour modifier la définition du modèle formé de manière à utiliser le modèle nouvellement formé, vous devez d’abord utiliser l’applet de commande [Export-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) pour l’exporter vers un fichier au format JSON.
+Pour modifier la définition du modèle formé à utiliser le modèle nouvellement formé, vous devez d’abord utiliser le [AzMlWebService d’exportation](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) applet de commande pour l’exporter vers un fichier au format JSON.
 
-    Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+    Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
 ### <a name="update-the-reference-to-the-ilearner-blob"></a>Mettre à jour la référence à l’objet blob ilearner
 
@@ -176,19 +178,19 @@ Dans les ressources, recherchez le [modèle formé], mettez à jour la valeur *u
 
 ### <a name="import-the-json-into-a-web-service-definition-object"></a>Importer le JSON dans un objet Définition du service web
 
-Utilisez la cmdlet [Import-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/import-azurermmlwebservice) pour reconvertir le fichier JSON modifié en un objet de définition de service web permettant de mettre à jour l’expérience prédictive.
+Utiliser le [Import-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) applet de commande pour convertir le fichier JSON modifié en un objet de définition de Service Web que vous pouvez utiliser pour mettre à jour de l’expérience prédictive.
 
-    $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
+    $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 ### <a name="update-the-web-service"></a>Mise à jour du service web
 
-Enfin, utilisez l’applet de commande [Update-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/update-azurermmlwebservice) pour mettre à jour l’expérience prédictive.
+Enfin, utilisez la [AzMlWebService de mise à jour](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice) applet de commande pour mettre à jour de l’expérience prédictive.
 
-    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+    Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour savoir comment gérer les services web ou effectuer le suivi de plusieurs exécutions d’expériences, voir les articles suivants :
 
-* [Explorer le portail Services web](manage-new-webservice.md)
-* [Gérer des itérations d’expériences](manage-experiment-iterations.md)
+* [Explorer le portail de Services Web](manage-new-webservice.md)
+* [Gérer des itérations d'expériences](manage-experiment-iterations.md)

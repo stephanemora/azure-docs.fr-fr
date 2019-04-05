@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 850c8af3e3dd696ce0e84b9c553d6f1617deb3de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762971"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047316"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 
@@ -71,6 +71,7 @@ Lorsque vous estimez le nombre d’unités de requête par seconde à approvisio
 * Découvrez comment [mettre à l’échelle le débit approvisionné au niveau global](scaling-throughput.md).
 * Découvrez comment [approvisionner le débit sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md).
 * Découvrez comment [approvisionner le débit sur une base de données Azure Cosmos](how-to-provision-database-throughput.md).
+* Découvrez comment [de trouver les frais d’unités de demande pour une opération](find-request-unit-charge.md).
 * Découvrez comment [optimiser le coût du débit approvisionné dans Azure Cosmos DB](optimize-cost-throughput.md).
 * Découvrez comment [optimiser les lectures et écritures de coût dans Azure Cosmos DB](optimize-cost-reads-writes.md).
 * Découvrez comment [optimiser le coût de la requête dans Azure Cosmos DB](optimize-cost-queries.md).

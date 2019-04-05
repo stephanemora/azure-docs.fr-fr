@@ -3,29 +3,29 @@ title: Concepts du reprovisionnement d’appareils pour le service Azure IoT Hub
 description: Décrit les concepts du reprovisionnement d’appareils pour le service Azure IoT Hub Device Provisioning
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: f52e2a1095c329aabf44a846a644cc05548d4df3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+manager: philmea
+ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712277"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050847"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Concepts du reprovisionnement d’appareils IoT Hub
 
 Durant le cycle de vie d’une solution IoT, il est fréquent d’avoir à déplacer des appareils d’un hub IoT à un autre. Voici quelques scénarios nécessitant le déplacement d’un appareil :
 
-* **Géolocalisation et géolatence** : quand un appareil change souvent d’emplacement, il doit être migré vers un hub IoT plus proche de son emplacement pour améliorer la latence du réseau.
+* **Géolocalisation / Géolatence** : Lorsqu’un appareil se déplace entre les emplacements, latence du réseau est simplifiée par l’emploi de l’appareil migré vers un hub IoT plus en détail.
 
-* **Multilocation** : un appareil est utilisé dans la même solution IoT et est réassigné à un nouveau client ou site client. Le service fourni à ce nouveau client peut utiliser un autre hub IoT.
+* **Multilocation** : Un appareil peut-être être utilisé dans la même solution IoT et réaffecté à un client ou le site du client. Le service fourni à ce nouveau client peut utiliser un autre hub IoT.
 
-* **Changement de solution** : un appareil est déplacé dans une nouvelle solution IoT ou une solution IoT mise à jour. Cette réassignation peut nécessiter que l’appareil communique avec un nouveau hub IoT qui est connecté à d’autres composants back-end.
+* **Modification de la solution**: Un appareil peut être déplacé dans une solution IoT nouveau ou mis à jour. Cette réassignation peut nécessiter que l’appareil communique avec un nouveau hub IoT qui est connecté à d’autres composants back-end.
 
-* **Mise en quarantaine** : ce scénario est similaire à un changement de solution. Il est possible qu’un appareil défectueux, compromis ou obsolète soit réassigné à un hub IoT qui peut uniquement effectuer la mise à jour et la remise en conformité. Une fois que l’appareil fonctionne correctement, il est transféré à nouveau vers son hub principal.
+* **Mise en quarantaine**: Similaire à une modification de la solution. Il est possible qu’un appareil défectueux, compromis ou obsolète soit réassigné à un hub IoT qui peut uniquement effectuer la mise à jour et la remise en conformité. Une fois que l’appareil fonctionne correctement, il est transféré à nouveau vers son hub principal.
 
 La prise en charge du reprovisionnement dans le service Device Provisioning permet de gérer ces différents scénarios. Les appareils peuvent être automatiquement réassignés à de nouveaux hubs IoT selon la stratégie de reprovisionnement qui est configurée dans l’entrée d’inscription de l’appareil.
 
@@ -51,17 +51,17 @@ Dans certains scénarios, quand un appareil est déplacé d’un hub IoT à un a
 
 Selon le scénario, un appareil envoie généralement une demande à une instance du service Device Provisioning au redémarrage. Il prend aussi en charge une méthode pour déclencher manuellement le provisionnement à la demande. La stratégie de reprovisionnement sur une entrée d’inscription définit de quelle manière l’instance du service Device Provisioning gère ces demandes de provisionnement. La stratégie détermine également si les données d’état de l’appareil doivent être migrées au moment du reprovisionnement. Les mêmes stratégies sont disponibles pour les inscriptions individuelles et les groupes d’inscriptions :
 
-* **Reprovisionner et migrer les données** : il s’agit de la stratégie par défaut pour les nouvelles entrées d’inscription. Cette stratégie est appliquée quand des appareils associés à l’entrée d’inscription envoient une nouvelle demande (1). Selon la configuration de l’entrée d’inscription, l’appareil peut être réassigné à un autre hub IoT. Si l’appareil est déplacé vers un autre hub IoT, il est désinscrit du hub IoT initial. Les données d’état de l’appareil qui ont été mises à jour dans ce hub IoT initial sont alors migrées vers le nouveau hub IoT (2). Durant la migration, l’état de l’appareil indique **Assignation**.
+* **Remettre et migrer les données**: Cette stratégie est la valeur par défaut pour les nouvelles entrées d’inscription. Cette stratégie est appliquée quand des appareils associés à l’entrée d’inscription envoient une nouvelle demande (1). Selon la configuration de l’entrée d’inscription, l’appareil peut être réassigné à un autre hub IoT. Si l’appareil est déplacé vers un autre hub IoT, il est désinscrit du hub IoT initial. Les données d’état de l’appareil qui ont été mises à jour dans ce hub IoT initial sont alors migrées vers le nouveau hub IoT (2). Durant la migration, l’état de l’appareil indique **Assignation**.
 
     ![Provisionnement avec le service Device Provisioning](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-* **Reprovisionner et rétablir la configuration initiale** : cette stratégie est appliquée quand des appareils associés à l’entrée d’inscription envoient une nouvelle demande de provisionnement (1). Selon la configuration de l’entrée d’inscription, l’appareil peut être réassigné à un autre hub IoT. Si l’appareil est déplacé vers un autre hub IoT, il est désinscrit du hub IoT initial. Les données de configuration initiale que l’instance du service Device Provisioning a reçues au moment du provisionnement de l’appareil sont transmises au nouveau hub IoT (2). Durant la migration, l’état de l’appareil indique **Assignation**.
+* **Reconfigurer et réinitialiser à la configuration initiale**: Cette stratégie est appliquée quand des appareils associés à l’entrée d’inscription envoient une nouvelle demande de provisionnement (1). Selon la configuration de l’entrée d’inscription, l’appareil peut être réassigné à un autre hub IoT. Si l’appareil est déplacé vers un autre hub IoT, il est désinscrit du hub IoT initial. Les données de configuration initiale que l’instance du service Device Provisioning a reçues au moment du provisionnement de l’appareil sont transmises au nouveau hub IoT (2). Durant la migration, l’état de l’appareil indique **Assignation**.
 
     Cette stratégie est souvent utilisée dans le cadre d’une réinitialisation aux paramètres d’usine sans changer les hubs IoT.
 
     ![Provisionnement avec le service Device Provisioning](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
-* **Ne jamais reprovisionner** : l’appareil n’est jamais réassigné à un autre hub. Cette stratégie est fournie pour gérer la compatibilité descendante.
+* **Configurez jamais de nouveau**: L’appareil n’est jamais réaffectée à un autre concentrateur. Cette stratégie est fournie pour gérer la compatibilité descendante.
 
 ### <a name="managing-backwards-compatibility"></a>Gestion de la compatibilité descendante
 
@@ -83,11 +83,11 @@ Le tableau suivant répertorie les versions d’API antérieures à la mise à d
 
 | API REST | Kit de développement logiciel (SDK) C | Kit de développement logiciel (SDK) Python |  SDK Node | Kit de développement logiciel (SDK) Java | Kit de développement logiciel (SDK) .NET |
 | -------- | ----- | ---------- | --------- | -------- | -------- |
-| [2018-04-01 et versions antérieures](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 et versions antérieures](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 et versions antérieures](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 ou version antérieure](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 ou version antérieure](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 ou version antérieure](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
+| [2018-04-01 et versions antérieures](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 et versions antérieures](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 et versions antérieures](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 ou une version antérieure](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 ou une version antérieure](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 ou une version antérieure](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
 
 > [!NOTE]
 > Ces valeurs et ces liens sont susceptibles de changer. Il s’agit ici uniquement de tenter de déterminer là où les versions peuvent être définies par un client et les versions attendues.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Guide pratique pour reprovisionner des appareils](how-to-reprovision.md)
+* [Comment reprovisionner des appareils](how-to-reprovision.md)

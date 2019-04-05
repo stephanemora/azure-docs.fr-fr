@@ -8,17 +8,16 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 4237e259d1ba9cb826d89eba212b6931d933626d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418786"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051918"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
 Cet article fournit des réponses aux questions courantes qui se posent lors du déploiement de la reprise d’activité de machines virtuelles VMware locales sur Azure. Si, après avoir lu cet article, vous avez des questions, posez-les sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
 
 ## <a name="general"></a>Généralités
 ### <a name="how-is-site-recovery-priced"></a>Comment les tarifs Azure Site Recovery sont-ils fixés ?
@@ -323,7 +322,7 @@ Après un basculement, vous pouvez accéder aux machines virtuelles Azure via un
 Azure est conçu pour la résilience. Site Recovery est prévu pour assurer le basculement vers un centre de données Azure secondaire, dans le respect du contrat SLA Azure. En cas de basculement, nous nous assurons que vos métadonnées et vos coffres restent dans la même région géographique que vous avez choisie pour votre coffre.
 
 ### <a name="is-failover-automatic"></a>Le basculement est-il automatique ?
-Le [basculement](site-recovery-failover.md) n’est pas automatique. Vous lancez les basculements avec un seul clic dans le portail, ou vous pouvez utiliser [PowerShell](/powershell/module/azurerm.siterecovery) pour déclencher un basculement.
+Le [basculement](site-recovery-failover.md) n’est pas automatique. Vous lancez les basculements avec un seul clic dans le portail, ou vous pouvez utiliser [PowerShell](/powershell/module/az.recoveryservices) pour déclencher un basculement.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Puis-je effectuer la restauration à un autre emplacement ?
 Oui, si vous effectuez le basculement vers Azure, vous pouvez effectuer la restauration à un autre emplacement si celui d’origine n’est pas disponible. [Plus d’informations](concepts-types-of-failback.md#alternate-location-recovery-alr)

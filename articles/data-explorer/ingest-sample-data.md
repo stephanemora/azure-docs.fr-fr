@@ -1,19 +1,18 @@
 ---
 title: Ingérer des exemples de données dans l’Explorateur de données Azure
 description: Découvrez comment ingérer (charger) des exemples de données météorologiques dans l’Explorateur de données Azure.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2ebbe3434f032b38c33ec7b82e445532836f78c9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758479"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050621"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Ingérer des exemples de données dans l’Explorateur de données Azure
 
@@ -24,7 +23,7 @@ Cet article vous montre comment ingérer (charger) des exemples de données dans
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-[Un cluster et une base de données de test](create-cluster-database-portal.md)
+[Un cluster de test et de la base de données](create-cluster-database-portal.md)
 
 ## <a name="ingest-data"></a>Réception de données
 
@@ -58,10 +57,10 @@ L’exemple de jeu de données **StormEvents** contient des données météorolo
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
+> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
 
 > [!div class="nextstepaction"]
-> [Écrire des requêtes](write-queries.md)
+> [Rédiger des requêtes](write-queries.md)
 
 > [!div class="nextstepaction"]
-> [Ingestion des données de l’Explorateur de données Azure](ingest-data-overview.md)
+> [Ingestion des données dans l’Explorateur de données Azure](ingest-data-overview.md)

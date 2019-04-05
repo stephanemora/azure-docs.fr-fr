@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5bf6f5662e20b003bd387a6826ab87117be3f113
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1d6fc4a54ca600bd094a68e5eaab1306e7e831ac
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075780"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047910"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modifier un circuit ExpressRoute à l’aide de PowerShell (Azure Classic)
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Interface de ligne de commande Azure](howto-circuit-cli.md)
+> * [Azure CLI](howto-circuit-cli.md)
 > * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (classique)](expressroute-howto-circuit-classic.md)
+> * [PowerShell (Classic)](expressroute-howto-circuit-classic.md)
 >
 
 Cet article vous montre les étapes nécessaires à la vérification de l’état, à la mise à jour, à la suppression et au déprovisionnement du circuit de votre modèle de déploiement classique ExpressRoute. Cet article s’applique au modèle de déploiement classique.
@@ -32,6 +32,9 @@ Cet article vous montre les étapes nécessaires à la vérification de l’éta
 **À propos des modèles de déploiement Azure**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -49,17 +52,17 @@ Pour vous connecter à votre compte Azure, utilisez l’exemple suivant :
 1. Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. Vérifiez les abonnements associés au compte.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. Utilisez l’applet de commande suivante pour ajouter votre abonnement Azure à PowerShell pour le modèle de déploiement classique.

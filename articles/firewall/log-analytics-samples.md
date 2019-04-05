@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534001"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051816"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Exemples analytique de journal de pare-feu Azure
 
@@ -40,7 +40,7 @@ Et pour les données du journal de règles de réseau :
 
 ![Données du journal de règles de réseau]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Le Pare-feu Azure journalise les données sous AzureDiagnostics avec, en guise de catégorie, **AzureFirewallApplicationRule** ou **AzureFirewallApplicationRule**. Les données contenant les détails sont stockées dans le champ msg_s. À l’aide de l’opérateur [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator), nous pouvons extraire du champ msg_s les propriétés dignes d’intérêt. Les requêtes ci-dessous extraient les informations relatives aux deux catégories.
+Pare-feu Azure consigne les données ci-dessous AzureDiagnostics avec la catégorie en tant que **AzureFirewallApplicationRule** ou **AzureFirewallNetworkRule**. Les données contenant les détails sont stockées dans le champ msg_s. À l’aide de l’opérateur [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator), nous pouvons extraire du champ msg_s les propriétés dignes d’intérêt. Les requêtes ci-dessous extraient les informations relatives aux deux catégories.
 
 ## <a name="application-rules-log-data-query"></a>Requête portant sur les données du journal de règles d’application
 

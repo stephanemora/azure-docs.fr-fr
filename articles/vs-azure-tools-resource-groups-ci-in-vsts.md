@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894147"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047317"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Intégration continue dans Azure DevOps Services à l’aide de projets de déploiement Groupe de ressources Azure
 Pour déployer un modèle Azure, vous effectuez des tâches en différentes étapes : Générer, tester, copier sur Azure (également appelé « Intermédiaire ») et déployer le modèle. Il existe deux façons de déployer des modèles dans Azure DevOps Services. Les deux méthodes fournissent les mêmes résultats. Par conséquent, choisissez celle qui convient le mieux à votre flux de travail.
@@ -28,6 +28,8 @@ Pour déployer un modèle Azure, vous effectuez des tâches en différentes éta
 2. Ajouter plusieurs étapes de build à Azure DevOps, chacune effectuant une tâche intermédiaire.
 
 Cet article présente les deux options. La première option a l’avantage d’utiliser le script utilisé par les développeurs dans Visual Studio et de garantir une cohérence tout au long du cycle de vie. La deuxième option est une alternative pratique au script intégré. Les deux procédures partent du principe que vous disposez déjà d’un projet de déploiement Visual Studio contrôlé dans Azure DevOps Services.
+
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 ## <a name="copy-artifacts-to-azure"></a>Copier des artefacts sur Azure
 Quel que soit le scénario, si vous disposez de tous les artefacts nécessaires au déploiement du modèle, vous devez octroyer un accès à Azure Resource Manager. Ces artefacts peuvent inclure des fichiers tels que :
@@ -87,7 +89,7 @@ Les procédures suivantes vous guident lors des étapes nécessaires à la confi
       
       Pour les scripts PowerShell, utilisez :
       
-      `Get-AzureRmSubscription`
+      `Get-AzSubscription`
       
       Pour l’interface de ligne de commande Azure, consultez :
       

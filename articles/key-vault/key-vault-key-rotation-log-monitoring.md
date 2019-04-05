@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 68fd33dc3e9def11f72b7aec14f83f86b8bb74d0
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: fb3300a45f905eb57fcc4880269e4a9bed9dac0c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749703"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045983"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit
 
 ## <a name="introduction"></a>Présentation
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Une fois que vous avez un coffre de clés, vous pouvez commencer à l’utiliser pour stocker les clés et les secrets. Vos applications ne doivent plus nécessairement conserver vos clés et secrets, mais peuvent les demander au coffre en cas de besoin. Un coffre de clés vous permet de mettre à jour des clés et secrets sans affecter le comportement de votre application, toute une multitude de possibilités pour votre clé et la gestion des secrets.
 
@@ -39,6 +37,8 @@ Cet article vous guide tout au long des procédures suivantes :
 
 > [!NOTE]
 > Cet article n’explique en détail la configuration initiale de votre coffre de clés. Pour en savoir plus, consultez [Présentation d'Azure Key Vault](key-vault-overview.md). Pour obtenir des instructions de l’interface de ligne de commande multiplateforme, consultez [gestion de Key Vault à l’aide de l’interface CLI](key-vault-manage-with-cli2.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-key-vault"></a>Configuration d’Azure Key Vault
 
@@ -166,6 +166,9 @@ Lorsque vous exécutez votre application, vous devez désormais vous authentifie
 
 ## <a name="key-rotation-using-azure-automation"></a>Rotation des clés à l’aide d’Azure Automation
 
+> [!IMPORTANT]
+> Runbooks Azure Automation nécessitent encore l’utilisation de la `AzureRM` module.
+
 Vous êtes maintenant prêt à configurer une stratégie de rotation pour les valeurs que vous stockez en tant que secrets de coffre de clés. La rotation des secrets peut être de plusieurs façons :
 
 - Dans le cadre d’un processus manuel
@@ -210,7 +213,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -235,12 +238,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 Dans le volet de l’éditeur, sélectionnez **volet de Test** pour tester votre script. Une fois que le script s’exécute sans erreur, vous pouvez sélectionner **publier**, et vous pouvez ensuite appliquer une planification pour le runbook dans le panneau de configuration de runbook.

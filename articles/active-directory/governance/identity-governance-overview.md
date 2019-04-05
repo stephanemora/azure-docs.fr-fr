@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579714"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045482"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Qu’est-ce qu’Azure AD Identity Governance ?
 
@@ -56,7 +56,7 @@ En règle générale, le service informatique délègue aux décideurs d’entre
 
 Les organisations peuvent automatiser le processus de cycle de vie des accès à l’aide de technologies comme les [groupes dynamiques](../users-groups-roles/groups-dynamic-membership.md), moyennant l’approvisionnement des utilisateurs sur des [applications SaaS](../saas-apps/tutorial-list.md) ou des [applications intégrées à SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  Les organisations peuvent également contrôler les [utilisateurs invités pouvant accéder aux applications locales](../b2b/hybrid-cloud-to-on-premises.md).  Ces droits d’accès peuvent ensuite être révisés régulièrement par le biais de [révisions d’accès Azure AD](access-reviews-overview.md) récurrentes.
 
-Lorsqu’un utilisateur tente d’accéder à des applications, Azure AD applique des stratégies [d’accès conditionnel](/azure/active-directory/conditional-access/). Par exemple, les stratégies d’accès conditionnel peuvent inclure l’affichage de [conditions d’utilisation](active-directory-tou.md) et un processus [garantissant que l’utilisateur a accepté ces conditions](../conditional-access/require-tou.md) avant de lui permettre d’accéder à une application.
+Lorsqu’un utilisateur tente d’accéder à des applications, Azure AD applique des stratégies [d’accès conditionnel](/azure/active-directory/conditional-access/). Par exemple, les stratégies d’accès conditionnel peuvent inclure affichant un [conditions d’utilisation](../conditional-access/terms-of-use.md) et [garantissant l’utilisateur a accepté ces conditions](../conditional-access/require-tou.md) avant de pouvoir accéder à une application.
 
 ## <a name="privileged-access-lifecycle"></a>Cycle de vie des accès privilégiés
 
@@ -68,21 +68,21 @@ Azure AD Privileged Identity Management (PIM) offre des contrôles supplémentai
 
 Il n’existe pas de solution ou recommandation parfaite pour chaque client. Cependant, vous pouvez vous appuyer sur les configurations suivantes afin d’appréhender les stratégies de base recommandées par Microsoft pour renforcer la sécurité et la productivité de la force de travail.
 
-- [Configurations des identités et de l’accès aux appareils](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurations d’accès aux identités et des appareils](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Sécurisation de l’accès privilégié](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Révisions d’accès
 
 - [Qu’est-ce qu’une révision d’accès ?](access-reviews-overview.md)
-- [Gérer l’accès des utilisateurs avec les révisions d’accès](manage-user-access-with-access-reviews.md)
-- [Gérer l’accès des invités avec les révisions d’accès](manage-guest-access-with-access-reviews.md)
+- [Gérer l’accès utilisateur avec les révisions d’accès](manage-user-access-with-access-reviews.md)
+- [Gérer l’accès invité avec révisions d’accès](manage-guest-access-with-access-reviews.md)
 - [Démarrer une révision d’accès des rôles Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Conditions d’utilisation
 
-- [Que puis-je faire avec Conditions d’utilisation ?](active-directory-tou.md)
+- [Que puis-je faire avec Conditions d’utilisation ?](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-- [Qu’est-ce qu’Azure AD B2C ?](../privileged-identity-management/pim-configure.md)
+- [Qu’est-ce qu’Azure AD PIM ?](../privileged-identity-management/pim-configure.md)

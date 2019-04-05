@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486046"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051187"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Reprise d’activité après sinistre et basculement de compte de stockage (préversion) dans Stockage Azure
 
@@ -22,6 +22,9 @@ Microsoft s’efforce de faire en sorte que les services Azure soient toujours d
 Stockage Azure prend en charge le basculement de compte (préversion) pour les comptes de stockage géoredondants. Avec le basculement de compte, vous pouvez lancer le processus de basculement pour votre compte de stockage si le point de terminaison principal devient indisponible. Le basculement met à jour le point de terminaison secondaire pour qu’il devienne le point de terminaison principal pour votre compte de stockage. Une fois le basculement terminé, les clients peuvent commencer à écrire dans le nouveau point de terminaison principal.
 
 Cet article décrit les concepts et les processus impliqués dans un basculement de compte, et explique comment préparer votre compte de stockage pour la reprise avec le moins d’impact possible sur le client. Pour découvrir comment lancer un basculement de compte dans le portail Azure ou PowerShell, consultez [Lancer un basculement de compte (préversion)](storage-initiate-account-failover.md).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-right-redundancy-option"></a>Choisir l’option de redondance appropriée
 
@@ -122,14 +125,14 @@ La préversion est destinée uniquement à une utilisation hors production. Les 
 Pour vous inscrire à la préversion, exécutez les commandes suivantes dans PowerShell. N’oubliez pas de remplacer l’espace réservé entre crochets par votre propre ID d’abonnement :
 
 ```powershell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Vous recevrez votre approbation pour la préversion sous un à deux jours. Pour vérifier que votre inscription a été approuvée, exécutez la commande suivante :
 
 ```powershell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### <a name="additional-considerations"></a>Considérations supplémentaires 
@@ -176,6 +179,6 @@ Dans des circonstances extrêmes où une région est perdue suite à un sinistre
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Lancer un basculement de compte (préversion)](storage-initiate-account-failover.md)
-* [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-* [Tutoriel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md) 
+* [Initier un basculement du compte (version préliminaire)](storage-initiate-account-failover.md)
+* [Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS)](storage-designing-ha-apps-with-ragrs.md)
+* [Didacticiel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md) 

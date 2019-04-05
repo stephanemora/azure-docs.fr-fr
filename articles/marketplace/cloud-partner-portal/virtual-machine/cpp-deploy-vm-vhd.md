@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106047"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046680"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Déployer une machine virtuelle à partir de vos disques durs virtuels
 
@@ -29,16 +29,17 @@ Une fois que vous avez chargé les disques durs virtuels (disque dur virtuel de 
 
 Pour en savoir plus sur les images de machine virtuelle, consultez les billets de blog suivants :
 
-- [VM Image](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [VM Image PowerShell ’How To’](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/) (Procédure liée aux images de machine virtuelle à l’aide de PowerShell)
+- [Image de machine virtuelle](https://azure.microsoft.com/blog/vm-image-blog-post/)
+- [VM Image PowerShell « Comment »](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisite-install-the-necessary-tools"></a>Condition préalable : installer les outils requis
 
 Si ce n’est déjà fait, installez Azure PowerShell et l’interface de ligne de commande Azure en appliquant les instructions suivantes :
 
-- [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
-- [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Installation d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
 ## <a name="deployment-steps"></a>Étapes du déploiement
@@ -52,10 +53,10 @@ Vous utiliserez les étapes suivantes pour créer et déployer une image de mach
 Une fois votre machine virtuelle déployée, vous pouvez [certifier votre image de machine virtuelle](./cpp-certify-vm.md).
 
 1. Cliquez sur **Nouveau**, recherchez **Déploiement de modèle**, puis sélectionnez **Build your own template in Editor** (Générez votre propre modèle dans l’éditeur).  <br/>
-   ![Générer un modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_021.png)
+   ![Générer le modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_021.png)
 
 1. Copiez et collez ce [modèle JSON](./cpp-deploy-json-template.md) dans l’éditeur, puis cliquez sur **Enregistrer**. <br/>
-   ![Enregistrer un modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_022.png)
+   ![Enregistrez le modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_022.png)
 
 1. Indiquez les valeurs des paramètres pour les pages de propriétés **Déploiement personnalisé** affichées.
 
@@ -68,7 +69,7 @@ Une fois votre machine virtuelle déployée, vous pouvez [certifier votre image 
    | DNS Name for Public IP (Nom DNS pour adresse IP publique)      | Nom DNS d’adresse IP publique                                                           |
    | Nom d’utilisateur administrateur             | Nom d’utilisateur du compte administrateur pour une nouvelle machine virtuelle                                  |
    | Mot de passe d’administrateur              | Mot de passe du compte administrateur pour une nouvelle machine virtuelle                                  |
-   | Type de système d’exploitation                     | Système d’exploitation de machine virtuelle : `Windows` \| `Linux`                                    |
+   | Type de système d’exploitation                     | Système d’exploitation de machine virtuelle : `Windows` \| `Linux`                                    |
    | Identifiant d’abonnement             | Identificateur de l’abonnement sélectionné                                      |
    | Lieu                    | Emplacement géographique du déploiement                                        |
    | Taille de la machine virtuelle                     | [Taille de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), par exemple `Standard_A2` |

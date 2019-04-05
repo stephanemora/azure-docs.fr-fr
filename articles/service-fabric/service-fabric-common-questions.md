@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 3dd2518c23f2cd323d7c3b2b46465e4144c1ba1a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665319"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045796"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
 Les utilisateurs posent fréquemment des questions sur l’utilisation et les fonctionnalités de Service Fabric. Ce document regroupe un grand nombre de ces questions fréquentes et leurs réponses.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cluster-setup-and-management"></a>Création et gestion de clusters
 
@@ -133,7 +136,7 @@ Non. Les machines virtuelles de faible priorité ne sont pas prises en charge.
 Les procédés suivants permettent à votre application d’obtenir des informations d’identification pour s’authentifier auprès de Key Vault :
 
 R. Au cours de votre travail de génération/compression d’applications, vous pouvez extraire un certificat et l’utiliser dans le package de données de votre application SF en vue de l’authentification auprès de Key Vault.
-B. Pour les hôtes MSI d’un groupe de machines virtuelles identiques, vous pouvez développer un élément PowerShell SetupEntryPoint simple pour votre application SF afin d’obtenir [un jeton d’accès à partir du point de terminaison MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), puis [récupérer vos secrets à partir de Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret).
+B. Pour les hôtes MSI d’un groupe de machines virtuelles identiques, vous pouvez développer un élément PowerShell SetupEntryPoint simple pour votre application SF afin d’obtenir [un jeton d’accès à partir du point de terminaison MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), puis [récupérer vos secrets à partir de Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret).
 
 ## <a name="application-design"></a>Conception des applications
 
@@ -189,4 +192,4 @@ Consultez le [blog Service Fabric](https://blogs.msdn.microsoft.com/azureservice
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [principaux concepts](service-fabric-technical-overview.md) et les [meilleures pratiques de Service Fabric](service-fabric-best-practices-overview.md)
+En savoir plus sur [principaux concepts de Service Fabric](service-fabric-technical-overview.md) et [meilleures pratiques](service-fabric-best-practices-overview.md) Fabric concepts](service-fabric-technical-overview.md) de glace et [meilleures pratiques](service-fabric-best-practices-overview.md)

@@ -8,18 +8,20 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 8d0e00223fcd55a1049900b502b52745837bf8fc
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 78bd077b5491b093510b9c55bf7b5a42ee9cb578
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462554"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045626"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurer la reprise d’activité de machines virtuelles Hyper-V sur un site secondaire à l’aide de PowerShell (Resource Manager)
 
 Cet article montre comment automatiser les étapes de la réplication des machines virtuelles Hyper-V dans les clouds System Center Virtual Machine Manager sur le cloud Virtual Machine Manager d’un site local secondaire en utilisant [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="prerequisites"></a>Conditions préalables
 
 - Examinez [l’architecture et les composants du scénario](hyper-v-vmm-architecture.md).
 - Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-sec-site.md) pour tous les composants.
@@ -59,31 +61,31 @@ Assurez-vous qu’Azure PowerShell est prêt à l’emploi :
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
-        Connect-AzureRmAccount #-Credential $Cred
+        Connect-AzAccount #-Credential $Cred
 2. Récupérez la liste de vos abonnements, avec les ID d’abonnement. Notez l’ID de l’abonnement dans lequel vous voulez créer le coffre Recovery Services. 
 
-        Get-AzureRmSubscription
+        Get-AzSubscription
 3. Définissez l’abonnement du coffre.
 
-        Set-AzureRmContext –SubscriptionID <subscriptionId>
+        Set-AzContext –SubscriptionID <subscriptionId>
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 1. Si vous ne disposez d’aucun groupe de ressources Azure Resource Manager, créez-en un.
 
-        New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
+        New-AzResourceGroup -Name #ResourceGroupName -Location #location
 2. Créez un nouveau coffre Recovery Services. Enregistrez l’objet de coffre dans une variable pour une utilisation ultérieure. 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
-    Vous pouvez récupérer l’objet de coffre après sa création à l’aide de la cmdlet Get-AzureRMRecoveryServicesVault.
+    Vous pouvez récupérer l’objet de coffre après sa création à l’aide de l’applet de commande Get-AzRecoveryServicesVault.
 
 ## <a name="set-the-vault-context"></a>Définir le contexte du coffre
 1. Récupérez un coffre existant.
 
-       $vault = Get-AzureRmRecoveryServicesVault -Name #vaultname
+       $vault = Get-AzRecoveryServicesVault -Name #vaultname
 2. Définir le contexte d’archivage.
 
-       Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+       Set-AzSiteRecoveryVaultSettings -ARSVault $vault
 
 ## <a name="install-the-site-recovery-provider"></a>Installer le fournisseur Site Recovery
 1. Sur la machine Virtual Machine Manager, créez un répertoire en exécutant la commande suivante :
@@ -124,7 +126,7 @@ Assurez-vous qu’Azure PowerShell est prêt à l’emploi :
         $AuthPort = "8083"  #specify the port number that will be used for replication traffic on Hyper-V hosts
         $InitialRepMethod = "Online" #options are "Online" or "Offline"
 
-        $policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
+        $policyresult = New-AzSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
 
     > [!NOTE]
     > Le cloud Virtual Machine Manager peut contenir des hôtes Hyper-V s’exécutant sur différentes versions de Windows Server, alors que la stratégie de réplication est destinée à une version spécifique d’un système d’exploitation. Si vos hôtes s’exécutent sur des systèmes d’exploitation différents, créez des stratégies de réplication distinctes pour chaque système. Par exemple, si vous avez cinq hôtes exécutés sur Windows Servers 2012 et trois hôtes exécutés sur Windows Server 2012 R2, créez deux stratégies de réplication. Vous en créez une pour chaque type de système d’exploitation.
@@ -132,19 +134,19 @@ Assurez-vous qu’Azure PowerShell est prêt à l’emploi :
 2. Récupérez le conteneur de protection principal (cloud Virtual Machine Manager principal) et le conteneur de protection de récupération (cloud Virtual Machine Manager de récupération).
 
        $PrimaryCloud = "testprimarycloud"
-       $primaryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
+       $primaryprotectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
 
        $RecoveryCloud = "testrecoverycloud"
-       $recoveryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $RecoveryCloud;  
+       $recoveryprotectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $RecoveryCloud;  
 3. Récupérez la stratégie de réplication que vous avez créée en utilisant le nom convivial.
 
-       $policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $policyname
+       $policy = Get-AzSiteRecoveryPolicy -FriendlyName $policyname
 4. Lancez l’association du conteneur de protection (cloud Virtual Machine Manager) avec la stratégie de réplication.
 
-       $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
+       $associationJob  = Start-AzSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
 5. Attendez que la tâche d’association de la stratégie se termine. Pour vérifier que la tâche est terminée, utilisez l’extrait de code PowerShell suivant :
 
-       $job = Get-AzureRmSiteRecoveryJob -Job $associationJob
+       $job = Get-AzSiteRecoveryJob -Job $associationJob
 
        if($job -eq $null -or $job.StateDescription -ne "Completed")
        {
@@ -164,12 +166,12 @@ Pour vérifier que l’opération est terminée, suivez les étapes décrites à
 ##  <a name="configure-network-mapping"></a>Configurer le mappage réseau
 1. Utilisez cette commande pour récupérer des serveurs pour le coffre actif. La commande stocke les serveurs Site Recovery dans la variable de tableau $Servers.
 
-        $Servers = Get-AzureRmSiteRecoveryServer
+        $Servers = Get-AzSiteRecoveryServer
 2. Exécutez cette commande pour récupérer les réseaux pour le serveur Virtual Machine Manager source et le serveur Virtual Machine Manager cible.
 
-        $PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
+        $PrimaryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[0]        
 
-        $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
+        $RecoveryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[1]
 
     > [!NOTE]
     > Le serveur Virtual Machine Manager source peut être le premier ou le deuxième serveur dans le tableau de serveurs. Vérifiez les noms de serveur Virtual Machine Manager et récupérez les réseaux appropriés.
@@ -177,7 +179,7 @@ Pour vérifier que l’opération est terminée, suivez les étapes décrites à
 
 3. L’applet de commande crée un mappage entre le réseau principal et le réseau de récupération. Il spécifie le réseau principal comme premier élément de $PrimaryNetworks. Il spécifie le réseau de récupération comme premier élément de $RecoveryNetworks.
 
-        New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
+        New-AzSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
 
 ## <a name="enable-protection-for-vms"></a>Activer la protection des machines virtuelles
@@ -185,13 +187,13 @@ Après avoir correctement configuré les serveurs, les clouds et les réseaux, a
 
 1. Afin d’activer la protection, exécutez la commande suivante pour récupérer le conteneur de protection :
 
-          $PrimaryProtectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloudName
+          $PrimaryProtectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $PrimaryCloudName
 2. Obtenez l’entité de protection (machine virtuelle) de la façon suivante :
 
-           $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -friendlyName $VMName -ProtectionContainer $PrimaryProtectionContainer
+           $protectionEntity = Get-AzSiteRecoveryProtectionEntity -friendlyName $VMName -ProtectionContainer $PrimaryProtectionContainer
 3. Activez la réplication de la machine virtuelle.
 
-          $jobResult = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
+          $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
 
 ## <a name="run-a-test-failover"></a>Exécuter un test de basculement
 
@@ -199,24 +201,24 @@ Pour tester votre déploiement, exécutez un test de basculement pour une seule 
 
 1. Récupérez la machine virtuelle dans laquelle les machines virtuelles basculent.
 
-       $Servers = Get-AzureRmSiteRecoveryServer
-       $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
+       $Servers = Get-AzSiteRecoveryServer
+       $RecoveryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[1]
 
 2. Exécution d’un basculement de test.
 
    Pour une machine virtuelle :
 
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -VMNetwork $RecoveryNetworks[1]
+        $jobIDResult =  Start-AzSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -VMNetwork $RecoveryNetworks[1]
     
    Pour un plan de récupération :
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan -VMNetwork $RecoveryNetworks[1]
+        $jobIDResult =  Start-AzSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan -VMNetwork $RecoveryNetworks[1]
 
 Pour vérifier que l’opération est terminée, suivez les étapes décrites à la section [Analyser l’activité](#monitor-activity).
 
@@ -226,33 +228,33 @@ Pour vérifier que l’opération est terminée, suivez les étapes décrites à
 
    Pour une machine virtuelle :
 
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
    Pour un plan de récupération :
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
+        $jobIDResult =  Start-AzSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
 
 2. Exécutez un basculement non planifié.
 
    Pour une machine virtuelle :
         
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
    Pour un plan de récupération :
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
 ## <a name="monitor-activity"></a>Analyser l’activité
 Utilisez les commandes suivantes pour analyser l’activité de basculement. Attendez que le traitement se termine entre les travaux.
@@ -276,4 +278,4 @@ Utilisez les commandes suivantes pour analyser l’activité de basculement. Att
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[En savoir plus](/powershell/module/azurerm.recoveryservices.backup/) sur Site Recovery avec les cmdlets PowerShell Resource Manager.
+[En savoir plus](/powershell/module/az.recoveryservices) sur Site Recovery avec les cmdlets PowerShell Resource Manager.

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 49a703164b302443d8b50ba950cf23b8601cb599
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 614c3e1831680fff50058cd5192449f8e6e28179
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480700"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049794"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide de l’API REST Azure
 
 > [!div class="op_single_selector"]
 > - [Portail Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [Interface de ligne de commande Azure](network-watcher-packet-capture-manage-cli.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [API REST Azure](network-watcher-packet-capture-manage-rest.md)
 
 La fonctionnalité de capture des paquets Network Watcher vous permet de créer des sessions de capture afin d’effectuer le suivi du trafic en direction et en provenance d’une machine virtuelle. Les filtres sont fournis pour la session de capture afin de vous garantir que vous capturez uniquement le trafic souhaité. La capture des paquets permet de diagnostiquer les anomalies réseau de manière proactive et réactive. Elle permet aussi de collecter des statistiques réseau, d’obtenir des informations sur les intrusions, de déboguer des communications client-serveur, etc. En déclenchant à distance des captures de paquets, cette fonctionnalité simplifie l’exécution manuelle de la capture de paquets sur l’ordinateur souhaité, ce qui permet d’économiser un temps précieux.
@@ -39,6 +39,9 @@ Cet article passe en revue les différentes tâches de gestion actuellement disp
 - [**Démarrer une capture de paquets**](#start-packet-capture)
 - [**Arrêter une capture de paquets**](#stop-packet-capture)
 - [**Supprimer une capture de paquets**](#delete-packet-capture)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -60,7 +63,7 @@ Exécutez le script suivant pour renvoyer une machine virtuelle. Ces information
 
 Le code suivant requiert des variables :
 
-- **subscriptionId** - L’ID d’abonnement peut également être récupéré avec l’applet de commande **Get-AzureRMSubscription**.
+- **ID d’abonnement** -l’id d’abonnement peut également être récupéré avec la **Get-AzSubscription** applet de commande.
 - **resourceGroupName** - Le nom d’un groupe de ressources qui contient les machines virtuelles.
 
 ```powershell

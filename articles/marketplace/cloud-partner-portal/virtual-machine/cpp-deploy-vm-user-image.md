@@ -14,17 +14,18 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 48be60a7ba5770f8c329cb6323a5caa8fcf7f961
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265054"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046733"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Déployer une machine virtuelle Azure à partir d’un disque dur virtuel utilisateur
 
 Cet article explique comment déployer une image de disque dur virtuel généralisée pour créer une nouvelle ressource de machine virtuelle Azure, en utilisant le modèle Azure Resource Manager fourni et un script Azure PowerShell.
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="vhd-deployment-template"></a>Modèle de déploiement de disque dur virtuel
 
@@ -33,7 +34,7 @@ Copiez le modèle Azure Resource Manager de [déploiement de disque dur virtuel]
 |  **Paramètre**             |   **Description**                                                              |
 |  -------------             |   ---------------                                                              |
 | ResourceGroupName          | Le nom du groupe de ressources Azure existant.  En général, utilisez le même groupe de ressources que celui associé à votre coffre de clés  |
-| TemplateFile               | Chemin d’accès complet du fichier `VHDtoImage.json`                                    |
+| TemplateFile               | Chemin d’accès complet au fichier `VHDtoImage.json`                                    |
 | userStorageAccountName     | Nom du compte de stockage                                                    |
 | sNameForPublicIP           | Nom DNS de l’adresse IP publique. Il doit être en minuscules                                  |
 | subscriptionId             | Identificateur de l’abonnement Azure                                                  |
@@ -41,7 +42,7 @@ Copiez le modèle Azure Resource Manager de [déploiement de disque dur virtuel]
 | vmName                     | Nom de la machine virtuelle                                                    |
 | vaultName                  | Nom du Key Vault.                                                          |
 | vaultResourceGroup         | Groupe de ressources du Key Vault.
-| certificateUrl             | URL du certificat, y compris la version stockée dans le coffre de clés, par exemple : `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| certificateUrl             | URL du certificat, y compris la version stockée dans le coffre de clés, par exemple :  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | URL du disque dur virtuel                                                   |
 | vmSize                     | Taille de l’instance de machine virtuelle                                           |
 | publicIPAddressName        | Nom de l’adresse IP publique                                                  |
@@ -63,10 +64,10 @@ $storageaccount = "testwinrm11815"
 # generalized VHD URL
 $vhdUrl = "https://testwinrm11815.blob.core.windows.net/vhds/testvm1234562016651857.vhd"
 
-echo "New-AzureRMResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id  -vhdUrl "$vhdUrl" -vmSize "Standard_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd"
+echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id  -vhdUrl "$vhdUrl" -vmSize "Standard_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd"
 
 #deploying VM with existing VHD
-New-AzureRMResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id  -vhdUrl "$vhdUrl" -vmSize "Standard_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd 
+New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id  -vhdUrl "$vhdUrl" -vmSize "Standard_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd 
 
 ```
 

@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 43689ec92fe20e61fdfd7a145d3028a3b1ee956d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: adfd8c5849cfee69805715378a3f56ec9f685b00
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848095"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050745"
 ---
 # <a name="message-counters"></a>Compteurs de messages
 
 Vous pouvez récupérer le nombre de messages contenus dans les files d’attente et les abonnements à l’aide d’Azure Resource Manager et des API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) Service Bus dans le Kit de développement logiciel (SDK) .NET Framework.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Avec PowerShell, vous pouvez obtenir ce nombre comme suit :
 
 ```powershell
-(Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
+(Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
 ```
 
 ## <a name="message-count-details"></a>Détails du nombre de messages

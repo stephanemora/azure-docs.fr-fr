@@ -1,19 +1,18 @@
 ---
-title: Mise à l’échelle de l’Explorateur de données Azure pour prendre en compte les fluctuations de la demande
+title: Monter en charge un cluster de l’Explorateur de données Azure pour s’adapter à la demande de modification
 description: Cet article décrit les étapes pour monter en charge et de mettre à l’échelle dans un cluster de l’Explorateur de données Azure basée sur la modification de la demande.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9b54bf182f23eceb47c392059ff52c04bf0a8aed
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755066"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044232"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gérer la montée en charge du cluster pour prendre en compte les fluctuations de la demande
 
@@ -44,9 +43,9 @@ Le graphisme suivant illustre le flux des prochaines étapes. Plus de détails s
     | Paramètre | Description et valeur |
     | --- | --- |
     | **Agrégation du temps** | Sélectionnez un critère d’agrégation, comme **Moyenne**. |
-    | **Nom de la métrique** | Sélectionnez la métrique sur laquelle vous voulez baser l’opération de mise à l’échelle, comme **Utilisation du cache**. |
-    | **Statistiques de fragment de temps** | Choisissez entre **Moyenne**, **Minimum**, **Maximum** et **Somme**. |
-    | **Opérateur** | Choisissez l’option appropriée, par exemple **Supérieur ou égal à**. |
+    | **Nom de métrique** | Sélectionnez la métrique sur laquelle vous voulez baser l’opération de mise à l’échelle, comme **Utilisation du cache**. |
+    | **Statistique de fragment de temps** | Choisissez entre **Moyenne**, **Minimum**, **Maximum** et **Somme**. |
+    | **Operator** | Choisissez l’option appropriée, par exemple **Supérieur ou égal à**. |
     | **Seuil** | Choisissez une valeur appropriée. Par exemple, pour l’utilisation du cache, 80 pour cent est un bon point de départ. |
     | **Durée (en minutes)** | Choisissez une durée appropriée pendant laquelle le système effectue des recherches lors du calcul de métriques. Commencez avec la valeur par défaut, 10 minutes. |
     |  |  |
@@ -55,7 +54,7 @@ Le graphisme suivant illustre le flux des prochaines étapes. Plus de détails s
 
     | Paramètre | Description et valeur |
     | --- | --- |
-    | **opération** | Choisissez l’option appropriée pour diminuer ou augmenter la taille. |
+    | **Opération** | Choisissez l’option appropriée pour diminuer ou augmenter la taille. |
     | **Nombre d’instances** | Choisissez le nombre de nœuds ou d’instances que vous voulez ajouter ou supprimer quand une condition de métrique est remplie. |
     | **Refroidissement (minutes)** | Choisissez un intervalle de temps d’attente approprié entre les opérations de mise à l’échelle. Commencez avec la valeur par défaut, cinq minutes. |
     |  |  |
@@ -66,9 +65,9 @@ Le graphisme suivant illustre le flux des prochaines étapes. Plus de détails s
 
     | Paramètre | Description et valeur |
     | --- | --- |
-    | **Minimum** | Nombre d’instances en dessous duquel la mise à l’échelle de votre cluster ne se met pas en œuvre, quelle que soit l’utilisation. |
-    | **Maximum** | Nombre d’instances au-dessus duquel la mise à l’échelle de votre cluster ne se met pas en œuvre, quelle que soit l’utilisation. |
-    | **Par défaut** | Nombre d’instances par défaut. Ce paramètre est utilisé s’il existe des problèmes de lecture des métriques de ressource. |
+    | **Minimale** | Nombre d’instances en dessous duquel la mise à l’échelle de votre cluster ne se met pas en œuvre, quelle que soit l’utilisation. |
+    | **Maximale** | Nombre d’instances au-dessus duquel la mise à l’échelle de votre cluster ne se met pas en œuvre, quelle que soit l’utilisation. |
+    | **Default** | Nombre d’instances par défaut. Ce paramètre est utilisé s’il existe des problèmes de lecture des métriques de ressource. |
     |  |  |
 
 1. Sélectionnez **Enregistrer**.

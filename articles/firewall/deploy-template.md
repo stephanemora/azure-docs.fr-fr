@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038957"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046272"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Déployer un pare-feu Azure à l’aide d’un modèle
 
@@ -25,11 +25,14 @@ Une route définie par l’utilisateur dirige le trafic réseau du sous-réseau 
 
 Pour plus d’informations sur le Pare-feu Azure, consultez [Déployer et configurer le Pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md).
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="use-the-template-to-deploy-azure-firewall"></a>Utiliser le modèle pour déployer le Pare-feu Azure
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-**Pour installer et déployer le Pare-feu Azure à l’aide du modèle :**
+**Pour installer et déployer des pare-feu Azure à l’aide du modèle :**
 
 1. Accédez au modèle sur [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox).
    
@@ -56,10 +59,10 @@ Pour en savoir plus sur la syntaxe JSON et les propriétés d’un pare-feu dans
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, le pare-feu et toutes les ressources associées en exécutant la commande PowerShell [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Pour supprimer un groupe de ressources nommé *MyResourceGroup*, exécutez : 
+Lorsque vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, pare-feu et toutes les ressources associées en exécutant la [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) commande PowerShell. Pour supprimer un groupe de ressources nommé *MyResourceGroup*, exécutez : 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 Ne supprimez pas encore le groupe de ressources et le pare-feu si vous voulez continuer avec le tutoriel de supervision du pare-feu. 
 
@@ -68,4 +71,4 @@ Ne supprimez pas encore le groupe de ressources et le pare-feu si vous voulez co
 Ensuite, vous pouvez surveiller les journaux de Pare-feu Azure :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Superviser les journaux de Pare-feu Azure](./tutorial-diagnostics.md)
+> [Didacticiel : Surveillez les journaux de pare-feu Azure](./tutorial-diagnostics.md)

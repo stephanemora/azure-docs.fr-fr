@@ -14,16 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
-ms.openlocfilehash: b9ad592ecbeb68784b19269e3ff06931989e59af
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bf28ddf7facbc742a107f67f3d7e81eca5a5c950
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663585"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045386"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Déployer un cluster Service Fabric utilisant un nom commun de certificat au lieu d’une empreinte
 Deux certificats ne peuvent pas avoir la même empreinte, ce qui complique la gestion ou le renouvellement des certificats de cluster. Toutefois, plusieurs certificats peuvent avoir le même nom commun ou objet.  Un cluster utilisant des noms communs de certificat facilite grandement la gestion des certificats. Cet article décrit le déploiement d’un cluster Service Fabric pour utiliser le nom commun d’un certificat à la place de son empreinte.
  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="get-a-certificate"></a>Obtenir un certificat
 Commencez par obtenir un certificat auprès d’une [autorité de certification (AC)](https://wikipedia.org/wiki/Certificate_authority).  Le nom commun du certificat doit être pour votre domaine personnalisé et doit être acheté auprès d’un bureau d’enregistrement de domaine. Par exemple, « azureservicefabricbestpractices.com ». Les personnes qui ne sont pas employées par Microsoft ne peuvent pas approvisionner les certificats pour les domaines Microsoft et vous ne pouvez donc pas utiliser les noms DNS de votre équilibreur de charge ou de Traffic Manager comme noms communs pour votre certificat. Vous devez approvisionner une [zone Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) si votre domaine personnalisé doit être résolu dans Azure. Vous devez également déclarer le domaine personnalisé que vous possédez comme « managementEndpoint » de votre cluster si vous souhaitez que le portail affiche l’alias de domaine personnalisé pour votre cluster.
 
@@ -41,7 +44,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  "<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $SubscriptionId
+Login-AzAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
 $KeyVaultResourceGroupName  = "mykeyvaultgroup"
@@ -51,10 +54,10 @@ $certname = "myclustercert"
 $Password  = "P@ssw0rd!123"
 
 # Create new Resource Group 
-New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Create the new key vault
-$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
+$newKeyVault = New-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
 $resourceId = $newKeyVault.ResourceId 
 
 # Add the certificate to the key vault.
@@ -199,12 +202,12 @@ $clusterloc="southcentralus"
 $id="<subscription ID"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $id 
+Login-AzAccount -SubscriptionId $id 
 
 # Create a new resource group and deploy the cluster.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -212,5 +215,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParame
 * Découvrez comment [renouveler un certificat de cluster](service-fabric-cluster-rollover-cert-cn.md).
 * [Mettre à jour et gérer les certificats de cluster](service-fabric-cluster-security-update-certs-azure.md)
 * Simplifiez la gestion des certificats en apprenant à [modifier un cluster pour qu’il passe de l’utilisation d’une empreinte de certificat à l’utilisation d’un nom commun](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+
+[image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
+ic-cluster-change-cert-thumbprint-to-cn.md))
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

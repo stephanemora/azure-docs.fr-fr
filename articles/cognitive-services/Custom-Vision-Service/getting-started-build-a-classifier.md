@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891478"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051465"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Comment créer un classifieur avec Custom Vision
 
@@ -56,9 +56,8 @@ Dans votre navigateur web, accédez à la [page web Custom Vision](https://custo
     |__Aliment__|Optimisé pour les photographies de plats, tels que vous pouvez les voir dans un menu de restaurant. Si vous souhaitez classer des photographies de fruits ou de légumes distincts, utilisez le domaine Food (Nourriture).|
     |__Points de repère__|Optimisé pour les monuments et sites reconnaissables, naturels et artificiels. Ce domaine fonctionne mieux lorsque le monument ou le site est clairement visible dans la photographie. Ce domaine fonctionne même si le monument ou le site est légèrement masqué par des personnes placées devant lui.|
     |__Vente au détail__|Optimisé pour les images qui se trouvent dans des catalogues de vente ou sur des site Web commerciaux. Si vous souhaitez un classement de grande précision pour des robes, des pantalons et des chemises, utilisez ce domaine.|
-    |__Adulte__|Optimisé pour mieux définir le contenu pour adultes et le contenu pour tous. Par exemple, si vous souhaitez bloquer les images de personnes en maillot de bain, ce domaine vous permet de créer un classifieur personnalisé pour ce faire.|
     |__Domaines compacts__| Optimisés en fonction des contraintes de la classification en temps réel sur les appareils mobiles. Les modèles générés par les domaines compacts sont exportables pour s’exécuter localement.|
-    
+
 1. Enfin, sélectionnez __Create project__ (Créer le projet).
 
 ## <a name="choose-training-images"></a>Choisir les images d’entraînement

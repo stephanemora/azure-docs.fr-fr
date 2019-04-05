@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: f886de9160b52b8a4e3ee8beaf2e22022a097666
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662786"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046289"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agrégation et collecte d’événements à l’aide des diagnostics Windows Azure
 > [!div class="op_single_selector"]
@@ -32,17 +32,20 @@ Lorsque vous exécutez un cluster Service Fabric dans Azure, il peut être inté
 
 Pour télécharger et collecter des journaux, vous pouvez utiliser l’extension Windows Azure Diagnostics (WAD), qui télécharge les journaux dans Azure Storage, ou envoyer les journaux à Azure Application Insights ou à des concentrateurs d’événements. Vous pouvez également utiliser un processus externe pour lire les événements à partir du stockage et les placer dans une plateforme d’analyse, tels que [Azure Monitor enregistre](../log-analytics/log-analytics-service-fabric.md) ou une autre solution d’analyse de journaux.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Conditions préalables
 Cet article fait référence aux outils suivants :
 
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-platform-events"></a>Événements de la plateforme Service Fabric
 Service Fabric inclut quelques [canaux de journalisation prêts à l’emploi](service-fabric-diagnostics-event-generation-infra.md), notamment les canaux ci-après, qui sont préconfigurés avec l’extension pour l’envoi de données de surveillance et de diagnostic à une table de stockage ou à un autre emplacement :
   * [Événements opérationnels](service-fabric-diagnostics-event-generation-operational.md) : opérations de niveau supérieur effectuées par la plateforme Service Fabric. Par exemple : la création d’applications et de services, les modifications d’état des nœuds et les informations de mise à niveau. Ces événements sont émis sous forme de journaux de suivi d’événements pour Windows (ETW)
-  * [Événements du modèle de programmation Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+  * [Événements du modèle de programmation Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
   * [Événements du modèle de programmation Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 ## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>Déployer l’extension Diagnostics par le biais du portail
@@ -71,7 +74,7 @@ Pour créer un cluster avec Resource Manager, vous devez ajouter le fichier de c
 
 Pour voir les paramètres de diagnostic dans le modèle Resource Manager, ouvrez le fichier azuredeploy.json et recherchez **IaaSDiagnostics**. Pour créer un cluster à l’aide de ce modèle, cliquez sur le bouton **Déployer sur Azure**, disponible via le lien précédent.
 
-Vous pouvez également télécharger l’exemple Resource Manager, y apporter des modifications et créer un cluster à partir du modèle modifié en utilisant la commande `New-AzureRmResourceGroupDeployment` dans une fenêtre Azure PowerShell. Consultez le code suivant pour les paramètres que vous passez à la commande. Pour plus d’informations sur le déploiement d’un groupe de ressources à l’aide de PowerShell, consultez l’article [Déployer un groupe de ressources avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+Vous pouvez également télécharger l’exemple Resource Manager, y apporter des modifications et créer un cluster à partir du modèle modifié en utilisant la commande `New-AzResourceGroupDeployment` dans une fenêtre Azure PowerShell. Consultez le code suivant pour les paramètres que vous passez à la commande. Pour plus d’informations sur le déploiement d’un groupe de ressources à l’aide de PowerShell, consultez l’article [Déployer un groupe de ressources avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Ajouter l’extension Diagnostics à un cluster existant
 Si l’extension Diagnostics n’est pas déployée sur l’un de vos clusters existants, vous pouvez l’ajouter ou la mettre à jour par le biais du modèle de cluster. Modifiez le modèle Resource Manager utilisé pour créer le cluster existant ou téléchargez le modèle sur le portail, comme décrit ci-dessus. Modifiez le fichier template.json en effectuant les opérations suivantes :
@@ -189,7 +192,7 @@ Après avoir modifié le fichier template.json comme décrit, republiez le modè
 
 ### <a name="update-storage-quota"></a>Mettre à jour le quota de stockage
 
-Étant donné que les tables remplies par l’extension croissent jusqu’à ce que le quota soit atteint, vous pouvez envisager de réduire la taille du quota. La valeur par défaut est de 50 Go et est configurable dans le modèle sous le champ `overallQuotaInMB` figurant sous `DiagnosticMonitorConfiguration`.
+Étant donné que les tables remplies par l’extension croissent jusqu’à ce que le quota soit atteint, vous pouvez envisager de réduire la taille du quota. La valeur par défaut est 50 Go et est configurable dans le modèle sous le `overallQuotaInMB` champ sous `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
@@ -269,7 +272,7 @@ Pour activer le **Canal opérationnel de base**, recommandé pour la journalisat
 
 Pour mettre à jour Diagnostics afin de collecter les journaux de nouveaux canaux EventSource représentant une nouvelle application que vous êtes sur le point de déployer, effectuez les mêmes étapes que précédemment pour le programme d’installation de Diagnostics d’un cluster existant.
 
-Mettez à jour la section `EtwEventSourceProviderConfiguration` dans le fichier template.json pour ajouter des entrées pour les nouveaux canaux EventSource avant d’appliquer la mise à jour de la configuration à l’aide de la commande PowerShell `New-AzureRmResourceGroupDeployment`. Le nom de la source de l’événement est défini dans le cadre de votre code dans le fichier ServiceEventSource.cs généré par Visual Studio.
+Mettez à jour la section `EtwEventSourceProviderConfiguration` dans le fichier template.json pour ajouter des entrées pour les nouveaux canaux EventSource avant d’appliquer la mise à jour de la configuration à l’aide de la commande PowerShell `New-AzResourceGroupDeployment`. Le nom de la source de l’événement est défini dans le cadre de votre code dans le fichier ServiceEventSource.cs généré par Visual Studio.
 
 Par exemple, si votre source d’événements est nommée My-Eventsource, ajoutez le code suivant pour placer les événements de My-Eventsource dans une table nommée MyDestinationTableName.
 
@@ -345,6 +348,8 @@ Une fois que vous avez correctement configuré les diagnostics Azure, vous verre
 >[!NOTE]
 >Il n’existe actuellement aucun moyen de filtrer ou de nettoyer les événements qui sont envoyés à la table. Si vous n’implémentez aucun processus de suppression des événements de la table, la table continuera à croître. Un exemple de service de nettoyage de données en cours d’exécution est inclus avec l[’échantillon Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), et il est recommandé d’en écrire un vous-même, sauf s’il existe une bonne raison de stocker les journaux au-delà de 30 ou 90 jours.
 
-* [Découvrez comment collecter des compteurs de performances ou des journaux à l’aide de l’extension Diagnostics](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Analyse et visualisation d’événements avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Découvrez comment collecter les compteurs de performances ou des journaux à l’aide de l’extension de Diagnostics](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Analyse des événements et visualisation avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Analyse des événements et visualisation avec les journaux d’Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
+* [Analyse des événements et visualisation avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Analyse des événements et visualisation avec les journaux d’Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)

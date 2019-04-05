@@ -3,17 +3,17 @@ title: Ports et protocoles de communication IoT Hub | Microsoft Docs
 description: 'Guide du développeur : décrit les protocoles de communication pris en charge pour les communications appareil-à-cloud et cloud-à-appareil et les numéros de port qui doivent être ouverts.'
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: f6c39765c9133c9bf295d4225c332fda1140a13b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7082ebc4ca3066f84ca9790797cfa04e437f78a3
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532683"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051053"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Référence - Choisir un protocole de communication
 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 592bf638cf0be26182dfdb28ac5a0c8345a7a250
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ad58b914c22c112a83c18a7c0377b567424e4efd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116705"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046017"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning Studio : Déploiement et consommation
 
@@ -49,7 +49,7 @@ Le fournisseur de ressources Azure Machine Learning Studio pour les services web
 
 Le fournisseur de ressources Azure Machine Learning Studio pour les services web permet le déploiement et la gestion des services web au moyen de cmdlets PowerShell.
 
-Pour utiliser les applets de commande, vous devez d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de l’applet de commande [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Si vous ne savez pas comment appeler les commandes PowerShell basées sur Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
+Pour utiliser les applets de commande, vous devez tout d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de la [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) applet de commande. Si vous ne savez pas comment appeler les commandes PowerShell basées sur Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
 Pour exporter votre expérience prédictive, utilisez cet [exemple de code](https://github.com/ritwik20/AzureML-WebServices). Après avoir créé le fichier .exe à partir du code, vous pouvez taper :
 
@@ -78,7 +78,7 @@ Voici un exemple :
 
 Consultez les articles et les exemples de code suivants pour plus de détails :
 
-* [Cmdlets Azure Machine Learning Studio](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) sur MSDN
+* [Cmdlets Azure Machine Learning Studio](https://docs.microsoft.com/powershell/module/az.machinelearning) sur MSDN
 * Exemple de [procédure pas à pas](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) sur GitHub
 
 ## <a name="consume-the-web-services"></a>Utiliser des services web
@@ -95,8 +95,8 @@ Vous pouvez tester votre service web sur le portail de services web Azure Machin
 
 Vous pouvez télécharger un modèle Excel qui consomme le service web :
 
-* [Utilisation d’un service web Microsoft Azure Machine Learning à partir de Microsoft Excel.](consuming-from-excel.md)
-* [Complément Excel de services web Azure Machine Learning](excel-add-in-for-web-services.md)
+* [Utilisation d’un service web de Azure Machine Learning à partir d’Excel](consuming-from-excel.md)
+* [Complément Excel pour les Services Web de Azure Machine Learning](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>À partir d’un client basé sur REST
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 04/05/2019
 ms.author: monhaber
-ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3d9658a6b7501714a6aad0e8eaa30ce587284bfe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863149"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046204"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protection de vos ressources réseau dans Azure Security Center
 Azure Security Center analyse continuellement l’état de sécurité de vos ressources Azure pour les meilleures pratiques de sécurité réseau. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des suggestions qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
@@ -30,9 +30,10 @@ Cet article traite des suggestions relatives à la sécurité réseau qui s’ap
 > La page **Mise en réseau** vous permet d’en apprendre davantage sur l’intégrité de vos ressources Azure relative au réseau. Le mappage réseau et les contrôles réseau adaptatifs sont disponibles pour le niveau standard d’Azure Security Center uniquement. [Si vous utilisez le niveau gratuit, vous pouvez cliquer sur le bouton pour **Afficher la mise en réseau héritée** et recevoir des suggestions de ressources de mise en réseau](#legacy-networking).
 >
 
-Le **mise en réseau** panneau fournit une vue d’ensemble des sections, vous pouvez vous plonger dans, pour obtenir plus d’informations sur l’intégrité de vos ressources réseau :
+La page **Mise en réseau** page fournit une vue d’ensemble des sections que vous pouvez approfondir. Pour obtenir plus d’informations sur l’intégrité de vos ressources réseau :
 
 - Mappage réseau (niveau standard d’Azure Security Center uniquement)
+- Durcissement réseau adaptatif
 - Suggestions en matière de sécurité réseau.
 - Panneau **Mise en réseau** héritée (panneau de mise en réseau précédent) 
  

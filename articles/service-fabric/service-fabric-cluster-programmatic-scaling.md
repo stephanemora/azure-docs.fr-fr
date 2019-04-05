@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949608"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047937"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Mettre à l’échelle un cluster Service Fabric par programmation 
 
 Les clusters Service Fabric s’exécutant dans Azure s’appuient sur les groupes de machines virtuelles identiques.  La [mise à l’échelle du cluster](./service-fabric-cluster-scale-up-down.md) décrit comment les clusters Service Fabric peuvent être mis à l’échelle manuellement ou selon des règles de mise à l’échelle automatique. Cet article décrit comment gérer les informations d’identification et monter ou réduire en puissance un cluster à l’aide du Kit de développement logiciel (SDK) Azure Fluent, qui est un scénario plus avancé. Pour obtenir une vue d’ensemble, consultez les [méthodes de programmation de coordination des opérations de mise à l’échelle Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Gérer les informations d’identification
 Un service chargé de gérer la mise à l’échelle doit pouvoir accéder aux ressources d’un groupe de machines virtuelles identiques, sans ouverture de session interactive. L’accès au cluster Service Fabric est simple si le service de mise à l’échelle modifie sa propre application Service Fabric, mais des informations d’identification sont nécessaires pour accéder au groupe identique. Pour vous connecter, vous pouvez utiliser un [principal de service](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) créé avec l’[interface de ligne de commande Azure](https://github.com/azure/azure-cli).
@@ -31,9 +34,9 @@ Un service chargé de gérer la mise à l’échelle doit pouvoir accéder aux r
 Pour créer un principal de service, procédez comme suit :
 
 1. Connectez-vous à l’interface Azure CLI (`az login`) en tant qu’utilisateur ayant accès au groupe de machines virtuelles identiques.
-2. Créez le principal de service avec `az ad sp create-for-rbac`
+2. Créez le service principal avec `az ad sp create-for-rbac`
     1. Notez l’ID d’application (appelé ID client ailleurs), le nom, le mot de passe et le client en vue d’une utilisation ultérieure.
-    2. Vous aurez également besoin de votre ID d’abonnement, que vous pouvez afficher avec `az account list`.
+    2. Vous devez également votre ID d’abonnement, qui peut être affiché avec `az account list`
 
 La bibliothèque de calcul Fluent peut se connecter avec ces informations d’identification de la façon suivante (notez que les principaux types Azure Fluent, par exemple `IAzure`, se trouvent dans le package [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)) :
 
@@ -65,7 +68,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Il est également possible de gérer la taille des groupes de machines virtuelles identiques avec des applets de commande PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) peut récupérer l’objet groupe de machines virtuelles identiques. La capacité actuelle peut être connue par le biais de la propriété `.sku.capacity`. Une fois la capacité fixée à la valeur souhaitée, il est possible de mettre à jour le groupe de machines virtuelles identiques dans Azure avec la commande [`Update-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss).
+Il est également possible de gérer la taille des groupes de machines virtuelles identiques avec des applets de commande PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) peut récupérer l’objet groupe de machines virtuelles identiques. La capacité actuelle peut être connue par le biais de la propriété `.sku.capacity`. Une fois la capacité fixée à la valeur souhaitée, il est possible de mettre à jour le groupe de machines virtuelles identiques dans Azure avec la commande [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss).
 
 Lorsque vous ajoutez manuellement un nœud, l’ajout d’une instance de groupe identique doit suffire pour démarrer un nouveau nœud Service Fabric, car le modèle de groupe identique contient des extensions pour ajouter automatiquement des instances au cluster Service Fabric. 
 
@@ -125,6 +128,6 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 Pour commencer à implémenter votre propre logique de mise à l’échelle automatique, vous devez vous familiariser avec les API utiles et les concepts suivants :
 
-- [Augmenter ou diminuer la taille des instances d’un cluster Service Fabric à l’aide de règles de mise à l’échelle automatique](./service-fabric-cluster-scale-up-down.md)
+- [Mise à l’échelle manuellement ou avec des règles à l’échelle automatique](./service-fabric-cluster-scale-up-down.md)
 - [Bibliothèques Azure Management fluides pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (utiles pour interagir avec les groupes de machines virtuelles identiques sous-jacents d’un cluster Service Fabric)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (utile pour interagir avec un cluster Service Fabric et ses nœuds)

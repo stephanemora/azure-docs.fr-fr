@@ -14,21 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 77519c57c9a603ae0eff46d248ff15432d0404fa
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a2f55a65d88b499384fc961c3d6a479bac804ba8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485389"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051527"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analyser la sécurité de votre machine virtuelle par le biais de la vue Groupe de sécurité dans l’API REST
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [Interface de ligne de commande Azure](network-watcher-security-group-view-cli.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [API REST](network-watcher-security-group-view-rest.md)
 
 La vue Groupe de sécurité renvoie des règles de sécurité de réseau configurées et efficaces, appliquées à une machine virtuelle. Cette fonctionnalité permet d’auditer et de diagnostiquer les groupes de sécurité réseau ainsi que les règles configurées sur une machine virtuelle afin de garantir l’autorisation ou le refus appropriés du trafic. Dans cet article, nous vous montrons comment récupérer des règles de sécurité efficaces et appliquées à une machine virtuelle à l’aide de l’API REST
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -50,7 +53,7 @@ armclient login
 
 Exécutez le script suivant pour renvoyer une machine virtuelle. Le code suivant nécessite des variables :
 
-- **subscriptionId** : l’ID d’abonnement peut également être récupéré avec l’applet de commande **Get-AzureRMSubscription**.
+- **ID d’abonnement** -l’id d’abonnement peut également être récupéré avec la **Get-AzSubscription** applet de commande.
 - **resourceGroupName** - Le nom d’un groupe de ressources qui contient les machines virtuelles.
 
 ```powershell

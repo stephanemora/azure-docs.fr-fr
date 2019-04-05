@@ -8,17 +8,16 @@ ms.service: site-recovery
 ms.date: 03/18/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 4888d019065e557cb49574e2268515323b3fd005
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8a7694f3a94f9bda7dc905fabbd7adf0e4b7d0f5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310701"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047175"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Questions courantes sur la reprise d’activité d’Hyper-V sur Azure
 
 Cet article fournit des réponses aux questions courantes qui se posent lors de la réplication de machines virtuelles Hyper-V en local vers Azure. 
-
 
 ## <a name="general"></a>Généralités
 
@@ -90,8 +89,8 @@ Oui. Site Recovery les convertit de la génération 2 à la génération 1 pen
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Puis-je automatiser des scénarios Site Recovery avec un kit SDK ?
 Oui. Vous pouvez automatiser les flux de travail Site Recovery à l’aide de l’API Rest, de PowerShell ou du kit SDK Azure. Scénarios actuellement pris en charge pour la réplication de Hyper-V vers Azure à l’aide de PowerShell :
 
-- [Répliquer Hyper-V sans VMM à l’aide de PowerShell](hyper-v-azure-powershell-resource-manager.md)
-- [Réplication Hyper-V sans VMM à l’aide de PowerShell](hyper-v-vmm-powershell-resource-manager.md)
+- [La réplication de Hyper-V sans VMM à l’aide de PowerShell](hyper-v-azure-powershell-resource-manager.md)
+- [Réplication Hyper-V avec VMM à l’aide de Powershell](hyper-v-vmm-powershell-resource-manager.md)
 
 ## <a name="replication"></a>Réplication
 
@@ -188,7 +187,7 @@ Après un basculement, vous pouvez accéder aux machines virtuelles Azure via un
 Azure est conçu pour la résilience. Site Recovery est prévu pour assurer le basculement vers un centre de données Azure secondaire, dans le respect du contrat SLA Azure. En cas de basculement, nous nous assurons que vos métadonnées et vos coffres restent dans la même région géographique que vous avez choisie pour votre coffre.
 
 ### <a name="is-failover-automatic"></a>Le basculement est-il automatique ?
-Le [basculement](site-recovery-failover.md) n’est pas automatique. Vous lancez les basculements avec un seul clic dans le portail, ou vous pouvez utiliser [PowerShell](/powershell/module/azurerm.siterecovery) pour déclencher un basculement.
+Le [basculement](site-recovery-failover.md) n’est pas automatique. Vous lancez les basculements avec un seul clic dans le portail, ou vous pouvez utiliser [PowerShell](/powershell/module/az.siterecovery) pour déclencher un basculement.
 
 ### <a name="how-do-i-fail-back"></a>Comment effectuer une restauration automatique ?
 

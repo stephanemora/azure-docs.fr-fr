@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803209"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046977"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
 Cet article regroupe les questions fréquemment posées sur l’analytique du trafic dans Azure Network Watcher.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Quels sont les prérequis pour utiliser l’analytique du trafic ?
 
@@ -51,11 +54,11 @@ Votre compte doit répondre à l’une des descriptions suivantes pour activer l
         
 Pour vérifier les rôles attribués à un utilisateur pour un abonnement :
 
-1. Connectez-vous à Azure avec **Login-AzureRmAccount**. 
+1. Connectez-vous à Azure à l’aide de **AzAccount de connexion**. 
 
-2. Sélectionnez l’abonnement requis avec **Select-AzureRmSubscription**. 
+2. Sélectionnez l’abonnement nécessaire à l’aide de **sélectionnez-AzSubscription**. 
 
-3. Pour répertorier tous les rôles attribués à un utilisateur donné, utilisez **Get-AzureRmRoleAssignment -SignInName [e-mail utilisateur] -IncludeClassicAdministrators**. 
+3. Pour répertorier tous les rôles qui sont attribués à un utilisateur spécifié, utilisez **AzRoleAssignment de Get - SignInName [e-mail de l’utilisateur] - IncludeClassicAdministrators**. 
 
 Si vous ne voyez aucune sortie, contactez l’administrateur de l’abonnement pour qu’il vous donne les droits d’accès nécessaires pour exécuter les commandes. Pour plus d’informations, consultez [Gérer le contrôle d’accès en fonction du rôle avec Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -139,8 +142,8 @@ Contactez le support technique si le problème persiste.
 Pour que la journalisation du flux fonctionne correctement, le fournisseur Microsoft.Insights doit être inscrit. Si vous ne savez pas si le fournisseur Microsoft.Insights est inscrit ou non pour votre abonnement, remplacez *xxxxx-xxxxx-xxxxxx-xxxx* dans la commande suivante, puis exécutez les commandes ci-dessous à partir de PowerShell :
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>J’ai configuré la solution. Pourquoi ne vois-je rien sur le tableau de bord ?
@@ -170,13 +173,13 @@ Vous voyez les informations de ressources sur le tableau de bord. Toutefois, auc
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Puis-je configurer l’analytique du trafic à l’aide de PowerShell ou d’un modèle/client Azure Resource Manager ?
 
-Vous pouvez configurer l’analytique du trafic à l’aide de Windows PowerShell (versions 6.2.1 et ultérieures). Pour configurer la journalisation de flux et l’analytique du trafic pour un NSG donné à l’aide de l’applet de commande Set, consultez [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). Pour obtenir l’état de la journalisation de flux et de l’analytique du trafic pour un NSG donné, consultez [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
+Vous pouvez configurer l’analytique du trafic à l’aide de Windows PowerShell (versions 6.2.1 et ultérieures). Pour configurer la journalisation des flux et analytique du trafic pour un groupe de sécurité réseau spécifique à l’aide de l’applet de commande Set, consultez [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Pour obtenir la journalisation des flux et l’état analytique du trafic pour un groupe de sécurité réseau spécifique, consultez [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Vous ne pouvez pas actuellement utiliser un modèle Azure Resource Manager pour configurer l’analytique du trafic.
 
 Pour configurer l’analytique du trafic à l’aide d’un client Azure Resource Manager, consultez les exemples suivants.
 
-**Exemple d’applet de commande Set :**
+**Exemple d’applet de commande Set :**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
@@ -217,7 +220,7 @@ $apiversion = "2016-09-01"
 armclient login
 armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
 ```
-**Exemple d’applet de commande Get :**
+**Obtenir un exemple d’applet de commande :**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"

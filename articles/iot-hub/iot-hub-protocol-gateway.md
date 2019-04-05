@@ -3,17 +3,17 @@ title: Passerelle de protocole IoT Azure | Microsoft Docs
 description: Comment utiliser une passerelle de protocole Azure IoT pour étendre les capacité IoT Hub et la prise en charge du protocole pour autoriser les appareils à se connecter à votre hub ç l’aide des protocoles non pris en charge par IoT Hub en mode natif.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.openlocfilehash: 91d61ffecc0e5345d02db88af73aee4586f7099e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: ecce53420a92713ad2dcfcc7e0fed9fc226b1d52
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009849"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046425"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Prise en charge de protocoles supplémentaires pour IoT Hub
 Azure IoT Hub en mode natif prend en charge la communication par le biais des protocoles AMQP, MQTT et HTTPS. Dans certains cas, il est possible que des appareils ou des passerelles ne soient pas en mesure d’utiliser l’un des protocoles standard et nécessitent une adaptation de protocole. Dans ce cas, vous pouvez utiliser une passerelle personnalisée. Une passerelle personnalisée active l’adaptation de protocole pour les points de terminaison IoT Hub en effectuant le pontage du trafic vers et à partir d’IoT Hub. Vous pouvez utiliser la [passerelle de protocole Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) comme passerelle personnalisée pour permettre l’adaptation de protocole pour IoT Hub.
@@ -32,8 +32,8 @@ Pour plus de flexibilité, la passerelle de protocole Azure IoT et l’implémen
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la passerelle de protocole Azure IoT, son utilisation et son déploiement dans le cadre de votre solution IoT, consultez :
 
-* [Référentiel sur la passerelle de protocole Azure IoT sur GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
-* [Guide du développeur de passerelle de protocole Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
+* [Référentiel de passerelle de protocole Azure IoT sur GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
+* [Guide du développeur passerelle de protocole IoT Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
 Pour en savoir plus sur la planification de votre déploiement IoT Hub, consultez :
 

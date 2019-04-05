@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876644"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048756"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions
 
@@ -33,9 +33,12 @@ En utilisant Network Watcher, les alertes et les fonctions dans l’écosystème
 
 ![Scénario][scenario]
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Conditions préalables
 
-* La version la plus récente [d’Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+* La version la plus récente [d’Azure PowerShell](/powershell/azure/install-Az-ps).
 * Une instance existante de Network Watcher. Si vous n’en avez pas, [créez une instance de Network Watcher](network-watcher-create.md).
 * Une machine virtuelle existante dans la même région que Network Watcher, avec [l’extension Windows](../virtual-machines/windows/extensions-nwa.md) ou [l’extension de machine virtuelle Linux](../virtual-machines/linux/extensions-nwa.md).
 
@@ -105,16 +108,16 @@ Pour utiliser les cmdlets PowerShell de Network Watcher, chargez le module Power
 1. Sur votre ordinateur local avec les derniers modules Azure PowerShell installés, exécutez la commande PowerShell suivante :
 
     ```powershell
-    (Get-Module AzureRM.Network).Path
+    (Get-Module Az.Network).Path
     ```
 
     Cet exemple vous donne le chemin local de vos modules Azure PowerShell. Ces dossiers sont utilisés dans une étape ultérieure. Les modules utilisés dans ce scénario sont :
 
-   * AzureRM.Network
+   * Az.Network
 
-   * AzureRM.Profile
+   * Az.Accounts
 
-   * AzureRM.Resources
+   * Az.Resources
 
      ![Dossiers PowerShell][functions5]
 
@@ -128,17 +131,17 @@ Pour utiliser les cmdlets PowerShell de Network Watcher, chargez le module Power
 
     ![Dossier et sous-dossiers][functions3]
 
-    * AzureRM.Network
+    * Az.Network
 
-    * AzureRM.Profile
+    * Az.Accounts
 
-    * AzureRM.Resources
+    * Az.Resources
 
-1. Cliquez avec le bouton droit sur le sous-dossier **AzureRM.Network**, puis sélectionnez **Charger des fichiers**. 
+1. Cliquez sur le **Az.Network** sous-dossier, puis sélectionnez **charger des fichiers**. 
 
-6. Accédez à vos modules Azure. Dans le dossier **AzureRM.Network** local, sélectionnez tous les fichiers. Sélectionnez ensuite **OK**. 
+6. Accédez à vos modules Azure. Local **Az.Network** dossier, sélectionnez tous les fichiers dans le dossier. Sélectionnez ensuite **OK**. 
 
-7. Répétez ces étapes pour **AzureRM.Profile** et **AzureRM.Resources**.
+7. Répétez ces étapes pour **Az.Accounts** et **Az.Resources**.
 
     ![Charger des fichiers][functions6]
 
@@ -196,10 +199,10 @@ L’ID client est l’ID d’application d’une application dans Azure Active D
 1. Si vous ne disposez pas d’une application à utiliser, exécutez l’exemple suivant pour créer une application.
 
     ```powershell
-    $app = New-AzureRmADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
-    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+    $app = New-AzADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
+    New-AzADServicePrincipal -ApplicationId $app.ApplicationId
     Start-Sleep 15
-    New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
+    New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
     ```
 
    > [!NOTE]
@@ -218,7 +221,7 @@ L’ID client est l’ID d’application d’une application dans Azure Active D
 Obtenez l’ID de locataire en exécutant l’exemple PowerShell suivant :
 
 ```powershell
-(Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId
+(Get-AzSubscription -SubscriptionName "<subscriptionName>").TenantId
 ```
 
 #### <a name="azurecredpassword"></a>AzureCredPassword
@@ -266,9 +269,9 @@ L’exemple suivant correspond à du code PowerShell qui peut être utilisé dan
 
 ```powershell
             #Import Azure PowerShell modules required to make calls to Network Watcher
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Accounts\Az.Accounts.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Network\Az.Network.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Resources\Az.Resources.psd1" -Global
 
             #Process alert request body
             $requestBody = Get-Content $req -Raw | ConvertFrom-Json
@@ -290,7 +293,7 @@ L’exemple suivant correspond à du code PowerShell qui peut être utilisé dan
             #Authentication
             $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
             $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-            Connect-AzureRmAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+            Connect-AzAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
             #Get the VM that fired the alert
@@ -302,22 +305,22 @@ L’exemple suivant correspond à du code PowerShell qui peut être utilisé dan
                 Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
                 #Get the Network Watcher in the VM's region
-                $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
-                $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+                $nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
+                $networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
                 #Get existing packetCaptures
-                $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
+                $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
                 #Remove existing packet capture created by the function (if it exists)
                 $packetCaptures | %{if($_.Name -eq $packetCaptureName)
                 { 
-                    Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
+                    Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
                 }}
 
                 #Initiate packet capture on the VM that fired the alert
-                if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
+                if ((Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
                     echo "Initiating Packet Capture"
-                    New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
+                    New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
                     Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
                 }
             } 
@@ -345,11 +348,11 @@ Accédez à une machine virtuelle existante, puis ajoutez une règle d’alerte.
   |---|---|---|
   |**Nom**|TCP_Segments_Sent_Exceeded|Nom de la règle d’alerte.|
   |**Description**|Les segments TCP envoyés ont dépassé le seuil|Description de la règle d’alerte.|
-  |**Mesure**|Segments TCP envoyés| Mesure à utiliser pour déclencher l’alerte. |
+  |**Métrique**|Segments TCP envoyés| Mesure à utiliser pour déclencher l’alerte. |
   |**Condition**|Supérieur à| Condition à utiliser lors de l’évaluation de la mesure.|
   |**Seuil**|100| La valeur de la métrique qui déclenche l’alerte. Cette valeur doit être définie sur une valeur valide pour votre environnement.|
   |**Période**|Dans les cinq dernières minutes| Détermine la période pendant laquelle rechercher le seuil de la mesure.|
-  |**Webhook**|[URL du webhook de l’application de fonction]| L’URL du webhook de l’application de fonction créée dans les étapes précédentes.|
+  |**webhook**|[URL du webhook de l’application de fonction]| L’URL du webhook de l’application de fonction créée dans les étapes précédentes.|
 
 > [!NOTE]
 > Par défaut, la métrique des segments TCP n’est pas activée. Pour en savoir plus sur l’activation de métriques supplémentaires, consultez [Prise en main d’Azure Monitor](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).

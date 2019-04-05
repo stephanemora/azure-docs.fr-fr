@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 227ea446a75c167be27128b15de1d3c216e6856d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 3d35860452aabb6aecc4e8549c7b5ce4447d7aa4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363374"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047668"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatiser l’audit NSG avec la vue de groupe de sécurité réseau Network Watcher
 
 Les clients sont souvent confrontés au défi de la vérification des mesures de sécurité de leur infrastructure. Ce défi n’est pas différent pour leurs machines virtuelles dans Azure. Il est important de disposer d’un profil de sécurité similaire en fonction des règles de groupe de sécurité réseau (NSG) appliquées. Grâce à la vue Groupe de sécurité, vous pouvez désormais obtenir la liste des règles appliquées à une machine virtuelle au sein d’un NSG. Vous pouvez définir un profil de sécurité NSG final, ouvrir la vue Groupe de sécurité selon une fréquence hebdomadaire, puis comparer la sortie au profil final et créer un rapport. Vous pouvez ainsi identifier facilement toutes les machines virtuelles qui ne sont pas conformes au profil de sécurité établi.
 
 Si vous n’êtes pas familiarisé avec les groupes de sécurité réseau, consultez la [vue d’ensemble de la sécurité réseau](../virtual-network/security-overview.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -46,7 +49,7 @@ Dans ce scénario, vous allez :
 
 ## <a name="retrieve-rule-set"></a>Récupérer l’ensemble de règles
 
-La première étape dans cet exemple consiste à utiliser une base existante. L’exemple suivant est un json extrait d’un groupe de sécurité réseau existant à l’aide de l’applet de commande `Get-AzureRmNetworkSecurityGroup` qui est utilisée comme base pour cet exemple.
+La première étape dans cet exemple consiste à utiliser une base existante. L’exemple suivant est un json extrait d’un groupe de sécurité réseau existant à l’aide de l’applet de commande `Get-AzNetworkSecurityGroup` qui est utilisée comme base pour cet exemple.
 
 ```json
 [
@@ -123,19 +126,19 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## <a name="retrieve-network-watcher"></a>Récupérer Network Watcher
 
-L’étape suivante consiste à récupérer l’instance Network Watcher. La variable `$networkWatcher` est transmise à l’applet de commande `AzureRmNetworkWatcherSecurityGroupView`.
+L’étape suivante consiste à récupérer l’instance Network Watcher. La variable `$networkWatcher` est transmise à l’applet de commande `AzNetworkWatcherSecurityGroupView`.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
 ## <a name="get-a-vm"></a>Obtenir une machine virtuelle
 
-Une machine virtuelle est requise sur laquelle exécuter l’applet de commande `Get-AzureRmNetworkWatcherSecurityGroupView`. L’exemple suivant obtient un objet machine virtuelle.
+Une machine virtuelle est requise sur laquelle exécuter l’applet de commande `Get-AzNetworkWatcherSecurityGroupView`. L’exemple suivant obtient un objet machine virtuelle.
 
 ```powershell
-$VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
+$VM = Get-AzVM -ResourceGroupName "testrg" -Name "testvm1"
 ```
 
 ## <a name="retrieve-security-group-view"></a>Récupérer la vue Groupe de sécurité
@@ -143,7 +146,7 @@ $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
 L’étape suivante consiste à récupérer le résultat de la vue Groupe de sécurité. Ce résultat est comparé au json « de base » qui a été présenté précédemment.
 
 ```powershell
-$secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
+$secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
 ## <a name="analyzing-the-results"></a>Analyser les résultats

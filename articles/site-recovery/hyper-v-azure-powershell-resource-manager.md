@@ -7,18 +7,21 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 9039c1fd94bbc62f48ca5a6869f455aa41b740c9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 75a7424f6c3bb6ef13de9e44b46489ab1ef0fbcc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673929"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047719"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurer la récupération d’urgence dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et de Azure Resource Manager
 
 [Azure Site Recovery](site-recovery-overview.md) contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d'urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles Azure, de machines virtuelles locales et de serveurs physiques.
 
 Cet article décrit comment utiliser Windows PowerShell, ainsi que Azure Resource Manager pour répliquer des ordinateurs virtuels Hyper-V vers Azure. L’exemple utilisé dans cet article vous explique comment répliquer une machine virtuelle unique exécutée sur un hôte Hyper-V sur Azure.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -35,8 +38,7 @@ Vous n’avez pas besoin d’être un expert de PowerShell pour utiliser cet art
 Assurez-vous que les conditions préalables sont remplies :
 
 * Un compte [Microsoft Azure](https://azure.microsoft.com/) . Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). Vous pouvez aussi consulter la [Tarification Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
-* Azure PowerShell 1.0. Pour plus d’informations sur cette version et la méthode d’installation, consultez [Azure PowerShell 1.0.](https://azure.microsoft.com/)
-* Les modules [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) et [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/). Vous pouvez obtenir les dernières versions de ces modules à partir de la [galerie PowerShell](https://www.powershellgallery.com/)
+* Azure PowerShell. Pour plus d’informations sur cette version et comment l’installer, consultez [installer Azure PowerShell](/powershell/azure/install-az-ps).
 
 De plus, l’exemple décrit dans cet article présente les conditions préalables suivantes :
 
@@ -45,40 +47,40 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Étape 1 : Connexion à votre compte Azure
 
-1. Ouvrez une console PowerShell et exécutez la commande suivante pour vous connecter à votre compte Azure. L’applet de commande permet d’afficher une page web qui vous demande les informations d’identification de votre compte : **Connect-AzureRmAccount**.
-    - Vous pouvez également ajouter les informations d’identification de votre compte en tant que paramètre dans l’applet de commande **Connect-AzureRmAccount** à l’aide du paramètre **-Credential**.
-    - Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire à l’aide de son ID locataire ou de son nom de domaine principal. Par exemple :  **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+1. Ouvrez une console PowerShell et exécutez la commande suivante pour vous connecter à votre compte Azure. L’applet de commande permet d’afficher une page web qui vous demande les informations d’identification de votre compte : **Se connecter-AzAccount**.
+    - Vous pouvez également inclure les informations d'identification de votre compte en tant que paramètre dans la cmdlet **Connect-AzAccount** à l'aide du paramètre **-Credential**.
+    - Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire à l’aide de son ID locataire ou de son nom de domaine principal. Par exemple :  **Connect-AzAccount -Tenant "fabrikam.com"**
 2. Associez l’abonnement que vous souhaitez utiliser avec le compte, car un compte peut compter plusieurs abonnements :
 
-    `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
+    `Select-AzSubscription -SubscriptionName $SubscriptionName`
 
 3. Utilisez les commandes suivantes pour vérifier que votre abonnement vous autorise à utiliser les fournisseurs Azure pour Recovery Services et Site Recovery :
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
+    `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
 4. Vérifiez que dans la sortie de commande **RegistrationState** est défini sur **Inscrit**, vous pouvez ensuite passer à l’étape 2. Dans le cas contraire, vous devez inscrire le fournisseur manquant dans votre abonnement en exécutant ces commandes :
 
-    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
+    `Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 5. Vérifiez que les fournisseurs ont été correctement inscrits à l’aide des commandes suivantes :
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
+    `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
 ## <a name="step-2-set-up-the-vault"></a>Étape 2 : Configurer le coffre
 
 1. Créez un groupe de ressources Azure Resource Manager dans lequel vous allez créer le coffre, ou utilisez un groupe de ressources existant. Créez un nouveau groupe de ressources de la manière suivante. La variable $ResourceGroupName contient le nom du groupe de ressources que vous souhaitez créer et la variable $Geo contient la région Azure dans laquelle créer le groupe de ressources (par exemple, « Brésil Sud »).
 
-    `New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Geo`
+    `New-AzResourceGroup -Name $ResourceGroupName -Location $Geo`
 
-2. Pour obtenir une liste de groupes de ressources dans votre abonnement, exécutez l’applet de commande **Get-AzureRmResourceGroup**.
+2. Pour obtenir une liste des groupes de ressources dans votre abonnement, exécutez le **Get-AzResourceGroup** applet de commande.
 2. Créez un coffre Azure Recovery Services de la manière suivante :
 
-        $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
+        $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
-    Vous pouvez récupérer la liste des coffres existants avec l’applet de commande **Get-AzureRmRecoveryServicesVault**.
+    Vous pouvez récupérer la liste des coffres existants avec la **Get-AzRecoveryServicesVault** applet de commande.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>Étape 3 : Définir le contexte du coffre Recovery Services
+## <a name="step-3-set-the-recovery-services-vault-context"></a>Étape 3 : Définir le contexte du coffre Recovery Services
 
 Définissez le contexte d’archivage comme suit :
 
@@ -97,7 +99,7 @@ Définissez le contexte d’archivage comme suit :
 
     ```
     $SiteIdentifier = Get-AsrFabric -Name $sitename | Select -ExpandProperty SiteIdentifier
-    $path = Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename
+    $path = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename
     ```
 
 5. Copiez la clé téléchargée sur l’hôte Hyper-V. Vous avez besoin de la clé pour inscrire l’hôte Hyper-V sur le site.
@@ -121,7 +123,7 @@ Avant de commencer, notez que le compte de stockage spécifié doit se trouver d
         $ReplicationFrequencyInSeconds = "300";        #options are 30,300,900
         $PolicyName = “replicapolicy”
         $Recoverypoints = 6                    #specify the number of recovery points
-        $storageaccountID = Get-AzureRmStorageAccount -Name "mystorea" -ResourceGroupName "MyRG" | Select -ExpandProperty Id
+        $storageaccountID = Get-AzStorageAccount -Name "mystorea" -ResourceGroupName "MyRG" | Select -ExpandProperty Id
 
         $PolicyResult = New-AsrPolicy -Name $PolicyName -ReplicationProvider “HyperVReplicaAzure” -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
 
@@ -158,7 +160,7 @@ Avant de commencer, notez que le compte de stockage spécifié doit se trouver d
         Completed
 4. Mettez à jour les propriétés de récupération (telles que la taille du rôle de machine virtuelle) et le réseau Azure auquel attacher la carte réseau de la machine virtuelle après le basculement.
 
-        PS C:\> $nw1 = Get-AzureRmVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
+        PS C:\> $nw1 = Get-AzVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
 
         PS C:\> $VMFriendlyName = "Fabrikam-App"
 
@@ -178,7 +180,7 @@ Avant de commencer, notez que le compte de stockage spécifié doit se trouver d
 ## <a name="step-8-run-a-test-failover"></a>Étape 8 : Exécuter un test de basculement
 1. Exécutez un test de basculement, en procédant comme suit :
 
-        $nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group
+        $nw = Get-AzVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group
 
         $rpi = Get-AsrReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
 
@@ -189,4 +191,4 @@ Avant de commencer, notez que le compte de stockage spécifié doit se trouver d
         $TFjob = Start-AsrTestFailoverCleanupJob -ReplicationProtectedItem $rpi -Comment "TFO done"
 
 ## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus](https://docs.microsoft.com/powershell/module/azurerm.siterecovery) sur Azure Site Recovery avec les applets de commande PowerShell Azure Resource Manager.
+[En savoir plus](https://docs.microsoft.com/powershell/module/az.recoveryservices) sur Azure Site Recovery avec les applets de commande PowerShell Azure Resource Manager.

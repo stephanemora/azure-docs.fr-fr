@@ -3,18 +3,18 @@ title: Prise en main de l’identité de module et du jumeau de module Azure IoT
 description: Découvrez comment créer une identité de module et comment mettre à jour un jumeau de module à l’aide du portail et de .NET.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: f323eb777d98a812ead8dd8ac78ee3d6b36a748a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d5ac2291f9be6fc8f8d702ec390acf02d5ad9d0f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545818"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051646"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Prise en main de l’identité de module et du jumeau de module IoT Hub à l’aide du portail et d’un appareil .NET
 

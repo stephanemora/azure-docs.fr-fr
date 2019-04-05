@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 76323ab00a3562cae10520b18008d030e40043fc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4030c196d6a4de721b640f5da0b692f4d8157d12
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864668"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049861"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>À propos des paramètres de configuration de la passerelle VPN
 
@@ -167,11 +167,11 @@ Parfois, vous devez modifier les paramètres de passerelle de réseau local. C�
 
 Pour accéder à des ressources techniques supplémentaires et connaître les exigences spécifiques en matière de syntaxe lors de l’utilisation d’API REST, d’applets de commande PowerShell ou d’Azure CLI pour les configurations de passerelles VPN, consultez les pages suivantes :
 
-| **Classique** | **Resource Manager** |
+| **Classique** | **Gestionnaire de ressources** |
 | --- | --- |
-| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
+| [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [API REST](https://msdn.microsoft.com/library/jj154113) |[API REST](/rest/api/network/virtualnetworkgateways) |
-| Non pris en charge | [Interface de ligne de commande Azure](/cli/azure/network/vnet-gateway)|
+| Non pris en charge | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

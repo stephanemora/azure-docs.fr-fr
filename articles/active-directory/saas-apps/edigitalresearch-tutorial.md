@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4bebbda528f7ed6d7bee6ce77c744c6349d0bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190889"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047804"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Didacticiel : Intégration d’Azure Active Directory avec eDigitalResearch
 
@@ -35,7 +35,7 @@ L’intégration d’eDigitalResearch à Azure AD vous offre les avantages suiva
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec eDigitalResearch, vous avez besoin des éléments suivants :
 
@@ -59,7 +59,7 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 ## <a name="adding-edigitalresearch-from-the-gallery"></a>Ajout d’eDigitalResearch à partir de la galerie
 Pour configurer l’intégration d’eDigitalResearch avec Azure AD, vous devez ajouter eDigitalResearch, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter eDigitalResearch à partir de la galerie, procédez comme suit :**
+**Pour ajouter eDigitalResearch à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
@@ -89,7 +89,7 @@ Pour configurer et tester l’authentification unique Azure AD avec eDigitalRes
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Crééer un utilisateur de test eDigitalResearch](#create-a-edigitalresearch-test-user)** pour avoir dans eDigitalResearch un équivalent de Britta Simon lié à la représentation Azure AD associée.
+1. **[Créer un utilisateur de test eDigitalResearch](#create-an-edigitalresearch-test-user)**  - pour avoir un équivalent de Britta Simon dans eDigitalResearch lié à la représentation Azure AD de l’utilisateur.
 1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 1. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -97,7 +97,7 @@ Pour configurer et tester l’authentification unique Azure AD avec eDigitalRes
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application eDigitalResearch.
 
-**Pour configurer l’authentification unique Azure AD avec eDigitalResearch, procédez comme suit :**
+**Pour configurer Azure AD-authentification unique avec eDigitalResearch, procédez comme suit :**
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **eDigitalResearch**, cliquez sur **Authentification unique**.
 
@@ -111,7 +111,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Informations d’authentification unique dans eDigitalResearch Domain and URLs (Domaine et URL eDigitalResearch)](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_url.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company-name>.edigitalresearch.com`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company-name>.edigitalresearch.com`
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company-name>.edigitalresearch.com/login/consume`
 
@@ -169,7 +169,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     d. Cliquez sur **Créer**.
   
-### <a name="create-a-edigitalresearch-test-user"></a>Créer un utilisateur de test eDigitalResearch
+### <a name="create-an-edigitalresearch-test-user"></a>Créer un utilisateur de test eDigitalResearch
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans eDigitalResearch. 
 
@@ -184,7 +184,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ![Attribuer le rôle utilisateur][200] 
 
-**Pour affecter Britta Simon à eDigitalResearch, procédez comme suit :**
+**Pour affecter Britta Simon à eDigitalResearch, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 

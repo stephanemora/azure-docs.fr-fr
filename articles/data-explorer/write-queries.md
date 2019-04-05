@@ -1,19 +1,18 @@
 ---
 title: Rédiger des requêtes pour l’Explorateur de données Azure
 description: Dans cette procédure, vous allez apprendre à effectuer des requêtes de base et plus avancées pour l’Explorateur de données Azure.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8afb829f806ab55a069ded9cb7198f66368e8720
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6a764c5051aad9123c605ae51807117ef75a7047
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758690"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048484"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Rédiger des requêtes pour l’Explorateur de données Azure
 
@@ -902,7 +901,7 @@ StormEvents
 
 [**plug-in funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin) : calcule la synthèse des étapes de séquence terminées dans différentes périodes de temps.
 
-La requête suivante vérifie la synthèse d’achèvement de la séquence  `Hail -> Tornado -> Thunderstorm -> Wind` dans des périodes « globales » d’une heure, de quatre heures et d’un jour (`[1h, 4h, 1d]`).
+La requête suivante vérifie l’entonnoir de saisie semi-automatique de la séquence : `Hail -> Tornado -> Thunderstorm -> Wind` dans le temps de « globaux » d’une heure, les quatre heures et un jour (`[1h, 4h, 1d]`).
 
 **\[**[**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -949,4 +948,4 @@ L’exemple suivant supprime la fonction qui a été créée dans la première �
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Informations de référence sur le langage de requête Kusto](https://aka.ms/kustolangref)
+[Référence du langage de requête Kusto](https://aka.ms/kustolangref)

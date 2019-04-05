@@ -1,5 +1,5 @@
 ---
-title: Problème de modèle
+title: Interprétabilité de modèles
 titleSuffix: Azure Machine Learning service
 description: Découvrez comment utiliser le SDK de ce problème d’Azure Machine Learning pour expliquer la raison pour laquelle votre modèle élabore des prédictions. Il peut être utilisé au cours de formation ou d’inférence pour comprendre la façon dont votre modèle élabore des prédictions.
 services: machine-learning
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 03/27/2019
-ms.openlocfilehash: 1cd5f48e8e0e74dfa04465993246e5d68840a783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.date: 04/04/2019
+ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919724"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051799"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Problème d’apprentissage Azure SDK
 
-Découvrez comment expliquer pourquoi votre modèle arrive les prédictions rend. Le SDK de ce problème d’Azure Machine Learning vous permet d’expliquer votre modèle, ce qui est important pour les raisons suivantes :
+Dans cet article, vous allez apprendre à expliquer pourquoi votre modèle a fait les prédictions il effectuées à l’aide du SDK de ce problème d’Azure Machine Learning. Il est important de pouvoir expliquer votre modèle pour les raisons suivantes :
 
 * Les clients et les parties prenantes souhaitez savoir **si ils peuvent compter sur les prédictions votre modèle élabore**.
 * En tant qu’un scientifique des données, vous souhaitez comprendre **comment interroger le modèle pour mieux les connaître**. Vous avez également besoin d’outils pour prendre des décisions avisées sur **comment améliorer votre modèle**.
@@ -27,16 +27,10 @@ Découvrez comment expliquer pourquoi votre modèle arrive les prédictions rend
 
 Ce problème d’apprentissage machine est important en deux phases de cycle de développement d’apprentissage : **formation** temps et **inférence** temps :
 
-* Au cours de **formation**: Les concepteurs de modèles et les évaluateurs requièrent les outils de ce problème pour expliquer la sortie d’un modèle aux parties prenantes pour consolider la confiance. Outils de ce problème vous permettent également de déboguer le modèle :
-
-    * Son comportement correspond aux buts et objectifs ?
-    * Il est influencé ?
-
+* Au cours de **formation**: Les concepteurs de modèles et les évaluateurs requièrent les outils de ce problème pour expliquer la sortie d’un modèle aux parties prenantes pour consolider la confiance. Ils doivent également des informations sur le modèle afin qu’ils peuvent déboguer le modèle et prendre des décisions sur le comportement de la correspondance entre leurs objectifs. Enfin, dont ils ont besoin pour vous assurer que le modèle n’est pas influencé.
 * Au cours de **inférence**: Prédictions doivent être être expliquées aux personnes qui utilisent votre modèle. Par exemple, pourquoi le modèle refuser un prêt immobilier ou prédire qu’un portefeuille comporte un risque plus élevé ?
 
-Le SDK de ce problème d’Azure Machine Learning intègre des technologies développées par Microsoft et éprouvé des bibliothèques tierces (par exemple, photos et citron vert). Il fournit une API commune entre les bibliothèques intégrées et s’intègre aux services Azure Machine Learning. 
-
-À l’aide de ce SDK, vous pouvez expliquer les modèles d’apprentissage automatique **globalement sur toutes les données**, ou **localement sur un point de données spécifique** à l’aide de technologies de pointe de manière facile à utiliser et évolutive.
+Le SDK de ce problème d’Azure Machine Learning intègre des technologies développées par Microsoft et éprouvé des bibliothèques tierces (par exemple, photos et citron vert). Le Kit de développement logiciel crée une API commune entre les bibliothèques intégrés et intègre des services Azure Machine Learning. À l’aide de ce SDK, vous pouvez expliquer les modèles d’apprentissage automatique **globalement sur toutes les données**, ou **localement sur un point de données spécifique** à l’aide de technologies de pointe de manière facile à utiliser et évolutive.
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
@@ -48,11 +42,7 @@ Ce problème d’apprentissage Machine Azure retourne un ensemble d’informatio
 
 * Importance de fonctionnalité relative global/local
 * Relation de fonctionnalité et de prédiction global/local
-* Visualisations interactives :
-
-    * Prédictions
-    * Relations de fonctionnalité et de prédiction
-    * Importance de fonctionnalité relative des valeurs dans le monde entier et localement
+* Des visualisations interactives montrant des prédictions, fonctionnalité et relation de prédiction, relative fonctionnalité et valeurs de l’importance dans le monde entier et localement
 
 ## <a name="architecture"></a>Architecture
 
@@ -114,11 +104,7 @@ Les fonctions d’explication acceptent à la fois des modèles et des pipelines
 
 ### <a name="local-and-remote-compute-target"></a>Cible de calcul locaux et distants
 
-Le Kit de développement logiciel de Machine Learning ce problème est conçu pour fonctionner avec les deux cibles de calcul locaux et distants. 
-
-* Si vous exécutez **localement**, le SDK ne contacte pas tous les services Azure.
-
-* Si vous exécutez **à distance**, plus d’informations sur l’exécution sont enregistrés dans les Services de l’historique exécuter Azure Machine Learning. Une fois que ces informations sont enregistrées, les rapports et des visualisations à partir de l’explication sont disponibles sur le portail d’espace de travail Azure Machine Learning pour l’analyse de l’utilisateur.
+Le Kit de développement logiciel de Machine Learning ce problème est conçu pour fonctionner avec les deux cibles de calcul locaux et distants. Si vous exécutez localement, les fonctions du SDK contactera pas tous les services Azure. Vous pouvez exécuter à distance des explications sur Azure Machine Learning Compute et connectez-vous l’information sur l’explication des Services Azure Machine Learning exécuter l’historique. Une fois que ces informations sont enregistrées, les rapports et des visualisations à partir de l’explication sont disponibles sur le portail d’espace de travail Azure Machine Learning pour l’analyse de l’utilisateur.
 
 ## <a name="train-and-explain-locally"></a>Former et expliquez localement
 
@@ -138,9 +124,7 @@ Le Kit de développement logiciel de Machine Learning ce problème est conçu po
     model = clf.fit(x_train, y_train)
     ```
 
-2. Appelez l’explicatif. Lorsque vous instanciez un objet d’explicatif, passer du modèle et des données d’apprentissage. Vous pouvez éventuellement passer des caractéristiques dignes d’intérêt. Si vous utilisez la classification, transmettez les noms de classe de sortie.
-
-    L’exemple suivant montre comment créer un objet d’explicatif en utilisant [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), et `LimeExplainer` localement. `TabularExplainer` Parmi les trois explainers sous appelle (`TreeExplainer`, `DeepExplainer`, ou `KernelExplainer`) et est automatiquement sélectionnons le plus approprié pour votre cas d’usage. Toutefois, vous pouvez appeler chacune de ses trois explainers sous-jacente directement.
+2. Appelez l’explicatif : Pour lancer un objet d’explicatif, vous devez transmettre le modèle, les données d’apprentissage, les fonctionnalités d’intérêt (facultatif) et les noms de classe de sortie (si classification) à l’explicatif. Voici comment instancier un objet d’explicatif en utilisant [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), et `LimeExplainer` localement. `TabularExplainer` Parmi les trois explainers sous appelle (`TreeExplainer`, `DeepExplainer`, ou `KernelExplainer`) et est automatiquement sélectionnons le plus approprié pour votre cas d’usage. Toutefois, vous pouvez appeler chacune de ses trois explainers sous-jacente directement.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
@@ -213,7 +197,7 @@ Bien que vous pouvez effectuer l’apprentissage sur les différentes cibles de 
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. Pour envoyer une formation exécuter, suivez les étapes décrites dans le [configurer des cibles de calcul pour l’apprentissage du modèle](how-to-set-up-training-targets.md#amlcompute) article. Utilisez les étapes pour créer une cible de calcul Azure Machine Learning, puis envoyez une série de formation.
+2. Suivez les instructions de [configurer des cibles de calcul pour l’apprentissage du modèle](how-to-set-up-training-targets.md#amlcompute) pour en savoir plus sur la façon de configurer un Azure Machine Learning Compute comme cible de calcul et soumettre votre série de formation.
 
 3. Téléchargez l’explication dans votre bloc-notes Jupyter local. 
 

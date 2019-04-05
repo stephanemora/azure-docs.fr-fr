@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482128"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048841"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
@@ -40,6 +40,9 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 > [!Note]  
 > Nous vous conseillons de prendre la base de connaissances la plus récente pour votre version de Windows.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Conditions préalables 
 * **Nom du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
 
@@ -47,13 +50,13 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 
 * **Vérifiez que le port 445 est ouvert** : Le protocole SMB nécessite que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. Vous pouvez en savoir plus sur [différentes manières de solution de contournement bloqué le port 445 ici](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    La code PowerShell suivant suppose que vous avez installé le module AzureRM PowerShell, consultez [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installer un module Azure PowerShell) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
+    La commande PowerShell suivante code suppose que vous avez le module Azure PowerShell installé, consultez [installer Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
@@ -295,13 +298,13 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 Après avoir créé cette clé de Registre, vous devez redémarrer votre serveur pour désactiver SMB 1.
 
 ### <a name="smb-resources"></a>Ressources SMB
-- [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/) (Arrêtez d’utiliser SMB 1)
-- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Recherchez SMB 1 dans votre environnement à l’aide de DSCEA)
-- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Désactivation de SMB 1 à l’aide de la stratégie de groupe)
+- [Arrêter à l’aide de SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
+- [Centre d’échanges SMB 1 produit](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [Découvrir SMB 1 dans votre environnement avec DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
+- [Désactivation de SMB 1 via la stratégie de groupe](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez ces liens pour en savoir plus sur Azure Files :
 - [Planification d’un déploiement Azure Files](storage-files-planning.md)
-- [FORUM AUX QUESTIONS](../storage-files-faq.md)
+- [Forum Aux Questions](../storage-files-faq.md)
 - [Résolution des problèmes sur Windows](storage-troubleshoot-windows-file-connection-problems.md)      
