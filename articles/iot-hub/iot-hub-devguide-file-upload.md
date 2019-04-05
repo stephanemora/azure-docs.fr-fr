@@ -3,17 +3,17 @@ title: Bien comprendre le chargement de fichiers Azure IoT Hub | Microsoft Docs
 description: Guide du développeur - utilisez la fonctionnalité de chargement de fichier de IoT Hub pour gérer le chargement de fichiers depuis un appareil vers un conteneur d’objets blob de stockage Azure.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 7678c50cbda0ea112c737e8230586081efe61081
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008557"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050728"
 ---
 # <a name="upload-files-with-iot-hub"></a>Chargement de fichiers avec IoT Hub
 
@@ -152,7 +152,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 * [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md)
 
-* [Utiliser des jumeaux d’appareil pour synchroniser les données d’état et de configuration](iot-hub-devguide-device-twins.md)
+* [Utiliser des jumeaux d’appareil pour synchroniser l’état et configuration](iot-hub-devguide-device-twins.md)
 
 * [Appeler une méthode directe sur un appareil](iot-hub-devguide-direct-methods.md)
 
@@ -160,4 +160,4 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 Pour mettre en pratique certains des concepts décrits dans cet article, consultez le didacticiel IoT Hub suivant :
 
-* [Guide pratique pour charger des fichiers à partir d’appareils vers le cloud avec IoT Hub](iot-hub-csharp-csharp-file-upload.md)
+* [Comment télécharger des fichiers à partir d’appareils vers le cloud avec IoT Hub](iot-hub-csharp-csharp-file-upload.md)

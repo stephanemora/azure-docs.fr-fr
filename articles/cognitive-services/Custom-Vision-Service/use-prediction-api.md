@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 78ca1d7ceb9086e0d589f904b24b967d36b079a0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895611"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046068"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Utiliser votre modèle avec l’API de prédiction
 
@@ -45,7 +45,7 @@ Une fois que votre modèle a été publié, vous pouvez récupérer les informat
 ![L’onglet performances s’affiche avec un rectangle rouge autour de la valeur URL de prédiction à l’aide d’un fichier image et la valeur de clé de prédiction.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Votre __clé de prédiction__ figurent également dans le [Azure Portal](https://portal.azure.com) page pour la ressource Azure de Vision personnalisé associé à votre projet, sous la __clés__ panneau.
+> Votre __clé de prédiction__ figurent également dans le [Azure portal](https://portal.azure.com) page pour la ressource Azure de Vision personnalisé associé à votre projet, sous la __clés__ panneau.
 
 Dans ce guide, vous utilisez une image locale, donc, copiez l’URL sous **si vous avez un fichier image** dans un emplacement temporaire. Copier le correspondantes __clé de prédiction__ valeur également.
 

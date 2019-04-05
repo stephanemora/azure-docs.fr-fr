@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2019
 ms.author: aljo
-ms.openlocfilehash: f201ac1f0ea5a4bc07e8c052e7653194140e8759
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669365"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049179"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Mettre à l’échelle un cluster
 
@@ -27,6 +27,9 @@ ms.locfileid: "58669365"
 > Lisez cette section avant de vous mettre à l’échelle
 
 La mise à l’échelle des ressources de calcul pour provisionner la charge de travail de votre application nécessite une planification intentionnelle. Elle durera généralement plus d’une heure dans un environnement de production et vous devrez comprendre votre charge de travail et le contexte commercial. En fait, si vous n’avez jamais effectué cette opération auparavant, il est recommandé de commencer par lire et bien comprendre les [points à prendre en compte dans la planification des capacités du cluster Service Fabric](service-fabric-cluster-capacity.md) avant de poursuivre ce document. Cette recommandation vise à éviter les problèmes non intentionnels de LiveSite. Il est également recommandé de bien tester les opérations que vous choisissez d’effectuer dans un environnement hors production. Vous pouvez à tout moment [signaler des problèmes de production ou demander un support payant pour Azure](service-fabric-support.md#report-production-issues-or-request-paid-support-for-azure). Pour les ingénieurs affectés à ces opérations ayant un contexte approprié, cet article décrira les opérations de mise à l’échelle. Toutefois, vous devez déterminer et bien comprendre les opérations appropriées à votre cas d’utilisation, telles que les ressources à mettre à l’échelle (CPU, stockage, mémoire), le sens de mise à l’échelle (vertical ou horizontal) et les opérations à effectuer (déploiement de modèles de ressources, portail, PowerShell/CLI).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Augmenter ou diminuer la taille des instances d’un cluster Service Fabric à l’aide de règles de mise à l’échelle automatique ou manuellement
 Les jeux de mise à l’échelle de machine virtuelle sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que jeu. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que groupe de machines virtuelles identiques distinct. Chaque type de nœud peut ensuite faire l’objet d’une augmentation ou d’une diminution de la taille des instances de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. En savoir plus sur dans le [les types de nœuds Service Fabric](service-fabric-cluster-nodetypes.md) document. Étant donné que les types de nœuds Service Fabric dans votre cluster sont constitués de machines virtuelles identiques sur le serveur principal, vous devez définir des règles de l’échelle automatique pour chaque nœud type/machines virtuelles identiques.
@@ -42,9 +45,9 @@ Actuellement, vous n’avez pas la possibilité de spécifier les règles de mis
 Pour obtenir la liste des groupes de machines virtuelles identiques qui composent votre cluster, exécutez les cmdlets suivantes :
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
+Get-AzResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
 
-Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
+Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
 ```
 
 ## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Définir des règles à l’échelle automatique pour le nœud type/machines virtuelles identiques
@@ -79,10 +82,10 @@ Suivez les exemples/instructions dans le [galerie de modèles de démarrage rapi
 Le code suivant obtient un groupe identique par son nom et augmente de 1 sa **capacité**.
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
+$scaleset = Get-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
+Update-AzVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 Ce code définit la capacité avec la valeur 6.
@@ -119,16 +122,16 @@ sfctl node list --query "sort_by(items[*], &name)[-1]"
 Le cluster Service Fabric doit être informé de la suppression de ce nœud. Pour cela, trois étapes sont nécessaires :
 
 1. Désactivez le nœud afin qu’il ne soit plus utilisé pour la réplication de données.  
-PowerShell : `Disable-ServiceFabricNode`  
-sfctl : `sfctl node disable`
+PowerShell : `Disable-ServiceFabricNode`  
+sfctl : `sfctl node disable`
 
 2. Arrêtez le nœud afin que le runtime Service Fabric soit arrêté correctement et que votre application reçoive une requête de fin d’exécution.  
-PowerShell : `Start-ServiceFabricNodeTransition -Stop`  
-sfctl : `sfctl node transition --node-transition-type Stop`
+PowerShell : `Start-ServiceFabricNodeTransition -Stop`  
+sfctl : `sfctl node transition --node-transition-type Stop`
 
 2. Supprimez le nœud du cluster.  
-PowerShell : `Remove-ServiceFabricNodeState`  
-sfctl : `sfctl node remove-state`
+PowerShell : `Remove-ServiceFabricNodeState`  
+sfctl : `sfctl node remove-state`
 
 Une fois ces trois étapes effectuées, vous pouvez supprimer le nœud du groupe identique. Si vous utilisez un niveau de durabilité autre que le niveau [Bronze][durability], ces étapes sont effectuées automatiquement lorsque vous supprimez une instance de groupe identique.
 
@@ -192,7 +195,7 @@ else
 }
 ```
 
-Dans le code **sfctl** ci-dessous, la commande suivante permet d’obtenir le nom du dernier nœud créé (**node-name**) :`sfctl node list --query "sort_by(items[*], &name)[-1].name"`
+Dans le **sfctl** de code ci-dessous, la commande suivante est utilisée pour obtenir le **-nom du nœud** valeur le dernier nœud créé : `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -208,10 +211,10 @@ sfctl node remove-state --node-name _nt1vm_5
 > [!TIP]
 > Utilisez les requêtes **sfctl** suivantes pour vérifier l’état de chaque étape
 >
-> **Vérifier l’état de la désactivation**
+> **Vérifiez l’état de désactivation**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Vérifier l’état de l’arrêt**
+> **Vérifier l’état d’arrêt**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
@@ -220,10 +223,10 @@ sfctl node remove-state --node-name _nt1vm_5
 Maintenant que le nœud Service Fabric a été supprimé du cluster, vous pouvez diminuer la taille des instances du groupe de machines virtuelles identiques. Dans l’exemple ci-dessous, la capacité du groupe identique est diminuée de 1.
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
+$scaleset = Get-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity -= 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
 Ce code définit la capacité sur la valeur 5.
@@ -258,9 +261,9 @@ Consultez les [détails sur les niveaux de durabilité ici](service-fabric-clust
 ## <a name="next-steps"></a>Étapes suivantes
 Lisez les documents suivants pour en savoir plus sur la planification de la capacité du cluster, la mise à niveau d’un cluster et le partitionnement des services :
 
-* [Planification de la capacité de votre cluster](service-fabric-cluster-capacity.md)
+* [Planifier la capacité de votre cluster](service-fabric-cluster-capacity.md)
 * [Mise à niveau des clusters](service-fabric-cluster-upgrade.md)
-* [Partitionnement des services avec état pour une mise à l’échelle maximale](service-fabric-concepts-partitioning.md)
+* [Partitionnement des services avec état pour la mise à l’échelle maximale](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png

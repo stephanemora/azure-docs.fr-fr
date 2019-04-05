@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: da11d4977cc998c9fccb3628a44e45db95c7d977
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9b1dee8ea43d01825449cb6010fbfa62e4715cff
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759535"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047260"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Déployer la représentation d’OPC à un projet existant
 
@@ -30,10 +30,7 @@ Le cœur du module est l’identité du superviseur. Le superviseur gère les re
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-> [!NOTE]
-> Remarque : En raison de la dépendance sur le module AzureRM, déploiement actuellement est uniquement pris en charge sur Windows.
-
-Vérifiez que vous disposez de PowerShell et [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) extensions installées.   Si vous n’avez pas encore fait, clonez ce référentiel GitHub.  Ouvrez une invite de commandes ou un terminal et exécutez :
+Vérifiez que vous disposez de PowerShell et [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) extensions installées.   Si vous n’avez pas encore fait, clonez ce référentiel GitHub.  Ouvrez une invite de commandes ou un terminal et exécutez :
 
 ```bash
 git clone --recursive https://github.com/Azure/azure-iiot-components 
@@ -143,4 +140,4 @@ Client AAD à utiliser.
 Maintenant que vous avez appris à déployer des représentations d’OPC à un projet existant, voici l’étape suivante suggérée :
 
 > [!div class="nextstepaction"]
-> [Sécuriser les communications de Client d’OPC et OPC PLC ](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Sécuriser les communications d’OPC Client et OPC PLC ](howto-opc-vault-deploy-existing-client-plc-communication.md)

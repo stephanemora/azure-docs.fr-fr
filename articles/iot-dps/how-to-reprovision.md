@@ -3,17 +3,17 @@ title: Guide pratique pour reprovisionner des appareils dans le service Azure Io
 description: Comment reprovisionner des appareils avec votre instance du service de provisionnement des appareils
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 4fedc5b8b3b69ff364374dbef0460930e1f631a6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c7163667ec370abf468b289cea231e86a4b5753f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869069"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046835"
 ---
 # <a name="how-to-reprovision-devices"></a>Comment reprovisionner des appareils
 
@@ -42,7 +42,7 @@ Les étapes suivantes configurent la stratégie d’allocation pour l’inscript
 
 3. Sous **Sélectionner le mode d’affectation des appareils aux hubs**, sélectionnez une des stratégies d’allocation suivantes :
 
-    * **Latence la plus faible**: Cette stratégie affecte les appareils au IoT Hub lié qui entraîneront des communications la plus faible latence entre l’appareil et IoT Hub. Cette option permet à l’appareil communiquer avec le hub IoT le plus proche de l’emplacement. 
+    * **Latence la plus faible** : Cette stratégie affecte les appareils au IoT Hub lié qui entraîneront des communications la plus faible latence entre l’appareil et IoT Hub. Cette option permet à l’appareil communiquer avec le hub IoT le plus proche de l’emplacement. 
     
     * **Distribution uniformément pondérée**: Cette stratégie distribue les appareils sur les Hubs IoT liés en fonction du poids d’allocation affecté à chaque hub IoT lié. Cette stratégie vous permet d’équilibrer la charge des appareils sur un groupe de hubs liés en fonction des pondérations d’allocation définies sur ces hubs. Si vous provisionnez des appareils sur un seul hub IoT, nous vous recommandons ce paramètre. Il s’agit du paramètre par défaut. 
     

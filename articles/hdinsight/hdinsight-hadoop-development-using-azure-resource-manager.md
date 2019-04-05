@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 501f215ae3daf24db6307b4f8afb0c7d3271d8a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2c64019ae667ff4a2ce0694ffc4a9cd69b9116b3
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361861"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048917"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight
 
@@ -32,54 +32,54 @@ HDInsight déconseille les outils Azure Service Manager (ASM) pour HDInsight. Si
 
 Voici les commandes de base pour utiliser HDInsight par le biais d’Azure Classic CLI :
 
-* `azure hdinsight cluster create` - crée un nouveau cluster HDInsight
-* `azure hdinsight cluster delete` - supprime un cluster HDInsight existant
-* `azure hdinsight cluster show` -affiche des informations sur un cluster existant
-* `azure hdinsight cluster list` - répertorie les clusters HDInsight pour votre abonnement Azure
+* `azure hdinsight cluster create` -Crée un cluster HDInsight
+* `azure hdinsight cluster delete` -Supprime un cluster HDInsight existant
+* `azure hdinsight cluster show` -afficher des informations sur un cluster existant
+* `azure hdinsight cluster list` -Répertorie les clusters HDInsight pour votre abonnement Azure
 
 Utilisez le commutateur `-h` pour inspecter les paramètres et les commutateurs disponibles pour chaque commande.
 
 ### <a name="new-commands"></a>Nouvelles commandes
 Les nouvelles commandes disponibles avec Azure Resource Manager sont :
 
-* `azure hdinsight cluster resize` -modifie de manière dynamique le nombre de nœuds worker dans le cluster
-* `azure hdinsight cluster enable-http-access` - active l’accès HTTPs au cluster (activé par défaut)
-* `azure hdinsight cluster disable-http-access` - désactive l’accès HTTPs au cluster
-* `azure hdinsight script-action` - fournit des commandes pour créer/gérer des actions de script sur un cluster
-* `azure hdinsight config` - fournit des commandes pour créer un fichier de configuration qui peut être utilisé avec la commande `hdinsight cluster create` pour fournir des informations de configuration.
+* `azure hdinsight cluster resize` -modifie de manière dynamique le nombre de nœuds de travail dans le cluster
+* `azure hdinsight cluster enable-http-access` -Active l’accès HTTPs au cluster (sur par défaut)
+* `azure hdinsight cluster disable-http-access` -désactive l’accès HTTPs au cluster
+* `azure hdinsight script-action` -Fournit des commandes permettant de créer/gérer des Actions de Script sur un cluster
+* `azure hdinsight config` -Fournit des commandes pour la création d’un fichier de configuration qui peut être utilisé avec le `hdinsight cluster create` commande pour fournir des informations de configuration.
 
 ### <a name="deprecated-commands"></a>Commandes déconseillées
 Si vous utilisez les commandes `azure hdinsight job` pour envoyer des travaux vers votre cluster HDInsight, notez que celles-ci ne sont pas disponibles avec les commandes Resource Manager. Si vous devez envoyer des travaux par programme vers HDInsight à partir de scripts, vous devez à la place utiliser les API REST fournies par HDInsight. Pour plus d’informations sur l’envoi de travaux à l’aide des API REST, consultez les documents suivants.
 
-* [Exécution à distance des tâches MapReduce avec Hadoop sur HDInsight à l’aide de Curl](hadoop/apache-hadoop-use-mapreduce-curl.md)
-* [Exécuter des requêtes Apache Hive avec Apache Hadoop dans HDInsight à l’aide de cURL](hadoop/apache-hadoop-use-hive-curl.md)
-* [Exécuter des tâches Apache Pig avec Apache Hadoop sur HDInsight à l’aide de cURL](hadoop/apache-hadoop-use-pig-curl.md)
+* [Exécuter des tâches MapReduce avec Hadoop sur HDInsight à l’aide de cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Exécuter des requêtes Apache Hive avec Apache Hadoop sur HDInsight à l’aide de cURL](hadoop/apache-hadoop-use-hive-curl.md)
+* [Exécuter des travaux Pig avec Apache Hadoop sur HDInsight à l’aide de cURL](hadoop/apache-hadoop-use-pig-curl.md)
 
 Pour plus d’informations sur d’autres méthodes d’exécution interactive d’Apache Hadoop MapReduce, Apache Hive et Apache Pig, consultez [Utiliser MapReduce avec Hadoop sur HDInsight](hadoop/hdinsight-use-mapreduce.md), [Utiliser Apache Hive avec Apache Hadoop sur HDInsight](hadoop/hdinsight-use-hive.md) et [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hadoop/hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Exemples
 **Création d’un cluster**
 
-* Ancienne commande (ASM) - `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* Nouvelle commande : `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Ancienne commande (ASM)- `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Commande New- `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
 **Suppression d’un cluster**
 
-* Ancienne commande (ASM) - `azure hdinsight cluster delete myhdicluster`
-* Nouvelle commande : `azure hdinsight cluster delete mycluster -g myresourcegroup`
+* Ancienne commande (ASM)- `azure hdinsight cluster delete myhdicluster`
+* Commande New- `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **Énumérer les clusters**
 
-* Ancienne commande (ASM) - `azure hdinsight cluster list`
-* Nouvelle commande : `azure hdinsight cluster list`
+* Ancienne commande (ASM)- `azure hdinsight cluster list`
+* Commande New- `azure hdinsight cluster list`
 
 > [!NOTE]  
 > Pour la commande list, le fait de spécifier le groupe de ressources à l’aide de `-g` renvoie uniquement les clusters dans le groupe de ressources spécifié.
 
-**Afficher les informations du cluster**
+**Afficher les informations de cluster**
 
-* Ancienne commande (ASM) - `azure hdinsight cluster show myhdicluster`
-* Nouvelle commande : `azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* Ancienne commande (ASM)- `azure hdinsight cluster show myhdicluster`
+* Commande New- `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migration d’Azure PowerShell vers Azure Resource Manager
 Les informations générales concernant Azure PowerShell en mode Azure Resource Manager sont disponibles dans la page [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
@@ -94,7 +94,7 @@ Avant de pouvoir utiliser les applets de commande HDInsight, vous devez vous con
 ### <a name="renamed-cmdlets"></a>Applets de commande renommées
 Pour répertorier les applets de commande HDInsight ASM dans la console Windows PowerShell :
 
-    help *azurermhdinsight*
+    help *azurehdinsight*
 
 Le tableau suivant liste les applets de commande ASM et leurs noms en mode Resource Manager :
 
@@ -131,7 +131,7 @@ Le tableau suivant liste les applets de commande ASM et leurs noms en mode Resou
 ### <a name="new-cmdlets"></a>Nouvelles applets de commande
 Les nouvelles applets de commande suivantes sont uniquement disponibles en mode Resource Manager. 
 
-**Applets de commande associées à une action de script :**
+**Cmdlets associées à une action de script suivantes :**
 
 * **Get-AzHDInsightPersistedScriptAction**: obtient les actions de script persistantes pour un cluster et les liste par ordre chronologique, ou obtient des informations pour une action de script persistante spécifiée. 
 * **Get-AzHDInsightScriptActionHistory**: obtient l’historique d’actions de script pour un cluster et les liste par ordre chronologique inversé, ou obtient des informations sur une action de script exécutée précédemment. 
@@ -141,7 +141,7 @@ Les nouvelles applets de commande suivantes sont uniquement disponibles en mode 
 
 Pour plus d’informations sur l’utilisation, consultez la page [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-**Applets de commande associées à l’identité du cluster :**
+**Applets de commande liées à l’identité du cluster :**
 
 * **Add-AzHDInsightClusterIdentity**: ajoute une identité de cluster à un objet configuration de cluster pour que le cluster HDInsight puisse accéder à Azure Data Lake Storage. Voir [Créer un cluster HDInsight avec Data Lake Storage à l’aide d’Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
@@ -190,7 +190,7 @@ Nouvelle commande :
 
     Remove-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName 
 
-**Répertorier un cluster**
+**Cluster de la liste**
 
 Ancienne commande (ASM) :
 
@@ -212,10 +212,10 @@ Nouvelle commande :
 
 
 #### <a name="other-samples"></a>Autres exemples
-* [Création de clusters HDInsight](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Envoyer des tâches Apache Hive](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Envoyer des tâches Apache Pig](hadoop/apache-hadoop-use-pig-powershell.md)
-* [Envoyer des tâches Apache Sqoop](hadoop/apache-hadoop-use-sqoop-powershell.md)
+* [Créer des clusters HDInsight](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+* [Envoyer des travaux Apache Hive](hadoop/apache-hadoop-use-hive-powershell.md)
+* [Soumettre des travaux Apache Pig](hadoop/apache-hadoop-use-pig-powershell.md)
+* [Envoi de tâches Apache Sqoop](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Migration vers le nouveau SDK .NET HDInsight
 Le [Kit de développement logiciel (SDK) .NET HDInsight (ASM)](https://msdn.microsoft.com/library/azure/mt416619.aspx) Azure Service Management est maintenant déconseillé. Nous vous invitons désormais à utiliser le [SDK .NET HDInsight Resource Manager](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) qui est basé sur la gestion des ressources Azure. Les packages HDInsight ASM suivants sont désormais déconseillés.
@@ -332,7 +332,7 @@ Vous trouverez ci-dessous des exemples de la façon dont une opération est effe
         var coreConfigs = new Dictionary<string, string> {{"config1", "value1"}};
         clusterCreateParameters.Configurations.Add(ConfigurationKey.CoreSite, coreConfigs);
 
-**Activation de l’accès HTTP**
+**Activer l’accès HTTP**
 
 * Ancienne commande (ASM)
   

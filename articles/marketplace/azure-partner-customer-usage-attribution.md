@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 9becc7bacf1b2263f41d4cfb7b9cf3957063b230
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649576"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050150"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
 
@@ -31,6 +31,9 @@ En tant que partenaire Microsoft, vous pouvez associer l’utilisation d’Azure
 Attribution de l’utilisation de client est de nouveau déploiement et ne prend pas en charge le balisage des ressources existantes qui ont déjà été déployés.
 
 Attribution de l’utilisation de client est requis sur [Application Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): offre de modèle de solution publiés sur Azure Marketplace.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-resource-manager-templates"></a>Utiliser des modèles Resource Manager
 De nombreuses solutions de partenaires sont déployées pour l’abonnement d’un client grâce aux modèles Resource Manager. Si vous avez un modèle Resource Manager qui est disponible dans la place de marché Azure, sur GitHub, ou comme un guide de démarrage rapide, le processus de modification de votre modèle pour activer l’attribution de l’utilisation de client doit être très simple.
@@ -223,12 +226,12 @@ Param(
 
 # Get the correlationId of the pid deployment
 
-$correlationId = (Get-AzureRmResourceGroupDeployment -ResourceGroupName
+$correlationId = (Get-AzResourceGroupDeployment -ResourceGroupName
 $resourceGroupName -Name "pid-$guid").correlationId
 
 # Find all deployments with that correlationId
 
-$deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
 
 # Find all deploymentOperations in a deployment by name
 # PowerShell doesn't surface outputResources on the deployment
@@ -239,7 +242,7 @@ foreach ($deployment in $deployments){
 # Get deploymentOperations by deploymentName
 # then the resourceId for any create operation
 
-($deployment | Get-AzureRmResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
+($deployment | Get-AzResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
 
 }
 ```
@@ -313,19 +316,19 @@ Vous serez contacté par un Consultant technique Microsoft pour configurer un ap
 
 ## <a name="faq"></a>Forum Aux Questions
 
-**Quel avantage l’ajout du GUID apporte-t-il au modèle ?**
+**Qu’est l’avantage d’ajouter le GUID pour le modèle ?**
 
 Microsoft offre aux partenaires avec une vue des déploiements de leurs solutions et des informations sur leur utilisation influencée. Microsoft et le partenaire peuvent utiliser ces informations pour favoriser un engagement plus proche entre les équipes de vente. Microsoft et le partenaire peuvent utiliser ces données pour obtenir une vue plus cohérente de l’impact d’un partenaire individuel sur la croissance Azure.
 
-**Une fois ajouté, un GUID peut-il être modifié ?**
+**Après avoir ajouté un GUID, peut être modifié ?**
 
 Oui, un client ou un partenaire d’implémentation peut personnaliser le modèle et modifier ou supprimer le GUID. Nous vous suggérons de proactive décrivent le rôle de la ressource et le GUID à leurs clients et les partenaires pour empêcher la suppression ou modifications vers le GUID pour les partenaires. La modification du GUID affecte uniquement les ressources et les déploiements nouveaux, qui n’existent pas.
 
-**Puis-je effectuer le suivi de modèles déployés à partir d’un dépôt autre que Microsoft tel que GitHub ?**
+**Puis-je suivre les modèles déployés à partir d’un référentiel non Microsoft, tel que GitHub ?**
 
 Oui, tant que le GUID est présent lorsque le modèle est déployé, l’utilisation fait l’objet d’un suivi. Les partenaires doivent avoir un profil dans le CPP pour inscrire le GUID utilisé pour le déploiement en dehors de la place de marché Azure.
 
-**Le client reçoit-il également la création de rapports ?**
+**Le client reçoit le reporting ainsi ?**
 
 Les clients peuvent effectuer le suivi de leur utilisation des ressources individuelles ou des groupes de ressources définis par le client sur le Portail Azure.
 
@@ -333,7 +336,7 @@ Les clients peuvent effectuer le suivi de leur utilisation des ressources indivi
 
 Cette nouvelle méthode de connexion du déploiement et de l’utilisation à la solution d’un partenaire fournit un mécanisme permettant de lier une solution de partenaire à l’utilisation d’Azure. Le partenaire de référence numérique (DPOR) est destiné à associer un partenaire de conseil (intégrateur de systèmes) ou de gestion (fournisseur de services managés) à l’abonnement Azure d’un client.
 
-**Quel avantage y a-t-il à utiliser le formulaire Générateur de GUID de Stockage Azure ?**
+**Qu’est l’avantage d’utiliser le formulaire de générateur de GUID du stockage Azure ?**
 
 Le formulaire Générateur de GUID de Stockage Azure est l’assurance de générer un GUID au format adéquat. De plus, si vous utilisez l’une des méthodes de suivi de plan de données de Stockage Azure, vous pouvez utiliser le même GUID pour le suivi de plan de contrôle de la Place de marché. Cela vous permet d’exploiter un même GUID unifié pour l’attribution Partenaire sans avoir à gérer plusieurs GUID.
 

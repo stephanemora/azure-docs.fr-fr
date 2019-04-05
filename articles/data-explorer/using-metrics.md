@@ -1,19 +1,18 @@
 ---
 title: Surveiller les performances, l’intégrité et l’utilisation avec des mesures Explorateur de données Azure
 description: Découvrez comment utiliser les mesures de l’Explorateur de données Azure pour surveiller les performances du cluster, l’intégrité et l’utilisation.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.openlocfilehash: 5252ca8898439b63a8819f6abfd634de0786932b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851804"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050605"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Surveiller les performances, l’intégrité et l’utilisation avec des mesures Explorateur de données Azure
 
@@ -41,17 +40,17 @@ Dans le volet mesures :
 
 1. Pour créer un graphique de mesures, sélectionnez **métrique** nom et pertinentes **agrégation** par métrique comme indiqué ci-dessous. Le **ressource** et **métrique Namespace** sélecteurs sont présélectionnées dans votre cluster de l’Explorateur de données Azure.
 
-    **Mesure** | **Unité** | **Agrégation** | **Description de la métrique**
+    **Métrique** | **Unité** | **Agrégation** | **Description de la métrique**
     |---|---|---|---|
-    | Utilisation du cache | Pourcentage | AVG, Max, Min | Rapport entre la taille du cache (en fonction de la stratégie de cache définie) et la taille totale du cache du cluster (taille totale du disque SSD pour l’activité des utilisateurs). Une utilisation du cache moyen de 80 % ou moins est un état durable pour un cluster. Si l’utilisation du cache moyenne est supérieure à 80 %, le cluster doit être [mis à l’échelle](manage-cluster-scale-up.md) vers un stockage optimisé le niveau tarifaire ou [mis à l’échelle](manage-cluster-scale-out.md) à plusieurs instances. Vous pouvez également adapter la stratégie de cache (moins de jours dans le cache). Si l’utilisation du cache est supérieure à 100 %, la taille des données doit être mis en cache, conformément à la stratégie de mise en cache, est plus grande que la taille totale du cache sur le cluster. |
-    | UC | Pourcentage | AVG, Max, Min | Rapport entre le total utilisé ou UC disponible sur l’ensemble du cluster. Un moyenne du processeur de 80 % ou moins est acceptable pour un cluster. La valeur maximale du processeur est de 100 %, ce qui signifie qu’aucune ressource de calcul supplémentaires pour traiter les données. Lorsqu’un cluster n’est pas fonctionne correctement, vérifiez la valeur maximale du processeur afin de déterminer s’il existe des unités centrales spécifiques qui sont bloqués. |
-    | Événements traités (concentrateurs d’événements) | Nombre | Max, Min, Sum | Nombre total d’événements envoyés par Event Hubs et reçus par le cluster. Les événements sont fractionnés en événements rejetées et les événements acceptés par le moteur de cluster. |
-    | Latence d’ingestion | Secondes | AVG, Max, Min | Latence des données reçues à partir du moment de que la réception des données dans le cluster jusqu'à ce qu’il soit prêt à être interrogé. Latence d’ingestion est exprimée en secondes. La période de latence d’Ingestion varie selon le scénario d’ingestion. |
-    | Résultat de l’ingestion | Nombre | Nombre | Nombre total d’opérations d’ingestion qui a échoué et a réussi. Utilisez **appliquer fractionnement** pour créer des compartiments de réussite et résultats des tests.|
-    | Utilisation de l’ingestion | Pourcentage | AVG, Max, Min | Rapport entre les ressources réelles utilisées pour recevoir les données et les total des ressources allouées dans la stratégie de capacité pour effectuer l’ingestion. La stratégie de capacité par défaut n’est pas plus de 512 opérations simultanées d’ingestion ou de 75 % des ressources de cluster investis dans l’ingestion. Utilisation de l’ingestion moyenne de 80 % ou moins est un état durable pour un cluster. Valeur maximale de l’utilisation d’ingestion est 100 %, ce qui signifie que toutes les possibilité d’ingestion de cluster est utilisée et une file d’attente de l’ingestion peut aboutir. |
-    | Volume d’ingestion (en Mo) | Nombre | Max, Min, Sum | La taille totale des données ingérées dans le cluster (en Mo). Les unités sont au nombre de mégaoctets de données ingérées avant compression. |
+    | Utilisation du cache | Pourcentage | AVG, Max, Min | Pourcentage des ressources de cache allouée en cours d’utilisation par le cluster. Cache fait référence à la taille du disque SSD allouée pour l’activité des utilisateurs en fonction de la stratégie de cache définie. Une utilisation du cache moyen de 80 % ou moins est un état durable pour un cluster. Si l’utilisation du cache moyenne est supérieure à 80 %, le cluster doit être [mis à l’échelle](manage-cluster-scale-up.md) vers un stockage optimisé le niveau tarifaire ou [mis à l’échelle](manage-cluster-scale-out.md) à plusieurs instances. Vous pouvez également adapter la stratégie de cache (moins de jours dans le cache). Si l’utilisation du cache est supérieure à 100 %, la taille des données doit être mis en cache, conformément à la stratégie de mise en cache, est plus grande que la taille totale du cache sur le cluster. |
+    | UC | Pourcentage | AVG, Max, Min | Pourcentage des ressources de calcul alloués en cours d’utilisation par les ordinateurs du cluster. Un moyenne du processeur de 80 % ou moins est acceptable pour un cluster. La valeur maximale du processeur est de 100 %, ce qui signifie qu’aucune ressource de calcul supplémentaires pour traiter les données. Lorsqu’un cluster n’est pas fonctionne correctement, vérifiez la valeur maximale du processeur afin de déterminer s’il existe des unités centrales spécifiques qui sont bloqués. |
+    | Événements traités (concentrateurs d’événements) | Nombre | Max, Min, Sum | Nombre total d’événements lus à partir de concentrateurs d’événements et traités par le cluster. Les événements sont fractionnés en événements rejetées et les événements acceptés par le moteur de cluster. |
+    | Latence d’ingestion | Secondes | AVG, Max, Min | Latence des données reçues à partir du moment de que la réception des données dans le cluster jusqu'à ce qu’il soit prêt à être interrogé. La période de latence d’ingestion varie selon le scénario d’ingestion. |
+    | Résultat de l’ingestion | Nombre | Nombre | Nombre total d’opérations d’ingestion qui a échoué et a réussi. Utilisez **appliquer fractionnement** à créer des compartiments de réussite et résultats des tests et analyser les dimensions (**valeur** > **état**).|
+    | Utilisation de l’ingestion | Pourcentage | AVG, Max, Min | Pourcentage des ressources réelles utilisée pour recevoir les données à partir des ressources totales allouées dans la stratégie de capacité, pour effectuer l’ingestion. La stratégie de capacité par défaut n’est pas plus de 512 opérations simultanées d’ingestion ou de 75 % des ressources de cluster investis dans l’ingestion. Utilisation de l’ingestion moyenne de 80 % ou moins est un état durable pour un cluster. Valeur maximale de l’utilisation d’ingestion est 100 %, ce qui signifie que toutes les possibilité d’ingestion de cluster est utilisée et une file d’attente de l’ingestion peut aboutir. |
+    | Volume d’ingestion (en Mo) | Nombre | Max, Min, Sum | La taille totale des données ingérées dans le cluster (en Mo) avant la compression. |
     | Keep alive | Nombre | Moy | Effectue le suivi de la réactivité du cluster. Un cluster entièrement réactif retourne la valeur 1 et un cluster bloqué ou déconnecté retourne 0. |
-    | Durée de la requête | Secondes | Count, Avg, Min, Max, Sum | Durée totale jusqu'à la réception des résultats de la requête. |
+    | Durée de la requête | Secondes | Count, Avg, Min, Max, Sum | Nombre total de fois jusqu'à ce que les résultats de la requête sont reçues (n’inclut pas la latence du réseau). |
     | | | |
 
     Des informations supplémentaires concernant [pris en charge les métriques du cluster Explorateur de données Azure](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
@@ -69,4 +68,4 @@ Des informations supplémentaires sur l’utilisation de la [Metrics Explorer](/
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
+> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)

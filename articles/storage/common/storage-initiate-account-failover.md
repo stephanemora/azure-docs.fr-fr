@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f582ef8cca3c36bad40f14026aea1ad422b6106f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668562"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044961"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Lancer un basculement de compte de stockage (préversion)
 
@@ -23,6 +23,8 @@ Cet article explique comment effectuer un basculement de compte pour votre compt
 
 > [!WARNING]
 > Un basculement de compte entraîne généralement une certaine perte de données. Pour comprendre les implications d’un basculement de compte et vous préparer à la perte de données, consultez [Comprendre le processus de basculement de compte](storage-disaster-recovery-guidance.md#understand-the-account-failover-process).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -35,7 +37,7 @@ Avant de pouvoir effectuer un basculement de compte sur votre compte de stockage
 
 Lorsque vous lancez un basculement de compte pour votre compte de stockage, les enregistrements DNS du point de terminaison secondaire sont mis à jour pour que le point de terminaison secondaire devienne le point de terminaison principal. Assurez-vous de bien comprendre les conséquences possibles sur votre compte de stockage avant d’effectuer un basculement.
 
-Pour estimer l’étendue de la perte de données probable avant d’effectuer un basculement, vérifiez la propriété **Last Sync Time** (Heure de la dernière synchronisation) en utilisant le cmdlet PowerShell `Get-AzureRmStorageAccount`, et incluez le paramètre `-IncludeGeoReplicationStats`. Vérifiez ensuite la propriété `GeoReplicationStats` de votre compte. 
+Pour estimer l’étendue de la perte de données probable avant d’effectuer un basculement, vérifiez la propriété **Last Sync Time** (Heure de la dernière synchronisation) en utilisant le cmdlet PowerShell `Get-AzStorageAccount`, et incluez le paramètre `-IncludeGeoReplicationStats`. Vérifiez ensuite la propriété `GeoReplicationStats` de votre compte. 
 
 Une fois le basculement terminé, votre compte de stockage devient un compte de stockage localement redondant (LRS) dans la nouvelle région primaire. Vous pouvez réactiver le stockage géoredondant (GRS) ou le stockage géographiquement redondant avec accès en lecture (RA-GRS) pour le compte. Notez que la conversion de LRS en GRS ou RA-GRS entraîne un coût supplémentaire. Pour plus d’informations, consultez [Détails de la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
@@ -104,6 +106,6 @@ az storage account failover \ --name accountName
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Reprise d’activité après sinistre et basculement de compte (préversion) dans Stockage Azure](storage-disaster-recovery-guidance.md)
-- [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Tutoriel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md) 
+- [Basculement d’urgence compte et de récupération (version préliminaire) dans le stockage Azure](storage-disaster-recovery-guidance.md)
+- [Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS)](storage-designing-ha-apps-with-ragrs.md)
+- [Didacticiel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md) 

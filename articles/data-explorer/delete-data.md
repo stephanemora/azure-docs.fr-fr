@@ -5,15 +5,14 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 48336b424ef1783d8eb123ac45bfc03b98d5481b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9c1b21e119a38c6d306b9c564ab7958ba21a1c41
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756979"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049131"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>Supprimer des données de l’Explorateur de données Azure
 
