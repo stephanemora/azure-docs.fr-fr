@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pbutlerm
-ms.openlocfilehash: da3e7e44ed1ad0698392ba1afcb59887ffbc53fe
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639136"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050099"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Créer des ressources techniques pour une offre de machine virtuelle
 
@@ -35,8 +35,9 @@ Vous devez configurer le système d’exploitation de la machine virtuelle, la t
 > Quel que soit le système d’exploitation que vous utilisez, ajoutez uniquement le nombre minimal de disques de données requis par la référence SKU. Les clients ne suppriment pas les disques qui font partie d’une image lors du déploiement, mais peuvent toujours ajouter des disques pendant ou après le déploiement. 
 
 > [!IMPORTANT]
-> *Ne modifiez pas le nombre de disques dans une nouvelle version de l’image.* Si vous devez reconfigurer les disques de données dans l’image, définissez une nouvelle référence SKU. La publication d’une nouvelle version de l’image avec un nombre de disques différent peut potentiellement arrêter le nouveau déploiement basé sur la nouvelle version de l’image en cas de mise à l’échelle automatique, de déploiements automatiques de solutions via des modèles Azure Resource Manager et autres scénarios.
+> *Ne modifiez pas le nombre de disques dans une nouvelle version de l’image.*  Si vous devez reconfigurer les disques de données dans l’image, définissez une nouvelle référence SKU. La publication d’une nouvelle version de l’image avec un nombre de disques différent peut potentiellement arrêter le nouveau déploiement basé sur la nouvelle version de l’image en cas de mise à l’échelle automatique, de déploiements automatiques de solutions via des modèles Azure Resource Manager et autres scénarios.
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="fundamental-technical-knowledge"></a>Connaissances techniques fondamentales
 
@@ -52,11 +53,11 @@ Concevoir, créer et tester ces ressources demande du temps et des connaissances
 
 Choisissez un ou plusieurs des environnements de scripts suivants pour faciliter la gestion des disques durs virtuels et des machines virtuelles :
 -   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--   [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
+-   [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 En outre, nous vous recommandons d’ajouter les outils suivants à votre environnement de développement : 
 
--   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Explorateur de stockage Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
     *   Extension : [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Extension : [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)

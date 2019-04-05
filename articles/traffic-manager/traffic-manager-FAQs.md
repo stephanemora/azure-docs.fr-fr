@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009934"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046306"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -309,7 +309,7 @@ Azure Resource Manager exige que tous les groupes de ressources spécifient un e
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Comment déterminer l’état d’intégrité actuel de chaque point de terminaison ?
 
-L’état de surveillance en cours de chaque point de terminaison, en plus du profil global s’affichent dans le portail Azure. Ces informations sont également disponibles via [l’API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), [les applets de commande PowerShell](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager) et [l’interface de ligne de commande Azure multiplateforme](../cli-install-nodejs.md) de Traffic Monitor.
+L’état de surveillance en cours de chaque point de terminaison, en plus du profil global s’affichent dans le portail Azure. Ces informations sont également disponibles via [l’API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), [les applets de commande PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager) et [l’interface de ligne de commande Azure multiplateforme](../cli-install-nodejs.md) de Traffic Monitor.
 
 Vous pouvez également utiliser Azure Monitor pour suivre l’intégrité de vos points de terminaison et en voir une représentation visuelle. Pour plus d’informations sur l’utilisation d’Azure Monitor, consultez la [documentation sur la surveillance Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
