@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 10837730bea17f98083f456ec4c9fb0d7567af57
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958972"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877259"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Didacticiel : Superviser les journaux et les métriques du Pare-feu Azure
 
@@ -41,7 +41,7 @@ Avant de commencer ce didacticiel, vous devez lire [Azure Firewall logs and metr
 L’affichage des données dans vos journaux peut prendre quelques minutes après que vous avez effectué cette procédure d’activation de la journalisation des diagnostics. Si aucune donnée n’apparaît dans un premier temps, patientez quelques minutes supplémentaires, puis vérifiez de nouveau.
 
 1. Dans le portail Azure, ouvrez votre groupe de ressources de pare-feu, puis cliquez sur le pare-feu.
-2. Sous **Supervision**, cliquez sur **Journaux de diagnostic**.
+2. Sous **Supervision**, cliquez sur **Paramètres de diagnostic**.
 
    Pour le service Pare-feu Azure, les journaux propres à deux services sont disponibles :
 

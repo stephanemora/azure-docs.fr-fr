@@ -12,12 +12,12 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877361"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260389"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
@@ -57,10 +57,10 @@ Absolument. Pour plus d’informations, consultez [Ajouter des utilisateurs invi
 À moins qu’un rôle Administrateur limité ou Administrateur général ne leur soit assigné, les utilisateurs B2B Collaboration n’ont pas besoin d’accéder au portail Azure. Toutefois, les utilisateurs B2B Collaboration qui ont le rôle Administrateur limité ou Administrateur général peuvent accéder au portail. En outre, si un utilisateur invité qui ne possède aucun de ces rôles Administrateur accède au portail, il peut être en mesure d’accéder à certaines parties de l’expérience. Le rôle utilisateur invité possède quelques autorisations dans le répertoire.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Puis-je bloquer l’accès au portail Azure pour les utilisateurs invités ?
-Oui. Lorsque vous configurez cette stratégie, faites attention à ne pas bloquer accidentellement l’accès aux membres et aux administrateurs.
+ Oui. Lorsque vous configurez cette stratégie, faites attention à ne pas bloquer accidentellement l’accès aux membres et aux administrateurs.
 Pour bloquer l’accès d’un utilisateur invité au [portail Azure](https://portal.azure.com), utilisez une stratégie d’accès conditionnel dans l’API Modèle de déploiement Azure Classic :
 1. Modifiez le groupe **Tous les utilisateurs** pour qu’il contienne uniquement les membres.
-   ![Capture d’écran montrant groupe tous les utilisateurs où UserType n’est pas égale invité ](media/faq/modify-all-users-group.png)
+   ![Capture d’écran montrant groupe tous les utilisateurs où UserType n’est pas égale invité](media/faq/modify-all-users-group.png)
 2. Créez un groupe dynamique contenant des utilisateurs invités.
    ![Capture d’écran montrant un nouveau groupe de tous les utilisateurs invités](media/faq/group-with-guest-users.png)
 3. Configurez une stratégie d’accès conditionnel pour empêcher les utilisateurs invités d’accéder au portail, comme le montre la vidéo suivante :

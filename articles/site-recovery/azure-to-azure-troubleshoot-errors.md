@@ -6,23 +6,23 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: 34f207b3c82ada0cb20152bb71ae900f5de132cb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878313"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269620"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Résoudre les problèmes de réplication de machine virtuelle Azure vers Azure
 
 Cet article décrit les problèmes courants dans Azure Site Recovery lors de la réplication et de la récupération de machines virtuelles Azure d’une région vers une autre, et explique comment les résoudre. Pour plus d’informations sur les configurations prises en charge, consultez la [matrice de prise en charge pour la réplication des machines virtuelles Azure](site-recovery-support-matrix-azure-to-azure.md).
 
 ## <a name="list-of-errors"></a>Liste d’erreurs
-- **[Problèmes liés aux quotas de ressources Azure (code d’erreur 150097)](#azure-resource-quota-issues-error-code-150097)** 
-- **[Certificats racines approuvés (code d’erreur 151066)](#trusted-root-certificates-error-code-151066)** 
-- **[Connectivité sortante pour Site Recovery (code d’erreur 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)** 
+- **[Problèmes liés aux quotas de ressources Azure (code d’erreur 150097)](#azure-resource-quota-issues-error-code-150097)**
+- **[Certificats racines approuvés (code d’erreur 151066)](#trusted-root-certificates-error-code-151066)**
+- **[Connectivité sortante pour Site Recovery (code d’erreur 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)**
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problèmes liés aux quotas de ressources Azure (code d’erreur 150097)
 Votre abonnement doit être activé pour créer des machines virtuelles Azure dans la région cible que vous prévoyez d’utiliser comme région de récupération d’urgence. De plus, votre abonnement doit avoir un quota suffisant activé pour créer des machines virtuelles de taille spécifique. Par défaut, Site Recovery sélectionne pour la machine virtuelle cible la même taille que la machine virtuelle source. Si la taille correspondante n’est pas disponible, la taille la plus proche possible est choisie automatiquement. S’il n’existe pas de taille correspondante qui prend en charge la configuration de la machine virtuelle source, ce message d’erreur s’affiche :
@@ -238,13 +238,13 @@ Si vous ne voyez pas la machine virtuelle que vous souhaitez activer pour la ré
 
 ### <a name="fix-the-problem"></a>Résoudre le problème
 
->[!NOTE] 
+>[!NOTE]
 >
->Veillez à mettre à jour le module AzureRM.Resources avant d’utiliser le script ci-dessous. 
+>Veillez à mettre à jour le module AzureRM.Resources avant d’utiliser le script ci-dessous.
 
 Vous pouvez utiliser ce [script de suppression de configuration ASR obsolète](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) pour supprimer la configuration Site Recovery obsolète sur la machine virtuelle Azure. Vous devriez être en mesure de voir la machine virtuelle après la suppression de la configuration obsolète.
 
-## <a name="unable-to-select-virtual-machine-for-protection"></a>Impossible de sélectionner la machine virtuelle pour la protection 
+## <a name="unable-to-select-virtual-machine-for-protection"></a>Impossible de sélectionner la machine virtuelle pour la protection
  **Cause 1 :  Machine virtuelle a une extension installée dans un état d’échec ou ne répond pas** <br>
  Accédez à Machines virtuelles > Paramètre > Extensions, et vérifiez s’il existe des extensions en état d’échec. Désinstallez l’extension en état d’échec, puis réessayez de protéger la machine virtuelle.<br>
  **Cause 2 :  [État d’approvisionnement de la machine virtuelle n’est pas valide](#vms-provisioning-state-is-not-valid-error-code-150019)**
@@ -296,7 +296,7 @@ Vous pouvez ouvrir la console « Services » et vérifier que « Application sys
 
 **Code d'erreur** | **Causes possibles** | **Recommandations**
 --- | --- | ---
-150172<br></br>**Message** : Impossible d’activer la protection pour la machine virtuelle, car elle a un disque (nom_disque) de taille (taille_disque) inférieure à la valeur minimale prise en charge de 1024 Mo. | - Le disque a une taille inférieure à la taille prise en charge de 1 024 Mo| Vérifiez que les tailles de disque sont dans la plage des tailles prises en charge et réessayez l’opération. 
+150172<br></br>**Message** : Impossible d’activer la protection pour la machine virtuelle, car elle a un disque (nom_disque) de taille (taille_disque) inférieure à la valeur minimale prise en charge de 1024 Mo. | - Le disque a une taille inférieure à la taille prise en charge de 1 024 Mo| Vérifiez que les tailles de disque sont dans la plage des tailles prises en charge et réessayez l’opération.
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>L'activation de la protection a échoué car le nom de l'appareil mentionné dans la configuration GRUB n'est pas l'UUID (code d'erreur 151126)
 
@@ -319,11 +319,11 @@ Le nom de chaque appareil doit être remplacé par l'UUID correspondante.<br>
 
 1. Rechercher l’UUID de l’appareil en exécutant la commande « blkid \<nom de l’appareil > ». Par exemple : <br>
    ```
-   blkid /dev/sda1 
+   blkid /dev/sda1
    ```<br>
    ```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
-   ```blkid /dev/sda2```<br> 
-   ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```blkid /dev/sda2```<br>
+   ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```<br>
 
 
@@ -334,16 +334,16 @@ Le nom de chaque appareil doit être remplacé par l'UUID correspondante.<br>
 
 ## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
 **Possible Cause:** </br>
-The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the parameters "rd.lvm.lv" or "rd_LVM_LV" to indicate the LVM device that should be discovered at the time of booting. If these LVM devices doesn't exist, then the protected system itself will not boot and stuck in the boot process. Even the same will be observed with the failover VM. Below are few examples: 
+The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the parameters "rd.lvm.lv" or "rd_LVM_LV" to indicate the LVM device that should be discovered at the time of booting. If these LVM devices doesn't exist, then the protected system itself will not boot and stuck in the boot process. Even the same will be observed with the failover VM. Below are few examples:
 
 Few examples: </br>
 
 1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
    *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
 1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
    *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
 1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 </br>
    *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
    Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
@@ -360,8 +360,8 @@ Site Recovery mobility service has many components, one of which is called filte
 ## Protection couldn't be enabled as replica managed disk 'diskname-replica' already exists without expected tags in the target resource group( error code 150161
 
 **Cause**: It can occur if the  virtual machine was protected earlier in the past and during disabling the replication, replica disk was not cleaned due to some reason.</br>
-**How to fix:** 
-Delete the mentioned replica disk in the error message and restart the failed protection job again. 
+**How to fix:**
+Delete the mentioned replica disk in the error message and restart the failed protection job again.
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

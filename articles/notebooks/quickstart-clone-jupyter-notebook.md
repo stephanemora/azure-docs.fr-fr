@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: cfce5765cda1e3a1dfb7eb073719191b13b0696e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 30625423553b71e848d27d047d4b7bc3add6eaff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089197"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265149"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Démarrage rapide : Cloner un notebook
 
@@ -52,7 +52,7 @@ Le clonage crée une copie d’un notebook GitHub dans votre compte Azure Notebo
 
 1. Une fois le clonage terminé, Azure Notebooks ouvre le nouveau projet où vous pourrez voir les copies de tous les fichiers.
 
-    [![](media/quickstarts/completed-clone.png "Affichage d’un clonage terminé")](media/quickstarts/completed-clone.png#lightbox)
+    [![](media/quickstarts/completed-clone.png "Vue d’un clone terminé")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>Partager un notebook
 
@@ -77,4 +77,4 @@ Le clonage crée une copie d’un notebook GitHub dans votre compte Azure Notebo
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et exécuter un notebook Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)
+> [Didacticiel : créer une exécution d’un bloc-notes Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)

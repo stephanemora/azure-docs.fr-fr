@@ -8,30 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 5/16/2018
+ms.date: 3/28/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7961fb05f7ca9c6e6b61330e7dff53f2d5a41001
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d2f5e87bd6c6780e8504abe1753e90eca5db763a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535312"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880404"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide de l’API REST Recherche visuelle Bing et de C#
 
-Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche visuelle Bing et voir les résultats de la recherche. Cette application C# simple charge une image dans l’API et affiche les informations retournées à son sujet.
+Ce guide de démarrage rapide montre comment charger une image dans l’API Recherche visuelle Bing et comment visualiser les insights qu’elle retourne.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * N’importe quelle édition de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Le framework [Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.
-* Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
+* Le [framework Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.
+* Si vous utilisez Linux/MacOS, vous pouvez exécuter cette application en utilisant [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Créer et initialiser un projet
 
-1. Créez une solution Console nommée `BingSearchApisQuickStart` dans Visual Studio. Ajoutez ensuite les espaces de noms suivants dans le fichier de code principal.
+1. Dans Visual Studio, créez une solution de console nommée BingSearchApisQuickStart. Ajoutez les espaces de noms suivants dans le fichier de code principal :
 
     ```csharp
     using System;
@@ -41,16 +41,15 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
     using System.Collections.Generic;
     ```
 
-2. Ajoutez les variables pour votre clé d’abonnement, le point de terminaison et le chemin de l’image que vous souhaitez charger.
+2. Ajoutez les variables pour votre clé d’abonnement, le point de terminaison et le chemin de l’image que vous voulez charger :
 
     ```csharp
-        const string accessKey = "<yoursubscriptionkeygoeshere>";
+        const string accessKey = "<my_subscription_key>";
         const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
-        static string imagePath = @"<pathtoimagegoeshere>";
+        static string imagePath = @"<path_to_image>";
     ```
 
-
-1. Créez une méthode appelée `GetImageFileName()` pour obtenir le chemin d’accès de votre image.
+3. Créez une méthode nommée `GetImageFileName()` pour obtenir le chemin de votre image :
     
     ```csharp
     static string GetImageFileName(string path)
@@ -59,7 +58,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
             }
     ```
 
-2. Créez une méthode pour obtenir les caractères binaires de l’image.
+4. Créez une méthode pour obtenir les données binaires de l’image :
 
     ```csharp
     static byte[] GetImageBinary(string path)
@@ -70,7 +69,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 
 ## <a name="build-the-form-data"></a>Générer les données de formulaire
 
-Quand vous chargez une image locale, les données de formulaire envoyées à l’API doivent être formatées correctement. Elles doivent inclure l’en-tête Content-Disposition, leur paramètre `name` doit être défini sur « image », tandis que le paramètre `filename` peut être défini sur n’importe quelle chaîne. Le contenu du formulaire contient le code binaire de l’image. La taille maximale de l’image que vous chargez est de 1 Mo.
+Pour charger une image locale, vous commencez par créer les données de formulaire à envoyer à l’API. Les données du formulaire doivent inclure l’en-tête `Content-Disposition`, son paramètre `name` doit être défini sur « image », et le paramètre `filename` peut être défini sur n’importe quelle chaîne. Le contenu du formulaire contient les données binaires de l’image. La taille maximale de l’image que vous chargez est de 1 Mo.
 
     ```
     --boundary_1234-abcd
@@ -81,7 +80,7 @@ Quand vous chargez une image locale, les données de formulaire envoyées à l�
     --boundary_1234-abcd--
     ```
 
-1. Pour mettre en forme les données du formulaire POST correctement, ajoutez des chaînes limite, qui déterminent le début, la fin et les caractères de saut de ligne des données.
+1. Ajoutez des chaînes de limites pour mettre en forme les données du formulaire POST. Les chaînes de limites déterminent les caractères de début, de fin et de saut de ligne pour les données :
 
     ```csharp
     // Boundary strings for form data in body of POST.
@@ -91,14 +90,14 @@ Quand vous chargez une image locale, les données de formulaire envoyées à l�
     static string EndBoundaryTemplate = "--{0}--";
     ```
 
-2. Les variables suivantes sont utilisées pour ajouter des paramètres aux données du formulaire. 
+2. Utilisez les variables suivantes pour ajouter des paramètres aux données du formulaire :
 
     ```csharp
     const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
     const string POST_BODY_DISPOSITION_HEADER = "Content-Disposition: form-data; name=\"image\"; filename=\"{0}\"" + CRLF +CRLF;
     ```
 
-3. Créez une fonction appelée `BuildFormDataStart()` pour créer la partie initiale des données de formulaire requises, en utilisant les chaînes limite et le chemin d’accès de l’image.
+3. Créez une fonction nommée `BuildFormDataStart()` pour créer le début des données du formulaire en utilisant les chaînes de limites et le chemin de l’image :
     
     ```csharp
         static string BuildFormDataStart(string boundary, string filename)
@@ -112,7 +111,7 @@ Quand vous chargez une image locale, les données de formulaire envoyées à l�
         }
     ```
 
-4. Créez une fonction appelée `BuildFormDataEnd()` pour créer la partie finale des données de formulaire requises, en utilisant les chaînes limite.
+4. Créez une fonction nommée `BuildFormDataEnd()` pour créer la fin des données du formulaire en utilisant les chaînes de limites :
     
     ```csharp
         static string BuildFormDataEnd(string boundary)
@@ -123,11 +122,11 @@ Quand vous chargez une image locale, les données de formulaire envoyées à l�
 
 ## <a name="call-the-bing-visual-search-api"></a>Appeler l’API Recherche visuelle Bing
 
-1. Créez une fonction pour appeler le point de terminaison Recherche visuelle Bing et retourner la réponse json. La fonction doit prendre les parties initiale et finale des données du formulaire, un tableau d’octets contenant les données de l’image et une valeur contentType.
+1. Créez une fonction pour appeler le point de terminaison Recherche visuelle Bing et retourner la réponse JSON. La fonction prend le début et la fin des données du formulaire, un tableau d’octets contenant les données de l’image et une valeur `contentType`.
 
 2. Utilisez un `WebRequest` pour stocker votre URI, la valeur contentType et les en-têtes.  
 
-3. Utilisez `request.GetRequestStream()` pour écrire les données de formulaire et d’image. Ensuite, obtenez la réponse. Cette fonction doit ressembler au code ci-dessous :
+3. Utilisez `request.GetRequestStream()` pour écrire les données de votre formulaire et de l’image, puis pour obtenir la réponse. Votre fonction doit être similaire à celle-ci :
         
     ```csharp
         static string BingImageSearch(string startFormData, string endFormData, byte[] image, string contentTypeValue)
@@ -157,16 +156,16 @@ Quand vous chargez une image locale, les données de formulaire envoyées à l�
         }
     ```
 
-## <a name="create-the-main-method"></a>Créer la méthode main
+## <a name="create-the-main-method"></a>Créer la méthode Main
 
-1. Dans la méthode main de votre application, obtenez le nom de fichier et le binaire de votre image. 
+1. Dans la méthode `Main` de votre application, obtenez le nom de fichier et les données binaires de votre image :
 
     ```csharp
     var filename = GetImageFileName(imagePath);
     var imageBinary = GetImageBinary(imagePath);
     ```
 
-2. Configurez le corps POST en mettant en forme ses limites. Appelez ensuite `startFormData()` et `endFormData` pour créer les données de formulaire. 
+2. Configurez le corps POST en mettant en forme ses limites. Appelez ensuite `startFormData()` et `endFormData` pour créer les données du formulaire :
 
     ```csharp
     // Set up POST body.
@@ -175,13 +174,13 @@ Quand vous chargez une image locale, les données de formulaire envoyées à l�
     var endFormData = BuildFormDataEnd(boundary);
     ```
 
-3. Créez la valeur ContentType en mettant en forme `CONTENT_TYPE_HEADER_PARAMS` et la limite des données de formulaire.
+3. Créez la valeur `ContentType` en mettant en forme `CONTENT_TYPE_HEADER_PARAMS` et la limite des données du formulaire :
 
     ```csharp
     var contentTypeHdrValue = string.Format(CONTENT_TYPE_HEADER_PARAMS, boundary);
     ```
 
-4. Obtenez la réponse de l’API en appelant `BingImageSearch()`. Ensuite, affichez la réponse.
+4. Obtenez la réponse de l’API en appelant `BingImageSearch()` et affichez la réponse :
 
     ```csharp
     var json = BingImageSearch(startFormData, endFormData, imageBinary, contentTypeHdrValue);
@@ -192,9 +191,9 @@ Quand vous chargez une image locale, les données de formulaire envoyées à l�
 
 ## <a name="using-httpclient"></a>Utilisation de HttpClient
 
-Si vous utilisez HttpClient, vous pouvez utiliser MultipartFormDataContent pour générer les données de formulaire. Les sections de code suivantes vous permettent de remplacer les méthodes citées dans l’exemple précédent.
+Si vous utilisez `HttpClient`, vous pouvez utiliser la classe `MultipartFormDataContent` pour créer les données du formulaire. Utilisez simplement les sections de code suivantes pour remplacer les méthodes correspondantes dans l’exemple précédent.
 
-Remplacez la méthode Main par ce code :
+Remplacez la méthode `Main` par ce code :
 
 ```csharp
         static void Main()
@@ -234,7 +233,7 @@ Remplacez la méthode Main par ce code :
         }
 ```
 
-Remplacez la méthode BingImageSearch par ce code :
+Remplacez la méthode `BingImageSearch` par ce code :
 
 ```csharp
         /// <summary>
@@ -271,4 +270,4 @@ Remplacez la méthode BingImageSearch par ce code :
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer une application web Recherche personnalisée](../tutorial-bing-visual-search-single-page-app.md)
+> [Créer une application Recherche visuelle d’une seule page](../tutorial-bing-visual-search-single-page-app.md)

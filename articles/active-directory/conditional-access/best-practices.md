@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895560"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261522"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques l’accès conditionnel dans Azure Active Directory
 
@@ -138,6 +138,7 @@ Dans votre environnement, vous devez éviter les configurations suivantes :
 
 - **Exiger la jonction de domaine** : ce blocage d’accès par stratégie peut également bloquer l’accès pour tous les utilisateurs de votre organisation si vous n’avez pas encore d’appareil joint à un domaine.
 
+- **Exiger la stratégie de protection des applications** - ce bloc de stratégie accès est également susceptible de bloquer l’accès pour tous les utilisateurs de votre organisation si vous n’avez pas une stratégie Intune. Si vous êtes un administrateur sans une application cliente qui a une stratégie de protection d’application Intune, cette stratégie bloque le retour dans des portails tels que Intune et Azure.
 
 **Pour tous les utilisateurs, toutes les applications cloud, toutes les plateformes d’appareils :**
 

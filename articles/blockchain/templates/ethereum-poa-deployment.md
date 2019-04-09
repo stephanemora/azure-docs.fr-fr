@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: CodyBorn
 ms.author: coborn
-ms.date: 8/2/2018
+ms.date: 04/08/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905917"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274788"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum Proof-of-Authority Consortium
 
@@ -279,7 +279,7 @@ ID réseau|ID du réseau Ethereum de consortium en cours de déploiement.  Chaqu
 Adresse Ethereum de l’administrateur|Adresse du compte Ethereum utilisé pour votre participation à la gouvernance PoA.  Nous vous recommandons d’utiliser MetaMask pour générer une adresse Ethereum.|42 caractères alphanumériques commençant par 0x|N/D
 Options avancées|Options avancées pour les paramètres Ethereum|Activer ou désactiver|Désactiver
 Adresse IP publique (Options avancées = Activer)|Déploie le réseau derrière une passerelle de réseau virtuel et supprime l’accès d’homologation. Si cette option est sélectionnée, tous les membres doivent utiliser une passerelle de réseau virtuel pour garantir la compatibilité de la connexion.|Adresse IP publique, réseau virtuel privé|Adresse IP publique
-Limite de gaz par bloc (Options avancées = Activer)|Limite de gaz par bloc de départ du réseau|Toute valeur numérique|50 000 00
+Limite de gaz par bloc (Options avancées = Activer)|Limite de gaz par bloc de départ du réseau|Toute valeur numérique|50000000
 Période de rescellage des blocs (s)|Fréquence à laquelle des blocs vides sont créés en l’absence de transaction sur le réseau. Une fréquence supérieure aboutit à une finalité plus rapide, mais avec des coûts de stockage plus élevés.|Toute valeur numérique|15
 Contrat d’autorisation de transaction (Options avancées = Activer)|Bytecode du contrat d’autorisation de transaction. Restreint le déploiement de contrat actives et d’exécution à une liste autorisée des comptes de Ethereum.|Bytecode du contrat|N/D
 

@@ -4,16 +4,16 @@ description: Apprenez à utiliser les verrous de ressource Azure Blueprints « 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2018
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e3a05329ea247dbf5baa23ae9b3d32f909c0d1bb
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57855758"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629228"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints
 
@@ -40,7 +40,7 @@ Tout d’abord, créez la nouvelle définition de blueprint.
 
 1. Dans la page **Démarrage**à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
 
-1. Trouvez l’exemple de blueprint **Blank sample** (Exemple vide) en haut de la page et sélectionnez **Utiliser cet exemple**.
+1. Trouvez l’exemple de blueprint **Blueprint vide** en haut de la page et sélectionnez **Commencer par un blueprint vide**.
 
 1. Entrez les _Fonctions de base_ de l’exemple de blueprint :
 
@@ -81,7 +81,7 @@ Tout d’abord, créez la nouvelle définition de blueprint.
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "location": "[resourceGroups('RGtoLock').location]",
+           "location": "[resourceGroup().location]",
            "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
@@ -148,7 +148,7 @@ Une fois que la définition de blueprint a été **publiée**, elle peut être a
 
    - Paramètres d'artefact
 
-     Les paramètres définis dans cette section s'appliquent à l’artefact sous lequel elle est définie. Ces paramètres sont des [paramètres dynamiques](../concepts/parameters.md#dynamic-parameters) puisqu’ils sont définis lors de l’affectation du blueprint. Pour chaque artefact, définissez la valeur du paramètre en vous référant à la colonne **Valeur**.
+     Les paramètres définis dans cette section s’appliquent à l’artefact sous lequel elle est définie. Ces paramètres sont des [paramètres dynamiques](../concepts/parameters.md#dynamic-parameters) puisqu’ils sont définis lors de l’affectation du blueprint. Pour chaque artefact, définissez la valeur du paramètre en vous référant à la colonne **Valeur**.
 
      |Nom de l’artefact|Type d’artefact|Nom du paramètre|Valeur|Description|
      |-|-|-|-|-|
@@ -182,13 +182,15 @@ L’affectation a créé le groupe de ressources _TestingBPLocks_ et le compte d
 
    L’affectation du blueprint a créé une instance [Refuser l’affectation](../../../role-based-access-control/deny-assignments.md) sur le groupe de ressources déployé pour appliquer le mode _Lecture seule_ de verrouillage du blueprint. Cette affectation de refus empêche un utilisateur disposant de droits appropriés dans l’onglet _Attributions de rôle_ d’effectuer des actions particulières. L’affectation de refus concerne _Tous les principaux_.
 
+   Pour plus d’informations sur l’exclusion d’un principal à partir d’une affectation de refus, consultez [Verrouillage des ressources des blueprints](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
+
 1. Sélectionnez l’affectation de refus, puis la page **Autorisations refusées** à gauche.
 
    L’affectation de refus empêche toutes les opérations avec la configuration **\*** et **Action**, mais autorise l’accès en lecture en excluant **\*/read** via **NotActions**.
 
 1. Dans la barre de navigation du portail Azure, sélectionnez **TestingBPLocks - Contrôle d’accès (IAM)**. Sélectionnez ensuite la page **Vue d’ensemble** à gauche, puis le bouton **Supprimer le groupe de ressources**. Entrez le nom _TestingBPLocks_ pour confirmer la suppression et sélectionnez **Supprimer** dans le bas du volet.
 
-   Le message de notification du portail **Échec de la suppression du groupe de ressources TestingBPLocks**  apparaît alors. L’erreur indique que, même si votre compte est autorisé à supprimer le groupe de ressources, l’accès est refusé par l’affectation du blueprint. N’oubliez pas que nous avons sélectionné le mode _Lecture seule_ de verrouillage du blueprint pendant l’affectation du blueprint. Le verrou de blueprint empêche un compte disposant d’autorisations, même _Propriétaire_, de supprimer la ressource. Pour plus d’informations, consultez [Verrouillage des ressources des blueprints](../concepts/resource-locking.md).
+   Le message de notification du portail **Échec de la suppression du groupe de ressources TestingBPLocks**  apparaît alors. L’erreur indique que, même si votre compte est autorisé à supprimer le groupe de ressources, l’accès est refusé par l’affectation du blueprint. N’oubliez pas que nous avons sélectionné le mode _Lecture seule_ de verrouillage du blueprint pendant l’affectation du blueprint. Le verrou de blueprint empêche un compte disposant d’autorisations, y compris _Propriétaire_, de supprimer la ressource. Pour plus d’informations, consultez [Verrouillage des ressources des blueprints](../concepts/resource-locking.md).
 
 Ces étapes montrent que nos ressources déployées sont à présent protégées avec les verrous du blueprint qui ont empêché la suppression non souhaitée, même à partir d’un compte disposant d’autorisations.
 
@@ -221,9 +223,9 @@ Une fois le didacticiel terminé, supprimez les ressources suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [cycle de vie des blueprints](../concepts/lifecycle.md)
-- Apprendre à utiliser les [paramètres statiques et dynamiques](../concepts/parameters.md)
-- Découvrir comment utiliser le [verrouillage de ressources de blueprint](../concepts/resource-locking.md)
-- Apprendre à personnaliser [l’ordre de séquencement des blueprints](../concepts/sequencing-order.md)
-- Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md)
-- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md)
+- Découvrir le [cycle de vie d’un blueprint](../concepts/lifecycle.md).
+- Comprendre comment utiliser les [paramètres statiques et dynamiques](../concepts/parameters.md).
+- Découvrir comment utiliser le [verrouillage de ressources de blueprint](../concepts/resource-locking.md).
+- Apprendre à personnaliser l’[ordre de séquencement des blueprints](../concepts/sequencing-order.md).
+- Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).
+- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md).

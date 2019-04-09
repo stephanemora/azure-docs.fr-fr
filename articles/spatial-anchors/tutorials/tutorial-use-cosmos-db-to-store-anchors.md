@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Partage entre des sessions et des appareils avec Azure Spatial Anchors et un back-end Azure Cosmos DB | Microsoft Docs'
+title: Tutoriel – Partager Azure Spatial Anchors entre plusieurs sessions et appareils et un back-end Azure Cosmos DB | Microsoft Docs
 description: Dans ce tutoriel, vous allez apprendre à partager des identificateurs Azure Spatial Anchors entre des appareils Android/iOS dans Unity avec un service back-end et Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0e7011b9778221869940b137a2b87239f2d8db9b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286395"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915252"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Tutoriel : Partage entre des sessions et des appareils avec Azure Spatial Anchors et un back-end Azure Cosmos DB
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Didacticiel : Partager Azure Spatial Anchors entre plusieurs sessions et appareils et un back-end Azure Cosmos DB
 
-Dans ce tutoriel, vous allez découvrir comment utiliser [Azure Spatial Anchors](../overview.md) pour :
-
-- Créer des ancres pendant une session, puis les retrouver lors d’une autre session, sur le même appareil ou sur un autre. Par exemple, la deuxième session peut se dérouler un autre jour.
-- Créer des ancres qui peuvent être localisées par plusieurs appareils au même endroit en même temps
+Dans ce tutoriel, vous allez apprendre à utiliser [Azure Spatial Anchors](../overview.md) pour créer des ancres au cours d’une session et les localiser ensuite au cours d’une autre session sur le même appareil ou un autre. Par exemple, la deuxième session peut se dérouler un autre jour. Ces mêmes ancres pourront aussi être localisées par plusieurs appareils au même emplacement et au même moment.
 
 ![GIF illustrant la persistance des objets](./media/persistence.gif)
 
@@ -73,7 +70,7 @@ Recherchez la propriété `StorageConnectionString` et affectez-lui la valeur `C
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez utilisé Azure Cosmos DB pour partager des identificateurs d’ancre entre des appareils. Pour en savoir plus sur la bibliothèque Azure Spatial Anchors, passez à notre guide sur la création et la localisation des ancres.
+Dans ce tutoriel, vous avez utilisé Azure Cosmos DB pour partager des identificateurs d’ancre entre des appareils. Pour en savoir plus sur l’utilisation d’Azure Spatial Anchors dans une nouvelle application Android, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Créer et localiser des ancres à l’aide d’Azure Spatial Anchors](../create-locate-anchors-overview.md)
+> [Démarrage d’une nouvelle application Android](./tutorial-new-android-app.md)

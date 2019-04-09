@@ -10,36 +10,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 23bbcbf6947100db26f31562c44f8073e16e986f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cfea454b20b010148eba063ec724e55134944ac3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239339"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482927"
 ---
 # <a name="deploy-the-local-agent"></a>Déployer l’agent local
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Découvrez comment utiliser l’agent local Validation en tant que service (VaaS) pour vérifier votre matériel. Vous devez déployer l’agent local sur la solution Azure Stack en cours de validation avant d’exécuter les tests de validation.
+Découvrez comment utiliser l’agent local Validation en tant que service (VaaS) pour exécuter des tests de validation. Vous devez déployer l’agent local avant d’exécuter des tests de validation.
 
 > [!Note]  
-> Vous devez vous assurer que la machine sur laquelle s’exécute l’agent local ne perd pas l’accès sortant à Internet. Cette machine doit être accessible uniquement aux utilisateurs que vous avez autorisé à utiliser le service VaaS pour le compte de votre abonné.
+> Assurez-vous que la machine sur laquelle s’exécute l’agent local ne perd pas l’accès sortant à Internet. Cette machine doit être accessible uniquement aux utilisateurs qui sont autorisés à utiliser le service VaaS pour le compte de votre abonné.
 
 Pour déployer l’agent local :
 
 1. Installez l’agent local.
-2. Procédez à des contrôles d’intégrité
+2. Procédez à des contrôles d’intégrité.
 3. Exécutez l’agent local.
 
 ## <a name="download-and-start-the-local-agent"></a>Télécharger et démarrer l’agent local
 
-Téléchargez l’agent sur une machine présentant la configuration requise dans votre centre de données qui ne fait pas partie intégrante du système Azure Stack, mais qui a accès à tous les points de terminaison Azure Stack.
+Téléchargez l’agent sur une machine présentant la configuration requise dans votre centre de données et qui a accès à tous les points de terminaison Azure Stack. Cette machine ne doit pas faire partie intégrante du système Azure Stack ni être hébergée dans le cloud Azure Stack.
 
 ### <a name="machine-prerequisites"></a>Configuration requise pour les machines
 
@@ -52,14 +52,12 @@ Vérifiez que votre machine répond aux critères suivants :
 - Espace disque de 200 Go au minimum
 - Connectivité réseau à Internet stable
 
-Azure Stack est le système testé. La machine ne doit pas faire partie intégrante d’Azure Stack ni être hébergée dans le cloud Azure Stack.
-
 ### <a name="download-and-install-the-agent"></a>Téléchargement et installation de l’agent
 
 1. Ouvrez Windows PowerShell dans une invite de commandes avec élévation de privilèges sur la machine que vous allez utiliser pour exécuter les tests.
 2. Exécutez la commande ci-après pour télécharger l’agent local :
 
-    ```PowerShell
+    ```powershell
     Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
     Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent -Force
     Set-Location VaaSOnPremAgent\lib\net46
@@ -67,7 +65,7 @@ Azure Stack est le système testé. La machine ne doit pas faire partie intégra
 
 3. Exécutez la commande ci-après pour installer les dépendances de l’agent local :
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -95,7 +93,7 @@ La commande télécharge une image (disque dur virtuel de système d’exploitat
 
 ## <a name="checks-before-starting-the-tests"></a>Vérifications avant de commencer les tests
 
-Les tests exécutent des actions à distance. La machine qui exécute les tests doit avoir accès aux points de terminaison Azure Stack pour le bon déroulement des tests. Si vous utilisez l’agent VaaS local, utilisez la machine sur laquelle l’agent s’exécutera. Vous pouvez vérifier que votre machine a accès aux points de terminaison Azure Stack en effectuant les vérifications suivantes :
+Les tests exécutent des opérations à distance. La machine qui exécute les tests doit avoir accès aux points de terminaison Azure Stack pour le bon déroulement des tests. Si vous utilisez l’agent VaaS local, utilisez la machine sur laquelle l’agent s’exécutera. Vous pouvez vérifier que votre machine a accès aux points de terminaison Azure Stack en effectuant les vérifications suivantes :
 
 1. Vérifiez que l’URI de base est accessible. Ouvrez une invite de commande ou interpréteur de commandes bash, et exécutez la commande suivante en remplaçant `<EXTERNALFQDN>` avec le nom de domaine complet externe de votre environnement :
 
@@ -115,14 +113,15 @@ Les tests exécutent des actions à distance. La machine qui exécute les tests 
 
 2. Exécutez la commande suivante :
 
-    ```PowerShell
+    ```powershell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
     ```
 
       **Paramètres**  
+
     | Paramètre | Description |
     | --- | --- |
-    | VaaSUserId | Identificateur d’utilisateur permettant de se connecter au portail VaaS (par exemple, UserName@Contoso.com). |
+    | VaaSUserId | Identificateur d’utilisateur permettant de se connecter au portail VaaS (par exemple, nom_utilisateur\@Contoso.com). |
     | VaaSTenantId | ID de locataire Azure AD pour le compte Azure inscrit auprès du service Validation en tant que service. |
 
     > [!Note]  

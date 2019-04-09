@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser DMS pour effectuer une migration vers une instance managée d’Azure SQL Database | Microsoft Docs'
+title: 'Didacticiel : Utiliser DMS pour effectuer une migration vers une instance managée d’Azure SQL Database | Microsoft Docs'
 description: Découvrez comment effectuer la migration d’une instance locale de SQL Server vers une instance managée d’Azure SQL Database à l’aide du service Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 450d47e4c20da1d9d9760ababf58c75eef2814b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/03/2019
+ms.openlocfilehash: cf285c18d2204da625c970a367177f86474149ab
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182368"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880971"
 ---
-# <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Tutoriel : Effectuer la migration hors connexion d’une instance SQL Server vers une instance managée d’Azure SQL Database à l’aide de DMS
+# <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Didacticiel : Effectuer la migration hors connexion d’une instance SQL Server vers une instance managée d’Azure SQL Database à l’aide de DMS
 
 Vous pouvez utiliser le service Azure Database Migration Service pour migrer les bases de données d’une instance locale de SQL Server vers une [instance managée d’Azure SQL Database](../sql-database/sql-database-managed-instance.md). Pour connaître des méthodes supplémentaires pouvant nécessiter un effort manuel, consultez l’article [Migration d’une instance SQL Server vers une instance managée d’Azure SQL Database](../sql-database/sql-database-managed-instance-migrate.md).
 
@@ -50,7 +50,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     >
     > Cette configuration est nécessaire, car Azure Database Migration Service ne dispose pas d’une connectivité Internet.
 
-- Vérifiez que les règles du groupe de sécurité Réseau virtuel ne bloquent pas les ports de communication suivants : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage de groupe de sécurité Réseau virtuel Microsoft Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Vérifiez que les règles de groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants à Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage de groupe de sécurité Réseau virtuel Microsoft Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configurez [l’accès au moteur de base de données source dans votre Pare-feu Windows](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Ouvrez votre Pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur SQL Server source, par défaut le port TCP 1433.
 - Si vous exécutez plusieurs instances nommées de SQL Server avec des ports dynamiques, vous pouvez activer le service SQL Browser et autoriser l’accès au port UDP 1434 à travers vos pare-feu, de sorte qu’Azure Database Migration Service puisse se connecter à une instance nommée sur votre serveur source.
@@ -152,9 +152,9 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
 1. Dans l’écran **Détails de la cible de migration**, spécifiez les détails de connexion de la cible, notamment l’instance managée d’Azure SQL Database préprovisionnée vers laquelle vous migrez la base de données **AdventureWorks2012**.
 
-    Si vous n’avez pas encore provisionné l’instance managée d’Azure SQL Database, sélectionnez **Non** pour obtenir un lien permettant de provisionner l’instance. Vous pouvez néanmoins procéder à la création du projet. Une fois l’instance managée d’Azure SQL Database prête, retournez à ce projet pour exécuter la migration.
+    Si vous n’avez pas encore provisionné l’instance managée d’Azure SQL Database, sélectionnez le [lien](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) permettant de provisionner l’instance. Vous pouvez néanmoins procéder à la création du projet. Une fois l’instance managée d’Azure SQL Database prête, retournez à ce projet pour exécuter la migration.
 
-       ![Select Target](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
+     ![Sélectionner la cible](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
 2. Sélectionnez **Enregistrer**.
 

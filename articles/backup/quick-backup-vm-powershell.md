@@ -10,16 +10,14 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aa637571ca11ea294b1f95df49855d7ee81b3001
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258868"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906070"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Sauvegarder une machine virtuelle dans Azure avec PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Le module [AZ Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. 
 
@@ -27,8 +25,9 @@ La [sauvegarde Azure](backup-overview.md) sauvegarde les applications et machine
 
 Ce démarrage rapide permet la sauvegarde sur une machine virtuelle Azure existante. Si vous devez créer une machine virtuelle, vous pouvez [créer une machine virtuelle avec Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-Ce guide de démarrage rapide nécessite le module AZ Azure PowerShell version 1.0.0 ou ultérieure. Exécutez ` Get-Module -ListAvailable Az` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
+Ce guide de démarrage rapide nécessite le module AZ Azure PowerShell version 1.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-and-register"></a>Se connecter et s’inscrire
 
@@ -46,7 +45,7 @@ Ce guide de démarrage rapide nécessite le module AZ Azure PowerShell version 
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
-Un [coffre Recovery Services](backup-azure-recovery-services-vault-overview.md) est un conteneur logique qui stocke des données de sauvegarde pour des ressources protégées, telles que les machines virtuelles Azure. Lorsqu’un travail de sauvegarde s’exécute, il crée un point de récupération à l’intérieur du coffre Recovery Services. Vous pouvez ensuite utiliser un de ces points de récupération pour restaurer des données à un moment donné dans le temps.
+Un [coffre Recovery Services](backup-azure-recovery-services-vault-overview.md) est un conteneur logique qui stocke des données de sauvegarde pour des ressources protégées, telles que des machines virtuelles Azure. Quand un travail de sauvegarde s’exécute, il crée un point de récupération à l’intérieur du coffre Recovery Services. Vous pouvez ensuite utiliser un de ces points de récupération pour restaurer des données à un moment donné dans le temps.
 
 Lorsque vous créez le coffre :
 
@@ -73,6 +72,14 @@ Lorsque vous créez le coffre :
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
+3. Changez la configuration de redondance de stockage (LRS/GRS) du coffre avec [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0), comme suit :
+    
+    ```powershell
+    Get-AzRecoveryServicesVault `
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+    ```
+    > [!NOTE]
+    > La redondance de stockage peut être modifiée uniquement si aucun élément de sauvegarde n’est protégé dans le coffre.
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Activer la sauvegarde pour une machine virtuelle Azure
 
@@ -130,7 +137,7 @@ Exécutez un travail de sauvegarde ad hoc de la façon suivante :
 2. À partir du moment où ce premier travail de sauvegarde crée un point de récupération complet, il est possible que votre attente dure un certain temps, sans toutefois excéder 20 minutes. Supervisez le travail tel qu’il est décrit dans la procédure suivante.
 
 
-## <a name="monitor-the-backup-job"></a>Superviser le travail de sauvegarde
+## <a name="monitor-the-backup-job"></a>Surveiller le travail de sauvegarde
 
 1. Exécutez [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) pour superviser l’état du travail.
 

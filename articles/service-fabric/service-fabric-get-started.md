@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 04/02/2019
 ms.author: aljo
-ms.openlocfilehash: ccb5f690b7947192af401233aa03e799e5c5be0b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 45d5d1b4e050d01b003b6321e1af44c0da762e19
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668719"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275478"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Préparer votre environnement de développement sur Windows
 > [!div class="op_single_selector"]
@@ -69,8 +69,8 @@ Si vous avez uniquement besoin du SDK, vous pouvez installer ce package :
 * [Installer le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric][core-sdk]
 
 Les versions actuelles sont les suivantes :
-* Service Fabric SDK et outils 3.3.644
-* Runtime service Fabric 6.4.644
+* Service Fabric SDK et outils 3.3.654
+* Runtime service Fabric 6.4.654
 * Outils Service Fabric pour Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 inclut les outils Service Fabric pour Visual Studio 2.4.11024.1 
 
@@ -92,9 +92,9 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 Maintenant que vous avez fini de configurer votre environnement de développement, commencez à créer et à exécuter des applications.
 
 * [Découvrez comment créer, déployer et gérer des applications](service-fabric-tutorial-create-dotnet-app.md)
-* [Découvrir les modèles de programmation : Reliable Services et Reliable Actors](service-fabric-choose-framework.md)
-* [Consulter les exemples de code Service Fabric sur GitHub](https://aka.ms/servicefabricsamples)
-* [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [En savoir plus sur les modèles de programmation : Reliable Actors et Reliable Services](service-fabric-choose-framework.md)
+* [Consultez les exemples de code de Service Fabric sur GitHub](https://aka.ms/servicefabricsamples)
+* [Visualiser votre cluster à l’aide de Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * En savoir plus sur les [options de prise en charge de Service Fabric](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Page de campagne Service Fabric"

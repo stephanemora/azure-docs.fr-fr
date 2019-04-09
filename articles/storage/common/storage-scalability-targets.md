@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: ca9c4c959d21f26369600129f3897b7624dd84f2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371171"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267699"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Objectifs de performance et d’extensibilité stockage Azure pour les comptes de stockage
 
@@ -23,7 +23,7 @@ Veillez à tester votre service afin de déterminer si ses performances réponde
 
 Lorsque votre application atteint la limite de gestion d’une partition concernant la charge de travail, Stockage Azure commence à renvoyer des codes d’erreur 503 (Serveur occupé) ou 500 (Délai d’expiration de l’opération). Si vous rencontrez des erreurs 503, nous vous recommandons de modifier votre application pour utiliser une stratégie d’interruption exponentielle pour les nouvelles tentatives. L’interruption exponentielle diminue la charge sur la partition et atténue les pics de trafic pour cette partition.
 
-## <a name="standard-performance-storage-account-scale-limits"></a>Limites de mise à l’échelle de compte de stockage de performances standard
+## <a name="storage-account-scale-limits"></a>Limites de mise à l’échelle de compte de stockage
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
@@ -45,6 +45,36 @@ Pour plus d’informations sur les objectifs de scalabilité et de performances 
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+### <a name="premium-files-scale-targets"></a>Fichiers Premium mettre à l’échelle cibles
+
+Il existe trois catégories de limitations à prendre en compte pour les fichiers de premium : comptes de stockage et partages de fichiers.
+
+Par exemple :  Un partage unique peut atteindre 100 000 e/s et un seul fichier peut évoluer jusqu'à 5 000 e/s. Par conséquent, par exemple, si vous avez trois fichiers dans un partage, l’IOPs maximum, vous pouvez obtenir à partir de ce partage est de 15 000.
+
+#### <a name="premium-file-share-limits"></a>Limites de partage de fichiers Premium
+
+> [!IMPORTANT]
+> Limites de compte de stockage s’appliquent à tous les partages. Mise à l’échelle jusqu'à la valeur maximale pour les comptes de stockage n’est réalisable s’il en existe qu’un seul partage par compte de stockage.
+
+|Domaine  |Cible  |
+|---------|---------|
+|Taille min.                        |100 Gio      |
+|Taille maximale                        |100 TiB      |
+|Augmenter/diminuer la taille minimale    |1 GiB      |
+|IOPS de base    |1 Go jusqu'à 100 000 par seconde|
+|E/s de rupture    |3 x IOPS par Gio jusqu'à 100 000|
+|Bande passante minimale                     |100        |
+|Bande passante |0,1 Mo/s par Gio jusqu'à 5 Go/s     |
+|Nombre maximal d’instantanés        |200       |
+
+#### <a name="premium-file-limits"></a>Limites du fichier Premium
+
+|Domaine  |Cible  |
+|---------|---------|
+|Taille                  |1 Tio         |
+|Max IOPS par fichier     |5 000         |
+|Handles simultanés    |2 000         |
+
 ### <a name="azure-file-sync-scale-targets"></a>Objectifs de mise à l’échelle d’Azure File Sync
 
 Azure File Sync a été conçu pour proposer un usage illimité, mais cela n’est pas toujours possible. Le tableau suivant indique les limites de tests réalisés par Microsoft, ainsi que les cibles constituant des limites matérielles :
@@ -61,7 +91,7 @@ Azure File Sync a été conçu pour proposer un usage illimité, mais cela n’e
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
-- [Abonnement Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md)
-- [Réplication Azure Storage](../storage-redundancy.md)
-- [Liste de contrôle des performances et de l’évolutivité de Microsoft Azure Storage](../storage-performance-checklist.md)
+- [Tarification – Stockage](https://azure.microsoft.com/pricing/details/storage/)
+- [Abonnement Azure et limites de Service, Quotas et contraintes](../../azure-subscription-service-limits.md)
+- [Réplication du stockage Azure](../storage-redundancy.md)
+- [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](../storage-performance-checklist.md)

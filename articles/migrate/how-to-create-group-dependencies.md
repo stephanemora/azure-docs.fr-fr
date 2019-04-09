@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 8387b7e03c867026741801cd0de910bc9da85e92
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
-ms.translationtype: MT
+ms.openlocfilehash: 71f792dd1238b11810abfb6a97ac9e051da2ec45
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407077"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274625"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Affiner un groupe à l’aide du mappage de dépendances de groupe
 
@@ -132,6 +132,42 @@ Pour exécuter des requêtes Kusto :
 
 [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sur la façon d’écrire des requêtes de Kusto. 
 
+## <a name="sample-azure-monitor-logs-queries"></a>Exemple Azure Monitor enregistre les requêtes
+
+Voici des exemples de requêtes que vous pouvez utiliser pour extraire des données de dépendance. Vous pouvez modifier les requêtes pour extraire vos points de données par défaut. Une liste exhaustive des champs dans les enregistrements de données de dépendance est disponible [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+
+### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Résumer les connexions entrantes sur un ensemble de machines
+
+Notez que les enregistrements dans la table pour les métriques de connexion, VMConnection, ne représentent pas les connexions réseau physiques individuels. Plusieurs connexions réseau physiques sont regroupées dans une connexion logique. [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) sur la connexion de réseau physique comment les données sont agrégées en un seul enregistrement logique dans VMConnection. 
+
+```
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
+
+#### <a name="summarize-volume-of-data-sent-and-received-on-inbound-connections-between-a-set-of-machines"></a>Résumer le volume de données envoyées et reçues sur les connexions entrantes entre un ensemble d’ordinateurs
+
+```
+// the machines of interest
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Découvrez plus en détail](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) les questions fréquemment posées au sujet de la visualisation des dépendances.

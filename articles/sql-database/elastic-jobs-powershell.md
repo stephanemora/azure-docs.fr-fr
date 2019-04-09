@@ -12,12 +12,12 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f90e4281be27f4f30f4fdf0e3eb2932fa4e743ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840815"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666783"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Créer un agent de travail élastique à l’aide de PowerShell
 
@@ -129,7 +129,7 @@ $Db2
 
 ## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>Activer la préversion de Travaux élastiques pour votre abonnement
 
-Pour utiliser Travaux élastiques, enregistrez la fonctionnalité dans votre abonnement Azure en exécutant la commande suivante (cette opération ne doit être exécutée qu’une fois dans chaque abonnement dans lequel vous souhaitez utiliser Travaux élastique) :
+Pour utiliser les travaux élastiques, inscrivez la fonctionnalité dans votre abonnement Azure en exécutant la commande suivante. Exécutez cette commande une seule fois pour l’abonnement dans lequel vous souhaitez provisionner l’agent de travail élastique. Il n’est pas nécessaire d’inscrire les abonnements qui contiennent uniquement des bases de données et qui sont des cibles de travail.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql

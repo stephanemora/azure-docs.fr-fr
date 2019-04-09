@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 3da9982d1af886a4329ddc77a7b297e9e285453e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101548"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269348"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurer le protocole SSL de bout en bout avec Application Gateway en utilisant PowerShell
 
@@ -52,20 +52,17 @@ Ce processus de configuration est décrit dans les sections suivantes.
 
 Cette section vous guide lors de la création d’un groupe de ressources contenant la passerelle d’application.
 
-
 1. Connectez-vous à votre compte Azure.
 
    ```powershell
    Connect-AzAccount
    ```
 
-
 2. Sélectionnez l’abonnement à utiliser pour ce scénario.
 
    ```powershell
    Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
-
 
 3. Créez un groupe de ressources. (Ignorez cette étape si vous utilisez un groupe de ressources existant.)
 
@@ -77,7 +74,6 @@ Cette section vous guide lors de la création d’un groupe de ressources conten
 
 L’exemple suivant crée un réseau virtuel et deux sous-réseaux. Un sous-réseau sert à héberger la passerelle d’application. Le second sous-réseau est utilisé pour les serveurs principaux hébergeant l’application web.
 
-
 1. Affectez une plage d’adresses au sous-réseau à utiliser pour la passerelle d’application.
 
    ```powershell
@@ -86,8 +82,7 @@ L’exemple suivant crée un réseau virtuel et deux sous-réseaux. Un sous-rés
 
    > [!NOTE]
    > Les sous-réseaux configurés pour une passerelle d’application doivent être correctement dimensionnés. Une passerelle d’application peut être configurée pour 10 instances maximum. Chaque instance prend une adresse IP du sous-réseau. Un sous-réseau trop petit peut nuire à la montée en charge d’une passerelle d’application.
-   > 
-   > 
+   >
 
 2. Affectez une plage d’adresses au pool d’adresses principales.
 
@@ -130,7 +125,6 @@ Tous les éléments de configuration sont définis avant la création de la pass
    $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
-
 2. Créez une configuration IP frontale. Ce paramètre mappe une adresse IP privée ou publique au composant frontal de la passerelle d’application. L’étape suivante associe l’adresse IP publique à l’étape précédente à la configuration IP frontale.
 
    ```powershell
@@ -145,7 +139,6 @@ Tous les éléments de configuration sont définis avant la création de la pass
 
    > [!NOTE]
    > Un nom de domaine complet (FQDN) est également une valeur valide à utiliser pour remplacer une adresse IP dans les serveurs principaux. Pour l’activer, utilisez le commutateur **-BackendFqdns**. 
-
 
 4. Configurez le port IP frontal pour le point de terminaison IP public. Ce port est le port auquel les utilisateurs finaux se connectent.
 
@@ -177,7 +170,7 @@ Tous les éléments de configuration sont définis avant la création de la pass
    > Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur le serveur principal, la clé publique récupérée n’est pas nécessairement le site vers lequel vous souhaitez que le trafic soit dirigé. En cas de doute, visitez https://127.0.0.1/ sur les serveurs principaux pour confirmer le certificat utilisé pour la liaison SSL *par défaut*. Utilisez la clé publique de cette demande dans cette section. Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur les liaisons HTTPS et que vous ne recevez pas une réponse et un certificat à partir d’une demande de navigateur manuelle vers https://127.0.0.1/ sur les serveurs principaux, vous devez configurer une liaison SSL par défaut sur ceux-ci. Si vous ne le faites pas, les sondes échouent et le serveur principal ne figure pas dans la liste approuvée.
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
@@ -227,7 +220,7 @@ Tous les éléments de configuration sont définis avant la création de la pass
     L’exemple suivant définit la version de protocole minimale sur **TLSv1_2** et active **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** et **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** uniquement.
 
     ```powershell
-    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
     ```
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway

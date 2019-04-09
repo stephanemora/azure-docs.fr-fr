@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 87770a12ca7e489b11b2d176903f976fdcc256a0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7488231363b0cbf96e25da28751065012754212e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551318"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803780"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Exemple - Références SKU autorisées pour les comptes de stockage et les machines virtuelles
 
@@ -29,7 +29,7 @@ Vous pouvez déployer ce modèle en utilisant le [portail Azure](#deploy-with-th
 
 ## <a name="deploy-with-the-portal"></a>Déployer avec le portail
 
-[![Déployer sur Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Déployer l’exemple de stratégie dans Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Déployer avec PowerShell
 

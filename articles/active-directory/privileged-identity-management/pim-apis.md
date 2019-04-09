@@ -1,6 +1,6 @@
 ---
-title: API Microsoft Graph pour PIM (préversion) | Microsoft Docs
-description: Fournit des informations sur l’utilisation de l’API Microsoft Graph pour Azure Active Directory Privileged Identity Management (PIM) (préversion).
+title: API Microsoft Graph pour PIM (préversion) -- Azure Active Directory | Microsoft Docs
+description: Fournit des informations sur l’utilisation des API Microsoft Graph pour Azure AD Privileged Identity Management (préversion).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.date: 11/13/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d853579335653987321fded154eb9fb0f8dbdb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e54ec4049b2b0cd67c148d881a64a40efff438a2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000290"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578966"
 ---
 # <a name="microsoft-graph-apis-for-pim-preview"></a>API Microsoft Graph pour PIM (préversion)
 
-La plupart des tâches que vous pouvez effectuer dans Azure AD Privileged Identity Management (PIM) à l’aide du portail Azure peuvent également être effectuées à l’aide de l’[API Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/overview). Cet article décrit certains concepts importants en cas d’utilisation des API Microsoft Graph pour PIM. Pour plus d’informations sur les API Microsoft Graph, consultez la [référence sur les API Azure AD Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
+La plupart des tâches que vous pouvez effectuer dans Azure Active Directory (Azure AD) Privileged Identity Management (PIM) à l’aide du portail Azure peuvent également être effectuées à l’aide des [API Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/overview). Cet article décrit certains concepts importants en cas d’utilisation des API Microsoft Graph pour PIM. Pour plus d’informations sur les API Microsoft Graph, consultez la [référence sur les API Azure AD Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
 
 > [!IMPORTANT]
 > Les API sous la version /beta dans Microsoft Graph sont en préversion et susceptibles de changer. L’utilisation de ces API dans les applications de production n’est pas prise en charge.

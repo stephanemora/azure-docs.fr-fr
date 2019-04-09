@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577244"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276404"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gérer les données de journal et les espaces de travail dans Azure Monitor
 Azure Monitor stocke les données de journal dans un espace de travail Log Analytics, qui n'est autre qu'un conteneur de données et d'informations de configuration. Pour gérer l'accès aux données de journal, vous accomplissez diverses tâches administratives liées aux espaces de travail. Vous ou d’autres membres de votre organisation pouvez utiliser plusieurs espaces de travail pour gérer différents ensembles de données provenant de tout ou partie de votre infrastructure informatique.
@@ -35,9 +35,9 @@ Pour créer un espace de travail Analytique de journal, vous devez :
 
 Consultez les articles suivants pour plus d’informations sur la création d’un espace de travail :
 
-- [Créer un espace de travail Analytique de journal dans le portail Azure](../learn/quick-create-workspace.md)
-- [Créer un espace de travail Analytique des journaux avec Azure CLI 2.0](../learn/quick-create-workspace-cli.md)
-- [Créer un espace de travail Analytique des journaux avec Azure PowerShell](../learn/quick-create-workspace-posh.md)
+- [Créer un espace de travail Log Analytics dans le portail Azure](../learn/quick-create-workspace.md)
+- [Créer un espace de travail Log Analytics avec Azure CLI 2.0](../learn/quick-create-workspace-cli.md)
+- [Créer un espace de travail Log Analytics avec Azure PowerShell](../learn/quick-create-workspace-posh.md)
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Définition du nombre d’espaces de travail nécessaires
 Un espace de travail Log Analytics est une ressource Azure et un conteneur dans lequel les données sont collectées, agrégées, analysées et présentées dans Azure Monitor. Vous pouvez disposer de plusieurs espaces de travail par abonnement Azure et avoir accès à plusieurs espaces de travail, avec la possibilité des les interroger facilement. Cette section décrit dans quelles conditions il peut être utile de créer plusieurs espaces de travail.
@@ -83,8 +83,8 @@ Les données à un utilisateur ayant accès à sont déterminées par plusieurs 
 | Facteur | Description |
 |:---|:---|
 | [Mode d’accès](#access-modes) | Méthode utilisée pour l’utilisateur accède à l’espace de travail.  Définit l’étendue des données disponibles et le mode de contrôle d’accès qui est appliqué. |
-| [Mode de contrôle d’accès](#access-control-mode) | Définition de l’espace de travail qui définit si les autorisations sont appliquées au niveau de la ressource ou d’espace de travail. |
-| [autorisations](#manage-accounts-and-users) | Autorisations appliquées à l’individu ou des groupes d’utilisateurs pour l’espace de travail ou la ressource. Définit les données que l’utilisateur aura accès à. |
+| [Mode de contrôle d'accès](#access-control-mode) | Définition de l’espace de travail qui définit si les autorisations sont appliquées au niveau de la ressource ou d’espace de travail. |
+| [Autorisations](#manage-accounts-and-users) | Autorisations appliquées à l’individu ou des groupes d’utilisateurs pour l’espace de travail ou la ressource. Définit les données que l’utilisateur aura accès à. |
 | [RBAC au niveau table](#table-level-rbac) | Autorisations granulaires facultatives qui s’applique à tous les utilisateurs, quel que soit leur mode d’accès ou le mode de contrôle d’accès. Définit les types de données un utilisateur peut accéder. |
 
 
@@ -102,7 +102,6 @@ Le _mode d’accès_ fait référence à la façon dont un utilisateur accède �
 > - Service Fabric
 > - Application Insights
 > - Containers
-> - Journaux personnalisés créés par les API du collecteur de données HTTP
 >
 > Vous pouvez tester si les journaux sont correctement associés à leurs ressources en exécutant une requête et en inspectant les enregistrements vous intéresse. Si l’ID de ressource correct se trouve dans le [_ResourceId](log-standard-properties.md#_resourceid) propriété, alors que les données est disponible pour les requêtes centrée sur les ressources.
 

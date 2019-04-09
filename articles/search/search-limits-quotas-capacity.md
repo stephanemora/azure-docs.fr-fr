@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620638"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273394"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
 Limites maximales de stockage, les charges de travail et les quantités d’index, de documents et autres objets varient selon que vous [recherche Azure](search-create-service-portal.md) à **gratuit**, **base**,  **Standard**, ou **stockage optimisé** niveaux tarifaires.
@@ -114,7 +114,7 @@ Les opérations gourmandes en ressources, comme l’analyse d’image dans l’i
 | Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |S.O.  |256 |256 |
 | Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4 millions |4 millions |4 millions |S.O. |4 millions |4 millions |
 
-<sup>1</sup> Les services du niveau Gratuit bénéficient d’une durée d’exécution maximale de l’indexeur de 3 minutes pour les sources d’objets blob, et de 1 minute pour toutes les autres sources de données.
+<sup>1</sup> Les services du niveau Gratuit bénéficient d’une durée d’exécution maximale de l’indexeur de 3 minutes pour les sources d’objets blob, et de 1 minute pour toutes les autres sources de données. Pour l’intelligence artificielle qui appelle la méthode dans Cognitive Services d’indexation, les services gratuits sont limités à 20 transactions gratuites par jour, où une transaction est définie comme un document qui réussit à travers le pipeline d’enrichissement.
 
 <sup>2</sup> La limite des services De base créés après fin 2017 a augmenté pour atteindre 15 index, sources de données et indexeurs. Celle des services créés avant est à 5.
 

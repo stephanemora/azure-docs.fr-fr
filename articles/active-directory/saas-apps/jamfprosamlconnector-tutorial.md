@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Jamf Pro | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Jamf Pro | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jamf Pro.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50349d008e3c2a7a8a09fd3e2d9e96097acc0c9e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855816"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906138"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutoriel : Intégration d’Azure Active Directory avec Jamf Pro
+# <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Didacticiel : Intégration d’Azure Active Directory avec Jamf Pro
 
 Dans ce tutoriel, vous allez apprendre à intégrer Jamf Pro dans Azure Active Directory (Azure AD).
 L’intégration de Jamf Pro à Azure AD vous offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Jamf Pro à Azure AD, vous devez ajouter Jamf Pro à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Jamf Pro à partir de la galerie, procédez comme suit :**
+**Pour ajouter Jamf Pro à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -160,7 +160,7 @@ Pour configurer l’authentification unique Azure AD avec Jamf Pro, procédez co
 
     ![Configuration Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-    a. Sélectionnez **Autres** comme option dans le menu déroulant **Fournisseur d’identité**.
+    a. Sélectionnez **Autres** comme option dans le menu déroulant **FOURNISSEUR D’IDENTITÉ**.
 
     b. Dans la zone de texte **OTHER PROVIDER (Autre fournisseur)**, entrez **Azure AD**.
 
@@ -191,7 +191,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -228,7 +228,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Pour se connecter à Jamf Pro, les utilisateurs d’Azure AD doivent être provisionnés dans Jamf Pro. Dans le cas de Jamf Pro, le provisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à votre site d’entreprise Jamf Pro en tant qu’administrateur.
 

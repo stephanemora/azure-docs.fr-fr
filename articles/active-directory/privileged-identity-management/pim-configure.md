@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce qu’Azure AD Privileged Identity Management ? | Microsoft Docs
+title: Qu’est-ce que Privileged Identity Management ? - Azure Active Directory | Microsoft Docs
 description: Fournit une vue d’ensemble d’Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 022fd8e1ab8445954b205f471cd1aa4d18e11545
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 22f4caed1ea0490470009c21f22624861808cb2d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178156"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578677"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
@@ -67,7 +67,7 @@ Pour mieux comprendre PIM et sa documentation, vous devez connaître les termes 
 | Éligibilité avec expiration | Duration | Attribution de rôle qui permet à un utilisateur d’être éligible à l’activation d’un rôle pendant une période spécifiée. |
 | Active avec expiration | Duration | Attribution de rôle qui permet à un utilisateur d’utiliser un rôle sans effectuer aucune action pendant une période spécifiée. |
 | Accès juste-à-temps (JIT) |  | Modèle où les utilisateurs reçoivent des autorisations temporaires pour effectuer des tâches privilégiées. De cette façon, les utilisateurs malveillants ou non autorisés ne peuvent pas accéder aux ressources une fois que les autorisations ont expiré. L’accès est accordé uniquement au moment où les utilisateurs en ont besoin. |
-| principe des privilèges d’accès minimum |  | Pratique de sécurité recommandée qui consiste à accorder à chaque utilisateur les privilèges minimum dont il a besoin pour accomplir les tâches qu’il est autorisé à effectuer. Cette pratique réduit le nombre d’administrateurs généraux et utilise à la place des rôles administrateur spécifiques pour certains scénarios. |
+| Principe des privilèges d’accès minimum |  | Pratique de sécurité recommandée qui consiste à accorder à chaque utilisateur les privilèges minimum dont il a besoin pour accomplir les tâches qu’il est autorisé à effectuer. Cette pratique réduit le nombre d’administrateurs généraux et utilise à la place des rôles administrateur spécifiques pour certains scénarios. |
 
 ## <a name="what-does-pim-look-like"></a>À quoi ressemble PIM ?
 

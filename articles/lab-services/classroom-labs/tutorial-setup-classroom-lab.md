@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 31bf2de7417a1be6139de3ec9dcc8d531df586d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00c32d1aaace765a1b46d5b25e82bab6e937d2ed
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090319"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649705"
 ---
-# <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de salle de classe 
+# <a name="tutorial-set-up-a-classroom-lab"></a>Didacticiel : Configurer un laboratoire de salle de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez effectuer les actions suivantes :
 > * Envoyer un lien d’inscription aux étudiants
 
 ## <a name="prerequisites"></a>Prérequis
-Pour configurer un laboratoire de classe dans un compte lab, vous devez être membre de l’un des rôles suivants dans le compte lab : Propriétaire, Créateur de laboratoire ou Contributeur. Le compte que vous avez utilisé pour créer un compte lab est automatiquement ajouté au rôle Propriétaire.
+Pour configurer un lab de classe dans un compte lab, vous devez être membre de l’un des rôles suivants dans le compte lab : Propriétaire, Créateur de laboratoire ou Contributeur. Le compte que vous avez utilisé pour créer un compte lab est automatiquement ajouté au rôle Propriétaire.
 
 Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **Créateur de laboratoire**. Par exemple, un propriétaire de laboratoire ajoute des professeurs au rôle Créateur de laboratoire. Ensuite, les professeurs créent des laboratoires avec des machines virtuelles pour leurs classes. Les étudiants utilisent le lien d’inscription qu’ils reçoivent des professeurs pour s’inscrire au laboratoire. Une fois inscrits, ils peuvent utiliser des machines virtuelles dans les laboratoires pour faire le travail en classe et leurs devoirs. Pour obtenir des instructions détaillées sur l’ajout d’utilisateurs au rôle Créateur de laboratoire, consultez [Ajouter un utilisateur au rôle Créateur de laboratoire](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
@@ -48,8 +48,8 @@ Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **
 
         ![Créer un laboratoire de classe](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Sur la page **Select virtual machine specifications** (sélectionner les spécifications de machine virtuelle), procédez aux étapes suivantes :
-    1. Sélectionnez une **taille** pour les machines virtuelles (VM) créées dans le laboratoire. 
-    3. Sélectionnez l'**image de machine virtuelle** à utiliser pour créer des VM dans le laboratoire. 
+    1. Sélectionnez une **taille** pour les machines virtuelles (VM) créées dans le laboratoire. Actuellement, les tailles **petite**, **moyenne**, **grande** et **GPU** sont autorisées.
+    3. Sélectionnez l'**image de machine virtuelle** à utiliser pour créer des VM dans le laboratoire. Si vous sélectionnez une image Linux, vous voyez une option pour activer la connexion Bureau à distance pour celle-ci. Pour plus d’informations, consultez [Activer la connexion Bureau à distance pour Linux](how-to-enable-remote-desktop-linux.md).
     4. Sélectionnez **Suivant**.
 
         ![Définir les spécifications de VM](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -69,7 +69,7 @@ Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **
 
     ![Page Configurer le modèle une fois terminé](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Dans la page **Configurer le modèle**, effectuez les étapes suivantes : Ces étapes sont **facultatives** pour le tutoriel.
-    1. Connectez-vous au modèle de machine virtuelle en sélectionnant **Se connecter**. 
+    1. Connectez-vous au modèle de machine virtuelle en sélectionnant **Se connecter**. S’il s’agit d’un modèle de machine virtuelle Linux, choisissez si vous voulez vous connecter avec SSH ou RDP (si RDP est activé).
     2. Installez et configurez des logiciels sur votre modèle de machine virtuelle.     
     3. Entrez une **description** pour le modèle
 9. Sélectionnez **Suivant** sur la page du modèle. 
@@ -78,7 +78,7 @@ Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **
 
         > [!WARNING]
         > Une fois que vous publiez, vous ne pouvez pas annuler la publication. 
-    2. Pour publier ultérieurement, sélectionnez **Enregistrer pour plus tard**. Vous pouvez publier le modèle de VM une fois l’Assistant terminé. Pour plus d’informations sur la façon de configurer et publier une fois l’Assistant terminé, consultez la section [Publier le modèle](how-to-create-manage-template.md#publish-the-template-vm) dans l’article [Gérer des laboratoires de classe](how-to-manage-classroom-labs.md).
+    2. Pour publier ultérieurement, sélectionnez **Enregistrer pour plus tard**. Vous pouvez publier le modèle de machine virtuelle une fois l’Assistant terminé. Pour plus d’informations sur la façon de configurer et de publier une fois l’Assistant terminé, consultez la section [Publier le modèle](how-to-create-manage-template.md#publish-the-template-vm) dans l’article [Gérer des labs de classe](how-to-manage-classroom-labs.md).
 
         ![Publier un modèle](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. La **progression de la publication** du modèle s’affiche. Ce processus peut prendre jusqu’à une heure. 
@@ -109,14 +109,19 @@ Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **
 
 
 ## <a name="send-an-email-with-the-registration-link"></a>Envoyer un e-mail avec le lien d’inscription
+
 1. Basculez vers la vue **Utilisateurs** si vous n’y êtes pas déjà. 
-2. Sélectionnez des utilisateurs spécifiques ou tous les utilisateurs dans la liste. Pour sélectionner des utilisateurs spécifiques, activez les cases à cocher dans la première colonne de la liste. Pour sélectionner tous les utilisateurs, sélectionnez la case à cocher devant le titre de la première colonne (**Nom**) ou sélectionnez toutes les cases à cocher pour tous les utilisateurs figurant dans la liste.
-3. Sélectionnez **Envoyer une invitation** dans la barre d’outils. Vous pouvez également pointer la souris sur un nom d’étudiant dans la liste, puis envoyer l’icône de courrier électronique. 
+2. Sélectionnez des utilisateurs spécifiques ou tous les utilisateurs dans la liste. Pour sélectionner des utilisateurs spécifiques, activez les cases à cocher dans la première colonne de la liste. Pour sélectionner tous les utilisateurs, sélectionnez la case à cocher devant le titre de la première colonne (**Nom**) ou sélectionnez toutes les cases à cocher pour tous les utilisateurs figurant dans la liste. Vous pouvez voir l’**état de l’invitation** dans cette liste.  Dans l’image suivante, l’état de l’invitation pour tous les étudiants est défini sur **Invitation non envoyée**. 
+
+    ![Sélectionner des étudiants](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Sélectionnez l’**icône d’e-mail (une enveloppe)** dans une des lignes (ou) sélectionnez **Envoyer une invitation** sur la barre d’outils. Vous pouvez également pointer la souris sur un nom d’étudiant dans la liste pour voir l’icône d’e-mail. 
 
     ![Envoyer un lien d’inscription par e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
 4. Dans la page **Envoyer un lien d’inscription par e-mail**, procédez comme suit : 
     1. Tapez un **message facultatif** que vous souhaitez envoyer aux étudiants. L’e-mail inclut automatiquement le lien d’inscription. 
-    2. Dans la page **Envoyer un lien d’inscription par e-mail**, sélectionnez **Envoyer**. 
+    2. Dans la page **Envoyer un lien d’inscription par e-mail**, sélectionnez **Envoyer**. Vous voyez l’état de l’invitation passer à **Envoi d’une invitation**, puis à **Invitation envoyée**. 
+        
+        ![Invitations envoyées](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce tutoriel, vous avez créé un laboratoire de classe et configuré le laboratoire. Pour savoir comment un étudiant peut accéder à une machine virtuelle dans le laboratoire à l’aide du lien d’inscription, passez au didacticiel suivant :

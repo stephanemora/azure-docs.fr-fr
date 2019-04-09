@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231812"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884684"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Vérifier le trafic selon une planification avec Azure Logic Apps
 
@@ -74,11 +74,12 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
 ## <a name="add-scheduler-trigger"></a>Ajouter un déclencheur basé sur un planificateur
 
-1. Dans le concepteur, entrez « périodicité » dans la zone de recherche. Sélectionnez le déclencheur **Planification - Récurrence**
+1. Dans le concepteur, entrez « périodicité » dans la zone de recherche. Sélectionner le déclencheur : **Planification - Récurrence**
 
    ![Rechercher et ajouter le déclencheur « Planification - Récurrence »](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. Dans la forme **Périodicité**, choisissez le bouton **points de suspension** (**...**), puis **Renommer**. Renommez le déclencheur à l’aide de cette description : ```Check travel time every weekday morning```.
+2. Dans la forme **Périodicité**, choisissez le bouton **points de suspension** (**...**), puis **Renommer**. Renommez le déclencheur avec cette description :
+```Check travel time every weekday morning```
 
    ![Renommer le déclencheur](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -117,7 +118,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
 
 1. Dans le concepteur d’application logique, sous votre déclencheur, sélectionnez **+ Nouvelle étape** > **Ajouter une action**.
 
-2. Recherchez « cartes » et sélectionnez cette action : **Bing Cartes : obtenir l’itinéraire**.
+2. Recherchez « maps », puis sélectionnez cette action : **Bing Maps - Obtenir une route**
 
 3. Si vous ne disposez pas d’une connexion à Bing Cartes, vous êtes invité à en créer une. Fournissez ces informations de connexion, puis choisissez **Créer**.
 
@@ -126,10 +127,11 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
    | Paramètre | Valeur | Description |
    | ------- | ----- | ----------- |
    | **Nom de connexion** | BingMapsConnection | Donnez un nom à votre connexion. | 
-   | **Clé API** | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. Si vous ne possédez pas une clé Bing Cartes, découvrez <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">comment en obtenir une</a>. | 
+   | **Clé de l’API** | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. Si vous ne possédez pas une clé Bing Cartes, découvrez <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">comment en obtenir une</a>. | 
    | | | |  
 
-4. Renommez l’action à l’aide de cette description : ```Get route and travel time with traffic```.
+4. Renommez l’action avec cette description :
+```Get route and travel time with traffic```
 
 5. Fournissez les détails de l’action **Obtenir l’itinéraire** comme indiqué et décrit ici, par exemple :
 
@@ -137,14 +139,14 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
 
    | Paramètre | Valeur | Description |
    | ------- | ----- | ----------- |
-   | **Étape 1** | <*start-location*> | Début de l’itinéraire. | 
-   | **Étape 2** | <*end-location*> | Destination de l’itinéraire. | 
-   | **Avoid** | Aucun | Tous les éléments à éviter sur votre itinéraire, par exemple les autoroutes, les péages, etc. | 
-   | **Optimize** | timeWithTraffic | Paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec le trafic en cours, etc. Sélectionnez ce paramètre : « timeWithTraffic ». | 
-   | **Unité de distance** | <*your-preference*> | Unité de distance utilisé pour l’itinéraire. Cet article utilise l’unité suivante : « mile ».  | 
-   | **Mode de déplacement** | Conduite | Mode de déplacement pour parcourir l’itinéraire. Sélectionnez ce mode : « Conduite ». | 
-   | **Date et heure de transit** | Aucun | S’applique au mode transit uniquement. | 
-   | **Type de date et d’heure** | Aucun | S’applique au mode transit uniquement. | 
+   | **Étape 1** | <*start-location*> | Début de l’itinéraire. | 
+   | **Étape 2** | <*end-location*> | Destination de l’itinéraire. | 
+   | **À éviter** | Aucun | Tous les éléments à éviter sur votre itinéraire, par exemple les autoroutes, les péages, etc. | 
+   | **Optimisation** | timeWithTraffic | Paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec le trafic en cours, etc. Sélectionnez ce paramètre : « timeWithTraffic ». | 
+   | **Unité de distance** | <*your-preference*> | Unité de distance utilisé pour l’itinéraire. Cet article utilise cette unité : « Mile »  | 
+   | **Mode de déplacement** | Conduite | Mode de déplacement pour parcourir l’itinéraire. Sélectionnez ce mode : « Driving » | 
+   | **Date/heure de transit** | Aucun | S’applique au mode transit uniquement. | 
+   | **Type de date/heure** | Aucun | S’applique au mode transit uniquement. | 
    |||| 
 
    Pour plus d’informations sur ces paramètres, voir [Calculate a route (Calculer un itinéraire)](https://msdn.microsoft.com/library/ff701717.aspx).
@@ -161,11 +163,12 @@ Par défaut, l’action **Obtenir l’itinéraire** précédente retourne la dur
 
 1. Sous l’action **Obtenir l’itinéraire**, choisissez **+ Nouvelle étape** > **Ajouter une action**.
 
-2. Recherchez « variables » et sélectionnez cette action : **Variables : initialiser la variable**.
+2. Recherchez « variables », puis sélectionnez cette action : **Variables - Initialiser la variable**
 
    ![Sélectionner l’action « Variables : initialiser la variable »](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Renommez l’action à l’aide de cette description : ```Create variable to store travel time```.
+3. Renommez l’action avec cette description :
+```Create variable to store travel time```
 
 4. Fournissez les détails de la variable, comme décrit ici :
 
@@ -190,7 +193,7 @@ Par défaut, l’action **Obtenir l’itinéraire** précédente retourne la dur
       Si la fenêtre du navigateur est large, la liste de contenu dynamique s’affiche. 
       Si elle est étroite, une liste des paramètres s’affiche sous la zone d’édition qui possède actuellement le focus.
 
-   2. Dans l’éditeur d’expressions, entrez cette expression : ```div(,60)```.
+   2. Dans l’éditeur d’expressions, entrez cette expression : ```div(,60)```
 
       ![Entrer cette expression : « div(,60) »](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
@@ -219,7 +222,7 @@ Ajoutez une condition qui vérifie si la durée du trajet actuel est supérieure
 
 1. Sous l’action précédente, choisissez **+ Nouvelle étape** > **Ajouter une condition**. 
 
-2. Renommez la condition à l’aide de cette description : ```If travel time exceeds limit```.
+2. Renommez la condition avec cette description : ```If travel time exceeds limit```
 
 3. Générez une condition qui vérifie si la valeur **travelTime** dépasse la limite spécifiée comme décrit et indiqué ici :
 
@@ -256,13 +259,14 @@ Ajoutez une action qui vous avertit par e-mail lorsque la durée du trajet dépa
 
    Logic Apps crée une connexion à votre compte de messagerie.
 
-4. Renommez l’action à l’aide de cette description : ```Send email with travel time```.
+4. Renommez l’action avec cette description :
+```Send email with travel time```
 
 5. Dans la zone **À**, entrez l’adresse e-mail du destinataire. À des fins de test, utilisez votre adresse e-mail.
 
 6. Dans la zone **Objet**, spécifiez l’objet de l’e-mail, puis insérez la variable **travelTime**.
 
-   1. Entrez le texte ```Current travel time (minutes): ``` avec un espace de fin. 
+   1. Entrez le texte ```Current travel time (minutes):``` avec un espace de fin. 
    
    2. Dans la liste des paramètres ou la liste de contenu dynamique, sélectionnez **travelTime** sous **Variables**. 
    
@@ -272,7 +276,7 @@ Ajoutez une action qui vous avertit par e-mail lorsque la durée du trajet dépa
 
 7. Dans la zone **Corps**, spécifiez le contenu du corps de l’e-mail. 
 
-   1. Entrez le texte ```Add extra travel time (minutes): ``` avec un espace de fin. 
+   1. Entrez le texte ```Add extra travel time (minutes):``` avec un espace de fin. 
    
    2. Si nécessaire, élargissez la fenêtre du navigateur jusqu’à ce que la liste de contenu dynamique apparaisse. 
    Dans la liste de contenu dynamique, choisissez **Expression**.
@@ -338,4 +342,4 @@ Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contie
 Dans ce didacticiel, vous avez créé une application logique qui vérifie le trafic selon une planification spécifiée (les matins des jours ouvrables), et effectue une action (envoi d’un e-mail) lorsque la durée du trajet excède une limite définie. À présent, découvrez comment créer une application logique qui envoie des demandes de liste de diffusion pour approbation en intégrant des services Azure et Microsoft et d’autres applications SaaS.
 
 > [!div class="nextstepaction"]
-> [Gérer les demandes de liste de diffusion](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+> [Gérer les requêtes de la liste de distribution](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)

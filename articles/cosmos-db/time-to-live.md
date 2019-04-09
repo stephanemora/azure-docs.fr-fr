@@ -1,34 +1,34 @@
 ---
 title: Faire expirer des données dans Cosmos DB avec la durée de vie
 description: Avec la TTL, Microsoft Azure Cosmos DB offre la possibilité de vider automatiquement les documents du système après une période déterminée.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549185"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271269"
 ---
-# <a name="time-to-live-in-azure-cosmos-db"></a>Durée de vie dans Azure Cosmos DB 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durée de vie (TTL) dans Azure Cosmos DB 
 
-Avec la « durée de vie » (TTL, Time to Live), Azure Cosmos DB permet de supprimer automatiquement des éléments d'un conteneur après une période déterminée. La durée de vie par défaut peut être définie au niveau du conteneur et être substituée par élément. Une fois la durée de vie définie au niveau d'un conteneur ou d'un élément, Azure Cosmos DB supprime automatiquement les éléments correspondants au terme de la période écoulée depuis la dernière modification. La valeur de durée de vie est définie en secondes. Contrairement à une opération de suppression explicitement émise par l'application cliente, lorsque vous définissez la durée de vie, le système supprime automatiquement les éléments arrivés à expiration en fonction de la valeur de durée de vie.
+Avec **Time to Live** ou de la durée de vie, Azure Cosmos DB offre la possibilité de supprimer automatiquement des éléments à partir d’un conteneur après un certain laps de temps. La durée de vie par défaut peut être définie au niveau du conteneur et être substituée par élément. Une fois la durée de vie définie au niveau d'un conteneur ou d'un élément, Azure Cosmos DB supprime automatiquement les éléments correspondants au terme de la période écoulée depuis la dernière modification. La valeur de durée de vie est définie en secondes. Lorsque vous configurez la durée de vie, le système supprimera automatiquement les éléments expirés basés sur la valeur de durée de vie, sans avoir besoin d’une opération de suppression est explicitement émise par l’application cliente.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Durée de vie pour les conteneurs et éléments
 
-La valeur de durée de vie est définie en secondes et interprétée en tant qu'écart par rapport à la dernière modification de l'élément. Vous pouvez définir la durée de vie sur un conteneur ou sur un élément présent dans le conteneur :
+La valeur durée de vie est définie en secondes, et il est interprété en tant qu’écart entre le moment où un élément a été modifié. Vous pouvez définir la durée de vie sur un conteneur ou sur un élément présent dans le conteneur :
 
 1. **Durée de vie sur un conteneur** (définie via `DefaultTimeToLive`) :
 
    - Si ce paramètre est manquant (ou s'il est défini sur null), les éléments n'expirent pas automatiquement.
 
-   - Si ce paramètre est présent et que sa valeur est définie sur « -1 », il est égal à l'infini et, par défaut, les éléments n'expirent pas.
+   - Si l’heure actuelle et la valeur est définie sur « -1 », il est égal à l’infini et éléments n’expirent pas par défaut.
 
-   - Si ce paramètre est présent et que sa valeur est définie sur un nombre quelconque (« n »), les éléments expirent « n » secondes après leur dernière modification.
+   - Si présent et a la valeur est définie sur un nombre *« n »* – éléments n’expirent *« n »* secondes après leur dernière heure de modification.
 
 2. **Durée de vie sur un élément** (définie via `ttl`) :
 
@@ -38,7 +38,7 @@ La valeur de durée de vie est définie en secondes et interprétée en tant qu'
 
 ## <a name="time-to-live-configurations"></a>Configurations de durée de vie
 
-* Si une durée de vie de « n » est définie sur un conteneur, les éléments présents dans ce conteneur expireront après n secondes.  Si le même conteneur contient des éléments qui possèdent leur propre durée de vie, définie sur -1 (ce qui indique qu'ils n'expirent pas), ou si certains éléments ont remplacé le paramètre de durée de vie par un autre nombre, ces éléments expirent en fonction de la valeur de durée de vie définie. 
+* Si la durée de vie est définie sur *« n »* sur un conteneur, puis les éléments dans le conteneur arrivera à expiration après *n* secondes.  Si les éléments dans le même conteneur qui ont leur propre délai pour live, la valeur -1 (indiquant qu’ils n’expirent pas) ou si certains éléments ont remplacé la durée de vie de paramètre avec un nombre différent, ces éléments expirent selon leur propre valeur de durée de vie configurée. 
 
 * Si aucune durée de vie n'est définie sur un conteneur, la durée de vie définie sur un élément présent dans ce conteneur n'a aucun effet. 
 
@@ -50,4 +50,4 @@ La suppression d'éléments basée sur la durée de vie est gratuite. Aucun coû
 
 Découvrez comment configurer la durée de vie dans les articles suivants :
 
-* [Configurer la durée de vie](how-to-time-to-live.md)
+* [Comment configurer la durée de vie](how-to-time-to-live.md)

@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceaf472f53c48b17701b14fdf4107045c2e43fdc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521973"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258740"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ?
 
@@ -58,7 +58,7 @@ Avec les contrôles d’octroi, vous pouvez bloquer l’accès complètement ou 
 - Tous les contrôles sélectionnés doivent être satisfaits (*AND*).
 - Un seul contrôle sélectionné doit être satisfait (*OR*).
 
-![Contrôle](./media/controls/17.png)
+![Contrôle](./media/controls/18.png)
 
 ### <a name="multi-factor-authentication"></a>Authentification multifacteur
 
@@ -78,7 +78,7 @@ Votre appareil doit être inscrit auprès d’Azure AD avant de pouvoir être ma
 
 - [Appareils inscrits sur Azure AD](../devices/overview.md#azure-ad-registered-devices)
 - [Appareils joints Azure AD](../devices/overview.md#azure-ad-joined-devices)  
-- [Appareils avec jonction Azure AD Hybride](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Appareils joints Azure AD hybrides](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Pour plus d’informations, consultez le [guide pratique pour exiger des appareils managés et accéder aux applications cloud avec l’accès conditionnel](require-managed-devices.md).
 
@@ -94,6 +94,18 @@ Pour plus d’informations, consultez [Configurer des stratégies d’accès con
 Vous pouvez utiliser des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy) pour mieux protéger les données de votre entreprise, quelle que soit votre solution de gestion des appareils mobiles (MDM).
 
 Avec les applications clientes approuvées, vous pouvez exiger qu’une application cliente qui tente d’accéder à vos applications cloud prenne en charge des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy). Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook. Une stratégie d’accès conditionnel qui requiert des applications clientes approuvées est aussi appelée [stratégie d’accès conditionnel basé sur les applications](app-based-conditional-access.md). Pour obtenir la liste des applications clientes approuvées prises en charge, consultez [Spécification d’application cliente approuvée](technical-reference.md#approved-client-app-requirement).
+
+### <a name="app-protection-policy-preview"></a>Stratégie de protection des applications (version préliminaire)
+
+Étant donné que vos employés utilisent des appareils mobiles pour les tâches personnelles et professionnelles, vous pouvez souhaiter avoir la possibilité de protéger les données d’entreprise accessibles à l’aide d’appareils même si ce n’est pas vous qui les gérez.
+Vous pouvez utiliser des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy) pour mieux protéger les données de votre entreprise, quelle que soit votre solution de gestion des appareils mobiles (MDM).
+
+Avec la stratégie de protection d’application, vous pouvez limiter l’accès aux applications clientes qui ont signalé à Azure AD a ayant reçu [stratégies Intune app protection](https://docs.microsoft.com/intune/app-protection-policy). Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook qui a une stratégie de protection d’application Intune. Une stratégie d’accès conditionnel qui requiert la stratégie de protection des applications est également appelé [stratégie accès conditionnel basé sur la protection des applications](app-protection-based-conditional-access.md). 
+
+Votre appareil doit être inscrit à Azure AD avant d’une application peut être marquée en tant que stratégie protégé.
+
+Pour obtenir la liste de stratégie pris en charge les applications clientes protégé, consultez [exigence de stratégie de protection application](technical-reference.md#app-protection-policy-requirement).
+
 
 ### <a name="terms-of-use"></a>Conditions d’utilisation
 
@@ -112,12 +124,12 @@ Ces contrôles permettent l’utilisation de certains services externes ou perso
 Les fournisseurs suivants offrent un service compatible :
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
-- [Identité Ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
+- [Confiez Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
-- [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
+- [Adresse IP virtuelle de Symantec](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 Pour plus d’informations sur ces services, contactez directement les fournisseurs.
@@ -162,9 +174,9 @@ Vous pouvez utiliser ce contrôle pour exiger qu’Azure AD transmette les infor
 
 Pour plus d'informations, consultez les rubriques suivantes :
 
-- [Activation d’un accès limité avec SharePoint Online](https://aka.ms/spolimitedaccessdocs)
+- [Activation de l’accès limité avec SharePoint Online](https://aka.ms/spolimitedaccessdocs)
 
-- [Activation d’un accès limité avec Exchange Online](https://aka.ms/owalimitedaccess)
+- [Activation de l’accès limité avec Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

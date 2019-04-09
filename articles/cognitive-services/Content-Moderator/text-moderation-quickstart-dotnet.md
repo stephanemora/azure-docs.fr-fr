@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312240"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756527"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Démarrage rapide : Analyser le contenu d’un texte pour trouver des matériaux répréhensibles en C# 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Démarrage rapide : Analyser le contenu d’un texte pour trouver des matériaux répréhensibles en C#
 
 Cet article fournit des informations et des exemples de code qui vont vous aider à prendre en main le [kit SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Vous allez apprendre à exécuter le filtrage basé sur des termes et la classification d’un contenu textuel dans le but de modérer les matériaux potentiellement répréhensibles.
 
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Ajoutez le code suivant à la méthode **Main**. La méthode **ScreenText** est l’opération essentielle. Ses paramètres spécifient les opérations de modération de contenu qui seront effectuées. Dans cet exemple, la méthode est configurée pour :
 - Détecter les propos injurieux potentiels dans le texte.
 - Normaliser le texte et corriger automatiquement les fautes de frappe.
-- Détecter des informations d’identification personnelle (PII) telles que des numéros de téléphone aux États-Unis et au Royaume-Uni, des adresses e-mail et des adresses postales aux États-Unis
+- Détecter des données personnelles telles que des numéros de téléphone aux États-Unis et au Royaume-Uni, des adresses e-mail et des adresses postales aux États-Unis.
 - Utilisez des modèles basés sur un apprentissage automatique pour classer le texte en trois catégories.
 
 Si vous souhaitez en savoir plus sur le rôle de ces opérations, suivez le lien dans la section [Étapes suivantes](#next-steps).

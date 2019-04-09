@@ -1,7 +1,6 @@
 ---
 title: Présentation du cycle de vie d’un blueprint
 description: Découvrez le cycle de vie d’un blueprint et les détails de chaque phase.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/01/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001574"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266611"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Présentation du cycle de vie d’un blueprint Azure
 
@@ -103,8 +102,8 @@ Pour découvrir comment procéder, consultez [Mettre à jour des affectations ex
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Comprendre comment utiliser [paramètres statiques et dynamiques](parameters.md).
-- Apprenez à personnaliser le [blueprint ordre de classement](sequencing-order.md).
-- Découvrez comment rendre utiliser [blueprint verrouillage de ressources](resource-locking.md).
-- Découvrez comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).
-- Résoudre les problèmes de l’attribution d’un plan avec [dépannage général](../troubleshoot/general.md).
+- Comprendre comment utiliser les [paramètres statiques et dynamiques](parameters.md).
+- Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md).
+- Découvrir comment utiliser le [verrouillage de ressources de blueprint](resource-locking.md).
+- Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).
+- Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md).

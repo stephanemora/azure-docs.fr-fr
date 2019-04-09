@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295451"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271796"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation
 
@@ -58,7 +58,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS50007 | PartnerEncryptionCertificateMissing : le certificat de chiffrement partenaire est introuvable pour cette application. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) auprès de Microsoft pour résoudre ce problème. |
 | AADSTS50008 | InvalidSamlToken : l’assertion SAML est manquante ou configurée de façon incorrecte dans le jeton. Contactez votre fournisseur de fédération. |
 | AADSTS50010 | AudienceUriValidationFailed : la validation de l’URI d’audience pour l’application a échoué, car aucune audience de jeton n’a été configurée. |
-| AADSTS50011 | InvalidReplyTo : l’adresse de réponse est manquante, configurée de façon incorrecte ou elle ne correspond pas aux adresses de réponse configurées pour l’application. Testez la résolution décrite à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Si vous rencontrez toujours des problèmes, contactez le propriétaire ou l’administrateur de l’application. |
+| AADSTS50011 | InvalidReplyTo : l’adresse de réponse est manquante, configurée de façon incorrecte ou elle ne correspond pas aux adresses de réponse configurées pour l’application.  Une résolution à vérifier pour ajouter cette adresse de réponse manquant à l’application Azure Active Directory ou un utilisateur bénéficiant des autorisations pour gérer votre application dans Active Directory ont à faire pour vous.|
 | AADSTS50012 | AuthenticationFailed : échec de l’authentification pour l’une des raisons suivantes :<ul><li>Le nom du sujet du certificat de signature n’est pas autorisé</li><li>Aucune stratégie d’une autorité de confiance correspondante n’est trouvable pour le nom du sujet autorisé</li><li>La chaîne de certificats n'est pas valide</li><li>Le certificat de signature n’est pas valide</li><li>La stratégie n’est pas configurée sur le locataire</li><li>L’empreinte du certificat de signature n’est pas autorisée</li><li>L’assertion du client contient une signature non valide</li></ul> |
 | AADSTS50013 | InvalidAssertion : l’assertion n’est pas valide pour différentes raisons : l’émetteur du jeton ne correspond pas à la version d’API dans l’intervalle de temps valide (expiré, format incorrect). Le jeton d’actualisation dans l’assertion n’est pas un jeton d’actualisation principal. |
 | AADSTS50014 | GuestUserInPendingState : le remboursement de l’utilisateur est en attente. Le compte d’utilisateur invité n’a pas encore été entièrement créé. |
@@ -153,7 +153,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS70007 | UnsupportedResponseMode : l’application a renvoyé une valeur non prise en charge pour `response_mode` lors de la requête d’un jeton.  |
 | AADSTS70008 | ExpiredOrRevokedGrant : le jeton d’actualisation a expiré en raison d’une inactivité. Le jeton a été émis le XXX et il était inactif pendant un certain laps de temps. |
 | AADSTS70011 | InvalidScope : la portée demandée par l’application n’est pas valide. |
-| AADSTS70012 | MsaServerError : une erreur de serveur s’est produite lors de l’authentification d’un utilisateur de compte de service administré (consommateur). Réessayez. Si le problème persiste, [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) .|
+| AADSTS70012 | MsaServerError : une erreur de serveur s’est produite lors de l’authentification d’un utilisateur de compte de service administré (consommateur). Réessayez. Si le problème persiste, [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS70016 | AuthorizationPending : erreur de flux d’appareil d’OAuth 2.0. Une autorisation est en attente. L’appareil va réessayer l’interrogation de la requête. |
 | AADSTS70018 | BadVerificationCode : le code de vérification n’est pas valide, car l’utilisateur a saisi un code utilisateur incorrect pour le flux de code d’appareil. L’autorisation n’est pas approuvée. |
 | AADSTS70019 | CodeExpired : le code de vérification a expiré. Demandez à l’utilisateur de réessayer de se connecter. |

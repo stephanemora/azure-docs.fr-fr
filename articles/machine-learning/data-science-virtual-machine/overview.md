@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f90e82fea9cbb3c3052738d15ff4a3838f1ad000
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863238"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918244"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Présentation d'Azure Data Science Virtual Machine pour Linux et Windows
 
@@ -66,7 +66,7 @@ De nombreux outils de science des données et d’apprentissage approfondi popul
 | Bases de données relationnelles                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |
 | Outils de base de données                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * Pilotes ODBC/JDBC| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (outil de requête), <br /> * bcp, sqlcmd <br /> * Pilotes ODBC/JDBC|
 | Analytiques en base de données évolutives avec services SQL Server ML (R, Python) | O     |N              |
-| **[Serveur Bloc-notes Jupyter](https://jupyter.org/) avec noyaux suivants,**                                  | O     | O |
+| **[Serveur Jupyter Notebook](https://jupyter.org/) avec noyaux suivants,**                                  | O     | O |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | O | O |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Python | O | O |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | O | O |
@@ -87,7 +87,7 @@ De nombreux outils de science des données et d’apprentissage approfondi popul
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git et GitBash | O | O |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | O | O |
 | &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | O | N |
-| PowerBI Desktop | O | N |
+| Power BI Desktop | O | N |
 | Kits de développement logiciel (SDK) pour accéder à Azure et à la suite de services Cortana Intelligence | O | O |
 | **Outils de gestion et de déplacement de données** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Explorateur de stockage Microsoft Azure | O | O |
@@ -100,7 +100,7 @@ De nombreux outils de science des données et d’apprentissage approfondi popul
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Passerelle de gestion des données de Microsoft](https://msdn.microsoft.com/library/dn879362.aspx) : Déplacer des données entre un emplacement local et le cloud | O | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Utilitaires en ligne de commande Unix/Linux | O | O |
 | [Apache Drill](https://drill.apache.org) pour l’exploration des données | O | O |
-| **Outils Machine Learning** |||
+| **Outils d’apprentissage automatique** |||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Intégration avec [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) | O | O |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Xgboost](https://github.com/dmlc/xgboost) | O | O |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | O | O |
@@ -139,4 +139,4 @@ De nombreux outils de science des données et d’apprentissage approfondi popul
 * Pour obtenir une procédure montrant comment effectuer plusieurs tâches courantes relatives à la science des données avec la machine virtuelle Linux (CentOS et Ubuntu), consultez [Science des données sur la machine virtuelle de science des données Linux](linux-dsvm-walkthrough.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Guide du développeur R sur Azure](../r-developers-guide.md)
+[Guide du développeur R sur Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)

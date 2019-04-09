@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78cb45d83cd9bc9bc973ec7a09cb75a8b111744
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: ea1f4d4a6b60961515826a1ba7409bf149b318e8
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224146"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058473"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutoriel : Configurer G Suite pour l’attribution automatique d’utilisateurs
 
@@ -69,78 +69,77 @@ Cette section vous guide tout au long du processus de connexion d’Azure AD à 
 > Une autre option possible pour automatiser l’approvisionnement des utilisateurs dans G Suite consiste à utiliser [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS approvisionne vos identités Active Directory locales dans G Suite. En revanche, la solution proposée dans ce tutoriel approvisionne vos utilisateurs Azure Active Directory (cloud) et vos groupes à extension messagerie dans G Suite. 
 
 1. Connectez-vous à la [Console d’administration de Google Apps](https://admin.google.com/) avec votre compte d’administrateur, puis sélectionnez **Sécurité**. Si le lien ne s’affiche pas, il est peut-être masqué par le menu **Autres contrôles** situé en bas de l’écran.
-   
+
     ![Sélectionnez Sécurité.][10]
 
 1. Dans la page **Sécurité**, sélectionnez **Informations de référence sur l’API**.
-   
+
     ![Sélectionnez Informations de référence sur l’API.][15]
 
 1. Sélectionnez **Activer l'accès à l'API**.
-   
+
     ![Sélectionnez Informations de référence sur l’API.][16]
 
    > [!IMPORTANT]
    > Le nom d’utilisateur Azure Active Directory de chaque utilisateur que vous souhaitez approvisionner dans G Suite *doit* être associé à un domaine personnalisé. Par exemple, les noms d’utilisateur qui ressemblent à bob@contoso.onmicrosoft.com ne sont pas acceptés par G Suite. En revanche, bob@contoso.com est accepté. Vous pouvez modifier le domaine d’un utilisateur existant en modifiant ses propriétés dans Azure AD. Les étapes suivantes montrent comment définir un domaine personnalisé pour Azure Active Directory et G Suite.
-      
+
 1. Si vous n’avez pas encore ajouté de nom de domaine personnalisé à Azure Active Directory, effectuez les étapes suivantes :
   
-    a. Dans le panneau de navigation gauche du [portail Azure](https://portal.azure.com), sélectionnez **Active Directory**. Dans la liste Annuaire, sélectionnez votre annuaire. 
+    a. Dans le panneau de navigation gauche du [portail Azure](https://portal.azure.com), sélectionnez **Active Directory**. Dans la liste Annuaire, sélectionnez votre annuaire.
 
     b. Sélectionnez **Nom de domaine** dans le volet de navigation gauche, puis sélectionnez **Ajouter**.
-     
-     ![Domaine](./media/google-apps-provisioning-tutorial/domain_1.png)
 
-     ![Ajout de domaine](./media/google-apps-provisioning-tutorial/domain_2.png)
+    ![Domaine](./media/google-apps-provisioning-tutorial/domain_1.png)
+
+    ![Ajout de domaine](./media/google-apps-provisioning-tutorial/domain_2.png)
 
     c. Saisissez votre nom de domaine dans le champ **Nom de domaine** . Ce nom de domaine doit être identique à celui que vous souhaitez utiliser pour G Suite. Ensuite, sélectionnez le bouton **Ajouter un domaine**.
-     
-     ![Nom de domaine](./media/google-apps-provisioning-tutorial/domain_3.png)
 
-    d. Sélectionnez **Suivant** pour accéder à la page de vérification. Pour vérifier que vous être propriétaire de ce domaine, modifiez ses enregistrements DNS en fonction des valeurs fournies dans cette page. Vous pouvez choisir d’effectuer la vérification en utilisant des **enregistrements MX** ou des **enregistrements TXT**, selon l’option de **Type d’enregistrement** sélectionnée. 
-    
+    ![Nom de domaine](./media/google-apps-provisioning-tutorial/domain_3.png)
+
+    d. Sélectionnez **Suivant** pour accéder à la page de vérification. Pour vérifier que vous être propriétaire de ce domaine, modifiez ses enregistrements DNS en fonction des valeurs fournies dans cette page. Vous pouvez choisir d’effectuer la vérification en utilisant des **enregistrements MX** ou des **enregistrements TXT**, selon l’option de **Type d’enregistrement** sélectionnée.
+
     Pour obtenir des instructions plus complètes sur la vérification des noms de domaine avec Azure AD, consultez [Ajouter votre propre domaine à Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
-     
-     ![Domaine](./media/google-apps-provisioning-tutorial/domain_4.png)
+
+    ![Domaine](./media/google-apps-provisioning-tutorial/domain_4.png)
 
     e. Répétez la procédure précédente pour tous les domaines que vous souhaitez ajouter à votre répertoire.
 
-   > [!NOTE]
-   >  Pour l’attribution d’utilisateurs, le domaine personnalisé doit correspondre au nom de domaine de l’annuaire Azure AD source. S’ils ne correspondent pas, vous pouvez peut-être résoudre le problème en mettant en œuvre une personnalisation du mappage des attributs.
-
+    > [!NOTE]
+    > Pour l’attribution d’utilisateurs, le domaine personnalisé doit correspondre au nom de domaine de l’annuaire Azure AD source. S’ils ne correspondent pas, vous pouvez peut-être résoudre le problème en mettant en œuvre une personnalisation du mappage des attributs.
 
 1. Maintenant que vous avez vérifié tous vos domaines avec Azure AD, vous devez les revérifier avec Google Apps. Pour chaque domaine qui n’est pas encore inscrit auprès de Google, effectuez les étapes suivantes :
-   
+
     a. Dans la [Console d’administration de Google Apps](https://admin.google.com/), sélectionnez **Domaines**.
-     
-     ![Sélectionner les domaines][20]
+
+    ![Sélectionner les domaines][20]
 
     b. Sélectionnez **Ajouter un domaine ou un alias de domaine**.
-     
-     ![Ajouter un nouveau domaine][21]
+
+    ![Ajouter un nouveau domaine][21]
 
     c. Sélectionnez **Ajouter un autre domaine**, puis tapez le nom du domaine que vous souhaitez ajouter.
-     
-     ![Entrer votre nom de domaine][22]
+
+    ![Entrer votre nom de domaine][22]
 
     d. Sélectionnez **Continuer et vérifier la propriété du domaine**. Puis suivez les étapes pour vérifier que vous possédez le nom de domaine. Pour obtenir des instructions complètes sur la vérification de votre domaine avec Google, consultez [Vérification de votre site avec Google Apps](https://support.google.com/webmasters/answer/35179).
 
     e. Répétez la procédure précédente pour tous les domaines supplémentaires que vous souhaitez ajouter à Google Apps.
-     
-     > [!WARNING]
-     > Si vous changez le domaine principal pour votre locataire G Suite tout en ayant déjà configuré l’authentification unique avec Azure AD, vous devez répéter l’étape 3 sous Étape 2 : Activer l’authentification unique.
-       
+
+    > [!WARNING]
+    > Si vous changez le domaine principal pour votre locataire G Suite tout en ayant déjà configuré l’authentification unique avec Azure AD, vous devez répéter l’étape 3 sous Étape 2 : Activer l’authentification unique.
+
 1. Dans la [Console d’administration de Google Apps](https://admin.google.com/), sélectionnez **Rôles d’administrateur**.
-   
-     ![Sélectionner Google Apps][26]
+
+    ![Sélectionner Google Apps][26]
 
 1. Déterminez le compte d’administrateur à utiliser pour gérer l’approvisionnement des utilisateurs. Pour le **Rôle d’administrateur** de ce compte, modifiez les **Privilèges** pour ce rôle. Veillez à activer tous les **Privilèges d’administrateur d’API** pour que ce compte puisse être utilisé pour l’approvisionnement.
-   
-     ![Sélectionner Google Apps][27]
-   
+
+    ![Sélectionner Google Apps][27]
+
     > [!NOTE]
     > Si vous configurez un environnement de production, la meilleure pratique est de créer un compte d’administrateur dans G Suite spécialement pour cette étape. Ce compte doit avoir un rôle d’administrateur associé qui dispose des privilèges d’API nécessaires.
-     
+
 1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications**.
 
 1. Si vous avez déjà configuré G Suite pour l’authentification unique, recherchez votre instance de G Suite à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **G Suite** ou **Google Apps** dans la galerie d’applications. Dans les résultats de la recherche, sélectionnez votre application, puis ajoutez-la à votre liste d’applications.
@@ -149,13 +148,13 @@ Cette section vous guide tout au long du processus de connexion d’Azure AD à 
 
 1. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
 
-       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
+    ![Approvisionnement](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Sous la section **Informations d’identification de l’administrateur**, sélectionnez **Autoriser**. Une boîte de dialogue d’autorisation Google s’ouvre dans une nouvelle fenêtre de navigateur.
 
 1. Confirmez que vous souhaitez autoriser Azure Active Directory à apporter des modifications à votre locataire G Suite. Sélectionnez **Accepter**.
-    
-       ![Confirm permissions.][28]
+
+    ![Confirmez les autorisations.][28]
 
 1. Sur le Portail Azure, sélectionnez **Tester la connexion** pour vérifier qu’Azure AD parvient à se connecter à votre application. Si la connexion échoue, vérifiez que votre compte G Suite dispose des autorisations Administrateur d’équipe. Ensuite, réessayez d’effectuer l’étape **Autoriser**.
 
@@ -177,11 +176,9 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](tutorial-list.md)
+* [La gestion de l’approvisionnement de comptes utilisateur pour les applications d’entreprise](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 * [Configurer l’authentification unique](google-apps-tutorial.md)
-
-
 
 <!--Image references-->
 

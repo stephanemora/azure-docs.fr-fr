@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915918"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256190"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatiser les mises à jour correctives du système d’exploitation et du framework avec ACR Tasks
 
@@ -78,7 +78,7 @@ Pour en savoir plus sur la mise à jour corrective du système d’exploitation 
 > [!NOTE]
 > Les mises à jour de l’image de base ne déclenchent des générations que lorsque les images de base et d’application se trouvent dans le même registre de conteneurs Azure ou lorsque l’image de base réside dans un référentiel Docker Hub public.
 
-## <a name="multi-step-tasks"></a>Tâches multi-étapes
+## <a name="multi-step-tasks"></a>Tâches multiétapes
 
 Tâches multi-étapes fournissent la définition de tâche basée sur une étape et de l’exécution de la conception, test et de mise à jour corrective des images de conteneur dans le cloud. Les étapes de la tâche définissent les opérations build et push d’une image de conteneur individuelle. Elles permettent également de définir l’exécution d’un ou plusieurs conteneurs, en utilisant à chaque étape le conteneur comme son environnement d’exécution.
 
@@ -97,10 +97,9 @@ Pour en savoir plus sur les tâches à plusieurs étapes, consultez [Run multi-s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lorsque vous êtes prêt à automatiser les mises à jour correctives du système d’exploitation et du framework en générant vos images de conteneur dans le cloud, consultez les trois didacticiels d’ACR Tasks.
+Lorsque vous êtes prêt à automatiser le système d’exploitation et la mise à jour corrective du framework en créant vos images de conteneur dans le cloud, Découvrez les trois parties [série de didacticiels ACR tâches](container-registry-tutorial-quick-task.md).
 
-> [!div class="nextstepaction"]
-> [Générer des images de conteneur dans le cloud avec les tâches de Registre de conteneur Azure](container-registry-tutorial-quick-task.md)
+Si vous le souhaitez installer le [Extension Docker pour Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) et le [compte Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension pour travailler avec vos registres de conteneurs Azure. Extraire et envoyer des images à un Registre de conteneurs Azure ou exécuter des tâches d’ACR, tout dans Visual Studio Code.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

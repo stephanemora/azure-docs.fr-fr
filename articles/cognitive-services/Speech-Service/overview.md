@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b536c55b0f7c29bc463781d9fda0348ef994c5ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519627"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662222"
 ---
 # <a name="what-are-the-speech-services"></a>Qu’est-ce que Speech Services ?
 
@@ -39,7 +39,7 @@ Ces fonctionnalités constituent les services Speech Azure. Pour en savoir plus 
 
 Découvrez les nouveautés introduites dans les services Speech Azure.
 
-* Mars 2019 - Un nouveau point de terminaison de synthèse vocale, qui retourne la liste complète des voix disponibles dans chaque région, est désormais disponible. Pour plus d’informations, consultez [Informations de référence sur l’API de synthèse vocale (REST)](rest-text-to-speech.md).
+* Mars 2019 - Un nouveau point de terminaison de synthèse vocale (TTS), qui retourne la liste complète des voix disponibles dans chaque région, est désormais disponible. De plus, de nouvelles régions sont désormais prises en charge pour la synthèse vocale. Pour plus d’informations, consultez [Informations de référence sur l’API de synthèse vocale (REST)](rest-text-to-speech.md).
 * Février 2019 : publication du Kit de développement logiciel (SDK) Speech 1.3.0 avec prise en charge de [Unity (bêta)](quickstart-csharp-unity.md). Ajout de la prise en charge de la classe `AudioInput` qui vous permet de choisir la source de diffusion en continu pour l’audio. Pour la liste complète des améliorations et problèmes connus, voir les [Notes de publication](releasenotes.md).
 * Décembre 2018 : publication du Kit de développement logiciel (SDK) Speech 1.2.0 avec prise en charge de [Python](quickstart-python.md) et [Node.js](quickstart-js-node.md), ainsi que d’Ubuntu 18.04 LTS. Pour plus d’informations, voir les [Notes de publication](releasenotes.md).
 

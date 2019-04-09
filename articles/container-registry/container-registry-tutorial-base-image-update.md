@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b9f153aa2da32fac2bf2e64f9fc4cd469acb0b89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a5d89051ef479cf9d87ca8f921e05c6d0be12b8c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007493"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892175"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Didacticiel : Automatiser la génération des images conteneur quand une image de base est mise à jour dans un registre de conteneurs Azure 
 
@@ -45,9 +45,9 @@ Pour suivre ce didacticiel, vous devez avoir déjà effectué les étapes des de
 
 Si ce n’est déjà fait, complétez les deux premiers didacticiels avant de continuer :
 
-[Générer des images de conteneur dans le cloud avec Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
+[Générer des images conteneur dans le cloud avec Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
 
-[Automatiser la génération des images de conteneur avec Azure Container Registry Tasks](container-registry-tutorial-build-task.md)
+[Automatiser la génération des images conteneur avec Azure Container Registry Tasks](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>Configurer l’environnement
 
@@ -79,7 +79,7 @@ Ce didacticiel vous guide dans un scénario de mise à jour d’une image de bas
 
 Dans les sections suivantes, vous allez créer une tâche, mettre à jour la valeur `NODE_VERSION` dans le fichier Dockerfile d’image de base, puis utiliser ACR Tasks pour générer l’image de base. Lorsqu’ACR Tasks envoie la nouvelle image de base dans le registre, il déclenche automatiquement une génération de l’image de l’application. Si vous le souhaitez, vous pouvez exécuter l’image de conteneur d’application en local pour voir les différentes chaînes de version dans les images générées.
 
-Dans ce tutoriel, votre tâche ACR génère et envoie (push) une seule image conteneur spécifiée dans un Dockerfile. ACR Tasks peut également exécuter des [tâches multiétapes](container-registry-tasks-multi-step.md) (en préversion) à l’aide d’un fichier YAML pour définir les étapes permettant de générer, d’envoyer et éventuellement de tester plusieurs conteneurs.
+Dans ce tutoriel, votre tâche ACR génère et envoie (push) une seule image conteneur spécifiée dans un Dockerfile. ACR Tasks peut également exécuter des [tâches multiétapes](container-registry-tasks-multi-step.md) à l’aide d’un fichier YAML pour définir les étapes permettant de générer, d’envoyer en mode push et éventuellement de tester plusieurs conteneurs.
 
 ## <a name="build-the-base-image"></a>Générer l’image de base
 

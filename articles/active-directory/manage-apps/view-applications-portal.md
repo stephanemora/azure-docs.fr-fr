@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec039beecdcfa6dacd19e5910209c58f13543fce
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1ca57746d1b13d2020f78d3c527e7d0c7a444769
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199882"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918397"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Afficher les application du tenant Azure Active Directory
 
@@ -39,23 +39,19 @@ Vos applications de tenant Azure AD sont visibles dans la section **Applications
 
 Pour rechercher les applications de votre tenant :
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur **Azure Active Directory**. 
+1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)**, sélectionnez **Azure Active Directory**. 
 
-2. Dans le panneau Azure Active Directory, cliquez sur **Applications d’entreprise**. 
+2. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise**. 
 
-3. À partir du menu déroulant **Type d’Application**, sélectionnez **Toutes les Applications**, puis cliquez sur **Appliquer**. Un échantillon aléatoire des applications de votre tenant s’affiche.
-
-    ![Applications Entreprise](media/view-applications-portal/open-enterprise-apps.png)
+3. À partir du menu déroulant **Type d’Application**, sélectionnez **Toutes les Applications**, puis choisissez **Appliquer**. Un échantillon aléatoire des applications de votre tenant s’affiche.
    
-4. Pour afficher davantage d’applications, cliquez sur **Afficher plus** en bas de la liste. Selon le nombre d’applications de votre tenant, il peut être plus facile de [rechercher une application particulière](#search-for-a-tenant-application) que de faire défiler la liste.
+4. Pour afficher davantage d’applications, sélectionnez **Charger plus** en bas de la liste. Selon le nombre d’applications de votre tenant, il peut être plus facile de [rechercher une application particulière](#search-for-a-tenant-application) que de faire défiler la liste.
 
 ## <a name="select-viewing-options"></a>Sélectionner les options d'affichage
 
-Dans cette section, sélectionnez les options en fonction de ce que vous recherchez.
+Sélectionnez les options correspondant à ce que vous recherchez.
 
-1. Vous pouvez afficher les applications en fonction des options pour **Type d’Application**, **État de l’Application**, et **Visibilité de l’Application**. 
-
-    ![Options de recherche](media/view-applications-portal/search-options.png)
+1. Vous pouvez afficher les applications par **Type d’application**, **État de l’application** et **Visibilité de l’application**. 
 
 2. Sous **Type d’Application**, choisissez l’une des options suivantes :
 
@@ -65,30 +61,30 @@ Dans cette section, sélectionnez les options en fonction de ce que vous recherc
 
 3. Sous **État de l’Application**, choisissez **Quelconque**, **Désactivé**, ou **Activé**. L’option **Quelconque** inclut les applications activées et désactivées.
 
-4. Sous **Visibilité de l’Application**, choisissez **Quelconque** ou **Masqué**. L’option **Masqué** affiche les applications qui sont dans le tenant, mais ne sont pas visibles pour les utilisateurs.
+4. Sous **Visibilité de l’Application**, choisissez **Quelconque** ou **Masqué**. L’option **Masqué** affiche les applications qui sont dans le locataire, mais ne sont pas visibles pour les utilisateurs.
 
-5. Après avoir choisi les options souhaitées, cliquez sur **Appliquer**.
+5. Après avoir choisi les options souhaitées, sélectionnez **Appliquer**.
  
 
 ## <a name="search-for-a-tenant-application"></a>Rechercher une application de tenant
 
 Pour rechercher une application particulière :
 
-1. À partir du menu déroulant **Type d’Application**, sélectionnez **Toutes les Applications**, puis cliquez sur **Appliquer**.
+1. À partir du menu déroulant **Type d’application**, sélectionnez **Toutes les applications**, puis sélectionnez **Appliquer**.
 
-2. Entrez le nom de l’application recherchée. Si l’application a été ajoutée à votre tenant Azure AD, elle apparaît dans les résultats de recherche. Cet exemple montre que GitHub n’a pas été ajouté aux applications du tenant.
+2. Entrez le nom de l’application recherchée. Si l’application a été ajoutée à votre locataire Azure AD, elle apparaît dans les résultats de recherche. Cet exemple montre que GitHub n’a pas été ajouté aux applications du locataire.
 
     ![Rechercher une application](media/view-applications-portal/search-for-tenant-application.png)
 
-3. Essayez d’entrer les premières lettres du nom de l’application.  Cet exemple montre toutes les applications qui commencent par **Sales**.
+3. Essayez d’entrer les premières lettres du nom de l’application. Cet exemple montre toutes les applications qui commencent par **Sales**.
 
     ![Recherche avec un préfixe](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez appris comment afficher les applications dans votre tenant Azure AD et filtrer la liste des applications par type d’application, état et visibilité. Vous avez également appris comment rechercher une application particulière.
+Dans ce guide de démarrage rapide, vous avez appris à voir les applications dans votre locataire Azure AD. Vous avez appris à filtrer la liste des applications par type, état et visibilité. Vous avez également appris comment rechercher une application particulière.
 
-Maintenant que vous avez trouvé l’application que vous cherchiez, vous pouvez continuer à [ajouter d’autres applications à votre tenant](add-application-portal.md), ou cliquer sur l’application pour afficher ou modifier les propriétés et les options de configuration. Vous pouvez par exemple configurer l’authentification unique. 
+Maintenant que vous avez trouvé l’application dont vous avez besoin, vous pouvez [ajouter d’autres applications à votre locataire](add-application-portal.md). Ou bien, vous pouvez sélectionner l’application pour voir ou modifier les propriétés et les options de configuration. Vous pouvez par exemple configurer l’authentification unique. 
 
 > [!div class="nextstepaction"]
 > [Configurer l’authentification unique](configure-single-sign-on-portal.md)

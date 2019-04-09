@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065186"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884230"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Démarrage rapide : Créer votre premier workflow automatisé avec Azure Logic Apps - Portail Azure
 
@@ -114,7 +114,7 @@ Ajoutez une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) qu
       Pour l’instant, ignorez la liste **Ajouter du contenu dynamique** qui s’affiche. 
       Lorsque vous cliquez dans certaines zones d’édition, cette liste apparaît et affiche les paramètres disponibles de l’étape précédente que vous pouvez inclure en tant qu’entrées dans votre flux de travail. 
 
-   2. Dans la zone **Objet**, entrez ce texte avec un espace vide de fin : ```New RSS item: ```.
+   2. Dans la zone **Objet**, entrez ce texte avec un espace vide de fin : ```New RSS item:```.
 
       ![Entrer l’objet du message électronique](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  

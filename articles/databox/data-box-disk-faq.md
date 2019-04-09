@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877851"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892328"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Qu’est-ce qu’Azure Data Box Disk ?
 
@@ -42,7 +42,7 @@ Les disques sont chiffrés à l’aide du chiffrement de lecteur BitLocker et vo
 R. Si vous souhaitez transférer vers Azure 40 To de données (maximum), les disques Data Box pourront vous être utiles.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>Q. Combien coûtent les disques Data Box ?
-R. Pour plus d’informations sur les tarifs des disques Data Box Disk, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+R. Pour plus d’informations sur les tarifs des disques Data Box Disk, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>Q. Comment faire pour obtenir des disques Data Box ? 
 R.  Pour obtenir des disques Azure Data Box Disk, connectez-vous au portail Azure et créez une commande de disques Data Box Disk. Indiquez vos coordonnées et vos paramètres de notification. Une fois que vous avez passé une commande, les disques sont expédiés dans les 10 jours, en fonction de leur disponibilité.
@@ -170,6 +170,6 @@ R. Oui. Vos données a été chargées sur Azure mais, si vous ne voyez aucun di
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Relire les [Conditions requises pour le système Data Box](data-box-disk-system-requirements.md).
-- Comprendre les limites de [Data Box](data-box-disk-limits.md).
-- Déployer rapidement [Azure Data Box Disk](data-box-disk-quickstart-portal.md) sur le portail Azure.
+- Relire les [Conditions requises pour le système Data Box Disk](data-box-disk-system-requirements.md).
+- Prenez connaissance des [limites de Data Box Disk](data-box-disk-limits.md).
+- Déployez rapidement [Azure Data Box Disk](data-box-disk-quickstart-portal.md) sur le portail Azure.

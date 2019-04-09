@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860471"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893705"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks
 
@@ -30,7 +30,7 @@ Ce didacticiel est la première partie d’une série d’étapes :
 > * Générer une image de conteneur dans Azure
 > * Déployer un conteneur sur Azure Container Instances
 
-Dans les didacticiels suivants, vous apprendrez comment utiliser ACR Tasks pour les générations automatisées d’images conteneur lors de la validation du code et la mise à jour des images de base. ACR Tasks peut également exécuter des [tâches multiétapes](container-registry-tasks-multi-step.md) (en préversion) à l’aide d’un fichier YAML pour définir les étapes permettant de générer, d’envoyer et éventuellement de tester plusieurs conteneurs.
+Dans les didacticiels suivants, vous apprendrez comment utiliser ACR Tasks pour les générations automatisées d’images conteneur lors de la validation du code et la mise à jour des images de base. ACR Tasks peut également exécuter des [tâches à plusieurs étapes](container-registry-tasks-multi-step.md) à l’aide d’un fichier YAML pour définir les étapes permettant de générer, d’envoyer en mode push et éventuellement de tester plusieurs conteneurs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

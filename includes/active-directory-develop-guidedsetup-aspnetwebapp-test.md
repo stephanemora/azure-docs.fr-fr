@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203636"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919215"
 ---
 ## <a name="test-your-code"></a>Test de votre code
 
@@ -45,10 +45,10 @@ Une fois que vous avez accédé à la vue de contrôleur, vous devez voir un tab
 
 |Propriété |Valeur |Description |
 |---|---|---|
-|**Name** |Nom complet de l’utilisateur | Prénom et nom de l’utilisateur
+|**Nom** |Nom complet de l’utilisateur | Prénom et nom de l’utilisateur
 |**Nom d’utilisateur** |utilisateur<span>@domain.com</span> | Nom d’utilisateur employé pour identifier l’utilisateur.
 |**Objet** |Objet |Chaîne qui identifie de manière unique l’utilisateur sur le web.|
-|**Tenant ID** |Guid | **GUID** qui représente de manière unique l’organisation Azure AD de l’utilisateur.|
+|**ID client** |Guid | **GUID** qui représente de manière unique l’organisation Azure AD de l’utilisateur.|
 
 En outre, vous devez voir un tableau avec toutes les revendications qui se trouvent dans la requête d’authentification. Pour plus d’informations, consultez la [liste des revendications qui se trouvent dans un jeton d’ID AD Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -82,12 +82,12 @@ Pour restreindre les utilisateurs qui peuvent se connecter à votre application,
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Option 1 : Limiter la connexion à votre application aux utilisateurs de l’instance Active Directory d’une seule organisation (un seul locataire)
 
-Cette option est un scénario courant pour *applications métier*: Si vous souhaitez que votre application pour accepter les connexions uniquement à partir de comptes qui appartiennent à une instance d’Azure Active Directory spécifique (y compris *comptes invités* de cette instance de) procédez comme suit :
+Cette option est un scénario courant pour les *applications métier* : Si vous souhaitez que votre application accepte les connexions uniquement à partir des comptes qui appartiennent à une instance Azure Active Directory spécifique (notamment les *comptes invités* de cette instance), effectuez les étapes suivantes :
 
 1. Dans le fichier **web.config**, remplacez la valeur du paramètre `Tenant` de `Common` par le nom du locataire de l’organisation, par exemple `contoso.onmicrosoft.com`.
 2. Dans la classe [OWIN Startup](#configure-the-authentication-pipeline), définissez l’argument `ValidateIssuer` sur `true`.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Option 2 : Restreindre l’accès à votre application aux utilisateurs dans une liste spécifique d’organisations
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Option 2 : Restreindre l’accès à votre application aux utilisateurs figurant dans une liste spécifique d’organisations
 
 Vous pouvez limiter les connexions aux comptes d’utilisateurs d’une organisation Azure AD figurant dans la liste des organisations autorisées :
 1. Dans la classe [OWIN Startup](#configure-the-authentication-pipeline), définissez l’argument `ValidateIssuer` sur `true`.
@@ -95,6 +95,6 @@ Vous pouvez limiter les connexions aux comptes d’utilisateurs d’une organisa
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Option 3 : Utiliser une méthode personnalisée pour valider les émetteurs
 
-Vous pouvez implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre **IssuerValidator**. Pour plus d’informations sur l’utilisation de ce paramètre, lisez cette rubrique MSDN concernant la [classe TokenValidationParameters](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx).
+Vous pouvez implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre **IssuerValidator**. Pour plus d’informations sur l’utilisation de ce paramètre, lisez cette rubrique concernant la [classe TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

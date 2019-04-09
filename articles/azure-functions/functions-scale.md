@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f09fded38e384126a8dfdbe567ce4a3ebd5b1af4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893586"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266923"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
 Azure Functions s’exécute dans deux modes différents : La consommation et le plan Premium (version préliminaire publique). Le plan de consommation ajoute automatiquement la puissance de calcul lors de l’exécution de votre code. Votre application est mis à l’échelle si nécessaire pour gérer la charge et mise à l’échelle vers le bas lorsque du code en cours d’exécution. Vous n’avez pas à payer pour des machines virtuelles inactives ni à réserver de la capacité à l’avance.  Le plan Premium sera automatiquement mise à l’échelle et ajoutez la puissance de calcul supplémentaires lors de l’exécution de votre code.  Le plan Premium est fourni avec des fonctionnalités supplémentaires telles que les instances de calcul premium, la possibilité de conserver les instances à chaud indéfiniment et la connectivité de réseau virtuel.  Si vous avez un Plan App Service existant, vous pouvez également exécuter vos applications de fonction au sein de celles-ci.
 
 > [!NOTE]  
-> Les deux [plan Premium](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/) et [plan de consommation pour Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) sont actuellement en version préliminaire.
+> Les deux [plan Premium](https://aka.ms/functions-premiumplan) et [plan de consommation pour Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) sont actuellement en version préliminaire.
 
 Si vous n’êtes pas familiarisé avec Azure Functions, consultez [Vue d’ensemble d’Azure Functions](functions-overview.md).
 

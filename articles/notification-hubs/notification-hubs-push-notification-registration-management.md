@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/23/2019
-ms.openlocfilehash: 028e9a2973ed524037f6415d9e802f947458cfa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166767"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260446"
 ---
 # <a name="registration-management"></a>Gestion des inscriptions
 
@@ -45,12 +45,12 @@ Une installation est une inscription améliorée qui inclut un conteneur de prop
 Voici certains avantages essentiels que présente l’utilisation d’installations :
 
 - La création ou la mise à jour d’une installation est entièrement idempotente. Vous pouvez donc la retenter sans vous soucier des inscriptions en double.
-- Le modèle Installation facilite les opérations push individuelles, ciblant des appareils spécifiques. Une balise système **« $InstallationId:[installationId] »** est ajoutée automatiquement avec chaque inscription basée sur l’installation. Vous pouvez donc appeler un envoi à cette balise pour cibler un appareil spécifique sans avoir à effectuer aucun codage supplémentaire.
+- Le modèle d’installation prend en charge un format de balise spéciale (`$InstallationId:{INSTALLATION_ID}`) qui permet l’envoi d’une notification directement à un périphérique spécifique. Par exemple, si le code de l’application définit un ID d’installation de `joe93developer` pour cet appareil particulier, un développeur peut cibler ce périphérique lors de l’envoi d’une notification à le `$InstallationId:{joe93developer}` balise. Cela vous permet de cibler un appareil spécifique sans avoir à effectuer aucun codage supplémentaire.
 - L’utilisation d’installations vous permet également d’effectuer des mises à jour partielles d’inscriptions. La mise à jour partielle d’une installation est demandée avec une méthode PATCH utilisant la [norme JSON-Patch](https://tools.ietf.org/html/rfc6902). Cette opération est utile lorsque vous voulez mettre à jour des balises sur l’inscription. Il n’est pas nécessaire de retirer la totalité de l’inscription et de renvoyer à nouveau toutes les balises précédentes.
 
 Une installation peut contenir les propriétés suivantes. Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec l’API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriétés d’installation](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
-```javascript
+```json
 // Example installation format to show some supported properties
 {
     installationId: "",
@@ -101,8 +101,7 @@ Le nom de chaque modèle correspond à un corps de modèle et à un ensemble de 
 
 Pour les applications clientes Windows Store, le fait d’envoyer des notifications à des vignettes secondaires revient à les envoyer à la vignette principale. Ce comportement est également pris en charge dans les installations. Les vignettes secondaires ont un ChannelUri différent, ce que le Kit de développement logiciel (SDK) sur votre application cliente gère en toute transparence.
 
-Le dictionnaire SecondaryTiles utilise le même paramètre TileId que celui qui permet de créer l’objet SecondaryTiles dans votre application Windows Store.
-Comme pour le paramètre principal ChannelUri, le paramètre ChannelUris des vignettes secondaires peut changer à tout moment. Afin de garder à jour les inscriptions dans le hub de notification, l’appareil doit les actualiser avec le paramètre ChannelUris actuel des vignettes secondaires.
+Le dictionnaire SecondaryTiles utilise le même paramètre TileId que celui qui permet de créer l’objet SecondaryTiles dans votre application Windows Store. Comme pour le paramètre principal ChannelUri, le paramètre ChannelUris des vignettes secondaires peut changer à tout moment. Afin de garder à jour les inscriptions dans le hub de notification, l’appareil doit les actualiser avec le paramètre ChannelUris actuel des vignettes secondaires.
 
 ## <a name="registration-management-from-the-device"></a>Gestion de l’inscription à partir de l’appareil
 

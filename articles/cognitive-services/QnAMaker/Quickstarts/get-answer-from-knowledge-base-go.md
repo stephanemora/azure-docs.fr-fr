@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: be134267bbb1ca372006bc1ff05d7a5ddc3732de
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a74d67df55d46376017adbd48f5161d337ebaa0d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311085"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879316"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Obtenir des réponses à une question à partir d’une base de connaissance avec Go
 
@@ -23,7 +23,7 @@ Ce guide de démarrage rapide vous aide à obtenir programmatiquement une répon
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Go 1.10.1](https://golang.org/dl/)
+* [Go 1.10.1](https://golang.org/dl/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Vous devez disposer d’un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Pour récupérer votre clé, sélectionnez **Clés** sous **Gestion des ressources** dans votre tableau de bord Azure pour votre ressource QnA Maker. 
 * Paramètres de la page **Publier**. Si vous ne disposez pas d’une base de connaissances publiée, créez une base de connaissances vide, importez une base de connaissances sur la page **Paramètres**, puis publiez. Vous pouvez télécharger et utiliser [cette base de connaissances](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv). 
@@ -64,7 +64,7 @@ Le code suivant adresse une requête HTTPS à l’API QnA Maker afin d’envoye
 
 [!code-go[Add a POST request to send question to knowledge base](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to send question to knowledge base")]
 
-La valeur de l’en-tête `Authorization` inclut la chaîne `EndpointKey `. 
+La valeur de l’en-tête `Authorization` inclut la chaîne `EndpointKey`. 
 
 En savoir plus sur la [requête](../how-to/metadata-generateanswer-usage.md#generateanswer-request) et la [réponse](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 

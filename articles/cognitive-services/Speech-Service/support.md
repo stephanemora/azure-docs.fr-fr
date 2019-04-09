@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c403bca3abf493448265e25316babe20ea9c8544
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877698"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272018"
 ---
 # <a name="support-and-help-options"></a>Options d’aide et de support
 
@@ -23,6 +23,7 @@ Vous débutez à Explorer les fonctionnalités des Services de reconnaissance vo
 
 > [!div class="checklist"]
 > * Tenez-vous informé des nouvelles évolutions d’*Azure Cognitive Services* ou recherchez les dernières informations sur le *service Speech*.
+> * Notes de publication contiennent des informations pour toutes les versions.
 > * Regardez si votre problème a été abordé par la communauté, ou si une documentation concernant la fonctionnalité que vous voulez implémenter existe déjà.
 > * Si vous ne trouvez pas de réponse satisfaisante, posez une question sur *Stack Overflow*.
 > * Si vous rencontrez des difficultés avec l’un des exemples sur GitHub, signalez ce problème *GitHub*.
@@ -31,6 +32,10 @@ Vous débutez à Explorer les fonctionnalités des Services de reconnaissance vo
 ## <a name="stay-informed"></a>Restez informé
 
 Les actualités relatives à Cognitive Services sont rassemblées dans le [blog Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Pour obtenir les dernières informations sur les Services de reconnaissance vocale, suivre le [blog des Services de reconnaissance vocale](https://azure.microsoft.com/blog/tag/speech-service/).
+
+## <a name="release-notes"></a>Notes de publication
+
+Les [notes]] (https://aka.ms/csspeech/whatsnew) sont mis à jour dès qu’une nouvelle version est disponible. Les notes de publication contiennent des informations sur les nouvelles fonctionnalités, améliorations et correctifs de bogues.
 
 ## <a name="search"></a>Recherche
 
@@ -69,8 +74,8 @@ Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soume
 
 > [!TIP]
 > Les publications suivantes de Stack Overflow présentent des conseils sur la façon de formuler des questions et d’ajouter du code source. En suivant ces recommandations, vous augmentez vos chances que des membres de la communauté comprennent votre question et y répondent rapidement :  
-> * [Comment poser une bonne question ?](https://stackoverflow.com/help/how-to-ask)
-> * [Comment créer un exemple minimal, complet et vérifiable](https://stackoverflow.com/help/mcve)
+> * [Comment pour poser une question de bon ?](https://stackoverflow.com/help/how-to-ask)
+> * [Comment créer un Minimal, complet et vérifiable exemple](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Créer un problème GitHub
 
@@ -81,11 +86,11 @@ Les exemples sont souvent publiés en open source. Si vous avez des questions, o
 
 Vous pouvez créer un rapport de bogues, demander une fonctionnalité ou poser une question générale et partager les meilleures pratiques. Pour les rapports de bogues, veuillez suivre le modèle fourni :
 
-**Décrire le bogue**
+**Décrivez le bogue**
 
 Description claire et concise du bogue.
 
-**Opérations à reproduire**
+**À reproduire**
 
 Étapes pour reproduire le problème :
 1. ...
@@ -95,11 +100,11 @@ Description claire et concise du bogue.
 
 Description claire et concise du comportement normal attendu.
 
-**Version du kit de développement logiciel Speech de Cognitive Services**
+**Version de la reconnaissance vocale de Cognitive Services SDK**
 
 Version du kit de développement logiciel utilisé.
 
-**Plateforme, système d’exploitation et langage de programmation**
+**Plateforme de système d’exploitation et langage de programmation**
 
  - Système d’exploitation : [par exemple, Windows, Linux, Android, iOS,...] - Merci d’être précis
  - Matériel - x64, x86, ARM...
@@ -108,7 +113,7 @@ Version du kit de développement logiciel utilisé.
 **Contexte supplémentaire**
 
  - Messages d’erreur, informations du journal, trace, etc.
- - Si vous signalez une erreur pour une interaction de service spécifique, veuillez indiquer l’ID de session et l’heure (y compris le fuseau horaire) des incidents. L’ID de session figure dans tous les rappels/événements reçus.
+ - Si vous signalez une erreur pour une interaction de service spécifique, signaler la SessionId et l’heure (y compris fuseau horaire), des incidents signalés. L’ID de session figure dans tous les rappels/événements reçus.
  - Toute autre information supplémentaire
 
 

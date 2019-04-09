@@ -10,18 +10,18 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577320"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269127"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Voici comment Azure Machine Learning service fonctionne : Architecture et concepts
 
 Cet article décrit l’architecture et les concepts du service Azure Machine Learning. Le diagramme suivant représente les principaux composants du service et illustre le workflow général lors de l’utilisation du service :
 
-[![Architecture et workflow du service Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Aarchitecture du service Azure Machine Learning et les flux de travail](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 Le workflow suit généralement cette séquence :
 
@@ -66,7 +66,7 @@ Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement 
 
 Le diagramme suivant représente une taxonomie de l’espace de travail :
 
-[![Taxonomie de l’espace de travail](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Wtaxonomie d’orkspace](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Expérience
 
@@ -80,7 +80,7 @@ Le modèle le plus simple est un morceau de code qui accepte une entrée et prod
 
 Un modèle est généré par une exécution effectuée dans Azure Machine Learning. Vous pouvez également utiliser un modèle qui est entraîné en dehors d’Azure Machine Learning. Vous pouvez inscrire un modèle dans un espace de travail Azure Machine Learning service.
 
-Le service Azure Machine Learning est indépendant de l’architecture. Lorsque vous créez un modèle, vous pouvez utiliser n’importe quel framework de machine learning, tel que Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer et Microsoft Cognitive Toolkit (anciennement connu sous le nom de CNTK).
+Le service Azure Machine Learning est indépendant de l’architecture. Lorsque vous créez un modèle, vous pouvez utiliser toute infrastructure d’apprentissage machine populaires, tels que Scikit-learn, XGBoost, PyTorch, TensorFlow et programme de chaînage.
 
 Pour obtenir un exemple d’apprentissage d’un modèle, consultez [didacticiel : Effectuer l’apprentissage d’un modèle de classification d’images avec Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
@@ -186,6 +186,10 @@ Azure Machine Learning peut créer deux types d’image :
 * **Image FPGA** : Utilisée lorsque vous effectuez un déploiement vers un tableau FPGA (field programmable gate array) dans Azure.
 * **Image Docker** : Utilisée lorsque vous effectuez un déploiement vers des cibles de calcul autres que les tableaux FPGA. Il peut s’agir, par exemple, d’Azure Container Instances et d’Azure Kubernetes Service.
 
+Le service Azure Machine Learning fournit une image de base, qui est utilisée par défaut. Vous pouvez également fournir vos propres images personnalisées.
+
+Pour plus d’informations, consultez la section consacrée à la configuration et à l’inscription d’une image dans l’article [Déployer des modèles](how-to-deploy-and-where.md#configureimage).
+
 Pour obtenir un exemple de création d’image, consultez [Déployer un modèle de classification d’images dans Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 ### <a name="image-registry"></a>Registre d’images
@@ -228,7 +232,7 @@ Lorsque vous développez votre solution, utilisez le SDK Python Azure Machine Le
 
 Pour prendre en main le service Azure Machine Learning, consultez :
 
-* [Qu’est-ce que le service Azure Machine Learning ?](overview-what-is-azure-ml.md)
+* [Qu'est-ce que le service Azure Machine Learning ?](overview-what-is-azure-ml.md)
 * [Créer un espace de travail du service Azure Machine Learning](setup-create-workspace.md)
-* [Tutoriel : Effectuer l'apprentissage d’un modèle](tutorial-train-models-with-aml.md)
+* [Didacticiel : Effectuer l’apprentissage d’un modèle](tutorial-train-models-with-aml.md)
 * [Créer un espace de travail avec un modèle Resource Manager](how-to-create-workspace-template.md)

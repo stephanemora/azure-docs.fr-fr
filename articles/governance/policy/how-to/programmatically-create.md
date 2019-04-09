@@ -1,7 +1,6 @@
 ---
 title: Créer des stratégies et afficher les données de conformité par programmation avec Azure Policy
 description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/31/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e929fd80e87524b62c08a159c457be6f1f21eaad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768602"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276488"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Créer des stratégies et afficher les données de conformité par programmation avec Azure Policy
 
@@ -96,12 +95,12 @@ Pour une meilleure visibilité de vos ressources, la première chose à faire es
    Remplacez _ContosoRG_ par le nom de votre groupe de ressources prévu.
 
    Le **étendue** paramètre sur `New-AzPolicyAssignment` fonctionne avec le groupe d’administration, abonnement, groupe de ressources ou une ressource unique. Le paramètre utilise un chemin d’accès de ressource complet, que la propriété **ResourceId** renvoie sur `Get-AzResourceGroup`. Pour chaque conteneur, le modèle **Étendue** est le suivant. Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement.
-   `{rType}` est remplacé par le **type de la ressource**, comme `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
+   `{rType}` est remplacé par le **type de ressource** de la ressource, tel que `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
 
    - Ressource : `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Groupe de ressources : `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Abonnement : `/subscriptions/{subId}/`
-   - Groupe d'administration : `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Groupe de ressources : `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Abonnement : `/subscriptions/{subId}/`
+   - Groupe d’administration- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Pour plus d'informations sur la gestion des stratégies de ressources à l'aide du module Azure Resource Manager PowerShell, consultez [Az.Resources](/powershell/module/az.resources/#policies).
 
@@ -224,12 +223,12 @@ Pour créer une définition de stratégie, procédez comme suit :
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   Le paramètre **--scope** sur `az policy assignment create` peut être défini pour un groupe d’administration, un abonnement, un groupe de ressources ou une seule ressource. Le paramètre utilise un chemin de ressource complet. Pour chaque conteneur, le modèle **--scope** est le suivant. Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement. `{rType}` est remplacé par le **type de la ressource**, comme `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
+   Le paramètre **--scope** sur `az policy assignment create` peut être défini pour un groupe d’administration, un abonnement, un groupe de ressources ou une seule ressource. Le paramètre utilise un chemin de ressource complet. Pour chaque conteneur, le modèle **--scope** est le suivant. Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement. `{rType}` est remplacé par le **type de ressource** de la ressource, tel que `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
 
    - Ressource : `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Groupe de ressources : `/subscriptions/{subID}/resourceGroups/{rgName}`
-   - Abonnement : `/subscriptions/{subID}`
-   - Groupe d'administration : `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Groupe de ressources : `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Abonnement : `/subscriptions/{subID}`
+   - Groupe d’administration- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Vous pouvez obtenir l’ID de définition de stratégie à l’aide de PowerShell avec la commande suivante :
 
@@ -249,8 +248,8 @@ Pour plus d’informations sur la façon dont vous pouvez gérer les stratégies
 
 Pour plus d’informations sur les commandes et les requêtes de cet article, consultez les articles suivants.
 
-- [Ressources API REST Azure](/rest/api/resources/)
+- [Ressources de l’API REST Azure](/rest/api/resources/)
 - [Modules Azure PowerShell](/powershell/module/az.resources/#policies)
-- [Commandes de stratégie Azure CLI](/cli/azure/policy?view=azure-cli-latest)
-- [Informations de référence sur l’API REST du fournisseur de ressources Policy Insights](/rest/api/policy-insights)
+- [Commandes de stratégie d’Azure CLI](/cli/azure/policy?view=azure-cli-latest)
+- [Fournisseur de ressources Insights stratégie référence d’API REST](/rest/api/policy-insights)
 - [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md)

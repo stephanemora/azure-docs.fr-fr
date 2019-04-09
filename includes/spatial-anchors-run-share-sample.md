@@ -4,14 +4,18 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 563c2bd561328561d30acee6910b70d53ef64c6b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 397a8a9b07b4d7a88d0345399ac4abcc3e738a82
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305341"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58631181"
 ---
 ## <a name="set-up-your-device"></a>Configurer votre appareil
+
+Dans Unity, ouvrez le projet du dossier `Unity`.
+
+![Fenêtre Unity](./media/spatial-anchors-unity/unity-window.png)
 
 ### <a name="set-up-an-android-device"></a>Configurer un appareil Android
 
@@ -31,7 +35,9 @@ Dans le volet **Inspector** (Inspecteur), entrez `Sharing Anchors Service url` (
 
 Enregistrez la scène en sélectionnant **File** > **Save**.
 
-## <a name="to-deploy-the-app-to-an-android-device"></a>Pour déployer l’application sur un appareil Android
+## <a name="deploy-to-your-device"></a>Déployer sur votre appareil
+
+### <a name="deploy-to-android-device"></a>Déployer sur un appareil Android
 
 Connectez-vous sur votre appareil Android et reliez-le à votre ordinateur à l’aide d’un câble USB.
 
@@ -41,9 +47,9 @@ Sous **Scenes In Build** (Scènes dans la build), cochez la scène `AzureSpatial
 
 Assurez-vous que la case **Export Project** (Exporter le projet) n’est pas cochée. Sélectionnez **Build And Run** (Générer et exécuter). Vous êtes invité à enregistrer votre fichier `.apk`. Vous pouvez choisir n’importe quel nom pour celui-ci.
 
-Suivez les instructions de l’application. Vous pouvez sélectionner **Create & Share Anchor** (Créer et partager l’ancre) ou **Locate Shared Anchor** (Localiser l’ancre partagée). La première option permet de créer une ancre qui peut se trouver par la suite sur le même ou un autre appareil. La deuxième option, si vous avez déjà exécuté l’application sur le même ou un autre appareil, permet de localiser les ancres précédemment partagées.
+Suivez les instructions de l’application. Vous pouvez sélectionner **Create & Share Anchor** (Créer et partager l’ancre) ou **Locate Shared Anchor** (Localiser l’ancre partagée). Le premier scénario vous permet de créer une ancre qui peut être localisée par la suite sur le même appareil ou un autre. Si vous avez déjà exécuté l’application sur le même appareil ou un autre, le deuxième scénario vous permet de localiser les ancres partagées antérieurement. Après avoir choisi votre scénario, l’application vous guide avec des instructions supplémentaires pour les tâches à effectuer. Par exemple, vous serez invité à déplacer votre appareil pour collecter des informations sur l’environnement. Par la suite, vous devrez placer une ancre dans le monde, attendre qu’elle soit chargée, etc.
 
-## <a name="to-deploy-the-app-to-an-ios-device"></a>Pour déployer l’application sur un appareil iOS
+### <a name="deploy-to-an-ios-device"></a>Déployer sur un appareil iOS
 
 Ouvrez **Build Settings** (Paramètres de build) en sélectionnant **File** (Fichier) > **Build Settings** (Paramètres de build).
 
@@ -51,6 +57,6 @@ Sous **Scenes In Build** (Scènes dans la build), cochez la scène `AzureSpatial
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Suivez les instructions de l’application. Vous pouvez sélectionner **Create & Share Anchor** (Créer et partager l’ancre) ou **Locate Shared Anchor** (Localiser l’ancre partagée). La première option permet de créer une ancre qui peut se trouver par la suite sur le même ou un autre appareil. La deuxième option, si vous avez déjà exécuté l’application sur le même ou un autre appareil, permet de localiser les ancres précédemment partagées.
+Suivez les instructions de l’application. Vous pouvez sélectionner **Create & Share Anchor** (Créer et partager l’ancre) ou **Locate Shared Anchor** (Localiser l’ancre partagée). Le premier scénario vous permet de créer une ancre qui peut être localisée par la suite sur le même appareil ou un autre. Si vous avez déjà exécuté l’application sur le même appareil ou un autre, le deuxième scénario vous permet de localiser les ancres partagées antérieurement. Après avoir choisi votre scénario, l’application vous guide avec des instructions supplémentaires pour les tâches à effectuer. Par exemple, vous serez invité à déplacer votre appareil pour collecter des informations sur l’environnement. Par la suite, vous devrez placer une ancre dans le monde, attendre qu’elle soit chargée, etc.
 
 Dans Xcode, arrêtez l’application en sélectionnant **Stop**.

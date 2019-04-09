@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53efe44f17f174073ea5ed39f94c9dc8078a9779
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206767"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879962"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS
 
@@ -118,7 +118,7 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Étape 4 : Utiliser la bibliothèque ADAL pour obtenir des jetons à partir d’Azure AD
 
-Le principe de base de la bibliothèque ADAL consiste simplement à appeler un completionBlock `+(void) getToken : ` chaque fois que votre application a besoin d’un jeton d’accès, et la bibliothèque ADAL s’occupe du reste.
+Le principe de base de la bibliothèque ADAL consiste simplement à appeler un completionBlock `+(void) getToken :` chaque fois que votre application a besoin d’un jeton d’accès, et la bibliothèque ADAL s’occupe du reste.
 
 1. Dans le projet `QuickStart`, ouvrez `GraphAPICaller.m` et recherchez le commentaire `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` vers le haut.
 
@@ -259,5 +259,5 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 Vous pouvez à présent aborder d’autres scénarios. Nous vous suggérons de suivre les étapes ci-après :
 
-* [Sécurisation d’une API web Node.js avec Azure AD](quickstart-v1-nodejs-webapi.md)
+* [Sécurisation d’une API web Node.JS avec Azure AD](quickstart-v1-nodejs-webapi.md)
 * En savoir plus sur l’[activation d’une authentification unique (SSO) entre applications sur iOS à l’aide de la bibliothèque ADAL](howto-v1-enable-sso-ios.md)  

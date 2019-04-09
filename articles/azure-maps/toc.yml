@@ -7,20 +7,24 @@ items:
     href: about-azure-maps.md
 - name: Démarrages rapides
   items:
-  - name: Créer une application de carte
+  - name: Créer une application web
     href: quick-demo-map-app.md
 - name: Tutoriels
   items:
-  - name: 1 - Rechercher un point d’intérêt
-    href: tutorial-search-location.md
-  - name: 2 - Itinéraire vers une destination
-    href: tutorial-route-location.md
-  - name: 3 - Plusieurs itinéraires par mode de déplacement
-    href: tutorial-prioritized-routes.md
-  - name: 4 - Créer un localisateur de magasin
-    href: tutorial-create-store-locator.md
-  - name: 5 - Définir une limite géographique
-    href: tutorial-geofence.md
+  - name: Tutoriels sur le kit SDK web
+    items:
+    - name: Rechercher un point d’intérêt
+      href: tutorial-search-location.md
+    - name: Itinéraire vers une destination
+      href: tutorial-route-location.md
+    - name: Plusieurs itinéraires par mode de déplacement
+      href: tutorial-prioritized-routes.md
+    - name: Créer un localisateur de magasin
+      href: tutorial-create-store-locator.md
+  - name: Tutoriels sur l’API REST
+    items:
+    - name: Définir une limite géographique
+      href: tutorial-geofence.md
 - name: Concepts
   items:
   - name: Authentification avec Azure Maps
@@ -63,6 +67,8 @@ items:
     items:
     - name: Rechercher une adresse
       href: how-to-search-for-address.md
+    - name: Bonnes pratiques pour la recherche
+      href: how-to-use-best-practices-for-search.md
     - name: Rendre les données personnalisées sur une carte statique
       href: how-to-render-custom-data.md
   - name: Développer avec le kit SDK web
@@ -89,6 +95,8 @@ items:
         href: map-add-heat-map-layer.md
       - name: Données de point de cluster
         href: clustering-point-data-web-sdk.md
+      - name: Utiliser des expressions de style basées sur les données
+        href: data-driven-style-expressions-web-sdk.md
       - name: Superposer une image
         href: map-add-image-layer.md
       - name: Ajouter des couches de vignettes
@@ -207,9 +215,9 @@ items:
       href: /azure/iot-edge
     - name: Kits de développement logiciel (SDK) IoT Device
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: fa4c3a4f8158123e6773640c1612daa0c7390424
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.openlocfilehash: 94e02b599bffd24e9c9aa65560e4a74bd05ecea6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058932"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263590"

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à GoodPractice Toolkit | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à GoodPractice Toolkit | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et GoodPractice Toolkit.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f9b847fd424e14eba492018887dbc28c44100f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864403"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Didacticiel : Intégration d’Azure Active Directory à GoodPractice Toolkit
 
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de GoodPractice Toolkit à Azure AD, vous devez ajouter GoodPractice Toolkit à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter GoodPractice Toolkit à partir de la galerie, procédez comme suit :**
+**Pour ajouter GoodPractice Toolkit à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec GoodPractice Toolkit, 
 
     ![Informations d’authentification unique dans Domaine et URL GoodPractice Toolkit](common/sp-intiated.png)
 
-    Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId> `.
+    Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
 
     > [!Note]
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe du support technique GoodPractice Toolkit](mailto:support@goodpractice.com).

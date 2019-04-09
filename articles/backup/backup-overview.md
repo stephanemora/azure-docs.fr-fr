@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122010"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621666"
 ---
 # <a name="what-is-azure-backup"></a>Qu’est-ce qu’Azure Backup ?
 
@@ -28,10 +28,14 @@ Le service Sauvegarde Azure offre les principaux avantages suivants :
 - **Sauvegarde locale de déchargement** : Le service Sauvegarde Azure offre une solution simple pour la sauvegarde de vos ressources locales dans le cloud. Obtenez une sauvegarde à court terme et à long terme sans avoir besoin de déployer des solutions de sauvegarde locale complexes. 
 - **Sauvegarder des machines virtuelles Azure IaaS** : Le service Sauvegarde Azure fournit des sauvegardes indépendantes et isolées pour éviter une destruction accidentelle des données d’origine. Les sauvegardes sont stockées dans un coffre Recovery Services avec la gestion intégrée des points de récupération. La configuration et la scalabilité sont simples : les sauvegardes sont optimisées, et vous pouvez facilement effectuer des restaurations en fonction des besoins.
 - **Mettre à l’échelle facilement** : Sauvegarde Azure utilise la puissance sous-jacente et la mise à l’échelle illimitée du cloud Azure pour offrir une haute disponibilité, sans tâche supplémentaire de maintenance ou de supervision. 
-- **Obtenir un transfert de données illimitées** : Sauvegarde Azure ne limite pas la quantité de données entrantes ou sortantes transférées, et ne génère pas de frais pour les données transférées.
+- **Obtenir un transfert de données illimitées** : La Sauvegarde Azure ne limite pas la quantité de données entrantes ou sortantes transférées, et ne génère pas de frais pour les données transférées.
     - Les données sortantes sont les données transférées à partir d’un coffre Recovery Services pendant une opération de restauration.
     - Si vous effectuez une sauvegarde initiale hors connexion avec le service Azure Import/Export pour importer de grandes quantités de données, des frais associés aux données entrantes sont facturés.  [Plus d’informations](backup-azure-backup-import-export.md) 
-- **Sécuriser les données** : le chiffrement des données garantit une transmission et un stockage sécurisés de vos données dans le cloud public. La phrase secrète de chiffrement est stockée en local et n’est jamais transmise ou stockée dans Azure. Si vous avez besoin de restaurer des données, vous êtes le seul à disposer de la phrase secrète de chiffrement ou de la clé.
+- **Sécuriser les données** :
+    - Localement, les données en transit sont chiffrées sur l’ordinateur local avec AES256. Les données transmises sont protégées par HTTPS entre le stockage et la sauvegarde. Le protocole iSCSI sécurise les données transmises entre la sauvegarde et la machine de l’utilisateur. Le tunneling sécurisé est utilisé pour protéger le canal iSCSI.
+    - Pour la sauvegarde locale sur Azure, les données dans Azure sont chiffrées au repos à l’aide de la phrase secrète que vous fournissez quand vous configurez la sauvegarde. La phrase secrète ou la clé n’est jamais transmise ou stockée dans Azure. Si vous avez besoin de restaurer des données, vous êtes le seul à disposer de la phrase secrète de chiffrement ou de la clé.
+    - Pour les machines virtuelles Azure, les données sont chiffrées à la réinitialisation à l’aide de Storage Service Encryption (SSE). La Sauvegarde chiffre automatiquement les données avant de les stocker. Le Stockage Azure déchiffre les données avant de les récupérer.
+    - La Sauvegarde prend également en charge les machines virtuelles Azure chiffrées avec ADE (Azure Disk Encryption). [Plus d’informations](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups)
 - **Obtenir des sauvegardes cohérentes au niveau application** : une sauvegarde cohérente au niveau application signifie qu’un point de récupération dispose de toutes les données nécessaires pour restaurer la copie de sauvegarde. Sauvegarde Microsoft Azure fournit des sauvegardes cohérentes avec les applications, qui garantissent qu’aucun correctif supplémentaire n’est requis pour restaurer les données. La restauration de données cohérentes avec les applications réduit le délai de restauration, ce qui permet de rétablir rapidement le fonctionnement normal.
 - **Conserver des données à court et à long terme** : Vous pouvez utiliser des coffres Recovery Services pour la conservation de données à court et à long terme. Azure ne limite pas la durée de conservation des données dans un coffre Recovery Services. Vous pouvez les conserver dans un coffre aussi longtemps que vous le souhaitez. Azure Backup est limité à 9 999 points de récupération par instance protégée. [Découvrez plus d’informations](backup-introduction-to-azure-backup.md#backup-and-retention) sur la façon dont cette limite a un impact sur vos besoins de sauvegarde.
 - **Gestion automatique du stockage** : les environnements hybrides impliquent souvent un stockage hétérogène (une partie en local et une autre dans le cloud). Avec Azure Backup, l’utilisation d’appareils de stockage locaux ne génère aucun coût. Sauvegarde Azure alloue et gère automatiquement le stockage des sauvegardes sur la base d’un modèle de paiement à l’utilisation : vous ne payez donc que le stockage que vous consommez. [Apprenez-en davantage sur la](https://azure.microsoft.com/pricing/details/backup) tarification.
@@ -66,7 +70,7 @@ La Sauvegarde Azure peut sauvegarder aussi bien les machines locales que les mac
 
 **Machine** | **Scénario de sauvegarde**
 --- | ---
-**Sauvegarde locale** |  1) Exécutez l’agent Microsoft Azure Recovery Services (MARS) de Sauvegarde Azure sur des machines Windows locales pour sauvegarder des fichiers individuels et l’état du système. <br/><br/>2) Sauvegarder les machines locales sur un serveur de sauvegarde, comme DPM (System Center Data Protection Manager) ou MABS (Microsoft Azure Backup Server), puis configurez le serveur de sauvegarde pour la sauvegarde dans un coffre Recovery Services du service Sauvegarde Azure dans Azure.
+**Sauvegarde locale** |  1) Exécutez l’agent Microsoft Azure Recovery Services (MARS) de Sauvegarde Azure sur des machines Windows locales pour sauvegarder des fichiers individuels et l’état du système. <br/><br/>2) Sauvegardez les machines locales sur un serveur de sauvegarde, comme DPM (System Center Data Protection Manager) ou MABS (Microsoft Azure Backup Server), puis configurez le serveur de sauvegarde pour la sauvegarde dans un coffre Recovery Services du service Sauvegarde Azure dans Azure.
 **Machines virtuelles Azure** | 1) Activez la sauvegarde pour les machines virtuelles Azure individuelles. Quand vous activez la sauvegarde, Sauvegarde Azure installe une extension de l’agent de machine virtuelle Azure qui s’exécute sur la machine virtuelle. L’agent sauvegarde la totalité de la machine virtuelle.<br/><br/> 2) Exécutez l’agent MARS sur une machine virtuelle Azure. C’est pratique si vous voulez sauvegarder des fichiers et des dossiers individuels sur la machine virtuelle.<br/><br/> 3) Sauvegardez une machine virtuelle Azure sur un serveur DPM ou MABS s’exécutant dans Azure. Sauvegardez ensuite le serveur DPM/MABS dans un coffre avec Sauvegarde Azure. 
 
 
