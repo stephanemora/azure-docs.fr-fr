@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: b633c6a8ccbf9f29b93314bb9391215031d523eb
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893059"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010598"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
 
@@ -288,10 +288,9 @@ Pour en savoir plus, consultez [ALTER DATABASE](https://docs.microsoft.com/sql/t
     - L’agent de lecture de la file d’attente n’est pas pris en charge.  
     - L’interface de commande n’est pas encore prise en charge.
   - Les instances managées ne peuvent pas accéder à des ressources externes (par exemple des partages réseau via robocopy).  
-  - PowerShell n’est pas encore pris en charge.
   - Analysis Services n’est pas pris en charge.
 - Les notifications sont partiellement prises en charge.
-- Les notifications par e-mail sont prises en charge, elles requièrent la configuration d’un profil de messagerie de base de données. Il ne peut y avoir qu’un seul profil de messagerie de base de données et il doit être appelé `AzureManagedInstance_dbmail_profile` en préversion publique (limitation temporaire).  
+- Les notifications par e-mail sont prises en charge, elles requièrent la configuration d’un profil de messagerie de base de données. L’Agent SQL peut utiliser le profil de messagerie de base de données qu’une seule et il doit être appelé `AzureManagedInstance_dbmail_profile`.  
   - Le récepteur d’appel n’est pas pris en charge.  
   - NetSend n’est pas pris en charge.
   - Les alertes ne sont pas encore prises en charge.
@@ -432,10 +431,7 @@ Limites :
 - `.BAK` les fichiers contenant plusieurs jeux de sauvegarde ne peut pas être restaurés.
 - `.BAK` Impossible de restaurer les fichiers contenant plusieurs fichiers journaux.
 - La restauration échoue si le fichier.bak contient des données `FILESTREAM`.
-- Il est actuellement impossible de restaurer les sauvegardes contenant des bases de données qui ont des objets en mémoire actifs.  
-- Il est actuellement impossible de restaurer les sauvegardes contenant des bases de données où des objets en mémoire ont existé à un moment donné.
-- Il est actuellement impossible de restaurer les sauvegardes contenant des bases de données en mode lecture seule. Cette limitation sera supprimée sous peu.
-
+- Impossible de restaurer les sauvegardes contenant des bases de données qui ont des objets en mémoire active sur l’instance à usage général.  
 Pour plus d’informations sur les instructions de restauration, consultez [Instructions RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Service broker
@@ -485,6 +481,8 @@ Instance gérée ne peut pas restaurer [bases de données autonomes](https://doc
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Dépassement de l’espace de stockage avec des fichiers de base de données de petite taille
 
+`CREATE DATABASE `, `ALTER DATABASE ADD FILE`, et `RESTORE DATABASE` instructions risque d’échouer car l’instance peut atteindre la limite de stockage Azure.
+
 Chaque Instance de géré à usage général a jusqu'à 35 To de stockage réservé pour l’espace disque Premium Azure, et chaque fichier de base de données est placé sur un disque physique distinct. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne.
 
 Par exemple, une Instance gérée d’usage général peut avoir un fichier de 1,2 To par la taille qui est placé sur un disque de 4 To et 248 fichiers (chaque taille 1 Go) qui sont placés sur des disques distincts de 128 Go. Dans cet exemple :
@@ -514,9 +512,13 @@ SQL Server Management Studio (SSMS) et SQL Server Data Tools (SSDT) peuvent renc
 
 Plusieurs vues système, compteurs de performances, messages d’erreur, événements XEvent et entrées du journal des erreurs affichent des identificateurs de base de données GUID au lieu d’afficher les noms des bases de données. Ne prenez pas en compte ces identificateurs GUID, car ils vont être prochainement remplacés par les noms des bases de données.
 
+### <a name="database-mail"></a>Messagerie de base de données
+
+`@query` paramètre dans [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procédure ne fonctionnent pas.
+
 ### <a name="database-mail-profile"></a>Profil de messagerie de base de données
 
-Le profil de messagerie de base de données utilisé par l’Agent SQL doit être appelé `AzureManagedInstance_dbmail_profile`.
+Le profil de messagerie de base de données utilisé par l’Agent SQL doit être appelé `AzureManagedInstance_dbmail_profile`. Il n’existe aucune restriction concernant les autres noms de profil de messagerie de base de données.
 
 ### <a name="error-logs-are-not-persisted"></a>Les journaux des erreurs ne sont pas persistants
 

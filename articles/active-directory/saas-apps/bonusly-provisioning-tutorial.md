@@ -1,71 +1,67 @@
 ---
-title: 'Tutoriel : Configurer Bonusly pour l’attribution automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer Bonusly pour l’attribution automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour attribuer et supprimer automatiquement des comptes d’utilisateur dans Bonusly.
 services: active-directory
 documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 879b0ee9-042a-441b-90a7-8c364d62426a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c14de0d09006aefb342590f613edb129ab5016
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4ad0ee590572dbc92e67be9f84ffc65afc3e8473
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173706"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056960"
 ---
-# <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutoriel : Configurer Bonusly pour l’attribution automatique d’utilisateurs
+# <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Didacticiel : Configurer Bonusly pour l’attribution automatique d’utilisateurs
 
 L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Bonusly et Azure Active Directory (Azure AD) dans le but de configurer Azure AD pour l’attribution et la suppression automatiques d’utilisateurs et/ou de groupes dans Bonusly.
 
 > [!NOTE]
 > Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   un locataire Azure AD ;
-*   Un [locataire Bonusly](https://bonus.ly/pricing)
-*   Un compte d’utilisateur Bonusly avec des autorisations d’administrateur
+* un locataire Azure AD ;
+* Un [locataire Bonusly](https://bonus.ly/pricing)
+* Un compte d’utilisateur Bonusly avec des autorisations d’administrateur
 
 > [!NOTE]
 > L’intégration du provisionnement Azure AD repose sur [l’API REST Bonusly](https://bonusly.gelato.io/reference), qui est disponible pour les développeurs Bonusly.
 
 ## <a name="adding-bonusly-from-the-gallery"></a>Ajout de Bonusly à partir de la galerie
+
 Avant de configurer Bonusly pour l’attribution automatique d’utilisateurs avec Azure AD, vous devez ajouter Bonusly à votre liste d’applications SaaS managées, à partir de la galerie d’applications Azure AD.
 
-**Pour ajouter Bonusly à partir de la galerie d’applications Azure AD, effectuez les étapes suivantes :**
+**Pour ajouter Bonusly à partir de la galerie d’applications Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** > **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Section Applications d’entreprise][2]
-    
-3. Pour ajouter Bonusly, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-    ![Bouton Nouvelle application][3]
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-4. Dans la zone de recherche, tapez **Bonusly**.
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
-    ![Attribution d’utilisateurs dans Bonusly](./media/bonusly-provisioning-tutorial/AppSearch.png)
+4. Dans la zone de recherche, tapez **Bonusly**, sélectionnez **Bonusly** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-5. Dans le volet de résultats, sélectionnez **Bonusly**, puis cliquez sur le bouton **Ajouter** pour ajouter Bonusly à votre liste d’applications SaaS.
-
-    ![Attribution d’utilisateurs dans Bonusly](./media/bonusly-provisioning-tutorial/AppSearchResults.png)
-
-    ![Attribution d’utilisateurs dans Bonusly](./media/bonusly-provisioning-tutorial/AppCreation.png)
+    ![Bonusly dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="assigning-users-to-bonusly"></a>Attribution d’utilisateurs à Bonusly
 
@@ -73,13 +69,13 @@ Azure Active Directory utilise un concept appelé « affectations » pour dét
 
 Avant de configurer et d’activer l’attribution automatique d’utilisateurs, vous devez décider quels utilisateurs et/ou groupes Azure AD ont besoin d’accéder à Bonusly. Une fois que vous avez choisi, vous pouvez attribuer ces utilisateurs et/ou groupes à votre application Bonusly en suivant les instructions fournies ici :
 
-*   [Affecter un utilisateur ou un groupe à une application d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Affecter un utilisateur ou un groupe à une application d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-bonusly"></a>Conseils importants pour l’attribution d’utilisateurs dans Bonusly
 
-*   Dans un premier temps, il est recommandé de n’attribuer qu’un seul utilisateur Azure AD à Bonusly afin de tester la configuration de l’attribution automatique d’utilisateurs. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+* Dans un premier temps, il est recommandé de n’attribuer qu’un seul utilisateur Azure AD à Bonusly afin de tester la configuration de l’attribution automatique d’utilisateurs. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 
-*   Quand vous attribuez un utilisateur à Bonusly, vous devez sélectionner un rôle valide propre à l’application (si disponible) dans la boîte de dialogue d’attribution. Les utilisateurs dont le rôle est **Accès par défaut** sont exclus de l’approvisionnement.
+* Quand vous attribuez un utilisateur à Bonusly, vous devez sélectionner un rôle valide propre à l’application (si disponible) dans la boîte de dialogue d’attribution. Les utilisateurs dont le rôle est **Accès par défaut** sont exclus de l’approvisionnement.
 
 ## <a name="configuring-automatic-user-provisioning-to-bonusly"></a>Configuration de l’attribution automatique d’utilisateurs dans Bonusly
 
@@ -90,14 +86,16 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Si vous souhaitez configurer l’attribution automatique d’utilisateurs pour Bonusly dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com), puis accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
+1. Se connecter à la [Azure portal](https://portal.azure.com) et sélectionnez **Applications d’entreprise**, sélectionnez **toutes les applications**, puis sélectionnez **Bonusly**.
 
-2. Sélectionnez Bonusly dans votre liste d’applications SaaS.
- 
-    ![Attribution d’utilisateurs dans Bonusly](./media/bonusly-provisioning-tutorial/AppInstanceSearch.png)
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
+2. Dans la liste des applications, sélectionnez **Bonusly**.
+
+    ![Lien Bonusly dans la liste des applications](common/all-applications.png)
 
 3. Sélectionnez l’onglet **Approvisionnement**.
-    
+
     ![Attribution d’utilisateurs dans Bonusly](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
@@ -105,6 +103,8 @@ Cette section vous guide tout au long des étapes de configuration du service de
     ![Attribution d’utilisateurs dans Bonusly](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
 
 5. Sous la section **Informations d’identification de l’administrateur**, entrez le **jeton secret** de votre compte Bonusly, comme expliqué à l’étape 6.
+
+    ![Attribution d’utilisateurs dans Bonusly](./media/bonusly-provisioning-tutorial/secrettoken.png)
 
 6. Le **jeton secret** de votre compte se trouve dans **Admin > Company > Integrations** (Admin > Société > Intégrations). Dans la section **If you want to code** (Si vous souhaitez programmer), cliquez sur **API > Create New API Access Token** (API > Créer un jeton d’accès d’API) pour créer un jeton secret.
 
@@ -123,7 +123,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 8. Après avoir renseigné les champs indiqués à l’étape 5, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Bonusly. Si la connexion échoue, vérifiez que votre compte Bonusly dispose des autorisations d’administrateur, puis réessayez.
 
     ![Attribution d’utilisateurs dans Bonusly](./media/bonusly-provisioning-tutorial/TestConnection.png)
-    
+
 9. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![Attribution d’utilisateurs dans Bonusly](./media/bonusly-provisioning-tutorial/EmailNotification.png)
@@ -152,16 +152,14 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![Attribution d’utilisateurs dans Bonusly](./media/bonusly-provisioning-tutorial/SaveProvisioning.png)
 
-
 Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement Azure AD dans Bonusly.
 
 Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [La gestion de l’approvisionnement de comptes utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

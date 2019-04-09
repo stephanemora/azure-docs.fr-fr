@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: d5ac2291f9be6fc8f8d702ec390acf02d5ad9d0f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 75b86ea028a500b6b358c468a1d10a830db01b6a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051646"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283747"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Prise en main de l’identité de module et du jumeau de module IoT Hub à l’aide du portail et d’un appareil .NET
 
@@ -24,18 +24,18 @@ ms.locfileid: "59051646"
 
 Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 
-1. Créer une identité de module dans le portail. 
+1. Créer une identité de module dans le portail.
 
-2. Utiliser le kit de développement logiciel (SDK) .NET pour mettre à jour le jumeau de module à partir de votre appareil.
+2. Comment utiliser une mise à jour SDK .NET appareil jumeau de module à partir de votre appareil.
 
 > [!NOTE]
-> Pour plus d’informations sur les kits de développement logiciel Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal, voir l’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks].
+> Pour plus d’informations sur les SDK Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal, consultez l’article [SDK Azure IoT](iot-hub-devguide-sdks.md).
 >
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Visual Studio 2015 ou Visual Studio 2017.
-* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
+* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -51,13 +51,13 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="create-a-module-identity-in-the-portal"></a>Créer une identité de module dans le portail
 
-Vous pouvez créer jusqu’à 20 identités de module dans une même identité d’appareil. Cliquez sur le bouton **Ajouter une identité de module** en haut de l’écran pour créer votre première identité de module, que vous appellerez **myFirstModule**. 
+Vous pouvez créer jusqu’à 20 identités de module dans une même identité d’appareil. Cliquez sur le bouton **Ajouter une identité de module** en haut de l’écran pour créer votre première identité de module, que vous appellerez **myFirstModule**.
 
-  ![Informations sur l’appareil][9]
+  ![Informations sur l’appareil](./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.png)
 
 Enregistrez et cliquez sur l’identité de module que vous venez de créer. Vous pouvez visualiser les détails de l’identité de module. Enregistrez la clé primaire de la chaîne de connexion. Cette clé sera utilisée dans la section suivante, où vous allez configurer votre module sur l’appareil.
 
-  ![Informations sur l’appareil][12]
+  ![Informations sur l’appareil](./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.png)
 
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>Mettre à jour le jumeau de module à l’aide du SDK d’appareil .NET
 
@@ -67,19 +67,19 @@ Vous venez de créer votre identité de module dans votre IoT Hub. Vous allez ma
 
 Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution existante en utilisant le modèle de projet **Application console (.NET Framework)**. Assurez-vous que la version du .NET Framework est définie sur 4.6.1 ou supérieur. Nommez le projet **UpdateModuleTwinReportedProperties**.
 
-  ![Créer un projet Visual Studio][13]
+  ![Créer un projet Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.png)
 
 ## <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>Installer le dernier SDK d’appareil .NET Azure IoT Hub
 
-L’identité de module et le jumeau de module sont disponibles en préversion publique. Ils sont uniquement disponibles dans les kits SDK d’appareil IoT Hub en préversion. Dans Visual Studio, ouvrez Outils > Gestionnaire de package Nuget > Gérer les packages Nuget pour la solution. Recherchez Microsoft.Azure.Devices.Client. Assurez-vous de cocher la case Inclure la version préliminaire. Sélectionnez la version la plus récente et installez-la. Vous avez maintenant accès à toutes les fonctionnalités de module. 
+L’identité de module et le jumeau de module sont disponibles en préversion publique. Il est uniquement disponible dans les IoT Hub en version préliminaire kits device SDK. Dans Visual Studio, ouvrez Outils > Gestionnaire de package Nuget > Gérer les packages Nuget pour la solution. Recherchez Microsoft.Azure.Devices.Client. Assurez-vous que vous avez vérifié incluent la case à cocher en version préliminaire. Sélectionnez la version la plus récente et installez-la. Vous avez maintenant accès à toutes les fonctionnalités de module.
 
-  ![Installer le kit SDK du service NET Azure IoT Hub V1.16.0-préversion-005][14]
+  ![Installer le kit SDK du service NET Azure IoT Hub V1.16.0-préversion-005](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
 ## <a name="get-your-module-connection-string"></a>Obtenir votre chaîne de connexion du module
 
-Connectez-vous au [portail Azure][lnk-portal]. Accédez à votre IoT Hub, puis cliquez sur Appareils IoT. Recherchez et ouvrez myFirstDevice pour vérifier que myFirstModule a bien été créé. Copiez la chaîne de connexion du module. Vous en aurez besoin à l’étape suivante.
+Connexion à [Azure portal](https://portal.azure.com/). Accédez à votre IoT Hub, puis cliquez sur Appareils IoT. Recherchez et ouvrez myFirstDevice pour vérifier que myFirstModule a bien été créé. Copiez la chaîne de connexion du module. Vous en aurez besoin à l’étape suivante.
 
-  ![Détails du module du Portail Azure][15]
+  ![Détails du module du Portail Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
 
 ## <a name="create-updatemoduletwinreportedproperties-console-app"></a>Créer l’application de console UpdateModuleTwinReportedProperties
 
@@ -159,26 +159,12 @@ Cet exemple de code montre comment récupérer le jumeau de module et mettre à 
 
 ## <a name="run-the-apps"></a>Exécuter les applications
 
-Vous êtes maintenant prêt à exécuter les applications. Dans Visual Studio, dans l’explorateur de solutions, cliquez avec le bouton droit sur votre solution, puis sur **Définir les projets de démarrage**. Sélectionnez **Plusieurs projets de démarrage**, puis choisissez l’action **Démarrer** pour l’application de console. Appuyez sur F5 pour démarrer les deux applications. 
+Vous êtes maintenant prêt à exécuter les applications. Dans Visual Studio, dans l’explorateur de solutions, cliquez avec le bouton droit sur votre solution, puis sur **Définir les projets de démarrage**. Sélectionnez **Plusieurs projets de démarrage**, puis choisissez l’action **Démarrer** pour l’application de console. Appuyez sur F5 pour démarrer les deux applications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT, consultez les articles suivants :
 
-* [Bien démarrer avec le jumeau de module et l’identité de module IoT Hub à l’aide d’une sauvegarde .NET et d’un appareil .NET][lnk-csharp-csharp-getstarted]
-* [Bien démarrer avec IoT Edge][lnk-iot-edge]
+* [Bien démarrer avec le jumeau de module et l’identité de module IoT Hub à l’aide d’une sauvegarde .NET et d’un appareil .NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
 
-
-<!-- Images. -->
-[9]:./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
-[12]:./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
-[13]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
-[14]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
-[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-portal]: https://portal.azure.com/
-
-[lnk-csharp-csharp-getstarted]: iot-hub-csharp-csharp-module-twin-getstarted.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
+* [Bien démarrer avec IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

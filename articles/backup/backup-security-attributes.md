@@ -1,5 +1,5 @@
 ---
-title: Attributs de sécurité pour Sauvegarde Azure
+title: Attributs de sécurité pour la sauvegarde Azure
 description: Liste de contrôle des attributs de sécurité communs pour l'évaluation de Sauvegarde Azure
 services: backup
 documentationcenter: ''
@@ -7,29 +7,19 @@ author: msmbaldwin
 manager: barbkess
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 04/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1de148005b2f1e5a543507a5bff5378221a454df
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 22f073e96c26213f821259e6230f4a801ca45709
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116675"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007082"
 ---
-# <a name="security-attributes-for-azure-backup"></a>Attributs de sécurité pour Sauvegarde Azure
+# <a name="security-attributes-for-azure-backup"></a>Attributs de sécurité pour la sauvegarde Azure
 
-La sécurité fait partie intégrante d’un service Azure. Cet article traite des attributs de sécurité intégrés dans Sauvegarde Azure. Un attribut de sécurité est une qualité ou une fonctionnalité d’un service Azure qui contribue à la capacité du service à prévenir, détecter ou répondre aux failles de sécurité.
+La sécurité fait partie intégrante d'un service Azure. Cet article décrit les attributs de sécurité courantes intégrées à Azure Backup. 
 
-Les attributs de sécurité sont classés de la façon suivante :
-* Préventifs
-* Segmentation du réseau
-* Détection
-* Prise en charge de la gestion des identités et des accès
-* Piste d'audit
-* Contrôles d'accès (le cas échéant)
-* Gestion de la configuration (le cas échéant)
-
-Dans chaque catégorie, nous déterminons si un attribut est utilisé ou non (oui/non). Tel ou tel attribut peut ne pas s'appliquer à certains services. Il est alors accompagné de la mention N/A. Une note ou un lien vers d'autres informations sur un attribut peut également être fourni.
-
+[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 [!INCLUDE [security-attributes-backup](../../includes/security-attributes-backup.md)]

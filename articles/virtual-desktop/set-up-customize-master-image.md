@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: fb107d9e48db5a9809ceb7ffcbac09550279f12d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: d22fffcb792227b4d0805abd005d8c050cb97248
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485864"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006201"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
@@ -260,7 +260,7 @@ Vous pouvez également configurer manuellement des stratégies de session à dis
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 600000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
@@ -368,8 +368,8 @@ Les instructions suivantes vous indiquera comment charger votre image principale
 
 Maintenant que vous avez une image, vous pouvez créer ou mettre à jour des pools de l’hôte. Pour en savoir plus sur la création et de mettre à jour des pools d’hôte, consultez les articles suivants :
 
-- [Créer un pool de l’hôte avec un modèle Azure Resource Manager](create-host-pools-arm-template.md)
-- [Tutoriel : Créer un pool de l’hôte avec la place de marché Azure](create-host-pools-azure-marketplace.md)
-- [Créer un pool de l’hôte avec PowerShell](create-host-pools-powershell.md)
-- [Configurez un partage de profil utilisateur pour un pool de l’hôte](create-host-pools-user-profile.md)
-- [Configurer la méthode d’équilibrage de charge de bureau virtuel Windows](configure-host-pool-load-balancing.md)
+- [Créer un pool d’hôtes avec le modèle Azure Resource Manager](create-host-pools-arm-template.md)
+- [Didacticiel : Créer un pool d’hôtes avec la Place de marché Azure](create-host-pools-azure-marketplace.md)
+- [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md)
+- [Configurer un partage de profil utilisateur pour un pool d’hôtes](create-host-pools-user-profile.md)
+- [Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop](configure-host-pool-load-balancing.md)

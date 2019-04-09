@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990983"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056722"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planifier votre système Avere vFXT
 
@@ -130,6 +130,17 @@ Quand vous créez le cluster, vous pouvez choisir s’il faut créer une adresse
 
 * Si vous créez un réseau virtuel ou un sous-réseau, une adresse IP publique est affectée au contrôleur de cluster.
 * Si vous sélectionnez un réseau virtuel et un sous-réseau existants, le contrôleur de cluster aura uniquement des adresses IP privées. 
+
+## <a name="vm-access-roles"></a>Rôles d’accès de machine virtuelle 
+
+Azure utilise [contrôle d’accès en fonction du rôle](../role-based-access-control/index.yml) (RBAC) pour autoriser le cluster de machines virtuelles pour effectuer certaines tâches. Par exemple, le contrôleur de cluster a besoin d’autorisation pour créer et configurer les machines virtuelles de nœud de cluster. Les nœuds du cluster doivent être en mesure d’assigner ou réassigner les adresses IP vers d’autres nœuds de cluster.
+
+Deux rôles Azure intégrés sont utilisés pour les machines virtuelles de vFXT Avere : 
+
+* Le contrôleur de cluster utilise le rôle intégré [Avere contributeur](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Les nœuds de cluster utilisent le rôle intégré [Avere opérateur](../role-based-access-control/built-in-roles.md#avere-operator)
+
+Si vous avez besoin personnaliser les rôles d’accès pour les composants de vFXT Avere, vous devez définir votre propre rôle et puis l’affecter aux machines virtuelles à la création. Vous ne pouvez pas utiliser le modèle de déploiement dans Azure Marketplace. Consultez le support technique et Service clientèle Microsoft en ouvrant un ticket dans le portail Azure, comme décrit dans [obtenir de l’aide avec votre système](avere-vfxt-open-ticket.md). 
 
 ## <a name="next-step-understand-the-deployment-process"></a>Étape suivante : Comprendre le processus de déploiement
 

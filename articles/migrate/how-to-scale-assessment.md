@@ -4,18 +4,21 @@ description: Décrit comment évaluer un grand nombre de machines locales avec l
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116671"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057470"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
 
-Une limite de 1 500 machines par projet s’applique pour Azure Migrate. Cet article décrit comment évaluer un grand nombre de machines virtuelles locales avec [Azure Migrate](migrate-overview.md).   
+Une limite de 1 500 machines par projet s’applique pour Azure Migrate. Cet article décrit comment évaluer un grand nombre de machines virtuelles locales avec [Azure Migrate](migrate-overview.md).
+
+> [!NOTE]
+> Nous avons une préversion disponible qui permet de découvrir des machines virtuelles de VMware jusqu'à 10 000 dans un seul projet à l’aide d’une seule appliance, si vous êtes intéressé par le œil, veuillez vous inscrire [ici.](https://aka.ms/migratefuture)
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -62,7 +65,7 @@ En cas de détection unique (maintenant dépréciée), la détection fonctionne 
 
 Planifiez vos découvertes et vos évaluations en fonction des contraintes suivantes :
 
-| **Entité** | **Limite de la machine** |
+| **Entité** | **Limite de l’ordinateur** |
 | ---------- | ----------------- |
 | Projet    | 1 500             |
 | Découverte  | 1 500             |
@@ -155,7 +158,7 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer :
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-   Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Exemple d'utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Vérifiez que le hachage généré correspond aux paramètres suivants.
 

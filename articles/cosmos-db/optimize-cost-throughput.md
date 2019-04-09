@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877824"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009765"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Voici quelques indications pour choisir une stratégie de débit approvisionné�
 
 1. Vous avez quelques dizaines de conteneurs Azure Cosmos et souhaitez partager le débit sur tout ou partie de ces conteneurs. 
 
-2. Vous effectuez une migration à partir d’une base de données à locataire unique conçue pour s’exécuter sur des machines virtuelles hébergées sur IaaS ou localement, par exemple des bases de données NoSQL ou relationnelles, vers Azure Cosmos DB. Vous avez un grand nombre de collections/tables/graphiques et ne souhaitez pas modifier votre modèle de données. Notez que vous deviez compromettre certains des avantages offerts par Azure Cosmos DB si vous ne mettez pas à jour votre modèle de données lors de la migration à partir d’une base de données locale. Il est recommandé d’accéder régulièrement à votre modèle de données pour optimiser les performances et les coûts. 
+2. Vous effectuez une migration à partir d’une base de données à locataire unique conçue pour s’exécuter sur des machines virtuelles hébergées sur IaaS ou localement, par exemple des bases de données NoSQL ou relationnelles, vers Azure Cosmos DB. Et si vous avez plusieurs collections/tables/graphiques et que vous ne souhaitez pas apporter des modifications à votre modèle de données. Notez que vous deviez compromettre certains des avantages offerts par Azure Cosmos DB si vous ne mettez pas à jour votre modèle de données lors de la migration à partir d’une base de données locale. Il est recommandé d’accéder régulièrement à votre modèle de données pour optimiser les performances et les coûts. 
 
 3. Vous souhaitez absorber les pics imprévus dans les charges de travail en regroupant le débit au niveau de la base de données qui subit un pic inattendu dans la charge de travail. 
 

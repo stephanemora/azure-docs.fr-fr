@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.author: jowargo
-ms.openlocfilehash: c0fd7dec31a2c4054c59db3bae52cdb15ba01eed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884419"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058490"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Diagnostic d’Azure Notification Hubs - notifications ignorées
 
@@ -33,7 +33,7 @@ Dans un flux de notification d’envoi type, le message est envoyé par le *serv
 
 Une fois les cibles établies, le service Notification Hubs envoie (push) des notifications au *service de notifications Push* correspondant à la plateforme de l’appareil. Il peut s’agir, par exemple, d’Apple Push Notification Service (APNs) pour Apple ou de Firebase Cloud Messaging (FCM) pour Google. Notification Hubs envoie les notifications regroupées en plusieurs lots d’inscriptions. Notification Hubs s’authentifie auprès du service de notifications Push correspondant, en fonction des informations d’identification que vous avez configurées dans le portail Azure, sous **Configure Notification Hub** (Configurer Notification Hubs). Le service de notifications Push transmet alors les notifications aux *appareils clients* correspondants.
 
-Le dernier tronçon de remise des notifications s’effectue entre le service de notifications Push de la plateforme et l’appareil. La perte des notifications peut être causée par l’un des quatre composants principaux du processus de notification Push, à savoir le client, le serveur d’applications backend, Notification Hubs et le service de notifications Push de la plateforme. Pour plus d’informations sur l’architecture de Notification Hubs, consultez [Vue d’ensemble de Notification Hubs].
+Le dernier tronçon de remise des notifications s’effectue entre le service de notifications Push de la plateforme et l’appareil. La perte des notifications peut être causée par l’un des quatre composants principaux du processus de notification Push, à savoir le client, le serveur d’applications backend, Notification Hubs et le service de notifications Push de la plateforme. Pour plus d’informations sur l’architecture de Notification Hubs, consultez [Présentation de Notification Hubs].
 
 L’échec de la remise des notifications peut se produire lors de la phase de test ou de préproduction. À ce stade, la perte des notifications peut indiquer un problème de configuration. Si l’échec de remise des notifications se produit lors de la phase de production, il se peut que certaines ou que l’ensemble des notifications soient perdues. Dans ce cas, cela indique un problème plus complexe lié à l’application ou au type de messagerie.
 
@@ -41,7 +41,7 @@ La section suivante présente les scénarios dans lesquels les notifications peu
 
 ## <a name="notification-hubs-misconfiguration"></a>Configuration incorrecte de Notification Hubs
 
-Pour envoyer des notifications au service de notifications Push adapté, le service Notification Hubs doit s’authentifier dans le contexte de l’application du développeur. Pour ce faire, le développeur doit créer un compte de développeur avec la plateforme correspondante (Google, Apple, Windows, etc.). Ensuite, il doit inscrire son application auprès de la plateforme qui lui fournit des informations d’identification.
+Pour envoyer des notifications au service de notifications Push adapté, le service Notification Hubs doit s’authentifier dans le contexte de l’application du développeur. Le développeur crée un compte de développeur avec la plateforme correspondante (Google, Apple, Windows et ainsi de suite). Ensuite, il doit inscrire son application auprès de la plateforme qui lui fournit des informations d’identification.
 
 Vous devez ajouter ces informations d’identification de plateforme dans le portail Azure. Si aucune notification n’arrive sur l’appareil, la première chose à faire est de vérifier que les bonnes informations d’identification sont configurées dans Notification Hubs. Les informations d’identification doivent être celles de l’application qui a été créée sous un compte de développeur spécifique à la plateforme.
 
@@ -49,82 +49,83 @@ Pour obtenir des instructions pas à pas pour ce processus, consultez [Bien dém
 
 Voici certaines erreurs de configuration courantes :
 
-**Généralités :**
+**Généralités**
 
-    * Vérifiez que le nom de votre hub de notification (sans fautes de frappe) est le même dans chacun de ces emplacements :
-        * Là où vous vous êtes inscrit auprès du client
-        * Là où vous envoyez des notifications à partir du backend
-        * Là où vous avez configuré les informations d’identification du service de notifications Push.
-    * Vérifiez que vous utilisez les mêmes chaînes de configuration de signature d’accès partagé sur le client et sur le serveur d’applications backend. En règle générale, vous devez utiliser **DefaultListenSharedAccessSignature** sur le client et **DefaultFullSharedAccessSignature** sur le serveur d’applications backend (ce qui autorise l’envoi de notifications à Notification Hubs)
+Vérifiez que le nom de votre hub de notification (sans fautes de frappe) est le même dans chacun de ces emplacements :
+   * Là où vous vous êtes inscrit auprès du client
+   * Là où vous envoyez des notifications à partir du backend
+   * Là où vous avez configuré les informations d’identification du service de notifications Push.
 
-**Configuration d’Apple Push Notification Service :**
+Vérifiez que vous utilisez les mêmes chaînes de configuration de signature d’accès partagé sur le client et sur le serveur d’applications backend. En règle générale, vous devez utiliser **DefaultListenSharedAccessSignature** sur le client et **DefaultFullSharedAccessSignature** sur le serveur d’applications backend (ce qui autorise l’envoi de notifications à Notification Hubs)
 
-    You must maintain two different hubs: one hub for production, and another hub for testing. This means that you must upload the certificate that you use in a sandbox environment to a separate hub than the certificate and hub that you are going to use in production. Don't try to upload different types of certificates to the same hub. This might cause notification failures.
+**Configuration d’APN**
 
-    If you inadvertently upload different types of certificates to the same hub, we recommend that you delete the hub and start fresh with a new hub. If for some reason you can't delete the hub, at a minimum, you must delete all the existing registrations from the hub.
+Vous devez disposer de deux hubs : un pour la production et l’autre pour vos tests. Le certificat que vous chargez dans l’environnement de bac à sable (sandbox) doit être différent de celui que vous chargerez dans l’environnement de production. N’essayez pas de charger plusieurs types de certificats dans un même hub. Cela peut entraîner l’échec de la remise des notifications.
 
-**Configuration de Firebase Cloud Messaging :**
+Si vous chargez par inadvertance plusieurs types de certificats dans un même hub, nous vous recommandons de supprimer ce hub et d’en créer un nouveau. Si vous ne pouvez pas supprimer le hub pour une raison quelconque, vous devez au moins supprimer toutes les inscriptions effectuées auprès de ce hub.
 
-    1. Vérifiez que la *clé serveur* que vous avez obtenue de Firebase correspond à celle que vous avez inscrite dans le portail Azure.
+**Configuration de FCM**
 
-    ![Clé serveur Firebase][3]
+1. Vérifiez que la *clé serveur* que vous avez obtenue de Firebase correspond à celle que vous avez inscrite dans le portail Azure.
 
-    2. Vérifiez que vous avez configuré **l’ID de projet** dans le client. La valeur de **l’ID de projet** se trouve dans le tableau de bord Firebase.
+   ![Clé serveur Firebase][3]
 
-    ![ID de projet Firebase][1]
+2. Vérifiez que vous avez configuré **l’ID de projet** dans le client. La valeur de **l’ID de projet** se trouve dans le tableau de bord Firebase.
+
+   ![ID de projet Firebase][1]
 
 ## <a name="application-issues"></a>Problèmes de l’application
 
-**Balises et expressions de balise :**
+**Balises et expressions de balise**
 
-    If you use tags or tag expressions to segment your audience, it's possible that when you send the notification, no target is found based on the tags or tag expressions that you specify in your send call.
+Si vous utilisez des balises ou des expressions de balise pour segmenter votre public, il est possible que lorsque vous envoyez la notification, aucune cible ne soit trouvée, selon les balises/expressions de balise que vous spécifiez dans votre appel d’envoi.
 
-    Review your registrations to ensure that there are matching tags when you send a notification. Then, verify the notification receipt only from the clients that have those registrations.
+Lorsque vous envoyez une notification, vérifiez que les balises de vos inscriptions correspondent. Ensuite, vérifiez l’accusé de réception uniquement des clients disposant de ces inscriptions.
 
-    As an example, if all your registrations with Notification Hubs were made by using the tag "Politics" and you send a notification with the tag "Sports," the notification isn't sent to any device. A complex case might involve tag expressions in which you registered by using "Tag A" OR "Tag B," but while sending notifications, you target "Tag A && Tag B." In the self-diagnosis tips section later in the article, we show you how to review your registrations and their tags.
+Par exemple, si toutes vos inscriptions auprès de Notification Hubs ont été effectuées à l’aide de la balise « Politique » et que vous envoyez une notification avec la balise « Sport », la notification n’est envoyée à aucun appareil. Un cas complexe peut impliquer des expressions de balise auxquelles vous vous êtes inscrit à l’aide de « Balise A » OU « Balise B », alors que vous ciblez « Balise A ET Balise B » lors de l’envoi des notifications. La section de conseils d’autodiagnostic plus loin dans cet article vous explique comment vérifier vos inscriptions et leurs balises.
 
-**Problèmes liés aux modèles : **
+**Problèmes liés aux modèles**
 
-    If you use templates, ensure that you follow the guidelines described in [Templates].
+Si vous utilisez des modèles, suivez bien les instructions décrites dans la section [Modèles].
 
-**Inscriptions non valides :**
+**Inscriptions non valides**
 
-    If the notification hub was configured correctly, and if any tags or tag expressions were used correctly, valid targets are found. Notifications should be sent to these targets. The Notification Hubs service then fires off several processing batches in parallel. Each batch sends messages to a set of registrations.
+Si le hub de notification a été configuré correctement, et si les balises ou les expressions de balise ont été correctement utilisées, des cibles valides sont trouvées. Les notifications doivent être envoyées à ces cibles. Le service Notification Hubs déclenche ensuite plusieurs traitements en parallèle. Chaque lot envoie des messages à un ensemble d’inscriptions.
 
-    > [!NOTE]
-    > Because processing is performed in parallel, the order in which the notifications are delivered is not guaranteed.
+> [!NOTE]
+> Étant donné que plusieurs traitements sont effectués en parallèle, l’ordre dans lequel les notifications sont remises n’est pas garanti.
 
-    Notification Hubs is optimized for an "at-most once" message delivery model. We attempt deduplication, so that no notifications are delivered more than once to a device. To ensure this, we check registrations and ensure that only one message is sent per device identifier before the message is sent to the push notification service.
+Notification Hubs est optimisé pour le modèle de remise de messages de type « une fois maximum ». Nous tentons une déduplication de sorte qu’aucune notification ne soit remise plus d’une fois au même périphérique. Pour nous en assurer, nous examinons les inscriptions et nous vérifions qu’un seul message est envoyé par identificateur d’appareil avant son envoi au service de notifications Push.
 
-    As each batch is sent to the push notification service, which in turn is accepting and validating the registrations, it's possible that the push notification service will detect an error with one or more of the registrations in a batch. In this case, the push notification service returns an error to Notification Hubs, and the process stops. The push notification service drops that batch completely. This is especially true with APNS, which uses a TCP stream protocol.
+Comme chaque lot est envoyé au service de notifications Push, qui à son tour accepte et valide les inscriptions, il est possible que le service de notifications Push détecte une erreur dans une ou plusieurs inscriptions d’un lot. Dans ce cas, le service de notifications Push retourne une erreur à Notification Hubs, et le processus s’arrête. Le service de notifications Push abandonne alors l’intégralité du lot. Ceci est particulièrement vrai pour Apple Push Notification Service qui utilise un protocole de flux TCP.
 
-    We are optimized for at-most once delivery. But in this case, the faulting registration is removed from the database. Then, we retry notification delivery for the rest of the devices in that batch.
+Le service est optimisé pour la remise de type « une fois maximum ». Toutefois, dans ce cas, l’inscription défaillante est supprimée de la base de données. Ensuite, la remise des notifications est retentée pour les appareils restants du lot.
 
-    To get more error information about the failed delivery attempt against a registration, you can use the Notification Hubs REST APIs [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx) and [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). For sample code, see the [Send REST example](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
+Pour obtenir plus d’informations sur la tentative de remise a échoué pour une inscription erreur, vous pouvez utiliser les API REST de Notification Hubs [télémétrie par Message : Obtenir la télémétrie de message de Notification](https://msdn.microsoft.com/library/azure/mt608135.aspx) et [commentaires PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Pour obtenir un exemple de code, consultez [l’exemple d’API REST d’envoi](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
 ## <a name="push-notification-service-issues"></a>Problèmes liés au service de notifications Push
 
 Une fois que le message de notification a été reçu par le service de notifications Push de la plateforme, le service de notifications Push est chargé de remettre la notification à l’appareil. À ce stade, le service Notification Hubs n’intervient pas et n’a aucun contrôle sur le moment de livraison ou la livraison en elle-même à l’appareil.
 
-Les services de notifications de plateforme étant très performants, les notifications envoyées par le service de notifications Push arrivent généralement sur les appareils en quelques secondes. Si le service de notifications Push subit une limitation, Notification Hubs applique une stratégie d’interruption exponentielle. Si le service de notifications Push reste inaccessible pendant 30 minutes, l’une de nos stratégies consiste à faire expirer puis à supprimer définitivement ces messages.
+Les services de notifications de plateforme étant très performants, les notifications envoyées par le service de notifications Push arrivent généralement sur les appareils en quelques secondes. Si la limitation de service de notifications push, le service de Notification Hubs applique une stratégie de temporisation exponentielle. Si le service de notification push reste inaccessible pendant 30 minutes, nous avons une stratégie en place pour faire expirer et supprimer les messages définitivement.
 
 Si un service de notifications Push tente de remettre une notification alors que l’appareil est hors connexion, la notification est stockée par le service pendant une période limitée. La notification est envoyée à l’appareil lorsque celui-ci est de nouveau disponible.
 
-Pour chaque application, seule une notification récente est stockée. Si plusieurs notifications sont envoyées lorsque l’appareil est hors connexion, chaque nouvelle notification provoque la suppression de la précédente. Ce comportement consistant à ne conserver que la dernière notification est appelé *fusion des notifications* dans Apple Push Notification Service et *réduction* dans Firebase Cloud Messaging (qui utilise une clé de réduction). Si l’appareil reste hors connexion pendant une longue période, les notifications qui ont été stockées pour l’appareil sont supprimées. Pour plus d’informations, consultez [Présentation d’Apple Push Notification Service] et [À propos des messages Firebase Cloud Messaging].
+Pour chaque application, seule une notification récente est stockée. Si plusieurs notifications sont envoyées lorsque l’appareil est hors connexion, chaque nouvelle notification provoque la suppression de la précédente. Conserver uniquement la dernière notification est appelé *fusion des notifications* dans APN, et *réduction* dans FCM (qui utilise une clé de réduction). Si l’appareil reste hors connexion pendant une longue période, les notifications qui ont été stockées pour l’appareil sont supprimées. Pour plus d’informations, consultez [présentation APN] et [les messages FCM sur].
 
 Avec Azure Notification Hubs, vous pouvez passer une clé de fusion via un en-tête HTTP à l’aide de l’API générique SendNotification. Par exemple, pour le SDK .NET, vous devez utiliser `SendNotificationAsync`. L’API SendNotification accepte également les en-têtes HTTP qui sont passés tels quels au service de notifications Push correspondant.
 
 ## <a name="self-diagnosis-tips"></a>Conseils d’autodiagnostic
 
-Voici des méthodes permettant de déterminer la cause racine des pertes de notifications dans Notification Hubs :
+Voici les chemins d’accès pour diagnostiquer la cause racine des pertes de notifications dans Notification Hubs.
 
 ### <a name="verify-credentials"></a>Vérification des informations d’identification
 
-**Service de notifications Push - Portail des développeurs :**
+**Portail développeur de service de notifications Push**
 
 Vérifiez les informations d’identification dans le portail des développeurs du service de notifications Push correspondant (Apple Push Notification Service, Firebase Cloud Messaging, service de notification Windows, etc.). Pour plus d’informations, consultez [Bien démarrer avec Azure Notification Hubs].
 
-**Portail Azure :**
+**Portail Azure**
 
 Pour vérifier et comparer les informations d’identification avec celles que vous avez obtenues via le portail des développeurs du service de notifications Push, dans le portail Azure, accédez à l’onglet **Stratégies d’accès**.
 
@@ -132,32 +133,46 @@ Pour vérifier et comparer les informations d’identification avec celles que v
 
 ### <a name="verify-registrations"></a>Vérification des inscriptions
 
-**Visual Studio :**
+**Visual Studio**
 
 Si vous utilisez Visual Studio à des fins de développement, vous pouvez vous connecter à Azure via l’Explorateur de serveurs pour afficher et gérer un ensemble de services Azure, y compris Notifications Hubs. Cela est particulièrement utile pour votre environnement de développement et de test.
 
 ![Explorateur de serveurs Visual Studio.][9]
 
-Vous pouvez afficher et gérer toutes les inscriptions de votre hub, et les classer en fonction de leur plateforme, leur type (native ou basée sur un modèle), leurs balises, leur identificateur de service de notifications Push, leur ID d’inscription et leur date d’expiration. Dans cette page, vous pouvez également modifier une inscription. Ceci est particulièrement utile pour la modification des balises.
+Vous pouvez afficher et gérer toutes les inscriptions de votre hub, et les classer en fonction de leur plateforme, leur type (native ou basée sur un modèle), leurs balises, leur identificateur de service de notifications Push, leur ID d’inscription et leur date d’expiration. Dans cette page, vous pouvez également modifier une inscription. Il est particulièrement utile pour la modification de balises.
 
-![Inscriptions des appareils dans Visual Studio][8]
+Avec le bouton droit sur votre **hub de notification** dans le **Explorateur de serveurs**, puis sélectionnez **diagnostiquer**. 
+
+![Visual Studio - Explorateur de serveurs - diagnostiquer menu](./media/notification-hubs-diagnosing/diagnose-menu.png)
+
+Vous consultez la page suivante : 
+
+![Visual Studio - diagnostiquer page](./media/notification-hubs-diagnosing/diagnose-page.png)
+
+Basculez vers le **inscriptions d’appareils** page : 
+
+![Inscriptions des appareils dans Visual Studio](./media/notification-hubs-diagnosing/VSRegistrations.png)
+
+Vous pouvez utiliser **Test d’envoi** page pour envoyer un message de notification de test :
+
+![Visual Studio - Test d’envoi](./media/notification-hubs-diagnosing/test-send-vs.png)
 
 > [!NOTE]
 > Utilisez Visual Studio pour modifier les inscriptions uniquement pendant le développement ou les tests, et avec un nombre limité d’inscriptions. Si vous avez besoin de modifier vos inscriptions en bloc, utilisez la fonctionnalité d’exportation et d’importation des inscriptions décrite dans [Exportation et modification des inscriptions en bloc](https://msdn.microsoft.com/library/dn790624.aspx).
 
-**Explorateur Service Bus :**
+**Explorateur Service Bus**
 
-De nombreux clients utilisent [Explorateur Service Bus] pour afficher et gérer leur hub de notification. Service Bus Explorer est un projet open source. Pour obtenir des exemples, consultez [Code Service Bus Explorer].
+De nombreux clients utilisent [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) pour afficher et gérer leur hub de notification. Service Bus Explorer est un projet open source. 
 
 ### <a name="verify-message-notifications"></a>Vérification des notifications de messages
 
- **Portail Azure :**
+**Portail Azure**
 
 Pour envoyer une notification de test à vos clients sans backend de service opérationnel, sous **Support + dépannage**, sélectionnez **Envoi de test**.
 
 ![Fonctionnalité Envoi de test dans Azure][7]
 
-**Visual Studio :**
+**Visual Studio**
 
 Vous pouvez également envoyer des notifications de test à partir de Visual Studio.
 
@@ -165,13 +180,13 @@ Vous pouvez également envoyer des notifications de test à partir de Visual Stu
 
 Pour plus d’informations sur l’utilisation de Notification Hubs avec l’Explorateur de serveurs Visual Studio, consultez les articles suivants :
 
-* [Afficher les inscriptions d’appareils pour les hubs de notification]
-* [Présentation approfondie : Visual Studio 2013 Update 2 RC and Azure SDK 2.3]
-* [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]
+* [Afficher les inscriptions d’appareil pour les concentrateurs de notification]
+* [Présentation approfondie : Visual Studio 2013 Update 2 RC et Azure SDK 2.3]
+* [Annonce de version de Visual Studio 2013 Update 3 et Azure SDK 2.4]
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Résoudre les échecs de remise de notification et analyser les résultats des notifications
 
-**Propriété `EnableTestSend` :**
+**Propriété EnableTestSend**
 
 Lorsque vous envoyez une notification via Notification Hubs, la notification est d’abord mise en file d’attente en vue d’être traitée dans Notification Hubs. Notification Hubs détermine les cibles qui conviennent, puis envoie la notification au service de notifications Push. Si vous utilisez l’API REST ou l’un des SDK clients, le retour réussi de votre appel d’envoi signifie donc uniquement que le message a été correctement placé dans la file d’attente de Notification Hubs. Vous ne savez pas exactement ce qu’il s’est passé lorsque Notification Hubs a finalement envoyé le message au service de notifications Push.
 
@@ -185,7 +200,7 @@ Pour utiliser la propriété `EnableTestSend` avec l’appel REST, ajoutez un pa
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 ```
 
-**Exemple (Kit de développement logiciel (SDK) .NET) :**
+**Exemple (SDK .NET)**
 
 Voici un exemple d’utilisation du SDK .NET pour envoyer une notification (toast) sous forme de fenêtre contextuelle native :
 
@@ -212,7 +227,7 @@ Ensuite, vous pouvez utiliser la propriété booléenne `EnableTestSend`. Utilis
     }
 ```
 
-**Exemple de sortie :**
+**Exemple de sortie**
 
 ```text
 DetailedStateAvailable
@@ -228,25 +243,25 @@ Ce message indique que des informations d’identification non valides sont conf
 
 ### <a name="review-telemetry"></a>Révision de la télémétrie
 
-**Utiliser le portail Azure :**
+**Portail Azure**
 
 Le portail vous permet d’obtenir un aperçu rapide de toutes les activités sur votre hub de notification.
 
 1. Sous l’onglet **Vue d’ensemble**, vous pouvez voir les inscriptions, les notifications et les erreurs regroupées par plateforme.
 
-    ![Tableau de bord de Notification Hubs][5]
+   ![Tableau de bord de Notification Hubs][5]
 
 2. Sous l’onglet **Surveiller**, vous pouvez ajouter de nombreuses autres métriques relatives à la plateforme. Vous pouvez ainsi obtenir des informations plus précises sur les erreurs liées au service de notifications Push qui sont retournées lorsque le service Notification Hubs tente d’envoyer la notification au service de notifications Push.
 
-    ![Journal d’activités - Portail Azure][6]
+   ![Journal d’activités - Portail Azure][6]
 
 3. Commencez par consultez les **messages entrants**, les **opérations d’inscription** et les **notifications réussies**. Ensuite, accédez à l’onglet de la plateforme pour examiner les erreurs relatives au service de notifications Push.
 
-4. Si les paramètres d’authentification du hub de notification sont incorrects, le message **Erreur d’authentification PNS** s’affiche. Dans ce cas, il est nécessaire de vérifier les informations d’identification du service de notifications Push.
+4. Si les paramètres d’authentification du hub de notification sont incorrects, le message **Erreur d’authentification PNS** s’affiche. Il est une bonne indication pour vérifier les informations d’identification du service de notification push.
 
-* **Accès par programme**
+**Accès par programme**
 
-Pour plus d’informations sur l’accès par programmation, consultez [Accès par programmation à la télémétrie]
+Pour plus d’informations sur l’accès par programmation, consultez [accès à la télémétrie par programme].
 
 > [!NOTE]
 > Plusieurs fonctionnalités de télémétrie, comme l’exportation et l’importation des inscriptions, et l’accès à la télémétrie via des API, sont disponibles uniquement avec le niveau de service Standard. Si vous tentez d’utiliser ces fonctionnalités avec le niveau de service Gratuit ou De base, un message d’exception s’affiche lorsque vous utilisez le SDK, et une erreur HTTP 403 (Refusé) s’affiche si vous utilisez les fonctionnalités directement dans les API REST.
@@ -267,15 +282,14 @@ Pour plus d’informations sur l’accès par programmation, consultez [Accès p
 
 <!-- LINKS -->
 [Vue d’ensemble de Notification Hubs]: notification-hubs-push-notification-overview.md
-[Bien démarrer avec Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Templates]: https://msdn.microsoft.com/library/dn530748.aspx
-[Présentation d’Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
-[À propos des messages Firebase Cloud Messaging]: https://firebase.google.com/docs/cloud-messaging/concept-options
+[Prise en main Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Modèles]: https://msdn.microsoft.com/library/dn530748.aspx
+[APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
+[À propos des messages FCM]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
-[Explorateur Service Bus]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
-[Code Service Bus Explorer]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Afficher les inscriptions d’appareils pour les hubs de notification]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Présentation approfondie : Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
+[Afficher les inscriptions d’appareil pour les concentrateurs de notification]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[Présentation approfondie : Visual Studio 2013 Update 2 RC et Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Annonce de version de Visual Studio 2013 Update 3 et Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Accès par programmation à la télémétrie]: https://msdn.microsoft.com/library/azure/dn458823.aspx
+[Accès à la télémétrie par programme]: https://msdn.microsoft.com/library/azure/dn458823.aspx

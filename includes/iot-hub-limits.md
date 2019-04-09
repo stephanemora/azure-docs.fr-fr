@@ -1,15 +1,15 @@
 ---
 author: robinsh
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 20553db8c79c960aabda5aba708d315517462126
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 1bdf73dc6a4edf0c170b51e70fca2128d22e0eb8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57805169"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59055644"
 ---
 Le tableau suivant répertorie les limites associées à différents niveaux de service S1, S2, S3 et F1. Pour plus d’informations sur le coût de chaque *unité* dans chaque couche, consultez [tarification d’Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 

@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/04/2019
 ms.author: helohr
-ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: a7e2f3c95819c6ab6d2e63e5c7a2f62649ebd15c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628983"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056093"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurer un partage de profil utilisateur pour un pool d’hôtes
 
-Le service de Windows Virtual Desktop Preview offre des conteneurs de profil FSLogix comme solution de profil utilisateur recommandée. Nous déconseillons l’utilisation de la solution de disque de profil utilisateur (UPD), et il sera déconseillé dans les futures versions de bureau virtuel Windows.
+Le service de Windows Virtual Desktop Preview offre des conteneurs de profil FSLogix comme solution de profil utilisateur recommandée. Nous ne recommandons pas à l’aide de la solution de disque de profil utilisateur (UPD), qui sera déconseillée dans les futures versions de bureau virtuel Windows.
 
 Cette section vous indique comment configurer un partage de conteneur FSLogix profil pour un pool de l’hôte. Pour obtenir une documentation générale concernant FSLogix, consultez le [FSLogix site](https://docs.fslogix.com/).
 
@@ -40,12 +40,12 @@ Après avoir créé la machine virtuelle, joignez-la au domaine en procédant co
 
 Instructions générales sur la façon de préparer une machine virtuelle d’agir comme un partage de fichiers pour les profils utilisateur sont les suivantes :
 
-1. Rejoindre les session héberger des ordinateurs virtuels à un [groupe de sécurité Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Ce groupe de sécurité sera utilisé pour authentifier les machines de virtuelles des hôtes de session à la machine virtuelle de partage de fichiers que vous venez de créer.
+1. Ajoutez les utilisateurs de Windows Active Directory de bureau virtuel à un [groupe de sécurité Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Ce groupe de sécurité sera utilisé pour authentifier les utilisateurs du bureau virtuel Windows à la machine virtuelle de partage de fichiers que vous venez de créer.
 2. [Se connecter à la machine virtuelle de partage de fichiers](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. Sur la machine virtuelle de partage de fichiers, créez un dossier sur le **lecteur C** qui sera utilisé en tant que le partage de profil.
 4. Cliquez sur le nouveau dossier, sélectionnez **propriétés**, sélectionnez **partage**, puis sélectionnez **partage avancé...** .
 5. Sélectionnez **partager ce dossier**, sélectionnez **autorisations...** , puis sélectionnez **ajouter...** .
-6. Recherchez le groupe de sécurité auquel vous avez ajouté les session héberger des ordinateurs virtuels, puis assurez-vous que ce groupe dispose **contrôle total**.
+6. Recherchez le groupe de sécurité auquel vous avez ajouté les utilisateurs du bureau virtuel de Windows, puis vérifiez que ce groupe a **contrôle total**.
 7. Après avoir ajouté le groupe de sécurité, cliquez sur le dossier, sélectionnez **propriétés**, sélectionnez **partage**, puis copiez le **chemin d’accès réseau** à utiliser pour une utilisation ultérieure.
 
 Pour plus d’informations sur les autorisations, consultez le [FSLogix documentation](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
@@ -56,17 +56,13 @@ Pour configurer les machines virtuelles avec le logiciel FSLogix, procédez comm
 
 1. [Se connecter à la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) avec les informations d’identification que vous avez fourni lors de la création de la machine virtuelle.
 2. Lancez un navigateur internet et accédez à [ce lien](https://go.microsoft.com/fwlink/?linkid=2084562) pour télécharger l’agent FSLogix. Dans le cadre de la préversion publique de bureau virtuel de Windows, vous obtenez une clé de licence pour activer le logiciel FSLogix. La clé est le fichier LicenseKey.txt inclus dans le fichier .zip de l’agent FSLogix.
-3. Installez l’agent FSLogix.
+3. Accédez à un \\ \\Win32\\mise en production ou \\ \\X64\\mise en production dans le fichier .zip et exécutez **FSLogixAppsSetup** pour installer l’agent FSLogix.
 4. Accédez à **Program Files** > **FSLogix** > **applications** pour confirmer l’agent est installé.
-5. À partir du menu Démarrer, exécutez **RegEdit** en tant qu’administrateur. Accédez à **ordinateur\\HKEY_LOCAL_MACHINE\\logiciel\\FSLogix\\profils**
-6. Créez les valeurs suivantes :
+5. À partir du menu Démarrer, exécutez **RegEdit** en tant qu’administrateur. Accédez à **ordinateur\\HKEY_LOCAL_MACHINE\\logiciel\\FSLogix**.
+6. Créez une clé nommée **profils**.
+7. Créez les valeurs suivantes pour la clé de profils :
 
 | Nom                | Type               | Valeur des données                        |
 |---------------------|--------------------|-----------------------------------|
 | activé             | VALEUR DWORD              | 1                                 |
-| VHDLocations        | Valeur de chaînes multiples | « Chemin d’accès réseau pour le partage de fichiers » |
-| VolumeType          | Chaîne             | VHDX                              |
-| SizeInMBs           | VALEUR DWORD              | « entier pour la taille de profil »     |
-| IsDynamic           | VALEUR DWORD              | 1                                 |
-| LockedRetryCount    | VALEUR DWORD              | 1                                 |
-| LockedRetryInterval | VALEUR DWORD              | 0                                 |
+| VHDLocations        | Valeur de chaînes multiples | « Chemin d’accès réseau pour le partage de fichiers »     |

@@ -8,20 +8,33 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e3d2466f05028a963256dbcc052c46650857836d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372711"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59287100"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Stockage blob par blocs performances Premium
 
-Un compte stockage blob de bloc de performances premium est optimisé pour les applications qui utilisent plus petits en kilo-octets, plage d’objets. Elle est idéale pour les applications nécessitant des taux de transaction très élevée ou faible latence constante du stockage. Stockage blob par blocs performances Premium est conçu pour évoluer avec vos applications. Si vous envisagez de déployer des applications qui nécessitent des centaines de milliers de demandes par seconde ou de plusieurs pétaoctets de capacité de stockage, veuillez nous contacter en envoyant une demande de prise en charge dans les [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Un compte stockage blob de bloc de performances premium est optimisé pour les applications qui utilisent plus petits en kilo-octets, plage d’objets. Elle est idéale pour les applications nécessitant des taux de transaction élevés ou constante du stockage à faible latence. Stockage blob par blocs performances Premium est conçu pour évoluer avec vos applications. Si vous envisagez de déployer des applications qui nécessitent des centaines de milliers de demandes par seconde ou de plusieurs pétaoctets de capacité de stockage, veuillez nous contacter en envoyant une demande de prise en charge dans les [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="premium-performance-filestorage-preview"></a>Performances Premium FileStorage (version préliminaire)
+
+Fichiers Premium utilisent un compte de stockage unique appelé **FileStorage (version préliminaire)**. Ce type de compte est conçu pour les charges de travail avec un nombre élevé d’IOPS, des débits élevés avec une latence faible homogène. Stockage de fichiers Premium s’adapte à la taille du partage configuré.
+
+|Domaine  |Cible  |
+|---------|---------|
+|Taille maximale     |5 To (version préliminaire publique), 100 TIO (version préliminaire publique limitée)     |
+|Partages   |Illimité  |
+|E/S par seconde     |100 000 (version préliminaire publique limitée)    |
+|Bande passante|5 Go/s     |
+
+ Pour premium partage de fichiers cibles de mise à l’échelle, consultez le [fichiers Premium mettre à l’échelle cibles](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) section.
 
 ### <a name="premium-performance-page-blob-storage"></a>Stockage blob de page de performances Premium
 
-Performances Premium, comptes de stockage à usage général v1 ou v2 ont les objectifs d’évolutivité suivants :
+Performances Premium, à usage général v1 ou v2 les comptes de stockage ont les objectifs d’évolutivité suivants :
 
 | Capacité totale des comptes                            | Bande passante totale pour un compte de stockage localement redondant                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 04af92f21cecaa832e857a7017b67f815f6ab685
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417970"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275876"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Se préparer à la création du système Avere vFXT
 
@@ -30,23 +30,16 @@ Pour créer un abonnement Azure dans le portail Azure :
 
 ## <a name="configure-subscription-owner-permissions"></a>Configurer des autorisations de propriétaire d’abonnement
 
-Un utilisateur disposant d’autorisations de propriétaire pour l’abonnement doit créer le cluster vFXT. Des autorisations de propriétaire d’abonnement sont nécessaires pour effectuer, entre autres, les actions suivantes :
+Un utilisateur disposant d’autorisations de propriétaire pour l’abonnement doit créer le cluster vFXT. Autorisations de propriétaire d’abonnement sont nécessaires pour accepter les termes du service logiciel et effectuer d’autres actions. 
 
-* Accepter les conditions du logiciel Avere vFXT
-* Créer le rôle d’accès du nœud de cluster 
+Il existe certains scénarios de solution de contournement qui permettent un propriétaire non créer un vFTX Avere pour un cluster Azure. Ces scénarios impliquent la restriction de ressources et l’affectation des rôles supplémentaires au créateur. Dans ces deux cas, le propriétaire d’un abonnement doit également [accepter les termes du contrat de logiciel vFXT Avere](#accept-software-terms) avance. 
 
-Deux solutions de contournement s’offrent à vous si vous ne voulez pas accorder l’accès propriétaire aux utilisateurs qui créent le vFXT :
-
-* Un propriétaire de groupe de ressources peut créer un cluster si les conditions suivantes sont remplies :
-
-  * Un propriétaire d’abonnement doit [accepter les conditions du logiciel Avere vFXT](#accept-software-terms) et [créer le rôle de l’accès du nœud de cluster](#create-the-cluster-node-access-role). 
-  * Toutes les ressources Avere vFXT doivent être déployées à l’intérieur du groupe de ressources, notamment les suivantes :
-    * Contrôleur de cluster
-    * Nœuds de cluster
-    * Stockage d'objets blob
-    * Éléments réseau
+| Scénario | Restrictions | Rôles d’accès requis pour créer le cluster vFXT Avere | 
+|----------|--------|-------|
+| Administrateur de groupe de ressources | Le réseau virtuel, le contrôleur de cluster et les nœuds de cluster doivent être créées dans le groupe de ressources | [Administrateur des accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur](../role-based-access-control/built-in-roles.md#contributor) rôles, les deux étendus au groupe de ressources cible | 
+| Réseau virtuel externe | Le contrôleur de cluster et les nœuds de cluster sont créés dans le groupe de ressources, mais un réseau virtuel existant dans un autre groupe de ressources est utilisé. | (1) [administrateur des accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur](../role-based-access-control/built-in-roles.md#contributor) rôles étendues pour le groupe de ressources vFXT ; et (2) [collaborateur de Machine virtuelle](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [l’accès utilisateur Administrateur](../role-based-access-control/built-in-roles.md#user-access-administrator), et [Avere contributeur](../role-based-access-control/built-in-roles.md#avere-contributor) rôles étendus au groupe de ressources de réseau virtuel. |
  
-* Un utilisateur sans privilèges de propriétaire peut créer à l'avance des clusters vFXT en utilisant le contrôle d'accès basé sur les rôles (RBAC) pour attribuer des privilèges à l'utilisateur. Cette méthode permet à ces utilisateurs de bénéficier d'autorisations importantes. [Cet article](avere-vfxt-non-owner.md) explique comment créer un rôle d'accès pour autoriser des non-propriétaires à créer des clusters.
+Une alternative consiste à créer un rôle de contrôle (RBAC) d’accès en fonction du rôle personnalisé avance et affecter des privilèges à l’utilisateur, comme expliqué dans [cet article](avere-vfxt-non-owner.md). Cette méthode permet à ces utilisateurs de bénéficier d'autorisations importantes. 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Quota pour le cluster vFXT
 
@@ -57,7 +50,7 @@ Vous devez disposer d’un quota suffisant pour les composants Azure suivants. S
 
 |Composant Azure|Quota|
 |----------|-----------|
-|Machines virtuelles|E32s_v3 3 ou plus|
+|Machines virtuelles|3 E32s_v3 ou plus|
 |Stockage SSD Premium|200 Go d’espace de système d’exploitation, et de 1 To à 4 To d’espace de cache par nœud |
 |Compte de stockage (facultatif) |v2|
 |Stockage back-end de données (facultatif) |Un nouveau conteneur d’objets blob LRS |
@@ -83,75 +76,6 @@ Pour accepter les conditions du logiciel à l’avance :
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
-
-## <a name="create-access-roles"></a>Créer des rôles d'accès 
-
-Le [contrôle d'accès en fonction du rôle](../role-based-access-control/index.yml) (RBAC) donne au contrôleur et aux nœuds de cluster vFXT l'autorisation d'effectuer les tâches nécessaires.
-
-* Le contrôleur de cluster a besoin d'une autorisation pour créer et modifier les machines virtuelles afin de créer le cluster. 
-
-* Dans le cadre d'une opération de cluster normale, les nœuds vFXT individuels doivent effectuer diverses opérations telles que la lecture des propriétés des ressources Azure, la gestion du stockage et le contrôle des paramètres d'interface réseau des autres nœuds.
-
-Avant de pouvoir créer votre cluster Avere vFXT, vous devez définir un rôle personnalisé à utiliser avec les nœuds du cluster. 
-
-Pour le contrôleur de cluster, vous pouvez accepter le rôle par défaut du modèle. La valeur par défaut confère au contrôleur de cluster les privilèges de propriétaire du groupe de ressources. Si vous préférez créer un rôle personnalisé pour le contrôleur, consultez [Rôle d'accès du contrôleur personnalisé](avere-vfxt-controller-role.md).
-
-> [!NOTE] 
-> Seul un propriétaire d'abonnement, ou un utilisateur doté du rôle de Propriétaire ou d'Administrateur d'accès utilisateur, peut créer des rôles. Les rôles peuvent être créés à l'avance.  
-
-### <a name="create-the-cluster-node-access-role"></a>Créer le rôle d’accès du nœud de cluster
-
-<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
-
-Vous devez créer le rôle du nœud de cluster avant de pouvoir créer le cluster Avere vFXT pour Azure.
-
-> [!TIP] 
-> Les utilisateurs internes de Microsoft doivent utiliser le rôle existant nommé « Avere Cluster Runtime Operator » au lieu d’essayer d’en créer un. 
-
-1. Copiez ce fichier. Ajoutez votre ID d'abonnement sur la ligne AssignableScopes.
-
-   (La version actuelle de ce fichier est stockée dans le référentiel github.com/Azure/Avere sous le nom [AvereOperator.txt](https://github.com/Azure/Avere/blob/master/src/vfxt/src/roles/AvereOperator.txt).)  
-
-   ```json
-   {
-      "AssignableScopes": [
-          "/subscriptions/PUT_YOUR_SUBSCRIPTION_ID_HERE"
-      ],
-      "Name": "Avere Operator",
-      "IsCustom": "true",
-      "Description": "Used by the Avere vFXT cluster to manage the cluster",
-      "NotActions": [],
-      "Actions": [
-          "Microsoft.Compute/virtualMachines/read",
-          "Microsoft.Network/networkInterfaces/read",
-          "Microsoft.Network/networkInterfaces/write",
-          "Microsoft.Network/virtualNetworks/read",
-          "Microsoft.Network/virtualNetworks/subnets/read",
-          "Microsoft.Network/virtualNetworks/subnets/join/action",
-          "Microsoft.Network/networkSecurityGroups/join/action",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-      ],
-      "DataActions": [
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
-      ]
-   }
-   ```
-
-1. Enregistrez le fichier sous le nom ``avere-operator.json`` ou sous un nom de fichier similaire facile à mémoriser. 
-
-
-1. Ouvrez un interpréteur de commandes Azure Cloud et connectez-vous avec votre ID d'abonnement (décrit [plus haut dans ce document](#accept-software-terms)). Utilisez cette commande pour créer le rôle :
-
-   ```bash
-   az role definition create --role-definition /avere-operator.json
-   ```
-
-Le nom du rôle est utilisé lors de la création du cluster. Dans cet exemple, il s'agit du nom ``avere-operator``.
 
 ## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Créer un point de terminaison de service de stockage dans votre réseau virtuel (si nécessaire)
 
