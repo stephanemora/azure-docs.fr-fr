@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
-ms.openlocfilehash: b1a224c4170349f0797d2d57acbf45e8b7649bd8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 15166d3943bc72a2eeff3580cefdd264ecaba61d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531570"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258078"
 ---
 # <a name="get-started-with-device-management-node"></a>Prise en main de la gestion d’appareils (Node)
 
@@ -21,20 +21,23 @@ ms.locfileid: "57531570"
 
 Ce didacticiel vous explique les procédures suivantes :
 
-* Utiliser le portail Azure pour créer un IoT Hub et une identité d’appareil dans celui-ci.
+* Utilisez le [Azure portal](https://portal.azure.com) pour créer un IoT Hub et une identité d’appareil dans votre IoT hub.
+
 * Créer une application d’appareil simulé disposant d’une méthode directe permettant le redémarrage de cet appareil. Les méthodes directes sont appelées à partir du cloud.
+
 * Créer une application console Node.js qui appelle une méthode directe de redémarrage sur l’application d’appareil simulé via votre IoT Hub.
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
 
-**dmpatterns_getstarted_device.js**, qui se connecte à votre IoT Hub avec l’identité d’appareil créée précédemment, reçoit une méthode directe de redémarrage, simule un redémarrage physique et indique l’heure du dernier redémarrage.
+* **dmpatterns_getstarted_device.js**, qui se connecte à votre IoT Hub avec l’identité d’appareil créée précédemment, reçoit une méthode directe de redémarrage, simule un redémarrage physique et indique l’heure du dernier redémarrage.
 
-**dmpatterns_getstarted_service.js**, qui appelle une méthode directe sur l’application de l’appareil simulé, affiche la réponse et affiche les propriétés signalées pour la mise à jour.
+* **dmpatterns_getstarted_service.js**, qui appelle une méthode directe sur l’application de l’appareil simulé, affiche la réponse et affiche les propriétés signalées pour la mise à jour.
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Node.js version 4.0.x ou version ultérieure. <br/>  L’article [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
-* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
+* Node.js version 4.0.x ou version ultérieure. [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) explique comment installer Node.js pour ce didacticiel sur Windows ou Linux.
+
+* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -47,23 +50,29 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
-Dans cette section, vous allez :
+
+Dans cette section, vous allez effectuer les étapes suivantes :
 
 * Créer une application console Node.js qui répond à une méthode directe appelée par le cloud
+
 * Déclencher un redémarrage d’appareil simulé
+
 * Utiliser les propriétés signalées pour activer les requêtes sur le jumeau d’appareil afin d’identifier les appareils et l’heure de leur dernier redémarrage
 
 1. Créez un dossier vide nommé **manageddevice**.  Dans le dossier **simulateddevice**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes.  Acceptez toutes les valeurs par défaut :
-   
+      
     ```
     npm init
     ```
+
 2. À l’invite de commandes, dans le dossier **manageddevice**, exécutez la commande suivante pour installer le package du kit Device SDK **azure-iot-device** et le package **azure-iot-device-mqtt** :
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
+
 3. À l’aide d’un éditeur de texte, créez un fichier **dmpatterns_getstarted_device.js** dans le dossier **manageddevice**.
+
 4. Ajoutez les instructions 'require' suivantes au début du fichier **dmpatterns_getstarted_device.js** :
    
     ```
@@ -72,12 +81,14 @@ Dans cette section, vous allez :
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
+
 5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**.  Remplacez la chaîne de connexion par la chaîne de connexion de votre appareil.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
+
 6. Ajoutez la fonction suivante pour implémenter la méthode directe sur l’appareil
    
     ```
@@ -119,7 +130,9 @@ Dans cette section, vous allez :
         console.log('Rebooting!');
     };
     ```
+
 7. Ouvrez la connexion à votre hub IoT et démarrez l’écouteur de la méthode directe :
+
    
     ```
     client.open(function(err) {
@@ -131,34 +144,42 @@ Dans cette section, vous allez :
         }
     });
     ```
+
 8. Enregistrez et fermez le fichier **dmpatterns_getstarted_device.js**.
 
 > [!NOTE]
 > Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez implémenter des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Déclencher un redémarrage à distance sur l’appareil à l’aide d’une méthode directe
+
 Dans cette section, vous créez une application console Node.js qui lance un redémarrage à distance sur un appareil avec une méthode directe. L’application utilise des requêtes du jumeau d’appareil pour déterminer l’heure du dernier redémarrage de cet appareil.
 
-1. Créez un dossier vide nommé **triggerrebootondevice**.  Dans le dossier **triggerrebootondevice**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes.  Acceptez toutes les valeurs par défaut :
+1. Créez un dossier vide nommé **triggerrebootondevice**. Dans le dossier **triggerrebootondevice**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Acceptez toutes les valeurs par défaut :
    
     ```
     npm init
     ```
+
 2. À l’invite de commandes, dans le dossier **triggerrebootondevice**, exécutez la commande suivante pour installer le package du kit Device SDK **azure-iothub** et le package **azure-iot-device-mqtt** :
    
     ```
     npm install azure-iothub --save
     ```
+
 3. À l’aide d’un éditeur de texte, créez un fichier **dmpatterns_getstarted_service.js** dans le dossier **triggerrebootondevice**.
+
 4. Ajoutez les instructions ’require’ suivantes au début du fichier **dmpatterns_getstarted_service.js** :
-   
+
+  
     ```
     'use strict';
    
     var Registry = require('azure-iothub').Registry;
     var Client = require('azure-iothub').Client;
     ```
+
 5. Ajoutez les déclarations de variable suivantes et remplacez les valeurs d’espace réservé :
+
    
     ```
     var connectionString = '{iothubconnectionstring}';
@@ -166,6 +187,7 @@ Dans cette section, vous créez une application console Node.js qui lance un red
     var client = Client.fromConnectionString(connectionString);
     var deviceToReboot = 'myDeviceId';
     ```
+
 6. Ajoutez la fonction suivante pour appeler la méthode device afin de redémarrer l’appareil cible :
    
     ```
@@ -180,7 +202,7 @@ Dans cette section, vous créez une application console Node.js qui lance un red
         };
    
         client.invokeDeviceMethod(deviceToReboot, methodParams, function(err, result) {
-            if (err) { 
+            if (err) {
                 console.error("Direct method error: "+err.message);
             } else {
                 console.log("Successfully invoked the device to reboot.");  
@@ -188,6 +210,7 @@ Dans cette section, vous créez une application console Node.js qui lance un red
         });
     };
     ```
+
 7. Ajoutez la fonction suivante pour interroger l’appareil et obtenir l’heure du dernier redémarrage :
    
     ```
@@ -208,41 +231,35 @@ Dans cette section, vous créez une application console Node.js qui lance un red
         });
     };
     ```
+
 8. Ajoutez le code suivant pour appeler les fonctions qui déclenchent la méthode directe de redémarrage et la requête sur le dernier redémarrage :
+
    
     ```
     startRebootDevice();
     setInterval(queryTwinLastReboot, 2000);
     ```
+
 9. Enregistrez et fermez le fichier **dmpatterns_getstarted_service.js**.
 
 ## <a name="run-the-apps"></a>Exécuter les applications
+
 Vous êtes maintenant prêt à exécuter les applications.
 
 1. À l’invite de commandes, dans le dossier **manageddevice**, exécutez la commande suivante pour commencer à écouter la méthode directe de redémarrage.
+
    
     ```
     node dmpatterns_getstarted_device.js
     ```
+
 2. À l’invite de commandes, dans le dossier **triggerrebootondevice**, exécutez la commande suivante pour déclencher le redémarrage à distance et interroger le jumeau d’appareil pour déterminer l’heure du dernier redémarrage.
+
    
     ```
     node dmpatterns_getstarted_service.js
     ```
+
 3. La réponse de l’appareil à la méthode directe s’affiche dans la console.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
-
-<!-- images and links -->
-[img-output]: media/iot-hub-get-started-with-dm/image6.png
-[img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
-
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[Azure portal]: https://portal.azure.com/
-[Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
-[lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-
-[lnk-devtwin]: iot-hub-devguide-device-twins.md
-[lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

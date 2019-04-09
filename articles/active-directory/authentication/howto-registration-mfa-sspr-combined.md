@@ -1,5 +1,5 @@
 ---
-title: Prise en main d’enregistrement combiné pour Azure AD SSPR et MFA (version préliminaire) - Azure Active Directory
+title: Prise en main d’enregistrement combiné pour Azure AD SSPR et une authentification multifacteur (version préliminaire) - Azure Active Directory
 description: Activer combinées à l’authentification multifacteur Azure AD et l’inscription (version préliminaire) de réinitialisation de mot de passe libre-service
 services: active-directory
 ms.service: active-directory
@@ -11,39 +11,39 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d7f9623a7594aaa79c4cff187486360b1befc8
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369018"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280568"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Activer combinée sécurité informations inscription (version préliminaire)
 
-Avant d’activer la nouvelle expérience, consultez l’article [combinée d’inscription des informations de sécurité (version préliminaire)](concept-registration-mfa-sspr-combined.md) afin de bien comprendre les fonctionnalités et l’impact de cette fonctionnalité.
+Avant d’activer la nouvelle expérience, consultez l’article [combinée d’inscription des informations de sécurité (version préliminaire)](concept-registration-mfa-sspr-combined.md) afin de bien comprendre les fonctionnalités et les effets de cette fonctionnalité.
 
 ![Expérience améliorée de sécurité combinée d’informations d’inscription](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
-| L’enregistrement d’informations de sécurité combinée pour la réinitialisation du mot de passe libre-service Azure multi-Factor Authentication et Azure AD est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| L’inscription d’informations de sécurité combinée pour Azure multi-Factor Authentication et de réinitialisation de mot de passe libre-service d’Azure Active Directory (Azure AD) est une fonctionnalité en préversion publique d’Azure AD. Pour plus d’informations sur les préversions, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 ## <a name="enable-combined-registration"></a>Activer une inscription combinée
 
-Procédez comme suit pour activer l’inscription combinée :
+Suivez ces étapes pour activer l’inscription combinée :
 
 1. Connectez-vous au portail Azure en tant qu’un administrateur de l’utilisateur ou un administrateur global.
-2. Accédez à **Azure Active Directory** > **Paramètres utilisateur** > **Gérer les paramètres des fonctionnalités préliminaires du volet d’accès**.
+2. Accédez à **Azure Active Directory** > **paramètres utilisateur** > **gérer les paramètres des fonctionnalités en version préliminaire de panneau accès**.
 3. Sous **les utilisateurs peuvent utiliser les fonctionnalités de l’inscription et la gestion des informations de sécurité en version préliminaire - Actualiser**, choisir d’activer pour un **sélectionnés** groupe d’utilisateurs ou pour **tous les** utilisateurs.
 
-![Activer l’expérience de préversion des info de sécurité combinée pour tous les utilisateurs](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+   ![Activer l’expérience de préversion des info de sécurité combinée pour tous les utilisateurs](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
-> À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible aux utilisateurs MFA et SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.
+> À compter de mars 2019, les options d’appel téléphonique ne sont pas disponibles pour l’authentification multifacteur et les utilisateurs SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectés par cette modification. Les options d’appel téléphonique seront également disponibles pour les utilisateurs de payé des locataires Azure AD.
 
 > [!NOTE]
-> Une fois que vous allez autoriser combinée d’inscription, les utilisateurs qui inscrivent ou vérifier que leur numéro de téléphone ou d’une application mobile via la nouvelle expérience pouvez les utiliser pour l’authentification Multifacteur et SSPR, si ces méthodes sont activées dans les stratégies d’authentification Multifacteur et SSPR. Si vous désactivez ensuite cette expérience, les utilisateurs qui vont à l’inscription SSPR précédente page à `https:/aka.ms/ssprsetup` devront effectuer l’authentification multifacteur pour accéder à la page.
+> Une fois que vous activez combinée d’inscription, les utilisateurs qui inscrivent ou confirmer son numéro de téléphone ou application mobile via la nouvelle expérience peut les utiliser pour l’authentification multifacteur et SSPR, si ces méthodes sont activées dans le multi-Factor Authentication et SSPR stratégies. Si vous désactivez ensuite cette expérience, les utilisateurs qui vont à l’inscription SSPR précédente page à `https:/aka.ms/ssprsetup` devront effectuer l’authentification multifacteur pour accéder à la page.
 
 Si vous avez configuré la liste sites aux zones attribution dans Internet Explorer, les sites suivants doivent être dans la même zone :
 
@@ -53,10 +53,10 @@ Si vous avez configuré la liste sites aux zones attribution dans Internet Explo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Méthodes disponibles pour l’authentification Multifacteur et SSPR](concept-authentication-methods.md)
+[Méthodes disponibles pour l’authentification multifacteur et SSPR](concept-authentication-methods.md)
 
 [Configurer la réinitialisation du mot de passe libre-service](howto-sspr-deployment.md)
 
-[Configurer l’authentification multifacteur Azure](howto-mfa-getstarted.md)
+[Configuration d’Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 
 [Résolution des problèmes combinée d’enregistrement d’informations de sécurité](howto-registration-mfa-sspr-combined-troubleshoot.md)

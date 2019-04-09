@@ -1,19 +1,19 @@
 ---
-title: Connecter HDInsight à votre réseau local - Azure HDInsight
+title: Connecter Azure HDInsight à votre réseau local
 description: Découvrez comment créer un cluster HDInsight dans un réseau virtuel Azure, puis le connecter à votre réseau local. Découvrez comment configurer une résolution de noms entre HDInsight et votre réseau local à l’aide d’un serveur DNS personnalisé.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/28/2018
-ms.author: hrasheed
-ms.openlocfilehash: 56ca9615bed8d5570d73c44a25ffcec28311b013
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/04/2019
+ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361351"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256802"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connecter HDInsight à votre réseau local
 
@@ -24,20 +24,11 @@ Découvrez comment connecter HDInsight à votre réseau local à l’aide de ré
 * la configuration de groupes de sécurité réseau pour restreindre l’accès Internet à HDInsight ;
 * les ports fournis par HDInsight sur le réseau virtuel.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="create-the-virtual-network-configuration"></a>Créer la configuration de réseau virtuel
-
-Pour découvrir comment créer un réseau virtuel Azure connecté à votre réseau local, consultez les documents suivants :
-    
-* [Utilisation du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [Utilisation de Microsoft Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* [Utilisation de l’interface de ligne de commande Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-
-## <a name="configure-name-resolution"></a>Configurer la résolution de noms
+## <a name="overview"></a>Présentation
 
 Pour permettre à HDInsight et aux ressources du réseau joint de communiquer par nom, vous devez effectuer les actions suivantes :
 
+* Créer un réseau virtuel Azure.
 * créer un serveur DNS personnalisé dans le réseau virtuel Azure ;
 * configurer le réseau virtuel pour utiliser le serveur DNS personnalisé au lieu du programme de résolution récursive Azure par défaut ;
 * configurer le transfert entre le serveur DNS personnalisé et votre serveur DNS local.
@@ -51,25 +42,34 @@ Dans le schéma suivant, les lignes vertes correspondent à des demandes de ress
 
 ![Schéma illustrant la façon dont les demandes de DNS sont résolues dans la configuration utilisée dans ce document](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
-### <a name="create-a-custom-dns-server"></a>Créer un serveur DNS personnalisé
+## <a name="prerequisites"></a>Conditions préalables
 
-> [!IMPORTANT]
+* Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
+* Si vous utilisez PowerShell, vous devez le [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+* Si vous souhaitez utiliser Azure CLI et vous le n'avez pas encore installé, consultez [installer l’interface CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+## <a name="create-virtual-network-configuration"></a>Créer la configuration de réseau virtuel
+
+Pour découvrir comment créer un réseau virtuel Azure connecté à votre réseau local, consultez les documents suivants :
+
+* [En passant par le portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Utilisation de Microsoft Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Utilisation de l’interface de ligne de commande Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+
+## <a name="create-custom-dns-server"></a>Créer le serveur DNS personnalisé
+
+> [!IMPORTANT]  
 > Vous devez créer et configurer le serveur DNS avant d’installer HDInsight dans le réseau virtuel.
 
-Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer une machine virtuelle Azure. Pour d’autres manières de créer une machine virtuelle, consultez [Créer une machine virtuelle avec Azure CLI](../virtual-machines/linux/quick-create-cli.md) et [Créer une machine virtuelle avec Azure PowerShell](../virtual-machines/linux/quick-create-portal.md).  Pour créer une machine virtuelle Linux utilisant le logiciel DNS [Bind](https://www.isc.org/downloads/bind/), procédez comme suit :
+Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer une machine virtuelle Azure. Pour d’autres manières de créer une machine virtuelle, consultez [Créer une machine virtuelle avec Azure CLI](../virtual-machines/linux/quick-create-cli.md) et [Créer une machine virtuelle avec Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  Pour créer une machine virtuelle Linux utilisant le logiciel DNS [Bind](https://www.isc.org/downloads/bind/), procédez comme suit :
 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
   
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-  
-1. Dans le menu de gauche, sélectionnez **+ Créer une ressource**.
- 
-1. Sélectionnez **Calcul**.
-
-1. Sélectionnez **Ubuntu Server 18.04 LTS**.<br />  
+2. Dans le menu de gauche, accédez à **+ créer une ressource** > **calcul** > **Ubuntu Server 18.04 LTS**.
 
     ![Créer une machine virtuelle Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-1. Sous l’onglet __De base__, entrez les informations suivantes :  
+3. Sous l’onglet __De base__, entrez les informations suivantes :  
   
     | Champ | Valeur |
     | --- | --- |
@@ -78,57 +78,46 @@ Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer u
     |Nom de la machine virtuelle | Entrez un nom convivial qui identifie cette machine virtuelle. Cet exemple utilise **DNSProxy**.|
     |Région | Sélectionnez la même région que celle du réseau virtuel créé précédemment.  Certaines tailles de machine virtuelle ne sont pas disponibles dans toutes les régions.  |
     |Options de disponibilité |  Sélectionnez votre niveau de disponibilité souhaité.  Azure propose une gamme d’options pour gérer la disponibilité et la résilience de vos applications.  Concevez l’architecture de votre solution pour utiliser des machines virtuelles répliquées dans des Zones de disponibilité ou des Groupes à haute disponibilité afin de protéger vos applications et données en cas de panne de centre de données ou d’événements de maintenance. Cet exemple utilise **Aucune redondance d’infrastructure nécessaire**. |
-    |Image | Sélectionnez l’application ou le système d’exploitation de base pour la machine virtuelle.  Pour cet exemple, sélectionnez la taille la plus petite et la moins coûteuse. |
-    |Type d'authentification | __Mot de passe__ ou __Clé publique SSH__ : méthode d’authentification pour le compte SSH. Nous recommandons d’utiliser des clés publiques, car elles sont plus sécurisées. Cet exemple utilise une clé publique.  Pour plus d’informations, consultez [Créer et utiliser des clés SSH pour des machines virtuelles Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
+    |Image | Conservez **Ubuntu Server 18.04 LTS**. |
+    |Type d'authentification | __Mot de passe__ ou __Clé publique SSH__ : méthode d’authentification pour le compte SSH. Nous recommandons d’utiliser des clés publiques, car elles sont plus sécurisées. Cet exemple utilise **mot de passe**.  Pour plus d’informations, consultez [Créer et utiliser des clés SSH pour des machines virtuelles Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
     |Nom d'utilisateur |Entrez le nom d’administrateur pour la machine virtuelle.  Cet exemple utilise **sshuser**.|
     |Mot de passe ou clé publique SSH | Le champ disponible est déterminé par votre choix de **Type d’authentification**.  Entrez la valeur appropriée.|
-    |||
+    |Aucun port d’entrée public|Sélectionnez **Autoriser les ports sélectionnés**. Puis sélectionnez **SSH (22)** à partir de la **sélectionner des ports entrants** liste déroulante.|
 
     ![Configuration de base de machine virtuelle](./media/connect-on-premises-network/vm-basics.png)
 
     Conservez les valeurs par défaut des autres entrées, puis sélectionnez l’onglet **Mise en réseau**.
 
-1. Sous l’onglet **Mise en réseau**, entrez les informations suivantes : 
+4. Sous l’onglet **Mise en réseau**, entrez les informations suivantes :
 
     | Champ | Valeur |
     | --- | --- |
     |Réseau virtuel | Sélectionnez le réseau virtuel que vous avez créé précédemment.|
     |Sous-réseau | Sélectionnez le sous-réseau par défaut pour le réseau virtuel que vous avez créé précédemment. Ne sélectionnez __pas__ le sous-réseau utilisé par la passerelle VPN.|
-    |Adresse IP publique | Utilisez la valeur renseignée automatiquement.  |
+    |Adresse IP publique | Utilisez la valeur rempli automatiquement.  |
 
     ![Paramètres de réseau virtuel](./media/connect-on-premises-network/virtual-network-settings.png)
 
     Conservez les valeurs par défaut des autres entrées, puis sélectionnez l’onglet **Vérifier + créer**.
 
-1. Sous l’onglet **Vérifier + créer**, sélectionnez **Créer** pour créer la machine virtuelle.
- 
+5. Sous l’onglet **Vérifier + créer**, sélectionnez **Créer** pour créer la machine virtuelle.
 
 ### <a name="review-ip-addresses"></a>Passer en revue les adresses IP
 Une fois la machine virtuelle créée, vous recevrez une notification **Déploiement réussi** avec un bouton **Accéder à la ressource**.  Sélectionnez **Accéder à la ressource** pour accéder à votre nouvelle machine virtuelle.  À partir de la vue par défaut de votre nouvelle machine virtuelle, effectuez les étapes suivantes pour identifier les adresses IP associées :
 
-1. Sous **Paramètres**, sélectionnez **Propriétés**. 
+1. Sous **Paramètres**, sélectionnez **Propriétés**.
 
-1. Notez les valeurs d’**Adresse IP publique/étiquette du nom DNS**  et d’**Adresse IP privée**. Vous en aurez besoin plus tard.
+2. Notez les valeurs d’**Adresse IP publique/étiquette du nom DNS**  et d’**Adresse IP privée**. Vous en aurez besoin plus tard.
 
    ![Adresses IP publique et privée](./media/connect-on-premises-network/vm-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Installer et configurer Bind (logiciel DNS)
 
-1. Utilisez SSH pour vous connecter à l’__adresse IP publique__ de la machine virtuelle. L’exemple suivant établit une connexion à une machine virtuelle dont l’adresse IP est 40.68.254.142 :
+1. Utilisez SSH pour vous connecter à l’__adresse IP publique__ de la machine virtuelle. Remplacez `sshuser` avec le compte d’utilisateur SSH spécifié lors de la création de la machine virtuelle. L’exemple suivant établit une connexion à une machine virtuelle dont l’adresse IP est 40.68.254.142 :
 
     ```bash
     ssh sshuser@40.68.254.142
     ```
-
-    Remplacez `sshuser` par le compte d’utilisateur SSH que vous avez spécifié lors de la création du cluster.
-
-    > [!NOTE]  
-    > Il existe plusieurs façons d’obtenir l’utilitaire `ssh`. Sur Linux, Unix et macOS, il est généralement fourni en tant que composant du système d’exploitation. Si vous utilisez Windows, envisagez l’une des options suivantes :
-    >
-    > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
-    > * [Bash sur Ubuntu sur Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
-    > * [Git (https://git-scm.com/)](https://git-scm.com/)
-    > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
 2. Pour installer Bind, utilisez les commandes suivantes à partir de la session SSH :
 
@@ -184,7 +173,9 @@ Une fois la machine virtuelle créée, vous recevrez une notification **Déploie
 
     Cette commande retourne une valeur semblable au texte suivant :
 
-        dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+    ```output
+    dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+    ```
 
     Le texte `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` est le __suffixe DNS__ de ce réseau virtuel. Enregistrez cette valeur, car vous l’utiliserez plus tard.
 
@@ -227,32 +218,32 @@ Une fois la machine virtuelle créée, vous recevrez une notification **Déploie
 
     La réponse est similaire au texte suivant :
 
-        Server:         10.0.0.4
-        Address:        10.0.0.4#53
+    ```output
+    Server:         10.0.0.4
+    Address:        10.0.0.4#53
 
-        Non-authoritative answer:
-        Name:   dns.mynetwork.net
-        Address: 192.168.0.4
+    Non-authoritative answer:
+    Name:   dns.mynetwork.net
+    Address: 192.168.0.4
+    ```
 
-### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Configurer le réseau virtuel pour utiliser le serveur DNS personnalisé
+## <a name="configure-virtual-network-to-use-the-custom-dns-server"></a>Configurer un réseau virtuel pour utiliser le serveur DNS personnalisé
 
 Pour configurer le réseau virtuel afin d’utiliser le serveur DNS personnalisé au lieu du programme de résolution récursive Azure, effectuez les étapes suivantes dans le [portail Azure](https://portal.azure.com) :
 
-1. Dans le menu de gauche, sélectionnez **Tous les services**.  
+1. Dans le menu de gauche, accédez à **tous les services** > **mise en réseau** > **réseaux virtuels**.
 
-1. Sous **Mise en réseau**, sélectionnez **Réseaux virtuels**.  
+2. Sélectionnez votre réseau virtuel dans la liste afin d’ouvrir la vue par défaut de votre réseau virtuel.  
 
-1. Sélectionnez votre réseau virtuel dans la liste afin d’ouvrir la vue par défaut de votre réseau virtuel.  
+3. Dans la vue par défaut, sous **Paramètres**, sélectionnez **Serveurs DNS**.  
 
-1. Dans la vue par défaut, sous **Paramètres**, sélectionnez **Serveurs DNS**.  
+4. Sélectionnez __Personnalisé__, puis entrez l’**adresse IP privée** du serveur DNS personnalisé.   
 
-1. Sélectionnez __Personnalisé__, puis entrez l’**adresse IP privée** du serveur DNS personnalisé.   
-
-1. Sélectionnez __Enregistrer__.  <br />  
+5. Sélectionnez __Enregistrer__.  <br />  
 
     ![Définir le serveur DNS personnalisé pour le réseau](./media/connect-on-premises-network/configure-custom-dns.png)
 
-### <a name="configure-the-on-premises-dns-server"></a>Configurer le serveur DNS local
+## <a name="configure-on-premises-dns-server"></a>Configurer le serveur DNS sur site
 
 Dans la section précédente, vous avez configuré le serveur DNS personnalisé de façon à transférer les demandes au serveur DNS local. Ensuite, vous devez configurer le serveur DNS local pour transférer les demandes au serveur DNS personnalisé.
 
@@ -300,14 +291,13 @@ Pour un exemple d’utilisation d’Azure PowerShell ou d’Azure CLI afin de cr
 
 Pour créer un cluster HDInsight, procédez de la manière décrite dans [Créer un cluster HDInsight à l’aide du portail Azure](./hdinsight-hadoop-create-linux-clusters-portal.md).
 
-> [!WARNING]
+> [!WARNING]  
 > * Lors de la création du cluster, vous devez choisir l’emplacement contenant votre réseau virtuel.
->
 > * Dans les __Paramètres avancés__ de la configuration, vous devez sélectionner le réseau virtuel et le sous-réseau que vous avez créés précédemment.
 
 ## <a name="connecting-to-hdinsight"></a>Connexion à HDInsight
 
-L’essentiel de la documentation relative à HDInsight part du principe que vous avez accès au cluster via Internet. Par exemple, vous devez pouvoir vous connecter au cluster à l’adresse https://CLUSTERNAME.azurehdinsight.net. Cette adresse utilise la passerelle publique qui n’est pas disponible si vous avez utilisé des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour restreindre l’accès à partir d’Internet.
+L’essentiel de la documentation relative à HDInsight part du principe que vous avez accès au cluster via Internet. Par exemple, vous devez pouvoir vous connecter au cluster à l’adresse `https://CLUSTERNAME.azurehdinsight.net`. Cette adresse utilise la passerelle publique qui n’est pas disponible si vous avez utilisé des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour restreindre l’accès à partir d’Internet.
 
 Certains documents font également référence à `headnodehost` lors de la connexion au cluster à partir d’une session SSH. Cette adresse est uniquement disponible à partir des nœuds d’un cluster, et elle n’est pas utilisable sur les clients connectés au réseau virtuel.
 

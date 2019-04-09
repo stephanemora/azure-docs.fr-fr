@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 06fedddffd51dc22b45e8ae6e415ad139346c5b6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670385"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280551"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Ajout de rapports d’intégrité Service Fabric personnalisés
 Azure Service Fabric introduit un [modèle d’intégrité](service-fabric-health-introduction.md) conçu pour signaler des conditions de cluster et d’application défectueuses sur des entités spécifiques. Le modèle d’intégrité utilise des **rapporteurs d’intégrité** (composants système et agents de surveillance). L’objectif consiste en un diagnostic et une réparation simples et rapides. Les enregistreurs du service doivent penser en amont à l’intégrité. Toute condition pouvant avoir une incidence sur l’intégrité doit être signalée, surtout si cela peut aider à signaler des problèmes proches de la racine. Pour ce qui est du débogage et des investigations, les informations sur l’intégrité peuvent faire gagner du temps et économiser des efforts. L’utilité est particulièrement flagrante une fois que le service est en cours d’exécution, à l’échelle dans le cloud (privé ou Azure).
@@ -55,18 +55,18 @@ Lorsque la conception de la création des rapports d’intégrité est claire, l
 > 
 
 ## <a name="health-client"></a>Client de contrôle d’intégrité
-Les rapports d’intégrité sont envoyés au magasin d’intégrité à l’aide d’un client de contrôle d’intégrité, qui réside dans le client Fabric. Le client de contrôle d’intégrité peut être configuré à l’aide des paramètres suivants :
+Les rapports d’intégrité sont envoyées au Gestionnaire de contrôle d’intégrité via un client de contrôle d’intégrité, qui se trouve dans le client fabric. Le Gestionnaire de contrôle d’intégrité enregistre les rapports dans le magasin d’intégrité. Le client de contrôle d’intégrité peut être configuré à l’aide des paramètres suivants :
 
-* **HealthReportSendInterval** : délai qui s’écoule entre le moment où le rapport est ajouté au client et celui où il est envoyé au magasin d’intégrité. Il est utilisé pour regrouper les rapports dans un seul message, au lieu d’envoyer un message pour chaque rapport. Ce regroupement améliore les performances. Valeur par défaut : 30 secondes.
-* **HealthReportRetrySendInterval** : intervalle auquel le client de contrôle d’intégrité renvoie les rapports d’intégrité cumulés au magasin d’intégrité. Valeur par défaut : 30 secondes.
-* **HealthOperationTimeout** : délai d’expiration d’un message de rapport envoyé au magasin d’intégrité. Si un message expire, le client de contrôle d’intégrité réessaie de l’envoyer jusqu’à ce que le magasin d’intégrité confirme que le rapport a été traité. Par défaut : deux minutes.
+* **HealthReportSendInterval** : Le délai entre le moment où que le rapport est ajouté au client et l’heure, il est envoyé au Gestionnaire de contrôle d’intégrité. Il est utilisé pour regrouper les rapports dans un seul message, au lieu d’envoyer un message pour chaque rapport. Ce regroupement améliore les performances. Valeur par défaut : 30 secondes.
+* **HealthReportRetrySendInterval** : Il signale l’intervalle auquel le client de contrôle d’intégrité renvoie d’intégrité cumulés au Gestionnaire de contrôle d’intégrité. Valeur par défaut : 30 secondes, minimum : 1 seconde.
+* **HealthOperationTimeout** : La période d’expiration pour un message de rapport envoyé au Gestionnaire de contrôle d’intégrité. Si un message arrive à expiration, le client de contrôle d’intégrité réessaie jusqu'à ce que le Gestionnaire de contrôle d’intégrité confirme que le rapport a été traité. Par défaut : deux minutes.
 
 > [!NOTE]
-> Lorsque les rapports sont traités par lot, le client Fabric doit être maintenu actif pendant au moins l’intervalle HealthReportSendInterval pour s’assurer qu’ils sont envoyés. Si le message est perdu ou si le magasin d’intégrité n’est pas en mesure de d’appliquer les rapports en raison d’erreurs transitoires, le client Fabric doit être maintenu actif plus longtemps pour lui donner une chance de réessayer.
+> Lorsque les rapports sont traités par lot, le client Fabric doit être maintenu actif pendant au moins l’intervalle HealthReportSendInterval pour s’assurer qu’ils sont envoyés. Si le message est perdu ou le Gestionnaire de contrôle d’intégrité ne peut pas les appliquer en raison d’erreurs transitoires, le client fabric doit être maintenu actif plus afin de lui donner une chance de réessayer.
 > 
 > 
 
-La mise en mémoire tampon sur le client prend en compte l’unicité des rapports. Par exemple, si un rapporteur incorrect génère 100 rapports par seconde sur la même propriété de la même entité, ces rapports sont remplacés par la dernière version. La file d’attente du client contient tout au plus un rapport de ce type. Si le traitement par lots est configuré, les rapports envoyés au magasin d’intégrité sont au nombre de un par intervalle d’envoi. Il s’agit du dernier rapport ajouté, qui reflète l’état le plus récent de l’entité.
+La mise en mémoire tampon sur le client prend en compte l’unicité des rapports. Par exemple, si un rapporteur incorrect génère 100 rapports par seconde sur la même propriété de la même entité, ces rapports sont remplacés par la dernière version. La file d’attente du client contient tout au plus un rapport de ce type. Si le traitement par lots est configuré, le nombre de rapports envoyés au Gestionnaire de contrôle d’intégrité est simplement une restitution par intervalle d’envoi. Il s’agit du dernier rapport ajouté, qui reflète l’état le plus récent de l’entité.
 Spécifiez les paramètres de configuration lors de la création de l’élément `FabricClient`, via la transmission de [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) avec les valeurs souhaitées pour les entrées relatives à l’intégrité.
 
 L’exemple suivant permet de créer un client Fabric et d’indiquer que les rapports doivent être envoyés dès qu’ils sont ajoutés. En cas de délais d’attente et d’erreurs pouvant donner lieu à une nouvelle tentative, les nouvelles tentatives ont lieu toutes les 40 secondes.
@@ -304,13 +304,13 @@ Envoyez des rapports d’intégrité à l’aide de REST, avec les demandes POST
 ## <a name="next-steps"></a>Étapes suivantes
 Grâce aux données d’intégrité, les enregistreurs de service et les administrateurs de cluster/d’application peuvent réfléchir à des façons de consommer les informations. Par exemple, ils peuvent configurer des alertes basées sur l’état d’intégrité pour intercepter des problèmes graves avant qu’ils provoquent des pannes. Les administrateurs peuvent également configurer des systèmes de réparation pour résoudre les problèmes automatiquement.
 
-[Présentation du contrôle d’intégrité de Service Fabric](service-fabric-health-introduction.md)
+[Introduction au contrôle d’intégrité Service Fabric surveillance](service-fabric-health-introduction.md)
 
 [Affichage rapports d’intégrité de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Comment signaler et contrôler l’intégrité du service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Utilisation des rapports d’intégrité système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Utiliser les rapports d’intégrité système pour le dépannage](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Surveiller et diagnostiquer les services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 

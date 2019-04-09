@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 814ae0e79ac24d5b645c4bf107287ab1b8326ff4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121619"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267138"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuration d’un nom de domaine personnalisé pour un service cloud Azure
 Lorsque vous créez un service cloud, Azure l'attribue à un sous-domaine de **cloudapp.net**. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs peuvent accéder à votre application par le biais d’une URL telle que http://contoso.cloudapp.net. Azure attribue également une adresse IP virtuelle.
@@ -64,11 +64,11 @@ Pour créer un enregistrement CNAME, vous devez ajouter une nouvelle entrée dan
 
 1. Employez une des méthodes suivantes pour connaître le nom de domaine **.cloudapp.net** attribué à votre service cloud.
 
-   * Connectez-vous au [portail Azure], sélectionnez votre service cloud, examinez la section **Essentials**, puis recherchez l’entrée **URL du site**.
+   * Connexion à la [Azure portal], sélectionnez votre service cloud, examinez le **vue d’ensemble** section et recherchez le **URL du Site** entrée.
 
        ![section aperçu rapide indiquant l’URL du site][csurl]
 
-       **OR**
+       **Ou**
    * Installez et configurez [Azure Powershell](/powershell/azure/overview), puis utilisez la commande suivante :
 
        ```powershell
@@ -97,11 +97,11 @@ Pour créer un enregistrement A, vous devez tout d’abord connaître l’adres
 
 1. Utilisez l’une des méthodes suivantes pour obtenir l’adresse IP de votre service cloud.
 
-   * Connectez-vous au [portail Azure], sélectionnez votre service cloud, examinez la section **Essentials**, puis recherchez l’entrée **Adresses IP publiques**.
+   * Connexion à la [portail Azure], sélectionnez votre service cloud, examinez le **vue d’ensemble** section, puis recherchez le **adresses IP publiques** entrée.
 
        ![section aperçu rapide illustrant l’adresse IP virtuelle publique][vip]
 
-       **OR**
+       **Ou**
    * Installez et configurez [Azure Powershell](/powershell/azure/overview), puis utilisez la commande suivante :
 
        ```powershell
@@ -131,7 +131,7 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gestion des services cloud](cloud-services-how-to-manage-portal.md)
-* [Mappage du contenu CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md)
+* [Comment mapper du contenu CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668192"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057640"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Linux dans votre cluster Service Fabric
 
@@ -76,7 +76,7 @@ Le service de gestion des réparations est activé par défaut pour les clusters
 
 ##### <a name="azure-portal"></a>Portail Azure
 Vous pouvez activer le gestionnaire des réparations à partir du portail Azure au moment de la configuration du cluster. Sélectionnez l’option **Inclure le gestionnaire de réparation** sous **Fonctionnalités complémentaires** lors de la configuration du cluster.
-![Image représentant l’activation du gestionnaire des réparations à partir du portail Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
+![Image de l’activation de gestion des réparations à partir du portail Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-deployment-model"></a>Modèle de déploiement Azure Resource Manager
 Vous pouvez également utiliser le [modèle de déploiement Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) pour activer le service de gestion des réparations sur les clusters Service Fabric nouveaux et existants. Récupérez le modèle approprié pour le cluster que vous souhaitez déployer. Vous pouvez soit utiliser les exemples de modèles, soit créer un modèle de déploiement Azure Resource Manager personnalisé. 
@@ -121,7 +121,7 @@ Pour Ubuntu, les [mises à niveau sans assistance](https://help.ubuntu.com/commu
 
 L’application et les scripts d’installation peuvent être téléchargés à partir de [Lien de l’archive](https://go.microsoft.com/fwlink/?linkid=867984).
 
-L’application au format sfpkg peut être téléchargée à partir de [lien sfpkg](https://aka.ms/POA/POA_v2.0.2.sfpkg). Cela s’avère utile pour le [déploiement de l’application basée sur Azure Resource Manager](service-fabric-application-arm-resource.md).
+L’application au format sfpkg peut être téléchargée à partir de [lien sfpkg](https://aka.ms/POA/POA_v2.0.3.sfpkg). Cela s’avère utile pour le [déploiement de l’application basée sur Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurer l’application
 
@@ -173,7 +173,8 @@ Par commodité, des scripts Powershell (Undeploy.ps1) et bash (Undeploy.sh) sont
 
 ## <a name="view-the-update-results"></a>Afficher les résultats des mises à jour
 
-L’application d’orchestration des correctifs expose les API REST pour afficher l’historique des résultats à l’utilisateur. Voici un exemple de résultat : ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+L’application d’orchestration des correctifs expose les API REST pour afficher l’historique des résultats à l’utilisateur. Voici un exemple de résultat :
+```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 
@@ -271,7 +272,7 @@ Un rapport d’intégrité de niveau avertissement est généré par rapport au 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-Q. **Pourquoi mon cluster présente-t-il un état d’erreur lorsque l’application d’orchestration des correctifs est en cours d’exécution ?**
+Q. **Pourquoi mon cluster dans un état d’erreur lors de l’exécution de l’application d’orchestration des correctifs ?**
 
 R. Pendant le processus d’installation, l’application d’orchestration des correctifs désactive ou redémarre les nœuds. Cette opération peut entraîner une dégradation temporaire de l’intégrité du cluster.
 
@@ -285,15 +286,15 @@ Dans l’exemple suivant, le cluster a présenté temporairement un état d’er
 
 Si le problème persiste, voir la section Résolution des problèmes.
 
-Q. **L’application d’orchestration des correctifs est en état d’avertissement**
+Q. **Application d’orchestration des correctifs est en état d’avertissement**
 
 R. Vérifiez si un rapport d’intégrité publié concernant l’application est la cause première. En règle générale, l’avertissement contient des détails concernant le problème. Si le problème est temporaire, l’application est supposée récupérer automatiquement de cet état.
 
-Q. **Que faire si mon cluster est défectueux et que je dois effectuer une mise à jour urgente du système d’exploitation ?**
+Q. **Que puis-je faire si mon cluster est défectueux et j’ai besoin pour effectuer une mise à jour urgente système d’exploitation ?**
 
 R. L’application d’orchestration des correctifs n’installe pas de mises à jour lorsque le cluster est défectueux. Pour débloquer le workflow de l’application d’orchestration des correctifs, essayez de ramener votre cluster à un état sain.
 
-Q. **Pourquoi la mise à jour corrective des clusters prend-elle autant de temps ?**
+Q. **Pourquoi mise à jour corrective sur des clusters prend-elle autant à s’exécuter ?**
 
 R. Le temps dont l’application d’orchestration des correctifs a besoin dépend principalement des facteurs suivants :
 
@@ -303,7 +304,7 @@ R. Le temps dont l’application d’orchestration des correctifs a besoin dépe
 - La durée moyenne nécessaire pour télécharger et installer une mise à jour, qui ne devrait pas dépasser quelques heures.
 - Les performances de la machine virtuelle et la bande passante réseau.
 
-Q. **Comment l’application d’orchestration des correctifs identifie-t-elle les mises à jour de sécurité ?**
+Q. **Comment application d’orchestration des correctifs effectue détermine quelles mises à jour sont mises à jour de sécurité.**
 
 R. L’application d’orchestration des correctifs utilise une logique propre à la distribution pour déterminer quelles mises à jour sont des mises à jour de sécurité parmi toutes celles disponibles. Par exemple :  Dans ubuntu, l’application recherche les mises à jour à partir des archives $RELEASE-sécurité, $RELEASE-mises à jour ($RELEASE = xenial ou la version de la version de base standard linux). 
 
@@ -318,11 +319,11 @@ Q. **Que se passe-t-il pour les mises à jour automatiques activées dans Ubuntu
 R. Dès que vous installez l’application d’orchestration des correctifs sur votre cluster, les mises à niveau sans assistance sont désactivées sur votre nœud de cluster. Tout le workflow de mise à jour périodique est piloté par l’application d’orchestration des correctifs.
 Pour que l’environnement reste cohérent dans tout le cluster, nous vous recommandons d’installer les mises à jour uniquement par le biais de l’application d’orchestration des correctifs. 
  
-Q. **Après la mise à niveau, l’application d’orchestration des correctifs effectue-t-elle le nettoyage des packages inutilisés ?**
+Q. **Après mise à niveau des correctifs effectue-t-elle d’application d’orchestration le nettoyage des packages inutilisés ?**
 
 R. Oui, le nettoyage se produit dans le cadre des étapes post-installation. 
 
-Q. **L’application d’orchestration des correctifs peut-elle être utilisée pour corriger mon cluster de développement (cluster à un nœud) ?**
+Q. **Application d’Orchestration des correctifs peut être utilisée de correction de mon cluster de développement (un nœud de cluster) ?**
 
 R. Non, l’application d’orchestration des correctifs ne peut pas être utilisée pour corriger un cluster à un nœud. Cette limitation est liée à la conception, car [services système de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou toute application cliente connaît des interruptions de service et, par conséquent, toute opération de réparation pour la correction ne sera jamais approuvée par le service de gestion des réparations.
 
@@ -373,5 +374,10 @@ L’application d’orchestration des correctifs collecte des données de télé
 ### <a name="version-201"></a>Version 2.0.1
 - Application recompilée à l’aide de la dernière version du SDK Service Fabric
 
-### <a name="version-202-latest"></a>Version 2.0.2 (dernière version)
+### <a name="version-202"></a>Version 2.0.2 
 - Résolution d’un problème lié à un avertissement concernant l’intégrité qui était laissé de côté lors du redémarrage.
+
+### <a name="version-203-latest"></a>Version 2.0.3 (dernière version)
+- Résolution du problème où l’utilisation du processeur de service du démon Agent du nœud atteint jusqu'à 99 % sur les machines virtuelles Standard_D1_v2.
+- Résolution du problème de qui effectue la mise à jour corrective vie-importantes sur un nœud dans le cas où il existe des nœuds de nom qui est le sous-ensemble du nom du nœud actuel. Pour de tels nœuds, il est possible qu’un correctif soit omis ou qu’un redémarrage soit en cours.
+- Correction d’un bogue en raison de laquelle démon Agent du nœud se bloque conserve lorsque paramètres endommagés sont transmis au service.

@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 216ce32997a4114f4f2684b14338b4e36d9afd03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558003"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257278"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Mettre à l’échelle votre travail Stream Analytics avec des fonctions Azure Machine Learning
 Il est extrêmement facile de configurer un travail Stream Analytics et de l’utiliser pour exécuter des exemples de données. Que faire si nous avons besoin d’exécuter le même travail avec un volume de données plus important ? Nous devons comprendre comment configurer le travail Stream Analytics pour permettre sa mise à l’échelle. Dans ce document, nous nous concentrerons sur les aspects particuliers de la mise à l’échelle des travaux Stream Analytics avec des fonctions Machine Learning. Pour plus d’informations sur la procédure de mise à l’échelle des travaux Stream Analytics en général, voir l’article [Mise à l’échelle des travaux](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Qu’est-ce qu’une fonction Azure Machine Learning dans Stream Analytics ?
-Une fonction Machine Learning dans Stream Analytics peut être utilisée comme un appel de fonction normal dans le langage de requête Stream Analytics. Toutefois, en arrière-plan, ces appels de fonction sont en fait des demandes de services web Microsoft Azure Machine Learning. Les services web Machine Learning prennent en charge le « traitement par lot » de plusieurs lignes, appelé mini-lot, dans un même appel d’API de service web pour améliorer le débit général. Pour plus d’informations, consultez [Azure Machine Learning functions in Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) et [Services web Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
+Une fonction Machine Learning dans Stream Analytics peut être utilisée comme un appel de fonction normal dans le langage de requête Stream Analytics. Toutefois, en arrière-plan, ces appels de fonction sont en fait des demandes de services web Microsoft Azure Machine Learning. Les services web Machine Learning prennent en charge le « traitement par lot » de plusieurs lignes, appelé mini-lot, dans un même appel d’API de service web pour améliorer le débit général. Pour plus d’informations, consultez [Azure Machine Learning Web Services](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurer un travail Stream Analytics avec des fonctions Azure Machine Learning
 Lorsque vous configurez une fonction Machine Learning pour un travail Stream Analytics, vous devez prendre en compte deux paramètres : la taille de lot des appels de fonction Machine Learning et les unités de diffusion en continu approvisionnées pour le travail Stream Analytics. Pour déterminer les valeurs appropriées des unités de streaming, commencez par trouver le bon compromis entre latence et débit, autrement dit, entre la latence du travail Stream Analytics et le débit de chaque unité de streaming. Il est toujours possible d’ajouter des unités de diffusion en continu à un travail pour augmenter le débit d’une requête Stream Analytics correctement partitionnée. Toutefois, cet ajout augmente le coût d’exécution du travail.
@@ -74,7 +74,7 @@ Le tableau ci-après présente le débit du travail Stream Analytics pour diffé
 
 | Taille de lot (latence Machine Learning) | 500 (200 ms) | 1 000 (200 ms) | 5 000 (250 ms) | 10 000 (300 ms) | 25 000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 unité de diffusion en continu** |2 500 |5 000 |20 000 |30 000 |50 000 |
+| **1 unité de recherche** |2 500 |5 000 |20 000 |30 000 |50 000 |
 | **3 unités de diffusion en continu** |2 500 |5 000 |20 000 |30 000 |50 000 |
 | **6 unités de diffusion en continu** |2 500 |5 000 |20 000 |30 000 |50 000 |
 | **12 unités de diffusion en continu** |5 000 |10 000 |40 000 |60 000 |100 000 |
@@ -112,7 +112,7 @@ Notre exemple portait sur une requête Stream Analytics entièrement partitionn�
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Stream Analytics, consultez :
 
-* [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Prise en main Azure Stream Analytique](stream-analytics-real-time-fraud-detection.md)
+* [L’échelle des travaux d’Azure Stream Analytique](stream-analytics-scale-jobs.md)
+* [Référence du langage requête Azure Stream Analytique](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Référence API REST de gestion d’Analytique Azure Stream](https://msdn.microsoft.com/library/azure/dn835031.aspx)

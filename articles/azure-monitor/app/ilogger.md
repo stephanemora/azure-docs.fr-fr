@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: ea7f2e730b4963016d221705ba8c9356efffa858
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905271"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263755"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider pour les journaux de .NET Core ILogger
 
@@ -208,10 +208,10 @@ Alors que l’ancien fournisseur peut toujours être utilisé (il est désormais
 1. Fournisseur précédent n’offrait pas de prise en charge de [étendues](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). Dans le nouveau fournisseur, les propriétés de portée sont automatiquement ajoutées en tant que propriétés personnalisées pour les données de télémétrie collectées.
 2. Journaux peuvent maintenant être capturés beaucoup plus tôt dans le pipeline de démarrage d’application. Par exemple, Les journaux à partir de classes de démarrage et le programme peuvent maintenant être capturés.
 3. Avec le nouveau fournisseur, le filtrage est effectué au niveau du framework lui-même. Filtrage des journaux au fournisseur d’Application Insights peut être effectuée dans la même façon que pour d’autres fournisseurs, notamment les fournisseurs intégrés, tels que de la Console, débogage et ainsi de suite. Il est également possible d’appliquer les mêmes filtres à plusieurs fournisseurs.
-4. Le [recommandé](https://github.com/aspnet/Announcements/issues/255) dans Asp.Net Core (2.0 et versions ultérieures) pour activer les fournisseurs de journalisation consiste à l’aide de méthodes d’extension sur ILoggingBuilder dans `Program.cs` lui-même.
+4. Le [recommandé](https://github.com/aspnet/Announcements/issues/255) dans ASP.NET Core (2.0 et versions ultérieures) pour activer les fournisseurs de journalisation consiste à l’aide de méthodes d’extension sur ILoggingBuilder dans `Program.cs` lui-même.
 
 > [!Note]
-Le nouveau fournisseur est disponible pour les applications ciblant `NETSTANDARD2.0` ou une version ultérieure. Si votre application est ciblage des anciennes versions de .NET Core, comme .NET Core 1.1 ou si vous ciblez le .NET Framework, continuer à utiliser l’ancien fournisseur.
+> Le nouveau fournisseur est disponible pour les applications ciblant `NETSTANDARD2.0` ou une version ultérieure. Si votre application est ciblage des anciennes versions de .NET Core, comme .NET Core 1.1 ou si vous ciblez le .NET Framework, continuer à utiliser l’ancien fournisseur.
 
 ## <a name="console-application"></a>Application de console
 

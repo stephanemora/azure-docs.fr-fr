@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403683"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275435"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning
 
@@ -33,7 +33,7 @@ Le workflow de déploiement comprend les étapes suivantes :
 
 Chaque étape peut être effectuée indépendamment ou dans le cadre d’une même commande de déploiement. En outre, vous pouvez intégrer le déploiement dans un **flux de travail CI/CD**, comme illustré dans ce graphique.
 
-[![« Cycle de déploiement (CI/CD) une intégration continus azure Machine Learning »](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Cycle de déploiement (CI/CD) une intégration continus Azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>Étape 1 : Inscrire le modèle
 
@@ -63,7 +63,9 @@ L’image peut également inclure des composants du SDK pour la journalisation e
 Azure Machine Learning prend en charge les infrastructures les plus courantes, mais d’une façon générale, les infrastructures pouvant être installées avec pip peuvent fonctionner.
 
 Lors de la création de votre espace de travail, par conséquent, plusieurs autres ressources Azure utilisées par cet espace de travail ont également été créées.
-Tous les objets utilisés pour créer l’image sont stockés dans le compte de stockage Azure de votre espace de travail. Vous pouvez fournir des étiquettes de métadonnées supplémentaires lorsque vous créez des images. Les étiquettes de métadonnées sont également stockées par le registre d’images et permettent de rechercher une image.
+Tous les objets utilisés pour créer l’image par défaut sont stockés dans le compte de stockage Azure dans votre espace de travail. Vous pouvez fournir des étiquettes de métadonnées supplémentaires lorsque vous créez des images. Les étiquettes de métadonnées sont également stockées par le registre d’images et permettent de rechercher une image.
+
+Vous pouvez également utiliser des images personnalisées, qui peuvent être chargées dans Azure Container Registry et utilisés par le service Azure Machine Learning.
 
 Pour plus d’informations, consultez la section consacrée à la configuration et à l’inscription d’une image dans l’article [Déployer des modèles](how-to-deploy-and-where.md#configureimage).
 
@@ -73,7 +75,7 @@ Vous pouvez déployer des images inscrites dans le cloud ou sur des périphériq
 
 Les déploiements de service web peuvent également faire l’objet de recherches. Par exemple, vous pouvez rechercher tous les déploiements d’un modèle ou d’une image spécifique.
 
-[![Cibles d’inférence](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Icibles de nferencing](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 Vous pouvez déployer vos images sur les cibles de déploiement suivantes dans le cloud :
 

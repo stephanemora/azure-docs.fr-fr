@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e831bbcb956401149d8c33fce4d00a3be5a11d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170871"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279310"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparer les solutions d’accès à distance
 
@@ -34,23 +34,23 @@ Ce tableau vous permettra de comparer les solutions Threat Management Gateway (T
 
 | Fonctionnalité | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| Authentification par certificat | OUI | OUI | - | - |
-| Publier de manière sélective les applications de navigateur | OUI | OUI | OUI | OUI |
-| Préauthentification et authentification unique | OUI | OUI | OUI | OUI | 
-| Pare-feu de couche 2/3 | OUI | OUI | - | - |
-| Transférer des fonctionnalités de proxy | OUI | - | - | - |
-| Fonctionnalités VPN | OUI | OUI | - | - |
-| Prise en charge du protocole riche | - | OUI | Oui, en cas d’exécution sur HTTP | Oui, en cas d’exécution sur HTTP ou via la passerelle des services Bureau à distance |
-| Sert de serveur proxy AD FS | - | OUI | OUI | - |
-| Un portail pour l’accès de l’application | - | OUI | - | OUI |
-| Traduction du lien de corps de réponse | OUI | OUI | - | OUI | 
-| Authentification avec des en-têtes | - | OUI | - | Oui, avec PingAccess | 
-| Sécurité à l’échelle du cloud | - | - | - | OUI | 
-| Accès conditionnel | - | OUI | - | OUI |
-| Aucun composant dans la zone démilitarisée (DMZ) | - | - | - | OUI |
-| Aucune connexion entrante | - | - | - | OUI |
+| Authentification par certificat | Oui | Oui | - | - |
+| Publier de manière sélective les applications de navigateur | Oui | OUI | OUI | Oui |
+| Préauthentification et authentification unique | Oui | OUI | OUI | Oui | 
+| Pare-feu de couche 2/3 | Oui | Oui | - | - |
+| Transférer des fonctionnalités de proxy | Oui | - | - | - |
+| Fonctionnalités VPN | Oui | Oui | - | - |
+| Prise en charge du protocole riche | - | Oui | Oui, en cas d’exécution sur HTTP | Oui, en cas d’exécution sur HTTP ou via la passerelle des services Bureau à distance |
+| Sert de serveur proxy AD FS | - | Oui | Oui | - |
+| Un portail pour l’accès de l’application | - | Oui | - | Oui |
+| Traduction du lien de corps de réponse | Oui | OUI | - | Oui | 
+| Authentification avec des en-têtes | - | Oui | - | Oui, avec PingAccess | 
+| Sécurité à l’échelle du cloud | - | - | - | Oui | 
+| Accès conditionnel | - | Oui | - | Oui |
+| Aucun composant dans la zone démilitarisée (DMZ) | - | - | - | Oui |
+| Aucune connexion entrante | - | - | - | Oui |
 
-Pour la plupart des scénarios, nous vous recommandons d’utiliser la solution moderne de proxy d’application Azure AD. Le proxy d’application Web est uniquement recommandé dans les scénarios qui requièrent un serveur proxy pour AD FS, et que vous ne pouvez pas utiliser de domaines personnalisés dans Azure Active Directory. 
+La plupart des scénarios, nous vous recommandons de Proxy d’Application Azure AD en tant que la solution moderne. Le proxy d’application Web est uniquement recommandé dans les scénarios qui requièrent un serveur proxy pour AD FS, et que vous ne pouvez pas utiliser de domaines personnalisés dans Azure Active Directory. 
 
 Le proxy d’application Azure AD offre des avantages uniques par rapport à des produits similaires, notamment :
 
@@ -64,5 +64,5 @@ Le proxy d’application Azure AD offre des avantages uniques par rapport à des
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utiliser le proxy d’application Azure AD pour offrir un accès à distance sécurisé aux applications locales](application-proxy.md)
+- [Utiliser l’Application Azure AD pour fournir un accès à distance sécurisé aux applications locales](application-proxy.md)
 - [Passer de Forefront TMG et UAG au proxy d’application](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

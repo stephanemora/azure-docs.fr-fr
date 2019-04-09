@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cb0d04e46834530c8fea29ef79a2156caabeeeff
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202365"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008967"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Exemple : Ajouter des synonymes pour le service Recherche Azure en C#
 
@@ -35,9 +35,9 @@ Vous pouvez créer plusieurs cartes de synonymes, les valider en tant que ressou
 
 La configuration requise du didacticiel est la suivante :
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
-* [Service Recherche Azure](search-create-service-portal.md)
-* [Bibliothèque .NET Microsoft.Azure.Search](https://aka.ms/search-sdk)
+* [Visual Studio](https://www.visualstudio.com/downloads/)
+* [Service Azure Search](search-create-service-portal.md)
+* [Bibliothèque de Microsoft.Azure.Search .NET](https://aka.ms/search-sdk)
 * [Comment utiliser Azure Search à partir d'une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Présentation
@@ -175,4 +175,4 @@ Le moyen le plus rapide pour nettoyer une fois un exemple en supprimant le group
 Cet exemple a montré la [API REST de synonymes](https://aka.ms/rgm6rq) dans C# code pour créer et publier des règles de mappage, puis appelez la carte de synonymes pour une requête. Vous trouverez des informations supplémentaires dans la documentation de référence du [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) et de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
-> [Utilisation des synonymes dans le service Recherche Azure](search-synonyms.md)
+> [Comment utiliser des synonymes dans recherche Azure](search-synonyms.md)

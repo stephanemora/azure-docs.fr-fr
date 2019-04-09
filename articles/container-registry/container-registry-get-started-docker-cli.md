@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 180cbb9c31d14c36679bb84f92b3c9892ee3602d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011152"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282693"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Transmission de votre première image vers un Registre de conteneur Docker privé à l’aide de l’interface de ligne de commande (CLI) Docker
 
@@ -126,6 +126,14 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 
 Maintenant que vous connaissez les principes de base, vous êtes prêt à utiliser votre registre. Par exemple, déployez des images de conteneur à partir de votre Registre vers :
 
-* [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Service Azure Kubernetes (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
+
+Si vous le souhaitez installer le [Extension Docker pour Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) et le [compte Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension pour travailler avec vos registres de conteneurs Azure. Extraire et envoyer des images à un Registre de conteneurs Azure ou exécuter des tâches d’ACR, tout dans Visual Studio Code.
+
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

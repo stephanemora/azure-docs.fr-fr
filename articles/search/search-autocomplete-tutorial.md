@@ -7,23 +7,23 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9fb3cdd4b4b809e45180cd95b8fe930cce86826e
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 43d289f2688bbf4927ee244d6ae9992782bf380e
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498806"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009816"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exemple : Ajouter des Suggestions ou avec saisie semi-automatique à votre application de recherche Azure
 
-Dans cet exemple, découvrez comment utiliser [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) et [la saisie semi-automatique](https://docs.microsoft.com/rest/api/searchservice/autocomplete) pour créer une zone de recherche puissant qui prend en charge les comportements de recherche en tant que-vous-type.
+Dans cet article, découvrez comment utiliser [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) et [la saisie semi-automatique](https://docs.microsoft.com/rest/api/searchservice/autocomplete) pour créer une zone de recherche puissant qui prend en charge les comportements de recherche en tant que-vous-type.
 
-+ *Suggestions* est une liste de suggestions de résultats générés en cours de frappe, où chaque suggestion est un résultat unique à partir de l’index qui correspond à ce que vous avez tapé jusqu'à présent. 
++ *Suggestions* sont des suggestions de résultats générés en cours de frappe, où chaque suggestion est un résultat unique à partir de l’index qui correspond à ce que vous avez tapé jusqu'à présent. 
 
-+ *La saisie semi-automatique*, [une fonctionnalité préliminaire](search-api-preview.md), « terminée », le mot ou expression actuellement saisie d’un utilisateur. Comme avec des suggestions, terminé mot ou expression repose sur une correspondance dans l’index. 
++ *La saisie semi-automatique*, [une fonctionnalité préliminaire](search-api-preview.md), « terminée », le mot ou expression actuellement saisie d’un utilisateur. Au lieu de retourner des résultats, il termine une requête, vous pouvez ensuite exécuter pour retourner les résultats. Comme avec des suggestions, un terminé mot ou une expression dans une requête repose sur une correspondance dans l’index. Le service n’offre des requêtes qui retournent des résultats nuls dans l’index.
 
 Vous pouvez télécharger et exécuter l’exemple de code dans **DotNetHowToAutocomplete** pour évaluer ces fonctionnalités. L’exemple de code cible d’un index prédéfini rempli avec [NYCJobs les données de démonstration](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). L’index NYCJobs contient un [construction du Générateur de suggestions](index-add-suggesters.md), qui est une condition requise pour l’utilisation des suggestions ou la saisie semi-automatique. Vous pouvez utiliser l’index préparée hébergée dans un service de bac à sable, ou [remplir votre propre index](#configure-app) à l’aide d’un chargeur de données dans l’exemple de solution NYCJobs. 
 
@@ -42,7 +42,7 @@ Cet exercice vous guide dans les tâches suivantes :
 
 Un service Azure Search est facultatif pour cet exercice, car la solution utilise un service de bac à sable en direct qui héberge un index de démonstration préparé NYCJobs. Si vous souhaitez exécuter cet exemple sur votre propre service de recherche, consultez [index de configurer NYC Jobs](#configure-app) pour obtenir des instructions.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), n’importe quelle édition. Obtenir des instructions et des exemples de code ont été testées sur l’édition Community gratuite.
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), toute édition. L’exemple de code et les instructions ont été testés dans l’édition Communauté gratuite.
 
 * Téléchargez le [DotNetHowToAutoComplete exemple](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
 
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-Le code ci-dessus s’exécute dans le navigateur lors du chargement de page pour configurer la saisie semi-automatique de l’interface utilisateur jQuery pour la zone d’entrée « example1a ».  `minLength: 3` garantit que les recommandations ne sont affichées que lorsque plus de trois caractères sont saisis dans la zone de recherche.  La valeur source est importante :
+Le code ci-dessus s’exécute dans le navigateur lors du chargement de page pour configurer la saisie semi-automatique de l’interface utilisateur jQuery pour la zone d’entrée « example1a ».  `minLength: 3` garantit que recommandations ne s’affichera lorsqu’il y a au moins trois caractères dans la zone de recherche.  La valeur source est importante :
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
@@ -156,7 +156,7 @@ $(function () {
 });
 ```
 
-## <a name="c-version"></a>C#Version
+## <a name="c-example"></a>Exemple en code C#
 
 Maintenant que nous avons passé en revue le code JavaScript pour la page web, examinons le C# code côté serveur contrôleur qui récupère en fait les correspondances suggérées à l’aide du SDK .NET Azure Search.
 
@@ -229,9 +229,11 @@ Ajoutez un point d'arrêt au début de la fonction Suggest et examinez le code (
 
 Les autres exemples sur la page suivent le même modèle pour ajouter la mise en surbrillance et les facettes pour prendre en charge côté client de mise en cache des résultats de la saisie semi-automatique. Examinez chaque exemple pour comprendre leur fonctionnement et comment les exploiter dans votre expérience de recherche.
 
-## <a name="javascript-version-with-rest"></a>Version de JavaScript avec REST
+## <a name="javascript-example"></a>Exemple JavaScript
 
-Pour l’implémentation de JavaScript, ouvrez **IndexJavaScript.cshtml**. Notez que la fonction de la saisie semi-automatique de l’interface utilisateur jQuery est également utilisé pour la zone de recherche, collecte d’entrées de terme de recherche et effectuer des appels asynchrones à Azure Search pour récupérer suggéré correspondances ou terminé les termes du contrat. 
+Une implémentation de Javascript de la saisie semi-automatique et des suggestions appelle l’API REST, à l’aide d’un URI comme source pour spécifier l’index et l’opération. 
+
+Pour vérifier l’implémentation de JavaScript, ouvrez **IndexJavaScript.cshtml**. Notez que la fonction de la saisie semi-automatique de l’interface utilisateur jQuery est également utilisé pour la zone de recherche, collecte d’entrées de terme de recherche et effectuer des appels asynchrones à Azure Search pour récupérer suggéré correspondances ou terminé les termes du contrat. 
 
 Nous allons examiner le code JavaScript du premier exemple :
 
@@ -291,7 +293,7 @@ Sur la ligne 148, vous trouverez un script qui appelle le `autocompleteUri`. Le 
 
 Jusqu'à présent, vous avez été à l’aide de l’index de démonstration NYCJobs hébergé. Si vous souhaitez une visibilité totale tout le code, y compris l’index, suivez ces instructions pour créer et charger l’index dans votre propre service de recherche.
 
-1. [Créer un service Azure Search](search-create-service-portal.md) ou [trouver un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sous votre abonnement actuel. Vous pouvez utiliser un service gratuit pour cet exemple. 
+1. [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour cet exemple. 
 
    > [!Note]
    > Si vous utilisez le service Recherche Azure gratuit, vous êtes limité à trois index. Le chargeur de données NYCJobs crée deux index. Assurez-vous de disposer de l’espace suffisant sur votre service pour accepter les nouveaux index.

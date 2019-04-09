@@ -5,17 +5,17 @@ keywords: powershell dsc, desired state configuration, configuration d’état s
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b82457d8a7ce70ecfde32ba625ef610a3772213c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432189"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278620"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Composer des configurations DSC dans Azure Automation State Configuration (DSC) au moyen de ressources composites
 
@@ -32,11 +32,11 @@ Avant de pouvoir attribuer une configuration effectuée à partir de ressources 
 1. Sur la page **Compte Automation**, sélectionnez **State Configuration (DSC)** sous **Gestion de la configuration**.
 1. Sur la page **State configuration (DSC)**, cliquez sur l’onglet **Configurations** ou **Configurations compilées**, puis sur **Composer la configuration** dans le menu en haut de la page.
 1. Au moment de l’étape relative aux **fonctions de base**, indiquez le nom de la nouvelle configuration (obligatoire), cliquez n’importe où sur la ligne de chaque ressource composite que vous souhaitez inclure dans la nouvelle configuration, puis cliquez sur **Suivant** ou sur l’étape **Code source**. Pour les étapes suivantes, nous avons sélectionné les ressources composites **PSExecutionPolicy** et **RenameAndDomainJoin**.
-   ![Capture d’écran de l’étape des fonctions de base sur la page Composer la configuration](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
+   ![Capture d’écran de l’étape de principes fondamentaux de la page de configuration compose](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
 1. L’étape **Code source** montre à quoi ressemble la configuration composée des ressources composites sélectionnées. Vous pouvez voir la fusion de tous les paramètres et la façon dont ils sont transmis à la ressource composite. Après avoir examiné le nouveau code source, cliquez sur **Suivant** ou sur l’étape **Paramètres**.
-   ![Capture d’écran de l’étape du code source sur la page Composer la configuration](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
+   ![Capture d’écran de l’étape de code source de la page de configuration compose](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
 1. Au niveau de l’étape **Paramètres**, le paramètre des ressources composites est exposé afin qu’elles puissent être fournies. Si un paramètre possède une description, celle-ci s’affiche à côté du champ de paramètre. Si un champ est un paramètre de type **PSCredential**, la liste déroulante servant à la configuration fournit une liste d’objets **Informations d’identification** dans le compte Automation en cours. Une option **+ Add a credential** (+ Ajouter une information d’identification) est également disponible. Une fois que tous les paramètres requis ont été fournis, cliquez sur **Save and compile** (Enregistrer et compiler).
-   ![Capture d’écran de l’étape des paramètres sur la page Composer la configuration](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
+   ![Capture d’écran de l’étape de paramètres de la page de configuration compose](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
 Une fois la nouvelle configuration enregistrée, elle est envoyée en compilation. Il est possible d’afficher l’état de la tâche de compilation comme celui de n’importe quelle autre configuration importée. Pour plus d’informations, voir [Affichage d’une tâche de compilation](automation-dsc-getting-started.md#viewing-a-compilation-job).
 

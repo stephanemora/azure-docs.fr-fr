@@ -4,22 +4,20 @@ description: Décrit les fonctions à utiliser dans un modèle Azure Resource Ma
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: eb3435d8c7b10e2de55cb0cf1f3ad2548bf2bcef
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b5a1f12a877008a3ce2ff7bd9635b9ed47b379f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766748"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280313"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Fonctions des modèles Azure Resource Manager
 Cet article décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager. Pour plus d’informations sur l’utilisation des fonctions dans votre modèle, consultez [syntaxe du modèle](resource-group-authoring-templates.md#syntax).
@@ -87,7 +85,7 @@ Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dan
 ## <a name="deployment-value-functions"></a>Fonctions de valeur de déploiement
 Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à partir des sections du modèle et de valeurs associées au déploiement :
 
-* [deployment](resource-group-template-functions-deployment.md#deployment)
+* [déploiement](resource-group-template-functions-deployment.md#deployment)
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
@@ -100,11 +98,11 @@ Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à 
 ## <a name="logical-functions"></a>Fonctions logiques
 Resource Manager fournit les fonctions suivantes pour vous permettre de travailler avec des conditions logiques :
 
-* [et](resource-group-template-functions-logical.md#and)
+* [and](resource-group-template-functions-logical.md#and)
 * [bool](resource-group-template-functions-logical.md#bool)
-* [si](resource-group-template-functions-logical.md#if)
-* [non](resource-group-template-functions-logical.md#not)
-* [ou](resource-group-template-functions-logical.md#or)
+* [if](resource-group-template-functions-logical.md#if)
+* [not](resource-group-template-functions-logical.md#not)
+* [or](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -120,7 +118,7 @@ Resource Manager fournit les fonctions suivantes pour vous permettre de travaill
 ## <a name="numeric-functions"></a>Fonctions numériques
 Resource Manager fournit les expressions ci-après pour travailler avec des entiers :
 
-* [ajouter](resource-group-template-functions-numeric.md#add)
+* [add](resource-group-template-functions-numeric.md#add)
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
 * [div](resource-group-template-functions-numeric.md#div)
 * [float](resource-group-template-functions-numeric.md#float)
@@ -149,8 +147,8 @@ Resource Manager offre les fonctions ci-après pour obtenir des valeurs de resso
 * [fournisseurs](resource-group-template-functions-resource.md#providers)
 * [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
-* [resourceId](resource-group-template-functions-resource.md#resourceid)
-* [abonnement](resource-group-template-functions-resource.md#subscription)
+* [ResourceId](resource-group-template-functions-resource.md#resourceid)
+* [subscription](resource-group-template-functions-resource.md#subscription)
 
 <a id="base64" />
 <a id="base64tojson" />
@@ -196,14 +194,15 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 * [empty](resource-group-template-functions-string.md#empty)
 * [endsWith](resource-group-template-functions-string.md#endswith)
 * [first](resource-group-template-functions-string.md#first)
-* [guid](resource-group-template-functions-string.md#guid)
+* [format](resource-group-template-functions-string.md#format)
+* [GUID](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
 * [length](resource-group-template-functions-string.md#length)
 * [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
-* [replace](resource-group-template-functions-string.md#replace)
+* [remplacer](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)

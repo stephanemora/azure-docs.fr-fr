@@ -1,6 +1,6 @@
 ---
 title: Diriger le trafic Azure vers Azure SQL Database et SQL Data Warehouse | Microsoft Docs
-description: Ce document décrit l'architecture de la connectivité Azure SQL Database et SQL Data Warehouse dans et en dehors d'Azure.
+description: Ce document explique l’architecture de connectivité décrites Azcure SQL pour les connexions de base de données à partir d’Azure ou d’en dehors d’Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,34 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918601"
+ms.locfileid: "59006779"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
 Cet article décrit l'architecture de la connectivité Azure SQL Database et SQL Data Warehouse, et explique comment les différents composants fonctionnent pour diriger le trafic vers votre instance d'Azure SQL. Ces composants de connectivité permettent de diriger le trafic réseau vers Azure SQL Database ou SQL Data Warehouse, avec des clients se connectant à partir d'Azure et d'autres en dehors d'Azure. Cet article comporte également des exemples de script permettant de modifier la façon dont la connectivité se produit et des considérations liées à la modification des paramètres de connectivité par défaut.
-
-> [!IMPORTANT]
-> **[Modification à venir] Pour les connexions de point de terminaison de service pour les serveurs SQL Azure, un `Default` changements de comportement de connectivité `Redirect`.**
-> Les clients sont invités à créer de nouveaux serveurs et à configurer les serveurs existants avec un type de connexion défini explicitement sur Redirection (recommandé) ou Proxy selon l’architecture de leur connectivité.
->
-> Pour éviter que ce changement n'entraîne une interruption lorsque la connectivité s'effectue via un point de terminaison de service dans les environnements existants, nous utilisons la télémétrie suivante :
->
-> - Pour les serveurs détectés auxquels on accédait auparavant par l'intermédiaire de points de terminaison de service, nous passons au type de connexion `Proxy`.
-> - Pour tous les autres serveurs, nous passons au type de connexion `Redirect`.
->
-> Les utilisateurs des points de terminaison de service peuvent encore être affectés dans les scénarios suivants :
->
-> - L'application se connecte rarement à un serveur existant, de sorte que notre télémétrie n'a pas capturé les informations relatives à cette application.
-> - Logique de déploiement automatisé crée un serveur de base de données SQL en supposant que le comportement par défaut pour les connexions de point de terminaison de service est `Proxy`
->
-> Si les connexions des points de terminaison de service n'ont pas pu être établies avec Azure SQL Server et que vous pensez être affecté par ce changement, vérifiez que le type de connexion est explicitement défini sur `Redirect`. Si c’est le cas, vous devez ouvrir des règles de pare-feu de machine virtuelle et les groupes de sécurité réseau (NSG) à toutes les adresses IP Azure dans la région qui appartiennent à Sql [balise de service](../virtual-network/security-overview.md#service-tags) pour les ports 11000-11999. Si cette option ne vous convient pas, basculez explicitement le serveur vers `Proxy`.
-> [!NOTE]
-> Cette rubrique s’applique aux serveurs de base de données SQL Azure qui héberge les bases de données uniques et les pools élastiques, SQL Data Warehouse bases de données, Azure Database pour MySQL, Azure Database pour MariaDB et Azure Database pour PostgreSQL. Par souci de simplicité, la base de données SQL est utilisé lorsque vous faites référence à la base de données SQL, SQL Data Warehouse, base de données Azure pour MySQL, Azure Database pour MariaDB et Azure Database pour PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Architecture de connectivité
 

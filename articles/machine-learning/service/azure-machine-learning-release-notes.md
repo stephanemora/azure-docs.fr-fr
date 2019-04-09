@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/25/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 5bc67551c70b185ad0b5ed993a510ded2229481f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444652"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279616"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
@@ -23,6 +23,31 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
 + [**Kit de développement logiciel (SDK) principal pour Python**](https://aka.ms/aml-sdk) d’Azure Machine Learning
 + [**Kit de développement logiciel (SDK) de préparation de données**](https://aka.ms/data-prep-sdk) Azure Machine Learning
 
+## <a name="2019-04-08"></a>2019-04-08
+
+### <a name="azure-machine-learning-sdk-for-python-v1023"></a>Azure Machine Learning SDK pour Python v1.0.23
+
++ **Nouvelles fonctionnalités**
+  + Le Kit de développement logiciel Azure Machine Learning prend désormais en charge Python 3.7.
+
+### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Kit de développement logiciel v1.1.1 de préparation des données d’Azure Machine Learning
+
++ **Nouvelles fonctionnalités**
+  + Vous pouvez lire plusieurs sources de magasin de données/DataPath/DataReference à l’aide de transformations de read_.
+  + Vous pouvez effectuer les opérations suivantes sur les colonnes pour créer une nouvelle colonne : division, floor, modulo, power, longueur.
+  + Préparation des données fait désormais partie de la suite de tests de diagnostic Azure ML et enregistrera les informations de diagnostic par défaut.
+    + Pour désactiver cette option, définissez cette variable d’environnement sur true : DISABLE_DPREP_LOGGER
+
++ **Correctifs de bogues et améliorations**
+  + Documentation de code améliorée pour les fonctions et classes couramment utilisées.
+  + Correction d’un bogue dans auto_read_file qui n’a pas pu lire les fichiers Excel.
+  + Ajout de l’option pour remplacer le dossier dans read_pandas_dataframe.
+  + Amélioration des performances de l’installation de dépendance dotnetcore2 et prise en charge de Fedora 27/28 et 1804 d’Ubuntu.
+  + Amélioration des performances de lecture d’objets BLOB Azure.
+  + Détection du type de colonne maintenant prend en charge les colonnes de type Long.
+  + Correction d’un bogue dans lequel certaines valeurs de date ont été affichées tant qu’horodatages au lieu d’objets datetime de Python.
+  + Correction d’un bogue dans lequel certains nombres de type ont été affichés comme doubles au lieu d’entiers.
+  
 ## <a name="2019-03-25"></a>2019-03-25
 
 ### <a name="azure-machine-learning-sdk-for-python-v1021"></a>Azure Machine Learning SDK pour Python v1.0.21
@@ -51,7 +76,7 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
 
 ### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Azure Machine Learning SDK pour Python v1.0.18
 
- + **Modifications**
+ + **Changements**
    + Le package azureml-tensorboard remplace azureml-cotisation-tensorboard.
    + Avec cette version, vous pouvez configurer un compte d’utilisateur sur votre cluster de calcul gérée (amlcompute), lors de sa création. Cela est possible en passant simplement ces propriétés dans la configuration de mise en service. Vous trouverez plus de détails dans le [documentation de référence SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
 
@@ -67,7 +92,7 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Kit de développement logiciel v1.0.16 de préparation des données d’Azure Machine Learning
 
-+ **Correctif de bogue**
++ **Résolution de bogue**
   + Correction d’un Principal de Service problème d’authentification qui a été provoqué par une modification de l’API.
 
 ## <a name="2019-02-25"></a>2019-02-25
@@ -111,7 +136,7 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
   + Ajout de AzureBatchStep ([bloc-notes](https://aka.ms/pl-azbatch)), HyperDriveStep ([bloc-notes](https://aka.ms/pl-hyperdrive)) et de la fonctionnalité de planification basée sur le temps ([bloc-notes](https://aka.ms/pl-schedule)) dans les pipelines Azure Machine Learning.
   +  Mise à jour de DataTranferStep pour fonctionner avec Azure SQL Server et Azure Database pour PostgreSQL ([bloc-notes](https://aka.ms/pl-data-trans)).
 
-+ **Modifications**
++ **Changements**
   + Dépréciation de `PublishedPipeline.get_published_pipeline` en faveur de `PublishedPipeline.get`.
   + Dépréciation de `Schedule.get_schedule` en faveur de `Schedule.get`.
 
@@ -120,9 +145,9 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
 + **Nouvelles fonctionnalités**
   + La préparation des données prend désormais en charge la lecture à partir d’une base de données Azure SQL utilisant une banque de données.
  
-+ **Modifications**
++ **Changements**
   + Amélioration significative des performances de mémoire de certaines opérations sur des données volumineuses.
-  + L’option `read_pandas_dataframe()` requiert désormais que `temp_folder` soit spécifié.
+  + `read_pandas_dataframe()` requiert désormais `temp_folder` être spécifié.
   + La propriété `name` sur `ColumnProfile` est déconseillée : utilisez `column_name` à la place.
 
 ## <a name="2019-01-28"></a>2019-01-28
@@ -184,7 +209,7 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
 ### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Kit SDK de préparation de données Azure Machine Learning v1.0.4
 
 + **Nouvelles fonctionnalités**
-  + La fonction `to_bool` autorise la conversion de valeurs discordantes en valeurs d’erreur. Il s’agit du nouveau comportement par défaut des discordances pour `to_bool` et `set_column_types`, alors que le comportement par défaut précédent était de convertir les valeurs discordantes en valeurs de type False.
+  + `to_bool` fonction permet désormais de valeurs qui ne correspondent pas à convertir en valeurs d’erreur. Il s’agit du nouveau comportement par défaut des discordances pour `to_bool` et `set_column_types`, alors que le comportement par défaut précédent était de convertir les valeurs discordantes en valeurs de type False.
   + Lors de l’appel de `to_pandas_dataframe`, une nouvelle option permet d’interpréter les valeurs nulles/manquantes en NaN dans les colonnes numériques.
   + Ajout de la possibilité de vérifier le type de retour de certaines expressions pour s’assurer de la cohérence du type et anticiper les échecs.
   + Vous pouvez maintenant appeler `parse_json` pour analyser les valeurs d’une colonne en tant qu’objets JSON et les développer en plusieurs colonnes.
@@ -228,7 +253,7 @@ La capacité de calcul Azure Machine Learning peut être créée dans Python, à
     + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
 
 
-+ **Updated**
++ **Mis à jour**
   + Pour les pipelines de Machine Learning :
     + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) accepte désormais runconfig
     + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) copie maintenant vers et à partir d’une source de données SQL
@@ -238,7 +263,7 @@ La capacité de calcul Azure Machine Learning peut être créée dans Python, à
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Kit SDK de préparation de données Azure Machine Learning v0.5.2
 + **Dernières modifications** 
-  * `SummaryFunction.N` a été renommé `SummaryFunction.Count`.
+  * `SummaryFunction.N` a été renommé en `SummaryFunction.Count`.
   
 + **Résolution des bogues**
   * Utilisez le dernier jeton d’exécution AML lors de la lecture et de l’écriture sur des magasins de données lors des exécutions à distance. Auparavant, si le jeton d’exécution AML était mis à jour dans Python, l’exécution de la préparation des données n’était pas mise à jour avec le jeton d’exécution AML mis à jour.
@@ -257,7 +282,7 @@ La capacité de calcul Azure Machine Learning peut être créée dans Python, à
   + Découvrez comment [exécuter des prédictions par lots à l’aide de pipelines](how-to-run-batch-predictions.md)
 + Cible de calcul Azure Machine Learning
   + Les [exemples de notebooks](https://aka.ms/aml-notebooks) ont été mis à jour pour utiliser la nouvelle capacité de calcul managé.
-  + [En savoir plus sur cette capacité de calcul](how-to-set-up-training-targets.md#amlcompute)
+  + [En savoir plus sur ce calcul](how-to-set-up-training-targets.md#amlcompute)
 
 ### <a name="azure-portal-new-features"></a>Portail Azure : nouvelles fonctionnalités
 + Créez et gérez des types de capacité de calcul [Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) dans le portail.
@@ -290,8 +315,8 @@ Découvrez-en plus sur le SDK de préparation de données en lisant les [documen
    * Vous pouvez créer un échantillon avec un échantillonnage stratifié.
    * Vous pouvez lire à partir de fichiers zip qui contiennent des fichiers CSV.
    * Vous pouvez fractionner les jeux de données selon les lignes de façon aléatoire (par exemple, pour obtenir des jeux de test-entraînement)
-   * Vous pouvez obtenir tous les types de données de colonne d’un flux de données ou d’un profil de données en appelant `.dtypes`
-   * Vous pouvez obtenir le nombre de lignes d’un flux de données ou d’un profil de données en appelant `.row_count`
+   * Peut obtenir la colonne de tous les types de données à partir d’un flux de données ou un profil de données en appelant `.dtypes`
+   * Peut obtenir le nombre de lignes à partir d’un flux de données ou un profil de données en appelant `.row_count`
 
 + **Résolution des bogues**
    * Nous avons résolu la conversion de type fixe long en type double. 
@@ -336,7 +361,7 @@ Le portail Azure du service Azure Machine Learning contient les mises à jour su
   * Lorsque vous enregistrez un dataflow contenant des données dans un package DataPrep, les informations du magasin de données sont conservées dans ce package.
   * L’écriture dans le magasin de données est maintenant prise en charge 
         
-+ **Bogue corrigé**
++ **Correction du bogue**
   * Les dépassements de capacité d’entiers non signés 64 bits sont maintenant gérés correctement sous Linux
   * Étiquette de texte incorrecte corrigées pour les fichiers en texte brut dans smart_read
   * Le type de colonne chaîne s’affiche maintenant dans la vue métriques
@@ -384,7 +409,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
   * Résolution de bogue dans le réglage des paramètres pour corriger l’exécution distribuée durant la validation dans BatchAI. 
   * Le gestionnaire de contexte identifie désormais l’instance principale. 
 
-+ **Expérience du Portail Azure**
++ **Utilisation du portail Azure**
   * log_table() et log_row() sont pris en charge dans les détails de l’exécution. 
   * Création automatique de graphes pour les tables et les lignes avec 1, 2 ou 3 colonnes numériques et une colonne catégorielle facultative.
 
@@ -412,7 +437,7 @@ La [version 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) inclut les
   * Prise en charge de l’encodage à chaud
   * Prise en charge de la transformation de quantile
    
-+ **Bogues Corrigés :**
++ **Correction du bogue :**
   * Fonctionne avec n’importe quelle version de Tornado, sans besoin de passer à une version antérieure à votre version de Tornado
   * Décompte de valeurs pour toutes les valeurs, pas seulement les trois premières
 

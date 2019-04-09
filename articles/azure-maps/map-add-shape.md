@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 43406aee8d2e350b82659156bb2837e952fd4a92
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 1e550002948fc1320b8645bf1af635536d524fe6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057023"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282387"
 ---
 # <a name="add-a-shape-to-a-map"></a>Ajouter une forme à une carte
 
@@ -35,7 +35,7 @@ Le premier bloc de code ci-dessus construit un objet carte. Vous pouvez consulte
 
 Dans le deuxième bloc de code, un objet source de données est créé à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Un objet [LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest) est créé puis ajouté à la source de données.
 
-Un élément [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) restitue les objets ligne encapsulés dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Le dernier bloc de code crée une couche de lignes et l’ajoute à la carte. Consultez les propriétés d’une couche de lignes dans [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). La source de données et la couche de lignes sont créées et ajoutées à la carte dans la fonction de [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que la ligne s’affiche après le chargement complet de la carte.
+Un élément [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) restitue les objets ligne encapsulés dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Le dernier bloc de code crée une couche de lignes et l’ajoute à la carte. Consultez les propriétés d’une couche de lignes dans [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). La source de données et la couche de lignes sont créées et ajoutées à la carte dans le [Gestionnaire d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que la ligne est affichée après charge complet de la carte.
 
 ### <a name="add-symbols-along-a-line"></a>Ajoutez des symboles de long d’une ligne
 
@@ -83,7 +83,7 @@ Dans le code ci-dessus, le premier bloc de code construit un objet de carte. Vou
 
 Dans le deuxième bloc de code, un objet source de données est créé à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Un objet [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest) est créé à partir d’un tableau de coordonnées, puis il est ajouté à la source de données. 
 
-Un élément [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) restitue les données encapsulées dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sur la carte. Le dernier bloc de code crée une couche de polygones et l’ajoute à la carte. Consultez les propriétés d’une couche de polygones dans [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). La source de données et la couche de polygones sont créées et ajoutées à la carte dans la fonction de [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que le polygone s’affiche après le chargement complet de la carte.
+Un élément [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) restitue les données encapsulées dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sur la carte. Le dernier bloc de code crée une couche de polygones et l’ajoute à la carte. Consultez les propriétés d’une couche de polygones dans [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). La source de données et la couche de polygones sont créés et ajoutés à la carte dans le [Gestionnaire d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que le polygone est affiché après charge complet de la carte.
 
 ### <a name="use-a-polygon-and-line-layer-together"></a>Utiliser une couche de polygones et de lignes ensemble
 
@@ -98,7 +98,7 @@ Dans le deuxième bloc de code, un objet source de données est créé à l’ai
 
 Un élément [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) restitue les données encapsulées dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sur la carte. Consultez les propriétés d’une couche de polygones dans [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Un élément [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) est un tableau de lignes. Consultez les propriétés d’une couche de lignes dans [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). Le troisième bloc de code crée des couches de polygones et de lignes.
 
-Le dernier bloc de code ajoute les couches de polygones et de lignes à la carte. La source de données et les couches sont créées et ajoutées à la carte dans la fonction de [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que le polygone s’affiche après le chargement complet de la carte.
+Le dernier bloc de code ajoute les couches de polygones et de lignes à la carte. La source de données et les couches sont créés et ajoutés à la carte dans le [Gestionnaire d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que le polygone est affiché après charge complet de la carte.
 
 > [!TIP]
 > Couches de ligne par défaut affichera les coordonnées de polygones, ainsi que des lignes dans une source de données. Pour limiter la couche de sorte qu’elle s’affiche uniquement des LineString fonctionnalités ensemble la `filter` propriété de la couche pour `['==', ['geometry-type'], 'LineString']` ou `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` si vous souhaitez inclure également les fonctionnalités de MultiLineString.
@@ -126,7 +126,7 @@ La couche de polygones ne dispose que de quelques options de style. Voici un out
 
 ## <a name="add-a-circle-to-the-map"></a>Ajouter un cercle à la carte
 
-Azure Maps utilise une version étendue du schéma GeoJSON qui fournit une définition des cercles, comme indiqué [ici](extend-geojson.md#circle). Un cercle peut être rendu sur la carte en créant un `Point` fonctionnalité qui a un `subType` propriété avec une valeur de `Circle` et un `radius` propriété qui a un nombre qui représente le rayon en mètres. Par exemple : 
+Azure Maps utilise une version étendue du schéma GeoJSON qui fournit une définition des cercles, comme indiqué [ici](extend-geojson.md#circle). Un cercle peut être rendu sur la carte en créant un `Point` fonctionnalité qui a un `subType` propriété avec une valeur de `"Circle"` et un `radius` propriété qui possède un numéro qui représente le rayon en mètres. Par exemple : 
 
 ```javascript
 {
@@ -149,9 +149,9 @@ Le Kit de développement logiciel Azure Maps Web convertit ces `Pooint` fonction
 
 Le premier bloc de code ci-dessus construit un objet carte. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
 
-Dans le deuxième bloc de code, un objet source de données est créé à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Un cercle est une [fonctionnalité](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) de [point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) qui comprend une propriété `subType` définie sur « cercle » et un compteur de valeurs pour la propriété `radius`. Lorsqu’une fonctionnalité de point ayant un cercle comme sous-type est ajoutée à une source de données, elle le convertit en un polygone circulaire sur la carte.
+Dans le deuxième bloc de code, un objet source de données est créé à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Un cercle est un [fonctionnalité](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) de [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) et a un `subType` propriété définie sur `"Circle"` et un `radius` valeur de propriété en mètres. Quand une fonctionnalité de Point avec un `subType` de `"Circle"` est ajouté à une source de données, il est converti dans un polygone circulaire au sein de la carte.
 
-Un élément [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) restitue les données encapsulées dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sur la carte. Le dernier bloc de code crée une couche de polygones et l’ajoute à la carte. Consultez les propriétés d’une couche de polygones dans [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). La source de données et la couche de polygones sont créées et ajoutées à la carte dans la fonction de [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que le cercle s’affiche après le chargement complet de la carte.
+Un élément [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) restitue les données encapsulées dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sur la carte. Le dernier bloc de code crée une couche de polygones et l’ajoute à la carte. Consultez les propriétés d’une couche de polygones dans [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). La source de données et la couche de polygones sont créés et ajoutés à la carte dans le [Gestionnaire d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que le cercle est affiché après charge complet de la carte.
 
 ## <a name="make-a-geometry-easy-to-update"></a>Faciliter la mise à jour une géométrie
 
@@ -171,14 +171,11 @@ Le troisième bloc de code crée une fonction qui prend la valeur de l’éléme
 
 Dans le quatrième bloc de code, un objet source de données est créé à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Le point est alors ajouté à la source de données.
 
-Un élément [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) restitue les données encapsulées dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sur la carte. Le troisième bloc de code crée une couche de polygones. Consultez les propriétés d’une couche de polygones dans [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). La source de données, le détecteur d’événements de clic et la couche de polygones sont créés et ajoutés à la carte dans la fonction de [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que le point s’affiche après le chargement complet de la carte.
+Un élément [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) restitue les données encapsulées dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sur la carte. Le troisième bloc de code crée une couche de polygones. Consultez les propriétés d’une couche de polygones dans [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). La source de données, le hanlder d’événement de clic et la couche de polygones sont créés et ajoutés à la carte dans le [Gestionnaire d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que le point est affiché après charge complet de la carte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour consulter plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Marqueurs HTML](./map-add-custom-html.md)
-
-> [!div class="nextstepaction"]
-> [Ajouter un calque de carte thermique](./map-add-heat-map-layer.md)
+> [Utiliser des expressions de style piloté par les données](data-driven-style-expressions-web-sdk.md)

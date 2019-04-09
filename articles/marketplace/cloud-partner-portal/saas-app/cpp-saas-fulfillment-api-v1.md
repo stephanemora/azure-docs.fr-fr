@@ -12,27 +12,22 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 5c25d6703fe631a401994039200539156cc7b4de
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579459"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009732"
 ---
-# <a name="saas-fulfillment-apis-version-1"></a>Version d’API SaaS traitement 1
+# <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS Fulfillment API Version 1 (déconseillée)
 
-Cet article explique comment créer une offre SaaS avec des API. Les API sont nécessaires pour permettre les abonnements à votre offre SaaS si vous avez sélectionné Vente via Azure.  
+Cet article explique comment créer une offre SaaS avec des API. Les API, composés de points de terminaison et les méthodes REST sont nécessaires pour autoriser les abonnements à votre offre SaaS si vous avez vendre via Azure sélectionné.  
 
 > [!WARNING]
-> Cette version initiale de l’API de traitement des commandes SaaS est déconseillée ; au lieu de cela, utilisez [SaaS Fulfillment API V2](./cpp-saas-fulfillment-api-v2.md).
-
-
-Cet article est divisé en deux sections :
-
--   Authentification de service à service entre le service SaaS et la Place de marché Azure
--   Méthodes et points de terminaison de l’API
+> Cette version initiale de l’API de traitement des commandes SaaS est déconseillée ; au lieu de cela, utilisez [SaaS Fulfillment API V2](./cpp-saas-fulfillment-api-v2.md).  Cette API est actuellement gérée que pour répondre à des serveurs de publication existants. 
 
 Les API suivantes sont fournies pour vous aider à intégrer votre service SaaS auprès d’Azure :
 
@@ -41,112 +36,11 @@ Les API suivantes sont fournies pour vous aider à intégrer votre service SaaS 
 -   Convertir
 -   Se désabonner
 
-Le diagramme suivant montre le flux d’abonnement d’un nouveau client et le moment où ces API sont utilisées :
 
-![Flux de l’API de l’offre SaaS](./media/saas-offer-publish-api-flow-v1.png)
-
-
-## <a name="service-to-service-authentication-between-saas-service-and-azure-marketplace"></a>Authentification de service à service entre le service SaaS et la Place de marché Azure
-
-Azure n’impose aucune contrainte sur l’authentification que le service SaaS expose à ses utilisateurs finaux. Cependant, lorsqu’il s’agit du service SaaS communiquant avec les API Azure Marketplace, l’authentification s’effectue dans le contexte d’une application Azure Active Directory (Azure AD).
-
-La section suivante explique comment créer une application Azure AD.
-
-
-### <a name="register-an-azure-ad-application"></a>Inscrire une application Azure AD
-
-Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d’abord être enregistrée dans un locataire Azure AD. Le processus d’enregistrement implique de fournir à Azure AD des informations sur votre application, notamment l’URL où elle est située, l’URL à laquelle envoyer une réponse après avoir authentifié un utilisateur, l’URI qui identifie l’application, et ainsi de suite.
-
-Pour inscrire une nouvelle application à l’aide du portail Azure, procédez comme suit :
-
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
-3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis cliquez sur **Nouvelle inscription d’application**.
-
-   ![Inscriptions des applications SaaS](./media/saas-offer-app-registration-v1.png)
-
-4. Sur la page, saisissez les informations d\'inscription de votre application :
-   - **Nom** : saisissez un nom d’application explicite
-   - **Type d’application** : 
-     - Sélectionnez **Native** pour les [applications clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) installées localement sur un appareil. Ce paramètre est utilisé pour les [clients natifs](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) publics OAuth.
-     - Sélectionnez **Application Web / API** pour les [applications clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) et les [ressources/applications API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) installées sur un serveur sécurisé. Ce paramètre est utilisé pour les [clients web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidentiels OAuth et les [clients basés sur un agent utilisateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) publics.
-     La même application peut également exposer un client et une ressource/API.
-   - **URL de connexion** : pour des applications web app/API, indiquez l’URL de base de votre application. Par exemple, **http :\//localhost:31544** peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent alors utiliser cette URL pour se connecter à une application web cliente.
-   - **URI de redirection** : pour des applications natives, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique à votre application, par exemple **http :\//MyFirstAADApp**.
-
-     ![Inscriptions des applications SaaS](./media/saas-offer-app-registration-v1-2.png)
-
-     Pour obtenir des exemples spécifiques pour les applications web ou des applications natives, consultez le démarrage rapide guidée par les configurations qui sont disponibles dans la section prise en main de la [Guide du développeur Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-
-5. Lorsque vous avez terminé, cliquez sur **Créer**. Azure AD assigne un ID d\'application unique à votre application, et vous êtes redirigé vers la page d\'enregistrement principale de votre application. Selon que votre application est une application native ou web, différentes options sont disponibles afin d’ajouter des fonctionnalités supplémentaires à votre application.
-
->[!Note]
->Par défaut, l’application nouvellement inscrite est configurée pour autoriser uniquement les utilisateurs à partir du même locataire à se connecter à votre application.
-
-<a name="api-methods-and-endpoints"></a>Méthodes et points de terminaison de l’API
--------------------------
+## <a name="api-methods-and-endpoints"></a>Points de terminaison et les méthodes de l’API
 
 Les sections suivantes décrivent les méthodes d’API et les points de terminaison disponibles pour l’activation des abonnements à une offre SaaS.
 
-### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obtenir un jeton basé sur l’application Azure AD
-
-Méthode HTTP
-
-`GET`
-
-*URL de requête*
-
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
-
-*Paramètre URI*
-
-|  **Nom du paramètre**  | **Obligatoire**  | **Description**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True          | ID de client de l’application AAD inscrite   |
-|  |  |  |
-
-
-*En-tête de requête*
-
-|  **Nom de l’en-tête**  | **Obligatoire** |  **Description**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | True         | Type de contenu associé à la requête. La valeur par défaut est `application/x-www-form-urlencoded`.  |
-|  |  |  |
-
-
-*Corps de la demande*
-
-| **Nom de la propriété**   | **Obligatoire** |  **Description**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True         | Type d’autorisation. La valeur par défaut est `client_credentials`.                    |
-|  Client_id          | True         |  Identificateur du client/de l’application associé à l’application Azure AD.                  |
-|  client_secret      | True         |  Mot de passe associé à l’application Azure AD.                               |
-|  Ressource           | True         |  Ressource cible pour laquelle le jeton est demandé. La valeur par défaut est `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
-|  |  |  |
-
-
-*Réponse*
-
-|  **Nom**  | **Type**       |  **Description**    |
-| ---------- | -------------  | ------------------- |
-| 200 OK    | TokenResponse  | Requête réussie   |
-|  |  |  |
-
-*TokenResponse*
-
-Voici un exemple de token de réponse :
-
-``` json
-  {
-      "token_type": "Bearer",
-      "expires_in": "3600",
-      "ext_expires_in": "0",
-      "expires_on": "15251…",
-      "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
-```
 
 ### <a name="marketplace-api-endpoint-and-api-version"></a>Point de terminaison de l’API de la Place de marché Azure et version de l’API
 
@@ -173,7 +67,7 @@ Lorsqu’un utilisateur est redirigé vers le site Web d’un éditeur de logici
 |  |  |
 
 
-*En-têtes*
+*headers*
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -207,7 +101,7 @@ Lorsqu’un utilisateur est redirigé vers le site Web d’un éditeur de logici
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                                         |
+| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Jeton résolu avec succès.                                                            |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit une api-version invalide est spécifiée. Échec de la résolution du jeton parce que le jeton est mal formé ou a expiré (le jeton n’est valide que pendant 1 heure une fois généré). |
@@ -223,7 +117,7 @@ Lorsqu’un utilisateur est redirigé vers le site Web d’un éditeur de logici
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Oui          | ID de requête reçu de la part du client.                                                                   |
 | x-ms-correlationid | Oui          | ID de corrélation si transmis par le client, sinon cette valeur est l’ID de corrélation du serveur.                   |
-| x-ms-activityid    | Oui          | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements. |
+| x-ms-activityid    | Oui          | Valeur de chaîne unique pour le suivi de la requête du service. Cet ID est utilisé pour n’importe quel rapprochements. |
 | Retry-After        | Non            | Cette valeur est définie uniquement pour une réponse 429.                                                                   |
 |  |  |  |
 
@@ -234,15 +128,15 @@ Le point de terminaison d’abonnement permet aux utilisateurs de s’abonner à
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Nom du paramètre**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Id unique de l’abonnement SaaS obtenu après résolution du jeton via l’API Resolve.                              |
+| subscriptionId      | Abonnement ID de SaaS unique qui est obtenu après avoir résolu le jeton via l’API résoudre.                              |
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*En-têtes*
+*headers*
 
 |  **Clé d’en-tête**        | **Obligatoire** |  **Description**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
@@ -254,7 +148,7 @@ Le point de terminaison d’abonnement permet aux utilisateurs de s’abonner à
 | x-ms-marketplace-session-mode| Non  | Drapeau pour activer le mode marche à vide lors de l’abonnement à une offre SaaS. S’il est défini, l’abonnement n’est pas facturé. Cela est utile pour les scénarios de test des éditeurs de logiciels indépendants. Définissez-le sur **‘dryrun’**|
 |  |  |  |
 
-*Corps*
+*body*
 
 ``` json
 {
@@ -262,14 +156,14 @@ Le point de terminaison d’abonnement permet aux utilisateurs de s’abonner à
 }
 ```
 
-| **Nom de l’élément** | **Type de données** | **Description**                      |
+| **Nom de l'élément** | **Type de données** | **Description**                      |
 |------------------|---------------|--------------------------------------|
 | planId           | (Obligatoire) Chaîne        | Id de plan auquel l’utilisateur du service SaaS est abonné.  |
 |  |  |  |
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                           |
+| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Activation d’abonnement SaaS reçue pour un plan donné.                   |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit le corps JSON est mal formé. |
@@ -299,7 +193,7 @@ Le point de terminaison de changement permet à l’utilisateur de convertir son
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Nom du paramètre**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
@@ -307,7 +201,7 @@ Le point de terminaison de changement permet à l’utilisateur de convertir son
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*En-têtes*
+*headers*
 
 | **Clé d’en-tête**          | **Obligatoire** | **Description**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
@@ -318,7 +212,7 @@ Le point de terminaison de changement permet à l’utilisateur de convertir son
 | autorisation           | Oui          | Jeton du porteur Web JSON (JWT).                    |
 |  |  |  |
 
-*Corps*
+*body*
 
 ```json
 {
@@ -326,14 +220,14 @@ Le point de terminaison de changement permet à l’utilisateur de convertir son
 }
 ```
 
-|  **Nom de l’élément** |  **Type de données**  | **Description**                              |
+|  **Nom de l'élément** |  **Type de données**  | **Description**                              |
 |  ---------------- | -------------   | --------------------------------------       |
 |  planId           |  (Obligatoire) Chaîne         | Id de plan auquel l’utilisateur du service SaaS est abonné.          |
 |  |  |  |
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                           |
+| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Activation d’abonnement SaaS reçue pour un plan donné.                   |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit le corps JSON est mal formé. |
@@ -361,9 +255,9 @@ L’action Delete sur le point de terminaison d’abonnement permet à un utilis
 
 *Requête*
 
-**DELETE**
+**SUPPRIMER**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Nom du paramètre**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
@@ -371,7 +265,7 @@ L’action Delete sur le point de terminaison d’abonnement permet à un utilis
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*En-têtes*
+*headers*
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
@@ -382,7 +276,7 @@ L’action Delete sur le point de terminaison d’abonnement permet à un utilis
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                           |
+| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Activation d’abonnement SaaS reçue pour un plan donné.                   |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit le corps JSON est mal formé. |
@@ -421,7 +315,7 @@ Ce terminal permet à l’utilisateur de suivre l’état d’une opération asy
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*En-têtes*
+*headers*
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -453,7 +347,7 @@ Ce terminal permet à l’utilisateur de suivre l’état d’une opération asy
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                              |
+| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Requête get résolue avec succès. Le corps contient la réponse.    |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit une api-version invalide a été spécifiée. |
@@ -481,7 +375,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Nom du paramètre**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
@@ -489,7 +383,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*En-têtes*
+*headers*
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
@@ -525,7 +419,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                              |
+| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Requête get résolue avec succès. Le corps contient la réponse.    |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit une api-version invalide a été spécifiée. |
@@ -561,7 +455,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*En-têtes*
+*headers*
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -597,7 +491,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                              |
+| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Requête get résolue avec succès. Le corps contient la réponse.    |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit une api-version invalide a été spécifiée. |
@@ -621,7 +515,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 Un Webhook SaaS est utilisé pour notifier les modifications de manière proactive au service SaaS. Cette API POST est censée ne pas être authentifié et sera appelée par le service Microsoft. Le service SaaS est censé appeler l’API Opérations pour valider et autoriser avant d’entreprendre une action sur la notification de Webhook. 
 
-*Corps*
+*body*
 
 ``` json
   {

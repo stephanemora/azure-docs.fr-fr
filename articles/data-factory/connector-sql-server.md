@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 78d82f7604d86b50ee5e05e5c3b5b9802a9559e5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877936"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283407"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-sqlserver-connector.md)
+> * [version 1](v1/data-factory-sqlserver-connector.md)
 > * [Version actuelle](connector-sql-server.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers et depuis une base de données SQL Server. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -85,7 +85,7 @@ Les propriétés suivantes sont prises en charge pour le service lié SQL Server
 }
 ```
 
-**Exemple 2 : utilisation de l'authentification SQL avec mot de passe dans Azure Key Vault**
+**Exemple 2 : utilisation de l’authentification SQL avec mot de passe dans Azure Key Vault**
 
 ```json
 {
@@ -114,7 +114,7 @@ Les propriétés suivantes sont prises en charge pour le service lié SQL Server
 }
 ```
 
-**Exemple 3 : utilisation de l’authentification Windows**
+**Exemple 3 : utilisation de l’authentification Windows**
 
 ```json
 {
@@ -151,7 +151,7 @@ Pour copier des données vers/depuis une base de données SQL Server, affectez l
 | Type | La propriété type du jeu de données doit être définie sur : **SqlServerTable** | Oui |
 | TableName |Nom de la table ou de la vue dans l’instance de base de données SQL Server à laquelle le service lié fait référence. | Non pour Source, Oui pour Récepteur |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -190,7 +190,7 @@ Pour copier des données à partir de SQL Server, définissez **SqlSource** comm
 - Si **sqlReaderQuery** est spécifié comme SqlSource, l’activité de copie exécute cette requête sur la source SQL Server pour obtenir les données. Vous pouvez également spécifier une procédure stockée en indiquant **sqlReaderStoredProcedureName** et **storedProcedureParameters** (si la procédure stockée accepte des paramètres).
 - Si vous ne spécifiez pas « sqlReaderQuery » ou « sqlReaderStoredProcedureName », les colonnes définies dans la section « Structure » du jeu de données JSON sont utilisées pour créer une requête (`select column1, column2 from mytable`) à exécuter sur SQL Server. Si la définition du jeu de données ne possède pas de « structure », toutes les colonnes de la table sont sélectionnées.
 
-**Exemple : utilisation d’une requête SQL**
+**Exemple : utilisation de requête SQL**
 
 ```json
 "activities":[
@@ -258,7 +258,7 @@ Pour copier des données à partir de SQL Server, définissez **SqlSource** comm
 ]
 ```
 
-**Définition de la procédure stockée :**
+**La définition de procédure stockée :**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -284,7 +284,7 @@ Pour copier des données vers SQL Server, définissez **SqlSink** comme type de 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du récepteur d’activité de copie doit être définie sur : **SqlSink** | Oui |
-| writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10000) |
+| writeBatchSize |Nombre de lignes pour les insertions dans la table SQL **par lot**.<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10000) |
 | writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : “00:30:00” (30 minutes). |Non  |
 | preCopyScript |Spécifiez une requête SQL que l’activité de copie doit exécuter avant l’écriture des données dans SQL Server. Elle ne sera appelée qu’une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non  |
 | sqlWriterStoredProcedureName |Nom de la procédure stockée qui définit comment appliquer les données sources dans la table cible, par exemple pour effectuer des upserts ou des transformations à l’aide de votre propre logique métier. <br/><br/>Notez que cette procédure stockée sera **appelée par lot**. Si vous souhaitez effectuer une opération qui ne s’exécute qu’une seule fois et n’a rien à faire avec les données sources, par exemple supprimer/tronquer, utilisez la propriété `preCopyScript`. |Non  |
@@ -440,9 +440,9 @@ Quand vous copiez des données dans une base de données SQL Server, une procéd
 
 Une procédure stockée peut être utilisée à la place des mécanismes de copie intégrée. C’est généralement le cas quand une opération upsert (insertion + mise à jour) ou un traitement supplémentaire (fusion de colonnes, recherche de valeurs supplémentaires, insertion dans plusieurs tables, etc.) doit être effectué avant l’insertion finale des données sources dans la table de destination.
 
-L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert simple dans une table de la base de données SQL Server. En supposant que les données d’entrée et la table réceptrice « Marketing » ont trois colonnes : ProfileID, State et Category. On effectue une opération upsert basée sur la colonne « ProfileID » et on l’applique uniquement à une catégorie spécifique.
+L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert simple dans une table de la base de données SQL Server. En supposant que les données d’entrée et la table réceptrice **Marketing** ont trois colonnes : **ProfileID**, **State** et **Category**. Effectuez l’opération upsert basée sur la colonne **ProfileID** et appliquez-la uniquement à une catégorie spécifique.
 
-**Jeu de données de sortie**
+**Jeu de données de sortie :** « tableName » doit être le même nom de paramètre de type table dans votre procédure stockée (voir ci-dessous le script de procédure stockée).
 
 ```json
 {
@@ -461,7 +461,7 @@ L’exemple suivant montre comment utiliser une procédure stockée pour effectu
 }
 ```
 
-Définissez la section SqlSink dans l’activité de copie comme suit.
+Définir le **récepteur SQL** section dans l’activité de copie comme suit.
 
 ```json
 "sink": {
@@ -476,7 +476,7 @@ Définissez la section SqlSink dans l’activité de copie comme suit.
 }
 ```
 
-Dans votre base de données, définissez la procédure stockée portant le même nom que SqlWriterStoredProcedureName. Elle gère les données d’entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Le nom de paramètre du type de table dans la procédure stockée doit être le même que le « tableName » défini dans le jeu de données.
+Dans votre base de données, définissez la procédure stockée portant le même nom que **SqlWriterStoredProcedureName**. Elle gère les données d’entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Le nom de paramètre du type de table dans la procédure stockée doit être le même que le **tableName** défini dans le jeu de données.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

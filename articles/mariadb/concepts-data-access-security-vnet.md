@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: fdf2d3aeea32beba0b8e95c1816a80140d7cf6be
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958913"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006694"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Utiliser des règles et des points de terminaison de service de réseau virtuel pour Azure Database for MariaDB
 
@@ -91,7 +91,7 @@ Il existe une séparation des rôles de sécurité dans l’administration des p
 - **Administrateur réseau :** &nbsp; Activez le point de terminaison.
 - **Administrateur de base de données :** &nbsp; Mettez à jour la liste de contrôle d’accès (ACL) pour ajouter le sous-réseau concerné au serveur Azure Database for MariaDB.
 
-*Alternative RBAC :*
+*Alternative RBAC :*
 
 Les rôles d’administrateur de réseau et d’administrateur de base de données disposent de plus de fonctionnalités que nécessaires pour gérer les règles de réseau virtuel. Seule une partie de ces fonctionnalités est réellement nécessaire.
 
@@ -105,6 +105,8 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 ## <a name="limitations"></a>Limites
 
 Pour Azure Database for MariaDB, la fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
+
+- Une application web peut être mappée à une adresse IP privée dans un sous-réseau/réseau virtuel. Même si les points de terminaison de service sont activés à partir du réseau virtuel/sous-réseau donné, les connexions entre l’application web et le serveur présenteront une source IP publique Azure, et non une source de sous-réseau/réseau virtuel. Pour activer la connectivité à partir d’une application Web vers un serveur qui a des règles de pare-feu de réseau virtuel, vous devez les services Azure est autorisé pour accéder au serveur sur le serveur.
 
 - Dans le pare-feu pour votre serveur Azure Database for MariaDB, chaque règle de réseau virtuel fait référence à un sous-réseau. Tous ces sous-réseaux référencés doivent être hébergés dans la même région géographique qui héberge Azure Database for MariaDB.
 
@@ -138,7 +140,7 @@ Vous pouvez définir l’indicateur **IgnoreMissingServiceEndpoint** à l’aide
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour des articles dédiés à la création de règles de réseau virtuel, consultez :
-- [Créer et gérer des règles de réseau virtuel Azure Database for MariaDB à l’aide du portail Azure](howto-manage-vnet-portal.md)
+- [Créer et gérer la base de données Azure pour les règles de MariaDB VNet à l’aide du portail Azure](howto-manage-vnet-portal.md)
  
 <!--
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)

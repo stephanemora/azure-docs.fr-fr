@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 45c8f83ce814d5fa8b6d9cde29e59e4628534522
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521990"
 documentType: LandingData
-title: Documentation relative à Video Indexer
+title: Documentation Azure Media Services Video Indexer
 metadata:
-  document_id: 
-  title: Documentation sur Video Indexer | Microsoft Docs
+  document_id: null
+  title: Documentation Azure Media Services Video Indexer | Microsoft Docs
   meta.description: Learn about Video Indexer.
   services: media-services
   author: juliako
@@ -21,38 +15,38 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure Video Indexer est une application cloud créée à l’aide d’Azure Media Analytics, Azure Search et Cognitive Services (par exemple, l’API Visage, Microsoft Translator, l’API Vision par ordinateur et Custom Speech Service). Elle vous permet d’extraire les insights de vos vidéos à l’aide de modèles vidéo et audio Video Indexer.<br/>Pour comprendre à quel moment utiliser Video Indexer plutôt que les présélections de l’analyseur de Media Services, consultez le <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">document de comparaison</a>.
+  description: 'Azure Media Services Video Indexer est une application cloud basée sur Azure Media Analytics, Recherche Azure et Cognitive Services (par exemple, l’API Visage, Microsoft Translator, l’API Vision par ordinateur et Custom Speech Service). Elle vous permet d’extraire les insights de vos vidéos à l’aide de modèles vidéo et audio Video Indexer.<br/>Pour comprendre à quel moment utiliser Video Indexer plutôt que les présélections de l’analyseur de Media Services, consultez le <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">document de comparaison</a>.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: video-indexer-overview.md
+            html: <p>Video Indexer intègre des technologies d’intelligence artificielle multimédias pour puiser plus facilement des insights dans les vidéos.</p>
+            image:
+              src: media/index/AMSIcons-media_servicesV3.svg
+            title: "Qu’est-ce qu’Azure Media Services Video Indexer\_?"
+  - title: "Démarrages en 5\_minutes"
     items:
-    - href: video-indexer-overview.md
-      html: <p>L’indexeur vidéo intègre des technologies d’intelligence artificielle multimédia pour faciliter l’extraction d’informations à partir de vidéos.</p>
-      image:
-        src: media/index/AMSIcons-media_servicesV3.svg
-      title: Qu’est-ce que Video Indexer ?
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: 'Connectez-vous au site web de Video Indexer et chargez votre première vidéo :'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: "Connectez-vous au site web de Video Indexer et chargez votre première vidéo\_:"
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/AMSIcons-media_analytics.svg
+            text: Extraire des informations
+            href: /azure/media-services/video-indexer/video-indexer-get-started
+  - title: Didacticiels pas à pas
     items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Extraire des informations
-      href: /azure/media-services/video-indexer/video-indexer-get-started
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: 'Découvrez comment extraire des informations de vos vidéos avec l’API Video Indexer :'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Extraire des informations
-      href: /azure/media-services/video-indexer/video-indexer-use-apis
+      - type: paragraph
+        text: "Découvrez comment extraire des informations de vos vidéos avec l’API Video Indexer\_:"
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/AMSIcons-media_analytics.svg
+            text: Extraire des informations
+            href: /azure/media-services/video-indexer/video-indexer-use-apis

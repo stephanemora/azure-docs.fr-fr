@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549140"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260746"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identité managée pour Data Factory
 
@@ -46,7 +46,7 @@ Si vous trouvez votre fabrique de données n’a pas une identité gérée assoc
 
 - [Générer une identité gérée à l’aide de PowerShell](#generate-managed-identity-using-powershell)
 - [Générer une identité gérée à l’aide de l’API REST](#generate-managed-identity-using-rest-api)
-- Générer une identité gérée à l’aide d’un modèle Azure Resource Manager
+- [Générer une identité gérée à l’aide d’un modèle Azure Resource Manager](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [Générer une identité gérée à l’aide du Kit de développement logiciel](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -156,11 +156,11 @@ Vous pouvez récupérer l’identité gérée à partir du portail Azure ou par 
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Récupérer l’identité gérée à l’aide du portail Azure
 
-Vous pouvez trouver les informations d’identité gérée à partir du portail Azure -> votre fabrique de données -> Paramètres -> Propriétés :
+Vous pouvez trouver les informations d’identité gérée à partir du portail Azure -> votre fabrique de données -> Propriétés :
 
-- ID de l’identité du service
-- Locataire de l’identité du service
-- **ID d’application de l’identité du service** : copiez cette valeur
+- ID objet de l'identité managée
+- Locataire de l'identité managée
+- **ID d’Application identité géré** > Copiez cette valeur
 
 ![Récupérer l’identité gérée](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
@@ -192,6 +192,6 @@ Type                  : ServicePrincipal
 Consultez les rubriques suivantes qui expliquent quand et comment utiliser data factory gérés d’identité :
 
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md)
-- [Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory](connector-azure-data-lake-store.md)
+- [Copier des données depuis/vers Azure Data Lake Store à l’aide d’identités gérées pour l’authentification des ressources Azure](connector-azure-data-lake-store.md)
 
 Consultez [identités gérées pour la vue d’ensemble de ressources Azure](/azure/active-directory/managed-identities-azure-resources/overview) pour plus d’informations sur les identités pour les ressources Azure, identité gérée de la fabrique de données est basé. 

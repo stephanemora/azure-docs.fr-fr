@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404635"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057147"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Questions fréquentes (FAQ) sur Avere vFXT pour Azure
 
@@ -200,6 +200,14 @@ Pour les environnements sensibles à la latence, vous devez utiliser une solutio
 
 Non, le système Avere vFXT est destiné à être utilisé dans un environnement réseau sécurisé en respectant des bonnes pratiques.  
 
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>Puis-je restreindre l’accès à internet à partir du réseau virtuel de mon cluster ? 
+
+En règle générale, vous pouvez configurer la sécurité supplémentaire sur votre réseau virtuel en fonction des besoins, mais certaines restrictions peuvent interférer avec le fonctionnement du cluster.
+
+Par exemple, limiter l’accès internet sortant à partir de votre réseau virtuel provoque des problèmes pour le cluster, sauf si vous ajoutez également les règles qui autorisent explicitement l’accès pour AzureConnectors et AzureCloud. Cette situation est décrite dans [documentation supplémentaire sur GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+
+Aide sur la sécurité personnalisée, contactez le support technique comme décrit dans [obtenir de l’aide avec votre système](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+
 ## <a name="technical-back-end-storage-core-filers"></a>Technique : Stockage back-end (système de stockage principal)
 
 ### <a name="how-many-core-filers-does-a-single-avere-vfxt-environment-support"></a>Combien de systèmes de stockage principaux (core filers) un seul environnement Avere vFXT prend en charge ?
@@ -280,7 +288,7 @@ Pour bien démarrer avec Avere vFXT pour Azure, consultez les articles suivants 
 
 * [Planifier votre système Avere vFXT](avere-vfxt-deploy-plan.md)
 * [Vue d’ensemble du déploiement](avere-vfxt-deploy-overview.md)
-* [Se préparer à la création d'un cluster Avere vFXT](avere-vfxt-prereqs.md)
-* [Déployer le cluster Avere vFXT](avere-vfxt-deploy.md)
+* [Se préparer à créer un cluster de vFXT Avere](avere-vfxt-prereqs.md)
+* [Déployer le cluster de vFXT Avere](avere-vfxt-deploy.md)
 
 Pour en savoir plus sur les fonctionnalités et les cas d'usage du système Avere vFXT, consultez [Avere vFXT pour Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

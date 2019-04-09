@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: b4d40f011b9a9e69953496fbdb0dc63ffc8a5027
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774555"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268005"
 ---
 # <a name="manage-and-configure-projects"></a>Gérer et configurer des projets
 
@@ -95,8 +95,8 @@ La commande **+ Nouveau** (raccourci clavier : n) crée des fichiers ou dossier
 
 | Type d’élément | Description | Comportement de la commande |
 | --- | --- | --- |
-| **Notebook** | Notebook Jupyter | Affiche une fenêtre contextuelle dans laquelle vous spécifiez le nom de fichier et le langage du notebook. |
-| **Folder** | Sous-dossier | Crée un champ d’édition dans la liste des fichiers du projet dans lequel vous entrez le nom du dossier. |
+| **Bloc-notes** | Notebook Jupyter | Affiche une fenêtre contextuelle dans laquelle vous spécifiez le nom de fichier et le langage du notebook. |
+| **Dossier** | Sous-dossier | Crée un champ d’édition dans la liste des fichiers du projet dans lequel vous entrez le nom du dossier. |
 | **Fichier vide** | Fichier dans lequel vous pouvez stocker n’importe quel contenu comme du texte, des données, etc. | Crée un champ d’édition dans la liste des fichiers du projet dans lequel vous entrez le nom du fichier. |
 | **Markdown** | Fichier Markdown. | Crée un champ d’édition dans la liste des fichiers du projet dans lequel vous entrez le nom du fichier. |
 
@@ -222,5 +222,5 @@ Vous pouvez également utiliser la commande à partir d’une cellule de code da
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide pratique pour utiliser des fichiers de données de projets](work-with-project-data-files.md)
+- [Activation Travailler avec des fichiers de données de projet](work-with-project-data-files.md)
 - [Accéder aux données de cloud dans un notebook](access-data-resources-jupyter-notebooks.md)

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285004"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264894"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
@@ -30,6 +30,8 @@ Tous vos utilisateurs ont un seul *domestique* répertoire pour l’authentifica
 
 > [!Important]
 > Lorsque vous associez un abonnement à un autre répertoire, les utilisateurs qui ont des rôles attribués à l’aide de [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements Classic (administrateur de Service et aux coadministrateurs) seront également perdre l’accès.
+> 
+> En outre, le déplacement de votre cluster Azure Kubernetes Service (AKS) vers un autre abonnement ou le déplacement de l’abonnement qui possède le cluster vers un nouveau client, entraîne le cluster perd la fonctionnalité en raison des attributions de rôles perdues et les droits de principaux de service. Pour plus d’informations sur ACS, consultez [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -67,15 +69,16 @@ Avant de pouvoir associer ou ajouter votre abonnement, vous devez effectuer les 
 
     ![Page de sélecteur de répertoire, avec les informations de l’exemple](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-La modification du répertoire de l’abonnement est une opération de niveau de service. Elle n’affecte donc pas la propriété de facturation de l’abonnement. L’administrateur du compte peut toujours changer l’administrateur du service depuis le [centre du compte](https://account.azure.com/subscriptions). Pour supprimer le répertoire d’origine, vous devez transférer la propriété de facturation de l’abonnement à un nouvel administrateur du compte. Pour en savoir plus sur le transfert de la propriété de facturation, consultez [Transfert de la propriété d’un abonnement Azure à un autre compte](../../billing/billing-subscription-transfer.md). 
+La modification du répertoire de l’abonnement est une opération de niveau de service. Elle n’affecte donc pas la propriété de facturation de l’abonnement. L’administrateur du compte peut toujours changer l’administrateur du service depuis le [centre du compte](https://account.azure.com/subscriptions). Pour supprimer le répertoire d’origine, vous devez transférer la propriété de facturation de l’abonnement à un nouvel administrateur du compte. Pour en savoir plus sur le transfert de la propriété de facturation, consultez [Transfert de la propriété d’un abonnement Azure à un autre compte](../../billing/billing-subscription-transfer.md).
 
 ## <a name="post-association-steps"></a>Valider les étapes de l’association
-
 Une fois que vous associez un abonnement vers un autre répertoire, il peut y avoir des étapes supplémentaires que vous devez effectuer pour reprendre les opérations.
 
 1. Si vous avez des coffres de clés, vous devez modifier l’ID de client de coffre de clés. Pour plus d’informations, consultez [modifier un ID de client de coffre de clés après un déplacement d’abonnement](../../key-vault/key-vault-subscription-move-fix.md).
 
-1. Si vous avez inscrit une pile d’Azure à l’aide de cet abonnement, vous devez réenregistrer. Pour plus d’informations, consultez [inscrire Azure Stack avec Azure](../../azure-stack/azure-stack-registration.md).
+2. Si vous avez inscrit une pile d’Azure à l’aide de cet abonnement, vous devez réenregistrer. Pour plus d’informations, consultez [inscrire Azure Stack avec Azure](../../azure-stack/azure-stack-registration.md).
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

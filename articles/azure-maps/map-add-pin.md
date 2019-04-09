@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500047"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056847"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Ajouter une couche de symboles à une carte
 
-Cet article vous montre comment afficher des données de point sur une carte, à partir d’une source de données telle qu’une couche de symboles. Les couches de symboles s’affichent à l’aide de WebGL. Elles prennent en charge beaucoup plus de points de données que les marqueurs HTML, mais elles ne prennent pas en charge les éléments de style CSS et HTML traditionnels.  
+Cet article vous montre comment afficher des données de point sur une carte, à partir d’une source de données telle qu’une couche de symboles. Couches de symbole sont rendus à l’aide de WebGL et prend en charge beaucoup plus grande jeux de points que les marqueurs HTML, mais ne prennent pas en charge les éléments CSS et HTML traditionnelles pour le style.  
 
 > [!TIP]
-> Les couches de symboles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche afin qu’elle n’affiche que les fonctionnalités de géométrie de point, définissez la propriété `filter` de la couche sur `['==', '$type', 'Point']`.
+> Les couches de symboles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche, telle qu’elle s’affiche uniquement des point geometry fonctionnalités ensemble la `filter` propriété de la couche pour `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si vous souhaitez inclure également les fonctionnalités MultiPoint.
 
 ## <a name="add-a-symbol-layer"></a>Ajouter un calque de symboles
 
@@ -34,14 +34,14 @@ Dans le deuxième bloc de code, un objet source de données est créé à l’ai
 
 Le troisième bloc de code crée un [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) et met à jour les coordonnées du point à chaque clic de souris, par l’intermédiaire de la méthode [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) de la classe shape.
 
-Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que symboles sur la carte.  La source de données, l’écouteur d’événements de clic et la couche de symboles sont créés et ajoutés à la carte dans la fonction d’[écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events), pour garantir que le point s’affiche après le chargement complet de la carte.
+Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que symboles sur la carte.  La source de données, l’écouteur d’événements de clic et la couche de symbole sont créés et ajoutés à la carte dans le `ready` [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) (fonction) pour garantir le point est affiché après la carte chargée et prête à être accessibles.
 
 > [!TIP]
 > Par défaut, pour des performances, les couches de symbole optimiser le rendu de symboles en masquant les symboles qui se chevauchent. Comme vous effectuez un zoom dans les symboles masqués deviennent visibles. Pour désactiver cette fonctionnalité et afficher tous les symboles en permanence, définissez la `allowOverlap` propriété de la `iconOptions` options `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Ajouter une icône personnalisée à une couche de symboles
 
-Les couches de symboles sont affichées à l’aide de WebGL. Toutes les ressources, telles que les images d’icône, doivent donc être chargées dans le contexte de WebGL. Cet exemple montre comment ajouter une icône de symbole personnalisée dans les ressources de la carte et comment l’utiliser pour afficher les données de point avec un symbole personnalisé sur la carte. La propriété `textField` de la couche de symboles nécessite une expression. Dans ce cas, nous voulons restituer la propriété de la température de la fonctionnalité de point par la valeur de texte. Cela est possible en utilisant l’expression suivante : `['get', 'temperature']`. 
+Les couches de symboles sont affichées à l’aide de WebGL. Toutes les ressources, telles que les images d’icône, doivent donc être chargées dans le contexte de WebGL. Cet exemple montre comment ajouter une icône personnalisée pour les ressources de la carte et l’utiliser pour restituer les données de point avec un symbole personnalisé sur la carte. La propriété `textField` de la couche de symboles nécessite une expression. Dans ce cas, nous voulons restituer la propriété de la température, mais dans la mesure où il s’agit d’un nombre, il doit être converti en une chaîne. En outre, nous voulons le « ° F » doivent lui être ajoutées. Une expression peut être utilisée pour cela ; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -82,7 +82,7 @@ Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les a
 > [Ajouter une forme](./map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter une couche de bulles](./map-add-bubble-layer.md)
+> [Ajouter un calque de bulles](./map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter des marqueurs HTML](./map-add-bubble-layer.md)
+> [Ajouter des créateurs HTML](./map-add-bubble-layer.md)

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9ab6d9708843cda492795b92b6fb5f58bd7a9154
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571420"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256054"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obtenir des informations à partir d’une coordonnée
 
@@ -29,11 +29,11 @@ Deux méthodes permettent d’effectuer une recherche d’adresses inversée. La
 
 Dans le code ci-dessus, le premier bloc de code construit un objet de mappage et définit le mécanisme d’authentification à utiliser la clé d’abonnement. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
 
-Le deuxième bloc de code crée un **SubscriptionKeyCredentialPolicy** pour authentifier les demandes HTTP vers Azure Maps avec la clé d’abonnement. Le **atlas.service.MapsURL.newPipeline()** prend le **SubscriptionKeyCredential** stratégie et crée un [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instance. Le **searchURL** représente une URL d’Azure Maps [recherche](https://docs.microsoft.com/rest/api/maps/search) operations.
+Le deuxième bloc de code crée un `SubscriptionKeyCredentialPolicy` pour authentifier les demandes HTTP vers Azure Maps avec la clé d’abonnement. Le `atlas.service.MapsURL.newPipeline()` prend le `SubscriptionKeyCredential` stratégie et crée un [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instance. Le `searchURL` représente une URL d’Azure Maps [recherche](https://docs.microsoft.com/rest/api/maps/search) operations.
 
 Le troisième bloc de code met à jour le style du curseur de souris à un pointeur et crée un [contextuelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) objet. Pour plus d’instructions, consultez la section relative à l’[ajout d’une fenêtre contextuelle sur la carte](./map-add-popup.md).
 
-Le quatrième bloc de code ajoute un clic de souris [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Déclenchement de, il crée une requête de recherche avec les coordonnées du point cliqué dessu. Il utilise ensuite le module service [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) méthode pour interroger le [API obtention du Search adresse inverser](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) pour l’adresse des coordonnées. Une collection de fonctionnalité GeoJSON à partir de la réponse est ensuite extraites à l’aide de la **geojson.getFeatures()** (méthode).
+Le quatrième bloc de code ajoute un clic de souris [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Déclenchement de, il crée une requête de recherche avec les coordonnées du point cliqué dessu. Il utilise ensuite le module service [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) méthode pour interroger le [API obtention du Search adresse inverser](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) pour l’adresse des coordonnées. Une collection de fonctionnalité GeoJSON à partir de la réponse est ensuite extraites à l’aide de la `geojson.getFeatures()` (méthode).
 
 Le cinquième bloc de code définit le contenu de la fenêtre contextuelle HTML à afficher l’adresse de réponse pour la position des coordonnées utilisateur a cliqué dessue.
 
@@ -59,10 +59,10 @@ Le changement de curseur, un objet de fenêtre contextuelle et l’événement d
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mappage](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [Fenêtre contextuelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 Pour voir des exemples de codes complets, consultez les articles suivants :
 

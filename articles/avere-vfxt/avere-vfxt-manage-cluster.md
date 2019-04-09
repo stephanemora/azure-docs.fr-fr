@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745552"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282189"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gérer le cluster Avere vFXT
 
@@ -98,7 +98,7 @@ Indiquez les valeurs suivantes :
 * Nom du groupe de ressources pour le cluster, mais aussi pour les ressources réseau et de stockage si elles ne sont pas les mêmes que le cluster
 * Emplacement du cluster
 * Réseau et sous-réseau du cluster 
-* Rôle d’accès des nœuds du cluster 
+* Rôle d’accès de nœud de cluster (utiliser le rôle intégré [Avere opérateur](../role-based-access-control/built-in-roles.md#avere-operator))
 * Adresse IP de gestion et mot de passe d’administration du cluster 
 * Nombre de nœuds à ajouter (1, 2 ou 3)
 * Type d’instance et taille du cache pour chaque nœud 
@@ -113,7 +113,7 @@ Si vous n’utilisez pas le modèle fourni, créez une commande similaire à l�
    --add-nodes --nodes NODE_COUNT \
    --management-address CLUSTER_IP --admin-password ADMIN_PASSWORD \
    --instance-type TYPE --node-cache-size SIZE \
-   --azure-role ROLE_NAME \
+   --azure-role "Avere Operator" \
    --log ~/vfxt.log
 ```
 
@@ -187,7 +187,7 @@ Pour détruire définitivement des instances de nœud, supprimez-les dans le por
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Supprimer des ressources de cluster supplémentaires à partir du portail Azure
 
-Si vous avez créé des ressources supplémentaires spécifiquement pour le cluster vFXT, vous souhaiterez peut-être les supprimer en même temps que la destruction du cluster. Ne détruisez pas les éléments contenant des données dont vous avez encore besoin, ni les éléments partagés avec d’autres projets.
+Si vous avez créé des ressources supplémentaires spécifiquement pour le cluster vFXT, vous souhaiterez peut-être les supprimer en même temps que la destruction du cluster. Ne détruisez pas les éléments qui contiennent des données dont vous avez besoin, ou tous les éléments qui sont partagés avec d’autres projets.
 
 Outre la suppression des nœuds du cluster, vous pouvez supprimer ces composants : 
 

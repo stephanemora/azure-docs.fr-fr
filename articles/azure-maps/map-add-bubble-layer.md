@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 895f6ce728ce608184bf6f68be3b73d5dc384d79
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 7f1379bbd3a52b364efc5e4c47612e645fa119ed
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893118"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056994"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Ajouter une couche de bulles à une carte
 
 Cet article vous montre comment vous pouvez afficher des données de point sur une carte, à partir d’une source de données telle qu’une couche de bulles. Les couches de bulles affichent sur la carte des points sous la forme de cercles, avec un rayon de pixels fixe. 
 
 > [!TIP]
-> Les couches de bulles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche afin qu’elle n’affiche que les fonctionnalités de géométrie de point, définissez la propriété `filter` de la couche sur `['==', '$type', 'Point']`.
+> Les couches de bulles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche, telle qu’elle s’affiche uniquement des point geometry fonctionnalités ensemble la `filter` propriété de la couche pour `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si vous souhaitez inclure également les fonctionnalités MultiPoint.
 
 ## <a name="add-a-bubble-layer"></a>Ajouter un calque de bulles
 
@@ -73,4 +73,4 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Ajouter une couche de symboles](./map-add-pin.md)
+> [Ajouter un calque de symboles](./map-add-pin.md)

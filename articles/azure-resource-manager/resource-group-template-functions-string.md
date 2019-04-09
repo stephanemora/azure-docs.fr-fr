@@ -4,22 +4,20 @@ description: Décrit les fonctions à utiliser dans un modèle Azure Resource Ma
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621403"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278783"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
 
@@ -35,14 +33,15 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
-* [guid](#guid)
+* [format](#format)
+* [GUID](#guid)
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
-* [replace](#replace)
+* [remplacer](#replace)
 * [skip](#skip)
 * [split](#split)
 * [startsWith](#startswith)
@@ -541,7 +540,7 @@ Détermine si un tableau, un objet ou une chaîne est vide.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Oui |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
+| itemToTest |Oui |tableau, objet ou chaîne |Valeur à vérifier s’il est vide. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -714,9 +713,66 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayOutput | Chaîne | one |
 | stringOutput | Chaîne | O |
 
+## <a name="format"></a>format
+
+`format(formatString, arg1, arg2, ...)`
+
+Crée une chaîne mise en forme à partir de valeurs d’entrée.
+
+### <a name="parameters"></a>parameters
+
+| Paramètre | Obligatoire | Type | Description |
+|:--- |:--- |:--- |:--- |
+| formatString | Oui | string | La chaîne de format composite. |
+| arg1 | Oui | chaîne, entier ou valeur booléenne | La valeur à inclure dans la chaîne mise en forme. |
+| arguments supplémentaires | Non  | chaîne, entier ou valeur booléenne | Valeurs supplémentaires à inclure dans la chaîne mise en forme. |
+
+### <a name="remarks"></a>Remarques
+
+Cette fonction permet de mettre en forme une chaîne dans votre modèle. Il utilise les mêmes options de mise en forme en tant que le [System.String.Format](/dotnet/api/system.string.format) méthode dans .NET.
+
+### <a name="examples"></a>Exemples
+
+Le modèle de l’exemple suivant montre comment utiliser la fonction format.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | type | Valeur |
+| ---- | ---- | ----- |
+| formatTest | Chaîne | Bonjour, utilisateur. Nombre mis en forme : 8,175,133 |
+
 ## <a name="guid"></a>GUID
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 Crée une valeur sous la forme d’un identificateur global unique basé sur les valeurs fournies comme paramètres.
 
@@ -731,7 +787,7 @@ Crée une valeur sous la forme d’un identificateur global unique basé sur les
 
 Cette fonction est utile quand vous devez créer une valeur sous la forme d’un identificateur global unique. Vous fournissez des valeurs de paramètre qui limitent l’étendue d’unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour l’abonnement, le groupe de ressources ou le déploiement.
 
-La valeur retournée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage sur les paramètres. La valeur renvoyée comprend 36 caractères. Elle n’est pas globalement unique. Pour créer un nouveau GUID n’est pas basé sur cette valeur de hachage des paramètres, utilisez le [newGuid](#newguid) (fonction).
+La valeur retournée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage sur les paramètres. La valeur renvoyée comprend 36 caractères. Il n’est pas globalement unique. Pour créer un nouveau GUID n’est pas basé sur cette valeur de hachage des paramètres, utilisez le [newGuid](#newguid) (fonction).
 
 Les exemples suivants montrent comment utiliser guid pour créer une valeur unique pour des niveaux couramment utilisés.
 
@@ -800,7 +856,7 @@ Retourne la première position d’une valeur dans une chaîne. La comparaison r
 
 ### <a name="return-value"></a>Valeur de retour
 
-Entier qui représente la position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, la valeur -1 est retournée.
+Entier qui représente la position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, -1 est retourné.
 
 ### <a name="examples"></a>Exemples
 
@@ -913,7 +969,7 @@ Retourne la dernière position d’une valeur dans une chaîne. La comparaison r
 
 ### <a name="return-value"></a>Valeur de retour
 
-Entier qui représente la dernière position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, la valeur -1 est retournée.
+Entier qui représente la dernière position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, -1 est retourné.
 
 ### <a name="examples"></a>Exemples
 
@@ -1229,7 +1285,7 @@ Retourne une chaîne avec tous les caractères après le nombre spécifié de ca
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
-| numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
+| numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de chaîne, un tableau vide ou une chaîne est retournée. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1554,7 +1610,7 @@ Retourne une chaîne avec le nombre spécifié de caractères à partir du débu
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
-| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
+| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur de la chaîne ou tableau donné, tous les éléments du tableau ou de la chaîne sont retournés. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1776,7 +1832,7 @@ Crée une chaîne de hachage déterministe basée sur les valeurs fournies en ta
 
 Cette fonction est utile lorsque vous avez besoin de créer un nom unique pour une ressource. Vous fournissez des valeurs de paramètre qui limitent l’étendue d’unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour l’abonnement, le groupe de ressources ou le déploiement. 
 
-La valeur renvoyée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Elle n’est pas globalement unique. Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom explicite. L’exemple suivant montre le format de la valeur renvoyée. La valeur réelle varie en fonction des paramètres fournis.
+La valeur retournée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Il n’est pas globalement unique. Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom explicite. L’exemple suivant montre le format de la valeur renvoyée. La valeur réelle varie en fonction des paramètres fournis.
 
     tcvhiyu5h2o5o
 
@@ -1800,7 +1856,7 @@ Unique limité au déploiement pour un groupe de ressources
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-L'exemple suivant montre comment créer un nom unique pour un compte de stockage basé sur votre groupe de ressources. Dans le groupe de ressources, le nom n’est pas unique s’il est construit de la même façon.
+L'exemple suivant montre comment créer un nom unique pour un compte de stockage basé sur votre groupe de ressources. Dans le groupe de ressources, le nom n’est pas unique si construit de la même façon.
 
 ```json
 "resources": [{ 
@@ -1809,7 +1865,7 @@ L'exemple suivant montre comment créer un nom unique pour un compte de stockage
     ...
 ```
 
-Si vous avez besoin créer un nouveau nom unique à chaque fois que vous déployez un modèle et intention de mettre à jour de la ressource n’est pas, vous pouvez utiliser la [utcNow](#utcnow) avec uniqueString (fonction). Vous pouvez utiliser cette approche dans un environnement de test. Pour obtenir un exemple, consultez [utcNow](#utcnow).
+Si vous avez besoin créer un nouveau nom unique à chaque fois que vous déployez un modèle et n’envisagez pas de mettre à jour de la ressource, vous pouvez utiliser la [utcNow](#utcnow) avec uniqueString (fonction). Vous pouvez utiliser cette approche dans un environnement de test. Pour obtenir un exemple, consultez [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Valeur de retour
 

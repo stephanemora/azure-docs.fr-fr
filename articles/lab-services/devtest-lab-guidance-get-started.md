@@ -1,5 +1,5 @@
 ---
-title: Prise en main d’Azure DevTest Labs
+title: Scénarios courants pour l’utilisation d’Azure DevTest Labs
 description: Cet article fournit les principaux scénarios pour l’utilisation d’Azure DevTest Labs et deux chemins d’accès générales pour commencer à utiliser le service dans votre organisation.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 219697451174811fab7880ba0d5930ba85edf8fb
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803797"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272378"
 ---
-# <a name="get-started-with-using-azure-devtest-labs"></a>Prise en main d’Azure DevTest Labs
+# <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Scénarios courants pour l’utilisation d’Azure DevTest Labs
 Selon les besoins d’une entreprise, dev/test peut être configuré pour répondre aux différents besoins.  Cet article décrit les scénarios les plus courants. Chaque scénario présente des avantages mis à l’aide de DevTest Labs et les ressources à utiliser pour implémenter ces scénarios.  
 
 - Postes de travail de développeur
@@ -85,5 +85,5 @@ Un **preuve de concept** déploiement se concentre sur un effort concentré à p
 Lisez les articles suivants :
 
 - [Concepts de DevTest Labs](devtest-lab-concepts.md)
-- [FAQ DevTest Labs](devtest-lab-faq.md)
+- [Forum Aux Questions DevTest Labs](devtest-lab-faq.md)
 

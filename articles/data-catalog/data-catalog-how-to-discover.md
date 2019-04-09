@@ -1,25 +1,26 @@
 ---
 title: Comment détecter les sources de données dans Azure Data Catalog
 description: Cet article traite de la détection des ressources de données inscrites dans Azure Data Catalog, et aborde notamment les fonctionnalités de recherche, de filtrage et de mise en surbrillance des correspondances dans le portail Azure Data Catalog.
-services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: f72ae3a3-6573-4710-89a7-f13555e1968c
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 11216640a4f4f78e0b0de850f32f0ff85bbc9ef2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.openlocfilehash: 892a0909f68d89acc463d37edd466dba6a721177
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407057"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277683"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Comment détecter les sources de données dans Azure Data Catalog
-## <a name="introduction"></a>Introduction
-Azure Data Catalog est un service cloud entièrement géré qui permet d’inscrire et de détecter les sources de données d’entreprise. En d’autres termes, Data Catalog aide les utilisateurs à détecter, comprendre et utiliser les sources de données, et permet aux organisations de mieux exploiter leurs données existantes. Une fois qu’une source de données a été inscrite auprès d’Azure Data Catalog, ses métadonnées sont indexées par le service. Vous pouvez donc effectuer des recherches pour détecter les données dont vous avez besoin.
+
+## <a name="introduction"></a>Présentation
+
+Azure Data Catalog est un service cloud entièrement géré qui permet d’inscrire et de détecter les sources de données d’entreprise. En d’autres termes, Data Catalog permet personnes détecter, comprendre et utiliser des sources de données. Il permet aux organisations de mieux exploiter leurs données existantes. Une fois qu’une source de données a été inscrite auprès d’Azure Data Catalog, ses métadonnées sont indexées par le service. Vous pouvez donc effectuer des recherches pour détecter les données dont vous avez besoin.
 
 ## <a name="searching-and-filtering"></a>Recherche et filtrage
+
 Dans Data Catalog, la détection utilise deux mécanismes principaux : la recherche et le filtrage.
 
 La recherche est conçue pour être intuitive et puissante. Par défaut, les termes de recherche sont comparés à toutes les propriétés du catalogue, notamment aux annotations fournies par l’utilisateur.
@@ -29,6 +30,7 @@ Le filtrage est conçu pour compléter la recherche. Vous pouvez sélectionner d
 En combinant recherche et filtrage, vous pouvez parcourir rapidement les sources de données qui ont été inscrites dans Data Catalog pour découvrir celles qui vous sont utiles.
 
 ## <a name="search-syntax"></a>Syntaxe de recherche
+
 La recherche en texte libre par défaut est simple et intuitive. Cependant, vous pouvez également utiliser la syntaxe de recherche de Data Catalog pour mieux contrôler les résultats de recherche. La recherche avec Data Catalog prend en charge les techniques suivantes :
 
 | Technique | Utilisation | Exemples |
@@ -39,24 +41,25 @@ La recherche en texte libre par défaut est simple et intuitive. Cependant, vous
 | Parenthèses de regroupement |Utilisez des parenthèses pour grouper les parties de la requête à isoler logiquement, notamment lorsque vous appliquez des opérateurs booléens. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Opérateurs de comparaison |Utilisez des comparaisons autres que l’égalité pour les propriétés comportant des types de données numériques et de date. |`modifiedTime > "11/05/2014"` |
 
-Pour plus d’informations sur la recherche Data Catalog, consultez l’article [Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx).
+Pour plus d’informations sur la recherche Data Catalog, consultez l’article [Azure Data Catalog](/rest/api/datacatalog/#search-syntax-reference).
 
 ## <a name="hit-highlighting"></a>Mise en surbrillance des correspondances
+
 Lorsque vous affichez les résultats de la recherche, les propriétés affichées correspondant aux termes de recherche spécifiés (par exemple, le nom de la ressource de données, sa description ou ses balises) sont mises en surbrillance. Il est ainsi plus facile d’identifier la raison pour laquelle une ressource de données spécifique a été retournée par une recherche.
 
 > [!NOTE]
 > Pour désactiver la mise en surbrillance des correspondances, utilisez le bouton **Mettre en surbrillance** dans le portail Data Catalog.
->
->
 
-Lorsque vous affichez les résultats de la recherche, il n’est pas toujours évident de comprendre pourquoi une ressource de données a été retournée, même lorsque la mise en surbrillance des correspondances est activée. Étant donné que, par défaut, toutes les propriétés font l’objet de la recherche, une ressource de données peut être retournée si une correspondance avec une propriété de colonne est détectée. De plus, dans la mesure où plusieurs utilisateurs peuvent annoter des ressources de données inscrites avec leurs propres balises et descriptions, il est possible que toutes les métadonnées ne s’affichent pas dans la liste des résultats de recherche.
+Lorsque vous affichez les résultats de recherche, il ne pouvez pas toujours évident raison pour laquelle une ressource de données est incluse, même avec la mise en surbrillance est activée. Étant donné que, par défaut, toutes les propriétés font l’objet de la recherche, une ressource de données peut être retournée si une correspondance avec une propriété de colonne est détectée. Et étant donné que plusieurs utilisateurs peuvent annoter des ressources de données inscrites avec leurs propres balises et descriptions, pas toutes les métadonnées s’affiche dans la liste des résultats de recherche.
 
 Dans l’affichage en mosaïque par défaut, chaque vignette affichée dans les résultats de recherche inclut l’icône **Afficher les correspondances des termes recherchés**. Vous pouvez ainsi visualiser rapidement le nombre de correspondances, ainsi que leur emplacement, et y accéder si vous le souhaitez.
 
  ![Mise en surbrillance des correspondances et résultats de recherche dans le portail Azure Data Catalog](./media/data-catalog-how-to-discover/search-matches.png)
 
 ## <a name="summary"></a>Résumé
+
 L’inscription des sources de données dans Data Catalog facilite leur détection et leur compréhension, car elle consiste à copier les métadonnées descriptives et structurelles des sources de données dans le service Catalog. Une fois qu’une source de données a été inscrite, vous pouvez la détecter grâce aux fonctionnalités de filtrage et de recherche du portail Data Catalog.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour obtenir des informations détaillées sur la détection des sources de données, consultez [Bien démarrer avec Azure Data Catalog](data-catalog-get-started.md).

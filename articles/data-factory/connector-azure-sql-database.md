@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0ecf6a48735ec2ba1623f97d4760d230a6e6fbf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875235"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266299"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
-> * [Version 1](v1/data-factory-azure-sql-connector.md)
+> * [version 1](v1/data-factory-azure-sql-connector.md)
 > * [Version actuelle](connector-azure-sql-database.md)
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers ou à partir d’Azure SQL Database. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -65,7 +65,7 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
 
 - [Authentification SQL](#sql-authentication)
 - [Authentification par jeton d’application Azure AD : Principal du service](#service-principal-authentication)
-- [Authentification par jeton d’application Azure AD : Identités managées pour les ressources Azure](#managed-identity)
+- [Authentification par jeton d’application Azure AD : Identités gérées pour les ressources Azure](#managed-identity)
 
 >[!TIP]
 >Si vous rencontrez une erreur avec le code d’erreur « UserErrorFailedToConnectToSqlServer » et un message tel que « La limite de session pour la base de données est XXX et a été atteinte. », ajoutez `Pooling=false` à votre chaîne de connexion, puis réessayez.
@@ -208,7 +208,7 @@ Pour utiliser l’authentification d’identité gérée, procédez comme suit 
 
 1. Dans Azure Data Factory, **configurez un service lié Azure SQL Database.**
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -277,7 +277,7 @@ Pour copier des données d’Azure SQL Database, affectez la valeur **SqlSource*
 ### <a name="points-to-note"></a>Points à noter
 
 - Si **sqlReaderQuery** est spécifié pour **SqlSource**, l’activité de copie exécute cette requête sur la source Azure SQL Database pour obtenir les données. Vous pouvez aussi spécifier une procédure stockée. Spécifiez **sqlReaderStoredProcedureName** et **storedProcedureParameters** si la procédure stockée accepte des paramètres.
-- Si vous ne spécifiez pas **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, les colonnes définies dans la section **structure** du JSON de jeu de données sont utilisées pour créer une requête. `select column1, column2 from mytable` est exécuté sur Azure SQL Database. Si la définition du jeu de données n’a pas de **structure**, toutes les colonnes de la table sont sélectionnées.
+- Si vous ne spécifiez pas **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, les colonnes définies dans la section **structure** du JSON de jeu de données sont utilisées pour créer une requête. `select column1, column2 from mytable` s’exécute sur la base de données SQL Azure. Si la définition du jeu de données n’a pas de **structure**, toutes les colonnes de la table sont sélectionnées.
 
 #### <a name="sql-query-example"></a>Exemple de requête SQL
 
@@ -373,7 +373,7 @@ Pour copier des données vers Azure SQL Database, affectez la valeur **SqlSink**
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété **type** du récepteur d’activité de copie doit être définie sur **SqlSink**. | Oui |
-| writeBatchSize | Insère des données dans la table SQL quand la taille de la mémoire tampon atteint **writeBatchSize**.<br/> La valeur autorisée est **integer** (nombre de lignes). | Non. La valeur par défaut est 10000. |
+| writeBatchSize | Nombre de lignes pour les insertions dans la table SQL **par lot**.<br/> La valeur autorisée est **integer** (nombre de lignes). | Non. La valeur par défaut est 10000. |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/> La valeur autorisée est **timespan**. Exemple : “00:30:00” (30 minutes). | Non  |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Database. Elle n’est appelée qu’une seule fois par copie. Utilisez cette propriété pour nettoyer les données préchargées. | Non  |
 | sqlWriterStoredProcedureName | Nom de la procédure stockée qui définit comment appliquer des données sources dans une table cible. Un exemple consiste à faire des upserts ou des transformations en utilisant votre propre logique métier. <br/><br/>Cette procédure stockée est **appelée par lot**. Pour les opérations qui ne s’exécutent qu’une seule fois et n’ont rien à faire avec les données sources, utilisez la propriété `preCopyScript`. La suppression et la troncature sont des exemples d’opérations. | Non  |
@@ -535,7 +535,7 @@ Vous pouvez utiliser une procédure stockée à la place des mécanismes de copi
 
 L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert dans une table d’Azure SQL Database. En supposant que les données d’entrée et la table réceptrice **Marketing** ont trois colonnes : **ProfileID**, **State** et **Category**. Effectuez l’opération upsert basée sur la colonne **ProfileID** et appliquez-la uniquement à une catégorie spécifique.
 
-#### <a name="output-dataset"></a>Jeu de données de sortie
+**Jeu de données de sortie :** « tableName » doit être le même nom de paramètre de type table dans votre procédure stockée (voir ci-dessous le script de procédure stockée).
 
 ```json
 {
@@ -554,7 +554,7 @@ L’exemple suivant montre comment utiliser une procédure stockée pour effectu
 }
 ```
 
-Définissez la section **SqlSink** dans l’activité de copie :
+Définir le **récepteur SQL** section dans l’activité de copie comme suit.
 
 ```json
 "sink": {

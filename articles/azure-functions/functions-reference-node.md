@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437575"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010114"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -110,13 +110,13 @@ Dans JavaScript, les [liaisons](functions-triggers-bindings.md) sont configurée
 
 ### <a name="inputs"></a>Entrées
 Les entrées sont réparties en deux catégories dans Azure Functions : l’une correspond à l’entrée du déclencheur et l’autre, à l’entrée supplémentaire. Le déclencheur et autres liaisons d’entrée (liaisons de `direction === "in"`) peuvent être lus par une fonction de trois façons :
- - **_[Recommandé]_  En tant que paramètres transmis à votre fonction.** Elles sont transmises à la fonction dans l’ordre dans lequel elles sont définies dans le fichier *function.json*. Le `name` propriété définie dans *function.json* pas nécessairement correspondre au nom de votre paramètre, bien qu’il le devrait.
+ - **_[Recommandé]_  Car des paramètres passés à votre fonction.** Elles sont transmises à la fonction dans l’ordre dans lequel elles sont définies dans le fichier *function.json*. Le `name` propriété définie dans *function.json* pas nécessairement correspondre au nom de votre paramètre, bien qu’il le devrait.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **En tant que membres de l’objet [`context.bindings`](#contextbindings-property).** Chaque membre est nommé par la propriété `name` définie dans *function.json*.
+ - **En tant que membres de la [ `context.bindings` ](#contextbindings-property) objet.** Chaque membre est nommé par la propriété `name` définie dans *function.json*.
  
    ```javascript
    module.exports = async function(context) { 
@@ -126,7 +126,7 @@ Les entrées sont réparties en deux catégories dans Azure Functions : l’une 
    };
    ```
    
- - **En tant qu’entrées à l’aide de l’objet [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) JavaScript.** Cette approche revient pratiquement au même que la transmission des entrées en tant que paramètres, mais elle vous permet de gérer des entrées de manière dynamique.
+ - **En tant qu’entrées à l’aide de JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objet.** Cette approche revient pratiquement au même que la transmission des entrées en tant que paramètres, mais elle vous permet de gérer des entrées de manière dynamique.
  
    ```javascript
    module.exports = async function(context) { 
@@ -141,7 +141,7 @@ Une fonction peut écrire des données dans les sorties (liaisons de `direction 
 
 Vous pouvez affecter des données aux liaisons de sortie de l’une des manières suivantes (ne pas de combiner ces méthodes) :
 
-- **_[Recommandé pour plusieurs sorties]_  Retourner un objet.** Si vous utilisez une fonction de retour async/Promise, vous pouvez retourner un objet avec des données de sortie assignées. Dans l’exemple ci-dessous, les liaisons de sortie sont nommées « httpResponse » et « queueOutput » dans *function.json*.
+- **_[Recommandé pour plusieurs sorties]_  Retournant un objet.** Si vous utilisez un async/promesse retour de fonction, vous pouvez retourner un objet avec les données de sortie attribué. Dans l’exemple ci-dessous, les liaisons de sortie sont nommées « httpResponse » et « queueOutput » dans *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ Vous pouvez affecter des données aux liaisons de sortie de l’une des manière
   ```
 
   Si vous utilisez une fonction synchrone, vous pouvez retourner cet objet à l’aide de [`context.done`](#contextdone-method) (voir l’exemple).
-- **_[Recommandé en cas de sortie unique]_  Retourner une valeur directement et utiliser le nom de la liaison $return.** Cela fonctionne uniquement pour les fonctions de retour async/Promise. Voir l’exemple dans l’[exportation en tant que fonction asynchrone](#exporting-an-async-function). 
+- **_[Recommandé pour la sortie unique]_  Retournant une valeur directement et en utilisant le nom de la liaison $return.** Cela fonctionne uniquement pour les fonctions de retour async/Promise. Voir l’exemple dans l’[exportation en tant que fonction asynchrone](#exporting-an-async-function). 
 - **Assigner des valeurs à `context.bindings`** Vous pouvez affecter des valeurs directement à context.bindings.
 
   ```javascript
@@ -368,7 +368,7 @@ L’objet (de réponse) `context.res` comporte les propriétés suivantes :
 | _body_    | Objet qui contient le corps de la réponse.         |
 | _headers_ | Objet qui contient les en-têtes de la réponse.             |
 | _isRaw_   | Indique que la mise en forme est ignorée pour la réponse.    |
-| _statut_  | Code d’état HTTP de la réponse.                     |
+| _status_  | Code d’état HTTP de la réponse.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Accès à la demande et à la réponse 
 
@@ -395,9 +395,9 @@ Quand vous utilisez des déclencheurs HTTP, de nombreuses méthodes vous permett
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Réponse uniquement]_ En appelant `context.res.send(body?: any)`.** Une réponse HTTP est créée avec l’entrée `body` comme corps de réponse. `context.done()` est appelé de manière implicite.
++ **_[Réponse uniquement]_  En appelant `context.res.send(body?: any)`.** Une réponse HTTP est créée avec l’entrée `body` comme corps de réponse. `context.done()` est appelé de manière implicite.
 
-+ **_[Réponse uniquement]_ En appelant `context.done()`.** Un type spécial de liaison HTTP renvoie la réponse transmise à la méthode `context.done()`. La liaison de sortie HTTP suivante définit un paramètre de sortie `$return` :
++ **_[Réponse uniquement]_  En appelant `context.done()`.** Un type spécial de liaison HTTP renvoie la réponse transmise à la méthode `context.done()`. La liaison de sortie HTTP suivante définit un paramètre de sortie `$return` :
 
     ```json
     {
@@ -494,7 +494,7 @@ Vous pouvez utiliser les propriétés `function.json` `scriptFile` et `entryPoin
 
 Par défaut, une fonction JavaScript est exécutée à partir de `index.js`, fichier qui partage le même répertoire parent que son `function.json` correspondant.
 
-Vous pouvez utiliser la propriété `scriptFile` pour obtenir une structure de dossiers semblable à l’exemple suivant :
+`scriptFile` peut être utilisé pour obtenir une structure de dossiers qui ressemble à l’exemple suivant :
 
 ```
 FunctionApp
@@ -624,8 +624,8 @@ Lorsque vous utilisez un client de service spécifique dans une application Azur
 
 Pour plus d’informations, consultez les ressources suivantes :
 
-+ [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
++ [Meilleures pratiques pour les fonctions Azure](functions-best-practices.md)
 + [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
-+ [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
++ [Liaisons et déclencheurs de fonctions azure](functions-triggers-bindings.md)
 
 [`func azure functionapp publish`]: functions-run-local.md#project-file-deployment

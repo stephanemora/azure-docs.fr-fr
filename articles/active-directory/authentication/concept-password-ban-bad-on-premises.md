@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862885"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264469"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Appliquer la protection de mot de passe Azure AD pour Windows Server Active Directory
 
@@ -31,7 +31,8 @@ Protection de mot de passe Azure AD est conçue avec ces principes à l’esprit
 * Aucune modification de schéma Active Directory n’est requise. Le logiciel utilise Active Directory existant **conteneur** et **serviceConnectionPoint** objets de schéma.
 * Aucun minimum domaine ou forêt niveau fonctionnel Active Directory (niveau fonctionnel du domaine/FFL) n’est requis.
 * Le logiciel ne créer ou requièrent des comptes dans les domaines Active Directory qu’il protège.
-* Le contrôleur de domaine ne laissez pas les mots de passe utilisateur en texte clair lors des opérations de validation de mot de passe ou à tout moment.
+* Les mots de passe utilisateur en texte clair ne quittent jamais le contrôleur de domaine, pendant les opérations de validation de mot de passe ou à tout moment.
+* Le logiciel n’est pas dépend des autres fonctionnalités Azure AD ; par exemple la synchronisation du hachage de mot de passe Azure AD n’est pas liée et n’est pas requis dans l’ordre pour la protection de mot de passe Azure AD à fonction.
 * Déploiement incrémentiel est pris en charge, mais la stratégie de mot de passe est appliquée uniquement où est installé l’Agent (Agent contrôleur de domaine) du contrôleur de domaine. Consultez la rubrique suivante pour plus d’informations.
 
 ## <a name="incremental-deployment"></a>Déploiement incrémentiel
@@ -62,7 +63,7 @@ Le service Agent du contrôleur de domaine est chargé de lancer le télécharge
 
 Une fois que le service Agent du contrôleur de domaine reçoit une nouvelle stratégie de mot de passe à partir d’Azure AD, le service stocke la stratégie dans un dossier dédié à la racine de son domaine *sysvol* partage du dossier. Le service de contrôleur de domaine Agent surveille également ce dossier au cas où des stratégies plus récente répliquer dans d’autres services de l’Agent du contrôleur de domaine dans le domaine.
 
-Le service Agent du contrôleur de domaine demande toujours une nouvelle stratégie au démarrage du service. Une fois que le service Agent du contrôleur de domaine est démarré, il vérifie l’âge de la stratégie actuelle disponible localement toutes les heures. Si la stratégie est antérieure à une heure, l’Agent du contrôleur de domaine demande une nouvelle stratégie à partir d’Azure AD, comme décrit précédemment. Si la stratégie actuelle n’est pas antérieure à une heure, l’Agent du contrôleur de domaine continue d’utiliser cette stratégie.
+Le service Agent du contrôleur de domaine demande toujours une nouvelle stratégie au démarrage du service. Une fois que le service Agent du contrôleur de domaine est démarré, il vérifie l’âge de la stratégie actuelle disponible localement toutes les heures. Si la stratégie est antérieure à une heure, l’Agent du contrôleur de domaine demande une nouvelle stratégie à partir d’Azure AD via le service de proxy, comme décrit précédemment. Si la stratégie actuelle n’est pas antérieure à une heure, l’Agent du contrôleur de domaine continue d’utiliser cette stratégie.
 
 Chaque fois qu’une stratégie de mot de passe de protection de mot de passe Azure AD est téléchargée, cette stratégie est spécifique à un locataire. En d’autres termes, les stratégies de mot de passe sont toujours une combinaison de la liste de mot de passe interdit Microsoft globale et la liste de mot de passe interdits personnalisées par client.
 
@@ -77,6 +78,8 @@ Le service de proxy est sans état. Il met en cache jamais les stratégies ou to
 Le service Agent du contrôleur de domaine utilise toujours la stratégie de mot de passe localement disponibles plus récent pour évaluer un mot de passe utilisateur. Si aucune stratégie de mot de passe n’est disponible sur le contrôleur de domaine local, le mot de passe est accepté automatiquement. Lorsque cela se produit, un message d’événement est enregistré pour avertir l’administrateur.
 
 Protection de mot de passe Azure AD n’est pas un moteur d’application de stratégie en temps réel. Il peut y avoir un délai entre quand une modification de configuration de stratégie de mot de passe est effectuée dans Azure AD et lorsque que modifier atteint et si elle est appliquée sur tous les contrôleurs de domaine.
+
+Protection de mot de passe Azure AD agit comme un supplément pour les stratégies de mot de passe Active Directory existants, pas un remplacement. Cela inclut toutes les autres DLL filtre du mot de passe 3 rd-party qui peuvent être installés. Active Directory nécessite toujours que tous les composants de validation de mot de passe sont d’accord avant d’accepter un mot de passe.
 
 ## <a name="foresttenant-binding-for-password-protection"></a>Liaison de forêt ou de client pour la protection de mot de passe
 

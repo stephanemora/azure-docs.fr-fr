@@ -1,6 +1,6 @@
 ---
-title: Score de confiance - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: Score de confiance - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: Le score de confiance indique la probabilité que la réponse corresponde à la requête de l’utilisateur.
 services: cognitive-services
 author: tulasim88
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: bf254d661f7819114d34631359aaecb97e9d0e0d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403734"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282574"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Score de confiance d’une base de connaissances QnA Maker
 Quand une requête d’utilisateur trouve une correspondance dans une base de connaissances, QnA Maker renvoie des réponses pertinentes, ainsi qu’un score de confiance. Ce score indique la probabilité que la réponse corresponde à la requête de l’utilisateur. 
@@ -66,7 +66,7 @@ Lorsque plusieurs réponses ont un score de confiance similaire, il est probable
 
 
 ## <a name="confidence-score-differences"></a>Différences entre les scores de confiance
-Le score de confiance d’une réponse peut changer sensiblement entre le test et la version publiée de la base de connaissances, même si le contenu est le même. En effet, le contenu de la base de connaissances de test et de la base de connaissances publiée se trouvent dans des index Recherche Azure différents. Quand vous publiez une base de connaissances, ses contenus de questions/réponses se déplacent de l’index de test vers un index de production dans Recherche Azure. Découvrez le fonctionnement de l’opération de [publication](../How-To/publish-knowledge-base.md).
+Le score de confiance d’une réponse peut changer sensiblement entre le test et la version publiée de la base de connaissances, même si le contenu est le même. En effet, le contenu de la base de connaissances de test et de la base de connaissances publiée se trouvent dans des index Recherche Azure différents. Quand vous publiez une base de connaissances, ses contenus de questions/réponses se déplacent de l’index de test vers un index de production dans Recherche Azure. Découvrez le fonctionnement de l’opération de [publication](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
 Si vous avez une base de connaissances dans différentes régions, chacune d’elles utilise son propre index de Recherche Azure. Étant donné que différents index sont utilisés, les scores ne seront pas exactement les mêmes. 
 

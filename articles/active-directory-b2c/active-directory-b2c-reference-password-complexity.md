@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2c6f3d88aae99c419b2507f421cc4dfebb2c022b
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 1d7874d7c8d04e3d3565cdfe2e52e49c538b3091
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100201"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009799"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurer les exigences de complexité pour les mots de passe dans Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) B2C prend en charge la modification des exigen
 
 ## <a name="password-rule-enforcement"></a>Application des règles de mot de passe
 
-Lors de l’inscription ou de la réinitialisation de mot de passe, un utilisateur final doit fournir un mot de passe qui respecte les règles de complexité. Les règles de complexité du mot de passe s’appliquent flux d’utilisateur par flux d’utilisateur. Il est possible qu’un flux d’utilisateur demande un code confidentiel à quatre chiffres et un autre une chaîne de huit caractères à l’inscription. Par exemple, vous pouvez utiliser un flux d’utilisateur avec différents niveaux de complexité du mot de passe pour les adultes et pour les enfants.
+Lors de l’inscription ou de la réinitialisation de mot de passe, un utilisateur final doit fournir un mot de passe qui respecte les règles de complexité. Les règles de complexité du mot de passe s’appliquent flux d’utilisateur par flux d’utilisateur. Il est possible d’avoir un seul flux d’utilisateur à demander un pin à quatre chiffres au cours de l’abonnement à un certain temps un autre flux d’utilisateur nécessite une chaîne de huit caractères pendant l’inscription. Par exemple, vous pouvez utiliser un flux d’utilisateur avec différents niveaux de complexité du mot de passe pour les adultes et pour les enfants.
 
 La complexité du mot de passe ne s’applique jamais lors de la connexion. Les utilisateurs ne sont jamais invités à modifier leur mot de passe parce qu’il ne répond pas à l’exigence de complexité actuelle.
 

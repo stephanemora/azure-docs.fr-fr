@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401416"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279225"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Créer un pool de l’hôte avec un modèle Azure Resource Manager
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Créer un pool d’hôtes avec le modèle Azure Resource Manager
 
-Les pools d’hôte sont une collection d’un ou plusieurs machines virtuelles identiques au sein d’environnements de client Windows Virtual Desktop Preview. Chaque pool de l’hôte peut contenir un groupe d’application que les utilisateurs peuvent interagir avec comme ils le feraient sur un ordinateur de bureau physique.
+Les pools d’hôtes sont une collection d’une ou de plusieurs machines virtuelles identiques dans des environnements de locataires Windows Virtual Desktop Preview. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique.
 
 Suivez les instructions de cette section pour créer un pool d’hôte pour un client de bureau virtuel Windows avec un modèle Azure Resource Manager fourni par Microsoft. Cet article vous indique comment créer un pool de l’hôte dans un bureau virtuel Windows, créez un groupe de ressources avec des machines virtuelles dans un abonnement Azure, joindre ces machines virtuelles au domaine AD et inscrire les machines virtuelles avec le bureau virtuel Windows.
 
@@ -52,7 +52,7 @@ Pour obtenir des conseils sur les paramètres, vous devez entrer pour votre scé
 
 Une fois le modèle GitHub Azure Resource Manager est terminée, attribuer l’accès utilisateur avant de commencer à tester les bureaux de session complète sur vos machines virtuelles.
 
-Tout d’abord, [télécharger et importer le module PowerShell de bureau virtuel Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell si vous n’avez pas déjà.
+Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell.
 
 Pour affecter des utilisateurs au groupe d’applications de bureau, ouvrez une fenêtre PowerShell et exécutez la commande suivante pour vous connecter à l’environnement de bureau virtuel Windows :
 
@@ -72,6 +72,9 @@ Après cela, ajoutez les utilisateurs au groupe d’applications de bureau avec 
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-UPN de l’utilisateur doit correspondre à l’identité de l’utilisateur dans Azure Active Directory (par exemple, user1@contoso.com). Si vous souhaitez ajouter plusieurs utilisateurs, vous devez exécuter cette applet de commande pour chaque utilisateur.
+L’UPN (nom d’utilisateur principal) de l’utilisateur doit correspondre à l’identité de l’utilisateur dans Azure Active Directory (par exemple, user1@contoso.com). Si vous voulez ajouter plusieurs utilisateurs, vous devez exécuter cette applet de commande pour chaque utilisateur.
 
-Une fois que vous avez terminé ces étapes, les utilisateurs ajoutés au groupe d’applications de bureau peuvent se connecter au bureau virtuel Windows avec les clients Bureau à distance pris en charge et une ressource pour un ordinateur de bureau de session.
+Une fois ces étapes terminées, les utilisateurs ajoutés au groupe d’applications de bureau peuvent se connecter à Windows Virtual Desktop avec les clients Bureau à distance pris en charge et voir une ressource pour le bureau d’une session.
+
+>[!IMPORTANT]
+>Pour vous aider à sécuriser votre environnement de bureau virtuel Windows dans Azure, nous vous recommandons de que vous n’ouvrez pas le port entrant 3389 sur vos machines virtuelles. Bureau virtuel Windows ne nécessite pas un port entrant ouvert 3389 pour les utilisateurs à accéder aux machines virtuelles du pool de l’hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser [machine virtuelle l’accès juste-à-temps](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991799"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056229"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT pour Azure - Vue d’ensemble du déploiement
 
@@ -32,14 +32,6 @@ Voici une vue d’ensemble des étapes à suivre.
 1. Configuration préalable requise 
 
    Avant de créer une machine virtuelle, vous devez créer un abonnement pour le projet Avere vFXT, configurer la propriété de l’abonnement, vérifier les quotas et demander une augmentation si nécessaire, puis accepter les conditions d’utilisation du logiciel Avere vFXT. Pour obtenir des instructions détaillées, consultez [Se préparer à la création du système Avere vFXT](avere-vfxt-prereqs.md).
-
-1. Créer un rôle d’accès pour les nœuds de cluster
-
-   Azure utilise le [contrôle d’accès en fonction du rôle](../role-based-access-control/index.yml) (RBAC) pour autoriser les machines virtuelles de nœud de cluster à effectuer certaines tâches. Par exemple, les nœuds de cluster doivent pouvoir affecter ou réaffecter des adresses IP à d’autres nœuds de cluster. Avant de créer le cluster, vous devez définir un rôle qui leur accorde les autorisations adéquates.
-
-   Pour obtenir des instructions, consultez [Créer le rôle d’accès du nœud de cluster](avere-vfxt-prereqs.md#create-the-cluster-node-access-role).
-
-   Le contrôleur de cluster utilise également un rôle d’accès, mais vous pouvez accepter le rôle par défaut, propriétaire, plutôt que de créer votre propre rôle. Si vous souhaitez créer un rôle personnalisé pour le contrôleur de cluster, consultez [Rôle d'accès du contrôleur personnalisé](avere-vfxt-controller-role.md). 
 
 1. Créer le cluster Avere vFXT 
 

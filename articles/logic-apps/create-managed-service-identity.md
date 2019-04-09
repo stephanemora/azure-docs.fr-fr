@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: c5fabf37ecc97f8edea437f1628949e45aefde77
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755701"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010547"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>S’authentifier et accéder aux ressources avec des identités managées dans Azure Logic Apps
 
@@ -61,7 +61,7 @@ Pour activer une identité managée attribuée par le système pour votre applic
 
    | Propriété | Valeur | Description | 
    |----------|-------|-------------| 
-   | **ID d’objet** | <*identity-resource-ID*> | Identificateur global unique (GUID) qui représente l’identité managée attribuée par le système pour votre application logique dans un locataire Azure AD | 
+   | **ID objet** | <*identity-resource-ID*> | Identificateur global unique (GUID) qui représente l’identité managée attribuée par le système pour votre application logique dans un locataire Azure AD | 
    ||| 
 
 <a name="template"></a>
@@ -113,7 +113,7 @@ Quand Azure crée votre application logique, la définition de flux de travail d
 
 | Propriété | Valeur | Description | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | Identificateur global unique (GUID) qui représente l’application logique dans le locataire Azure AD et qui s’affiche parfois comme « ID d’objet » ou `objectID` | 
+| **principalId** | <*principal-ID*> | Un identificateur global Unique (GUID) qui représente l’application logique dans le locataire Azure AD et parfois apparaît sous la forme d’un ID d’objet « » ou `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Identificateur global unique (GUID) qui représente le locataire Azure AD où l’application logique est maintenant un membre. À l’intérieur du locataire Azure AD, le principal du service a le même nom que l’instance d’application logique. | 
 ||| 
 
@@ -158,7 +158,7 @@ Après avoir configuré votre application logique avec une identité managée at
    Dans la zone **URI**, entrez l’URL du point de terminaison pour ce service Azure. 
    Par conséquent, si vous utilisez Azure Resource Manager, entrez cette valeur dans la propriété **URI** :
 
-   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
 1. Dans l’action HTTP, choisissez **Afficher les options avancées**.
 

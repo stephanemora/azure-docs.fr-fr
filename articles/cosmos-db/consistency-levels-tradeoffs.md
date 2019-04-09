@@ -1,18 +1,18 @@
 ---
 title: Compromis entre disponibilité et performance pour différents niveaux de cohérence dans Azure Cosmos DB
 description: Compromis entre disponibilité et performance pour différents niveaux de cohérence dans Azure Cosmos DB.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 2/13/2019
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: ac5b6e0d44376332e005d30b4a8fcc97021c4eda
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407519"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266424"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Cohérence, disponibilité et compromis sur les performances 
 
@@ -20,11 +20,11 @@ Les bases de données distribuées qui s’appuient sur la réplication pour une
 
 Azure Cosmos DB aborde la cohérence des données en offrant un éventail de choix. Cette approche inclut plus d’options que les deux extrêmes de cohérence, forte et éventuelle. Vous pouvez choisir parmi cinq modèles bien définis sur l’échelle des cohérences. De la plus forte à la plus faible cohérence, les modèles sont les suivants :
 
-- *Fort*
-- *Obsolescence limitée*
-- *Session*
+- *Remarque*
+- *Bounded staleness (En fonction de l'obsolescence)*
+- *session*
 - *Préfixe cohérent*
-- *Éventuel*
+- *Eventual (Éventuel)*
 
 Chaque modèle fournit la disponibilité et de performances et repose sur des contrats SLA complets.
 
@@ -67,6 +67,6 @@ Le tableau ci-dessous définit la relation entre la durabilité de modèle et le
 
 En savoir plus sur les compromis en matière de distribution globale et de cohérence générale dans les systèmes distribués. Consultez les articles suivants :
 
-- [Compromis en matière de cohérence dans la conception des systèmes de base de données distribuées modernes](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+- [Cohérence des compromis en termes conception de systèmes de base de données distribuée moderne](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Haute disponibilité](high-availability.md)
-- [SLA pour Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes liés aux alertes de journal d’activité dans Azure Monitor
+title: Résolution des alertes de journal dans Azure Monitor | Microsoft Docs
 description: Problèmes courants, erreurs et résolution pour les règles d'alerte de journal dans Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429444"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005295"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Résolution des problèmes liés aux alertes de journal d’activité dans Azure Monitor  
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
-Cet article vous explique comment résoudre les problèmes courants lors de la configuration d'alertes de journal dans Azure Monitor. Il propose également des réponses aux questions fréquemment posées en termes de fonctionnalité ou de configuration des alertes de journal. 
+Cet article vous montre comment résoudre les problèmes couramment rencontrés lors de la définition des alertes de journal dans Azure Monitor. Il propose également des réponses aux questions fréquemment posées en termes de fonctionnalité ou de configuration des alertes de journal. 
 
-Le terme **alertes de journal** décrit les alertes déclenchées suite à une requête personnalisée dans [Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Obtenez plus d’informations sur la fonctionnalité, la terminologie et les types dans [Alertes de journal - Vue d’ensemble](../platform/alerts-unified-log.md).
+Le terme **alertes de journal** décrit les alertes qu’incendie basé sur une requête de journal dans un [espace de travail Analytique de journal](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Obtenez plus d’informations sur la fonctionnalité, la terminologie et les types dans [Alertes de journal - Vue d’ensemble](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Cet article ne couvre pas les cas où le portail Microsoft Azure affiche une règle d’alerte déclenchée et notification effectuée via des groupes d'actions associés. Pour ces différents cas, reportez-vous aux détails de l’article relatif aux [Groupes d’actions](../platform/action-groups.md).
@@ -33,7 +33,7 @@ Voici quelques-unes des raisons pour lesquelles un état de [règle d’alerte d
 
 ### <a name="data-ingestion-time-for-logs"></a>Durée d’ingestion de données pour les journaux
 
-L'alerte de journal exécute régulièrement votre requête basée sur [Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Comme Log Analytics traite plusieurs téraoctets de données issues de milliers de clients provenant de sources variées partout dans le monde, le service peut nécessiter un certain délai. Pour plus d’informations, consultez [Durée d’ingestion de données dans Log Analytics](../platform/data-ingestion-time.md).
+L'alerte de journal exécute régulièrement votre requête basée sur [Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Étant donné qu’Azure Monitor traite plusieurs téraoctets de données à partir des milliers de clients à partir de sources variées dans le monde entier, le service est vulnérable à un certain délai différentes. Pour plus d’informations, consultez [heure d’ingestion de données dans les journaux d’Azure Monitor](../platform/data-ingestion-time.md).
 
 Pour réduire le délai d’ingestion de données, le système attend et relance plusieurs fois la requête d’alerte s’il détecte que les données nécessaires n’ont pas encore été ingérées. Le temps d’attente du système est défini de manière exponentielle. Comme l’alerte de journal se déclenche uniquement une fois que les données sont disponibles, ce délai peut être dû à la lenteur du processus d’ingestion des données du journal. 
 
@@ -57,7 +57,7 @@ Les **alertes de journal Mesure métrique** représentent un sous-type d’alert
 
 Par exemple, supposons qu’une règle d’alerte de journal Mesure métrique soit configurée comme suit :
 
-- requête : `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
+- la requête était : `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - période de 6 heures
 - seuil de 50
 - logique d’alerte de trois violations consécutives
@@ -84,7 +84,7 @@ Les informations développées ci-dessous portent sur certaines raisons pour les
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerte déclenchée par des données partielles
 
-L'analytique alimentant Log Analytics et Application Insights est sujette à des délais d'ingestion et de traitement et dès lors, au moment où une requête d'alerte de journal est exécutée, il peut arriver qu'aucune donnée ne soit disponible ou que seules quelques données soient disponibles. Pour plus d’informations, consultez [Durée d’ingestion de données dans Log Analytics](../platform/data-ingestion-time.md).
+L'analytique alimentant Log Analytics et Application Insights est sujette à des délais d'ingestion et de traitement et dès lors, au moment où une requête d'alerte de journal est exécutée, il peut arriver qu'aucune donnée ne soit disponible ou que seules quelques données soient disponibles. Pour plus d’informations, consultez [temps d’ingestion de données du journal dans Azure Monitor](../platform/data-ingestion-time.md).
 
 Selon la configuration de la règle d’alerte, elle peut mal se déclencher en l’absence partielle ou totale de données dans les journaux au moment de son exécution. Dans ce cas, nous vous conseillons de modifier la requête d’alerte ou la configuration. 
 
@@ -100,4 +100,4 @@ Ce qui est affiché dans la zone **Requête à exécuter** correspond à ce que 
 
 - En savoir plus sur les [alertes de journal dans les alertes Azure ](../platform/alerts-unified-log.md)
 - En savoir plus sur [Application Insights](../../azure-monitor/app/analytics.md)
-- En savoir plus sur [Log Analytics](../../log-analytics/log-analytics-overview.md)
+- En savoir plus sur [enregistrer des requêtes](../log-query/log-query-overview.md)

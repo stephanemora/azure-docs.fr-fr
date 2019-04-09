@@ -12,18 +12,22 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 03/26/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6084687f54be265e88e6755e7d082da7c32eda1b
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: c7da46984d592abc6ed97d7490fde732bf26b0ba
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349516"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009443"
 ---
-# <a name="saas-fulfillment-apis"></a>API de traitement des commandes de SaaS
+# <a name="saas-fulfillment-apis"></a>API de traitement SaaS
 
-L’API de traitement des commandes SaaS permet des éditeurs de logiciels indépendants (ISV) pour intégrer leurs applications SaaS à la place de marché Azure. Cette API permet aux applications ISV participer à tous les canaux de commerce électronique : direct, par les partenaires (revendeurs) et conduit de champ.  Cette API est une exigence pour la liste que transactable SaaS offre sur la place de marché Azure.
+Les API de traitement des commandes SaaS permettent des éditeurs de logiciels indépendants (ISV) pour intégrer leurs applications SaaS à la place de marché Azure. Ces API permettre aux applications d’éditeurs de logiciels indépendants à participer à tous les canaux de commerce électronique : direct, par les partenaires (revendeurs) et conduit de champ.  Ils sont nécessaires pour répertorier les offres de SaaS transactable sur la place de marché Azure.
+
+> [!WARNING]
+> La version actuelle de cette API est la Version 2, qui doivent être utilisées pour tous les SaaS nouvelle offre.  La version 1 de l’API est déconseillée et est conservée pour prendre en charge des offres existantes.
+
 
 ## <a name="business-model-support"></a>Prise en charge du modèle métier
 
@@ -37,4 +41,4 @@ Cette API prend en charge les fonctions de modèle suivant de l’entreprise ; 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez cette interface pour le développement : [Version d’API SaaS Fulfillment 2](./cpp-saas-fulfillment-api-v2.md).
+Si vous ne le n'avez pas déjà fait, inscrivez votre application SaaS dans le [Azure portal](https://ms.portal.azure.com) comme expliqué dans [inscrire une Application Azure AD](./cpp-saas-registration.md).  Ensuite, utilisez la version la plus récente de cette interface pour le développement : [Version d’API SaaS Fulfillment 2](./cpp-saas-fulfillment-api-v2.md).

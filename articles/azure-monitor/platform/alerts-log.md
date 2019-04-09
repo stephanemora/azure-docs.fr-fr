@@ -1,5 +1,5 @@
 ---
-title: Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
+title: Créer, afficher et gérer les alertes de journal à l’aide de Azure Monitor | Microsoft Docs
 description: Utilisez Azure Monitor pour créer, afficher et gérer des règles d’alerte de journal dans Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3285a6b2aa09dd78bbb63c384bd1f65c17034ff
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57873789"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006956"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 
@@ -23,10 +23,10 @@ Cet article explique comment configurer des alertes de journal à l’aide de l�
 - Critères : Condition spécifique ou logique qui, une fois détectée (signal), doit déclencher une action
 - Action : Appel spécifique envoyé au récepteur d’une notification (e-mail, SMS, webhook, etc.)
 
-Le terme **alertes de journal** décrit les alertes où le signal est une requête personnalisée basée sur [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Obtenez plus d’informations sur la fonctionnalité, la terminologie et les types dans [Alertes de journal - Vue d’ensemble](../../azure-monitor/platform/alerts-unified-log.md).
+Le terme **alertes de journal** pour décrire les alertes où le signal est requête de journal dans un [espace de travail Analytique de journal](../learn/tutorial-viewdata.md) ou [Application Insights](../app/analytics.md). Obtenez plus d’informations sur la fonctionnalité, la terminologie et les types dans [Alertes de journal - Vue d’ensemble](alerts-unified-log.md).
 
 > [!NOTE]
-> Les données de journal populaires d’[Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) sont désormais également disponibles sur la plateforme de métrique dans Azure Monitor. Pour la vue de détails, consultez [Alerte de métrique pour les journaux](../../azure-monitor/platform/alerts-metric-logs.md)
+> À partir des données de journaux populaires [un espace de travail Analytique de journal](../../azure-monitor/learn/tutorial-viewdata.md) est désormais également disponible sur la plateforme de métriques dans Azure Monitor. Pour en savoir plus, voir [Alerte de métrique pour les journaux](alerts-metric-logs.md)
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Gestion des alertes de journal à partir du portail Azure
 
@@ -58,7 +58,7 @@ Vous trouverez ci-après un guide pas à pas sur l’utilisation des alertes de 
 
    > [!NOTE]
    > 
-   > Les listes d’alertes peuvent importer une requête analytique en tant que type de signal : **Journal (requête enregistrée)**, comme indiqué dans l’illustration ci-dessus. Les utilisateurs peuvent donc perfectionner votre requête dans Analytics et l’enregistrer pour l’utiliser ultérieurement dans Alerts. Pour en savoir plus sur l’enregistrement de requêtes, consultez la section relative à [l’utilisation des recherches de journaux dans Log Analytics](../../azure-monitor/log-query/log-query-overview.md) ou aux [requêtes partagées dans Application Insights Analytics](../../azure-monitor/log-query/log-query-overview.md).
+   > Les listes d’alertes peuvent importer une requête analytique en tant que type de signal : **Journal (requête enregistrée)**, comme indiqué dans l’illustration ci-dessus. Afin que les utilisateurs puissent perfectionner votre requête dans l’Analytique et puis les enregistrer pour une utilisation ultérieure dans les alertes, plus d’informations sur l’enregistrement de requêtes disponible à l’adresse [à l’aide de la requête de journal dans Azure Monitor](../log-query/log-query-overview.md) ou [requêtes partagées dans analytique d’insights d’application ](../log-query/log-query-overview.md).
 
 1. *Alertes de journal* : Une fois sélectionnée, la requête de génération d’alerte peut être indiquée dans le champ **Requête de recherche**. Si la syntaxe de la requête est incorrecte, le champ affiche un message d’erreur en rouge. Si la syntaxe de la requête est correcte, les données de la requête indiquée sont indiquées à titre de référence sous forme de graphique avec la possibilité d’ajuster la fenêtre de temps entre les six dernières heures et la semaine précédente.
 
@@ -119,19 +119,19 @@ Les utilisateurs peuvent également finaliser leur requête d’analyse dans [Lo
     > Les règles d’alerte de journal incluent une logique personnalisée basée sur une requête fournie par les utilisateurs et, par conséquent, sans un état résolu. Chaque fois que les conditions spécifiées dans la règle d’alerte de journal sont remplies, celle-ci est déclenchée.
 
 1. Cliquez sur le bouton **Gérer les règles** dans la barre supérieure pour accéder à la section de gestion des règles, où toutes les règles d’alerte créées sont répertoriées, y compris les alertes désactivées.
-    ![ Gérer les règles d’alerte](media/alerts-log/manage-alert-rules.png)
+    ![ gérer les règles d’alerte](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Gestion des alertes de journal à l’aide du modèle de ressource Azure
 
 Les alertes de journal dans Azure Monitor sont associées au type de ressource `Microsoft.Insights/scheduledQueryRules/`. Pour plus d’informations sur ce type de ressource, consultez [Azure Monitor - Référence de l’API des règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Les alertes de journal pour Application Insights ou Log Analytics peuvent être créées à l’aide de l’[API des règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
 > [!NOTE]
-> Les alertes de journal pour Log Analytics peuvent également être gérées à l’aide de l’[API d’alerte Log Analytics](../../azure-monitor/platform/api-alerts.md) existante et des modèles existants des [alertes et recherches Log Analytics enregistrées](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Pour plus d’informations sur l’utilisation par défaut de la nouvelle API ScheduledQueryRules détaillée ici, consultez [Opter pour la nouvelle API des alertes Log Analytics](alerts-log-api-switch.md).
+> Les alertes de journal pour Log Analytics peuvent également être gérées à l’aide de l’[API d’alerte Log Analytics](api-alerts.md) existante et des modèles existants des [alertes et recherches Log Analytics enregistrées](../insights/solutions-resources-searches-alerts.md). Pour plus d’informations sur l’utilisation par défaut de la nouvelle API ScheduledQueryRules détaillée ici, consultez [Opter pour la nouvelle API des alertes Log Analytics](alerts-log-api-switch.md).
 
 
 ### <a name="sample-log-alert-creation-using-azure-resource-template"></a>Exemple de création d'alerte de journal à l'aide du modèle de ressource Azure
 
-Vous trouverez ci-dessous la structure d'un modèle de ressource basé sur la [création de règles de requête planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) avec requête standard de recherche dans les journaux pour une [alerte de journal de type Nombre de résultats](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules), et avec des exemples de jeux de données comme variables.
+Vous trouverez ci-dessous la structure d'un modèle de ressource basé sur la [création de règles de requête planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) avec requête standard de recherche dans les journaux pour une [alerte de journal de type Nombre de résultats](alerts-unified-log.md#number-of-results-alert-rules), et avec des exemples de jeux de données comme variables.
 
 ```json
 {
@@ -316,7 +316,7 @@ L’API Azure Monitor - Règles de requêtes planifiées(https://docs.microsoft.
 
 
 > [!NOTE]
-> Les alertes de journal pour Log Analytics peuvent également être gérées à l’aide de l’[API d’alerte Log Analytics](../../azure-monitor/platform/api-alerts.md) existante et des modèles existants des [alertes et recherches Log Analytics enregistrées](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Pour plus d’informations sur l’utilisation par défaut de la nouvelle API ScheduledQueryRules détaillée ici, consultez [Opter pour la nouvelle API des alertes Log Analytics](alerts-log-api-switch.md).
+> Les alertes de journal pour Log Analytics peuvent également être gérées à l’aide de l’[API d’alerte Log Analytics](api-alerts.md) existante et des modèles existants des [alertes et recherches Log Analytics enregistrées](../insights/solutions-resources-searches-alerts.md). Pour plus d’informations sur l’utilisation par défaut de la nouvelle API ScheduledQueryRules détaillée ici, consultez [Opter pour la nouvelle API des alertes Log Analytics](alerts-log-api-switch.md).
 
 Alertes de journal n’est actuellement des commandes PowerShell ou CLI dédiées actuellement ; mais, comme illustré ci-dessous peut être utilisé via l’applet de commande PowerShell Azure Resource Manager pour l’exemple illustré précédemment du modèle de ressource (sampleScheduledQueryRule.json) dans la section de modèle de ressource :
 
@@ -335,4 +335,4 @@ On successful operation, 201 will be returned to state new alert rule creation o
 * Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
 * Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
 * Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn more about [log queries](../log-query/log-query-overview.md).

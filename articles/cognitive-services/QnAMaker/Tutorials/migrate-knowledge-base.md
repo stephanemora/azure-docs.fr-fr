@@ -1,28 +1,28 @@
 ---
 title: Migrer des bases de connaissances - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Déplacez une base de connaissances créée avec QnA Maker dans une nouvelle base de connaissances.
+description: La migration d’une base de connaissances nécessite l’exportation d’une base de connaissances, puis l’importation dans une autre.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245913"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264316"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrer une base de connaissances à l’aide des fonctions d’exportation-importation
 
 La migration d’une base de connaissances nécessite l’exportation d’une base de connaissances, puis l’importation dans une autre. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Avant de commencer, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Configurer un nouveau [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
@@ -48,10 +48,10 @@ La migration d’une base de connaissances nécessite l’exportation d’une ba
    ![Importer une base de connaissances](../media/qnamaker-how-to-migrate-kb/Import.png)
 
 1. **Testez** la nouvelle base de connaissances à l’aide du panneau de test. Découvrez comment [tester votre base de connaissances](../How-To/test-knowledge-base.md).
-1. **Publiez** la base de connaissances. Découvrez comment [publier votre base de connaissances](../How-To/publish-knowledge-base.md).
+1. **Publiez** la base de connaissances. Découvrez comment [publier votre base de connaissances](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 1. Utilisez le point de terminaison dans votre code d’application ou de bot. Découvrez comment [créer un bot QnA](../Tutorials/create-qna-bot.md) ici.
 
-    ![Valeurs QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+    ![Valeurs QnA Maker](../media/qnamaker-how-to-migrate-kb/qnamaker-settings-kbid-key.png)
 
     À ce stade, tout le contenu de la base de connaissances (questions, réponses et métadonnées, ainsi que le nom des fichiers sources et les URL) est importé dans la nouvelle base de connaissances. 
 

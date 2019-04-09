@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c1165fcebf8382d30b1be86f102da78ef0a4ac9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244364"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257159"
 ---
 # <a name="set-alerts-in-application-insights"></a>Configuration d’alertes dans Application Insights
 [Azure Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application web. 
@@ -45,7 +45,7 @@ Ouvrez l’onglet Règles d’alerte, puis utilisez le bouton Ajouter.
 * Définissez une [adresse de webhook](../../azure-monitor/platform/alerts-webhooks.md) si vous avez configuré une application web qui répondra aux alertes. Elle est appelée lorsque l’alerte est Activée ou Résolue. (Mais notez qu’à l’heure actuelle, les paramètres de requête ne sont pas transmis en tant que propriétés webhook.)
 * Vous pouvez désactiver ou activer l’alerte : consultez les boutons en haut.
 
-*Je ne vois pas apparaître le bouton Ajouter une alerte.*
+*Je ne vois pas le bouton Ajouter une alerte.*
 
 * Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Examinez l’onglet de contrôle d’accès. [En savoir plus sur le contrôle d’accès][roles].
 
@@ -143,7 +143,7 @@ Dans cette section, nous allons examiner comment définir une alerte d’excepti
 
 10. Enfin ajouter vos détails de l’alerte (nom de la règle, la description, gravité d’alerte). Lorsque vous avez terminé, cliquez sur **créer une règle d’alerte** en bas.
 
-    ![Sous Détails de l’alerte tapez votre nom de règle d’alerte, écrivez une description et choisir un niveau de gravité ](./media/alerts/9alertdetails.png)
+    ![Sous Détails de l’alerte tapez votre nom de règle d’alerte, écrivez une description et choisir un niveau de gravité](./media/alerts/9alertdetails.png)
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Qui reçoit les notifications d'alerte (classiques) ?
 
@@ -160,7 +160,7 @@ Utilisez la nouvelle expérience d'alerte ou les alertes en temps quasi-réel si
 
 ## <a name="automation"></a>Automatisation
 * [Utiliser PowerShell pour automatiser la configuration d’alertes](../../azure-monitor/app/powershell-alerts.md)
-* [Utiliser les webhooks pour automatiser la réponse aux alertes](../../azure-monitor/platform/alerts-webhooks.md)
+* [Utiliser des webhooks pour automatiser la réponse aux alertes](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="see-also"></a>Voir aussi
 * [Tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md)

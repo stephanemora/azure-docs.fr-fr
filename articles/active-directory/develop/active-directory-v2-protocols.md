@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed27830aa1f4212e4bc26af8da4febc1b61a76cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c56970091da74cfc389d60ad91f430fcb64d4bba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175090"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266968"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>Protocoles v2.0 - OAuth 2.0 et OpenID Connect
 
@@ -41,10 +41,11 @@ Dans presque tous les flux OAuth 2.0 et OpenID Connect, quatre parties sont con
 * Le **Serveur d’autorisation** est le point de terminaison v2.0 chargé de garantir l’identité de l’utilisateur, l’octroi et la révocation de l’accès aux ressources, et l’émission de jetons. Le serveur d’autorisation est également connu sous le nom du fournisseur d’identité. Il traite de manière sécurisée les informations de l’utilisateur, leur accès et les relations de confiance entre les parties d’un flux.
 * Le **Propriétaire de la ressource** est généralement l’utilisateur final. Il s’agit de la partie détentrice des données, qui a le pouvoir d’autoriser les tierces parties à accéder à ces données ou à cette ressource.
 * Le **Client OAuth** est votre application, identifiée par son ID d’application. Le client OAuth, qui est en général la partie avec laquelle l’utilisateur final interagit, demande des jetons provenant du serveur d’autorisation. Le client doit se voir octroyer une autorisation d’accès à la ressource par le propriétaire de cette dernière.
-* Le **serveur de ressources** héberge la ressource ou les données. Il approuve le serveur d’autorisation pour authentifier et autoriser de manière sûre le client OAuth et utilise les jetons d’accès porteurs pour garantir l’octroi de l’accès à une ressource.
+* Le **serveur de ressources** héberge la ressource ou les données. Il approuve le serveur d’autorisation pour authentifier et autoriser le OAuth Client en toute sécurité et utilise des jetons d’accès du porteur pour garantir que l’accès à une ressource peut être accordé.
 
 ## <a name="app-registration"></a>Inscription d’application
-Toutes les applications qui utilisent le point de terminaison v2.0 doivent être inscrites auprès de [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou par le biais de la nouvelle expérience **Inscriptions d’applications (préversion)** dans le [portail Azure](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) avant de pouvoir interagir à l’aide d’OAuth ou d’OpenID Connect. Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
+
+Chaque application qui souhaite accepter à la fois personnelles et comptes professionnels ou scolaires doit être enregistrée via le nouveau **inscriptions d’application (version préliminaire)** d’expérience dans le [Azure portal](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) avant qu’il peut se connecter ces utilisateurs à l’aide de OAuth 2.0 ou OpenID Connect. Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
 
 * un **ID d’application** qui identifie de manière unique votre application ;
 * un **URI de redirection** ou un **identificateur de package** pouvant être utilisé pour diriger des réponses vers votre application ;
@@ -68,9 +69,12 @@ Où le `{tenant}` peut prendre l’une de quatre valeurs différentes :
 | `common` | Permet aux utilisateurs avec des comptes Microsoft personnels et des comptes professionnels/scolaires Azure AD de se connecter à l’application. |
 | `organizations` | Permet uniquement aux utilisateurs avec des comptes professionnels/scolaires Azure AD de se connecter à l’application. |
 | `consumers` | Permet uniquement aux utilisateurs avec des comptes personnels Microsoft (MSA) de se connecter à l’application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` | Permet uniquement aux utilisateurs avec des comptes professionnels/scolaires d’un client Azure AD spécifique de se connecter à l’application. Le nom de domaine convivial du client Azure AD ou l’identificateur GUID du client peut être utilisé. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Permet uniquement aux utilisateurs avec des comptes professionnels/scolaires d’un client Azure AD spécifique de se connecter à l’application. Le nom de domaine convivial du client Azure AD ou l’identificateur GUID du client peut être utilisé. |
 
 Pour savoir comment interagir avec ces points de terminaison, choisissez un type particulier d’application dans la section [Protocoles](#protocols) et suivez les liens.
+
+> [!TIP]
+> N’importe quelle application inscrite dans Azure AD peut utiliser le point de terminaison v2.0, même si elles ne vous connectez des comptes personnels.  De cette façon, vous pouvez migrer des applications existantes vers la version 2.0 et [MSAL](reference-v2-libraries.md) sans recréer votre application.  
 
 ## <a name="tokens"></a>Jetons
 
@@ -82,8 +86,8 @@ Pour plus d’informations sur les différents types de jetons utilisés dans le
 
 Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacticiels ci-dessous. Chacun d’eux correspond à un scénario d’authentification particulier. Si vous avez besoin d’aide pour déterminer le flux qui vous convient, consultez les [types d’applications que vous pouvez créer avec le point de terminaison v2.0](v2-app-types.md).
 
-* [Générer une application mobile et native avec OAuth 2.0](v2-oauth2-auth-code-flow.md)
-* [Générer des applications web avec OpenID Connect](v2-protocols-oidc.md)
-* [Générer des applications monopages avec le flux implicite OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
-* [Générer des démons ou des processus côté serveur avec le flux d’informations d’identification du client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
-* [Obtenir des jetons dans une API web avec le flux Au nom de d’OAuth 2.0](v2-oauth2-on-behalf-of-flow.md)
+* [Créer une application mobile et native avec OAuth 2.0](v2-oauth2-auth-code-flow.md)
+* [Créer des applications web avec OpenID Connect](v2-protocols-oidc.md)
+* [Générer des applications à page unique avec le flux implicite d’OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
+* [Générer des démons ou processus côté serveur avec le flux des informations d’identification client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
+* [Obtenir des jetons dans une API web avec le flux d’authentification OAuth 2.0 on-behalf-of](v2-oauth2-on-behalf-of-flow.md)

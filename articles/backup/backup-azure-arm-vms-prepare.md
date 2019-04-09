@@ -1,32 +1,32 @@
 ---
-title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de sauvegarde Azure
-description: Décrit comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de sauvegarde Azure
-services: backup
+title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de la sauvegarde Azure
+description: Décrit comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de la sauvegarde Azure
+service: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: 3342b15511305ab337d9b5032080e205e36150d3
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 142ffdadf4adb1ee07f3592624cbdddfb310b580
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049811"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264554"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
-Cet article explique comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de la [sauvegarde Azure](backup-overview.md) service. 
+Cet article explique comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services, à l’aide de la [sauvegarde Azure](backup-overview.md) service. 
 
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * Vérifier la prise en charge et configuration requise pour une sauvegarde.
-> * Préparez les machines virtuelles Azure. installer l’agent de machine virtuelle Azure si nécessaire et vérifier l’accès sortant pour les machines virtuelles ;
+> * Préparez les machines virtuelles Azure.
 > * Créer un coffre.
 > * Découvrir les machines virtuelles et configurer une stratégie de sauvegarde.
 > * Activer la sauvegarde des machines virtuelles Azure.
+> * Effectuez la sauvegarde initiale.
 
 
 > [!NOTE]
@@ -37,14 +37,128 @@ Dans cet article, vous apprendrez comment :
 
 - [Révision](backup-architecture.md#architecture-direct-backup-of-azure-vms) l’architecture de sauvegarde de machine virtuelle Azure.
 - [En savoir plus sur](backup-azure-vms-introduction.md) la sauvegarde des machines virtuelles Azure et l’extension de la sauvegarde.
-- [Passez en revue la matrice de prise en charge](backup-support-matrix-iaas.md) de la sauvegarde des machines virtuelles Azure.
+- [Passez en revue la matrice de prise en charge](backup-support-matrix-iaas.md) avant de configurer la sauvegarde.
+
+En outre, il existe plusieurs choses que vous devrez peut-être faire dans certaines circonstances :
+
+- **Installez l’agent de machine virtuelle sur la machine virtuelle**: Sauvegarde Azure sauvegarde les machines virtuelles Azure en installant une extension à l’agent de machine virtuelle Azure en cours d’exécution sur l’ordinateur. Si votre machine virtuelle a été créé à partir d’une image de place de marché Azure, l’agent est installé et en cours d’exécution. Si vous créez une machine virtuelle personnalisée ou si vous migrez un ordinateur local, vous devrez peut-être [installer manuellement l’agent](#install-the-vm-agent).
+- **Autoriser explicitement l’accès sortant**: En règle générale, vous n’avez pas besoin d’autoriser explicitement l’accès réseau sortant pour une machine virtuelle Azure afin qu’il communique avec la sauvegarde Azure. Toutefois, certaines machines virtuelles peuvent rencontrer des problèmes de connexion, à montrant le **ExtensionSnapshotFailedNoNetwork** erreur lorsque vous tentez de vous connecter. Si cela se produit, vous devez [autoriser explicitement l’accès sortant](#explicitly-allow-outbound-access), de sorte que l’extension de sauvegarde Azure peut communiquer avec des adresses IP publiques Azure pour le trafic de sauvegarde.
 
 
-## <a name="prepare-azure-vms"></a>Préparez les machines virtuelles Azure
+## <a name="create-a-vault"></a>Création d'un coffre
 
-Dans certains cas, vous devrez peut-être configurer l’agent de machine virtuelle Azure sur des machines virtuelles Azure, ou autoriser explicitement l’accès sortant sur une machine virtuelle.
+ Un coffre stocke les sauvegardes et points de récupération créés au fil du temps, ainsi que les stratégies de sauvegarde associées aux machines sauvegardées. Créez un coffre comme suit :    
 
-### <a name="install-the-vm-agent"></a>Installer l’agent de machine virtuelle 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).    
+2. Dans Rechercher, tapez **Recovery Services**. Sous **Services**, cliquez sur **coffres Recovery Services**.   
+
+     ![Recherchez des coffres Recovery Services](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/> 
+
+3. Dans **coffres Recovery Services** menu, cliquez sur **+ ajouter**.    
+
+     ![Créer un coffre Recovery Services - Étape 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)   
+
+4. Dans **coffre Recovery Services**, tapez un nom convivial pour identifier le coffre.   
+    - Le nom doit être unique pour l’abonnement Azure.   
+    - Il peut comprendre entre 2 et 50 caractères.    
+    - Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.   
+5. Sélectionnez l’abonnement Azure, le groupe de ressources et la région géographique dans laquelle le coffre doit être créé. Cliquez ensuite sur **Créer**.    
+    - La création du coffre peut prendre du temps.  
+    - Surveillez les notifications d’état dans l’angle supérieur droit du portail.   
+
+
+ Une fois le coffre est créé, il apparaît dans la liste des coffres Recovery Services. Si vous ne voyez pas votre coffre, sélectionnez **Actualiser**.
+ 
+![Liste des archivages de sauvegarde](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)    
+
+### <a name="modify-storage-replication"></a>Modifier la réplication de stockage
+
+Par défaut, utilisez les coffres [stockage géo-redondant (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+
+- Si le coffre est votre principal mécanisme de sauvegarde, nous vous recommandons de qu'utiliser GRS.
+- Vous pouvez utiliser [stockage localement redondant (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour une option plus économique.
+
+Modifiez le type de réplication de stockage comme suit :
+
+1. Dans le nouveau coffre, cliquez sur **propriétés** dans le **paramètres** section.
+2. Dans **propriétés**, sous **Configuration de la sauvegarde**, cliquez sur **mise à jour**.
+3. Sélectionnez le type de réplication de stockage, puis cliquez sur **enregistrer**.
+
+      ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
+> [!NOTE]
+   > Vous ne pouvez pas modifier le type de réplication de stockage une fois que le coffre est configuré et qu’il contient des éléments de sauvegarde. Pour ce faire, vous devez recréer le coffre. 
+
+## <a name="apply-a-backup-policy"></a>Appliquer une stratégie de sauvegarde
+
+Configurer une stratégie de sauvegarde pour le coffre.
+
+1. Dans le coffre, cliquez sur **+ sauvegarde** dans le **vue d’ensemble** section.
+
+   ![Bouton de sauvegarde](./media/backup-azure-arm-vms-prepare/backup-button.png)
+
+
+2. Dans **objectif de sauvegarde** > **où s’exécute votre charge de travail ?** sélectionnez **Azure**. Dans **que voulez-vous sauvegarder ?** sélectionnez **machine virtuelle** >  **OK**. L’extension de machine virtuelle est inscrite dans le coffre.
+
+   ![Volets Sauvegarde et Objectif de sauvegarde](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+
+3. Dans **Stratégie de sauvegarde**, sélectionnez la stratégie à associer au coffre. 
+    - Sauvegarde de la stratégie par défaut de la machine virtuelle une fois par jour. Les sauvegardes quotidiennes sont conservées pendant 30 jours. Instantanés de la récupération instantanée sont conservés pendant deux jours.
+    - Si vous ne souhaitez pas utiliser la stratégie par défaut, sélectionnez **créer un nouveau**et créer une stratégie personnalisée comme décrit dans la procédure suivante.
+
+      ![Stratégie de sauvegarde par défaut](./media/backup-azure-arm-vms-prepare/default-policy.png)
+
+4. Dans **sélectionner les machines virtuelles**, sélectionnez les machines virtuelles que vous souhaitez sauvegarder à l’aide de la stratégie. Cliquez ensuite sur **OK**.
+
+   - Les machines virtuelles sélectionnées sont validés.
+   - Vous pouvez uniquement sélectionner les machines virtuelles situées dans la même région que le coffre.
+   - Vous pouvez sauvegarder des machines virtuelles uniquement dans un même coffre.
+
+     ![Volet Sélectionner les machines virtuelles](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+
+5. Dans **sauvegarde**, cliquez sur **activer la sauvegarde**. Cette action permet de déployer la stratégie dans le coffre et sur les machines virtuelles, puis d’installer l’extension de sauvegarde sur l’agent de machine virtuelle en cours d’exécution sur la machine virtuelle Azure.
+     
+     ![Bouton Activer la sauvegarde](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+
+Après avoir activé la sauvegarde :
+
+- Il installe l’extension de sauvegarde, que la machine virtuelle soit ou non en cours d’exécution.
+- Une sauvegarde initiale s’exécute conformément à votre planification de sauvegarde.
+- Lors de l’exécution des sauvegardes, notez que :
+    - Une machine virtuelle qui est en cours d’exécution ont le plus de chance pour capturer un point de récupération cohérent d’application.
+    - Toutefois, même si la machine virtuelle est désactivée. il est sauvegardé. Une machine virtuelle est appelée sur une machine virtuelle en mode hors connexion. Dans ce cas, le point de récupération seront cohérents d’incident.
+    
+
+### <a name="create-a-custom-policy"></a>Créer une stratégie personnalisée
+
+Si vous avez sélectionné pour créer une stratégie de sauvegarde, renseignez les paramètres de stratégie.
+
+1. Dans **nom de la stratégie**, spécifiez un nom explicite.
+2. Dans **la planification de sauvegarde** spécifier quand les sauvegardes doivent être effectuées. Vous pouvez tirer des sauvegardes quotidiennes ou hebdomadaires pour les machines virtuelles Azure.
+2. Dans **la restauration instantanée**, spécifiez la durée pendant laquelle vous souhaitez conserver des instantanés localement pour la restauration instantanée.
+    - Lorsque vous restaurez, sauvegardé une machine virtuelle, les disques sont copiés à partir du stockage, sur le réseau vers l’emplacement de stockage de récupération. Avec la restauration instantanée, vous pouvez tirer parti prises pendant une opération de sauvegarde, sans attendre les données seront transférés vers le coffre de sauvegarde de captures instantanées stockées localement.
+    - Vous pouvez conserver des instantanés pour la restauration instantanée pour entre une à cinq jours. Deux jours est le paramètre par défaut.
+3. Dans **durée de rétention**, spécifiez la durée pendant laquelle vous souhaitez conserver vos points de sauvegarde quotidiennes ou hebdomadaires.
+4. Dans **rétention mensuelle du point de sauvegarde**, spécifiez si vous souhaitez conserver un mensuel de sauvegarde de vos sauvegardes quotidiennes ou hebdomadaires. 
+5. Cliquez sur **OK** pour enregistrer les modifications.
+
+    ![Stratégie de sauvegarde](./media/backup-azure-arm-vms-prepare/new-policy.png)
+
+> [!NOTE]
+   > Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge lors du passage à l’heure d’été pour les sauvegardes de machines virtuelles Azure. Comme l’heure d’été se produire, modifier des stratégies de sauvegarde manuellement en fonction des besoins.
+
+## <a name="trigger-the-initial-backup"></a>Déclencher la sauvegarde initiale
+
+La sauvegarde initiale s’exécute conformément au planning, mais vous pouvez l’exécuter immédiatement en procédant comme suit :
+
+1. Dans le menu du coffre, cliquez sur **Éléments de sauvegarde**.
+2. Sur **Éléments de sauvegarde**, cliquez sur **Machine virtuelle Azure**.
+3. Dans le **éléments de sauvegarde** , cliquez sur les points de suspension (...).
+4. Cliquez sur **Sauvegarder maintenant**.
+5. Dans **sauvegarder maintenant**, utilisez le contrôle calendrier pour sélectionner le dernier jour où le point de récupération doit être conservé. Cliquez ensuite sur **OK**.
+6. Surveiller les notifications du portail. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre > **Travaux de sauvegarde** > **En cours d’exécution**. Selon la taille de votre machine virtuelle, la création de la sauvegarde initiale peut prendre un certain temps.
+
+## <a name="optional-steps-install-agentallow-outbound"></a>Étapes facultatives (installer l’agent/autoriser le trafic sortant)
+### <a name="install-the-vm-agent"></a>Installer l’agent de machine virtuelle
 
 Sauvegarde Azure sauvegarde les machines virtuelles Azure en installant une extension à l’agent de machine virtuelle Azure en cours d’exécution sur l’ordinateur. Si votre machine virtuelle a été créé à partir d’une image de place de marché Azure, l’agent est installé et en cours d’exécution. Si vous créez une machine virtuelle personnalisée ou si vous migrez un ordinateur local, vous devrez peut-être installer l’agent manuellement, comme décrit dans le tableau.
 
@@ -53,24 +167,23 @@ Sauvegarde Azure sauvegarde les machines virtuelles Azure en installant une exte
 **Windows** | 1. [Téléchargez et installez](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) le fichier MSI de l’agent.<br/><br/> 2. Installez-le avec les autorisations d’administrateur pour l’ordinateur.<br/><br/> 3. Vérifiez l’installation. Dans *C:\WindowsAzure\Packages* sur la machine virtuelle, avec le bouton droit **WaAppAgent.exe** > **propriétés**. Sur le **détails** onglet, **version_produit** doit être défini sur 2.6.1198.718 ou une version ultérieure.<br/><br/> Si vous mettez à jour l’agent, assurez-vous qu’aucune opération de sauvegarde n’est en cours d’exécution, et [réinstaller l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Installer à l’aide d’un package RPM ou un package DEB à partir du référentiel de package de votre distribution. Il s’agit de la méthode recommandée pour l’installation et la mise à niveau l’agent Linux Azure. Tous les [fournisseurs de distribution approuvés](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) intègrent l’agent Azure Linux dans leurs images et référentiels. L’agent est disponible sur [GitHub](https://github.com/Azure/WALinuxAgent), mais nous ne recommandons pas d’effectuer une installation depuis ce site.<br/><br/> Si vous mettez à jour l’agent, assurez-vous qu’aucune opération de sauvegarde est en cours d’exécution et mettre à jour les fichiers binaires.
 
-
-### <a name="establish-network-connectivity"></a>Établir la connectivité réseau
+### <a name="explicitly-allow-outbound-access"></a>Autoriser explicitement l’accès sortant
 
 L’extension de sauvegarde en cours d’exécution sur la machine virtuelle a besoin d’un accès sortant vers des adresses IP publiques Azure.
 
-En règle générale, vous n’avez pas besoin d’autoriser explicitement l’accès réseau sortant pour une machine virtuelle Azure pour qu’il puisse communiquer avec Azure Backup.
-Si vos machines virtuelles ne peut pas se connecter, et si vous voyez l’erreur **ExtensionSnapshotFailedNoNetwork**, vous devez autoriser explicitement l’accès. L’extension de sauvegarde peut ensuite communiquer avec des adresses IP publiques Azure pour le trafic de sauvegarde.
+- En général vous n’avez pas besoin d’autoriser explicitement l’accès réseau sortant pour une machine virtuelle Azure afin qu’il communique avec la sauvegarde Azure.
+- Si vous rencontrez des difficultés avec les machines virtuelles connexion, ou si vous voyez l’erreur **ExtensionSnapshotFailedNoNetwork** lorsque vous tentez de vous connecter, vous devez autoriser explicitement l’accès pour que l’extension de sauvegarde puisse communiquer à l’adresse IP publique Azure adresses pour le trafic de sauvegarde. Méthodes d’accès sont résumées dans le tableau suivant.
 
-
-#### <a name="explicitly-allow-outbound-access"></a>Autoriser explicitement l’accès sortant
-
-Si une machine virtuelle ne peut pas se connecter au service de sauvegarde, vous devez explicitement autoriser un accès sortant en utilisant l’une des méthodes résumées dans le tableau.
 
 **Option** | **Action** | **Détails** 
 --- | --- | --- 
-**Définir des règles de groupe de sécurité réseau** | autorisez les [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Plutôt que de ce qui permet la gestion de chaque plage d’adresses, vous pouvez ajouter une règle de groupe de sécurité réseau qui autorise l’accès au service sauvegarde Azure en utilisant un [balise de service](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). [Plus d’informations](../virtual-network/security-overview.md#service-tags)<br/><br/> Il n’existe aucun coût supplémentaire.<br/><br/> Les règles sont simples à gérer avec des balises de service.
-**Déployer un proxy** | Déployer un serveur de proxy HTTP pour acheminer le trafic. | Cette méthode permet d’accéder à l’ensemble d’Azure et pas seulement au stockage.<br/><br/> Le contrôle granulaire des URL de stockage est autorisé.<br/><br/> Il existe un seul point d’accès internet pour les machines virtuelles.<br/><br/> Il existe des frais supplémentaires pour un serveur proxy.
-**Configurer le pare-feu d’Azure** | Autoriser le trafic via le pare-feu d’Azure sur la machine virtuelle, à l’aide d’une balise de nom de domaine complet pour le service de sauvegarde Azure. |  Cette méthode est simple à utiliser si vous avez des pare-feu Azure défini dans le sous-réseau d’un réseau virtuel.<br/><br/> Vous ne peut pas créer vos propres balises de nom de domaine complet, ou modifiez les noms de domaine complets dans une balise.<br/><br/> Si vous utilisez Azure Managed Disks, vous devrez peut-être ouvrir un port supplémentaire (le port 8443) sur les pare-feu.
+**Définir des règles de groupe de sécurité réseau** | autorisez les [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> Plutôt que de ce qui permet la gestion de chaque plage d’adresses, vous pouvez ajouter une règle qui autorise l’accès au service sauvegarde Azure en utilisant un [balise de service](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [En savoir plus](../virtual-network/security-overview.md#service-tags) sur les balises de service.<br/><br/> Balises de services simplifient la gestion des accès et n’entraînent des frais supplémentaires.
+**Déployer un proxy** | Déployer un serveur de proxy HTTP pour acheminer le trafic. | Fournit un accès à l’ensemble d’Azure et pas seulement au stockage.<br/><br/> Le contrôle granulaire des URL de stockage est autorisé.<br/><br/> Un seul point d’accès Internet pour les machines virtuelles.<br/><br/> Frais supplémentaires pour le proxy.
+**Configurer le pare-feu d’Azure** | autorisez le trafic via le Pare-feu Azure sur la machine virtuelle, en utilisant une balise FQDN pour le service Sauvegarde Azure | Simple à utiliser si vous avez Azure pare-feu configuré dans un sous-réseau de réseau virtuel.<br/><br/> Vous ne peut pas créer vos propres balises de nom de domaine complet, ou modifiez les noms de domaine complets dans une balise.<br/><br/> Si vos machines virtuelles Azure ont des disques managés, vous devrez peut-être ouvrir un autre port (8443) sur les pare-feu.
+
+#### <a name="establish-network-connectivity"></a>Établir la connectivité réseau
+
+Établir une connexion avec le groupe de sécurité réseau, par proxy ou via le pare-feu
 
 ##### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Configurer une règle de groupe de sécurité réseau pour autoriser l’accès sortant vers Azure
 
@@ -156,82 +269,12 @@ Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
 
-### <a name="allow-firewall-access-by-using-an-fqdn-tag"></a>Autoriser l’accès de pare-feu à l’aide d’une balise de nom de domaine complet
+##### <a name="allow-firewall-access-with-an-fqdn-tag"></a>Autoriser l’accès de pare-feu avec une balise de nom de domaine complet
 
 Vous pouvez configurer des pare-feu Azure pour autoriser l’accès sortant du trafic réseau vers sauvegarde Azure.
 
 - [Découvrez-en plus](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) sur le déploiement du Pare-feu Azure.
 - [Découvrez](https://docs.microsoft.com/azure/firewall/fqdn-tags) les balises FQDN.
-
-## <a name="modify-storage-replication-settings"></a>Modifier les paramètres de réplication de stockage
-
-Par défaut, votre coffre utilise un [stockage géoredondant (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). Nous recommandons GRS pour votre sauvegarde principale. Vous pouvez utiliser [stockage localement redondant (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour une option plus économique.
-
-Modifiez le type de réplication de stockage comme suit :
-
-1. Dans le portail, sélectionnez le nouveau coffre. Sous **paramètres**, sélectionnez **propriétés**.
-2. Dans **propriétés**, sous **Configuration de la sauvegarde**, sélectionnez **mise à jour**.
-3. Sélectionnez le type de réplication de stockage, puis **enregistrer**.
-
-![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
-
-
-## <a name="configure-a-backup-policy"></a>Configurer une stratégie de sauvegarde
-
-Découvrez les machines virtuelles incluses dans l’abonnement, puis configurez la sauvegarde.
-
-1. Dans le coffre > **vue d’ensemble**, sélectionnez **+ sauvegarde**.
-
-   ![Bouton de sauvegarde](./media/backup-azure-arm-vms-prepare/backup-button.png)
-
-   Les volets **Sauvegarde** et **Objectif de sauvegarde** s’ouvrent.
-
-2. Dans **Objectif de sauvegarde** > **Où s’exécute votre charge de travail ?**, sélectionnez **Azure**. Dans **Que voulez-vous sauvegarder ?**, sélectionnez **Machine virtuelle** >  **OK**.
-
-   ![Volets Sauvegarde et Objectif de sauvegarde](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
-
-   Cette étape inscrit l’extension de machine virtuelle auprès du coffre. Le volet **Objectif de sauvegarde** se ferme et le volet **Stratégie de sauvegarde** s’ouvre.
-
-3. Dans **Stratégie de sauvegarde**, sélectionnez la stratégie à associer au coffre. Sélectionnez ensuite **OK**.
-    - Les détails de la stratégie par défaut sont répertoriés dans le menu déroulant à l’écran.
-    - Sélectionnez **créer un nouveau** pour créer une stratégie. [Découvrez-en plus](backup-azure-arm-vms-prepare.md#configure-a-backup-policy) sur la définition d’une stratégie.
-
-    ![Volets Sauvegarde et Stratégie de sauvegarde](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-
-4. Dans le **sélectionner les machines virtuelles** volet, sélectionnez les machines virtuelles qui utiliseront la stratégie de sauvegarde spécifiée > **OK**.
-
-   La machine virtuelle sélectionnée est validée. Vous pouvez uniquement sélectionner les machines virtuelles situées dans la même région que le coffre. Vous pouvez sauvegarder des machines virtuelles uniquement dans un même coffre.
-
-   ![Volet Sélectionner les machines virtuelles](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
-
-5. Dans **Sauvegarde**, sélectionnez **Activer la sauvegarde**.
-
-   Cette étape déploie la stratégie dans le coffre et aux machines virtuelles. Il installe également l’extension de sauvegarde sur l’agent de machine virtuelle en cours d’exécution sur la machine virtuelle Azure.
-   
-   Cette étape ne crée pas le point de récupération initial pour la machine virtuelle.
-
-   ![Bouton Activer la sauvegarde](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
-
-Après avoir activé la sauvegarde :
-
-- Une sauvegarde initiale s’exécute conformément à votre planification de sauvegarde.
-- Il installe l’extension de sauvegarde, que la machine virtuelle soit ou non en cours d’exécution.
-
-Une machine virtuelle en cours d’exécution offre le plus de chance d’obtenir un point de récupération d’application cohérent. Toutefois, la machine virtuelle est sauvegardée même si elle est désactivée et que l’extension ne peut pas être installée. Il est connu comme une machine virtuelle en mode hors connexion. Dans ce cas, le point de récupération seront cohérents d’incident.
-    
-> [!NOTE]
-> Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge lors du passage à l’heure d’été pour les sauvegardes de machines virtuelles Azure. Modifiez les stratégies de sauvegarde manuellement selon les besoins.
-
-## <a name="run-the-initial-backup"></a>Effectuer la sauvegarde initiale
-
-La sauvegarde initiale s’exécutera conformément à la planification, sauf si vous l’exécutez immédiatement manuellement. L’exécuter manuellement comme suit :
-
-1. Dans le menu du coffre, sélectionnez **éléments de sauvegarde**.
-2. Dans **éléments de sauvegarde**, sélectionnez **Machine virtuelle Azure**.
-3. Dans le **éléments de sauvegarde** , sélectionnez les points de suspension (**...** ).
-4. Sélectionnez **sauvegarder maintenant**.
-5. Dans **sauvegarder maintenant**, utilisez le contrôle calendrier pour sélectionner le dernier jour où le point de récupération doit être conservé > **OK**.
-6. Surveiller les notifications du portail. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre > **Travaux de sauvegarde** > **En cours d’exécution**. Selon la taille de votre machine virtuelle, la création de la sauvegarde initiale peut prendre un certain temps.
 
 
 

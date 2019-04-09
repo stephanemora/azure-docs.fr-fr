@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d20316903efde516ec99b0a548449297bdf1419
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805106"
 documentType: LandingData
-title: Documentation relative à Azure Media Services v3
+title: "Documentation relative à Azure Media Services\_v3"
 metadata:
-  document_id: 
-  title: Documentation Azure Media Services v3 - Tutoriels, informations de référence sur les API | Microsoft Docs
-  description: Découvrez comment diffuser en continu à la demande, diffuser en direct et analyser vos vidéos avec Media Services. Didacticiels, références d’API et autres.
+  document_id: null
+  title: 'Documentation Azure Media Services v3 - Tutoriels, informations de référence sur les API | Microsoft Docs'
+  description: "Découvrez comment encoder et empaqueter du contenu, diffuser des vidéos en streaming à la demande, diffuser en direct et analyser vos vidéos avec Media Services\_v3. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs."
   services: media-services
   author: Juliako
   manager: femila
@@ -21,114 +15,114 @@ metadata:
   ms.date: 03/20/2019
   ms.author: juliako
 abstract:
-  description: Découvrez comment encoder et empaqueter du contenu, diffuser des vidéos en streaming à la demande, diffuser en direct et analyser vos vidéos avec Media Services v3. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs. <br/> Les kits de développement logiciel sont basés sur <a href="https://aka.ms/ams-v3-rest-sdk">Spécification OpenAPI Media Services v3 (Swagger)</a>.
+  description: "Découvrez comment encoder et empaqueter du contenu, diffuser des vidéos en streaming à la demande, diffuser en direct et analyser vos vidéos avec Media Services\_v3. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs. <br/> Les kits de développement logiciel sont basés sur <a href=\"https://aka.ms/ams-v3-rest-sdk\">Spécification OpenAPI Media Services v3 (Swagger)</a>."
 sections:
-- title: 
-  items:
-  - type: list
-    style: cards
-    className: cardImageOuter
+  - title: null
     items:
-    - title: Découvrir les concepts
-      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Chargement et stockage cloud</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encodage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Surveillance</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Analytique multimédia</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Empaquetage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protection</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Vidéo en flux continu</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Clients Player</a></p>
-    - title: Développer avec l’API V3
-      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Commencer à développer avec des kits SDK</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Développer avec REST</a></p>
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: 'Apprenez à créer un compte Media Services, commencez à encoder vos vidéos et utilisez Azure Media Player pour les lire :'
-  - type: list
-    style: icon48
+      - type: list
+        style: cards
+        className: cardImageOuter
+        items:
+          - title: Découvrir les concepts
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Chargement et stockage sur le cloud</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encodage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Surveillance</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Analytique multimédia</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Packaging</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protection</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Vidéo en flux continu</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Clients Player</a></p>'
+          - title: "Développer avec l’API\_V3"
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Commencer à développer avec des kits SDK</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Développer avec REST</a></p>'
+  - title: "Démarrages en 5\_minutes"
     items:
-    - image:
-        src: media/index/dotnet.svg
-      text: Encoder et diffuser en streaming avec .NET
-      href: /azure/media-services/latest/stream-files-dotnet-quickstart
-    - image:
-        src: media/index/cli.svg
-      text: Encoder et diffuser en streaming avec CLI
-      href: /azure/media-services/latest/stream-files-cli-quickstart
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Encoder et diffuser en streaming avec Node.js
-      href: /azure/media-services/latest/stream-files-nodejs-quickstart
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: 'Découvrez comment diffuser des fichiers en continu à la demande, diffuser en direct et analyser vos vidéos avec Media Services v3 :'
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 1
+      - type: paragraph
+        text: "Découvrez comment créer un compte Media Services, puis commencer l’encodage, l’empaquetage et le streaming de vos vidéos\_:"
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/dotnet.svg
+            text: Encoder et diffuser en streaming avec .NET
+            href: /azure/media-services/latest/stream-files-dotnet-quickstart
+          - image:
+              src: media/index/cli.svg
+            text: Encoder et diffuser en streaming avec CLI
+            href: /azure/media-services/latest/stream-files-cli-quickstart
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Encoder et diffuser en streaming avec Node.js
+            href: /azure/media-services/latest/stream-files-nodejs-quickstart
+  - title: Didacticiels pas à pas
     items:
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Le tutoriel charge un fichier vidéo local, encode le fichier et diffuse en streaming le contenu encodé.<p/>
-      href: /azure/media-services/latest/stream-files-tutorial-with-api
-      title: Encoder le fichier chargé et diffuser la vidéo
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Ce tutoriel explique la préparation d’un événement en direct. Il montre ensuite comment utiliser .NET pour créer un type de canal direct d’un événement en direct.</p>
-      href: /azure/media-services/latest/stream-live-tutorial-with-api
-      title: Diffuser en direct
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Ce tutoriel vous montre comment analyser des vidéos avec l’API Azure Media Services.</p>
-      href: /azure/media-services/latest/analyze-videos-tutorial-with-api
-      title: Analyser votre vidéo
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Découvrez comment configurer et utiliser les API Media Services pour chiffrer dynamiquement votre contenu avec AES-128.</p>
-      href: /azure/media-services/latest/protect-with-aes128
-      title: Chiffrer dynamiquement avec AES-128
-    - image:
-        src: media/index/dotnet.svg
-      html: <p>Découvrez comment configurer et utiliser les API Media Services pour chiffrer dynamiquement votre contenu avec multi-DRM (PlayReady, Widevine et FairPlay).</p>
-      href: /azure/media-services/latest/protect-with-drm
-      title: Chiffrer dynamiquement avec multi-DRM
-    - image:
-        src: media/index/rest.svg
-      html: <p>Le tutoriel montre comment encoder un fichier distant basé sur une URL et diffuser la vidéo en streaming.</p>
-      href: /azure/media-services/latest/stream-files-tutorial-with-rest
-      title: Encoder le fichier distant et diffuser la vidéo en streaming
-- title: Exemples
-  items:
-  - type: paragraph
-    text: 'Les exemples GitHub suivants montrent comment utiliser des API pour diffuser des vidéos en streaming, diffuser en direct et analyser vos vidéos avec Media Services v3 :'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: "Les tutoriels vous montrent comment empaqueter de manière sécurisée et juste-à-temps des vidéos à la demande et en direct, et optimiser la distribution avec la puissance du CDN Azure intégré\_:"
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 1
+        items:
+          - image:
+              src: media/index/dotnet.svg
+            html: '<p>Le tutoriel charge un fichier vidéo local, encode le fichier et diffuse en streaming le contenu encodé.<p/>'
+            href: /azure/media-services/latest/stream-files-tutorial-with-api
+            title: Encoder le fichier chargé et diffuser la vidéo
+          - image:
+              src: media/index/dotnet.svg
+            html: <p>Ce tutoriel explique la préparation d’un événement en direct. Il montre ensuite comment utiliser .NET pour créer un type de canal direct d’un événement en direct.</p>
+            href: /azure/media-services/latest/stream-live-tutorial-with-api
+            title: Diffuser en direct
+          - image:
+              src: media/index/dotnet.svg
+            html: <p>Ce tutoriel vous montre comment analyser des vidéos avec l’API Azure Media Services.</p>
+            href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+            title: Analyser votre vidéo
+          - image:
+              src: media/index/dotnet.svg
+            html: <p>Découvrez comment configurer et utiliser les API Media Services pour chiffrer dynamiquement votre contenu avec AES-128.</p>
+            href: /azure/media-services/latest/protect-with-aes128
+            title: Chiffrer dynamiquement avec AES-128
+          - image:
+              src: media/index/dotnet.svg
+            html: '<p>Découvrez comment configurer et utiliser les API Media Services pour chiffrer dynamiquement votre contenu avec multi-DRM (PlayReady, Widevine et FairPlay).</p>'
+            href: /azure/media-services/latest/protect-with-drm
+            title: Chiffrer dynamiquement avec multi-DRM
+          - image:
+              src: media/index/rest.svg
+            html: <p>Le tutoriel montre comment encoder un fichier distant basé sur une URL et diffuser la vidéo en streaming.</p>
+            href: /azure/media-services/latest/stream-files-tutorial-with-rest
+            title: Encoder le fichier distant et diffuser la vidéo en streaming
+  - title: Exemples
     items:
-    - image:
-        src: media/index/cli.svg
-      text: Azure CLI
-      href: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services
-    - image:
-        src: media/index/rest.svg
-      text: REST avec Postman
-      href: https://github.com/Azure-Samples/media-services-v3-rest-postman
-    - image:
-        src: media/index/logo_dotnet_core.svg
-      text: .NET Core avec Visual Studio Code
-      href: https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials
-    - image:
-        src: media/index/dotnet.svg
-      text: .NET avec Visual Studio
-      href: https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Nœud .js
-      href: https://github.com/Azure-Samples/media-services-v3-node-tutorials
-- title: Informations de référence
-  items:
-  - type: paragraph
-    text: ''
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: "Les exemples GitHub suivants montrent comment utiliser des API pour diffuser des vidéos en streaming, diffuser en direct et analyser vos vidéos avec Media\_Services\_v3\_:"
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/cli.svg
+            text: Azure CLI
+            href: 'https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services'
+          - image:
+              src: media/index/rest.svg
+            text: REST avec Postman
+            href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
+          - image:
+              src: media/index/logo_dotnet_core.svg
+            text: ".NET\_Core avec Visual Studio Code"
+            href: 'https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials'
+          - image:
+              src: media/index/dotnet.svg
+            text: .NET avec Visual Studio
+            href: 'https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials'
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Nœud .js
+            href: 'https://github.com/Azure-Samples/media-services-v3-node-tutorials'
+  - title: Informations de référence
     items:
-    - html: <a href="https://aka.ms/ams-v3-cli-ref">Interface de ligne de commande Azure</a>
-    - html: <a href="https://aka.ms/ams-v3-rest-ref">REST</a>
-    - html: <a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>
-    - html: <a href="https://aka.ms/ams-v3-java-ref">Java</a>
-    - html: <a href="https://aka.ms/ams-v3-python-ref">Python</a>
-    - html: <a href="https://aka.ms/ams-v3-nodejs-ref">Node.JS</a>
+      - type: paragraph
+        text: ''
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>'
+          - html: '<a href="https://aka.ms/ams-v3-rest-ref">REST</a>'
+          - html: '<a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>'
+          - html: '<a href="https://aka.ms/ams-v3-java-ref">Java</a>'
+          - html: '<a href="https://aka.ms/ams-v3-python-ref">Python</a>'
+          - html: '<a href="https://aka.ms/ams-v3-nodejs-ref">Node.js</a>'

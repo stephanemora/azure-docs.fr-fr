@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e3cd9d0036a55a3e6de49988dddcd6a91b81b078
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28026a429643c62434ddfd7591126169857a7371
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088653"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265631"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utiliser le service Azure Import/Export pour importer des données dans Azure Files
 
@@ -30,7 +30,7 @@ Avant de créer une tâche d’importation pour transférer des données dans Az
 - Avoir un nombre suffisant de disques correspondant aux [types pris en charge](storage-import-export-requirements.md#supported-disks). 
 - Avoir un système Windows exécutant une [Version de système d’exploitation prise en charge](storage-import-export-requirements.md#supported-operating-systems).
 - [Téléchargez la version 2 de WAImportExport](https://aka.ms/waiev2) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexport`. Par exemple : `C:\WaImportExport`.
-- Dotez-vous d’un compte FedEx/DHL. 
+- Dotez-vous d’un compte FedEx/DHL. Si vous souhaitez utiliser un opérateur autre que FedEx/DHL, contactez l’équipe des opérations de zone de données Azure à `adbops@microsoft.com`.  
     - Le compte doit être valide, doit avoir un solde et doit offrir des fonctionnalités de réexpédition.
     - Générez un numéro de suivi pour le travail d’exportation.
     - Chaque travail doit avoir un numéro de suivi distinct. Plusieurs travaux portant le même numéro de suivi ne sont pas pris en charge.
@@ -145,7 +145,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
 4. Dans **Informations de réexpédition** :
 
-    - Sélectionnez le transporteur dans la liste déroulante.
+    - Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un opérateur autre que FedEx/DHL, choisissez une option existante dans la liste déroulante. Opérations de boîte de données Azure contact de l’équipe à `adbops@microsoft.com` avec les informations concernant le transporteur que vous prévoyez d’utiliser.
     - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. 
     - Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides.
 
@@ -207,7 +207,7 @@ Voici un exemple d’importation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Voir l’état de la tâche et des disques](storage-import-export-view-drive-status.md)
-* [Passer en revue les exigences d’importation/exportation](storage-import-export-requirements.md)
+* [Afficher l’état du travail et de lecteur](storage-import-export-view-drive-status.md)
+* [Passez en revue les exigences d’Import/Export](storage-import-export-requirements.md)
 
 

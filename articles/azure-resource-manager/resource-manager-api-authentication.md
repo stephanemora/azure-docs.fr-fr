@@ -4,22 +4,20 @@ description: Guide de développement portant sur l’authentification avec l’A
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
-manager: timlt
-editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/22/2019
+ms.date: 04/05/2019
 ms.author: dugill
-ms.openlocfilehash: 7e6ce8c4e5e6ff79a8e77708bd76cef6c24cadd3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805514"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264333"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
 
@@ -31,8 +29,6 @@ Votre application peut accéder à ces API de différentes manières :
 2. **Accès de l’application uniquement**: pour les applications qui exécutent des services démons et des tâches planifiées. L’identité de l’application se voit octroyer un accès direct aux ressources. Cette approche fonctionne pour les applications qui nécessitent un accès sans affichage (sans assistance) prolongé à Azure.
 
 Cet article explique pas à pas comment créer une application qui met en œuvre ces deux méthodes d’autorisation. Il montre comment effectuer chaque étape avec l’API REST ou C#. L’application ASP.NET MVC complète est disponible à l’adresse [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-the-web-app-does"></a>Ce que fait l’application web
 
@@ -72,27 +68,9 @@ Gérez vos abonnements connectés :
 ## <a name="register-application"></a>Inscription de l’application
 Avant de commencer l’écriture du code, inscrivez votre application web à Azure Active Directory (AD). L’inscription de l’application entraîne la création d’une identité centrale pour votre application dans Azure AD. Elle contient des informations de base sur votre application, par exemple l’ID du client OAuth, les URL de réponse et les informations d’identification que votre application utilise pour s’authentifier et accéder aux API d’Azure Resource Manager. L’inscription d’application enregistre également les différentes autorisations dont votre application a besoin lors de l’accès APIs Microsoft pour l’utilisateur.
 
-Votre application ayant accès à plusieurs abonnements, vous devez la configurer comme une application mutualisée. Pour passer la validation, indiquez le domaine associé à votre annuaire Azure Active Directory. Pour voir les domaines associés à votre annuaire Azure Active Directory, connectez-vous au portail.
+Pour inscrire votre application, consultez [Guide de démarrage rapide : Inscrire une application avec la plateforme Microsoft identity](../active-directory/develop/quickstart-register-app.md). Donnez un nom à votre application, puis sélectionnez **comptes dans n’importe quel répertoire organisation** pour les types de compte pris en charge. Pour les URL de redirection, indiquez le domaine associé à votre Azure Active Directory.
 
-L’exemple suivant montre comment inscrire l’application à l’aide d’Azure PowerShell. Pour que cette commande fonctionne, vous devez disposer de la version la plus récente (août 2016) d’Azure PowerShell.
-
-```azurepowershell-interactive
-$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
-```
-
-Pour vous connecter en tant qu’application Active Directory, il vous faut l’ID et le mot de passe de l’application. Pour afficher l’ID d’application renvoyé par la commande précédente, utilisez :
-
-```azurepowershell-interactive
-$app.ApplicationId
-```
-
-L’exemple suivant montre comment inscrire l’application à l’aide de l’interface de ligne de commande Azure.
-
-```azurecli-interactive
-az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
-```
-
-Les résultats incluent l’ID de l’application, dont vous avez besoin pour vous authentifier en tant qu’application.
+Pour vous connecter en tant que l’application AD, vous avez besoin de l’ID d’application et une clé secrète. L’ID d’application s’affiche dans la vue d’ensemble de l’application. Pour créer une clé secrète et demander des autorisations de l’API, consultez [Guide de démarrage rapide : Configurer une application cliente pour accéder aux API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Fournir une nouvelle clé secrète client. Pour les autorisations d’API, sélectionnez **Azure Service Management**. Sélectionnez **autorisations déléguées** et **user_impersonation**.
 
 ### <a name="optional-configuration---certificate-credential"></a>Configuration facultative : informations d’identification des certificats
 Azure AD prend également en charge les informations d’identification des certificats pour les applications : vous créez un certificat auto-signé, conservez la clé privée et ajoutez la clé publique lors de l’inscription de votre application Azure AD. Dans le cadre de l’authentification, votre application envoie une petite charge utile à Azure AD, signée à l’aide de votre clé privée ; ensuite, Azure AD valide la signature à l’aide de la clé publique que vous avez inscrite.

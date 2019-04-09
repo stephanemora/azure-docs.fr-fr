@@ -15,12 +15,12 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992095"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006725"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Comprendre les affectations de refus relatives aux ressources Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "57992095"
 Cet article explique comment définir des attributions de refus.
 
 > [!NOTE]
-> À ce stade, la seule façon, vous pouvez ajouter vos propres refuser affectations est à l’aide de plans d’Azure. Pour plus d’informations, consultez [protéger les nouvelles ressources des verrous de ressources Azure plans](../governance/blueprints/tutorials/protect-new-resources.md).
+> À ce stade, la seule façon d’ajouter vos propres affectations de refus est d’utiliser Azure Blueprints. Pour plus d’informations, consultez [Protéger les nouvelles ressources avec des verrous de ressources Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## <a name="deny-assignment-properties"></a>Propriétés des attributions de refus
 
@@ -56,12 +56,12 @@ Cet article explique comment définir des attributions de refus.
 
 ## <a name="system-defined-principal"></a>Principal défini par le système
 
-Le **principal défini par le système** a été introduit pour prendre en charge les affectations de refus. Ce principal représente tous les utilisateurs, groupes, principaux de service et identités managées figurant dans un annuaire Azure AD. Si l’ID du principal est un GUID nul `00000000-0000-0000-0000-000000000000`, et le type de principal `SystemDefined`, le principal représente tous les principaux. `SystemDefined` peut être combiné avec `ExcludePrincipals` pour refuser tous les principaux, à l’exception de certains utilisateurs. `SystemDefined` présente les contraintes suivantes :
+Le **principal défini par le système** a été introduit pour prendre en charge les affectations de refus. Ce principal représente tous les utilisateurs, groupes, principaux de service et identités managées figurant dans un annuaire Azure AD. Si l’ID du principal est un GUID nul `00000000-0000-0000-0000-000000000000`, et le type de principal `SystemDefined`, le principal représente tous les principaux. `SystemDefined` peut être combiné avec `ExcludePrincipals` pour refuser tous les principaux à l’exception de certains utilisateurs. `SystemDefined` présente les contraintes suivantes :
 
 - Il peut être utilisé uniquement dans `Principals` et ne peut pas être utilisé dans `ExcludePrincipals`.
-- `Principals[i].Type` doit être défini sur `SystemDefined`.
+- `Principals[i].Type` Cette propriété doit être définie sur `SystemDefined`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Dresser la liste des affectations de refus relatives aux ressources Azure à l'aide de l'API REST](deny-assignments-rest.md)
+* [Afficher les affectations de refus pour les ressources Azure à l'aide du portail Azure](deny-assignments-portal.md)
 * [Comprendre les définitions de rôle relatives aux ressources Azure](role-definitions.md)

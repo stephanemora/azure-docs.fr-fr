@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9d4661f6c975265ec710b29a8a05cc7ef41b4011
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057419"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268498"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -51,6 +51,8 @@ Les runbooks d'Azure Automation peuvent s'exécuter dans un bac à sable Azure o
 ## <a name="runbook-behavior"></a>Comportement des runbooks
 
 Les runbooks s'exécutent selon la logique avec laquelle ils ont été définis. Si un runbook est interrompu, il redémarre au début. Compte tenu de ce comportement, les runbooks doivent être écrits de manière à pouvoir être redémarrés en cas de problèmes transitoires.
+
+Tâches PowerShell démarrées à partir d’un Runbook a été exécuté dans Azure bac à sable ne peut-être pas s’exécuter en mode langage complet. Pour en savoir plus sur les modes de langage PowerShell, consultez [modes de langage PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes). Pour plus d’informations sur la façon d’interagir avec les travaux dans Azure Automation, consultez [récupération état du travail avec PowerShell](#retrieving-job-status-using-powershell)
 
 ### <a name="creating-resources"></a>Création de ressources
 

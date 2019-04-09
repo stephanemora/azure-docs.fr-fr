@@ -8,23 +8,51 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 4/3/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13d43a3810bc07cede2a49760f122157de86c44d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856088"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010156"
 ---
 # <a name="release-notes"></a>Notes de publication
+
+## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0 : Version d’avril 2019
+
+**Nouvelles fonctionnalités** 
+
+* Le Kit de développement logiciel prend désormais en charge le service de synthèse vocale comme une version bêta. Il est pris en charge sur Windows et Linux Desktop à partir de C++, C#et Java. Pour plus d’informations, consultez le [vue d’ensemble de synthèse vocale](text-to-speech.md#get-started-with-text-to-speech).
+* Le Kit de développement logiciel prend désormais en charge les fichiers audio MP3 et Opus/Ogg en tant que fichiers d’entrée de flux de données. Cette fonctionnalité est uniquement disponible sur Linux à partir de C++ et C# et est actuellement en version bêta (plus de détails [ici](how-to-use-compressed-audio-input-streams.md)).
+* Le Speech SDK pour Java, .NET core, C++ et Objective-C ont acquis une prise en charge de macOS. La prise en charge de Objective-C pour macOS est actuellement en version bêta.
+* iOS : Le Speech SDK pour iOS (Objective-C) est désormais également publié avec un CocoaPod.
+* JavaScript : Prise en charge de microphone non définis par défaut comme périphérique d’entrée.
+* JavaScript : Prise en charge de proxy pour Node.js.
+
+**Exemples**
+
+* Exemples d’utilisation du SDK de reconnaissance vocale avec C++ et Objective-C sur macOS ont été ajoutées.
+* Exemples qui illustrent l’utilisation du service de synthèse vocale ont été ajoutées.
+
+**Améliorations / change**
+
+* Python : Les propriétés supplémentaires des résultats de reconnaissance sont désormais exposées la `properties` propriété.
+* Pour la prise en charge de développement et de débogage supplémentaire, vous pouvez rediriger SDK journalisation et informations de diagnostic dans un fichier journal (plus de détails [ici](how-to-use-logging.md)).
+* JavaScript : Améliorer les performances de traitement audio.
+
+**Résolution des bogues**
+
+* Mac/iOS: Correction d’un bogue qui a conduit à une attente longue lors d’une connexion au Service de reconnaissance vocale n’a pas pu être établie.
+* Python : améliorer la gestion des erreurs pour les arguments dans les rappels de Python.
+* JavaScript : Un état incorrect fixe reporting pour la reconnaissance vocale a pris fin RequestSession.
 
 ## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1 : Réactualisation de février de 2019
 
 Il s’agit d’une version de correctif de bogue et affecte uniquement le Kit de développement natif/managé. Il n’affecte pas la version JavaScript du SDK.
 
-**Correctif de bogue**
+**Résolution de bogue**
 
 * Correction d’une fuite de mémoire lors de l’utilisation de saisie par microphone. Stream en fonction ou un fichier d’entrée n’est pas affectée.
 
@@ -47,7 +75,7 @@ Le nouveau contenu suivant est disponible dans notre [dépôt d’exemples](http
 * Exemples Java supplémentaires pour la traduction avec une sortie audio.
 * Nouvel exemple pour l’utilisation de l’[API REST de transcription Batch](batch-transcription.md).
 
-**Améliorations/Modifications**
+**Améliorations / change**
 
 * Python
   * Vérification de paramètres améliorée et messages d’erreur dans SpeechConfig.
@@ -192,7 +220,7 @@ Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouve
 * Expérimental : prise en charge de Java 8 sur Windows (64 bits) et Linux (Ubuntu 16.04 x64).
   Consultez le [guide de démarrage rapide Java Runtime Environment](quickstart-java-jre.md).
 
-**Changement fonctionnel**
+**Modification fonctionnelle**
 
 * Exposition d’informations supplémentaires sur les erreurs de connexion
 
@@ -221,7 +249,7 @@ Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouve
 
 **Modifications fonctionnelles**
 
-* `StartContinuousRecognitionAsync()` prend en charge les reconnaissances de longue durée.
+* `StartContinuousRecognitionAsync()` prend en charge la reconnaissance de longs.
 * Le résultat des reconnaissances contient davantage de champs. Ils sont décalés par rapport au début de l’audio et de la durée (tous les deux en cycles) du texte reconnu et des valeurs supplémentaires représentant l’état de la reconnaissance, par exemple, `InitialSilenceTimeout` et `InitialBabbleTimeout`.
 * Prise en charge d’AuthorizationToken pour la création d’instances Data Factory.
 
@@ -257,7 +285,7 @@ Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouve
 
   Lorsque vous créez un `SpeechRecognizer`, vous pouvez demander le format de sortie `Detailed` ou `Simple`. Le `DetailedSpeechRecognitionResult` contient un score de confiance, le texte reconnu, la forme lexicale brute, la forme normalisée et la forme normalisée avec les blasphèmes masqués.
 
-**Modification critique**
+**Modification avec rupture**
 
 - `SpeechRecognitionResult.Text` a été remplacé par `SpeechRecognitionResult.RecognizedText` pour le langage C#.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer Asana pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer Asana pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur Asana.
 services: active-directory
 documentationcenter: ''
@@ -13,35 +13,35 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f35de1865f2e02331b8455bbdce92e8fe2f9a1b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a763b2516f88e8c92efc321db50dc15881f54c9b
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210473"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057844"
 ---
-# <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutoriel : Configurer Asana pour le provisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Didacticiel : Configurer Asana pour le provisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à suivre dans Asana et Azure Active Directory (Azure AD) pour attribuer et désattribuer automatiquement des comptes d’utilisateurs d’Azure AD vers Asana.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   un locataire Azure AD ;
-*   un locataire Asana avec un [plan Entreprise](https://www.asana.com/pricing) ou un plan supérieur ; 
-*   un compte d’utilisateur dans Asana avec des autorisations d’administration. 
+* un locataire Azure AD ;
+* un locataire Asana avec un [plan Entreprise](https://www.asana.com/pricing) ou un plan supérieur ;
+* un compte d’utilisateur dans Asana avec des autorisations d’administration.
 
-> [!NOTE] 
+> [!NOTE]
 > L’intégration de l’attribution Azure AD repose sur [l’API Asana](https://asana.com/developers/api-reference/users), qui est accessible à Asana.
 
 ## <a name="assign-users-to-asana"></a>Affecter des utilisateurs à Asana
 
-Azure AD utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre du provisionnement automatique des comptes utilisateur, seuls les utilisateurs affectés à une application dans Azure AD sont synchronisés. 
+Azure AD utilise un concept appelé *affectations* pour déterminer quels utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre du provisionnement automatique des comptes utilisateur, seuls les utilisateurs affectés à une application dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer le service d’attribution, vous devez déterminer quels utilisateurs d’Azure AD ont besoin d’accéder à votre application Asana. Vous pouvez affecter ces utilisateurs à votre application Asana en suivant ces instructions :
 
@@ -51,7 +51,7 @@ Avant de configurer et d’activer le service d’attribution, vous devez déter
 
 Nous vous recommandons d’affecter un seul utilisateur Azure AD à Asana pour tester la configuration de l’attribution. D’autres utilisateurs pourront être affectés ultérieurement.
 
-## <a name="configure-user-provisioning-to-asana"></a>Configurer l’attribution des utilisateurs sur Asana 
+## <a name="configure-user-provisioning-to-asana"></a>Configurer l’attribution des utilisateurs sur Asana
 
 Cette section explique pas à pas comment connecter Azure AD à l’API d’attribution des comptes d’utilisateurs Asana. Vous configurerez également le service d’attribution de façon à créer, à mettre à jour et à désactiver les comptes d’utilisateurs affectés dans Asana en fonction de l’attribution des utilisateurs dans Azure AD.
 
@@ -86,7 +86,7 @@ Cette section explique pas à pas comment connecter Azure AD à l’API d’attr
 
 1. Entrez l’adresse e-mail de la personne ou du groupe qui recevra les notifications d’erreur d’attribution dans **E-mail de notification**. Cochez la case située dessous.
 
-1. Sélectionnez **Enregistrer**. 
+1. Sélectionnez **Enregistrer**.
 
 1. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Asana**.
 
@@ -94,7 +94,7 @@ Cette section explique pas à pas comment connecter Azure AD à l’API d’attr
 
 1. Pour activer le service d’attribution Azure AD pour Asana, définissez **État d’attribution** sur **Activé** dans la section **Paramètres**.
 
-1. Sélectionnez **Enregistrer**. 
+1. Sélectionnez **Enregistrer**.
 
 La synchronisation initiale commence pour les utilisateurs affectés à Asana dans la section **Utilisateurs**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Utilisez la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement. Les journaux d’audit décrivent toutes les actions effectuées par le service de provisionnement dans votre application Asana.
 
@@ -102,6 +102,6 @@ Pour savoir plus en détail comment lire les journaux d’attribution Azure AD, 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gérer l’attribution de comptes d’utilisateurs pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gérer l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 * [Configurer l’authentification unique](asana-tutorial.md)

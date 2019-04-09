@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 04/8/2019
 ms.custom: seodec18
-ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895864"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257975"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Authentifier Analytique Stream pour Azure Data Lake Storage Gen1 à l’aide d’identités gérées
 
@@ -71,7 +71,7 @@ Cet article présente trois façons d'activer une identité managée pour un tra
 
    ![Identités managées dans la configuration du travail Stream Analytics](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. Dans la fenêtre de propriétés de la sortie du récepteur de sortie ADLS Gen1, cliquez sur la liste déroulante Mode d’authentification et sélectionnez **Identité managée (préversion)**.
+2. Dans la fenêtre de propriétés de sortie du récepteur de sortie ADLS Gen1, cliquez sur le mode d’authentification liste déroulante et sélectionnez ** msi **.
 
    ![Identités managées générées par ADLS](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 

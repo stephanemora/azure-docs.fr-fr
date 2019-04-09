@@ -13,30 +13,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36d0985aee53f2a7f701f9bf7887ae26a426b68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d2ab7f58c3061044583baf9db73e193966d7d4eb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203741"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280330"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Didacticiel : Configurer Pingboard pour le provisionnement automatique d’utilisateurs
 
 L’objectif de ce tutoriel est de vous montrer les étapes à suivre pour activer et désactiver le provisionnement automatique de comptes d’utilisateur à partir d’Azure Active Directory (Azure AD) vers Pingboard.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   un locataire Azure AD ;
-*   Un [compte professionnel](https://pingboard.com/pricing) de locataire Pingboard 
-*   Un compte utilisateur dans Pingboard avec des autorisations d’administrateur 
+* un locataire Azure AD ;
+* Un [compte professionnel](https://pingboard.com/pricing) de locataire Pingboard
+* Un compte utilisateur dans Pingboard avec des autorisations d’administrateur
 
-> [!NOTE] 
+> [!NOTE]
 > L’intégration du provisionnement Azure AD repose sur [l’API Pingboard](https://pingboard.docs.apiary.io/#), disponible sur votre compte.
 
 ## <a name="assign-users-to-pingboard"></a>Affectation d’utilisateurs à Pingboard
@@ -69,7 +69,7 @@ Cette section vous guide tout au long de la connexion d’Azure AD à l’API de
 1. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Approvisionnement de Pingboard](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
-    
+
 1. Dans la section **Informations d’identification de l’administrateur**, utilisez les étapes suivantes :
 
     a. Dans **URL de locataire**, entrez `https://your_domain.pingboard.com/scim/v2` et remplacez « your_domain » par votre domaine réel.
@@ -86,7 +86,7 @@ Cette section vous guide tout au long de la connexion d’Azure AD à l’API de
 
 1. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur de provisionnement dans **E-mail de notification**. Cochez la case située dessous.
 
-1. Sélectionnez **Enregistrer**. 
+1. Sélectionnez **Enregistrer**.
 
 1. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to Pingboard** (Synchroniser les utilisateurs Azure Active Directory avec Pingboard).
 
@@ -102,6 +102,6 @@ Pour savoir plus en détail comment lire les journaux d’attribution Azure AD, 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gérer l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 * [Configurer l’authentification unique](pingboard-tutorial.md)

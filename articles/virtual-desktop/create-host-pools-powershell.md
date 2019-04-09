@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 2af9df4771d58f2288820dad8ef8d7ac84deb8ae
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439071"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258468"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Créer un pool d’hôtes avec PowerShell
 
-Les pools d’hôte sont une collection d’un ou plusieurs machines virtuelles identiques au sein d’environnements de client Windows Virtual Desktop Preview. Chaque pool de l’hôte peut contenir un groupe d’application que les utilisateurs peuvent interagir avec comme ils le feraient sur un ordinateur de bureau physique.
+Les pools d’hôtes sont une collection d’une ou de plusieurs machines virtuelles identiques dans des environnements de locataires Windows Virtual Desktop Preview. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Utilisez votre client PowerShell pour créer un pool de l’hôte
 
-Tout d’abord, [télécharger et importer le module PowerShell de bureau virtuel Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell si vous n’avez pas déjà.
+Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell.
 
 Exécutez l’applet de commande suivante pour vous connecter à l’environnement de bureau virtuel Windows
 
@@ -112,9 +112,12 @@ Pour inscrire les agents de bureau virtuel de Windows, procédez comme suit sur 
      - Sélectionnez **fichier**, puis **ouvrir...** , puis recherchez le script PowerShell à partir de fichiers téléchargés et ouvrez-le.
      - Sélectionnez le bouton de lecture vert pour exécuter le script.
 
+>[!IMPORTANT]
+>Pour vous aider à sécuriser votre environnement de bureau virtuel Windows dans Azure, nous vous recommandons de que vous n’ouvrez pas le port entrant 3389 sur vos machines virtuelles. Bureau virtuel Windows ne nécessite pas un port entrant ouvert 3389 pour les utilisateurs à accéder aux machines virtuelles du pool de l’hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser [machine virtuelle l’accès juste-à-temps](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez créé un pool de l’hôte, vous pouvez le remplir avec RemoteApps. Pour en savoir plus sur la gestion des applications de bureau virtuel de Windows, consultez le didacticiel de groupes d’application gérer.
+Maintenant que vous avez créé un pool de l’hôte, vous pouvez le remplir avec RemoteApps. Pour en savoir plus sur la façon de gérer des applications dans Windows Virtual Desktop, consultez le tutoriel Gérer les groupes d’applications.
 
 > [!div class="nextstepaction"]
 > [Gérer le didacticiel de groupes d’applications](./manage-app-groups.md)

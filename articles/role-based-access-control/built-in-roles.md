@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 4557ce7dea207be0bc6f68a62e3dd7f81ce87911
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010666"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281214"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 
@@ -121,7 +121,6 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Propriétaire de compte Points d'ancrage Spatial](#spatial-anchors-account-owner) | Vous permet de gérer les points d'ancrage spatiaux dans votre compte, notamment les supprimer |
 | [Lecteur de compte Points d'ancrage Spatial](#spatial-anchors-account-reader) | Vous permet de localiser et de lire les propriétés des points d'ancrage spatiaux dans votre compte |
 | [Contributeur de base de données SQL](#sql-db-contributor) | Permet de gérer des bases de données SQL, mais pas d’y accéder. Vous ne pouvez pas non plus gérer leurs stratégies de sécurité ni leurs serveurs SQL parents. |
-| [SQL Managed Instance contributeur](#sql-managed-instance-contributor) | Vous permet de gérer les Instances gérées de SQL, mais ne peut pas donner accès à d’autres personnes. |
 | [Gestionnaire de sécurité SQL](#sql-security-manager) | Permet de gérer les stratégies de sécurité des serveurs et bases de données SQL, mais pas d’y accéder. |
 | [Contributeur SQL Server](#sql-server-contributor) | Permet de gérer des serveurs et bases de données SQL, mais pas d’y accéder, ni de gérer leurs stratégies de sécurité. |
 | [Contributeur de compte de stockage](#storage-account-contributor) | Permet de gérer des comptes de stockage, mais pas d’y accéder. |
@@ -2229,31 +2228,6 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
-> | *Aucun* |  |
-> | **NotDataActions** |  |
-> | *Aucun* |  |
-
-## <a name="sql-managed-instance-contributor"></a>SQL Managed Instance contributeur
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Description** | Vous permet de gérer les Instances gérées de SQL, mais ne peut pas donner accès à d’autres personnes. |
-> | **ID** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
-> | **Actions** |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Network/networkSecurityGroups/write | Crée un groupe de sécurité réseau ou met à jour un groupe de sécurité réseau existant. |
-> | Microsoft.Network/routeTables/write | Crée une table de routage ou met à jour une table de routage existante |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
-> | Microsoft.Network/virtualNetworks/subnets/write | Crée un sous-réseau de réseau virtuel ou met à jour un sous-réseau de réseau virtuel existant. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Joint un réseau virtuel. Pas une erreur. |
-> | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | **NotActions** |  |
-> | *Aucun* |  |
 > | **DataActions** |  |
 > | *Aucun* |  |
 > | **NotDataActions** |  |

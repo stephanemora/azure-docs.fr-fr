@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371794"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278987"
 ---
 # <a name="azure-storage-account-overview"></a>Vue d’ensemble des comptes de stockage Azure
 
-Un compte de stockage Azure contient tous vos objets de données de stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Les données qui se trouvent dans votre compte de stockage Azure sont durables, hautement disponibles, sécurisées, à scalabilité élevée et accessibles partout dans le monde via une connexion HTTP ou HTTPS. 
+Un compte de stockage Azure contient tous vos objets de données de stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Les données qui se trouvent dans votre compte de stockage Azure sont durables, hautement disponibles, sécurisées, à scalabilité élevée et accessibles partout dans le monde via une connexion HTTP ou HTTPS.
 
 Pour plus d’informations sur la création d’un compte de stockage Azure, consultez [Créer un compte de stockage](storage-quickstart-create-account.md).
 
@@ -52,7 +52,7 @@ Les comptes de stockage universels v1 offrent un accès à tous les services du 
 - Files d’attente
 - Tables
 
-Même si les comptes de stockage universels v2 sont recommandés dans la plupart des cas, les comptes v1 sont mieux adaptés aux scénarios suivants : 
+Même si les comptes de stockage universels v2 sont recommandés dans la plupart des cas, les comptes v1 sont mieux adaptés aux scénarios suivants :
 
 * Si vos applications nécessitent le modèle de déploiement Azure Classic. Les comptes universels v2 et les comptes de stockage d’objets blob prennent uniquement en charge le modèle de déploiement Azure Resource Manager.
 
@@ -64,6 +64,10 @@ Même si les comptes de stockage universels v2 sont recommandés dans la plupart
 
 Un compte de stockage des objets blob de bloc est un compte de stockage spécialisé pour stocker les données de l’objet non structurées en tant qu’objets BLOB de blocs ou ajouter des objets BLOB. Comptes de stockage blob de bloc offrent plusieurs niveaux d’accès pour le stockage des données en fonction de vos modèles d’utilisation. Pour plus d’informations, consultez [Niveaux d’accès pour les données d’objets blob de blocs](#access-tiers-for-block-blob-data).
 
+### <a name="filestorage-preview-storage-accounts"></a>Comptes de stockage FileStorage (version préliminaire)
+
+Un compte de stockage FileStorage est un compte de stockage spécialisée utilisé pour stocker et de créer des partages de fichiers premium. Les comptes de stockage FileStorage offrent des caractéristiques de performances d’unique dédié tel que l’e/s de rupture. Pour plus d’informations sur ces caractéristiques, consultez le [niveaux de performances de partage de fichier](../files/storage-files-planning.md#file-share-performance-tiers) section des fichiers de guide de planification.
+
 ## <a name="naming-storage-accounts"></a>Nommage des comptes de stockage
 
 Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de stockage :
@@ -71,7 +75,7 @@ Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de s
 - Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
 - Le nom de votre compte de stockage doit être unique dans Azure. Deux comptes de stockage ne peuvent avoir le même nom.
 
-## <a name="performance-tiers"></a>Niveaux de performances
+## <a name="general-purpose-performance-tiers"></a>Niveaux de performance à usage général
 
 Les comptes de stockage universels peuvent être configurés avec l’un des niveaux de performances suivants :
 
@@ -84,9 +88,9 @@ Le stockage Azure propose différentes options permettant d’accéder aux donn�
 
 Les niveaux d’accès disponibles sont les suivants :
 
-* Le niveau d’accès **Chaud**, qui est optimisé pour les accès fréquents aux objets du compte de stockage. L’accès aux données de niveau Chaud est le plus économique. Les coûts de stockage sont toutefois un peu plus élevés. Par défaut, les nouveaux comptes de stockage sont créés au niveau Chaud.
-* Le niveau d’accès **Froid**, qui est optimisé pour le stockage d’une grande quantité de données rarement sollicitées et stockées depuis au moins 30 jours. Le stockage des données au niveau Froid est plus économique. Toutefois, l’accès à ces données peut être un peu plus onéreux que celui du niveau Chaud.
-* Le niveau **Archive**, qui est disponible uniquement pour chaque objet blob de blocs. Le niveau Archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et qui restent dans le niveau Archive pendant au moins 180 jours. Le niveau Archive est l’option de stockage la plus économique. Toutefois, l’accès à ces données peut être un peu plus onéreux que celui du niveau Chaud ou Froid. 
+* Le niveau d’accès **Chaud**, qui est optimisé pour les accès fréquents aux objets du compte de stockage. Accès aux données au niveau chaud est plus économique, tandis que les coûts de stockage sont plus élevés. Par défaut, les nouveaux comptes de stockage sont créés au niveau Chaud.
+* Le niveau d’accès **Froid**, qui est optimisé pour le stockage d’une grande quantité de données rarement sollicitées et stockées depuis au moins 30 jours. Stockage des données à froid est plus rentable, mais l’accès à ces données peut être plus coûteux que l’accès aux données au niveau chaud.
+* Le niveau **Archive**, qui est disponible uniquement pour chaque objet blob de blocs. Le niveau Archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et qui restent dans le niveau Archive pendant au moins 180 jours. Le niveau Archive est l’option de stockage la plus économique. Toutefois, l’accès à ces données peut être un peu plus onéreux que celui du niveau Chaud ou Froid.
 
 En cas de changement de votre modèle d’utilisation des données, vous pouvez basculer d’un niveau d’accès à l’autre à tout moment. Pour plus d’informations sur les niveaux d’accès, consultez [stockage Blob Azure : chaud, froid et archive les niveaux d’accès](../blobs/storage-blob-storage-tiers.md).
 

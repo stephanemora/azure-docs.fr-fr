@@ -1,22 +1,22 @@
 ---
-title: Configurer le glossaire métier pour un balisage géré dans Azure Data Catalog
+title: Configurer le glossaire métier dans Azure Data Catalog
 description: Article de procédure relatif au glossaire métier d’Azure Data Catalog, qui permet de définir et d’utiliser un vocabulaire métier commun en vue de baliser les ressources de données inscrites.
-services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: b3d63dbe-1ae7-499f-bc46-42124e950cd6
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 9c5d7ac792f2a68d6187c7c2831b1e7404f41f30
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.openlocfilehash: 0337b2a7a228052dacfb35982ee6e8d62372fb29
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409420"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264214"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Configurer le glossaire métier pour un balisage géré
-## <a name="introduction"></a>Introduction
+
+## <a name="introduction"></a>Présentation
+
 Azure Data Catalog autorise la détection de sources de données pour que vous puissiez découvrir et comprendre facilement les sources de données dont vous avez besoin pour effectuer des analyses et prendre des décisions. Ces fonctionnalités se révèlent tout particulièrement utiles lorsque vous pouvez trouver et comprendre le plus large éventail de sources de données disponibles.
 
 L’une des fonctionnalités de Data Catalog qui favorise une meilleure compréhension des données de ressources est le balisage. En utilisant le balisage, vous pouvez associer des mots clés à une ressource ou une colonne, ce qui rendra la recherche et la navigation plus efficaces. Le balisage vous permet aussi de mieux comprendre le contexte et le rôle d’une ressource.
@@ -31,7 +31,8 @@ Pour faire face à ce type de difficulté, Data Catalog met à disposition un gl
 Le glossaire métier de Data Catalog permet aux organisations de rassembler les principaux termes métier et leurs définitions pour créer un vocabulaire métier commun. Cette gouvernance favorise une utilisation cohérente des données à l’échelle de l’organisation. Après avoir défini un terme dans le glossaire métier, il peut être affecté à une ressource de données du catalogue. Cette approche, *le balisage géré*, est similaire au balisage classique.
 
 ## <a name="glossary-availability-and-privileges"></a>Disponibilité du glossaire et privilèges
-Le glossaire métier est disponible uniquement dans l’édition Standard d’Azure Data Catalog. L’édition gratuite de Data Catalog n’inclut pas de glossaire ni ne fournit de fonctionnalités de balisage géré.
+
+Le glossaire métier est disponible uniquement dans l’édition Standard d’Azure Data Catalog. L’édition gratuite de Data Catalog n’inclut pas un glossaire et il ne fournit des fonctionnalités de balisage géré.
 
 Le glossaire métier est accessible via l’option **Glossaire** du menu de navigation du portail Data Catalog.  
 
@@ -42,6 +43,7 @@ Les administrateurs de Data Catalog et les membres du rôle Administrateurs de g
 ![Ajout d’un nouveau terme de glossaire](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 ## <a name="creating-glossary-terms"></a>Création de termes de glossaire
+
 Les administrateurs de Data Catalog et les administrateurs de glossaire peuvent créer des termes de glossaire en cliquant sur **Nouveau terme**. Chaque terme de glossaire contient les champs suivants :
 
 * définition métier du terme ;
@@ -50,30 +52,34 @@ Les administrateurs de Data Catalog et les administrateurs de glossaire peuvent 
 * terme parent qui définit la hiérarchie dont dépend le terme.
 
 ## <a name="glossary-term-hierarchies"></a>Hiérarchies de termes de glossaire
+
 Le glossaire métier de Data Catalog permet aux organisations de construire son vocabulaire métier comme une hiérarchie de termes et de créer une classification de termes qui représente mieux la taxonomie de son entreprise.
 
-Un terme doit être unique à un niveau donné de la hiérarchie. Les noms en double ne sont pas autorisés. Il n’existe aucune limite quant au nombre de niveaux dont est constituée une hiérarchie, mais celle-ci sera plus facile à cerner si elle n’en comporte pas plus de trois.
+Un terme doit être unique à un niveau donné de la hiérarchie. Noms en double ne sont pas autorisés. Il n’existe aucune limite quant au nombre de niveaux dont est constituée une hiérarchie, mais celle-ci sera plus facile à cerner si elle n’en comporte pas plus de trois.
 
 L’utilisation de hiérarchies dans le glossaire métier est facultative. Le fait de laisser le champ Terme parent vide pour des termes du glossaire a pour effet de créer une liste de termes plate (non hiérarchisée) dans le glossaire.  
 
 ## <a name="tagging-assets-with-glossary-terms"></a>Balisage de ressources avec des termes de glossaire
+
 Après avoir défini des termes de glossaire dans le catalogue, le balisage de ressources est optimisé pour les recherches dans le glossaire à mesure qu’un utilisateur tape une balise. Le portail Data Catalog affiche une liste de termes de glossaire correspondants à choisir. Si l’utilisateur sélectionne un terme de glossaire dans la liste, celui-ci est ajouté à la ressource sous forme de balise (également appelée balise de glossaire). L’utilisateur peut aussi choisir de créer une balise en tapant un terme qui ne se trouve pas dans le glossaire (dans ce cas, on parle de balise utilisateur).
 
 ![Ressource de données balisée avec une balise utilisateur et deux balises de glossaire](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
 
 > [!NOTE]
 > La balise utilisateur est le seul type de balise pris en charge dans l’édition gratuite de Data Catalog.
->
->
 
 ### <a name="hover-behavior-on-tags"></a>Comportement du pointage sur les balises
+
 Dans le portail Data Catalog, les deux types de balise se distinguent l’un de l’autre tant sur le plan visuel que sur le plan du comportement du pointage. En pointant sur une balise utilisateur, vous pouvez voir le texte de la balise et l’identité du ou des utilisateurs ayant ajouté la balise. En pointant sur une balise de glossaire, vous obtenez aussi la définition du terme de glossaire, ainsi qu’un lien permettant d’ouvrir le glossaire métier pour y consulter la définition complète du terme.
 
 ### <a name="search-filters-for-tags"></a>Filtres de recherche pour les balises
+
 Les balises de glossaire comme les balises utilisateur peuvent non seulement faire l’objet de recherches, mais elles peuvent aussi servir de filtres dans une recherche.
 
 ## <a name="summary"></a>Résumé
+
 Le glossaire métier d’Azure Data Catalog et le balisage géré qu’il autorise vous permettent d’identifier, de gérer et de découvrir les ressources de données de façon cohérente. Le glossaire métier permet de promouvoir l’apprentissage du vocabulaire métier par les employés. Le glossaire prend également en charge la capture de métadonnées explicites, ce qui simplifie la compréhension et la détection de ressource.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Documentation de l’API REST pour les opérations de glossaire métier](https://msdn.microsoft.com/library/mt708855.aspx)
+
+* [Documentation de l’API REST pour les opérations de glossaire métier](/rest/api/datacatalog/data-catalog-glossary)

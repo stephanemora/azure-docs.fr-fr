@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15b37c4845526227799173b09f468701954fc7b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6ecbac8af86c3c2c76b7710eb61f71481b86291b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449315"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009867"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurer des identités gérées pour les ressources Azure à l’échelle de machine virtuelle Azure à l’aide d’un modèle
 
@@ -60,7 +60,7 @@ Quelle que soit l’option choisie, la syntaxe de modèle est identique lors du 
 
 Dans cette section, vous allez activer et désactiver l’identité managée affectée par le système en utilisant un modèle Azure Resource Manager.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-a-existing-virtual-machine-scale-set"></a>Activer une identité managée affectée par le système pendant la création d’un groupe de machines virtuelles identiques ou dans un groupe de machines virtuelles identiques existant
+### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Activer attribué par le système identité gérée lors de la création de la création d’un ensemble d’échelle de machines virtuelles ou un jeu de mise à l’échelle de machine virtuelle existant
 
 1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient le groupe de machines virtuelles identiques.
 2. Pour activer l’identité managée affectée par le système, chargez le modèle dans un éditeur, recherchez la ressource `Microsoft.Compute/virtualMachinesScaleSets` qui vous intéresse dans la section des ressources, puis ajoutez la propriété `identity` au même niveau que la propriété `"type": "Microsoft.Compute/virtualMachinesScaleSets"`. Utilisez la syntaxe suivante :
@@ -123,11 +123,11 @@ Si vous disposez d’un groupe de machines virtuelles identiques qui n’a plus 
 
 2. Chargez le modèle dans un [éditeur](#azure-resource-manager-templates) et localisez la ressource `Microsoft.Compute/virtualMachineScaleSets` qui vous intéresse dans la section `resources`. Si votre machine virtuelle dispose uniquement d’une identité managée affectée par le système, vous pouvez la désactiver en remplaçant le type d’identité par `None`.
 
-   **API Microsoft.Compute/virtualMachineScaleSets version du 01/06/2018**
+   **Microsoft.Compute/virtualmachinescalesets API version 2018-06-01**
 
    Si votre version d’API est `2018-06-01` et que votre machine virtuelle a des identités managées affectées par le système et l’utilisateur, supprimez `SystemAssigned` dans le type d’identité et conservez `UserAssigned` avec les valeurs du dictionnaire userAssignedIdentities.
 
-   **API Microsoft.Compute/virtualMachineScaleSets version du 01/06/2018**
+   **Microsoft.Compute/virtualmachinescalesets API version 2018-06-01**
 
    Si votre version d’API est `2017-12-01` et que votre groupe de machines virtuelles identiques dispose d’identités managées affectées par le système et par l’utilisateur, supprimez `SystemAssigned` dans le type d’identité et conservez `UserAssigned` avec le tableau `identityIds` des identités managées affectées par l’utilisateur. 
    
@@ -158,7 +158,7 @@ Dans cette section, vous allez affecter une identité managée affectée par l�
 
 1. Sous l’élément `resources`, ajoutez l’entrée suivante pour attribuer une identité managée affectée par l’utilisateur à votre groupe de machines virtuelles identiques.  Veillez à remplacer `<USERASSIGNEDIDENTITY>` par le nom de l’identité managée affectée par l’utilisateur que vous avez créée.
    
-   **API Microsoft.Compute/virtualMachineScaleSets version du 01/06/2018**
+   **Microsoft.Compute/virtualmachinescalesets API version 2018-06-01**
 
    Si votre version d’API est `2018-06-01`, vos identités managées affectées par l’utilisateur sont stockées dans le format de dictionnaire `userAssignedIdentities`, et la valeur `<USERASSIGNEDIDENTITYNAME>` doit être stockée dans une variable définie au sein de la section `variables` de votre modèle.
 
@@ -177,7 +177,7 @@ Dans cette section, vous allez affecter une identité managée affectée par l�
    }
    ```   
 
-   **API Microsoft.Compute/virtualMachineScaleSets version du 01/12/2017**
+   **Microsoft.Compute/virtualmachinescalesets API version 2017-12-01**
     
    Si votre `apiVersion` est `2017-12-01` ou une version antérieure, vos identités managées affectées par l’utilisateur sont stockées dans le tableau `identityIds` et la valeur `<USERASSIGNEDIDENTITYNAME>` doit être stockée dans une variable définie au sein de la section des variables de votre modèle.
 
@@ -200,7 +200,7 @@ Dans cette section, vous allez affecter une identité managée affectée par l�
 
 3. Quand vous avez terminé, votre modèle doit ressembler au suivant :
    
-   **API Microsoft.Compute/virtualMachineScaleSets version du 01/06/2018**   
+   **Microsoft.Compute/virtualmachinescalesets API version 2018-06-01**   
 
    ```json
    "resources": [
@@ -243,7 +243,7 @@ Dans cette section, vous allez affecter une identité managée affectée par l�
     ]
    ```
 
-   **API Microsoft.Compute/virtualMachines version 2017-12-01**
+   **Microsoft.Compute/virtualmachines API version 2017-12-01**
 
    ```json
    "resources": [
@@ -306,13 +306,13 @@ Si vous disposez d’un groupe de machines virtuelles identiques qui n’a plus 
    }
    ```
    
-   **API Microsoft.Compute/virtualMachineScaleSets version du 01/06/2018**
+   **Microsoft.Compute/virtualmachinescalesets API version 2018-06-01**
     
    Pour supprimer une seule identité managée assignée par l’utilisateur d’un groupe de machines virtuelles identiques, supprimez-la du dictionnaire `userAssignedIdentities`.
 
    Si vous disposez d’une identité affectée par le système, conservez-la dans la valeur `type` sous la valeur `identity`.
 
-   **API Microsoft.Compute/virtualMachineScaleSets version du 01/12/2017**
+   **Microsoft.Compute/virtualmachinescalesets API version 2017-12-01**
 
    Pour supprimer une seule identité managée affectée par l’utilisateur dans un groupe de machines virtuelles identiques, supprimez-la du tableau `identityIds`.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/05/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f79ecd96b15ff4ff96a3bb93061f0c9d7598191f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 849bcfe2b5ee177d06b8e4cf62fd29459d2e59ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338154"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278392"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Didacticiel : Inscrire une application dans Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Si vous n’avez pas encore créé votre propre [locataire Azure AD B2C](tutoria
 
 ## <a name="create-a-client-secret"></a>Créer une clé secrète client
 
-Si votre application échange un code contre un jeton, vous devez créer un secret d’application.
+Si votre application échange un code pour un jeton, vous devez créer un secret d’application.
 
 1. Sélectionnez **Clés**, puis cliquez sur **Générer une clé**.
 2. Sélectionnez **Enregistrer** pour afficher la clé. Prenez note de la valeur **Clé d’application** . Vous utilisez la valeur en tant que secret d’application dans le code de votre application.

@@ -2,16 +2,16 @@
 title: Gérer l’accès à Azure Site Recovery avec le contrôle d’accès en fonction du rôle (RBAC) | Microsoft Docs
 description: Cet article décrit comment appliquer le contrôle d’accès en fonction du rôle (RBAC) pour gérer l’accès à Azure Site Recovery.
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 5a6ef10f03bb5e108c226fe3d68f1dec67e6164a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218068"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281707"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gérer l’accès à Site Recovery avec le contrôle d’accès en fonction du rôle (RBAC)
 
@@ -38,7 +38,7 @@ Un utilisateur a besoin des autorisations suivantes pour effectuer la réplicati
 > [!IMPORTANT]
 >Assurez-vous que les autorisations pertinentes sont ajoutées pour chaque modèle de déploiement (Resource Manager/classique) utilisé pour le déploiement des ressources.
 
-| **Type de ressource** | **Modèle de déploiement** | **Permission** |
+| **Type de ressource** | **Modèle de déploiement** | **Autorisation** |
 | --- | --- | --- |
 | Calcul | Gestionnaire de ressources | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
@@ -72,6 +72,6 @@ Envisagez d’utiliser les [rôles intégrés](../role-based-access-control/buil
 * [Contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) : Découvrez comment bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure.
 * Découvrez comment gérer l’accès avec :
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-  * [interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md)
+  * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [API REST](../role-based-access-control/role-assignments-rest.md)
 * [Résolution des problèmes de contrôle d’accès en fonction du rôle](../role-based-access-control/troubleshooting.md) : obtenez des suggestions pour résoudre les problèmes courants.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dfd91caf67592b349bd16bab673a3e45397ad282
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807603"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291673"
 ---
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -31,6 +31,10 @@ Avec des disques managés, vous pouvez créer jusqu’à 50 000 **disques** de
 
 Les disques managés sont intégrés avec des groupes à haute disponibilité pour garantir que les disques des [machines virtuelles d’un groupe à haute disponibilité](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) sont suffisamment isolés les uns des autres pour éviter un point de défaillance unique. Les disques sont automatiquement placés dans différentes unités d’échelle de stockage (horodatages). Si un horodatage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec. Par exemple, supposons qu’une de vos applications est exécutée sur 5 machines virtuelles, qui sont hébergées dans un groupe à haute disponibilité. Les disques de ces machines virtuelles ne seront pas stockés dans le même horodatage. Par conséquent, si un horodatage est mis en échec, les autres instances de l’application continuent de s’exécuter.
 
+## <a name="integration-with-availability-zones"></a>Intégration avec les Zones de disponibilité
+
+Managed prend en charge des disques [Zones de disponibilité](../articles/availability-zones/az-overview.md), qui est une offre de haute disponibilité qui protège vos applications contre les défaillances de centre de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. Avec les Zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %.
+
 ### <a name="azure-backup-support"></a>Support Sauvegarde Azure
 
 Pour vous protéger contre les sinistres régionaux, [Sauvegarde Azure](../articles/backup/backup-introduction-to-azure-backup.md) peut être utilisé pour créer un travail de sauvegarde avec des sauvegardes périodiques et des stratégies de rétention de sauvegarde. Ceci vous permet d’effectuer des restaurations des machines virtuelles à volonté. Actuellement, le service Sauvegarde Azure prend en charge les tailles de disque jusqu’à quatre tébioctets (TiB). Pour plus d’informations, consultez [Utilisation de Sauvegarde Azure pour les machines virtuelles avec disques managés](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
@@ -41,11 +45,15 @@ Utilisez le [contrôle d’accès en fonction du rôle Azure](../articles/role-b
 
 ## <a name="disk-roles"></a>Rôles de disque
 
-### <a name="data-disks"></a>Disques de données
+Il existe trois rôles de disque principal dans Azure : le disque de données, le disque du système d’exploitation et le disque temporaire. Ces rôles mappent sur les disques qui sont attachés à votre machine virtuelle.
+
+![Rôles de disque en action](media/virtual-machines-managed-disks-overview/disk-types.png)
+
+### <a name="data-disk"></a>Disque de données
 
 Un disque de données est un disque managé attaché à une machine virtuelle pour stocker des données d’application ou d’autres données que vous devez conserver. Les disques de données sont enregistrés en tant que disques SCSI et sont nommés avec la lettre de votre choix. Chaque disque de données a une capacité maximale de 32 767 gibioctets (Gio). La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher et le type de stockage que vous pouvez utiliser pour héberger les disques.
 
-### <a name="os-disks"></a>Disques du système d’exploitation
+### <a name="os-disk"></a>Disque de système d’exploitation
 
 Chaque machine virtuelle dispose d’un disque de système d’exploitation attaché. Ce disque de système d’exploitation est doté d’un système d’exploitation préinstallé qui a été sélectionnée lors de la création de la machine virtuelle.
 
@@ -61,8 +69,8 @@ La capture instantanée d’un disque managé est une copie en lecture seule d�
 
 Pour en savoir plus sur la création de captures instantanées avec des disques managés, consultez les ressources suivantes :
 
-* [Créer une copie d’un disque dur virtuel stocké en tant que disque managé à l’aide de la fonction Instantanés dans Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Créer une copie d’un disque dur virtuel stocké en tant que disque managé à l’aide de la fonction Instantanés dans Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Créer une copie de disque dur virtuel stocké comme un disque géré à l’aide d’instantanés dans Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Créer une copie de disque dur virtuel stocké comme un disque géré à l’aide d’instantanés dans Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Images
 
@@ -71,7 +79,7 @@ Les disques managés prennent également en charge la création d’une image pe
 Pour plus d’informations sur la création des images, consultez les articles suivants :
 
 * [Procédure de capture d’une image managée d’une machine virtuelle généralisée dans Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Guide pratique de généralisation et de capture d’une machine virtuelle Linux avec Azure CLI](../articles/virtual-machines/linux/capture-image.md)
+* [Généraliser et capturer une machine virtuelle de Linux à l’aide de l’interface CLI Azure](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Images et captures instantanées
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087191"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058796"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure CDN 
 Cet article fournit les descriptions détaillées des conditions de correspondance disponibles pour le [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -74,7 +74,7 @@ Nom | Objectif
 [Adresse IP du client](#client-ip-address) | Identifie les requêtes issues d’une adresse IP particulière.
 [Paramètre de cookie](#cookie-parameter) | Recherche la valeur spécifiée dans les cookies associés à chaque requête.
 [Expression régulière de paramètre de cookie](#cookie-parameter-regex) | Recherche l’expression régulière spécifiée dans les cookies associés à chaque requête.
-[CNAME de périmètre](#edge-cname) | Identifie les requêtes qui pointent vers un CNAME de périphérie spécifique.
+[Cname Edge](#edge-cname) | Identifie les requêtes qui pointent vers un CNAME de périphérie spécifique.
 [Domaine de référence](#referring-domain) | Identifie les requêtes qui ont été référencées à partir des noms d’hôte spécifiés.
 [Littéral d’en-tête de requête](#request-header-literal) | Identifie les requêtes qui contiennent l’en-tête spécifié défini sur une valeur spécifiée.
 [Expression régulière d’en-tête de requête](#request-header-regex) | Identifie les requêtes qui contiennent l’en-tête spécifié défini sur une valeur qui correspond à l’expression régulière spécifiée.
@@ -101,7 +101,7 @@ Nom | Objectif
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Informations de référence des conditions de correspondance du moteur de règles
-
+<a name="main"></a>
 ---
 ### <a name="always"></a>Toujours
 
@@ -970,9 +970,9 @@ user=joe              | Ce modèle correspond lorsque la chaîne de requête d�
 </br>
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Vue d’ensemble d’Azure Content Delivery Network](cdn-overview.md)
+* [Vue d’ensemble de Azure Content Delivery Network](cdn-overview.md)
 * [Informations de référence du moteur de règles](cdn-rules-engine-reference.md)
 * [Expressions conditionnelles du moteur de règles](cdn-rules-engine-reference-conditional-expressions.md)
 * [Fonctionnalités du moteur de règles](cdn-rules-engine-reference-features.md)
-* [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
+* [Le comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
 
