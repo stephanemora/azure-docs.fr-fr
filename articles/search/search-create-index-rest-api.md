@@ -1,7 +1,7 @@
 ---
-title: Créer, charger et interroger un index à l’aide de PowerShell et l’API REST - recherche Azure
-description: Créer, charger et interroger un index à l’aide de PowerShell, Invoke-RestMethod et l’API REST Azure Search.
-ms.date: 03/15/2019
+title: 'Démarrage rapide : Créer, charger et interroger un index à l’aide de PowerShell et l’API REST - recherche Azure'
+description: Créer, charger et interroger un index à l’aide de PowerShell Invoke-RestMethod et l’API REST Azure Search.
+ms.date: 04/08/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,38 +10,42 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372112"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268022"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Démarrage rapide : Créer un index Azure Search à l’aide de PowerShell et l’API REST
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Postman (REST)](search-fiddler.md)
-> * [Portal](search-create-index-portal.md)
+> * [Portail](search-create-index-portal.md)
 > 
 
 Cet article vous guide dans le processus de création, de charger et d’interroger une recherche Azure [index](search-what-is-an-index.md) à l’aide de PowerShell et le [API REST de Service Azure Search](https://docs.microsoft.com/rest/api/searchservice/). La définition d’index et le contenu de recherche est fourni dans le corps de la demande en tant qu’un contenu JSON correct.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-[Créer un service Azure Search](search-create-service-portal.md) ou [trouver un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sous votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce démarrage rapide. Autres conditions préalables incluent les éléments suivants.
+Les services et les outils suivants sont utilisés dans ce démarrage rapide. 
+
+[Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
 
 [PowerShell 5.1 ou version ultérieure](https://github.com/PowerShell/PowerShell), à l’aide [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) pour connaître les étapes séquentielles et interactives.
 
-Obtenir le point de terminaison URL et l’administrateur la clé api de votre service de recherche. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
+## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
-1. Dans le portail Azure, dans votre service de recherche **vue d’ensemble** page, obtenez l’URL. Un point de terminaison exemple peut se présenter comme https :\//my-service-name.search.windows.net.
+Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur chaque demande. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
 
-2. Dans **paramètres** > **clés**, obtenir une clé d’administration pour les droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour la continuité au cas où vous deviez interchanger. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, modification et suppression d’objets.
+1. [Connectez-vous au portail Azure](https://portal.azure.com/)et dans votre service de recherche **vue d’ensemble** page, obtenez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
-   ![Obtenir une clé d’accès et le point de terminaison HTTP](media/search-fiddler/get-url-key.png "obtenir une clé d’accès et le point de terminaison HTTP")
+2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-   Toutes les demandes nécessitent une clé d’api sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
+![Obtenir une clé d’accès et un point de terminaison HTTP](media/search-fiddler/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
+
+Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
 ## <a name="connect-to-azure-search"></a>Se connecter à recherche Azure
 
@@ -77,7 +81,7 @@ Si le service est vide et ne possède aucun index, les résultats sont similaire
 }
 ```
 
-## <a name="1---create-an-index"></a>1 - Créer un index
+## <a name="1---create-an-index"></a>1 – Créer un index
 
 Sauf si vous utilisez le portail, un index doit exister sur le service avant de pouvoir charger des données. Cette étape définit l’index et l’intègre au service. Le [Create Index (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index) est utilisée pour cette étape.
 
@@ -165,7 +169,7 @@ Résultats doivent ressembler à ceci (tronquée pour les deux premiers champs p
 
 <a name="load-documents"></a>
 
-## <a name="2---load-documents"></a>2 - charger des documents
+## <a name="2---load-documents"></a>2 – Charger des documents
 
 Pour transmettre des documents, utilisez une requête HTTP POST au point de terminaison URL de votre index. L’API REST pour cette tâche est [Ajout, mise à jour ou supprimer des Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -255,7 +259,7 @@ Résultats doivent ressembler à l’exemple suivant. Vous devriez voir un code 
 }
 ```
 
-## <a name="3---search-an-index"></a>3 - Rechercher dans un index
+## <a name="3---search-an-index"></a>3 – Rechercher dans un index
 
 Cette étape vous montre comment interroger un index à l’aide de la [recherche Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

@@ -13,32 +13,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9e037e1be36a38631028e5e179e20720d3476a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fc181625ead251480bb107fc59e3aae46afab1ee
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190855"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056382"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Didacticiel : Configurer LucidChart pour l’approvisionnement automatique d’utilisateurs
 
-
 L’objectif de ce didacticiel est de vous montrer la procédure à suivre dans LucidChart et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur Azure AD sur LucidChart. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   Un client Azure Active Directory
-*   Un locataire LucidChart avec le [plan d’entreprise](https://www.lucidchart.com/user/117598685#/subscriptionLevel) ou supérieur activé 
-*   Un compte utilisateur dans LucidChart avec des autorisations d’administrateur 
+* Un client Azure Active Directory
+* Un locataire LucidChart avec le [plan d’entreprise](https://www.lucidchart.com/user/117598685#/subscriptionLevel) ou supérieur activé
+* Un compte utilisateur dans LucidChart avec des autorisations d’administrateur
 
 ## <a name="assigning-users-to-lucidchart"></a>Affectation d’utilisateurs à LucidChart
 
-Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes utilisateur, les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés. 
+Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes utilisateur, les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer le service d’approvisionnement, vous devez déterminer quels utilisateurs et/ou groupes dans Azure AD représentent les utilisateurs qui ont besoin d’accéder à votre application LucidChart. Dès que vous avez fait votre choix, vous pouvez assigner ces utilisateurs à votre application LucidChart en suivant les instructions disponibles à la page suivante :
 
@@ -46,21 +45,18 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 
 ### <a name="important-tips-for-assigning-users-to-lucidchart"></a>Conseils importants concernant l’assignation d’utilisateurs à LucidChart
 
-*   Il est recommandé de n’assigner qu’un seul utilisateur Azure AD à LucidChart afin de tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+* Il est recommandé de n’assigner qu’un seul utilisateur Azure AD à LucidChart afin de tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 
-*   Lorsque vous affectez un utilisateur à LucidChart, vous devez sélectionner le rôle **utilisateur** ou un autre rôle valide spécifique de l’application (si disponible) dans la boîte de dialogue d’affectation. Le rôle **Accès par défaut** ne fonctionne pas pour l’approvisionnement, et ces utilisateurs sont ignorés.
+* Lorsque vous affectez un utilisateur à LucidChart, vous devez sélectionner le rôle **utilisateur** ou un autre rôle valide spécifique de l’application (si disponible) dans la boîte de dialogue d’affectation. Le rôle **Accès par défaut** ne fonctionne pas pour l’approvisionnement, et ces utilisateurs sont ignorés.
 
-
-## <a name="configuring-user-provisioning-to-lucidchart"></a>Configuration de l’approvisionnement des utilisateurs sur LucidChart 
+## <a name="configuring-user-provisioning-to-lucidchart"></a>Configuration de l’approvisionnement des utilisateurs sur LucidChart
 
 Cette section vous guide afin de connecter votre instance Azure AD à votre compte utilisateur LucidChart qui fournit l’API. À l’aide de ce guide, découvrez aussi comment configurer le service d’approvisionnement afin de créer, mettre à jour et désactiver des comptes utilisateur assignés dans LucidChart, en fonction des attributions d’utilisateur et de groupe dans Azure AD.
 
 > [!TIP]
 > Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour LucidChart, grâce aux instructions disponibles dans le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités compléte l’autre.
 
-
 ### <a name="configure-automatic-user-account-provisioning-to-lucidchart-in-azure-ad"></a>Configurer l’approvisionnement automatique de comptes utilisateur vers LucidChart dans Azure AD
-
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
@@ -72,7 +68,7 @@ Cette section vous guide afin de connecter votre instance Azure AD à votre com
 
     ![Approvisionnement de LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez le **Jeton secret** généré par votre compte LucidChart (vous pouvez rechercher le jeton sous votre compte : **Team (Équipe)** > **App Integration (Intégration de l’application)** > **SCIM**). 
+5. Dans la section **Informations d’identification de l’administrateur**, entrez le **Jeton secret** généré par votre compte LucidChart (vous pouvez rechercher le jeton sous votre compte : **Team (Équipe)** > **App Integration (Intégration de l’application)** > **SCIM**).
 
     ![Approvisionnement de LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
 
@@ -80,7 +76,7 @@ Cette section vous guide afin de connecter votre instance Azure AD à votre com
 
 7. Entrez l’adresse de courrier d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, puis cochez la case « Envoyer une notification par e-mail en cas de défaillance ».
 
-8. Cliquez sur **Enregistrer**. 
+8. Cliquez sur **Enregistrer**.
 
 9. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec LucidChart**.
 
@@ -88,16 +84,15 @@ Cette section vous guide afin de connecter votre instance Azure AD à votre com
 
 11. Pour activer le service d’approvisionnement Azure AD pour LucidChart, accédez à la section **Paramètres** et définissez l’**État de l’approvisionnement** sur **Activé**.
 
-12. Cliquez sur **Enregistrer**. 
+12. Cliquez sur **Enregistrer**.
 
 Cette commande démarre la synchronisation initiale des utilisateurs et/ou des groupes affectés à LucidChart dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement.
 
 Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
 
-
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [La gestion de l’approvisionnement de comptes utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

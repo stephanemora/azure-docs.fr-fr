@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2019
+ms.date: 04/05/2019
 ms.author: pareshmu
-ms.openlocfilehash: 6d1fa0235c91d17887a40bbe0be9831623fce775
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: a30280339b2172860fa8c859de569c2de1c68e17
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006984"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267444"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -108,7 +108,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Pris en charge |Pris en charge | Amsterdam, London2, Silicon Valley, Toronto |
 | **Jisc** |Pris en charge |Pris en charge |Londres |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Pris en charge |Pris en charge |Séoul |
-| **Kordia** | Pris en charge |Pris en charge |Sydney |
+| **[Kordia](https://www.kordia.co.nz/cloudconnect)** | Pris en charge |Pris en charge |Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Pris en charge | Pris en charge | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Londres, Newport (Pays de Galles), Sao Paulo, Seattle, Silicon Valley, Singapour, Washington DC |
 | **LG CNS** |Pris en charge |Pris en charge |Busan, Séoul |

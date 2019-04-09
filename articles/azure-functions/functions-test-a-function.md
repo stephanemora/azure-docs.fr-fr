@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 15e4cf484ae38268c59781101256d64ef85e72ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439326"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283033"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
 
@@ -26,7 +26,7 @@ Tester l'intégralité du code est recommandé. Cela étant, vous pouvez obtenir
 
 Le contenu suivant est divisé en deux sections distinctes destinées à cibler différents environnements et langages. Découvrez comment créer des tests dans :
 
-- [C# dans Visual Studio avec xUnit](#c-in-visual-studio)
+- [C#dans Visual Studio avec xUnit](#c-in-visual-studio)
 - [JavaScript dans VS Code avec Jest](#javascript-in-vs-code)
 
 L’exemple de dépôt est disponible sur [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
@@ -253,6 +253,8 @@ Les membres implémentés dans cette classe sont :
 
 - **Timer_should_log_message** : Ce test crée une instance de `ListLogger` et la transmet à des fonctions de minuteur. Une fois la fonction exécutée, le journal est vérifié pour veiller à ce que le message attendu soit présent.
 
+Si vous souhaitez accéder aux paramètres d’application dans vos tests, vous pouvez utiliser [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+
 ### <a name="run-tests"></a>Exécuter les tests
 
 Pour exécuter les tests, accédez à l'**Explorateur de tests** et cliquez sur **Exécuter tout**.
@@ -376,5 +378,5 @@ Ensuite, définissez un point d’arrêt dans votre test et appuyez sur **F5**.
 
 Maintenant que vous savez écrire des tests automatisés pour vos fonctions, penchez-vous sur les ressources suivantes :
 - [Exécuter manuellement une fonction non déclenchée via HTTP](./functions-manually-run-non-http.md)
-- [Gestion des erreurs Azure Functions](./functions-bindings-error-pages.md)
+- [Gestion d’erreurs d’Azure Functions](./functions-bindings-error-pages.md)
 - [Débogage local lors du déclenchement de fonctions Azure Event Grid](./functions-debug-event-grid-trigger-local.md)

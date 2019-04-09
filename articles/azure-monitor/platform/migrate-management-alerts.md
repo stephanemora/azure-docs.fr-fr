@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307180"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006793"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrer les alertes Azure pour les événements de gestion vers les alertes de journal d’activité
 
@@ -104,7 +104,7 @@ Voici les différentes méthodes pour créer une nouvelle alerte de journal d’
 * Suivez [notre guide sur la création d’une alerte dans le portail Azure](../../azure-monitor/platform/activity-log-alerts.md)
 * Découvrez comment [créer une alerte à l’aide d’un modèle Resource Manager](../../azure-monitor/platform/alerts-activity-log.md)
  
-Les alertes pour des événements de gestion que vous avez créées précédemment ne seront pas automatiquement migrées vers des alertes de journal d’activité. Vous devez utiliser le script PowerShell précédent pour répertorier les alertes sur des événements de gestion que vous avez actuellement configurées, puis les recréer manuellement en tant qu’alertes de journal d’activité. Ces opérations doivent être effectuées avant le 1er octobre. Après cette date, les alertes sur des événements de gestion n’apparaîtront plus dans votre abonnement Azure. Cette modification n’affecte pas les autres types d’alertes Azure comme les alertes de métrique Azure Monitor, les alertes Application Insights et les alertes Log Analytics. Si vous avez des questions, publiez-les dans les commentaires ci-dessous.
+Les alertes pour des événements de gestion que vous avez créées précédemment ne seront pas automatiquement migrées vers des alertes de journal d’activité. Vous devez utiliser le script PowerShell précédent pour répertorier les alertes sur des événements de gestion que vous avez actuellement configurées, puis les recréer manuellement en tant qu’alertes de journal d’activité. Ces opérations doivent être effectuées avant le 1er octobre. Après cette date, les alertes sur des événements de gestion n’apparaîtront plus dans votre abonnement Azure. Autres types d’alertes Azure, y compris les alertes de métrique Azure Monitor, les alertes Application Insights et les alertes de recherche dans les journaux ne sont pas affectés par cette modification. Si vous avez des questions, publiez-les dans les commentaires ci-dessous.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

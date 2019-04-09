@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 83d16071cbcac4199db9f3757121f9811db49727
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417480"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006340"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour PostgreSQL
 
@@ -92,7 +92,7 @@ Il existe une séparation des rôles de sécurité dans l’administration des p
 - **Administrateur réseau :** &nbsp; Activez le point de terminaison.
 - **Administrateur de base de données :** &nbsp; Mettez à jour la liste de contrôle d’accès (ACL) pour ajouter un sous-réseau donné sur le serveur Azure Database pour PostgreSQL.
 
-*Alternative RBAC :*
+*Alternative RBAC :*
 
 Les rôles d’administrateur de réseau et d’administrateur de base de données disposent de plus de fonctionnalités que nécessaires pour gérer les règles de réseau virtuel. Seule une partie de ces fonctionnalités est réellement nécessaire.
 
@@ -106,6 +106,8 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 ## <a name="limitations"></a>Limites
 
 Pour Azure Database pour PostgreSQL, la fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
+
+- Une application web peut être mappée à une adresse IP privée dans un sous-réseau/réseau virtuel. Même si les points de terminaison de service sont activés à partir du réseau virtuel/sous-réseau donné, les connexions entre l’application web et le serveur présenteront une source IP publique Azure, et non une source de sous-réseau/réseau virtuel. Pour activer la connectivité à partir d’une application Web vers un serveur qui a des règles de pare-feu de réseau virtuel, vous devez les services Azure est autorisé pour accéder au serveur sur le serveur.
 
 - Dans le pare-feu pour votre serveur Azure Database pour PostgreSQL, chaque règle de réseau virtuel fait référence à un sous-réseau. Tous ces sous-réseaux référencés doivent être hébergés dans la même région géographique qui héberge Azure Database pour PostgreSQL.
 
@@ -139,8 +141,8 @@ Vous pouvez définir l’indicateur **IgnoreMissingServiceEndpoint** à l’aide
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour des articles dédiés à la création de règles de réseau virtuel, consultez :
-- [Create and manage Azure Database for PostgreSQL VNet rules using the Azure portal](howto-manage-vnet-using-portal.md) (Créer et gérer des règles de réseau virtuel Azure Database pour PostgreSQL à l’aide du portail Azure)
-- [Create and manage Azure Database for PostgreSQL VNet rules using Azure CLI](howto-manage-vnet-using-cli.md) (Créer et gérer des règles de réseau virtuel Azure Database pour PostgreSQL à l’aide d’Azure CLI)
+- [Créer et gérer la base de données Azure pour les règles de PostgreSQL VNet à l’aide du portail Azure](howto-manage-vnet-using-portal.md)
+- [Créer et gérer la base de données Azure pour les règles de PostgreSQL VNet à l’aide d’Azure CLI](howto-manage-vnet-using-cli.md)
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->

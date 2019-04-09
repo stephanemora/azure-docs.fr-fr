@@ -16,12 +16,20 @@ items:
   expanded: true
 - name: Tutoriels
   items:
-  - name: 1 - Créer une image conteneur
-    href: container-instances-tutorial-prepare-app.md
-  - name: 2 - Créer un registre de conteneur
-    href: container-instances-tutorial-prepare-acr.md
-  - name: 3 - Déployer l’application
-    href: container-instances-tutorial-deploy-app.md
+  - name: Créer et déployer une image conteneur
+    items:
+    - name: 1 - Créer une image conteneur
+      href: container-instances-tutorial-prepare-app.md
+    - name: 2 - Créer un registre de conteneur
+      href: container-instances-tutorial-prepare-acr.md
+    - name: 3 - Déployer l’application
+      href: container-instances-tutorial-deploy-app.md
+  - name: Déployer un groupe multiconteneur
+    items:
+    - name: Déployer un groupe de conteneurs - YAML
+      href: container-instances-multi-container-yaml.md
+    - name: Déployer un groupe de conteneurs - Resource Manager
+      href: container-instances-multi-container-group.md
 - name: Exemples
   items:
   - name: Exemples de code
@@ -42,10 +50,6 @@ items:
   items:
   - name: Déployer
     items:
-    - name: Groupes de plusieurs conteneurs - YAML
-      href: container-instances-multi-container-yaml.md
-    - name: Groupes de plusieurs conteneurs - Gestionnaire des ressources
-      href: container-instances-multi-container-group.md
     - name: Déployer sur un réseau virtuel (préversion)
       href: container-instances-vnet.md
     - name: Déployer depuis Azure Container Registry
@@ -126,9 +130,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 94d16ad208cbe5c5cffbcab9e09cf62a05a399ce
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 4a2f2f48232bc78aa636934b0ac3a38bec2c1a23
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851205"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006054"

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814943"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009963"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
@@ -34,9 +34,9 @@ Avec les flux de métriques temps réel, vous pouvez :
 * Surveiller en temps réel des compteurs de performances Windows.
 * Identifiez plus facilement un serveur qui rencontre des problèmes et filtrez tous les indicateurs de performance clés/flux en temps réel sur ce serveur uniquement.
 
-[![Vidéo sur les flux de métriques temps réel](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Lvidéo de métriques Stream IVE](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Les métriques temps réel sont actuellement prises en charge pour les applications ASP.NET, ASP.NET Core, Azure Functions et Java.
+Métriques en temps réel sont actuellement pris en charge pour les applications ASP.NET, ASP.NET Core, Azure Functions, Java et Node.js.
 
 ## <a name="get-started"></a>Prise en main
 
@@ -208,6 +208,6 @@ Pas de données ? Si votre application est dans un réseau protégé : Le flux 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Surveillance de l’utilisation avec Application Insights](../../azure-monitor/app/usage-overview.md)
-* [Utilisation de Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
+* [À l’aide de la recherche de Diagnostic](../../azure-monitor/app/diagnostic-search.md)
 * [Profileur](../../azure-monitor/app/profiler.md)
 * [Débogueur de capture instantanée](../../azure-monitor/app/snapshot-debugger.md)

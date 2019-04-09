@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a42eb7b57319df7de4c5277cdcdd93eb777f376c
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622108"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009193"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -36,7 +36,7 @@ Les composants sont des parties pouvant être déployées de manière indépenda
 
 Vous pouvez afficher la topologie complète des applications sur plusieurs niveaux des composants d’application associés. Les composants peuvent représenter différentes ressources Application Insights, ou différents rôles d’une seule ressource. La mise en correspondance d’applications trouve les composants en suivant les appels de dépendance HTTP effectués entre les serveurs sur lesquels le kit SDK Application Insights est installé. 
 
-Cette expérience démarre la découverte progressive des composants. Lorsque vous chargez la cartographie d’application pour la première fois, un ensemble de requêtes est déclenché pour découvrir les composants liés à ce composant. Un bouton dans le coin supérieur gauche permet de mettre à jour le nombre de composants de votre application dès qu’ils sont détectés. 
+Cette expérience démarre la découverte progressive des composants. Lorsque vous chargez tout d’abord le mappage d’application, un ensemble de requêtes est déclenché pour découvrir les composants liés à ce composant. Un bouton dans le coin supérieur gauche permet de mettre à jour le nombre de composants de votre application dès qu’ils sont détectés. 
 
 Lorsque vous cliquez sur « Update map components » (Mettre à jour les composants de cartographie), la carte est actualisée avec tous les composants détectés. Selon la complexité de votre application, le chargement peut prendre une minute.
 
@@ -109,7 +109,8 @@ namespace CustomInitializer.Telemetry
             if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
             {
                 //set custom role name here
-                telemetry.Context.Cloud.RoleName = "RoleName";
+                telemetry.Context.Cloud.RoleName = "Custom RoleName";
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
             }
         }
     }
@@ -185,6 +186,32 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
+### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>Présentation de Cloud.RoleName dans le contexte de la cartographie d’Application
+
+Jusque comment réfléchir à Cloud.RoleName, il peut être utile d’examiner un plan de l’Application qui a plusieurs Cloud.RoleNames présents :
+
+![Capture d’écran de la cartographie d’application](media/app-map/cloud-rolename.png)
+
+Dans le mappage d’Application ci-dessus chacun de ces noms dans les zones vertes sont Cloud.RoleName/role les valeurs des différents aspects de cette application distribuée. Donc pour cette application, ses rôles se composent de : `Authentication`, `acmefrontend`, `Inventory Management`, un `Payment Processing Worker Role`. 
+
+Dans le cas de cette application de ces `Cloud.RoleNames` représente également une autre ressource Application Insights unique avec leurs propres clés d’instrumentation. Étant donné que le propriétaire de cette application a accès à chacune de ces quatre ressources d’Application Insights disparates, cartographie d’Application est en mesure d’assembler une représentation des relations sous-jacent.
+
+Pour le [définitions officielles](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+
+```
+   [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
+    [MaxStringLength("256")]
+    705: string      CloudRole = "ai.cloud.role";
+    
+    [Description("Name of the instance where the application is running. Computer name for on-premises, instance name for Azure.")]
+    [MaxStringLength("256")]
+    715: string      CloudRoleInstance = "ai.cloud.roleInstance";
+```
+
+Cloud.RoleInstance peut également être utile pour les scénarios où Cloud.RoleName vous indique le problème est quelque part dans votre serveur web frontal, mais vous pouvez exécuter votre serveur web frontal sur plusieurs serveurs à charge équilibrée, qui est en mesure d’Explorer dans une couche plus approfondie par le biais de requêtes de Kusto et de savoir si le problème affecte toutes les web frontal serveurs/instances, ou à un seul peut être extrêmement important.
+
+Un scénario où vous pouvez souhaiter remplacer la valeur pour Cloud.RoleInstance peut être si votre application est en cours d’exécution dans un environnement en conteneur dans lequel seulement à savoir le serveur peut ne pas être suffisamment d’informations pour localiser un problème donné.
+
 Pour plus d’informations sur la substitution de la propriété cloud_RoleName avec des starters de télémétrie, consultez [Ajout de propriétés : ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
@@ -211,4 +238,4 @@ Pour envoyer des commentaires, utilisez l’option de commentaires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation de la corrélation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* [Corrélation de présentation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)

@@ -2,14 +2,14 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aba09012bf2e9d2741f598280add8b599a6f6d1a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 0a52b7a5234b292fa3f8c3e19fe7f62f989d639c
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55807197"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007240"
 ---
 ## <a name="preventative"></a>Préventif
 
@@ -17,8 +17,8 @@ ms.locfileid: "55807197"
 |---|---|--|
 | Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| Oui | Tous les objets sont chiffrés. |
 | Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui | Toutes les communications se font par le biais d’appels d’API chiffrés |
-| Gestion des clés de chiffrement (CMK, BYOK, etc.)| Oui | Le client contrôle toutes les clés de son Key Vault. Lorsque des clés sauvegardées avec HSM (Hardware Security Module) sont spécifiées, un module HSM Niveau 2 FIPS protège la clé, le certificat ou le secret. |
-| Chiffrement au niveau des colonnes (Azure Data Services)| N/A |  |
+| Gestion des clés de chiffrement (CMK, BYOK, etc.)| Oui | Le client contrôle toutes les clés de son Key Vault. Lorsque les clés de module (HSM) soutenu de sécurité matériel sont spécifiées, un module de sécurité 2 de niveau FIPS protège la clé, le certificat ou la clé secrète. |
+| Chiffrement au niveau des colonnes (Azure Data Services)| S.O. |  |
 | Appels d’API chiffrés| Oui | Utilisation du protocole HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentation du réseau
@@ -27,21 +27,21 @@ ms.locfileid: "55807197"
 |---|---|--|
 | Prise en charge du point de terminaison de service| Oui | Utilisation de points de terminaison de service de réseau virtuel. |
 | Prise en charge de l’injection de réseau virtuel| Non  |  |
-| Prise en charge de l’isolement réseau/l’installation de pare-feu| Oui | Utilisation de règles de pare-feu de réseau virtuel. |
+| Prise en charge de l’isolement réseau et de l’installation de pare-feu| Oui | Utilisation de règles de pare-feu de réseau virtuel. |
 | Prise en charge du tunneling forcé | Non  |  |
 
 ## <a name="detection"></a>Détection
 
 | Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Prise en charge de la Surveillance Azure (Log Analytics, App Insights, etc.)| Oui | Utilisation de Log Analytics. |
+| Prise en charge (analytique de journal, application insights, etc.) de surveillance Azure| Oui | Utilisation de Log Analytics. |
 
 ## <a name="iam-support"></a>Prise en charge de la gestion des identités et des accès (IAM)
 
 | Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Gestion de l’accès - Authentification| Oui | L’authentification s’effectue par le biais d’Azure Active Directory. |
-| Gestion de l’accès - Autorisation| Oui | Utilisation d’une stratégie d’accès à Key Vault. |
+| Gestion des accès – Authentification| Oui | L’authentification est effectuée via Azure Active Directory. |
+| Gestion des accès – Autorisation| Oui | Utilisation d’une stratégie d’accès à Key Vault. |
 
 
 ## <a name="audit-trail"></a>Piste d’audit

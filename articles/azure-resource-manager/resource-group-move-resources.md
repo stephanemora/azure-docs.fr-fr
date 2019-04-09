@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521089"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058762"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -133,6 +133,7 @@ La liste suivante fournit une synthèse générale des services Azure qui ne peu
 * Azure Database Migration
 * Azure Databricks
 * Pare-feu Azure
+* Service Azure Kubernetes (AKS)
 * Azure Migrate
 * Azure NetApp Files
 * Certificats : les certificats App Service Certificates peuvent être déplacés, mais les certificats chargés ont des [limitations](#app-service-limitations).
@@ -143,7 +144,6 @@ La liste suivante fournit une synthèse générale des services Azure qui ne peu
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
-* Kubernetes Service
 * Lab Services - laboratoires de salle de classe ne peut pas être déplacés vers un nouveau groupe de ressources ou d’un abonnement. Dev/test peut être déplacé vers un nouveau groupe de ressources dans le même abonnement, mais pas entre abonnements.
 * Applications gérées
 * Microsoft Genomics
@@ -156,11 +156,11 @@ La liste suivante fournit une synthèse générale des services Azure qui ne peu
 
 La section décrit comment gérer des scénarios compliqués de déplacement des ressources. Les limitations sont les suivantes :
 
-* [Limitations des machines virtuelles](#virtual-machines-limitations)
-* [Limitations des réseaux virtuels](#virtual-networks-limitations)
-* [Limitations d’App Service](#app-service-limitations)
+* [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
+* [Limitations de réseaux virtuels](#virtual-networks-limitations)
+* [limitations d’App Service](#app-service-limitations)
 * [Limitations d’App Service Certificate](#app-service-certificate-limitations)
-* [Limitations du déploiement Classic](#classic-deployment-limitations)
+* [Limitations relatives au déploiement Classic](#classic-deployment-limitations)
 * [Limitations de Recovery Services](#recovery-services-limitations)
 * [Limitations de HDInsight](#hdinsight-limitations)
 
@@ -180,8 +180,8 @@ Pour déplacer des machines virtuelles configurées avec Sauvegarde Azure, utili
 * Recherchez un groupe de ressources dont le modèle de nommage est le suivant : `AzureBackupRG_<location of your VM>_1`, par exemple, AzureBackupRG_westus2_1
 * Si vous utilisez le portail Azure, cochez « Afficher les types masqués »
 * Si vous utilisez PowerShell, utilisez l’applet de commande `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-* Si vous utilisez l’interface CLI, utilisez `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Recherchez la ressource du type `Microsoft.Compute/restorePointCollections` avec le modèle de nommage `AzureBackup_<name of your VM that you're trying to move>_###########`
+* Si dans l’interface CLI, utilisez le `az resource list -g AzureBackupRG_<location of your VM>_1`
+* Rechercher la ressource avec le type `Microsoft.Compute/restorePointCollections` qui présente le modèle d’affectation de noms `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
 * Une fois la suppression terminée, vous pouvez déplacer votre machine virtuelle. Vous pouvez déplacer la machine virtuelle et le coffre vers l’abonnement cible. Après le déplacement, vous pouvez poursuivre les sauvegardes sans perte de données.
 * Pour plus d’informations sur le déplacement des coffres Recovery Services pour la sauvegarde, consultez [Limitations de Recovery Services](#recovery-services-limitations).
@@ -362,7 +362,7 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
    Si les ID client pour les abonnements source et de destination ne sont pas identiques, utilisez les méthodes suivantes pour rapprocher les ID client :
 
    * [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md)
-   * [Associer ou ajouter un abonnement Azure à Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [Comment associer ou ajouter un abonnement Azure à Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. L’abonnement de destination doit être inscrit pour le fournisseur de la ressource déplacée. Sinon, vous recevez une erreur indiquant que **l’abonnement n’est pas inscrit pour un type de ressource**. Vous pouvez rencontrer cette erreur lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource.
 

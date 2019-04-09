@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d99c6b419ee201be50e74849cd95a332845f5b73
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623167"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008644"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Planification d'un Runbook dans Azure Automation
 
@@ -30,7 +30,7 @@ Les applets de commande dans le tableau suivant sont utilisés pour créer et g�
 | Applets de commande | Description |
 |:--- |:--- |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Récupère une planification. |
-| [Nouvelle AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Crée une planification. |
+| [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Crée une planification. |
 | [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Supprime une planification. |
 | [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Définit les propriétés d'une planification existante. |
 | [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/get-azurermautomationscheduledrunbook) |Récupère les Runbooks planifiés. |
@@ -156,6 +156,9 @@ Lorsque vous désactivez une planification, les Runbooks qui y sont liés ne s'e
 1. Dans le portail Azure, accédez à votre compte Automation et sélectionnez **Planifications** dans la section **Ressources partagées** à gauche.
 2. Cliquez sur le nom d’une planification pour ouvrir le volet Détails.
 3. Remplacez **Activé** par **Non**.
+
+> [!NOTE]
+> Si vous souhaitez désactiver une planification qui a une heure de début dans le passé, vous devez modifier la date de début à un moment ultérieur avant de l’enregistrer.
 
 ### <a name="to-disable-a-schedule-with-powershell"></a>Pour désactiver une planification avec PowerShell
 

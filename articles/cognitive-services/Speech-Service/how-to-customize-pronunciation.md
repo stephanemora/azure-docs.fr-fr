@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: f825cf8f381a7a2974b150a74a091412b24b09bc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339395"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005167"
 ---
 # <a name="enable-custom-pronunciation"></a>Activer la prononciation personnalisée
 
@@ -63,7 +63,7 @@ Pour l’heure, la prononciation personnalisée prend uniquement en charge l’a
 Un formulaire d’affichage peut être uniquement un mot personnalisé, un acronyme ou des mots composés qui combinent des mots.
 
 >[!NOTE]
->Nous vous déconseillons d’utiliser cette fonctionnalité pour reformuler des mots courants ou modifier la forme orale. Il est préférable d’exécuter le décodeur pour voir si certains mots inhabituels (tels que des abréviations, des mots techniques ou des mots étrangers) ne sont pas décodés de manière incorrecte. S’ils ne sont pas décodés correctement, ajoutez-les dans le fichier de prononciation personnalisée. Dans le modèle de langage, vous devez toujours utiliser uniquement la forme écrite d’un mot.
+>Nous vous déconseillons d’utiliser cette fonctionnalité pour reformuler des mots courants ou modifier la forme orale. Il est une meilleure vérification si certains mots inhabituelles (par exemple, des abréviations, des mots techniques ou les mots étrangers) sont incorrectement transribed avant cette fonctionnalité est utilisée. S’ils ne sont pas décodés correctement, ajoutez-les dans le fichier de prononciation personnalisée. Dans le modèle de langage, vous devez toujours utiliser uniquement la forme écrite d’un mot.
 
 ## <a name="requirements-for-the-file-size"></a>Exigences pour la taille de fichier
 La taille du fichier .txt qui contient les entrées de prononciation est limitée à 1 mégaoctet (1 Ko pour les clés de niveau gratuit). En principe, vous n’avez pas besoin de charger de grandes quantités de données via ce fichier. La taille de la plupart des fichiers de prononciation personnalisée est normalement de quelques kilo-octets (Ko). L’encodage du fichier .txt pour tous les paramètres régionaux doit être la marque d'ordre d'octet UTF-8. Pour les paramètres régionaux anglais, ANSI est également acceptable.
