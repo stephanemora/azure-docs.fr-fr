@@ -1,18 +1,18 @@
 ---
 title: Niveaux de cohérence et API Azure Cosmos DB
 description: Comprendre les niveaux de cohérence entre les API dans Azure Cosmos DB.
-author: markjbrown
-ms.author: mjbrown
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/08/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 902303a8f55f4494e0cc6c21b0438e41437c0567
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 7a8617ae2b01fc89a4c957b8610164a2b53a16f5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620663"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274771"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveaux de cohérence et API Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Contrairement à AzureCosmos DB, Apache Cassandra ne fournit pas en mode natif a
 
 Le tableau suivant illustre comment les niveaux de cohérence Cassandra natifs sont mappés aux niveaux de cohérence de l’Azure Cosmos DB lors de l’utilisation de l’API Cassandra :  
 
-[ ![Mappage de modèle de cohérence Cassandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[![Cmappage de modèle de cohérence assandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
 ## <a id="mongo-mapping"></a>Le mappage entre les niveaux de cohérence MongoDB et Azure Cosmos DB
 
@@ -51,12 +51,12 @@ Lors de l’utilisation des API d’Azure Cosmos DB pour MongoDB :
 
 Le tableau suivant illustre comment le MongoDB natif lecture/écriture préoccupations sont mappés aux niveaux de cohérence Azure Cosmos lors de l’utilisation des API d’Azure Cosmos DB pour MongoDB :
 
-[ ![Mappage de modèle de cohérence de MongoDB](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![Mmappage de modèle de cohérence ongoDB](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez-en davantage sur les niveaux de cohérence et la compatibilité entre les API Cosmos DB et les API open source. Consultez les articles suivants :
 
 * [Compromis entre disponibilité et performance pour différents niveaux de cohérence](consistency-levels-tradeoffs.md)
-* [Fonctionnalités MongoDB prises en charge par l’API d’Azure Cosmos DB pour MongoDB](mongodb-feature-support.md)
-* [Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra pour Azure Cosmos DB](cassandra-support.md)
+* [Fonctionnalités de MongoDB prises en charge par API d’Azure Cosmos DB pour MongoDB](mongodb-feature-support.md)
+* [Fonctionnalités Apache Cassandra pris en charge par l’API Cassandra Azure Cosmos DB](cassandra-support.md)

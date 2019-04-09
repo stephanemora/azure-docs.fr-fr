@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11846ca2a323da5889f444024767df4803a48a51
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892209"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269025"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planification basée sur le cloud Azure multi-Factor Authentication
 
@@ -60,8 +60,14 @@ Azure multi-factor Authentication est déployée en appliquant des stratégies a
 * Conformité de l’appareil
 * Appareil joint Azure AD hybride
 * Application cliente approuvée
+ 
+
+Utilisez les affiches personnalisables et les modèles de courrier électronique dans [supports de déploiement de l’authentification multifacteur] à déployer l’authentification multifacteur sur votre organisation. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+
+## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Activer l’authentification multifacteur avec l’accès conditionnel
 
 Stratégies d’accès conditionnel appliquent l’inscription, nécessitant des utilisateurs non inscrits terminer l’inscription à la première connexion, un facteur de sécurité important.
+
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) contribue à la fois une stratégie d’inscription pour et les stratégies de détection et correction automatisée des risques pour l’histoire de l’authentification multifacteur Azure. Les stratégies peuvent être créées pour imposer des modifications de mot de passe lorsqu’il existe une menace d’identité compromise ou exiger l’authentification Multifacteur lors de la connexion est considérée comme à risque par ce qui suit [événements](../reports-monitoring/concept-risk-events.md):
 

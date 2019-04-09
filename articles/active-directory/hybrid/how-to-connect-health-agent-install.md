@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95fc65dd849c564ac88993161ffa4b27017488b4
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 6648aec8741a748dd4150406831035a68b97af7c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793592"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268453"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l'agent Azure AD Connect Health
 
@@ -58,7 +58,7 @@ Le tableau qui suit est une liste d’exigences d’utilisation d’Azure AD Con
 
 * Vérifiez que vous [disposez de la configuration requise](how-to-connect-health-agent-install.md#requirements) pour Azure AD Connect Health.
 * Prise en main d’Azure AD Connect Health pour AD FS
-    * [Téléchargez l’agent Azure AD Connect Health pour AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Téléchargez Azure AD Connect Health Agent pour AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [Consultez les instructions d’installation](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Prise en main d’Azure AD Connect Health pour la synchronisation
     * [Téléchargez et installez la dernière version d’Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). L’agent d’intégrité pour la synchronisation sera ajouté dans le cadre de l’installation d’Azure AD Connect (version 1.0.9125.0 ou ultérieure).
@@ -127,7 +127,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 1. Cliquez sur **Démarrer**, pointez sur **Programmes**, pointez sur **Outils d’administration**, puis cliquez sur **Stratégie de sécurité locale**.
 2. Accédez au dossier **Security Settings\Local Policies\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
 3. Sous l’onglet **Paramètre de sécurité locale** , vérifiez que le compte de service AD FS 2.0 est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le à la liste, puis cliquez sur **OK**.
-4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
+4. Pour activer l’audit, ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Fermez **Stratégie de sécurité locale**.
 <br />   -- **Les étapes suivantes sont requises uniquement pour les serveurs AD FS principaux.** -- <br />
 6. Fermez le composant logiciel enfichable **Gestion AD FS**. Pour ouvrir le composant logiciel enfichable Gestion AD FS, cliquez sur **Démarrer**, pointez sur **Programmes**, pointez sur **Outils d’administration**, puis cliquez sur **Gestion AD FS 2.0**.
@@ -141,7 +141,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 1. Ouvrez **Stratégie de sécurité locale** en ouvrant **Gestionnaire de serveur** sur l’écran d’accueil, ou Gestionnaire de serveur dans la barre des tâches sur le bureau, puis cliquez sur **Outils/Stratégie de sécurité locale**.
 2. Accédez au dossier **Security Settings\Local Policies\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
 3. Sous l’onglet **Paramètre de sécurité locale** , vérifiez que le compte de service AD FS est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le à la liste, puis cliquez sur **OK**.
-4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```.
+4. Pour activer l’audit, ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante : ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```
 5. Fermez **Stratégie de sécurité locale**.
 <br />   -- **Les étapes suivantes sont requises uniquement pour les serveurs AD FS principaux.** -- <br />
 6. Ouvrez le composant logiciel enfichable **Gestion AD FS** (dans le Gestionnaire de serveur, cliquez sur Outils, puis sélectionnez Gestion AD FS).
@@ -154,7 +154,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 1. Ouvrez **Stratégie de sécurité locale** en ouvrant **Gestionnaire de serveur** sur l’écran d’accueil, ou Gestionnaire de serveur dans la barre des tâches sur le bureau, puis cliquez sur **Outils/Stratégie de sécurité locale**.
 2. Accédez au dossier **Security Settings\Local Policies\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
 3. Sous l’onglet **Paramètre de sécurité locale** , vérifiez que le compte de service AD FS est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez le compte de service AD FS à la liste, puis cliquez sur **OK**.
-4. Pour activer l’audit, ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable.</code>.
+4. Pour activer l’audit, ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante : <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Fermez **Stratégie de sécurité locale**.
 <br />   -- **Les étapes suivantes sont requises uniquement pour les serveurs AD FS principaux.** -- <br />
 6. Ouvrez le composant logiciel enfichable **Gestion AD FS** (dans le Gestionnaire de serveur, cliquez sur Outils, puis sélectionnez Gestion AD FS).
@@ -380,7 +380,7 @@ Le paramètre de rôle peut avoir les valeurs suivantes :
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Opérations Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Utilisation d’Azure AD Connect Health avec AD FS](how-to-connect-health-adfs.md)
-* [Utilisation d'Azure AD Connect Health pour la synchronisation (en Anglais)](how-to-connect-health-sync.md)
+* [Utilisation d’Azure AD Connect Health pour la synchronisation](how-to-connect-health-sync.md)
 * [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-health-adds.md)
 * [Forum Aux Questions (FAQ) Azure AD Connect Health](reference-connect-health-faq.md)
 * [Historique de publication des versions d’Azure AD Connect Health](reference-connect-health-version-history.md)

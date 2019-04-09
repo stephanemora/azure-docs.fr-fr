@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/18/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109812"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265829"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Compréhension des rapports de gestion des coûts Cloudyn
 
@@ -89,11 +89,11 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
        - Sélectionnez un client spécifique, plusieurs clients, ou tous les clients.
      - **Nom du compte**
        - Le nom du compte ou abonnement. Dans Azure, il s’agit du nom de l’abonnement Azure.
-     - **No. de compte**
+     - **Numéro de compte**
        - Sélectionnez un compte, plusieurs comptes ou tous les comptes. Dans Azure, il s’agit du GUID de l’un abonnement Azure.
      - **Compte parent**
        - Sélectionnez le compte parent, plusieurs comptes ou sélectionnez tout.
-     - **Service**
+     - **de diffusion en continu**
        - Sélectionnez un service, plusieurs services, ou tous les services.
      - **Fournisseur**
        - Le fournisseur cloud auquel les ressources et les frais sont associés.
@@ -103,9 +103,9 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
        - Emplacements AWS isolés dans une région.
      - **Type de ressource**
        - Le type de ressource en cours d’utilisation.
-     - **Sub-Type**
+     - **Sous-type**
        - Sélectionnez le sous-type.
-     - **opération**
+     - **Opération**
        - Sélectionnez l’opération ou **Afficher tout**.
      - **Modèle de prix**
        - Frais de démarrage uniquement
@@ -150,7 +150,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
     - Trimestrielle
     - Annuelle
 
-9. **Règles d'allocation**
+9. **Règles d’allocation**
 
     Utilisez Règles d’allocation pour appliquer ou désactiver le nouveau calcul d’allocation des coûts. Vous pouvez activer ou désactiver le nouveau calcul d’allocation des coûts pour les données de facturation. Le nouveau calcul s’applique aux catégories sélectionnées dans le rapport. Ceci vous permet d’évaluer l’impact du nouveau calcul d’allocation des coûts par rapport aux données de facturation brutes.
 
@@ -158,7 +158,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
 
     Utilisez Sans catégorie pour inclure ou exclure des coûts sans catégorie dans le rapport.
 
-11. **Afficher/masquer des champs**
+11. **Afficher/masquer les champs**
 
     L’option Afficher/masquer n’a aucun impact sur les rapports.
 
@@ -191,7 +191,7 @@ Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>Enregistrer un rapport sur un stockage de fournisseur de cloud
 
-Pour enregistrer un rapport dans votre fournisseur de services cloud, vous devez avoir configuré un compte de stockage. Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **Planifier le rapport**. Nommez le rapport, puis ajoutez votre propre URL ou utilisez l’URL créée automatiquement. Sélectionnez **Enregistrer sur un support de stockage**, puis sélectionnez le compte de stockage ou ajoutez-en un nouveau. Entrez un préfixe qui est ajouté au nom de fichier du rapport. Sélectionnez le format de fichier CSV ou JSON, puis enregistrez le rapport.
+Pour enregistrer un rapport dans votre fournisseur de services cloud, vous devez avoir configuré un compte de stockage. Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **Planifier le rapport**. Nommez le rapport, puis ajoutez votre propre URL ou utilisez l’URL créée automatiquement. Sélectionnez **Enregistrer sur un support de stockage**, puis sélectionnez le compte de stockage ou ajoutez-en un nouveau. Entrez un préfixe qui est ajouté au nom de fichier du rapport. Sélectionnez un format de fichier CSV ou JSON, puis enregistrez le rapport.
 
 ### <a name="schedule-a-report"></a>Planifier un rapport
 
