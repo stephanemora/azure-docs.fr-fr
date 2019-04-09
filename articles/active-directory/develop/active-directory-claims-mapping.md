@@ -13,12 +13,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884075"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260304"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Activation Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -415,7 +415,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 ### <a name="custom-signing-key"></a>Clé de signature personnalisée
 
-Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Tous les jetons émis qui ont été affectés par la stratégie sont signés avec la clé de signature personnalisée, et les applications doivent être configurées pour accepter les jetons signés avec la clé de signature. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes.
+Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes.  Les applications qui ont activé de mappage doit vérifier un URI spécial pour leur en ajoutant des clés de signature de jeton de revendications `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Scénarios inter-locataires
 

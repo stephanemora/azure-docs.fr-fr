@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/22/2018
+ms.date: 04/05/2019
 ms.author: bwren
-ms.openlocfilehash: 6e84344e1c0229d15891bd15a512880da6e20cfe
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110760"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259029"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Affichage et analyse de données de journal dans Azure Monitor
 Log Analytics est la principale expérience d'utilisation de données de journal et de création de requêtes dans Azure Monitor. Ouvrez Log Analytics à partir de **Journaux** dans le menu **Azure Monitor**. Vous pouvez obtenir une introduction à ce portail et inspecter ses fonctionnalités dans la section [Prise en main de Log Analytics dans le portail Azure](get-started-portal.md).
@@ -39,7 +39,7 @@ Log Analytics offre les fonctionnalités d'utilisation de requêtes de journal s
 
 ![Log Analytics](media/portals/log-analytics.png)
 
-### <a name="resource-logs"></a>Journaux de ressources
+## <a name="resource-logs"></a>Journaux de ressources
 Log Analytics s’intègre à différentes ressources Azure, comme les machines virtuelles. Cela signifie que vous pouvez ouvrir Log Analytics directement via le menu de surveillance de la ressource, sans passer par Azure Monitor (en perdant alors le contexte de la ressource). L’option **Journaux** n’a pas encore été activée pour toutes les ressources Azure, mais elle commence à apparaître dans le menu du portail pour plusieurs types de ressource.
 
 Lorsque Log Analytics est ouvert à partir d’une ressource spécifique, il est automatiquement étendu pour journaliser les enregistrements de cette ressource uniquement.   Si vous voulez écrire une requête incluant d’autres enregistrements, vous devrez l’ouvrir à partir du menu d’Azure Monitor.
@@ -52,7 +52,7 @@ Les options suivantes ne sont pas encore disponibles via l’affichage des resso
 - Basculer vers un autre espace de travail/ressource (pas planifiée à l’heure actuelle)
 
 
-### <a name="firewall-requirements"></a>Configuration requise du pare-feu
+## <a name="firewall-requirements"></a>Configuration requise du pare-feu
 Votre navigateur doit pouvoir accéder aux adresses suivantes pour accéder à Log Analytics.  Si votre navigateur accède au portail Azure par le biais d’un pare-feu, vous devez activer l’accès à ces adresses.
 
 | Uri | IP | Ports |
@@ -60,14 +60,6 @@ Votre navigateur doit pouvoir accéder aux adresses suivantes pour accéder à L
 | portal.loganalytics.io | Dynamique | 80,443 |
 | api.loganalytics.io    | Dynamique | 80,443 |
 | docs.loganalytics.io   | Dynamique | 80,443 |
-
-
-## <a name="log-search-classic"></a>Recherche dans les journaux (classique)
-Recherche dans les journaux est l’expérience héritée du portail Azure pour interroger et analyser les données de journal dans Azure Monitor. Encore disponible, elle sera prochainement mise hors service. Ouvrez Recherche dans les journaux à partir de **Journaux (classiques)** dans le menu Log Analytics.
-
-
-
-![Recherche dans les journaux](media/portals/log-search-portal.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

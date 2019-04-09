@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6aa3a1999460b5eb3e62e36883bb4827bd41305
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f17dc61f47dadf4c808467b2158cd9ef034e1ce9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010343"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277117"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Activer Azure Disk Encryption pour les machines virtuelles IaaS Windows
 
@@ -223,8 +223,7 @@ Utilisez l’[activation de chiffrage az vmss](/cli/azure/vmss/encryption#az-vms
 Pour chiffrer ou déchiffrer les groupe de machines virtuelles identiques Windows, utilisez les modèles Azure Resource Manager et les instructions ci-dessous :
 
 - [Activer le chiffrement sur un jeu de mise à l’échelle de machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-- [Déployer un groupe identique de machines virtuelles Windows avec un serveur de rebond et activer le chiffrement sur le jeu de mise à l’échelle de machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-- [Désactiver le chiffrement sur un ensemble d’échelle de machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- [Désactiver le chiffrement sur un jeu de mise à l’échelle de machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
      1. Cliquez sur **Déployer dans Azure**.
      2. Renseignez les champs obligatoires, puis acceptez les conditions générales.

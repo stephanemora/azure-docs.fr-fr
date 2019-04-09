@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 1/25/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3b817346c37ec43fd66d166684f5d51ecb5a9718
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294823"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257329"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Authentification par code secret à usage unique d’e-mail (préversion)
 
@@ -26,7 +26,7 @@ ms.locfileid: "58294823"
 | Le code secret à usage unique d’e-mail est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-La fonctionnalité de code secret à usage unique d’e-mail authentifie les utilisateurs invités B2B lorsqu’ils ne peuvent pas être authentifiés via d’autres moyens, comme Azure AD, un compte Microsoft (MSA) ou la fédération Google. Avec l’authentification par code secret à usage unique, il est inutile de créer un compte Microsoft. Lorsque l’utilisateur invité accepte une invitation ou accède à une ressource partagée, il peut demander un code temporaire, qui est envoyé à son adresse e-mail. Puis, il entre ce code pour se connecter.
+Cet article décrit comment activer l’authentification d’E-mail du code secret à usage unique pour les utilisateurs invités B2B. La fonctionnalité de code secret à usage unique d’e-mail authentifie les utilisateurs invités B2B lorsqu’ils ne peuvent pas être authentifiés via d’autres moyens, comme Azure AD, un compte Microsoft (MSA) ou la fédération Google. Avec l’authentification par code secret à usage unique, il est inutile de créer un compte Microsoft. Lorsque l’utilisateur invité accepte une invitation ou accède à une ressource partagée, il peut demander un code temporaire, qui est envoyé à son adresse e-mail. Puis, il entre ce code pour se connecter.
 
 Cette fonctionnalité est actuellement disponible en préversion (consultez [Choix de la préversion](#opting-in-to-the-preview) ci-dessous). Après la préversion, cette fonctionnalité sera activée par défaut pour tous les locataires.
 

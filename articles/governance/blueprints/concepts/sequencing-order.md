@@ -1,7 +1,6 @@
 ---
 title: Comprendre l’ordre de la séquence de déploiement
 description: En savoir plus sur le cycle de vie qui traverse par une définition de plan et les détails sur chaque étape.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/25/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8451b858717e1a3e66214f66db624ee41f6da375
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434804"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266186"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendre la séquence de déploiement dans les blueprints Azure
 
@@ -26,7 +25,7 @@ Azure utilise plans un **ordre de classement** pour déterminer l’ordre de la 
 
 Les exemples JSON contiennent des variables que vous devez remplacer par vos propres valeurs :
 
-- `{YourMG}` - À remplacer par le nom de votre groupe d’administration
+- `{YourMG}` -Remplacer par le nom de votre groupe d’administration
 
 ## <a name="default-sequencing-order"></a>Ordre de séquencement par défaut
 
@@ -47,7 +46,7 @@ Dans chaque artefact de **groupe de ressources**, l’ordre de séquence suivant
 
 Lorsque vous composez des définitions de plan de grande taille, il peut être nécessaire pour les ressources doit être créé dans un ordre spécifique. Le modèle d’utilisation plus courant de ce scénario est lorsqu’une définition de plan comprend plusieurs modèles Azure Resource Manager. À cet effet, les blueprints permettent de définir l’ordre de séquencement.
 
-Le classement est effectué en définissant une propriété `dependsOn` dans le JSON. La définition de plan, pour les groupes de ressources et les objets de l’artefact en charge cette propriété. `dependsOn` est un tableau de chaînes de noms d’artefacts que l’artefact en question doit créer au préalable.
+Le classement est effectué en définissant une propriété `dependsOn` dans le JSON. La définition de plan, pour les groupes de ressources et les objets de l’artefact en charge cette propriété. `dependsOn` est un tableau de chaînes de noms d’artefact l’artefact particulier doit être créé avant sa création.
 
 ### <a name="example---ordered-resource-group"></a>Exemple - commandé le groupe de ressources
 

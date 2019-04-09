@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104401"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273666"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Démarrage rapide : Créer et partager un notebook
 
@@ -43,7 +43,7 @@ ms.locfileid: "58104401"
 
 1. Après quelques instants, Azure Notebooks accède au nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+**), puis **Notebook** :
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "Nouveau projet vide et commande d’ajout de notebook")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    [![](media/quickstarts/empty-project-new-notebook-button.png "Un nouveau projet vide et ajouter des commandes de bloc-notes")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
 1. Dans la fenêtre contextuelle **Créer un notebook** qui s’affiche, entrez un nom de fichier pour votre notebook, tel que *HelloWorldInPython.ipynb* (*.ipynb* désigne un notebook IronPython (Jupyter)), puis sélectionnez **Python 3.6** pour le langage (également appelé *noyau*) :
 
@@ -106,4 +106,4 @@ Sur la page des projets, vous pouvez également utiliser le menu **Partager** po
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et exécuter un notebook Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)
+> [Didacticiel : créer une exécution d’un bloc-notes Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)

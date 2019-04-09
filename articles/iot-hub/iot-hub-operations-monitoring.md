@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791577"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258111"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Opérations IoT Hub surveillance (déconseillée)
 
 La surveillance des opérations IoT Hub vous permet de surveiller l’état des opérations sur votre hub IoT en temps réel. IoT Hub effectue le suivi des événements entre différentes catégories d’opérations. Vous pouvez opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de votre IoT Hub en vue de leur traitement. Vous pouvez surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
 
 >[!NOTE]
->IoT Hub **surveillance des opérations est déconseillées et a été supprimées d’IoT Hub sur le 10 mars 2019**. Pour plus d’informations sur la surveillance des opérations et de l’intégrité d’IoT Hub, consultez l’article [Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes][lnk-monitor]. Pour plus d’informations sur la chronologie de dépréciation, consultez l’article [Surveiller vos solutions Azure IoT avec Azure Monitor et Azure Resource Health][lnk-blog-announcement].
+>IoT Hub **surveillance des opérations est déconseillées et a été supprimées d’IoT Hub sur le 10 mars 2019**. Pour la surveillance des opérations et l’intégrité d’IoT Hub, consultez [surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes](iot-hub-monitor-resource-health.md). Pour plus d’informations sur la chronologie de dépréciation, consultez l’article [Surveiller vos solutions Azure IoT avec Azure Monitor et Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IoT Hub surveille six catégories d’événements :
 
@@ -36,15 +36,15 @@ IoT Hub surveille six catégories d’événements :
 
 ## <a name="how-to-enable-operations-monitoring"></a>Comment activer la surveillance des opérations
 
-1. Créez un hub IoT. Pour savoir comment créer un hub IoT, consultez le guide [Prise en main][lnk-get-started].
+1. Créez un hub IoT. Vous trouverez des instructions sur la façon de créer un IoT hub dans le [prise en main](quickstart-send-telemetry-dotnet.md) guide.
 
-1. Ouvrez le panneau de votre hub IoT. De là, cliquez sur **Surveillance des opérations**.
+2. Ouvrez le panneau de votre hub IoT. De là, cliquez sur **Surveillance des opérations**.
 
-    ![Accéder à la configuration de la surveillance des opérations dans le portail][1]
+    ![Accéder à la configuration de la surveillance des opérations dans le portail](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-1. Sélectionnez les catégories de surveillance qui vous intéressent, puis cliquez sur **Enregistrer**. Les événements sont disponibles en lecture depuis le point de terminaison compatible avec le hub d’événements répertorié dans **Paramètres de surveillance**. Le point de terminaison IoT Hub s’appelle `messages/operationsmonitoringevents`.
+3. Sélectionnez les catégories de surveillance qui vous intéressent, puis cliquez sur **Enregistrer**. Les événements sont disponibles en lecture depuis le point de terminaison compatible avec le hub d’événements répertorié dans **Paramètres de surveillance**. Le point de terminaison IoT Hub s’appelle `messages/operationsmonitoringevents`.
 
-    ![Configurer la surveillance des opérations sur votre IoT Hub][2]
+    ![Configurer la surveillance des opérations sur votre IoT Hub](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
 > [!NOTE]
 > Si vous sélectionnez la surveillance **détaillée** dans la catégorie **Connexions**, IoT Hub génère des messages de diagnostic supplémentaires. Pour toutes les autres catégories, le paramètre **Détaillée** modifie la quantité d’informations qu’IoT Hub inclut dans chaque message d’erreur.
@@ -145,7 +145,9 @@ La catégorie de connexions effectue le suivi des erreurs provoquées par la con
 La catégorie de chargement de fichiers effectue le suivi des erreurs qui se produisent au niveau de l’IoT hub et qui sont liées à la fonctionnalité de chargement. Cette catégorie inclut :
 
 * Erreurs qui se produisent avec l’URI SAP, par exemple en cas d’expiration avant qu’un appareil notifie le hub d’un téléchargement terminé.
+
 * Échecs des téléchargements signalés par l’appareil.
+
 * Erreurs qui se produisent lorsqu’un fichier est introuvable dans le stockage lors de la création du message de notification IoT Hub.
 
 Cette catégorie ne peut pas détecter les erreurs qui surviennent directement pendant que l’appareil charge un fichier de stockage.
@@ -188,31 +190,31 @@ La catégorie de routage des messages assure le suivi des erreurs qui se produis
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Se connecter au point de terminaison de surveillance
 
-Le point de terminaison de surveillance de votre IoT Hub est un point de terminaison compatible Event Hub. Vous pouvez utiliser n’importe quel mécanisme compatible avec Event Hubs pour lire les messages de surveillance à partir de ce point de terminaison. L’exemple suivant crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Pour plus d’informations sur la façon de traiter les messages à partir des concentrateurs d’événements, reportez-vous au didacticiel [Prise en main des concentrateurs d’événements][lnk-eventhubs-tutorial].
+Le point de terminaison de surveillance de votre IoT Hub est un point de terminaison compatible Event Hub. Vous pouvez utiliser n’importe quel mécanisme compatible avec Event Hubs pour lire les messages de surveillance à partir de ce point de terminaison. L’exemple suivant crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Pour plus d’informations sur la façon de traiter les messages à partir des concentrateurs d’événements, reportez-vous au didacticiel [Prise en main des concentrateurs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) .
 
 Pour vous connecter au point de terminaison de surveillance, vous avez besoin d’une chaîne de connexion et du nom du point de terminaison. Les étapes suivantes vous montrent comment trouver les valeurs nécessaires dans le portail :
 
 1. Dans le portail, accédez à votre panneau de ressources IoT Hub.
 
-1. Sélectionnez **Surveillance des opérations**, notez les valeurs du **Nom compatible Event Hub** et du **Point de terminaison compatible Event Hub** :
+2. Sélectionnez **Surveillance des opérations**, notez les valeurs du **Nom compatible Event Hub** et du **Point de terminaison compatible Event Hub** :
 
-    ![Valeurs du point de terminaison compatible Event Hub][img-endpoints]
+    ![Valeurs du point de terminaison compatible Event Hub](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-1. Sélectionnez **Stratégies d’accès partagé**, puis **service**. Prenez note de la valeur de **Clé primaire** :
+3. Sélectionnez **Stratégies d’accès partagé**, puis **service**. Prenez note de la valeur de **Clé primaire** :
 
-    ![Clé primaire de la stratégie d’accès partagé du service][img-service-key]
+    ![Clé primaire de la stratégie d’accès partagé du service](./media/iot-hub-operations-monitoring/service-key.png)
 
 L’exemple de code C# suivant est extrait d’une application console C# **Bureau classique Windows** de Visual Studio. Le projet possède le package NuGet **WindowsAzure.ServiceBus**.
 
 * Remplacez l’espace réservé de chaîne de connexion par une chaîne de connexion qui utilise les valeurs du **Point de terminaison compatible Event Hub** et de la **Clé primaire** du service notées précédemment, comme l’illustre l’exemple suivant :
 
-    ```cs
+    ```csharp
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
     ```
 
 * Remplacez l’espace réservé de nom de point de terminaison de surveillance par la valeur du **Nom compatible Event Hub** notée précédemment.
 
-```cs
+```csharp
 class Program
 {
     static string connectionString = "{your monitoring endpoint connection string}";
@@ -263,24 +265,9 @@ class Program
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur d’IoT Hub][lnk-devguide]
-* [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
+* [Guide du développeur IoT Hub](iot-hub-devguide.md)
 
-<!-- Links and images -->
-[1]: media/iot-hub-operations-monitoring/enable-OM-1.png
-[2]: media/iot-hub-operations-monitoring/enable-OM-2.png
-[img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
-[img-service-key]: media/iot-hub-operations-monitoring/service-key.png
-
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
-[lnk-monitor]: iot-hub-monitor-resource-health.md
-[lnk-get-started]: quickstart-send-telemetry-dotnet.md
-[lnk-diagnostic-metrics]: iot-hub-metrics.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-dr]: iot-hub-ha-dr.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+* [Déploiement d’une IA sur des appareils edge avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

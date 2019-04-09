@@ -1,6 +1,6 @@
 ---
 title: Envoyer des événements à l’aide de Python - Azure Event Hubs | Microsoft Docs
-description: Cet article décrit la procédure à suivre pour créer une application Node.js qui envoie des événements à Azure Event Hubs.
+description: Cet article fournit une procédure pas à pas pour la création d’une application Python qui envoie des événements vers Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: b7adf3976f5f7e028ffa9ffeb13db22d3d4bba8e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2168fc89134615ffb4e0e718cc0cc27b8c1a7839
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102977"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262769"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Envoyer des événements à Event Hubs avec Python
 
@@ -25,7 +25,7 @@ Ce tutoriel décrit comment envoyer des événements à un hub d’événements 
 > [!NOTE]
 > Vous pouvez télécharger ce guide de démarrage rapide sous forme d’exemple depuis [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), remplacer les chaînes `EventHubConnectionString` et `EventHubName` par les valeurs de votre hub d’événements, puis l’exécuter. Ou, vous pouvez suivre les étapes de ce didacticiel pour créer le vôtre.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -110,7 +110,7 @@ Pour exécuter le script, ouvrez une invite de commandes qui a Python dans son c
 start python send.py
 ```
 
-Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’événements.
+Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’événements.
  
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce guide de démarrage rapide, vous avez envoyé des messages à un hub d’événements à l’aide de Python. Pour découvrir comment recevoir des événements depuis un hub d’événements à l’aide de Python, consultez [Recevoir des événements depuis Event Hub - Python](event-hubs-python-get-started-receive.md).

@@ -3,7 +3,7 @@ title: Exécuter le package SSIS avec l’activité de procédure stockée - Azu
 description: Cet article décrit comment exécuter un package SQL Server Integration Services (SSIS) dans un pipeline Azure Data Factory à l’aide de l’activité de procédure stockée.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: swinarko
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: jingwang
-ms.openlocfilehash: 1cff60e6134e08e4b9e59a9f69ec09700cca1814
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: sawinark
+ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098744"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256292"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment exécuter un package SSIS dans un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
@@ -176,7 +176,7 @@ Vous pouvez utiliser la fabrique de données qui a le runtime d’intégration A
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. Pour créer la fabrique de données, exécutez la commande suivante **Set-AzDataFactoryV2** applet de commande, à l’aide de la propriété Location et ResourceGroupName à partir de la variable $ResGrp : 
+5. Pour créer la fabrique de données, exécutez l’applet de commande suivante **Set-AzDataFactoryV2**, à l’aide des propriétés Location et ResourceGroupName à partir de la variable $ResGrp : 
     
     ```powershell       
     $DataFactory = Set-AzDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName -Location $ResGrp.Location -Name $dataFactoryName 
@@ -217,7 +217,7 @@ Créez un service lié pour lier votre base de données Azure SQL qui héberge l
 
 2. Dans **Azure PowerShell**, basculez vers le dossier **C:\ADF\RunSSISPackage**.
 
-3. Exécutez le **Set-AzDataFactoryV2LinkedService** applet de commande pour créer le service lié : **AzureSqlDatabaseLinkedService**. 
+3. Exécutez la cmdlet **Set-AzDataFactoryV2LinkedService** pour créer le service lié : **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"

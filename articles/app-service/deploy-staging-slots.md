@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 4b5b7cf3a00e21b9904f72a98d5f24264bb0ecbc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484285"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266203"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -84,7 +84,12 @@ Lorsque vous clonez la configuration depuis un autre emplacement de déploiement
 * Paramètres de surveillance et de diagnostics
 * Certificats publics
 * Contenu WebJobs
-* Connexions hybrides
+* Connexions hybrides *
+* Intégration au réseau virtuel *
+* Points de terminaison de service *
+* Azure CDN *
+
+Fonctionnalités marquées avec un * vont être apportées rattachés à l’emplacement. 
 
 **Paramètres non échangés** :
 
@@ -93,10 +98,15 @@ Lorsque vous clonez la configuration depuis un autre emplacement de déploiement
 * Certificats privés et liaisons SSL
 * Paramètres de mise à l'échelle
 * Planificateurs WebJobs
+* Restrictions d’adresse IP
+* Always On
+* Paramètres de protocole (HTTP**S**, version TLS, les certificats clients)
+* Paramètres du journal de diagnostic
+* CORS
 
-<!-- VNET, IP restrictions, CORS, hybrid connections? -->
+<!-- VNET and hybrid connections not yet sticky to slot -->
 
-Pour lier un paramètre d’application ou une chaîne de connexion à un emplacement particulier (non permuté), accédez à la page **Paramètres de l’application** de cet emplacement, puis cochez la case **Paramètre d’emplacement** correspondant aux éléments de configuration à lier à cet emplacement. Le fait de marquer un élément de configuration comme propre à un emplacement indique à App Service qu’il n’est pas permutable.
+Pour lier un paramètre d’application ou une chaîne de connexion à un emplacement particulier (non permuté), accédez à la page **Paramètres de l’application** de cet emplacement, puis cochez la case **Paramètre d’emplacement** correspondant aux éléments de configuration à lier à cet emplacement. Le fait de marquer un élément de configuration comme propre à un emplacement indique à App Service qu’il n’est pas permutable. 
 
 ![Paramètre de l’emplacement](./media/web-sites-staged-publishing/SlotSetting.png)
 
@@ -329,4 +339,4 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 Pour connaître les commandes de l’interface [Azure CLI](https://github.com/Azure/azure-cli) pour les emplacements de déploiement, consultez [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Bloquer l’accès à des emplacements hors production](app-service-ip-restrictions.md)
+[Bloquer l’accès aux emplacements de non production](app-service-ip-restrictions.md)

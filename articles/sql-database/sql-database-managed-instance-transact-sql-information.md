@@ -1,10 +1,9 @@
 ---
-title: Différences T-SQL sur Azure SQL Database Managed Instance | Microsoft Docs
+title: Différences de T-SQL de base de données-Managed Instance SQL Azure | Microsoft Docs
 description: Cet article décrit les différences T-SQL entre une instance managée dans Azure SQL Database et dans SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
@@ -12,20 +11,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.custom: seoapril2019
+ms.openlocfilehash: 14e33ec25dd2384607d41e4be6e5a33ebf889cbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010598"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260491"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
 
-L’option de déploiement Managed Instance est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance managée.
-
-![migration](./media/sql-database-managed-instance/migration.png)
-
-Comme il existe toujours des différences de syntaxe et de comportement, cet article résume et explique ces différences. <a name="Differences"></a>
+Cet article résume et explique les différences de syntaxe et de comportement entre Azure SQL Database Managed Instance et le moteur de base de données locale SQL Server. <a name="Differences"></a>
 
 - [Disponibilité](#availability) incluant les différences dans [Always On](#always-on-availability) et [Sauvegardes](#backup),
 - [Sécurité](#security) incluant les différences dans [audit](#auditing), [Certificats](#certificates), [Informations d’identification](#credential), [Fournisseurs de chiffrement](#cryptographic-providers), [Connexions/utilisateurs](#logins--users), [Clé de service et clé principale du service](#service-key-and-service-master-key),
@@ -33,6 +29,10 @@ Comme il existe toujours des différences de syntaxe et de comportement, cet art
 - [Fonctionnalités](#functionalities) incluant [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transactions distribuées](#distributed-transactions), [Événements étendus](#extended-events), [Bibliothèques externes](#external-libraries), [FileStream et FileTable](#filestream-and-filetable), [Recherche sémantique de texte intégral](#full-text-semantic-search), [Serveurs liés](#linked-servers), [Polybase](#polybase), [Réplication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Procédures, fonctions et déclencheurs stockés](#stored-procedures-functions-triggers),
 - [Fonctionnalités qui présentent un comportement différent dans Managed instance](#Changes)
 - [Problèmes connus et limitations temporaires](#Issues)
+
+L’option de déploiement Managed Instance est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance managée.
+
+![migration](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>Disponibilité
 
@@ -473,7 +473,7 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 ### <a name="tempdb-size"></a>Taille de TEMPDB
 
-Taille de fichier maximale de `tempdb` ne peut pas être supérieur à 24 Go/core sur le niveau usage général. Max `tempdb` taille sur le niveau critique pour l’entreprise est limité par la taille de stockage d’instance. `tempdb` est toujours Fractionner en fichiers de 12 données. Cette taille maximale par fichier ne peut pas être changée, et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur s’ils ont besoin de plus de 24 Go / cœur dans `tempdb`.
+Taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go/core sur le niveau usage général. Max `tempdb` taille sur le niveau critique pour l’entreprise est limité par la taille de stockage d’instance. `tempdb` est toujours Fractionner en fichiers de 12 données. Cette taille maximale par fichier ne peut pas être changée, et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur s’ils ont besoin de plus de 24 Go / cœur dans `tempdb`.
 
 ### <a name="cannot-restore-contained-database"></a>Impossible de restaurer le contenu de la base de données
 
@@ -494,7 +494,7 @@ Cet exemple montre que dans certaines circonstances, du fait d’une distributio
 
 Dans cet exemple, les bases de données existantes continuent de fonctionner et peuvent croître sans aucun problème du moment que de nouveaux fichiers ne sont pas ajoutés. Toutefois, la création ou la restauration de bases de données est impossible, car il n’y a pas suffisamment d’espace pour les nouveaux lecteurs de disque, même si la taille totale de toutes les bases de données n’atteint pas la limite de taille d’instance. L’erreur retournée dans ce cas n’est pas claire.
 
-Vous pouvez [identifier le nombre de fichiers restants](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) à l’aide de vues système. Si vous avez atteint cette limite essayez [vides et de supprimer certains des fichiers plus petits à l’aide d’instruction DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou shitch à [niveau critique pour l’entreprise qui n’est associé à cette limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Vous pouvez [identifier le nombre de fichiers restants](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) à l’aide de vues système. Si vous avez atteint cette limite essayez [vides et de supprimer certains des fichiers plus petits à l’aide d’instruction DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou basculez vers [niveau critique pour l’entreprise qui n’est associé à cette limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuration incorrecte de la clé SAP au cours d’une restauration de la base de données
 
