@@ -8,14 +8,14 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/04/2019
 ms.author: sajagtap
-ms.openlocfilehash: 76990fb3b6ed1815ada724f28f8276bac1cf28d4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757410"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056110"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Définir et utiliser des flux de travail de modération
 
@@ -65,9 +65,9 @@ Maintenant que vous avez défini un flux de travail personnalisé, testez-le ave
 
 ![Test du flux de travail](images/image-workflow-execute.PNG)
 
-Enregistrer ce [exemple d’image](https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png) sur votre disque local. Puis sélectionnez **ou choisissez les fichiers** et charger l’image dans le flux de travail.
+Enregistrer ce [exemple d’image](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg) sur votre disque local. Puis sélectionnez **ou choisissez les fichiers** et charger l’image dans le flux de travail.
 
-![une femme dans une couleur de bain](images/sample-racy.PNG)
+![Un exécuteur avec une citation superposée sur l’image](images/sample-text.jpg)
 
 ### <a name="track-progress"></a>Suivre la progression
 

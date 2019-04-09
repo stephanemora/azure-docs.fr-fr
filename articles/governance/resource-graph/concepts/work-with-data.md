@@ -4,16 +4,16 @@ description: Découvrez comment récupérer et contrôler des jeux de données v
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 40aa8ca0ebfcc8eb5b686143960af1441768622a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889033"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058382"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -63,7 +63,7 @@ Dans l’[API REST](/rest/api/azureresourcegraph/resources/resources), le contr�
 
 ## <a name="paging-results"></a>Résultats de pagination
 
-S’il est nécessaire de diviser un jeu de résultats en jeux d’enregistrements plus petits à des fins de traitement ou parce que le jeu de résultats dépasse la valeur maximale autorisée de _5 000_ enregistrements retournés, utilisez une pagination. Pour indiquer qu’un jeu de résultats a été divisé, l’[API REST](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** fournit les valeurs **resultTruncated** et **$skipToken**.
+Lorsqu’il est nécessaire de diviser un jeu de résultats en jeux d’enregistrements pour le traitement de plus petits ou, car un jeu de résultats dépasse la valeur maximale autorisée de _1000_ enregistrements retournés, utilisez la pagination. Pour indiquer qu’un jeu de résultats a été divisé, l’[API REST](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** fournit les valeurs **resultTruncated** et **$skipToken**.
 La valeur **resultTruncated** est une valeur booléenne qui informe l’utilisateur de l’existence d’enregistrements supplémentaires non retournés dans la réponse. Cette condition peut également être identifiée lorsque la valeur de la propriété **count** est inférieure à celle de la propriété **totalRecords**. La valeur **totalRecords** définit le nombre d’enregistrements correspondant à la requête.
 
 Lorsque la valeur **resultTruncated** est **true**, la propriété **$skipToken** est définie dans la réponse. Cette valeur est utilisée avec les mêmes valeurs de requête et d’abonnement pour obtenir le jeu d’enregistrements suivant correspondant à la requête.

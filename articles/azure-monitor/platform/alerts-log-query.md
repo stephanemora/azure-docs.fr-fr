@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 429770b7651a93473c03f5e386d8f7b72692c161
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447212"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006104"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Requêtes d’alertes de journal dans Azure Monitor
 [Les règles d’alerte basées sur des journaux Azure Monitor](alerts-unified-log.md) s’exécutent à intervalles réguliers ; vous devez donc vous assurer que leur écriture minime la surcharge et la latence. Cet article fournit des recommandations concernant l’écriture de requêtes performantes pour les alertes de journal et un processus de conversion des requêtes existantes. 
 
 ## <a name="types-of-log-queries"></a>Types de requêtes de journal
-[Les requêtes dans Log Analytics](../log-query/log-query-overview.md) commencent par une table ou par un opérateur [search](/azure/kusto/query/searchoperator) ou [union](/azure/kusto/query/unionoperator).
+[Journal des requêtes dans Azure Monitor](../log-query/log-query-overview.md) commencer par une table ou une [recherche](/azure/kusto/query/searchoperator) ou [union](/azure/kusto/query/unionoperator) opérateur.
 
 Par exemple la requête suivante a pour étendue la table _SecurityEvent_ et recherche un ID d’événement spécifique. Il s’agit de la seule table que la requête doit traiter.
 

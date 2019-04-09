@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905237"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006346"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Configuration requise Edge de zone de données Azure
 
@@ -101,6 +101,37 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 ## <a name="internet-bandwidth"></a>Bande passante Internet
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
+
+## <a name="compute-sizing-considerations"></a>Considérations sur le dimensionnement de calcul
+
+Utilisez votre expérience lors du développement et test de votre solution afin de garantir la capacité est suffisante sur votre appareil Edge de zone de données et vous obtenez des performances optimales de votre appareil.
+
+Tenez compte des facteurs sont les suivantes :
+
+- **Caractéristiques de l’objet conteneur** -réfléchir à ce qui suit.
+
+    - Nombre de conteneurs se trouvent dans votre charge de travail ? Vous pourriez avoir un grand nombre de conteneurs légers et quelques gourmandes en ressources.
+    - Quelles sont les ressources allouées à ces conteneurs et quelles sont les ressources qu’ils consomment ?
+    - Le nombre de couches partager vos conteneurs ?
+    - Existe-t-il des conteneurs inutilisés ? Un conteneur arrêté occupe toujours d’espace disque.
+    - Langue dans laquelle vos conteneurs sont écrits ?
+- **Taille des données traitées** -la quantité de données vos conteneurs traitera ? Ces données consomme d’espace disque ou les données sont traitées dans la mémoire ?
+- **Performance attendue** -quelles sont les caractéristiques de performances souhaité de votre solution ? 
+
+Pour comprendre et affiner les performances de votre solution, vous pouvez utiliser :
+
+- Les mesures de calcul disponibles dans le portail Azure. Accédez à votre ressource de données boîte Edge, puis à **analyse > mesures**. Examinez le **Edge de calcul - utilisation de la mémoire** et **Edge de calcul - Pourcentage d’UC** pour comprendre les ressources disponibles et comment les ressources sont bien utilisés.
+- Les commandes d’analyse disponibles via l’interface PowerShell de l’appareil comme :
+
+    - `dkr` statistiques pour obtenir un flux en direct du ou des conteneurs de statistiques d’utilisation de ressources. La commande prend en charge du processeur, utilisation de la mémoire, limite de mémoire et les mesures d’e/s de réseau.
+    - `dkr system df` Pour obtenir des informations concernant la quantité d’espace disque utilisé. 
+    - `dkr image [prune]` Pour nettoyer les images inutilisées et libérer de l’espace.
+    - `dkr ps --size` Pour afficher la taille approximative d’un conteneur en cours d’exécution. 
+
+    Pour plus d’informations sur les commandes disponibles, accédez à [surveiller et résoudre les problèmes de modules de calcul](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+
+Enfin, assurez-vous que valider votre solution sur votre jeu de données et de quantifier les performances sur les bords de zone de données avant de le déployer en production.
+
 
 ## <a name="next-step"></a>Étape suivante
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 2c04c13eb6399bebf908337d8f71bd03adf4d06a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447217"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269263"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Charger des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory
 
@@ -34,12 +34,12 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 ## <a name="prerequisites"></a>Conditions préalables
 
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* Compte de stockage Azure avec Data Lake Storage Gen2 activé : Si vous n’avez pas de compte de stockage, cliquez [ici](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) pour en créer un.
+* Compte de stockage Azure avec Data Lake Storage Gen2 activé : Si vous n’avez pas un compte de stockage [créer un compte](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 * Compte AWS avec un compartiment S3 qui contient des données : Cet article explique comment copier des données à partir d’Amazon S3. Vous pouvez utiliser d’autres magasins de données en procédant de la même façon.
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
-1. Dans le menu de gauche, sélectionnez **créer une ressource** > **données + Analytique** > **Data Factory**:
+1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Données + Analytique** > **Data Factory** :
    
    ![Sélection Data Factory dans le volet « Nouveau »](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -104,7 +104,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
    
    ![Indiquer un compte Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
-9. Dans la page de **sélection du fichier ou dossier de sortie**, saisissez **copyfroms3** dans le champ du nom du dossier de sortie, puis sélectionnez **Suivant** : 
+9. Dans le **choisir le fichier de sortie ou le dossier** , entrez **copyfroms3** en tant que le nom de dossier de sortie, puis sélectionnez **suivant**. ADF créera le système de fichiers ADLS Gen2 correspondante et les sous-dossiers pendant la copie s’il n’existe pas.
 
     ![Spécification du dossier de sortie](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 
@@ -140,5 +140,5 @@ Quand vous copiez un grand volume de données à partir de la banque de données
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble des activités de copie](copy-activity-overview.md)
+* [Vue d’ensemble de l’activité copie](copy-activity-overview.md)
 * [Connecteur Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)

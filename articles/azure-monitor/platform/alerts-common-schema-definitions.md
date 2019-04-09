@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 1a55fa4f39f2ebc2cdcc421eb6d7fecc62277f90
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851797"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010394"
 ---
-# <a name="common-alert-schema-definitions"></a>Définitions de schéma alerte courantes
+# <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
 Cet article décrit le [des définitions d’alerte de schéma communes](https://aka.ms/commonAlertSchemaDocs) pour la logique de Webhooks/applications/Azure Functions. 
 
@@ -152,6 +152,9 @@ N’importe quelle instance d’alerte décrit **la ressource qui a été affect
 ```
 
 ### <a name="log-alerts"></a>Alertes de journal
+
+> [!NOTE]
+> Si vous utilisez l’option JSON personnalisée pour vos alertes de journal existant, la personnalisation n’est pas conservée dans le schéma commun.
 
 #### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
 

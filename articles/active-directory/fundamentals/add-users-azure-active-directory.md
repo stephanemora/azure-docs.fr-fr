@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cda9f976a7680a1338584e4308426683de82a79
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802116"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009595"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory
 Ajouter de nouveaux utilisateurs ou supprimer des utilisateurs existants à partir de votre organisation Azure Active Directory (Azure AD).
@@ -45,9 +45,9 @@ Vous pouvez créer un utilisateur à l’aide du portail Azure Active Directory.
 
    - **Profil.** Si vous le souhaitez, ajoutez des informations supplémentaires sur l’utilisateur. Vous pouvez également ajouter ces informations ultérieurement. Pour plus d’informations sur l’ajout d’informations sur l’utilisateur, consultez [Ajouter ou modifier des informations de profil utilisateur](active-directory-users-profile-azure-portal.md).
 
-   - **Groupes.** Si vous le souhaitez, vous pouvez ajouter l’utilisateur à un ou plusieurs groupes existants. Vous pouvez également ajouter l’utilisateur à des groupes ultérieurement. Pour plus d’informations sur l’ajout d’utilisateurs à des groupes, consultez [Créer un groupe de base et ajouter des membres](active-directory-groups-create-azure-portal.md).
+   - **groupes.** Si vous le souhaitez, vous pouvez ajouter l’utilisateur à un ou plusieurs groupes existants. Vous pouvez également ajouter l’utilisateur à des groupes ultérieurement. Pour plus d’informations sur l’ajout d’utilisateurs à des groupes, consultez [Créer un groupe de base et ajouter des membres](active-directory-groups-create-azure-portal.md).
 
-   - **Rôle de répertoire.** Si vous le souhaitez, vous pouvez ajouter l’utilisateur a un compte Azure AD rôle d’administrateur. Vous pouvez affecter l’utilisateur soit un administrateur général ou un ou plusieurs des rôles administrateur limité dans Azure AD. Pour plus d’informations sur l’affectation de rôles, consultez [Attribuer des rôles aux utilisateurs](active-directory-users-assign-role-azure-portal.md).
+   - **Rôle d’annuaire.** Si vous le souhaitez, vous pouvez ajouter l’utilisateur à un rôle d’administrateur Azure AD. Vous pouvez affecter l’utilisateur soit un administrateur général ou un ou plusieurs des rôles administrateur limité dans Azure AD. Pour plus d’informations sur l’affectation de rôles, consultez [Attribuer des rôles aux utilisateurs](active-directory-users-assign-role-azure-portal.md).
 
 4. Copiez le mot de passe généré automatiquement fourni dans le champ **Mot de passe**. Vous devrez donner ce mot de passe à l’utilisateur pour qu’il se connecte la première fois.
 
@@ -85,6 +85,6 @@ Une fois que vous avez ajouté vos utilisateurs, vous pouvez exécuter les proc�
 
 - [Créer un groupe de base et ajouter des membres](active-directory-groups-create-azure-portal.md)
 
-- [Travailler avec des utilisateurs et groupes dynamiques](../users-groups-roles/groups-create-rule.md)
+- [Travailler avec des utilisateurs et des groupes dynamiques](../users-groups-roles/groups-create-rule.md)
 
 Ou vous pouvez effectuer d’autres tâches de gestion des utilisateurs, comme [ajouter des utilisateurs invités depuis un autre répertoire](../b2b/what-is-b2b.md) ou [restaurer un utilisateur supprimé](active-directory-users-restore.md). Pour en savoir plus sur les autres actions disponibles, consultez la [documentation Gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).

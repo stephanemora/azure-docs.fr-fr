@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: pareshmu
-ms.openlocfilehash: 06e93639e487439207aface0e56616b6492c6f5e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: 6d1fa0235c91d17887a40bbe0be9831623fce775
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879236"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006984"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -50,6 +50,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Inde** | 2 |Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japon** | 2 |Japon Ouest, Japon Est |Osaka, Tokyo |
 | **Corée du Sud** | 2 |Centre de la Corée, Corée du Sud |Busan, Séoul|
+| **UAE** | 2 | Émirats Arabes Unis, États-Unis, Nord des Émirats Arabes Unis | Dubaï |
 | **Afrique du Sud** | 3 |Afrique du Sud Ouest, Nord de l’Afrique du Sud |Le Cap, Johannesburg |
 | **Amérique du Sud** | 3 |Brésil Sud |Sao Paulo |
 
@@ -95,6 +96,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **eir** |Pris en charge |Pris en charge |Dublin|
 | **Communications globales EPSILON** |Pris en charge |Pris en charge |Singapour, Singapour2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Pris en charge |Pris en charge |Amsterdam, Atlanta, Chicago, Dallas, Dublin, Hong Kong (R.A.S.), Londres, Londres2, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
+| **Émirats arabes unis Etisalat** |Pris en charge |Pris en charge |Dubaï|
 | **euNetworks** |Pris en charge |Pris en charge |Amsterdam, Dublin, Londres |
 | **GÉANT** |Pris en charge |Pris en charge |Amsterdam |
 | **[Nuage global Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Pris en charge| Pris en charge | Chennai, Mumbai |
@@ -106,6 +108,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Pris en charge |Pris en charge | Amsterdam, London2, Silicon Valley, Toronto |
 | **Jisc** |Pris en charge |Pris en charge |Londres |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Pris en charge |Pris en charge |Séoul |
+| **Kordia** | Pris en charge |Pris en charge |Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Pris en charge | Pris en charge | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Londres, Newport (Pays de Galles), Sao Paulo, Seattle, Silicon Valley, Singapour, Washington DC |
 | **LG CNS** |Pris en charge |Pris en charge |Busan, Séoul |

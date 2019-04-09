@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 392c34e1896106c39b31876308084ef4fd6a7e54
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 89303e5c827fc24540d345a9a2b9a0743e453a4d
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449047"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056846"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utiliser le client Apache Beeline avec Apache Hive
 
@@ -21,65 +21,108 @@ Découvrez comment utiliser [Apache Beeline](https://cwiki.apache.org/confluenc
 
 Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HDInsight. Beeline utilise JDBC pour se connecter à HiveServer2, un service hébergé sur votre cluster HDInsight. Vous pouvez également utiliser Beeline pour accéder à Hive sur HDInsight à distance via internet. Les exemples suivants présentent les chaînes de connexion les plus courantes utilisées pour se connecter à HDInsight à partir de Beeline :
 
-* __Utilisation de Beeline à partir d’une connexion SSH vers un nœud principal ou un nœud de périphérie__ : `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+## <a name="types-of-connections"></a>Types de connexions
 
-* __Utilisation de Beeline sur un client, se connectant à HDInsight sur un réseau virtuel Azure__ :`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+### <a name="from-an-ssh-session"></a>À partir d’une session SSH
 
-* __Utilisation de Beeline sur un client, se connectant à un cluster Pack Sécurité Entreprise HDInsight sur un réseau virtuel Azure__ : `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-DOMAIN>;auth-kerberos;transportMode=http' -n <username>` 
+Lors de la connexion à partir d’une session SSH à un nœud de cluster principal, vous pouvez vous connecter à la `headnodehost` adresse sur le port `10001`:
 
-* __Utilisation de Beeline sur un client, se connectant à HDInsight sur l’internet public__ :`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+```
 
-> [!NOTE]  
-> Remplacez `admin` par le compte de connexion de votre cluster.
->
-> Remplacez `password` par le mot de passe du compte de connexion du cluster.
->
-> Remplacez `clustername` par le nom de votre cluster HDInsight :
->
-> Lors de la connexion au cluster via un réseau virtuel, remplacez `<headnode-FQDN>` par le nom de domaine complet d’un nœud principal de cluster.
->
-> Lors de la connexion à un cluster Pack Sécurité Entreprise, remplacez `<AAD-DOMAIN>` par le nom de l'instance Azure Active Directory (AAD) à laquelle le cluster est joint. Utiliser une chaîne en majuscules pour les `<AAD-DOMAIN>` valeur, sinon les informations d’identification ne peut pas être trouvée. Vérifiez `/etc/krb5.conf` pour les noms de domaine si nécessaire. Remplacez `<username>` par le nom d’un compte de domaine autorisé à accéder au cluster. 
+---
+
+### <a name="over-an-azure-virtual-network"></a>Sur un réseau virtuel Azure
+
+Lors de la connexion à HDInsight à partir d’un client sur un réseau virtuel Azure, vous devez fournir le nom de domaine complet (FQDN) d’un nœud principal du cluster. Puisque cette connexion est établie directement aux nœuds de cluster, la connexion utilise le port `10001` :
+
+```bash
+beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+Remplacez `<headnode-FQDN>` avec le nom de domaine complet d’un nœud de cluster principal. Pour rechercher le nom de domaine complet d’un nœud principal, utilisez les informations contenues dans le document [Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+
+---
+
+### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>Pour les clusters HDInsight Enterprise Security Package (ESP)
+
+Lors de la connexion à partir d’un client à un cluster Enterprise Security Package (ESP) joint à Azure Active Directory (AAD), vous devez également spécifier le nom de domaine `<AAD-Domain>` et le nom d’un compte d’utilisateur de domaine disposant des autorisations pour accéder au cluster `<username>`:
+
+```bash
+kinit <username>
+beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
+```
+
+Remplacez `<username>` par le nom d’un compte de domaine autorisé à accéder au cluster. Remplacez `<AAD-DOMAIN>` portant le nom de l’Azure Active Directory (AAD) appartenant au cluster. Utiliser une chaîne en majuscules pour les `<AAD-DOMAIN>` valeur, sinon les informations d’identification ne sera pas trouvée. Vérifiez `/etc/krb5.conf` pour les noms de domaine si nécessaire.
+
+---
+
+### <a name="over-public-internet"></a>Internet public
+
+Lors de la connexion via l’internet public, vous devez fournir le nom de compte de connexion de cluster (par défaut `admin`) et le mot de passe. Par exemple, utilisation de Beeline à partir d’un système client pour se connecter à l’adresse `<clustername>.azurehdinsight.net`. Cette connexion est établie via le port `443`et est chiffrée à l’aide de SSL :
+
+```bash
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+```
+
+Remplacez `clustername` par le nom de votre cluster HDInsight : Remplacez `admin` par le compte de connexion de votre cluster. Remplacez `password` par le mot de passe du compte de connexion du cluster.
+
+---
+
+### <a id="sparksql"></a>Utiliser Beeline avec Apache Spark
+
+Apache Spark fournit sa propre implémentation de HiveServer2, qui est quelquefois appelée « serveur Spark Thrift ». Ce service utilise Spark SQL pour résoudre les requêtes à la place de Hive, et peut offrir de meilleures performances selon la requête.
+
+#### <a name="over-public-internet-with-apache-spark"></a>Internet public avec Apache Spark
+
+La chaîne de connexion utilisée lors de la connexion via internet est légèrement différente. Au lieu de contenir `httpPath=/hive2` doivent impérativement `httpPath/sparkhive2`:
+
+```bash 
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+---
+
+#### <a name="from-cluster-head-or-inside-azure-virtual-network-with-apache-spark"></a>À partir du cluster principal ou à l’intérieur réseau virtuel Azure avec Apache Spark
+
+Lorsque vous vous connectez directement depuis le nœud principal du cluster, ou à partir d’une ressource à l’intérieur du même réseau virtuel Azure que le cluster HDInsight, le port `10002` doit être utilisé pour le serveur Spark Thrift à la place de `10001`. L’exemple suivant montre comment se connecter directement au nœud principal :
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+```
+
+---
 
 ## <a id="prereq"></a>Configuration requise
 
-* Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
+* Un cluster Hadoop sur HDInsight. Consultez [prise en main HDInsight sous Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-  > [!IMPORTANT]  
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+* Notez que le [schéma d’URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) pour le stockage principal de votre cluster. Par exemple, `wasb://` pour le stockage Azure, `abfs://` pour Azure Data Lake Storage Gen2, ou `adl://` pour Azure Data Lake Storage Gen1. Si un transfert sécurisé est activé pour le stockage Azure ou Data Lake Storage Gen2, l’URI est `wasbs://` ou `abfss://`, respectivement. Pour plus d’informations, consultez [transfert sécurisé](../../storage/common/storage-require-secure-transfer.md).
 
-* Un client SSH ou un client Beeline local. La plupart des étapes décrites dans ce document supposent que vous utilisez Beeline à partir d’une session SSH sur le cluster. Pour plus d’informations sur l’exécution de Beeline à partir de l’extérieur du cluster, voir la section [Utiliser Beeline à distance](#remote).
 
-    Pour plus d’informations sur l’utilisation de SSH, voir [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Option 1 : Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). La plupart des étapes décrites dans ce document supposent que vous utilisez Beeline à partir d’une session SSH sur le cluster.
+
+* Option 2 :  Un client Beeline local.
+
 
 ## <a id="beeline"></a>Exécuter une requête Hive
 
-1. Lors du démarrage de Beeline, vous devez fournir une chaîne de connexion pour HiveServer2 sur votre cluster HDInsight :
+Cet exemple est basé sur l’utilisation du client Beeline à partir d’une connexion SSH.
 
-    * Lors de la connexion via l’internet public, vous devez fournir le nom de compte de connexion de cluster (par défaut `admin`) et le mot de passe. Par exemple, utilisation de Beeline à partir d’un système client pour se connecter à l’adresse `<clustername>.azurehdinsight.net`. Cette connexion est établie via le port `443`et est chiffrée à l’aide de SSL :
+1. Ouvrez une connexion SSH au cluster par le code ci-dessous. Remplacez `sshuser` par l’utilisateur SSH de votre cluster, puis remplacez `CLUSTERNAME` par le nom de votre cluster. Lorsque vous y êtes invité, entrez le mot de passe pour le compte d’utilisateur SSH.
 
-        ```bash
-        beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
-        ```
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
-    * Lors de la connexion à partir d’une session SSH à un nœud principal de cluster, vous pouvez vous connecter à l’adresse `headnodehost` sur le port `10001` :
+2. Se connecter à HiveServer2 avec votre client Beeline à partir de votre session SSH ouverte en entrant la commande suivante :
 
-        ```bash
-        beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
-        ```
+    ```bash
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+    ```
 
-    * Lors de la connexion sur un réseau virtuel Azure, vous devez fournir le nom de domaine complet d’un nœud principal de cluster. Puisque cette connexion est établie directement aux nœuds de cluster, la connexion utilise le port `10001` :
-
-        ```bash
-        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
-        ```
-    * Lors de la connexion à un cluster Pack Sécurité Entreprise joint à Azure Active Directory (AAD), vous devez également spécifier le nom de domaine `<AAD-Domain>` et le nom d’un compte d’utilisateur de domaine autorisé à accéder au cluster `<username>` :
-        
-        ```bash
-        kinit <username>
-        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
-        ```
-
-2. Les commandes Beeline commencent par un caractère `!`. Par exemple, `!help` affiche l’aide. Toutefois, `!` peut être omis pour certaines commandes. Par exemple, `help` fonctionne également.
+3. Les commandes Beeline commencent par un caractère `!`. Par exemple, `!help` affiche l’aide. Toutefois, `!` peut être omis pour certaines commandes. Par exemple, `help` fonctionne également.
 
     `!sql` est utilisé pour exécuter des instructions HiveQL. Cependant, HiveQL est si souvent utilisé que vous pouvez omettre le `!sql`qui précède. Les deux instructions suivantes sont équivalentes :
 
@@ -90,7 +133,7 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 
     Sur un nouveau cluster, une seule table est listée : **hivesampletable**.
 
-3. Utilisez la commande suivante pour afficher le schéma correspondant à hivesampletable :
+4. Utilisez la commande suivante pour afficher le schéma correspondant à hivesampletable :
 
     ```hiveql
     describe hivesampletable;
@@ -116,7 +159,7 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 
     Ces informations décrivent les colonnes de la table.
 
-4. Saisissez les instructions suivantes pour créer une table nommée **log4jLogs** avec les exemples de données fournies avec le cluster HDInsight :
+5. Saisissez les instructions suivantes pour créer une table nommée **log4jLogs** avec les exemples de données fournies avec le cluster HDInsight : (Changer de version en fonction des besoins en fonction de votre [schéma d’URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme).)
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -129,7 +172,7 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
         t6 string,
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+    STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
         WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
         GROUP BY t4;
@@ -137,17 +180,17 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 
     Ces instructions effectuent les opérations suivantes :
 
-    * `DROP TABLE`: si la table existe, elle est supprimée.
+    * `DROP TABLE` -Si la table existe, elle est supprimée.
 
-    * `CREATE EXTERNAL TABLE` : crée une table **externe** dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
+    * `CREATE EXTERNAL TABLE` -Crée un **externe** table dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
 
-    * `ROW FORMAT` : formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
+    * `ROW FORMAT` -Comment le formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
 
-    * `STORED AS TEXTFILE LOCATION` : emplacement de stockage des données et format de fichier.
+    * `STORED AS TEXTFILE LOCATION` -Où les données sont stockées et dans quel format de fichier.
 
-    * `SELECT` : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette requête renvoie la valeur **3**, car trois lignes contiennent cette valeur.
+    * `SELECT` : Sélectionne toutes les lignes où colonne **t4** contient la valeur **[ERROR]**. Cette requête renvoie la valeur **3**, car trois lignes contiennent cette valeur.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` : Hive tente d’appliquer le schéma à tous les fichiers dans le répertoire. Dans ce cas, le répertoire contient des fichiers qui ne correspondent pas au schéma. Pour éviter que des données incorrectes n’apparaissent dans les résultats, cette instruction indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log.
+    * `INPUT__FILE__NAME LIKE '%.log'` -Hive tente d’appliquer le schéma à tous les fichiers dans le répertoire. Dans ce cas, le répertoire contient des fichiers qui ne correspondent pas au schéma. Pour éviter que des données incorrectes n’apparaissent dans les résultats, cette instruction indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log.
 
    > [!NOTE]  
    > Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, Par exemple, un processus de chargement de données automatisé ou une opération MapReduce.
@@ -178,11 +221,11 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
         +----------+--------+--+
         1 row selected (47.351 seconds)
 
-5. Pour quitter Beeline, utilisez `!exit`.
+6. Pour quitter Beeline, utilisez `!exit`.
 
-### <a id="file"></a>Utiliser Beeline pour exécuter un fichier HiveQL
+## <a id="file"></a>Exécuter un fichier HiveQL
 
-Utilisez les étapes suivantes pour créer un fichier, puis exécutez-le à l’aide de Beeline.
+Il s’agit d’une continuation à partir de l’exemple précédent. Utilisez les étapes suivantes pour créer un fichier, puis exécutez-le à l’aide de Beeline.
 
 1. Utilisez la commande suivante pour créer un fichier nommé **query.hql**:
 
@@ -203,8 +246,8 @@ Utilisez les étapes suivantes pour créer un fichier, puis exécutez-le à l’
    * **STORED AS ORC** : stocke les données dans un format ORC (Optimized Row Columnar). Le format ORC est particulièrement efficace et optimisé pour le stockage de données Hive.
    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
 
-     > [!NOTE]  
-     > Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
+    > [!NOTE]  
+    > Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
 3. Pour enregistrer le fichier, utilisez **Ctrl**+_+**X**, saisissez ensuite **Y**, puis appuyez sur **Entrée**.
 
@@ -234,52 +277,19 @@ Utilisez les étapes suivantes pour créer un fichier, puis exécutez-le à l’
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (1.538 seconds)
 
-## <a id="remote"></a>Utiliser Beeline à distance
 
-Si vous avez Beeline installé localement et que vous vous connectez via l’internet public, utilisez les paramètres suivants :
 
-* __Chaîne de connexion__ : `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
-
-* __Nom de connexion du cluster__ : `-n admin`
-
-* __Mot de passe de connexion du cluster__ : `-p 'password'`
-
-Remplacez le `clustername` de la chaîne de connexion par le nom de votre cluster HDInsight.
-
-Remplacez `admin` par le nom de connexion de votre cluster, puis remplacez `password` par le mot de passe de votre cluster.
-
-Si vous avez Beeline installé localement et que vous vous connectez sur un réseau virtuel Azure, utilisez les paramètres suivants :
-
-* __Chaîne de connexion__ : `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-
-Pour rechercher le nom de domaine complet d’un nœud principal, utilisez les informations contenues dans le document [Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
-
-## <a id="sparksql"></a>Utiliser Beeline avec Apache Spark
-
-Apache Spark fournit sa propre implémentation de HiveServer2, qui est quelquefois appelée « serveur Spark Thrift ». Ce service utilise Spark SQL pour résoudre les requêtes à la place de Hive, et peut offrir de meilleures performances selon la requête.
-
-La __chaîne de connexion__ utilisée lors de la connexion à Internet est légèrement différente. Au lieu de contenir `httpPath=/hive2`, elle contient `httpPath/sparkhive2`. Voici un exemple de connexion à Internet :
-
-```bash 
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
-```
-
-Lorsque vous vous connectez directement depuis le nœud principal du cluster, ou à partir d’une ressource à l’intérieur du même réseau virtuel Azure que le cluster HDInsight, le port `10002` doit être utilisé pour le serveur Spark Thrift à la place de `10001`. Voici un exemple de connexion directe au nœud principal :
-
-```bash
-beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
-```
 
 ## <a id="summary"></a><a id="nextsteps"></a>Étapes suivantes
 
 Pour plus d’informations générales sur Hive sur HDInsight, consultez le document suivant :
 
-* [Utiliser Apache Hive avec Apache Hadoop sur HDInsight](hdinsight-use-hive.md)
+* [Utilisation d’Apache Hive avec Apache Hadoop sur HDInsight](hdinsight-use-hive.md)
 
 Pour plus d’informations sur les autres façons de travailler avec Hadoop sur HDInsight, consultez les documents suivants :
 
 * [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hdinsight-use-pig.md)
-* [Utiliser MapReduce avec Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
+* [Utilisation de MapReduce avec Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

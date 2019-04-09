@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2018
+ms.date: 04/02/2019
 ms.author: monhaber
-ms.openlocfilehash: cabd3d58c3b6bf76b294e1edf1cf94aad5d30f2f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578949"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006737"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Collecte de données dans Azure Security Center
 Security Center collecte les données à partir de vos machines virtuelles (VM) Azure, les machines virtuelles identiques, les conteneurs de IaaS et les ordinateurs non Azure (notamment en local) pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de Microsoft Monitoring Agent, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP et utilisateur connecté. L’agent Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans votre espace de travail.
@@ -77,11 +77,11 @@ Security Center peut créer automatiquement un espace de travail par défaut dan
 Pour sélectionner un espace de travail créé par Security Center :
 
 1. Sous **Configuration de l’espace de travail par défaut**, sélectionnez Utiliser un ou des espaces de travail créés par Security Center.
-   ![Sélectionnez le niveau tarifaire][10] 
+   ![Sélectionner un niveau tarifaire][10] 
 
 1. Cliquez sur **Enregistrer**.<br>
     Security Center crée un groupe de ressources et un espace de travail par défaut dans cette zone géographique et connecte l’agent à cet espace de travail. La convention d’affectation de noms pour l’espace de travail et le groupe de ressources est la suivante :<br>
-   **Espace de travail : DefaultWorkspace-[ID-abonnement]-[géolocalisation]<br> Groupe de ressources : DefaultResourceGroup-[géolocalisation]**
+   **Espace de travail : DefaultWorkspace-[ID-abonnement]-[géolocalisation]<br> Groupe de ressources : DefaultResourceGroup-[geo]**
 
    Si un abonnement contient des machines virtuelles se trouvant dans plusieurs zones géographiques, Security Center crée plusieurs espaces de travail. Plusieurs espaces de travail sont créés pour tenir à jour les règles de confidentialité des données.
 1. Security Center activera automatiquement une solution Security Center sur l’espace de travail, en fonction du niveau de tarification défini pour l’abonnement. 
@@ -137,8 +137,8 @@ Pour sélectionner un espace de travail Log Analytics existant :
     a.  Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
      
     b.  Sélectionnez l’espace de travail souhaité où vous avez l’intention de connecter l’agent en cliquant sur **Modifier les paramètres** dans la colonne Paramètres de l’abonnement souhaité dans la liste.
-        ![Sélectionnez un espace de travail][8] c. Définir le niveau tarifaire.
-        ![Sélectionnez le niveau tarifaire][9] 
+        ![Sélectionnez l’espace de travail][8] c. Définir le niveau tarifaire.
+        ![Sélectionner un niveau tarifaire][9] 
    
    >[!NOTE]
    >Si l’espace de travail a déjà une solution **Security** ou **SecurityCenterFree** activée, la tarification sera définie automatiquement. 
@@ -179,7 +179,7 @@ Voici le détail complet des ID d’événement App Locker et de sécurité pour
 | --- | --- |
 | Minimales | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| Courant | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| Courant | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -254,18 +254,18 @@ Vous pouvez installer manuellement Microsoft Monitoring Agent pour que Security 
    a.  Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
      
    b.  Sélectionnez l’espace de travail dans lequel vous avez l’intention de connecter l’agent. Assurez-vous que l’espace de travail est dans le même abonnement que vous utilisez dans Security Center et que vous disposez d’autorisations en lecture/écriture sur l’espace de travail.
-       ![Sélectionnez un espace de travail][8]
+       ![Sélectionner un espace de travail][8]
 3. Définir le niveau tarifaire.
-   ![Sélectionnez le niveau tarifaire][9] 
+   ![Sélectionner un niveau tarifaire][9] 
    >[!NOTE]
    >Si l’espace de travail a déjà une solution **Security** ou **SecurityCenterFree** activée, la tarification sera définie automatiquement. 
    > 
 
 4. Si vous souhaitez déployer les agents sur de nouvelles machines virtuelles à l’aide d’un modèle Resource Manager, installez l’extension de machine virtuelle OMS :
 
-   a.  [Installez l’extension de machine virtuelle OMS pour Windows](../virtual-machines/extensions/oms-windows.md)
+   a.  [Installer l’extension de machine virtuelle OMS pour Windows](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Installez l’extension de machine virtuelle OMS pour Linux](../virtual-machines/extensions/oms-linux.md)
+   b.  [Installer l’extension de machine virtuelle OMS pour Linux](../virtual-machines/extensions/oms-linux.md)
 5. Pour déployer les extensions sur des machines virtuelles existantes, suivez les instructions de [Collecter des données sur les machines virtuelles Azure](../azure-monitor/learn/quick-collect-azurevm.md).
 
    > [!NOTE]

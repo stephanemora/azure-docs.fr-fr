@@ -10,19 +10,19 @@ ms.subservice: acoustics
 ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 0baaf31386e1155dee6ca2bbfda6827ca3fc36fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313445"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006486"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Projet acoustique Unreal et l’intégration de Wwise
 Cette procédure fournit les étapes d’intégration détaillées du package de plug-in acoustique de projet dans votre projet de jeu Unreal et Wwise existant. 
 
 Configuration logicielle requise :
-* [Unreal Engine](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1. +
+* [Unreal Engine](https://www.unrealengine.com/) 4.20 ou 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.\*
 * [Plug-in de Wwise pour Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Si vous utilisez une intégration directe du SDK Wwise au lieu d’utiliser les plug-ins Wwise Unreal, consultez le projet acoustique Unreal plug-in et ajuster les appels d’API de Wwise.
 
@@ -39,17 +39,17 @@ Voici les principales étapes pour installer le package et le déployer dans vot
 1. Installer le plug-in de projet acoustique Wwise mixer
 2. (Re) déployer Wwise à votre jeu. Cette étape propage le plug-in de mixer dans votre projet de jeu.
 3. Ajouter le projet acoustique Unreal plug-in à votre jeu
-4. Étendre les fonctionnalités de plug-in Unreal de Wwise
+4. Étendre les fonctionnalités du plug-in Unreal de Wwise
 5. Générez des jeux et vérifiez que Python est activée
 6. Configurer votre projet Wwise à utiliser le projet acoustique
 7. Programme d’installation audio dans Unreal
 
 ## <a name="1-install-the-project-acoustics-mixer-plugin"></a>1. Installer le plug-in de mixer acoustique de projet
-* Ouvrez Wwise Lanceur, puis dans le **plug-ins** sous l’onglet sous **installer nouveaux plug-ins**, sélectionnez **ajouter depuis le répertoire**. 
+* Ouvrez Wwise Launcher puis, dans l’onglet **Plugins** sous **Install New Plugins**, sélectionnez **Add From Directory**. 
 
     ![Capture d’écran de l’installation d’un plug-in dans le Lanceur Wwise](media/wwise-install-new-plugin.png)
 
-* Choisissez le `AcousticsWwisePlugin\ProjectAcoustics` répertoire qui a été inclus dans le package que vous avez téléchargé. Il contient le groupe de plug-in de mixer Wwise.
+* Choisissez le répertoire `AcousticsWwisePlugin\ProjectAcoustics` inclus dans le package que vous avez téléchargé. Il contient le groupe de plug-in de mixer Wwise.
 
 * Wwise installera le plug-in. Projet acoustique doit maintenant s’afficher dans la liste des plug-ins installés dans Wwise.
 ![Liste de plug-ins de capture d’écran de Wwise installé après l’installation de projet acoustique](media/unreal-integration-post-mixer-plugin-install.png)
@@ -59,7 +59,7 @@ Redéployer Wwise à votre jeu même si vous avez déjà intégré Wwise. Ceci s
 
 * **Plug-in du moteur :** Si vous avez Wwise installé comme un plug-in de jeu dans un projet C++ Unreal, ignorez cette étape. S’il est installé à la place comme un plug-in du moteur, par exemple, car votre projet Unreal est Blueprint, Wwise déploiement uniquement avec nos plug-in de mixer est plus complexe. Créer un projet C++ Unreal factice, vide, fermez-la si Unreal éditeur s’ouvre, suivez la procédure restante pour déployer de Wwise dans ce projet factice. Copiez ensuite le plug-in Wwise déployé.
  
-* Dans le Lanceur de Wwise, cliquez sur le **Unreal Engine** tabulation, puis cliquez sur le menu hamburger situé en regard **Recent Projects moteur Unreal** et sélectionnez **rechercher un projet**. Ouvrez le projet Unreal de votre jeu `.uproject` fichier.
+* Depuis Wwise Launcher, cliquez sur l’onglet **Unreal Engine**, puis cliquez sur le menu hamburger en regard de **Recent Unreal Engine Projects** et sélectionnez **Browse for project**. Ouvrez le projet Unreal de votre jeu `.uproject` fichier.
 
     ![Onglet Unreal capture d’écran de Wwise du Lanceur](media/wwise-unreal-tab.png)
 
@@ -74,15 +74,15 @@ Redéployer Wwise à votre jeu même si vous avez déjà intégré Wwise. Ceci s
 
 * Vérifiez une `Wwise` dossier en même temps que le `ProjectAcoustics` dossier. Il contient le plug-in de Wwise, ainsi que les fichiers binaires pour le plug-in de mixer vous (re-) déployé à l’étape 2 ci-dessus.
 
-## <a name="4-extend-wwises-unreal-plugin-functionality"></a>4. Étendre les fonctionnalités de plug-in Unreal de Wwise
+## <a name="4-extend-wwises-unreal-plugin-functionality"></a>4. Étendre les fonctionnalités du plug-in Unreal de Wwise
 * Le plug-in Project acoustique Unreal exige un comportement supplémentaire exposée à partir du plug-in Wwise Unreal API par [ces instructions](https://www.audiokinetic.com/library/?source=UE4&id=using__initialsetup.html). Nous avons inclus un fichier de commandes pour automatiser la procédure de mise à jour corrective. 
-* À l’intérieur de `Plugins\ProjectAcoustics\Resources`, exécutez `PatchWwise.bat`. L’image de l’exemple ci-dessous utilise notre exemple de projet AcousticsGame.
+* Dans `Plugins\ProjectAcoustics\Resources`, exécutez `PatchWwise.bat`. L’image de l’exemple ci-dessous utilise notre exemple de projet AcousticsGame.
 
     ![Capture d’écran de l’Explorateur Windows mise en surbrillance de fenêtre fourni script de correction Wwise](media/patch-wwise-script.png)
 
 * Si vous n’avez pas installé le SDK DirectX, vous devrez Commentez la ligne contenant DXSDK_DIR dans `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
-    ![Capture d’écran de l’éditeur de code montrant DXSDK commenté](media/directx-sdk-comment.png)
+    ![Capture d’écran de l’éditeur de code montrant DXSDK avec des commentaires](media/directx-sdk-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5. Générez des jeux et vérifiez que Python est activée
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: f7d1c5bc54d909d1a948123839d95e1ee1158a5c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 4410dd9e61fe5b585ca5b245dbf33dbf8c38e701
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444815"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010207"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)
 
@@ -29,6 +29,9 @@ Application Gateway et le pare-feu d’applications web (WAF) sont désormais di
 > La référence SKU de la passerelle d’application redondante interzone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+
+> [!NOTE]
+> La mise à l’échelle et la passerelle d’application redondant référence (SKU) prend désormais en charge [sonde d’intégrité](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) pour surveiller l’intégrité de toutes les ressources dans son pool back-end et de supprimer les ressources considérées comme non intègre du pool automatiquement. La sonde de contrôle d’intégrité par défaut finiront par être automatiquement configurés pour ces serveurs principaux pour lesquels vous n’avez pas configuré de n’importe quelle configuration de sonde personnalisée. Pour plus d’informations, consultez [sondes d’intégrité dans application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparaison des fonctionnalités de la référence (SKU) v1 et v2 référence (SKU)
 
@@ -76,6 +79,6 @@ La version préliminaire, aucun frais n’est. Vous êtes facturé pour les ress
 |Intégration de Network Watcher|Non prise en charge dans la Préversion publique.|
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Créer une passerelle d’application redondante dans une zone, avec mise à l’échelle automatique et avec une adresse IP virtuelle réservée à l’aide d’Azure PowerShell](tutorial-autoscale-ps.md)
+- [Créer une mise à l’échelle, la passerelle d’application redondant de zone avec une adresse IP réservée à l’aide d’Azure PowerShell](tutorial-autoscale-ps.md)
 - Découvrez [Application Gateway](overview.md).
 - Découvrez le [Pare-feu Azure](../firewall/overview.md).

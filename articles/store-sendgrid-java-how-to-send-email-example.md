@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: bc543218678b63d9c101f6cc3a1b65dd5c23a881
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 79cb9bb82862f5720d5ec2262ba30dbbcf3e3f66
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895171"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006711"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Envoi de courriers électroniques à l'aide de SendGrid à partir de Java dans un déploiement Azure
 L'exemple qui suit montre comment vous pouvez utiliser SendGrid pour envoyer des courriers électroniques depuis une page Web hébergée sur Azure. L’application résultante invitera l’utilisateur pour les valeurs de la messagerie, comme indiqué dans la capture d’écran suivante.
@@ -38,7 +38,7 @@ Pour utiliser le code de cette rubrique, vous devrez effectuer les opérations s
 
 Vous devez également avoir vos propres nom d'utilisateur et mot de passe SendGrid pour pouvoir envoyer le courrier électronique. Pour vos premiers pas avec SendGrid, consultez la page [Envoi de courriers électroniques à l'aide de SendGrid depuis Java](store-sendgrid-java-how-to-send-email.md).
 
-En outre, il est recommandé de bien connaître les informations de la page [Création d'une application Hello World pour Azure dans Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)ou bien d'autres techniques d'hébergement pour les applications Java dans Azure si vous n'utilisez pas Eclipse.
+En outre, il est recommandé de bien connaître les informations de la page [Création d'une application Hello World pour Azure dans Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable)ou bien d'autres techniques d'hébergement pour les applications Java dans Azure si vous n'utilisez pas Eclipse.
 
 ## <a name="create-a-web-form-for-sending-email"></a>Création d'un formulaire Web pour l'envoi de courriers électroniques
 Le code qui suit présente la conception d'un formulaire Web qui extrait les données des utilisateurs pour envoyer des courriers électroniques. Dans le cadre du présent contenu, le fichier JSP est nommé **emailform.jsp**.
@@ -214,7 +214,6 @@ Déployez votre application sur l'émulateur de calcul, puis dans un navigateur,
 Ce code vous est fourni afin de vous montrer comment utiliser SendGrid dans Java sur Azure. Avant d’effectuer le déploiement de production sur Azure, vous pouvez ajouter d’autres fonctionnalités telles que la gestion des erreurs. Par exemple :  
 
 * Vous pouvez utiliser des objets blob de stockage Azure ou une base de données SQL pour stocker les adresses de messagerie et les courriers électroniques, plutôt que d'utiliser un formulaire Web. Pour plus d'informations sur l'utilisation d'objets blob de stockage Azure dans Java, consultez la page [Utilisation du service de stockage d'objets blob de Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Pour plus d'informations sur l'utilisation de la base de données SQL dans Java, consultez la page [Utilisation de bases de données SQL dans Java](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
-* Vous pouvez utiliser `RoleEnvironment.getConfigurationSettings` pour extraire le nom d’utilisateur et le mot de passe SendGrid à partir des paramètres de configuration de votre déploiement, au lieu d’utiliser un formulaire Web. Pour en savoir plus sur la classe `RoleEnvironment`, consultez la rubrique [Utilisation de la bibliothèque Azure Service Runtime en JSP](/previous-versions/azure/hh690948(v=azure.100)), ainsi que la documentation du package Azure Service Runtime sur <http://dl.windowsazure.com/javadoc>.
 * Pour plus d’informations sur l’utilisation de SendGrid dans Java, consultez la page [Envoi de courriers électroniques à l’aide de SendGrid depuis Java](store-sendgrid-java-how-to-send-email.md).
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg

@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4a47f393853d1e1dfb2b6c367fe62d1822e98806
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249449"
 documentType: LandingData
 title: Documentation sur Azure AD Identity Governance
 metadata:
-  document_id: 
-  title: Documentation sur Azure Active Directory Identity Governance | Microsoft Docs
+  document_id: null
+  title: "Documentation sur Azure Active Directory Identity Governance\_| Microsoft Docs"
   description: Découvrez la gouvernance du cycle de vie des identités et des accès et sécurisez l’administration entre employés et partenaires.
   services: active-directory
   author: rolyon
@@ -24,31 +18,31 @@ abstract:
   description: Azure Active Directory Identity Governance permet aux entreprises de régir le cycle de vie des identités et des accès et de sécuriser l’administration entre employés et partenaires.
   aside:
     image:
-      alt: 
+      alt: null
       height: 112
       src: media/index/video-thumb-identity-governance.png
       width: 200
-    title: Gouverner l’accès à vos ressources (1:17:24)
-    href: https://www.youtube.com/embed/aY7A0Br8u5M
+    title: 'Gouverner l’accès à vos ressources (1:17:24)'
+    href: 'https://www.youtube.com/embed/aY7A0Br8u5M'
     width: 200
 sections:
-- title: Gouvernance des identités
-  items:
-  - type: list
-    style: unordered
+  - title: Gouvernance des identités
     items:
-    - html: <a href="/azure/active-directory/governance/identity-governance-overview">Qu’est-ce que la gouvernance des identités ?</a>
-- title: Révisions d’accès
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: "<a href=\"/azure/active-directory/governance/identity-governance-overview\">Qu’est-ce que la gouvernance des identités\_?</a>"
+  - title: Révisions d’accès
     items:
-    - html: <a href="/azure/active-directory/governance/access-reviews-overview">Qu’est-ce qu’une révision d’accès ?</a>
-    - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gérer l’accès des utilisateurs avec les révisions d’accès</a>
-    - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gérer l’accès des invités avec les révisions d’accès</a>
-- title: Conditions d’utilisation
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: "<a href=\"/azure/active-directory/governance/access-reviews-overview\">Qu’est-ce qu’une révision d’accès\_?</a>"
+          - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gérer l’accès des utilisateurs avec les révisions d’accès</a>
+          - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gérer l’accès des invités avec les révisions d’accès</a>
+  - title: Conditions d’utilisation
     items:
-    - html: <a href="/azure/active-directory/governance/active-directory-tou">Que puis-je faire avec Conditions d’utilisation ?</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Que puis-je faire avec Conditions d’utilisation ?</a>
