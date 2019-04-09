@@ -4,147 +4,142 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: b4a8f026-cb5f-41eb-9680-68eddc33565e
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/20/2017
+ms.topic: tutorial
+ms.date: 03/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcc93254b50da9bff6f687034d39d0058aa514e1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 31528c30ac8b795a661539349c2bee31edb6973c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765949"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutoriel : Intégration d’Azure Active Directory à Perception United States (Non-UltiPro)
 
 Dans ce didacticiel, vous allez apprendre à intégrer Perception United States (Non-UltiPro) à Azure Active Directory (Azure AD).
-
 L’intégration de Perception United States (Non-UltiPro) à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Perception United States (Non-UltiPro).
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Perception United States (Non-UltiPro) (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à Perception United States (Non-UltiPro).
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Perception United States (Non-UltiPro) (via l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Perception United States (Non-UltiPro), vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement Perception United States (Non-UltiPro) pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Perception United States (Non-UltiPro) pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de Perception United States (Non-UltiPro) à partir de la galerie
-1. Configuration et test de l’authentification unique Azure AD
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+
+* Perception United States (Non-UltiPro) prend en charge l’authentification unique lancée par le **fournisseur d’identité**
 
 ## <a name="adding-perception-united-states-non-ultipro-from-the-gallery"></a>Ajout de Perception United States (Non-UltiPro) à partir de la galerie
+
 Pour configurer l’intégration de Perception United States (Non-UltiPro) à Azure AD, vous devez ajouter Perception United States (Non-UltiPro) à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Perception United States (Non-UltiPro) à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise][2]
-    
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-    ![Bouton Nouvelle application][3]
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-1. Dans la zone de recherche, tapez **Perception United States (Non-UltiPro)**, sélectionnez **Perception United States (Non-UltiPro)** à partir du volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
-    ![Perception United States (Non-UltiPro) dans la liste des résultats](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_addfromgallery.png)
+4. Dans la zone de recherche, tapez **Perception United States (Non-UltiPro)**, sélectionnez **Perception United States (Non-UltiPro)** à partir du volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+
+     ![Perception United States (Non-UltiPro) dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Perception United States (Non-UltiPro) grâce à un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur équivalent à l’utilisateur Azure AD dans Perception United States (Non-UltiPro). En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Perception United States (Non-UltiPro) associé doit être établie.
-
-Dans Perception United States (Non-UltiPro), affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Perception United States (Non-UltiPro) grâce à un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur associé dans Perception United States (Non-UltiPro) doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec Perception United States (Non-UltiPro), vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur de test Perception United States (Non-UltiPro)](#create-a-perception-united-states-non-ultipro-test-user)** pour avoir dans Perception United States (Non-UltiPro) un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
-1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+2. **[Configurer l’authentification unique Perception United States (Non-UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Perception United States (Non-UltiPro)](#create-perception-united-states-non-ultipro-test-user)** pour avoir dans Perception United States (Non-UltiPro) un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Perception United States (Non-UltiPro).
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’intégration d’Azure AD avec Perception United States (Non-UltiPro), procédez comme suit :**
+Pour configurer l’authentification unique d’Azure AD avec Perception United States (Non-UltiPro), procédez comme suit :
 
-1. Dans le portail Azure, sur la page d’intégration de l’application **Perception United States (Non-UltiPro)**, cliquez sur **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **Perception United States (Non-UltiPro)**, sélectionnez **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Boîte de dialogue Authentification unique](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_samlbase.png)
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-1. Dans la section **Domaine et URL Perception United States (Non-UltiPro)**, procédez comme suit :
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-    ![Informations d’authentification Domaine et URL Perception United States (Non-UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_url.png)
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    a. Dans la zone de texte **Identificateur**, tapez l’URL : `https://perception.kanjoya.com/sp`
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://perception.kanjoya.com/sso?idp=<entity_id>`
+4. Sur la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
 
-    > [!NOTE] 
-    > Cette valeur n’est pas la valeur réelle. Vous mettrez à jour la valeur avec l’URL de réponse réelle. La procédure est expliquée plus loin dans le didacticiel.
- 
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+    ![Informations d’authentification Domaine et URL Perception United States (Non-UltiPro)](common/idp-intiated.png)
 
-    ![Lien Téléchargement de certificat](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_certificate.png) 
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://perception.kanjoya.com/sp`
 
-1. Cliquez sur le bouton **Enregistrer** .
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/perceptionunitedstates-tutorial/tutorial_general_400.png)
+    c. L’application **Perception United States (Non-UltiPro)** requiert la valeur de l’**identificateur Azure AD** en tant que <entity_id>, que vous obtiendrez à partir de la section **Configurer Perception United States (Non-UltiPro)**, à encoder dans l’URI. Pour obtenir la valeur encodée sous forme d’URI, utilisez le lien suivant :**http://www.url-encode-decode.com/**.
 
-1. Dans la section **Configuration de Perception United States (Non-UltiPro)**, cliquez sur **Configurer Perception United States (Non-UltiPro)** pour ouvrir la fenêtre **Configurer l’authentification unique**. Copiez **l’ID d’entité SAML** à partir de la **section Référence rapide**.
-
-    a. L’application **Perception United States (Non-UltiPro)** requiert le codage URI de la valeur d’**ID d’entité SAML** que vous avez copiée. Pour obtenir la valeur encodée sous forme d’URI, utilisez le lien suivant :**http://www.url-encode-decode.com/**.
-
-    b. Après l’obtention de la valeur encodée en URI, associez-la à l’**URL de réponse** comme indiqué ci-dessous :
+    d. Après l’obtention de la valeur encodée en URI, associez-la à l’**URL de réponse** comme indiqué ci-dessous :
 
     `https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
     
-    c. Collez la valeur ci-dessus dans la zone de texte **URL de réponse** dans la section **Domaine et URL Perception United States (Non-UltiPro)**.
+    e. Collez la valeur ci-dessus dans la zone de texte **URL de réponse**.
 
-    ![Configuration de Perception United States (Non-UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_configure.png) 
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
+
+    ![Lien Téléchargement de certificat](common/metadataxml.png)
+
+6. Dans la section **Configurer Perception United States (Non-UltiPro)**, copiez la ou les URL appropriées correspondant à vos besoins.
+
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
+    a. URL de connexion
+
+    b. Identificateur Azure AD
+
+    c. URL de déconnexion   
+
+### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Un abonnement Perception United States (Non-UltiPro) pour lequel l’authentification unique est activée
 
 1. Dans une autre fenêtre de navigateur, connectez-vous à votre site d’entreprise Perception United States (Non-UltiPro) en tant qu’administrateur.
 
-1. Dans la barre d’outils principale, cliquez sur **Paramètres du compte**.
+2. Dans la barre d’outils principale, cliquez sur **Paramètres du compte**.
 
     ![Utilisateur Perception United States (Non-UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
-1. Sur la page **Paramètres du compte** , procédez comme suit :
+3. Sur la page **Paramètres du compte** , procédez comme suit :
 
     ![Utilisateur Perception United States (Non-UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
@@ -156,7 +151,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     d. Sélectionnez le **fournisseur d’identité d’authentification unique** **SAML 2.0**.
 
-1. Dans la page **Configuration SAML**, procédez comme suit :
+4. Dans la page **Configuration SAML**, procédez comme suit :
 
     ![Configuration de l’authentification unique Perception United States (Non-UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
@@ -164,109 +159,79 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Dans la zone de texte **Nom de configuration d’authentification unique**, tapez le nom de votre **configuration**.
     
-    c. Dans la zone de texte **Nom du fournisseur d’identité**, collez la valeur de l’**ID d’entité SAML** copié à partir du portail Azure. 
+    c. Dans la zone de texte **Identity Provider Name** (Nom du fournisseur d’identité), collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du portail Azure. 
 
-    d. Dans **zone de texte domaine SAML**, entrez le domaine comme  **\@contoso.com**.
+    d. Dans la **zone de texte de domaine SAML**, entrez le domaine tel que @contoso.com.
 
     e. Cliquez sur **Télécharger à nouveau** pour télécharger le fichier de **XML de métadonnées**.
 
     f. Cliquez sur **Update**.
 
-
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Bouton Azure Active Directory](./media/perceptionunitedstates-tutorial/create_aaduser_01.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/perceptionunitedstates-tutorial/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
 
-    ![Bouton Ajouter](./media/perceptionunitedstates-tutorial/create_aaduser_03.png)
-
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/perceptionunitedstates-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
-  
-### <a name="create-a-perception-united-states-non-ultipro-test-user"></a>Créer un utilisateur de test Perception United States (Non-UltiPro)
-
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Perception United States (Non-UltiPro). Collaborez avec l’[équipe de support Perception United States (Non-UltiPro)](https://www.ultimatesoftware.com/Contact/ContactUs) pour ajouter les utilisateurs dans la plateforme Perception United States (Non-UltiPro).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Perception United States (Non-UltiPro).
 
-![Attribuer le rôle utilisateur][200] 
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, sélectionnez **Toutes les applications**, puis sélectionnez **Perception United States (Non-UltiPro)**.
 
-**Pour affecter Britta Simon à Perception United States (Non-UltiPro), procédez comme suit :**
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+2. Dans la liste des applications, sélectionnez **Perception United States (Non-UltiPro)**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Lien Perception United States (Non-UltiPro) dans la liste des applications](common/all-applications.png)
 
-1. Dans la liste des applications, sélectionnez **Perception United States (Non-UltiPro)**.
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
-    ![Lien Perception United States (Non-UltiPro) dans la liste des applications](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_app.png)  
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Lien « Utilisateurs et groupes »][202]
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-    ![Volet Ajouter une attribution][203]
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+### <a name="create-perception-united-states-non-ultipro-test-user"></a>Créer un utilisateur de test Perception United States (Non-UltiPro)
 
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Perception United States (Non-UltiPro). Collaborez avec l’[équipe de support Perception United States (Non-UltiPro)](https://www.ultimatesoftware.com/Contact/ContactUs) pour ajouter les utilisateurs dans la plateforme Perception United States (Non-UltiPro).
+
+### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Perception United States (Non-UltiPro) dans le volet d’accès, vous devez être connecté automatiquement à votre application Perception United States (Non-UltiPro).
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quand vous cliquez sur la vignette Perception United States (Non-UltiPro) dans le volet d’accès, vous devez être connecté automatiquement à l’application Perception United States (Non-UltiPro) pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/perceptionunitedstates-tutorial/tutorial_general_01.png
-[2]: ./media/perceptionunitedstates-tutorial/tutorial_general_02.png
-[3]: ./media/perceptionunitedstates-tutorial/tutorial_general_03.png
-[4]: ./media/perceptionunitedstates-tutorial/tutorial_general_04.png
-
-[100]: ./media/perceptionunitedstates-tutorial/tutorial_general_100.png
-
-[200]: ./media/perceptionunitedstates-tutorial/tutorial_general_200.png
-[201]: ./media/perceptionunitedstates-tutorial/tutorial_general_201.png
-[202]: ./media/perceptionunitedstates-tutorial/tutorial_general_202.png
-[203]: ./media/perceptionunitedstates-tutorial/tutorial_general_203.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

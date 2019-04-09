@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3964d75aa87fe76432af6b28e74a48fd1f2b49ef
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 13a9dd86e83099e25f7688ddb8ecc04793d3bb27
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543830"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801762"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Exemple : Initiative de la stratégie de facturation en fonction de balises
 
@@ -29,7 +29,7 @@ Vous pouvez déployer ce modèle en utilisant le [portail Azure](#deploy-with-th
 
 ## <a name="deploy-with-the-portal"></a>Déployer avec le portail
 
-[![Déployer sur Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Déployer l’exemple de stratégie dans Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Déployer avec PowerShell
 

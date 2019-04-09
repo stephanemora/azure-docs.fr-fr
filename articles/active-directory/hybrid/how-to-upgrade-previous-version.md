@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/18/2018
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193753"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267036"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect : Effectuer une mise à niveau depuis une version précédente vers la dernière
 Cette rubrique décrit les différentes méthodes que vous pouvez utiliser pour mettre à niveau votre installation Azure Active Directory (Azure AD) Connect vers la dernière version. Nous vous recommandons d’utiliser systématiquement les dernières versions d’Azure AD Connect. Vous pouvez également suivre les étapes décrites dans la section [Migration « swing »](#swing-migration) lorsque vous appliquez une modification importante à la configuration.
+
+>[!NOTE]
+> Il est actuellement pris en charge pour mettre à niveau à partir de n’importe quelle version d’Azure AD Connect vers la version actuelle. Mises à niveau sur place de DirSync ou ADSync ne sont pas prises en charge et une migration « swing » est requise.  Si vous souhaitez mettre à niveau à partir de DirSync, consultez [mise à niveau à partir de l’outil de synchronisation Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md) ou [migration « swing »](#swing-migration) section.  </br>Dans la pratique, les clients sur des versions très anciennes peuvent rencontrer des problèmes pas directement liées à Azure AD Connect. Les serveurs qui ont été en production depuis plusieurs années, ont généralement plusieurs patchs les et n’est pas peuvent être pris en compte.  En règle générale, les clients qui n’ont pas été mis à niveau dans les 12 à 18 mois doivent envisager une mise à niveau « swing » au lieu de cela car cette option est la plus conservatrice et moins risquée.
 
 Si vous souhaitez effectuer une mise à niveau à partir de DirSync, consultez plutôt [Effectuer une mise à niveau à partir de l’outil de synchronisation Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md) .
 
@@ -32,7 +35,7 @@ Il existe plusieurs stratégies que vous pouvez utiliser pour mettre à niveau A
 
 | Méthode | Description |
 | --- | --- |
-| [Mise à niveau automatique](how-to-connect-install-automatic-upgrade.md) |Pour les clients avec une installation rapide, il s’agit de la méthode la plus simple. |
+| [Mise à jour automatique](how-to-connect-install-automatic-upgrade.md) |Pour les clients avec une installation rapide, il s’agit de la méthode la plus simple. |
 | [Mise à niveau sur place](#in-place-upgrade) |Si vous avez un seul serveur, vous pouvez mettre à niveau l’installation sur place sur le même serveur. |
 | [Migration « swing »](#swing-migration) |Avec deux serveurs, vous pouvez en préparer un avec la nouvelle version ou configuration, et changer de serveur actif quand vous êtes prêt. |
 
@@ -84,9 +87,9 @@ Vous devez configurer ce qui suit de la même façon sur les deux serveurs :
 
 * Connexion aux mêmes forêts
 * Tout filtrage de domaine et d’unité organisationnelle
-* Fonctionnalités facultatives identiques, telles que la synchronisation de mot de passe et l’écriture différée du mot de passe
+* Fonctionnalités facultatives identiques, telles que la synchronisation de mot de passe et la réécriture du mot de passe
 
-**Migrer les règles de synchronisation personnalisées**  
+**Déplacer les règles de synchronisation personnalisées**  
 Pour déplacer des règles de synchronisation personnalisées, procédez comme suit :
 
 1. Ouvrez l’ **Éditeur de règles de synchronisation** sur votre serveur actif.
@@ -105,7 +108,7 @@ Il peut arriver que vous ne souhaitiez pas que ces actions prioritaires aient li
 
    ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
-2. Une fois la mise à niveau terminée, exécutez l’applet de commande suivante pour connaître les actions prioritaires qui ont été ajoutées : `Get-ADSyncSchedulerConnectorOverride | fl`
+2. Une fois la mise à niveau terminée, exécutez l’applet de commande suivante pour connaître les remplacements ont été ajoutés : `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
    > Les actions prioritaires sont propres au connecteur. Dans l’exemple suivant, les étapes d’importation complète et de synchronisation complète ont été ajoutées au connecteur Active Directory et au connecteur Azure AD locaux.
@@ -114,7 +117,7 @@ Il peut arriver que vous ne souhaitiez pas que ces actions prioritaires aient li
 
 3. Prenez note des actions prioritaires existantes qui ont été ajoutées.
    
-4. Pour supprimer les actions prioritaires pour l’importation complète et la synchronisation complète sur un connecteur arbitraire, exécutez l’applet de commande suivante : `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. Pour supprimer les remplacements pour l’importation complète et une synchronisation complète sur un connecteur arbitraire, exécutez l’applet de commande suivante : `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    Pour supprimer les actions prioritaires sur tous les connecteurs, exécutez le script PowerShell suivant :
 
@@ -125,12 +128,12 @@ Il peut arriver que vous ne souhaitiez pas que ces actions prioritaires aient li
    }
    ```
 
-5. Pour redémarrer le planificateur, exécutez l’applet de commande suivante : `Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. Pour reprendre le planificateur, exécutez l’applet de commande suivante : `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > N’oubliez pas d’exécuter les étapes de synchronisation requises dès que vous le pourrez. Vous pouvez exécuter ces étapes manuellement à l’aide de Synchronization Service Manager ou rajouter les actions prioritaires à l’aide de l’applet de commande Set-ADSyncSchedulerConnectorOverride.
 
-Pour ajouter les actions prioritaires pour l’importation complète et la synchronisation complète sur un connecteur arbitraire, exécutez l’applet de commande suivante : `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+Pour ajouter les remplacements pour l’importation complète et synchronisation complète sur un connecteur arbitraire, exécutez l’applet de commande suivante :  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 La section suivante contient des informations et des solutions de dépannage que vous pouvez utiliser si vous rencontrez des difficultés lors de la mise à niveau d’Azure AD Connect.
@@ -141,7 +144,7 @@ Lorsque vous mettez à niveau Azure AD Connect à partir d’une version antéri
 
 ![Error](./media/how-to-upgrade-previous-version/error1.png)
 
-Cette erreur se produit, car le connecteur Azure Active Directory avec l’identificateur b891884f-051e-4a83-95af-2544101c9083 n’existe pas dans la configuration d’Azure AD Connect actuelle. Pour le vérifier, ouvrez une fenêtre PowerShell et exécutez l’applet de commande `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+Cette erreur se produit, car le connecteur Azure Active Directory avec l’identificateur b891884f-051e-4a83-95af-2544101c9083 n’existe pas dans la configuration d’Azure AD Connect actuelle. Pour vérifier que c’est le cas, ouvrez une fenêtre PowerShell, exécutez l’applet de commande `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 
 ```
 PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083

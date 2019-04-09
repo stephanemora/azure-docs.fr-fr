@@ -9,13 +9,13 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 02/09/2019
-ms.openlocfilehash: ed3029f2e336c03de616bc00733f1b9c104ddb86
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.date: 04/03/2019
+ms.openlocfilehash: 477a74d7bd0275715222a54800b81c2812da9c77
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917887"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275604"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
 
@@ -33,7 +33,7 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | **Région** | **Inférieur Gen2 disponibles** | **Commencent des mises à niveau automatiques** |
 |:--- |:--- |:--- |
 | Australie Est |Disponible |1 juin 2019 |
-| Australie Sud-Est |2 avril 2019 |1er mai 2019 |
+| Australie Sud-Est |15 avril 2019 |1er mai 2019 |
 | Brésil Sud |15 mai 2019 |\* |
 | Centre du Canada |Disponible |1 juin 2019 |
 | Est du Canada |\* |\* |
@@ -49,20 +49,20 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | Centre de l’Allemagne |\* |\* |
 | Ouest-Centre de l’Allemagne |1 septembre 2019|2 janvier 2020 |
 | Inde Centre |Disponible |1 juin 2019 |
-| Sud de l’Inde |2 avril 2019 |1 juin 2019 |
+| Sud de l’Inde |15 avril 2019 |1 juin 2019 |
 | Japon Est |Disponible |1 juin 2019 |
 | Japon Ouest |Disponible |1er mai 2019 |
-| Centre de la Corée |2 avril 2019 |1 juin 2019 |
-| Corée du Sud |2 avril 2019 |1er mai 2019 |
-| USA Centre Nord |2 avril 2019 |1er mai 2019 |
+| Centre de la Corée |15 avril 2019 |1 juin 2019 |
+| Corée du Sud |15 avril 2019 |1er mai 2019 |
+| USA Centre Nord |15 avril 2019 |1er mai 2019 |
 | Europe Nord |Disponible |1 juin 2019 |
 | USA Centre Sud |Disponible |1 juin 2019 |
 | Asie Sud-Est |Disponible |1 juin 2019 |
-| Sud du Royaume-Uni |2 avril 2019 |1 juin 2019 |
+| Sud du Royaume-Uni |15 avril 2019 |1 juin 2019 |
 | Ouest du Royaume-Uni |\*|\* |
 | USA Centre-Ouest |2 septembre 2019 |2 janvier 2020|
 | Europe Ouest |Disponible |1 juin 2019 |
-| USA Ouest |2 avril 2019 |1 juin 2019 |
+| USA Ouest |15 avril 2019 |1 juin 2019 |
 | USA Ouest 2 |Disponible |1 juin 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Processus de mise à niveau automatique

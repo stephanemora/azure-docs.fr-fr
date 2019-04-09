@@ -3,21 +3,21 @@ title: 'Démarrage rapide : Visualiser des données avec une requête SQL dans 
 description: 'Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser une des trois options de visualisation des données dans Power BI : une requête SQL sur un cluster Azure Data Explorer.'
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 4eb6fdd5b5a78f0afb00265ebd957231464a9083
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977282"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756355"
 ---
-# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Démarrage rapide : Visualiser des données avec le connecteur Azure Data Explorer pour Power BI
+# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Démarrage rapide : Visualiser des données à l’aide du connecteur Azure Data Explorer pour Power BI
 
-Azure Data Explorer est un service d’exploration de données rapide et très scalable pour les données des journaux et les données de télémétrie. Power BI est une solution d’analytique métier qui vous permet de visualiser vos données et de partager les résultats dans votre organisation.
+L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Power BI est une solution d’analytique métier qui vous permet de visualiser vos données et de partager les résultats dans votre organisation.
 
 Azure Data Explorer offre trois options pour se connecter à des données dans Power BI : utiliser le connecteur intégré, importer une requête depuis Azure Data Explorer ou utiliser une requête SQL. Ce guide de démarrage rapide vous montre comment utiliser une requête SQL pour obtenir des données et les visualiser dans un rapport Power BI.
 
@@ -53,7 +53,7 @@ Vous utilisez généralement le langage de requête natif avec Azure Data Explor
     |---|---|---|
     | Serveur | *help.kusto.windows.net* | URL pour le cluster help (sans *https://*). Pour les autres clusters, l’URL est de la forme *\<NomCluster\>.\<Région\>.kusto.windows.net*. |
     | Base de données | *Exemples* | Exemple de base de données hébergée sur le cluster auquel vous vous connectez. |
-    | Mode de connectivité des données | *Importation* | Détermine si Power BI importe les données ou s’il se connecte directement à la source de données. Vous pouvez utiliser l’une ou l’autre des options avec ce connecteur. |
+    | Mode de connectivité des données | *Importationation* | Détermine si Power BI importe les données ou s’il se connecte directement à la source de données. Vous pouvez utiliser l’une ou l’autre des options avec ce connecteur. |
     | Délai d’expiration de la commande | Laisser vide | Durée pendant laquelle la requête s’exécute avant de lever une erreur d’expiration. |
     | Instruction SQL | Copiez la requête sous ce tableau | Instruction SQL qu’Azure Data Explorer traduit pour vous en requête native. |
     | Autres options | Laissez les valeurs par défaut | Les options ne s’appliquent pas aux clusters Azure Data Explorer. |
@@ -86,4 +86,4 @@ Si vous n’avez plus besoin du rapport que vous avez créé pour ce guide de d�
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Visualiser des données avec une requête importée dans Power BI](power-bi-connector.md)
+> [Démarrage rapide : Visualiser des données avec une requête importée dans Power BI](power-bi-connector.md)

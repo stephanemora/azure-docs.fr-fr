@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013037"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273581"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -39,7 +39,7 @@ Les budgets sont pris en charge pour divers types de comptes Azure. Pour accéde
 
  Dans le cadre des abonnements Azure EA, vous devez disposer d'un accès en lecture pour afficher les budgets. Pour créer et gérer des budgets, vous devez disposer d’une autorisation de contributeur. Vous pouvez créer des budgets individuels pour les abonnements EA et les groupes de ressources. En revanche, il n’est pas possible d’en créer pour les comptes de facturation EA.
 
-Les autorisations Azure suivantes ou les étendues, sont pris en charge par abonnement pour les budgets par utilisateur et groupe. Pour plus d’informations sur les étendues, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
+Les autorisations Azure suivantes ou les étendues, sont pris en charge par abonnement pour les budgets par utilisateur et groupe. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 - Propriétaire : peut créer, modifier ou supprimer des budgets pour un abonnement.
 - Contributeur et Contributeur Cost Management : peut créer, modifier ou supprimer ses propres budgets. Peut modifier le montant des budgets créés par d’autres utilisateurs.
@@ -55,7 +55,7 @@ Pour plus d’informations sur l’affectation d’une autorisation d’accès a
 
 Vous pouvez créer un budget d’abonnement Azure pour un mois, un trimestre ou un an. Votre contenu de navigation dans le portail Azure détermine si vous créez un budget pour un abonnement ou pour un groupe d’administration.
 
-Pour créer ou afficher un budget, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Budgets** dans le menu. Par exemple, accédez à **abonnements**, sélectionnez un abonnement à partir de la liste, puis **Budgets** dans le menu. Utilisez le **étendue** pilule pour basculer vers une portée différente, comme un groupe d’administration, dans les Budgets. Pour plus d’informations sur les étendues, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
+Pour créer ou afficher un budget, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Budgets** dans le menu. Par exemple, accédez à **abonnements**, sélectionnez un abonnement à partir de la liste, puis **Budgets** dans le menu. Utilisez le **étendue** pilule pour basculer vers une portée différente, comme un groupe d’administration, dans les Budgets. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 Une fois des budgets créés, ils affichent une vue simple de vos dépenses actuelles par rapport à ces budgets.
 
@@ -63,7 +63,9 @@ Cliquez sur **Add**.
 
 ![Budgets Cost Management affichés dans le Portail Azure](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Dans la fenêtre **Créer un budget**, entrez un nom de budget et un montant de budget. Choisissez ensuite une période mensuelle, trimestrielle ou annuelle. Ensuite, sélectionnez une date de fin. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Lorsqu’un seuil de budget est atteint, des notifications par e-mail sont normalement reçues en moins de huit heures. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](cost-mgt-alerts-monitor-usage-spending.md).
+Dans la fenêtre **Créer un budget**, entrez un nom de budget et un montant de budget. Ensuite, choisissez soit un mensuelle, trimestrielle ou annuelle durée<sup>1</sup>. Ensuite, sélectionnez une date de fin. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Lorsqu’un seuil de budget est atteint, des notifications par e-mail sont normalement reçues en moins de huit heures. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](cost-mgt-alerts-monitor-usage-spending.md).
+
+<sup>1</sup> si vous êtes un paiement à l’utilisation, MSDN, Visual Studio client ou votre période de facturation de facture pour un abonnement peut ne pas aligne au milieu du mois. Pour les abonnements et les groupes de ressources qui appartiennent à ce compartiment, vous pouvez créer un budget qui est aligné sur votre facture ou pour les mois calendaires. Pour créer un budget aligné sur votre facture, sélectionnez une période de réinitialisation du mois de facturation, facturation trimestre ou année de facturation lors de la création. Pour créer un budget aligné sur le mois calendaire, sélectionnez une période de réinitialisation de mensuelle, trimestrielle ou annuelle lors de la création.
 
 Voici un exemple de création de budget mensuel de 4 500 $. Une alerte par e-mail est générée quand 90 % du budget est atteint.
 

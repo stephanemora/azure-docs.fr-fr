@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 2553dccaa57e5340bf36bbccdf7826d242716300
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: bdbf0d78b45291e7482c1af3999c8ce3980ef36f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472631"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578490"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Guide pratique pour configurer une stratégie WAF de filtrage géographique pour votre porte d’entrée
 Dans ce didacticiel, vous allez apprendre à utiliser Azure PowerShell pour créer un exemple de stratégie de filtrage géographique et à l’associer à votre hôte frontend Front Door existant. Cet exemple de stratégie de filtrage géographique bloquera les demandes de tous les autres pays, à l’exception des États-Unis.
@@ -79,7 +79,7 @@ $nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
 ## <a name="add-rules-to-a-policy"></a>Ajouter des règles à une stratégie
 Recherchez le nom du groupe de ressources qui contient le profil Front Door à l’aide de `Get-AzResourceGroup`. Ensuite, créez un objet de stratégie `geoPolicy` contenant `nonUSBlockRule` à l’aide de [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) dans le groupe de ressources spécifié qui abrite le profil Front Door. Vous devez fournir un nom unique pour la stratégie géographique. 
 
-L’exemple ci-dessous utilise le nom de groupe de ressources *myResourceGroupFD1* en partant du principe que vous avez créé le profil Front Door à l’aide des instructions fournies dans l’article [Démarrage rapide : Créer un profil Front Door](quickstart-create-front-door.md).
+L’exemple ci-dessous utilise le nom de groupe de ressources *myResourceGroupFD1* en partant du principe que vous avez créé le profil Front Door à l’aide des instructions fournies dans l’article [Démarrage rapide : Créer un profil Front Door](quickstart-create-front-door.md). Dans l’exemple ci-dessous, remplacez le nom de la stratégie *geoPolicyAllowUSOnly* par un nom de stratégie unique.
 
 ```
 $geoPolicy = New-AzFrontDoorFireWallPolicy `

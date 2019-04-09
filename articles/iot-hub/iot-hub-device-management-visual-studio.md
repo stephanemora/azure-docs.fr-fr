@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: xshi
-ms.openlocfilehash: f0cb740f04970aeed4342511a046862f05aaa736
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109224"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269569"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Utiliser Cloud Explorer pour Visual Studio pour la gestion des appareils Azure IoT Hub
 
-![Diagramme de bout en bout](media/iot-hub-get-started-e2e-diagram/2.png)
+![Diagramme de bout en bout](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) est une extension Visual Studio utile qui vous permet de visualiser vos ressources Azure, d’inspecter leurs propriétés et d’exécuter des actions de développeur essentielles à partir de Visual Studio. Il est fourni avec des options de gestion que vous pouvez utiliser pour effectuer diverses tâches.
 
@@ -44,8 +44,8 @@ Exécuter Cloud Explorer pour Visual Studio avec diverses options de gestion.
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
 - Un abonnement Azure actif
-- Un hub IoT Azure associé à votre abonnement
-- Microsoft Visual Studio 2017 Update 8 ou version ultérieure
+- Un Azure IoT Hub sous votre abonnement
+- Microsoft Visual Studio 2017 Update 8 ou ultérieur
 - Composant Cloud Explorer de Visual Studio Installer (sélectionné par défaut avec la charge de travail Azure)
 
 ## <a name="update-cloud-explorer-to-latest-version"></a>Mettre à jour Cloud Explorer vers la version la plus récente
@@ -56,7 +56,7 @@ Le composant Cloud Explorer de Visual Studio Installer prend uniquement en charg
 
 1. Dans la fenêtre **Cloud Explorer** de Visual Studio, cliquez sur l’icône Gestion de compte. Vous pouvez ouvrir la fenêtre Cloud Explorer à partir du menu **Affichage** > **Cloud Explorer**.
 
-    ![Cliquez sur Gestion de compte](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
+    ![Cliquez sur Gestion de compte.](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
 1. Cliquez sur **Gérer les comptes** dans Cloud Explorer.
 1. Cliquez sur **Ajouter un compte** dans la nouvelle fenêtre pour vous connecter à Azure pour la première fois.

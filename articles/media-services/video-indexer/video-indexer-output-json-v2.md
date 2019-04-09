@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892573"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280211"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examinez la sortie de Video Indexer produite par API
 
@@ -79,7 +79,7 @@ Cette section présente le résumé des insights.
 |privacyMode|La décomposition peut avoir l’un des modes suivants : **Privé**, **Public**. **Public** : tous les membres de votre compte et toutes les personnes disposant d’un lien vers la vidéo peuvent la visionner. **Privé** : tous les membres de votre compte peuvent la visionner.|
 |duration|Contient la durée d’un insight. La durée est exprimée en secondes.|
 |thumbnailVideoId|ID de la vidéo à partir de laquelle la vidéo miniature a été réalisée.
-|thumbnailId|ID de la miniature de la vidéo. Pour obtenir la vidéo miniature réelle, appelez la méthode Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) et transmettez-lui les attributs thumbnailVideoId et thumbnailId.|
+|thumbnailId|ID de la miniature de la vidéo. Pour obtenir la miniature réelle, appelez [Get-miniature](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) et transmettez-le thumbnailVideoId et thumbnailId.|
 |visages|Peut contenir zéro ou plusieurs visages. Pour plus d’informations, consultez la section [faces](#faces).|
 |mots clés|Peut contenir zéro ou plusieurs mots clés. Pour plus d’informations, consultez la section [keywords](#keywords).|
 |sentiments|Peut contenir zéro ou plusieurs sentiments. Pour plus d’informations, consultez la section [sentiments](#sentiments).|
@@ -106,7 +106,7 @@ Cette section présente le résumé des insights.
 |metadata|Métadonnées externes de la vidéo (si elles sont spécifiées par l’utilisateur).|
 |isAdult|Indique si la vidéo a été vérifiée manuellement et identifiée comme une vidéo pour adultes.|
 |insights|Objet insights. Pour plus d’informations, consultez la section [insights](#insights).|
-|thumbnailId|ID de la miniature de la vidéo. Pour obtenir la vidéo miniature réelle, appelez la méthode Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) et transmettez-lui l’ID de la vidéo et l’attribut thumbnailId.|
+|thumbnailId|ID de la miniature de la vidéo. Pour obtenir le véritable appel miniature [Get-miniature](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) et passez-lui l’ID et le thumbnailId vidéo.|
 |publishedUrl|URL de diffusion en continu de la vidéo.|
 |publishedUrlProxy|URL à partir de laquelle diffuser la vidéo en continu (pour les appareils Apple).|
 |viewToken|Jeton d’affichage de courte durée pour la diffusion en continu de la vidéo.|

@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/29/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351454"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755901"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Présentation d’Azure Media Services v3
 
@@ -44,38 +44,41 @@ Media Services vous permet de créer une variété de workflows multimédias dan
 * Utilisez Azure Media Services avec les [API Azure Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) pour ajouter des sous-titres et des légendes aux vidéos afin de répondre aux besoins d’une audience plus large (par exemple, les personnes ayant des problèmes d’audition ou souhaitant lire simultanément dans une autre langue).
 * Activez Azure CDN pour effectuer un scaling à grande échelle afin d’améliorer la gestion instantanée des charges importantes (par exemple le début d’un événement de lancement d’un produit). 
 
-## <a name="v3-capabilities"></a>Fonctionnalités de v3
+## <a name="how-can-i-get-started-with-v3"></a>Comment bien démarrer avec v3 ? 
 
-v3 est basée sur une surface d’API unifiée qui expose des fonctionnalités de gestion et de fonctionnement qui s’appuient sur Azure Resource Manager. 
+Découvrez comment encoder et empaqueter du contenu, diffuser des vidéos en streaming à la demande, diffuser en direct et analyser vos vidéos avec Media Services v3. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs.
 
-Cette version offre les fonctionnalités suivantes :  
+Avant de commencer à développer, passez en revue les [concepts fondamentaux](concepts-overview.md).<br/>
 
-* **Transformations** : définir des workflows simples des tâches d’analytique ou de traitement multimédia. La transformation est une formule pour le traitement de vos fichiers audio et vidéo. Vous pouvez ensuite l’appliquer à plusieurs reprises pour traiter tous les fichiers dans votre bibliothèque de contenu, en envoyant des travaux à la Transformation.
-* **Travaux** : traiter (encoder ou analyser) vos vidéos. Un contenu d’entrée peut être spécifié sur un travail à l’aide d’URL HTTPS, d’URL SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure. AMS v3 ne prend pas en charge l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
-* **Notifications** : surveiller la progression ou les états du travail, le démarrage/l’arrêt de Live Events et les événements d’erreur. Les notifications sont intégrées au système de notification Azure Event Grid. Vous pouvez facilement vous abonner à des événements sur plusieurs ressources dans Azure Media Services. 
-* Vous pouvez utiliser les modèles **Azure Resource Manager** pour créer et déployer des transformations, des points de terminaison de streaming, des événements en direct, etc.
-* Il est possible de configurer le **contrôle d’accès en fonction du rôle** au niveau de la ressource, ce qui vous permet de bloquer l’accès à des ressources spécifiques telles que des transformations, Live Events et bien plus encore.
-* **Kits SDK clients** en plusieurs langages : .NET, .NET core, Python, Go, Java et Node.js.
+### <a name="quickstarts"></a>Démarrages rapides  
 
-## <a name="naming-conventions"></a>Conventions d’affectation de noms
+Les guides de démarrage rapide montrent les instructions fondamentales du 1er jour pour les nouveaux clients qui testent rapidement Media Services.
 
-Les noms de ressources Azure Media Services v3 (par exemple Assets, Jobs, Transforms) sont sujets à des restrictions d’appellation par Azure Resource Manager. Conformément à Azure Resource Manager, les noms des ressources sont toujours uniques. Ainsi, vous pouvez utiliser n’importe quelle chaîne d’identificateur unique (par exemple des GUID) pour les noms de vos ressources. 
+* [Diffuser des fichiers vidéo en streaming - .NET](stream-files-dotnet-quickstart.md)
+* [Diffuser des fichiers vidéo en streaming - CLI](stream-files-cli-quickstart.md)
+* [Diffuser des fichiers vidéo en streaming - Node.js](stream-files-nodejs-quickstart.md)
+    
+### <a name="tutorials"></a>Tutoriels 
 
-Les noms de ressources Media Services ne peuvent pas contenir : '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', le caractère de citation unique ou tout caractère de commande. Tous les autres caractères sont autorisés. La longueur maximale d’un nom de ressources est de 260 caractères. 
+Les tutoriels montrent les procédures de scénarios pour certaines des tâches Media Services principales.
 
-Pour plus d'informations sur l'affectation de noms dans Azure Resource Manager, consultez : [Exigences en matière d'affectation de noms](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) et [Conventions d'affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+* [Encoder le fichier distant et diffuser la vidéo – REST](stream-files-tutorial-with-rest.md)
+* [Encoder le fichier chargé et diffuser la vidéo – REST](stream-files-tutorial-with-api.md)
+* [Diffuser en direct - .NET](stream-live-tutorial-with-api.md)
+* [Analyser votre vidéo - .NET](analyze-videos-tutorial-with-api.md)
+* [Chiffrement dynamique AES-128 - .NET](protect-with-aes128.md)
+    
+### <a name="how-to-guides"></a>Guides pratiques
 
-## <a name="v3-api-design-principles"></a>Principes de conception de l’API v3
+Les articles contiennent des exemples de code qui montrent comment effectuer une tâche. Dans cette section, vous trouverez de nombreux exemples, dont ceux-ci :
 
-L’un des principes de conception clés de l’API v3 est de renforcer la sécurité de l’API. Les API v3 ne retournent pas de secrets ou d’informations d’identification lors d’opérations **Get** ou **List**. Les clés sont toujours null, vides ou purgées de la réponse. Vous devez appeler une méthode d’action distincte pour obtenir des informations d’identification ou des secrets. Les actions distinctes vous permettent de définir différentes autorisations de sécurité RBAC dans le cas où certaines API récupèrent ou affichent des secrets tandis que d’autres non. Pour plus d’informations sur la gestion de l’accès à l’aide de RBAC, consultez [Utiliser RBAC pour gérer l’accès](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
-
-Les exemples incluent : 
-
-* ne pas retourner des valeurs ContentKey dans le Get de l’élément StreamingLocator ; 
-* ne pas retourner les clés de restriction dans le Get de la stratégie ContentKeyPolicy ; 
-* ne pas retourner la partie de la chaîne de requête de l’URL (pour supprimer la signature) des URL d’entrée HTTP des tâches.
-
-Consultez l’exemple [Obtenir une stratégie de clé de contenu - .NET](get-content-key-policy-dotnet-howto.md).
+* [Créer un compte - CLI](create-account-cli-how-to.md)
+* [Accéder aux API - CLI](access-api-cli-how-to.md)
+* [Commencer à développer avec des kits SDK](developers-guide.md)
+* [Encoder avec HTTPS en tant qu’entrée de travail - .NET](job-input-from-http-how-to.md)  
+* [Superviser les événements - Portail](monitor-events-portal-how-to.md)
+* [Chiffrer dynamiquement avec multi-DRM - .NET](protect-with-drm.md) 
+* [Comment encoder avec une transformation personnalisée - CLI](custom-preset-cli-howto.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

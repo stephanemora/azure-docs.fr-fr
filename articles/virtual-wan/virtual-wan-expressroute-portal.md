@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 04/02/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842943"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876324"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Didacticiel : Créer une association ExpressRoute avec Azure Virtual WAN (préversion)
 
@@ -45,10 +45,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Avant de pouvoir configurer le WAN virtuel, vous devez tout d’abord inscrire automatiquement votre abonnement à la préversion. Sinon, vous ne serez pas en mesure d’utiliser le WAN virtuel depuis le portail. Pour vous abonner, envoyez un e-mail à **azurevirtualwan\@microsoft.com** avec votre ID d’abonnement. Vous recevrez un e-mail une fois votre abonnement inscrit.
 
-**Considérations relatives à la préversion :**
+**Considérations relatives à la préversion :**
 
-* Disponibilité dans les régions : USA Centre-Ouest
-* Le circuit ExpressRoute doit être activé dans un pays qui prend en charge [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
+Le circuit ExpressRoute doit être activé dans un pays qui prend en charge [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
 
 ## <a name="vnet"></a>1. Créez un réseau virtuel
 
@@ -70,15 +69,15 @@ Dans un navigateur, accédez au [Portail Azure (préversion)](https://aka.ms/azu
 
 ## <a name="hub"></a>4. Rechercher et associer un circuit au hub
 
-1. Sélectionnez votre vWAN et, sous **Architecture de Virtual WAN**, sélectionnez **Circuits ExpressRoute**.
-1. Si le circuit ExpressRoute se trouve dans le même abonnement que votre vWAN, cliquez sur **Sélectionner circuit ExpressRoute** depuis votre ou vos abonnements. 
+1. Sélectionnez votre WAN virtuel puis, sous **Architecture du WAN virtuel**, sélectionnez **Circuits ExpressRoute**.
+1. Si le circuit ExpressRoute se trouve dans le même abonnement que votre WAN virtuel, cliquez sur **Sélectionner un circuit ExpressRoute** à partir de vos abonnements. 
 1. Avec la liste déroulante, sélectionnez le circuit ExpressRoute à associer au hub.
 1. Si le circuit ExpressRoute ne se trouve pas dans le même abonnement ou que vous disposez d’[une clé d’autorisation et d’un ID d’homologue](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), sélectionnez **Trouver un circuit en échange d’une clé d’autorisation**.
 1. Entrez les informations suivantes :
 1. **Clé d’autorisation** : générée par le propriétaire du circuit comme décrit ci-dessus.
 1. **URI du circuit pair** : URI qui est fourni par le propriétaire du circuit et identifie le circuit de manière unique.
 1. **Poids du routage** - [Poids du routage](../expressroute/expressroute-optimize-routing.md) vous permet de privilégier certains chemins lorsque plusieurs circuits provenant de différents sites d’homologation sont connectés au même hub.
-1. Cliquez sur **Trouver le circuit** et sélectionnez le circuit qui s’affiche.
+1. Cliquez sur **Trouver un circuit** et sélectionnez le circuit, si vous l’avez trouvé.
 1. Sélectionnez un ou plusieurs hubs dans la liste déroulante et cliquez sur **Enregistrer**.
 
 ## <a name="vnet"></a>5. Connecter votre réseau virtuel à un hub

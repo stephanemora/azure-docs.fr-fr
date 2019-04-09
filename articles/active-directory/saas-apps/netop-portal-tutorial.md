@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d33ef63f142763d5d29c9cb1931fdd87bae5976e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17c5e568bbdbdd9aa07db0ee10438cb7d05bd56c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891016"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849236"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Tutoriel : Intégration d’Azure Active Directory à Netop Portal
+# <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Didacticiel : Intégration d’Azure Active Directory à Netop Portal
 
 Dans ce tutoriel, vous allez apprendre à intégrer Netop Portal à Azure Active Directory (Azure AD).
 L’intégration de Netop Portal dans Azure AD vous offre les avantages suivants :
@@ -128,7 +128,7 @@ Pour configurer l’authentification unique Azure AD auprès de Netop Portal, e
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    c. Laissez le champ **Espace de noms** vide.
+    c. Dans la zone de texte **Espace de noms** tapez https:\//secure.netop.com.
 
     d. Sélectionnez Source comme **Attribut**.
 
@@ -154,7 +154,7 @@ Pour configurer l’authentification unique Azure AD auprès de Netop Portal, e
 
 ### <a name="configure-netop-portal-single-sign-on"></a>Configurer l’authentification unique de Netop Portal
 
-Pour configurer l’authentification unique côté **Netop Portal**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de Netop Portal](mailto:casemanager@netop.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Netop Portal**, vous avez besoin du fichier **XML des métadonnées de fédération** téléchargé et de l’URL de connexion copiée à partir du portail Azure. Suivez les instructions de l’étape 3 de [cet article](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) afin de configurer NetOp Portal pour l’authentification Azure AD.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -174,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

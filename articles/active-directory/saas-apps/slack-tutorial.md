@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791b224f141dc0baa5babc401c35d6860a213df5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5a2472e78a9da223b0c651551d7cc8e05ab6eea9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875032"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Didacticiel : Intégration d’Azure AD à Slack
 
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Slack avec Azure AD, vous devez ajouter Slack à partir de la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Slack à partir de la galerie, procédez comme suit :**
+**Pour ajouter Slack à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,9 +107,9 @@ Pour configurer l’authentification unique Azure AD avec Slack, procédez comme
 
     ![Informations d’authentification unique dans Domaine et URL Slack](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.slack.com`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<companyname>.slack.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://slack.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL : `https://slack.com`
 
     > [!NOTE]
     > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Pour obtenir la valeur, contactez l’[équipe de support client Allbound SSO](https://slack.com/help/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -119,7 +119,7 @@ Pour configurer l’authentification unique Azure AD avec Slack, procédez comme
     ![image](common/edit-attribute.png)
 
     > [!NOTE] 
-    > Si vous avez des utilisateurs pour lesquels **l’adresse de messagerie** assignée n’est pas une licence Office 365, la revendication **User.Email** n’apparaît pas dans le jeton SAML. Dans ce cas, nous suggérons d’utiliser **user.userprincipalname** comme valeur d’attribut **User.Email** à mapper en tant que **Identificateur Unique** à la place.
+    > Si vous avez des utilisateurs pour lesquels l’**adresse e-mail** assignée n’est pas une licence Office 365, la revendication **User.Email** n’apparaît pas dans le jeton SAML. Dans ce cas, nous suggérons d’utiliser **user.userprincipalname** comme valeur d’attribut **User.Email** à mapper en tant que **Identificateur Unique** à la place.
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
@@ -206,7 +206,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -263,4 +263,4 @@ Lorsque vous cliquez sur la vignette Slack dans le volet d’accès, vous devez 
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configurer l’approvisionnement de l’utilisateur](slack-provisioning-tutorial.md)
+- [Configurer l’approvisionnement des utilisateurs](slack-provisioning-tutorial.md)

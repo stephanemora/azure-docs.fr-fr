@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a908b00022351b9a91f9381229c773d063390744
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444155"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893127"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -144,6 +144,11 @@ Le mode DirectQuery* tire profit de la base de données relationnelle principale
 
 Les modèles tabulaires dans Azure Analysis Services prennent en charge une grande variété de sources de données allant des fichiers texte simples à Big Data dans Azure Data Lake Store. Pour plus d’informations, consultez les [Sources de données prises en charge par Azure Analysis Services](analysis-services-datasource.md).
 
+## <a name="compatibility-level"></a>Niveau de compatibilité
+
+Le niveau de compatibilité fait référence aux comportements spécifiques de chaque version dans le moteur Analysis Services. Azure Analysis Services prend en charge les modèles tabulaires aux niveaux de compatibilité 1200 et ultérieurs. Pour plus d’informations, consultez [Niveau de compatibilité pour les modèles tabulaires Analysis Services](analysis-services-compat-level.md).
+
+
 ## <a name="your-data-is-secure"></a>Sécuriser vos données
 
 Azure Analysis Services protège vos données sensibles à plusieurs niveaux. Comme tout service Azure, Analysis Services fournit automatiquement le niveau de protection DDoS **De base** qui est intégré à la plateforme Azure. Pour en savoir plus, consultez [Vue d’ensemble du service Protection DDos Standard Azure](../virtual-network/ddos-protection-overview.md). 
@@ -193,7 +198,7 @@ Pour plus d’informations sur la sécurité Azure, consultez [Microsoft Trust C
 
 ### <a name="visual-studio"></a>Visual Studio
 
-Développez et déployez gratuitement des modèles avec [SQL Server Data Tools (SSDT) pour Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT inclut des modèles de projet Analysis Services opérationnels rapidement. SSDT inclut maintenant la requête de source de données et les fonctionnalités de mashup modernes Get Data pour les modèles de tabulaire 1400. Si connaissez déjà Get Data dans Power BI Desktop et Excel 2016, vous devriez déjà savoir à quel point il est aisé de créer des requêtes de source de données hautement personnalisables. 
+Développez et déployez gratuitement des modèles avec [SQL Server Data Tools (SSDT) pour Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt). SSDT inclut des modèles de projet Analysis Services opérationnels rapidement. SSDT inclut maintenant la requête de source de données et les fonctionnalités de mashup modernes Get Data pour les modèles de tabulaire 1400. Si connaissez déjà Get Data dans Power BI Desktop et Excel 2016, vous devriez déjà savoir à quel point il est aisé de créer des requêtes de source de données hautement personnalisables. 
 
 Si vous utilisez Visual Studio 2017, les projets Microsoft Analysis Services sont disponibles sous forme de package VSIX installable gratuitement. [Téléchargez à partir de la Place de marché](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
@@ -207,7 +212,7 @@ Les tâches de gestion des ressources du serveur telles que la création de ress
 
 ### <a name="object-model-and-scripting"></a>Modèle d’objet et scripts
 
-Les modèles tabulaires offrent un développement rapide et sont hautement personnalisables. Les modèles tabulaires incluent le [modèle d’objet tabulaire](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) pour décrire les modèles d’objet. Le modèle d’objet tabulaire est affiché au format JSON via le langage [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) et le langage de définition de données AMO via l’espace de noms [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx). 
+Les modèles tabulaires offrent un développement rapide et sont hautement personnalisables. Les modèles tabulaires incluent le [modèle d’objet tabulaire](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) pour décrire les modèles d’objet. Le modèle d’objet tabulaire est affiché au format JSON via le langage [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) et le langage de définition de données AMO via l’espace de noms [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular). 
 
 ## <a name="supports-the-latest-client-tools"></a>Prise en charge des derniers outils clients
 

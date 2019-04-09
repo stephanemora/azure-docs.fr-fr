@@ -8,12 +8,12 @@ ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 79b99532f5fb38123b03d2a39b7c9c6364e9f636
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112085"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802266"
 ---
 # <a name="create-a-custom-policy-definition"></a>Créer une définition de stratégie personnalisée
 
@@ -72,7 +72,7 @@ Il existe plusieurs façons d’examiner un [modèle Resource Manager](../../../
 Pour rechercher des propriétés, le plus simple est d’examiner une ressource existante du même type. Vous pouvez aussi comparer les ressources déjà configurées avec le paramètre que vous voulez appliquer.
 Consultez la page **Script d’automatisation** (sous **Paramètres**) dans le portail Azure pour cette ressource spécifique.
 
-![Page Script d’automatisation](../media/create-custom-policy-definition/automation-script.png)
+![Page de modèle d’exportation sur la ressource existante](../media/create-custom-policy-definition/automation-script.png)
 
 Si la ressource est un compte de stockage, vous voyez un modèle semblable à cet exemple :
 

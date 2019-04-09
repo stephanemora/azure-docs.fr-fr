@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 43df80e060ff698537f7fd65075006e6dfffe6c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d2cb0ef904935d1736c23aeaf23030da99e41a71
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117147"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665948"
 ---
-# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutoriel : Créer des enregistrements DNS dans un domaine personnalisé pour une application web 
+# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Didacticiel : Créer des enregistrements DNS dans un domaine personnalisé pour une application web 
 
 Vous pouvez configurer Azure DNS pour héberger un domaine personnalisé pour vos applications web. Par exemple, vous pouvez créer une application web Azure et y donner l’accès à vos utilisateurs par www\.contoso.com ou contoso.com comme nom de domaine complet (FQDN).
 
@@ -173,7 +173,7 @@ set-AzWebApp `
 Ouvrez un navigateur web et accédez à `http://www.<your domainname>` et `http://<you domain name>`.
 
 > [!NOTE]
-> Veillez à inclure le préfixe `http://`, sinon votre navigateur peut tenter de prédire une URL pour vous !
+> Veillez à inclure le préfixe `http://`. Sinon votre navigateur peut tenter de prédire une URL pour vous.
 
 Vous devez voir la même page pour les deux URL. Par exemple : 
 

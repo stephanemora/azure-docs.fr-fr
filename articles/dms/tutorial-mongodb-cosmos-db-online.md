@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser le service Azure Database Migration Service pour migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB en ligne | Microsoft Docs'
+title: 'Didacticiel : Utiliser le service Azure Database Migration Service pour migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB en ligne | Microsoft Docs'
 description: Apprenez à migrer une instance locale de MongoDB vers l’API Azure Cosmos DB pour MongoDB en ligne à l’aide du service Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: dd14ec4f4b6395e5733f4f17165e94ca7e77f883
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/03/2019
+ms.openlocfilehash: 1e1cb509f296d8bed8efc3a3d520a1c480c1f775
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008632"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885296"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Tutoriel : Migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB en ligne à l’aide de DMS (préversion)
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Didacticiel : Migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB en ligne à l’aide de DMS (préversion)
 Vous pouvez utiliser le service Azure Database Migration Service pour effectuer une migration en ligne (temps d’arrêt minimal) de bases de données à partir d’une instance locale ou cloud de MongoDB vers l’API Azure Cosmos DB pour MongoDB.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
@@ -47,14 +47,14 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 - Créez un réseau virtuel Azure (VNET) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou une passerelle [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
     > [!NOTE]
-    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec l’appairage réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) au sous-réseau où doit être provisionné le service :
+    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) au sous-réseau où doit être provisionné le service :
     > - Point de terminaison de base de données cible (un point de terminaison SQL ou Cosmos DB, par exemple)
     > - Point de terminaison de stockage
     > - Point de terminaison Service Bus
     >
     > Cette configuration est nécessaire, car Azure Database Migration Service ne dispose pas d’une connectivité Internet.
 
-- Vérifiez que les règles du groupe de sécurité Réseau virtuel ne bloquent pas les ports de communication suivants : 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage de groupe de sécurité Réseau virtuel Microsoft Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Vérifiez que les règles du groupe de sécurité Réseau virtuel ne bloquent pas les ports de communication entrants suivants à Azure Database Migration Service : 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage de groupe de sécurité Réseau virtuel Microsoft Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Changez le pare-feu du serveur source pour permettre au service Azure Database Migration Service d’accéder au serveur MongoDB source, lequel est accessible par défaut sur le port TCP 27 017.
 - Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
 
@@ -218,7 +218,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
- * [Informations sur le service Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
+ * [Informations sur le service Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour accéder à d'autres scénarios, lisez les instructions de migration du [Guide de migration de bases de données](https://datamigration.microsoft.com/) de Microsoft.

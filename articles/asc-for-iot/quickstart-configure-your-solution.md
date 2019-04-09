@@ -1,35 +1,35 @@
 ---
-title: Configurer votre solution ASC pour IoT (préversion) | Microsoft Docs
-description: Découvrez comment configurer votre solution IoT de bout en bout avec ASC pour IoT.
-services: ascforiot
+title: Configurer votre solution Azure Security Center pour IoT (préversion) | Microsoft Docs
+description: Découvrez comment configurer votre solution IoT de bout en bout avec Azure Security Center pour IoT.
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: ae2207e8-ac5b-4793-8efc-0517f4661222
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ba8b1a099dc204730813754fdfc4b0b8ce45303
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 64a04861b14e48eaa14a369546dd9d54bf59f019
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541729"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861919"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Démarrage rapide : Configurer votre solution IoT
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement disponible en préversion publique.
+> Azure Security Center pour IoT est disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article explique comment effectuer la configuration initiale de votre solution de sécurité IoT en utilisant ASC pour IoT. 
 
-## <a name="asc-for-iot"></a>ASC pour IoT
+## <a name="azure-security-center-asc-for-iot"></a>Azure Security Center (ASC) pour IoT
 
 ASC pour IoT fournit aux solutions IoT basées sur Azure une sécurité complète de bout en bout.
 
@@ -50,7 +50,7 @@ Pour ajouter une nouvelle ressource à votre solution IoT, suivez ces étapes :
 2. Sélectionnez et ouvrez **Ressources** sous **Sécurité** dans le menu de gauche. 
 3. Sélectionnez **Ajouter des ressources**.
 4. Choisissez des ressources qui appartiennent à votre solution IoT.
-4. Cliquez sur **Add**. 
+5. Cliquez sur **Add**. 
 
 Félicitations ! Vous avez ajouté une nouvelle ressource à votre solution IoT.
 

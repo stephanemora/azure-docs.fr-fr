@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 138bc0350e4eecac4639125dc3ae508ddbbd7d72
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234864"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893739"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutoriel : Créer un leaderboard de type Cache-Aside sur ASP.NET
 
@@ -79,7 +79,7 @@ Pour plus d’informations sur ce package, consultez la page NuGet [EntityFramew
     using System.Data.Entity.SqlServer;
     ```
 
-1. Remplacez la définition de la classe `Team` par l’extrait de code suivant, qui contient une définition de classe `Team` mise à jour, ainsi que d’autres classes d’assistance Entity Framework. Ce didacticiel utilise l’approche Code First avec Entity Framework. Cette approche permet à Entity Framework de créer la base de données à partir de votre code. Pour plus d’informations sur l’approche Code First d’Entity Framework utilisée dans ce didacticiel, consultez [Code First pour une nouvelle base de données](https://msdn.microsoft.com/data/jj193542).
+1. Remplacez la définition de la classe `Team` par l’extrait de code suivant, qui contient une définition de classe `Team` mise à jour, ainsi que d’autres classes d’assistance Entity Framework. Ce didacticiel utilise l’approche Code First avec Entity Framework. Cette approche permet à Entity Framework de créer la base de données à partir de votre code. Pour plus d’informations sur l’approche Code First d’Entity Framework utilisée dans ce didacticiel, consultez [Code First pour une nouvelle base de données](/ef/ef6/modeling/code-first/workflows/new-database).
 
     ```csharp
     public class Team
@@ -660,7 +660,7 @@ Dans cette section, vous allez configurer une nouvelle base de données SQL Azur
 
 1. Utilisez les paramètres suivants pour la nouvelle base de données SQL :
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION |
+   | Paramètre       | Valeur suggérée | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nom de la base de données** | *ContosoTeamsDatabase* | Pour les noms de base de données valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). |
    | **Abonnement** | *Votre abonnement*  | Sélectionnez l’abonnement que vous avez utilisé pour créer le cache et héberger le service d’application. |
@@ -669,10 +669,10 @@ Dans cette section, vous allez configurer une nouvelle base de données SQL Azur
 
 1. Sous **Serveur**, cliquez sur **Configurer les paramètres requis** > **Créer un nouveau serveur** et fournissez les informations suivantes, puis cliquez sur le bouton **Sélectionner** :
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION |
+   | Paramètre       | Valeur suggérée | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
-   | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). |
+   | **Connexion d’administrateur serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). |
    | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins 8 caractères et contenir des caractères appartenant à trois des catégories suivantes : caractères en majuscules, caractères en minuscules, chiffres et caractères non alphanumériques. |
    | **Lieu** | *USA Est* | Sélectionnez la région où vous avez créée le cache et le service d’applications. |
 
@@ -744,4 +744,4 @@ Lorsque vous avez terminé avec l’exemple d’application du didacticiel, vous
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Mise à l’échelle de Cache Azure pour Redis](./cache-how-to-scale.md)
+> [Mise à l’échelle du cache Azure pour Redis](./cache-how-to-scale.md)

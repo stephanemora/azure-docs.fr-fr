@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 98cc6ee2428523b93b42fca73daadc118103b7d7
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667478"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268515"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core dans le modèle Reliable Services de Service Fabric
 
@@ -134,7 +134,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HttpSys dans un service avec état
 
-Pour le moment, `HttpSysCommunicationListener` n’est pas conçu pour être utilisé dans des services avec état en raison de complications liées à la fonctionnalité de partage de port *http.sys* sous-jacente. Pour plus d’informations, consultez la section suivante sur l’allocation de ports dynamiques avec HttpSys. Pour les services avec état, il est recommandé d’utiliser Kestrel comme serveur web.
+`HttpSysCommunicationListener` n’est actuellement pas conçu pour une utilisation dans les services avec état en raison de complications liées à sous-jacent *http.sys* fonctionnalité de partage de port. Pour plus d’informations, consultez la section suivante sur l’allocation de ports dynamiques avec HttpSys. Pour les services avec état, il est recommandé d’utiliser Kestrel comme serveur web.
 
 ### <a name="endpoint-configuration"></a>Configuration du point de terminaison
 
@@ -469,7 +469,7 @@ Kestrel est le serveur web recommandé pour les services frontend qui exposent d
  
 Lorsqu’il est exposé à Internet, un service sans état doit utiliser un point de terminaison connu et stable accessible via un équilibreur de charge. Il s’agit de l’URL que vous fournissez aux utilisateurs de votre application. La configuration suivante est recommandée :
 
-|  |  | **Remarques** |
+|  |  | **Notes** |
 | --- | --- | --- |
 | Serveur web | Kestrel | Kestrel est le serveur web par défaut, car il est pris en charge sur Windows et Linux. |
 | Configuration du port | statique | Un port statique connu doit être défini dans la configuration `Endpoints` du fichier ServiceManifest.xml, par exemple 80 pour HTTP et 443 pour HTTPS. |
@@ -494,7 +494,7 @@ Si plusieurs services exposés en externe partagent le même ensemble de nœuds,
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Service d’ASP.NET Core sans état interne uniquement
 Les services sans état qui sont appelés uniquement à partir du cluster doivent utiliser des URL uniques et des ports affectés dynamiquement afin d’assurer une coopération entre plusieurs services. La configuration suivante est recommandée :
 
-|  |  | **Remarques** |
+|  |  | **Notes** |
 | --- | --- | --- |
 | Serveur web | Kestrel | Même si HttpSys peut être utilisé pour les services sans état internes, Kestrel est le serveur qui est recommandé pour permettre à plusieurs instances de service de partager un hôte.  |
 | Configuration du port | affecté de manière dynamique | Plusieurs réplicas d’un service avec état peuvent partager un processus hôte ou un système d’exploitation hôte, et nécessitent donc des ports uniques. |
@@ -504,7 +504,7 @@ Les services sans état qui sont appelés uniquement à partir du cluster doiven
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Service d’ASP.NET Core avec état interne uniquement
 Les services avec état qui sont appelés uniquement à partir du cluster doivent utiliser des ports affectés dynamiquement afin d’assurer une coopération entre plusieurs services. La configuration suivante est recommandée :
 
-|  |  | **Remarques** |
+|  |  | **Notes** |
 | --- | --- | --- |
 | Serveur web | Kestrel | Le `HttpSysCommunicationListener` n’est pas conçu pour être utilisé par les services avec état dans lesquels les réplicas partagent un processus hôte. |
 | Configuration du port | affecté de manière dynamique | Plusieurs réplicas d’un service avec état peuvent partager un processus hôte ou un système d’exploitation hôte, et nécessitent donc des ports uniques. |

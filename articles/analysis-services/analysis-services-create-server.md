@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e9080cfc863b4253a4eb4d427f21df74bb08874
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186734"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803003"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Démarrage rapide : Créer un serveur - Portail
 
@@ -46,7 +46,7 @@ Ce démarrage rapide explique comment créer une ressource de serveur Analysis S
    * **Paramètres du stockage de sauvegarde** : facultatif. Si vous possédez déjà un [compte de stockage](../storage/common/storage-introduction.md), vous pouvez le spécifier en tant que compte par défaut pour la sauvegarde de la base de données model. Vous pouvez également spécifier les paramètres de [sauvegarde et restauration](analysis-services-backup.md) ultérieurement.
    * **Date d’expiration de la clé de stockage** : facultatif. Spécifiez une période d’expiration pour la clé de stockage.
 
-La création du serveur prend généralement moins d’une minute. Si vous avez sélectionné **Add to Portal** (Ajouter au portail), accédez au portail pour voir votre nouveau serveur. Ou, accédez à **Tous les services** > **Analysis Services** pour voir si votre serveur est prêt.
+La création du serveur prend généralement moins d’une minute. Si vous avez sélectionné **Add to Portal** (Ajouter au portail), accédez au portail pour voir votre nouveau serveur. Ou, accédez à **Tous les services** > **Analysis Services** pour voir si votre serveur est prêt. Les serveurs prennent en charge les modèles tabulaires aux niveaux de compatibilité 1200 et ultérieurs. Le niveau de compatibilité des modèles est spécifié dans SSDT ou SSMS.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

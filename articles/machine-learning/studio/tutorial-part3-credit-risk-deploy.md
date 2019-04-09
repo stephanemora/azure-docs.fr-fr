@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839015"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620509"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Tutoriel 3 : Déployer un modèle de risque de crédit - Azure Machine Learning Studio
 
@@ -172,7 +172,7 @@ Dans le service web, les données de l’utilisateur transitent par le module *
 Les résultats sont renvoyés à l’utilisateur par le service web via le module **Sortie du service web**.
 
 > [!TIP]
-> Conformément à votre configuration de l’expérience prédictive, tous les résultats du module [Noter le modèle][score-model] sont retournés. Ces résultats incluent toutes les données d’entrée, ainsi que la valeur du risque de crédit et la probabilité de la notation. Mais vous pouvez renvoyer quelque chose de différent si vous le souhaitez. Par exemple, vous pouvez retourner simplement la valeur du risque de crédit. Pour ce faire, insérez un module [Colonnes de projets][project-columns] entre [Noter le modèle][score-model] et **Sortie du service web** pour éliminer les colonnes que vous ne souhaitez pas que le service web renvoie. 
+> Conformément à votre configuration de l’expérience prédictive, tous les résultats du module [Noter le modèle][score-model] sont retournés. Ces résultats incluent toutes les données d’entrée, ainsi que la valeur du risque de crédit et la probabilité de la notation. Mais vous pouvez renvoyer quelque chose de différent si vous le souhaitez. Par exemple, vous pouvez retourner simplement la valeur du risque de crédit. Pour cela, insérez un module [Colonnes de projets][select-columns] entre [Calculer le score du modèle][score-model] et **Sortie du service web** pour éliminer les colonnes que le service web ne doit pas retourner. 
 > 
 > 
 
@@ -267,4 +267,4 @@ Vous pouvez également développer une application personnalisée pour accéder 
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

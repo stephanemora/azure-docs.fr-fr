@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121415"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884123"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Didacticiel : Créer une base de connaissances puis répondre à une question via le portail QnA Maker
 
@@ -105,7 +105,7 @@ Une fois la base de connaissances publiée, le point de terminaison s’affiche
 
     ![Commande Curl](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. Copiez le texte de l’onglet **Curl** et exécutez-le dans un terminal ou une ligne de commande prenant en charge Curl. La valeur de l’en-tête d’autorisation inclut le texte `Endpoint ` avec un espace de fin puis la clé.
+1. Copiez le texte de l’onglet **Curl** et exécutez-le dans un terminal ou une ligne de commande prenant en charge Curl. La valeur de l’en-tête d’autorisation inclut le texte `Endpoint` avec un espace de fin puis la clé.
 
 1. Remplacez `<Your question>` par `How large can my KB be?`. Cette question se rapproche de la question, `How large a knowledge base can I create?`, mais ce ne sont pas exactement les mêmes. QnA Maker applique un traitement en langage naturel pour déterminer si deux questions sont les mêmes.     
 

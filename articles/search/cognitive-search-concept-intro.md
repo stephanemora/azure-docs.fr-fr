@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 187e40716bc55f71623ef758722eb58d27651d4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133057"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882485"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Qu’est-ce que la « recherche cognitive » dans Recherche Azure ?
 
@@ -38,7 +38,7 @@ Le traitement en langage naturel et le traitement d’image sont appliqués pend
 
 ## <a name="components-of-cognitive-search"></a>Composants de la recherche cognitive
 
-La recherche cognitive est une fonctionnalité d'évaluation du service [Recherche Azure](search-what-is-azure-search.md) prise en charge dans [ces régions](#where-do-i-start). 
+La recherche cognitive est une fonctionnalité d’évaluation du service [Recherche Azure](search-what-is-azure-search.md).
 
 Le pipeline de la recherche cognitive repose sur des *indexeurs* [Recherche Azure](search-indexer-overview.md) qui analysent les sources de données et traitent les index du début à la fin. Les compétences sont désormais jointes aux indexeurs, ce qui permet d’intercepter et d’enrichir les documents en fonction de l’ensemble de compétences que vous définissez. Une fois l’indexation terminée, vous pouvez accéder au contenu via des requêtes de recherche par le biais de tous les [types de requête pris en charge par Recherche Azure](search-query-overview.md).  Si vous ne connaissez pas les indexeurs, cette section vous guide tout au long des étapes.
 
@@ -76,9 +76,9 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 
 | Concept | Description| Liens |
 |---------|------------|-------|
-| Ensemble de compétences | Une ressource nommée de niveau supérieur comprenant une collection de compétences. Un ensemble de compétences correspond au pipeline d’enrichissement. Il est appelé lors de l’indexation par un indexeur. | [How to create a skillset in an enrichment pipeline](cognitive-search-defining-skillset.md) (Créer un ensemble de compétences dans un pipeline d’enrichissement) |
+| Ensemble de compétences | Une ressource nommée de niveau supérieur comprenant une collection de compétences. Un ensemble de compétences correspond au pipeline d’enrichissement. Il est appelé lors de l’indexation par un indexeur. | [Définir des compétences](cognitive-search-defining-skillset.md) |
 | Compétence cognitive | Une transformation atomique dans un pipeline d’enrichissement. Souvent, il s’agit d’un composant qui effectue des extractions ou déduit une structure, renforçant ainsi notre compréhension des données d’entrée. La sortie est presque toujours textuelle et le traitement est de type traitement en langage naturel ou traitement d’images qui extrait ou génère du texte à partir d’entrées d’images. La sortie d’une compétence peut être mappée à un champ dans un index ou utilisée en tant qu’entrée pour un enrichissement en aval. Une compétence est soit prédéfinie et fournie par Microsoft, soit personnalisée, c’est-à-dire créée et déployée par vous. | [Compétences prédéfinies](cognitive-search-predefined-skills.md) |
-| Extraction de données | Couvre une large gamme de traitements, mais dans le cadre de la recherche cognitive, la compétence de reconnaissance d’entité nommée est plus généralement utilisée pour extraire des données (une entité) d’une source qui ne fournit pas ces informations en natif. | [Named Entity Recognition cognitive skill](cognitive-search-skill-named-entity-recognition.md) (Compétence cognitive de reconnaissance d’entité nommée)| 
+| Extraction de données | Couvre une large gamme de traitements, mais dans le cadre de la recherche cognitive, la compétence de reconnaissance d’entité nommée est plus généralement utilisée pour extraire des données (une entité) d’une source qui ne fournit pas ces informations en natif. | [Compétence cognitive de reconnaissance d’entité nommée](cognitive-search-skill-named-entity-recognition.md)| 
 | Traitement des images | Déduit du texte à partir d’une image, par exemple reconnaître un repère, ou extrait du texte d’une image. Parmi les exemples courants, on trouve l’OCR qui permet de copier des caractères d’un fichier de document numérisé (JPEG) ou de reconnaître un nom de rue dans une photographie sur laquelle se trouve un panneau de rue. | [Compétence d’analyse d’image](cognitive-search-skill-image-analysis.md) ou [compétence OCR](cognitive-search-skill-ocr.md)
 | Traitement en langage naturel | Traitement de texte pour des insights et des informations sur les entrées de texte. La détection de langue, l’analyse des sentiments et l’extraction de phrases clés sont des compétences qui se trouvent dans le traitement en langage naturel.  | [Key Phrase Extraction cognitive skill](cognitive-search-skill-keyphrases.md) (Compétence cognitive d’extraction de phrases clés), [Language detection cognitive skill](cognitive-search-skill-language-detection.md) (Compétence cognitive de détection de langue), [Sentiment cognitive skill](cognitive-search-skill-sentiment.md) (Compétence cognitive d’analyse des sentiments) |
 | Décodage du document | Le processus d’extraction ou de création du contenu textuel à partir de sources non textuelles lors de l’indexation. La reconnaissance optique des caractères (OCR) est un exemple, mais il désigne généralement les fonctionnalités principales de l’indexeur, car l’indexeur extrait le contenu des fichiers d’application. La source de données qui fournit l’emplacement du fichier source et la définition d’indexeur qui fournit des mappages de champs, sont les deux facteurs clés du décodage de document. | Consultez [Indexeurs dans Recherche Azure](search-indexer-overview.md) |
@@ -92,26 +92,26 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 
 ## <a name="where-do-i-start"></a>Par où commencer ?
 
-**Étape 1 : [Créer une ressource Recherche Azure](search-create-service-portal.md)** 
+**Étape 1 : [Créer une ressource Recherche Azure](search-create-service-portal.md)** 
 
-**Étape 2 : Essayez quelques départs rapides et des exemples pour avoir une expérience pratique**
+**Étape 2 : Essayer quelques départs rapides et des exemples pour avoir une expérience pratique**
 
 + [Démarrage rapide (portail)](cognitive-search-quickstart-blob.md)
-+ [Didacticiel (requêtes HTTP)](cognitive-search-tutorial-blob.md)
++ [Tutoriel (requêtes HTTP)](cognitive-search-tutorial-blob.md)
 + [Exemples de compétences personnalisées (C#)](cognitive-search-create-custom-skill-example.md)
 
-**Étape 3 : Passer en revue l’API (REST uniquement)**
+**Étape 3 : Passer en revue l’API (REST uniquement)**
 
 Actuellement, seules les API REST sont fournies. Utilisez `api-version=2017-11-11-Preview` pour toutes les requêtes. Utilisez les API suivantes pour créer une solution de recherche cognitive. Seules deux API sont ajoutées ou étendues pour la recherche cognitive. D’autres API ont la même syntaxe que les versions généralement disponibles.
 
 | API REST | Description |
 |-----|-------------|
-| [Créer une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Une ressource identifiant une source de données externes fournissant des données sources utilisées pour créer des documents enrichis.  |
-| [Créer un ensemble de compétences (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Une ressource coordonnant l’utilisation de [compétences prédéfinies](cognitive-search-predefined-skills.md) et de [compétences cognitives personnalisées](cognitive-search-custom-skill-interface.md) utilisées dans un pipeline d’enrichissement lors de l’indexation. |
+| [Création d'une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Une ressource identifiant une source de données externes fournissant des données sources utilisées pour créer des documents enrichis.  |
+| [Création d’un ensemble de compétences (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Une ressource coordonnant l’utilisation de [compétences prédéfinies](cognitive-search-predefined-skills.md) et de [compétences cognitives personnalisées](cognitive-search-custom-skill-interface.md) utilisées dans un pipeline d’enrichissement lors de l’indexation. |
 | [Création d'index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Un schéma exprimant un index Recherche Azure. Des champs dans l’index sont mappés à des champs dans les données sources ou à des champs créés lors de la phase d’enrichissement (par exemple, un champ pour les noms de l’organisation créé par la reconnaissance d’entité). |
 | [Créer un indexeur (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Une ressource définissant les composants utilisés lors de l’indexation : notamment une source de données, un ensemble de compétences, des associations de champs à partir de structures de données sources et intermédiaires pour cibler l’index, et l’index lui-même. L’exécution de l’index est le déclencheur de l’ingestion des données et de l’enrichissement. La sortie est un corpus de recherche basé sur le schéma d’index, rempli avec les données sources, enrichies via des ensembles de compétences.  |
 
-**Liste de vérification : workflow classique**
+**Liste de vérification : un workflow classique**
 
 1. Créez un sous-ensemble de vos données sources dans un échantillon représentatif. Étant donné que l’indexation prend un certain temps, commencez par un petit ensemble de données représentatif, puis augmentez sa taille de façon incrémentielle à mesure que votre solution grandit.
 
@@ -135,6 +135,6 @@ Pour plus d’informations sur des problèmes ou des questions spécifiques, con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ [Documentation resources for cognitive search workloads](cognitive-search-resources-documentation.md) (Ressources de documentation pour les charges de travail de recherche cognitive)
++ [Documentation Recherche cognitive](cognitive-search-resources-documentation.md)
 + [Démarrage rapide : Créer un pipeline de recherche cognitive à l’aide de compétences et d’exemples de données](cognitive-search-quickstart-blob.md)
-+ [Tutoriel : Découvrir les API de recherche cognitive](cognitive-search-tutorial-blob.md)
++ [Didacticiel : Découvrir les API de recherche cognitive](cognitive-search-tutorial-blob.md)

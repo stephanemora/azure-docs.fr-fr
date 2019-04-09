@@ -7,20 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: befef76e19640683ba3219374702a049bdecb43b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58184170"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792499"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Démarrage rapide : Essayer une solution cloud de supervision à distance
 
 Ce guide de démarrage rapide vous montre comment déployer l’accélérateur de solution de surveillance à distance Azure IoT. Dans cette solution informatique, vous utilisez la page **Tableau de bord** pour visualiser les appareils simulés sur une carte, et la page **Maintenance** pour répondre à une alerte concernant la pression d’un appareil de refroidissement simulé. Vous pouvez utiliser cet accélérateur de solution comme point de départ de votre propre implémentation ou comme outil d’apprentissage.
 
 Le déploiement initial configure l’accélérateur de solution pour une société appelée Contoso. En tant qu’opérateur chez Contoso, vous prenez en charge la gestion d’une sélection de types d’appareil variés, tels que des appareils de refroidissement, déployés dans différents environnements physiques. Un appareil de refroidissement envoie la télémétrie de la température, de l’humidité et de la pression à l’accélérateur de la solution Monitoring à distance.
+
+Ce guide de démarrage rapide déploie une version de **base** de l’accélérateur de solution qui réduit les coûts, à des fins de test et de démonstration. Pour plus d’informations sur les différentes versions que vous pouvez déployer, consultez [Déploiements de base et standard](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure actif.
 
@@ -36,9 +38,7 @@ Cliquez sur la vignette **Supervision à distance**. Dans la page **Supervision 
 
 ![Choisir Monitoring à distance](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-Dans la page **Créer la solution Monitoring à distance**, sélectionnez un déploiement **De base**. Si vous déployez l’accélérateur de solution pour connaître son fonctionnement ou effectuer une démonstration, choisissez l’option **De base** pour minimiser les coûts.
-
-Choisissez **.NET** comme langage. Les implémentations Java et .NET ont les mêmes fonctionnalités.
+Choisissez **Microservices C#** comme **Options de déploiement**. Les implémentations Java et C# ont les mêmes fonctionnalités.
 
 Entrez un **Nom de la solution** unique pour votre accélérateur de solution Monitoring à distance. Pour ce guide de démarrage rapide, nous appelons le nôtre **contoso-rm**.
 
@@ -111,7 +111,7 @@ Pour intervenir sur l’appareil de refroidissement, faites défiler vers le bas
 
 Dans le panneau **Travaux**, sélectionnez la **méthode Run**, puis la méthode **EmergencyValveRelease**. Ajouter le nom du travail **ChillerPressureRelease**, puis cliquez sur **Appliquer**. Ces paramètres créent, pour vous, un travail qui s’exécute immédiatement.
 
-Pour voir l’état du travail, revenez à la page **Maintenance** et consultez la liste des travaux dans la vue **Travaux**. Vous devrez peut-être attendre quelques secondes avant de pouvoir voir que le travail a été exécuté pour libérer la pression de la soupape de l’appareil de refroidissement :
+Pour voir l’état du travail, revenez à la page **Maintenance** et consultez la liste des travaux dans la vue **Travaux**. Vous devrez peut-être attendre quelques secondes avant de pouvoir voir que le travail a été exécuté :
 
 [![État des travaux dans la vue Travaux](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 

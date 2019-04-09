@@ -7,18 +7,24 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 359d75f10f95b0e41ccd9a869d49247355f0d5d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123179"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274533"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Résoudre les problèmes d’Application Gateway avec App Service – Redirection vers l’URL d’App Service
+# <a name="troubleshoot-application-gateway-with-app-service"></a>Résoudre les problèmes de passerelle d’Application avec App Service
 
- Découvrez comment diagnostiquer et résoudre les problèmes de redirection avec la passerelle d’Application où l’URL du Service de l’application est bien exposé.
+Découvrez comment diagnostiquer et résoudre les problèmes rencontrés avec la passerelle d’Application et App Service en tant que le serveur principal.
 
 ## <a name="overview"></a>Présentation
+
+Dans cet article, vous allez apprendre à résoudre les problèmes suivants :
+
+> [!div class="checklist"]
+> * Obtention exposée dans le navigateur lorsqu’il existe une redirection de l’URL du Service d’application
+> * Domaine du Cookie de ARRAffinity du Service de l’application la valeur nom d’hôte de Service d’application (example.azurewebsites.net) au lieu de l’hôte d’origine
 
 Lorsque vous configurez un Service d’application dans le pool back-end de passerelle d’Application publiques et si vous avez une redirection configurée dans votre code d’Application, vous verrez peut-être lorsque vous accédez à la passerelle d’Application, vous serez redirigé par le navigateur directement à l’application URL du service.
 
@@ -28,6 +34,8 @@ Ce problème peut se produire en raison des raisons principales suivantes :
 - Vous avez l’authentification Azure AD qui provoque la redirection.
 - Vous avez activé le commutateur « Choisir hôte nom d’adresse du serveur principal » dans les paramètres HTTP de passerelle d’Application.
 - Vous n’avez pas votre domaine personnalisé enregistré avec votre Service d’application.
+
+En outre, lorsque vous utilisez des Services d’application derrière la passerelle d’Application et que vous utilisez un domaine personnalisé pour accéder à la passerelle d’Application, vous pouvez voir la valeur de domaine du cookie ARRAffinity définie par le Service d’application contiendra le nom de domaine « example.azurewebsites.net ». Si vous souhaitez que votre nom d’hôte d’origine pour être le domaine du cookie, suivez la solution dans cet article.
 
 ## <a name="sample-configuration"></a>Exemple de configuration
 
@@ -94,6 +102,16 @@ Pour ce faire, vous devez posséder un domaine personnalisé et suivez le proces
 - Associer la sonde personnalisée vers les paramètres de serveur principal HTTP et vérifiez l’intégrité du serveur principal s’il est sain.
 
 - Une fois cette opération est effectuée, Application Gateway doit transférer maintenant le même nom d’hôte « www.contoso.com » pour le Service d’application et la redirection se produira sur le même nom d’hôte. Vous pouvez vérifier les en-têtes exemple demande et de réponse ci-dessous.
+
+Pour implémenter les étapes mentionnées ci-dessus à l’aide de PowerShell pour une installation existante, suivez l’exemple de script PowerShell ci-dessous. Notez comment nous avons utilisé les commutateurs - PickHostname pas dans la configuration de sonde et les paramètres HTTP.
+
+```azurepowershell-interactive
+$gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
+Set-AzApplicationGatewayProbeConfig -ApplicationGateway $gw -Name AppServiceProbe -Protocol Http -HostName "example.azurewebsites.net" -Path "/" -Interval 30 -Timeout 30 -UnhealthyThreshold 3
+$probe=Get-AzApplicationGatewayProbeConfig -Name AppServiceProbe -ApplicationGateway $gw
+Set-AzApplicationGatewayBackendHttpSettings -Name appgwhttpsettings -ApplicationGateway $gw -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 30
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
   ```
   ## Request headers to Application Gateway:
 

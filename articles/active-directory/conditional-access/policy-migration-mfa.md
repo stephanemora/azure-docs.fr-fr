@@ -1,141 +1,120 @@
 ---
-title: Migrer une stratégie classique nécessitant l’authentification multifacteur dans le portail Azure | Microsoft Docs
+title: Migrer une stratégie classique nécessitant l’authentification multifacteur dans le portail Azure
 description: Cet article montre comment migrer une stratégie classique qui nécessite l’authentification multifacteur dans le portail Azure.
 services: active-directory
-keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
+ms.topic: tutorial
 ms.date: 06/13/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5e26f901b0170116a83663176a402b55d6d70b0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: e6661cee8ba6176bd706d31a10a8f20549e29e4d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522143"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894421"
 ---
-# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrer une stratégie classique nécessitant l’authentification multifacteur dans le portail Azure 
+# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrer une stratégie classique nécessitant l’authentification multifacteur dans le portail Azure
 
-Cet article montre comment migrer une stratégie classique qui nécessite l’**authentification multifacteur** pour une application cloud. Bien qu’il ne s’agisse pas d’une prérequis, nous vous recommandons de lire [Migrer les stratégies classiques dans le portail Azure](policy-migration.md) avant d’effectuer la migration de vos stratégies classiques.
+Ce tutoriel montre comment migrer une stratégie classique qui nécessite l’**authentification multifacteur** pour une application cloud. Bien qu’il ne s’agisse pas d’une prérequis, nous vous recommandons de lire [Migrer les stratégies classiques dans le portail Azure](policy-migration.md) avant d’effectuer la migration de vos stratégies classiques.
 
+## <a name="overview"></a>Vue d’ensemble
 
- 
-## <a name="overview"></a>Présentation 
-
-Le scénario de cet article montre comment migrer une stratégie classique qui nécessite l’**authentification multifacteur** pour une application cloud. 
+Le scénario de cet article montre comment migrer une stratégie classique qui nécessite l’**authentification multifacteur** pour une application cloud.
 
 ![Azure Active Directory](./media/policy-migration/33.png)
-
 
 Le processus de migration est constitué des étapes suivantes :
 
 1. [Ouvrez la stratégie classique](#open-a-classic-policy) pour obtenir les paramètres de configuration.
-2. Créez une nouvelle stratégie d’accès conditionnel Azure AD afin de remplacer votre stratégie classique. 
-3. Désactivez la stratégie classique.
-
-
+1. Créez une nouvelle stratégie d’accès conditionnel Azure AD afin de remplacer votre stratégie classique. 
+1. Désactivez la stratégie classique.
 
 ## <a name="open-a-classic-policy"></a>Ouvrir une stratégie classique
 
 1. Dans la barre de navigation gauche du [portail Azure](https://portal.azure.com), cliquez sur **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/policy-migration-mfa/01.png)
+   ![Azure Active Directory](./media/policy-migration-mfa/01.png)
 
-2. Dans la page **Azure Active Directory**, dans la section **Gérer**, cliquez sur **Accès conditionnel**.
+1. Dans la page **Azure Active Directory**, dans la section **Gérer**, cliquez sur **Accès conditionnel**.
 
-    ![Accès conditionnel](./media/policy-migration-mfa/02.png)
+   ![Accès conditionnel](./media/policy-migration-mfa/02.png)
 
-3. Dans la section **Gérer**, cliquez sur **Stratégies classiques (préversion)**.
+1. Dans la section **Gérer**, cliquez sur **Stratégies classiques (préversion)**.
 
-    ![Stratégies classiques](./media/policy-migration-mfa/12.png)
+   ![Stratégies classiques](./media/policy-migration-mfa/12.png)
 
-4. Dans la liste de stratégies classiques, cliquez sur celle qui nécessite l’**authentification multifacteur** pour une application cloud.
+1. Dans la liste de stratégies classiques, cliquez sur celle qui nécessite l’**authentification multifacteur** pour une application cloud.
 
-    ![Stratégies classiques](./media/policy-migration-mfa/13.png)
-
+   ![Stratégies classiques](./media/policy-migration-mfa/13.png)
 
 ## <a name="create-a-new-conditional-access-policy"></a>Créer une nouvelle stratégie d’accès conditionnel
 
-
 1. Dans la barre de navigation gauche du [portail Azure](https://portal.azure.com), cliquez sur **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/policy-migration/01.png)
+   ![Azure Active Directory](./media/policy-migration/01.png)
 
-2. Dans la page **Azure Active Directory**, dans la section **Gérer**, cliquez sur **Accès conditionnel**.
+1. Dans la page **Azure Active Directory**, dans la section **Gérer**, cliquez sur **Accès conditionnel**.
 
-    ![Accès conditionnel](./media/policy-migration/02.png)
+   ![Accès conditionnel](./media/policy-migration/02.png)
 
+1. Dans la page **Accès conditionnel**, pour ouvrir la page **Nouveau**, cliquez sur **Ajouter** dans la barre d’outils située en haut.
 
+   ![Accès conditionnel](./media/policy-migration/03.png)
 
-3. Dans la page **Accès conditionnel**, pour ouvrir la page **Nouveau**, cliquez sur **Ajouter** dans la barre d’outils située en haut.
+1. Dans la page **Nom** du panneau **Nouveau**, indiquez le nom de votre stratégie.
 
-    ![Accès conditionnel](./media/policy-migration/03.png)
+   ![Accès conditionnel](./media/policy-migration/29.png)
 
-4. Dans la page **Nom** du panneau **Nouveau**, indiquez le nom de votre stratégie.
+1. Dans la section **Affectations**, cliquez sur **Utilisateurs et groupes**.
 
-    ![Accès conditionnel](./media/policy-migration/29.png)
+   ![Accès conditionnel](./media/policy-migration/05.png)
 
-5. Dans la section **Affectations**, cliquez sur **Utilisateurs et groupes**.
+   1. Si vous avez tous les utilisateurs sélectionnés dans votre stratégie classique, cliquez sur **Tous les utilisateurs**. 
 
-    ![Accès conditionnel](./media/policy-migration/05.png)
+   ![Accès conditionnel](./media/policy-migration/35.png)
 
-    a. Si vous avez tous les utilisateurs sélectionnés dans votre stratégie classique, cliquez sur **Tous les utilisateurs**. 
+   1. Si vous avez des groupes sélectionnés dans votre stratégie classique, cliquez sur **Sélectionner des utilisateurs et des groupes**, puis sélectionnez les groupes et utilisateurs requis.
 
-    ![Accès conditionnel](./media/policy-migration/35.png)
+   ![Accès conditionnel](./media/policy-migration/36.png)
 
-    b. Si vous avez des groupes sélectionnés dans votre stratégie classique, cliquez sur **Sélectionner des utilisateurs et des groupes**, puis sélectionnez les groupes et utilisateurs requis.
+   1. Si vous avez des groupes exclus, cliquez sur l’onglet **Exclure** et sélectionnez les groupes et utilisateurs requis. 
 
-    ![Accès conditionnel](./media/policy-migration/36.png)
+   ![Accès conditionnel](./media/policy-migration/37.png)
 
-    c. Si vous avez des groupes exclus, cliquez sur l’onglet **Exclure** et sélectionnez les groupes et utilisateurs requis. 
+1. Dans la page **Nouveau**, pour ouvrir la page **Applications cloud**, cliquez sur **Applications cloud** dans la section **Affectation**.
 
-    ![Accès conditionnel](./media/policy-migration/37.png)
+1. Dans la page **Applications cloud**, procédez comme suit :
 
-6. Dans la page **Nouveau**, pour ouvrir la page **Applications cloud**, cliquez sur **Applications cloud** dans la section **Affectation**.
+   ![Accès conditionnel](./media/policy-migration/08.png)
 
-8. Dans la page **Applications cloud**, procédez comme suit :
+   1. Cliquez sur **Sélectionner les applications**.
 
-    ![Accès conditionnel](./media/policy-migration/08.png)
+   1. Cliquez sur **Sélectionner**.
 
-    a. Cliquez sur **Sélectionner les applications**.
+   1. Dans la page **Sélectionner**, sélectionnez votre application cloud, puis cliquez sur **Sélectionner**.
 
-    b. Cliquez sur **Sélectionner**.
+   1. Dans la page **Applications cloud**, cliquez sur **Terminé**.
 
-    c. Dans la page **Sélectionner**, sélectionnez votre application cloud, puis cliquez sur **Sélectionner**.
+1. Si vous avez sélectionné **Imposer l’authentification multifacteur** :
 
-    d. Dans la page **Applications cloud**, cliquez sur **Terminé**.
+   ![Accès conditionnel](./media/policy-migration/26.png)
 
+   1. Dans la section **Contrôles d’accès**, cliquez sur **Accorder**.
 
+   ![Accès conditionnel](./media/policy-migration/27.png)
 
-9. Si vous avez sélectionné **Imposer l’authentification multifacteur** :
+   1. Sur la page **Accorder**, cliquez sur **Accorder l’accès**, puis cliquez sur **Imposer l’authentification multifacteur**.
 
-    ![Accès conditionnel](./media/policy-migration/26.png)
+   1. Cliquez sur **Sélectionner**.
 
-    a. Dans la section **Contrôles d’accès**, cliquez sur **Accorder**.
+1. Cliquez sur **Activé** pour activer votre stratégie.
 
-    ![Accès conditionnel](./media/policy-migration/27.png)
-
-    b. Sur la page **Accorder**, cliquez sur **Accorder l’accès**, puis cliquez sur **Imposer l’authentification multifacteur**.
-
-    c. Cliquez sur **Sélectionner**.
-
-
-10. Cliquez sur **Activé** pour activer votre stratégie.
-
-    ![Accès conditionnel](./media/policy-migration/30.png)
-
-
+   ![Accès conditionnel](./media/policy-migration/30.png)
 
 ## <a name="disable-the-classic-policy"></a>Désactiver la stratégie classique
 
@@ -143,13 +122,8 @@ Pour désactiver votre stratégie classique, cliquez sur **Désactiver** dans la
 
 ![Stratégies classiques](./media/policy-migration-mfa/14.png)
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur la migration des stratégies classiques, consultez [Migrer les stratégies classiques dans le portail Azure](policy-migration.md).
-
-
 - Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
-
-- Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md). 
+- Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md).

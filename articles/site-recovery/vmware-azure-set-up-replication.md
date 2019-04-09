@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 18dc7ea513d1e3787dbd38b1ab687be607a79f8b
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: b60d8a8fb9b9300a6914ad33b2f760fb5adde3b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006817"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278222"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configurer et gérer des stratégies de réplication pour la récupération d’urgence VMware sur Azure
 Cet article explique comment configurer une stratégie de réplication pour la réplication d’une machine virtuelle VMware sur Azure avec [Azure Site Recovery](site-recovery-overview.md).
@@ -20,7 +20,7 @@ Cet article explique comment configurer une stratégie de réplication pour la r
 ## <a name="create-a-policy"></a>Création d’une stratégie
 
 1. Sélectionnez **Gérer** > **Infrastructure Site Recovery**.
-2. Sélectionnez **Stratégies de réplication** dans **Pour les machines VMware et physiques**. 
+2. Sélectionnez **Stratégies de réplication** dans **Pour les machines VMware et physiques**.
 3. Cliquez sur **+ Stratégie de réplication**, et spécifiez le nom de la stratégie.
 4. Dans le champ **Seuil d’objectif de point de récupération**, spécifiez la limite de l’objectif de point de récupération. Des alertes sont générées lorsque la réplication continue dépasse cette limite.
 5. Dans **Rétention des points de récupération**, spécifiez la durée (en heures) de la fenêtre de rétention pour chaque point de récupération. Les machines protégées peuvent être récupérées à tout moment pendant cette fenêtre de rétention. Les machines virtuelles répliquées vers le Stockage Premium peuvent prendre en charge jusqu’à 24 heures de rétention. Le stockage standard prend en charge jusqu’à 72 heures de rétention.
@@ -29,7 +29,7 @@ Cet article explique comment configurer une stratégie de réplication pour la r
 
 Lorsque vous créez une stratégie de réplication, une stratégie de correspondance est automatiquement créée pour la restauration automatique, avec le suffixe « failback ». Une fois la stratégie créée, vous pouvez la modifier en sélectionnant **Modifier les paramètres**.
 
-## <a name="associate-a-configuration-server"></a>Associer un serveur de configuration 
+## <a name="associate-a-configuration-server"></a>Associer un serveur de configuration
 
 Associez la stratégie de réplication à votre serveur de configuration local.
 

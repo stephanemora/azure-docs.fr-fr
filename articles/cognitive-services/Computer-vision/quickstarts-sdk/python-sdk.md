@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: pafarley
-ms.openlocfilehash: 23db6f889e2ca4266b7e3566c18cf9a85d4062a8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 16844f60f03e2bf488450797f43915462df08064
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517553"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904914"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>SDK Vision par ordinateur d’Azure Cognitive Services pour Python
 
-Le service Vision par ordinateur offre aux développeurs un accès à des algorithmes avancés pour le traitement d’images et le renvoi d’informations. Les algorithmes du service Vision par ordinateur analysent le contenu d’une image de différentes manières, selon les composants visuels qui vous intéressent. 
+Le service Vision par ordinateur offre aux développeurs un accès à des algorithmes avancés pour le traitement d’images et le renvoi d’informations. Les algorithmes du service Vision par ordinateur analysent le contenu d’une image de différentes manières, selon les composants visuels qui vous intéressent.
 
 * [Analyser une image](#analyze-an-image)
 * [Obtenir une liste de domaines](#get-subject-domain-list)
@@ -38,23 +38,23 @@ Vous cherchez plus de documentation ?
 ## <a name="prerequisites"></a>Prérequis
 
 * [Python 3.6+][python]
-* [Clé Vision par ordinateur][computervision_resource] gratuite et région associée. Vous avez besoin de ces valeurs quand vous créez l’instance de l’objet client [ComputerVisionAPI][ref_computervisionclient]. Utilisez l’une des méthodes suivantes pour obtenir ces valeurs. 
+* [Clé Vision par ordinateur][computervision_resource] gratuite et point de terminaison associé. Vous avez besoin de ces valeurs quand vous créez l’instance de l’objet client [ComputerVisionClient][ref_computervisionclient]. Utilisez l’une des méthodes suivantes pour obtenir ces valeurs.
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Si vous n’avez pas d’abonnement Azure
 
-Créez une clé gratuite valide pendant 7 jours avec l’expérience d’**[essai gratuit][computervision_resource]** pour le service Vision par ordinateur. Quand la clé est créée, copiez-la ainsi que le nom de la région. Vous en aurez besoin pour [créer le client](#create-client).
+Créez une clé gratuite valide pendant 7 jours avec l’expérience d’**[essai gratuit][computervision_resource]** pour le service Vision par ordinateur. Quand la clé est créée, copiez-la ainsi que le nom du point de terminaison. Vous en aurez besoin pour [créer le client](#create-client).
 
 Gardez les éléments suivants une fois que la clé est créée :
 
-* Valeur de la clé : chaîne de 32 caractères au format `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 
-* Région de la clé : sous-domaine de l’URL du point de terminaison, https://**westcentralus**.api.cognitive.microsoft.com
+* Valeur de la clé : chaîne de 32 caractères au format `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+* Point de terminaison de la clé : l’URL du point de terminaison de base, https://westcentralus.api.cognitive.microsoft.com
 
 ### <a name="if-you-have-an-azure-subscription"></a>Si vous avez un abonnement Azure
 
-La méthode la plus simple pour créer une ressource dans votre abonnement consiste à utiliser la commande [Azure CLI][azure_cli] suivante. Elle crée une clé Cognitive Services qui peut être utilisée dans de nombreux services cognitifs. Vous devez choisir le nom du groupe de ressources _existant_, par exemple, « my-cogserv-group » et le nom de la nouvelle ressource Vision par ordinateur, comme « my-computer-vision-resource ». 
+La méthode la plus simple pour créer une ressource dans votre abonnement consiste à utiliser la commande [Azure CLI][azure_cli] suivante. Elle crée une clé Cognitive Services qui peut être utilisée dans de nombreux services cognitifs. Vous devez choisir le nom du groupe de ressources _existant_, par exemple, « my-cogserv-group » et le nom de la nouvelle ressource Vision par ordinateur, comme « my-computer-vision-resource ».
 
 ```Bash
-RES_REGION=westeurope 
+RES_REGION=westeurope
 RES_GROUP=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 
@@ -92,31 +92,31 @@ pip install azure-cognitiveservices-vision-computervision
 
 ## <a name="authentication"></a>Authentication
 
-Une fois votre ressource Vision par ordinateur créée, utilisez sa **région** et l’une de ses **clés de compte** pour instancier l’objet client.
+Une fois votre ressource Vision par ordinateur créée, utilisez son **point de terminaison** et l’une de ses **clés de compte** pour instancier l’objet client.
 
-Utilisez ces valeurs quand vous créez l’instance de l’objet client [ComputerVisionAPI][ref_computervisionclient]. 
+Utilisez ces valeurs quand vous créez l’instance de l’objet client [ComputerVisionClient][ref_computervisionclient].
 
 Par exemple, utilisez le terminal Bash pour définir les variables d’environnement :
 
 ```Bash
-ACCOUNT_REGION=<resourcegroup-name>
+ACCOUNT_ENDPOINT=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 ```
 
-### <a name="for-azure-subscription-users-get-credentials-for-key-and-region"></a>Pour les utilisateurs avec un abonnement Azure, obtenir des informations d’identification pour la clé et de région
+### <a name="for-azure-subscription-users-get-credentials-for-key-and-endpoint"></a>Pour les utilisateurs avec un abonnement Azure, obtenir des informations d’identification pour la clé et de point de terminaison
 
-Si vous ne vous souvenez pas de votre région et de votre clé, vous pouvez utiliser la méthode suivante pour les rechercher. Si vous devez créer une clé et une région, vous pouvez utiliser la méthode pour les [titulaires d’abonnement Azure](#if-you-have-an-azure-subscription) ou pour les [utilisateurs sans abonnement Azure](#if-you-dont-have-an-azure-subscription).
+Si vous ne vous souvenez pas de votre point de terminaison et de votre clé, vous pouvez utiliser la méthode suivante pour les rechercher. Si vous devez créer une clé et un point de terminaison, vous pouvez utiliser la méthode pour les [titulaires d’abonnement Azure](#if-you-have-an-azure-subscription) ou pour les [utilisateurs sans abonnement Azure](#if-you-dont-have-an-azure-subscription).
 
-Utilisez l’extrait [Azure CLI][cloud_shell] ci-dessous pour remplir les deux variables d’environnement avec la **région** et l’une des **clés** du compte Vision par ordinateur (ces valeurs sont également disponibles dans le [portail Azure][azure_portal]). L’extrait de code est mis en forme pour l’interpréteur de commandes Bash.
+Utilisez l’extrait [Azure CLI][cloud_shell] ci-dessous pour remplir les deux variables d’environnement avec le **point de terminaison** et l’une des **clés** du compte Vision par ordinateur (ces valeurs sont également disponibles dans le [portail Azure][azure_portal]). L’extrait de code est mis en forme pour l’interpréteur de commandes Bash.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 
-export ACCOUNT_REGION=$(az cognitiveservices account show \
+export ACCOUNT_ENDPOINT=$(az cognitiveservices account show \
     --resource-group $RES_GROUP \
     --name $ACCT_NAME \
-    --query location \
+    --query endpoint \
     --output tsv)
 
 export ACCOUNT_KEY=$(az cognitiveservices account keys list \
@@ -129,28 +129,28 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
 
 ### <a name="create-client"></a>Créer un client
 
-Obtenez la région et la clé des variables d’environnement, puis créez l’objet client [ComputerVisionAPI][ref_computervisionclient].  
+Obtenez le point de terminaison et la clé des variables d’environnement, puis créez l’objet client [ComputerVisionClient][ref_computervisionclient].
 
 ```Python
-from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
+from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-# Get region and key from environment variables
+# Get endpoint and key from environment variables
 import os
-region = os.environ['ACCOUNT_REGION']
+endpoint = os.environ['ACCOUNT_ENDPOINT']
 key = os.environ['ACCOUNT_KEY']
 
 # Set credentials
 credentials = CognitiveServicesCredentials(key)
 
 # Create client
-client = ComputerVisionAPI(region, credentials)
+client = ComputerVisionClient(endpoint, credentials)
 ```
 
 ## <a name="examples"></a>Exemples
 
-Vous avez besoin d’un objet client [ComputerVisionAPI][ref_computervisionclient] avant d’utiliser une des tâches suivantes.
+Vous avez besoin d’un objet client [ComputerVisionClient][ref_computervisionclient] avant d’utiliser une des tâches suivantes.
 
 ### <a name="analyze-an-image"></a>Analyser une image
 
@@ -178,7 +178,7 @@ for x in models.models_property:
 
 ### <a name="analyze-an-image-by-domain"></a>Analyser une image par domaine
 
-Vous pouvez analyser une image par domaine avec [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]. Obtenez la [liste des domaines pris en charge](#get-subject-domain-list) pour utiliser le nom de domaine approprié.  
+Vous pouvez analyser une image par domaine avec [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]. Obtenez la [liste des domaines pris en charge](#get-subject-domain-list) pour utiliser le nom de domaine approprié.
 
 ```Python
 # type of prediction
@@ -216,7 +216,7 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>Obtenir le texte d’une image
 
-Vous pouvez obtenir n’importe quel texte manuscrit ou imprimé figurant dans une image. Pour cela, deux appels au SDK sont nécessaires : [`recognize_text`][ref_computervisionclient_recognize_text] et [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. L’appel à recognize_text est asynchrone. Dans les résultats de l’appel à get_text_operation_result, vous devez vérifier si le premier appel s’est terminé avec [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] avant d’extraire les données texte. Les résultats incluent le texte, ainsi que les coordonnées du cadre englobant le texte. 
+Vous pouvez obtenir n’importe quel texte manuscrit ou imprimé figurant dans une image. Pour cela, deux appels au SDK sont nécessaires : [`recognize_text`][ref_computervisionclient_recognize_text] et [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. L’appel à recognize_text est asynchrone. Dans les résultats de l’appel à get_text_operation_result, vous devez vérifier si le premier appel s’est terminé avec [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] avant d’extraire les données texte. Les résultats incluent le texte, ainsi que les coordonnées du cadre englobant le texte.
 
 ```Python
 # import models
@@ -238,13 +238,14 @@ idLocation = len(operationLocation) - numberOfCharsInOperationId
 operationId = operationLocation[idLocation:]
 
 # SDK call
-while result.status in ['NotStarted', 'Running']:
-    time.sleep(1)
+while True:
     result = client.get_text_operation_result(operationId)
+    if result.status not in ['NotStarted', 'Running']:
+        break
+    time.sleep(1)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
-
     for line in result.recognition_result.lines:
         print(line.text)
         print(line.bounding_box)
@@ -252,13 +253,13 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 ### <a name="generate-thumbnail"></a>Générer une miniature
 
-Vous pouvez générer une miniature (JPG) d’une image avec [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. La miniature ne doit pas forcément être dans les mêmes proportions que l’image d’origine. 
+Vous pouvez générer une miniature (JPG) d’une image avec [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. La miniature ne doit pas forcément être dans les mêmes proportions que l’image d’origine.
 
 Installez **Pillow** pour utiliser cet exemple :
 
 ```bash
 pip install Pillow
-``` 
+```
 
 Une fois que Pillow est installé, utilisez le package de l’exemple de code suivant pour générer l’image miniature.
 
@@ -285,7 +286,7 @@ image.save('thumbnail.jpg')
 
 ### <a name="general"></a>Généralités
 
-Quand vous interagissez avec l’objet client [ComputerVisionAPI][ref_computervisionclient] à l’aide du SDK Python, utilisez la classe [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] pour retourner des erreurs. Les erreurs retournées par le service correspondent aux codes d’état HTTP retournés pour les demandes d’API REST.
+Quand vous interagissez avec l’objet client [ComputerVisionClient][ref_computervisionclient] à l’aide du SDK Python, utilisez la classe [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] pour retourner des erreurs. Les erreurs retournées par le service correspondent aux codes d’état HTTP retournés pour les demandes d’API REST.
 
 Par exemple, si vous essayez d’analyser une image avec une clé non valide, une erreur `401` est retournée. Dans l’extrait suivant, l’[erreur][ref_httpfailure] est gérée correctement en interceptant l’exception et en affichant des informations supplémentaires sur l’erreur.
 
@@ -304,14 +305,14 @@ try:
         print(caption.confidence)
 except HTTPFailure as e:
     if e.status_code == 401:
-        print("Error unauthorized. Make sure your key and region are correct.")
+        print("Error unauthorized. Make sure your key and endpoint are correct.")
     else:
         raise
 ```
 
 ### <a name="handle-transient-errors-with-retries"></a>Gérer les erreurs temporaires avec de nouvelles tentatives
 
-Quand vous travaillez avec le client [ComputerVisionAPI][ref_computervisionclient], vous pouvez rencontrer des échecs passagers causés par des [limites de débit][computervision_request_units] appliquées par le service ou d’autres problèmes passagers comme des pannes du réseau. Pour plus d’informations sur la gestion de ces types d’échecs, consultez le [modèle Nouvelle tentative][azure_pattern_retry] dans le guide des modèles de conception de cloud et le [modèle Disjoncteur] [azure_pattern_circuit_breaker] connexe.
+Quand vous utilisez le client [ComputerVisionClient][ref_computervisionclient], vous pouvez rencontrer des échecs passagers causés par des [limites de débit][computervision_request_units] appliquées par le service ou d’autres problèmes passagers comme des pannes du réseau. Pour plus d’informations sur la gestion de ces types d’échecs, consultez le [modèle Nouvelle tentative][azure_pattern_retry] dans le guide des modèles de conception de cloud et le [modèle Disjoncteur] [azure_pattern_circuit_breaker] connexe.
 
 ### <a name="more-sample-code"></a>Autres exemples de code
 

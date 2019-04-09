@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259616"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881617"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Didacticiel : Appeler des API Cognitive Services dans un pipeline d’indexation Recherche Azure (préversion)
 
@@ -129,9 +129,6 @@ Dans la mesure où il s’agit de votre première demande, vérifiez le portail 
   ![Vignette de sources de données dans le portail](./media/cognitive-search-tutorial-blob/data-source-tile.png "Vignette de sources de données dans le portail")
 
 Si vous avez obtenu une erreur 403 ou 404, vérifiez la construction de la demande : `api-version=2017-11-11-Preview` doit être sur le point de terminaison, `api-key` doit être dans l’en-tête après `Content-Type` et sa valeur doit être valide pour un service de recherche. Vous pouvez réutiliser l’en-tête pour les étapes restantes de ce tutoriel.
-
-> [!TIP]
-> À présent, avant d’avoir effectué de nombreuses tâches, il est judicieux de vérifier que le service de recherche est en cours d’exécution dans l’un des emplacements pris en charge assurant la fonctionnalité d’évaluation : USA Centre Sud ou Europe Ouest.
 
 ## <a name="create-a-skillset"></a>Créer un ensemble de compétences
 
@@ -554,4 +551,4 @@ Le moyen le plus rapide de nettoyer après un tutoriel consiste à supprimer le 
 Personnalisez ou étendez le pipeline avec des compétences personnalisées. La création d’une compétence personnalisée et son ajout dans un ensemble de compétences vous permet d’intégrer une analyse de texte ou d’image que vous écrivez vous-même. 
 
 > [!div class="nextstepaction"]
-> [Exemple : créer une compétence personnalisée](cognitive-search-create-custom-skill-example.md)
+> [Exemple : Créer une compétence personnalisée](cognitive-search-create-custom-skill-example.md)

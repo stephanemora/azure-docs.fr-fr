@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4eaaff859811e4d97cbd4f73231d702285792064
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285443"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847297"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -55,7 +55,7 @@ Avant de commencer, contrôlez les points suivants :
 
 - La sauvegarde SQL Server peut être configurée dans le portail Azure ou **PowerShell**. Nous ne prenons pas en charge l’interface CLI.
 - La machine virtuelle exécutant SQL Server nécessite une connexion Internet pour accéder aux adresses IP publiques Azure.
-- Les **instances de cluster de basculement (FCI)** SQL Server AlwaysOn ne sont pas prises en charge.
+- L’**instance de cluster de basculement (FCI)** SQL Server et l’instance de cluster de basculement SQL Server Always On ne sont pas prises en charge.
 - Les opérations de sauvegarde et de restauration des bases de données miroirs et des instantanés de base de données ne sont pas prises en charge.
 - L’utilisation de plusieurs solutions de sauvegarde pour sauvegarder votre instance SQL Server autonome ou votre groupe de disponibilité SQL AlwaysOn peut entraîner l’échec de la sauvegarde. Évitez de le faire.
 - La sauvegarde de deux nœuds d’un groupe de disponibilité individuellement avec les mêmes solutions ou des solutions différentes peut également entraîner l’échec de la sauvegarde. La Sauvegarde Azure peut détecter et protéger tous les nœuds se trouvant dans la même région que le coffre. Si votre groupe de disponibilité SQL Server AlwaysOn s’étend sur plusieurs régions Azure, configurez la sauvegarde à partir de la région où se trouve le nœud principal. La Sauvegarde Azure peut découvrir et protéger toutes les bases de données du groupe de disponibilité en fonction de votre préférence de sauvegarde.  

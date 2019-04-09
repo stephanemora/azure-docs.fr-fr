@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1e6aea792666447141e504f45a3ff55cb70f6261
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 59763b1146986b9920b87152101fd1dcdb00fece
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533236"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904761"
 ---
 # <a name="what-is-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
@@ -77,7 +77,7 @@ Tous les points de terminaison de l’API Analyse de texte acceptent des donnée
 | Taille maximale d’une demande | 1 Mo |
 | Nombre maximal de documents par demande | 1 000 documents |
 
-Le débit maximal est de 100 appels par minute. Notez que vous pouvez envoyer une grande quantité de documents dans un seul appel (jusqu’à 1 000 documents).
+La limite de débit est de 100 demandes par seconde et 1000 demandes par minute. Vous pouvez envoyer une grande quantité de documents dans un même appel (jusqu’à 1000 documents).
 
 ## <a name="unicode-encoding"></a>Codage Unicode
 

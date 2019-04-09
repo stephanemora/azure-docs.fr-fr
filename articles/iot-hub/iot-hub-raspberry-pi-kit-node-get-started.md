@@ -1,21 +1,21 @@
 ---
 title: Raspberry Pi vers cloud (Node.js) – Connecter Raspberry Pi à Azure IoT Hub | Microsoft Docs
 description: Dans ce didacticiel, découvrez comment configurer et connecter Raspberry Pi à Azure IoT Hub pour lui permettre d’envoyer des données à la plateforme cloud Azure.
-author: rangv
-manager: ''
+author: wesmc7777
+manager: philmea
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi envoie des données vers le cloud, raspberry pi vers cloud
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: 0db28fb8016176bdd66e5406a6f1c0a18cc5c3e8
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.author: wesmc
+ms.openlocfilehash: 1c52e03dbb20df2ddfdb977fe7de4afb94bc3a99
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847587"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272068"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connecter Raspberry Pi à Azure IoT Hub (Node.js)
 
@@ -160,7 +160,7 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
 
 1. Connectez-vous à votre Raspberry Pi avec l’un des clients SSH suivants à partir de votre ordinateur hôte :
 
-   **Utilisateurs Windows**
+   **Utilisateurs de Windows**
   
    a. Téléchargez et installez [PuTTY](https://www.putty.org/) pour Windows. 
 

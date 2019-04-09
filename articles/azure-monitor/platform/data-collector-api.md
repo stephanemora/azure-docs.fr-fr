@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883936"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264084"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)
 Cet article vous montre comment utiliser l’API Collecte de données HTTP pour transmettre des données à Azure Monitor à partir d’un client API REST.  Il explique comment mettre en forme les données collectées par le script ou l’application, les inclure dans une requête et faire en sorte qu’Azure Monitor autorise cette requête.  Il est illustré par des exemples pour PowerShell, C# et Python.
@@ -61,7 +61,8 @@ Pour utiliser l’API Collecte de données HTTP, il vous suffit de créer une re
 | Authorization |Signature de l’autorisation. Plus loin dans cet article, vous pouvez lire comment créer un en-tête HMAC-SHA256. |
 | Log-Type |Spécifiez le type d’enregistrement des données envoyées. La taille limite pour ce paramètre est de 100 caractères. |
 | x-ms-date |Date à laquelle la requête a été traitée, au format RFC 1123. |
-| time-generated-field |Nom d’un champ de données qui contient l’horodateur de l’élément de données. Si vous spécifiez un champ, son contenu est utilisé pour **TimeGenerated**. Si ce champ n’est pas spécifié, la valeur par défaut de **TimeGenerated** est l’heure d’ingestion du message. Le contenu du champ de message doit suivre le format ISO 8601 AAAA-MM-JJThh:mm:ssZ. |
+| x-ms-AzureResourceId | ID de ressource de la ressource Azure, les données doit être associée. Cette opération remplit le [_ResourceId](log-standard-properties.md#_resourceid) propriété ainsi que les données à inclure dans [centrée sur les ressources](manage-access.md#access-modes) requêtes. Si ce champ n’est pas spécifié, les données ne seront pas incluses dans les requêtes centrée sur les ressources. |
+| time-generated-field | Nom d’un champ de données qui contient l’horodateur de l’élément de données. Si vous spécifiez un champ, son contenu est utilisé pour **TimeGenerated**. Si ce champ n’est pas spécifié, la valeur par défaut de **TimeGenerated** est l’heure d’ingestion du message. Le contenu du champ de message doit suivre le format ISO 8601 AAAA-MM-JJThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Authorization
 Toute demande adressée à l’API Collecte de données HTTP Azure Monitor doit inclure un en-tête d’autorisation. Pour authentifier une demande, vous devez la signer avec la clé primaire ou secondaire de l’espace de travail qui effectue la demande. Ensuite, transmettez cette signature dans le cadre de la demande.   

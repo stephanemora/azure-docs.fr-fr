@@ -4,7 +4,6 @@ title: Documentation du service Azure Resource Graph
 metadata:
   title: 'Documentation Azure Resource Graph - Tutoriels, informations de référence sur l’API'
   description: Azure Resource Graph est un service Azure qui permet d’exécuter des requêtes complexes sur des ressources à grande échelle.
-  services: resource-graph
   author: DCtheGeek
   manager: carmonm
   ms.service: resource-graph
@@ -42,8 +41,8 @@ sections:
         className: cardsD
         items:
           - title: Ligne de commande
-            html: <p><a href="/cli/azure/ext/resource-graph/graph">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+            html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
           - title: Languages
-            html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Kit de développement logiciel (SDK) Azure pour .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Kit de développement logiciel (SDK) Azure pour Python</a></p>
+            html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Kit SDK Azure pour .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Kit SDK Azure pour Python</a></p>
           - title: REST
-            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">Référence sur l’API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>'
+            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">Référence API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>'

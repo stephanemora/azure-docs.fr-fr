@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Skyward Qmlativ | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Skyward Qmlativ | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Skyward Qmlativ.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b6481b490182b874161a79390cc61b140c58bec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9faf5068f6007cc357bcd22480c08af4223ba906
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872798"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883024"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyward-qmlativ"></a>Didacticiel : Intégration d’Azure Active Directory à Skyward Qmlativ
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec Skyward Qmlativ, effe
 
     ![Informations d’authentification unique dans Domaine et URL Skyward Qmlativ](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : ` https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<BASEURL>/customeridentifierSTS`
 
@@ -138,7 +138,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

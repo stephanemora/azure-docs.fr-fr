@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b156917a9987b023a9bf94e51c0cc14aebb133c7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738383"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006219"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformation de recherche de mappage de Data Flow pour Azure Data Factory
 
@@ -25,3 +25,21 @@ Utilisez la recherche pour ajouter des données de référence d’une autre sou
 Sélectionnez les champs clés que vous souhaitez mettre en correspondance entre les champs de flux de données entrantes et les champs provenant de la source de référence. Vous devez d’abord créer une nouvelle source sur le canevas de conception du Data Flow à utiliser comme partie droite de la recherche.
 
 Lorsque les correspondances sont trouvées, les lignes et les colonnes résultantes provenant de la source de référence seront ajoutés à votre flux de données. Vous pouvez choisir les champs d’intérêt que vous souhaitez inclure dans votre récepteur à la fin de votre Data Flow.
+
+## <a name="optimizations"></a>Optimisations
+
+Dans Data Factory, exécutez avec le flux de données dans des environnements à grande échelle Spark. Si votre jeu de données peut tenir dans l’espace de mémoire de nœud de travail, nous pouvons optimiser les performances de votre recherche.
+
+![Jointure de diffusion](media/data-flow/broadcast.png "jointure de diffusion")
+
+### <a name="broadcast-join"></a>Jonction de diffusion
+
+Sélectionnez gauche et/ou à droite de diffusion jointure pour demander l’ADF pour transmettre l’ensemble du dataset à partir de chaque côté de la relation de recherche dans la mémoire.
+
+### <a name="data-partitioning"></a>Partitionnement des données
+
+Vous pouvez également spécifier le partitionnement de vos données en sélectionnant « Partitionnement du jeu » sur l’onglet Optimisation de la transformation de recherche pour créer des jeux de données qui s’adapte mieux à la mémoire par worker.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Joindre](data-flow-join.md) et [Exists](data-flow-exists.md) transformations effectuent des tâches similaires dans ADF les flux de données de mappage. Examinons ces transformations suivant.

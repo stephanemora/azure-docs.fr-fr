@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: b8b5c2cef1db5018ce0d61e1950f49a3bd215ac2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 1c66b3de9e18cb74c43f20499e4065c7ec7ae5ca
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402896"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801677"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Didacticiel : Créer un locataire dans Windows Virtual Desktop Preview
 
@@ -30,6 +30,8 @@ Voici ce dont vous avez besoin pour configurer votre locataire Windows Virtual D
 * L’ID de locataire [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) pour les utilisateurs Windows Virtual Desktop.
 * Un compte d’administrateur général dans le locataire Azure Active Directory.
    * Cela s’applique également aux organisations de fournisseurs de solutions cloud (CSP) créant un locataire Windows Virtual Desktop pour leurs clients. Si vous êtes une organisation CSP, vous devez être en mesure de vous connecter en tant qu’administrateur général de l’instance Azure Active Directory du client.
+   * Le compte d’administrateur doit provenir du locataire Azure Active Directory dans lequel vous tentez de créer le locataire Windows Virtual Desktop. Ce processus ne prend pas en charge les comptes (invités) Azure Active Directory B2B.
+   * Le compte d’administrateur doit être un compte professionnel ou scolaire.
 * Un ID d’abonnement Azure
 
 ## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Accorder des autorisations Azure Active Directory au service Windows Virtual Desktop Preview
@@ -75,7 +77,7 @@ Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez 
 Connectez-vous à Windows Virtual Desktop à l’aide du compte d’utilisateur TenantCreator avec cette applet de commande :
 
 ```powershell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Après cela, créez un locataire Windows Virtual Desktop associé au locataire Azure Active Directory :

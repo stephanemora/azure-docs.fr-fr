@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/17/2018
+ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: af5f1a5b8775e1e7346d4280dab77b98760b3209
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8bc213c14553bc73c7eb7fffcb1c1dcad924aaed
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895225"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906053"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Exécuter un conteneur Windows personnalisé dans Azure (préversion)
 
@@ -61,7 +61,7 @@ Si le fichier _Dockerfile_ ne s’ouvre pas automatiquement, ouvrez-le dans **l�
 Vous devez utiliser une [image parente prise en charge](#use-a-different-parent-image). Changez l’image parente en remplaçant la ligne `FROM` par le code suivant et enregistrez le fichier :
 
 ```Dockerfile
-FROM microsoft/aspnet:4.7.1
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 Dans le menu, sélectionnez **Déboguer > Exécuter sans débogage** pour exécuter l’application web localement.
@@ -130,7 +130,7 @@ Attendez quelques minutes et réessayez, jusqu'à accéder à la page d’accuei
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
-**Félicitations !** Vous exécutez votre premier conteneur Windows personnalisé dans Azure App Service.
+**Félicitations !** Vous exécutez votre premier conteneur Windows personnalisé dans Azure App Service.
 
 ## <a name="see-container-start-up-logs"></a>Consulter les journaux de démarrage du conteneur
 
@@ -178,16 +178,13 @@ Pour indiquer à App Service qu’il faut tirer la nouvelle image de Docker Hub,
 
 Vous êtes libre d’utiliser une autre image Docker personnalisée pour exécuter votre application. Toutefois, vous devez choisir l’[image parente](https://docs.docker.com/develop/develop-images/baseimages/) correcte pour l’infrastructure que vous souhaitez : 
 
-- Pour déployer des applications .NET Framework, utilisez une image parente basée sur la version Windows Server Core 2016 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc). 
-- Pour déployer des applications .NET Core, utilisez une image parente basée sur la version Windows Server Nano 2016 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc). 
+- Pour déployer des applications .NET Framework, utilisez une image parente basée sur la version Windows Server Core 2019 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc). 
+- Pour déployer des applications .NET Core, utilisez une image parente basée sur la version Windows Server Nano 1809 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc). 
 
 Le téléchargement d’une image parente lors du démarrage de l’application peut prendre un certain temps. Toutefois, vous pouvez réduire le temps de démarrage en utilisant l’une des images parentes suivantes déjà mises en cache dans Azure App Service :
 
-- [microsoft/iis](https://hub.docker.com/r/microsoft/iis/):windowsservercore-ltsc2016, latest
-- [microsoft/iis](https://hub.docker.com/r/microsoft/iis/):nanoserver-sac2016
-- [microsoft/aspnet](https://hub.docker.com/r/microsoft/aspnet/):4.7.2-windowsservercore-ltsc2016, 4.7.2, latest
-- [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-aspnetcore-runtime
-- [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-sdk
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
+- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 : il s’agit du conteneur de base utilisé au sein des images Microsoft Windows Nano Server Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

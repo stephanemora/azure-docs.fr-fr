@@ -6,16 +6,16 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847794"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270980"
 ---
-# <a name="set-up-disaster-recovery-for-sql-server"></a>Configurer la récupération après sinistre pour SQL Server 
+# <a name="set-up-disaster-recovery-for-sql-server"></a>Configurer la récupération après sinistre pour SQL Server
 
 Cet article décrit comment protéger le serveur SQL Server principal d’une application en combinant les technologies de continuité d’activité et de récupération d’urgence (BCDR) de SQL Server et [Azure Site Recovery](site-recovery-overview.md).
 
@@ -30,7 +30,7 @@ De nombreuses charges de travail utilisent SQL Server comme base, qui peut être
 * **Instances de clustering de basculement SQL Server (AlwaysOn FCI)**  : au moins deux nœuds exécutant des instances SQL Server avec des disques partagés sont configurés dans un cluster de basculement Windows. Si un nœud est inactif, le cluster peut basculer SQL Server vers une autre instance. Cette configuration est généralement utilisée pour mettre en œuvre la haute disponibilité sur un site principal. Ce type de déploiement ne protège pas contre la défaillance ou une panne dans la couche de stockage partagé. Un disque partagé peut être mis en œuvre avec iSCSI, Fibre Channel ou VHDx partagé.
 * **Groupes de disponibilité SQL AlwaysOn** : Au moins deux nœuds sont configurés dans un cluster sans partage avec des bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique.
 
- Cet article s’appuie sur les technologies de récupération d’urgence SQL natives suivantes pour mettre en œuvre la récupération des bases de données vers un site distant :
+  Cet article s’appuie sur les technologies de récupération d’urgence SQL natives suivantes pour mettre en œuvre la récupération des bases de données vers un site distant :
 
 * Groupes de disponibilité SQL AlwaysOn, pour la récupération d’urgence pour SQL Server éditions 2012 ou 2014 Enterprise.
 * Mise en miroir de base de données SQL en mode haute sécurité pour SQL Server édition Standard (toute version) ou SQL Server 2008 R2.
@@ -45,7 +45,7 @@ Site Recovery peut protéger SQL Server comme décrit dans le tableau ci-dessous
 **Hyper-V** | Oui | Oui
 **VMware** | Oui | Oui
 **Serveur physique** | Oui | Oui
-**Microsoft Azure**|N/D| Oui
+**Azure** |N/D| Oui
 
 ### <a name="supported-sql-server-versions"></a>Versions de SQL Server prises en charge
 Les scénarios de cet article prennent en charge les versions de SQL Server suivantes :
@@ -61,23 +61,23 @@ Azure Site Recovery peut être intégré aux technologies BCDR SQL Server native
 
 **Fonctionnalité** | **Détails** | **SQL Server** |
 --- | --- | ---
-**Groupe de disponibilité AlwaysOn** | Plusieurs instances autonomes de SQL Server s’exécutent chacune dans un cluster de basculement qui comporte plusieurs nœuds.<br/><br/>Les bases de données peuvent être regroupées dans des groupes de basculement qui peuvent être copiés (mis en miroir) sur des instances de SQL Server, pour éviter tout stockage partagé.<br/><br/>Cette fonction assure une récupération d'urgence entre un site primaire et un ou plusieurs sites secondaires. Il est possible de configurer deux nœuds dans un cluster sans partage avec les bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique. | SQL Server 2016, SQL Server 2014 et SQL Server 2012 édition Entreprise
-**Clustering de basculement (instance de cluster de basculement AlwaysOn)** | SQL Server tire parti de la fonction de cluster de basculement Windows pour assurer la haute disponibilité des charges de travail SQL Server locales.<br/><br/>Les nœuds qui exécutent des instances de SQL Server avec des disques partagés sont configurés dans un cluster de basculement. Si une instance est arrêtée, le cluster bascule vers un autre.<br/><br/>Le cluster ne protège pas contre les défaillances ou les pannes en stockage partagé. Le disque partagé peut être implémenté avec iSCSI, Fibre Channel ou VHDX partagé. | Éditions SQL Server Enterprise<br/><br/>Éditions SQL Server Standard (limitée à deux nœuds)
-**Mise en miroir de base de données (mode haute sécurité)** | Protège une base de données sur une seule copie secondaire. Disponible dans les modes de réplication haute sécurité (synchrone) et hautes performances (asynchrone). Cluster de basculement non requis. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise (toutes les éditions)
-**Serveur SQL autonome** | SQL Server et la base de données sont hébergés sur un seul serveur (physique ou virtuel). Le cluster hôte est utilisé pour la haute disponibilité, si le serveur est virtuel. Aucune haute disponibilité pour le niveau invité. | Édition Enterprise ou Standard
+**Groupe de disponibilité Always On** | Plusieurs instances autonomes de SQL Server s’exécutent chacune dans un cluster de basculement qui comporte plusieurs nœuds.<br/><br/>Les bases de données peuvent être regroupées dans des groupes de basculement qui peuvent être copiés (mis en miroir) sur des instances de SQL Server, pour éviter tout stockage partagé.<br/><br/>Cette fonction assure une récupération d'urgence entre un site primaire et un ou plusieurs sites secondaires. Il est possible de configurer deux nœuds dans un cluster sans partage avec les bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique. | SQL Server 2016, SQL Server 2014 et SQL Server 2012 édition Entreprise
+**Basculement de cluster (FCI Always On)** | SQL Server tire parti de la fonction de cluster de basculement Windows pour assurer la haute disponibilité des charges de travail SQL Server locales.<br/><br/>Les nœuds qui exécutent des instances de SQL Server avec des disques partagés sont configurés dans un cluster de basculement. Si une instance est arrêtée, le cluster bascule vers un autre.<br/><br/>Le cluster ne protège pas contre les défaillances ou les pannes en stockage partagé. Le disque partagé peut être implémenté avec iSCSI, Fibre Channel ou VHDX partagé. | Éditions SQL Server Enterprise<br/><br/>Éditions SQL Server Standard (limitée à deux nœuds)
+**Base de données mise en miroir (mode haute sécurité)** | Protège une base de données sur une seule copie secondaire. Disponible dans les modes de réplication haute sécurité (synchrone) et hautes performances (asynchrone). Cluster de basculement non requis. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise (toutes les éditions)
+**SQL Server autonome** | SQL Server et la base de données sont hébergés sur un seul serveur (physique ou virtuel). Le cluster hôte est utilisé pour la haute disponibilité, si le serveur est virtuel. Aucune haute disponibilité pour le niveau invité. | Édition Enterprise ou Standard
 
 ## <a name="deployment-recommendations"></a>Recommandations concernant le déploiement
 
 Ce tableau récapitule nos recommandations pour intégrer les technologies BCDR de SQL Server à Site Recovery.
 
-| **Version** | **Édition** | **Déploiement** | **Local à local** | **Local vers Azure** |
+| **Version** | **Édition** | **Déploiement** | **Local vers local** | **Local vers Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016, 2014 ou 2012 |Entreprise |Instance de cluster de basculement |Groupes de disponibilité AlwaysOn |Groupes de disponibilité AlwaysOn |
-|| Entreprise |Groupes de disponibilité AlwaysOn pour la haute disponibilité |Groupes de disponibilité AlwaysOn |Groupes de disponibilité AlwaysOn | |
-|| standard |Instance de cluster de basculement (FCI) |Réplication Site Recovery avec miroir local |Réplication Site Recovery avec miroir local | |
-|| Enterprise ou Standard |Standalone |Réplication de la récupération de sites |Réplication de la récupération de sites | |
+|| Entreprise |Groupes de disponibilité AlwaysOn pour la haute disponibilité |Groupes de disponibilité AlwaysOn |Groupes de disponibilité AlwaysOn |
+|| standard |Instance de cluster de basculement (FCI) |Réplication Site Recovery avec miroir local |Réplication Site Recovery avec miroir local |
+|| Enterprise ou Standard |Standalone |Réplication de la récupération de sites |Réplication de la récupération de sites |
 | SQL Server 2008 R2 ou 2008 |Enterprise ou Standard |Instance de cluster de basculement (FCI) |Réplication Site Recovery avec miroir local |Réplication Site Recovery avec miroir local |
-|| Enterprise ou Standard |Standalone |Réplication de la récupération de sites |Réplication de la récupération de sites | |
+|| Enterprise ou Standard |Standalone |Réplication de la récupération de sites |Réplication de la récupération de sites |
 | SQL Server (toute version) |Enterprise ou Standard |Instance de cluster de basculement - application DTC |Réplication de la récupération de sites |Non pris en charge |
 
 ## <a name="deployment-prerequisites"></a>Conditions préalables au déploiement
@@ -101,7 +101,7 @@ Voici ce que vous devez faire :
 
 1. Importez les scripts sur votre compte Azure Automation. Ce dernier contient les scripts pour le basculement du groupe de disponibilité SQL dans une [machine virtuelle Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) et une [machine virtuelle classique](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
-    [![Déployer sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Déployer vers Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. Ajoutez ASR-SQL-FailoverAG comme une action préalable du premier groupe dans le plan de récupération.
@@ -116,7 +116,7 @@ SQL AlwaysOn ne prend pas en charge le test de basculement de manière native. P
 
 1. Avant de déclencher le test de basculement du plan de récupération, récupérez la machine virtuelle à partir de la sauvegarde effectuée à l’étape précédente.
 
-    ![Restauration à partir de Sauvegarde Azure ](./media/site-recovery-sql/restore-from-backup.png)
+    ![Restauration à partir de Sauvegarde Azure](./media/site-recovery-sql/restore-from-backup.png)
 
 1. [Forcez un quorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) dans la machine virtuelle restaurée à partir d’une sauvegarde.
 
@@ -130,9 +130,9 @@ SQL AlwaysOn ne prend pas en charge le test de basculement de manière native. P
 
 1. Créez un équilibrage de charge avec une adresse IP créée sous le pool d’adresses IP de serveur frontal correspondant à chaque écouteur du groupe de disponibilité et avec la machine virtuelle SQL ajoutée dans le pool principal.
 
-     ![Créer un équilibrage de charge – pool d’adresses IP frontal ](./media/site-recovery-sql/create-load-balancer1.png)
+     ![Créer un équilibrage de charge – pool d’adresses IP frontal](./media/site-recovery-sql/create-load-balancer1.png)
 
-    ![Créer un équilibrage de charge – pool principal ](./media/site-recovery-sql/create-load-balancer2.png)
+    ![Créer un équilibrage de charge – pool principal](./media/site-recovery-sql/create-load-balancer2.png)
 
 1. Effectuer un test de basculement du plan de récupération.
 

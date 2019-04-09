@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994860"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885959"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Définir et affecter un blueprint Azure avec l’API REST
 
@@ -40,10 +40,10 @@ Pour les caractéristiques des blueprints, consultez [API REST Azure Blueprints]
 
 Si vous n’avez pas encore d’outil pour effectuer des appels d’API REST, songez à utiliser PowerShell pour ces instructions. Voici un exemple d’en-tête pour l’authentification auprès d’Azure. Générez un en-tête d’authentification, parfois appelé **jeton du porteur**, puis indiquez l’URI d’API REST auquel se connecter avec un paramètre ou un **corps de demande** :
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -68,8 +68,8 @@ La première étape de la définition d’un modèle standard à des fins de con
 
 Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par vos propres valeurs :
 
-- Remplacer `{YourMG}` par l’ID de votre groupe d’administration
-- Remplacer `{subscriptionId}` par votre ID d’abonnement
+- `{YourMG}` - Remplacer par l’ID de votre groupe d’administration
+- `{subscriptionId}` - Remplacer par votre ID d’abonnement
 
 > [!NOTE]
 > Les blueprints peuvent aussi être créés au niveau de l’abonnement. Pour plus d’informations, consultez cet [exemple de création de blueprint au niveau de l’abonnement](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -334,9 +334,9 @@ Une fois qu’un blueprint a été publié à l’aide de l’API REST, il peut 
 
 Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par vos propres valeurs :
 
-- Remplacer `{tenantId}` par l’ID de votre locataire
-- Remplacer `{YourMG}` par l’ID de votre groupe d’administration
-- Remplacer `{subscriptionId}` par votre ID d’abonnement
+- `{tenantId}` - Remplacer par l’ID de votre locataire
+- `{YourMG}` - Remplacer par l’ID de votre groupe d’administration
+- `{subscriptionId}` - Remplacer par votre ID d’abonnement
 
 1. Octroyez au principal de service Azure Blueprint le rôle **Propriétaire** sur l’abonnement cible. L’ID d’application est statique (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mais l’ID de principal de service varie en fonction du locataire. Vous pouvez demander les détails de votre locataire à l’aide de l’API REST suivante. Elle utilise [l’API Graph Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) qui a une autorisation différente.
 

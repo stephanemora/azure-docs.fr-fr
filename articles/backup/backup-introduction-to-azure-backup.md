@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca50c7cbbcccadf96641c28e43f7da48421c8f3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98acb6c5b83ce31046b50f744492c518cdf77498
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994426"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621649"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
 Azure Backup est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Recovery Services d’Azure. Pour plus d’informations sur le composant à utiliser pour protéger des données, des applications ou des charges de travail spécifiques, consultez le [tableau des composants Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (plus loin dans cet article).
@@ -37,7 +37,11 @@ Les solutions de sauvegarde traditionnelles ont évolué et considèrent désorm
 
 **Transfert de données illimité** : Azure Backup ne limite pas la quantité de données entrantes ou sortantes transférées. Par ailleurs, les données transférées ne sont pas facturées par Azure Backup. Toutefois, si vous utilisez le service Azure Import/Export pour importer de grandes quantités de données, les données entrantes ont un coût. Pour plus d’informations sur ce coût, consultez [Flux de travail de la sauvegarde hors connexion dans Azure Backup](backup-azure-backup-import-export.md). Les données sortantes sont les données transférées à partir d’un coffre Recovery Services pendant une opération de restauration.
 
-**Chiffrement des données** : le chiffrement des données garantit une transmission et un stockage sécurisés de vos données dans le cloud public. La phrase secrète de chiffrement est stockée en local et n’est jamais transmise ou stockée dans Azure. Si vous avez besoin de restaurer des données, vous êtes le seul à disposer de la phrase secrète de chiffrement ou de la clé.
+**Chiffrement des données** :
+- Localement, les données en transit sont chiffrées sur l’ordinateur local avec AES256. Les données transmises sont protégées par HTTPS entre le stockage et la sauvegarde. Le protocole iSCSI sécurise les données transmises entre la sauvegarde et la machine de l’utilisateur. Le tunneling sécurisé est utilisé pour protéger le canal iSCSI.
+- Pour la sauvegarde locale sur Azure, les données dans Azure sont chiffrées au repos à l’aide de la phrase secrète que vous fournissez quand vous configurez la sauvegarde. La phrase secrète ou la clé n’est jamais transmise ou stockée dans Azure. Si vous avez besoin de restaurer des données, vous êtes le seul à disposer de la phrase secrète de chiffrement ou de la clé.
+- Pour les machines virtuelles Azure, les données sont chiffrées à la réinitialisation à l’aide de Storage Service Encryption (SSE). La Sauvegarde chiffre automatiquement les données avant de les stocker. Le Stockage Azure déchiffre les données avant de les récupérer.
+- La Sauvegarde prend également en charge les machines virtuelles Azure chiffrées avec ADE (Azure Disk Encryption). [Plus d’informations](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups)
 
 **Sauvegarde cohérente avec les applications** : une sauvegarde cohérente avec les applications signifie qu’un point de récupération dispose de toutes les données requises pour restaurer la copie de sauvegarde. Sauvegarde Microsoft Azure fournit des sauvegardes cohérentes avec les applications, qui garantissent qu’aucun correctif supplémentaire n’est requis pour restaurer les données. La restauration de données cohérentes avec les applications réduit le délai de restauration, ce qui permet de rétablir rapidement le fonctionnement normal.
 
@@ -86,7 +90,7 @@ Le tableau suivant montre les composants de Sauvegarde Azure pris en charge pour
 Agent Azure Backup (MARS) | Aucun (agent Windows uniquement)
 System Center DPM | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure
 Azure Backup Server | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure
-Sauvegarde des machines virtuelles IaaS Azure | Sauvegarde cohérente au niveau application à l’aide du [framework de préscript et postscript](backup-azure-linux-app-consistent.md)<br/><br/> [Récupération au niveau du fichier](backup-azure-restore-files-from-vm.md)<br/><br/> [Créer une machine virtuelle à partir d’un disque restauré](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Créer une machine virtuelle à partir d’un point de récupération](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
+Sauvegarde des machines virtuelles IaaS Azure | Sauvegarde cohérente au niveau application à l’aide du [framework de préscript et postscript](backup-azure-linux-app-consistent.md)<br/><br/> [Récupération au niveau du fichier](backup-azure-restore-files-from-vm.md)<br/><br/> [Créer une machine virtuelle à partir d’un disque restauré](backup-azure-arm-restore-vms.md#restore-disks)<br/><br/> [Créer une machine virtuelle à partir d’un point de récupération](backup-azure-arm-restore-vms.md#create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Utilisation de machines virtuelles Stockage Premium avec Sauvegarde Azure
 Sauvegarde Azure protège les machines virtuelles Stockage Premium. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail avec des E/S intensives. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur Stockage Premium et d’autres types de disques, consultez l’article [Sélectionner un type de disque](../virtual-machines/windows/disks-types.md).

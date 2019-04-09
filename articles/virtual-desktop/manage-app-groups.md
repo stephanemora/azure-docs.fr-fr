@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 2baabe6837d25cce5e9f5d9e1071af8417fe5f4d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401860"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578745"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Didacticiel : Gérer des groupes d’applications pour Windows Virtual Desktop Preview
 
@@ -28,13 +28,13 @@ Avant de commencer, si vous ne l’avez pas déjà fait, [téléchargez et impor
 
 ## <a name="create-a-remoteapp-group"></a>Créer un groupe RemoteApp
 
-1. Exécutez l’applet de commande PowerShell suivante pour créer un groupe RemoteApp vide.
+1. Exécutez l’applet de commande PowerShell suivante pour créer un groupe d’applications RemoteApp vide.
 
    ```powershell
    New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
    ```
 
-2. (Facultatif) Pour vérifier que le groupe d’applications a été créé, vous pouvez exécuter l’applet de commande suivante pour voir la liste de tous les groupes d’applications pour le pool d’hôtes.
+2. (Facultatif) Pour vérifier que le groupe d’applications a bien été créé, vous pouvez exécuter l’applet de commande suivante pour afficher la liste de tous les groupes d’applications associés au pool d’hôtes.
 
    ```powershell
    Get-RdsAppGroup <tenantname> <hostpoolname>
@@ -45,17 +45,17 @@ Avant de commencer, si vous ne l’avez pas déjà fait, [téléchargez et impor
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
-
-4. Exécutez l’applet de commande suivante pour publier une nouvelle application RemoteApp dans le groupe d’applications créé à l’étape 1.
+   
+4. Exécutez l’applet de commande suivante pour installer l’application en fonction de son appalias. appalias devient visible quand vous exécutez la sortie de l’étape 3.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
    ```
 
-5. (Facultatif) Exécutez l’applet de commande suivante pour installer l’application en fonction d’appalias. appalias devient visible quand vous exécutez la sortie de l’étape 3.
+5. (Facultatif) Exécutez l’applet de commande suivante pour publier une nouvelle application RemoteApp dans le groupe d’applications créé à l’étape 1.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -AppAlias <appalias>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
    ```
 
 6. Pour vérifier que l’application a été publiée, exécutez l’applet de commande suivante.

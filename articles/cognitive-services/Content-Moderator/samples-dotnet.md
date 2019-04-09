@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4049211acd760f74fbb4a725f878e5c51acbe7dd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2b5fb5c44cbb2e0d766c49ed6b715484c22f62e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875939"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756743"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Exemples du SDK Content Moderator pour .NET
 
@@ -31,7 +31,7 @@ La liste suivante inclut des liens vers des exemples de code générés à l’a
 > Il existe une limite maximale de **5 listes d’images**, chaque liste ne devant **pas dépasser 10 000 images**.
 >
 
-- **Modération de texte** : [Analyser le texte pour détecter les propos injurieux et les informations d’identification personnelle (PII)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Consultez le guide de [démarrage rapide](text-moderation-quickstart-dotnet.md).
+- **Modération de texte** : [Rechercher dans le texte les propos injurieux et les données personnelles](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Consultez le guide de [démarrage rapide](text-moderation-quickstart-dotnet.md).
 - **Termes personnalisés** : [Modérer avec des listes de termes personnalisés](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Consultez le guide de [démarrage rapide](term-lists-quickstart-dotnet.md).
 
 > [!NOTE]

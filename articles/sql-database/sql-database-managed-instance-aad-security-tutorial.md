@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226213"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882053"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Didacticiel : Sécurité des instances managées dans Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD
 
@@ -56,7 +56,7 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Limitation de l’accès à votre instance managée
 
-Les instances managées sont accessibles uniquement par le biais d’une adresse IP privée. Aucun point de terminaison de service n’est disponible pour la connexion à une instance managée en dehors du réseau d’instances managées. Tout comme dans un environnement local SQL Server isolé, les applications ou les utilisateurs doivent avoir accès au réseau (virtuel) d’instances managées pour pouvoir établir une connexion. Pour plus d’informations, consultez l’article suivant : [Connecter votre application à une instance managée](sql-database-managed-instance-connect-app.md).
+Les instances managées sont accessibles uniquement par le biais d’une adresse IP privée. Aucun point de terminaison de service n’est disponible pour la connexion à une instance managée en dehors du réseau d’instances managées. À l’instar d’un environnement local SQL Server isolé, les applications ou les utilisateurs doivent avoir accès au réseau (virtuel) d’instances managées pour pouvoir établir une connexion. Pour plus d’informations, consultez l’article suivant : [Connecter votre application à une instance managée](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
 > Dans la mesure où les instances managées sont accessibles uniquement au sein de leur réseau virtuel, les [règles de pare-feu SQL Database](sql-database-firewall-configure.md) ne s’appliquent pas. Une instance managée a son propre [pare-feu intégré](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
@@ -65,11 +65,11 @@ Les instances managées sont accessibles uniquement par le biais d’une adresse
 
 Le premier principal de serveur (connexion) Azure AD doit être créé par le compte SQL Server standard (non-Azure AD) de type `sysadmin`. Consultez les articles suivants pour obtenir des exemples de connexion à votre instance managée :
 
-- [Démarrage rapide : Configurer une machine virtuelle Azure pour se connecter à une instance managée](sql-database-managed-instance-configure-vm.md)
-- [Démarrage rapide : Configurer une connexion point à site à une instance managée en local](sql-database-managed-instance-configure-p2s.md)
+- [Démarrage rapide : Configurer une machine virtuelle Azure pour se connecter à une instance managée](sql-database-managed-instance-configure-vm.md)
+- [Démarrage rapide : Configurer une connexion point à site à une instance managée en local](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> Le compte Administrateur Azure AD utilisé pour configurer l’instance managée ne peut pas être utilisé pour créer un principal de serveur (connexion) Azure AD au sein de l’instance managée. Vous devez créer le premier principal de serveur (connexion) Azure AD à l’aide d’un compte SQL Server `sysadmin`. Il s’agit d’une limitation temporaire qui sera levée une fois que les principaux de serveur (connexions) Azure AD deviendront des comptes en disponibilité générale. L’erreur suivante s’affiche si vous essayez d’utiliser un compte Administrateur Azure AD pour créer la connexion : `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> Le compte Administrateur Azure AD utilisé pour configurer l’instance managée ne peut pas être utilisé pour créer un principal de serveur (connexion) Azure AD au sein de l’instance managée. Vous devez créer le premier principal de serveur (connexion) Azure AD à l’aide d’un compte SQL Server `sysadmin`. Il s’agit d’une limitation temporaire qui sera levée une fois que les principaux de serveur (connexions) Azure AD deviendront des comptes en disponibilité générale. L’erreur suivante s’affiche si vous essayez d’utiliser un compte d’administrateur Azure AD pour créer la connexion : `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
 1. Connectez-vous à votre instance managée à l’aide d’un compte SQL Server standard (non-Azure AD) de type `sysadmin`, à l’aide de [SQL Server Management Studio ](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
@@ -442,7 +442,7 @@ Les requêtes de bases de données croisées sont prises en charge pour les comp
 Consultez l’article sur les [fonctionnalités de sécurité des instances managées](sql-database-managed-instance.md#azure-sql-database-security-features) pour obtenir la liste complète des moyens de sécuriser votre base de données. Les fonctionnalités de sécurité suivantes sont présentées :
 
 - [Audit d’une instance managée](sql-database-managed-instance-auditing.md) 
-- [Toujours chiffré](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Détection de menaces](sql-database-managed-instance-threat-detection.md) 
 - [Masquage des données dynamiques](/sql/relational-databases/security/dynamic-data-masking)
 - [Sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) 
@@ -453,4 +453,4 @@ Consultez l’article sur les [fonctionnalités de sécurité des instances mana
 Pour obtenir une vue d’ensemble des fonctionnalités d’une instance managée, consultez :
 
 > [!div class="nextstepaction"]
-> [Fonctionnalités de Managed Instance](sql-database-managed-instance.md)
+> [Fonctionnalités des instances managées](sql-database-managed-instance.md)

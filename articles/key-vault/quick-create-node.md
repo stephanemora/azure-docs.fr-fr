@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 1e234b599325da0626c83a57d86ff977b88b5577
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991272"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882748"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Démarrage rapide : Définir et récupérer un secret à partir d’Azure Key Vault à l’aide d’une application web Node 
 
@@ -38,7 +38,7 @@ Avant de procéder, assurez-vous d’être familiarisé avec les [concepts de ba
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Node.JS](https://nodejs.org/en/)
+* [Node.js](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 ou ultérieure. Ce démarrage rapide nécessite que vous exécutiez l’interface Azure CLI localement. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest).
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -183,7 +183,7 @@ Notez le résultat de la commande précédente. Elle doit respecter le format :
 Ensuite, exécutez la commande suivante en utilisant le nom de votre coffre de clés et la valeur de **PrincipalId** :
 
 ```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get set
 ```
 
 ## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>Déployer l’application Node sur Azure et récupérer la valeur du secret

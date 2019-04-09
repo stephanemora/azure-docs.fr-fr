@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/03/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fed62dfc3f7e7dc974fb709261e363f26ce97c51
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 0fa2e38a680e8590a89131717136a7960c1d3680
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200988"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903588"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core
 
@@ -40,7 +40,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment une applicatio
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
 >
-> 1. Accédez au [portail Azure - Inscriptions d’applications (préversion)](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
+> 1. Accédez au [portail Azure - Inscriptions d’applications](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
 > 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application pour vous en un seul clic.
 >
@@ -51,7 +51,8 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment une applicatio
 >
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 > 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-> 1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, puis sélectionnez **Inscriptions d’applications (préversion)** > **Nouvelle inscription**.
+> 1. Accédez à la page [Inscriptions des applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
+> 1. Sélectionnez **Nouvelle inscription**.
 > 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
 >    - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `AspNetCore-Quickstart`.
 >    - Dans **URL de réponse**, ajoutez `https://localhost:44321/` et sélectionnez **Inscrire**.
@@ -70,15 +71,15 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment une applicatio
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-aspnet-webapp/green-check.png) Votre application est configurée avec ces attributs.
 
-#### <a name="step-2-download-your-aspnet-core-project"></a>Étape 2 : Télécharger votre projet ASP.NET Core
+#### <a name="step-2-download-your-aspnet-core-project"></a>Étape 2 : Télécharger votre projet ASP.NET Core
 
-- [Télécharger la solution Visual Studio 2017](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Télécharger la solution Visual Studio 2017](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
+#### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
 
 1. Extrayez le fichier zip dans un dossier local du dossier racine, par exemple, **C:\Azure-Samples**
 1. Si vous utilisez Visual Studio 2017, ouvrez la solution dans Visual Studio (facultatif).
-1. Modifiez le fichier **appsettings.json**. Recherchez `ClientId` et remplacez `Enter_the_Application_Id_here` par la valeur **ID d’application (client)** que vous venez d’inscrire. 
+1. Modifiez le fichier **appsettings.json**. Recherchez `ClientId` et mettez à jour la valeur de `ClientId` avec l’**ID d’application (client)** de l’application que vous venez d’inscrire. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -87,8 +88,8 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment une applicatio
 
 > [!div renderon="docs"]
 > Où :
-> - `Enter_the_Application_Id_here` est l’**ID d’application (client)** de l’application que vous avez inscrite dans le portail Azure. Vous trouverez l’**ID d’application (client)** dans la page **Vue d’ensemble** de l’application.
-> - `Enter_the_Tenant_Info_Here` est l’une des options suivantes :
+> - `Enter_the_Application_Id_here` - est l’**ID d’application (client)** de l’application que vous avez inscrite dans le portail Azure. Vous trouverez l’**ID d’application (client)** dans la page **Vue d’ensemble** de l’application.
+> - `Enter_the_Tenant_Info_Here` - est l’une des options suivantes :
 >   - Si votre application prend en charge **Comptes dans cet annuaire organisationnel uniquement**, remplacez cette valeur par l’**ID de locataire** ou le **Nom du locataire** (par exemple, contoso.microsoft.com)
 >   - Si votre application prend en charge **Comptes dans un annuaire organisationnel**, remplacez cette valeur par `organizations`
 >   - Si votre application prend en charge **tous les utilisateurs de compte Microsoft**, remplacez cette valeur par `common`

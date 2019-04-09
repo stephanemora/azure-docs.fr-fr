@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 ms.service: container-registry
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 03/29/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: befac6f1429d5099f68f0c2ba0a90bb1217f8b6f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 39f643bd66e2a96b0b9b93989d2941a9c30ea7fc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530260"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894011"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Présentation des registres de conteneurs Docker privés dans Azure
 
@@ -54,10 +54,10 @@ Configurez ACR Tasks pour automatiquement recréer les images d’application au
 
 [Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) est une suite de fonctionnalités d’Azure Container Registry qui fournit des builds d’images de conteneur Docker rationalisés et efficaces dans Azure. Utilisez ACR Tasks pour étendre votre développement interne dans le cloud en déchargeant les opérations `docker build` vers Azure. Configurez des tâches de build pour automatiser le pipeline des mises à jour correctives (infrastructure et système d’exploitation du conteneur) et ainsi créer automatiquement des images lorsque votre équipe valide le code pour contrôler la source.
 
-[Tâches à plusieurs étapes](container-registry-tasks-overview.md#multi-step-tasks-preview), une fonctionnalité d’évaluation d’ACR Tasks, permet la définition et l’exécution basées sur une tâche pour la génération, le test et la mise à jour corrective d’images de conteneur dans le cloud. Les étapes de la tâche définissent les opérations build et push d’une image de conteneur individuelle. Elles permettent également de définir l’exécution d’un ou plusieurs conteneurs, en utilisant à chaque étape le conteneur comme son environnement d’exécution.
+Les [tâches multiétapes](container-registry-tasks-overview.md#multi-step-tasks) permettent la définition et l’exécution basées sur une tâche pour la génération, le test et la mise à jour corrective d’images conteneur dans le cloud. Les étapes de la tâche définissent les opérations build et push d’une image de conteneur individuelle. Elles permettent également de définir l’exécution d’un ou plusieurs conteneurs, en utilisant à chaque étape le conteneur comme son environnement d’exécution.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer un registre de conteneur à l’aide du portail Azure](container-registry-get-started-portal.md)
 * [Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure](container-registry-get-started-azure-cli.md)
-* [Automatiser les mises à jour correctives du système d’exploitation et de l’infrastructure avec ACR Tasks](container-registry-tasks-overview.md)
+* [Automatiser les mises à jour correctives du système d’exploitation et du framework avec ACR Tasks](container-registry-tasks-overview.md)

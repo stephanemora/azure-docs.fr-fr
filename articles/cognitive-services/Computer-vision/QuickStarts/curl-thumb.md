@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0b6430a31f31f85f01f67994f6b6fa0f30af9575
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20a438f4eb932596647002bf9d3072c651ac969c
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57879920"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630654"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST et cURL dans Vision par ordinateur
 
@@ -65,7 +65,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
 ## <a name="examine-the-response"></a>Examiner la réponse
 
-Une réponse réussie ajoute l’image miniature dans le fichier spécifié dans `<thumbnailFile>`. Si la requête échoue, la réponse contient un code d’erreur et un message pour vous aider à déterminer la cause du problème.
+Une réponse réussie ajoute l’image miniature dans le fichier spécifié dans `<thumbnailFile>`. Si la requête échoue, la réponse contient un code d’erreur et un message pour vous aider à déterminer la cause du problème. Si la requête semble réussir, mais que la miniature créée n’est pas un fichier image valide, il est possible que votre clé d’abonnement ne soit pas valide.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

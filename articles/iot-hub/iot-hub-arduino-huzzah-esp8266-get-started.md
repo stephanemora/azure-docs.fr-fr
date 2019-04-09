@@ -1,20 +1,20 @@
 ---
 title: ESP8266 vers cloud - Connecter la carte Feather HUZZAH ESP8266 à Azure IoT Hub | Microsoft Docs
 description: Ce didacticiel explique comment configurer la carte Adafruit Feather HUZZAH ESP8266 et la connecter à Azure IoT Hub pour envoyer des données à la plateforme cloud Azure.
-author: rangv
-manager: nasing
+author: wesmc7777
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: 82e31c498c6148454a5790a6eb4b82e3a2300a92
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.author: wesmc
+ms.openlocfilehash: 928860cd9b6493200ed8a14b7654f6a6f32c45d5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847063"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259386"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Connecter l’Adafruit Feather HUZZAH ESP8266 à Azure IoT Hub dans le cloud
 
@@ -128,7 +128,7 @@ Si vous utilisez Ubuntu, assurez-vous que vous disposez des autorisations néces
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>` est le nom du propriétaire du groupe que vous avez obtenu à l’étape précédente. `<username>` est le nom de votre utilisateur Ubuntu.
+   `<group-owner-name>` est le nom du propriétaire de groupe que vous avez obtenu à l’étape précédente. `<username>` est votre nom d’utilisateur Ubuntu.
 
 3. Déconnectez-vous d’Ubuntu, puis reconnectez-vous pour que la modification prenne effet.
 

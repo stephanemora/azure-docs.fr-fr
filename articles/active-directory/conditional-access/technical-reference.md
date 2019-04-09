@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc09c8d8e284fc81a26097a7c1a58732539029c6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 3f92001e9d2fd322e858440ef64991b9de856735
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051120"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273037"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -232,6 +232,23 @@ Ce paramètre s’applique aux applications clientes suivantes :
 - Les applications clientes approuvées prennent en charge la fonctionnalité de gestion des applications mobiles Intune.
 - Exigence **Nécessite une application cliente approuvée** :
    - elle prend uniquement en charge iOS et Android pour la [condition de plate-forme de périphérique](#device-platform-condition).
+
+## <a name="app-protection-policy-requirement"></a>Exigence de la stratégie App protection 
+
+Dans votre stratégie d’accès conditionnel, vous pouvez exiger qu'une stratégie de protection d’application est présent sur l’application cliente avant de l’accès est disponible pour les applications cloud sélectionnées. 
+
+![Contrôler l’accès via la stratégie de protection des applications](./media/technical-reference/22.png)
+
+Ce paramètre s’applique aux applications clientes suivantes :
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**Remarques**
+
+- Applications pour la stratégie de protection des applications prennent en charge la fonctionnalité de gestion d’applications mobiles Intune avec protection de la stratégie.
+- Le **nécessitent la stratégie de protection des applications** exigences :
+    - elle prend uniquement en charge iOS et Android pour la [condition de plate-forme de périphérique](#device-platform-condition).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

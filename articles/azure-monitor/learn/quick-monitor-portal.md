@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/11/2018
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 37fad0769753f462859809ff8600f5b15c7eaa1f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437507"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805344"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Démarrer la surveillance de votre application web ASP.NET
 
@@ -61,21 +61,21 @@ Application Insights recueille les données de télémétrie pour votre applicat
 
 Vous pouvez maintenant ouvrir Application Insights dans le portail Azure pour afficher différents détails sur votre application en cours d’exécution.
 
-1. Cliquez avec le bouton droit sur le dossier **Connected Services Application Insights** (Services connectés, Application Insights) dans l’Explorateur de solutions et cliquez sur **Ouvrir le portail Application Insights**.  Vous voyez des informations sur votre application et diverses options.
+1. Développez le dossier **Services connectés** (icône d’une prise branchée au cloud) dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Application Insights**, puis cliquez sur **Ouvrir le portail Application Insights**.  Vous voyez des informations sur votre application et diverses options.
 
-    ![Mise en correspondance d'applications](media/quick-monitor-portal/overview-001.png)
+    ![Mise en correspondance d'applications](media/quick-monitor-portal/4overview.png)
 
 2. Cliquez sur **cartographie d’application** pour obtenir une présentation visuelle des relations de dépendance entre les composants de votre application.  Chaque composant affiche des indicateurs de performance clés comme la charge, les performances, les échecs et les alertes.
 
-    ![Mise en correspondance d'applications](media/quick-monitor-portal/application-map-001.png)
+    ![Mise en correspondance d'applications](media/quick-monitor-portal/5appmap.png)
 
-3. Cliquez sur l’icône **Analyse d’application** ![Mise en correspondance d’applications](media/quick-monitor-portal/app-analytics-icon.png) sur l’un des composants de l’application.  Vous ouvrez ainsi **Application Insights - Analyses**, qui fournit un langage de requête enrichi pour l’analyse de toutes les données collectées par Application Insights.  Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique.  Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
+3. Cliquez sur l’icône **Analyse d’application** ![Mise en correspondance d’applications](media/quick-monitor-portal/app-analytics-icon.png) **Voir dans Analytics** sur l’un des composants de l’application. Vous ouvrez ainsi **Application Insights - Analyses**, qui fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights.  Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
 
-    ![Analytics](media/quick-monitor-portal/analytics.png)
+    ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 
-4. Revenez à la page **Overview** (Vue d’ensemble), puis cliquez sur **Flux temps réel**.  Des statistiques actives sur votre application en cours d’exécution s’affichent.  Cela inclut des informations telles que le nombre de demandes entrantes, la durée de ces demandes et les erreurs qui se produisent.  Vous pouvez également examiner les métriques de performances critiques comme la mémoire et le processeur.
+4. Cliquez sur **Flux de métriques temps réel** sur la gauche sous Examiner. Des statistiques actives sur votre application en cours d’exécution s’affichent. Cela inclut des informations telles que le nombre de demandes entrantes, la durée de ces demandes et les erreurs qui se produisent. Vous pouvez également examiner les métriques de performances critiques comme la mémoire et le processeur.
 
-    ![Flux temps réel](media/quick-monitor-portal/live-stream.png)
+    ![Flux temps réel](media/quick-monitor-portal/7livemetrics.png)
 
     Si vous êtes prêt à héberger votre application dans Azure, vous pouvez la publier maintenant. Suivez les étapes décrites dans le [guide de démarrage rapide Créer une application web ASP.NET](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).
 
@@ -106,8 +106,13 @@ Pour en savoir plus, visitez le référentiel GitHub pour notre [Kit de dévelop
 
 * Vidéo détaillée externe sur la [configuration à partir de zéro d’Application Insights avec une application .NET](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+Une fois les tests terminés, vous pouvez supprimer le groupe de ressources et toutes les ressources associées. Pour ce faire, procédez comme suit.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur **myResourceGroup**.
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez **myResourceGroup** dans la zone de texte, puis cliquez sur **Supprimer**.
+
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce guide de démarrage rapide, vous avez activé votre application pour une surveillance par Azure Application Insights.  Continuez à passer en revue les didacticiels pour apprendre à l’utiliser pour surveiller les statistiques et détecter les problèmes dans votre application.
+Dans ce guide de démarrage rapide, vous avez activé votre application pour une supervision par Azure Application Insights.  Continuez à passer en revue les didacticiels pour apprendre à l’utiliser pour surveiller les statistiques et détecter les problèmes dans votre application.
 
 > [!div class="nextstepaction"]
 > [Didacticiels Azure Application Insights](tutorial-runtime-exceptions.md)

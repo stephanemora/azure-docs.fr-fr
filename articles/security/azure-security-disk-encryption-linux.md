@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33011a419c8c966fc59b769106aaff428b2a0709
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 624ad22b1c63498e8ce936472cfc884910bc6f84
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057674"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276947"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Activer Azure Disk Encryption pour les machines virtuelles IaaS Linux 
 
@@ -226,8 +226,7 @@ Utilisez le [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/se
 Pour chiffrer ou déchiffrer les groupes de machines virtuelles identiques Linux, utilisez les modèles Azure Resource Manager et les instructions ci-dessous :
 
 - [Activer le chiffrement sur un jeu de mise à l’échelle de machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-- [Déployer un groupe identique de machines virtuelles Linux avec un serveur de rebond et activer le chiffrement sur le groupe identique Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-- [Désactiver le chiffrement sur un groupe identique Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [Désactiver le chiffrement sur un jeu de mise à l’échelle de machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
      1. Cliquez sur **Déployer dans Azure**.
      2. Renseignez les champs obligatoires, puis acceptez les conditions générales.

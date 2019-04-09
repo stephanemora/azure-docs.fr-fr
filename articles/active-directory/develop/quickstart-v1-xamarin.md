@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e25848359de91d67925f49901c6c170978ea592
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078701"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881883"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Démarrage rapide : Créer une application Xamarin qui intègre la connexion Microsoft
 
@@ -72,25 +72,25 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
 
 1. Ajoutez ADAL au projet DirectorySearcher à l’aide de la console du gestionnaire de package.
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal
-    `
+    ```
 
     Notez que deux références de bibliothèque sont ajoutées à chaque projet : la partie PCL de la bibliothèque ADAL et une partie propre à la plateforme.
 2. Dans le projet DirectorySearcherLib, ouvrez DirectorySearcher.cs.
@@ -130,7 +130,7 @@ Presque toute la logique d’authentification de l’application réside dans `D
     ...
     ```
 
-    `AcquireTokenAsync(...)` tente tout d’abord de renvoyer un jeton pour la ressource demandée (l’API Graph dans ce cas) sans inviter les utilisateurs à entrer leurs informations d’identification (par le biais de la mise en cache ou de l’actualisation des anciens jetons). Si nécessaire, il affiche la page de connexion d’Azure AD aux utilisateurs avant d’acquérir le jeton demandé.
+    `AcquireTokenAsync(...)` tente tout d’abord de retourner un jeton pour la ressource demandée (l’API Graph dans ce cas) sans inviter les utilisateurs à entrer leurs informations d’identification (par le biais de la mise en cache ou de l’actualisation des anciens jetons). Si nécessaire, il affiche la page de connexion d’Azure AD aux utilisateurs avant d’acquérir le jeton demandé.
 4. Joignez le jeton d’accès à la demande de l’API Graph, dans l’en-tête **Autorisation** :
 
     ```csharp

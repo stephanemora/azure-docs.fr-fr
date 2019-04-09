@@ -1,30 +1,30 @@
 ---
-title: Créer des alertes personnalisées destinées à ASC pour IoT (préversion) | Microsoft Docs
-description: Créer et affecter des alertes d’appareil personnalisées destinées à ASC pour IoT.
-services: ascforiot
+title: Créer des alertes personnalisées destinées à Azure Security Center pour IoT (préversion) | Microsoft Docs
+description: Créer et affecter des alertes d’appareil personnalisées destinées à Azure Security Center pour IoT.
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 591000f251d384b961569f9d7ca09ae93edea617
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d793b105e6d73c98739cd05d6e19a218413d7813
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541740"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861993"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Démarrage rapide : Créer des alertes personnalisées
 
 > [!IMPORTANT]
-> ASC pour IoT est actuellement disponible en préversion publique.
+> Azure Security Center pour IoT est disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Avec les alertes et groupes de sécurité personnalisés, tirez pleinement parti des informations de sécurité de bout en bout et des connaissances catégorisées sur les appareils pour assurer une plus grande sécurité dans votre solution IoT. 
@@ -33,7 +33,7 @@ Avec les alertes et groupes de sécurité personnalisés, tirez pleinement parti
 
 Vous connaissez vos appareils IoT mieux que personne.
 
-Pour les clients qui connaissent très bien le comportement attendu de leurs appareils, ASC pour IoT permet de traduire cette connaissance en stratégie de comportement des appareils et de générer des alertes sur les écarts enregistrés par rapport au comportement normal, attendu.
+Pour les clients qui connaissent très bien le comportement attendu de leurs appareils, Azure Security Center pour IoT permet de traduire cette connaissance en stratégie de comportement des appareils et de générer des alertes sur les écarts enregistrés par rapport au comportement normal, attendu.
 
 ## <a name="security-groups"></a>Groupes de sécurité
 
@@ -90,4 +90,4 @@ Le tableau suivant récapitule les alertes disponibles pour la personnalisation.
 Passez à l’article suivant pour savoir comment déployer un agent de sécurité...
 
 > [!div class="nextstepaction"]
-> [Déployer un agent de sécurité](select-deploy-agent.md)
+> [Déployer un agent de sécurité](how-to-deploy-agent.md)

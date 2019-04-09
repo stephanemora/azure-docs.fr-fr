@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517927"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268408"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restreindre l’accès à un Registre de conteneurs Azure à l’aide d’un réseau virtuel Azure ou des règles de pare-feu
 
@@ -29,6 +29,8 @@ Cet article présente deux scénarios pour créer des règles d’accès réseau
 * Uniquement une **Premium** Registre de conteneurs peut être configuré avec les règles d’accès réseau. Pour plus d’informations sur les niveaux de service de Registre, consultez [références SKU Azure Container Registry](container-registry-skus.md). 
 
 * Uniquement une [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster ou Azure [machine virtuelle](../virtual-machines/linux/overview.md) peut être utilisé en tant qu’hôte pour accéder à un Registre de conteneurs dans un réseau virtuel. *Autres services Azure, y compris Azure Container Instances ne sont pas actuellement pris en charge.*
+
+* [Tâches de l’ACR](container-registry-tasks-overview.md) opérations ne sont pas actuellement prises en charge dans un Registre de conteneurs déployé sur un réseau virtuel.
 
 * Chaque registre prend en charge un maximum de 100 règles de réseau virtuel.
 

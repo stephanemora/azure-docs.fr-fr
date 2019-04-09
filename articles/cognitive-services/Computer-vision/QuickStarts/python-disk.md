@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: dc21a246c6129a12d0336733cfa2e9e7fd4a29ce
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 4d7ec6ddeb48a9a24cdd8bd9bc2c28b6cbe70b3e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652227"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630061"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Démarrage rapide : Analyser une image locale à l’aide de l’API REST et Python dans Vision par ordinateur
 
@@ -32,8 +32,12 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 - Si vous souhaitez exécuter l’exemple en local, [Python](https://www.python.org/downloads/) doit être installé.
 - Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Les packages Python suivants doivent être installés. Vous pouvez utiliser [pip](https://packaging.python.org/tutorials/installing-packages/) pour installer les packages Python.
+    - [requests](http://docs.python-requests.org/en/master/)
+    - [matplotlib](https://matplotlib.org/)
+    - [pillow](https://python-pillow.org/)
 
-## <a name="create-and-run-the-sample"></a>Créer et exécuter l’exemple
+## <a name="create-and-run-the-sample"></a>Création et exécution de l’exemple
 
 Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 

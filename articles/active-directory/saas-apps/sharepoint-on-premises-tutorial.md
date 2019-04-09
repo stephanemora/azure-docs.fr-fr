@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dca14f4c74c130145ba6792d2a3ee5c43f3c72b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8ba9f4df36f753a1caf619ad90015fa073a00de3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874794"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883375"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutoriel : Intégration d’Azure Active Directory à SharePoint (local)
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de SharePoint (local) avec Azure AD, vous devez l’ajouter à votre liste d’applications SaaS gérées à partir de la galerie.
 
-**Pour ajouter SharePoint (local) à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter SharePoint (local) à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,9 +106,9 @@ Pour configurer l’authentification unique Azure AD avec SharePoint (local), pr
 
     ![Informations d’authentification unique dans Domaine et URL de SharePoint (local)](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<YourSharePointServerURL>/_trust/default.aspx`.
+    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<YourSharePointServerURL>/_trust/default.aspx`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `urn:sharepoint:federation`
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `urn:sharepoint:federation`
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<YourSharePointServerURL>/_trust/default.aspx`
 
@@ -122,7 +122,7 @@ Pour configurer l’authentification unique Azure AD avec SharePoint (local), pr
     > [!Note]
     > Notez le chemin d’accès dans lequel vous avez téléchargé le fichier de certificat. En effet, vous devrez l’utiliser ultérieurement dans le script PowerShell pour la configuration.
 
-6. Dans la section **Configurer SharePoint (local)**, copiez la ou les URL appropriées en fonction de vos besoins. Sous **URL du service d’authentification unique**, indiquez une valeur respectant le format suivant : `https://login.microsoftonline.com/_my_directory_id_/wsfed`
+6. Dans la section **Configurer SharePoint (local)**, copiez la ou les URL appropriées en fonction de vos besoins. Sous **URL du service d’authentification unique**, indiquez une valeur respectant le format suivant : `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
     > _my_directory_id_ est l’ID de locataire de l’abonnement Azure AD.
@@ -149,7 +149,7 @@ Pour configurer l’authentification unique Azure AD avec SharePoint (local), pr
     > [!TIP]
     > Si vous ne connaissez pas PowerShell ou que vous souhaitez en savoir plus sur son fonctionnement, consultez [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps).
 
-    ```
+    ```powershell
     $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
     $wsfedurl="<SAML single sign-on service URL value which you have copied from the Azure portal>"
     $filepath="<Full path to SAML signing certificate file which you have downloaded from the Azure portal>"
@@ -220,7 +220,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     ![Créer un groupe de sécurité Azure AD](./media/sharepoint-on-premises-tutorial/addingmembers.png)
 
     > [!NOTE]
-    > Pour affecter des groupes de sécurité Azure Active Directory à SharePoint en local, il est nécessaire d’installer et de configurer [AzureCP](https://yvand.github.io/AzureCP/) dans la batterie de serveurs SharePoint locale OU de développer et configurer un autre fournisseur de revendications personnalisé pour SharePoint.  Consultez la section d’informations supplémentaires à la fin du document concernant la création de votre propre fournisseur de revendications personnalisé, si vous n’utilisez pas le fournisseur de revendications Azure.
+    > Pour affecter des groupes de sécurité Azure Active Directory à SharePoint (local), il est nécessaire d’installer et de configurer [AzureCP](https://yvand.github.io/AzureCP/) dans la batterie de serveurs SharePoint (local) OU de développer et configurer un autre fournisseur de revendications personnalisé pour SharePoint.  Consultez la section d’informations supplémentaires à la fin du document concernant la création de votre propre fournisseur de revendications personnalisé, si vous n’utilisez pas le fournisseur de revendications Azure.
 
 ### <a name="grant-access-to-sharepoint-on-premises-security-group"></a>Accorder l’accès à un groupe de sécurité local SharePoint
 
@@ -263,14 +263,14 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     ![Accorder des autorisations](./media/sharepoint-on-premises-tutorial/grantpermission.png)
 
     > [!NOTE]
-    > Vérifiez les notifications pour déterminer si les autorisations ont été correctement accordées.  Si elles ne le sont pas, le fournisseur de revendications Azure ne fonctionnera pas correctement et il ne sera pas possible de configurer SharePoint localement avec des groupes de sécurité Azure Active Directory.
+    > Vérifiez les notifications pour déterminer si les autorisations ont été correctement accordées.  Si elles ne le sont pas, le fournisseur de revendications Azure ne fonctionnera pas correctement et il ne sera pas possible de configurer SharePoint (local) avec des groupes de sécurité Azure Active Directory.
 
-10. Configurez le fournisseur de revendications Azure sur la batterie de serveurs SharePoint locale ou une autre solution de fournisseur de revendications personnalisé.  Dans cet exemple, nous utilisons le fournisseur de revendications Azure.
+10. Configurez le fournisseur de revendications Azure sur la batterie de serveurs SharePoint (local) ou une autre solution de fournisseur de revendications personnalisé.  Dans cet exemple, nous utilisons le fournisseur de revendications Azure.
 
     > [!NOTE]
-    > Veuillez noter que le fournisseur de revendications Azure n’est pas un produit Microsoft ou pris en charge par le Support technique Microsoft. Téléchargez, installez et configurez le fournisseur de revendications Azure sur la batterie de serveurs SharePoint locale en procédant de la manière décrite dans https://yvand.github.io/AzureCP/. 
+    > Veuillez noter que le fournisseur de revendications Azure n’est pas un produit Microsoft ou pris en charge par le Support technique Microsoft. Téléchargez, installez et configurez le fournisseur de revendications Azure sur la batterie de serveurs SharePoint (local) en procédant de la manière décrite dans https://yvand.github.io/AzureCP/. 
 
-11. **Accordez l’accès au groupe de sécurité Azure Active Directory dans le SharePoint local**: les groupes doivent avoir accès à l’application dans le SharePoint local.  Procédez comme suit pour définir les autorisations d’accès à l’application web.
+11. **Accordez l’accès au groupe de sécurité Azure Active Directory dans SharePoint (local)**  : les groupes doivent avoir accès à l’application dans SharePoint (local).  Procédez comme suit pour définir les autorisations d’accès à l’application web.
 
 12. Dans Administration centrale, cliquez sur Gestion d’applications, Gérer les applications web, sélectionnez l’application web pour activer le ruban, puis cliquez sur Stratégie d’utilisateur.
 
@@ -310,11 +310,12 @@ La configuration peut s’appliquer à une application web. Toutefois, si vous p
 
 5. Sur le serveur SharePoint, ouvrez **SharePoint 2016 Management Shell**, puis exécutez les commandes suivantes, en utilisant le nom de l’émetteur de jeton d’identité approuvé que vous avez utilisé précédemment.
 
-    ```
+    ```powershell
     $t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
+
 6. Sur le site Administration centrale, accédez à l’application web et activez le fournisseur d’identité approuvé existant. N’oubliez pas de configurer l’URL de la page de connexion comme une page de connexion personnalisée `/_trust/`.
 
 7. Sur le site Administration centrale, cliquez sur l’application web et choisissez **Stratégie utilisateur**. Ajoutez un utilisateur disposant des autorisations nécessaires, comme indiqué précédemment dans cet article.

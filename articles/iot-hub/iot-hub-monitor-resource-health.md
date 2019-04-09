@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
-ms.openlocfilehash: 0a230ff1c4d5c6bb36003f07cc1c411f7e2c3629
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240998"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274040"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes
 
-Les entreprises qui implémentent Azure IoT Hub s’attendent à ce que leurs ressources fournissent des performances fiables. Pour vous aider à garder un œil attentif sur vos opérations, IoT Hub est entièrement intégré à [Azure Monitor](../azure-monitor/index.yml) et [Azure Resource Health](../service-health/resource-health-overview.md). Ces deux services fonctionnent pour vous fournir les données que vous souhaitez conserver vos solutions IoT et en cours d’exécution dans un état sain. 
+Les entreprises qui implémentent Azure IoT Hub s’attendent à ce que leurs ressources fournissent des performances fiables. Pour vous aider à garder un œil attentif sur vos opérations, IoT Hub est entièrement intégré à [Azure Monitor](../azure-monitor/index.yml) et [Azure Resource Health](../service-health/resource-health-overview.md). Ces deux services fonctionnent pour vous fournir les données que vous souhaitez conserver vos solutions IoT et en cours d’exécution dans un état sain.
 
 Azure Monitor constitue une source unique pour la surveillance et la journalisation de tous vos services Azure. Vous pouvez envoyer les journaux de diagnostic générés par Azure Monitor pour les journaux Azure Monitor, Event Hubs ou stockage Azure pour un traitement personnalisé. Les paramètres des mesures et des diagnostics d’Azure Monitor vous permettent de visualiser les performances de vos ressources. Poursuivez la lecture de cet article pour savoir comment [utiliser Azure Monitor](#use-azure-monitor) avec votre IoT Hub. 
 
@@ -30,7 +30,7 @@ IoT Hub propose également ses propres métriques pour vous aider à comprendre 
 
 ## <a name="use-azure-monitor"></a>Utiliser Azure Monitor
 
-Azure Monitor fournit des informations de diagnostic pour les ressources Azure, ce qui vous permet de contrôler les opérations qui ont lieu au sein de votre IoT Hub. 
+Azure Monitor fournit des informations de diagnostic pour les ressources Azure, ce qui vous permet de contrôler les opérations qui ont lieu au sein de votre IoT Hub.
 
 Les paramètres de diagnostic d’Azure Monitor remplacent le moniteur d’opérations d’IoT Hub. Si vous utilisez actuellement la surveillance des opérations, vous devez migrer vos flux de travail. Pour plus d’informations, consultez [migrer à partir de la surveillance des opérations vers diagnostics paramètres](iot-hub-migrate-to-diagnostics-settings.md).
 
@@ -40,7 +40,7 @@ Pour en savoir plus sur les mesures spécifiques et les événements surveillés
 
 ### <a name="understand-the-logs"></a>Comprendre les journaux
 
-Azure Monitor effectue le suivi des différentes opérations qui se produisent dans IoT Hub. Chaque catégorie dispose d’un schéma qui définit la façon dont les événements de cette catégorie sont signalés. 
+Azure Monitor effectue le suivi des différentes opérations qui se produisent dans IoT Hub. Chaque catégorie dispose d’un schéma qui définit la façon dont les événements de cette catégorie sont signalés.
 
 #### <a name="connections"></a>connexions
 
@@ -49,11 +49,10 @@ La catégorie de connexions suit les événements de connexions et de déconnexi
 > [!NOTE]
 > Pour l’état de connexion fiable des appareils, consultez [pulsation de l’appareil](iot-hub-devguide-identity-registry.md#device-heartbeat).
 
-
 ```json
 {
-    "records": 
-    [
+   "records":
+   [
         {
             "time": " UTC timestamp",
             "resourceId": "Resource Id",
@@ -73,13 +72,13 @@ La catégorie de commandes cloud-à-appareil effectue le suivi des erreurs qui s
 
 * Envoi de messages cloud-à-appareil (erreurs liées aux expéditeurs non autorisés, par exemple)
 * Réception de messages cloud-à-appareil (erreurs liées au dépassement du nombre de remises, par exemple)
-* Réception de commentaires sur les messages cloud-à-appareil (erreurs liées à l’expiration des commentaires, par exemple) 
+* Réception de commentaires sur les messages cloud-à-appareil (erreurs liées à l’expiration des commentaires, par exemple)
 
 Cette catégorie ne signale pas les erreurs lorsque le message cloud-à-appareil est bien remis mais qu’il n’est pas correctement traité par l’appareil.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": " UTC timestamp",
@@ -89,7 +88,7 @@ Cette catégorie ne signale pas les erreurs lorsque le message cloud-à-appareil
             "level": "Error",
             "resultType": "Event status",
             "resultDescription": "MessageDescription",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"messageId\":\"<messageId>\",\"messageSizeInBytes\":\"<messageSize>\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"<None, NegativeOnly, PositiveOnly, Full>\",\"deliveryCount\":\"0\",\"expiryTime\":\"<timestamp>\",\"timeInSystem\":\"<timeInSystem>\",\"ttl\":<ttl>, \"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\", \"maskedIpAddresss\": \"<maskedIpAddress>\", \"statusCode\": \"4XX\"}",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"messageId\":\"<messageId>\",\"messageSizeInBytes\":\"<messageSize>\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"<None, NegativeOnly, PositiveOnly, Full>\",\"deliveryCount\":\"0\",\"expiryTime\":\"<timestamp>\",\"timeInSystem\":\"<timeInSystem>\",\"ttl\":<ttl>, \"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\", \"maskedIpAddress\": \"<maskedIpAddress>\", \"statusCode\": \"4XX\"}",
             "location": "Resource location"
         }
     ]
@@ -102,14 +101,14 @@ La catégorie d’opérations d’identité des appareils effectue le suivi des 
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
             "resourceId": "Resource Id",
             "operationName": "get",
             "category": "DeviceIdentityOperations",
-            "level": "Error",    
+            "level": "Error",
             "resultType": "Event status",
             "resultDescription": "MessageDescription",
             "properties": "{\"maskedIpAddress\":\"<maskedIpAddress>\",\"deviceId\":\"<deviceId>\", \"statusCode\":\"4XX\"}",
@@ -131,7 +130,7 @@ Cette catégorie n’inclut pas les erreurs spécifiques aux messages eux-mêmes
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -152,7 +151,7 @@ La catégorie de télémétrie d’appareil effectue le suivi des erreurs qui se
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -174,14 +173,16 @@ La catégorie de télémétrie d’appareil effectue le suivi des erreurs qui se
 La catégorie de chargement de fichiers effectue le suivi des erreurs qui se produisent au niveau de l’IoT hub et qui sont liées à la fonctionnalité de chargement. Cette catégorie inclut :
 
 * Erreurs qui se produisent avec l’URI SAP, par exemple en cas d’expiration avant qu’un appareil notifie le hub d’un téléchargement terminé.
+
 * Échecs des téléchargements signalés par l’appareil.
+
 * Erreurs qui se produisent lorsqu’un fichier est introuvable dans le stockage lors de la création du message de notification IoT Hub.
 
 Cette catégorie ne peut pas détecter les erreurs qui surviennent directement pendant que l’appareil charge un fichier de stockage.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -201,11 +202,11 @@ Cette catégorie ne peut pas détecter les erreurs qui surviennent directement p
 
 #### <a name="cloud-to-device-twin-operations"></a>Opérations jumelles cloud à appareil
 
-La catégorie des opérations jumelles cloud-à-appareil effectue le suivi des événements initiés par le service sur des jumeaux d’appareil. Ces opérations peuvent inclure : obtenir un jumeau, mettre à jour ou remplacer des balises, et mettre à jour ou remplacer les propriétés souhaitées. 
+La catégorie des opérations jumelles cloud-à-appareil effectue le suivi des événements initiés par le service sur des jumeaux d’appareil. Ces opérations peuvent inclure : obtenir un jumeau, mettre à jour ou remplacer des balises, et mettre à jour ou remplacer les propriétés souhaitées.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -214,7 +215,7 @@ La catégorie des opérations jumelles cloud-à-appareil effectue le suivi des �
             "category": "C2DTwinOperations",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}", 
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}",
             "location": "Resource location"
         }
     ]
@@ -227,7 +228,7 @@ La catégorie des opérations jumelles appareil-à-cloud effectue le suivi des �
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -236,7 +237,7 @@ La catégorie des opérations jumelles appareil-à-cloud effectue le suivi des �
             "category": "D2CTwinOperations",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}", 
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}",
             "location": "Resource location"
         }
     ]
@@ -245,11 +246,11 @@ La catégorie des opérations jumelles appareil-à-cloud effectue le suivi des �
 
 #### <a name="twin-queries"></a>Requêtes de jumeaux
 
-La catégorie des requêtes de jumeaux génère un rapport sur les demandes de requêtes pour jumeaux d’appareil lancées dans le cloud. 
+La catégorie des requêtes de jumeaux génère un rapport sur les demandes de requêtes pour jumeaux d’appareil lancées dans le cloud.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -258,7 +259,7 @@ La catégorie des requêtes de jumeaux génère un rapport sur les demandes de r
             "category": "TwinQueries",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}", 
+            "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}",
             "location": "Resource location"
         }
     ]
@@ -267,11 +268,11 @@ La catégorie des requêtes de jumeaux génère un rapport sur les demandes de r
 
 #### <a name="jobs-operations"></a>Opérations de travaux
 
-La catégorie des opérations de travaux génère un rapport sur les demandes de travaux pour mettre à jour des jumeaux d’appareil ou appeler des méthodes directes sur plusieurs appareils. Ces demandes sont lancées dans le cloud. 
+La catégorie des opérations de travaux génère un rapport sur les demandes de travaux pour mettre à jour des jumeaux d’appareil ou appeler des méthodes directes sur plusieurs appareils. Ces demandes sont lancées dans le cloud.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -280,7 +281,7 @@ La catégorie des opérations de travaux génère un rapport sur les demandes de
             "category": "JobsOperations",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}", 
+            "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}",
             "location": "Resource location"
         }
     ]
@@ -289,11 +290,11 @@ La catégorie des opérations de travaux génère un rapport sur les demandes de
 
 #### <a name="direct-methods"></a>Méthodes directes
 
-La catégorie des méthodes directes assure le suivi des interactions demande-réponse envoyées à des appareils individuels. Ces demandes sont lancées dans le cloud. 
+La catégorie des méthodes directes assure le suivi des interactions demande-réponse envoyées à des appareils individuels. Ces demandes sont lancées dans le cloud.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -302,7 +303,7 @@ La catégorie des méthodes directes assure le suivi des interactions demande-r�
             "category": "DirectMethods",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}",
             "location": "Resource location"
         }
     ]
@@ -313,15 +314,15 @@ La catégorie des méthodes directes assure le suivi des interactions demande-r�
 
 La catégorie de traçage distribué suit les ID de corrélation pour les messages comportant l’en-tête de contexte de trace. Pour bénéficier de ces journaux, code côté client doit être mis à jour suivant [analyser et diagnostiquer IoT applications end-to-end avec traçage distribué IoT Hub (version préliminaire)](iot-hub-distributed-tracing.md).
 
-Notez que `correlationId` est conforme à la [W3C Trace contexte](https://github.com/w3c/trace-context) proposition, où qu’il contient un `trace-id` ainsi qu’un `span-id`. 
+Notez que `correlationId` est conforme à la [W3C Trace contexte](https://github.com/w3c/trace-context) proposition, où qu’il contient un `trace-id` ainsi qu’un `span-id`.
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Journaux appareil à cloud (D2C) IoT Hub
 
-IoT Hub enregistre ce journal en recevant un message contenant des propriétés de trace valides. 
+IoT Hub enregistre ce journal en recevant un message contenant des propriétés de trace valides.
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -333,7 +334,7 @@ IoT Hub enregistre ce journal en recevant un message contenant des propriétés 
             "resultType": "Success",
             "resultDescription":"Receive message success",
             "durationMs": "",
-            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}", 
+            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}",
             "location": "Resource location"
         }
     ]
@@ -355,7 +356,7 @@ IoT Hub enregistre ce journal lorsqu’un message contenant des propriétés de 
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -367,14 +368,14 @@ IoT Hub enregistre ce journal lorsqu’un message contenant des propriétés de 
             "resultType": "Success",
             "resultDescription":"Ingress message success",
             "durationMs": "10",
-            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}", 
+            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}",
             "location": "Resource location"
         }
     ]
 }
 ```
 
-Dans la section `properties`, ce journal contient des informations supplémentaires sur l’entrée des messages.
+Dans la `properties` section, ce journal contient des informations supplémentaires sur les entrées de messages.
 
 | Propriété | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
@@ -387,7 +388,7 @@ IoT Hub enregistre ce journal lorsque le [routage](iot-hub-devguide-messages-d2c
 
 ```json
 {
-    "records": 
+    "records":
     [
         {
             "time": "UTC timestamp",
@@ -399,14 +400,14 @@ IoT Hub enregistre ce journal lorsque le [routage](iot-hub-devguide-messages-d2c
             "resultType": "Success",
             "resultDescription":"Egress message success",
             "durationMs": "10",
-            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}", 
+            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}",
             "location": "Resource location"
         }
     ]
 }
 ```
 
-Dans la section `properties`, ce journal contient des informations supplémentaires sur l’entrée des messages.
+Dans la `properties` section, ce journal contient des informations supplémentaires sur les entrées de messages.
 
 | Propriété | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
@@ -414,91 +415,92 @@ Dans la section `properties`, ce journal contient des informations supplémentai
 | **endpointType** | Chaîne | Type du point de terminaison de routage |
 | **parentSpanId** | Chaîne | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message d’entrée IoT Hub dans ce cas-ci |
 
-
 ### <a name="read-logs-from-azure-event-hubs"></a>Lecture de journaux à partir d’Azure Event Hubs
 
 Après avoir configuré la journalisation des événements via les paramètres de diagnostic, vous pouvez créer des applications qui lisent les journaux, pour vous permettre d’agir en fonction des informations qu’ils contiennent. Cet exemple de code extrait les journaux à partir d’un concentrateur d’événements :
 
 ```csharp
-class Program 
+class Program
 { 
-    static string connectionString = "{your AMS eventhub endpoint connection string}"; 
-    static string monitoringEndpointName = "{your AMS event hub endpoint name}"; 
-    static EventHubClient eventHubClient; 
-//This is the Diagnostic Settings schema 
-    class AzureMonitorDiagnosticLog 
-    { 
-        string time { get; set; } 
-        string resourceId { get; set; } 
-        string operationName { get; set; } 
-        string category { get; set; } 
-        string level { get; set; } 
-        string resultType { get; set; } 
-        string resultDescription { get; set; } 
-        string durationMs { get; set; } 
-        string callerIpAddress { get; set; } 
-        string correlationId { get; set; } 
-        string identity { get; set; } 
-        string location { get; set; } 
-        Dictionary<string, string> properties { get; set; } 
-    }; 
-    static void Main(string[] args) 
-    { 
-        Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
-        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
-        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds; 
-        CancellationTokenSource cts = new CancellationTokenSource(); 
-        var tasks = new List<Task>(); 
-        foreach (string partition in d2cPartitions) 
-        { 
-            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token)); 
-        } 
-        Console.ReadLine(); 
-        Console.WriteLine("Exiting..."); 
-        cts.Cancel(); 
-        Task.WaitAll(tasks.ToArray()); 
-    } 
-    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct) 
-    { 
-        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow); 
-        while (true) 
-        { 
-            if (ct.IsCancellationRequested) 
-            { 
-                await eventHubReceiver.CloseAsync(); 
-                break; 
-            } 
-            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10)); 
-            if (eventData != null) 
-            { 
-                string data = Encoding.UTF8.GetString(eventData.GetBytes()); 
-                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data); 
-                var deserializer = new JavaScriptSerializer(); 
-                //deserialize json data to azure monitor object 
-                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result); 
- 
-            } 
-        } 
-    } 
-} 
+    static string connectionString = "{your AMS eventhub endpoint connection string}";
+    static string monitoringEndpointName = "{your AMS event hub endpoint name}";
+    static EventHubClient eventHubClient;
+    //This is the Diagnostic Settings schema
+    class AzureMonitorDiagnosticLog
+    {
+        string time { get; set; }
+        string resourceId { get; set; }
+        string operationName { get; set; }
+        string category { get; set; }
+        string level { get; set; }
+        string resultType { get; set; }
+        string resultDescription { get; set; }
+        string durationMs { get; set; }
+        string callerIpAddress { get; set; }
+        string correlationId { get; set; }
+        string identity { get; set; }
+        string location { get; set; }
+        Dictionary<string, string> properties { get; set; }
+    };
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Monitoring. Press Enter key to exit.\n");
+        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName);
+        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds;
+        CancellationTokenSource cts = new CancellationTokenSource();
+        var tasks = new List<Task>();
+        foreach (string partition in d2cPartitions)
+        {
+            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
+        }
+        Console.ReadLine();
+        Console.WriteLine("Exiting...");
+        cts.Cancel();
+        Task.WaitAll(tasks.ToArray());
+    }
+
+    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
+    {
+        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
+        while (true)
+        {
+            if (ct.IsCancellationRequested)
+            {
+                await eventHubReceiver.CloseAsync();
+                break;
+            }
+            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10));
+            if (eventData != null)
+            {
+                string data = Encoding.UTF8.GetString(eventData.GetBytes());
+                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
+                var deserializer = new JavaScriptSerializer();
+                //deserialize json data to azure monitor object
+                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result);
+            }
+        }
+    }
+}
 ```
 
 ## <a name="use-azure-resource-health"></a>Utilisation d’Azure Resource Health
 
-Utilisez Azure Resource Health pour vérifier si votre IoT Hub est opérationnel. Vous pouvez également vérifier si une panne régionale affecte l’intégrité de votre IoT Hub. Pour obtenir des détails spécifiques sur l’état d’intégrité de votre Azure IoT Hub, nous vous recommandons d[’utiliser Azure Monitor](#use-azure-monitor). 
+Utilisez Azure Resource Health pour vérifier si votre IoT Hub est opérationnel. Vous pouvez également vérifier si une panne régionale affecte l’intégrité de votre IoT Hub. Pour obtenir des détails spécifiques sur l’état d’intégrité de votre Azure IoT Hub, nous vous recommandons d[’utiliser Azure Monitor](#use-azure-monitor).
 
 Azure IoT Hub indique l’intégrité au niveau régional. Si une panne régionale affecte votre IoT Hub, l’état d’intégrité prend l’état **Inconnu**. Pour plus d’informations, consultez [types de ressources et contrôles d’intégrité dans Azure resource health](../service-health/resource-health-checks-resource-types.md).
 
 Pour vérifier l’intégrité de vos IoT Hubs, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Accédez à **Service Health** > **Resource Health**.
-1. Dans les zones de liste déroulante, sélectionnez votre abonnement, puis sélectionnez **IoT Hub** en tant que le type de ressource.
+
+2. Accédez à **Service Health** > **Resource Health**.
+
+3. Dans les zones de liste déroulante, sélectionnez votre abonnement, puis sélectionnez **IoT Hub** en tant que le type de ressource.
 
 Pour en savoir plus sur l’interprétation des données d’intégrité, consultez [vue d’ensemble du contrôle d’intégrité des ressources Azure](../service-health/resource-health-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comprendre les métriques IoT Hub](iot-hub-metrics.md)
-- [Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT hub et votre boîte aux lettres](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-
+* [Comprendre les métriques IoT Hub](iot-hub-metrics.md)
+* [Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT Hub et votre boîte aux lettres](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

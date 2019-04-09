@@ -7,19 +7,21 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621267"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270945"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
 
-Dans Recherche Azure, une [ressource est créée](search-create-service-portal.md) à un niveau tarifaire ou une référence SKU qui est fixe pour la durée de vie du service. Les niveaux incluent **gratuit**, **base**, **Standard**, ou **stockage optimisé**.  **Standard** et **stockage optimisé** sont disponibles dans plusieurs configurations et capacités. La plupart des clients démarrent avec le **gratuit** puis passer à un des niveaux payants plus élevées pour les déploiements de développement et de production et de niveau pour l’évaluation. Au niveau **Gratuit**, vous pouvez effectuer tous les démarrages rapides et suivre tous les tutoriels, notamment ceux qui concernent la recherche cognitive nécessitant de nombreuses ressources.
+Dans Recherche Azure, une [ressource est créée](search-create-service-portal.md) à un niveau tarifaire ou une référence SKU qui est fixe pour la durée de vie du service. Les niveaux incluent **gratuit**, **base**, **Standard**, ou **stockage optimisé**.  **Standard** et **stockage optimisé** sont disponibles dans plusieurs configurations et capacités. 
+
+La plupart des clients démarrent avec le **gratuit** puis passer à un des niveaux payants plus élevées pour les déploiements de développement et de production et de niveau pour l’évaluation. Au niveau **Gratuit**, vous pouvez effectuer tous les démarrages rapides et suivre tous les tutoriels, notamment ceux qui concernent la recherche cognitive nécessitant de nombreuses ressources.
 
 > [!NOTE]
 > Les niveaux de service de stockage optimisé sont actuellement disponibles en version préliminaire au tarif réduit à des fins de test et d’expérimentation dans le but de recueillir des commentaires. Le prix final sera annoncé ultérieurement lorsque ces niveaux sont généralement disponibles. Nous vous déconseillons l’utilisation de ces niveaux pour les applications de production.
@@ -29,7 +31,7 @@ Les niveaux reflètent les caractéristiques du matériel qui héberge le servic
 + Nombre d’index que vous pouvez créer
 + Taille et la vitesse des partitions (stockage physique)
 
-Bien que tous les niveaux, y compris le niveau **Gratuit**, offrent généralement la parité des fonctionnalités, de plus grandes charges de travail peuvent exiger des niveaux supérieurs. Par exemple, l’indexation de la [recherche cognitive](cognitive-search-concept-intro.md) a des compétences à long terme qui dépassent le délai d’attente sur un service gratuit, sauf si le jeu de données est petit.
+Bien que tous les niveaux, y compris le niveau **Gratuit**, offrent généralement la parité des fonctionnalités, de plus grandes charges de travail peuvent exiger des niveaux supérieurs. Par exemple, [l’indexation l’intelligence artificielle avec Cognitive Services](cognitive-search-concept-intro.md) a des compétences de longs qui expirent sur un service gratuit, sauf si le jeu de données se trouve être petit.
 
 > [!NOTE] 
 > Les [indexeurs](search-indexer-overview.md), qui ne sont pas disponibles sur S3HD, sont une exception à la parité des fonctionnalités.
@@ -53,7 +55,7 @@ Le tableau suivant répertorie les niveaux disponibles. Incluent d’autres sour
 |Stockage optimisé 2 (L2) | 2 To par partition (maximum 24 To par service) |
 
 > [!NOTE] 
-> Les niveaux de stockage optimisé offrent la plus grande capacité de stockage à un prix inférieur par to que les niveaux Standard.  L’inconvénient principal est plus élevée latence de requête, vous devez valider les exigences de votre application.  Pour en savoir plus sur les performances de cette couche, consultez [considérations sur les performances et optimisation](search-performance-optimization.md).
+> Les niveaux de stockage optimisé offrent la plus grande capacité de stockage à un prix inférieur par to que les niveaux Standard. L’inconvénient principal est plus élevée latence de requête, vous devez valider les exigences de votre application.  Pour en savoir plus sur les performances de cette couche, consultez [considérations sur les performances et optimisation](search-performance-optimization.md).
 >
 
 ## <a name="how-billing-works"></a>Comment la facturation fonctionne
@@ -70,17 +72,27 @@ Dans la capture d’écran suivante, par le prix d’unité indiqué pour gratui
 
 Partitions et réplicas supplémentaires sont un module complémentaire à la prise en charge. Un service de recherche nécessite un réplica et une partition par conséquent, la configuration minimale est un de chacun d’eux. Au-delà de la valeur minimale, vous ajoutez indépendamment de réplicas et partitions. Par exemple, vous pouvez ajouter uniquement des réplicas ou des partitions uniquement. 
 
-Partitions et réplicas supplémentaires sont facturées selon un [formule](#search-units). Les coûts ne sont pas linéaires (le fait de doubler capacité plus que le coût de doubles). Pour obtenir un exemple illustrant le fonctionnement de la formule, consultez [« Comment allouer des partitions et réplicas »](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Partitions et réplicas supplémentaires sont facturées selon un [formule](#search-units). Les coûts ne sont pas linéaires (le fait de doubler capacité plus que le coût de doubles). Pour obtenir un exemple illustrant le fonctionnement de la formule, consultez [« Comment allouer des partitions et réplicas »](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Frais d’acheminement des données lors de l’indexation
 
-Lors de l’extraction des données à partir d’une source de données Azure SQL Database ou Cosmos DB, des frais de transaction vous sont facturés pour ces ressources. Ces frais ne sont pas des mesures de recherche Azure, mais elles sont mentionnées ici, car si vous utilisez des indexeurs pour extraire des données à partir de la base de données SQL Azure ou Azure Cosmos DB, vous verrez que frais dans votre facture.
+Utilisation de [indexeurs Azure Search](search-indexer-overview.md) peut entraîner l’impact selon où se trouvent les services de facturation. Vous pouvez éliminer les frais de sortie de données entièrement si vous créez le service de recherche Azure dans la même région que vos données.
+
++ Aucun frais pour toutes les données entrantes à n’importe quel service sur Azure.
+
++ Aucun frais pour les données sortantes à partir d’Azure Search.
+
++ Aucun frais pour les fichiers de données ou sortants à partir de la base de données SQL, Cosmos, stockage d’objets Blob (trafic entrant à recherche Azure), que tous les services sont dans la même région.
+
++ Les frais s’appliquent pour les fichiers ou les données sortantes si le stockage et recherche Azure se trouvent dans différentes régions.
+
+Lors du routage des données entre les régions Azure, vous obtiendrez les frais de bande passante sur la facture pour ces ressources. Ces frais ne font pas partie de votre facture Azure Search, mais elles sont mentionnées ici, car si vous utilisez des indexeurs pour extraire des données ou des fichiers sur le réseau, vous verrez que frais dans votre facture globale.
+
+Si vous n’utilisez pas d’indexeurs, il n’existe aucun frais de bande passante. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. L’indexation à l’aide de Cognitive Services enrichi en intelligence artificielle
 
-Pour la [recherche cognitive](cognitive-search-concept-intro.md) seulement, l’extraction d’images au cours du décodage de document est facturée en fonction du nombre d’images extraites à partir de vos documents. L’extraction de texte est actuellement gratuite. Autres enrichissements selon [intégrés compétences cognitives](cognitive-search-predefined-skills.md) sont facturés conformément à une ressource Cognitive Services. Les enrichissements sont facturés au même tarif que si vous aviez effectué la tâche directement avec Cognitive Services.
-
-Si vous n’utilisez pas la [recherche cognitive](cognitive-search-concept-intro.md) ni les [indexeurs de Recherche Azure](search-indexer-overview.md), vos seuls coûts sont liés aux réplicas et aux partitions en cours d’utilisation, pour des charges de travail de requête et d’indexation habituelles.
+Pour [l’indexation l’intelligence artificielle avec Cognitive Services](cognitive-search-concept-intro.md) seule, l’extraction d’images au cours de la recherche de document est facturée en fonction du nombre d’images extraites à partir de vos documents. L’extraction de texte est actuellement gratuite. Autres enrichissement, telles que le traitement du langage naturel, est basées sur [intégrés compétences cognitives](cognitive-search-predefined-skills.md) sont facturés conformément à une ressource Cognitive Services. Les enrichissements sont facturés au même tarif que si vous aviez effectué la tâche directement avec Cognitive Services.
 
 <a name="search-units"></a>
 
@@ -209,7 +221,7 @@ Le nombre et la taille des index sont tout aussi pertinents pour votre analyse, 
 > Les besoins de stockage peuvent être augmentés de façon excessive si les documents contiennent des données superflues. Dans l’idéal, les documents contiennent uniquement les données dont vous avez besoin pour l’expérience de recherche. Les données binaires ne sont pas interrogeables et doivent être stockées séparément (dans une table ou un objet blob de stockage Azure) avec un champ dans l’index pour conserver une référence URL aux données externes. La taille maximale d’un document individuel est de 16 Mo (ou moins si vous chargez en bloc plusieurs documents en une seule demande). Pour plus d’informations, consultez [Limites de service de Recherche Azure](search-limits-quotas-capacity.md).
 >
 
-**Considérations relatives au volume de requêtes**
+**Considérations relatives à la requête volume**
 
 Le nombre de requêtes par seconde est une métrique qui prend de l’importance lors du réglage des performances, mais ce n’est généralement pas un facteur lors du choix du niveau, sauf si vous vous attendez à ce que le volume de requêtes soit élevé dès le départ.
 

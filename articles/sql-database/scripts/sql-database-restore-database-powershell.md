@@ -1,6 +1,6 @@
 ---
 title: Exemple PowerShell -sauvegarder et restaurer une base de données SQL Azure | Microsoft Docs
-description: Exemple de script Azure PowerShell pour restaurer une base de données unique SQL Azure à partir de sauvegardes géoredondantes
+description: Exemple de script Azure PowerShell pour restaurer une base de données unique SQL Azure à un point antérieur dans le passé à partir de sauvegardes automatiques
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,23 +11,23 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3bfefa704fdd819b3841dcc58866c310353bfdc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.openlocfilehash: f58cc930ace2dc1fc65aa0494fd6c1510ee5ff29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883608"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621343"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>Utiliser PowerShell pour restaurer une base de données unique SQL Azure à partir de sauvegardes
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Utiliser PowerShell pour restaurer une base de données unique Azure SQL à un point antérieur dans le passé
 
-Cet exemple de script PowerShell restaure une base de données SQL Azure à partir d’une sauvegarde géoredondante, restaure une base de données SQL Azure supprimée à l’aide de sa dernière sauvegarde et restaure une base de données Azure SQL à un point précis dans le temps.  
+Cet exemple de script PowerShell restaure une base de données SQL Azure à un point précis dans le temps.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous aurez besoin de la version 1.4.0 d’AZ PowerShell ou d’une version ultérieure pour suivre ce didacticiel. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous avez besoin de la version 1.4.0 d’AZ PowerShell ou d’une version ultérieure pour suivre ce tutoriel. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
 ## <a name="sample-script"></a>Exemple de script
 

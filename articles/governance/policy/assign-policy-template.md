@@ -1,5 +1,5 @@
 ---
-title: Créer une affectation de stratégie pour des ressources non conformes avec un modèle Resource Manager
+title: Créer une affectation de stratégie avec un modèle Resource Manager
 description: Cet article vous guide pas à pas pour créer une affectation de stratégie à l’aide d’un modèle Resource Manager en vue d’identifier des ressources non conformes.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,12 @@ ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6ff76a66eba42fd87e88846f9ec2378bd63893f2
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 354d5aa250449b87345cef17778befddc761fa19
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008619"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802505"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Créer une affectation de stratégie pour identifier des ressources non conformes à l’aide d’un modèle Resource Manager
 
@@ -31,14 +31,14 @@ Dans ce guide de démarrage rapide, vous allez créer une affectation de straté
 Il existe plusieurs méthodes pour créer des affectations de stratégie. Dans ce guide de démarrage rapide, vous allez utiliser un [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 Voici une copie du modèle :
 
-[!code-json[policy-assingment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
+[!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
 > [!NOTE]
 > Le service Azure Policy est gratuit.  Pour plus d’informations, consultez [Vue d’ensemble d’Azure Policy](./overview.md).
 
 1. Sélectionnez l’image suivante pour vous connecter au portail Azure et ouvrir le modèle :
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/assign-policy-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Déployer le modèle de stratégie sur Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
 1. Sélectionnez ou entrez les valeurs suivantes :
 
@@ -48,7 +48,7 @@ Voici une copie du modèle :
    | Groupe de ressources | Sélectionnez **Créer**, spécifiez un nom, puis sélectionnez **OK**. Dans la capture d’écran, le nom du groupe de ressources est *mypolicyquickstart<Date in MMDD>rg*. |
    | Lieu | Sélectionnez une région. Par exemple, **USA Centre**. |
    | Nom de l’affectation de stratégie | Spécifiez un nom d’affectation de stratégie. Vous pouvez utiliser l’écran de définition de stratégie si vous le souhaitez. Par exemple, **Auditer les machines virtuelles qui n’utilisent pas de disques managés**. |
-   | Nom du groupe de ressources | Spécifiez le nom du groupe de ressources auquel vous voulez affecter la stratégie. Dans ce démarrage rapide, utilisez la valeur par défaut **[resourceGroup().name]**. **[resourceGroup()](/azure/azure-resource-manager/resource-group-template-functions-resource#resourcegroup)**  est une fonction de modèle qui récupère le groupe de ressources. |
+   | Nom du groupe de ressources | Spécifiez le nom du groupe de ressources auquel vous voulez affecter la stratégie. Dans ce démarrage rapide, utilisez la valeur par défaut **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)**  est une fonction de modèle qui récupère le groupe de ressources. |
    | ID de définition de stratégie | Spécifiez **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | J’accepte les termes et conditions mentionnés ci-dessus | (Sélectionner) |
 
@@ -65,7 +65,7 @@ Ressources supplémentaires :
 
 Sélectionnez **Conformité** dans la partie gauche de la page. Recherchez ensuite l’affectation de stratégie **Auditer les machines virtuelles qui n’utilisent pas de disques managés** que vous avez créée.
 
-![Conformité à la stratégie](./media/assign-policy-template/policy-compliance.png)
+![Page de la vue d’ensemble de la conformité à la stratégie](./media/assign-policy-template/policy-compliance.png)
 
 Si des ressources existantes ne sont pas conformes à cette nouvelle affectation, elles apparaissent sous **Ressources non conformes**.
 
@@ -79,7 +79,7 @@ Pour supprimer l’affectation créée, procédez comme suit :
 
 1. Cliquez avec le bouton droit sur l’affectation de stratégie **Auditer les machines virtuelles qui n’utilisent pas de disques managés** et sélectionnez **Supprimer l’attribution**.
 
-   ![Supprimer une affectation](./media/assign-policy-template/delete-assignment.png)
+   ![Supprimer une affectation dans la page de la vue d’ensemble de la conformité](./media/assign-policy-template/delete-assignment.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7772797aa6c20c8f583608bac8fc002a92796a11
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: bb7de72a435faf100d6992815ef8d5ec00cb3581
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444037"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801859"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Didacticiel : Utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure 
 
@@ -84,7 +84,7 @@ Vous pouvez utiliser les identités gérées de la machine virtuelle pour récup
 1. Revenez à votre compte de stockage nouvellement créé.  
 2. Cliquez sur le lien **(IAM) de contrôle d’accès** dans le panneau de gauche.  
 3. Cliquez sur **+ Ajouter une attribution de rôle** en haut de la page pour ajouter une nouvelle attribution de rôle à votre machine virtuelle.
-4. Sous **Rôle**, dans la liste déroulante, sélectionnez **Lecteur des données Blob du stockage (préversion)**. 
+4. Sous **Rôle**, dans la liste déroulante, sélectionnez **Lecteur des données Blob du stockage**. 
 5. Dans la liste déroulante suivante, sous **Attribuer l’accès à**, choisissez **Machine virtuelle**.  
 6. Ensuite, assurez-vous que l’abonnement approprié est répertorié dans la liste déroulante **Abonnement**, puis définissez **Groupe de ressources** sur **Tous les groupes de ressources**.  
 7. Sous **Sélectionner**, choisissez votre machine virtuelle, puis cliquez sur **Enregistrer**.

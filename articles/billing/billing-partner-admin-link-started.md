@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904829"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270181"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
@@ -151,9 +151,9 @@ Vous pouvez trouver des rapports de ventes influencé chez [tableau de bord Insi
 
 Vous ne voyez pas le client dans les rapports en raison des raisons suivantes
 
-1. Le compte d’utilisateur lié n’a pas [accès en fonction de rôle ](https://docs.microsoft.com/azure/role-based-access-control/overview) sur n’importe quel abonnement Azure du client ou de la ressource.
+1. Le compte d’utilisateur lié n’a pas [accès en fonction de rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) sur n’importe quel abonnement Azure du client ou de la ressource.
 
-2. L’abonnement Azure où l’utilisateur a [accès en fonction de rôle ](https://docs.microsoft.com/azure/role-based-access-control/overview) toute utilisation n’a pas accès.
+2. L’abonnement Azure où l’utilisateur a [accès en fonction de rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) toute utilisation n’a pas accès.
 
 **Fournit un lien partenaire QU'ID fonctionne avec Azure Stack ?**
 

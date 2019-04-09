@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868563"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893008"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Didacticiel : automatiser la génération des images de conteneur dans le cloud lorsque vous validez le code source
 
@@ -52,7 +52,7 @@ ACR Tasks prend actuellement en charge les déclencheurs suivants :
 * Validation dans un référentiel Git
 * Mise à jour d’images de base
 
-Dans ce tutoriel, votre tâche ACR génère et envoie (push) une seule image conteneur spécifiée dans un Dockerfile. ACR Tasks peut également exécuter des [tâches multiétapes](container-registry-tasks-multi-step.md) (en préversion) à l’aide d’un fichier YAML pour définir les étapes permettant de générer, d’envoyer et éventuellement de tester plusieurs conteneurs.
+Dans ce tutoriel, votre tâche ACR génère et envoie (push) une seule image conteneur spécifiée dans un Dockerfile. ACR Tasks peut également exécuter des [tâches à plusieurs étapes](container-registry-tasks-multi-step.md) à l’aide d’un fichier YAML pour définir les étapes permettant de générer, d’envoyer en mode push et éventuellement de tester plusieurs conteneurs.
 
 ## <a name="create-a-build-task"></a>Créer une tâche de génération
 

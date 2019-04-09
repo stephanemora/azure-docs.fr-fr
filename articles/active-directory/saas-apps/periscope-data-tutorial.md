@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: cac685cc3f5a19e9da134df87076299e3f38fe11
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403627"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880966"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Didacticiel : Intégration d’Azure Active Directory à Periscope Data
 
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Periscope Data à Azure AD, vous devez ajouter Periscope Data, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-**Pour ajouter Periscope Data à partir de la galerie, procédez comme suit :**
+**Pour ajouter Periscope Data à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD auprès de Periscope Data,
     | |
     |--|
     | `https://app.periscopedata.com/` |
-    | ` https://app.periscopedata.com/app/<SITENAME>` |
+    | `https://app.periscopedata.com/app/<SITENAME>` |
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://app.periscopedata.com/<SITENAME>/sso`
 
@@ -203,7 +203,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Periscope Data, vous devez les provisionner dans Periscope Data. Dans Periscope Data, le provisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à Periscope Data en tant qu’administrateur.
 
@@ -231,9 +231,9 @@ Le fait de cliquer sur la vignette Periscope Data dans le volet d’accès doit 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

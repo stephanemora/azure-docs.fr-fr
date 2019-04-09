@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 40145ee0e284f90dc1cf231db01d02219a58eeda
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 340638377dadfd662beb3ca6ed977aeb9050b645
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313141"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630004"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c-in-computer-vision"></a>Démarrage rapide : Analyser une image locale à l’aide de l’API REST et C# dans Vision par ordinateur
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour créer l’exemple dans Visual Studio, effectuez les étapes suivantes :
 
-1. Créez une solution Visual Studio dans Visual Studio en utilisant le modèle d’application console Visual C#.
+1. Créez une solution Visual Studio dans Visual Studio en utilisant le modèle d’application console Visual C# (.NET Framework).
 1. Installez le package NuGet Newtonsoft.Json.
     1. Dans le menu, cliquez sur **Outils**, sélectionnez **Gestionnaire de packages NuGet**, puis **Gérer les packages NuGet de la solution**.
     1. Cliquez sur l’onglet **Parcourir**, puis, dans la zone de **recherche**, tapez « Newtonsoft.Json ».

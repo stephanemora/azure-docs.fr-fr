@@ -3,19 +3,15 @@ title: Créer une passerelle d’application avec une redirection selon un chemi
 description: Découvrez comment créer une passerelle d’application avec un trafic redirigé en fonction d’un chemin d’accès d’URL à l’aide d’Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 91cc28ec3df6a1d9ef4fc773687a0ec2870b623d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: febe02ac7fe4dfcb4140a8e5796c4c9fa86f6de3
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001384"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918380"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure PowerShell
 
@@ -41,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 1.0.0 ou version ultérieure pour les besoins de ce didacticiel. Pour trouver la version, exécutez ` Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 1.0.0 ou version ultérieure pour les besoins de ce didacticiel. Pour trouver la version, exécutez `Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -502,7 +498,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Tester l’URL de base dans la passerelle d’application](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
 
-Changez l’URL en http://&lt;ip-address&gt;:8080/video/test.htm, en remplaçant &lt;ip-address&gt; par votre adresse IP, de façon à voir apparaître quelque chose ressemblant à l’exemple suivant :
+Remplacez l’URL par http://&lt;ip-address&gt;:8080/images/test.htm, en indiquant votre adresse IP à la place de &lt;ip-address&gt;, de façon à voir apparaître quelque chose ressemblant à l’exemple suivant :
 
 ![Tester l’URL images dans la passerelle d’application](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
 

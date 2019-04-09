@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 03/20/2019
 ms.author: sajagtap
-ms.openlocfilehash: bd281191deb1a82d4b1b5247a011d9867f0c9bc4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879290"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757231"
 ---
-# <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>Démarrage rapide : Analyser le contenu d’une image pour trouver des matériaux répréhensibles dans C#
+# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Démarrage rapide : Analyser des images pour détecter le contenu répréhensible (C#)
 
 Cet article fournit des informations et des exemples de code qui vont vous aider à prendre en main le [kit SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Vous allez apprendre à rechercher du contenu raciste ou pour adultes, du texte extractible et des visages humains afin de modérer des matériaux potentiellement répréhensibles.
 

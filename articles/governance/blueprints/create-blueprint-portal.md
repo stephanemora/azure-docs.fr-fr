@@ -1,6 +1,6 @@
 ---
 title: Créer un blueprint dans le portail
-description: Utilisez des blueprints Azure pour créer, définir et déployer des artefacts via le portail Azure.
+description: Utilisez Azure Blueprints pour créer, définir et déployer des artefacts via le portail Azure.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0b27514dfa34963901fb94be37d8fe330a3c65ce
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004904"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804392"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Définir et affecter un blueprint Azure dans le portail
 
@@ -40,7 +40,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
    - Vous pouvez également cliquer sur **Créer** dans la page **Démarrage** page pour accéder directement à la création d’un blueprint.
 
-   ![Créer un blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Créer un blueprint à partir de la page de définitions de blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
 
 1. Dans **Nom du blueprint**, entrez par exemple « MyBlueprint » (chaîne composée de lettres et de chiffres ne dépassant pas 48 caractères et ne contenant pas d’espaces ou de caractères spéciaux). Laissez **Description du blueprint** vide pour l’instant. Dans la zone **Emplacement de définition**, cliquez sur les points de suspension à droite, sélectionnez le [groupe d’administration](../management-groups/overview.md) ou l’abonnement dans lequel enregistrer le blueprint, puis cliquez sur **Sélectionner**.
 
@@ -48,7 +48,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
 1. Ajoutez une attribution de rôle au niveau de l’abonnement : Cliquez sur la ligne **+ Ajouter un artefact...** sous **Abonnement**. La fenêtre « Ajouter un artefact » s’ouvre sur le côté droit du navigateur. Sélectionnez « Attribution de rôle » comme _Type d’artefact_. Sous _Rôle_, sélectionnez « Contributeur ». Laissez le champ _Ajouter un utilisateur, un groupe ou une application_ avec la case cochée pour indiquer un **paramètre dynamique**. Cliquez sur **Ajouter** pour ajouter cet artefact au blueprint.
 
-   ![Artefact - Attribution de rôle](./media/create-blueprint-portal/add-role-assignment.png)
+   ![Artefact de blueprint - Attribution de rôle](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > La plupart des _artefacts_ prennent en charge les paramètres. Un paramètre auquel une valeur est affectée durant la création du blueprint est un **paramètre statique**. Si la valeur est affectée au paramètre durant l’affectation du blueprint, il s’agit d’un **paramètre dynamique**. Pour plus d’informations, consultez [Paramètres de blueprint](./concepts/parameters.md).
@@ -113,11 +113,11 @@ La première étape de la définition d’un modèle standard à des fins de con
    }
    ```
 
-   ![Artefact - Modèle Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![Artefact de blueprint - Modèle Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
 
 1. Votre blueprint terminé doit ressembler à ce qui suit. Notez que chaque artefact a « _x_ paramètres renseignés sur _y_ » sous la colonne _Paramètres_. Les **paramètres dynamiques** sont définis à chaque affectation du blueprint.
 
-   ![Blueprint terminé](./media/create-blueprint-portal/completed-blueprint.png)
+   ![Définition de blueprint terminée](./media/create-blueprint-portal/completed-blueprint.png)
 
 1. Une fois tous les artefacts planifiés ajoutés, cliquez sur **Enregistrer le brouillon** en bas de la page.
 
@@ -135,11 +135,11 @@ Dans [Créer un blueprint](#create-a-blueprint), aucune description n’a été 
 
 1. Ajoutez une attribution de rôle sous le groupe de ressources : Cliquez sur la ligne **+ Ajouter un artefact...** directement sous l’entrée **ResourceGroup**. Sélectionnez « Attribution de rôle » comme _Type d’artefact_. Sous _Rôle_, sélectionnez « Propriétaire » et décochez la case sous le champ _Ajouter un utilisateur, un groupe ou une application_. Ensuite, recherchez et sélectionnez un utilisateur, un groupe ou une application à ajouter. Cet artefact utilise un **paramètre statique** qui sera défini de la même manière dans toutes les affectations de ce blueprint. Cliquez sur **Ajouter** pour ajouter cet artefact au blueprint.
 
-   ![Artefact - Attribution de rôle n° 2](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![Artefact de blueprint - Attribution de rôle n° 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
 1. Votre blueprint terminé doit ressembler à ce qui suit. Notez que l’attribution de rôle nouvellement ajoutée montre **1 paramètres renseignés sur 1**, ce qui signifie qu’il s’agit d’un **paramètre statique**.
 
-   ![Blueprint terminé n° 2](./media/create-blueprint-portal/completed-blueprint-2.png)
+   ![Définition de blueprint n° 2 terminée](./media/create-blueprint-portal/completed-blueprint-2.png)
 
 1. Le blueprint étant désormais à jour, cliquez sur **Enregistrer le brouillon**.
 
@@ -224,7 +224,7 @@ Une fois le blueprint affecté à un abonnement, vérifiez la progression du dé
 
 1. Dans la liste des blueprints, cliquez avec le bouton droit sur celui précédemment affecté et sélectionnez **Voir les détails de l’affectation**.
 
-   ![Voir les détails de l’affectation](./media/create-blueprint-portal/view-assignment-details.png)
+   ![Voir les détails d’affectation à partir de la page Blueprints attribués](./media/create-blueprint-portal/view-assignment-details.png)
 
 1. Dans la page **Attribution de blueprint**, vérifiez que tous les artefacts ont été déployés et qu’aucune erreur ne s’est produite durant le déploiement. Si des erreurs ont eu lieu, consultez [Dépannage d’un blueprint](./troubleshoot/general.md) pour déterminer la cause du problème.
 

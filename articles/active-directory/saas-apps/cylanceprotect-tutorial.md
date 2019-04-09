@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fddbcbea23226bef68f36369341afcf1b100b77
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1f493120431481423892706fa2a9352b322c500
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847329"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880795"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Tutoriel : Intégration d’Azure Active Directory à CylancePROTECT
+# <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Didacticiel : Intégration d’Azure Active Directory à CylancePROTECT
 
 Dans ce didacticiel, vous allez apprendre à intégrer CylancePROTECT à Azure Active Directory (Azure AD).
 L’intégration de CylancePROTECT à Azure AD vous offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de CylancePROTECT à Azure AD, vous devez ajouter CylancePROTECT, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-**Pour ajouter CylancePROTECT à partir de la galerie, procédez comme suit :**
+**Pour ajouter CylancePROTECT à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec CylancePROTECT, effec
     
     | Région | Valeur de l’URL |
     |----------|---------|
-    | Nord-est de l’Asie-Pacifique (APNE1)| ` https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Nord-est de l’Asie-Pacifique (APNE1)| `https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | Sud-est de l’Asie-Pacifique (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
     | Europe centrale (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | Amérique du Nord|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
@@ -161,7 +161,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
