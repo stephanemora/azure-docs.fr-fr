@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 35b5f1e29ae125dcac79c278578e900a73ffc7be
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771381"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262004"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Démarrage rapide : Créer un projet avec un environnement personnalisé
 
@@ -61,7 +61,7 @@ Dans Azure Notebooks, un projet est une collection de fichiers : notebooks, fich
 
     | Opération | Description |
     | --- | --- |
-    | Requirements.txt | Les projets Python définissent leurs dépendances dans un fichier requirements.txt. Avec cette option, sélectionnez le fichier approprié dans la liste des fichiers du projet, et choisissez également la version de Python dans la liste déroulante qui s’affiche. Si nécessaire, sélectionnez **Annuler** pour revenir au projet, charger ou créer le fichier, puis revenez à l’onglet **Paramètres du projet** > **Environnement** et créez une nouvelle étape. Avec cette étape, l’exécution d’un notebook dans le projet exécute automatiquement `pip install -r <file>` |
+    | Requirements.txt | Les projets Python définissent leurs dépendances dans un fichier requirements.txt. Avec cette option, sélectionnez le fichier approprié dans la liste des fichiers du projet, et choisissez également la version de Python dans la liste déroulante qui s’affiche. Si nécessaire, sélectionnez **Annuler** pour revenir au projet, charger ou créer le fichier, puis revenez à l’onglet **Paramètres du projet** > **Environnement** et créez une nouvelle étape. Avec cette étape en place, exécutant un bloc-notes dans le projet automatiquement s’exécute `pip install -r <file>` |
     | Script shell | Permet d’indiquer un script d’interpréteur de commandes bash (généralement un fichier avec l’extension *.sh*) qui contient les commandes que vous souhaitez exécuter pour initialiser l’environnement. |
     | Environment.yml | Un projet Python qui utilise conda pour la gestion d’un environnement utilise un fichier *environments.yml* pour décrire les dépendances. Avec cette option, sélectionnez le fichier approprié dans la liste des fichiers du projet. |
 
@@ -77,4 +77,4 @@ Dans Azure Notebooks, un projet est une collection de fichiers : notebooks, fich
 > [Gérer et configurer des projets dans Azure Notebooks](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Créer et exécuter un notebook Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)
+> [Didacticiel : créer une exécution d’un bloc-notes Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)

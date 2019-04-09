@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894763"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256887"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -93,7 +93,7 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 ![Portail Azure : Volet Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> L’authentification unique transparente crée un compte d’ordinateur nommé `AZUREADSSOACC` dans votre Active Directory (AD) dans chaque forêt Active Directory sur site. Le `AZUREADSSOACC` compte d’ordinateur doit être fortement protégé pour des raisons de sécurité. Seuls les administrateurs de domaine doit être en mesure de gérer le compte d’ordinateur. Assurez-vous que la délégation Kerberos sur le compte d’ordinateur est désactivée. Store le compte d’ordinateur dans une unité d’organisation (UO) dans lequel ils sont sécurisés contre les suppressions accidentelles.
+> L’authentification unique transparente crée un compte d’ordinateur nommé `AZUREADSSOACC` dans votre Active Directory (AD) dans chaque forêt Active Directory sur site. Le `AZUREADSSOACC` compte d’ordinateur doit être fortement protégé pour des raisons de sécurité. Seuls les administrateurs de domaine doit être en mesure de gérer le compte d’ordinateur. Assurez-vous que la délégation Kerberos sur le compte d’ordinateur est désactivée. Store le compte d’ordinateur dans une unité d’organisation (UO) où ils sont protégés contre les suppressions accidentelles et seuls les administrateurs de domaine ont accès.
 
 >[!NOTE]
 > Si vous utilisez des architectures Pass-the-Hash et réduction des risques de vol d’informations d’identification dans votre environnement local, apporter les modifications nécessaires pour vous assurer que le `AZUREADSSOACC` compte d’ordinateur ne s’arrête pas dans le conteneur de mise en quarantaine. 

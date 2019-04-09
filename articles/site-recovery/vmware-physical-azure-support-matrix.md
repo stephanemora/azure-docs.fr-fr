@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: raynew
-ms.openlocfilehash: 199f9508b599e2f946404446a23e9608bb969ba7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 7f24e027edd5de0eecd97e5c7c19126c9ac34301
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649456"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006930"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -72,7 +72,7 @@ Système d’exploitation Linux | Red Hat Enterprise Linux : 5.2 à 5.11<b>\*\*<
 ### <a name="ubuntu-kernel-versions"></a>Version du noyau Ubuntu
 
 
-**Version prise en charge** | **Version du service Mobilité Azure Site Recovery** | **Version du noyau** |
+**Version prise en charge** | **Version du Service mobilité Site Recovery Azure** | **Version du noyau** |
 --- | --- | --- |
 14.04 LTS | [9.23][9.23 UR] | 3.13.0-24-Generic à 3.13.0-165-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-Generic à 4.4.0-142-generic,<br/>4.15.0-1023-Azure à 4.15.0-1037-azure |
 14.04 LTS | [9.22][9.22 UR] | 3.13.0-24-generic à 3.13.0-164-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-140-generic,<br/>4.15.0-1023-azure à 4.15.0-1036-azure |
@@ -87,7 +87,7 @@ LTS 16.04 | [9.20][9.20 UR] | 4.4.0-21-generic à 4.4.0-138-generic,<br/>4.8.0-3
 ### <a name="debian-kernel-versions"></a>Versions du noyau Debian
 
 
-**Version prise en charge** | **Version du service Mobilité Azure Site Recovery** | **Version du noyau** |
+**Version prise en charge** | **Version du Service mobilité Site Recovery Azure** | **Version du noyau** |
 --- | --- | --- |
 Debian 7 | [9.20][9.20 UR],[9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR]| 3.2.0-4-amd64 à 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -96,7 +96,7 @@ Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | 3.1
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>Versions du noyau prises en charge de SUSE Linux Enterprise Server 12
 
-**Version release** | **Version du service Mobilité** | **Version du noyau** |
+**Libérer** | **Version du service mobilité** | **Version du noyau** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.23][9.23 UR] | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>4.4.121-92.73-default SP2(LTSS) à 4.4.121-92.101-default</br></br>4.4.73-5-default SP3 pour 4.4.162-94.79-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.22][9.22 UR] | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default à 4.4.162-94.72-default |
@@ -108,7 +108,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.20][9.20 UR] | SP1 3.12.49-
 **Composant** | **Pris en charge**
 --- | ---
 Systèmes de fichiers | ext3, ext4, XFS
-Gestionnaire de volume | Avant la [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM2 est pris en charge. <br/> 2. LVM est pris en charge pour les disques de données uniquement. <br/> 3. Les machines virtuelles Azure ont un seul disque de système d’exploitation.<br/><br/>Depuis la [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), LVM et LVM2 sont pris en charge.
+Gestionnaire de volume | Avant la [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM est pris en charge. <br/> 2. /boot sur un volume LVM n’est pas pris en charge. <br/> 3. Plusieurs disques de système d’exploitation ne sont pas pris en charge.<br/><br/>À partir de [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) et versions ultérieures, /boot sur LVM est pris en charge. Plusieurs disques de système d’exploitation ne sont pas pris en charge.
 Dispositif de stockage paravirtualisé | Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en charge.
 Unités de bloc d’entrée et de sortie en file d’attente | Non pris en charge.
 Serveurs physiques avec le contrôleur de stockage HP CCISS | Non pris en charge.
@@ -187,6 +187,7 @@ Multipath invité/serveur (MPIO) | Non
 >
 > - Seule la migration vers Azure est prise en charge. La restauration automatique vers un site VMware local n’est pas prise en charge.
 > - Le disque de système d’exploitation du serveur ne doit pas comprendre plus de 4 partitions.
+> - Seul le système NTFS est pris en charge
 > - Nécessite la version 9.13 du service Mobilité d’Azure Site Recovery, ou une version ultérieure.
 
 ## <a name="azure-storage"></a>Stockage Azure
@@ -236,7 +237,7 @@ nom de la machine virtuelle | De 1 et 63 caractères.<br/><br/> Uniquement des l
 
 Le tableau suivant présente les limites d’Azure Site Recovery. Les limites sont basées sur nos tests, mais ne peuvent pas couvrir toutes les combinaisons d’E/S d’application possibles. Les résultats réels varient en fonction de la combinaison d’E/S de votre application. Pour de meilleurs résultats, nous recommandons fortement de [exécuter l’outil deployment planner](site-recovery-deployment-planner.md) et effectuer des tests en émettant un test de basculement d’application approfondis pour obtenir une image réelle des performances de l’application.
 
-**Stockage de réplication cible** | **Taille d’E/S moyenne de disque source** |**Activité des données moyenne de disque source** | **Total de l’activité des données de disque source par jour**
+**Stockage de réplication cible** | **Moyenne de disque source taille d’e/s** |**Activité des données de disque moyenne source** | **Activité des données du disque source totale par jour**
 ---|---|---|---
 Stockage Standard | 8 Ko | 2 Mo/s | 168 Go par disque
 Disque Premium P10 ou P15 | 8 Ko  | 2 Mo/s | 168 Go par disque
@@ -245,7 +246,7 @@ Disque Premium P10 ou P15 | 32 Ko ou plus | 8 Mo/s | 672 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 8 Ko    | 5 Mo/s | 421 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |20 Mo/s | 1684 Go par disque
 
-**Activité de données sources** | **Limite maximale**
+**Activité des données source** | **Limite maximale**
 ---|---
 Activité moyenne des données par machine virtuelle| 25 Mo/s
 Activité des données de pointe sur tous les disques d’une machine virtuelle | 54 Mo/s
@@ -263,7 +264,7 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Téléchargez les derniers composants Azure Site Recovery
 
-**Nom** | **Description** | **Instructions de téléchargement de la version la plus récente**
+**Nom** | **Description** | **Instructions de téléchargement de version plus récente**
 --- | --- | ---
 Serveur de configuration | Coordonne les communications entre les serveurs VMware locaux et Azure  <br/><br/>  Installé sur des serveurs VMware locaux | Pour plus d’informations, consultez nos conseils sur [nouvelle installation](vmware-azure-deploy-configuration-server.md) et [mise à niveau d’un composant existant à la version la plus récente](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Serveur de traitement|Installé par défaut sur le serveur de configuration. Il reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement, et les envoie vers le stockage Azure. À mesure que s’étend votre déploiement, vous pouvez ajouter des serveurs de traitement distincts afin de gérer de plus grands volumes de trafic de réplication.| Pour plus d’informations, consultez nos conseils sur [nouvelle installation](vmware-azure-set-up-process-server-scale.md) et [mise à niveau d’un composant existant à la version la plus récente](vmware-azure-manage-process-server.md#upgrade-a-process-server).

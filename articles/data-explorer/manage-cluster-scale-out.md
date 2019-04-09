@@ -1,18 +1,18 @@
 ---
-title: Monter en charge un cluster de l’Explorateur de données Azure pour s’adapter à la demande de modification
+title: Monter en charge un cluster de l’Explorateur de données Azure
 description: Cet article décrit les étapes pour monter en charge et de mettre à l’échelle dans un cluster de l’Explorateur de données Azure basée sur la modification de la demande.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/18/2019
-ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/05/2019
+ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044232"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261596"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gérer la montée en charge du cluster pour prendre en compte les fluctuations de la demande
 
@@ -22,21 +22,23 @@ La meilleure approche consiste à *mettre à l’échelle* un cluster, en ajouta
 
 Cet article explique comment gérer le cluster montée en puissance, également appelé mise à l’échelle. À l’échelle automatique vous permet de faire évoluer le nombre d’instances automatiquement en fonction des planifications et des règles prédéfinies. Spécifiez vos paramètres de mise à l’échelle de votre cluster dans le portail Azure, comme décrit dans cet article.
 
-Accédez à votre cluster. Sous **paramètres**, sélectionnez **monter en charge**. Sous **Configurer**, sélectionnez **Activer la mise à l’échelle automatique**.
+## <a name="steps-to-configure-autoscale"></a>Étapes pour configurer la mise à l’échelle
 
-![Activer la mise à l’échelle automatique](media/manage-cluster-scaling/enable-autoscale.png)
+Dans le portail Azure, accédez à votre ressource de cluster de l’Explorateur de données. Sous le **paramètres** titre, sélectionnez **monter en charge**. Sur le **configurer** onglet, sélectionnez **activer la mise à l’échelle**.
 
-Le graphisme suivant illustre le flux des prochaines étapes. Plus de détails se trouvent sous le graphique.
+   ![Activer la mise à l’échelle automatique](media/manage-cluster-scaling/enable-autoscale.png)
 
-![Règle de mise à l’échelle](media/manage-cluster-scaling/scale-rule.png)
+Le graphisme suivant illustre le flux des prochaines étapes. Voir détails ci-dessous le graphique.
 
-1. Dans le **nom du paramètre de mise à l’échelle** zone, fournissez un nom, tel que *Scale-out : utilisation de cache*.
+1. Dans le **nom du paramètre de mise à l’échelle** zone, fournissez un nom, tel que *Scale-out : utilisation de cache*. 
 
-1. Pour **en mode de mise à l’échelle**, sélectionnez **mise à l’échelle selon une mesure**. Ce mode fournit une évolutivité dynamique. Vous pouvez également sélectionner **mise à l’échelle à un nombre d’instances spécifique**.
+   ![Règle de mise à l’échelle](media/manage-cluster-scaling/scale-rule.png)
 
-1. Sélectionnez **+ ajouter une règle**.
+2. Pour **en mode de mise à l’échelle**, sélectionnez **mise à l’échelle selon une mesure**. Ce mode fournit une évolutivité dynamique. Vous pouvez également sélectionner **mise à l’échelle à un nombre d’instances spécifique**.
 
-1. Dans la section **Règle de mise à l’échelle** à droite, entrez des valeurs pour chaque paramètre.
+3. Sélectionnez **+ ajouter une règle**.
+
+4. Dans la section **Règle de mise à l’échelle** à droite, entrez des valeurs pour chaque paramètre.
 
     **Critères**
 
@@ -59,9 +61,9 @@ Le graphisme suivant illustre le flux des prochaines étapes. Plus de détails s
     | **Refroidissement (minutes)** | Choisissez un intervalle de temps d’attente approprié entre les opérations de mise à l’échelle. Commencez avec la valeur par défaut, cinq minutes. |
     |  |  |
 
-1. Sélectionnez **Ajouter**.
+5. Sélectionnez **Ajouter**.
 
-1. Dans la section **Limites d’instance** à gauche, entrez des valeurs pour chaque paramètre.
+6. Dans la section **Limites d’instance** à gauche, entrez des valeurs pour chaque paramètre.
 
     | Paramètre | Description et valeur |
     | --- | --- |
@@ -70,10 +72,14 @@ Le graphisme suivant illustre le flux des prochaines étapes. Plus de détails s
     | **Default** | Nombre d’instances par défaut. Ce paramètre est utilisé s’il existe des problèmes de lecture des métriques de ressource. |
     |  |  |
 
-1. Sélectionnez **Enregistrer**.
+7. Sélectionnez **Enregistrer**.
 
 Vous venez de configurer une opération de montée en charge pour votre cluster de l’Explorateur de données Azure. Ajoutez une autre règle pour une opération de diminution de la taille. Cette configuration permet à votre cluster à l’échelle dynamiquement en fonction de mesures que vous spécifiez.
 
 Vous pouvez également [gérer monter en puissance cluster](manage-cluster-scale-up.md) pour le dimensionnement approprié d’un cluster.
 
 Si vous avez besoin d’aide sur les problèmes de mise à l’échelle le cluster, [ouvrir une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) dans le portail Azure.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Surveiller les performances, l’intégrité et l’utilisation avec des mesures Explorateur de données Azure](using-metrics.md)

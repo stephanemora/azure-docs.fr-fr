@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84db71f8dabfb7557b5efbc06e024c43e654b56d
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805072"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267342"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -137,7 +137,7 @@ Pour utiliser un certificat avec les applets de commande de modèle de déploiem
 
 #### <a name="issue"></a>Problème
 
-Vous recevez l’erreur suivante lorsque vous appelez un runbook enfant avec le commutateur `-Wait` et que le flux de sortie contient un objet :
+Vous recevez l’erreur suivante lors de l’appel d’un runbook enfant avec le `-Wait` le flux de sortie et de commutateur contient et de l’objet :
 
 ```error
 Object reference not set to an instance of an object
@@ -483,6 +483,29 @@ Il existe deux façons de résoudre cette erreur :
 
 * Modifiez le runbook et réduisez le nombre de flux de tâches émis.
 * Réduisez le nombre de flux à récupérer lors de l’exécution de la cmdlet. Pour suivre ce comportement, vous pouvez spécifier le paramètre `-Stream Output` sur l’applet de commande `Get-AzureRmAutomationJobOutput` afin de ne récupérer que les flux de sortie. 
+
+### <a name="cannot-invoke-method"></a>Scénario : Tâche PowerShell échoue avec l’erreur : Impossible d’appeler la méthode
+
+#### <a name="issue"></a>Problème
+
+Quand vous démarrez un Job de PowerShell dans un runbook en cours d’exécution dans Azure, le message d’erreur suivant s’affiche :
+
+```error
+Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur peut se produire lorsque vous démarrez un travail dans un runbook est exécuté dans Azure de PowerShell. Ce comportement peut se produire, car les procédures opérationnelles a été exécuté dans Azure bac à sable ne peut-être pas s’exécuter en le [mode langage complet](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+
+#### <a name="resolution"></a>Résolution :
+
+Il existe deux façons de résoudre cette erreur :
+
+* Au lieu d’utiliser `Start-Job`, utilisez `Start-AzureRmAutomationRunbook` pour démarrer un runbook
+* Si votre runbook possède ce message d’erreur, exécutez-le sur un Runbook Worker hybride
+
+Pour en savoir plus sur ce comportement et d’autres comportements de Runbooks Azure Automation, consultez [Runbook comportement](../automation-runbook-execution.md#runbook-behavior).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

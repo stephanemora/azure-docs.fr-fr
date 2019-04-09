@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: aa4fff24620ffd74393d549f1888bdf0e1cb0224
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773577"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264418"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Créer, configurer et gérer des travaux élastiques
 
@@ -76,6 +76,8 @@ La préversion est actuellement limitée à 100 travaux simultanés.
 
 Pour éviter la surcharge des ressources durant l’exécution de travaux sur des bases de données dans un pool élastique SQL, vous pouvez configurer les travaux de manière à limiter le nombre de bases de données sur lesquelles un travail peut s’exécuter simultanément.
 
+Définir le nombre de bases de données simultanées une tâche s’exécute sur en définissant le `sp_add_jobstep` procédure stockée `@max_parallelism` paramètre dans T-SQL, ou `Add-AzSqlElasticJobStep -MaxParallelism` dans PowerShell.
+
 ## <a name="best-practices-for-creating-jobs"></a>Bonnes pratiques relatives à la création de travaux
 
 ### <a name="idempotent-scripts"></a>Scripts idempotents
@@ -97,4 +99,4 @@ De même, un script doit être capable d’exécuter avec succès par une vérif
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créer et gérer des tâches élastiques à l’aide de PowerShell](elastic-jobs-powershell.md)
-- [Créer et gérer des tâches élastiques à l’aide de T-SQL (Transact-SQL)](elastic-jobs-tsql.md)
+- [Créer et gérer des tâches élastiques à l’aide de Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

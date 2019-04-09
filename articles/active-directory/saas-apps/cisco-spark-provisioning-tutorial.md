@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77dab6ad0480bc1565c219766d17211995dcfc20
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056932"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278410"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Didacticiel : Configurer Cisco Spark pour l’attribution automatique d’utilisateurs
 

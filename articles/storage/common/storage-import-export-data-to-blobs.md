@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c7e78f89883e5cfc3fc8b9088c3ac0b3166682c7
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878177"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283271"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -30,8 +30,8 @@ Avant de créer une tâche d’importation pour transférer des données dans le
 - Avoir un nombre suffisant de disques de [Types pris en charge](storage-import-export-requirements.md#supported-disks). 
 - Avoir un système Windows exécutant une [Version de système d’exploitation prise en charge](storage-import-export-requirements.md#supported-operating-systems). 
 - Activez BitLocker sur le système Windows. Consultez [Comment activer BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Téléchargez la version 1 de WAImportExport](https://aka.ms/waiev1) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
-- Dotez-vous d’un compte FedEx/DHL.  
+- [Téléchargez la version 1 de WAImportExport](https://aka.ms/waiev1) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
+- Dotez-vous d’un compte FedEx/DHL. Si vous souhaitez utiliser un opérateur autre que FedEx/DHL, contactez l’équipe des opérations de zone de données Azure à `adbops@microsoft.com`.  
     - Le compte doit être valide, doit avoir un solde et doit offrir des fonctionnalités de réexpédition.
     - Générez un numéro de suivi pour le travail d’exportation.
     - Chaque travail doit avoir un numéro de suivi distinct. Plusieurs travaux portant le même numéro de suivi ne sont pas pris en charge.
@@ -113,7 +113,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
 4. Dans **Informations de réexpédition** :
 
-   - Sélectionnez le transporteur dans la liste déroulante.
+   - Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un opérateur autre que FedEx/DHL, choisissez une option existante dans la liste déroulante. Opérations de boîte de données Azure contact de l’équipe à `adbops@microsoft.com` avec les informations concernant le transporteur que vous prévoyez d’utiliser.
    - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. Si vous n’avez pas de numéro de compte, créez un compte de transporteur [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/).
    - Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides. 
         

@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d8fedb372fb245b7bc35cb440bd758336ab2a68
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59258757"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057623"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Didacticiel : Configurer BlueJeans pour le provisionnement automatique d’utilisateurs
 

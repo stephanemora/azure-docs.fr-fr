@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: a5acc65609b7d8387eca0ec4e091bf823d9d1d67
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: dcd6d907fec3d7f2cc0c8d5c06fdec28125154c1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402692"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009544"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -33,7 +33,7 @@ Développez des fonctions sur votre ordinateur local et les publier sur Azure à
 > * [Définir le stockage et autres connexions.](#local-settings-file)
 > * [Créer une fonction à partir d’un déclencheur et un modèle de langage spécifique.](#create-func)
 > * [Exécuter la fonction localement](#start)
-> * [Publier le projet sur Azure](#publish)
+> * [Publication du projet sur Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Versions de Core Tools
 
@@ -147,7 +147,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-`func init` prend en charge les options suivantes, qui sont, sauf indication contraire, uniquement des versions 2.x :
+`func init` prend en charge les options suivantes, qui sont la version 2.x uniquement, sauf indication contraire :
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
@@ -203,9 +203,9 @@ Le fichier local.settings.json stocke les paramètres de l’application, les ch
 
 Ces valeurs de paramètres d’application de fonction peuvent aussi être lues dans votre code en tant que variables d’environnement. Pour plus d’informations, consultez la section Variables d’environnement de ces rubriques de référence spécifiques à une langue :
 
-* [C# précompilé](functions-dotnet-class-library.md#environment-variables)
+* [C#précompilé](functions-dotnet-class-library.md#environment-variables)
 * [Script C# (.csx)](functions-reference-csharp.md#environment-variables)
-* [Script F# (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [F#script (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -487,6 +487,6 @@ Pour enregistrer un bogue ou une demande de fonctionnalité, [créez un problèm
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Portail Azure]: https://portal.azure.com 
-[Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

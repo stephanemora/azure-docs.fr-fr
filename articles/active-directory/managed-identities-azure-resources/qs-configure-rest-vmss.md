@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3a32f9fb2755fc164c33a6759d0130ac7ddad5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: cafb3c97befd64cc6413a2eefa5e5baa9e01bf93
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445756"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009580"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurer des identités managées sur un groupe de machines virtuelles identiques en utilisant des appels d’API REST
 
@@ -93,7 +93,7 @@ Pour créer un groupe de machines virtuelles identiques dans lequel une identit�
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -160,7 +160,7 @@ Pour créer un groupe de machines virtuelles identiques dans lequel une identit�
     }  
    ```  
 
-### <a name="enable-system-assigned-managed-identity-on-a-existing-virtual-machine-scale-set"></a>Activer une identité managée affectée par le système sur un groupe de machines virtuelles identiques existant
+### <a name="enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set"></a>Activer une identité managée affectée par le système sur un groupe de machines virtuelles identiques existant
 
 Pour activer l’identité managée affectée par le système sur un groupe de machines virtuelles identiques existant, obtenez un jeton d’accès, puis utilisez CURL pour appeler le point de terminaison REST Resource Manager afin de mettre à jour le type d’identité.
 
@@ -188,7 +188,7 @@ Pour activer l’identité managée affectée par le système sur un groupe de m
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -221,7 +221,7 @@ Pour activer l’identité managée affectée par le système sur un groupe de m
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |
  
    **Corps de la demande**
 
@@ -255,7 +255,7 @@ Pour activer l’identité managée affectée par le système sur un groupe de m
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -299,7 +299,7 @@ Pour désactiver une identité affectée par le système sur un groupe de machin
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -356,7 +356,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -443,7 +443,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |
  
    **Corps de la demande**
 
@@ -537,7 +537,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |   
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |   
  
 
 4. Si vous n’avez attribué aucune identité managée affectée par le système ou l’utilisateur à votre groupe de machines virtuelles identiques, utilisez la commande CURL suivante pour appeler le point de terminaison REST Azure Resource Manager afin d’affecter la première identité managée affectée par l’utilisateur au groupe de machines virtuelles identiques.  Si vous avez attribué des identités managées affectées par l’utilisateur ou le système au groupe de machines virtuelles identiques, passez à l’étape 5, qui montre comment ajouter plusieurs identités managées affectées par l’utilisateur à un groupe de machines virtuelles identiques, tout en mettant également à jour l’identité managée affectée par le système.
@@ -559,7 +559,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -591,7 +591,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -627,7 +627,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -666,7 +666,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -704,7 +704,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |
    
    Si vous avez affecté des identités managées à la machine virtuelle, celles-ci sont répertoriées dans la réponse sous la valeur `identity`. 
     
@@ -727,7 +727,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -759,7 +759,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
    |En-tête de requête  |Description  |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -789,7 +789,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |En-tête de requête  |Description  |
 |---------|---------|
 |*Content-Type*     | Requis. Défini sur `application/json`.        |
-|*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+|*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
 **Corps de la demande**
 
@@ -816,7 +816,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |En-tête de requête  |Description  |
 |---------|---------|
 |*Content-Type*     | Requis. Défini sur `application/json`.        |
-|*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+|*Authorization*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
 
 **Corps de la demande**
 

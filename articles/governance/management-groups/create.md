@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057436"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259800"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Créer des groupes d’administration pour la gestion et l’organisation des ressources
 
@@ -50,7 +50,7 @@ Vous pouvez créer un groupe d’administration en utilisant le portail, PowerSh
 
 ### <a name="create-in-powershell"></a>Créer dans PowerShell
 
-Dans PowerShell, vous utilisez l’applet de commande New-AzManagementGroup :
+Pour PowerShell, utilisez le [New-AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) applet de commande pour créer un nouveau groupe d’administration.
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'
@@ -58,20 +58,39 @@ New-AzManagementGroup -GroupName 'Contoso'
 
 **GroupName** est un identificateur unique créé. Cet ID est utilisé par d’autres commandes pour référencer ce groupe et il ne peut pas être modifié ultérieurement.
 
-Si vous voulez afficher un autre nom pour le groupe d’administration dans le portail Azure, ajoutez le paramètre **DisplayName** avec la chaîne. Par exemple, pour créer un groupe d’administration dont l’identificateur GroupName est Contoso et le nom d’affichage « Contoso Group », utilisez l’applet de commande suivante :
+Si vous souhaitez que le groupe d’administration pour afficher un nom différent au sein du portail Azure, ajoutez le **DisplayName** paramètre. Par exemple, pour créer un groupe d’administration avec l’identificateur GroupName est Contoso et le nom complet de « Groupe Contoso », utilisez l’applet de commande suivante :
 
 ```azurepowershell-interactive
-New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group'
 ```
 
-Utilisez le paramètre **ParentId** pour que ce groupe d’administration soit créé sous un autre groupe d’administration.
+Dans les exemples précédents, le nouveau groupe d’administration est créé sous le groupe d’administration racine. Pour spécifier un autre groupe d’administration en tant que parent, utilisez la **ParentId** paramètre.
+
+```azurepowershell-interactive
+$parentGroup = Get-AzManagementGroup -GroupName Contoso
+New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
+```
 
 ### <a name="create-in-azure-cli"></a>Créer dans Azure CLI
 
-Dans Azure CLI, utilisez la commande az account management-group create.
+Pour Azure CLI, utilisez le [créer az compte du groupe d’administration](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) commande pour créer un nouveau groupe d’administration.
 
 ```azurecli-interactive
-az account management-group create --name 'Contoso'
+az account management-group create --name Contoso
+```
+
+Le **nom** est un identificateur unique en cours de création. Cet ID est utilisé par d’autres commandes pour référencer ce groupe et il ne peut pas être modifié ultérieurement.
+
+Si vous souhaitez que le groupe d’administration pour afficher un nom différent au sein du portail Azure, ajoutez le **nom d’affichage** paramètre. Par exemple, pour créer un groupe d’administration avec l’identificateur GroupName est Contoso et le nom complet de « Groupe Contoso », utilisez la commande suivante :
+
+```azurecli-interactive
+az account management-group create --name Contoso --display-name 'Contoso Group'
+```
+
+Dans les exemples précédents, le nouveau groupe d’administration est créé sous le groupe d’administration racine. Pour spécifier un autre groupe d’administration en tant que parent, utilisez la **parent** paramètre et indiquez le nom du groupe parent.
+
+```azurecli-interactive
+az account management-group create --name ContosoSubGroup --parent Contoso
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

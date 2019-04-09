@@ -9,22 +9,21 @@ ms.topic: conceptual
 ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: igorstan
-ms.openlocfilehash: 0f35e14686c2bd3f87faf51ed6a54728f2a54641
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.reviewer: jrasnick
+ms.custom: seoapril2019
+ms.openlocfilehash: a8cb3714d11994b36991e56df7fc0f97d08c89ff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466028"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256904"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Meilleures pratiques de chargement de données dans Azure SQL Data Warehouse
-Recommandations et optimisation des performances pour le chargement de données dans Azure SQL Data Warehouse. 
 
-- Pour plus d’informations sur PolyBase et la conception d’un processus d’extraction, de chargement et transformation (ELT), consultez [Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse](design-elt-data-loading.md) (Conception d’un processus d’extraction, de chargement et de transformation (ELT) pour Azure SQL Data Warehouse).
-- Pour un didacticiel sur le chargement, consultez [Utiliser PolyBase pour charger des données du Stockage Blob Azure dans Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
-
+Recommandations et optimisation des performances pour le chargement de données dans Azure SQL Data Warehouse.
 
 ## <a name="preparing-data-in-azure-storage"></a>Préparation des données dans Stockage Azure
+
 Afin de réduire la latence, colocalisez votre couche de stockage et votre entrepôt de données.
 
 Lorsque vous exportez des données dans un format de fichier ORC, vous pouvez obtenir des erreurs Java de mémoire insuffisante lorsqu’il existe des colonnes de texte de grande taille. Pour contourner cette limitation, exportez uniquement un sous-ensemble de ces colonnes.
@@ -39,15 +38,17 @@ Fractionnez les fichiers compressés volumineux en plusieurs petits fichiers com
 
 Pour une vitesse de chargement plus élevée, exécutez un seul travail de chargement à la fois. Si cela n’est pas possible, exécutez simultanément un nombre minimal de charges. Si vous prévoyez un travail de chargement volumineux, envisagez l’augmentation de l’échelle de votre entrepôt de données avant le chargement.
 
-Pour exécuter des charges avec des ressources de calcul appropriées, créez des utilisateurs de chargement désignés pour cette tâche. Attribuez à chaque utilisateur de chargement pour une classe de ressources spécifique. Pour exécuter une charge, connectez-vous en tant qu’utilisateur de chargement, puis exécutez la charge. La charge s’exécute avec la classe de ressources de l’utilisateur.  Cette méthode est plus simple que d’essayer de modifier la classe de ressources d’un utilisateur pour répondre au besoin de la classe de ressources actuelle.
+Pour exécuter des charges avec des ressources de calcul appropriées, créez des utilisateurs de chargement désignés pour cette tâche. Attribuez à chaque utilisateur de chargement pour une classe de ressources spécifique. Pour exécuter une charge, connectez-vous en tant qu’utilisateur de chargement et puis exécuter la charge. La charge s’exécute avec la classe de ressources de l’utilisateur.  Cette méthode est plus simple que d’essayer de modifier la classe de ressources d’un utilisateur pour répondre au besoin de la classe de ressources actuelle.
 
 ### <a name="example-of-creating-a-loading-user"></a>Exemple de création d’un utilisateur de chargement
+
 Ce code crée un utilisateur de chargement pour la classe de ressources staticrc20. La première étape consiste à **se connecter au maître** et à créer une connexion.
 
 ```sql
    -- Connect to master
    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
 ```
+
 Connectez-vous à l’entrepôt de données et créez un utilisateur. Le code suivant suppose que vous êtes connecté à la base de données appelée mySampleDataWarehouse. Il montre comment créer un utilisateur nommé LoaderRC20, et lui donner la autorisation de contrôle d’une base de données. Il ajoute ensuite l’utilisateur en tant que membre du rôle de base de données staticrc20.  
 
 ```sql
@@ -56,7 +57,8 @@ Connectez-vous à l’entrepôt de données et créez un utilisateur. Le code su
    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
-Pour exécuter une charge avec des ressources pour les classes de ressources staticRC20, connectez-vous simplement en tant que LoaderRC20 et exécutez la charge.
+
+Pour exécuter une charge avec les ressources pour les classes de ressources staticRC20, connectez-vous en tant que LoaderRC20 et exécutez la charge.
 
 Exécutez des charges sous des classes de ressources statiques plutôt que dynamiques. L’utilisation des classes de ressources statiques garantit les mêmes ressources, quel que soit vos valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Si vous utilisez une classe de ressources dynamique, les ressources varient en fonction de votre niveau de service. Pour les classes dynamiques, un niveau de service inférieur signifie que vous devrez probablement utiliser une classe de ressources supérieure pour votre utilisateur de chargement.
 
@@ -73,7 +75,6 @@ Par exemple, les schémas de base de données schema_A pour le service A et sche
 
 user_A et user_B ne doivent maintenant plus avoir accès au schéma de l’autre service.
 
-
 ## <a name="loading-to-a-staging-table"></a>Chargement dans une table de mise en lots
 
 Pour atteindre la vitesse de chargement la plus élevée pour le déplacement des données dans une table de l’entrepôt de données, chargez les données dans une table de mise en lots.  Définissez la table de mise en lots comme segment de mémoire et utilisez le tourniquet (round-robin) pour l’option de distribution. 
@@ -87,7 +88,6 @@ Les index columnstore ont besoin de beaucoup de mémoire pour compresser les don
 - Pour garantir que l’utilisateur de chargement dispose de suffisamment de mémoire pour atteindre des taux de compression maximum, utilisez des utilisateurs de chargement qui sont membres d’une classe de ressources moyenne ou grande. 
 - Chargez suffisamment de lignes pour remplir complètement de nouveaux rowgroups. Lors d’un chargement en masse, les 1 048 576 lignes sont compressées directement dans le columnstore en tant que groupe de lignes complet. Les charges de moins de 102 400 lignes envoient les lignes dans le deltastore, où les lignes sont conservées dans un index b-tree. Si vous chargez trop peu de lignes, elles risquent de toutes rejoindre le deltastore et de ne pas être compressées immédiatement au format columnstore.
 
-
 ## <a name="handling-loading-failures"></a>Gestion des échecs de chargement
 
 Une charge qui utilise une table externe peut échouer avec l’erreur suivante : *« Requête abandonnée : le seuil de rejet maximal a été atteint durant la lecture d’une source externe »*. Ce message indique que vos données externes contiennent des enregistrements à l’intégrité compromise. Un enregistrement de données est considéré comme « compromis » si les types de données et le nombre de colonnes ne correspondent pas aux définitions de colonne de la table externe ou si les données ne sont pas conformes au format de fichier externe spécifié. 
@@ -95,6 +95,7 @@ Une charge qui utilise une table externe peut échouer avec l’erreur suivante 
 Pour corriger les enregistrements compromis, assurez-vous que les définitions de format de votre table externe et de votre fichier externe sont correctes et que vos données externes sont conformes à ces définitions. Dans le cas où un sous-ensemble d’enregistrements de données externes serait compromis, vous pouvez choisir de rejeter ces enregistrements pour vos requêtes en utilisant les options de rejet dans CREATE EXTERNAL TABLE.
 
 ## <a name="inserting-data-into-a-production-table"></a>Insertion de données dans une table de production
+
 Une charge unique dans une petite table à l’aide d’une instruction [INSERT](/sql/t-sql/statements/insert-transact-sql) ou même un rechargement périodique d’une recherche peut suffire avec une instruction comme `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Cependant, des insertions uniques ne sont pas aussi efficaces qu’un chargement en masse. 
 
 Si vous avez au minimum plusieurs milliers d’insertions uniques pendant la journée, regroupez les insertions pour les charger en masse.  Développez votre processus pour ajouter les insertions uniques à un fichier, puis créez un autre processus qui charge régulièrement le fichier.
@@ -112,6 +113,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## <a name="rotate-storage-keys"></a>Passer d’une clé de stockage à une autre
+
 En matière de sécurité, il est recommandé de modifier régulièrement la clé d’accès à votre stockage d’objets blob. Vous avez deux clés de stockage pour votre compte de stockage blob, ce qui vous permet de passer d’une clé à l’autre.
 
 Pour passer d’une clé de compte de stockage Azure à une autre :
@@ -134,9 +136,11 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 Aucune autre modification des sources de données externes sous-jacentes n’est nécessaire.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
-Pour surveiller les charges de données, consultez [Surveiller votre charge de travail à l’aide de vues de gestion dynamique](sql-data-warehouse-manage-monitor.md).
+
+- Pour plus d’informations sur PolyBase et la conception d’un processus d’extraction, de chargement et transformation (ELT), consultez [Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse](design-elt-data-loading.md) (Conception d’un processus d’extraction, de chargement et de transformation (ELT) pour Azure SQL Data Warehouse).
+- Pour un didacticiel sur le chargement, consultez [Utiliser PolyBase pour charger des données du Stockage Blob Azure dans Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+- Pour surveiller les charges de données, consultez [Surveiller votre charge de travail à l’aide de vues de gestion dynamique](sql-data-warehouse-manage-monitor.md).
 
 
 

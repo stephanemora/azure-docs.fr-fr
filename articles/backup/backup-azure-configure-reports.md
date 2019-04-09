@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440996"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278818"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 Cet article explique les étapes à suivre pour configurer les rapports pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services. Il montre également comment accéder aux rapports à l’aide de Power BI. Une fois que vous avez terminé ces étapes, vous pouvez accéder directement à Power BI pour afficher, personnaliser et créer des rapports.
@@ -43,9 +43,6 @@ Suivez ces étapes afin de configurer le compte de stockage pour un coffre Recov
 
    * Dans la liste des ressources, saisissez **Recovery Services**.
    * Au fur et à mesure de la saisie, la liste est filtrée. Lorsque vous voyez **Coffres Recovery Services**, cliquez dessus.
-
-      ![Créer un coffre Recovery Services - Étape 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
-
    * La liste des archivages de Recovery Services s’affiche. Dans la liste des archivages de Recovery Services, sélectionnez un archivage.
 
      Le tableau de bord de l’archivage sélectionné s'ouvre.
@@ -153,6 +150,6 @@ Oui, vous pouvez configurer le même compte de stockage sur différents coffres 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez configuré le compte de stockage et importé le pack de contenu de la Sauvegarde Azure, les prochaines étapes consistent à personnaliser des rapports et à utiliser un modèle de données de rapports pour créer des rapports. Pour plus d'informations, consultez les articles suivants.
 
-* [Utiliser un modèle de données de rapports de la Sauvegarde Azure](backup-azure-reports-data-model.md)
-* [Filtrer des rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+* [Utiliser une sauvegarde Azure modèle de données de rapport](backup-azure-reports-data-model.md)
+* [Filtrer les rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Créer des rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

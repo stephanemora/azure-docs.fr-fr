@@ -1,27 +1,27 @@
 ---
-title: Propriétés d’un utilisateur de collaboration B2B - Azure Active Directory | Microsoft Docs
-description: Les propriétés de l’utilisateur Azure Active Directory B2B Collaboration sont configurables
+title: Propriétés d’un B2B invité utilisateur - Azure Active Directory | Microsoft Docs
+description: Propriétés de l’utilisateur Active Directory B2B invité et états avant et après l’échange d’invitation Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294652"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257601"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriétés d’un utilisateur Azure Active Directory B2B Collaboration
 
-Un utilisateur Azure Active Directory (Azure AD) B2B (interentreprises) Collaboration présente la propriété UserType = Invité. Cet utilisateur invité appartient généralement à une organisation partenaire et dispose par défaut de privilèges limités dans l’annuaire qui invite.
+Cet article décrit les propriétés et les États de l’objet d’utilisateur invité B2B dans Azure Active Directory (Azure AD) avant et après l’échange d’invitation. Utilisateur Azure AD business-to-business (B2B) collaboration est un utilisateur avec UserType = invité. Cet utilisateur invité appartient généralement à une organisation partenaire et dispose par défaut de privilèges limités dans l’annuaire qui invite.
 
 Selon les besoins de l’organisation qui émet l’invitation, un utilisateur Azure AD B2B Collaboration peut présenter l’un des états de compte suivants :
 
@@ -105,6 +105,6 @@ Oui. Par défaut, les objets invités ne sont pas visibles dans la liste d’adr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
-* [Jetons utilisateur B2B Collaboration](user-token.md)
-* [Mappage des revendications utilisateur B2B Collaboration](claims-mapping.md)
+* [Qu’est-ce qu’Azure AD B2B Collaboration ?](what-is-b2b.md)
+* [Jetons d’utilisateur B2B collaboration](user-token.md)
+* [Mappage des revendications utilisateur collaboration B2B](claims-mapping.md)

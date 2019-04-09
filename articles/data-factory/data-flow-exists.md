@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 18d8a0e231e8b4dbe33911dd6267966674366904
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6ce27ba699ae766ed4d2428f67d91379464bb9f1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734487"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006147"
 ---
 # <a name="azure-data-factory-mapping-data-flow-exists-transformation"></a>Azure Data Factory - Mappage d’une transformation Exists de flux de données
 
@@ -25,3 +25,10 @@ La transformation Exists est une transformation de filtrage de lignes qui stoppe
 Sélectionnez la deuxième source pour votre Exists pour permettre au flux de données de comparer les valeurs du Flux 1 par rapport au Flux 2.
 
 Sélectionnez la colonne de la Source 1 et de la Source 2 dont vous souhaitez vérifier les valeurs Exists ou Not Exists.
+
+## <a name="multiple-exists-conditions"></a>Il existe plusieurs conditions
+
+En regard de chaque ligne dans vos conditions de colonne pour existe, vous trouverez un + connexion disponibles lorsque vous pointez sur Atteindre la ligne. Cela vous permettra d’ajouter plusieurs lignes pour les conditions de Exists.
+
+## <a name="next-steps"></a>Étapes suivantes
+

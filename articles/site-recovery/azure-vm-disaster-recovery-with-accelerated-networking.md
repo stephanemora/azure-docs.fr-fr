@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: ff772d4f53b279d8d048720beaa62cfdeb6401eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: c7edc7979636ced8697aa5ad724f9c6600d840bb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850412"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283356"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Mise en réseau accélérée avec la récupération d’urgence de machines virtuelles Azure
 
@@ -24,7 +24,7 @@ Une mise en réseau accélérée permet d’opérer une virtualisation d’E/S d
 
 Azure Site Recovery vous permet d’utiliser les avantages de la mise en réseau accélérée, pour les machines virtuelles Azure basculées vers une autre région Azure. Cet article décrit comment utiliser la mise en réseau accélérée pour les machines virtuelles Azure répliquées avec Azure Site Recovery.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer, vérifiez que vous connaissez suffisamment les sujets suivants :
 -   [Architecture de réplication](azure-to-azure-architecture.md) des machines virtuelles Azure
@@ -52,13 +52,13 @@ Pour plus d’informations sur les instances de machine virtuelle, consultez la 
 Azure Site Recovery prend en charge l’activation de la mise en réseau accélérée pour les machines virtuelles répliquées seulement si celle-ci est activée pour la machine virtuelle source. Si la mise en réseau accélérée n’est pas activée pour votre machine virtuelle source, vous pouvez apprendre [ici](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) à activer la mise en réseau accélérée pour les machines virtuelles Linux.
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
-Les distributions suivantes sont prises en charge sans configuration supplémentaire à partir de la galerie Azure :
+Les distributions suivantes sont prises en charge sans configuration supplémentaire à partir de la galerie Azure :
 * **Ubuntu 16.04**
 * **SLES 12 SP3**
 * **RHEL 7.4**
 * **CentOS 7.4**
 * **CoreOS Linux**
-* **Debian « Stretch » with backports kernel**
+* **Debian « Stretch » with backports kernel**
 * **Oracle Linux 7.4**
 
 ### <a name="supported-vm-instances"></a>Instances de machines virtuelles prises en charge
