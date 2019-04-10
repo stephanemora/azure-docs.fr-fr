@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349703"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497174"
 ---
 # <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les limites de ressources qu’un abonnement utilisateur peut approvisionner ou consommer. Par exemple, un quota peut autoriser un utilisateur de créer jusqu’à cinq machines virtuelles. Chaque ressource peut avoir ses propres types de quotas.
+
+> [!IMPORTANT]
+> Il peut s’écouler jusqu’à deux heures avant que les nouveaux quotas ne soient disponibles sur le portail de l’utilisateur ou qu’un quota modifié ne soit appliqué.
 
 ## <a name="compute-quota-types"></a>Types de quotas de capacité de traitement (compute)
 
@@ -41,9 +44,9 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 | Capacité maximale (en Go) du disque managé Premium | 2 048 | Capacité maximale des disques managés Premium qui peuvent être créés dans cet emplacement. |
 
 > [!NOTE]  
-> La capacité maximale d’un disque non managé (objets blob par page) est distincte du quota de disque managé et doit être définie dans le quota de stockage.
+> La capacité maximale d’un disque non managé (objets blob par page) est distincte du quota des disques managés. Vous pouvez définir cette valeur dans la section **Quotas de stockage**.
 
-## <a name="storage-quota-types"></a>Types de quotas de stockage 
+## <a name="storage-quota-types"></a>Types de quotas de stockage
 
 | **Item** | **Valeur par défaut** | **Description** |
 | --- | --- | --- |
@@ -51,7 +54,7 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 | Nombre total de comptes de stockage |20 |Nombre maximal de comptes de stockage qu’un abonnement peut créer à cet emplacement. |
 
 > [!NOTE]  
-> L’application d’un quota de stockage peut prendre jusqu’à deux heures. La capacité maximale d’un disque managé (objets blob par page) est distincte du quota total de stockage et doit être définie dans le quota de calcul.
+> La capacité maximale des disques managés est distincte du quota de stockage total. Vous pouvez définir cette valeur dans la section **Quotas de calcul**.
 
 ## <a name="network-quota-types"></a>Types de quotas pour les réseaux
 

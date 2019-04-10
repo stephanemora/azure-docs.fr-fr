@@ -1,6 +1,6 @@
 ---
-title: Déployer Kubernetes sur Azure Stack | Microsoft Docs
-description: Découvrez comment déployer Kubernetes sur Azure Stack.
+title: Déployer Kubernetes pour utiliser des conteneurs Azure Stack | Microsoft Docs
+description: Découvrez comment déployer Kubernetes pour utiliser des conteneurs avec Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,19 +15,19 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 77275ec274a9c76918874007cfe564eea09e6de5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986241"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877191"
 ---
-# <a name="deploy-kubernetes-to-azure-stack"></a>Déployer Kubernetes sur Azure Stack
+# <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Déployer Kubernetes pour utiliser des conteneurs avec Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!Note]  
-> Kubernetes sur Azure Stack est en préversion. Le scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion.
+> Kubernetes sur Azure Stack est en préversion. Un scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion.
 
 Vous pouvez suivre les étapes de cet article pour déployer et configurer les ressources pour Kubernetes en une seule opération coordonnée. Les étapes utilisent un modèle Azure Resource Manager. Vous devez collecter les informations nécessaires sur votre installation d’Azure Stack, générer le modèle, puis le déployer sur votre cloud. Le modèle Azure Stack n’utilise pas le service AKS managé qui est offert dans Azure mondial.
 
@@ -43,14 +43,14 @@ Vous pouvez utiliser Kubernetes pour ce qui suit :
 
 Vous êtes facturé seulement pour l’utilisation des ressources de calcul qui est nécessaire aux nœuds où se trouve votre cluster. Pour plus d’informations, consultez [Utilisation et facturation dans Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
-## <a name="deploy-kubernetes"></a>Déployer Kubernetes
+## <a name="deploy-kubernetes-to-use-containers"></a>Déployer Kubernetes pour utiliser des conteneurs
 
 Les étapes pour déployer un cluster Kubernetes sur Azure Stack dépendent de votre service de gestion des identités. Vérifiez la solution de gestion des identités utilisée par votre installation d’Azure Stack. Contactez votre administrateur Azure Stack pour vérifier votre service de gestion des identités.
 
-- **Azure Active Directory (Azure AD)**  
+- **Azure Active Directory (Azure AD)**  
 Pour obtenir des instructions sur l’installation du cluster lors de l’utilisation d’Azure AD, consultez [Déployer Kubernetes sur Azure Stack à l’aide d’Azure Active Directory (Azure AD)](azure-stack-solution-template-kubernetes-azuread.md).
 
-- **Active Directory Federation Services (AD FS)**  
+- **Active Directory Federated Services (AD FS)**  
 Pour obtenir des instructions sur l’installation du cluster lors de l’utilisation d’AD FS, consultez [Déployer Kubernetes sur Azure Stack à l’aide d’Active Directory Federation Services (AD FS)](azure-stack-solution-template-kubernetes-adfs.md).
 
 ## <a name="connect-to-your-cluster"></a>Se connecter au cluster

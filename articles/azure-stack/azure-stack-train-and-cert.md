@@ -8,13 +8,13 @@ ms.service: azure-stack
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: mabrigg
-ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: d4f7ec8f4b6960650b98d8f2d2f051c0873c9754
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 3/20/2019
+ms.openlocfilehash: d15a981e0f43c686a5b6f60387dab6aa6f4b8096
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242499"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540327"
 ---
 # <a name="azure-stack-training-and-certification"></a>Formation et certification Azure Stack
 
@@ -24,9 +24,18 @@ Les opportunités de formation et de certification suivantes sont disponibles po
 
 ## <a name="training"></a>Formation
 
-- [Cours 20537A : configuration et utilisation d’un cloud hybride avec Microsoft Azure Stack](https://www.microsoft.com/en-us/learning/course.aspx?cid=20537)
-- [edX : formation en ligne Azure Stack](https://aka.ms/AzureStackMOOC)
-- [Rôles de travail et parcours d’apprentissage](https://azure.microsoft.com/training/learning-paths/)
+- Cours officiels Microsoft à la demande
+   - [ODX20537 : configuration et utilisation d’un cloud hybride avec Microsoft Azure Stack (180 jours)](https://www.microsoft.com/en-us/learning/course.aspx?cid=ODX20537)
+   - [OD20537 : configuration et utilisation d’un cloud hybride avec Microsoft Azure Stack (90 jours)](https://www.microsoft.com/en-us/learning/course.aspx?cid=OD20537)
+
+- Cours de formation informatique Microsoft
+   - [Cours 20537A : configuration et utilisation d’un cloud hybride avec Microsoft Azure Stack](https://aka.ms/azsmoc)
+
+- Open edx
+   - [edX : configuration et utilisation d’un cours en ligne Microsoft Azure Stack](https://aka.ms/AzureStackMOOC)
+   
+- Parcours d’apprentissage Microsoft
+   - [Rôles de travail et parcours d’apprentissage](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>Certification
 

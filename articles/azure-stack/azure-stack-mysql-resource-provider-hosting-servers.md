@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8cffcc938a247a2b08ff53b128560e1ab5e1653a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101871"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499775"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources MySQL
 
@@ -90,16 +90,19 @@ Il est considéré comme une bonne pratique que tous les serveurs d’hébergeme
 
 Vous ne pouvez pas attribuer de références SKU à des utilisateurs ou groupes.
 
-Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Les utilisateurs ne peuvent pas créer de base de données tant que la référence (SKU) n’a pas été complètement créée.
+Pour modifier une référence SKU, accédez à **Tous les services** > **Adaptateur MySQL** > **Références**. Sélectionnez la référence SKU à modifier, apportez les changements nécessaires, puis cliquez sur **Enregistrer** pour enregistrer les changements. 
 
-Pour modifier une référence SKU, accédez à **Tous les services** > **Adaptateur MySQL** > **Références**. Sélectionnez la référence SKU à modifier, apportez les changements nécessaires, puis cliquez sur **Enregistrer** pour enregistrer les changements. Pour supprimer une référence SKU dont vous ne vous servez plus, accédez à **Tous les services** > **Adaptateur MySQL** > **Références**. Cliquez sur le nom de la référence SKU et sélectionnez **Supprimer** pour la supprimer.
+Pour supprimer une référence SKU dont vous ne vous servez plus, accédez à **Tous les services** > **Adaptateur MySQL** > **Références**. Cliquez sur le nom de la référence SKU et sélectionnez **Supprimer** pour la supprimer.
 
-> [!TIP]
-> Vous pouvez modifier ou supprimer les quotas du fournisseur de ressources MySQL dans le même emplacement.
+> [!IMPORTANT]
+> Il peut s’écouler jusqu’à une heure avant que les nouvelles référence SKU soient disponibles sur le portail de l’utilisateur.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>Mise à disposition des serveurs de base de données MySQL pour vos utilisateurs
 
 Créez des plans et des offres pour mettre les serveurs de base de données MySQL à disposition des utilisateurs. Ajoutez le service Microsoft.MySqlAdapter au plan, puis créez un quota. MySQL n’autorise pas la limitation de la taille des bases de données.
+
+> [!IMPORTANT]
+> Il peut s’écouler jusqu’à deux heures avant que les nouveaux quotas ne soient disponibles sur le portail de l’utilisateur ou qu’un quota modifié ne soit appliqué.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

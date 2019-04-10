@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/29/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.lastreviewed: 03/29/2019
+ms.openlocfilehash: e4678b445dce5b337fb7d51e1b938adb944b4440
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095515"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648722"
 ---
 # <a name="azure-stack-capacity-planning"></a>Planification de capacité Azure Stack
 Lorsque vous envisagez d’adopter une solution Azure Stack, vous devez savoir que certaines options de configuration matérielle ont un impact direct sur la capacité globale du cloud Azure Stack. Parmi ces choix se trouvent celui de l’UC, de la densité de mémoire, de la configuration du stockage et de la mise à l’échelle globale de la solution (ou nombre de serveurs). Contrairement à une solution de virtualisation traditionnelle, l’arithmétique simple de ces composants pour déterminer la capacité utilisable ne s’applique pas. La première raison est que l’architecture d’Azure Stack permet d’héberger les composants de gestion ou d’infrastructure au sein-même de la solution. La deuxième raison est qu’une partie de la capacité de la solution est réservée pour prendre en charge la résilience ; la mise à jour des logiciels de la solution de manière à minimiser l’interruption de charges de travail des locataires.
@@ -34,25 +34,11 @@ Une solution Azure Stack est conçue sous la forme d’un cluster hyperconvergé
 
 La seule ressource physique qui n’est pas surapprovisionnée dans une solution Azure Stack est la mémoire du serveur. Les autres ressources, les cœurs de processeur, la bande passante réseau et la capacité de stockage, seront surapprovisionnées afin de tirer le meilleur parti des ressources disponibles. La mémoire du serveur physique est le principal facteur pris en compte dans le calcul de la capacité disponible d’une solution. L’utilisation des autres ressources repose donc sur l’identification du rapport de surapprovisionnement possible et de la capacité qui sera acceptable pour la charge de travail prévue.
 
-Environ 28 machines virtuelles sont utilisées pour héberger l’infrastructure d’Azure Stack. Celles-ci consomment au total environ 208 Go de mémoire et 124 cœurs virtuels.  Le nombre de machines virtuelles est lié à la nécessité de séparer les différents services pour répondre aux exigences de sécurité, d’évolutivité, de maintenance et d’action corrective. Grâce à cette structure de service interne, de nouveaux services d’infrastructure pourront être intégrés à mesure qu’ils sont développés.
+Environ 30 machines virtuelles sont utilisées pour héberger l’infrastructure d’Azure Stack. Celles-ci consomment au total environ 230 Go de mémoire et 140 cœurs virtuels. Le nombre de machines virtuelles est lié à la nécessité de séparer les différents services pour répondre aux exigences de sécurité, d’évolutivité, de maintenance et d’action corrective. Grâce à cette structure de service interne, de nouveaux services d’infrastructure pourront être intégrés à mesure qu’ils sont développés.
 
 Pour prendre en charge la mise à jour automatique de l’ensemble des composants logiciels de l’infrastructure et des serveurs physiques, ou encore la mise en place de correctifs et de mises à jour, les placements de machine virtuelle utilisateur et d’infrastructure ne consommeront pas toutes les ressources de mémoire de l’unité d’échelle. Une partie de la mémoire totale sur tous les serveurs d’une unité d’échelle sera non allouée pour assurer la résilience de la solution. Par exemple, lorsque l’image Windows Server du serveur physique est mise à jour, les machines virtuelles hébergées sur le serveur sont déplacées à un autre endroit dans l’unité d’échelle le temps de la mise à jour. Lorsque la mise à jour est terminée, le serveur est redémarré et recommence à prendre en charge des charges de travail. Pour le correctif et la mise à jour d’une solution Azure Stack, l’objectif consiste à éviter d’avoir à arrêter les machines virtuelles hébergées. Pour atteindre cet objectif, la capacité de mémoire d’au moins un serveur est non allouée pour permettre le déplacement des machines virtuelles au sein de l’unité d’échelle. Ce processus de placement et de mouvement s’applique à la fois aux machines virtuelles d’infrastructure et aux machines virtuelles créées pour le compte de l’utilisateur ou du locataire de la solution Azure Stack. Lors de l’implémentation finale, la quantité de mémoire réservée pour prendre en charge le déplacement des machines virtuelles peut être beaucoup élevée que la capacité d’un seul serveur en raison des difficultés de placement de machines virtuelles ayant différentes exigences en termes de mémoire. L’utilisation de la mémoire de l’instance Windows Server ajoute également une certaine complexité. L’instance du système d’exploitation de base pour chaque serveur consommera de la mémoire pour le système d’exploitation et ses tables de page virtuelle, à laquelle s’ajoute la mémoire utilisée par Hyper-V pour gérer chacune des machines virtuelles hébergées.
 
-Vous trouverez une description plus détaillée des difficultés de calcul de la capacité plus loin dans cette section. Dans cette présentation, les exemples suivants vous aident à mieux comprendre la capacité disponible en fonction de la taille de la solution. Ces exemples sont des estimations et se basent sur des hypothèses en matière d’utilisation de la mémoire de machine virtuelle de locataire qui peuvent ne pas correspondre aux valeurs réelles d’une installation de production. Pour ce tableau, la taille de machine virtuelle Azure Standard D2 est utilisée. Les machines virtuelles Azure Standard D2 sont dotées de 2 processeurs virtuels et de 7 Go de mémoire.
-
-|     |Capacité par serveur|| Capacité de l’unité d’échelle|  |  |||
-|-----|-----|-----|-----|-----|-----|-----|-----|
-|     | Mémoire | Cœurs de processeur | Nombre de serveurs | Mémoire | Cœurs de processeur | Machines virtuelles clientes<sup>1</sup>     | Ratio cœur<sup>2</sup>    |
-|Exemple 1|256 Go|28|4|1024 Go| 112 | 54 |4:3|
-|Exemple 2|512 Go|28|4|2 024 Go|112|144|4:1|
-|Exemple 3|384 Go|28|12|4 608 Go|336|432|3|
-|     |     |     |     |     |     |     |     |
-
-> <sup>1</sup> Machines virtuelles Standard D2.
-> 
-> <sup>2</sup> Ratio cœurs virtuels/cœurs physiques.
-
-Comme mentionné ci-dessus, la capacité de la machine virtuelle est déterminée par la mémoire disponible. Les ratios cœurs virtuels/cœurs physiques illustrent comment la densité de la machine virtuelle va modifier la capacité de processeur disponible, sauf si la solution est dotée d’un plus grand nombre de cœurs physiques (un autre processeur est choisi). Il en est de même pour la capacité de stockage et la capacité de stockage du cache.
+La capacité de la machine virtuelle est déterminée par la mémoire disponible. Les ratios cœurs virtuels/cœurs physiques illustrent comment la densité de la machine virtuelle va modifier la capacité de processeur disponible, sauf si la solution est dotée d’un plus grand nombre de cœurs physiques (un autre processeur est choisi). Il en est de même pour la capacité de stockage et la capacité de stockage du cache.
 
 Les exemples de densité de machine virtuelle ci-dessus sont donnés uniquement à titre indicatif. D’autres difficultés interviennent dans le calcul de la capacité. Contactez Microsoft ou un partenaire de solution pour mieux appréhender les différents choix en matière de planification de la capacité et la capacité disponible qui en résulte.
 

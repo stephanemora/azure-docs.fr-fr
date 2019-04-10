@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2019
+ms.date: 04/03/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: fbf9f4aa79af32cf0e73f4e383130c565de16f53
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.lastreviewed: 04/03/2019
+ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372367"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862078"
 ---
 # <a name="azure-stack-1902-update"></a>Mise à jour 1902 d’Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : Systèmes intégrés Azure Stack*
 
 Cet article décrit le contenu de la mise à jour 1902. La mise à jour inclut des améliorations, des corrections de bogues et de nouvelles fonctionnalités pour cette version d’Azure Stack. Cet article décrit également les problèmes connus dans cette version, et contient un lien permettant de télécharger la mise à jour. Les problèmes connus sont divisés en problèmes directement liés au processus de mise à jour et problèmes propres à la build (après installation).
 
@@ -57,12 +57,12 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 ## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
-> - Avant d’installer la mise à jour 1902, installez le [dernier correctif logiciel d’Azure Stack](#azure-stack-hotfixes) pour la build 1901.
+> Vous pouvez installer la mise à jour 1902 directement à partir de la version [1.1901.0.95 ou 1.1901.0.99](azure-stack-update-1901.md#build-reference), sans installer au préalable un correctif logiciel 1901. Mais si vous avez installé l’ancien correctif logiciel **1901.2.103**, vous devez installer le nouveau [correctif logiciel 1901.3.105](https://support.microsoft.com/help/4495662) avant de passer à la mise à jour 1902.
 
 - Avant de démarrer l’installation de cette mise à jour, exécutez [Test-AzureStack](azure-stack-diagnostic-test.md) avec les paramètres suivants pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés, y compris tous les avertissements et les échecs. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une action :
 
-    ```PowerShell
-    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
+    ```powershell
+    Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
 - Lorsqu’Azure Stack est géré par System Center Operations Manager (SCOM), veillez à mettre à jour le [Pack d’administration pour Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) vers la version 1.0.3.11 avant d’appliquer la version 1902.
@@ -77,6 +77,9 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 
 - La build 1902 introduit une nouvelle interface utilisateur sur le portail Administrateur Azure Stack pour la création de plans, d’offres, de quotas et de plans complémentaires. Pour plus d’informations, y compris des captures d’écran, consultez [Créer des plans, des offres et des quotas](azure-stack-create-plan.md).
 
+<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
+- Améliorations de la fiabilité de l’extension de capacité pendant l’ajout de nœuds lors du passage de l’état de l’unité d’échelle de « Développement du stockage » à l’état d’exécution.
+
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
 1399240 3322580: [PNU] Optimize the DSC resource execution on the Host  PNU
@@ -85,22 +88,20 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
 -->
 - Pour améliorer l’intégrité et la sécurité du package et faciliter la gestion pour l’ingestion de données hors connexion, Microsoft a modifié le format du package de mise à jour en transformant les fichiers .exe et .bin en un fichier .zip. Le nouveau augmente encore la fiabilité du processus de décompression qui, dans certains cas, peut bloquer la préparation de la mise à jour. Le même format de package s’applique également aux packages de mise à jour de votre OEM.
-
-- Pour améliorer l’expérience des opérateurs Azure Stack lors de l’exécution de **Test-AzureStack**, les opérateurs peuvent maintenant simplement utiliser `Test-AzureStack -Group UpdateReadiness` au lieu de passer dix paramètres supplémentaires après une instruction `include`. Par exemple : 
+- Pour améliorer l’expérience des opérateurs Azure Stack lors de l’exécution de Test-AzureStack, les opérateurs peuvent maintenant simplement utiliser « Test-AzureStack -Group UpdateReadiness » au lieu de passer dix paramètres supplémentaires après une instruction Include.
 
   ```powershell
-  Test-AzureStack -Group UpdateReadiness  
-  ```
-
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
 - Afin d’améliorer la fiabilité et la disponibilité globales des principaux services d’infrastructure pendant le processus de mise à jour, le fournisseur de ressources de mise à jour natif, en tant que partie prenante du plan d’action de mise à jour, détecte et appelle des corrections globales automatiques si nécessaire. Le flux de travail de correction globale « Réparer » inclut les opérations suivantes :
-
-  - Rechercher les machines virtuelles de l’infrastructure dont l’état n’est pas optimal et tenter de les réparer si nécessaire.
-  - Rechercher les problèmes de service SQL dans le cadre du plan de contrôle et tenter d’y remédier si nécessaire.
-  - Vérifier l’état du service d’équilibrage de charge logicielle (SLB) dans le contrôleur de réseau (NC) et tenter de le réparer si nécessaire.
-  - Vérifier l’état du service de contrôleur de réseau (NC) et tenter de le réparer si nécessaire.
-  - Vérifier l’état des nœuds de la structure du service de console de récupération d’urgence (ERCS) et les réparer si nécessaire.
-  - Vérifier l’état des nœuds de la structure du service XRP et les réparer si nécessaire.
-  - Vérifier l’état des nœuds de la structure du service de stockage cohérent Azure (ACS) et les réparer si nécessaire.
+    - Rechercher les machines virtuelles de l’infrastructure dont l’état n’est pas optimal et tenter de les réparer si nécessaire 
+    - Rechercher les problèmes de service SQL dans le cadre du plan de contrôle et tenter d’y remédier si nécessaire
+    - Vérifier l’état du service d’équilibrage de charge logicielle (SLB) dans le contrôleur de réseau (NC) et tenter de le réparer si nécessaire
+    - Vérifier l’état du service de contrôleur de réseau (NC) et tenter de le réparer si nécessaire
+    - Vérifier l’état des nœuds de la structure du service de console de récupération d’urgence (ERCS) et les réparer si nécessaire
+    - Vérifier l’état des nœuds de la structure du service XRP et les réparer si nécessaire
+    - Vérifier l’état des nœuds de la structure du service de stockage cohérent Azure (ACS) et les réparer si nécessaire
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
 - Améliorations de la fiabilité de l’extension de capacité pendant l’ajout de nœuds lors du passage de l’état de l’unité d’échelle de « Développement du stockage » à l’état d’exécution.    
@@ -115,13 +116,13 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 - Améliorations des outils de diagnostic de la pile Azure pour augmenter la fiabilité et les performances de la collection de journaux. Une journalisation supplémentaire pour les services de mise en réseau et d’identité. 
 
 <!-- 1384958    Adding a Test-AzureStack group for Secret Rotation  Diagnostics -->
-- Améliorations de la fiabilité de **Test-AzureStack** pour le test de préparation à la rotation des secrets.
+- Améliorations de la fiabilité de Test-AzureStack pour le test de préparation à la rotation des secrets.
 
 <!-- 1404751    3617292: Graph: Remove dependency on ADWS.  Identity -->
-- Améliorations pour accroître la fiabilité d’AD Graph lors de la communication avec l’environnement Active Directory du client.
+- Améliorations pour accroître la fiabilité d’AD Graph lors de la communication avec l’environnement Active Directory du client
 
 <!-- 1391444    [ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info   System info -->
-- Améliorations de la collection d’inventaire matériel dans **Get-AzureStackStampInformation**.
+- Améliorations de la collection d’inventaire matériel dans Get-AzureStackStampInformation.
 
 - Pour améliorer la fiabilité des opérations en cours d’exécution sur l’infrastructure ERCS, la mémoire pour chaque instance ERCS passe de 8 Go à 12 Go. Sur une installation de systèmes intégrés Azure Stack, cela entraîne une augmentation globale de 12 Go.
 
@@ -219,19 +220,6 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
    - Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre le problème, effectuez les étapes décrites dans [cet article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) afin de reconfigurer chacun de vos annuaires invités.
 
 - Une machine virtuelle 18.04 Ubuntu créée avec une autorisation SSH activée ne vous permet pas d’utiliser les clés SSH pour vous connecter. Pour contourner ce problème, utilisez un accès à la machine virtuelle pour l’extension Linux afin d’implémenter des clés SSH après l’approvisionnement, ou utilisez une authentification par mot de passe.
-
-- Si vous n’avez pas un hôte de cycle de vie du matériel (HLH) : Avant la build 1902, vous deviez définir la stratégie de groupe **Configuration de l’ordinateur\Paramètres Windows\Paramètres de sécurité\Stratégies Locales\Options de sécurité** sur **Envoyer LM et NTLM – utiliser la sécurité de session NTLMv2 si négociée**. Depuis la build 1902, vous devez la laisser en tant que **Non définie** ou la définir sur **Envoyer une réponse NTLMv2 uniquement** (qui est la valeur par défaut). Sinon, vous ne pouvez pas établir de session PowerShell à distance et vous recevez un message d’erreur **L’accès est refusé** :
-
-   ```shell
-   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
-   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
-   about_Remote_Troubleshooting Help topic.
-   At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
-   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
-      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
-   ```
 
 ### <a name="networking"></a>Mise en réseau  
 

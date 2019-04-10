@@ -15,12 +15,12 @@ ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 277af6f139e815f46894f5b8df82a1d92ef573d1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c957812271d2ddd6639672d862026b30cfd19661
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537131"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804511"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Ajouter des images Linux à Azure Stack
 
@@ -38,7 +38,7 @@ Notez qu’il existe des mises à jour fréquentes pour ces images, aussi report
 
 Dans la mesure du possible, téléchargez les images disponibles via la Gestion de la Place de marché qui ont été préparées et testées pour Azure Stack.
 
-L’agent Azure Linux (généralement appelé `WALinuxAgent` ou `walinuxagent`) est requis, et toutes les versions de l’agent ne fonctionnent pas sur Azure Stack. Si vous créez votre propre image, vous devez utiliser la dernière version de WALA ou la version 2.2.20. Notez que les versions entre 2.2.20 et 2.2.35.1 (non incluse) ne fonctionnent pas sur Azure Stack. Notez que [cloud-init](https://cloud-init.io/) n’est pas pris en charge sur Azure Stack pour l’instant.
+L’agent Azure Linux (généralement appelé `WALinuxAgent` ou `walinuxagent`) est requis, et toutes les versions de l’agent ne fonctionnent pas sur Azure Stack. Si vous créez votre propre image, vous devez utiliser la dernière version de WALA ou la version 2.2.20. Notez que les versions entre 2.2.20 et 2.2.35.1 (non incluse) ne fonctionnent pas sur Azure Stack. Pour utiliser des versions de l’agent entre 2.2.20 et 2.2.35.1, appliquez le correctif logiciel 1901/1902, ou mettre à jour votre environnement Azure Stack avec la version 1903 (ou supérieure). Notez que [cloud-init](https://cloud-init.io/) n’est pas pris en charge sur Azure Stack pour l’instant.
 
 Vous pouvez préparer votre propre image Linux en appliquant les instructions suivantes :
 

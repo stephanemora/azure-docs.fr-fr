@@ -1,6 +1,6 @@
 ---
-title: Résoudre les problèmes de votre déploiement Kubernetes sur Azure Stack | Microsoft Docs
-description: Découvrez comment résoudre les problèmes de votre déploiement Kubernetes sur Azure Stack.
+title: Résoudre les problèmes de déploiement Kubernetes sur Azure Stack | Microsoft Docs
+description: Découvrez comment résoudre les problèmes de déploiement Kubernetes sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,17 +11,17 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 9af4b7a622bfb47d44c3da0edcece8c9528b08c4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2a9eccfa109292b7d142092f69f4a664b0ff8f20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361538"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878126"
 ---
-# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Résoudre les problèmes de votre déploiement Kubernetes sur Azure Stack
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Résoudre les problèmes de déploiement Kubernetes sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -30,11 +30,11 @@ ms.locfileid: "58361538"
 
 L’article suivant traite de la résolution des problèmes rencontrés avec votre cluster Kubernetes. Vous pouvez consulter l’alerte de déploiement et examiner l’état de votre déploiement par le biais des éléments requis pour ce déploiement. Vous devrez peut-être collecter les journaux de déploiement à partir du système Azure Stack ou des machines virtuelles Linux qui hébergent Kubernetes. Vous pouvez également être amené à travailler avec votre administrateur Azure Stack pour récupérer des journaux à partir d’un point de terminaison d’administration.
 
-## <a name="overview-of-deployment"></a>Vue d’ensemble du déploiement
+## <a name="overview-of-kubernetes-deployment"></a>Vue d’ensemble du déploiement Kubernetes
 
 Avant de commencer à résoudre des problèmes sur votre cluster, vous souhaitez peut-être revoir rapidement les principes du déploiement d’un cluster Kubernetes Azure Stack. Ce déploiement utilise un modèle de solution Azure Resource Manager pour créer les machines virtuelles, puis installe le moteur ACS de votre cluster.
 
-### <a name="deployment-workflow"></a>Workflow du déploiement
+### <a name="kubernetes-deployment-workflow"></a>Workflow du déploiement Kubernetes
 
 Le schéma suivant illustre le processus général de déploiement du cluster.
 
@@ -85,7 +85,7 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
 
 Vous pouvez collecter des journaux sur les machines virtuelles qui prennent en charge votre cluster Kubernetes. Vous pouvez également consulter le journal de déploiement. Vous aurez peut-être besoin de contacter votre administrateur Azure Stack pour vérifier la version d’Azure Stack à utiliser et obtenir à partir d’Azure Stack les journaux liés à votre déploiement.
 
-1. Examinez l’[état du déploiement](#review-deployment-status) et [récupérez les journaux](#get-logs-from-a-vm) à partir du nœud principal de votre cluster Kubernetes.
+1. Examinez l’[état du déploiement](#review-deployment-status) et récupérez les journaux à partir du nœud principal de votre cluster Kubernetes.
 2. Assurez-vous que vous utilisez la version la plus récente d’Azure Stack. Si vous ne savez pas quelle version vous utilisez, contactez votre administrateur Azure Stack.
 3.  Passez en revue vos fichiers de création des machines virtuelles. Vous avez peut-être rencontré les problèmes suivants :  
     - La clé publique peut être non valide. Examinez la clé que vous avez créée.  

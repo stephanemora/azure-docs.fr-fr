@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.lastreviewed: 03/27/2019
+ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226859"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649405"
 ---
 # <a name="azure-stack-1901-update"></a>Mise à jour 1901 d’Azure Stack
 
@@ -56,18 +56,20 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 
 ### <a name="azure-stack-hotfixes"></a>Correctifs logiciels d’Azure Stack
 
+Si vous utilisez déjà la mise à jour 1901 et n’avez pas encore installé les correctifs logiciels, vous pouvez [installer directement la mise à jour 1902](azure-stack-update-1902.md), sans installer au préalable le correctif logiciel 1901.
+
 - **1809** : [KB 4481548 – Correctif logiciel d’Azure Stack 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811** : Aucun correctif logiciel actuellement disponible.
-- **1901** : [KB 4481548 – Correctif logiciel d’Azure Stack 1.1901.2.103](https://support.microsoft.com/help/4494720)
+- **1901** : [KB 4495662 – Correctif logiciel d’Azure Stack 1.1901.3.105](https://support.microsoft.com/help/4495662)
 
 ## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
-> - Avant d’installer la mise à jour 1901, installez le [dernier correctif logiciel d’Azure Stack](#azure-stack-hotfixes) pour la build 1811.
+> Avant d’installer la mise à jour 1901, installez le [dernier correctif logiciel d’Azure Stack](#azure-stack-hotfixes) pour la build 1811. Si vous utilisez déjà la mise à jour 1901 et n’avez pas encore installé les correctifs logiciels, vous pouvez installer directement la mise à jour 1902, sans installer au préalable le correctif logiciel 1901.
 
 - Avant de démarrer l’installation de cette mise à jour, exécutez [Test-AzureStack](azure-stack-diagnostic-test.md) avec les paramètres suivants pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés, y compris tous les avertissements et les échecs. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une action :
 
-    ```PowerShell
+    ```powershell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
@@ -93,7 +95,7 @@ Cette mise à jour inclut les nouvelles fonctionnalités et améliorations suiva
    * **AzureRm.Insights**  
          Le module de correctif cumulatif AzureRm inclut désormais la version 5.1.5 déjà publiée qui prend en charge **api-version 2018-01-01** pour les métriques, les définitions de métriques et les types de ressources.
 
-- **AzureStack 1.7.0** Il s’agit d’une modification critique. Pour plus d’informations sur les modifications critiques, reportez-vous à https://aka.ms/azspshmigration170.
+- **AzureStack 1.7.1** Il s’agit d’une modification critique. Pour plus d’informations sur les modifications critiques, reportez-vous à https://aka.ms/azspshmigration171.
    * **Module Azs.Backup.Admin**  
          Changement cassant : Modifications concernant les sauvegardes dans le mode de chiffrement basé sur le certificat. La prise en charge des clés symétriques est dépréciée.  
    * **Module Azs.Fabric.Admin**  
@@ -117,9 +119,6 @@ Pour consulter la référence des modules mis à jour, lisez [Référence du mod
 
 - <!-- 3235634 – IS, ASDK -->
   Correction d’un problème où, pour déployer des machines virtuelles dont les tailles contenaient le suffixe **v2** (par exemple, **Standard_A2_v2**), vous deviez spécifier le suffixe avec un « v » minuscule (**Standard_A2_v2**). Comme dans l’ensemble des produits Azure, vous pouvez désormais utiliser la forme **Standard_A2_V2** (avec un « V » majuscule).
-
-<!-- 2869209 – IS, ASDK --> 
-- Correction d’un problème où, quand vous utilisiez l’[applet de commande Add-AzsPlatformImage](/powershell/module/azs.compute.admin/add-azsplatformimage), vous deviez spécifier le paramètre **-OsUri** comme l’URI du compte de stockage où le disque était chargé. Vous pouvez désormais utiliser le chemin local du disque.
 
 <!--  2795678 – IS, ASDK --> 
 - Correction d’un problème qui affichait un avertissement quand vous utilisiez le portail pour créer des machines virtuelles de taille Premium (DS, Ds_v2, FS, FSv2). Celles-ci étaient créées dans un compte de stockage standard. Même si cela n’avait pas d’impact sur sa fonctionnalité, sur les IOPS ou sur la facturation, l’avertissement a été supprimé.

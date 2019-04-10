@@ -1,6 +1,6 @@
 ---
-title: Bonnes pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure Stack
-description: Présente les bonnes pratiques pour optimiser les performances de SQL Server dans les machines virtuelles Microsoft Azure Stack.
+title: Utiliser les meilleures pratiques SQL Server et optimiser les performances dans les machines virtuelles Azure Stack | Microsoft Docs
+description: Cet article fournit les meilleures pratiques SQL Server pour améliorer les performances et optimiser SQL Server dans les machines virtuelles Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03a354a7d670033fa86ebbb094710a836b6219c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123400"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879062"
 ---
-# <a name="optimize-sql-server-performance"></a>Optimiser les performances de SQL Server
+# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Meilleures pratiques SQL Server pour optimiser les performances dans Azure Stack
 
-Cet article donne des conseils pour optimiser les performances de SQL Server dans les machines virtuelles Microsoft Azure Stack. Quand vous exécutez SQL Server dans des machines virtuelles Azure Stack, utilisez les mêmes options de réglage des performances de base de données qui s’appliquent à SQL Server dans un environnement serveur local. Les performances d’une base de données relationnelle dans un cloud Azure Stack dépendent de nombreux facteurs. Ces derniers incluent la taille de famille d’une machine virtuelle et la configuration des disques de données.
+Cet article fournit les meilleures pratiques SQL Server pour optimiser SQL Server et améliorer les performances dans les machines virtuelles Microsoft Azure Stack. Quand vous exécutez SQL Server dans des machines virtuelles Azure Stack, utilisez les mêmes options de réglage des performances de base de données qui s’appliquent à SQL Server dans un environnement serveur local. Les performances d’une base de données relationnelle dans un cloud Azure Stack dépendent de nombreux facteurs. Ces derniers incluent la taille de famille d’une machine virtuelle et la configuration des disques de données.
 
 Quand vous créez des images SQL Server, [pensez à provisionner vos machines virtuelles dans le portail Azure Stack](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Téléchargez l’extension IaaS SQL à partir de la fonctionnalité de gestion de la Place de marché dans le portail d’administration d’Azure Stack et téléchargez les disques durs virtuels (VHD) de machine virtuelle SQL de votre choix. Ces derniers incluent SQL2014SP2, SQL2016SP1 et SQL2017.
 
@@ -37,7 +37,8 @@ Cet article se concentre sur l’obtention des *meilleures* performances pour SQ
 > [!NOTE]  
 > Pour obtenir de l’aide sur les performances de SQL Server dans des machines Azure, consultez [cet article](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="checklist-for-sql-server-best-practices"></a>Check-list des meilleures pratiques SQL Server
+
 La check-list suivante permet d’optimiser les performances de SQL Server sur des machines virtuelles Azure Stack :
 
 
@@ -97,7 +98,7 @@ Nous vous recommandons de stocker TempDB sur un disque de données, car chaque d
 
 ### <a name="data-disks"></a>Disques de données
 
-- **Utilisation de disques de données pour les fichiers journaux et de données.** Si vous n’utilisez pas l’entrelacement de disques, utilisez deux disques de données à partir d’une machine virtuelle qui prend en charge le stockage Premium, l’un pour contenir les fichiers journaux et l’autre pour contenir les fichiers TempDB et de données. Chaque disque de données fournit un nombre d’IOPS et une bande passante (Mo/s) en fonction de la famille de machine virtuelle, comme décrit dans [Tailles de machine virtuelle prises en charge dans Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). Si vous utilisez une technique d’entrelacement de disques, comme des espaces de stockage, placez tous les fichiers journaux et de données sur le même disque (y compris TempDB). Cette configuration vous donne le nombre maximal d’IOPS utilisables par SQL Server, quel que soit le fichier qui en a besoin à un moment donné.
+- **Utilisez des disques de données pour les fichiers journaux et de données.** Si vous n’utilisez pas l’entrelacement de disques, utilisez deux disques de données à partir d’une machine virtuelle qui prend en charge le stockage Premium, l’un pour contenir les fichiers journaux et l’autre pour contenir les fichiers TempDB et de données. Chaque disque de données fournit un nombre d’IOPS et une bande passante (Mo/s) en fonction de la famille de machine virtuelle, comme décrit dans [Tailles de machine virtuelle prises en charge dans Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). Si vous utilisez une technique d’entrelacement de disques, comme des espaces de stockage, placez tous les fichiers journaux et de données sur le même disque (y compris TempDB). Cette configuration vous donne le nombre maximal d’IOPS utilisables par SQL Server, quel que soit le fichier qui en a besoin à un moment donné.
 
 > [!NOTE]  
 > Quand vous provisionnez une machine virtuelle SQL Server dans le portail, vous avez la possibilité de modifier votre configuration de stockage. Selon votre configuration, Azure Stack configure un ou plusieurs disques. Plusieurs disques sont combinés en un pool de stockage unique. Les fichiers journaux et de données se trouvent dans cette configuration.
@@ -112,7 +113,7 @@ Nous vous recommandons de stocker TempDB sur un disque de données, car chaque d
 
        Par exemple, la commande PowerShell suivante crée un pool de stockage avec un entrelacement de 64 Ko et 2 colonnes :
 
-       ```PowerShell  
+       ```powershell  
        $PoolCount = Get-PhysicalDisk -CanPool $True
        $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
@@ -161,4 +162,4 @@ Certains déploiements peuvent bénéficier de plus grands avantages en termes d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Utilisation de services ou création d’applications pour Azure Stack](azure-stack-considerations.md)
+[à l’utilisation de services ou à la création d’applications pour Azure Stack](azure-stack-considerations.md)
