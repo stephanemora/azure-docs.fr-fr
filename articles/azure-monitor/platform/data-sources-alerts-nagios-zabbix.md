@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540043"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426187"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Collecte d’alertes de Nagios et Zabbix dans Azure Monitor à partir de l’agent Log Analytics pour Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -92,15 +92,15 @@ Pour les enregistrements d’alerte collectés par Nagios, le **type** est **Ale
 
 | Propriété | Description |
 |:--- |:--- |
-| Type |*Alert* |
-| SourceSystem |*Nagios* |
-| AlertName |Nom de l’alerte. |
-| AlertDescription | Description de l’alerte. |
-| AlertState | État du service ou de l’hôte.<br><br>OK<br>AVERTISSEMENT<br>ACTIF<br>INACTIF |
-| HostName | Nom de l’hôte qui a créé l’alerte. |
-| PriorityNumber | Niveau de priorité de l’alerte. |
-| StateType | Type d’état de l’alerte.<br><br>LÉGER : problème qui n’a pas été revérifié.<br>URGENT : problème qui a été revérifié un nombre spécifié de fois.  |
-| TimeGenerated |Date et heure de la création de l’alerte. |
+| `Type` |*Alerte* |
+| `SourceSystem` |*Nagios* |
+| `AlertName` |Nom de l’alerte. |
+| `AlertDescription` | Description de l’alerte. |
+| `AlertState` | État du service ou de l’hôte.<br><br>OK<br>AVERTISSEMENT<br>ACTIF<br>INACTIF |
+| `HostName` | Nom de l’hôte qui a créé l’alerte. |
+| `PriorityNumber` | Niveau de priorité de l’alerte. |
+| `StateType` | Type d’état de l’alerte.<br><br>LÉGER : problème qui n’a pas été revérifié.<br>URGENT : problème qui a été revérifié un nombre spécifié de fois.  |
+| `TimeGenerated` |Date et heure de la création de l’alerte. |
 
 
 ### <a name="zabbix-alert-records"></a>Enregistrements d’alerte Zabbix
@@ -108,17 +108,17 @@ Pour les enregistrements d’alerte collectés par Zabbix, le **type** est **Ale
 
 | Propriété | Description |
 |:--- |:--- |
-| Type |*Alert* |
-| SourceSystem |*Zabbix* |
-| AlertName | Nom de l’alerte. |
-| AlertPriority | Gravité de l’alerte.<br><br>non classée<br>information<br>Avertissement<br>average<br>élevée<br>urgence  |
-| AlertState | État de l’alerte.<br><br>0 - l’état est à jour.<br>1 - l’état est inconnu.  |
-| AlertTypeNumber | Indique si l’alerte peut générer plusieurs événements de problème.<br><br>0 - l’état est à jour.<br>1 - l’état est inconnu.    |
-| Commentaires | Commentaires supplémentaires pour l’alerte. |
-| HostName | Nom de l’hôte qui a créé l’alerte. |
-| PriorityNumber | Valeur qui indique la gravité de l’alerte.<br><br>0 - non classée<br>1 - information<br>2 - avertissement<br>3 - moyenne<br>4 - élevée<br>5 - urgence |
-| TimeGenerated |Date et heure de la création de l’alerte. |
-| TimeLastModified |Date et heure de la dernière modification de l’état de l’alerte. |
+| `Type` |*Alerte* |
+| `SourceSystem` |*Zabbix* |
+| `AlertName` | Nom de l’alerte. |
+| `AlertPriority` | Gravité de l’alerte.<br><br>non classée<br>information<br>Avertissement<br>average<br>élevée<br>urgence  |
+| `AlertState` | État de l’alerte.<br><br>0 - l’état est à jour.<br>1 - l’état est inconnu.  |
+| `AlertTypeNumber` | Indique si l’alerte peut générer plusieurs événements de problème.<br><br>0 - l’état est à jour.<br>1 - l’état est inconnu.    |
+| `Comments` | Commentaires supplémentaires pour l’alerte. |
+| `HostName` | Nom de l’hôte qui a créé l’alerte. |
+| `PriorityNumber` | Valeur qui indique la gravité de l’alerte.<br><br>0 - non classée<br>1 - information<br>2 - avertissement<br>3 - moyenne<br>4 - élevée<br>5 - urgence |
+| `TimeGenerated` |Date et heure de la création de l’alerte. |
+| `TimeLastModified` |Date et heure de la dernière modification de l’état de l’alerte. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

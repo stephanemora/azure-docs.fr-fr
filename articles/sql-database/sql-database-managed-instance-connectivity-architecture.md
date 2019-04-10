@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651310"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358283"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans la base de données SQL Azure 
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans la base de données SQL Azure
 
 Cet article explique la communication au sein d’une instance managée de base de données SQL Azure. Elle décrit également l’architecture de connectivité et la façon dont les composants de dirigent le trafic vers l’instance gérée.  
 
@@ -117,7 +117,6 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 > [!IMPORTANT]
 > Bien que les règles de sécurité de trafic entrant requise autorisent le trafic à partir de _tout_ de code source sur les ports 9000, 9003, 1438, 1440 et 1452, ces ports sont protégés par un pare-feu intégré. Pour plus d’informations, consultez [déterminer l’adresse de point de terminaison de gestion](sql-database-managed-instance-find-management-endpoint-ip-address.md).
-
 > [!NOTE]
 > Si vous utilisez la réplication transactionnelle dans une instance gérée, et si vous utilisez une base de données d’instance comme un serveur de publication ou un serveur de distribution, ouvrez le port 445 (TCP sortant) dans les règles de sécurité du sous-réseau. Ce port autorise l’accès au partage de fichiers Azure.
 

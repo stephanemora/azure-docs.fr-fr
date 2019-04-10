@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.custom: mvc
-ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 04/03/2019
+ms.custom: ''
+ms.openlocfilehash: 437e55b1a2907418fe47f418245431fa1c882b80
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446322"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915679"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planification de la capacité de calcul Azure Stack
 Les [tailles de machine virtuelle prises en charge dans Azure Stack](./user/azure-stack-vm-sizes.md) sont un sous-ensemble de celles prises en charge dans Azure. Azure impose des limites de ressources à différents niveaux pour éviter la consommation excessive des ressources (au niveau du service ou du serveur local). Si aucune limite n’est appliquée à la consommation des locataires, la surconsommation de ressources par certains locataires aurait un impact négatif sur l’expérience des autres locataires. Pour la sortie réseau de la machine virtuelle, des limites de bande passante sont en place dans Azure Stack conformément aux limites d’Azure. Pour les ressources de stockage, Azure Stack implémente des limites d’E/S par seconde de stockage pour éviter une consommation excessive de base des ressources par les locataires pour l’accès au stockage.  
@@ -45,7 +45,7 @@ Le calcul suivant permet d’obtenir la capacité de mémoire totale disponible 
 
   Mémoire disponible pour le placement des machines virtuelles = Mémoire totale du serveur – Réserve de résilience – Mémoire utilisée par les machines virtuelles en cours d'exécution – Surcharge de l'infrastructure Azure Stack <sup>1</sup>
 
-  Réserve de résilience = H + R * (N-1) + V * (N-2)
+  Réserve de résilience = H + R * ((N-1) * H) + V * (N-2)
 
 > Où :
 > - H = taille de la mémoire d’un seul serveur
@@ -53,7 +53,7 @@ Le calcul suivant permet d’obtenir la capacité de mémoire totale disponible 
 > - R = réserve de système d’exploitation pour la surcharge du système d’exploitation<sup>2</sup>
 > - V = taille de la plus grande machine virtuelle dans l’unité d’échelle
 
-  <sup>1</sup> Surcharge de l’infrastructure Azure Stack = 208 Go
+  <sup>1</sup> Surcharge de l’infrastructure Azure Stack = 230 Go
 
   <sup>2</sup> Réserve de système d’exploitation pour la surcharge = 15 % de la mémoire de nœud. La valeur de la réserve de système d’exploitation est une estimation et varie en fonction de la capacité de mémoire physique du serveur et de la surcharge générale du système d’exploitation.
 

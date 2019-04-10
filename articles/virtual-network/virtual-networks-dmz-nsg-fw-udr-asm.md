@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 104eae7c8d18c32fd5b9b84147df2bf121345c22
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277412"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426526"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Exemple 3 : Créer un réseau de périmètre pour protéger les réseaux avec un pare-feu, UDR et groupes de sécurité réseau
 
@@ -396,7 +396,7 @@ Voici les spécificités de chaque règle nécessaire pour terminer cet exemple�
     > [!TIP]
     > Bien que cet exemple de règle utilise `<explicit-dest>` référence, vous devez utiliser une approche cohérente tout au long de la configuration du pare-feu. Il est recommandé à l’aide d’un objet réseau nommé pour faciliter la lisibilité et la prise en charge. Le `<explicit-dest>` affichée ici uniquement pour montrer une méthode de référence alternative. Nous ne généralement recommandé, en particulier pour des configurations complexes.
 
-* **Règle sortant vers internet**: Cette règle pass autorise le trafic à partir de n’importe quel réseau Source vers les réseaux de Destination sélectionnés. Le pare-feu Barracuda NextGen a généralement cela cette règle « on » par défaut, mais dans un état désactivé. Avec le bouton droit sur cette règle pour accéder à la **activer la règle** commande. Modifier la règle indiquée dans la capture d’écran pour ajouter les objets de réseau pour les sous-réseaux principal et frontal à l’attribut Source de cette règle. Vous avez créé ces objets réseau dans la section Configuration requise de cet article.
+* **Règle sortant vers internet**: Cette règle pass autorise le trafic à partir de n’importe quel réseau Source vers les réseaux de Destination sélectionnés. Le pare-feu Barracuda NextGen a généralement cette règle « on » par défaut, mais dans un état désactivé. Avec le bouton droit sur cette règle pour accéder à la **activer la règle** commande. Modifier la règle indiquée dans la capture d’écran pour ajouter les objets de réseau pour les sous-réseaux principal et frontal à l’attribut Source de cette règle. Vous avez créé ces objets réseau dans la section Configuration requise de cet article.
   
     ![Règle de trafic sortant de pare-feu][14]
 

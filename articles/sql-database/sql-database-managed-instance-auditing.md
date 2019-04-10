@@ -14,19 +14,19 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: fc8b300cea714ee44f826a78ce8c7a10c1443414
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282115"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357425"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
 
 [L’audit Managed Instance](sql-database-managed-instance.md) suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. Par ailleurs, l’audit :
 
 - peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données ainsi qu’à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité ;
-- permet et facilite le respect de normes de conformité, même s’il ne garantit pas cette conformité. Pour plus d’informations sur Azure de programmes de la conformité aux normes de cette prise en charge, consultez le [centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/compliance/) où vous trouverez la liste actualisée des certifications de conformité de base de données SQL.
+- permet et facilite le respect de normes de conformité, même s’il ne garantit pas cette conformité. Pour plus d’informations sur Azure de programmes de la conformité aux normes de cette prise en charge, consultez le [centre de confidentialité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité de base de données SQL.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurer l’audit de votre serveur sur Stockage Azure
 
@@ -242,7 +242,7 @@ Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockag
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir la liste complète des méthodes de consommation du journal d’audit, reportez-vous à l’article [Bien démarrer avec l’audit de bases de données SQL](sql-database-auditing.md).
-- Pour plus d’informations sur Azure de programmes de la conformité aux normes de cette prise en charge, consultez le [centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/compliance/) où vous trouverez la liste actualisée des certifications de conformité de base de données SQL.
+- Pour plus d’informations sur Azure de programmes de la conformité aux normes de cette prise en charge, consultez le [centre de confidentialité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité de base de données SQL.
 
 <!--Image references-->
 

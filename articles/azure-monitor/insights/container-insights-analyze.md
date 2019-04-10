@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233998"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426390"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster AKS avec Azure Monitor pour les conteneurs 
 Avec Azure Monitor pour les conteneurs, vous pouvez utiliser les graphiques de performances et l’état d’intégrité pour surveiller la charge de travail de vos clusters Azure Kubernetes Service (AKS) selon deux perspectives, directement à partir d’un cluster AKS ou tous les clusters AKS d’un abonnement à partir d’Azure Monitor. L’affichage d’ACI (Azure Container Instances) est également possible lorsque vous surveillez un cluster ACS spécifique.
@@ -61,17 +61,17 @@ Le tableau suivant fournit une répartition du calcul pour le contrôle des éta
 
 | |Statut |Disponibilité |  
 |-------|-------|-----------------|  
-|**Pod utilisateur**| | |  
+|**Utilisateur Pod**| | |  
 | |Healthy |100 % |  
 | |Avertissement |90 - 99 % |  
 | |Critique |< 90 % |  
 | |Unknown |Si non signalé dans les 30 dernières minutes |  
-|**Pod système**| | |  
+|**Système Pod**| | |  
 | |Healthy |100 % |
-| |Avertissement |N/A |
+| |Avertissement |S.O. |
 | |Critique |< 100 % |
 | |Unknown |Si non signalé dans les 30 dernières minutes |
-|**Node** | | |
+|**Nœud** | | |
 | |Healthy |> 85 % |
 | |Avertissement |60 - 84 % |
 | |Critique |< 60 % |
@@ -100,7 +100,34 @@ Le graphique de performances affiche quatre métriques de performance :
 
 Vous pouvez utiliser les touches de direction gauche/droite pour parcourir chaque point de données sur le graphe, et haut/bas pour faire défiler les lignes de centile.
 
-Quand vous passez à l’onglet **Nodes** (Nœuds), **Controllers** (Contrôleurs) et **Containers** (Conteneurs), le volet des propriétés s’affiche automatiquement à droite de la page.  Il présente les propriétés de l’élément sélectionné, notamment les étiquettes que vous définissez pour organiser les objets Kubernetes. Cliquez sur le lien **>>** dans le volet pour afficher ou masquer le volet.  
+Azure Monitor pour les conteneurs prend également en charge Azure Monitor [Explorateur de mesures](../platform/metrics-getting-started.md), où vous pouvez créer votre propre traçage des graphiques, mettre en corrélation et examiner les tendances et épingler aux tableaux de bord. Dans metrics explorer, vous pouvez également utiliser les critères que vous avez défini pour visualiser vos mesures comme base d’un [mesure en fonction de règle d’alerte](../platform/alerts-metric.md).  
+
+## <a name="view-container-metrics-in-metrics-explorer"></a>Afficher les métriques de conteneur dans metrics explorer
+Dans metrics explorer, vous pouvez afficher les nœud agrégée et pod des métriques d’utilisation d’Azure Monitor pour les conteneurs. Le tableau suivant récapitule les détails pour vous aider à comprendre comment utiliser les graphiques de métrique pour visualiser les métriques de conteneur.
+
+|Espace de noms | Métrique |
+|----------|--------|
+| insights.container/nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| insights.container/pods | |
+| | PodCount |
+
+Vous pouvez appliquer [fractionnement](../platform/metrics-charts.md#apply-splitting-to-a-chart) d’une métrique à afficher par dimension et de visualiser comment les différents segments de celui-ci comparer entre eux. Pour un nœud, vous pouvez segmenter le graphique par le *hôte* dimension, et à partir d’un pod vous pouvez le segmenter par les dimensions suivantes :
+
+* Controller
+* Espace de noms Kubernetes
+* Nœud
+* Phase
+
+## <a name="analyze-nodes-controllers-and-container-health"></a>Analyser l’intégrité des conteneurs, les contrôleurs et les nœuds
+
+Quand vous passez à l’onglet **Nodes** (Nœuds), **Controllers** (Contrôleurs) et **Containers** (Conteneurs), le volet des propriétés s’affiche automatiquement à droite de la page.  Il montre les propriétés de l’élément sélectionné, notamment les étiquettes que vous définissez pour organiser les objets Kubernetes. Cliquez sur le lien **>>** dans le volet pour afficher ou masquer le volet.  
 
 ![Exemple du volet de propriétés des perspectives Kubernetes](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
@@ -133,7 +160,7 @@ Par défaut, les données de performances sont basées sur les six dernières he
 
 Lorsque vous placez la souris sur le graphique à barres sous la colonne **Tendance**, chaque barre indique l’utilisation du processeur ou de la mémoire, selon la métrique sélectionnée, au sein d’une période d’échantillonnage de 15 minutes. Après avoir sélectionné le graphique de tendances à l’aide d’un clavier, vous pouvez utiliser les touches Alt + Pg. préc ou Alt + Pg. suiv pour parcourir chaque barre individuellement et obtenir les mêmes détails, comme vous le feriez sur mouseover.
 
-![Exemple de pointage sur le graphique à barres](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![Pointage de graphique à barres des tendances au fil de l’exemple](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 Dans l’exemple suivant, remarquez que, pour le premier nœud de la liste *aks-nodepool1-*, la valeur de **Containers** (Conteneurs) est 9, soit le cumul du nombre de conteneurs déployés.
 
@@ -176,7 +203,7 @@ Les informations qui sont affichées dans les contrôleurs sont décrites dans l
 |--------|-------------|
 | NOM | Nom du contrôleur.|
 | Statut | Statut du cumul des conteneurs lorsque l’exécution est terminée, par exemple, *OK*, *Terminated* (Terminé), *Failed* (Échec), *Stopped* (Arrêt) ou *Paused* (Pause). Si le conteneur est en cours d’exécution, mais que l’état n’est pas correctement affiché, ou n’a pas été identifié par l’agent et n’a pas répondu dans un délai de 30 minutes, l’état est *Unknown* (Inconnu). Des détails supplémentaires sur l’icône d’état sont fournies dans le tableau ci-dessous.|
-| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Moyenne cumulée du pourcentage moyen de chaque entité pour la métrique et le centile sélectionnés. |
+| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Moyenne du pourcentage moyen de chaque entité pour la métrique sélectionnée et le centile de cumul. |
 | Avg, Min, Max, 50th, 90th  | Cumul de la performance moyenne du processeur ou de la mémoire du conteneur pour le centile sélectionné. La valeur moyenne est mesurée à partir de la limite Processeur/Mémoire définie pour un pod. |
 | Containers | Nombre total de conteneurs pour le contrôleur ou pod. |
 | Restarts | Cumul du nombre de redémarrages à partir des conteneurs. |

@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Scénarios de résolution de noms pour Azure IaaS, les solutions hybrides, entre différents services cloud, Active Directory et à l’aide de votre propre serveur DNS.
 services: virtual-network
 documentationcenter: na
-author: subsarma
+author: rohinkoul
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
-ms.author: subsarma
-ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.author: rohink
+ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418735"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426424"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
 
@@ -219,6 +219,6 @@ Modèle de déploiement Azure Resource Manager :
 
 Modèle de déploiement classique :
 
-* [Schéma de configuration de service Microsoft Azure](https://msdn.microsoft.com/library/azure/ee758710)
-* [Schéma de configuration du réseau virtuel](https://msdn.microsoft.com/library/azure/jj157100)
+* [Schéma de Configuration de Service Azure](https://msdn.microsoft.com/library/azure/ee758710)
+* [Schéma de Configuration de réseau virtuel](https://msdn.microsoft.com/library/azure/jj157100)
 * [Configurer un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)

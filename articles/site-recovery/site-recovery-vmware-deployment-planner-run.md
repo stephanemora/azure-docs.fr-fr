@@ -5,25 +5,25 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 55d6f1393f4f180776557ea9a2651064d61c3e06
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301499"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361993"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de VMware sur Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modes d’exécution du planificateur de déploiement
-Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) dans l’un des trois modes suivants :
+Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) dans l’un des quatre modes suivants :
 
 1.  [Profilage](#profile-vmware-vms)
 2.  [Génération de rapport](#generate-report)
-3.  [Obtenir le débit](#get-throughput)
+3.  [GetThroughput](#get-throughput)
 
 Tout d’abord, exécutez l’outil en mode profilage pour rassembler l’activité des données de machine virtuelle et les E/S par seconde. Ensuite, exécutez l’outil pour générer le rapport afin de déterminer les besoins de bande passante réseau et de stockage et les coûts de la récupération d’urgence.
 
@@ -81,7 +81,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Protocol| (Facultatif) Spécifie le protocole « http » ou « https » pour vous connecter à vCenter. Le protocole par défaut est https.|
 | -StorageAccountName | (Facultatif) Le nom du compte de stockage utilisé pour rechercher le débit réalisable pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour calculer le débit. Le compte de stockage doit être de type v1 à usage général (GPv1). |
 | -StorageAccountKey | (Facultatif) La clé du compte de stockage utilisée pour accéder au compte de stockage. Accédez au portail Azure > Comptes de stockage > <*Nom du compte de stockage*> > Paramètres > Clés d’accès > Key1. |
-| -Environment | (Facultatif) Votre environnement de compte Stockage Azure cible. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment, AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à des clouds Azure - Gouvernement des États-Unis ou Azure - Chine. |
+| -Environment | (Facultatif) Votre environnement de compte Stockage Azure cible. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment, AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez le paramètre lorsque votre région Azure cible est Azure US Government ou Azure China 21Vianet. |
 
 
 Nous vous recommandons de profiler vos machines virtuelles pendant plus de 7 jours. Si le modèle d’activité varie durant un mois, nous vous recommandons d’effectuer le profilage au cours de la semaine lors de l’activité maximale. La meilleure solution est d’effectuer le profilage pendant 31 jours pour obtenir de meilleures recommandations. Pendant la période de profilage, ASRDeploymentPlanner.exe continue de s’exécuter. Les entrées du temps de profilage de l’outil sont indiquées en jours. Pour un test rapide de l’outil ou pour des preuves de concept, vous pouvez faire un profilage pendant quelques heures ou minutes. Le temps de profilage minimum autorisé est de 30 minutes.
@@ -95,7 +95,7 @@ Par défaut, l'outil est configuré pour profiler et générer un rapport compre
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Avec les paramètres par défaut, pour profiler 1500 machines virtuelles, créez deux fichiers VMList.txt. Un fichier avec 1 000 machines virtuelles et un autre avec une liste de 500 machines virtuelles. Exécutez les deux instances du planificateur de déploiement ASR, une avec le fichier VMList1.txt et l’autre avec le fichier VMList2.txt. Vous pouvez utiliser le même chemin d’accès de répertoire pour stocker les données profilées des machines virtuelles correspondant aux deux fichiers VMList.
+Avec les paramètres par défaut, pour profiler 1500 machines virtuelles, créez deux fichiers VMList.txt. Un fichier avec 1 000 machines virtuelles et un autre avec une liste de 500 machines virtuelles. Exécutez les deux instances d’Azure Site Recovery Deployment Planner, un avec le fichier VMList1.txt et l’autre avec le fichier VMList2.txt. Vous pouvez utiliser le même chemin d’accès de répertoire pour stocker les données profilées des machines virtuelles correspondant aux deux fichiers VMList.
 
 Nous avons vu que, selon la configuration matérielle et particulière en fonction de la mémoire RAM du serveur à partir duquel l’outil pour générer le rapport est exécuté, l’opération peut échouer à cause d’une quantité de mémoire insuffisante. Si vous avez un bon matériel, vous pouvez modifier la clé MaxVMsSupported avec n’importe quelle valeur supérieure.  
 
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Valeur de centile utilisée pour le calcul
-**Quelle valeur de centile par défaut des indicateurs de performance collectés pendant le profilage l’outil va-t-il utiliser au moment de la génération de rapport ?**
+**Quelle valeur de centile par défaut les métriques de performances collectées pendant le profilage l’outil va-t-il utiliser lorsqu’il génère un rapport ?**
 
 L’outil est configuré par défaut sur les valeurs du 95e centile des E/S par seconde de lecture/écriture, des E/S par seconde d’écriture et de l’activité des données collectées pendant le profilage de toutes les machines virtuelles. Cette mesure garantit que le pic du 100e centile que vos machines virtuelles peuvent voir en raison d’événements temporaires n’est pas utilisé pour déterminer vos besoins de compte de stockage cible et de bande passante source. Par exemple, un événement temporaire peut être une tâche de sauvegarde exécutée une fois par jour, une indexation de base de données périodique ou une activité de génération de rapport d’analyse ou d’autres événements similaires ponctuels et de courte durée.
 
@@ -226,7 +226,7 @@ L’utilisation des valeurs du 95e centile permet de donner une image exacte de
 ```
 
 ## <a name="growth-factor-considerations"></a>Considérations relatives au facteur de croissance
-**Pourquoi devrais-je tenir compte du facteur de croissance lors de la planification de déploiement ?**
+**Pourquoi devrais-je tenir compte du facteur de croissance lors de la planification de déploiements ?**
 
 Il est essentiel de tenir compte de la croissance dans vos caractéristiques de charge de travail en supposant une augmentation potentielle de l’utilisation au fil du temps. Une fois la protection en place, si les caractéristiques de votre charge de travail changent, vous ne pouvez pas basculer vers un compte de stockage différent pour la protection sans désactiver et réactiver la protection.
 
@@ -242,9 +242,9 @@ Le rapport Microsoft Excel généré contient les informations suivantes :
 
 * [Résumé local](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recommandations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [VM&lt;-&gt;Storage Placement](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
-* [Compatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
-* [Incompatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
+* [Machine virtuelle <> – Storage Placement](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [Machines virtuelles compatibles](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
+* [Machines virtuelles incompatibles](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
 * [Estimation des coûts](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Deployment planner](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
@@ -265,7 +265,7 @@ Ouvrez une console de ligne de commande et accédez au dossier de l’outil de p
 | -StorageAccountName | Le nom du compte de stockage Azure permettant de déterminer la bande passante utilisée pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour trouver la bande passante consommée. Le compte de stockage doit être de type v1 à usage général (GPv1).|
 | -StorageAccountKey | La clé du compte de stockage utilisée pour accéder au compte de stockage. Accédez au portail Azure > Comptes de stockage > <*Nom du compte de stockage*> > Paramètres > Clés d’accès > Key1 (ou clé d’accès principale pour un compte de stockage classique). |
 | -VMListFile | Le fichier qui contient la liste des machines virtuelles à profiler pour calculer la bande passante consommée. Le chemin d’accès du fichier peut être absolu ou relatif. Le fichier doit contenir un nom/une adresse IP de machine virtuelle par ligne. Les noms de machine virtuelle spécifiés dans le fichier doivent être identiques au nom des machines virtuelles sur le serveur vCenter/l’hôte vSphere ESXi.<br>Par exemple, le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Environment | (Facultatif) Votre environnement de compte Stockage Azure cible. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment, AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à des clouds Azure - Gouvernement des États-Unis ou Azure - Chine. |
+| -Environment | (Facultatif) Votre environnement de compte Stockage Azure cible. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment, AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez le paramètre lorsque votre région Azure cible est Azure US Government ou Azure China 21Vianet. |
 
 L’outil crée plusieurs fichiers asrvhdfile<#>.vhd de 64 Mo (où # représente le nombre de fichiers) dans le répertoire spécifié. L’outil charge ces fichiers sur le compte de stockage pour déterminer le débit. Une fois le débit mesuré, l’outil supprime tous les fichiers du compte de stockage et du serveur local. Si l’outil est interrompu pour une raison quelconque alors qu’il calcule le débit, cela ne supprime pas les fichiers du stockage ou du serveur local. Vous devrez les supprimer manuellement.
 

@@ -1,19 +1,18 @@
 ---
 title: Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 description: Fournit une vue d’ensemble des types de stockage et de leur fonctionnement avec Azure HDInsight.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: fa08d2fb2185bd4b6cd0e2e9d20e1c44a4a35eae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/08/2019
+ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101480"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361780"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 
@@ -96,11 +95,11 @@ Azure Data Lake Storage Gen2 utilise un nouveau schéma d’URI pour accéder au
 
 Le schéma d’URI fournit un accès SSL chiffré (préfixe `abfss://`) et un accès SSL non chiffré (préfixe `abfs://`). Utilisez `abfss` dans la mesure du possible, même pour accéder à des données qui se trouvent dans la même région Azure.
 
-`<FILE_SYSTEM_NAME>` identifie le chemin du système de fichiers Data Lake Storage Gen2.
+`<FILE_SYSTEM_NAME>` identifie le chemin d’accès du système de fichiers Data Lake Storage Gen2.
 
-`<ACCOUNT_NAME>` identifie le nom du compte Stockage Azure. Un nom de domaine complet (FQDN) est requis.
+`<ACCOUNT_NAME>` identifie le nom de compte de stockage Azure. Un nom de domaine complet (FQDN) est requis.
 
-`<PATH>` correspond au nom du chemin HDFS du fichier ou du répertoire.
+`<PATH>` est le nom de chemin d’accès au fichier ou répertoire HDFS.
 
 Si vous ne spécifiez pas de valeurs pour `<FILE_SYSTEM_NAME>` et `<ACCOUNT_NAME>`, le système de fichiers par défaut est utilisé. Pour les fichiers du système de fichiers par défaut, utilisez un chemin relatif ou absolu. Par exemple, vous pouvez référencer le fichier `hadoop-mapreduce-examples.jar` fourni avec les clusters HDInsight en utilisant un des chemins suivants :
 
@@ -119,6 +118,8 @@ Pour plus d’informations, consultez [Utiliser l’URI d’Azure Data Lake Stor
 Stockage Azure est une solution de stockage à la fois robuste et polyvalente qui s’intègre en toute transparence à HDInsight. HDInsight peut utiliser un conteneur d’objets blob dans le stockage Azure comme système de fichiers par défaut pour le cluster. Grâce à une interface HDFS, l’ensemble des composants de HDInsight peut opérer directement sur les données structurées ou non structurées stockées en tant qu’objets blob.
 
 Nous vous recommandons d’utiliser des conteneurs de stockage distinct pour votre stockage de cluster par défaut et vos données d’entreprise, pour isoler les journaux de HDInsight et les fichiers temporaires à partir de vos propres données d’entreprise. Nous vous recommandons également de supprimer le conteneur d’objets blob par défaut, qui contient les journaux des applications et système, après chaque utilisation pour réduire le coût de stockage. Assurez-vous de récupérer les journaux avant de supprimer le conteneur.
+
+Si vous choisissez votre compte de stockage avec le **les pare-feux et réseaux virtuels** restrictions sur **réseaux sélectionnés**, veillez à activer l’exception **autoriser fiables Microsoft Services...**  afin que HDInsight puisse accéder à votre compte de stockage.
 
 ### <a name="hdinsight-storage-architecture"></a>Architecture de stockage HDInsight
 
@@ -238,5 +239,5 @@ Pour plus d’informations sur la façon d’accéder aux données dans Data Lak
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation d’Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
-* [Introduction à Azure Storage](../storage/common/storage-introduction.md)
+* [Présentation d'Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
+* [Présentation de Stockage Azure](../storage/common/storage-introduction.md)

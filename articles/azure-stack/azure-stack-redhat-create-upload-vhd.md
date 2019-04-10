@@ -3,7 +3,7 @@ title: Création et téléchargement d’un disque dur virtuel Red Hat Enterpris
 description: Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Red Hat Linux.
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
+author: mattbriggs
 manager: BradleyB
 editor: ''
 tags: ''
@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
-ms.author: jeffgo
+ms.date: 03/28/2019
+ms.author: mabrigg
+ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: ad0419cee3fc5c838d6d81adf9040432b9feaf07
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e287a6f436b51f55d9a5aa59dbbe2a195015c292
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242227"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883111"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Préparation d'une machine virtuelle Red Hat pour Azure Stack
 
@@ -100,6 +101,13 @@ Cette section repose sur l’hypothèse que vous disposez déjà d’un fichier 
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
+
+1. Arrêtez et désinstallez cloud-init :
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
     ```
 
 1. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu, ce qui est généralement le réglage par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
@@ -246,15 +254,17 @@ Cette section repose sur l’hypothèse que vous disposez déjà d’un fichier 
     dracut -f -v
     ```
 
-1. Désinstallez Cloud-Init :
+1. Arrêtez et désinstallez cloud-init :
 
     ```bash
+    systemctl stop cloud-init
     yum remove cloud-init
     ```
 
 1. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu :
 
     ```bash
+    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -265,22 +275,55 @@ Cette section repose sur l’hypothèse que vous disposez déjà d’un fichier 
     ClientAliveInterval 180
     ```
 
-1. Le package WALinuxAgent, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
+1. Lorsque vous créez un disque dur virtuel personnalisé pour Azure Stack, n’oubliez pas qu’une version WALinuxAgent entre 2.2.20 et 2.2.35.1 (exclusivement) ne fonctionne pas sur les environnements Azure Stack qui exécutent une build antérieure à 1903. Pour résoudre ce problème, appliquez le correctif logiciel 1901/1902, ou suivez la seconde moitié de ces instructions. 
+
+Si vous exécutez une build Azure Stack 1903 (ou ultérieure) ou le correctif 1901/1902, téléchargez le package WALinuxAgent à partir du référentiel Red Hat « extras », comme suit :
+    
+   Le package WALinuxAgent, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Installez l'agent linux Azure en exécutant la commande suivante :
+   Installez l'agent linux Azure en exécutant la commande suivante :
 
     ```bash
     yum install WALinuxAgent
     ```
 
-    Activez le service waagent :
+   Activez le service waagent :
 
     ```bash
     systemctl enable waagent.service
+    ```
+    
+    
+Si vous exécutez une build Azure Stack antérieure à 1903 et que vous n’avez pas appliqué le correctif logiciel 1901/1902, suivez ces instructions pour télécharger WALinuxAgent :
+    
+   a.   Téléchargez setuptools.
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+   b. Téléchargez et décompressez la dernière version de l’agent à partir de GitHub. Il s’agit d’un exemple où nous téléchargeons la version « 2.2.36 » depuis le référentiel GitHub.
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.36.zip
+    unzip v2.2.36.zip
+    cd WALinuxAgent-2.2.36
+    ```
+    c. Install setup.py
+    ```bash
+    sudo python setup.py install
+    ```
+    d. Restart waagent
+    ```bash
+    sudo systemctl restart waagent
+    ```
+    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    
+    ```bash
+    waagent -version
     ```
 
 1. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
@@ -420,6 +463,13 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
     ```bash
     dracut -f -v
+    ```
+
+1. Arrêtez et désinstallez cloud-init :
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
     ```
 
 1. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. Ce paramètre est généralement la valeur par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
@@ -581,6 +631,10 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
     Install latest repo update
     yum update -y
 
+    Stop and Uninstall cloud-init
+    systemctl stop cloud-init
+    yum remove cloud-init
+    
     Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -657,15 +711,15 @@ Pour résoudre ce problème, ajoutez des modules Hyper-V dans initramfs, puis r�
 
 Modifiez `/etc/dracut.conf` et ajoutez le contenu suivant :
 
-    ```sh
-    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-    ```
+```sh
+add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+```
 
 Régénérez initramfs :
 
-    ```bash
-    dracut -f -v
-    ```
+```bash
+dracut -f -v
+```
 
 Pour plus d’informations, consultez l’article décrivant la procédure de [régénération d’initramfs](https://access.redhat.com/solutions/1958).
 

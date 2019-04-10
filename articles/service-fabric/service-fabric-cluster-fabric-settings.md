@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 7252af42ac515f9177b8988e2995e6ce77f4e12f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268209"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361547"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -407,11 +407,14 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |AzureStorageMaxWorkerThreads | Entier (valeur par défaut : 25) |Dynamique|Nombre maximum de threads de travail en parallèle. |
 |AzureStorageOperationTimeout | Durée en secondes (valeur par défaut : 6000) |Dynamique|Spécifiez la durée en secondes. Délai permettant de finaliser l’opération xstore. |
 |CleanupApplicationPackageOnProvisionSuccess|valeur booléenne, valeur par défaut : FALSE |Dynamique|Cette configuration active ou désactive le nettoyage automatique du package d’application en cas de provisionnement réussi. |
+|CleanupUnusedApplicationTypes|Valeur booléenne, valeur par défaut : FALSE |Dynamique|Cette configuration si activé, permet d’annuler l’inscription automatiquement des versions de types d’applications inutilisés ignorant les versions inutilisées trois dernières, réduisant ainsi l’espace disque occupé par le magasin d’images. Le nettoyage automatique sera déclenché à la fin de la fourniture de ce type d’application spécifique et également s’exécute périodiquement une fois par jour pour tous les types d’application. Nombre de versions inutilisées à ignorer est configurable à l’aide du paramètre « MaxUnusedAppTypeVersionsToKeep ». |
 |DisableChecksumValidation | Valeur booléenne (valeur par défaut : false) |statique| Cette configuration nous permet d’activer ou de désactiver la validation de la somme de contrôle pendant l’approvisionnement de l’application. |
 |DisableServerSideCopy | Valeur booléenne (valeur par défaut : false) |statique|Cette configuration active ou désactive la copie côté serveur du package d’application sur le magasin ImageStore pendant l’approvisionnement de l’application. |
 |ImageCachingEnabled | Valeur booléenne (valeur par défaut : true) |statique|Cette configuration nous permet d’activer ou de désactiver la mise en cache. |
 |ImageStoreConnectionString |SecureString |statique|Chaîne de connexion à la racine d’ImageStore. |
 |ImageStoreMinimumTransferBPS | Entier (valeur par défaut : 1024) |Dynamique|Débit de transfert minimum entre le cluster et ImageStore. Cette valeur permet de déterminer le délai d’expiration lors de l’accès au magasin ImageStore externe. Ne modifiez cette valeur que si la latence entre le cluster et ImageStore est élevée afin de laisser davantage de temps au cluster pour effectuer des téléchargements à partir du magasin ImageStore externe. |
+|MaxUnusedAppTypeVersionsToKeep | Entier (valeur par défaut : 3) |Dynamique|Cette configuration définit le nombre de versions de types d’application inutilisées à ignorer pour le nettoyage. Ce paramètre s’applique uniquement si le paramètre CleanupUnusedApplicationTypes est activé. |
+
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
 | **Paramètre** | **Valeurs autorisées** |**Stratégie de mise à niveau**| **Conseils ou brève Description** |

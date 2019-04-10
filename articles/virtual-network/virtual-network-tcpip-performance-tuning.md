@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 60424edc8e617aca55777d019e6a0f9409f7ca28
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276522"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426441"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP réglage des performances pour les machines virtuelles Azure
 
@@ -85,7 +85,7 @@ Notez que la pile de réseau virtuel n’est pas intrinsèquement inefficace, ca
 
 #### <a name="azure-and-fragmentation"></a>La fragmentation et Azure
 
-Pile de réseau virtuel est configuré pour supprimer « fragments en désordre », autrement dit, les paquets fragmentés qui n’arrivent pas dans leur ordre d’origine fragmenté. Ces paquets sont perdus principalement en raison d’une faille de sécurité réseau a annoncé en novembre 2018 appelé FragmentStack.
+Pile de réseau virtuel est configuré pour supprimer « fragments en désordre », autrement dit, les paquets fragmentés qui n’arrivent pas dans leur ordre d’origine fragmenté. Ces paquets sont perdus principalement en raison d’une faille de sécurité réseau a annoncé en novembre 2018 appelé FragmentSmack.
 
 FragmentSmack est un défaut dans la manière dont le noyau Linux gérées réassemblage de paquets fragmentés de IPv4 et IPv6. Un attaquant distant pourrait utiliser cette faille pour des opérations de réassemblage de fragment coûteux déclencheur qui pourraient accrue du processeur et un déni de service sur le système cible.
 

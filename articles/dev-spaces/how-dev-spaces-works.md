@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Décrit les processus qu’espaces de développement Azure power et comment ils sont configurés dans le fichier de configuration azds.yaml
 keywords: azds.yaml, espaces de développement Azure, les espaces de développement, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500557"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361500"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Comment les espaces de développement Azure fonctionne et est configuré
 
@@ -85,10 +85,10 @@ La préparation de votre cluster AKS implique :
 * L’activation des espaces de développement Azure sur votre cluster à l’aide `az aks use-dev-spaces`
 
 Pour plus d’informations sur la façon de créer et configurer un cluster ACS pour les espaces de développement Azure, consultez un des guides de prise en main mise en route :
-* [Prise en main sur les espaces de développement Azure avec Java](get-started-java.md)
-* [Prise en main sur les espaces de développement Azure avec .NET Core et Visual Studio](get-started-netcore-visualstudio.md)
-* [Prise en main sur les espaces de développement Azure avec .NET Core](get-started-netcore.md)
-* [Prise en main sur les espaces de développement Azure avec Node.js](get-started-nodejs.md)
+* [Prise en main d’Azure Dev Spaces avec Java](get-started-java.md)
+* [Prise en main sur Azure Dev Spaces avec .NET Core et Visual Studio](get-started-netcore-visualstudio.md)
+* [Prise en main d’Azure Dev Spaces avec .NET Core](get-started-netcore.md)
+* [Prise en main d’Azure Dev Spaces avec Node.js](get-started-nodejs.md)
 
 Lorsque Azure Dev espaces est activée sur votre cluster AKS, il installe le contrôleur de votre cluster. Le contrôleur est une ressource Azure distincte en dehors de votre cluster et effectue les opérations suivantes pour les ressources de votre cluster :
 

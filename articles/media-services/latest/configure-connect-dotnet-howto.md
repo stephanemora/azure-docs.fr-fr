@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: cb6826be8f6a9a8caf54a23b0dbc5f3dda7830d6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273972"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361240"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Se connecter à l’API de Media Services v3 - .NET
 
@@ -35,7 +35,7 @@ Cet article vous montre comment se connecter au SDK .NET Azure Media Services v3
 1. À partir de la **fichier** menu, cliquez sur **New** > **projet**. 
 1. Créer un **.NET Core** application console.
 
-Cible de l’exemple d’application dans cette rubrique, `netcoreapp2.0`. Le code utilise « Async principal », qui est disponible à partir de C# 7.1. Consultez ce [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) pour plus d’informations.
+Cible de l’exemple d’application dans cette rubrique, `netcoreapp2.0`. Le code utilise « async main', qui est disponible à partir de C# 7.1. Consultez ce [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) pour plus d’informations.
 
 ## <a name="add-required-nuget-packages"></a>Ajouter des packages NuGet requis
 
@@ -223,7 +223,7 @@ namespace ConsoleApp1
 }
 ```
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Didacticiel : Charger, encoder et diffuser des vidéos - .NET](stream-files-tutorial-with-api.md) 
 - [Didacticiel : Stream live avec Media Services v3 - .NET](stream-live-tutorial-with-api.md)
@@ -237,6 +237,6 @@ namespace ConsoleApp1
 - [Créer des filtres avec Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Vidéo à la demande exemples v2 d’Azure Functions avec Media Services v3 avancés](https://aka.ms/ams3functions)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Référence .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)

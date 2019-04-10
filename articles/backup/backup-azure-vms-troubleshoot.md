@@ -6,41 +6,168 @@ author: srinathv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/08/2019
 ms.author: srinathv
-ms.openlocfilehash: b8d1152856935c239a59eb9133aaf48d26a5a8b6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e8b739c7b4dee67273e2f5c500c6d3b05190b3a5
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259947"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361507"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauvegarde Azure à l’aide des informations figurant dans le tableau suivant :
 
+## <a name="backup"></a>Sauvegarde
+
+### <a name="copyingvhdsfrombackupvaulttakinglongtime--copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime -Copying backed up data from vault timed out
+
+Code d’erreur : CopyingVHDsFromBackUpVaultTakingLongTime <br/>
+Message d’erreur : Copie des données sauvegardées à partir du coffre a expiré
+
+Cela peut se produire en raison d’erreurs de stockage temporaire ou le compte de stockage insuffisant e/s pour le service de sauvegarde pour transférer des données vers le coffre dans le délai imparti. Configurer la sauvegarde de machine virtuelle à l’aide de ces [meilleures pratiques](backup-azure-vms-introduction.md#best-practices) et recommencez l’opération de sauvegarde.
+
+### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - machine virtuelle n’est pas dans un état qui autorise les sauvegardes.
+
+Code d’erreur : UserErrorVmNotInDesirableState <br/>
+Message d’erreur : La machine virtuelle n’est pas dans un état permettant les sauvegardes.<br/>
+
+L’opération de sauvegarde a échoué car la machine virtuelle est en état d’échec. Pour la machine virtuelle de sauvegarde réussie état doit être en cours d’exécution, arrêté ou arrêté (désalloué).
+
+* Si la machine virtuelle se trouve dans un état temporaire entre **En cours d’exécution** et **Arrêt**, attendez que l’état change. Déclenchez ensuite le travail de sauvegarde.
+*  Si la machine virtuelle est de type Linux et utilise le module de noyau Linux à sécurité avancée, excluez le chemin d’accès de l’agent Azure Linux **/var/lib/waagent** de la stratégie de sécurité, et assurez-vous que l’extension Sauvegarde Azure est installée.
+
+### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - Impossible de figer un ou plusieurs points de montage de la machine virtuelle pour prendre un instantané cohérent du système de fichiers
+
+Code d’erreur : UserErrorFsFreezeFailed <br/>
+Message d’erreur : Échec du gel d’un ou plusieurs points de montage de la machine virtuelle pour prendre un instantané cohérent du système de fichiers.
+
+* Vérifier l’état du système de fichiers de tous les périphériques montés à l’aide de la **tune2fs** de commande, par exemple **tune2fs -l/dev/sdb1 \\** .\| grep **l’état du système de fichiers**.
+* Démontez les périphériques pour lesquels l’état du système n’a pas été nettoyé, à l’aide de la **unmount** commande.
+* Exécuter une vérification de cohérence de système de fichiers sur ces appareils à l’aide de la **fsck** commande.
+* Remontez les périphériques et recommencez l’opération de sauvegarde.</ol>
+
+### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - Extension installation/opération a échoué en raison d’une erreur COM +
+
+Code d’erreur : ExtensionSnapshotFailedCOM <br/>
+Message d’erreur : Échec de l’opération de capture instantanée en raison d’une erreur COM+
+
+Code d’erreur : ExtensionInstallationFailedCOM  <br/>
+Message d’erreur : Installation / l’opération d’extension a échoué en raison d’une erreur COM +
+
+Code d’erreur : Message d’erreur de ExtensionInstallationFailedMDTC : L’installation de l’extension a échoué en renvoyant l’erreur « COM+ n’a pas pu communiquer avec le Microsoft Distributed Transaction Coordinator
+
+L’opération de sauvegarde a échoué en raison d’un problème avec Windows service **système COM +** application.  Pour résoudre ce problème, effectuez les étapes suivantes :
+
+* Essayez de démarrage/redémarrage du service de Windows **Application système COM +** (à partir d’une invite de commandes avec élévation de privilèges **-net start COMSysApp**).
+* Vérifiez **Distributed Transaction Coordinator** services s’exécute en tant que **Service réseau** compte. Dans le cas contraire, modifiez-le pour exécuter en tant que **Service réseau** compte et redémarrez **Application système COM +**.
+* S’il est impossible de redémarrer le service, puis réinstallez **Distributed Transaction Coordinator** service en suivant les étapes ci-dessous :
+    * Arrêtez le service MSDTC
+    * Ouvrez une invite de commandes (cmd)
+    * Exécutez la commande « msdtc-désinstaller »
+    * commande d’annulation « msdtc-installer »
+    * Lancez le service MSDTC
+* Démarrez le service Windows **Application système COM+**. Une fois que **Application système COM+** démarre, déclenchez un travail de sauvegarde à partir du Portail Azure.</ol>
+
+### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState - opération de capture instantanée a échoué car les enregistreurs VSS sont dans un état incorrect
+
+Code d’erreur : ExtensionFailedVssWriterInBadState <br/>
+Message d’erreur : Opération de capture instantanée a échoué car les enregistreurs VSS sont en mauvais état.
+
+Redémarrez les enregistreurs VSS qui se trouvent dans un état incorrect. À partir d’une invite de commandes avec élévation de privilèges, exécutez ```vssadmin list writers```. La sortie contient tous les enregistreurs VSS et leur état. Pour chaque enregistreur VSS dont l’état n’est pas **[1] Stable**, redémarrez l’enregistreur VSS en exécutant les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :
+
+  * ```net stop serviceName```
+  * ```net start serviceName```
+
+### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Échec d’analyse de la configuration pour l’extension de sauvegarde
+
+Code d’erreur : ExtensionConfigParsingFailure<br/>
+Message d’erreur : Échec d’analyse de la configuration pour l’extension de sauvegarde.
+
+Cette erreur se produit en raison de modifications des autorisations sur le répertoire **MachineKeys** : **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+Exécutez la commande suivante et vérifiez que les autorisations sur le **MachineKeys** répertoire sont celles par défaut :**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+
+Les autorisations par défaut sont comme suit :
+* Tout le monde : (R,W)
+* BUILTIN\Administrateurs : (F)
+
+Si les autorisations que vous voyez dans le répertoire **MachineKeys** sont différentes de celles par défaut, suivez les étapes ci-dessous pour les corriger, supprimer le certificat et déclencher la sauvegarde :
+
+1. Corrigez les autorisations sur le répertoire **MachineKeys**. À l’aide des propriétés de sécurité de l’explorateur et des paramètres de sécurité avancés du répertoire, réinitialisez les autorisations aux valeurs par défaut. Supprimez tous les objets utilisateur (sauf ceux par défaut) du répertoire, et assurez-vous que l’autorisation **Tout le monde** dispose d’un accès spécial comme suit :
+
+    * Lister le dossier/lire les données
+    * Lire les attributs
+    * Lire les attributs étendus
+    * Créer les fichiers/écrire les données
+    * Créer les dossiers/ajouter les données
+    * Écrire les attributs
+    * Écrire les attributs étendus
+    * Autorisations de lecture
+2. Supprimez tous les certificats dont le modèle de déploiement classique est de type **Délivré à** ou **générateur de certificats Windows Azure CRP** :
+    * [Ouvrez les certificats sur une console d’ordinateur local](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+    * Sous **Certificats** > **personnels**, supprimez tous les certificats dont le modèle de déploiement classique est de type **Délivré à** ou **générateur de certificats Windows Azure CRP**.
+3. Lancez une opération de sauvegarde de machine virtuelle.
+
+### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState - état de l’Extension n’est pas d’effectuer l’opération de sauvegarde
+
+Code d’erreur : ExtensionStuckInDeletionState <br/>
+Message d’erreur : État de l’extension n’est pas d’effectuer l’opération de sauvegarde
+
+L’opération de sauvegarde a échoué en raison d’un état incohérent de la sauvegarde. Pour résoudre ce problème, effectuez les étapes suivantes :
+
+* Vérifiez que l’agent invité est installé et réactif
+* Dans le portail Azure, accédez à **Machine virtuelle** > **Tous les paramètres** > **Extensions**
+* Sélectionnez l’extension de sauvegarde VmSnapshot ou VmSnapshotLinux, puis cliquez sur **Désinstaller**
+* Après avoir supprimé l’extension de sauvegarde, recommencez l’opération de sauvegarde
+* L’opération de sauvegarde suivante installera la nouvelle extension à l’état souhaité
+
+### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError - opération de capture instantanée a échoué, car la limite de capture instantanée est dépassée pour certaines des disques attachés
+
+Code d’erreur : ExtensionFailedSnapshotLimitReachedError  <br/>
+Message d’erreur : Opération de capture instantanée a échoué, car la limite de capture instantanée est dépassée pour certaines des disques attachés
+
+L’opération de capture instantanée a échoué, car la limite de capture instantanée a dépassé certaines des disques attachés. Terminer les étapes et réessayez l’opération de dépannage ci-dessous.
+
+* Supprimer les objets blob-captures instantanées des disques qui ne sont pas obligatoires. Méfiez-vous de ne pas supprimer les objets blob de disque, seuls les objets BLOB instantané doivent être supprimés.
+* Si la suppression réversible est activée sur le disque de machine virtuelle comptes de stockage, configurer la rétention de suppression réversible telles que les instantanés existants sont inférieures à la valeur maximale autorisée à tout moment.
+* Si Azure Site Recovery est activée dans la machine virtuelle sauvegardée, puis effectuez la ci-dessous :
+
+    * Vérifiez la valeur de **isanysnapshotfailed** a la valeur false dans /etc/azure/vmbackup.conf
+    * Planifier Azure Site Recovery à un moment différent, tel qu’il n’est pas en conflit l’opération de sauvegarde.
+
+### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive - opération de capture instantanée a échoué en raison de ressources de machine virtuelle inadéquates.
+
+Code d’erreur : ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
+Message d’erreur : Opération de capture instantanée a échoué en raison de ressources de machine virtuelle inadéquates.
+
+Opération de sauvegarde sur la machine virtuelle a échoué en raison de retards dans les appels réseau lors de l’exécution de l’opération de capture instantanée. Pour résoudre ce problème, effectuez l’étape 1. Si le problème persiste, essayez les étapes 2 et 3.
+
+**Étape 1** : Créer une capture instantanée via l’hôte
+
+À partir d’une invite de commandes avec élévation (administrateur), exécutez la commande suivante :
+
+```
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
+```
+
+Cela garantira que les captures instantanées soient effectuées via l’hôte plutôt que via l’invité. Relancez l’opération de sauvegarde.
+
+**Étape 2** : Essayez de modifier la planification de sauvegarde à un moment où la machine virtuelle est sous une charge moindre (moins du processeur/e/s, etc..)
+
+**Étape 3** : Essayez [augmenter la taille de machine virtuelle](https://azure.microsoft.com/blog/resize-virtual-machines/) et recommencez l’opération
+
+### <a name="common-vm-backup-errors"></a>Erreurs de sauvegarde de la machine virtuelle courantes
+
 | Détails de l’erreur | Solution de contournement |
 | ------ | --- |
-| Sauvegarde Azure n’a pas pu effectuer l’opération car la machine virtuelle n’existe plus : <br>arrêtez la protection de la machine virtuelle sans supprimer les données de sauvegarde. Pour plus d’informations, consultez [Arrêt de la protection des machines virtuelles](https://go.microsoft.com/fwlink/?LinkId=808124). |Cette erreur se produit lorsque la machine virtuelle principale est supprimée. Cependant, la stratégie de sauvegarde continue de rechercher une machine virtuelle à sauvegarder. Pour corriger cette erreur, suivez les étapes ci-dessous : <ol><li> Recréez la machine virtuelle avec le même nom et le même nom de groupe de ressources **nom du service cloud**,<br>**or**</li><li> Arrêtez la protection de la machine virtuelle en supprimant ou non les données de sauvegarde. Pour plus d’informations, consultez [Arrêt de la protection des machines virtuelles](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| L’agent de machine virtuelle Azure ne peut pas communiquer avec le service Sauvegarde Azure : <br>assurez-vous que la machine virtuelle possède une connectivité réseau et que la version de l’agent de machine virtuelle est la plus récente et en cours d’exécution. Pour plus d’informations, consultez [Résoudre les problèmes de défaillance de la Sauvegarde Azure : Problèmes d’agent ou d’extension](https://go.microsoft.com/fwlink/?LinkId=800034). |Cette erreur se produit si un problème existe avec l’agent de machine virtuelle ou si l’accès réseau à l’infrastructure Azure est bloqué. Apprenez-en davantage sur le [débogage des problèmes de capture instantanée de machines virtuelles](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup). <br><br>Si l’agent de machine virtuelle n’est pas à l’origine des problèmes, redémarrez la machine virtuelle. Un état incorrect de machine virtuelle peut provoquer des problèmes et le redémarrage de la machine virtuelle réinitialise l’état. |
+| Code d’erreur : 320001<br/> Message d’erreur : Impossible d’effectuer l’opération, car la machine virtuelle n’existe plus. <br/> <br/> Code d’erreur : 400094 <br/> Message d’erreur : La machine virtuelle n’existe pas. <br/> <br/>  Machine virtuelle Azure introuvable.  |Cette erreur se produit lorsque la machine virtuelle principale est supprimée. Cependant, la stratégie de sauvegarde continue de rechercher une machine virtuelle à sauvegarder. Pour corriger cette erreur, suivez les étapes ci-dessous : <ol><li> Recréez la machine virtuelle avec le même nom et le même nom de groupe de ressources **nom du service cloud**,<br>**or**</li><li> Arrêtez la protection de la machine virtuelle en supprimant ou non les données de sauvegarde. Pour plus d’informations, consultez [Arrêt de la protection des machines virtuelles](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | L’état d’approvisionnement de la machine virtuelle est défini sur Échec : <br>redémarrez la machine virtuelle et assurez-vous qu’elle fonctionne ou qu’elle est éteinte. | Cette erreur se produit lorsqu’un des échecs d’extension conduit à définir l’état d’approvisionnement de la machine virtuelle sur Échec. Accédez à la liste des extensions, vérifiez s’il existe une extension ayant échoué, supprimez-la et essayez de redémarrer la machine virtuelle. Si l’état de toutes les extensions est défini sur En cours d’exécution, vérifiez si le service de l’agent de machine virtuelle est en cours d’exécution. Si ce n’est pas le cas, redémarrez le service de l’agent de machine virtuelle. |
-| Sauvegarde Azure n’a pas pu copier la capture instantanée de la machine virtuelle en raison d’un manque d’espace disponible dans le compte de stockage : <br>vérifiez que l’espace disponible sur le compte de stockage est égal aux données présentes sur les disques de stockage Premium attachés à la machine virtuelle. | Pour les machines virtuelles Premium sur une pile de sauvegarde de machines virtuelles V1, nous copions la capture instantanée sur le compte de stockage. Cette étape permet de s’assurer que le trafic de gestion de sauvegarde, qui fonctionne sur la capture instantanée, ne limite pas le nombre d’IOPS accessibles à l’application à l’aide de disques Premium. <br><br>Nous vous conseillons d’allouer seulement 50 pour cent (soit 17,5 To) de l’espace du compte de stockage total. Ainsi, le service Sauvegarde Azure peut copier la capture instantanée sur le compte de stockage et transférer des données depuis cet emplacement copié vers le compte de stockage dans le coffre. |
-| Sauvegarde Azure n’a pas pu effectuer l’opération, car l’agent de machine virtuelle ne répond pas. |Cette erreur se produit si un problème existe avec l’agent de machine virtuelle ou si l’accès réseau à l’infrastructure Azure est bloqué. Pour les machines virtuelles Windows, vérifiez l’état de service de l’agent de machine virtuelle dans les services et vérifiez si l’agent s’affiche dans le Panneau de configuration, sous Programmes. <br><br>Essayez de supprimer le programme à partir du Panneau de configuration et de réinstaller l’agent comme décrit dans [Agent VM](#vm-agent). Après avoir réinstallé l’agent, déclenchez une sauvegarde ad hoc pour effectuer une vérification. |
-| L’opération d’extension de Recovery Services a échoué : <br>vérifiez que l’agent de machine virtuelle le plus récent est présent sur la machine virtuelle et que le service de l’agent de machine virtuelle est en cours d’exécution. Relancez l’opération de sauvegarde. Si l’opération de sauvegarde échoue, contactez le Support Microsoft. |Cette erreur se produit lorsque l’agent de machine virtuelle est obsolète. Consultez Dépannage de la sauvegarde de machine virtuelle Azure pour mettre à jour l'agent de machine virtuelle. |
-| La machine virtuelle n’existe pas : <br>vérifiez que la machine virtuelle existe ou sélectionnez une autre machine virtuelle. |Cette erreur se produit lorsque la machine virtuelle principale est supprimée. Cependant, la stratégie de sauvegarde continue de rechercher une machine virtuelle à sauvegarder. Pour corriger cette erreur, suivez les étapes ci-dessous : <ol><li> Recréez la machine virtuelle avec le même nom et le même nom de groupe de ressources **nom du service cloud**,<br>**or**<br></li><li>Arrêtez la protection de la machine virtuelle sans supprimer les données de sauvegarde. Pour plus d’informations, consultez [Arrêt de la protection des machines virtuelles](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| Échec de la commande : <br>une autre opération est en cours sur cet élément. Attendez que l’opération précédente se termine. Relancez ensuite l’opération. |Une tâche de sauvegarde existante est en cours d’exécution. Une nouvelle tâche ne peut pas commencer tant que la tâche en cours n’est pas terminée. |
-| La copie de disques durs virtuels à partir du coffre Recovery Services a expiré : <br>relancez l’opération dans quelques minutes. Si le problème persiste, contactez le support technique Microsoft. | Cette erreur se produit en cas d’erreur transitoire du côté du stockage, ou si le service Sauvegarde Azure ne reçoit pas suffisamment d’IOPS du compte de stockage pour transférer les données vers le coffre avant l’expiration du délai. Veillez à respecter les [meilleures pratiques lors de la configuration de vos machines virtuelles](backup-azure-vms-introduction.md#best-practices). Déplacez votre machine virtuelle sur un autre compte de stockage qui n’est pas chargé, puis relancez le travail de sauvegarde.|
-| Sauvegarder a échoué avec une erreur interne : <br>relancez l’opération dans quelques minutes. Si le problème persiste, contactez le support technique Microsoft. |Vous pouvez recevoir cette erreur pour deux raisons : <ul><li> Il existe un problème temporaire d’accès au stockage de la machine virtuelle. Consultez le [site Statut Azure](https://azure.microsoft.com/status/) pour voir s’il y a des problèmes de calcul, de stockage ou de réseau dans la région. Une fois le problème résolu, relancez le travail de sauvegarde. <li> La machine virtuelle d’origine a été supprimée et le point de récupération ne peut pas être choisi. Pour conserver les données de sauvegarde d’une machine virtuelle supprimée, mais supprimer les erreurs de sauvegarde, ôtez la protection de la machine virtuelle et choisissez l’option de conservation des données. Cette action arrête le travail planifié de sauvegarde et les messages d’erreur récurrents. |
-| Sauvegarder n’a pas pu installer l’extension Azure Recovery Services sur l’élément sélectionné : <br>L’agent de machine virtuelle est une condition requise pour l’extension Recovery Services. Installez l’agent de machine virtuelle Azure, puis recommencez l’opération d’inscription. |<ol> <li>Vérifiez si l’agent de machine virtuelle a été installé correctement. <li>Vérifiez que l’indicateur de la configuration de la machine virtuelle est défini correctement.</ol> Apprenez-en plus sur l'installation de l'agent de machine virtuelle et sur la validation de cette opération. |
-| L’installation de l’extension a échoué en renvoyant l’erreur **COM+ n’a pas pu communiquer avec le Microsoft Distributed Transaction Coordinator**. |Cette erreur signifie généralement que le service COM+ ne fonctionne pas. Pour résoudre ce problème, contactez le Support Microsoft. |
+|Code d’erreur : UserErrorBCMPremiumStorageQuotaError<br/> Message d’erreur : Impossible de copier l’instantané de la machine virtuelle, en raison du manque d’espace libre dans le compte de stockage | Pour les machines virtuelles Premium sur une pile de sauvegarde de machines virtuelles V1, nous copions la capture instantanée sur le compte de stockage. Cette étape permet de s’assurer que le trafic de gestion de sauvegarde, qui fonctionne sur la capture instantanée, ne limite pas le nombre d’IOPS accessibles à l’application à l’aide de disques Premium. <br><br>Nous vous conseillons d’allouer seulement 50 pour cent (soit 17,5 To) de l’espace du compte de stockage total. Ainsi, le service Sauvegarde Azure peut copier la capture instantanée sur le compte de stockage et transférer des données depuis cet emplacement copié vers le compte de stockage dans le coffre. |
+| Impossible d’installer l’extension Microsoft Recovery Services comme machine virtuelle n’est pas en cours d’exécution. <br>L’agent de machine virtuelle est une condition requise pour l’extension Recovery Services. Installez l’agent de machine virtuelle Azure, puis recommencez l’opération d’inscription. |<ol> <li>Vérifiez si l’agent de machine virtuelle a été installé correctement. <li>Vérifiez que l’indicateur de la configuration de la machine virtuelle est défini correctement.</ol> Apprenez-en plus sur l'installation de l'agent de machine virtuelle et sur la validation de cette opération. |
 | L’opération de capture instantanée a échoué en renvoyant l’erreur d’opération du service Cliché instantané de volume (VSS) **Ce lecteur est verrouillé par le chiffrement de lecteur BitLocker. Vous devez déverrouiller ce lecteur à partir du panneau de configuration.** |Désactivez BitLocker pour tous les lecteurs sur la machine virtuelle et vérifiez si le problème VSS est résolu. |
-| La machine virtuelle n’est pas dans un état permettant les sauvegardes. |<ul><li>Si la machine virtuelle se trouve dans un état temporaire entre **En cours d’exécution** et **Arrêt**, attendez que l’état change. Déclenchez ensuite le travail de sauvegarde. <li> Si la machine virtuelle est une VM Linux et utilise le module de noyau Enhanced Linux, exclure le chemin d’accès de le Linux Agent Azure **/var/lib/waagent** à partir de la stratégie de sécurité et assurez-vous que l’extension de sauvegarde Azure est installée.  |
-| Machine virtuelle Azure introuvable. |Cette erreur se produit lorsque la machine virtuelle principale est supprimée. Cependant, la stratégie de sauvegarde continue de rechercher la machine virtuelle supprimée. Corrigez cette erreur de la façon suivante : <ol><li>Recréez la machine virtuelle avec le même nom et le même nom de groupe de ressources **nom du service cloud**, <br>**or** <li> Désactivez la protection de cette machine virtuelle afin que les travaux de sauvegarde ne soient pas créés. </ol> |
+| La machine virtuelle n’est pas dans un état permettant les sauvegardes. |<ul><li>Si la machine virtuelle se trouve dans un état temporaire entre **En cours d’exécution** et **Arrêt**, attendez que l’état change. Déclenchez ensuite le travail de sauvegarde. <li> Si la machine virtuelle est de type Linux et utilise le module de noyau Linux à sécurité avancée, excluez le chemin d’accès de l’agent Azure Linux **/var/lib/waagent** de la stratégie de sécurité, et assurez-vous que l’extension Sauvegarde Azure est installée.  |
 | L’agent de machine virtuelle n’est pas présent sur la machine virtuelle : <br>installez les composants requis et l’agent de machine virtuelle. Ensuite, relancez l’opération. |Apprenez-en plus sur [l’installation de l’agent de machine virtuelle et la validation de cette opération](#vm-agent). |
-| L’opération de capture instantanée a échoué, car les enregistreurs VSS étaient dans un état incorrect. |Redémarrez les enregistreurs VSS qui se trouvent dans un état incorrect. À partir d’une invite de commandes avec élévation de privilèges, exécutez ```vssadmin list writers```. La sortie contient tous les enregistreurs VSS et leur état. Pour chaque enregistreur VSS dont l’état n’est pas **[1] Stable**, redémarrez l’enregistreur VSS en exécutant les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges : <ol><li>```net stop serviceName``` <li> ```net start serviceName```</ol>|
-| L’opération de capture instantanée a échoué en raison d’une erreur d’analyse de la configuration. |Cette erreur se produit en raison de modifications des autorisations sur le répertoire **MachineKeys** : **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br> Exécutez la commande suivante et vérifiez que les autorisations sur le répertoire **MachineKeys** sont celles par défaut :<br>**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br><br>Les autorisations par défaut sont comme suit : <ul><li>Tout le monde : (R,W) <li>BUILTIN\Administrateurs : (F)</ul> Si les autorisations que vous voyez dans le répertoire **MachineKeys** sont différentes de celles par défaut, suivez les étapes ci-dessous pour les corriger, supprimer le certificat et déclencher la sauvegarde : <ol><li>Corrigez les autorisations sur le répertoire **MachineKeys**. À l’aide des propriétés de sécurité de l’explorateur et des paramètres de sécurité avancés du répertoire, réinitialisez les autorisations aux valeurs par défaut. Supprimez tous les objets utilisateur (sauf ceux par défaut) du répertoire, et assurez-vous que l’autorisation **Tout le monde** dispose d’un accès spécial comme suit : <ul><li>Lister le dossier/lire les données <li>Lire les attributs <li>Lire les attributs étendus <li>Créer les fichiers/écrire les données <li>Créer les dossiers/ajouter les données<li>Écrire les attributs<li>Écrire les attributs étendus<li>Autorisations de lecture </ul><li>Supprimez tous les certificats dont le modèle de déploiement classique est de type **Délivré à** ou **générateur de certificats Windows Azure CRP** :<ol><li>[Ouvrez les certificats sur une console d’ordinateur local](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).<li>Sous **Certificats** > **personnels**, supprimez tous les certificats dont le modèle de déploiement classique est de type **Délivré à** ou **générateur de certificats Windows Azure CRP**.</ol> <li>Lancez une opération de sauvegarde de machine virtuelle. </ol>|
-| Le service Sauvegarde Azure n’a pas les autorisations requises sur Azure Key Vault pour effectuer une sauvegarde des machines virtuelles chiffrées. |Fournissez au service Sauvegarde Azure ces autorisations dans PowerShell à l’aide des étapes dans [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md). |
-|L’installation de l’extension de capture instantanée a échoué en renvoyant une erreur **COM+ n’a pas pu communiquer avec le Microsoft Distributed Transaction Coordinator**. | À partir d’une invite de commande avec élévation de privilèges, lancez le service Windows **Application système COM+**. Par exemple, **net start COMSysApp**. Si le service ne parvient pas à démarrer, procédez comme suit :<ol><li> Assurez-vous que le compte de connexion du service **Distributed Transaction Coordinator** est **Service réseau**. Si ce n’est pas le cas, remplacez le compte de connexion par **Service réseau** et redémarrez le service. Puis, essayez de démarrer **Application système COM+**.<li>Si **Application système COM+** ne démarre pas, suivez les étapes ci-dessous pour désinstaller et installer le service **Distributed Transaction Coordinator** : <ol><li>Arrêtez le service MSDTC. <li>Ouvrez une invite de commandes, **cmd**. <li>Exécutez la commande ```msdtc -uninstall```. <li>Exécutez la commande ```msdtc -install```. <li>Lancez le service MSDTC. </ol> <li>Démarrez le service Windows **Application système COM+**. Une fois que **Application système COM+** démarre, déclenchez un travail de sauvegarde à partir du Portail Azure.</ol> |
-|  L’opération de capture instantanée a échoué en raison d’une erreur COM+. | Nous vous recommandons de redémarrer le service Windows **Application système COM+** à partir d’une invite de commandes avec élévation de privilèges, **net start COMSysApp**. Si le problème persiste, redémarrez la machine virtuelle. Si le redémarrage de la machine virtuelle ne suffit pas, essayez de [supprimer l’extension VMSnapshot](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout) et de déclencher la sauvegarde manuellement. |
 | Sauvegarde Azure n’a pas pu figer un ou plusieurs points de montage de la machine virtuelle pour prendre une capture instantanée cohérente au niveau du système de fichiers. | Procédez comme suit : <ul><li>Vérifiez l’état du système de fichiers de tous les périphériques montés avec la commande **’tune2fs’**. Par exemple, **tune2fs -l/dev/sdb1 \\** .\| grep **Filesystem state**. <li>Démontez les périphériques pour lesquels l’état du système de fichiers n’est pas propre à l’aide de la commande **’umount’**. <li> Exécutez une vérification de cohérence de système de fichiers sur ces périphériques à l’aide de la commande **’fsck’**. <li> Remontez les périphériques et tentez une sauvegarde.</ol> |
 | Échec de l’opération de capture instantanée en raison de l’échec de la création du canal de communication réseau sécurisé. | <ol><li> Ouvrez l’Éditeur du Registre en exécutant **regedit.exe** avec élévation de privilèges. <li> Identifiez toutes les versions de. NET Framework présentes dans votre système. Elles se trouvent dans la hiérarchie de la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Pour chaque .NET Framework présent dans la clé de Registre, ajoutez la clé suivante : <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | Échec de l’opération de capture instantanée en raison de l’échec de l’installation de Redistribuable Visual C++ pour Visual Studio 2012. | Accédez à C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion et installez vcredist2012_x64. Assurez-vous que la valeur de clé de Registre qui permet l’installation de ce service est définie sur la valeur correcte. Autrement dit, la valeur de clé de Registre **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** est définie sur **3** et non **4**. <br><br>Si vous rencontrez toujours des problèmes d’installation, redémarrez le service d’installation en exécutant **MSIEXEC /UNREGISTER** suivi de **MSIEXEC /REGISTER** dans une invite de commandes avec élévation de privilèges.  |
@@ -124,30 +251,8 @@ La sauvegarde de machines virtuelles émet des commandes de capture instantanée
 - **Si plus de quatre machines virtuelles partagent le même service cloud, répartissez les machines virtuelles sur plusieurs stratégies de sauvegarde**. Échelonnez les heures de sauvegarde de façon que quatre sauvegardes de machine virtuelle maximum ne démarrent pas en même temps. Essayez de décaler d’au moins une heure les démarrages d’une stratégie à une autre.
 - **La machine virtuelle s’exécute avec un niveau de mémoire ou d’UC élevé**. Si la machine virtuelle sollicite fortement la mémoire ou le processeur (plus de 90 pour cent), votre tâche de capture instantanée est mise en file d’attente et retardée. Elle peut éventuellement arriver à expiration. Si ce problème se produit, essayez de procéder à une sauvegarde à la demande.
 
-## <a name="troubleshoot-backup-of-encrypted-vms"></a>Résoudre les problèmes de sauvegarde de machines virtuelles chiffrées
-
-### <a name="azure-backup-doesnt-have-permissions-for-key-vault-access"></a>Sauvegarde Azure n’a pas les autorisations d’accès au Key Vault
-- **Code d’erreur** : UserErrorKeyVaultPermissionsNotConfigured
-- **Message d’erreur** : Le service de sauvegarde Azure n’a pas les autorisations requises sur Key Vault pour effectuer une sauvegarde des machines virtuelles chiffrées.
-- **Résolution** : Affecter des autorisations de sauvegarde Azure pour Key Vault dans le [portal](backup-azure-vms-encryption.md#provide-permissions), ou avec [PowerShell](backup-azure-vms-automation.md#enable-protection)
-
-### <a name="the-vm-cant-be-restored-because-the-associated-key-vault-doesnt-exist"></a>La machine virtuelle ne peut pas être restaurée car le coffre de clés associé n’existe pas.
-- **Résolution** : Vérifiez que vous avez [créé un coffre de clés](../key-vault/quick-create-portal.md#create-a-vault).
-- **Résolution** : Suivez [ces instructions](backup-azure-restore-key-secret.md) pour restaurer une clé et une clé secrète, même si elles n’existent pas dans le coffre de clés.
-
-### <a name="the-vm-cant-be-restored-because-the-associated-key-doesnt-exist"></a>La machine virtuelle ne peut pas être restaurée car la clé associée n’existe pas.
-- **Code d’erreur** : UserErrorKeyVaultKeyDoesNotExist
-- **Message d’erreur** : Vous ne pouvez pas restaurer cette machine virtuelle chiffrée, car la clé associée à cette machine virtuelle n’existe pas.
-- **Résolution** : Suivez [ces instructions](backup-azure-restore-key-secret.md) pour restaurer une clé et une clé secrète, même si elles n’existent pas dans le coffre de clés.
-
-### <a name="the-vm-cant-be-restored-because-azure-backup-doesnt-have-authorization"></a>La machine virtuelle ne peut pas être restaurée, car sauvegarde Azure n’a pas d’autorisation
-- **Code d’erreur** : ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed
-- **Message d’erreur** : Le service de sauvegarde n’a pas l’autorisation d’accéder aux ressources dans votre abonnement.
-- **Résolution** : Restaurer des disques comme recommandé. [Plus d’informations](backup-azure-vms-encryption.md#restore-an-encrypted-vm) 
-
-
 ## <a name="networking"></a>Mise en réseau
-Comme toutes les extensions, l’extension de sauvegarde Azure doit accéder à l’internet public pour fonctionner. En l’absence d’accès Internet public, plusieurs cas de figure sont possibles :
+Comme toutes les extensions, l’extension Sauvegarde Azure a besoin d’accéder à l’Internet public pour fonctionner. En l’absence d’accès Internet public, plusieurs cas de figure sont possibles :
 
 * L’installation de l’extension peut échouer.
 * Les opérations de sauvegarde telles que la capture instantanée de disque peuvent échouer.

@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.author: mayg
-ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 4/9/2019
+ms.author: ramamill
+ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106540"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59362158"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Ajouter des serveurs de processus supplémentaires pour augmenter la capacité de restauration automatique
 
@@ -31,7 +31,7 @@ Assurez-vous d’avoir effectué la [planification de la capacité](site-recover
 
 Vérifiez la configuration requise pour le dimensionnement, résumée dans le tableau. En général, si vous devez faire évoluer votre déploiement au-delà de 200 machines source ou que votre taux d’évaluation quotidien total dépasse 2 To, vous avez besoin de serveurs de traitement supplémentaires pour gérer le volume de trafic.
 
-| **Serveur de traitement supplémentaire** | **Taille du disque cache** | **Taux de modification des données** | **Machines protégées** |
+| **Serveur de processus supplémentaire** | **Taille du disque cache** | **Taux de modification des données** | **Machines protégées** |
 | --- | --- | --- | --- |
 |4 processeurs virtuels (2 sockets * 2 cœurs \@ 2,5 GHz), 8 Go de mémoire |300 Go |250 Go ou moins |Répliquez 85 machines ou moins. |
 |8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz), 12 Go de mémoire |600 Go |250 Go à 1 To |Répliquez entre 85 et 150 machines. |
@@ -51,7 +51,7 @@ La configuration requise pour le serveur de traitement supplémentaire est résu
 
 Téléchargez le fichier d’installation pour le serveur de processus comme suit :
 
-1. Connectez-vous au portail Azure et accédez à votre coffre Recovery Services.
+1. Connectez-vous au portail Azure, puis accédez à votre coffre Recovery Services.
 2. Ouvrez **Infrastructure Site Recovery** > **VMWare et machines physiques** > **Serveurs de configuration** (sous Pour VMware et machines physiques).
 3. Sélectionnez le serveur de configuration pour explorer les détails du serveur. Cliquez ensuite sur **+ Serveur de processus**.
 4. Dans **Ajouter un serveur de processus** >  **Indique où vous souhaitez déployer votre serveur de processus**, sélectionnez **Déployer un serveur de traitement de montée en puissance parallèle local**.

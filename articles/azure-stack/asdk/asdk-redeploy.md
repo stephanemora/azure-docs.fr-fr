@@ -17,12 +17,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 77942e24af847f7c8f9680ca793dacf8ba0be55f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284e1ce3c3b9a63f3c25e85891b1d2688726183e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112583"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879979"
 ---
 # <a name="redeploy-the-asdk"></a>Redéployer l’ASDK
 Dans cet article, vous allez découvrir comment redéployer le Kit de développement Azure Stack (ASDK) dans un environnement hors production. La mise à niveau de l’ASDK n’étant pas prise en charge, vous devez le redéployer complètement pour passer à une version plus récente. Vous pouvez également redéployer l’ASDK lorsque vous souhaitez simplement tout reprendre à zéro.
@@ -61,10 +61,11 @@ Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegi
 3. Vous êtes invité à vous connecter à votre abonnement Azure et l’installation ASDK locale lors de l’exécution du script.
 4. Une fois le script exécuté, vous devez voir des messages similaires aux exemples suivants :
 
-    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).`` Your environment is now unable to syndicate items and is no longer reporting usage data.`
-    ` Remove registration resource from Azure...`
-    ` "Deleting the resource..." on target "/subscriptions/<subscription information>"`
-    ` ********** End Log: Remove-AzsRegistration ********* `
+    `De-Activating Azure Stack (this may take up to 10 minutes to complete).`
+    `Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    `Remove registration resource from Azure...`
+    `"Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    `********** End Log: Remove-AzsRegistration *********`
 
 
 

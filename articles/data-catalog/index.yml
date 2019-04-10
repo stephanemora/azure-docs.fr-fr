@@ -24,6 +24,14 @@ sections:
               src: media/index/data-catalog.svg
             text: Portail Azure
             href: 'https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started'
+  - title: Didacticiels pas à pas
+    items:
+      - type: paragraph
+        text: "Découvrez comment inscrire, rechercher, annoter, gérer et supprimer des éléments dans Azure Data Catalog\_:"
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="register-data-assets-tutorial">Enregistrer des éléments de données dans Azure Data Catalog</a>
   - title: Informations de référence
     items:
       - type: list

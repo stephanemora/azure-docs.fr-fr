@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: e71e102a5a6df44e6bdd6a845540de3cbbef98f3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87a99651d17e9867130024a5f721c5488cd42a8c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457494"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426101"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Liaisons de IoT Hub Azure pour Azure Functions
 
-Cet article explique comment utiliser des liaisons Azure Functions pour IoT Hub. La prise en charge IoT Hub est basé sur le [Azure Event Hubs liaison](link to event hub doc).
+Cet article explique comment utiliser des liaisons Azure Functions pour IoT Hub. La prise en charge IoT Hub est basé sur le [Azure Event Hubs liaison](functions-bindings-event-hubs.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -44,4 +44,4 @@ Pour Functions 2.x, utilisez le package [Microsoft.Azure.WebJobs.Extensions.Even
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)
+> [En savoir plus sur les liaisons et les déclencheurs Azure functions](functions-triggers-bindings.md)

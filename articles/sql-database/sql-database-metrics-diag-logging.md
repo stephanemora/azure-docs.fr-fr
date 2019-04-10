@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905201"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426486"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -77,7 +77,7 @@ Vous pouvez configurer les bases de données SQL Azure et instance pour collecte
 > Les pools élastiques et des instances gérées ont son propre télémétrie de diagnostic distincts à partir de bases de données qu’ils contiennent. Ceci est important de noter que les données de télémétrie de diagnostic sont configurée séparément pour chacune de ces ressources, comme indiqué ci-dessous.
 
 > [!NOTE]
-> Journaux d’Audit de sécurité et de SQLSecurityAuditEvents ne peut pas être activés à partir des paramètres de diagnostics de base de données. Pour activer la diffusion de journaux d’audit, consultez [configurer l’audit pour votre base de données](sql-database-auditing.md#subheading-2), et [journaux dans les journaux Azure Monitor et les concentrateurs d’événements d’audit](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Journaux d’Audit de sécurité et de SQLSecurityAuditEvents ne peut pas être activés à partir des paramètres de diagnostics de base de données (bien que l’affichage sur l’écran). Pour activer la diffusion de journaux d’audit, consultez [configurer l’audit pour votre base de données](sql-database-auditing.md#subheading-2), et [journaux dans les journaux Azure Monitor et les concentrateurs d’événements d’audit](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="azure-portal"></a>Portail Azure
 
@@ -141,7 +141,7 @@ Pour activer la diffusion en continu de données de télémétrie de diagnostics
 1. Répétez ces étapes pour chaque base de données que vous souhaitez analyser.
 
 > [!NOTE]
-> Journaux d’Audit de sécurité et de SQLSecurityAuditEvents ne peut pas être activés à partir des paramètres de diagnostics de base de données. Pour activer la diffusion de journaux d’audit, consultez [configurer l’audit pour votre base de données](sql-database-auditing.md#subheading-2), et [journaux dans les journaux Azure Monitor et les concentrateurs d’événements d’audit](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Journaux d’Audit de sécurité et de SQLSecurityAuditEvents ne peut pas être activés à partir des paramètres de diagnostics de base de données (bien que l’affichage sur l’écran). Pour activer la diffusion de journaux d’audit, consultez [configurer l’audit pour votre base de données](sql-database-auditing.md#subheading-2), et [journaux dans les journaux Azure Monitor et les concentrateurs d’événements d’audit](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > [!TIP]
 > Répétez ces étapes pour chaque base de données Azure SQL Database que vous voulez superviser.
 

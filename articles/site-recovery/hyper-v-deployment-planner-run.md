@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 776523bb001848e6ecc153f670a96e3143e2ac0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006347"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361340"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de Hyper-V sur Azure
 
@@ -20,7 +20,7 @@ Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) 
 -   Accéder à la liste de machines virtuelles
 -   [Profil](#profile-hyper-v-vms)
 -   Générer un rapport
--   [Obtenir le débit](#get-throughput)
+-   [GetThroughput](#get-throughput)
 
 Exécutez tout d’abord l’outil pour obtenir la liste des machines virtuelles à partir d’un ou plusieurs hôtes Hyper-V. Exécutez ensuite l’outil en mode profilage pour rassembler l’activité des données de machine virtuelle et les E/S par seconde. Ensuite, exécutez l’outil pour générer le rapport afin de déterminer les besoins en bande passante réseau et en stockage.
 
@@ -98,7 +98,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Mot de passe|(Facultatif) Le mot de passe pour se connecter à l’hôte Hyper-V. Si vous ne le spécifiez pas comme paramètre, il vous sera demandé lors de l’exécution de la commande.|
 |-StorageAccountName|(Facultatif) Le nom du compte de stockage utilisé pour rechercher le débit réalisable pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour calculer le débit. Le compte de stockage doit être de type v1 à usage général (GPv1).|
 |-StorageAccountKey|(Facultatif) La clé utilisée pour accéder au compte de stockage. Accédez au portail Azure > **Comptes de stockage** > *Nom du compte de stockage* > **Paramètres** > **Clés d’accès** > **Key1** (ou clé d’accès principale pour un compte de stockage classique).|
-|-Environment|(Facultatif) Votre environnement cible pour le compte de stockage Azure. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment ou AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région cible correspond à Azure - Gouvernement des États-Unis ou Azure - Chine.|
+|-Environment|(Facultatif) Votre environnement cible pour le compte de stockage Azure. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment ou AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez le paramètre lorsque votre région cible est Azure US Government ou Azure China 21Vianet.|
 
 Nous vous recommandons de profiler vos machines virtuelles pendant plus de 7 jours. Si le modèle d’activité varie durant un mois, nous vous recommandons d’effectuer le profilage au cours de la semaine lors de l’activité maximale. La meilleure solution est d’effectuer le profilage pendant 31 jours pour obtenir de meilleures recommandations. 
 
@@ -256,9 +256,9 @@ Le rapport Microsoft Excel généré contient les informations suivantes :
 
 * [Résumé local](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recommandations](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [VM-Storage Placement](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
-* [Compatible VMs](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
-* [Incompatible VMs](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
+* [VM-storage placement](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [Machines virtuelles compatibles](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
+* [Machines virtuelles incompatibles](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [Exigence de stockage local](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
 * [Traitement par lot IR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [Estimation des coûts](hyper-v-deployment-planner-cost-estimation.md)
@@ -283,7 +283,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -StorageAccountName | Le nom du compte de stockage Azure permettant de déterminer la bande passante utilisée pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour trouver la bande passante consommée. Le compte de stockage doit être de type v1 à usage général (GPv1).|
 | -StorageAccountKey | La clé du compte de stockage utilisée pour accéder au compte de stockage. Accédez au portail Azure > **Comptes de stockage** > *Nom du compte de stockage* > **Paramètres** > **Clés d’accès** > **Key1**.|
 | -VMListFile | Le fichier qui contient la liste des machines virtuelles à profiler pour calculer la bande passante consommée. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle (séparé par un \ par ligne). Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<br><br>**Exemple :** le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|(Facultatif) Votre environnement cible pour le compte de stockage Azure. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment ou AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à Azure - Gouvernement des États-Unis ou Azure - Chine.|
+|-Environment|(Facultatif) Votre environnement cible pour le compte de stockage Azure. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment ou AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez le paramètre lorsque votre région Azure cible est Azure US Government ou Azure China 21Vianet.|
 
 ### <a name="example"></a>Exemples
 ```

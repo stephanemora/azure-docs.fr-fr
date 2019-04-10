@@ -9,36 +9,37 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 353df930b5769a585d7372716f33fe724a2a7594
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: bb5890b883b6062d834b928bff28a26a3664fb64
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562145"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361706"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurer un DNS personnalisé pour Azure SQL Database Managed Instance
 
-Une instance gérée Azure SQL Database doit être déployée au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) Azure. Quelques scénarios (comme le courrier de base de données,des serveurs liés à d’autres instances SQL dans votre cloud ou environnement hybride) nécessitent des noms d’hôte privés pour être résolus depuis Managed Instance. Si tel est le cas, vous devez configurer un DNS personnalisé dans Azure. Comme Managed Instance utilise le même DNS pour ces tâches internes, la configuration du DNS du réseau virtuel doit être compatible avec Managed Instance. 
+Une instance gérée Azure SQL Database doit être déployée au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) Azure. Quelques scénarios (comme le courrier de base de données,des serveurs liés à d’autres instances SQL dans votre cloud ou environnement hybride) nécessitent des noms d’hôte privés pour être résolus depuis Managed Instance. Si tel est le cas, vous devez configurer un DNS personnalisé dans Azure. Comme Managed Instance utilise le même DNS pour ces tâches internes, la configuration du DNS du réseau virtuel doit être compatible avec Managed Instance.
 
    > [!IMPORTANT]
    > Utilisez toujours des noms de domaine complets (FQDN) pour les serveurs de messagerie, les serveurs SQL et les autres services même s’ils se trouvent dans votre zone DNS privée. Par exemple, utilisez `smtp.contoso.com` pour le serveur de messagerie, car le simple nom `smtp` ne sera pas correctement résolu.
 
-Pour rendre une configuration d’un DNS personnalisé compatible avec Managed Instance, vous devez : 
-- Configurer un serveur DNS personnalisé afin qu’il puisse résoudre les noms de domaine publics 
-- Placez l’adresse IP DNS du programme de résolution récursif d’Azure (168.63.129.16) à la fin de la liste DNS du réseau virtuel 
- 
+Pour rendre une configuration d’un DNS personnalisé compatible avec Managed Instance, vous devez :
+
+- Configurer un serveur DNS personnalisé afin qu’il puisse résoudre les noms de domaine publics
+- Placez l’adresse IP DNS du programme de résolution récursif d’Azure (168.63.129.16) à la fin de la liste DNS du réseau virtuel
+
 ## <a name="setting-up-custom-dns-servers-configuration"></a>Paramétrage d’une configuration de serveurs DNS personnalisés
 
 1. Dans le portail Azure, trouvez l’option DNS personnalisé pour votre réseau virtuel.
 
-   ![option DNS personnalisé](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png) 
+   ![option DNS personnalisé](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png)
 
-2. Passez sur Personnalisé et entrez l’adresse IP du serveur de votre DNS personnalisé, ainsi que l’adresse IP des programmes de résolution récursifs d’Azure, 168.63.129.16. 
+2. Passez sur Personnalisé et entrez l’adresse IP du serveur de votre DNS personnalisé, ainsi que l’adresse IP des programmes de résolution récursifs d’Azure, 168.63.129.16.
 
-   ![option DNS personnalisé](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
+   ![option DNS personnalisé](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png)
 
    > [!IMPORTANT]
    > Si vous ne définissez pas le programme de résolution récursif d’Azure dans la liste DNS, l’instance managée peut connaître une défaillance si les serveurs DNS personnalisés ne sont pas disponibles pour une raison quelconque. Pour récupérer de ce statut, vous devez créer une nouvelle instance dans un réseau virtuel avec les stratégies réseau conformes, créer des données de niveau d’instance et restaurer vos bases de données. Si vous définissez le programme de résolution récursif d’Azure comme la dernière entrée de la liste DNS, les noms publics continueront d’être résolus, même en cas de défaillance des serveurs DNS personnalisés.

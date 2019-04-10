@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757961"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426220"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solution agent Health Azure Monitor
 La solution Agent Health dans Azure vous permet de comprendre, pour tous les agents de rapports directement à l’espace de travail Analytique de journal dans Azure Monitor ou un groupe d’administration System Center Operations Manager connecté à Azure Monitor, qui sont ne répond pas et envoi de données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
@@ -51,7 +51,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | Groupe d’administration Microsoft System Center Operations Manager | Oui | Événements de pulsation sont collectées à partir des agents qui communiquent avec le groupe d’administration toutes les 60 secondes et ensuite transmis à Azure Monitor. Une connexion directe entre les agents Operations Manager et Azure Monitor n’est pas requise. Données d’événement de pulsation sont transférées du groupe d’administration à l’espace de travail Analytique de journal.|
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
-Quand vous ajoutez la solution à votre espace de travail Log Analytics, la vignette **Agent Health** est ajoutée à votre tableau de bord. La vignette indique le nombre total d’agents et le nombre d’agents inactifs au cours des dernières 24 heures.<br><br> ![Vignette de la solution Agent Health du tableau de bord](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Quand vous ajoutez la solution à votre espace de travail Log Analytics, la vignette **Agent Health** est ajoutée à votre tableau de bord. La vignette indique le nombre total d’agents et le nombre d’agents inactifs au cours des dernières 24 heures.<br><br> ![Vignette de Solution de contrôle d’intégrité de l’agent sur le tableau de bord](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Cliquez sur la vignette **Agent Health** pour ouvrir le tableau de bord **Agent Health**.  Le tableau de bord comprend les colonnes figurant dans le tableau suivant. Chaque colonne répertorie les dix premiers événements, classés selon leur nombre, correspondant aux critères de cette colonne pour l’intervalle de temps spécifié. Vous pouvez exécuter une recherche dans les journaux qui fournit la liste complète. Pour cela, sélectionnez **Afficher tout** dans l’angle inférieur droit de chaque colonne ou cliquez sur l’en-tête de colonne.
 
@@ -76,21 +76,21 @@ L’enregistrement d’un type de **pulsation** est créé.  Les propriétés de
 
 | Propriété | Description |
 | --- | --- |
-| Type | *Pulsation*|
-| Catégorie | La valeur correspond à *Agent Direct*, *Agent SCOM*, ou *Serveur d’administration SCOM*.|
-| Ordinateur | Nom de l’ordinateur.|
-| Système d’exploitation | Système d’exploitation : Windows ou Linux.|
-| OSMajorVersion | Version principale du système d’exploitation.|
-| OSMinorVersion | Version secondaire du système d’exploitation.|
-| Version | Version de l’agent Log Analytics ou de l’agent Operations Manager.|
-| SCAgentChannel | La valeur correspond à *Direct* et/ou *SCManagementServer*.|
-| IsGatewayInstalled | Si la passerelle Log Analytics est installée, la valeur correspond à *true*. Dans le cas contraire, elle correspond à *false*.|
-| ComputerIP | Adresse IP de l’ordinateur.|
-| RemoteIPCountry | Lieu où l’ordinateur est déployé.|
-| ManagementGroupName | Nom du groupe d’administration Operations Manager.|
-| SourceComputerId | ID unique de l’ordinateur.|
-| RemoteIPLongitude | Longitude de l’emplacement géographique de l’ordinateur.|
-| RemoteIPLatitude | Latitude de l’emplacement géographique de l’ordinateur.|
+| `Type` | *Heartbeat*|
+| `Category` | La valeur correspond à *Agent Direct*, *Agent SCOM*, ou *Serveur d’administration SCOM*.|
+| `Computer` | Nom de l’ordinateur.|
+| `OSType` | Système d’exploitation : Windows ou Linux.|
+| `OSMajorVersion` | Version principale du système d’exploitation.|
+| `OSMinorVersion` | Version secondaire du système d’exploitation.|
+| `Version` | Version de l’agent Log Analytics ou de l’agent Operations Manager.|
+| `SCAgentChannel` | La valeur correspond à *Direct* et/ou *SCManagementServer*.|
+| `IsGatewayInstalled` | Si la passerelle Log Analytics est installée, la valeur correspond à *true*. Dans le cas contraire, elle correspond à *false*.|
+| `ComputerIP` | Adresse IP de l’ordinateur.|
+| `RemoteIPCountry` | Lieu où l’ordinateur est déployé.|
+| `ManagementGroupName` | Nom du groupe d’administration Operations Manager.|
+| `SourceComputerId` | ID unique de l’ordinateur.|
+| `RemoteIPLongitude` | Longitude de l’emplacement géographique de l’ordinateur.|
+| `RemoteIPLatitude` | Latitude de l’emplacement géographique de l’ordinateur.|
 
 Chaque agent rendant compte à un serveur d’administration Operations Manager envoie deux pulsations et la valeur de propriété SCAgentChannel inclura les deux **Direct** et **SCManagementServer** selon ce que sources de données et les solutions de surveillance que vous avez activé dans votre abonnement. Si vous vous rappelez, données à partir de solutions sont soit envoyées directement à partir d’un serveur d’administration Operations Manager à Azure Monitor, ou en raison du volume de données collectées sur l’agent, sont envoyées directement à partir de l’agent à Azure Monitor. Pour les événements de pulsation dont la valeur correspond à **SCManagementServer**, la valeur ComputerIP correspond à l’adresse IP du serveur d’administration, car les données sont chargées par ce dernier.  Pour les pulsations dont la valeur SCAgentChannel correspond à **Direct**, la valeur ComputerIP correspond à l’adresse IP publique de l’agent.  
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: acf71ae6f37ab6ea32d9cdd0ac06f297b00fba2e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918567"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426254"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Questions sur le service de sauvegarde Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de l’agent de sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -74,8 +74,8 @@ Utilisez la liste suivante pour modifier l’emplacement du cache.
 
 1. Arrêtez le moteur Backup en exécutant la commande qui suit dans une invite de commandes avec élévation de privilèges :
 
-    ```PS C:\> Net stop obengine``` 
-  
+    ```PS C:\> Net stop obengine```
+
 2. Ne déplacez pas les fichiers, mais copiez le dossier d’espace de cache dans un autre lecteur disposant d’un espace suffisant. L’espace de cache d’origine peut être supprimé après avoir confirmé que les sauvegardes fonctionnent avec le nouvel espace de cache.
 3. Mettez à jour les entrées de registre suivantes en utilisant le chemin d’accès au nouveau dossier d’espace de cache.<br/>
 
@@ -111,7 +111,14 @@ Le dossier du cache et les métadonnées du disque dur virtuel ne possèdent les
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Existe-t-il un moyen d’adapter la quantité de bande passante utilisée par le service Backup ?<br/>
   Oui, utilisez l’option **Modifier les propriétés** de l’agent Backup pour régler la bande passante. Vous pouvez ajuster la quantité de bande passante et les heures d’utilisation de cette bande passante. Pour obtenir des instructions détaillées, consultez **[Activation de la limitation du réseau](backup-configure-vault.md#enable-network-throttling)**.
 
+## <a name="restore"></a>Restore
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Que se passe-t-il si j’annule un travail de restauration en cours ?
+Si un travail de restauration en cours est annulé, le processus de restauration s’arrête et tous les fichiers restaurés avant l’annulation, restez dans la destination configuré (emplacement d’origine ou autre) sans les restaurations.
+
+
 ## <a name="manage-backups"></a>Gestion des sauvegardes
+
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Que se passe-t-il si je renomme un serveur Windows qui sauvegarde des données dans Azure ?<br/>
 Lorsque vous renommez un serveur, toutes les sauvegardes actuellement configurées sont arrêtées. Enregistrez le nouveau nom du serveur avec le coffre de sauvegarde. Lorsque vous enregistrez le nouveau nom avec le coffre, la première opération de sauvegarde est une sauvegarde *complète*. Si vous devez récupérer des données sauvegardées dans le coffre avec le nom de l’ancien serveur, utilisez l’option [**Un autre serveur**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) de l’assistant **Récupérer des données**.
 
@@ -119,7 +126,7 @@ Lorsque vous renommez un serveur, toutes les sauvegardes actuellement configuré
 L’agent Azure Backup utilise le format NTFS. La [spécification de longueur de chemin d’accès est limitée par l’API Windows](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Si les fichiers que vous souhaitez protéger présentent une longueur de chemin d’accès supérieure à la limite autorisée par l’API Windows, sauvegardez le dossier parent ou le lecteur de disque.  
 
 ### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Quels sont les caractères autorisés dans le chemin d’accès du fichier de stratégie Azure Backup à l’aide de l’agent Azure Backup ? <br>
- L’agent Azure Backup utilise le format NTFS. Elle active les [caractères NTFS pris en charge](/windows/desktop/FileIO/naming-a-file#naming_conventions) dans le cadre de la spécification de fichier. 
- 
+ L’agent Azure Backup utilise le format NTFS. Elle active les [caractères NTFS pris en charge](/windows/desktop/FileIO/naming-a-file#naming_conventions) dans le cadre de la spécification de fichier.
+
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Je reçois l’avertissement « Les sauvegardes Azure n’ont pas été configurées pour ce serveur » alors que j’avais configuré une stratégie de sauvegarde. <br/>
 Cet avertissement est généré lorsque les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans le coffre de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si vous recevez cet avertissement, [reconfigurez la stratégie de sauvegarde](backup-azure-manage-windows-server.md) , puis sélectionnez **Exécuter la sauvegarde maintenant** pour resynchroniser le serveur local avec Azure.

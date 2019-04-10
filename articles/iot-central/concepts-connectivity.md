@@ -3,17 +3,17 @@ title: Connectivité des appareils dans Azure IoT Central | Microsoft Docs
 description: Cet article présente les concepts clés relatifs à la connectivité des appareils dans Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/28/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: e45960363290879af2e72211f5ef31b825461947
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522092"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425965"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectivité des appareils dans Azure IoT Central
 
@@ -39,24 +39,7 @@ Cet article décrit les cas de quatre usage suivants :
 
 ## <a name="connect-a-single-device"></a>Connecter un appareil unique
 
-Cette approche est utile lorsque vous expérimenter IoT Central ou test d’appareils.
-
-Pour vous connecter à un seul appareil à IoT Central à l’aide de SAS, procédez comme suit :
-
-1. Pour ajouter un appareil réel, accédez à la **Device Explorer**, choisissez un modèle de périphérique, puis sélectionnez **+ Nouveau > réel**:
-    - Entrez votre propre (en minuscules) **ID d’appareil** ou utiliser l’ID suggérée.
-    - Entrez un **nom de l’appareil** ou utilisez le nom suggéré.
-
-      ![Ajout d’un appareil](media/concepts-connectivity/add-device.png)
-
-1. Pour obtenir les informations de connexion d’appareil, sélectionnez **Connect** sur la page de l’appareil. Vous devez le **ID de portée**, **ID d’appareil**, et **clé primaire** valeurs :
-    - Chaque application IoT Central a une valeur unique [ID de portée](../iot-dps/concepts-device.md#id-scope) qui est générée par les points de distribution.
-    - [ID d’appareil](../iot-dps/concepts-device.md#device-id) est l’ID d’appareil unique. L’appareil ID est stocké dans le [Registre des identités](../iot-hub/iot-hub-devguide-identity-registry.md).
-    - **Clé primaire** est un jeton SAS, généré par IoT Central pour l’appareil.
-
-      ![Informations de connexion](media/concepts-connectivity/device-connect.png)
-
-Utilisez les informations de connexion dans votre code de l’appareil pour activer votre appareil pour vous connecter et envoyer des données à IoT à votre application IoT Central. Pour plus d’informations sur la connexion des appareils, consultez [étapes suivantes](#next-steps).
+Cette approche est utile lorsque vous expérimenter IoT Central ou test d’appareils. Vous pouvez utiliser les informations de connexion d’appareil à partir de votre application IoT Central pour générer la chaîne de connexion pour un appareil. Pour des instructions détaillées, consultez [comment générer une chaîne de connexion d’appareil pour se connecter à une application Azure IoT Central](howto-generate-connection-string.md).
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Connecter des appareils à l’échelle à l’aide de SAS
 
@@ -104,7 +87,7 @@ Les étapes suivantes décrivent comment connecter des appareils à IoT Central 
 
 - Exemple d’implémentation pour [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
-- [Exemple de client d’appareil dans C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+- [Exemple de client de périphérique en C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 
 ### <a name="for-testing-purposes-only"></a>Fins de test uniquement
 
@@ -132,7 +115,7 @@ Les étapes suivantes décrivent ce processus plus en détail. Les étapes diff�
 
     - **Certificats X.509 :** [Ajouter et vérifier le certificat racine/intermédiaire](#connect-devices-using-x509-certificates) et l’utiliser pour générer les certificats de périphérique à l’étape suivante.
     - **SAP :** Copiez la clé primaire. Cette clé est la clé SAS de groupe pour l’application IoT Central. Utilisez la clé pour générer les clés de signature d’accès partagé de périphérique à l’étape suivante.
-    ![Paramètres de connexion SAP](media/concepts-connectivity/connection-settings-sas.png)
+    ![Paramètres de connexion SAS](media/concepts-connectivity/connection-settings-sas.png)
 
 1. Générer vos informations d’identification de l’appareil
     - **Certificats X.509 :** Générer les certificats feuilles pour vos appareils à l’aide du certificat racine ou intermédiaire que vous avez ajouté à votre application IoT Central. Vérifiez que vous utilisez les minuscules **ID d’appareil** en tant que l’enregistrement CNAME dans les certificats feuilles. Pour vous à des fins de tests uniquement, utilisent [outil de ligne de commande](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) pour générer des certificats de l’appareil.
@@ -169,26 +152,6 @@ Quand un appareil réel se connecte à votre application IoT Central, les modifi
 
 1. Un opérateur peut bloquer un appareil. Quand un appareil est bloqué, il ne peut pas envoyer les données à votre application IoT Central. Bloqué appareils ont un état de configuration de **bloqué**. Un opérateur doit réinitialiser l’appareil avant qu’il peut reprendre l’envoi de données. Quand un opérateur débloque un appareil de l’état d’approvisionnement retourne à sa valeur précédente, **Registered** ou **approvisionné**.
 
-## <a name="get-a-connection-string"></a>Obtenir une chaîne de connexion
-
-Les étapes suivantes décrivent comment vous pouvez obtenir une chaîne de connexion pour un appareil :
-
-1. Sélectionnez **Connect** sur le **Device Explorer** page pour obtenir les détails de connexion : **ID de portée**, **ID d’appareil**, et **clé primaire appareil**:
-
-    ![Informations de connexion](media/concepts-connectivity/device-connect.png)
-
-1. Utilisez la `dps-keygen` utilitaire de ligne de commande pour générer une chaîne de connexion :  Pour installer le [utilitaire du Générateur de clé](https://github.com/Azure/dps-keygen), exécutez la commande suivante :
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-    Pour générer une chaîne de connexion, exécutez la commande suivante :
-
-    ```cmd/sh
-    dps-keygen -di:<device_id> -dk:<device_key> -si:<scope_id>
-    ```
-
 ## <a name="sdk-support"></a>Prise en charge des Kits de développement logiciel (SDK)
 
 L’offre de kits de développement logiciel Azure appareil le moyen le plus simple pour vous implémentez votre code de l’appareil. Les kits SDK d’appareils suivants sont disponibles :
@@ -206,7 +169,7 @@ Chaque appareil se connecte en utilisant une chaîne de connexion unique qui l�
 Toutes les communications des appareils avec IoT Hub utilisent les options de connectivité IoT Hub suivantes :
 
 - [Messages d’appareil-à-cloud](../iot-hub/iot-hub-devguide-messages-d2c.md)
-- [Représentations d’appareil physique](../iot-hub/iot-hub-devguide-device-twins.md)
+- [Jumeaux d’appareil](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Le tableau suivant récapitule à quelles fonctionnalités des appareils Azure IoT Central correspondent les fonctionnalités IoT Hub :
 

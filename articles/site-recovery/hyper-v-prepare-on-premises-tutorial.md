@@ -5,29 +5,37 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 127e970927e8ac1d0cd9b431c0c0175bdc4f5c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315773"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361890"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs Hyper-V locaux à la récupération d’urgence vers Azure
 
-Ce didacticiel vous montre comment préparer votre infrastructure Hyper-V locale quand vous souhaitez répliquer des machines virtuelles Hyper-V vers Azure, dans le cadre de la récupération d’urgence. Les hôtes Hyper-V peuvent être gérés par System Center Virtual Machine Manager (VMM), mais ce n’est pas une condition obligatoire.  Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Cet article explique comment préparer votre infrastructure de Hyper-V en local lorsque vous souhaitez configurer la récupération d’urgence de machines virtuelles Hyper-vers Azure, à l’aide de [Azure Site Recovery](site-recovery-overview.md).
+
+
+Ce didacticiel est le deuxième d’une série qui vous montre comment configurer la récupération d’urgence vers Azure pour les machines virtuelles de Hyper-V en local. Dans le premier didacticiel, nous [configurer les composants Azure](tutorial-prepare-azure.md) nécessaires à la récupération d’urgence de Hyper-V.
+
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Examinez les exigences pour Hyper-V et VMM, le cas échéant.
-> * Préparez VMM, le cas échéant
-> * Vérifiez l’accès Internet aux emplacements Azure
-> * Préparez les machines virtuelles afin que vous puissiez y accéder après le basculement vers Azure
+> * Passez en revue la configuration requise d’Hyper-V et configuration requise pour VMM si vos hôtes Hyper-V sont gérés par System Center VMM.
+> * Préparez VMM, le cas échéant.
+> * Vérifier l’accès internet aux emplacements Azure.
+> * Préparer des machines virtuelles afin que vous pouvez y accéder après le basculement vers Azure.
 
-Ce didacticiel est le deuxième de la série. Assurez-vous d’avoir[configuré les composants Azure](tutorial-prepare-azure.md) comme décrit dans le didacticiel précédent.
+> [!NOTE]
+> Didacticiels vous montrent le chemin d’accès de déploiement la plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Pour obtenir des instructions détaillées, consultez l’article de la section de la Table des matières Site Recovery.
 
+## <a name="before-you-start"></a>Avant de commencer
 
+Vérifiez que vous avez préparé Azure comme décrit dans la [premier didacticiel de cette série](tutorial-prepare-azure.md).
 
 ## <a name="review-requirements-and-prerequisites"></a>Réviser les exigences et les composants requis
 
@@ -79,7 +87,7 @@ Pour vous connecter à des machines virtuelles Windows à l’aide de RDP après
 
 1. Pour accéder via Internet, activez RDP sur la machine virtuelle locale avant le basculement. Vérifiez que des règles TCP et UDP sont ajoutées pour le profil **Public**, et que RDP est autorisé dans **Pare-feu Windows** > **Applications autorisées** pour tous les profils.
 2. Pour accéder via un VPN de site à site, activez RDP sur la machine locale. RDP doit être autorisé dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux **Domaine et Privé**.
-   Vérifiez que la stratégie SAN du système d’exploitation est définie sur **OnlineAll**. [Plus d’informations](https://support.microsoft.com/kb/3031135) Aucune mise à jour de Windows ne doit être en attente sur la machine virtuelle quand vous déclenchez un basculement. S’il y en a, vous ne pouvez pas vous connecter à la machine virtuelle avant la fin de la mise à jour.
+   Vérifiez que la stratégie SAN du système d’exploitation est définie sur **OnlineAll**. [Plus d’informations](https://support.microsoft.com/kb/3031135) Aucune mise à jour de Windows ne doit être en attente sur la machine virtuelle quand vous déclenchez un basculement. S’il existe, il se peut que vous ne pourrez pas vous connecter à la machine virtuelle jusqu'à ce que la mise à jour est terminée.
 3. Sur la machine virtuelle Azure Windows, après le basculement, vérifiez les **Diagnostics de démarrage** pour afficher une capture d’écran de la machine virtuelle. Si vous ne pouvez pas vous connecter, vérifiez que la machine virtuelle est en cours d’exécution et lisez ces [conseils de résolution des problèmes](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Après le basculement, vous pouvez accéder à des machines virtuelles Azure à l’aide de la même adresse IP en tant que machine virtuelle répliquée locale ou une autre adresse IP. [En savoir plus](concepts-on-premises-to-azure-networking.md) sur la configuration d’adressage IP pour le basculement.

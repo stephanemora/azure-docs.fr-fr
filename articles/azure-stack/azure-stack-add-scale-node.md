@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17da540bd6077b8e045f125fd3cf13dc0e043000
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172397"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882036"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Ajouter de nouveaux nœuds d’unité d’échelle dans Azure Stack
 
@@ -75,7 +75,7 @@ Utilisez l’applet de commande **New-AzsScaleUnitNodeObject** pour ajouter un n
 Avant d’utiliser l’un des exemples de scripts PowerShell suivants, remplacez les valeurs *node names* et *IP addresses* par les valeurs de votre environnement Azure Stack.
 
   > [!Note]  
-  > Lorsque vous nommez un nœud, vous devez spécifier un nom comportant moins de 15 caractères. Vous ne pouvez pas utiliser un nom qui contient un espace ou les caractères suivants : `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,` }`, `_`.
+  > Lorsque vous nommez un nœud, vous devez spécifier un nom comportant moins de 15 caractères. Vous ne pouvez pas utiliser un nom qui contient un espace ou les caractères suivants : `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
 
 **Ajouter un nœud :**
   ```powershell
