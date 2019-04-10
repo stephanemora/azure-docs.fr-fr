@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 5dd77d85e06a821d8dd359174bb5de6bca8b4d61
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b205f7782dc14c9108032d2b4a274f884194874e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669774"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357864"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -187,7 +187,7 @@ Le port du conteneur n’est pas disponible. Ce problème peut se produire, car�
 1. Vérifiez la configuration du port. Les numéros de port spécifiés doivent être **identiques** dans toutes les ressources suivantes :
     * **Dockerfile :** Spécifié par l’instruction `EXPOSE`.
     * **[Graphique Helm](https://docs.helm.sh) :** Spécifié par les valeurs `externalPort` et `internalPort` d’un service (souvent situées dans un fichier `values.yml`),
-    * Ports ouverts dans le code d’application, par exemple dans Node.js : `var server = app.listen(80, function () {...}`
+    * Tous les ports ouverts dans le code d’application, par exemple dans Node.js : `var server = app.listen(80, function () {...}`
 
 
 ## <a name="config-file-not-found"></a>Fichier de configuration introuvable
@@ -208,7 +208,7 @@ Le démarrage du débogueur VS Code peut parfois générer cette erreur.
 2. Appuyez de nouveau sur F5.
 
 ## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>Erreur de débogage « Failed to find debugger extension for type:coreclr » (Impossible de trouver l’extension du débogueur pour type: coreclr)
-L’exécution du débogueur VS Code signale l’erreur : `Failed to find debugger extension for type:coreclr.`
+Exécuter le débogueur de VS Code signale l’erreur : `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Motif
 L’extension VS Code pour C# n’est pas installée sur votre ordinateur de développement. Le C# extension inclut la prise en charge de .NET Core (CoreCLR) de débogage.
@@ -217,7 +217,7 @@ L’extension VS Code pour C# n’est pas installée sur votre ordinateur de dé
 Installez [l’extension VS Code pour C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>Erreur de débogage « Le type de débogage configuré « coreclr » n’est pas prise en charge »
-L’exécution du débogueur VS Code signale l’erreur : `Configured debug type 'coreclr' is not supported.`
+Exécuter le débogueur de VS Code signale l’erreur : `Configured debug type 'coreclr' is not supported.`
 
 ### <a name="reason"></a>Motif
 L’extension VS Code pour Azure Dev Spaces n’est pas installée sur votre ordinateur de développement.
@@ -226,7 +226,7 @@ L’extension VS Code pour Azure Dev Spaces n’est pas installée sur votre ord
 Installez l’[extension VS Code pour Azure Dev Spaces](get-started-netcore.md).
 
 ## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Erreur de débogage « ’valeur ’cwd’ ’/src’. Le système ne peut pas trouver le fichier spécifié. » ou «launch: program ’/src/ [chemin d’accès au fichier binaire du projet]’ n’existe pas »
-L’exécution du débogueur VS Code signale l’erreur : `Invalid 'cwd' value '/src'. The system cannot find the file specified.` et/ou `launch: program '/src/[path to project executable]' does not exist`
+Exécuter le débogueur de VS Code signale l’erreur `Invalid 'cwd' value '/src'. The system cannot find the file specified.` et/ou `launch: program '/src/[path to project executable]' does not exist`
 
 ### <a name="reason"></a>Motif
 Par défaut, l’extension VS Code utilise `src` comme répertoire de travail du projet sur le conteneur. Si vous avez mis à jour votre `Dockerfile` pour spécifier un répertoire de travail différent, vous pouvez voir cette erreur.

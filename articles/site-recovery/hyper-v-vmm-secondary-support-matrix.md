@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 419974138d6f556a2f774e8c1a355729c824fddc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310606"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360799"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
 
-Cet article résume ce qui est pris en charge lorsque vous utilisez le service [Azure Site Recovery](site-recovery-overview.md) pour répliquer des machines virtuelles Hyper-V gérées dans des clouds System Center Virtual Machine Manager (VMM) vers un site secondaire. Si vous souhaitez répliquer des machines virtuelles Hyper-V vers Azure, passez en revue [cette matrice de prise en charge](hyper-v-azure-support-matrix.md).
+Cet article résume ce qui est pris en charge lorsque vous utilisez le [Azure Site Recovery](site-recovery-overview.md) gérées par le service de réplication des machines virtuelles Hyper-V dans des clouds System Center Virtual Machine Manager (VMM) vers un site secondaire. Si vous souhaitez répliquer des machines virtuelles Hyper-V vers Azure, passez en revue [cette matrice de prise en charge](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
 > Vous pouvez uniquement répliquer vers un site secondaire lorsque vos hôtes Hyper-V sont gérés dans des clouds VMM.
@@ -108,7 +108,7 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 Le fournisseur coordonne les communications entre les serveurs VMM. 
 
-**La plus récente** | **Mises à jour**
+**Dernière** | **Mises à jour**
 --- | --- 
 5.1.19 ([disponible sur le portail](https://aka.ms/downloaddra)) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
 
@@ -116,5 +116,5 @@ Le fournisseur coordonne les communications entre les serveurs VMM.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Répliquer des machines virtuelles Hyper-V résidant dans des clouds VMM vers un site secondaire](tutorial-vmm-to-vmm.md)
+[Répliquer des machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire](tutorial-vmm-to-vmm.md)
 

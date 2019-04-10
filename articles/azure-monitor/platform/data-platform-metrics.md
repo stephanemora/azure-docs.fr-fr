@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1027398a1a7f790adedf6c7eebed44a8db501b8a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 2646941e2384acf6d303615f564b65d616931180
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905033"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358878"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mesures dans Azure Monitor
 
@@ -39,7 +39,7 @@ Le tableau suivant répertorie les différentes façons, que vous pouvez utilise
 | Alerte | Configurer un [règle d’alerte métrique](alerts-metric.md) qui envoie une notification ou prend [action automatisée](action-groups.md) lorsque la valeur de métrique dépasse un seuil. |
 | Automatisation |  Utilisez [mise à l’échelle](autoscale-overview.md) pour augmenter ou diminuer les ressources en se basant sur une valeur de métrique qui dépasse un seuil. |
 | Exportation | [Acheminer des mesures dans les journaux](diagnostic-logs-stream-log-store.md) pour analyser les données dans les mesures Azure Monitor avec les données dans les journaux d’Azure Monitor et pour stocker les valeurs de mesure pendant plus de 93 jours.<br>Stream métriques pour un [Event Hub](stream-monitoring-data-event-hubs.md) les acheminer vers des systèmes externes. |
-| Récupération | Accéder aux valeurs de mesure à partir d’un à l’aide de la ligne de commande [applets de commande PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Accéder à des valeurs de mesure à partir de l’application personnalisée à l’aide [API REST](rest-api-walkthrough.md).<br>Accéder aux valeurs de mesure à partir d’un à l’aide de la ligne de commande [CLI](/azure/monitor/metrics). |
+| Récupération | Accéder aux valeurs de mesure à partir d’un à l’aide de la ligne de commande [applets de commande PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Accéder à des valeurs de mesure à partir de l’application personnalisée à l’aide [API REST](rest-api-walkthrough.md).<br>Accéder aux valeurs de mesure à partir d’un à l’aide de la ligne de commande [CLI](/cli/azure/monitor/metrics). |
 | Archivage | [Archivez](..//learn/tutorial-archive-data.md) l’historique des performances ou d’intégrité de votre ressource à des fins de conformité, d’audit ou de création de rapports hors connexion. |
 
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 034/08/2019
-ms.openlocfilehash: 804e60b141f6ad4f089710d4b85c52a8dad33cfc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 0437ba24727c06e874b49908a5a22d0063de72fd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269518"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356864"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Qu’est-ce qu’une base de données Azure SQL Database unique
 
@@ -56,7 +56,7 @@ Pour plus d’informations, voir [Résolution des différences de Transact-SQL d
 SQL Database fournit toute une gamme de [fonctionnalités intégrées de sécurité et conformité](sql-database-security-overview.md) pour que votre application réponde aux différentes exigences de conformité et de sécurité.
 
 > [!IMPORTANT]
-> Base de données SQL Azure (toutes les options de déploiement), a été certifié par rapport à un nombre de normes de conformité. Pour plus d’informations, consultez le [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) où vous trouverez la liste actualisée des certifications de conformité de base de données SQL.
+> Base de données SQL Azure (toutes les options de déploiement), a été certifié par rapport à un nombre de normes de conformité. Pour plus d’informations, consultez le [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité de base de données SQL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

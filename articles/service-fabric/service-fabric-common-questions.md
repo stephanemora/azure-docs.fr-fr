@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045796"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359420"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -136,7 +136,7 @@ Non. Les machines virtuelles de faible priorité ne sont pas prises en charge.
 Les procédés suivants permettent à votre application d’obtenir des informations d’identification pour s’authentifier auprès de Key Vault :
 
 R. Au cours de votre travail de génération/compression d’applications, vous pouvez extraire un certificat et l’utiliser dans le package de données de votre application SF en vue de l’authentification auprès de Key Vault.
-B. Pour les hôtes MSI d’un groupe de machines virtuelles identiques, vous pouvez développer un élément PowerShell SetupEntryPoint simple pour votre application SF afin d’obtenir [un jeton d’accès à partir du point de terminaison MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), puis [récupérer vos secrets à partir de Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret).
+B. Pour les machines virtuelles identiques sur les hôtes MSI est activée, vous pouvez développer un PowerShell SetupEntryPoint simple pour votre application service Fabric pour obtenir [un jeton d’accès du point de terminaison MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), puis [extraire vos secrets KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Conception des applications
 

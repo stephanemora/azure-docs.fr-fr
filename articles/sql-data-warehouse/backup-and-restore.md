@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846992"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359010"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Sauvegarde et restauration dans Azure SQL Data Warehouse
 
@@ -25,7 +25,7 @@ Découvrez comment utiliser la sauvegarde et restauration dans Azure SQL Data Wa
 
 Une *capture instantanée d’entrepôt de données* crée un point de restauration que vous pouvez utiliser pour récupérer ou copier votre entrepôt de données dans un état antérieur.  Comme SQL Data Warehouse est un système distribué, une capture instantanée d’entrepôt de données est constituée de nombreux fichiers qui sont stockés dans le stockage Azure. Les captures instantanées capturent les changements incrémentiels à partir des données stockées dans votre entrepôt de données.
 
-Une *restauration d’entrepôt de données* est un nouvel entrepôt de données créé à partir d’un point de restauration d’un entrepôt de données existant ou supprimé. La restauration de votre entrepôt de données est une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elle recrée vos données après des corruptions et des suppressions accidentelles. Un entrepôt de données est également un mécanisme puissant pour créer des copies de votre entrepôt de données à des fins de test ou de développement.  SQL Data Warehouse utilise des mécanismes de restauration rapide dans la même région où le temps de restauration mesuré est inférieur à 20 minutes pour n’importe quelle taille de données.
+Une *restauration d’entrepôt de données* est un nouvel entrepôt de données créé à partir d’un point de restauration d’un entrepôt de données existant ou supprimé. La restauration de votre entrepôt de données est une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elle recrée vos données après des corruptions et des suppressions accidentelles. Un entrepôt de données est également un mécanisme puissant pour créer des copies de votre entrepôt de données à des fins de test ou de développement.  Taux de restauration SQL Data Warehouse peut varier en fonction de la taille de la base de données et l’emplacement de l’entrepôt de données source et cible. En moyenne dans la même région, les taux de restauration prendre généralement environ 20 minutes. 
 
 ## <a name="automatic-restore-points"></a>Points de restauration automatiques
 

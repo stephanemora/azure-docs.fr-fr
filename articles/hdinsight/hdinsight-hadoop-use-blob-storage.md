@@ -1,24 +1,22 @@
 ---
 title: Interroger des données depuis un stockage Azure compatible avec HDFS - Azure HDInsight
 description: Découvrez comment interroger des données à partir du stockage Azure et d’Azure Data Lake Storage pour stocker les résultats de votre analyse.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/28/2019
-ms.openlocfilehash: d88a05b03813eb0ec94a84f60bffb903e1344987
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/08/2019
+ms.openlocfilehash: 3356d3eee00a640efe10e2d9f3aa4fa7be775995
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361912"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360782"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
-Pour analyser des données dans un cluster HDInsight, vous pouvez stocker les données dans [Stockage Azure](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Store Gen 2](../storage/blobs/data-lake-storage-introduction.md), ou les deux. Les deux options de stockage vous permettent de supprimer des clusters HDInsight servant aux calculs, sans perte de données utilisateur.
+Pour analyser les données dans un cluster HDInsight, vous pouvez stocker les données, soit dans [stockage Azure](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md), ou une combinaison. Ces options de stockage permettent de supprimer en toute sécurité des clusters HDInsight qui sont utilisés pour le calcul sans perte de données utilisateur.
 
 Apache Hadoop prend en charge une notion de système de fichiers par défaut. Le système de fichiers par défaut implique un schéma et une autorité par défaut. Il peut également être utilisé pour résoudre les chemins d'accès relatifs. Pendant le processus de création du cluster HDInsight, vous pouvez spécifier un conteneur d’objets blob dans Stockage Azure comme système de fichiers par défaut ou, avec HDInsight 3.6, vous pouvez sélectionner Stockage Azure ou Azure Data Lake Storage Gen 1/Azure Data Lake Storage Gen 2 en tant que système de fichiers par défaut avec quelques exceptions. Pour la prise en charge de l’utilisation de Data Lake Store Gen 1 en tant que stockage associé et par défaut, consultez [Disponibilités pour le cluster HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
@@ -41,6 +39,8 @@ Le partage d’un conteneur blob en tant que système de fichiers par défaut su
  
  > [!NOTE]  
  > Le niveau d’accès archive est un niveau hors connexion dont la latence de récupération de plusieurs heures n’est pas recommandée pour une utilisation avec HDInsight. Pour plus d’informations, voir <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier">Niveau d’accès archive</a>.
+
+Si vous choisissez votre compte de stockage avec le **les pare-feux et réseaux virtuels** restrictions sur **réseaux sélectionnés**, veillez à activer l’exception **autoriser fiables Microsoft Services...**  afin que HDInsight puisse accéder à votre compte de stockage.
 
 ## <a name="hdinsight-storage-architecture"></a>Architecture de stockage HDInsight
 Le schéma suivant résume l’architecture de stockage HDInsight relative au Stockage Azure :
@@ -315,7 +315,7 @@ azure storage blob download <containername> <blobname> <destinationfilename> --a
 azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**Exemple d’utilisation d’Azure Classic CLI pour répertorier des fichiers**
+**Exemple d’utilisation d’Azure Classic CLI pour répertorier les fichiers**
 
 ```cli
 azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>

@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 373851c406d95a2e458c017cb311bd5cc4e5b30f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 54d7a0bf0474db4a9f9d74a1f694f10ef1be91cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664288"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357757"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
@@ -106,6 +106,10 @@ az hdinsight script-action execute ^
 Consultez [appliquer une action de script sur un cluster en cours d’exécution](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
 ## <a name="known-issues"></a>Problèmes connus
+
+### <a name="storage-firewall"></a>Pare-feu de stockage
+
+Si vous choisissez votre compte de stockage avec le **les pare-feux et réseaux virtuels** restrictions sur **réseaux sélectionnés**, veillez à activer l’exception **autoriser fiables Microsoft Services...**  afin que HDInsight puisse accéder à votre compte de stockage.
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Comptes de stockage non affichés dans le portail ou les outils Azure
 

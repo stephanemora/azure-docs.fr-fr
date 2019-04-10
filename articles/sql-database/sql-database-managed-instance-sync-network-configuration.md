@@ -9,34 +9,34 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 02c64fcd51862d8ff9f107adb0ca5cfda5812a88
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567109"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358792"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Synchroniser la configuration de mise en réseau pour le plan d’hébergement Azure App Service
 
-Il peut arriver que, bien que [votre application soit intégrée à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md), vous ne pouvez pas établir de connexion vers une Instance gérée. Vous pouvez par exemple essayer d’actualiser la configuration de mise en réseau pour votre plan de service. 
+Il peut arriver que, bien que [votre application soit intégrée à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md), vous ne pouvez pas établir de connexion vers une Instance gérée. Vous pouvez par exemple essayer d’actualiser la configuration de mise en réseau pour votre plan de service.
 
 ## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>Synchroniser la configuration de réseau pour le plan d’hébergement Azure App Service
 
 Pour ce faire, procédez comme suit :  
 
 1. Accédez à votre plan App Service des applications Web.
- 
+
    ![plan app service](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
 2. Cliquez sur **Mise en réseau** puis cliquez sur **Cliquez ici pour gérer**.
- 
+
    ![gérer le plan de service](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
-3. Sélectionnez votre **Réseau virtuel** et cliquez sur **Synchroniser le réseau**. 
- 
+3. Sélectionnez votre **Réseau virtuel** et cliquez sur **Synchroniser le réseau**.
+
    ![synchroniser le réseau](./media/sql-database-managed-instance-sync-networking/sync.png)
 
 4. Attendez la fin de la synchronisation.

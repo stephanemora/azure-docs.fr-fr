@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b3e997a37bb5d030d559b6771b2c0e2f74cc62ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117453"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277684"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure
 
@@ -148,7 +148,7 @@ Vous pouvez utiliser [le script](#copy-ade-keys-to-dr-region-using-powershell-sc
 Si vous sélectionnez un coffre de clés déjà créé dans la région cible au lieu de laisser Azure Site Recovery le créer. Assurez-vous que le coffre de clés dispose des autorisations requises comme indiqué ci-dessus.</br>
 *Par exemple* : Un utilisateur essaie de répliquer une machine virtuelle qui a un coffre de clés dans la région source, par exemple « ContososourceKeyvault ».
 L’utilisateur dispose de toutes les autorisations sur le coffre de clés de la région source, mais lors de la protection il sélectionne un coffre de clés « ContosotargetKeyvault » déjà créé, qui n’a d’autorisation, alors la protection génère une erreur.</br>
-**Procédure de résolution :** Accédez à « Accueil > Keyvaults > ContososourceKeyvault > Stratégies d’accès » et ajoutez les autorisations comme indiqué ci-dessus. 
+**Procédure de résolution :** Accédez à « Accueil > Keyvaults > ContososourceKeyvault > Stratégies d’accès » et ajoutez les autorisations comme indiqué ci-dessus.
 
 **Cause 2 :** Vous avez peut-être sélectionné un coffre de clés déjà créé à partir de la Région cible qui n’a pas les autorisations de déchiffrement-chiffrement.
 Si vous sélectionnez un coffre de clés déjà créé dans la région cible au lieu de laisser Azure Site Recovery le créer. Vérifiez que l’utilisateur dispose des autorisations de déchiffrement-chiffrement au cas où vous voulez chiffrer également la clé dans la région source.</br>

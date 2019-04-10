@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: c403bca3abf493448265e25316babe20ea9c8544
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272018"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358049"
 ---
 # <a name="support-and-help-options"></a>Options d’aide et de support
 
@@ -35,7 +35,7 @@ Les actualités relatives à Cognitive Services sont rassemblées dans le [blog 
 
 ## <a name="release-notes"></a>Notes de publication
 
-Les [notes]] (https://aka.ms/csspeech/whatsnew) sont mis à jour dès qu’une nouvelle version est disponible. Les notes de publication contiennent des informations sur les nouvelles fonctionnalités, améliorations et correctifs de bogues.
+Le [notes de publication](https://aka.ms/csspeech/whatsnew) sont mis à jour dès qu’une nouvelle version est disponible. Les notes de publication contiennent des informations sur les nouvelles fonctionnalités, améliorations et correctifs de bogues.
 
 ## <a name="search"></a>Recherche
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
-ms.openlocfilehash: 99117c96f79dd7d0da388a0e793908f6ffb8ed27
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266441"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358236"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Sauvegarder et restaurer la machine virtuelle Azure chiffrée
 
@@ -31,7 +31,7 @@ Sauvegarde Azure prend en charge la sauvegarde des machines virtuelles Azure qui
 Sauvegarde Azure peut sauvegarder et restaurer des machines virtuelles Azure à l’aide d’ADE avec et sans l’application Azure AD, comme décrit dans le tableau suivant.
 
 **Type de disque de machine virtuelle** | **ADE (BEK/dm-crypt)** | **ADE et KEK**
---- | --- | --- 
+--- | --- | ---
 **Non géré** | Oui | Oui
 **Adresses IP gérées**  | Oui | Oui
 
@@ -95,14 +95,14 @@ En outre, il existe plusieurs choses que vous devrez peut-être faire dans certa
 8. Si vous utilisez Azure Key Vault, sur la page du coffre, vous consultez un message que sauvegarde Azure a besoin d’accéder en lecture seule aux clés et secrets dans Key Vault.
 
     - Si vous recevez ce message, aucune action n’est requise.
-    
+
         ![Accès OK](./media/backup-azure-vms-encryption/access-ok.png)
-        
+
     - Si vous recevez ce message, vous devez définir les autorisations comme décrit dans la [procédure ci-dessous](#provide-permissions).
-    
+
         ![Avertissement de l’accès](./media/backup-azure-vms-encryption/access-warning.png)
 
-9. Cliquez sur **activer la sauvegarde** pour déployer la stratégie de sauvegarde dans le coffre et activer la sauvegarde pour les machines virtuelles sélectionnées. 
+9. Cliquez sur **activer la sauvegarde** pour déployer la stratégie de sauvegarde dans le coffre et activer la sauvegarde pour les machines virtuelles sélectionnées.
 
 
 ## <a name="trigger-a-backup-job"></a>Déclencher une tâche de sauvegarde
@@ -129,18 +129,18 @@ Pour définir les autorisations :
 1. Dans le portail Azure, sélectionnez **tous les services**, puis recherchez **coffres de clés**.
 2. Sélectionnez le coffre de clés associé à la machine virtuelle chiffrée, vous effectuez une sauvegarde.
 3. Sélectionnez **stratégies d’accès** > **Ajouter nouveau**.
-4. Sélectionnez **sélectionner le principal**, puis tapez **gestion de sauvegarde**. 
+4. Sélectionnez **sélectionner le principal**, puis tapez **gestion de sauvegarde**.
 5. Sélectionnez **Service de gestion de sauvegarde** > **sélectionnez**.
 
     ![Sélection du service de sauvegarde](./media/backup-azure-vms-encryption/select-backup-service.png)
 
 6. Dans **ajouter une stratégie d’accès** > **configurer à partir du modèle (facultatif)**, sélectionnez **sauvegarde Azure**.
     - Les autorisations requises sont préremplies dans les listes déroulantes **Autorisations de clé** et **Autorisations du secret**.
-    - Si votre machine virtuelle est chiffrée à l’aide de **BEK uniquement**, supprimer la sélection pour **autorisations de clé** dans la mesure où vous devez uniquement des autorisations pour les clés secrètes. 
+    - Si votre machine virtuelle est chiffrée à l’aide de **BEK uniquement**, supprimer la sélection pour **autorisations de clé** dans la mesure où vous devez uniquement des autorisations pour les clés secrètes.
 
     ![Sélection de Sauvegarde Azure](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. Cliquez sur **OK**. **Service de gestion de sauvegarde** est ajouté à **stratégies d’accès**. 
+6. Cliquez sur **OK**. **Service de gestion de sauvegarde** est ajouté à **stratégies d’accès**.
 
     ![Stratégies d’accès](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
@@ -159,6 +159,5 @@ Vous restaurez des machines virtuelles chiffrées comme suit :
 
 Si vous rencontrez des problèmes, passez en revue
 
-- [Les erreurs courantes](backup-azure-vms-troubleshoot.md#troubleshoot-backup-of-encrypted-vms) quand sauvegarder et restaurer les machines virtuelles Azure chiffrées.
-- [Général](backup-azure-vms-troubleshoot.md) émet de la machine virtuelle Azure.
+- [Les erreurs courantes](backup-azure-vms-troubleshoot.md) quand sauvegarder et restaurer les machines virtuelles Azure chiffrées.
 - [Extension de l’agent/de sauvegarde de machine virtuelle Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) problèmes.

@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 04/05/2019
 ms.author: sogup
-ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905968"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359963"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -23,12 +23,11 @@ ms.locfileid: "58905968"
 Le nouveau modèle pour la restauration instantanée fournit les améliorations de fonctionnalités suivantes :
 
 * Possibilité d’utiliser des instantanés pris dans le cadre d’une tâche de sauvegarde qui peut être récupérée sans attendre la fin du transfert des données dans le coffre. Cela réduit le temps d’attente pour la copie des instantanés dans le coffre avant de déclencher la restauration.
-* Réduit les temps de sauvegarde et de restauration en conservant les instantanés localement pendant deux jours par défaut. Cette valeur par défaut est configurable à volonté entre 1 et 5 jours.
-* Prise en charge des disques d’une taille maximale de 4 To
+* Réduit les temps de sauvegarde et de restauration en conservant les instantanés localement pendant deux jours par défaut. Cette valeur de rétention de capture instantanée par défaut est configurable à n’importe quelle valeur comprise entre 1 à 5 jours.
+* Prise en charge des disques d’une taille maximale de 4 To Sauvegarde Azure ne prend pas en charge les disques agrégés par bandes. Redimensionnement du disque n’est pas recommandé par sauvegarde Azure.
 * Prend en charge les disques SSD Standard, ainsi que les disques de disque dur Standard et Premium SSD.
 *   Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée (par disque) lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machine virtuelle.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>Nouveautés de cette fonctionnalité
 
@@ -75,9 +74,9 @@ Dans le portail Azure, vous pouvez voir un champ ajouté dans le **stratégie de
 > À partir de PowerShell Az version 1.6.0 et versions ultérieures, vous pouvez mettre à jour de la période de rétention des instantanés de la restauration instantanée dans la stratégie à l’aide de PowerShell
 
 ```powershell
-PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 La rétention des captures instantanées par défaut pour chaque stratégie est définie à 2 jours. Utilisateur peut modifier la valeur pour un minimum de 1 et un maximum de 5 jours. Pour les stratégies hebdomadaire, la rétention des captures instantanées est fixée à 5 jours.
 

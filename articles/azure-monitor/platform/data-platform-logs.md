@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904149"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360630"
 ---
 # <a name="logs-in-azure-monitor"></a>Journaux dans Azure Monitor
 
@@ -46,7 +46,7 @@ Le tableau suivant répertorie les différentes façons, que vous pouvez utilise
 | Analyser | Utilisez [Analytique de journal](../log-query/get-started-portal.md) dans le portail Azure pour écrire [enregistrer des requêtes](../log-query/log-query-overview.md) et analyser les données de journal avec le puissant moteur d’analyse de l’Explorateur de données de manière interactive.<br>Utilisez le [console d’analytique Application Insights](../app/analytics.md) dans le portail Azure pour écrire des requêtes de journal et analyser les données du journal d’Application Insights de manière interactive. |
 | Visualisation | Épingler les résultats de la requête rendus sous forme de tableaux ou graphiques pour une [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md).<br>Créer un [classeur](../app/usage-workbooks.md) à combiner avec plusieurs jeux de données dans un rapport interactif. <br>Exporter les résultats d’une requête vers [Power BI](powerbi.md) pour utiliser différentes visualisations et les partager avec les utilisateurs extérieurs à Azure.<br>Exporter les résultats d’une requête pour [Grafana](grafana-plugin.md) à exploiter ses tableaux de bord et à combiner avec d’autres sources de données.|
 | Alerte | Configurer une [règle d’alerte de journal](alerts-log.md) qui envoie une notification ou prend une [action de façon automatique](action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique.<br>Configurer un [règle d’alerte métrique](alerts-metric-logs.md) sur certains journaux de données de fichier journal extraits comme des métriques. |
-| Récupération | Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics).<br>Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide [applets de commande PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Accéder aux résultats de requête de journal à partir d’une application personnalisée à l’aide [API REST](https://dev.loganalytics.io/). |
+| Récupération | Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide [applets de commande PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Accéder aux résultats de requête de journal à partir d’une application personnalisée à l’aide [API REST](https://dev.loganalytics.io/). |
 | Exportation | Générer un flux de travail pour récupérer des données de journal et le copier à un emplacement externe avec [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
@@ -105,8 +105,8 @@ Azure Monitor peut collecter des données de journal à partir de diverses sourc
 |:---|:---|
 | Demandes et exceptions | Les données détaillées sur les demandes d’application et les exceptions sont dans le _demandes_, _pageViews_, et _exceptions_ tables. Les appels à [composants externes](../app/asp-net-dependencies.md) se trouvent dans le _dépendances_ table. |
 | Performances et utilisation | Performances de l’application sont disponible dans le _demandes_, _browserTimings_ et _performanceCounters_ tables. Les données de [mesures personnalisées](../app/api-custom-events-metrics.md#trackevent) est dans le _customMetrics_ table.|
-| Les données de trace | Résulte de [traçage distribué](/app/distributed-tracing) sont stockés dans le _traces_ table. |
-| Tests de disponibilité | Données de synthèse provenant [tests de disponibilité](/app/monitor-web-app-availability) est stocké dans le _availabilityResults_ table. Les données détaillées à partir de ces tests sont dans un stockage distinct et accessible à partir de l’Application Insights dans le portail Azure. |
+| Les données de trace | Résulte de [traçage distribué](../app/distributed-tracing.md) sont stockés dans le _traces_ table. |
+| Tests de disponibilité | Données de synthèse provenant [tests de disponibilité](../app/monitor-web-app-availability.md) est stocké dans le _availabilityResults_ table. Les données détaillées à partir de ces tests sont dans un stockage distinct et accessible à partir de l’Application Insights dans le portail Azure. |
 
 ### <a name="insights"></a>Insights
 
@@ -127,7 +127,7 @@ Azure Monitor peut collecter des données de journal à partir de diverses sourc
 | Données | Description |
 |:---|:---|
 | Azure Security Center | [Azure Security Center](/azure/security-center/) stocke les données qu’il collecte dans un espace de travail Analytique de journal où elles peuvent être analysées avec d’autres données de journal. Consultez [collecte des données dans Azure Security Center](../../security-center/security-center-enable-data-collection.md) pour plus d’informations sur la configuration de l’espace de travail. |
-| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) stocke les données à partir de sources de données dans un espace de travail Analytique de journal. Consultez [](/sentinel/connect-data-sources.md)  |
+| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) stocke les données à partir de sources de données dans un espace de travail Analytique de journal. Consultez [connecter des sources de données](/azure/sentinel/connect-data-sources).  |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

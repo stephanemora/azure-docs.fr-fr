@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 686c91669e5eccd7979c248db42d6f5b5079308b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: af47678b19209936aed86c132a8a3f400c3a7e8f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280908"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360333"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Grouper des machines à l’aide du mappage de dépendances de machine
 
@@ -121,21 +121,21 @@ Une fois le groupe créé, nous vous recommandons d’installer les agents sur t
 
 ## <a name="query-dependency-data-from-azure-monitor-logs"></a>Interroger des données de dépendance à partir des journaux d’Azure Monitor
 
-Les données de dépendance capturées par Service Map peuvent être interrogées dans l'espace de travail Log Analytics associé à votre projet Azure Migrate. [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sur les tables de données de carte de Service pour interroger dans Azure Monitor enregistre. 
+Les données de dépendance capturées par la carte de Service soient disponibles pour l’interrogation dans l’espace de travail Analytique de journal associé à votre projet Azure Migrate. [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sur les tables de données de carte de Service pour interroger dans Azure Monitor enregistre. 
 
 Pour exécuter des requêtes Kusto :
 
 1. Après avoir installé les agents, accédez au portail et cliquez sur **Vue d’ensemble**.
 2. Dans **Vue d’ensemble**, accédez à la section **Essentials** du projet et cliquez sur le nom de l’espace de travail fourni en regard de **Espace de travail OMS**.
 3. Sur la page de l’espace de travail Log Analytics, cliquez sur **Général** > **Journaux**.
-4. Écrivez votre requête pour collecter des données de dépendance à l’aide des journaux Azure Monitor. Des exemples de requêtes permettant de recueillir des données de dépendance sont disponibles [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Écrivez votre requête pour collecter des données de dépendance à l’aide des journaux Azure Monitor. Rechercher des exemples de requêtes dans la section suivante.
 5. Exécutez votre requête en cliquant sur Exécuter. 
 
 [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sur la façon d’écrire des requêtes de Kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Exemple Azure Monitor enregistre les requêtes
 
-Voici des exemples de requêtes que vous pouvez utiliser pour extraire des données de dépendance. Notez que les requêtes peuvent être modifiés pour extraire vos points de données par défaut. Une liste exhaustive des champs dans les enregistrements de données de dépendance est disponible [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+Voici des exemples de requêtes que vous pouvez utiliser pour extraire des données de dépendance. Vous pouvez modifier les requêtes pour extraire vos points de données par défaut. Une liste exhaustive des champs dans les enregistrements de données de dépendance est disponible [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Rechercher des exemples de requêtes plus [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Résumer les connexions entrantes sur un ensemble de machines
 

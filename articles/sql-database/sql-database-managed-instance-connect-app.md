@@ -9,89 +9,94 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 9d47e3fb821e9ad64beecd62c274a33e7fa14041
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ed9fbdd3e999cfd262ecbcf05a843c19cc969ed1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887321"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360424"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à Azure SQL Database Managed Instance
 
-Aujourd’hui, plusieurs choix s’offrent à vous pour déterminer comment et où héberger votre application. 
- 
-Vous pouvez choisir le cloud en utilisant soit Azure App Service, soit certaines options intégrées de réseau virtuel Azure comme l’environnement Azure App Service, une machine virtuelle ou un groupe de machines virtuelles identiques. Vous pouvez également adopter une approche du cloud hybride pour conserver vos applications localement. 
- 
+Aujourd’hui, plusieurs choix s’offrent à vous pour déterminer comment et où héberger votre application.
+
+Vous pouvez choisir le cloud en utilisant soit Azure App Service, soit certaines options intégrées de réseau virtuel Azure comme l’environnement Azure App Service, une machine virtuelle ou un groupe de machines virtuelles identiques. Vous pouvez également adopter une approche du cloud hybride pour conserver vos applications localement.
+
 Quel que soit le choix effectué, vous pouvez le connecter à Managed Instance.  
 
-![haute disponibilité](./media/sql-database-managed-instance/application-deployment-topologies.png)  
-## <a name="connect-an-application-inside-the-same-vnet"></a>Connecter une application à l’intérieur du même réseau virtuel 
+![haute disponibilité](./media/sql-database-managed-instance/application-deployment-topologies.png)
+
+## <a name="connect-an-application-inside-the-same-vnet"></a>Connecter une application à l’intérieur du même réseau virtuel
 
 Ce scénario est le plus simple. Des machines virtuelles à l’intérieur du réseau virtuel peuvent se connecter entre elles directement même si elles sont dans des sous-réseaux différents. Cela signifie que pour connecter une application dans un environnement Azure Application ou une machine virtuelle, il vous suffit de définir correctement la chaîne de connexion.  
- 
-## <a name="connect-an-application-inside-a-different-vnet"></a>Connecter une application à l’intérieur d’un autre réseau virtuel 
 
-Ce scénario est un peu plus complexe, car Managed Instance a une adresse IP privée dans son propre réseau virtuel. Pour établir la connexion, une application a besoin d’accéder au réseau virtuel dans lequel Managed Instance est déployé. Ainsi, vous devez d’abord établir une connexion entre l’application et le réseau virtuel Managed Instance. Les réseaux virtuels ne doivent pas nécessairement être dans le même abonnement pour que ce scénario fonctionne. 
- 
-Il existe deux options pour connecter des réseaux virtuels : 
-- [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md) 
-- Passerelle VPN de réseau virtuel à réseau virtuel ([portail Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
- 
+## <a name="connect-an-application-inside-a-different-vnet"></a>Connecter une application à l’intérieur d’un autre réseau virtuel
+
+Ce scénario est un peu plus complexe, car Managed Instance a une adresse IP privée dans son propre réseau virtuel. Pour établir la connexion, une application a besoin d’accéder au réseau virtuel dans lequel Managed Instance est déployé. Ainsi, vous devez d’abord établir une connexion entre l’application et le réseau virtuel Managed Instance. Les réseaux virtuels ne doivent pas nécessairement être dans le même abonnement pour que ce scénario fonctionne.
+
+Il existe deux options pour connecter des réseaux virtuels :
+
+- [Appairage de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
+- Passerelle VPN de réseau virtuel à réseau virtuel ([portail Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
+
 L’option d’homologation est préférable car elle utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel homologué et dans le même réseau virtuel. L’homologation de réseau virtuel est limité aux réseaux d’une même région.  
- 
+
 > [!IMPORTANT]
-> Le scénario d’homologation de réseau virtuel pour Managed Instance est limité aux réseaux de la même région en raison de [contraintes de l’homologation de réseau virtuel globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
+> Le scénario d’homologation de réseau virtuel pour Managed Instance est limité aux réseaux de la même région en raison de [contraintes de l’homologation de réseau virtuel globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
-## <a name="connect-an-on-premises-application"></a>Connecter une application locale 
+## <a name="connect-an-on-premises-application"></a>Connecter une application locale
 
-Managed Instance est uniquement accessible par le biais d’une adresse IP privée. Afin d’y accéder localement, vous devez établir une connexion de site à site entre l’application et le réseau virtuel Managed Instance. 
- 
-Vous avez deux options pour la connexion locale à un réseau virtuel Azure : 
-- Connexion VPN de site à site ([portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)) 
+Managed Instance est uniquement accessible par le biais d’une adresse IP privée. Afin d’y accéder localement, vous devez établir une connexion de site à site entre l’application et le réseau virtuel Managed Instance.
+
+Vous avez deux options pour la connexion locale à un réseau virtuel Azure :
+
+- Connexion VPN de site à site ([portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Connexion [ExpressRoute](../expressroute/expressroute-introduction.md)  
- 
-Si vous avez établi une connexion locale à Azure et que vous ne parvenez pas à établir une connexion à Managed Instance, vérifiez si votre pare-feu dispose d’une connexion sortante ouverte sur le port SQL 1 433 et la plage de ports 11 000 à 12 000 à des fins de redirection. 
+
+Si vous avez établi une connexion locale à Azure et que vous ne parvenez pas à établir une connexion à Managed Instance, vérifiez si votre pare-feu dispose d’une connexion sortante ouverte sur le port SQL 1 433 et la plage de ports 11 000 à 12 000 à des fins de redirection.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Connecter une application dans la box de développeur
 
 Managed Instance est uniquement accessible par le biais d’une adresse IP privée, donc pour y accéder à partir de votre box de développeur, vous devez d’abord établir une connexion entre cette dernière et le réseau virtuel Managed Instance. Pour cela, configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native. Pour plus d’informations, consultez [Configurer une connexion point à site pour se connecter à Azure SQL Database Managed Instance à partir d’un ordinateur local](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="connect-from-on-premises-with-vnet-peering"></a>Se connecter à partir d’un ordinateur local avec l’appairage VNet
+
 Un autre scénario utilisé par les clients est celui où la passerelle VPN est installée sur un réseau virtuel et dans un abonnement différents de ceux où est hébergé Managed Instance. Les deux réseaux virtuels sont ensuite appairés. Le diagramme d’architecture suivant montre comment ce scénario peut être implémenté.
 
 ![Homologation de réseaux virtuels](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
 Une fois que vous avez configuré l’infrastructure de base, vous devez modifier certains paramètres afin que la passerelle VPN puisse voir les adresses IP dans le réseau virtuel qui héberge Managed Instance. Pour ce faire, apportez les modifications très spécifiques qui suivent dans **Paramètres d’homologation**.
-1.  Dans le réseau virtuel qui héberge la passerelle VPN, accédez à **Homologations**, puis à la connexion de réseau virtuel appairée à l’instance managée, et cliquez sur **Autoriser le transit par passerelle**.
-2.  Dans le réseau virtuel qui héberge l’instance managée, accédez à **Homologations**, puis à la connexion de réseau virtuel appairée à la passerelle VPN, et cliquez sur **Utiliser des passerelles distantes**.
 
-## <a name="connect-an-azure-app-service-hosted-application"></a>Connecter une application hébergée Azure App Service 
+1. Dans le réseau virtuel qui héberge la passerelle VPN, accédez à **Homologations**, puis à la connexion de réseau virtuel appairée à l’instance managée, et cliquez sur **Autoriser le transit par passerelle**.
+2. Dans le réseau virtuel qui héberge l’instance managée, accédez à **Homologations**, puis à la connexion de réseau virtuel appairée à la passerelle VPN, et cliquez sur **Utiliser des passerelles distantes**.
+
+## <a name="connect-an-azure-app-service-hosted-application"></a>Connecter une application hébergée Azure App Service
 
 Managed Instance est uniquement accessible par le biais d’une adresse IP privée, donc pour y accéder à partir d’Azure App Service, vous devez d’abord établir une connexion entre l’application et le réseau virtuel Managed Instance. Consultez [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md).  
- 
-Pour résoudre les problèmes, consultez [Résolution des problèmes liés aux réseaux virtuels et aux applications](../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Si aucune connexion ne peut être établie, essayez de [synchroniser la configuration de la mise en réseau](sql-database-managed-instance-sync-network-configuration.md). 
- 
-L’intégration d’Azure App Service à un réseau homologué avec un réseau virtuel Managed Instance constitue un cas spécial de connexion entre Azure App Service et Managed Instance. Ce cas nécessite la configuration suivante : 
+
+Pour résoudre les problèmes, consultez [Résolution des problèmes liés aux réseaux virtuels et aux applications](../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Si aucune connexion ne peut être établie, essayez de [synchroniser la configuration de la mise en réseau](sql-database-managed-instance-sync-network-configuration.md).
+
+L’intégration d’Azure App Service à un réseau homologué avec un réseau virtuel Managed Instance constitue un cas spécial de connexion entre Azure App Service et Managed Instance. Ce cas nécessite la configuration suivante :
 
 - Le réseau virtuel Managed Instance ne doit PAS avoir de passerelle.  
-- Le réseau virtuel Managed Instance doit utiliser des passerelles distantes. 
-- Le réseau virtuel homologué doit autoriser le transit par passerelle. 
- 
+- Le réseau virtuel Managed Instance doit utiliser des passerelles distantes.
+- Le réseau virtuel homologué doit autoriser le transit par passerelle.
+
 Ce scénario est illustré dans le diagramme suivant :
 
 ![homologation d’applications intégrées](./media/sql-database-managed-instance/integrated-app-peering.png)
 
 >[!NOTE]
 >La fonctionnalité d’intégration au réseau virtuel n’intègre pas d’application à un réseau virtuel doté d’une passerelle ExpressRoute. Même si la passerelle ExpressRoute est configurée en mode de coexistence, l’intégration du réseau virtuel ne fonctionnera pas. S'il vous faut accéder aux ressources via une connexion ExpressRoute, vous pouvez utiliser un App Service Environment s’exécutant dans votre réseau virtuel.
->
- 
+
 ## <a name="troubleshooting-connectivity-issues"></a>Résolution des problèmes de connectivité
 
 Pour résoudre les problèmes de connectivité, lisez ce qui suit :
-- Si vous ne parvenez pas à vous connecter à Managed Instance à partir d’une machine virtuelle Azure appartenant au même réseau virtuel mais à un sous-réseau différent, vérifiez qu’un groupe de sécurité réseau défini dans le sous-réseau de la machine virtuelle ne bloque pas l’accès. En outre, notez que vous devez ouvrir une connexion sortante sur le port SQL 1433, ainsi que des ports dans la plage 11000-12000, car ceux-ci sont nécessaires pour se connecter via une redirection à l’intérieur des limites Azure. 
+
+- Si vous ne parvenez pas à vous connecter à Managed Instance à partir d’une machine virtuelle Azure appartenant au même réseau virtuel mais à un sous-réseau différent, vérifiez qu’un groupe de sécurité réseau défini dans le sous-réseau de la machine virtuelle ne bloque pas l’accès. En outre, notez que vous devez ouvrir une connexion sortante sur le port SQL 1433, ainsi que des ports dans la plage 11000-12000, car ceux-ci sont nécessaires pour se connecter via une redirection à l’intérieur des limites Azure.
 - Pour la table de routage associée au réseau virtuel, vérifiez que la propagation BGP est définie sur **Activé**.
 - Si vous utilisez une connexion VPN point à site, accédez à la configuration dans le portail Azure pour voir si les sections **Entrée/Sortie** contiennent des chiffres. La présence de chiffres autres que zéro indiquent qu’Azure achemine le trafic entrant et sortant sur l’ordinateur local.
 
@@ -99,12 +104,11 @@ Pour résoudre les problèmes de connectivité, lisez ce qui suit :
 
 - Vérifiez que la machine cliente (qui exécute le client VPN) affiche des entrées de routage pour tous les réseaux virtuels auxquels vous avez besoin d’accéder. Les itinéraires sont stockés dans `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
 
-
    ![route.txt](./media/sql-database-managed-instance-connect-app/route-txt.png)
 
    Comme le montre cette image, il y a deux entrées pour chaque réseau virtuel impliqué, et une troisième entrée pour le point de terminaison VPN qui est configuré dans le portail.
 
-   Une autre façon de vérifier les itinéraires est d’utiliser la commande suivante. La sortie montre les itinéraires vers les différents sous-réseaux : 
+   Une autre façon de vérifier les itinéraires est d’utiliser la commande suivante. La sortie montre les itinéraires vers les différents sous-réseaux :
 
    ```cmd
    C:\ >route print -4
@@ -115,21 +119,20 @@ Pour résoudre les problèmes de connectivité, lisez ce qui suit :
    18...94 65 9c 7d e5 ce ......Intel(R) Dual Band Wireless-AC 7265
    1...........................Software Loopback Interface 1
    Adapter===========================================================================
-   
+
    IPv4 Route Table
    ===========================================================================
    Active Routes:
    Network Destination        Netmask          Gateway       Interface  Metric
           0.0.0.0          0.0.0.0       10.83.72.1     10.83.74.112     35
          10.0.0.0    255.255.255.0         On-link       172.26.34.2     43
-     
          10.4.0.0    255.255.255.0         On-link       172.26.34.2     43
    ===========================================================================
    Persistent Routes:
    None
    ```
 
-- Si vous utilisez l’appairage VNet, suivez les instructions concernant la configuration des options [Autoriser le transit par passerelle et Utiliser des passerelles distantes](#connect-from-on-premises-with-vnet-peering). 
+- Si vous utilisez l’appairage VNet, suivez les instructions concernant la configuration des options [Autoriser le transit par passerelle et Utiliser des passerelles distantes](#connect-from-on-premises-with-vnet-peering).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versions exigées de pilotes et d’outils
 
@@ -137,13 +140,13 @@ Les versions minimales suivantes des outils et des pilotes sont recommandées si
 
 | Pilote/outil | Version |
 | --- | --- |
-|.NET Framework | 4.6.1 (ou .NET Core) | 
-|Pilote ODBC    | v17 |
-|Pilote PHP | 5.2.0 |
-|Pilote JDBC    | 6.4.0 |
-|Pilote Node.js | 2.1.1 |
-|Pilote OLEDB   | 18.0.2.0 |
-|SSMS   | 17.8.1 ou [version ultérieure](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|.NET Framework | 4.6.1 (ou .NET Core) |
+|Pilote ODBC| v17 |
+|Pilote PHP| 5.2.0 |
+|Pilote JDBC| 6.4.0 |
+|Pilote Node.js| 2.1.1 |
+|Pilote OLEDB| 18.0.2.0 |
+|SSMS| 17.8.1 ou [version ultérieure](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

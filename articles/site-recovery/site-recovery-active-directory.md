@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821386"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358047"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurer la reprise d’activité pour Active Directory et DNS
 
@@ -106,9 +106,9 @@ Lorsque vous lancez un test de basculement, n’incluez pas tous les contrôleur
 Depuis la publication de Windows Server 2012, [les dispositifs de protection supplémentaires sont intégrés dans Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Ces dispositifs protègent les contrôleurs de domaine virtualisés contre les restaurations de l’USN si la plateforme de l’hyperviseur sous-jacent prend en charge **VM-GenerationID**. Azure prend en charge **VM-GenerationID**. C’est pourquoi les contrôleurs de domaine qui exécutent Windows Server 2012 ou version ultérieure sur des machines virtuelles Azure disposent de ces dispositifs de protection supplémentaires.
 
 
-Quand **VM-GenerationID** est réinitialisé, la valeur **InvocationID** de la base de données AD DS l’est également. En outre, le pool RID est supprimé et SYSVOL est marqué comme ne faisant pas autorité. Pour plus d’informations, voir [Présentation de la virtualisation d’Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) et [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/) (Virtualisation DFSR sécurisée).
+Quand **VM-GenerationID** est réinitialisé, la valeur **InvocationID** de la base de données AD DS l’est également. En outre, le pool RID est supprimé, et le dossier sysvol est marqué comme ne faisant pas autorité. Pour plus d’informations, voir [Présentation de la virtualisation d’Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) et [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/) (Virtualisation DFSR sécurisée).
 
-Un basculement vers Azure peut entraîner une réinitialisation de **VM-GenerationID**. La réinitialisation de **VM-GenerationID** déclenche ses dispositifs de protection supplémentaires au démarrage de la machine virtuelle du contrôleur de domaine dans Azure. Cela peut *retarder sensiblement* le moment où il est possible de se connecter à la machine virtuelle du contrôleur de domaine.
+Un basculement vers Azure peut entraîner une réinitialisation de **VM-GenerationID**. La réinitialisation de **VM-GenerationID** déclenche ses dispositifs de protection supplémentaires au démarrage de la machine virtuelle du contrôleur de domaine dans Azure. Cela peut entraîner un *un délai important* être en mesure de se connecter à la machine virtuelle de contrôleur de domaine.
 
 Étant donné que ce contrôleur de domaine n’est utilisé que pour le test de basculement, aucun dispositif de protection de la virtualisation n’est nécessaire. Pour vous assurer que la valeur **VM-GenerationID** pour la machine virtuelle du contrôleur de domaine ne change pas, vous pouvez modifier la valeur de DWORD suivante en **4** dans le contrôleur de domaine local :
 
@@ -128,11 +128,11 @@ Si des dispositifs de protection de la virtualisation sont déclenchés après u
 
     ![Modification de l’ID d’appel](./media/site-recovery-active-directory/Event1109.png)
 
-* Les partages SYSVOL et NETLOGON ne sont pas disponibles.
+* Dossier SYSVOL et NETLOGON partages ne sont pas disponibles.
 
-    ![Partage SYSVOL](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Partage du dossier SYSVOL](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NTFRS SYSVOL](./media/site-recovery-active-directory/Event13565.png)
+    ![Dossier de sysvol NtFrs](./media/site-recovery-active-directory/Event13565.png)
 
 * Les bases de données DFSR sont supprimées.
 
@@ -146,7 +146,7 @@ Si des dispositifs de protection de la virtualisation sont déclenchés après u
 >
 >
 
-1. À l’invite de commandes, exécutez la commande suivante pour vérifier si les dossiers SYSVOL et NETLOGON sont partagés :
+1. À l’invite de commandes, exécutez la commande suivante pour vérifier si les dossiers sysvol et NETLOGON sont partagés :
 
     `NET SHARE`
 
@@ -166,7 +166,7 @@ Si les conditions ci-dessus sont remplies, il est probable que le contrôleur de
     * Bien que nous ne recommandions pas une [réplication FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si vous utilisez une telle réplication, procédez comme pour une restauration faisant autorité. Le processus est décrit dans [Utilisation de la clé de Registre BurFlags pour réinitialiser le service de réplication de fichiers](https://support.microsoft.com/kb/290762).
 
         Pour plus d’informations sur BurFlags, consultez le billet de blog concernant [D2 et D4](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Si vous utilisez une réplication DFSR, procédez comme pour une restauration faisant autorité. Le processus est décrit dans [Comment faire pour forcer une synchronisation faisant autorité et ne faisant pas autorité pour SYSVOL de réplication DFSR (comme « D4/D2 » pour FRS)](https://support.microsoft.com/kb/2218556).
+    * Si vous utilisez une réplication DFSR, procédez comme pour une restauration faisant autorité. Le processus est décrit dans [forcer une synchronisation faisant autoritée et ne faisant pas autorité pour le dossier sysvol de réplication DFSR (comme « D4/D2 » pour le service FRS)](https://support.microsoft.com/kb/2218556).
 
         Vous pouvez également utiliser les fonctions PowerShell. Pour plus d’informations, voir [Fonctions PowerShell de restauration faisant autorité/ne faisant pas autorisé pour DFSR-SYSVOL](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 

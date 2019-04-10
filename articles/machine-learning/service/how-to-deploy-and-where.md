@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878296"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280891"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
@@ -87,6 +87,8 @@ Les modèles déployés sont empaquetés sous forme d'image. L'image contient le
 
 Pour les déploiements **Azure Container Instances**, **Azure Kubernetes Service** et **Azure IoT Edge**, la classe [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) permet de créer une configuration d’image. La configuration d'image est ensuite utilisée pour créer une image Docker.
 
+Lorsque vous créez la configuration de l’image, vous pouvez utiliser un __image par défaut__ fournies par le service Azure Machine Learning ou un __image personnalisée__ que vous fournissez.
+
 Le code suivant montre comment créer une configuration d'image :
 
 ```python
@@ -112,6 +114,36 @@ Les paramètres importants de cet exemple sont décrits dans le tableau suivant�
 Pour obtenir un exemple de création d’une configuration d’une image, consultez [déployer un classifieur d’images](tutorial-deploy-models-with-aml.md).
 
 Pour plus d'informations, consultez la documentation de référence de la classe [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
+
+### <a id="customimage"></a> Utiliser une image personnalisée
+
+Lorsque vous utilisez une image personnalisée, l’image doit remplir les conditions suivantes :
+
+* Ubuntu 16.04 ou version ultérieure.
+* Conda 4.5. # ou supérieur.
+* Python 3.5. # ou 3.6. #.
+
+Pour utiliser une image personnalisée, définissez la `base_image` propriété de la configuration de l’image à l’adresse de l’image. L’exemple suivant montre comment utiliser une image à partir d’un Registre de conteneurs Azure public et privé :
+
+```python
+# use an image available in public Container Registry without authentication
+image_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+
+# or, use an image available in a private Container Registry
+image_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
+image_config.base_image_registry.address = "myregistry.azurecr.io"
+image_config.base_image_registry.username = "username"
+image_config.base_image_registry.password = "password"
+```
+
+Pour plus d’informations sur le téléchargement d’images dans Azure Container Registry, consultez [transmettre votre première image vers un Registre de conteneur Docker privé](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
+
+Si votre modèle est formé sur Azure Machine Learning Compute, à l’aide __version 1.0.22 ou supérieur__ du SDK Azure Machine Learning, une image est créée au cours de formation. L’exemple suivant montre comment utiliser cette image :
+
+```python
+# Use an image built during training with SDK 1.0.22 or greater
+image_config.base_image = run.properties["AzureML.DerivedImageName"]
+```
 
 ### <a id="script"></a> Script d’exécution
 
@@ -396,7 +428,7 @@ Pour déployer un modèle à l'aide de Project Brainwave, consultez le document 
 
 ## <a name="define-schema"></a>Définir un schéma
 
-Éléments décoratifs personnalisés peuvent être utilisées pour [OpenAPI](https://swagger.io/docs/specification/about/) entrées et génération de la spécification du type manipulation lors du déploiement du service web. Dans le `score.py` fichier, de vous fournir un exemple de l’entrée et/ou de sortie dans le constructeur pour un des objets de type défini et de l’exemple et type sont utilisés pour générer automatiquement le schéma. Les types suivants sont actuellement pris en charge :
+Éléments décoratifs personnalisés peuvent être utilisées pour [OpenAPI](https://swagger.io/docs/specification/about/) entrées et génération de la spécification du type manipulation lors du déploiement du service web. Dans le `score.py` fichier, de vous fournir un exemple de l’entrée et/ou de sortie dans le constructeur pour un des objets de type défini et de l’exemple et type sont utilisés pour créer automatiquement le schéma. Les types suivants sont actuellement pris en charge :
 
 * `pandas`
 * `numpy`

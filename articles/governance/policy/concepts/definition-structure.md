@@ -1,7 +1,6 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Explique comment Azure Policy utilise une définition de stratégie de ressource afin d’établir des conventions pour les ressources de votre organisation en décrivant quand la stratégie est appliquée et la mesure à prendre.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f554be0803041b12dc49a576e8eb737732ec2a80
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894425"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283101"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -75,12 +74,12 @@ Tous les exemples Azure Policy se trouvent dans [Exemples de stratégies](../sam
 
 Le **mode** détermine les types de ressources à évaluer pour une stratégie. Les modes pris en charge sont les suivants :
 
-- `all` : évaluer les groupes de ressources et tous les types de ressources
-- `indexed` : évaluer uniquement les types de ressources qui prennent en charge les balises et l’emplacement
+- `all`: évaluer les groupes de ressources et tous les types de ressources
+- `indexed`: évaluer uniquement les types de ressources qui prennent en charge les balises et l’emplacement
 
 Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode**, elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
 
-Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste de ressources qui prennent en charge les balises, consultez [prise en charge pour les ressources Azure étiquette](../../../azure-resource-manager/tag-support.md).
+`indexed` doit être utilisé lors de la création de stratégies qui appliquent des balises ou des emplacements. car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste de ressources qui prennent en charge les balises, consultez [prise en charge pour les ressources Azure étiquette](../../../azure-resource-manager/tag-support.md).
 
 ## <a name="parameters"></a>parameters
 
@@ -95,7 +94,7 @@ Les paramètres fonctionnent de manière identique durant la création de strat�
 Un paramètre possède les propriétés suivantes qui sont utilisées dans la définition de la stratégie :
 
 - **nom** : Nom de votre paramètre. Utilisé par la fonction de déploiement `parameters` dans le cadre de la règle de stratégie. Pour plus d’informations, consultez [Utilisation d’une valeur de paramètre](#using-a-parameter-value).
-- `type`: Détermine si le paramètre est une **chaîne** ou un **tableau**.
+- `type`: Détermine si le paramètre est une **chaîne**ou un**tableau.
 - `metadata`: Définit les sous-propriétés utilisées principalement par le portail Azure pour afficher des informations conviviales :
   - `description`: Explication du rôle du paramètre. Utilisable pour fournir des exemples de valeurs acceptables.
   - `displayName`: Nom convivial du paramètre visible dans le portail.
@@ -259,7 +258,7 @@ Les champs suivants sont pris en charge :
 - alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]` et `tags[tag.with.dots]` sont toujours des manières acceptables de déclarer un champ de balises.
+> `tags.<tagName>`, `tags[tagName]`, et `tags[tag.with.dots]` sont toujours acceptables façons de déclarer un champ de balises.
 > Toutefois, les expressions préférées sont celles répertoriées ci-dessus.
 
 #### <a name="use-tags-with-parameters"></a>Utiliser des balises avec des paramètres
@@ -421,7 +420,7 @@ Toutes les [fonctions du modèle Resource Manager](../../../azure-resource-manag
 - resourceId()
 - variables()
 
-De plus, la fonction `field` est disponible pour les règles de stratégie. `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
+De plus, la fonction `field` est disponible pour les règles de stratégie. `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** aux champs de référence sur la ressource qui sont en cours d’évaluation. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-example"></a>Exemple de fonction de stratégie
 

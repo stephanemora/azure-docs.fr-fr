@@ -1,6 +1,6 @@
 ---
 title: Configurer l’accélération automatique de la connexion pour une application à l’aide d’une stratégie de découverte du domaine d’accueil | Microsoft Docs
-description: Explique ce qu’est un locataire Azure AD et comment gérer Azure depuis Azure Active Directory.
+description: Découvrez comment configurer la stratégie de découverte d’accueil pour l’authentification Azure Active Directory pour les utilisateurs fédérés, y compris les indicateurs de l’accélération automatique et de domaine.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -11,19 +11,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 04/08/2019
 ms.author: celested
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333258ef9696e6dbe4aab5b10e815bb84428d425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190260"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360937"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
-Le document suivant fournit une introduction à la configuration du comportement d’authentification Azure Active Directory pour les utilisateurs fédérés.   Il couvre la configuration des restrictions d’accélération automatique et d’authentification pour les utilisateurs de domaines fédérés.
+Cet article fournit une introduction à la configuration de comportement de l’authentification Azure Active Directory pour les utilisateurs fédérés. Il couvre la configuration des restrictions d’accélération automatique et d’authentification pour les utilisateurs de domaines fédérés.
 
 ## <a name="home-realm-discovery"></a>Découverte du domaine d’accueil
 La découverte du domaine d’accueil est le processus qui permet à Azure Active Directory (Azure AD) de déterminer, au moment de la connexion, où un utilisateur doit s’authentifier.  Quand un utilisateur se connecte à un locataire Azure AD pour accéder à une ressource ou à la page de connexion courante d’Azure AD, il tape un nom d’utilisateur (UPN). Azure AD l’utilise pour découvrir où l’utilisateur doit se connecter. 
@@ -151,7 +152,7 @@ Nous allons utiliser des applets de commande PowerShell Azure AD dans le cadre d
 - Répertorier les applications pour lesquelles une stratégie est configurée.
 
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies sur des principaux de service d’application dans Azure AD.
 
 1.  Pour commencer, téléchargez la dernière préversion des applets de commande Azure AD PowerShell. 

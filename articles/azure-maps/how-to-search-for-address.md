@@ -1,23 +1,30 @@
 ---
 title: Rechercher une adresse à l’aide du service Azure Maps Search | Microsoft Docs
 description: Découvrez comment rechercher une adresse à l’aide du service Azure Maps Search
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+manager: philmea
+ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875784"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277321"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Rechercher une adresse à l’aide du service Azure Maps Search
 
 Le service Azure Maps Search est un ensemble d’API RESTful destinées aux développeurs souhaitant rechercher des adresses, des lieux, des points d’intérêt, des listes d’entreprises et d’autres informations d’ordre géographique. Le service affecte une combinaison latitude/longitude à une adresse, intersection, caractéristique géographique ou point d’intérêt spécifique. Les valeurs de latitude et de longitude renvoyées par le service peuvent être utilisées comme paramètres dans d’autres services Azure Maps, tels que les itinéraires et les flux de trafic.
+
+Dans cet article, vous apprendrez comment :
+
+* Recherchez une adresse à l’aide [API Fuzzy Search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Rechercher une adresse, ainsi que des propriétés et des coordonnées
+* Rendre un [recherche d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) pour rechercher une adresse postale
+* Recherchez une rue croisée à l’aide [API recherche d’adresse inverse entre rue](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## <a name="prerequisites"></a>Conditions préalables
 

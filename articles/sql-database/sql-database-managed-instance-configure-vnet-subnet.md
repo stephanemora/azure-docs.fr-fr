@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 13038bb7159556b36e82b598732d1f2d497bf314
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762770"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358852"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurer un réseau virtuel existant pour Azure SQL Database Managed Instance
 
@@ -25,10 +25,9 @@ Azure SQL Database Managed Instance doit être déployé au sein d’un [réseau
 
 Si l’un des cas suivants vous concerne, vous pouvez valider et modifier votre réseau en utilisant le script expliqué dans cet article :
 
-* Vous avez un sous-réseau qui n’est pas encore configuré.
-* Vous ne savez pas si le sous-réseau est conforme aux [exigences](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
-* Vous souhaitez vérifier que le sous-réseau est toujours conforme aux [exigences du réseau](sql-database-managed-instance-connectivity-architecture.md#network-requirements) après des changements.
-
+- Vous avez un sous-réseau qui n’est pas encore configuré.
+- Vous ne savez pas si le sous-réseau est conforme aux [exigences](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+- Vous souhaitez vérifier que le sous-réseau est toujours conforme aux [exigences du réseau](sql-database-managed-instance-connectivity-architecture.md#network-requirements) après des changements.
 
 > [!Note]
 > Vous pouvez uniquement créer une instance Managed Instance dans les réseaux virtuels créés par le biais du modèle de déploiement Azure Resource Manager. Les réseaux virtuels Azure créés par le biais du modèle de déploiement classique ne sont pas pris en charge. Calculez la taille du sous-réseau en suivant les instructions de l’article [Déterminer la taille du sous-réseau pour les options Managed Instance](sql-database-managed-instance-determine-size-vnet-subnet.md). Vous ne pouvez pas redimensionner le sous-réseau après avoir déployé les ressources à l’intérieur.

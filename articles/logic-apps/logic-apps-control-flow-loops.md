@@ -10,18 +10,18 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225006"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360767"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
 Pour traiter un tableau dans votre application logique, vous pouvez créer une [boucle « Foreach »](#foreach-loop). Cette boucle répète une ou plusieurs actions sur chaque élément du tableau. Pour connaître les limites applicables au nombre d’éléments de tableau que des boucles « Foreach » peuvent traiter, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
 
-Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, vous pouvez créer une [boucle « Until »](#until-loop). Votre application logique exécute toutes les actions dans la boucle, puis vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître les limites applicables au nombre de boucles « Until » dans une exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
+Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, vous pouvez créer une [boucle « Until »](#until-loop). Tout d’abord votre application logique s’exécute toutes les actions à l’intérieur de la boucle et vérifie ensuite la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître les limites applicables au nombre de boucles « Until » dans une exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
 > Si vous disposez d’un déclencheur qui reçoit un tableau et souhaite exécuter un workflow pour chaque élément du tableau, vous pouvez *dégrouper* ce tableau avec le déclencheur de propriété [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -154,7 +154,9 @@ Si vous travaillez avec la définition JSON de votre application logique, vous p
 
 ## <a name="until-loop"></a>Boucle « Until »
   
-Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, placez ces actions dans une boucle « Until ». Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle « Until » :
+Pour exécuter et répéter des actions jusqu'à ce qu’une condition obtient remplie ou modifie un état, placez ces actions dans une boucle « Until ». Tout d’abord votre application logique s’exécute toutes les actions à l’intérieur de la boucle et vérifie ensuite la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète.
+
+Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle « Until » :
 
 * Appeler un point de terminaison jusqu’à obtenir la réponse souhaitée.
 
@@ -234,9 +236,9 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
 
       | Propriété | Valeur | Description |
       | -------- | ----- | ----------- | 
-      | **To** | *<email-address\@domain>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
+      | **À** | *<email-address\@domain>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
       | **Objet** | La valeur actuelle de la variable « Limite » est **Limite** | Spécifiez l’objet du message électronique. Pour cet exemple, assurez-vous d’inclure la variable **Limite**. | 
-      | **Corps** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
+      | **body** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
       |||| 
 
 1. Enregistrez votre application logique. Pour tester manuellement votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur.
@@ -251,7 +253,7 @@ Une boucle « Until » dispose de limites par défaut qui arrêtent l’exécuti
 
 | Propriété | Valeur par défaut | Description | 
 | -------- | ------------- | ----------- | 
-| **Count** | 60 | Quantité maximale de boucles qui s’exécutent avant que la boucle ne sorte. La valeur par défaut est 60 cycles. | 
+| **Nombre** | 60 | Quantité maximale de boucles qui s’exécutent avant que la boucle ne sorte. La valeur par défaut est 60 cycles. | 
 | **Délai d'expiration** | PT1H | Durée d’exécution maximale d’une boucle avant que la boucle ne sorte. La valeur par défaut est d’une heure et est spécifiée au format ISO 8601. <p>La valeur du délai d’attente est évaluée pour chaque cycle de boucle. Si une action dans la boucle dure plus longtemps que la limite de délai d’attente, le cycle actuel ne s’arrête pas. Toutefois, le cycle suivant ne démarre pas, car la condition de limite n’est pas remplie. | 
 |||| 
 
@@ -342,7 +344,7 @@ Cet exemple de boucle « Until » appelle un point de terminaison HTTP, qui cr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Instructions switch : Exécuter différentes étapes en fonction de valeurs spécifiques](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Exécuter ou joindre des étapes (branches) parallèles](../logic-apps/logic-apps-control-flow-branches.md)
-* [Étendues : Exécuter des étapes en fonction de l’état d’un groupe](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Exécuter des étapes en fonction d’une condition (instructions conditionnelles)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Étapes d’exécution en fonction des valeurs différentes (instructions switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Exécuter ou joindre des étapes parallèles (les branches)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Exécutez les étapes en fonction de l’état de l’action groupée (étendues)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

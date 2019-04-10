@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320278"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359030"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery 
 
@@ -56,7 +56,7 @@ La première section indique le coût global de récupération d’urgence par c
 
 **Réseau** : coût d’ExpressRoute et du VPN site à site pour les besoins de la reprise d’activité. 
 
-**Licence ASR** : coût de la licence Site Recovery pour toutes les machines virtuelles compatibles. Si vous avez saisi manuellement une machine virtuelle dans la table d’analyse des coûts détaillée, le coût de la licence Site Recovery est également inclus pour cette machine virtuelle.
+**Licence Site Recovery Azure**: coût de la licence Site Recovery pour toutes les machines virtuelles compatibles. Si vous avez saisi manuellement une machine virtuelle dans la table d’analyse des coûts détaillée, le coût de la licence Site Recovery est également inclus pour cette machine virtuelle.
 
 ### <a name="overall-dr-costs-by-states"></a>Coûts de récupération d’urgence globaux par état
 Le coût total de la récupération d’urgence est catégorisé selon deux états différents, la réplication et le test de récupération d’urgence.
@@ -109,17 +109,17 @@ Pour ajouter manuellement des machines virtuelles :
 
     a. **Nombre de machines virtuelles**
 
-    b. **Taille de l’IaaS (votre sélection)**
+    b. **Taille IaaS (votre sélection)**
 
-    c. **Type de stockage Standard/Premium**
+    c. **Type de stockage Standard ou Premium**
 
-    d. **Taille de stockage totale de la machine virtuelle (en Go)**
+    d. **Taille de stockage totale de machine virtuelle (en Go)**
 
-    e. **Nombre de tests de récupération d’urgence en un an**
+    e. **Nombre d’extractions de la récupération d’urgence dans une année**
 
-    f. **Durée de chaque test de récupération d’urgence (en jours)**
+    f. **Chaque durée de récupération d’urgence (jours)**
 
-    g. **OS Type**
+    g. **Type de système d’exploitation**
 
     h. **Redondance des données**
 
@@ -157,7 +157,7 @@ Pour ajouter manuellement des machines virtuelles :
 
 **Coût total de la simulation de reprise d’activité (moyenne)**  : coût de la capacité de calcul et du stockage pour les simulations de reprise d’activité.
 
-**Coût de licence ASR** : coût de la licence Site Recovery.
+**Coût de licence Azure Site Recovery**: coût de la licence Site Recovery.
 
 ## <a name="supported-target-regions"></a>Régions cibles prises en charge
 Le planificateur de déploiement Site Recovery fournit une estimation de coût pour les régions Azure suivantes. Si votre région n’est pas répertoriée ici, vous pouvez utiliser la région, parmi les suivantes, dont la tarification se rapproche le plus de celle de votre région :
@@ -167,7 +167,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Devises prises en charge
 Le planificateur de déploiement Site Recovery peut générer le rapport de coût avec une des devises suivantes.
 
-|Devise|NOM||Devise|NOM||Devise|NOM|
+|Devise|Nom||Devise|Nom||Devise|Nom|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentin ($)||AUD|Dollar australien ($)||BRL|Réal brésilien (R$)|
 |CAD|Dollar canadien ($)||CHF|Franc suisse (CHF)||DKK|Couronne danoise (kr)|

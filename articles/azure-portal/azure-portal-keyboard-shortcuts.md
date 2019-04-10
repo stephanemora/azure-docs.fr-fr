@@ -12,39 +12,48 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 04/08/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: d9c9c18fb2c20f1b0740a490316826e488049faf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881169"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359721"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Raccourcis clavier du portail Azure
-Cet article indique les raccourcis clavier qui fonctionnent sur le portail Azure. Les services individuels peuvent bénéficier de leurs propres raccourcis clavier.
+
+Cet article répertorie les raccourcis clavier qui fonctionnent partout dans le portail Azure. Les services individuels peuvent bénéficier de leurs propres raccourcis clavier.
 
 ## <a name="actions"></a>Actions
-|Action à réaliser |Appuyez sur |
+
+|Pour effectuer cette action |Appuyez sur |
 | --- | --- |
-|Créer une nouvelle ressource|G + N|
-|Ouvrir le volet « Tous les services »|G + B|
-|Rechercher des ressources|G+/| 
+|Créer une ressource|G + N|
+|Ouvrez **tous les services**|G + B|
+|Rechercher dans les ressources, services et documents|G+/|
 |Rechercher les éléments de menu de ressource|CTRL + / |
-|Déplacer l’élément du volet de gauche sélectionné vers le haut |ALT+ Maj + Flèche haut|
-|Déplacer l’élément du volet de gauche sélectionné vers le bas |ALT + Maj + Flèche bas|
+|Déplacer vers le haut l’élément de barre latérale gauche sélectionné |ALT+ Maj + Flèche haut|
+|Déplacer l’élément de barre latérale gauche sélectionné vers le bas |ALT + Maj + Flèche bas|
 
 ## <a name="navigation"></a>Navigation
-|Action à réaliser |Appuyez sur |
+
+|Pour effectuer cette navigation |Appuyez sur |
 | --- | --- |
 |Déplacer le focus vers la barre de commande |G+, |
-|Basculer le focus entre la barre supérieure et la barre latérale | G+. |
+|Basculer le focus entre l’en-tête et de la barre latérale gauche | G+. |
 
 ## <a name="go-to"></a>Accéder à
-|Action à réaliser |Appuyez sur |
+
+|Pour accéder à cet emplacement |Appuyez sur |
 | --- | --- |
-|Accéder au tableau de bord |G + D |
-|Accéder à toutes les ressources|G + A |
-|Accéder aux groupes de ressources|G + R |
-|Ouvrir l’élément volet de gauche à cette position |G + numéro|
+|Accédez à **tableau de bord** |G + D |
+|Accédez à **toutes les ressources**|G + A |
+|Accédez à **groupes de ressources**|G + R |
+|Ouvrez l’élément de barre latérale gauche à cette position |G + numéro|
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Activer le contraste élevé ou modifier le thème](azure-portal-change-theme-high-contrast.md)
+- [Navigateurs et appareils pris en charge](../azure-preview-portal-supported-browsers-devices.md)

@@ -4,22 +4,20 @@ description: Empêchez les utilisateurs de mettre à jour ou de supprimer des re
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649167"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360441"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues 
 
@@ -36,12 +34,32 @@ Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources 
 
 Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md).
 
-Les verrous Resource Manager s'appliquent uniquement aux opérations qui se produisent dans le plan de gestion, c'est-à-dire les opérations envoyées à `https://management.azure.com`. Les verrous ne limitent pas la manière dont les ressources exécutent leurs propres fonctions. Les modifications des ressources sont limitées, mais pas les opérations sur les ressources. Par exemple, un verrou ReadOnly sur une base de données SQL vous empêche de supprimer ou modifier la base de données, mais il ne vous empêche pas de création, la mise à jour ou la suppression des données dans la base de données. Transactions de données sont autorisées, car ces opérations ne sont pas envoyées à `https://management.azure.com`.
+Les verrous Resource Manager s'appliquent uniquement aux opérations qui se produisent dans le plan de gestion, c'est-à-dire les opérations envoyées à `https://management.azure.com`. Les verrous ne limitent pas la manière dont les ressources exécutent leurs propres fonctions. Les modifications des ressources sont limitées, mais pas les opérations sur les ressources. Par exemple, un verrou ReadOnly une base de données SQL empêche la suppression ou la modification de la base de données. Il ne vous empêche pas de créer, de mettre à jour ou de supprimer des données dans la base de données. Transactions de données sont autorisées, car ces opérations ne sont pas envoyées à `https://management.azure.com`.
 
 L’application de **ReadOnly** peut produire des résultats inattendus, car certaines opérations qui ressemblent à des opérations de lecture nécessitent en fait des actions supplémentaires. Par exemple, le placement d’un verrou **ReadOnly** sur un compte de stockage empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture. Autre exemple : le placement d’un verrou **ReadOnly** sur une ressource App Service empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Personnes autorisées à créer ou supprimer des verrous dans votre organisation
+## <a name="who-can-create-or-delete-locks"></a>Qui peut créer ou supprimer des verrous
 Pour créer ou supprimer des verrous de gestion, vous devez avoir accès à des actions `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*`. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l'accès utilisateur** peuvent effectuer ces actions.
+
+## <a name="managed-applications-and-locks"></a>Applications gérées et des verrous
+
+Certains services Azure, tels que Azure Databricks, utilisent [applications managées](../managed-applications/overview.md) pour implémenter le service. Dans ce cas, le service crée deux groupes de ressources. Un groupe de ressources contient une vue d’ensemble du service et n’est pas verrouillé. L’autre groupe de ressources contient l’infrastructure pour le service et est verrouillé.
+
+Si vous essayez de supprimer le groupe de ressources d’infrastructure, vous obtenez une erreur indiquant que le groupe de ressources est verrouillé. Si vous essayez de supprimer le verrou pour le groupe de ressources d’infrastructure, vous obtenez une erreur indiquant que le verrou ne peut pas être supprimé, car il appartient à une application système.
+
+Au lieu de cela, supprimez le service, ce qui supprime également le groupe de ressources d’infrastructure.
+
+Pour les applications managées, sélectionnez le service que vous avez déployé.
+
+![Sélectionnez le service](./media/resource-group-lock-resources/select-service.png)
+
+Notez que le service inclut un lien pour un **géré de groupe de ressources**. Ce groupe de ressources conserve l’infrastructure et est verrouillé. Elle ne peut pas être supprimée directement.
+
+![Afficher le groupe géré](./media/resource-group-lock-resources/show-managed-group.png)
+
+Pour supprimer tous les éléments pour le service, y compris le groupe de ressources d’infrastructure verrouillé, sélectionnez **supprimer** pour le service.
+
+![Suppression du service](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portail
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]

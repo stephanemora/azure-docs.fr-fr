@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010515"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360194"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modèles d’achat Azure SQL Database
 
@@ -50,11 +50,11 @@ Le coût associé au calcul reflète la capacité de calcul totale provisionnée
 
 ## <a name="storage-costs"></a>Coûts de stockage
 
-Les divers types de stockage sont facturés différemment. Pour le stockage des données, vous êtes facturé en fonction du stockage provisionné, sur la base de la taille maximum de la base de données ou du pool que vous sélectionnez. Le coût ne change pas, sauf si vous réduisez ou augmentez cette taille maximum. Le stockage de sauvegarde est associé aux sauvegardes automatisées de votre instance et il est alloué de manière dynamique. L’allongement de la période de rétention des sauvegardes a pour effet d’augmenter le volume de stockage de sauvegarde que votre instance utilise. 
+Les divers types de stockage sont facturés différemment. Pour le stockage des données, vous êtes facturé en fonction du stockage provisionné, sur la base de la taille maximum de la base de données ou du pool que vous sélectionnez. Le coût ne change pas, sauf si vous réduisez ou augmentez cette taille maximum. Le stockage de sauvegarde est associé aux sauvegardes automatisées de votre instance et il est alloué de manière dynamique. L’allongement de la période de rétention des sauvegardes a pour effet d’augmenter le volume de stockage de sauvegarde que votre instance utilise.
 
 7 jours de sauvegardes automatisées de vos bases de données sont copiés par défaut dans le stockage blob RA-GRS standard. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux copiés toutes les 5 minutes. La taille du journal des transactions dépend la fréquence de changement de la base de données. Un volume de stockage minimal égal à 100 % de la taille de la base de données est fourni sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois.
 
-Pour plus d'informations sur les prix du stockage, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/sql-database/single/). 
+Pour plus d'informations sur les prix du stockage, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
@@ -71,7 +71,7 @@ Le modèle d’achat vCore vous permet de sélectionner les ressources de calcul
 > **Limitations concernant les régions :** Pour obtenir la liste des régions prises en charge, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Si vous voulez créer une instance Managed Instance dans la région qui n’est actuellement pas prise en charge, vous pouvez [envoyer demande de support par le biais du portail Azure](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Si votre base de données unique ou votre pool élastique consomme plus de 300 DTU, le passage au modèle d'achat vCore peut réduire les coûts. Si vous optez pour la conversion, vous pouvez passer au modèle vCore à l’aide de l’API de votre choix ou du portail Azure, sans aucun temps d’arrêt. Toutefois, ce passage n'est ni obligatoire ni automatique. Si le modèle d’achat DTU répond à vos besoins métier et à vos besoins en performance, vous devez continuer de l’utiliser. Si vous décidez de passer du modèle d’achat DTU au modèle d’achat vCore, sélectionnez la taille de calcul en suivant les règles élémentaires ci-dessous : 
+Si votre base de données unique ou votre pool élastique consomme plus de 300 DTU, le passage au modèle d'achat vCore peut réduire les coûts. Si vous optez pour la conversion, vous pouvez passer au modèle vCore à l’aide de l’API de votre choix ou du portail Azure, sans aucun temps d’arrêt. Toutefois, ce passage n'est ni obligatoire ni automatique. Si le modèle d’achat DTU répond à vos besoins métier et à vos besoins en performance, vous devez continuer de l’utiliser. Si vous décidez de passer du modèle d’achat DTU au modèle d’achat vCore, sélectionnez la taille de calcul en suivant les règles élémentaires ci-dessous :
 
 - Chaque groupe de 100 DTU du niveau Standard nécessite au moins 1 vCore dans le niveau Usage général
 - Chaque groupe de 125 DTU du niveau Premium nécessite au moins 1 vCore dans le niveau Critique pour l'entreprise

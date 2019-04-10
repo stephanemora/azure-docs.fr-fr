@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918261"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358255"
 ---
 # <a name="sizes-for-cloud-services"></a>Tailles de services cloud
 Cette rubrique décrit les tailles et options disponibles pour les instances de rôle de Cloud Services (rôles web et rôles de travail). Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l'utilisation de ces ressources. Chaque taille a un identifiant que vous placez dans votre [fichier de définition de service](cloud-services-model-and-package.md#csdef). Les prix pour chaque taille sont disponibles sur la page de [tarification des Services Cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -205,7 +205,7 @@ Voici un exemple qui montre comment configurer un rôle avec la taille Standard_
 
 ## <a name="changing-the-size-of-an-existing-role"></a>Modification de la taille d’un rôle existant
 
-À mesure que la nature des modifications de votre charge de travail évolue, ou si de nouvelles tailles de machine virtuelle sont disponibles, vous pouvez souhaiter modifier la taille de votre rôle. Pour ce faire, vous devez modifier la taille de machine virtuelle dans votre fichier de définition de service (comme indiqué ci-dessus), ré-empaqueter votre Service Cloud et le déployer. Il n’est pas possible de modifier la taille d’une machine virtuelle directement à partir du portail ou de PowerShell.
+À mesure que la nature des modifications de votre charge de travail évolue, ou si de nouvelles tailles de machine virtuelle sont disponibles, vous pouvez souhaiter modifier la taille de votre rôle. Pour ce faire, vous devez modifier la taille de machine virtuelle dans votre fichier de définition de service (comme indiqué ci-dessus), ré-empaqueter votre Service Cloud et le déployer.
 
 >[!TIP]
 > Vous devrez peut-être utiliser différentes tailles de machine virtuelle pour votre rôle dans différents environnements (par exemple : test ou production). Une manière de procéder consiste à créer plusieurs fichiers de définition de service (.csdef) dans votre projet, puis à créer différents packages de service cloud par environnement au cours de la génération automatisée à l’aide de l’outil CSPack. Pour en savoir plus sur les éléments d’un package de services cloud et comment les créer, consultez la rubrique [Qu’est-ce que le modèle Cloud Service, et comment en créer un package ?](cloud-services-model-and-package.md)

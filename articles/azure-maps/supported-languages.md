@@ -3,17 +3,17 @@ title: Langues prises en charge dans Azure Maps | Microsoft Docs
 description: En savoir plus sur les langues prises en charge pour les services dans Azure Maps
 author: juliekohler
 ms.author: julieko
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d22ecfbea524ffb2ab48ac9a95e03d7595c4cbfb
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849638"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358127"
 ---
 # <a name="azure-maps-supported-languages"></a>Langues prises en charge dans Azure Maps
 Les services Azure Maps ont été localisés en différentes langues.  Le tableau suivant indique les codes des langues prises en charge pour chaque service.  
@@ -33,7 +33,10 @@ Les services Azure Maps ont été localisés en différentes langues.  Le table
 | da-DK      | Danois                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-NL      | Néerlandais                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | Néerlandais (Belgique)        |       |    ✓   |         |                   |                |     ✓     |
-| en         | Anglais                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-AU      | Anglais (Australie)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-NZ      | Anglais (Nouvelle-Zélande)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-GB      | Anglais (Grande-Bretagne) |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-US      | Anglais (États-Unis)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | Et-EE      | Estonien               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finnois                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | Anglais                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

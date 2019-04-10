@@ -10,19 +10,19 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360721"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357254"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatique-former un modèle de prévision de séries chronologiques
 
 Dans cet article, vous allez apprendre à former un modèle de régression prévision de séries chronologiques à l’aide d’apprentissage automatique dans le service Azure Machine Learning. La configuration d’un modèle de prévision est semblable à la configuration d’un modèle de régression standard à l’aide d’apprentissage automatique, mais certaines étapes de prétraitement et les options de configuration existent pour l’utilisation des données de série chronologique. Les exemples suivants montrent comment à :
 
 * Préparer les données pour la modélisation de série chronologique
-* Configurer les paramètres de série chronologique spécifiques dans un [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) objet
+* Configurer les paramètres de série chronologique spécifiques dans un [ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) objet
 * Exécutez des prédictions avec les données de séries chronologiques
 
 ## <a name="prerequisites"></a>Conditions préalables

@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 477a74d7bd0275715222a54800b81c2812da9c77
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275604"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361134"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
 
@@ -34,7 +34,7 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 |:--- |:--- |:--- |
 | Australie Est |Disponible |1 juin 2019 |
 | Australie Sud-Est |15 avril 2019 |1er mai 2019 |
-| Brésil Sud |15 mai 2019 |\* |
+| Brésil Sud |15 mai 2019 |1 juin 2019 |
 | Centre du Canada |Disponible |1 juin 2019 |
 | Est du Canada |\* |\* |
 | USA Centre |Disponible |1 juin 2019 |
@@ -44,8 +44,8 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | Chine Nord 2 |\* |\* |
 | Asie Est |Disponible |1 juin 2019 |
 | USA Est |Disponible |1 juin 2019 |
-| USA Est 2 |Disponible |Le 1er juin. 2019 |
-| France Centre |\* |\* |
+| USA Est 2 |Disponible |1 juin 2019 |
+| France Centre |\* |1 juin 2019 |
 | Centre de l’Allemagne |\* |\* |
 | Ouest-Centre de l’Allemagne |1 septembre 2019|2 janvier 2020 |
 | Inde Centre |Disponible |1 juin 2019 |

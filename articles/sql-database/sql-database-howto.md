@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f7e31c9e153f25faae9224f04eabf5ca54bb06b4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7db9c6400ac7d235153a59965e34e30d9b809a81
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759217"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359697"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Utilisation d’Azure SQL Database
 
@@ -25,7 +25,7 @@ Dans cette section, vous trouverez des guides, des scripts et des explications p
 
 ## <a name="load-data"></a>Charger des données
 
-- [Copier une base de données unique ou en pool dans Azure](sql-database-copy.md)
+- [Copier une base de données unique ou d’une base de données regroupée dans Azure](sql-database-copy.md)
 - [Importer une base de données depuis un fichier BACPAC](sql-database-import.md)
 - [Exporter une base de données vers un fichier BACPAC](sql-database-export.md)
 - [Chargement des données avec BCP](sql-database-load-from-csv-with-bcp.md)
@@ -33,7 +33,7 @@ Dans cette section, vous trouverez des guides, des scripts et des explications p
 
 ### <a name="data-sync"></a>Synchronisation des données
 
-- [Synchronisation des données SQL](sql-database-sync-data.md)
+- [SQL Data Sync](sql-database-sync-data.md)
 - [Agent Data Sync](sql-database-data-sync-agent.md)
 - [Répliquer les modifications de schéma](sql-database-update-sync-schema.md)
 - [Surveiller avec OMS](sql-database-sync-monitor-oms.md)
@@ -52,8 +52,8 @@ Dans cette section, vous trouverez des guides, des scripts et des explications p
 ### <a name="extended-events"></a>Événements étendus
 
 - [Événements étendus](sql-database-xevent-db-diff-from-svr.md)
-- [Stocker des événements étendus dans un fichier d’événements](sql-database-xevent-code-event-file.md)
-- [Capturer des événements étendus dans la mémoire tampon](sql-database-xevent-code-ring-buffer.md)
+- [Store les événements étendus dans le fichier d’événements](sql-database-xevent-code-event-file.md)
+- [Store les événements étendus dans la mémoire tampon en anneau](sql-database-xevent-code-ring-buffer.md)
 
 ## <a name="configure-features"></a>Configurer des fonctionnalités
 
@@ -65,7 +65,7 @@ Dans cette section, vous trouverez des guides, des scripts et des explications p
 - [Configurer TDE avec BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
 - [Effectuer une rotation des clés TDE BYOK](transparent-data-encryption-byok-azure-sql-key-rotation.md)
 - [Supprimer le protecteur TDE](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
-- [Configurer OLTP In-Memory](sql-database-in-memory-oltp-migration.md)
+- [Configurer OLTP en mémoire](sql-database-in-memory-oltp-migration.md)
 - [Configurer Azure Automation](sql-database-manage-automation.md)
 
 ## <a name="develop-applications"></a>Développer des applications
@@ -73,11 +73,11 @@ Dans cette section, vous trouverez des guides, des scripts et des explications p
 - [Connectivité](sql-database-libraries.md)
 - [Utiliser Spark Connector](sql-database-spark-connector.md)
 - [Authentifier l’application](sql-database-client-id-keys.md)
-- [Messages d’erreur](sql-database-develop-error-messages.md)
-- [Utiliser le traitement par lot pour améliorer les performances](sql-database-use-batching-to-improve-performance.md)
+- [messages d'erreur](sql-database-develop-error-messages.md)
+- [Utiliser le traitement par lots pour améliorer les performances](sql-database-use-batching-to-improve-performance.md)
 - [Conseils sur la connectivité](sql-database-connectivity-issues.md)
 - [Alias DNS](dns-alias-overview.md)
-- [Configurer le PowerShell d’alias DNS](dns-alias-powershell.md)
+- [Le programme d’installation DNS alias PowerShell](dns-alias-powershell.md)
 - [Ports - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
 - [C et C ++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)

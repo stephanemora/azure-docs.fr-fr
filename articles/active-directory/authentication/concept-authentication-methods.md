@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894591"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360639"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
-Un administrateur de choisir les méthodes d’authentification pour Azure multi-Factor Authentication et le mot de passe libre-service (SSPR) de réinitialisation, il est recommandé que vous avez besoin aux utilisateurs d’inscrire plusieurs méthodes d’authentification. Quand une méthode d’authentification n’est pas disponible pour un utilisateur, ils peuvent choisir de s’authentifier avec une autre méthode.
+En tant qu’administrateur, choix de méthodes d’authentification pour Azure multi-Factor Authentication et de réinitialisation de mot de passe libre-service (SSPR) il est recommandé de demander aux utilisateurs d’inscrire plusieurs méthodes d’authentification. Quand une méthode d’authentification n’est pas disponible pour un utilisateur, ils peuvent choisir de s’authentifier avec une autre méthode.
 
 Les administrateurs peuvent définir, dans la stratégie, les méthodes d’authentification disponibles pour les utilisateurs avec les fonctionnalités d’authentification multifacteur et de réinitialisation de mot de passe en libre-service. Certaines méthodes d’authentification peuvent ne pas être disponibles pour toutes les fonctionnalités. Pour plus d’informations sur la configuration de vos stratégies consultez les articles [comment déployer avec succès la réinitialisation de mot de passe libre-service](howto-sspr-deployment.md) et [planification basée sur le cloud Azure multi-Factor Authentication](howto-mfa-getstarted.md)
 
@@ -141,6 +141,9 @@ L’application Microsoft Authenticator peut aider à empêcher tout accès non 
 
 Si vous activez l’utilisation de la notification par le biais de l’application mobile et du code de vérification de l’application mobile, les utilisateurs qui inscrivent l’application Microsoft Authenticator à l’aide d’une notification peuvent utiliser aussi bien la notification que le code pour vérifier leur identité.
 
+> [!NOTE]
+> Si votre organisation a personnel travaillant dans ou en déplacement à la Chine, le **Notification via application mobile** méthode sur **les appareils Android** ne fonctionne pas dans ce pays. Autres méthodes doivent être accessibles aux utilisateurs.
+
 ### <a name="verification-code-from-mobile-app"></a>Code de vérification de l’application mobile
 
 L'application Microsoft Authenticator ou une autre application tierce peut être utilisée comme jeton logiciel pour générer un code de vérification OATH. Après avoir saisi votre nom d’utilisateur et votre mot de passe, vous entrez le code fourni par l’application dans l’écran de connexion. Le code de vérification fournit un deuxième formulaire d’authentification.
@@ -149,11 +152,11 @@ L'application Microsoft Authenticator ou une autre application tierce peut être
 > Quand une seule méthode est requise pour la réinitialisation de mot de passe en libre-service, le code de vérification est la seule option à la disposition des utilisateurs **pour garantir le niveau de sécurité le plus élevé**.
 >
 
-Les utilisateurs peuvent combiner jusqu'à 5 jetons matériels OATH ou des applications d'authentification, comme l'application Microsoft Authenticator, configurées pour une utilisation à tout moment.
+Les utilisateurs devront peut-être une combinaison de jetons de matériels jusqu'à cinq serment ou des applications de l’authentificateur, telles que l’application Microsoft Authenticator configuré pour une utilisation à tout moment.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Jetons matériels OATH (préversion publique)
 
-OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Notez que les secrets sont limités à 128 caractères et que cette limite peut ne pas être compatible avec tous les jetons.
+OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Les clés secrètes sont limités à 128 caractères, ce qui n’est peut-être pas compatibles avec tous les jetons.
 
 ![Chargement des jetons OATH dans le panneau de jetons OATH du serveur MFA](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
@@ -175,7 +178,7 @@ L’opération peut prendre plusieurs minutes selon la taille du fichier CSV. Cl
 
 Une fois que toutes les erreurs ont été résolues, l’administrateur peut activer chaque clé en cliquant sur **Activer** pour activer le jeton et en entrant l’OTP affiché sur le jeton.
 
-Les utilisateurs peuvent combiner jusqu'à 5 jetons matériels OATH ou des applications d'authentification, comme l'application Microsoft Authenticator, configurées pour une utilisation à tout moment.
+Les utilisateurs devront peut-être une combinaison de jetons de matériels jusqu'à cinq serment ou des applications de l’authentificateur, telles que l’application Microsoft Authenticator configuré pour une utilisation à tout moment.
 
 ## <a name="mobile-phone"></a>Téléphone mobile
 

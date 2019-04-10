@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8f444cebac6ee60fbe65399e3f9c8e05eb033843
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878211"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282098"
 ---
 # <a name="about-point-to-site-vpn"></a>À propos du VPN de point à site
 
@@ -22,7 +22,7 @@ Une connexion par passerelle VPN point à site (P2S) vous permet de créer une c
 
 La connexion VPN point à site peut utiliser un des protocoles suivants :
 
-* OpenVPN, un protocole VPN basé sur SSL/TLS. Une solution VPN SSL peut pénétrer des pare-feux puisque la plupart des pare-feux ouvrent le port TCP 443 utilisé par le protocole SSL. OpenVPN peut être utilisé pour se connecter à partir d’Android, iOS (versions 11.0 et versions ultérieures), les appareils Windows, Linux et Mac (versions OS x 10.13 et versions ultérieures).
+* **OpenVPN® protocole**, protocole VPN basé sur un SSL/TLS. Une solution VPN SSL peut pénétrer des pare-feux puisque la plupart des pare-feux ouvrent le port TCP 443 utilisé par le protocole SSL. OpenVPN peut être utilisé pour se connecter à partir d’Android, iOS (versions 11.0 et versions ultérieures), les appareils Windows, Linux et Mac (versions OS x 10.13 et versions ultérieures).
 
 * Le Protocole SSTP (Secure Socket Tunneling Protocol) est un protocole propriétaire VPN basé sur le protocole SSL. Une solution VPN SSL peut pénétrer des pare-feux puisque la plupart des pare-feux ouvrent le port TCP 443 utilisé par le protocole SSL. SSTP est pris en charge sur les appareils Windows uniquement. Azure prend en charge toutes les versions de Windows disposant de SSTP (Windows 7 et versions ultérieures).
 
@@ -54,7 +54,7 @@ Le serveur RADIUS peut aussi être intégré aux services de certificat AD. Cela
 Un serveur RADIUS permet également l’intégration avec d’autres systèmes d’identité externe. Cette opération ouvre de nombreuses options d’authentification pour les VPN P2S, notamment les options de multifacteur.
 
 >[!NOTE]
->Le protocole OpenVPN n’est pas pris en charge avec l’authentification RADIUS.
+>**Protocole de® OpenVPN** n’est pas pris en charge avec l’authentification RADIUS.
 >
 
 ![point à site](./media/point-to-site-about/p2s.png "Point à site")
@@ -109,3 +109,5 @@ Une configuration P2S requiert quelques étapes spécifiques. Les articles suiva
 * [Configurer une connexion P2S - authentification RADIUS](point-to-site-how-to-radius-ps.md)
 
 * [Configurer une connexion P2S - authentification par certificat natif Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+**« OpenVPN » est une marque d’Inc. OpenVPN**

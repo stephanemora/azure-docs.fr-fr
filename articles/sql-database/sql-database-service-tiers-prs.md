@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: f8fc1f7e338f69b42df69d9a8983e8ce3bb409e3
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55958488"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359652"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Le niveau de service Azure SQL Database Premium RS (préversion) est en cours de retrait – Options de migration
 
@@ -48,7 +48,7 @@ Pour des charges de travail Premium RS nécessitant beaucoup de ressources syst�
 
 ### <a name="premium-rs-databases"></a>Bases de données Premium RS
 
-|**Si vous êtes actuellement sur…**|**Migrez vers le niveau par vCore comparable…**|**Migrez vers le niveau par DTU comparable…**|
+|**Si vous êtes actuellement au niveau...**|**Migrer vers comparables basé sur vCore...**|**Migrer vers comparables basé sur DTU...**|
 |---|---|---|
 |Premium RS 1|Usage général 1 vCore (Gen4)|Standard 3|
 |Premium RS 2|Usage général 2 vCore (Gen4)|Standard 4|
@@ -57,7 +57,7 @@ Pour des charges de travail Premium RS nécessitant beaucoup de ressources syst�
 
 ### <a name="premium-rs-pools"></a>Pools Premium RS
 
-|**Si vous êtes actuellement sur…**|**Migrez vers le niveau par vCore comparable…**|**Migrez vers le niveau par DTU comparable…**|
+|**Si vous êtes actuellement au niveau...**|**Migrer vers comparables basé sur vCore...**|**Migrer vers comparables basé sur DTU...**|
 |---|---|---|
 |Pool Premium RS 125 DTU|Usage général 1 vCore (Gen4)|Pool Standard 100 eDTU|
 |Pool Premium RS 250 DTU|Usage général 2 vCore (Gen4)|Pool Standard 250 eDTU|
@@ -68,14 +68,14 @@ Pour des charges de travail Premium RS nécessitant beaucoup de ressources syst�
 
 Nous recommandons de migrer les bases de données uniques nécessitant beaucoup de ressources d’E/S vers notre niveau Hyperscale par vCore, actuellement en préversion, et les pools de bases de données nécessitant beaucoup de ressources d’E/S vers notre niveau Critique pour l’entreprise en disponibilité générale, afin d’obtenir un équilibre optimal entre performances et coût.  Les options par vCore suivantes maintiendront ou amélioreront les performances que vous connaissez actuellement. Elles peuvent être sources d’économies si elles sont combinées avec les tarifs Azure Hybrid Benefit et Capacité réservée.
 
-|**Si vous êtes actuellement sur…**|**Migrez vers le niveau par vCore comparable…**|**Migrez vers le niveau par DTU comparable…**|
+|**Si vous êtes actuellement au niveau...**|**Migrer vers comparables basé sur vCore...**|**Migrer vers comparables basé sur DTU...**|
 |---|---|---|
 |Premium RS 1|(Préversion) Hyperscale 1 vCore (Gen4) ou Critique pour l'entreprise 1 vCore (Gen4)|Premium 1|
 |Premium RS 2|(Préversion) Hyperscale 2 vCores (Gen4) ou Critique pour l'entreprise 2 vCores (Gen4)|Premium 2|
 |Premium RS 4|(Préversion) Hyperscale 4 vCores (Gen4) ou Critique pour l'entreprise 4 vCores (Gen4)|Premium 4
 |Premium RS 6|(Préversion) Hyperscale 6 vCores (Gen4) ou Critique pour l'entreprise 6 vCores (Gen4)|Premium 6|
 
-|**Si vous êtes actuellement sur…**|**Migrez vers le niveau par vCore comparable…**|**Migrez vers le niveau par DTU comparable…**|
+|**Si vous êtes actuellement au niveau...**|**Migrer vers comparables basé sur vCore...**|**Migrer vers comparables basé sur DTU...**|
 |---|---|---|
 |Pool Premium RS 125 DTU|Critique pour l’entreprise 2 vCore (Gen4)|Pool Premium 125 eDTU|
 |Pool Premium RS 250 DTU|Critique pour l’entreprise 2 vCore (Gen4)|Pool Premium 250 eDTU|

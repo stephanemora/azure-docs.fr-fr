@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269025"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358115"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planification basée sur le cloud Azure multi-Factor Authentication
 
@@ -107,6 +107,9 @@ Les administrateurs peuvent choisir le [méthodes d’authentification](../authe
 ### <a name="notification-through-mobile-app"></a>Notification via une application mobile
 
 Une notification push est envoyée à l’application Microsoft Authenticator sur votre appareil mobile. L’utilisateur consulte la notification et sélectionne **approuver** pour terminer la vérification. L’option la moins intrusive pour les utilisateurs fournissent des notifications Push via une application mobile. Elles sont également l’option la plus fiable et sécurisée, car elles utilisent une connexion de données plutôt que de téléphonie.
+
+> [!NOTE]
+> Si votre organisation a personnel travaillant dans ou en déplacement à la Chine, le **Notification via application mobile** méthode sur **les appareils Android** ne fonctionne pas dans ce pays. Autres méthodes doivent être accessibles aux utilisateurs.
 
 ### <a name="verification-code-from-mobile-app"></a>Code de vérification de l’application mobile
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 1/14/2019
 ms.author: alkarche
-ms.openlocfilehash: 8bbc44e7af68f005f30fff143741bc4bfe0adcf2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896455"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358160"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -43,7 +43,8 @@ Applications de fonction peuvent être hébergée de plusieurs façons différen
 
 Les restrictions d’adresse IP permettent de définir la liste des adresses IP qui sont autorisées à accéder à votre application. Dans cette liste, les adresses IP sont classées par ordre de priorité (Autoriser/Refuser). Les adresses autorisées peuvent inclure des adresses IPv4 et IPv6. Lorsqu’il y a une ou plusieurs entrées, il existe une règle implicite « Tout refuser » qui se trouve à la fin de la liste. La fonctionnalité de Restrictions d’adresse IP fonctionne avec la fonction toutes les options d’hébergement.
 
-> ! [IMPORTANT] Pour être en mesure d’utiliser l’Éditeur du portail Azure, le portail doit être en mesure d’accéder directement à votre application de fonction en cours d’exécution et l’appareil que vous utilisez pour accéder au portail doit avoir son dans la liste verte IP. Avec les restrictions de réseau en place, vous pouvez toujours accéder à toutes les fonctionnalités de la **fonctionnalités de la plateforme** onglet.
+> [!NOTE]
+> Pour être en mesure d’utiliser l’Éditeur du portail Azure, le portail doit être en mesure d’accéder directement à votre application de fonction en cours d’exécution et l’appareil que vous utilisez pour accéder au portail doit avoir son dans la liste verte IP. Avec les restrictions de réseau en place, vous pouvez toujours accéder à toutes les fonctionnalités de la **fonctionnalités de la plateforme** onglet.
 
 [En savoir plus ici](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 
