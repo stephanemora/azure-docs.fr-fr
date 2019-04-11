@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 8190c2043d7d3daae91c93fd3b66126d0941710b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361852"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469368"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Créez une fabrique d’image personnalisée dans Azure DevTest Labs
 Cet article traite de définition d’une stratégie de rétention, nettoyage de la fabrique et retrait d’anciennes images à partir de tous les autres dev/test dans l’organisation. 
@@ -75,5 +75,5 @@ Ajout d’une nouvelle image à votre fabrique est également simple. Lorsque vo
 ## <a name="next-steps"></a>Étapes suivantes
 1. [Planifier votre build/mise en production](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) exécution périodique de la fabrique d’images. Comment actualiser vos images générés par la fabrique de manière régulière.
 2. Mettre des images de golden plus de votre fabrique. Vous pouvez également envisager [création d’artefacts](devtest-lab-artifact-author.md) pour générer un script des éléments supplémentaires de vos tâches de configuration de machine virtuelle et inclure les artefacts dans vos images de la fabrique.
-4. Créer un [séparer build/mise en production](/azure/devops/pipelines/overview.md?view=azure-devops-2019) pour exécuter le **DistributeImages** script séparément. Vous pouvez exécuter ce script lorsque vous apportez des modifications à Labs.json et obtenez des images copiés dans les laboratoires de la cible sans avoir à recréer toutes les images à nouveau.
+4. Créer un [séparer build/mise en production](/azure/devops/pipelines/overview?view=azure-devops-2019) pour exécuter le **DistributeImages** script séparément. Vous pouvez exécuter ce script lorsque vous apportez des modifications à Labs.json et obtenez des images copiés dans les laboratoires de la cible sans avoir à recréer toutes les images à nouveau.
 

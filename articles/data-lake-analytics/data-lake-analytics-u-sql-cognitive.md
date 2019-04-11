@@ -9,29 +9,29 @@ ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: 550a57b1dc90256fb2d94e270aba2f79f7b0d370
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: b8d43188c337e0c12db60b51dee053ef7259701a
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603071"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469044"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Bien démarrer avec les capacités cognitives U-SQL
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Les fonctionnalités cognitives de U-SQL permettent aux développeurs d’utiliser l’intelligence PUT dans leurs programmes de Big Data. 
 
 Voici la liste des exemples disponibles utilisant des fonctionnalités cognitives :
-* Acquisition d’images : [Détecter les visages](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Acquisition d’images : [Détectez les visages](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
 * Acquisition d’images : [Détecter les émotions](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
-* Acquisition d’images : [Détecter les objets (balisage)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Acquisition d’images : [Détecter des objets (balisage)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
 * Acquisition d’images : [OCR (reconnaissance optique de caractères)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Texte : [Extraction de phrases clés et analyse des sentiments](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
+* Texte : [Extraction de phrases clés et l’analyse des sentiments](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
 ## <a name="registering-cognitive-extensions-in-u-sql"></a>Enregistrement d’extensions cognitives dans U-SQL
-Avant de commencer, suivez les étapes de cet article pour enregistrer des extensions cognitives dans U-SQL : [Enregistrement d’extensions cognitives dans U-SQL](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/cognitive-capabilities-in-u-sql#registeringExtensions).
+Avant de commencer, suivez les étapes décrites dans cet article pour enregistrer des Extensions cognitives de U-SQL : [L’inscription des Extensions cognitives U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exemples cognitifs/U-SQL](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
-* [Développer des scripts de U-SQL à l’aide d’outils Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Développer des scripts U-SQL à l’aide de Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure](data-lake-analytics-use-window-functions.md)

@@ -4,36 +4,33 @@ description: Décrit les fonctions à utiliser dans un modèle Azure Resource Ma
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2018
+ms.date: 04/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 109bd1c987c86721c6064fc0294913c85fa3a901
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 9065c6bc71a153ae94ddc20d5b41a152094fc111
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267867"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470149"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Fonctions logiques pour les modèles Azure Resource Manager
 
 Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dans vos modèles.
 
-* [et](#and)
+* [and](#and)
 * [bool](#bool)
-* [si](#if)
-* [non](#not)
-* [ou](#or)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* [if](#if)
+* [not](#not)
+* [or](#or)
 
 ## <a name="and"></a>and
+
 `and(arg1, arg2, ...)`
 
 Vérifie si toutes les valeurs de paramètres sont true.
@@ -42,8 +39,8 @@ Vérifie si toutes les valeurs de paramètres sont true.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |booléenne |La première valeur pour vérifier si c’est true. |
-| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
+| arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
+| arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
 | arguments supplémentaires |Non  |booléenne |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -84,19 +81,8 @@ La sortie de l’exemple précédent est :
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
 ## <a name="bool"></a>bool
+
 `bool(arg1)`
 
 Convertit le paramètre en valeur booléenne.
@@ -105,7 +91,7 @@ Convertit le paramètre en valeur booléenne.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |chaîne ou entier |La valeur à convertir en booléen. |
+| arg1 |Oui |chaîne ou entier |La valeur à convertir en booléen. |
 
 ### <a name="return-value"></a>Valeur de retour
 Valeur booléenne de la valeur convertie.
@@ -149,19 +135,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | trueInt | Bool | True |
 | falseInt | Bool | False |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
-```
-
 ## <a name="if"></a>if
+
 `if(condition, trueValue, falseValue)`
 
 Retourne une valeur indiquant si une condition est true ou false.
@@ -170,9 +145,9 @@ Retourne une valeur indiquant si une condition est true ou false.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| condition |OUI |booléenne |La valeur pour vérifier si c’est true. |
-| trueValue |OUI | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
-| falseValue |OUI | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est false. |
+| condition |Oui |booléenne |Valeur à vérifier s’il est true ou false. |
+| trueValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
+| falseValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est false. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -180,49 +155,7 @@ Retourne le deuxième paramètre lorsque le premier paramètre est **True** ; s
 
 ### <a name="remarks"></a>Remarques
 
-Vous pouvez utiliser cette fonction pour définir de manière conditionnelle une propriété de ressource. L’exemple suivant n’est pas un modèle complet, mais il affiche les parties pertinentes pour la définition de manière conditionnelle du groupe à haute disponibilité.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        ...
-        "availabilitySet": {
-            "type": "string",
-            "allowedValues": [
-                "yes",
-                "no"
-            ]
-        }
-    },
-    "variables": {
-        ...
-        "availabilitySetName": "availabilitySet1",
-        "availabilitySet": {
-            "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('availabilitySetName'))]"
-        }
-    },
-    "resources": [
-        {
-            "condition": "[equals(parameters('availabilitySet'),'yes')]",
-            "type": "Microsoft.Compute/availabilitySets",
-            "name": "[variables('availabilitySetName')]",
-            ...
-        },
-        {
-            "apiVersion": "2016-03-30",
-            "type": "Microsoft.Compute/virtualMachines",
-            "properties": {
-                "availabilitySet": "[if(equals(parameters('availabilitySet'),'yes'), variables('availabilitySet'), json('null'))]",
-                ...
-            }
-        },
-        ...
-    ],
-    ...
-}
-```
+Lorsque la condition est **True**, seule la valeur true est évaluée. Lorsque la condition est **False**, seule la valeur false est évaluée. Avec le **si** (fonction), vous pouvez inclure des expressions qui sont uniquement valides de manière conditionnelle. Par exemple, vous pouvez référencer une ressource qui existe sous une condition, mais pas sous l’autre condition. Un exemple de manière conditionnelle l’évaluation des expressions est indiqué dans la section suivante.
 
 ### <a name="examples"></a>Exemples
 
@@ -259,19 +192,56 @@ La sortie de l’exemple précédent est :
 | noOutput | Chaîne | no |
 | objectOutput | Object | { "test": "value1" } |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
+Ce qui suit [exemple de modèle](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) montre comment utiliser cette fonction avec des expressions qui sont uniquement valides de manière conditionnelle.
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "logAnalytics": {
+            "type": "string",
+            "defaultValue": ""
+        }
+    },
+    "resources": [
+        {
+            "condition": "[greaterOrEquals(parameters('logAnalytics'), '0')]",
+            "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "location": "[parameters('location')]",
+            "apiVersion": "2017-03-30",
+            "properties": {
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                "type": "MicrosoftMonitoringAgent",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "workspaceId": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+                },
+                "protectedSettings": {
+                    "workspaceKey": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "mgmtStatus": {
+            "type": "string",
+            "value": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), 'Enabled monitoring for VM!', 'Nothing to enable')]"
+        }
+    }
+}
 ```
 
 ## <a name="not"></a>not
+
 `not(arg1)`
 
 Convertit la valeur booléenne à sa valeur opposée.
@@ -280,7 +250,7 @@ Convertit la valeur booléenne à sa valeur opposée.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |booléenne |La valeur à convertir. |
+| arg1 |Oui |booléenne |La valeur à convertir. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -320,18 +290,6 @@ La sortie de l’exemple précédent est :
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) suivant utilise **not** avec [equals](resource-group-template-functions-comparison.md#equals).
 
 ```json
@@ -354,19 +312,8 @@ La sortie de l’exemple précédent est :
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
-
 ## <a name="or"></a>or
+
 `or(arg1, arg2, ...)`
 
 Vérifie si l’une des valeurs du paramètre est true.
@@ -375,8 +322,8 @@ Vérifie si l’une des valeurs du paramètre est true.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |booléenne |La première valeur pour vérifier si c’est true. |
-| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
+| arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
+| arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
 | arguments supplémentaires |Non  |booléenne |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -417,21 +364,10 @@ La sortie de l’exemple précédent est :
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 * Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
-* Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+* Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579680"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470608"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Réviser l’accès à des groupes ou les révisions d’accès des applications dans Azure AD
 
@@ -46,7 +46,7 @@ Si vous n’avez pas reçu l’e-mail, vous pouvez trouver que votre accès en a
 
 1. En haut à droite de la page, cliquez sur le symbole d’utilisateur, qui affiche votre nom et organisation par défaut. Si plusieurs organisations sont listées, sélectionnez l’organisation qui a demandé une révision d’accès.
 
-1. Sur le côté droit de la page, cliquez sur le **révisions d’accès** vignette pour afficher une liste des révisions d’accès en attente.
+1. Cliquez sur le **révisions d’accès** vignette pour afficher une liste des révisions d’accès en attente.
 
     Si la vignette n’est pas visible, cela signifie qu’il n’y a pas de révisions d’accès à effectuer pour cette organisation et qu’aucune action n’est nécessaire pour l’instant.
 
@@ -71,11 +71,13 @@ Il existe deux méthodes que vous pouvez approuver ou refuser l’accès :
 
 1. Passez en revue la liste des utilisateurs à décider s’il faut approuver ou refuser leur accès continu.
 
-1. Pour approuver ou refuser chaque demande, cliquez sur la ligne pour ouvrir la fenêtre pour spécifier l’action à entreprendre.
+1. Pour approuver ou refuser chaque demande, cliquez sur la ligne pour ouvrir une fenêtre pour spécifier l’action à entreprendre.
 
 1. Cliquez sur **approuver** ou **refuser**. Si vous n’êtes pas sûr, vous pouvez cliquer sur **ne sais pas**. Cela entraînera l’utilisateur conservant son accès, mais la sélection apparaîtront dans les journaux d’audit.
 
     ![Effectuer la révision d’accès](./media/perform-access-review/approve-deny.png)
+
+1. Si nécessaire, entrez un motif dans la **raison** boîte.
 
     L’administrateur de la révision d’accès peut nécessiter que vous fournissez une raison pour l’approbation d’un accès permanent ou l’appartenance au groupe.
 

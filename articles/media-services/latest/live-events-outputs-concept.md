@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 00dab8381c26a6331dd325eacd4a550892bd3411
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762352"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469809"
 ---
 # <a name="live-events-and-live-outputs"></a>Événements en direct et Sorties en direct
 
@@ -127,7 +127,7 @@ Une fois que l’**événement en direct** commence à recevoir le flux de contr
 
 ## <a name="live-event-long-running-operations"></a>Opérations à long terme événement en direct
 
-Pour plus d’informations, consultez [opérations à long terme](entities-overview.md#long-running-operations)
+Pour plus d’informations, consultez [opérations à long terme](media-services-apis-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>Sorties en direct
 
@@ -146,4 +146,4 @@ Pour plus d’informations, consultez [Utilisation d’un magnétoscope numériq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Didacticiel sur le streaming en direct](stream-live-tutorial-with-api.md)
+[Didacticiel de diffusion en continu en direct](stream-live-tutorial-with-api.md)

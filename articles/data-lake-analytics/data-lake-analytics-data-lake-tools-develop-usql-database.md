@@ -10,18 +10,18 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898793"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469707"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Utiliser un projet de base de données U-SQL afin de développer une base de données U-SQL pour Azure Data Lake
 
 Une base de données U-SQL fournit des vues structurées de données non structurées, et des données structurées gérées sous forme de tables. Elle fournit également un système de catalogue de métadonnées générales pour organiser vos données structurées et votre code personnalisé. La base de données est le concept qui regroupe ces objets associés.
 
-En savoir plus sur la [base de données U-SQL et sur le langage de définition de données (DDL)](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/data-definition-language-ddl-statements-u-sql). 
+En savoir plus sur la [base de données U-SQL et sur le langage de définition de données (DDL)](/u-sql/data-definition-language-ddl-statements). 
 
 Un projet de base de données U-SQL est un type de projet dans Visual Studio qui permet aux développeurs de développer, de gérer et de déployer rapidement et facilement leurs bases de données U-SQL.
 
@@ -92,7 +92,7 @@ Vous pouvez déployer une base de données U-SQL via un projet de base de donné
   
 ### <a name="deploy-u-sql-database-by-using-the-sdk"></a>Déployer une base de données U-SQL à l’aide du SDK
 
-`PackageDeploymentTool.exe` fournit les interfaces de programmation et de ligne de commande qui vous aident à déployer des bases de données U-SQL. Le SDK est inclus dans le [package Nuget du SDK U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), qui se trouve à l’emplacement `build/runtime/PackageDeploymentTool.exe`.
+`PackageDeploymentTool.exe` Fournit la programmation et les interfaces de ligne de commande qui vous aider à déployer des bases de données U-SQL. Le SDK est inclus dans le [package Nuget du SDK U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), qui se trouve à l’emplacement `build/runtime/PackageDeploymentTool.exe`.
 
 [En savoir plus sur le kit de développement logiciel (SDK) et sur la manière de configurer le pipeline CI/CD pour le déploiement de base de données U-SQL](data-lake-analytics-cicd-overview.md).
 
@@ -117,5 +117,5 @@ Un projet U-SQL peut référencer un projet de base de données U-SQL. La réfé
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Comment configurer un pipeline CI/CD pour Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
-- [Comment tester votre code Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)
+- [Guide pratique pour tester votre code Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)
 - [Exécuter un script U-SQL sur votre ordinateur local](data-lake-analytics-data-lake-tools-local-run.md)

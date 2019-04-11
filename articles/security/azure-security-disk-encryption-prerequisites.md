@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 896553890252572e4b5524d047893953b78a4ba1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 1da35b55a458ad73689f51c49e73855fd33ee45f
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010089"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470288"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prérequis pour Azure Disk Encryption
 
- Cet article décrit les éléments qui doivent être en place avant toute utilisation d’Azure Disk Encryption. Azure Disk Encryption est intégré à [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) pour la gestion des clés de chiffrement. Vous pouvez utiliser [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/) ou le [portail Azure](https://portal.azure.com) pour configurer Azure Disk Encryption.
+Cet article décrit les éléments qui doivent être en place avant toute utilisation d’Azure Disk Encryption. Azure Disk Encryption est intégré à [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) pour la gestion des clés de chiffrement. Vous pouvez utiliser [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/) ou le [portail Azure](https://portal.azure.com) pour configurer Azure Disk Encryption.
 
 Avant d’activer Azure Disk Encryption sur les machines virtuelles IaaS Azure pour les scénarios pris en charge dans l’article de [présentation d’Azure Disk Encryption](azure-security-disk-encryption-overview.md), assurez-vous que tous les prérequis sont respectés. 
 
@@ -29,10 +29,11 @@ Avant d’activer Azure Disk Encryption sur les machines virtuelles IaaS Azure p
 ## <a name="bkmk_OSs"></a> Systèmes d’exploitation pris en charge
 Azure Disk Encryption est pris en charge sur les systèmes d’exploitation suivants :
 
-- Versions de Windows Server : Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et versions supérieures de Windows trouvé dans la galerie Azure.
-  - Pour Windows Server 2008 R2, .NET Framework 4.5 doit être installé avant l’activation du chiffrement dans Azure. Installez-le à partir de Windows Update avec la mise à jour facultative Microsoft .NET Framework 4.5.2 pour systèmes Windows Server 2008 R2 x64 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+- Versions de Windows Server : Core de Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core et Windows Server 2016 Server.
+Pour Windows Server 2008 R2, .NET Framework 4.5 doit être installé avant l’activation du chiffrement dans Azure. Installez-le à partir de la mise à jour de Windows avec la mise à jour facultative Microsoft .NET Framework 4.5.2 pour systèmes x64 64 de Windows Server 2008 R2 (KB2901983).
+- Windows Server 2012 R2 Core et Windows Server 2016 Core sont pris en charge par Azure Disk Encryption une fois que le composant bdehdcfg est installé sur la machine virtuelle.
 - Versions des clients Windows : client Windows 8 et client Windows 10.
-- Azure Disk Encryption est pris en charge uniquement sur les versions et les distributions de serveur Linux basées sur Azure Gallery. Pour obtenir la liste des versions actuellement prises en charge, reportez-vous à l’article [Forum aux questions (FAQ) Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
+- Azure Disk Encryption est pris en charge uniquement sur les versions et les distributions de serveur Linux basées sur Azure Gallery. Pour obtenir la liste des versions actuellement prises en charge, reportez-vous à l’article [Forum aux questions (FAQ) Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Reportez-vous à la [distributions Linux approuvées sur Azure](../virtual-machines/linux/endorsed-distros.md) pour obtenir la liste d’images pris en charge par Microsoft et à la [Azure Disk Encryption prend-il en charge les distributions Linux que ?](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) dans le [Azure Forum aux questions sur le chiffrement de disque](azure-security-disk-encryption-faq.md) pour obtenir la liste des versions actuellement prises en charge basée sur les distributions approuvées image.
 - Azure Disk Encryption requiert que votre coffre de clés et vos machines virtuelles se trouvent dans la même région et le même abonnement Azure. La configuration des ressources dans des régions distinctes provoque l’échec de l’activation de la fonctionnalité Azure Disk Encryption.
 
 ## <a name="bkmk_LinuxPrereq"></a> Conditions préalables supplémentaires pour les machines virtuelles IaaS Linux 

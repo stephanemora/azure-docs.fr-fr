@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 33ec96b3708bc89f3fbd415f892e0810fc468876
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58889802"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471033"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
@@ -80,7 +80,7 @@ Le modèle de projet crée un projet C#, installe le package NuGet `Microsoft.NE
 
 * **host.json** : vous permet de configurer l’hôte Functions. Ces paramètres s’appliquent lors de l’exécution en local et dans Azure. Pour plus d’informations, consultez l’article de référence sur [host.json](functions-host-json.md).
 
-* **local.settings.json** : tient à jour les paramètres utilisés lors de l’exécution locale des fonctions. Ces paramètres ne sont pas utilisés par Azure, ils sont utilisés par [Azure Functions Core Tools](functions-run-local.md). Utilisez ce fichier pour spécifier les paramètres de l’application pour les variables requises par vos fonctions. Ajoutez un élément au tableau **Valeurs** pour chaque connexion requise par les liaisons de fonctions dans votre projet. Pour plus d’informations, consultez [Local settings file](functions-run-local.md#local-settings-file) (Fichier de paramètres local) dans l’article Azure Functions Core Tools.
+* **local.settings.json** : tient à jour les paramètres utilisés lors de l’exécution locale des fonctions. Ces paramètres ne sont pas utilisés par Azure, ils sont utilisés par [Azure Functions Core Tools](functions-run-local.md). Utilisez ce fichier pour spécifier des paramètres d’application pour les variables d’environnement requises par vos fonctions. Ajoutez un élément au tableau **Valeurs** pour chaque connexion requise par les liaisons de fonctions dans votre projet. Pour plus d’informations, consultez [Local settings file](functions-run-local.md#local-settings-file) (Fichier de paramètres local) dans l’article Azure Functions Core Tools.
 
     >[!IMPORTANT]
     >Étant donné que le fichier local.settings.json peut contenir des secrets, vous devez l’exclure du contrôle de code source du projet. Le paramètre **Copier dans le répertoire de sortie** de ce fichier doit toujours être **Copier si plus récent**. 
@@ -207,15 +207,11 @@ Vous pouvez également gérer les paramètres d’application d’une des maniè
 
 ## <a name="monitoring-functions"></a>Surveillance des fonctions
 
-Il est recommandé de surveiller l’exécution de votre fonction dans Azure en l’intégrant avec Azure Application Insights. Lorsque vous créez une application de fonction dans le portail Azure, cette intégration est faite pour vous par défaut. Toutefois, lorsque vous créez votre application de fonction lors de la publication avec Visual Studio, l’intégration avec votre application de fonction dans Azure n’est pas effectuée. Au lieu de cela, vous obtenez une journalisation intégrée, ce qui n’est pas recommandé.
+La méthode recommandée pour surveiller l’exécution de vos fonctions consiste en intégrant votre function app Azure Application Insights. Lorsque vous créez une application de fonction dans le portail Azure, cette intégration est faite pour vous par défaut. Toutefois, lorsque vous créez votre application de fonction lors de la publication avec Visual Studio, l’intégration avec votre application de fonction dans Azure n’est pas effectuée.
 
-Pour configurer Application Insights pour votre application de fonction dans Azure :
+Pour activer Application Insights pour votre application de fonction :
 
-1. Créez une instance d’Application Insights dans le [portail Azure](https://portal.azure.com) et copiez sa clé d’instrumentation. Pour connaître la procédure, consultez [En connectant manuellement une ressource Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource).  
-
-1. Ajoutez un paramètre d’application nommé `APPINSIGHTS_INSTRUMENTATIONKEY` aux paramètres d’application de fonction dans Azure, comme décrit dans les [paramètres Function app](#function-app-settings). Ce paramètre d’application contient la clé d’instrumentation que vous avez créée à l’étape précédente.
-
-1. Supprimez le paramètre d’application `AzureWebJobsDashboard` de l’application de fonction dans Azure, ce qui désactive la journalisation intégrée.  
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 

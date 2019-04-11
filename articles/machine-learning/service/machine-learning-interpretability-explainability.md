@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 04/04/2019
-ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/09/2019
+ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051799"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469775"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Problème d’apprentissage Azure SDK
 
@@ -34,7 +34,7 @@ Le SDK de ce problème d’Azure Machine Learning intègre des technologies dév
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
-Ce problème d’apprentissage Machine Azure peuvent être appliqué pour comprendre le comportement du modèle global ou une prédiction spécifique. La première est appelée une explication globale, et ce dernier est appelé une explication locale.
+Ce problème d’apprentissage Machine Azure peuvent être appliqué pour comprendre le comportement global ou des prévisions spécifiques du modèle. La première est appelée une explication globale, et ce dernier est appelé une explication locale.
 
 Les méthodes de ce problème de Machine Learning Azure peuvent être également classés selon que la méthode est indépendante du modèle ou un modèle spécifique. Certaines méthodes ciblent certains types de modèles. Par exemple, explicatif d’arborescence d’es de forme s’applique uniquement aux modèles basés sur l’arborescence. Certaines méthodes traitent le modèle comme une boîte noire, telles qu’explicatif imiter ou explicatif de noyau de photos. SDK de ce problème d’Azure Machine Learning s’appuie sur ces différentes approches basées sur les jeux de données, les types de modèles et les cas d’utilisation.
 
@@ -42,7 +42,6 @@ Ce problème d’apprentissage Machine Azure retourne un ensemble d’informatio
 
 * Importance de fonctionnalité relative global/local
 * Relation de fonctionnalité et de prédiction global/local
-* Des visualisations interactives montrant des prédictions, fonctionnalité et relation de prédiction, relative fonctionnalité et valeurs de l’importance dans le monde entier et localement
 
 ## <a name="architecture"></a>Architecture
 
@@ -70,11 +69,10 @@ __Diriger explainers__ proviennent de bibliothèques intégrés. Le Kit de déve
 * **Citron vert explicatif**: Selon citron vert, citron vert explicatif utilise l’algorithme de pointe Local interprétable indépendant du modèle des explications (citron vert) pour créer des modèles de substitution local. Contrairement aux modèles de substitution global citron vert se concentre sur la formation des modèles de substitution local pour expliquer les prédictions individuelles.
 * **HENRI texte explicatif**: HENRI texte explicatif utilise un réseau d’Attention hiérarchique pour obtenir des explications sur le modèle à partir des données de texte pour un modèle de texte donné boîte noire. Nous formons le modèle de substitution HAN sur des sorties prédite d’un modèle donné enseignant. Après une formation de manière globale sur le corpus de texte, nous avons ajouté une étape de réglage pour un document spécifique afin d’améliorer la précision des explications. HENRI utilise un RNN bidirectionnel avec deux couches d’attention, attention phrase et word. Une fois que le réseau de neurones profond est formé sur le modèle de l’enseignant et affiné sur un document spécifique, nous pouvons extraire les importances word les couches de votre attention. Nous avons trouvé HAN pour être plus précis que citron vert ou es de forme pour les données texte mais plus coûteux en termes d’ainsi le temps d’apprentissage. Toutefois, nous avons apporté des améliorations apportées à la durée d’apprentissage en donnant à l’utilisateur l’option pour initialiser le réseau avec GANT incorporations, bien qu’il soit toujours lent. La durée d’apprentissage peut améliorer considérablement le HAN en cours d’exécution sur une machine virtuelle de GPU Azure distante. L’implémentation de HENRI est décrite dans « Hiérarchique Attention réseaux pour la Classification de Document (Yang et al., 2016) » ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)).
 
-__Explainers de META__ automatiquement de sélectionner un explicatif direct approprié et de générer les meilleures informations explication selon le modèle donné et les jeux de données. Les explainers meta tirer parti de toutes les bibliothèques (photos, citron vert, GA2M, simulent, etc.) que nous avons intégré ou développé. Les explainers meta disponibles dans le Kit de développement logiciel sont les suivants :
+__Explainers de META__ automatiquement de sélectionner un explicatif direct approprié et de générer les meilleures informations explication selon le modèle donné et les jeux de données. Les explainers meta tirer parti de toutes les bibliothèques (photos, citron vert, simulent, etc.) que nous avons intégré ou développé. Les explainers meta disponibles dans le Kit de développement logiciel sont les suivants :
 
 * **Explicatif tabulaire**: Utilisé avec les jeux de données tabulaires.
 * **Texte explicatif**: Utilisé avec les jeux de données de texte.
-* **Image d’explicatif** utilisé avec les jeux de données image.
 
 En outre à méta sélection des explainers directs, explainers de meta développement les bibliothèques sous-jacentes des fonctionnalités supplémentaires et améliorent la vitesse et l’évolutivité sur les explainers directs.
 
@@ -90,7 +88,6 @@ L’intelligence intégrée `TabularExplainer` deviendront plus complexes comme 
 
 * **Synthèse du jeu de données d’initialisation**. Dans les cas où la vitesse d’explication est plus importante, nous résumer le jeu de données d’initialisation et générer un petit ensemble d’exemples représentatifs, ce qui accélère explication globale et locale.
 * **Échantillonnage du jeu de données d’évaluation**. Si l’utilisateur passe dans un grand ensemble d’exemples d’évaluation, mais n’a pas besoin réellement d'entre eux doit être évaluée, le paramètre d’échantillonnage peut être défini sur true pour accélérer l’explication globale.
-* **KNN rapide explication**. Dans le cas où explication doit être aussi rapide qu’une notation/prédiction unique, une méthode KNN peut être utilisée. Au cours de l’explication globale, les exemples d’initialisation et les fonctionnalités de haut-k correspondantes sont conservées. Pour générer l’explication de chaque exemple d’évaluation, la méthode KNN est utilisée pour rechercher l’exemple plus similaire dans les exemples d’initialisation et fonctionnalités haut-k de l’exemple plus similaire sont retournées en tant que les fonctionnalités de haut-k pour l’exemple d’évaluation.
 
 Le diagramme suivant montre la relation entre les deux ensembles de direct et explainers de métadonnées.
 
@@ -100,7 +97,7 @@ Le diagramme suivant montre la relation entre les deux ensembles de direct et ex
 
 Tous les modèles sont formés sur les jeux de données dans Python `numpy.array`, `pandas.DataFrame`, `iml.datatypes.DenseData`, ou `scipy.sparse.csr_matrix` format sont pris en charge par le SDK de ce problème d’apprentissage Machine.
 
-Les fonctions d’explication acceptent à la fois des modèles et des pipelines en tant qu’entrée. Si un modèle est fourni, le modèle doit implémenter la fonction de prédiction `predict` ou `predict_proba` qui confirme la convention Scikit. Si un pipeline (nom du script de pipeline) est fourni, la fonction explication suppose que le script de pipeline en cours d’exécution retourne une prédiction.
+Les fonctions d’explication acceptent à la fois des modèles et des pipelines en tant qu’entrée. Si un modèle est fourni, le modèle doit implémenter la fonction de prédiction `predict` ou `predict_proba` qui est conforme à la convention de Scikit. Si un pipeline (nom du script de pipeline) est fourni, la fonction explication suppose que le script de pipeline en cours d’exécution retourne une prédiction.
 
 ### <a name="local-and-remote-compute-target"></a>Cible de calcul locaux et distants
 
@@ -129,13 +126,12 @@ Le Kit de développement logiciel de Machine Learning ce problème est conçu po
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
+    ```
     or
+    ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
     explainer = MimicExplainer(model, x_train, LGBMExplainableModel, features=breast_cancer_data.feature_names, classes=classes)
-    or
-    from azureml.contrib.explain.model.lime.lime_explainer import LIMEExplainer
-    explainer = LIMEExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
 
 3. Obtenir la fonctionnalité globale de valeurs d’importance.
@@ -154,9 +150,16 @@ Le Kit de développement logiciel de Machine Learning ce problème est conçu po
     ```python
     # explain the first data point in the test set
     local_explanation = explainer.explain_local(x_test[0,:])
+    
+    # sorted feature importance values and feature names
+    sorted_local_importance_names = local_explanation.get_ranked_local_names()
+    sorted_local_importance_values = local_explanation.get_ranked_local_values()
+    ```
     or
+    ```python
     # explain the first five data points in the test set
     local_explanation = explainer.explain_local(x_test[0:4,:])
+    
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
@@ -172,21 +175,14 @@ Bien que vous pouvez effectuer l’apprentissage sur les différentes cibles de 
     run = Run.get_context()
     client = ExplanationClient.from_run(run)
     
-    breast_cancer_data = load_breast_cancer()
-    X_train, X_test, y_train, y_test = train_test_split(breast_cancer_data.data, breast_cancer_data.target, test_size = 0.2, random_state = 0)
-    data = {
-        "train":{"X": X_train, "y": y_train},        
-        "test":{"X": X_test, "y": y_test}
-    }
-    clf = svm.SVC(gamma=0.001, C=100., probability=True)
-    model = clf.fit(data['train']['X'], data['train']['y'])
-    joblib.dump(value = clf, filename = 'model.pkl')
+    # Train your model here
+
     # explain predictions on your local machine    
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     # explain overall model predictions (global explanation)
-    global_explanation = explainer.explain_global(data["test"]["X"])
+    global_explanation = explainer.explain_global(x_test)
     # explain local data points (individual instances)
-    local_explanation = explainer.explain_local(data["test"]["X"][0,:])
+    local_explanation = explainer.explain_local(x_test[0,:])
     # upload global and local explanation objects to Run History
     upload_model_explanation(run, local_explanation, top_k=2, comment='local explanation: top 2 features')
     # Uploading global model explanation data for storage or visualization in webUX
@@ -200,6 +196,8 @@ Bien que vous pouvez effectuer l’apprentissage sur les différentes cibles de 
 2. Suivez les instructions de [configurer des cibles de calcul pour l’apprentissage du modèle](how-to-set-up-training-targets.md#amlcompute) pour en savoir plus sur la façon de configurer un Azure Machine Learning Compute comme cible de calcul et soumettre votre série de formation.
 
 3. Téléchargez l’explication dans votre bloc-notes Jupyter local. 
+    > [!IMPORTANT]
+    > Les choses dans contrib ne sont pas entièrement pris en charge. Les fonctionnalités expérimentales devenant matures, elles seront déplacés progressivement vers le package principal.
 
     ``` python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient

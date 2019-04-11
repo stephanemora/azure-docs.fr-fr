@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b36b6e513e382e25f7d7038f49e7467a21686a0f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311728"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470353"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -59,8 +59,8 @@ Windows Server 2008 R2 SP1 ou version ultérieure.
 
 Ces bibliothèques sont installées automatiquement avec l’extension.
 
-- [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Packages redistribuables Visual C++ pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Microsoft Azure Module Active Directory pour Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Le module Microsoft Azure Active Directory pour Windows PowerShell est installé, s’il n’est pas déjà présent, via un script de configuration que vous exécutez en tant que partie du processus de configuration. Il est inutile d’installer ce module en avance s’il n’est pas déjà installé.
 
@@ -207,6 +207,8 @@ Vous pouvez choisir de créer cette clé et de lui affecter la valeur FALSE pour
 
 Recherchez le certificat auto-signé créé par le programme d’installation dans le magasin de certificats et vérifiez que la clé privée dispose d’autorisations accordées à l’utilisateur **NETWORK SERVICE**. Le certificat porte un nom d’objet de type **CN \<tenantid\>, UO = Extension Microsoft NPS**
 
+Les certificats auto-signés générés par le *AzureMfaNpsExtnConfigSetup.ps1* script ont également une durée de vie de deux ans. Lors de la vérification que le certificat est installé, vous devez également vérifier que le certificat n’a pas expiré.
+
 -------------------------------------------------------------
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>Comment vérifier que mon certificat client est associé à mon client dans Azure Active Directory ?
@@ -261,6 +263,14 @@ Vérifiez qu’AD Connect est en cours d’exécution et que l’utilisateur se 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Pourquoi existe-t-il des erreurs de connexion HTTP dans les journaux pour tous mes échecs d’authentification ?
 
 Vérifiez que https://adnotifications.windowsazure.com est accessible depuis le serveur exécutant l’extension NPS.
+
+-------------------------------------------------------------
+
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Pourquoi l’authentification ne fonctionne pas, en dépit d’un certificat valide présent ?
+
+Si votre certificat d’ordinateur précédente a expiré, et un nouveau certificat a été généré, vous devez supprimer tous les certificats expirés. Avoir des certificats arrivés à expiration peuvent provoquer des problèmes avec l’Extension NPS à partir.
+
+Pour vérifier si vous disposez d’un certificat valid, vérifiez le Store de certificat du compte d’ordinateur local à l’aide de MMC et vérifiez que le certificat n’a pas atteint sa date d’expiration. Pour générer un certificat qui vient d’être valide, exécutez de nouveau les étapes sous la section «[exécuter le script PowerShell](#run-the-powershell-script)»
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestion des protocoles TLS/SSL et des suites de chiffrement
 

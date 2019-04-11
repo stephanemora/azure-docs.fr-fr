@@ -17,16 +17,16 @@ ms.workload: na
 ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6cb875aa686d9e2d0ba7bf51563d3b51b1572a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d6af7106e991f0306ae2fef69129888219a9c0e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094226"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469520"
 ---
 # <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Mettre à niveau votre version d’évaluation gratuite ou d’Azure pour l’abonnement Students Starter à paiement à l’utilisation
 
-Si vous avez un [version d’évaluation gratuite](https://azure.microsoft.com/free/), vous pouvez mettre à niveau vers un [paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) abonnement dans le portail Azure. Si vous avez un [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) abonnement, vous pouvez mettre à niveau vers [paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) dans le centre des comptes Azure.
+Si vous avez un [version d’évaluation gratuite](https://azure.microsoft.com/free/) ou un [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) abonnement, vous pouvez mettre à niveau vers [paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) dans le portail Azure. Si vous avez un abonnement Azure for Students Starter et que vous êtes éligible pour un essai gratuit, vous pouvez mettre à niveau vers la version d’évaluation gratuite.
 
 <a id="freetrial"></a>
 
@@ -35,9 +35,9 @@ Si vous avez un [version d’évaluation gratuite](https://azure.microsoft.com/f
 Quand vous effectuez une mise à niveau à partir d’un abonnement d’essai gratuit, vous conservez votre crédit restant pendant les 30 jours complets suivant la création de l’abonnement. Vous avez également accès aux services gratuits pendant 12 mois.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com)
-1. Effectuez une recherche sur **Management + facturation de coûts.**
+1. Effectuez une recherche sur **abonnements.**
 
-    ![Capture d’écran montrant la recherche](./media/billing-upgrade-azure-subscription/search.png)
+    ![Capture d’écran montrant la recherche](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Sélectionnez votre abonnement d’essai gratuit.
 1. Dans le panneau Vue d’ensemble de l’abonnement, cliquez sur **mise à niveau d’abonnement** dans la barre de commandes.
@@ -63,15 +63,24 @@ Si vous voulez [transférer l’abonnement](billing-subscription-transfer.md) ap
 
 ## <a name="upgrade-your-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Mettre à niveau votre abonnement Azure for Students Starter à paiement à l’utilisation
 
-1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/subscriptions).
+Lorsque vous suivez les étapes ci-dessous, nous vous donnera la possibilité de mettre à niveau vers une version d’évaluation gratuite si vous êtes éligible.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com)
+1. Effectuez une recherche sur **abonnements.**
+
+    ![Capture d’écran montrant la recherche](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+
 1. Sélectionnez votre abonnement Azure for Students Starter.
-1. Sous **état de l’abonnement**, cliquez sur **mettre à niveau maintenant**.
+1. Dans le panneau Vue d’ensemble de l’abonnement, cliquez sur **mise à niveau d’abonnement** dans la barre de commandes.
 
-    ![Capture d’écran illustrant la mise à niveau pour les étudiants](./media/billing-upgrade-azure-subscription/student-upgrade-button.png)
+    ![Capture d’écran qui montre bouton mise à niveau pour les étudiants](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
 
-1. Entrez un nom pour votre abonnement.
+1. Si vous mettez à niveau vers le paiement à l’utilisation et que vous n’avez pas encore une méthode de paiement pour votre abonnement, vous allez être invité en ajouter un.
+1. Vous devrez peut-être entrer un numéro de téléphone pour vérifier votre identité.
+1. Tapez un nom pour votre abonnement.
+1. Si vous mettez à niveau vers le paiement à l’utilisation, choisir un plan de support pour votre abonnement. Pour en savoir plus sur les plans de support, consultez [plans de support Azure](https://azure.microsoft.com/us/support/plans/).
 
-1. Cliquez sur **mettre à niveau maintenant**.
+1. Cliquez sur **Mettre à niveau**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

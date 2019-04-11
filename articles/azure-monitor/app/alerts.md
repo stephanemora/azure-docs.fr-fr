@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257159"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469792"
 ---
 # <a name="set-alerts-in-application-insights"></a>Configuration d’alertes dans Application Insights
 [Azure Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application web. 
@@ -144,6 +144,24 @@ Dans cette section, nous allons examiner comment définir une alerte d’excepti
 10. Enfin ajouter vos détails de l’alerte (nom de la règle, la description, gravité d’alerte). Lorsque vous avez terminé, cliquez sur **créer une règle d’alerte** en bas.
 
     ![Sous Détails de l’alerte tapez votre nom de règle d’alerte, écrivez une description et choisir un niveau de gravité](./media/alerts/9alertdetails.png)
+
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Comment se désabonner des notifications d’alerte par courrier
+
+Cette section s’applique aux **alertes de disponibilité classic**, **les alertes de métrique Application Insights**et **alertes d’échec classique d’anomalies**.
+
+Vous recevez des notifications par courrier électronique pour ces alertes classiques si les éléments suivants s’applique :
+
+* Votre adresse de messagerie est répertorié dans le champ de destinataires de courrier électronique de Notification dans les paramètres de règle d’alerte.
+
+* La possibilité d’envoyer des notifications par courrier électronique aux utilisateurs contenant certains rôles pour l’abonnement est activée et que vous maintenez un rôle respectif pour cet abonnement Azure.
+
+![Capture d’écran de la notification d’alerte](./media/alerts/alert-notification.png)
+
+Pour mieux contrôler votre sécurité et la confidentialité, nous vous recommandons généralement de spécifier explicitement les destinataires de notification pour vos alertes classiques dans le **destinataires de courrier électronique de Notification** champ. L’option pour informer tous les utilisateurs contenant certains rôles est fournie pour la compatibilité descendante.
+
+Pour vous désabonner des notifications par courrier électronique générées par une certaine règle d’alerte, supprimer votre adresse de messagerie à partir de la **destinataires de courrier électronique de Notification** champ.
+
+Si votre adresse de messagerie n’est pas explicitement répertorié, nous vous recommandons de désactiver l’option permettant de notifier tous les membres de certains rôles automatiquement et de liste à la place de tous les messages électroniques d’utilisateurs qui doivent recevoir des notifications pour cette règle d’alerte dans la Notification par courrier électronique champ de destinataires.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Qui reçoit les notifications d'alerte (classiques) ?
 

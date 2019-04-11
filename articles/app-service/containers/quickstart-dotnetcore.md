@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: af22473e0c9b56210b720ee5d122d96566689158
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 43016b3c31a0371f953f758bc7afb53bd1508495
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889713"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278511"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Créer une application ASP.NET Core dans App Service sur Linux
 
@@ -41,7 +41,7 @@ Vous pouvez suivre les étapes de ce article en utilisant un ordinateur Mac, Win
 
 Pour suivre ce guide de démarrage rapide :
 
-* <a href="https://git-scm.com/" target="_blank">Installez Git</a>
+* <a href="https://git-scm.com/" target="_blank">Installer Git</a>
 * <a href="https://www.microsoft.com/net/core/" target="_blank">Installez .NET Core</a>
 
 ## <a name="create-the-app-locally"></a>Créer l’application en local
@@ -49,7 +49,7 @@ Pour suivre ce guide de démarrage rapide :
 Dans une fenêtre de terminal sur votre machine, créez un répertoire nommé `hellodotnetcore` et remplacez le répertoire actuel par ce dernier.
 
 ```bash
-md hellodotnetcore
+mkdir hellodotnetcore
 cd hellodotnetcore
 ```
 
@@ -148,7 +148,7 @@ L’exemple de code .NET Core s’exécute dans App Service sur Linux avec une i
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Félicitations !** Vous avez déployé votre première application .NET Core sur App Service sur Linux.
+**Félicitations !** Vous avez déployé votre première application .NET Core sur App Service sur Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Mettre à jour et redéployer le code
 

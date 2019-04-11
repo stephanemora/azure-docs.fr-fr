@@ -12,37 +12,52 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: f3ec10a970406cbb1bb6a1a52ffa8508e37fc516
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: b8f6a2d12e1a9920421e6491432b516520ae110b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414165"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469979"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profiler des applications Azure App Service en production avec Application Insights
 
-Profiler fonctionne actuellement pour les applications ASP.NET et ASP.NET Core s’exécutant sur Azure App Service. L’utilisation de Profiler nécessite au minimum le niveau de service De base. À l’heure actuelle, l’activation de Profiler sur Linux est uniquement possible via [cette méthode](profiler-aspnetcore-linux.md).
+Vous pouvez exécuter Profiler sur ASP.NET et ASP.NET Core applications qui s’exécutent sur Azure App Service à l’aide de la couche de service de base ou une version ultérieure. À l’heure actuelle, l’activation de Profiler sur Linux est uniquement possible via [cette méthode](profiler-aspnetcore-linux.md).
 
 ## <a id="installation"></a> Activer Profiler pour votre application
-Pour activer Profiler pour une application, suivez les instructions ci-dessous. Si vous exécutez un autre type de service Azure, voici les instructions nécessaires pour activer Profiler sur d’autres plateformes prises en charge :
+Pour activer Profiler pour une application, suivez les instructions ci-dessous. Si vous utilisez un autre type de service Azure, Voici des instructions pour activer Profiler sur d’autres plateformes prises en charge :
 * [Cloud Services](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Applications Service Fabric](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Machines virtuelles](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Applications service Fabric](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Virtual Machines](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Application Insights Profiler est préinstallé dans le cadre de l’exécution d’App Services, mais vous devez l’activer pour obtenir des profils pour votre application App Service. Une fois que vous avez déployé une application, même si vous avez inclus le SDK App Insights dans le code source, suivez les étapes ci-dessous pour activer le profileur.
+Application Insights Profiler est préinstallé dans le cadre de l’exécution des Services d’application. Les étapes ci-dessous vous affiche comment l’activer pour votre App Service. Suivez ces étapes, même si vous avez inclus le SDK d’application Insights dans votre application au moment de la génération.
 
+1. Activer le paramètre « Always On » pour votre app service. Vous pouvez mettre à jour le paramètre dans la page de Configuration de votre application de Service sous Paramètres généraux.
 1. Accédez au volet **App Services** dans le portail Azure.
-2. Accédez au volet **Paramètres > Application Insights**.
+1. Accédez au volet **Paramètres > Application Insights**.
 
    ![Activer App Insights sur le portail App Services](./media/profiler/AppInsights-AppServices.png)
 
-3. Suivez les instructions dans le volet pour créer une ressource ou sélectionnez une ressource App Insights existante pour superviser votre application. Vérifiez également que le profileur est **activé**.
+1. Suivez les instructions dans le volet pour créer une ressource ou sélectionnez une ressource App Insights existante pour superviser votre application. Vérifiez également que le profileur est **activé**. Si votre ressource Application Insights est dans un autre abonnement à partir de votre application de Service, vous ne pouvez pas utiliser cette page pour configurer Application Insights. Vous pouvez toujours le faire manuellement si, en le créant les paramètres d’application nécessaires manuellement. [La section suivante contient des instructions pour activer manuellement Profiler.](#enable-profiler-manually-or-with-azure-resource-manager) 
 
    ![Ajouter l’extension de site Application Insights][Enablement UI]
 
-4. Le profileur est maintenant activé à l’aide d’un paramètre d’application App Services.
+1. Le profileur est maintenant activé à l’aide d’un paramètre d’application App Services.
 
     ![Paramètre d’application pour Profiler][profiler-app-setting]
+
+## <a name="enable-profiler-manually-or-with-azure-resource-manager"></a>Activer Profiler manuellement ou avec Azure Resource Manager
+Application Insights Profiler peut être activé en créant des paramètres d’application pour votre Azure App Service. La page avec les options ci-dessus crée ces paramètres d’application pour vous. Mais vous pouvez automatiser la création de ces paramètres à l’aide d’un modèle ou autres moyens. Ces paramètres fonctionne également si votre ressource Application Insights se trouve dans un autre abonnement à partir de votre Azure App Service.
+Voici les paramètres nécessaires pour activer le profileur :
+
+|Paramètre d'application    | Valeur    |
+|---------------|----------|
+|APPINSIGHTS_INSTRUMENTATIONKEY         | iKey de votre ressource Application Insights    |
+|APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+|DiagnosticServices_EXTENSION_VERSION | ~3 |
+
+
+Vous pouvez définir ces valeurs à l’aide de [modèles Azure Resource Manager](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure Powershell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp), [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+
 
 ## <a name="disable-profiler"></a>Désactiver Profiler
 
@@ -52,8 +67,7 @@ Pour arrêter ou redémarrer Profiler pour une instance d’application individu
 
 Nous vous recommandons d’activer dès que possible Profiler sur toutes vos applications afin de découvrir d’éventuels problèmes de performance.
 
-Si vous utilisez WebDeploy pour déployer des modifications sur votre application web, veillez à ne pas supprimer le dossier App_Data lors du déploiement. Dans le cas contraire, les fichiers de l’extension de Profiler seront supprimés la prochaine fois que vous déploierez l’application web dans Azure.
-
+Les fichiers de Profiler peuvent être supprimés lorsque vous utilisez WebDeploy pour déployer des modifications à votre application web. Vous pouvez empêcher la suppression en excluant le dossier App_Data d’être supprimé au cours du déploiement. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
