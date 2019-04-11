@@ -2,6 +2,7 @@
 title: 'Didacticiel : Rogner une image avec le SDK Recherche visuelle Bing'
 description: Utilisez le SDK Recherche visuelle Bing pour obtenir des informations à partir d’une zone spécifique d’une image.
 services: cognitive-services
+titleSuffix: Azure Cognitive Services
 author: mikedodaro
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: rosh
-ms.openlocfilehash: d1d3243f1d11ee9093a249ce61ceab8128dbf91d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: a6a98d9ddf76e86feb35c6d3d71f7777b0edd51d
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048587"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471764"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Didacticiel : Rogner une image avec le SDK Recherche visuelle Bing pour C#
 

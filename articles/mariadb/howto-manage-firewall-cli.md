@@ -6,16 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: f457246b429062625e6542cfdaf00f3526a85209
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/09/2019
+ms.openlocfilehash: 562987b953f0a8a20a917e208f43557bd768c0a0
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083230"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471152"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide de l'interface de ligne de commande Azure
-Les règles de pare-feu au niveau du serveur permettent aux administrateurs de gérer l’accès à un serveur Azure Database for MariaDB à partir d’une adresse IP spécifique ou d’une plage d’adresses IP. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour une vue d’ensemble des pare-feu Azure Database for MariaDB, consultez la rubrique [Règles de pare-feu Azure Database for MariaDB](./concepts-firewall-rules.md)
+Règles de pare-feu de niveau serveur peuvent être utilisées pour gérer l’accès à une base de données Azure pour MariaDB Server à partir d’une adresse IP spécifique ou une plage d’adresses IP. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour une vue d’ensemble d’Azure Database pour MariaDB les pare-feux, consultez [base de données Azure pour les règles de pare-feu du serveur MariaDB](./concepts-firewall-rules.md).
+
+Les règles de réseau virtuel peuvent également être utilisés pour sécuriser l’accès à votre serveur. En savoir plus sur [création et gestion de réseau virtuel de points de terminaison et des règles à l’aide de l’interface CLI Azure service](howto-manage-vnet-cli.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
 * [Installez l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -31,7 +33,7 @@ Commandes :
 - **show** : Affichez les détails d’une règle de pare-feu du serveur Azure MariaDB.
 - **update** : Mettez à jour une règle de pare-feu du serveur Azure MariaDB.
 
-## <a name="log-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Se connecter à Azure et répertorier vos serveurs Azure Database for MariaDB
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Connectez-vous à Azure et de répertorier votre base de données Azure pour les serveurs de MariaDB
 Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azure en exécutant la commande **az login**.
 
 1. Exécutez la commande suivante à partir de la ligne de commande :
@@ -119,3 +121,4 @@ En cas de réussite, aucun résultat ne s’affiche. En cas d’échec, le texte
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [règles de pare-feu du serveur Azure Database for MariaDB](./concepts-firewall-rules.md).
 - [Créez et gérez des règles de pare-feu Azure Database for MariaDB à l’aide du Portail Azure](./howto-manage-firewall-portal.md).
+- Sécuriser davantage l’accès à votre serveur par [création et gestion de réseau virtuel de points de terminaison et des règles à l’aide de l’interface CLI Azure service](howto-manage-vnet-cli.md).

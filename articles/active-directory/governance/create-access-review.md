@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576194"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471628"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès de groupes ou révisions d’accès des applications dans Azure AD
 
@@ -30,18 +30,18 @@ Cet article décrit comment créer un ou plusieurs révisions d’accès pour le
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- [Révisions d’accès activées](access-reviews-overview.md)
+- [Révisions d’accès](access-reviews-overview.md)
 - Administrateur général ou administrateur d’utilisateurs
 
 ## <a name="create-one-or-more-access-reviews"></a>Créer un ou plusieurs révisions d’accès
 
-1. Connectez-vous au portail Azure et ouvrez le [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Connectez-vous pour le portail Azure et ouvrez le [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Cliquez sur **Contrôles**.
+1. Dans le menu de gauche, cliquez sur **révisions d’accès**.
 
 1. Cliquez sur **Nouvelle révision d’accès** pour créer une révision d’accès.
 
-    ![Révision d’accès - Contrôles](./media/create-access-review/controls.png)
+    ![Révision d’accès - Contrôles](./media/create-access-review/access-reviews.png)
 
 1. Nommez la révision d’accès. Si vous le souhaitez, vous pouvez fournir une description de cette révision. Les réviseurs ont accès au nom et à la description de la révision.
 
@@ -51,15 +51,15 @@ Cet article décrit comment créer un ou plusieurs révisions d’accès pour le
 
     ![Créer une révision d’accès - Dates de début et de fin](./media/create-access-review/start-end-dates.png)
 
-1. Pour rendre une révision d’accès récurrente, changez le paramètre de **Fréquence** de **Une fois** en **Hebdomadaire**, **Mensuel**, **Trimestriel** ou **Annuel**, puis utilisez le curseur ou la zone de texte **Durée** pour définir le nombre de jours pendant lesquels chaque révision de la série récurrente doit être ouverte pour permettre aux réviseurs d’y entrer des informations. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, ce qui permet d’éviter le chevauchement des révisions.
+1. Pour que la révision d’accès périodique, modifiez le **fréquence** définir à partir de **une fois** à **hebdomadaire**, **mensuel**,  **Tous les trimestres** ou **une fois par an**. Utilisez le **durée** curseur ou zone de texte pour définir le nombre de jours chaque révision de la série périodique sera ouvre pour l’entrée des réviseurs. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, ce qui permet d’éviter le chevauchement des révisions.
 
 1. Utilisez le paramètre **Fin** pour spécifier comment mettre fin à la série de révisions d’accès récurrentes. Les séries accès récurrentes peuvent se terminer de trois façons : elles peuvent s’exécuter de façon continue pour démarrer des révisions indéfiniment, s’exécuter jusqu’à une date spécifique ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. Vous, un autre administrateur de l’utilisateur ou un autre administrateur général arrêter la série après la création en modifiant la date dans **paramètres**, afin qu’elle se termine à cette date.
 
-1. Dans la section **Utilisateurs**, spécifiez les utilisateurs auxquels s’applique cette révision d’accès. Les révisions d’accès peuvent porter sur les membres d’un groupe ou sur les utilisateurs qui ont été assignés à une application. Vous pouvez affiner davantage la révision d’accès pour passer en revue seulement les utilisateurs invités qui sont des membres (ou affectés à l’application) au lieu d’examiner tous les utilisateurs qui sont des membres ou qui ont accès à l’application.
+1. Dans le **utilisateurs** section, spécifiez les utilisateurs qui la révision d’accès s’applique à. Les révisions d’accès peuvent porter sur les membres d’un groupe ou sur les utilisateurs qui ont été assignés à une application. Vous pouvez affiner davantage la révision d’accès pour passer en revue seulement les utilisateurs invités qui sont des membres (ou affectés à l’application) au lieu d’examiner tous les utilisateurs qui sont des membres ou qui ont accès à l’application.
 
     ![Créer une révision d’accès - Utilisateurs](./media/create-access-review/users.png)
 
-1. Dans le **groupes** , sélectionnez un ou plusieurs groupes que vous souhaitez revoir l’appartenance de.
+1. Dans le **groupe** , sélectionnez un ou plusieurs groupes que vous souhaitez revoir l’appartenance de.
 
     > [!NOTE]
     > Sélection de plusieurs groupes créera plusieurs révisions d’accès. Par exemple, en sélectionnant les cinq groupes créera cinq révisions d’accès distincts.
@@ -112,7 +112,9 @@ Cet article décrit comment créer un ou plusieurs révisions d’accès pour le
 
 ## <a name="start-the-access-review"></a>Démarrer la révision d’accès
 
-Une fois que vous avez spécifié les paramètres pour une révision d’accès, cliquez sur **Démarrer**.
+Une fois que vous avez spécifié les paramètres pour une révision d’accès, cliquez sur **Démarrer**. La révision d’accès s’affiche dans votre liste avec un indicateur de son état.
+
+![Liste des révisions d’accès](./media/create-access-review/access-reviews-list.png)
 
 Par défaut, Azure AD envoie un e-mail aux réviseurs peu de temps après le démarrage de la révision. Si vous ne souhaitez pas qu’Azure AD envoie cet e-mail, veillez à informer les réviseurs qu’une révision d’accès leur a été assignée. Vous pouvez leur montrer les instructions pour savoir comment [réviser l’accès à des groupes ou des applications](perform-access-review.md). Si la révision s’adresse aux invités de revoir leur propre accès, donnez-leur des instructions pour savoir comment [vous-même réviser l’accès à des groupes ou des applications](review-your-access.md).
 
@@ -120,13 +122,15 @@ Si certains réviseurs sont invités, ces derniers sont uniquement notifiés par
 
 ## <a name="manage-the-access-review"></a>Gestion de la révision d’accès
 
-Vous pouvez suivre la progression à mesure que les réviseurs effectuent des révisions dans le tableau de bord Azure AD dans le **révisions d’accès** section. Aucun droit d’accès n’est modifié dans le répertoire avant que [la révision ne soit terminée](complete-access-review.md).
+Vous pouvez suivre la progression à mesure que les réviseurs effectuent des révisions sur le **vue d’ensemble** page de la révision d’accès. Aucun droit d’accès n’est modifié dans le répertoire avant que [la révision ne soit terminée](complete-access-review.md).
+
+![Progression des révisions d’accès](./media/create-access-review/overview-progress.png)
 
 S’il s’agit d’une révision à usage unique, puis une fois la période de révision d’accès ou l’administrateur interrompt la révision d’accès, suivez les étapes de [effectuer une révision d’accès des groupes ou des applications](complete-access-review.md) pour voir et appliquer les résultats.  
 
-Pour gérer une série de révisions d’accès, accédez à la révision d’accès dans **Contrôles**. Vous y voyez les occurrences à venir dans les révisions planifiées, pour lesquelles vous pouvez modifier la date de fin, ou ajouter/supprimer des réviseurs en conséquence. 
+Pour gérer une série d’accès révisions, accédez à la révision d’accès, et vous trouver des occurrences à venir dans les révisions planifiée et modifier la date de fin ou ajouter/supprimer des réviseurs en conséquence.
 
-En fonction de vos sélections dans les paramètres de saisie semi-automatique, l’application automatique est exécutée après la date de fin de la révision ou lorsque vous arrêtez manuellement la révision. La révision passe alors de l’état Terminé à divers états intermédiaires, comme Application en cours, pour arriver enfin à l’état Appliqué. Les utilisateurs dont l’accès est refusé doivent normalement perdre leur appartenance au groupe ou leur affectation d’applications au bout de quelques minutes.
+Selon vos sélections dans **paramètres de saisie semi-automatique**, appliquer automatiquement les va être exécutée après la date de fin de la révision ou lorsque vous arrêtez manuellement la révision. L’état de la révision ne pourra **terminé** par le biais des états intermédiaires comme **application** et enfin à l’état **appliqué**. Les utilisateurs dont l’accès est refusé doivent normalement perdre leur appartenance au groupe ou leur affectation d’applications au bout de quelques minutes.
 
 ## <a name="create-reviews-via-apis"></a>Créer des révisions via des API
 

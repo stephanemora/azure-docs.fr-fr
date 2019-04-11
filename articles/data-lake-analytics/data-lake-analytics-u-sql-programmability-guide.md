@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835450"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471084"
 ---
 # <a name="u-sql-programmability-guide"></a>Guide de programmabilité U-SQL
 
@@ -85,7 +85,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Utiliser des expressions C# pour la date du jour
 
-Pour extraire la date du jour, nous pouvons utiliser l’expression C# suivante : `DateTime.Now.ToString("M/d/yyyy")`
+Pour extraire la date d’aujourd'hui, nous pouvons utiliser ce qui suit C# expression : `DateTime.Now.ToString("M/d/yyyy")`
 
 Voici un exemple montrant comment utiliser cette expression dans un script :
 
@@ -533,9 +533,9 @@ L’interface `IFormatter` sérialise et désérialise un graphique d’objets a
 
 * **Sérialiser** : sérialise un objet, ou graphe d’objet, avec la racine donnée dans le flux fourni.
 
-Instance `MyType` : instance du type.  
-Enregistreur `IColumnWriter` / Lecteur `IColumnReader` : flux de colonne sous-jacent.  
-Contexte `ISerializationContext` : énumération définissant un jeu d’indicateurs qui spécifie le contexte source ou cible pour le flux pendant la sérialisation.
+`MyType` Instance : instance du type.  
+`IColumnWriter` enregistreur / `IColumnReader` lecteur : flux de colonne sous-jacent.  
+`ISerializationContext` contexte : énumération définissant un jeu d’indicateurs qui spécifie le contexte source ou cible pour le flux pendant la sérialisation.
 
 * **Intermediate** : spécifie que le contexte source ou cible n’est pas un magasin persistant.
 
@@ -1267,7 +1267,7 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output` est appelé pour chaque ligne d’entrée. Il retourne l’ensemble de lignes `IUnstructuredWriter output`.
+* `Output` est appelée pour chaque ligne d’entrée. Il retourne l’ensemble de lignes `IUnstructuredWriter output`.
 * La classe de constructeur est utilisée pour transmettre des paramètres au générateur de sortie défini par l’utilisateur.
 * `Close` est utilisé pour un remplacement éventuel pour libérer d’un état coûteux ou déterminer quand la dernière ligne a été écrite.
 
@@ -1601,7 +1601,7 @@ CROSS APPLYis used to pass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-Pour plus d’informations sur l’utilisation d’applicateurs dans une expression SELECT, voir [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx) (Sélection d’U-SQL SELECT à partir de CROSS APPLY et de OUTER APPLY).
+Pour plus d’informations sur l’utilisation d’applicateurs dans une expression SELECT, voir [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply) (Sélection d’U-SQL SELECT à partir de CROSS APPLY et de OUTER APPLY).
 
 La définition de classe de base d’applicateur défini par l’utilisateur est la suivante :
 
@@ -1815,7 +1815,7 @@ Combine_Expression :=
     USING_Clause.
 ```
 
-Pour plus d’informations, voir [Expression COMBINE (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
+Pour plus d’informations, voir [Expression COMBINE (U-SQL)](/u-sql/statements-and-expressions/combine-expression).
 
 Pour définir un combinateur défini par l’utilisateur, nous devons créer une interface `ICombiner` avec l’attribut [`SqlUserDefinedCombiner`], qui est facultatif pour une définition de combinateur défini par l’utilisateur.
 
@@ -1877,7 +1877,7 @@ Les ensembles de lignes d’entrée sont transmis en tant que type d’interface
 
 Pour la mise en cache, nous pouvons créer un type List\<T\> de structure de mémoire résultant de l’exécution d’une requête LINQ, plus particulièrement List<`IRow`>. Le type de données anonymes peut également être utilisé pendant l’énumération.
 
-Pour plus d’informations sur les requêtes LINQ, voir [Introduction aux requêtes LINQ (C#)](https://msdn.microsoft.com/library/bb397906.aspx) et, pour plus d’informations sur l’interface IEnumerable\<T\>, voir [Interface IEnumerable\<T\>](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx).
+Pour plus d’informations sur les requêtes LINQ, voir [Introduction aux requêtes LINQ (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) et, pour plus d’informations sur l’interface IEnumerable\<T\>, voir [Interface IEnumerable\<T\>](/dotnet/api/system.collections.generic.ienumerable-1).
 
 Pour obtenir les valeurs de données réelles du `IRowset` entrant, nous utilisons la méthode Get() de l’interface `IRow`.
 

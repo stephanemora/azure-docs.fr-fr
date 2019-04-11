@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 101c985178b8269b4ff542b94b057330d0c2652a
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510321"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471662"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Fonctionnalités Application Insights prises en charge pour Azure Functions
 
@@ -27,12 +27,12 @@ Azure Functions offre une [intégration prédéfinie](https://docs.microsoft.com
 
 | Azure Functions                       | V1                | V2 (Ignite 2018)  | 
 |-----------------------------------    |---------------    |------------------ |
-| **Kit SDK .NET d’Application Insights**   | **2.5.0**       | **2.7.2**         |
+| **Application Insights SDK .NET**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Collecte automatique de**        |                 |                   |               
 | &bull; Requêtes                     | Oui             | Oui               | 
 | &bull; Exceptions                   | Oui             | Oui               | 
-| &bull; Compteurs de performances         | Oui             |                   |
+| &bull; Compteurs de performances         | Oui             | Oui               |
 | &bull; Dépendances                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Oui               | 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Oui               | 
@@ -65,3 +65,30 @@ Les critères de filtres personnalisés que vous spécifiez sont renvoyés au co
 ## <a name="sampling"></a>échantillonnage
 
 Azure Functions permet l’échantillonnage par défaut dans sa configuration. Pour plus d’informations, consultez [Configurer l’échantillonnage](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
+
+Si votre projet ait une dépendance sur le SDK Application Insights pour effectuer la télémétrie manuelle de suivi, vous pouvez rencontrer un comportement étrange si votre configuration d’échantillonnage est différente de la configuration d’échantillonnage des fonctions. 
+
+Nous vous recommandons d’utiliser la même configuration en tant que fonctions. Avec **fonctions v2**, vous pouvez obtenir la même configuration à l’aide de l’injection de dépendances dans votre constructeur :
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+
+public class Function1 
+{
+
+    private readonly TelemetryClient telemetryClient;
+
+    public Function1(TelemetryConfiguration configuration)
+    {
+        this.telemetryClient = new TelemetryClient(configuration);
+    }
+
+    [FunctionName("Function1")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger logger)
+    {
+        this.telemetryClient.TrackTrace("C# HTTP trigger function processed a request.");
+    }
+}
+```

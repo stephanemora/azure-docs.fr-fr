@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: dcd6d907fec3d7f2cc0c8d5c06fdec28125154c1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 84c578fdbcfb555bde23d6a9e6f8258259cff8de
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009544"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471275"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -478,6 +478,15 @@ Les options de déploiement de conteneur personnalisées suivantes sont disponib
 | **`--min`**  | Le cas échéant, définit le nombre minimal d’instances d’application de fonction à déployer. |
 | **`--config`** | Définit un fichier de configuration de déploiement optionnel. |
 
+## <a name="monitoring-functions"></a>Surveillance des fonctions
+
+La méthode recommandée pour surveiller l’exécution de vos fonctions consiste en s’intégrant avec Azure Application Insights. Lorsque vous créez une application de fonction dans le portail Azure, cette intégration est faite pour vous par défaut. Toutefois, lorsque vous créez votre application de fonction à l’aide de l’interface CLI, l’intégration dans votre function app dans Azure n’est pas effectuée.
+
+Pour activer Application Insights pour votre application de fonction :
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 ## <a name="next-steps"></a>Étapes suivantes
 
 Azure Functions Core Tools est [disponible en open source et hébergé sur GitHub](https://github.com/azure/azure-functions-cli).  

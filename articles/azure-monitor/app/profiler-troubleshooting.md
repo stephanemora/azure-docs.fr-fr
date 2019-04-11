@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855671"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471526"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -67,9 +67,15 @@ Soumettez un ticket de support dans le portail. Veillez à indiquer l’ID de co
 Pour que Profiler fonctionne correctement :
 * Votre plan de service d’application web doit être au niveau De base ou supérieur.
 * Votre application web doit avoir Application Insights activé.
-* Le paramètre **APPINSIGHTS_INSTRUMENTATIONKEY** de votre application web doit utiliser la même clé d’instrumentation que le SDK Application Insights.
-* Le paramètre d’application **APPINSIGHTS_PROFILERFEATURE_VERSION** de votre application web doit être défini et avoir la valeur 1.0.0.
-* Votre application web doit avoir le paramètre d’application **DiagnosticServices_EXTENSION_VERSION** défini sur la valeur ~3.
+* Votre application web doit avoir les paramètres d’application suivants :
+
+    |Paramètre d'application    | Valeur    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey vous ressource Application Insights    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+
+
 * La tâche web **ApplicationInsightsProfiler3** doit être en cours d’exécution. Pour vérifier le tâche web :
    1. Accédez à [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
    1. Dans le menu **Outils**, sélectionnez **Tableau de bord WebJobs**.  
@@ -93,12 +99,13 @@ Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramè
 1. Définissez **version du .NET Framework** à **v4.6**.
 
 1. **Activez** l’option **Toujours actif**.
+1. Créez ces paramètres d’application :
 
-1. Ajoutez le paramètre d’application **APPINSIGHTS_INSTRUMENTATIONKEY** et définissez la valeur sur la même clé d’instrumentation que celle utilisée par le kit de développement logiciel (SDK).
-
-1. Ajoutez le paramètre d’application **APPINSIGHTS_PROFILERFEATURE_VERSION** et affectez-lui la valeur 1.0.0.
-
-1. Ajoutez le paramètre d’application **DiagnosticServices_EXTENSION_VERSION** et définissez la valeur sur ~3.
+    |Paramètre d'application    | Valeur    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey vous ressource Application Insights    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>Trop de sessions de profilage actives
 
@@ -108,7 +115,7 @@ Actuellement, vous pouvez activer Profiler sur un maximum de quatre applications
 
 Si vous redéployez votre application web sur une ressource Web Apps avec Profiler activé, vous pouvez voir le message suivant :
 
-*Répertoire non vide 'D:\\home\\site\\wwwroot\\App_Data\\jobs’*
+*Répertoire non vide 'D:\\home\\site\\wwwroot\\App_Data\\jobs'*
 
 Cette erreur se produit si vous exécutez Web Deploy à partir de scripts ou du pipeline de déploiement Azure DevOps. La solution consiste à ajouter les paramètres de déploiement supplémentaires suivants à la tâche Web Deploy :
 
@@ -124,7 +131,7 @@ Profiler s’exécute comme une tâche web continue dans l’application web. Vo
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Résoudre les problèmes de Profiler et d’Azure Diagnostics
 
-  >**Il existe un bogue dans le profileur fourni avec la dernière version des diagnostics Windows AZURE pour les Services Cloud.** Pour pouvoir utiliser le profileur à un service cloud, il prend uniquement en charge SDK AI jusqu'à la version 2.7.2. Si vous utilisez une version plus récente du kit SDK AI, vous devrez revenir en arrière pour 2.7.2 pour pouvoir utiliser le profileur. Si vous utilisez Visual Studio pour mettre à niveau la version du SDK d’application Insights, vous pouvez obtenir une erreur de redirection de liaison lors de l’exécution. Il s’agit, car « newVersion » dans le fichier web.config pour Microsoft.ApplicationInsights doit être définie sur « 2.7.2.0 » après que rétrogradation le SDK AI, mais il ne mis à jour automatiquement.
+>**Le bogue dans le profileur fourni avec le Diagnostics Windows AZURE pour les Services Cloud a été résolu.** La dernière version de WAD (1.12.2.0) pour les Services Cloud fonctionne avec toutes les versions récentes du SDK d’application Insights. Hôtes de Service cloud met à niveau WAD automatiquement, mais il n’est pas immédiate. Pour forcer une mise à niveau, vous pouvez redéployer votre service ou redémarrer le nœud.
 
 Pour voir si Profiler est correctement configuré par Azure Diagnostics, effectuez les trois actions suivantes : 
 1. Premièrement, vérifiez si le contenu de la configuration Azure Diagnostics qui est déployé est celui que vous attendez. 

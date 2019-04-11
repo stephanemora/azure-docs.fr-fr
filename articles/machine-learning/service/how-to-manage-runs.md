@@ -1,7 +1,7 @@
 ---
 title: Démarrer, surveiller et annuler les exécutions de formation dans Python
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment démarrer, l’état, balise et organiser vos expériences d’apprentissage.
+description: Découvrez comment démarrer, définir l’état de la balise et organiser votre expérience d’apprentissage.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 4/5/2019
-ms.openlocfilehash: 726273024a2da0cea5207c86140f3c31263a208f
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.openlocfilehash: 82df2258116ce55fa440b67ec0a66b106d0d72c7
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426709"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471492"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Démarrer, surveiller et annuler les exécutions de formation dans Python
 
@@ -47,7 +47,7 @@ Vous aurez besoin des éléments suivants :
 
 <a name="monitor"></a>
 
-## <a name="start-and-status-a-run"></a>Début et l’état d’une exécution
+## <a name="start-a-run-and-set-its-status"></a>Démarrer une exécution et définir son état
 
 Configurer votre expérience en important le [espace de travail](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [faire des essais](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [exécuter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py), et [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) classes à partir de la [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) package.
 
@@ -101,7 +101,7 @@ print("Has it completed?",notebook_run.get_status())
 
 ## <a name="cancel-or-fail-runs"></a>Annuler ou d’échec des exécutions
 
- Si vous constatez une erreur ou de votre série de tests semble être prend de temps pour terminer, utilisez la [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) méthode pour arrêter l’exécution avant la fin et la marquer comme étant annulée.
+ Si vous constatez une erreur ou de votre série de tests semble prendre un certain temps pour terminer, utilisez la [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) méthode pour arrêter l’exécution avant la fin et la marquer comme étant annulée.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')

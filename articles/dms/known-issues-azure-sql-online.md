@@ -10,17 +10,20 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/05/2019
-ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091492"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471237"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL DB
 
 Le présent article décrit les problèmes connus et limitations associés aux migrations en ligne de SQL Server vers Azure SQL Database.
+
+> [!IMPORTANT]
+> Avec les migrations en ligne de SQL Server pour la base de données SQL Azure, migration de types de données SQL_variant n’est pas pris en charge.
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>Migration des tables temporelles non prise en charge
 
@@ -62,17 +65,20 @@ Vous pouvez voir une exception SQL suggérer que ntext est incompatible avec le 
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
-   1. Excluez ces tables à partir du panneau **Configure migration settings** (Configurer les paramètres de migration), dans lequel vous spécifiez les tables pour la migration.
+2. Excluez ces tables à partir du panneau **Configure migration settings** (Configurer les paramètres de migration), dans lequel vous spécifiez les tables pour la migration.
 
-   1. Réexécutez l’activité de migration.
+3. Réexécutez l’activité de migration.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Échecs de migration avec différentes violations d’intégrité avec des déclencheurs actifs dans le schéma pendant le « chargement complet des données » ou la « synchronisation des données incrémentielles »
 
 **Solution de contournement**
+
 1. Recherchez les déclencheurs actuellement actifs dans la base de données source à l’aide de la requête ci-dessous :
+
      ```
      select * from sys.triggers where is_disabled =0
      ```
+
 2. Désactivez les déclencheurs sur votre base de données source à l’aide de la procédure fournie dans l’article [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 3. Réexécutez l’activité de migration.
@@ -101,11 +107,11 @@ DMS ne fait pas migrer la valeur timestamp source. En fait, DMS génère une nou
 
 Si vous avez besoin de DMS pour migrer la valeur d’horodatage exact stockée dans la table source, contactez l’équipe d’ingénierie à [poser de Migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Les erreurs de migration de données ne fournissent pas de détails supplémentaires sur le panneau d’état détaillé des bases de données.
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Erreurs de migration de données ne fournissent des détails supplémentaires sur le panneau d’état détaillé de base de données.
 
 **Symptôme**
 
-Lorsque des échecs de migration apparaissent dans l’affichage d’état détaillé des bases de données et que vous sélectionnez le lien **Erreurs de migration des données** dans le ruban supérieur, vous n’obtenez pas de détails supplémentaires spécifiques aux échecs de migration.
+Lorsque vous rencontrez des échecs de migration dans l’affichage d’état détails bases de données, sélectionnez le **les erreurs de migration de données** lien sur le ruban supérieur ne peut pas fournir des détails supplémentaires spécifiques pour les échecs de migration.
 
 ![exemple d’absence de détails concernant des erreurs de migration des données](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 

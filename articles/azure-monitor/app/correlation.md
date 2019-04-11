@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: d3aad8f1b032960786564bbb18f99c260fd72113
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092716"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471713"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -143,11 +143,11 @@ La [spécification du modèle de données OpenTracing](https://opentracing.io/) 
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`, `PageView`                 | `Span` avec `span.kind = server`                  |
-| `Dependency`                          | `Span` avec `span.kind = client`                  |
+| `Request`. `PageView`                 | `Span` par `span.kind = server`                  |
+| `Dependency`                          | `Span` par `span.kind = client`                  |
 | `Id` de `Request` et `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `Reference` de type `ChildOf` (étendue parent)   |
+| `Operation_ParentId`                  | `Reference` de type `ChildOf` (l’étendue parent)   |
 
 Pour plus d’informations, consultez le [Modèle de données de télémétrie d’Application Insights](../../azure-monitor/app/data-model.md). 
 
@@ -157,18 +157,18 @@ Pour obtenir des définitions des concepts OpenTracing, consultez les pages [spe
 
 Au fil du temps, .NET a défini plusieurs façons de mettre en corrélation les journaux de diagnostics et de télémétrie :
 
-- `System.Diagnostics.CorrelationManager` permet d’effectuer le suivi de [LogicalOperationStack et ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). 
-- `System.Diagnostics.Tracing.EventSource` et le suivi d’événements pour Windows (ETW) définissent la méthode [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx).
-- `ILogger` utilise les [étendues de journaux](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). 
+- `System.Diagnostics.CorrelationManager` permet le suivi de [LogicalOperationStack et ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). 
+- `System.Diagnostics.Tracing.EventSource` et le suivi d’événements pour Windows (ETW) définissent la [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) (méthode).
+- `ILogger` utilise [étendues de journal](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). 
 - WCF (Windows Communication Foundation) et HTTP relient la propagation de contexte « actuelle ».
 
-Toutefois, ces méthodes n’activent pas la prise en charge du traçage distribué automatique. `DiagnosticSource` est une méthode permettant de prendre en charge la corrélation automatique entre ordinateurs. Les bibliothèques .NET prennent en charge « Diagnostics Source » et autorisent la propagation automatique entre ordinateurs du contexte de corrélation par le biais du transport, tel que le protocole HTTP.
+Toutefois, ces méthodes n’activent pas la prise en charge du traçage distribué automatique. `DiagnosticSource` est un moyen pour prendre en charge une corrélation automatique entre ordinateurs. Les bibliothèques .NET prennent en charge « Diagnostics Source » et autorisent la propagation automatique entre ordinateurs du contexte de corrélation par le biais du transport, tel que le protocole HTTP.
 
 Le [guide des activités](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) dans `DiagnosticSource` explique les principes de base du suivi des activités.
 
 ASP.NET Core 2.0 prend en charge l’extraction des en-têtes HTTP et le démarrage d’une nouvelle activité.
 
-`System.Net.HttpClient`, à partir de la version 4.1.0, prend en charge l’injection automatique des en-têtes HTTP de corrélation et le suivi de l’appel HTTP en tant qu’activité.
+`System.Net.HttpClient`, en commençant par la version 4.1.0, prend en charge l’injection automatique des en-têtes de corrélation HTTP suivi HTTP appeler en tant qu’activité.
 
 Il existe un nouveau module HTTP, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), pour ASP.NET Classic. Ce module implémente la corrélation de télémétrie à l’aide de `DiagnosticSource`. Il démarre une activité en fonction des en-têtes de requête entrante. Il met également en corrélation les données de télémétrie des différentes phases de traitement de requêtes, même pour les cas où chaque phase du traitement IIS (Internet Information Services) s’exécute sur un thread managé différent.
 
@@ -183,6 +183,11 @@ Le [SDK Application Insights pour Java](../../azure-monitor/app/java-get-started
 > Seuls les appels effectués par le biais d’Apache HTTPClient sont pris en charge pour la fonctionnalité de corrélation. Si vous utilisez Spring RestTemplate ou Feign, tous deux peuvent être utilisés avec Apache HTTPClient en arrière-plan.
 
 La propagation automatique de contexte entre les technologies de messagerie (telles que Kafka, RabbitMQ ou Azure Service Bus) n’est pas prise en charge. Toutefois, il est possible de coder de tels scénarios manuellement à l’aide des API `trackDependency` et `trackRequest`. Dans ces API, une télémétrie des dépendances représente un message étant ajouté à la file d’attente par un producteur, et la requête représente un message en cours de traitement par un consommateur. Dans ce cas, `operation_id` et `operation_parentId` doivent être propagés dans les propriétés du message.
+
+### <a name="telemetry-correlation-in-asynchronous-java-application"></a>Corrélation de télémétrie dans Application Java asynchrone
+
+Pour mettre en corrélation les données de télémétrie dans application asynchrone Spring Boot, veuillez suivre [cela](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) article approfondi. Il fournit des conseils pour l’instrumentation du ressort [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) ainsi que [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+
 
 <a name="java-role-name"></a>
 ## <a name="role-name"></a>Nom de rôle

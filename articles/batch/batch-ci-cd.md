@@ -5,13 +5,14 @@ author: christianreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
+ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 1e3b2d42ae390b9eb755e568b82fc1a90e0eae6a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58806888"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471322"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utiliser des Pipelines d’Azure pour créer et déployer des solutions HPC
 
@@ -396,7 +397,7 @@ Il existe un nombre d’étapes impliquées dans le déploiement de l’infrastr
     * **batchApplicationVersion**: Version sémantique de votre application de lot (autrement dit, les fichiers binaires ffmpeg)
     * **location** : Emplacement pour les ressources Azure à déployer
     * **resourceGroupName**: Nom du groupe de ressources doit être créé, et où vos ressources seront déployés
-    * **StorageAccountName**: Nom du compte de stockage pour contenir les modèles Resource Manager liés
+    * **storageAccountName** : Nom du compte de stockage pour contenir les modèles Resource Manager liés
 
     ![Exemple de variables définies pour la version de Pipelines d’Azure](media/batch-ci-cd/Release-4.jpg)
 

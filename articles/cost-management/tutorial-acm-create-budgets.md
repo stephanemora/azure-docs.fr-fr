@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273581"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469486"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -63,9 +63,9 @@ Cliquez sur **Add**.
 
 ![Budgets Cost Management affichés dans le Portail Azure](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Dans la fenêtre **Créer un budget**, entrez un nom de budget et un montant de budget. Ensuite, choisissez soit un mensuelle, trimestrielle ou annuelle durée<sup>1</sup>. Ensuite, sélectionnez une date de fin. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Lorsqu’un seuil de budget est atteint, des notifications par e-mail sont normalement reçues en moins de huit heures. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](cost-mgt-alerts-monitor-usage-spending.md).
+Dans la fenêtre **Créer un budget**, entrez un nom de budget et un montant de budget. Choisissez ensuite une période mensuelle, trimestrielle ou annuelle. Ensuite, sélectionnez une date de fin. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Lorsqu’un seuil de budget est atteint, des notifications par e-mail sont normalement reçues en moins de huit heures. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](cost-mgt-alerts-monitor-usage-spending.md).
 
-<sup>1</sup> si vous êtes un paiement à l’utilisation, MSDN, Visual Studio client ou votre période de facturation de facture pour un abonnement peut ne pas aligne au milieu du mois. Pour les abonnements et les groupes de ressources qui appartiennent à ce compartiment, vous pouvez créer un budget qui est aligné sur votre facture ou pour les mois calendaires. Pour créer un budget aligné sur votre facture, sélectionnez une période de réinitialisation du mois de facturation, facturation trimestre ou année de facturation lors de la création. Pour créer un budget aligné sur le mois calendaire, sélectionnez une période de réinitialisation de mensuelle, trimestrielle ou annuelle lors de la création.
+Si vous avez un abonnement de paiement à l’utilisation, MSDN ou Visual Studio, votre période de facturation de facture ne peut pas s’aligner au mois calendaire. Pour ces types d’abonnements et groupes de ressources, vous pouvez créer un budget qui est aligné pour votre période de facturation ou pour les mois calendaires. Pour créer un budget aligné sur votre période de facturation, sélectionnez une période de réinitialisation du mois de facturation, facturation trimestre ou année de facturation. Pour créer un budget aligné pour le mois calendaire, sélectionnez une période de réinitialisation de mensuelle, trimestrielle ou annuelle.
 
 Voici un exemple de création de budget mensuel de 4 500 $. Une alerte par e-mail est générée quand 90 % du budget est atteint.
 
