@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58c16b8a102ea27499fc464c209d4ca1c0d4db33
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767207"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264707"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gérer l’accès aux ressources à l’aide du contrôle d’accès en fonction du rôle dans Azure Stack
 
@@ -40,28 +40,6 @@ Azure Stack fournit trois rôles de base applicables à tous les types de ressou
 * Le **propriétaire** peut tout gérer, y compris l’accès aux ressources.
 * Le **collaborateur** peut tout gérer, sauf l’accès aux ressources.
 * Le **lecteur** peut tout afficher, mais ne peut faire aucun changement.
-
-### <a name="resource-hierarchy-and-inheritance"></a>Hiérarchie des ressources et héritage
-
-Dans Azure Stack, la hiérarchie des ressources est la suivante :
-
-* Chaque abonnement est membre d’un seul répertoire.
-* Chaque groupe de ressources est membre d’un seul abonnement.
-* Chaque ressource est membre d’un seul groupe de ressources.
-
-L’accès que vous accordez dans une étendue parente est hérité dans les étendues enfants. Par exemple : 
-
-* Vous attribuez le rôle de lecteur à un groupe Azure AD dans l’étendue de l’abonnement. Les membres de ce groupe peuvent consulter tous les groupes de ressources et les ressources de l’abonnement.
-* Vous attribuez le rôle de contributeur à une application dans l’étendue du groupe de ressources. L’application peut gérer tous les types de ressources dans ce groupe de ressources, mais pas dans les autres groupes de ressources de l’abonnement.
-
-### <a name="assigning-roles"></a>Attribution de rôles
-
-Vous pouvez attribuer plusieurs rôles à un utilisateur et associer chaque rôle à une étendue différente. Par exemple : 
-
-* Vous attribuez le rôle de lecteur à UtilisateurTest-A sur Abonnement-1.
-* Vous attribuez le rôle de propriétaire à UtilisateurTest-A sur MVTest-1.
-
-L’article sur les [attributions de rôles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Azure fournit des informations détaillées sur l’affichage, l’attribution et la suppression des rôles.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Hiérarchie des ressources et héritage
 
@@ -104,4 +82,4 @@ Les étapes suivantes permettent de configurer des autorisations pour un utilisa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer les principaux du service](azure-stack-create-service-principals.md)
+[Créer des principaux de service](azure-stack-create-service-principals.md)

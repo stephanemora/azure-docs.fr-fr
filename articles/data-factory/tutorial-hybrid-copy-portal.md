@@ -3,7 +3,7 @@ title: Copier des données depuis SQL Server vers le stockage Blob à l’aide d
 description: Découvrez comment copier les données d’un magasin de données local dans le cloud en utilisant un runtime d’intégration auto-hébergé dans Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: jingwang
-ms.openlocfilehash: f2dc2418354cb1083c02516fbcdea710a74152ad
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.author: abnarain
+ms.openlocfilehash: 7e09c36128c3471ce9df33b2a78eb14fab89435b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445422"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256989"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure
 Dans ce didacticiel, vous allez utiliser l’interface utilisateur d’Azure Data Factory pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale vers un stockage Blob Azure. Vous allez créer et utiliser un runtime d’intégration auto-hébergé, qui déplace les données entre les banques de données locales et cloud.
@@ -337,4 +337,4 @@ Pour obtenir la liste des magasins de données pris en charge par Data Factory, 
 Pour découvrir comment copier des données en bloc d’une source vers une destination, passez au didacticiel suivant :
 
 > [!div class="nextstepaction"]
->[Copier des données en bloc](tutorial-bulk-copy-portal.md)
+>[Copier les données en vrac](tutorial-bulk-copy-portal.md)

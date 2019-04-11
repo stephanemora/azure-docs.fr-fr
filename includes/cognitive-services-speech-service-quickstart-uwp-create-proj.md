@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: 2e495f9aed18ebc4007e63b8ef03641a72d21079
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 8612c1cc2867d27a86b4b90b1ba63c097ad43cf7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56963381"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59041613"
 ---
 1. Démarrez Visual Studio 2017.
 
@@ -49,7 +49,7 @@ ms.locfileid: "56963381"
 1. La ligne de sortie suivante s’affiche dans la console du gestionnaire de package.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.3.1' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.4.0' to helloworld
    ```
 
 1. Étant donné que l’application utilise le microphone pour la saisie vocale, ajoutez la fonctionnalité **Microphone** au projet. Dans l’Explorateur de solutions, double-cliquez sur **Package.appxmanifest** pour modifier le manifeste de votre application. Basculez ensuite vers l’onglet **Fonctionnalités**, puis activez la case à cocher de la fonctionnalité **Microphone** et enregistrez vos modifications.

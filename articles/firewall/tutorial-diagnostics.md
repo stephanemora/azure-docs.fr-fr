@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 10837730bea17f98083f456ec4c9fb0d7567af57
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877259"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044859"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Didacticiel : Superviser les journaux et les métriques du Pare-feu Azure
 
@@ -30,6 +30,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Afficher et analyser le journal d’activité
 > * Afficher et analyser les journaux de règles et d’application et de réseau
 > * Afficher les mesures
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -79,7 +82,7 @@ Pour activer la journalisation des diagnostics, procédez comme suit :
 3. Activez la journalisation des diagnostics à l’aide de l’applet de commande PowerShell suivante :
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```

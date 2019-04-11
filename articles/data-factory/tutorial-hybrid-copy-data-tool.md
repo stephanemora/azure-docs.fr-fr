@@ -3,24 +3,24 @@ title: Copier des données locales à l’aide de l’outil Copier les données 
 description: Créez une fabrique de données Azure, puis utilisez l’outil Copier les données pour copier des données depuis une base de données SQL Server locale vers un stockage d’objets Blob Azure.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 01/04/2018
-ms.author: jingwang
-ms.openlocfilehash: 3569d39b8e4668894e44507dfdd0e20297028290
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 04/09/2018
+ms.author: abnarain
+ms.openlocfilehash: 26bc6861602cae349c8ebaafefe070c119a93e87
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226502"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261513"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure à l’aide de l’outil Copier les données
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version actuelle](tutorial-hybrid-copy-data-tool.md)
 
 Dans ce didacticiel, vous utilisez le portail Azure pour créer une fabrique de données. Vous utilisez ensuite l’outil Copier les données pour créer un pipeline qui copie des données depuis une base de données SQL Server locale vers un stockage Blob Azure.
@@ -205,21 +205,19 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
 1. Sélectionnez **Suivant**.
 
-       ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
+   ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
 
 1. Sur la page **Sélectionner les tables à partir desquelles copier les données ou utiliser une requête personnalisée**, sélectionnez la table **[dbo].[emp]** dans la liste, puis sélectionnez **Suivant**. Vous pouvez sélectionner n’importe quelle autre table en fonction de votre base de données.
 
-       ![The Product table selection](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
+   ![Sélection de la table Product](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
 
 1. Sur la page **Banque de données de destination**, sélectionnez **Créer une connexion**
 
-       //image create-new-sink-connection.png
-
-       ![Create Destination linked service](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
+   ![Créer un service lié de destination](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
 
 1. Dans **New Linked Service** (Nouveau service lié), recherchez et sélectionnez **Objet blob Azure**, puis **Continuer**. 
 
-       ![Blob storage selection](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
+   ![Sélection du stockage Blob](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
 1. Dans la boîte de dialogue **New Linked Service (Azure Blob Storage)** (Nouveau service lié (Stockage Blob Azure)), procédez comme suit : 
 
@@ -231,47 +229,47 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
        d. Select **Next**.
 
-       ![Specify the storage account](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
+   ![Spécification du compte de stockage](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
 
 1. Dans la boîte de dialogue **Banque de données de destination**, sélectionnez **Suivant**. Dans **Propriétés de connexion**, sélectionnez **Azure storage service** (Service de stockage Azure) comme **Stockage Blob Azure**. Sélectionnez **Suivant**. 
 
-       ![connection properties](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
+   ![Propriétés de connexion](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
 
 1. Dans la boîte de dialogue **Choisir le fichier ou le dossier de sortie**, sous **Chemin d’accès du dossier**, entrez **adftutorial/fromonprem**. Vous avez créé le conteneur **adftutorial** dans le cadre des conditions préalables. Si le dossier de sortie n’existe pas (ici **fromonprem**), Data Factory le crée automatiquement. Vous pouvez également utiliser le bouton **Parcourir** pour parcourir le stockage d’objets blob et ses conteneurs/dossiers. Si vous ne spécifiez pas de valeur sous **Nom de fichier**, le nom de la source est utilisé par défaut (ici **dbo.emp**).
            
-       ![Choose the output file or folder](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
+   ![Choisir le fichier ou le dossier de sortie](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 
 1. Dans la boîte de dialogue **Paramètres de format de fichier**, sélectionnez **Suivant**. 
 
-       ![File format settings page](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
+   ![Page Paramètres de format de fichier](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
 
 1. Dans la boîte de dialogue **Paramètres**, sélectionnez **Suivant**. 
 
-       ![Settings page](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
+   ![Page Paramètres](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
 
 1. Dans la boîte de dialogue **Résumé**, vérifiez la valeur de tous les paramètres, puis sélectionnez **Suivant**. 
 
-       ![Summary page](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
+   ![Page de résumé](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
 
 1. Sur la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (ou tâche) que vous avez créé.
 
-       ![Deployment page](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+   ![Page Déploiement](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
 
 1. Sous l’onglet **Surveiller**, vous pouvez afficher l’état du pipeline que vous avez créé. Vous pouvez utiliser les liens dans la colonne **Action** pour visualiser les exécutions d’activités associées à l’exécution du pipeline et pour réexécuter le pipeline. 
 
-       ![Monitor pipeline runs](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
+   ![Surveiller des exécutions de pipelines](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
 
 1. Sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions** pour voir les exécutions d’activités associées à l’exécution du pipeline. Pour voir plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **Actions**. Pour revenir à l’affichage des **exécutions du pipeline**, sélectionnez **Pipelines** au sommet de la page.
 
-       ![Monitor activity runs](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
+   ![Surveiller des exécutions d’activités](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
 
 1. Vérifiez que le fichier de sortie apparaît bien dans le dossier **fromonprem** du conteneur **adftutorial**. 
 
-       ![Output blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
+   ![Objet blob de sortie](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
 
 1. Sélectionnez l’onglet **Modifier** sur la gauche pour basculer en mode éditeur. Vous pouvez mettre à jour les services, jeux de données et pipelines liés créés par l’outil à l’aide de l’éditeur. Sélectionnez **Code** pour afficher le code JSON associé à l’entité ouverte dans l’éditeur. Pour plus de détails sur la modification de ces entités dans l’interface utilisateur de Data Factory, consultez [la version du portail Azure de ce didacticiel](tutorial-copy-data-portal.md).
 
-       ![Edit tab](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
+   ![Onglet Modifier](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -287,4 +285,4 @@ Pour obtenir la liste des magasins de données pris en charge par Data Factory, 
 Pour découvrir comment copier des données en bloc d’une source vers une destination, passez au didacticiel suivant :
 
 > [!div class="nextstepaction"]
->[Copier des données en bloc](tutorial-bulk-copy-portal.md)
+>[Copier les données en vrac](tutorial-bulk-copy-portal.md)

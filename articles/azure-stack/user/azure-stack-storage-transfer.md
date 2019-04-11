@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 4e92f2aeec21ccef5a6a553b17e099d54de7266a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4385e982b2a1da52ae55acf50c601108863c452a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774335"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905951"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Utiliser des outils de transfert de données pour le stockage Azure Stack
 
@@ -29,7 +29,7 @@ Microsoft Azure Stack fournit un ensemble de services de stockage pour les disqu
 
 Vos exigences déterminent lequel des outils suivants est le mieux pour vous :
 
-* [AZCopy](#azcopy)
+* [AzCopy](#azcopy)
 
     Utilitaire de ligne de commande propre au stockage que vous pouvez télécharger pour copier des données d’un objet vers un autre au sein de votre compte de stockage ou entre des comptes de stockage.
 
@@ -37,7 +37,7 @@ Vos exigences déterminent lequel des outils suivants est le mieux pour vous :
 
     Interpréteur de ligne de commande basé sur les tâches et langage de génération de scripts conçu spécialement pour l’administration de systèmes.
 
-* [Interface de ligne de commande Azure](#azure-cli)
+* [Azure CLI](#azure-cli)
 
     Outil multiplateforme open source qui fournit un ensemble de commandes pour utiliser les plateformes Azure et Azure Stack.
 
@@ -71,11 +71,11 @@ Il existe deux versions de l’utilitaire AzCopy : AzCopy sur Windows et AzCopy
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Exemples de commandes AzCopy pour le transfert de données
 
-Les exemples suivants présentent des scénarios permettant de copier des données vers et à partir d’objets blob Azure Stack. Pour en savoir plus, consultez [AzCopy sur Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) et [AzCopy sur Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+Les exemples suivants présentent des scénarios permettant de copier des données vers et à partir d’objets blob Azure Stack. Pour en savoir plus, consultez [AzCopy sur Windows](../../storage/common/storage-use-azcopy.md) et [AzCopy sur Linux](../../storage/common/storage-use-azcopy-linux.md).
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>Télécharger tous les objets blob sur un disque local
 
-**Windows**
+** Windows**
 
 ```shell
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
@@ -93,7 +93,7 @@ azcopy \
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Télécharger un fichier unique dans le répertoire virtuel
 
-**Windows**
+** Windows**
 
 ```shell
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
@@ -112,7 +112,7 @@ azcopy \
 
 Le transfert de données asynchrone entre le stockage Azure et Azure Stack n’est pas pris en charge. Vous devez spécifier le transfert avec l’option **/SyncCopy** ou **--sync-copy**.
 
-**Windows**
+** Windows**
 
 ```shell
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
@@ -156,7 +156,7 @@ Cet exemple suppose que vous avez [installé PowerShell pour Azure Stack](azure-
    > [!NOTE]
    > Ce script doit être exécuté dans le répertoire racine pour **AzureStack_Tools**.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
@@ -264,7 +264,7 @@ Avant d’exécuter ce script, vérifiez que vous pouvez vous connecter au Azure
 2. Mettez à jour les variables du script pour refléter vos paramètres de configuration.
 3. Une fois que vous avez mis à jour les variables nécessaires, enregistrez le script et quittez l’éditeur. Les étapes suivantes supposent que vous avez nommé votre script **my_storage_sample.sh**.
 4. Rendez le script exécutable, si nécessaire : `chmod +x my_storage_sample.sh`
-5. Exécutez le script. Par exemple, dans Bash : `./my_storage_sample.sh`
+5. Exécutez le script. Par exemple, dans Bash : `./my_storage_sample.sh`
 
 ```azurecli
 #!/bin/bash
@@ -337,6 +337,6 @@ blobEndpoint myaccount.blob.local.azurestack.external
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Connecter l’Explorateur de stockage à un abonnement Azure Stack](azure-stack-storage-connect-se.md)
-* [Prise en main de l’Explorateur de stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Stockage Azure : Différences et considérations](azure-stack-acs-differences.md)
+* [Prise en main de l’Explorateur Stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Stockage Azure : différences et considérations](azure-stack-acs-differences.md)
 * [Introduction au stockage Microsoft Azure](../../storage/common/storage-introduction.md)
