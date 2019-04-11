@@ -604,7 +604,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Éd. 17/03 |  [4012213] |Mise à jour qualité de la sécurité seule de mars 2017 pour Windows 8.1 et Windows Server 2012 R2 |4.40 |14 mars 2017 |
 | Éd. 17/03 |  [4012214] |Mise à jour qualité de la sécurité seule de mars 2017 Windows Server 2012|3.47 |14 mars 2017 |
 | Éd. 17/03 |  [4012204] |Mise à jour de sécurité pour Internet Explorer |2.60, 3.47, 4.40, 5.5 |14 mars 2017 |
-| S.O. |  [4012864] |Modifications de l’heure d’été dans Windows pour Chypre du Nord, la Mongolie et la région russe de Saratov |2.60, 3.47, 4.40 |14 mars 2017 |
+| S.O. |  [4012864] |Modifications de l’heure d’été dans Windows pour Chypre, la Mongolie et la région russe de Saratov |2.60, 3.47, 4.40 |14 mars 2017 |
 | S.O. |  [3212646] |Correctif cumulatif qualitatif mensuel de sécurité de janvier 2017 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.60 |14 mars 2017 |
 | S.O. |  [3205409] |Correctif cumulatif qualitatif mensuel de sécurité de décembre 2016 pour Windows Server 2012 |3.47 |14 mars 2017 |
 | S.O. |  [3205401] |Correctif cumulatif qualitatif mensuel de sécurité de décembre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.40 |14 mars 2017 |
@@ -666,7 +666,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS16-124 |[3193227] |Mise à jour de sécurité pour le registre Windows |4.37, 3.44, 2.56 |11 octobre 2016 |
 | MS16-126 |[3196067] |Mise à jour de sécurité pour l’API de messagerie Microsoft Internet |2.56 |11 octobre 2016 |
 | MS16-101 |[3178465] |Mise à jour de sécurité pour les méthodes d’authentification Windows |4.37, 3.44, 2.56 |11 octobre 2016 |
-| S.O. |[3182203] |Septembre 2016 Changement de fuseau horaire pour Novosibirsk |4.37, 3.44, 2.56 |11 octobre 2016 |
+| S.O. |[3182203] |Septembre 2016 Changement de fuseau horaire pour Novossibirsk |4.37, 3.44, 2.56 |11 octobre 2016 |
 | S.O. |[3185278] |Septembre 2016 Correctif cumulatif pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.56 |11 octobre 2016 |
 | S.O. |[3185280] |Septembre 2016 Correctif cumulatif pour Windows Server 2012 |3.44 |11 octobre 2016 |
 | S.O. |[3185279] |Septembre 2016 Correctif cumulatif pour Windows 8.1 et Windows Server 2012 R2 |4.37 |11 octobre 2016 |

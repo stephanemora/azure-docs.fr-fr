@@ -113,7 +113,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Londres, Newport (Pays de Galles), Sao Paulo, Seattle, Silicon Valley, Singapour, Washington DC |
 | **LG CNS** |Pris en charge |Pris en charge |Busan, Séoul |
 | **[Télécommunications liquide](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Pris en charge |Pris en charge |Le Cap, Johannesburg |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Pris en charge |Pris en charge |Amsterdam, Atlanta, Chicago, Dallas, Denver, Dublin, Hong Kong, Las Vegas, Londres, Los Angeles, Melbourne, Miami, New York, Perth, Québec, San Antonio, Seattle, Silicon Valley, Singapour, singapour2, Sydney, Toronto, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Pris en charge |Pris en charge |Amsterdam, Atlanta, Chicago, Dallas, Denver, Dublin, Hong Kong (R.A.S.), Las Vegas, Londres, Los Angeles, Melbourne, Miami, New York, Perth, Québec, San Antonio, Seattle, Silicon Valley, Singapour, singapour2, Sydney, Toronto, Washington DC |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Pris en charge |Pris en charge |Londres |
 | **[Réseaux Neutrona](http://www.neutrona.com/index.php/azure-expressroute/)** |Pris en charge |Pris en charge |Dallas, Los Angeles, Miami, Sao Paulo |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Pris en charge |Pris en charge |Newport (Nouvelle-Galles du Sud) |

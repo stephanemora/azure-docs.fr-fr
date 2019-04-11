@@ -42,7 +42,7 @@ Cet article présente deux scénarios pour créer des règles d’accès réseau
 
 ## <a name="about-network-rules-for-a-container-registry"></a>Sur les règles de réseau pour un Registre de conteneurs
 
-Un Registre de conteneurs Azure par défaut accepte les connexions via internet à partir d’hôtes sur n’importe quel réseau. Avec un réseau virtuel, vous pouvez autoriser uniquement les ressources Azure comme un cluster AKS ou machine virtuelle Azure à accéder en toute sécurité le Registre, sans dépasser une limite réseau. Vous pouvez également configurer des règles de pare-feu de réseau à la liste blanche d’adresses internet publiques spécifiques des plages d’adresses IP. 
+Un Registre de conteneurs Azure par défaut accepte les connexions via internet à partir d’hôtes sur n’importe quel réseau. Avec un réseau virtuel, vous pouvez autoriser uniquement les ressources Azure comme un cluster AKS ou machine virtuelle Azure à accéder en toute sécurité le Registre, sans dépasser une limite réseau. Vous pouvez également configurer des règles de pare-feu de réseau à la liste verte d’adresses internet publiques spécifiques des plages d’adresses IP. 
 
 Pour limiter l’accès à un Registre, d’abord modifier l’action par défaut du Registre afin qu’il refuse toutes les connexions réseau. Ensuite, ajoutez des règles d’accès réseau. Les clients accordé un accès via les règles de réseau doivent continuer à [s’authentifier auprès du Registre de conteneurs](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) et être autorisé à accéder aux données.
 

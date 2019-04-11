@@ -1,7 +1,6 @@
 ---
 title: Créer un blueprint avec l'API REST
 description: Utilisez Azure Blueprints pour créer, définir et déployer des artefacts avec l’API REST.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/04/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885959"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273156"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Définir et affecter un blueprint Azure avec l’API REST
 
@@ -29,6 +28,9 @@ Un utilisateur qui sait comment créer et affecter des blueprints peut définir 
 > - Supprimer un blueprint affecté à un abonnement
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Bien démarrer avec l’API REST
 

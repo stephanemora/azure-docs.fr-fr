@@ -141,7 +141,7 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Indonésie                      |        ✓       |         ✓            |             |
 | Corée du Sud                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
-| Macao (R.A.S.)                          |        ✓       |         ✓            |             |
+| Macao R.A.S.                          |        ✓       |         ✓            |             |
 | Malaisie                       |        ✓       |         ✓            |             |
 | Myanmar                        |        ✓       |                      |             |
 | Nouvelle-Zélande                    |        ✓       |         ✓            |     ✓       | 
