@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour utiliser l’API Recherche d’anomalies avec Java - Microsoft Cognitive Services | Microsoft Docs
+title: Guide pratique pour utiliser l’API Anomaly Finder avec Java - Microsoft Cognitive Services | Microsoft Docs
 description: Obtenez des informations et des exemples de code qui vous aideront à démarrer rapidement avec l’API Détection d’anomalies à l’aide de Java dans Cognitive Services.
 services: cognitive-services
 author: chliang
@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56732877"
 ---
-# <a name="use-the-anomaly-finder-api-with-java"></a>Utiliser l’API Recherche d’anomalies avec Java
+# <a name="use-the-anomaly-finder-api-with-java"></a>Utiliser l’API Anomaly Finder avec Java
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 

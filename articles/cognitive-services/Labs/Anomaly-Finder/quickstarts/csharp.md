@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour utiliser l’API Recherche d’anomalies avec C# - Microsoft Cognitive Services | Microsoft Docs
-description: Obtenez des informations et des exemples de code qui vous aideront à démarrer rapidement avec l’API Recherche d’anomalies à l’aide de C# dans Cognitive Services.
+title: Guide pratique pour utiliser l’API Anomaly Finder avec C# - Microsoft Cognitive Services | Microsoft Docs
+description: Obtenez des informations et des exemples de code qui vous aideront à démarrer rapidement avec l’API Anomaly Finder à l’aide de C# dans Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -16,17 +16,17 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56736632"
 ---
-# <a name="use-the-anomaly-finder-api-with-c"></a>Utiliser l’API Recherche d’anomalies avec C#
+# <a name="use-the-anomaly-finder-api-with-c"></a>Utiliser l’API Anomaly Finder avec C#
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Recherche d’anomalies à l’aide de C# en vue d’obtenir les résultats d’anomalies de données de série chronologique.
+Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Anomaly Finder à l’aide de C# en vue d’obtenir les résultats d’anomalies de données de série chronologique.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-c"></a>Obtention de points d’anomalies avec l’API Recherche d’anomalies à l’aide de C#
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-c"></a>Obtention de points d’anomalies avec l’API Anomaly Finder à l’aide de C#
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 

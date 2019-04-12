@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour utiliser l’API Recherche d’anomalies avec cURL - Microsoft Cognitive Services | Microsoft Docs
-description: Obtenez des informations qui vous aideront à démarrer rapidement avec l’API Recherche d’anomalies à l’aide de cURL dans Cognitive Services.
+title: Guide pratique pour utiliser l’API Anomaly Finder avec cURL - Microsoft Cognitive Services | Microsoft Docs
+description: Obtenez des informations qui vous aideront à démarrer rapidement avec l’API Anomaly Finder à l’aide de cURL dans Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -16,17 +16,17 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56730883"
 ---
-# <a name="use-the-anomaly-finder-api-with-curl"></a>Utiliser l’API Recherche d’anomalies avec cURL
+# <a name="use-the-anomaly-finder-api-with-curl"></a>Utiliser l’API Anomaly Finder avec cURL
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Recherche d’anomalies à l’aide de cURL en vue d’obtenir les résultats d’anomalies de données de série chronologique.
+Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Anomaly Finder à l’aide de cURL en vue d’obtenir les résultats d’anomalies de données de série chronologique.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-the-anomaly-finder-api-using-curl"></a>Obtention de points d’anomalies avec l’API Recherche d’anomalies à l’aide de cURL 
+## <a name="getting-anomaly-points-with-the-anomaly-finder-api-using-curl"></a>Obtention de points d’anomalies avec l’API Anomaly Finder à l’aide de cURL 
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 

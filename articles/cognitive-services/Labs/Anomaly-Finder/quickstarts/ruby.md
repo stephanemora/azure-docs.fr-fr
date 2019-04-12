@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour utiliser l’API Recherche d’anomalies avec Ruby - Microsoft Cognitive Services | Microsoft Docs
-description: Obtenez des informations et des exemples de code qui vous aideront à démarrer rapidement avec l’API Recherche d’anomalies à l’aide de Ruby dans Cognitive Services.
+title: Guide pratique pour utiliser l’API Anomaly Finder avec Ruby - Microsoft Cognitive Services | Microsoft Docs
+description: Obtenez des informations et des exemples de code qui vous aideront à démarrer rapidement avec l’API Anomaly Finder à l’aide de Ruby dans Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -16,17 +16,17 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56735031"
 ---
-# <a name="use-the-anomaly-finder-api-with-ruby"></a>Utiliser l’API Recherche d’anomalies avec Ruby
+# <a name="use-the-anomaly-finder-api-with-ruby"></a>Utiliser l’API Anomaly Finder avec Ruby
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Recherche d’anomalies à l’aide de Ruby en vue d’obtenir les résultats de détection d’anomalies sur les données de série chronologique.
+Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Anomaly Finder à l’aide de Ruby en vue d’obtenir les résultats de détection d’anomalies sur les données de série chronologique.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-ruby"></a>Obtention de points d’anomalies avec l’API Recherche d’anomalies à l’aide de Ruby 
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-ruby"></a>Obtention de points d’anomalies avec l’API Anomaly Finder à l’aide de Ruby 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data"></a>Exemple de données de séries chronologiques

@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour utiliser l’API Recherche d’anomalies avec PHP - Microsoft Cognitive Services | Microsoft Docs
-description: Obtenez des informations et des exemples de code qui vous aideront à démarrer rapidement avec la Recherche d’anomalies à l’aide de PHP dans Cognitive Services.
+title: Guide pratique pour utiliser l’API Anomaly Finder avec PHP - Microsoft Cognitive Services | Microsoft Docs
+description: Obtenez des informations et des exemples de code qui vous aideront à démarrer rapidement avec Anomaly Finder à l’aide de PHP dans Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -16,17 +16,17 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56728741"
 ---
-# <a name="use-the-anomaly-finder-api-with-php"></a>Utiliser l’API Recherche d’anomalies avec PHP
+# <a name="use-the-anomaly-finder-api-with-php"></a>Utiliser l’API Anomaly Finder avec PHP
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Recherche d’anomalies à l’aide de PHP en vue d’obtenir les résultats d’anomalies de données de série chronologique.
+Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec l’API Anomaly Finder à l’aide de PHP en vue d’obtenir les résultats d’anomalies de données de série chronologique.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-php"></a>Obtention de points d’anomalies avec l’API Recherche d’anomalies à l’aide de PHP
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-php"></a>Obtention de points d’anomalies avec l’API Anomaly Finder à l’aide de PHP
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data"></a>Exemple de données de séries chronologiques

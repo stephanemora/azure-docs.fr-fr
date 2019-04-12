@@ -1,6 +1,6 @@
 ---
-title: Informations de référence sur l’API Recherche d’anomalies pour Microsoft Cognitive Services | Microsoft Docs
-description: Informations de référence sur l’API Recherche d’anomalies pour Microsoft Cognitive Services
+title: Informations de référence sur l’API Anomaly Finder pour Microsoft Cognitive Services | Microsoft Docs
+description: Informations de référence sur l’API Anomaly Finder pour Microsoft Cognitive Services
 services: cognitive-services
 author: tonyxing
 ms.service: cognitive-services
@@ -15,7 +15,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56731993"
 ---
-# <a name="anomaly-finder-api-reference"></a>Informations de référence sur l’API Recherche d’anomalies
+# <a name="anomaly-finder-api-reference"></a>Informations de référence sur l’API Anomaly Finder
 
 [!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 

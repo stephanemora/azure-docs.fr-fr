@@ -1,6 +1,6 @@
 ---
-title: Qu’est-ce que la Recherche d’anomalies ? Microsoft Cognitive Services | Microsoft Docs
-description: Utilisez des algorithmes avancés dans la Recherche d’anomalies pour vous aider à identifier les anomalies dans des données de série chronologique et retourner des informations dans Microsoft Cognitive Services.
+title: Qu’est-ce que Anomaly Finder ? Microsoft Cognitive Services | Microsoft Docs
+description: Utilisez des algorithmes avancés dans Anomaly Finder pour vous aider à identifier les anomalies dans des données de série chronologique et retourner des informations dans Microsoft Cognitive Services.
 services: cognitive-services
 author: tonyxing
 ms.service: cognitive-services
@@ -15,12 +15,12 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56726811"
 ---
-# <a name="what-is-anomaly-finder"></a>Qu’est-ce que la Recherche d’anomalies ?
+# <a name="what-is-anomaly-finder"></a>Qu’est-ce que Anomaly Finder ?
 
 [!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-La Recherche d’anomalies vous permet de surveiller les données au fil du temps et de détecter les anomalies avec un apprentissage automatique qui s’adapte à vos données uniques en appliquant automatiquement le modèle statistique correct, indépendamment du secteur, du scénario ou du volume de données. À l’aide d’une série chronologique en tant qu’entrée, l’API de Recherche d’anomalies indique si un point de données est ou non une anomalie et détermine la valeur attendue, ainsi que les limites supérieure et inférieure pour la visualisation. En tant que service d’intelligence artificielle (AI) prédéfini, la Recherche d’anomalies ne nécessite pas de compétences en Machine Learning autres que l’utilisation d’une API RESTful d’apprentissage. Ceci permet un développement simple et polyvalent, puisqu’elle fonctionne avec toutes les données de série chronologique et peut également être intégrée dans des systèmes de données de streaming. La Recherche d’anomalies englobe un large éventail de cas d’utilisation : des outils financiers pour la gestion des fraudes, des vols, des marchés en mutation et des incidents potentiels, ou la surveillance du trafic de périphériques IoT tout en préservant l’anonymat. Cette solution peut également être monétisée dans le cadre d’un service qui aidera des utilisateurs finaux à comprendre des modifications de données, des dépenses, le retour sur investissement ou l’activité des utilisateurs.
-Testez l’API de Recherche d’anomalies et ayez une meilleure compréhension de vos données. 
+Anomaly Finder vous permet de surveiller les données au fil du temps et de détecter les anomalies avec un apprentissage automatique qui s’adapte à vos données uniques en appliquant automatiquement le modèle statistique correct, indépendamment du secteur, du scénario ou du volume de données. À l’aide d’une série chronologique en tant qu’entrée, l’API Anomaly Finder indique si un point de données est ou non une anomalie et détermine la valeur attendue, ainsi que les limites supérieure et inférieure pour la visualisation. En tant que service d’intelligence artificielle (AI) prédéfini, Anomaly Finder ne nécessite pas de compétences en Machine Learning autres que l’utilisation d’une API RESTful d’apprentissage. Ceci permet un développement simple et polyvalent, puisqu’elle fonctionne avec toutes les données de série chronologique et peut également être intégrée dans des systèmes de données de streaming. Anomaly Finder englobe un large éventail de cas d’utilisation : des outils financiers pour la gestion des fraudes, des vols, des marchés en mutation et des incidents potentiels, ou la surveillance du trafic de périphériques IoT tout en préservant l’anonymat. Cette solution peut également être monétisée dans le cadre d’un service qui aidera des utilisateurs finaux à comprendre des modifications de données, des dépenses, le retour sur investissement ou l’activité des utilisateurs.
+Testez l’API Anomaly Finder et ayez une meilleure compréhension de vos données. 
 
 Regardez ce que vous pouvez faire avec cette API :
 

@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour utiliser l’API Recherche d’anomalies avec Javascript - Microsoft Cognitive Services | Microsoft Docs
-description: Obtenez des informations et des exemples de code qui vous aideront à démarrer rapidement avec la Recherche d’anomalies à l’aide de Javascript dans Cognitive Services.
+title: Guide pratique pour utiliser l’API Anomaly Finder avec Javascript - Microsoft Cognitive Services | Microsoft Docs
+description: Obtenez des informations et des exemples de code qui vous aideront à démarrer rapidement avec Anomaly Finder à l’aide de Javascript dans Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57551897"
 ---
-# <a name="use-the-anomaly-finder-api-with-javascript"></a>Utiliser l’API Recherche d’anomalies avec Javascript
+# <a name="use-the-anomaly-finder-api-with-javascript"></a>Utiliser l’API Anomaly Finder avec Javascript
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 

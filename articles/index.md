@@ -961,7 +961,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
                                                 <img src="media/index/API_Anomaly_Finder.svg" alt="" />
-                                                <p>Recherche d’anomalies</p>
+                                                <p>Anomaly Finder</p>
                                             </a>
                                         </li>
                                         <li>
