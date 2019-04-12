@@ -118,7 +118,7 @@ Application Insights collecte automatiquement des compteurs de performances suiv
 
 Pour plus d’informations, voir [Compteurs de performances système dans Application Insights](../azure-monitor/app/performance-counters.md) et [Application Insights pour Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
 
-### <a name="azure-diagnostics"></a>Azure Diagnostics
+### <a name="azure-diagnostics"></a>Diagnostics Azure
 
 > [!IMPORTANT]
 > Alors que toutes ces données sont regroupées dans le compte de stockage, le portail ne fournit **pas** un moyen natif pour les représenter visuellement. Il est fortement recommandé d’intégrer un autre service tel qu’Application Insights dans votre application.
@@ -263,7 +263,7 @@ Comme indiqué précédemment, les compteurs de performances pour Application In
 <!-- ... cut to save space ... -->
 ```
 
-### <a name="azure-diagnostics"></a>Azure Diagnostics
+### <a name="azure-diagnostics"></a>Diagnostics Azure
 
 Comme indiqué précédemment, les compteurs de performances à collecter sont définis dans le fichier **diagnostics.wadcfgx**. Ouvrez ce fichier (il est défini par le rôle) dans Visual Studio, puis recherchez l’élément **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Ajoutez un nouvel élément **PerformanceCounterConfiguration** en tant qu’enfant. Définissez l’attribut `counterSpecifier` sur la catégorie et le nom du compteur de performances que vous avez créé dans votre code. 
 

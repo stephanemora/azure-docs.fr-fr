@@ -121,7 +121,7 @@ Les journaux de diagnostic sont différents du [journal d’activité](https://d
 
 Azure Monitor vous fournit des données de télémétrie qui vous offrent une visibilité sur les performances et l’intégrité de vos charges de travail sur Azure. Les [métriques](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (aussi appelées compteurs de performances) générées par la plupart des ressources Azure sont les données de télémétrie Azure les plus importantes. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces mesures pour l’analyse et le dépannage.
 
-### <a name="azure-diagnostics"></a>Azure Diagnostics
+### <a name="azure-diagnostics"></a>Diagnostics Azure
 
 Azure Diagnostics autorise la collecte de données de diagnostic sur une application déployée. Vous pouvez utiliser l’extension Diagnostics de différentes sources. Les sources actuellement prises en charge sont les [rôles de service cloud Azure](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), les [machines virtuelles Azure](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) exécutant Microsoft Windows et [Azure Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics).
 

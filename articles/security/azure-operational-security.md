@@ -210,7 +210,7 @@ Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les perf
 
 -   **Archiver** l’historique des performances ou d’intégrité de votre ressource à des fins d’audit/de conformité.
 
-### <a name="azure-diagnostics"></a>Azure Diagnostics
+### <a name="azure-diagnostics"></a>Diagnostics Azure
 
 Cette fonctionnalité Azure active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de différentes sources. Les sources actuellement prises en charge sont les [rôles Web et les rôles de travail Azure Cloud Service](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/overview) sous Microsoft Windows et [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics). Les autres services Azure ont leurs propres diagnostics distincts.
 

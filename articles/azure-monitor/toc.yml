@@ -225,7 +225,7 @@ items:
           href: platform/diagnostic-logs-append-blobs.md
         - name: Invité VM vers magasin de métriques
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-        - name: Invité groupe de VM identiques vers magasin de métriques
+        - name: Invité groupe de machines virtuelles identiques vers magasin de métriques
           href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
         - name: Invité VM classique vers magasin de métriques
           href: platform/collect-custom-metrics-guestos-vm-classic.md
@@ -582,8 +582,8 @@ items:
           href: insights/network-performance-monitor.md
         - name: Analyseur de performances
           href: insights/network-performance-monitor-performance-monitor.md
-        - name: Point de terminaison de service
-          href: insights/network-performance-monitor-service-endpoint.md
+        - name: Moniteur de connectivité de service
+          href: insights/network-performance-monitor-service-connectivity.md
         - name: ExpressRoute
           href: insights/network-performance-monitor-expressroute.md
         - name: Tarifs
@@ -659,8 +659,9 @@ items:
   - name: Visualiser les données
     items:
     - name: Views
-      href: platform/view-designer.md
       items:
+      - name: Concepteur de vues
+        href: platform/view-designer.md
       - name: Référence de vignette
         href: platform/view-designer-tiles.md
       - name: Référence des composants de visualisation
@@ -867,7 +868,7 @@ items:
         href: platform/autoscale-custom-metric.md
       - name: Mettre à l’échelle automatiquement les groupes de machines virtuelles identiques à l’aide de modèles Resource Manager
         href: platform/autoscale-virtual-machine-scale-sets.md
-      - name: Mettre automatiquement à l’échelle les machines d’un groupe identiques de machines virtuelles
+      - name: Mettre automatiquement à l’échelle des machines dans un jeu de mise à l’échelle de machines virtuelles
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Configurer les webhooks et les notifications électroniques sur la mise à l’échelle automatique
         href: platform/autoscale-webhook-email.md
@@ -1072,9 +1073,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: b2021ca33265e06f882f04f726a889ddae0fd91f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7605179d1d1129587114f1462639ad06dde6fcef
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261154"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491098"
