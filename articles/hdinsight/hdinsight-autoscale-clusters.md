@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 28f04f5ab3cf8310a6ee3828405910d34b31591b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9631e4b82ceb14a98740491b98288d75dd23f9a3
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227621"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501006"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Automatiquement à l’échelle des clusters Azure HDInsight (version préliminaire)
 
@@ -83,7 +83,7 @@ Pour plus d’informations sur la création de clusters avec des modèles Resour
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Activation et désactivation de la mise à l’échelle automatique d’un cluster en cours d’exécution
 
-Vous pouvez activer ou désactiver l’échelle automatique pour les clusters HDInsight créés après le 1 janvier 2019 via le portail Azure.
+Vous pouvez uniquement activer ou désactiver l’échelle automatique pour les nouveaux clusters HDInsight.
 
 ## <a name="monitoring"></a>Surveillance
 
@@ -108,8 +108,8 @@ Les métriques ci-dessus sont contrôlées toutes les 60 secondes. Mise à l’
 
 Lorsque les conditions suivantes sont détectées, mise à l’échelle émet une demande de montée en charge :
 
-* « Total pending CPU » est supérieur à la valeur de « Total free CPU » pendant plus de 1 minute.
-* « Total pending memory » est supérieur à la valeur de « Total free memory » pendant plus de 1 minute.
+* Total en attente du processeur est supérieure à processeur total pour plus de 3 minutes.
+* Total mémoire en attente est supérieur à la mémoire disponible totale. pour plus de 3 minutes.
 
 Nous calculera qu’un certain nombre de nouveaux nœuds worker est nécessaires pour répondre aux besoins de processeur et mémoire actuels et puis émettre une demande de montée en charge qui ajoute ce nombre de nouveaux nœuds worker.
 
@@ -120,7 +120,7 @@ Lorsque les conditions suivantes sont détectées, mise à l’échelle émet un
 * « Total pending CPU » est inférieur à la valeur de « Total free CPU » pendant plus de 10 minutes.
 * « Total pending memory » est inférieur à la valeur de « Total free memory » pendant plus de 10 minutes.
 
-Selon le nombre de conteneurs h par nœud et le processeur actuel et les besoins en mémoire, mise à l’échelle émet une demande pour supprimer un certain nombre de nœuds, qui spécifie les nœuds sur lesquels sont des candidats potentiels pour la suppression. Par défaut, deux nœuds sont supprimés par cycle.
+Selon le nombre de conteneurs h par nœud et le processeur actuel et les besoins en mémoire, mise à l’échelle émet une demande pour supprimer un certain nombre de nœuds, qui spécifie les nœuds sur lesquels sont des candidats potentiels pour la suppression. La mise à l’échelle vers le bas déclenchera la désaffectation des nœuds et une fois que les nœuds sont complètement désactivés, ils seront supprimés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

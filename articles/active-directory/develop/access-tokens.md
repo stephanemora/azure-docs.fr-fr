@@ -17,25 +17,26 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 88c47e1090673eb0a56f12c2eaf790a0ac851c6b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259862"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501142"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Jetons d’accès Azure Active Directory
 
 Les jetons d’accès permettent aux clients d’appeler en toute sécurité des API protégées par Azure. Les jetons d’accès Azure Active Directory (Azure AD) sont de type [JWT](https://tools.ietf.org/html/rfc7519), c’est-à-dire des objets JSON en Base64 signés par Azure. Les clients doivent traiter les jetons d’accès comme des chaînes opaques, car leur contenu n’est destiné qu’à la ressource. Pour la validation et le débogage, les développeurs peuvent décoder les JWT via un site comme [jwt.ms](https://jwt.ms). Votre client peut obtenir un jeton d’accès à partir de n’importe quel terminal (v1.0 ou v2.0) par le biais de plusieurs protocoles.
 
-Quand vous demandez un jeton d’accès, Azure AD retourne également des métadonnées sur le jeton d’accès que votre application peut consommer. Ces informations incluent le délai d’expiration du jeton d’accès et les étendues dans lesquelles il est valide. Ces données permettent à votre application d’effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser.
+Lorsque votre demande un jeton d’accès du client, Azure AD retourne également des métadonnées sur le jeton d’accès pour la consommation de votre application. Ces informations incluent le délai d’expiration du jeton d’accès et les étendues dans lesquelles il est valide. Ces données permettent à votre application d’effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser.
 
 Si votre application est une ressource (API Web) à laquelle les clients peuvent demander l’accès, les jetons d’accès fournissent des informations utiles pour l’authentification et l’autorisation, comme l’utilisateur, le client, l’émetteur, les autorisations, etc. 
 
 Consultez les sections suivantes pour savoir comment une ressource peut valider et utiliser les revendications dans un jeton d’accès.
 
-> [!NOTE]
-> Lorsque vous testez votre application client avec un compte personnel (par exemple hotmail.com ou outlook.com), vous pouvez constater que le jeton d’accès reçu par votre client est une chaîne opaque. En effet, la ressource consultée a demandé des anciens tickets MSA (compte Microsoft) qui sont chiffrés et ne sont pas compris par le client.
+> [!Important]
+> Jetons d’accès sont créés selon le *audience* du jeton, ce qui signifie que l’application qui détient les étendues dans le jeton.  Voici comment un paramètre de ressource `accessTokenAcceptedVersion` dans le [manifeste de l’application](reference-app-manifest.md#manifest-reference) à `2` permet à un client appelant le point de terminaison v1.0 recevoir un jeton d’accès v2.0.  De même, c’est pourquoi de la modification du jeton d’accès [revendications facultatives](active-directory-optional-claims.md) pour votre client ne modifie pas le jeton d’accès reçu quand un jeton est demandé pour `user.read`, qui est détenu par la ressource MS Graph.  
+> Pour la même raison, lors du test de votre application cliente avec un compte personnel (comme hotmail.com ou outlook.com), vous découvrirez peut-être que le jeton d’accès reçu par votre client est une chaîne opaque. En effet, la ressource consultée a demandé des anciens tickets MSA (compte Microsoft) qui sont chiffrés et ne sont pas compris par le client.
 
 ## <a name="sample-tokens"></a>Exemples de jeton
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: be9bde90684b46adef509532eb7b0cc236c5efb1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180600"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490357"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Procédure pas à pas de l’accélérateur de solution Usine connectée
 
@@ -73,7 +73,7 @@ Le module Éditeur d’OPC se connecte aux serveurs de poste OPC UA et s’abon
 
 1. Convertit les données du nœud au format JSON.
 1. Chiffre le code JSON.
-1. Envoie le code JSON à IoT Hub sous la forme de messages Pub/Sub OPC UA.
+1. Envoie le JSON à IoT Hub en tant que OPC UA pub/sub messages.
 
 Le module Éditeur d’OPC nécessite un port sortant https (443) uniquement et fonctionne avec l’infrastructure d’entreprise existante.
 
@@ -230,7 +230,7 @@ L’application web déployée dans le cadre de l’accélérateur de solution c
 Vous pouvez poursuivre la prise en main des accélérateurs de solution IoT en lisant les articles suivants :
 
 * [Autorisations sur le site azureiotsolutions.com][lnk-permissions]
-* [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator (Déployer une passerelle sur Windows ou Linux pour l’accélérateur de solution Usine connectée)](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Déployer une passerelle sur Windows ou Linux pour l’accélérateur de solution usine connectée](iot-accelerators-connected-factory-gateway-deployment.md)
 * [Implémentation de référence de l’éditeur OPC](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

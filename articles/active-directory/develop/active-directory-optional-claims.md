@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/08/2018
+ms.date: 03/27/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 929d6b55b9261ae29ba43f05b378866adfdcd2ed
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882788"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501057"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-preview"></a>Activation Fournir des revendications facultatives à votre application Azure AD (version préliminaire)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Activation Fournir des revendications facultatives à votre application Azure AD
 
 Cette fonctionnalité est utilisée par les développeurs d’applications pour spécifier les revendications qu’ils souhaitent inclure dans les jetons envoyés à leur application. Vous pouvez utiliser des revendications facultatives pour :
 
@@ -32,34 +32,28 @@ Cette fonctionnalité est utilisée par les développeurs d’applications pour 
 - Modifier le comportement de certaines revendications retournées par Azure AD dans les jetons.
 - Ajouter et accéder à des revendications personnalisées pour votre application.
 
-> [!NOTE]
-> Cette fonctionnalité est actuellement disponible en préversion publique. Soyez prêt à rétablir ou à supprimer les modifications. La fonctionnalité est disponible dans n’importe quel abonnement Azure AD tant que la préversion publique est utilisée. Toutefois, quand la fonctionnalité sera généralement disponible, il se peut que certains de ses aspects nécessitent un abonnement Azure AD Premium.
+Dans les listes des revendications standard, consultez le [jeton d’accès](access-tokens.md) et [id_token](id-tokens.md) de revendications de documentation. 
 
-Pour la liste des revendications standard et comment ils sont utilisés dans les jetons, consultez le [principes de base des jetons émis par Azure AD](v1-id-and-access-tokens.md).
-
-L’un des objectifs du point de terminaison [v2.0 Azure AD](active-directory-appmodel-v2-overview.md) est de réduire la taille des jetons afin de garantir des performances optimales par les clients. Ainsi, plusieurs revendications précédemment incluses dans les jetons d’accès et d’ID ne sont plus présentes dans les jetons v2.0 et doivent être demandées spécifiquement pour chaque application.
+Revendications facultatives prend en charge à la fois v1.0 et v2.0 les jetons de format, ainsi que les jetons SAML, ils fournissent la plupart de leur valeur lors du déplacement à partir de la version 1.0 vers la version 2.0. L’un des objectifs du point de terminaison [v2.0 Azure AD](active-directory-appmodel-v2-overview.md) est de réduire la taille des jetons afin de garantir des performances optimales par les clients. Ainsi, plusieurs revendications précédemment incluses dans les jetons d’accès et d’ID ne sont plus présentes dans les jetons v2.0 et doivent être demandées spécifiquement pour chaque application.
 
 **Tableau 1 : Applicabilité**
 
-| Type de compte | Point de terminaison V1.0 | Point de terminaison V2.0  |
+| Type de compte | Jetons v1.0 | Jetons v2.0  |
 |--------------|---------------|----------------|
-| Compte Microsoft personnel  | N/A - Des tickets RPS sont utilisés à la place | Bientôt pris en charge |
-| Compte Azure AD          | Pris en charge                          | Pris en charge avec des mises en garde |
+| Compte Microsoft personnel  | S.O.  | Pris en charge|
+| Compte Azure AD      | Pris en charge | Pris en charge |
 
-> [!IMPORTANT]
-> Les applications qui prennent en charge des comptes personnels et Azure AD (inscrit par le biais du [portail d’inscription](https://apps.dev.microsoft.com)) ne peut pas utiliser des revendications facultatives. Cependant, les applications enregistrées uniquement pour Azure AD à l’aide du point de terminaison v2.0 peuvent obtenir les revendications facultatives requises dans le manifeste. Dans le portail Azure, vous pouvez utiliser l’éditeur de manifeste d’application dans l’espace **Inscriptions d'applications** existant pour modifier vos revendications facultatives. Toutefois, cette fonctionnalité n’est pas encore disponible avec l’éditeur de manifeste d’application dans le nouvel espace **Inscriptions d’applications**.
+## <a name="v10-and-v20-optional-claims-set"></a>V1.0 et V2.0 des revendications facultatives définies
 
-## <a name="standard-optional-claims-set"></a>Ensemble de revendications facultatives standard
-
-L’ensemble de revendications facultatives disponible par défaut pour les applications est répertorié ci-dessous. Pour ajouter des revendications personnalisées facultatives pour votre application, consultez [Extensions d’annuaire](#configuring-custom-claims-via-directory-extensions) ci-dessous. Lors de l’ajout de revendications à la **jeton d’accès**, cela s’applique aux jetons d’accès demandés *pour* l’application (une API web), pas celles *par* l’application. Cela garantit que, quelque soit le client qui accède à votre API, les données correctes seront sur le jeton d’accès qu’il utilise pour s’authentifier auprès de votre API.
+L’ensemble de revendications facultatives disponible par défaut pour les applications est répertorié ci-dessous. Pour ajouter des revendications personnalisées facultatives pour votre application, consultez [Extensions d’annuaire](#configuring-directory-extension-optional-claims) ci-dessous. Lors de l’ajout de revendications à la **jeton d’accès**, cela s’applique aux jetons d’accès demandés *pour* l’application (une API web), pas celles *par* l’application. Cela garantit que, quelque soit le client qui accède à votre API, les données correctes seront sur le jeton d’accès qu’il utilise pour s’authentifier auprès de votre API.
 
 > [!NOTE]
-> La plupart de ces revendications peuvent figurer dans les jetons JWT pour les jetons v1.0 et v2.0, mais pas dans les jetons SAML, sauf indication contraire dans la colonne Type de jeton. En outre, bien que les revendications facultatives soient actuellement prises en charge uniquement pour les utilisateurs AAD, la prise en charge du compte de service administré (MSA) sera bientôt ajoutée. Quand le compte MSA prendra en charge les revendications facultatives sur le point de terminaison v2.0, la colonne Type d’utilisateur indiquera si une revendication est disponible pour un utilisateur AAD ou MSA. 
+> La plupart de ces revendications peuvent figurer dans les jetons JWT pour les jetons v1.0 et v2.0, mais pas dans les jetons SAML, sauf indication contraire dans la colonne Type de jeton. Comptes du consommateur prend en charge un sous-ensemble de ces revendications, dans la colonne « Type d’utilisateur ».  La plupart des revendications répertoriées ne s’appliquent pas aux utilisateurs de consommateur (ils n’ont aucun locataire, par conséquent, `tenant_ctry` n’a aucune valeur).  
 
-**Tableau 2 : Ensemble de revendications facultatives standard**
+**Tableau 2 : Ensemble de revendications v1.0 et V2.0 facultatif**
 
-| Nom                        | Description   | Type de jeton | Type d’utilisateur | Notes  |
-|-----------------------------|----------------|------------|-----------|--------|
+| Nom                       |  Description   | Type de jeton | Type d’utilisateur | Notes  |
+|----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Heure de dernière authentification de l’utilisateur. Voir les spécifications OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Région du locataire de ressource. | JWT        |           | |
 | `home_oid`                 | Pour les utilisateurs invités, il s’agit de l’ID d’objet de l’utilisateur dans le locataire de base de l’utilisateur.| JWT        |           | |
@@ -70,19 +64,19 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 | `enfpolids`                | ID des stratégies appliquées. Liste des ID des stratégies qui ont été évaluées pour l’utilisateur actuel. | JWT |  |  |
 | `vnet`                     | Informations sur le spécificateur de réseau virtuel. | JWT        |           |      |
 | `fwd`                      | Adresse IP.| JWT    |   | Ajoute l’adresse IPv4 d’origine du client demandeur (quand il se trouve sur un réseau virtuel). |
-| `ctry`                     | Pays de l’utilisateur. | JWT |           | Azure AD retourne la revendication facultative `ctry` si elle est présente. La valeur de la revendication est un code de pays à deux lettres standard, tel que FR, JP, SZ, etc. |
+| `ctry`                     | Pays de l’utilisateur. | JWT |  | Azure AD retourne la revendication facultative `ctry` si elle est présente. La valeur de la revendication est un code de pays à deux lettres standard, tel que FR, JP, SZ, etc. |
 | `tenant_ctry`              | Pays du locataire de ressource. | JWT | | |
 | `xms_pdl`          | Emplacement de données par défaut   | JWT | | Pour les clients de plusieurs zones géographiques, il s’agit le code de 3 lettres montrant la région géographique que l’utilisateur est membre. Pour plus d’informations, consultez le [documentation d’Azure AD Connect sur l’emplacement de données par défaut](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Par exemple : `APC` pour l’Asie-Pacifique. |
 | `xms_pl`                   | Langue par défaut de l’utilisateur  | JWT ||La langue par défaut de l’utilisateur, si celle-ci a été définie. Dans les scénarios d’accès invité, provient du locataire de base. Au format langue-pays (« fr-fr »). |
 | `xms_tpl`                  | Langue par défaut du locataire| JWT | | Langue par défaut du locataire de la ressource, si celle-ci est définie. Au format langue (« fr »). |
 | `ztdid`                    | ID de déploiement sans intervention | JWT | | Identité d’appareil utilisée pour [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-|`email`                     | Adresse e-mail de l'utilisateur, le cas échéant.  | JWT, SAML | | Cette valeur est incluse par défaut si l’utilisateur est un invité du locataire.  Pour les utilisateurs gérés (à l’intérieur du locataire), elle doit être demandée via cette revendication facultative ou, sur la version 2.0 uniquement, avec l’étendue OpenID.  Pour les utilisateurs gérés, l’adresse e-mail doit être définie dans le [portail d’administration Office](https://portal.office.com/adminportal/home#/users).|  
+| `email`                    | Adresse e-mail de l'utilisateur, le cas échéant.  | JWT, SAML | MSA, AAD | Cette valeur est incluse par défaut si l’utilisateur est un invité du locataire.  Pour les utilisateurs gérés (à l’intérieur du locataire), elle doit être demandée via cette revendication facultative ou, sur la version 2.0 uniquement, avec l’étendue OpenID.  Pour les utilisateurs gérés, l’adresse e-mail doit être définie dans le [portail d’administration Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Statut du compte utilisateur dans le client. | JWT, SAML | | Si l’utilisateur est membre du client, la valeur est `0`. S’il est un invité, la valeur est `1`. |
 | `upn`                      | Revendication UserPrincipalName. | JWT, SAML  |           | Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité.  |
 
 ### <a name="v20-optional-claims"></a>Revendications facultatives v2.0
 
-Ces revendications sont toujours incluses dans les jetons v1.0, mais elles ne sont pas incluses dans les jetons v2.0, sauf demande contraire. Ces revendications s’appliquent uniquement aux jetons web JSON (jetons d’ID et jetons d’accès). 
+Ces revendications sont toujours incluses dans les jetons d’Azure AD v1.0, mais pas incluses dans les jetons v2.0 sauf si demandée. Ces revendications sont applique uniquement aux jetons Web JSON (jetons d’ID et jetons d’accès). 
 
 **Tableau 3 : Revendications facultatives v2.0 uniquement**
 
@@ -94,9 +88,11 @@ Ces revendications sont toujours incluses dans les jetons v1.0, mais elles ne so
 | `pwd_url`     | Modifier l’URL de mot de passe             | URL à laquelle l’utilisateur peut accéder pour modifier son mot de passe.   |   |
 | `in_corp`     | Dans le périmètre du réseau d’entreprise        | Indique si le client se connecte à partir du réseau d’entreprise. Dans le cas contraire, la revendication n’est pas incluse.   |  Basé sur les [adresses IP approuvées](../authentication/howto-mfa-mfasettings.md#trusted-ips) définies dans MFA.    |
 | `nickname`    | Surnom                        | Autre nom de l’utilisateur, distinct du nom de famille et du prénom. | 
-| `family_name` | Nom                       | Fournit le nom de famille de lutilisateur tel que défini dans l’objet utilisateur Azure AD. <br>"family_name":"Miller" |       |
-| `given_name`  | Prénom                      | Fournit le prénom de l’utilisateur tel que défini dans l’objet utilisateur Azure AD.<br>"given_name": "Frank"                   |       |
-| `upn`       | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Pas un identificateur durable pour l’utilisateur et ne doit pas être utilisé pour les données de clé. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. |
+| `family_name` | Nom                       | Fournit le dernier nom, nom de famille ou nom de famille de l’utilisateur, tel que défini dans l’objet utilisateur. <br>"family_name":"Miller" | Prise en charge dans le compte de service administré et AAD   |
+| `given_name`  | Prénom                      | Fournit le premier ou « prénom » de l’utilisateur, tel que défini dans l’objet utilisateur.<br>"given_name": "Frank"                   | Prise en charge dans le compte de service administré et AAD  |
+| `upn`         | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s'agit pas d'un identificateur durable pour l'utilisateur et il ne doit pas être utilisé pour saisir des données. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. |
+| `sid`         | ID de la session                      | Identificateur de session GUID, utilisé pour le suivi de session d’authentification avec le compte de service administré. | MSA.  Ne sera pas inclus pour les comptes Azure AD. | 
+
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriétés supplémentaires des revendications facultatives
 
@@ -187,16 +183,16 @@ En cas de prise en charge par une revendication spécifique, vous pouvez égalem
 | `source`               | Edm.String              | Source (objet d’annuaire) de la revendication. Il existe des revendications prédéfinies et définies par l’utilisateur à partir des propriétés d’extension. Si la valeur source est null, la revendication est une revendication facultative prédéfinie. Si la valeur source est user, la valeur de la propriété name est la propriété d’extension à partir de l’objet utilisateur. |
 | `essential`            | Edm.Boolean             | Si la valeur est true, la revendication spécifiée par le client est nécessaire afin de garantir une expérience d’autorisation fluide pour la tâche demandée par l’utilisateur final. La valeur par défaut est false.                                                                                                             |
 | `additionalProperties` | Collection (Edm.String) | Propriétés supplémentaires de la revendication. Si une propriété existe dans cette collection, elle modifie le comportement de la revendication facultative spécifiée dans la propriété name.                                                                                                                                               |
-## <a name="configuring-custom-claims-via-directory-extensions"></a>Configuration de revendications personnalisées par le biais d’extensions d’annuaire
+## <a name="configuring-directory-extension-optional-claims"></a>Configuration des revendications facultatives directory extension
 
 En plus de l’ensemble de revendications facultatives standard, vous pouvez également configurer des jetons pour inclure des extensions de schéma d’annuaire. Pour plus d’informations, consultez [extensions de schéma d’annuaire](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). Cette fonctionnalité est utile pour joindre des informations utilisateur supplémentaires utilisables par votre application, par exemple un identificateur supplémentaire ou une option de configuration importante que l’utilisateur a définie. 
 
 > [!Note]
 > Les extensions de schéma d’annuaire sont une fonctionnalité AAD uniquement. Par conséquent, si le manifeste de votre application demande une extension personnalisée et qu’un utilisateur MSA se connecte à votre application, ces extensions ne sont pas retournées. 
 
-### <a name="values-for-configuring-additional-optional-claims"></a>Valeurs de configuration des revendications supplémentaires facultatives
+### <a name="directory-extension-formatting"></a>Extension de répertoire de mise en forme
 
-Pour les attributs d’extension, utilisez le nom complet de l’extension (au format `extension_<appid>_<attributename>`) dans le manifeste de l’application. `<appid>` doit correspondre à l’ID de l’application demandant la revendication. 
+Pour les attributs d’extension, utilisez le nom complet de l’extension (au format `extension_<appid>_<attributename>`) dans le manifeste de l’application. Le `<appid>` doit correspondre à l’ID de l’application demandant la revendication. 
 
 Dans les jetons JWT, ces revendications seront émises avec le format de nom suivant : `extn.<attributename>`.
 
@@ -216,7 +212,7 @@ Plusieurs options sont disponibles pour mettre à jour les propriétés de confi
 1. Sélectionnez **Inscription des applications** dans la partie gauche.
 1. Recherchez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives, puis cliquez dessus.
 1. Dans la page de l’application, cliquez sur **Manifeste** pour ouvrir l’éditeur de manifeste en ligne. 
-1. Vous pouvez modifier directement le manifeste à l’aide de cet éditeur. Le manifeste respecte le schéma de l’[entité Application](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity) et met automatiquement en forme le manifeste une fois enregistré. Les nouveaux éléments sont ajoutés à la propriété `OptionalClaims`.
+1. Vous pouvez modifier directement le manifeste à l’aide de cet éditeur. Le manifeste respecte le schéma de l’[entité Application](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) et met automatiquement en forme le manifeste une fois enregistré. Les nouveaux éléments sont ajoutés à la propriété `OptionalClaims`.
 
       ```json
       "optionalClaims": 

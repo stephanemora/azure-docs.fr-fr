@@ -1,29 +1,31 @@
 ---
-title: 'Machine Learning dans le cloud : Termes et architecture'
+title: Architecture et les principaux concepts
 titleSuffix: Azure Machine Learning service
-description: Découvrez l’architecture, la terminologie et les concepts relatifs au service Azure Machine Learning. Nous aborderons également le workflow général du service, ainsi que les services Azure qui sont utilisés par le service Azure Machine Learning.
+description: En savoir plus sur l’architecture, les termes du contrat, les concepts et les flux de travail qui composent le service Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269127"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489945"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Voici comment Azure Machine Learning service fonctionne : Architecture et concepts
 
-Cet article décrit l’architecture et les concepts du service Azure Machine Learning. Le diagramme suivant représente les principaux composants du service et illustre le workflow général lors de l’utilisation du service :
+En savoir plus sur l’architecture, les concepts et les flux de travail pour le service Azure Machine Learning. Le diagramme suivant représente les principaux composants du service et illustre le workflow général lors de l’utilisation du service :
 
 [![Aarchitecture du service Azure Machine Learning et les flux de travail](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-Le workflow suit généralement cette séquence :
+## <a name="workflow"></a>Workflow
+
+Le flux de travail machine learning suit généralement cette séquence :
 
 1. Développez les scripts d’entraînement de machine learning avec **Python**.
 1. Créez et configurez une **cible de calcul**.

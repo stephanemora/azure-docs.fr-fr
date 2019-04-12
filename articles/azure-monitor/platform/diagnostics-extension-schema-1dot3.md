@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: cd458ba08f12e9553233a1dd3d7caf03acda56c6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463505"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59497081"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Schéma de configuration de Microsoft Azure Diagnostics 1.3 et versions ultérieures
 > [!NOTE]
@@ -31,7 +31,7 @@ Cette page a trait aux versions 1.3 et ultérieures (Azure SDK 2.4 et ultérie
 
 Le fichier de configuration décrit ici est utilisé pour définir les paramètres de configuration de diagnostic lorsque le moniteur de diagnostic démarre.  
 
-L’extension est utilisée conjointement avec d’autres produits de diagnostic Microsoft tels qu’Azure Monitor, Application Insights et Log Analytics.
+L’extension est utilisée conjointement avec d’autres produits de diagnostic Microsoft comme Azure Monitor, qui inclut l’Application Insights et Analytique de journal.
 
 
 
@@ -408,7 +408,7 @@ Les éléments PublicConfig et PrivateConfig sont séparés car, dans la plupart
 
 
 ## <a name="diagnosticsconfiguration-element"></a>Élément DiagnosticsConfiguration  
- *Arborescence : Racine - DiagnosticsConfiguration*
+ *Arborescence : Root - DiagnosticsConfiguration*
 
 Ajouté à la version 1.3.  
 
@@ -434,16 +434,16 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**WadCfg**|Requis. Consultez la description sur cette page.|  
 |**StorageAccount**|Nom du compte de stockage Azure où stocker les données. Peut également être spécifié en tant que paramètre lors de l’exécution de l’applet de commande Set-AzureServiceDiagnosticsExtension.|  
 |**StorageType**|Peut être *Table*, *Blob* ou *TableAndBlob*. Table est la valeur par défaut. Si TableAndBlob est choisi, les données de diagnostic sont écrites deux fois : une fois pour chaque type.|  
-|**LocalResourceDirectory**|Répertoire se trouvant sur la machine virtuelle sur laquelle Monitoring Agent stocke les données d’événement. S’il n’est pas défini, le répertoire par défaut est utilisé :<br /><br /> Pour un rôle Worker/web : `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Pour une machine virtuelle : `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Les attributs requis sont :<br /><br /> - **path** - Répertoire sur le système à utiliser par Azure Diagnostics.<br /><br /> - **expandEnvironment** - Contrôle si les variables d’environnement sont développées dans le nom du chemin d’accès.|  
+|**LocalResourceDirectory**|Répertoire se trouvant sur la machine virtuelle sur laquelle Monitoring Agent stocke les données d’événement. S’il n’est pas défini, le répertoire par défaut est utilisé :<br /><br /> Pour un rôle web/de travail : `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Pour une Machine virtuelle : `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Les attributs requis sont :<br /><br /> - **path** - Répertoire sur le système à utiliser par Azure Diagnostics.<br /><br /> - **expandEnvironment** - Contrôle si les variables d’environnement sont développées dans le nom du chemin d’accès.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
 
  Identifie et configure les données de télémétrie à collecter.  
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>Élément DiagnosticMonitorConfiguration
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
  Obligatoire
 
@@ -451,7 +451,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |----------------|-----------------|  
 | **overallQuotaInMB** | Quantité maximale d’espace disque local pouvant être utilisé par les différents types de données de diagnostic collectés par Azure Diagnostics. Le paramètre par défaut est 4 096 Mo.<br />
 |**useProxyServer** | Configurez Azure Diagnostics pour utiliser les paramètres de serveur proxy tels que définis dans les paramètres d’Internet Explorer.|
-|**récepteurs** | Ajouté à la version 1.5. facultatif. Pointe vers un emplacement de récepteur pour envoyer également des données de diagnostic à tous les éléments enfants qui prennent en charge les récepteurs. Des exemples de récepteur comme Application Insights ou Event Hubs.|  
+|**sinks** | Ajouté à la version 1.5. facultatif. Pointe vers un emplacement de récepteur pour envoyer également des données de diagnostic à tous les éléments enfants qui prennent en charge les récepteurs. Des exemples de récepteur comme Application Insights ou Event Hubs.|  
 
 
 <br /> <br />
@@ -460,9 +460,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**CrashDumps**|Consultez la description sur cette page.|  
 |**DiagnosticInfrastructureLogs**|Permet la collecte des journaux générés par Azure Diagnostics. Les journaux d’infrastructure de diagnostic sont utiles pour le dépannage du système de diagnostic lui-même. Les attributs facultatifs sont les suivants :<br /><br /> - **scheduledTransferLogLevelFilter** - Configure le niveau de gravité minimal des journaux collectés.<br /><br /> - **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
-|**Directories**|Consultez la description sur cette page.|  
+|**Répertoires**|Consultez la description sur cette page.|  
 |**EtwProviders**|Consultez la description sur cette page.|  
-|**Métriques**|Consultez la description sur cette page.|  
+|**Mesures**|Consultez la description sur cette page.|  
 |**PerformanceCounters**|Consultez la description sur cette page.|  
 |**WindowsEventLog**|Consultez la description sur cette page.|
 |**DockerSources**|Consultez la description sur cette page. |
@@ -470,7 +470,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="crashdumps-element"></a>Élément CrashDumps  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
 
  Permet la collecte des vidages sur incident.  
 
@@ -485,7 +485,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**CrashDumpConfiguration**|Requis. Définit les valeurs de configuration pour chaque processus.<br /><br /> L’attribut suivant est également requis :<br /><br /> **processName** - Nom du processus pour lequel vous voulez qu’Azure Diagnostics collecte un vidage sur incident.|  
 
 ## <a name="directories-element"></a>Élément Directories
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
 
  Permet la collecte du contenu d’un répertoire, des journaux de demandes d’accès ayant échouées IIS et/ou des journaux IIS.  
 
@@ -495,13 +495,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**IISLogs**|Incluez cet élément dans la configuration pour permettre la collecte des journaux IIS :<br /><br /> **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les vidages sur incident.|   
 |**FailedRequestLogs**|Incluez cet élément dans la configuration pour permettre la collecte des journaux concernant les demandes ayant échoué sur une application ou un site IIS. Vous devez également activer les options de suivi sous **system.WebServer** dans **Web.config**.|  
-|**DataSources**|Liste de répertoires à analyser.|
+|**Sources de données**|Liste de répertoires à analyser.|
 
 
 
 
 ## <a name="datasources-element"></a>Élément DataSources  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources*
 
  Liste de répertoires à analyser.  
 
@@ -514,19 +514,19 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="directoryconfiguration-element"></a>Élément DirectoryConfiguration  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
 
  Peut inclure l’élément **Absolute** ou **LocalResource**, mais pas les deux.  
 
 |Éléments enfants|Description|  
 |--------------------|-----------------|  
-|**Absolute**|Chemin d’accès absolu au répertoire à surveiller. Les attributs suivants sont requis :<br /><br /> - **Path** - Chemin d’accès absolu au répertoire à surveiller.<br /><br /> - **expandEnvironment** - Détermine si les variables d’environnement de Path sont développées.|  
+|**Absolu**|Chemin d’accès absolu au répertoire à surveiller. Les attributs suivants sont requis :<br /><br /> - **Path** - Chemin d’accès absolu au répertoire à surveiller.<br /><br /> - **expandEnvironment** - Détermine si les variables d’environnement de Path sont développées.|  
 |**LocalResource**|Chemin d’accès relatif à une ressource locale à surveiller. Les attributs requis sont :<br /><br /> - **Name** - Nom de la ressource locale contenant le répertoire à surveiller<br /><br /> - **relativePath** - Chemin d’accès relatif au nom qui contient le répertoire à surveiller|  
 
 
 
 ## <a name="etwproviders-element"></a>Élément EtwProviders  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
 
  Configure la collecte d’événements ETW issus des fournisseurs de manifeste EventSource et/ou ETW.  
 
@@ -538,29 +538,29 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
 
  Configure la collection d’événements générés à partir de la [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
 |Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Attribut facultatif :<br/><br/> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
-|**Event**|Attribut requis :<br /><br /> **id** : ID de l’événement.<br /><br /> Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
+|**Événement**|Attribut requis :<br /><br /> **id** : ID de l’événement.<br /><br /> Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
 
 
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
 |Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
-|**Event**|Attribut requis :<br /><br /> **id** : ID de l’événement.<br /><br /> Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
+|**Événement**|Attribut requis :<br /><br /> **id** : ID de l’événement.<br /><br /> Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
 
 
 
 ## <a name="metrics-element"></a>Élément Metrics  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
 
  Permet de générer une table de compteur de performance optimisée pour les requêtes rapides. Chaque compteur de performance défini dans l’élement **PerformanceCounters** est stocké dans la table Metrics et dans la table Performance Counter.  
 
@@ -573,7 +573,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="performancecounters-element"></a>Élément PerformanceCounters  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
 
  Permet la collecte des compteurs de performance.  
 
@@ -584,13 +584,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Élément enfant|Description|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Les attributs suivants sont requis :<br /><br /> - **counterSpecifier** - Nom du compteur de performance. Par exemple : `\Processor(_Total)\% Processor Time`. Pour obtenir une liste des compteurs de performances se trouvant sur votre hôte, exécutez la commande `typeperf`.<br /><br /> - **sampleRate** - Fréquence à laquelle le compteur doit être échantillonné.<br /><br /> Attribut facultatif :<br /><br /> **unit** -Unité de mesure du compteur.|
-|**récepteurs** | Ajouté à la version 1.5. facultatif. Pointe vers un emplacement de récepteur permettant d’envoyer également des données de diagnostic. Par exemple, Azure Monitor ou Event Hubs.|    
+|**sinks** | Ajouté à la version 1.5. facultatif. Pointe vers un emplacement de récepteur permettant d’envoyer également des données de diagnostic. Par exemple, Azure Monitor ou Event Hubs.|    
 
 
 
 
 ## <a name="windowseventlog-element"></a>Élément WindowsEventLog
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
 
  Permet la collecte des journaux des événements Windows.  
 
@@ -604,75 +604,75 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="logs-element"></a>Élément Logs  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
 
  Présent dans la version 1.0 et 1.1. Absent dans la version 1.2. Rajouté dans la version 1.3.  
 
  Définit la configuration de la mémoire tampon des journaux Azure de base.  
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
 |**scheduledTransferLogLevelFilter**|**string**|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut qui transfère tous les journaux est **Undefined**. Les autres valeurs possibles sont, du plus informatif au moins informatif : **Détaillé**, **Informations**, **Avertissement**, **Erreur**, **Critique**.|  
 |**scheduledTransferPeriod**|**duration**|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
-|**récepteurs** |**string**| Ajouté à la version 1.5. facultatif. Pointe vers un emplacement de récepteur permettant d’envoyer également des données de diagnostic. Par exemple, Application Insights ou Event Hubs.|  
+|**sinks** |**string**| Ajouté à la version 1.5. facultatif. Pointe vers un emplacement de récepteur permettant d’envoyer également des données de diagnostic. Par exemple, Application Insights ou Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
 
  Ajouté dans 1.9.
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**Stats**|Indique au système de collecter les statistiques pour les conteneurs Docker|  
+|**Statistiques**|Indique au système de collecter les statistiques pour les conteneurs Docker|  
 
 ## <a name="sinksconfig-element"></a>Élément SinksConfig  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
 
  Liste d’emplacements vers lesquels envoyer des données de diagnostic et la configuration associée à ces emplacements.  
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**Section sink**|Consultez la description sur cette page.|  
+|**Récepteur**|Consultez la description sur cette page.|  
 
 ## <a name="sink-element"></a>Élément Sink
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
 
  Ajouté à la version 1.5.  
 
  Définit les emplacements vers lesquels envoyer des données de diagnostic. Par exemple, le service Application Insights.  
 
-|Attribut|type|Description|  
+|Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**name**|chaîne|Chaîne identifiant le nom du récepteur.|  
+|**Nom**|string|Chaîne identifiant le nom du récepteur.|  
 
-|Élément|type|Description|  
+|Élément|Type|Description|  
 |-------------|----------|-----------------|  
-|**Application Insights**|chaîne|Utilisé uniquement lors de l’envoi de données à Application Insights. Contient la clé d’instrumentation d’un compte Application Insights actif auquel vous avez accès.|  
-|**Canaux**|chaîne|Un pour chaque filtrage supplémentaire qui diffuse cela en continu|  
+|**Application Insights**|string|Utilisé uniquement lors de l’envoi de données à Application Insights. Contient la clé d’instrumentation d’un compte Application Insights actif auquel vous avez accès.|  
+|**Canaux**|string|Un pour chaque filtrage supplémentaire qui diffuse cela en continu|  
 
 ## <a name="channels-element"></a>Élément Channels  
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
+ *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
 
  Ajouté à la version 1.5.  
 
  Définit les filtres pour les flux de données de journaux passant par un récepteur.  
 
-|Élément|type|Description|  
+|Élément|Type|Description|  
 |-------------|----------|-----------------|  
-|**Channel**|chaîne|Consultez la description sur cette page.|  
+|**Canal**|string|Consultez la description sur cette page.|  
 
 ## <a name="channel-element"></a>Élément Channel
- *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
+ *Arborescence : Chaînes de SinksConfig - récepteur - racine - DiagnosticsConfiguration - PublicConfig - WadCFG - - chaîne*
 
  Ajouté à la version 1.5.  
 
  Définit les emplacements vers lesquels envoyer des données de diagnostic. Par exemple, le service Application Insights.  
 
-|Attributs|type|Description|  
+|Attributs|Type|Description|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut qui transfère tous les journaux est **Undefined**. Les autres valeurs possibles sont, du plus informatif au moins informatif : **Détaillé**, **Informations**, **Avertissement**, **Erreur**, **Critique**.|  
-|**name**|**string**|Nom unique du canal auquel faire référence|  
+|**Nom**|**string**|Nom unique du canal auquel faire référence|  
 
 
 ## <a name="privateconfig-element"></a>Élément PrivateConfig

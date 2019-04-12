@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369528"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493057"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -118,7 +118,7 @@ La liste suivante explique cette activité en détail :
 La liste suivante explique cette activité en détail :
 
 * **Activity description** (Description de l’activité) : indique qu’un administrateur a effectué une réinitialisation de mot de passe pour le compte d’un utilisateur à partir du portail Azure.
-* **Activity actor** (Acteur de l’activité) : l’administrateur qui a effectué la réinitialisation de mot de passe pour le compte d’un autre utilisateur ou d’un administrateur. Doit être un administrateur global, un administrateur de mot de passe, administrateur de l’utilisateur ou un administrateur du support technique.
+* **Activity actor** (Acteur de l’activité) : l’administrateur qui a effectué la réinitialisation de mot de passe pour le compte d’un autre utilisateur ou d’un administrateur. Doit être un administrateur de mot de passe, un administrateur de l’utilisateur ou un administrateur du support technique.
 * **Activity target** (Cible de l’activité) : l’utilisateur dont le mot de passe a été réinitialisé. L’utilisateur peut être un utilisateur final ou un autre administrateur.
 * **Activity statuses** (États de l'activité) :
   * _Réussite_ : indique qu’un administrateur a correctement réinitialisé le mot de passe d’un utilisateur.
@@ -176,16 +176,16 @@ La liste suivante explique cette activité en détail :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](howto-sspr-deployment.md)
+* [Comment mener à bien un déploiement réussi de SSPR ?](howto-sspr-deployment.md)
 * [Réinitialisez ou modifiez votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md).
-* [Vous avez une question relative à la licence ?](concept-sspr-licensing.md)
-* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
-* [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
-* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)
-* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](howto-sspr-writeback.md)
-* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
-* [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
-* [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
+* [Vous avez une question de licence ?](concept-sspr-licensing.md)
+* [Données utilisées par SSPR et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
+* [Méthodes d’authentification sont disponibles pour les utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
+* [Quelles sont les options de stratégie avec SSPR ?](concept-sspr-policy.md)
+* [Qu’est l’écriture différée de mot de passe et Pourquoi m’y intéresser ?](howto-sspr-writeback.md)
+* [Quelles sont toutes les options dans SSPR et que signifient-elles ?](concept-sspr-howitworks.md)
+* [Je pense que quelque chose est interrompue. Comment résoudre les problèmes SSPR ?](active-directory-passwords-troubleshoot.md)
+* [J’ai une question qui a été pas trouvée de réponse ailleurs](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Exemple de journaux d’audit d’activité SSPR dans Azure AD"

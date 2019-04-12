@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: ef313ea631a963aa7893bf15e826e591c9d9cfc3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1bc8dc822622ee7b16b3e0a31e7b0b66ed7556e6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619796"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488403"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Déployer votre application sur Azure App Service avec un fichier ZIP ou WAR
 
@@ -31,7 +31,7 @@ Ce déploiement de fichier ZIP utilise le même service Kudu que celui qui pilot
 - Option pour activer le processus de génération par défaut, qui inclut la restauration de package
 - [Personnalisation du déploiement](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), notamment exécution de scripts de déploiement  
 - Journaux de déploiement 
-- Une limite de taille de 512 Mo.
+- Une limite de taille de 2 048 Mo.
 
 Pour plus d’informations, consultez la [documentation Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
@@ -118,5 +118,5 @@ Pour des scénarios de déploiement plus avancés, consultez [Déploiement Git l
 
 ## <a name="more-resources"></a>Autres ressources
 
-* [Kudu : Deploying from a zip file (Déploiement à partir d’un fichier zip)](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
+* [Kudu : Déploiement à partir d’un fichier zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Informations d’identification du déploiement d’Azure App Service](deploy-ftp.md)

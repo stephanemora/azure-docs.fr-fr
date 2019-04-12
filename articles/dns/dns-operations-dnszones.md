@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: victorh
-ms.openlocfilehash: 2cdf6ea0a992c996f4aeeb117c440e94b55ff8a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 2d3bb37998a037dcb878a988d4aa01245584ca82
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961958"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496418"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Gestion des zones DNS à l'aide de PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "46961958"
 > * [Portail](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Azure Classic CLI](dns-operations-dnszones-cli-nodejs.md)
-> * [Interface de ligne de commande Azure](dns-operations-dnszones-cli.md)
+> * [Azure CLI](dns-operations-dnszones-cli.md)
 
 Cet article vous montre comment gérer vos zones DNS avec Azure PowerShell. Vous pouvez également gérer vos zones DNS à l’aide de [l’interface de ligne de commande Azure](dns-operations-dnszones-cli.md) multiplateforme ou du portail Azure.
 
@@ -166,7 +166,7 @@ Les invites `New-AzureRmDnsZone` et `Set-AzureRmDnsZone` demandent une confirmat
 
 Vous pouvez remplacer le paramétrage actuel de `$ConfirmPreference` par le paramètre `-Confirm`. Si vous spécifiez les paramètres `-Confirm` ou `-Confirm:$True`, les applets de commande vous invitent à confirmer l’exécution. Si vous spécifiez le paramètre `-Confirm:$False`, l’applet de commande ne demande pas de confirmation.
 
-Pour plus d’informations sur les paramètres `-Confirm` et `$ConfirmPreference`, voir [À propos des variables de préférence](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+Pour plus d’informations sur les paramètres `-Confirm` et `$ConfirmPreference`, voir [À propos des variables de préférence](/powershell/module/microsoft.powershell.core/about/about_preference_variables.1).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

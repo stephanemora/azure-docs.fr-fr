@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439294"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501360"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
 
@@ -98,7 +98,7 @@ Ces instructions concernent la création de l’exemple sur un système Windows
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    Pour le moment, ce référentiel a une taille d’environ 220 Mo. Attendez-vous à ce que cette opération prenne plusieurs minutes.
+    Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
 1. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier.
 
@@ -242,7 +242,7 @@ Pour mettre à jour la configuration d’échantillonnage du traçage distribué
 
 | Nom de l'élément | Obligatoire | Type | Description |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Oui | Entier  | Deux valeurs de mode sont prises en charge pour activer et désactiver l’échantillonnage. `1` signifie Activé et `2` signifie Désactivé. |
+| `sampling_mode` | Oui | Entier  | Deux valeurs de mode sont prises en charge pour activer et désactiver l’échantillonnage. `1` se trouve sur et, `2` est désactivé. |
 | `sampling_rate` | Oui | Entier  | Cette valeur est un pourcentage. Seules les valeurs de `0` à `100` (inclus) sont autorisées.  |
 
 ## <a name="query-and-visualize"></a>Interroger et visualiser
@@ -276,7 +276,7 @@ Pour connaître les différents types de journaux, consultez [Journaux de diagno
 Pour visualiser le flux de messages IoT, configurez l’exemple d’application Application Map. L’exemple d’application envoie les journaux de traçage distribué à [Application Map](../application-insights/app-insights-app-map.md) à l’aide d’une fonction Azure et d’un hub d’événements.
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obtenir cet exemple sur GitHub</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obtenir l’exemple sur Github</a>
 
 L’image ci-dessous montre un traçage distribué dans Application Map, avec trois points de terminaison de routage :
 

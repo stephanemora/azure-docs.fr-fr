@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358283"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59497064"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans la base de données SQL Azure
 
@@ -40,9 +40,9 @@ Une instance gérée est une plateforme en tant qu’une offre de service (PaaS)
 
 Certaines opérations lancées par les utilisateurs finaux ou les applications peuvent nécessiter de SQL Server managed instances pour interagir avec la plateforme. Un cas est la création d’une base de données d’instance gérée. Cette ressource est exposée via le portail Azure, PowerShell, Azure CLI et l’API REST.
 
-Instances managées dépendent des services Azure tels que le stockage Azure pour les sauvegardes, Azure Service Bus pour la télémétrie, Azure Active Directory pour l’authentification et d’Azure Key Vault pour Transparent Data Encryption (TDE). Les instances gérées établissent des connexions à ces services.
+Instances managées dépendent des services Azure tels que le stockage Azure pour les sauvegardes, Azure Event Hubs pour les données de télémétrie, Azure Active Directory pour l’authentification, Azure Key Vault pour Transparent Data Encryption (TDE) et deux services de plateforme Azure qui fournissent fonctionnalités de sécurité et de prise en charge. Les instances gérées établit des connexions à ces services.
 
-Toutes les communications utilisent des certificats pour le chiffrement et signature. Pour vérifier la fiabilité des correspondants, managé instances vérifier en permanence ces certificats en contactant une autorité de certification. Si les certificats sont révoqués ou ne peut pas être vérifiées, l’instance gérée ferme les connexions pour protéger les données.
+Toutes les communications sont chiffrées et signés à l’aide de certificats. Pour vérifier la fiabilité des correspondants, managé instances vérifier en permanence ces certificats par le biais des listes de révocation de certificats. Si les certificats sont révoqués, l’instance gérée ferme les connexions pour protéger les données.
 
 ## <a name="high-level-connectivity-architecture"></a>Architecture de la connectivité globale
 
@@ -50,7 +50,7 @@ Toutes les communications utilisent des certificats pour le chiffrement et signa
 
 Un cluster virtuel peut héberger plusieurs instances gérées. Si nécessaire, le cluster se développe automatiquement ou les contrats lorsque le client change le nombre d’instances approvisionnés dans le sous-réseau.
 
-Les applications client peuvent se connecter à des instances gérées et peuvent interroger et bases de données de mise à jour uniquement si elles s’exécutent au sein du réseau virtuel, virtuel homologué réseau, ou connecté par VPN ou Azure ExpressRoute. Ce réseau doit utiliser un point de terminaison et une adresse IP privée.  
+Les applications client peuvent se connecter à des instances gérées et peuvent interroger et mettre à jour des bases de données à l’intérieur du réseau virtuel, un réseau virtuel homologué, ou un réseau connecté par VPN ou Azure ExpressRoute. Ce réseau doit utiliser un point de terminaison et une adresse IP privée.  
 
 ![Diagramme d’architecture de connectivité](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
@@ -80,14 +80,14 @@ Microsoft gère l’instance gérée à l’aide d’un point de terminaison de 
 Lorsque connexions commencent à l’intérieur de l’instance gérée (comme avec les sauvegardes et les journaux d’audit), le trafic s’affiche pour démarrer à partir de l’adresse IP du point de terminaison gestion. Vous pouvez limiter l’accès aux services publics à partir d’une instance gérée en définissant des règles de pare-feu pour autoriser uniquement les adresse IP de l’instance gérée. Pour plus d’informations, consultez [Vérifiez le pare-feu intégré de l’instance gérée](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Contrairement aux pare-feu pour les connexions qui démarrent à l’intérieur de l’instance gérée, les services Azure qui se trouvent dans la région de l’instance managée ont un pare-feu qui est optimisé pour le trafic qui transite entre ces services.
+> Le trafic qui accède à des services Azure qui se trouvent dans la région de l’instance managée est optimisé et pour cette raison pas transformée en adresse IP publique d’instance managées management point de terminaison. C’est pourquoi si vous devez utiliser des règles de pare-feu basé sur IP, plus souvent pour le stockage, service doit être dans une autre région à partir de l’instance gérée.
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
 
 Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du réseau virtuel. Le sous-réseau doit avoir les caractéristiques suivantes :
 
 - **Sous-réseau dédié :** Sous-réseau de l’instance managée ne peut pas contenir n’importe quel autre service cloud qui est associé, et il ne peut pas être un sous-réseau de passerelle. Le sous-réseau ne peut pas contenir n’importe quelle ressource, mais l’instance gérée, et vous ne pouvez pas ajouter ultérieurement de ressources dans le sous-réseau.
-- **Groupe de sécurité réseau :** Un groupe de sécurité réseau associé avec le réseau virtuel doit définir [règles de sécurité entrantes](#mandatory-inbound-security-rules) et [règles de sécurité sortantes](#mandatory-outbound-security-rules) avant toute autre règle. Vous pouvez utiliser un groupe de sécurité réseau pour contrôler l’accès au point de terminaison de données de l’instance gérée en filtrant le trafic sur le port 1433.
+- **Groupe de sécurité réseau :** Un groupe de sécurité réseau associé avec le réseau virtuel doit définir [règles de sécurité entrantes](#mandatory-inbound-security-rules) et [règles de sécurité sortantes](#mandatory-outbound-security-rules) avant toute autre règle. Vous pouvez utiliser un groupe de sécurité réseau pour contrôler l’accès au point de terminaison de données de l’instance gérée en filtrant le trafic sur le port 1433 et ports 11000-11999 lors de l’instance managée est configuré pour rediriger les connexions.
 - **Table d’itinéraire défini (UDR) utilisateur :** Une table d’UDR associé avec le réseau virtuel doit inclure spécifique [entrées](#user-defined-routes).
 - **Aucun point de terminaison de service :** Aucun point de terminaison de service ne doit être associé à sous-réseau de l’instance gérée. Assurez-vous que l’option de points de terminaison de service est désactivée lorsque vous créez le réseau virtuel.
 - **Suffisamment d’adresses IP :** Le sous-réseau de l’instance managée doit avoir au moins 16 adresses IP. La valeur minimale recommandée est de 32 adresses IP. Pour plus d’informations, consultez [déterminer la taille du sous-réseau pour les instances gérées](sql-database-managed-instance-determine-size-vnet-subnet.md). Vous pouvez déployer des instances gérées dans [le réseau existant](sql-database-managed-instance-configure-vnet-subnet.md) après avoir configuré les satisfaire [la configuration réseau requise pour les instances gérées](#network-requirements). Sinon, créez un [nouveau réseau et sous-réseau](sql-database-managed-instance-create-vnet-subnet.md).
@@ -99,19 +99,19 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 | Nom       |Port                        |Protocole|Source           |Destination|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gestion  |9000, 9003, 1438, 1440, 1452|TCP     |Quelconque              |Quelconque        |AUTORISER |
-|mi_subnet   |Quelconque                         |Quelconque     |SOUS-RÉSEAU MI        |Quelconque        |AUTORISER |
-|health_probe|Quelconque                         |Quelconque     |AzureLoadBalancer|Quelconque        |AUTORISER |
+|gestion  |9000, 9003, 1438, 1440, 1452|TCP     |Quelconque              |SOUS-RÉSEAU MI  |AUTORISER |
+|mi_subnet   |Quelconque                         |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |AUTORISER |
+|health_probe|Quelconque                         |Quelconque     |AzureLoadBalancer|SOUS-RÉSEAU MI  |AUTORISER |
 
 ### <a name="mandatory-outbound-security-rules"></a>Règles de sécurité du trafic sortant obligatoires
 
 | Nom       |Port          |Protocole|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
-|gestion  |80, 443, 12000|TCP     |Quelconque              |AzureCloud  |AUTORISER |
-|mi_subnet   |Quelconque           |Quelconque     |Quelconque              |SOUS-RÉSEAU MI *  |AUTORISER |
+|gestion  |80, 443, 12000|TCP     |SOUS-RÉSEAU MI        |AzureCloud |AUTORISER |
+|mi_subnet   |Quelconque           |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |AUTORISER |
 
 > [!IMPORTANT]
-> Vérifiez qu’il n'existe qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440, 1452 et une règle de trafic sortant pour les ports 80, 443, 12000. L’approvisionnement Instance gérés via les déploiements ARM échoue si les règles de trafic entrants et de sortie sont configurés séparément pour chaque port. Si ces ports sont dans des règles distinctes, le déploiement échoue avec le code d’erreur `VnetSubnetConflictWithIntendedPolicy`
+> Vérifiez qu’il n'existe qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440, 1452 et une règle de trafic sortant pour les ports 80, 443, 12000. Managed Instance approvisionnement via Azure Resource Manager déploiements échouent si les règles de trafic entrants et de sortie sont configurés séparément pour chaque port. Si ces ports sont dans des règles distinctes, le déploiement échoue avec le code d’erreur `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI sous-réseau fait référence à la plage d’adresses IP pour le sous-réseau dans le formulaire 10.x.x.x/y. Vous pouvez trouver ces informations dans le portail Azure, dans les propriétés du sous-réseau.
 
@@ -124,43 +124,111 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 |Nom|Préfixe de l’adresse|Tronçon suivant|
 |----|--------------|-------|
-|subnet_to_vnetlocal|[mi_subnet]|Réseau virtuel|
-|mi-0-5-next-hop-internet|0.0.0.0/5|Internet|
-|mi-11-8-nexthop-internet|11.0.0.0/8|Internet|
-|mi-12-6-nexthop-internet|12.0.0.0/6|Internet|
-|mi-128-3-nexthop-internet|128.0.0.0/3|Internet|
-|mi-16-4-nexthop-internet|16.0.0.0/4|Internet|
-|mi-160-5-nexthop-internet|160.0.0.0/5|Internet|
-|mi-168-6-nexthop-internet|168.0.0.0/6|Internet|
-|mi-172-12-nexthop-internet|172.0.0.0/12|Internet|
-|mi-172-128-9-nexthop-internet|172.128.0.0/9|Internet|
-|mi-172-32-11-nexthop-internet|172.32.0.0/11|Internet|
-|mi-172-64-10-nexthop-internet|172.64.0.0/10|Internet|
-|mi-173-8-nexthop-internet|173.0.0.0/8|Internet|
-|mi-174-7-nexthop-internet|174.0.0.0/7|Internet|
-|mi-176-4-nexthop-internet|176.0.0.0/4|Internet|
-|mi-192-128-11-nexthop-internet|192.128.0.0/11|Internet|
-|mi-192-160-13-nexthop-internet|192.160.0.0/13|Internet|
-|mi-192-169-16-nexthop-internet|192.169.0.0/16|Internet|
-|mi-192-170-15-nexthop-internet|192.170.0.0/15|Internet|
-|mi-192-172-14-nexthop-internet|192.172.0.0/14|Internet|
-|mi-192-176-12-nexthop-internet|192.176.0.0/12|Internet|
-|mi-192-192-10-nexthop-internet|192.192.0.0/10|Internet|
-|mi-192-9-nexthop-internet|192.0.0.0/9|Internet|
-|mi-193-8-nexthop-internet|193.0.0.0/8|Internet|
-|mi-194-7-nexthop-internet|194.0.0.0/7|Internet|
-|mi-196-6-nexthop-internet|196.0.0.0/6|Internet|
-|mi-200-5-nexthop-internet|200.0.0.0/5|Internet|
-|mi-208-4-nexthop-internet|208.0.0.0/4|Internet|
-|mi-224-3-nexthop-internet|224.0.0.0/3|Internet|
-|mi-32-3-nexthop-internet|32.0.0.0/3|Internet|
-|mi-64-2-nexthop-internet|64.0.0.0/2|Internet|
-|mi-8-7-nexthop-internet|8.0.0.0/7|Internet|
+|subnet_to_vnetlocal|SOUS-RÉSEAU MI|Réseau virtuel|
+|mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
+|mi-13-96-13-nexthop-internet|13.96.0.0/13|Internet|
+|mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
+|mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
+|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
+|mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
+|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
+|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
+|mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
+|mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
+|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
+|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
+|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
+|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
+|mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
+|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
+|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
+|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
+|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
+|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
+|mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
+|mi-104-146-15-nexthop-internet|104.146.0.0/15|Internet|
+|mi-104-208-13-nexthop-internet|104.208.0.0/13|Internet|
+|mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
+|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
+|mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
+|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
+|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
+|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
+|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
+|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
+|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
+|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
+|mi-138-196-16-nexthop-internet|138.196.0.0/16|Internet|
+|mi-139-217-16-nexthop-internet|139.217.0.0/16|Internet|
+|mi-139-219-16-nexthop-internet|139.219.0.0/16|Internet|
+|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
+|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
+|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
+|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
+|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
+|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
+|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
+|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
+|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
+|mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
+|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
+|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
+|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
+|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
+|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
+|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
+|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
+|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
+|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
+|mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
+|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
+|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
+|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
+|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
+|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
+|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
+|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
+|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
+|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
+|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|Internet|
+|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
+|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
+|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
+|mi-204-13-120-21-nexthop-internet|204.13.120.0/21|Internet|
+|mi-204-14-180-22-nexthop-internet|204.14.180.0/22|Internet|
+|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|Internet|
+|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|Internet|
+|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|Internet|
+|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|Internet|
+|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|Internet|
+|mi-204-79-196-23-nexthop-internet|204.79.196.0/23|Internet|
+|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|Internet|
+|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|Internet|
+|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
+|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|Internet|
+|mi-204-231-194-23-nexthop-internet|204.231.194.0/23|Internet|
+|mi-204-231-197-24-nexthop-internet|204.231.197.0/24|Internet|
+|mi-204-231-198-23-nexthop-internet|204.231.198.0/23|Internet|
+|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
+|mi-204-231-208-20-nexthop-internet|204.231.208.0/20|Internet|
+|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|Internet|
+|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
+|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
+|mi-206-191-224-19-nexthop-internet|206.191.224.0/19|Internet|
+|mi-207-46-16-nexthop-internet|207.46.0.0/16|Internet|
+|mi-207-68-128-18-nexthop-internet|207.68.128.0/18|Internet|
+|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
+|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
+|mi-208-84-21-nexthop-internet|208.84.0.0/21|Internet|
+|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
+|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
+|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
+|mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
 ||||
 
 En outre, vous pouvez ajouter des entrées à la table de routage pour acheminer le trafic qui a des plages d’adresses IP privées en local en tant que destination via la passerelle de réseau virtuel ou d’une appliance de réseau virtuel (NVA).
 
-Si le réseau virtuel comprend un DNS personnalisé, ajoutez une entrée pour l’adresse du programme de résolution récursive d’Azure (168.63.129.16). Pour plus d’informations, consultez [configurer un DNS personnalisé](sql-database-managed-instance-custom-dns.md). Le serveur DNS personnalisé doit être en mesure de résoudre les noms d’hôte dans ces domaines et leurs sous-domaines : *microsoft.com*, *windows.net*, *windows.com*,  *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, et *microsoftonline-p.com*.
+Si le réseau virtuel comprend un DNS personnalisé, le serveur DNS personnalisé doit être en mesure de résoudre les noms d’hôte en \*. core.windows.net zone. À l’aide des fonctionnalités supplémentaires telles que l’authentification Azure AD peut nécessiter la résolution de noms de domaine complets supplémentaires. Pour plus d’informations, consultez [configurer un DNS personnalisé](sql-database-managed-instance-custom-dns.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -171,4 +239,4 @@ Si le réseau virtuel comprend un DNS personnalisé, ajoutez une entrée pour l�
   - À partir du [portail Azure](sql-database-managed-instance-get-started.md).
   - À l’aide de [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - À l’aide de [un modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - À l’aide de [un modèle Azure Resource Manager (à l’aide du serveur de rebond, avec SSMS inclus)](https://portal.azure.com/).
+  - À l’aide de [un modèle Azure Resource Manager (à l’aide du serveur de rebond, avec SSMS inclus)](https://portal.azure.com/). 

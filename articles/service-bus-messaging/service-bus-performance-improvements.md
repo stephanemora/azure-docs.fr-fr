@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848570"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501635"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
 
@@ -127,6 +127,19 @@ La lecture anticipée de messages augmente le débit global d’un abonnement ou
 La propriété (TTL) de durée de vie d’un message est vérifiée par le serveur au moment où le serveur envoie le message au client. Le client ne vérifie pas la propriété TTL de durée de vie du message à la réception du message. Toutefois, le message peut être reçu même si la durée de vie du message a été dépassée pensant la mise en mémoire cache par le client.
 
 La lecture anticipée n’affecte pas le nombre d’opérations de messagerie facturables et est disponible uniquement pour le protocole client Service Bus. Le protocole HTTP ne prend pas en charge la lecture anticipée. La lecture anticipée est disponible pour les opérations de réception synchrones et asynchrones.
+
+## <a name="prefetching-and-receivebatch"></a>La lecture anticipée et ReceiveBatch
+
+Tandis que les concepts de la lecture anticipée de plusieurs messages ensemble ont une sémantique similaire au traitement des messages dans un lot (ReceiveBatch), il existe quelques différences mineures qui doivent être conservés à l’esprit quand vous tirez parti de ces éléments.
+
+La prérécupération est une configuration (ou le mode) sur le client (QueueClient et SubscriptionClient) et ReceiveBatch est une opération (ce qui a une sémantique requête-réponse).
+
+Lors de l’utilisation de ces éléments, envisagez les cas suivants :
+
+* La prérécupération doit être supérieur ou égal au nombre de messages que vous attendez à recevoir de ReceiveBatch.
+* Lecture anticipée peut être jusqu'à n/3 par le nombre de messages traités par seconde, où n est la durée de verrouillage par défaut.
+
+Il existe quelques problèmes avec ayant un gourmand approche (par exemple, en conservant le nombre de lectures anticipées très élevé), car cela implique que le message est verrouillé à un destinataire particulier. La recommandation consiste à essayer d’out Prérécupérer des valeurs entre les seuils mentionnés ci-dessus et empirique identifier ce que peut contenir.
 
 ## <a name="multiple-queues"></a>Files d’attente multiples
 

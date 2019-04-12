@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/09/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48142961e4b6714090441b24e4bd6ca07afaf598
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: df0593faaf8b68c793a65312b208fe858804db53
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622244"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496279"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -71,9 +71,9 @@ Les rôles d’administrateur disponibles sont les suivants :
 
   Dans | Peut
   ----- | ----------
-  [Centre de conformité Microsoft 365](https://protection.microsoft.com) | Protéger et gérer les données de votre organisation au sein des services Microsoft 365<br>Gérer les alertes de conformité
+  [Centre de conformité de Microsoft 365](https://protection.microsoft.com) | Protéger et gérer les données de votre organisation au sein des services Microsoft 365<br>Gérer les alertes de conformité
   [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Suivre, affecter et vérifier les activités de conformité réglementaire de votre organisation
-  [Centre de sécurité et conformité Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gérer la gouvernance des données<br>Procéder à l'examen juridique des données<br>Gérer une requête d'objet de données
+  [Centre de sécurité et conformité Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gérer la gouvernance des données<br>Procéder à l'examen juridique des données<br>Gérer une requête d'objet de données
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Afficher toutes les données d’audit Intune
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Dispose d'autorisations en lecture seule et peut gérer les alertes<br>Peut créer et modifier les stratégies de fichier et autoriser des actions de gouvernance de fichier<br> Peut afficher tous les rapports intégrés sous Gestion des données
 
@@ -96,7 +96,7 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **[Administrateurs d’appareils](#device-administrators)**  : Ce rôle peut uniquement être attribué comme administrateur local supplémentaire dans [Paramètres de l’appareil](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Les utilisateurs dotés de ce rôle deviennent des administrateurs de l'ordinateur local pour tous les appareils Windows 10 qui sont joints à Azure Active Directory. Ils ne peuvent pas gérer des objets appareil dans Azure Active Directory. 
 
-* **[Lecteurs de répertoire](#directory-readers)**  : Il s’agit d’un rôle hérité qui doit être attribué aux applications ne prenant pas en charge le [framework de consentement](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Vous ne devez pas l’affecter à tous les utilisateurs.
+* **[Lecteurs de répertoire](#directory-readers)**  : Il s’agit d’un rôle qui doit être attribué à des applications uniquement à héritées ne prenant pas en charge la [infrastructure de consentement](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Ne pas attribuer aux utilisateurs.
 
 * **[Comptes de synchronisation d’annuaires](#directory-synchronization-accounts)**  : Ne pas utiliser. Ce rôle est automatiquement attribué au service Azure AD Connect et n’est pas prévu ni pris en charge pour une autre utilisation.
 
@@ -170,16 +170,16 @@ Les rôles d’administrateur disponibles sont les suivants :
   
   Dans | Peut
   --- | ---
-  [Centre de sécurité Microsoft 365](https://protection.microsoft.com) | Surveiller les stratégies de sécurité au sein des services Microsoft 365<br>Gérer les menaces et les alertes liées à la sécurité<br>Afficher des rapports
+  [Centre de sécurité Microsoft 365](https://protection.microsoft.com) | Surveiller les stratégies de sécurité au sein des services Microsoft 365<br>Gérer les menaces et les alertes liées à la sécurité<br>Afficher des rapports
   Identity Protection Center | Toutes les autorisations du rôle lecteur de sécurité<br>En outre, possibilité d’effectuer toutes les opérations du centre de protection de l'identité, à l’exception de la réinitialisation des mots de passe.
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Toutes les autorisations du rôle lecteur de sécurité<br>**Ne peut pas** gérer les attributions de rôles Azure AD ou les paramètres
-  [Centre de sécurité et conformité Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gérer les stratégies de sécurité<br>Afficher, examiner et répondre aux menaces de sécurité<br>Afficher des rapports
+  [Centre de sécurité et conformité Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gérer les stratégies de sécurité<br>Afficher, examiner et répondre aux menaces de sécurité<br>Afficher des rapports
   Azure Advanced Threat Protection | Surveiller et répondre aux activités de sécurité suspectes
   Windows Defender ATP et EDR | Attribuer des rôles<br>Gérer des groupes de machines<br>Configurer la détection des menaces liées aux points de terminaison et leur correction automatisée<br>Afficher, examiner et répondre aux alertes
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Affiche des informations relatives à l'utilisateur, l'appareil, l'inscription, la configuration et l'application<br>Ne peut apporter de modifications à Intune
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Ajouter des administrateurs, des stratégies et des paramètres, charger des journaux et effectuer des actions de gouvernance
-  [Centre de sécurité Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | peut afficher les stratégies de sécurité, les états de sécurité, les alertes et les recommandations, et ignorer les alertes et les recommandations
-  [Office 365 Service Health](https://docs.microsoft.com/office365/enterprise/view-service-health) | Afficher l’intégrité des services Office 365
+  [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | peut afficher les stratégies de sécurité, les états de sécurité, les alertes et les recommandations, et ignorer les alertes et les recommandations
+  [L’intégrité du service Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Afficher l’intégrité des services Office 365
 
 <!--* **[Security operator](#security-operator)**: Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management, as well as the ability to read Azure Active Directory sign-in reports and audit logs, and in Office 365 Security & Compliance Center.
 
@@ -198,15 +198,15 @@ Les rôles d’administrateur disponibles sont les suivants :
 
   Dans | Peut
   --- | ---
-  [Centre de sécurité Microsoft 365](https://protection.microsoft.com) | Afficher les stratégies de sécurité au sein des services Microsoft 365<br>Afficher les menaces et les alertes liées à la sécurité<br>Afficher des rapports
+  [Centre de sécurité Microsoft 365](https://protection.microsoft.com) | Afficher les stratégies de sécurité au sein des services Microsoft 365<br>Afficher les menaces et les alertes liées à la sécurité<br>Afficher des rapports
   Identity Protection Center | Lire tous les rapports de sécurité et informations de paramètres pour les fonctionnalités de sécurité<br><ul><li>Anti-spam<li>Chiffrement<li>Prévention contre la perte de données<li>Anti-programme malveillant<li>Détection avancée des menaces<li>Anti-hameçonnage<li>Règles du flux de messagerie
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | A un accès en lecture seule à toutes les informations disponibles dans Azure AD PIM : Stratégies et rapports pour les attributions de rôle Azure AD, révisions de sécurité et prochainement accès en lecture aux données et rapports de stratégie pour les scénarios en plus de l’attribution de rôle Azure AD.<br>**Ne peut pas** s’inscrire auprès d’AD PIM ou y apporter des modifications. Dans le portail PIM ou via PowerShell, un membre de ce rôle permettre activer des rôles supplémentaires (par exemple, administrateur général ou administrateur de rôle privilégié), si l’utilisateur est éligible pour eux.
-  [Centre de sécurité et conformité Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Afficher les stratégies de sécurité<br>Afficher et examiner les menaces de sécurité<br>Afficher des rapports
+  [Centre de sécurité et conformité Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Afficher les stratégies de sécurité<br>Afficher et examiner les menaces de sécurité<br>Afficher des rapports
   Windows Defender ATP et EDR | Afficher et examiner les alertes
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Affiche des informations relatives à l'utilisateur, l'appareil, l'inscription, la configuration et l'application. Ne peut pas apporter de modifications à Intune.
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Dispose d'autorisations en lecture seule et peut gérer les alertes
-  [Centre de sécurité Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | peut afficher les recommandations et les alertes, afficher les stratégies de sécurité, afficher les états de la sécurité, mais ne peut pas apporter des modifications
-  [Office 365 Service Health](https://docs.microsoft.com/office365/enterprise/view-service-health) | Afficher l’intégrité des services Office 365
+  [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | peut afficher les recommandations et les alertes, afficher les stratégies de sécurité, afficher les états de la sécurité, mais ne peut pas apporter des modifications
+  [L’intégrité du service Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Afficher l’intégrité des services Office 365
 
 * **[Administrateur de support de service](#service-support-administrator)**  : Les utilisateurs disposant de ce rôle peuvent ouvrir les demandes de support auprès de Microsoft pour les services Azure et Office 365 et le tableau de bord de service et le message center dans les vues le [Azure portal](https://portal.azure.com) et [centre d’administration Microsoft 365](https://admin.microsoft.com). Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
@@ -883,7 +883,7 @@ Peut gérer tous les aspects du produit Power BI.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 
-### <a name="privileged-authentication-administrator"></a>Administrateur d'authentification privilégié
+### <a name="privileged-authentication-administrator"></a>Administrateur d’authentification privilégié
 Autorisé à afficher, définir et réinitialiser les informations de méthode d'authentification pour tout utilisateur (administrateur ou non administrateur).
 
 | **Actions** | **Description** |
@@ -1127,7 +1127,7 @@ DisplayName du graphique | Nom complet du portail Azure | directoryRoleTemplateI
 ----------------- | ------------------------- | -------------------------
 Administrateur d’application | Administrateur d’application | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Développeur d’applications | Développeur d’applications | CF1C38E5-3621-4004-A7CB-879624DCED7C
-Administrateur d’authentification | Administrateur d'authentification | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Administrateur d’authentification | Administrateur d’authentification | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Administrateur de facturation | Administrateur de facturation | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Administrateur Desktop Analytics | Administrateur Desktop Analytics | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Administrateur d'applications cloud | Administrateur d’application cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
@@ -1142,7 +1142,7 @@ Jonction d’appareils | Jonction d’appareils | 9c094953-4995-41c8-84c8-3ebb9b
 Gestionnaires d’appareils | Gestionnaires d’appareils | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Utilisateurs d’appareils | Utilisateurs d’appareils | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Lecteurs de répertoires | Lecteurs d’annuaires | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
-Comptes de synchronisation d’annuaires | Comptes de synchronisation d'annuaires | d29b2b05-8046-44ba-8758-1e26182fcf32
+Comptes de synchronisation d’annuaires | Comptes de synchronisation d’annuaires | d29b2b05-8046-44ba-8758-1e26182fcf32
 Enregistreurs de répertoire | Enregistreurs de répertoire | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrateur de services Exchange | Administrateur Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Inviteur | Inviteur d’invités | 95e79109-95c0-4d8e-aee3-d01accf2d47b
@@ -1155,7 +1155,7 @@ Lecteur du Centre de messages | Lecteur du Centre de messages | 790c1fb9-7f7d-4f
 Prise en charge de niveau 1 de partenaire | Prise en charge de niveau 1 de partenaire | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Prise en charge de niveau 2 de partenaire | Prise en charge de niveau 2 de partenaire | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Administrateur du service Power BI | Administrateur Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
-Administrateur d'authentification privilégié | Administrateur d'authentification privilégié | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
+Administrateur d’authentification privilégié | Administrateur d’authentification privilégié | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Administrateur de rôle privilégié | Administrateur de rôle privilégié | e8611ab8-c189-46e8-94e1-60213ab1f814
 Lecteur de rapports | Lecteur de rapports | 4a5d8f65-41da-4de4-8968-e035b65339cf
 Security Administrator | Administrateur de sécurité | 194ae4cb-b126-40b2-bd5b-6091b380977d

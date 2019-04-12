@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199628"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492343"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurer le transit par passerelle VPN pour l’homologation de réseaux virtuels
 
@@ -37,9 +37,6 @@ Deux scénarios sont décrits dans le présent document :
 1. Les deux réseaux virtuels utilisent le modèle de déploiement Resource Manager
 2. Le réseau virtuel spoke utilise le modèle de déploiement Classic et le réseau virtuel hub avec la passerelle utilise le modèle Resource Manager
 
-> [!IMPORTANT]  
-> Transit de passerelle est actuellement pris en charge avec l’homologation de réseaux virtuels mondiaux en version préliminaire. La version préliminaire est disponible dans toutes les régions Azure, les régions de cloud de Chine et les régions de cloud de gouvernement, mais pas dans les clouds. Aucune mise en liste verte n’est nécessaire. Vous pouvez tester en version préliminaire via l’interface CLI, PowerShell, des modèles ou des API. Portail n’est pas pris en charge dans la version préliminaire. 
-
 ## <a name="requirements"></a>Configuration requise
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -54,8 +51,8 @@ L’exemple présenté dans ce document requiert la création des ressources sui
 Consultez les documents suivants pour connaître les procédures associées :
 
 1. [Créer une passerelle VPN dans un réseau virtuel](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [Créer une homologation de réseaux virtuels présentant le même modèle de déploiement](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [Créer une homologation de réseaux virtuels présentant des modèles de déploiement différents](../virtual-network/create-peering-different-deployment-models.md)
+2. [Créer une homologation de réseau virtuel avec le même modèle de déploiement](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [Créer l’homologation de réseaux virtuels avec différents modèles de déploiement](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>Autorisations
 
@@ -66,7 +63,7 @@ Les comptes que vous utilisez pour créer une homologation de réseaux virtuels 
 |Hub-RM|Gestionnaire de ressources|[Contributeur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Classique|[Contributeur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|S.O.|
 |Spoke-Classic|Gestionnaire de ressources|[Contributeur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Classique|[Collaborateur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+||Classique|[Contributeur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 Apprenez-en davantage sur les [rôles intégrés](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) et l’affectation d’autorisations spécifiques aux [rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Gestionnaire des ressources uniquement).
 

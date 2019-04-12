@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: genli
-ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630468"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492377"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
 
@@ -31,7 +31,7 @@ Cet article répertorie les problèmes de connexion de point à site courants qu
 
 Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide du client VPN, vous recevez le message d’erreur suivant :
 
-**Impossible de trouver un certificat qui peut être utilisé avec le protocole EAP (Extensible Authentication Protocol). (Erreur 798)**
+**Un certificat est introuvable qui peut être utilisé avec ce protocole d’authentification Extensible. (Erreur 798)**
 
 ### <a name="cause"></a>Cause :
 
@@ -58,13 +58,42 @@ Pour en savoir plus sur la façon d’installer le certificat client, consultez 
 > [!NOTE]
 > Lorsque vous importez le certificat client, ne sélectionnez pas l’option **Activer la protection renforcée par clé privée**.
 
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie car le serveur distant ne répond pas
+
+### <a name="symptom"></a>Symptôme
+
+Lorsque vous essayez et vous connecter à un gteway de réseau virtuel Azure à l’aide d’IKEv2 sur Windows, vous obtenez le message d’erreur suivant :
+
+**La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie car le serveur distant ne répond pas**
+
+### <a name="cause"></a>Cause :
+ 
+ Le problème se produit si la version de Windows n’a pas de prise en charge de la fragmentation IKE
+ 
+### <a name="solution"></a>Solution
+
+Le protocole IKEv2 est pris en charge sur Windows 10 et Server 2016. Toutefois, pour pouvoir utiliser le protocole IKEv2, vous devez installer les mises à jour et définir une valeur de clé de Registre localement. Les versions du système d’exploitation antérieures à Windows 10 ne sont pas prises en charge et ne peuvent utiliser que SSTP.
+
+Pour préparer Windows 10 ou Server 2016 pour IKEv2 :
+
+1. Installez la mise à jour.
+
+   | Version du SE | Date | Nombre/lien |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 version 1607 | 17 janvier 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 version 1703 | 17 janvier 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 version 1709 | 22 mars 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. Définissez la valeur de clé de Registre. Créer ou de définir la clé REG_DWORD « HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload » sur 1 dans le Registre.
+
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Erreur du client VPN : le message reçu était inattendu ou mis en forme de façon incorrecte
 
 ### <a name="symptom"></a>Symptôme
 
 Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide du client VPN, vous recevez le message d’erreur suivant :
 
-**Le message reçu était inattendu ou formaté de façon incorrecte. (Erreur 0x80090326)**
+**Le message reçu était inattendu ou formaté. (Erreur 0x80090326)**
 
 ### <a name="cause"></a>Cause :
 
@@ -87,7 +116,7 @@ Pour résoudre ce problème, effectuez les opérations suivantes :
 
 Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide du client VPN, vous recevez le message d’erreur suivant :
 
-**Une chaîne de certificats a été traitée mais s’est terminée par un certificat racine qui n’est pas approuvé par le fournisseur d’approbation.**
+**Une chaîne de certificat traitée mais s’est terminée par un certificat racine qui n’est pas approuvé par le fournisseur d’approbation.**
 
 ### <a name="solution"></a>Solution
 
@@ -107,7 +136,7 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 Vous recevez le message d’erreur suivant :
 
-**Erreur de téléchargement du fichier. L’URI cible n’est pas spécifié.**
+**Erreur de téléchargement de fichier. URI cible non indiqué.**
 
 ### <a name="cause"></a>Cause : 
 
@@ -123,7 +152,7 @@ Le type de passerelle VPN doit être défini sur la valeur **VPN**, tandis que l
 
 Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide du client VPN, vous recevez le message d’erreur suivant :
 
-**Échec du script personnalisé (pour mettre à jour votre table de routage) (Erreur 8007026f)**
+**Échec de script personnalisé (pour mettre à jour votre table de routage). (Erreur 8007026f)**
 
 ### <a name="cause"></a>Cause :
 
@@ -156,7 +185,7 @@ Extrayez le package de configuration du client VPN et localisez le fichier .cer.
 
 Lorsque vous essayez d’enregistrer les modifications apportées à la passerelle VPN dans le portail Azure, vous recevez le message d’erreur suivant :
 
-**Échec de l’enregistrement de la passerelle de réseau virtuel &lt;*nom de la passerelle*&gt;. Les données du certificat &lt;*ID de certificat*&gt; ne sont pas valides.**
+**Impossible d’enregistrer la passerelle de réseau virtuel &lt; *nom de la passerelle*&gt;. Les données de certificat &lt; *ID de certificat* &gt; n’est pas valide.**
 
 ### <a name="cause"></a>Cause : 
 

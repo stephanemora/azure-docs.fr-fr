@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: En savoir plus sur l’homologation de réseaux virtuels dans Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial
-ms.openlocfilehash: 3488e8501b0b9bea83bfcce5085d42b6476d3ed2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880421"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489979"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -80,7 +80,6 @@ Vous pouvez également essayer le [Utilitaire de dépannage pour les problèmes 
 
 Les contraintes ci-après s’appliquent uniquement quand des réseaux virtuels sont appairés à l’échelle mondiale :
 - Ressources dans un réseau virtuel ne peut pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne de base dans un réseau virtuel homologué dans le monde entier. Prise en charge pour l’équilibreur de charge existe uniquement dans la même région. Prise en charge pour l’équilibreur de charge Standard existe pour l’homologation globale.
-- Vous pouvez utiliser des passerelles distantes ou autoriser le transit par passerelle dans les réseaux virtuels homologués dans le monde entier en version préliminaire. La version préliminaire est disponible dans toutes les régions Azure, les régions de cloud de Chine et régions de cloud Government. Aucune mise en liste verte n’est nécessaire. Vous pouvez tester en version préliminaire via l’interface CLI, PowerShell, des modèles ou des API. Portail n’est pas pris en charge dans la version préliminaire.
 
 Pour en savoir plus sur les exigences et les contraintes, consultez la section correspondante de l’article [Créer, modifier ou supprimer une homologation de réseau virtuel](virtual-network-manage-peering.md#requirements-and-constraints). Pour en savoir plus sur les limites concernant le nombre d’homologations que vous pouvez créer pour un réseau virtuel, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 

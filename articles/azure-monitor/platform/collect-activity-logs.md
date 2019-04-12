@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905985"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505632"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter et analyser les journaux d’activité Azure dans l’espace de travail Analytique de journal dans Azure Monitor
 
 ![Symbole des journaux d’activité Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
-La solution Activity Log Analytics vous aide à analyser et rechercher le [journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md) parmi tous vos abonnements Azure. Le journal d’activité Azure est un journal qui fournit des informations sur les opérations réalisées sur les ressources de vos abonnements. Le journal d’activité était précédemment appelé *journal d’audit* ou *journal des opérations*, car il indique les événements pour vos abonnements.
+La solution Activity Log Analytics vous aide à analyser et rechercher le [journal d’activité Azure](activity-logs-overview.md) parmi tous vos abonnements Azure. Le journal d’activité Azure est un journal qui fournit des informations sur les opérations réalisées sur les ressources de vos abonnements. Le journal d’activité était précédemment appelé *journal d’audit* ou *journal des opérations*, car il indique les événements pour vos abonnements.
 
 Avec le journal d’activité, vous pouvez déterminer *qui*, *quand* et *quoi* pour toutes les opérations d’écriture (PUT, POST, DELETE) réalisées sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état des opérations et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations pour les ressources qui utilisent le modèle de déploiement Classic.
 
@@ -52,28 +52,39 @@ Contrairement à la plupart des autres solutions Azure Monitor, les données ne 
 
 | Source connectée | Pris en charge | Description |
 | --- | --- | --- |
-| [Agents Windows](../../azure-monitor/platform/agent-windows.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
-| [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
-| [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
+| [Agents Windows](agent-windows.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
+| [Agents Linux](../learn/quick-collect-linux-computer.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
+| [Groupe d’administration Microsoft System Center Operations Manager](om-agents.md) | Non  | La solution ne collecte pas d’informations à partir des agents qui communiquent avec un groupe d’administration Operations Manager. |
 | [Compte Azure Storage](collect-azure-metrics-logs.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Pour accéder aux informations des journaux d’activité Azure, vous devez posséder un abonnement Azure.
+Pour accéder aux informations des journaux d’activité Azure, vous devez posséder un abonnement Azure.
+
+La solution requiert également que les deux fournisseurs de ressources suivants sont enregistrés dans votre abonnement :
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+Pour savoir comment s’inscrire ou vérifier qu’ils sont inscrits, consultez [les types et les fournisseurs de ressources Azure](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="configuration"></a>Configuration
 
 Procédez comme suit pour configurer la solution Activity Log Analytics pour vos espaces de travail.
 
-1. Activez la solution Activity Log Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md).
+1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
+
+2. Activez la solution Activity Log Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](../insights/solutions.md).
+
 2. Configurez les journaux d’activité de manière à ce qu’ils accèdent à votre espace de travail Log Analytics.
     1. Dans le portail Azure, sélectionnez votre espace de travail, puis cliquez sur **Journal d’activité Azure**.
     2. Pour chaque abonnement, cliquez sur le nom de l’abonnement.  
+        
         ![ajouter un abonnement](./media/collect-activity-logs/add-subscription.png)
+    
     3. Dans le panneau *SubscriptionName*, cliquez sur **Connecter**.  
+    
         ![Connecter un abonnement](./media/collect-activity-logs/subscription-connect.png)
-
-Connectez-vous au portail Azure pour connecter un abonnement Azure à votre espace de travail.  
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
 
@@ -98,5 +109,5 @@ Les données de journal d’activité apparaissent uniquement *après* avoir con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Créez une [alerte](../../azure-monitor/platform/alerts-metric.md) lorsqu’une activité spécifique se produit.
-- Utilisez la fonction [Recherche dans les journaux](../../azure-monitor/log-query/log-query-overview.md) pour afficher des informations détaillées provenant de vos journaux d’activité.
+- Créez une [alerte](../platform/alerts-metric.md) lorsqu’une activité spécifique se produit.
+- Utilisez la fonction [Recherche dans les journaux](../log-query/log-query-overview.md) pour afficher des informations détaillées provenant de vos journaux d’activité.

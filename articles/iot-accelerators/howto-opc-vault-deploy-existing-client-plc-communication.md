@@ -1,6 +1,6 @@
 ---
-title: Sécuriser la communication de Client d’OPC et PLC OPC à l’aide de la gestion des certificats Azure IoT OPC UA | Microsoft Docs
-description: Sécuriser la communication de Client d’OPC et OPC PLC en vous connectant leurs certificats d’autorité de certification OPC coffre.
+title: Sécuriser la communication de client d’OPC et PLC OPC avec OPC Vault - Azure | Microsoft Docs
+description: Sécuriser les communications du client d’OPC et OPC PLC en vous connectant leurs certificats d’autorité de certification OPC coffre.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c437f6db21956d1be5e4f6d3512f325f37ca7308
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 30eedd982fa0536ce45506c159de6d04132e9a14
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759571"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493995"
 ---
-# <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>Sécuriser la communication de Client d’OPC et OPC PLC
+# <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>Sécuriser les communications du client d’OPC et OPC PLC
 
-Azure IoT OPC UA gestion des certificats, également connu sous le nom coffre OPC, est un service micro qui peut configurer, inscrire et gérer le cycle de vie de certificat pour les applications de serveur et client OPC UA dans le cloud. Cet article vous montre comment sécuriser la communication de Client d’OPC et OPC PLC en vous connectant leurs certificats d’autorité de certification OPC coffre.
+OPC Vault est un microservice qui peut configurer, inscrire et gérer le cycle de vie de certificat de serveur OPC UA et les applications clientes dans le cloud. Cet article vous montre comment sécuriser les communications du client d’OPC et OPC PLC en vous connectant leurs certificats d’autorité de certification OPC coffre.
 
-Dans la configuration suivante, le Client OPC teste la connectivité à la PLC OPC. Par défaut, la connectivité n’est pas possible, car les deux composants ne sont pas configurés avec les certificats de droite. Si un composant OPC UA n’était pas encore approvisionné avec un certificat, il génère un certificat auto-signé au démarrage. Toutefois, le certificat peut être signé par une autorité de certification (CA) et installé dans le composant OPC UA. Une fois cette opération effectuée pour OPC Client et OPC PLC, la connectivité est activée. Le flux de travail ci-dessous décrit le processus. Vous trouverez des informations générales sur la sécurité de OPC UA dans [ce document](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf) livre blanc. Vous trouverez les informations complètes dans la spécification OPC UA.
+Dans la configuration suivante, le client OPC teste la connectivité à la PLC OPC. Par défaut, la connectivité n’est pas possible, car les deux composants ne sont pas configurés avec les certificats de droite. Si un composant OPC UA n’était pas encore approvisionné avec un certificat, il génère un certificat auto-signé au démarrage. Toutefois, le certificat peut être signé par une autorité de certification (CA) et installé dans le composant OPC UA. Une fois cette opération effectuée pour le client d’OPC et OPC PLC, la connectivité est activée. Le flux de travail ci-dessous décrit le processus. Vous trouverez des informations générales sur la sécurité de OPC UA dans [ce document](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf) livre blanc. Vous trouverez les informations complètes dans la spécification OPC UA.
 
 Banc d’essai : L’environnement suivant est configuré pour le test.
 
 Scripts de OPC coffre :
-- Sécuriser les communications de Client d’OPC et OPC PLC en vous connectant leurs certificats d’autorité de certification OPC coffre.
+- Sécuriser les communications du client d’OPC et OPC PLC en vous connectant leurs certificats d’autorité de certification OPC coffre.
 
 > [!NOTE]
 > Pour plus d’informations, consultez le GitHub [référentiel](https://github.com/Azure-Samples/iot-edge-industrial-configs#testbeds).
@@ -49,7 +49,7 @@ docker-compose -f connecttest.yml up
 
 **Vérification**
 
-Dans le journal, vérifiez qu’il n’y a aucun certificat installé sur le premier démarrage. Voici la sortie du journal de OPC PLC (similaire s’affiche pour OPC Client) :...
+Dans le journal, vérifiez qu’il n’y a aucun certificat installé sur le premier démarrage. Voici la sortie du journal de OPC PLC (similaire s’affiche pour le client OPC) :...
 ```
 opcplc-123456 | [20:51:32 INF] Trusted issuer store contains 0 certs
 opcplc-123456 | [20:51:32 INF] Trusted issuer store has 0 CRLs.
@@ -59,7 +59,7 @@ opcplc-123456 | [20:51:32 INF] Rejected certificate store contains 0 certs
 ```
 Si vous ne voyez pas les certificats signalés, suivez les étapes de préparation ci-dessus et supprimez les volumes docker.
 
-Vérifiez que la connexion à la PLC OPC a échoué. Vous devez voir la sortie suivante dans le Client OPC consigner la sortie :
+Vérifiez que la connexion à la PLC OPC a échoué. Vous devez voir la sortie suivante dans la sortie du journal client OPC :
 
 ```
 opcclient-123456 | [20:51:35 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
@@ -71,7 +71,7 @@ La raison de l’échec est que le certificat n’est pas approuvé. Cela signif
 ## <a name="sign-and-install-certificates-in-opc-ua-components"></a>Se connecter et installer des certificats dans les composants OPC UA
 
 **Préparation**
-1. Examinez la sortie du journal de l’étape 1 et l’extraction des « Informations CreateSigningRequest » pour le PLC OPC et le Client OPC. Ici la sortie est uniquement affiché pour OPC PLC :
+1. Examinez la sortie du journal de l’étape 1 et l’extraction des « Informations CreateSigningRequest » pour le PLC OPC et le client OPC. Ici la sortie est uniquement affiché pour OPC PLC :
 
     ```
     opcplc-123456 | [20:51:32 INF] ----------------------- CreateSigningRequest information ------------------
@@ -92,7 +92,7 @@ La raison de l’échec est que le certificat n’est pas approuvé. Cela signif
     
 1. Accédez à la [site Web OPC coffre](https://opcvault.azurewebsites.net/).
 
-1. Sélectionnez `Register New`.
+1. Sélectionnez `Register New`
 
 1. Entrez les informations de OPC PLC entre les sorties de journal `CreateSigningRequest information` zone dans les champs d’entrée sur le `Register New OPC UA Application` page, sélectionnez `Server` comme ApplicationType.
 
@@ -121,7 +121,7 @@ La raison de l’échec est que le certificat n’est pas approuvé. Cela signif
     > [!NOTE] 
     > Remplacez les chaînes transmis en tant que chaînes Base64 d’option valeurs que vous extraites depuis le site Web.
 
-Répétez le processus complet en commençant par `Register New` (étape 3 ci-dessus) pour le Client OPC. Il existe uniquement les différences suivantes que vous devez être conscient :
+Répétez le processus complet en commençant par `Register New` (étape 3 ci-dessus) pour le client OPC. Il existe uniquement les différences suivantes que vous devez être conscient :
 
 - Utiliser la sortie du journal à partir de la `opcclient`.
 - Sélectionnez `Client` comme ApplicationType lors de l’inscription.
@@ -160,7 +160,7 @@ opcplc-123456 | [20:54:39 INF] Application certificate is for ApplicationUri 'ur
  ```
 Le certificat d’Application existe-t-il et signée par une autorité de certification.
 
-Dans le journal, vérifiez qu’il existe désormais des certificats installés. Voici la sortie du journal de OPC PLC et OPC Client a une sortie similaire.
+Dans le journal, vérifiez qu’il existe désormais des certificats installés. Voici la sortie du journal de OPC PLC et client OPC a une sortie similaire.
 ```
 opcplc-123456 | [20:54:39 INF] Trusted issuer store contains 1 certs
 opcplc-123456 | [20:54:39 INF] 01: Subject 'CN=Azure IoT OPC Vault CA, O=Microsoft Corp.' (thumbprint: BC78F1DDC3BB5D2D8795F3D4FF0C430AD7D68E83)
@@ -175,7 +175,7 @@ opcplc-123456 | [20:54:39 INF] Rejected certificate store contains 0 certs
 L’émetteur du certificat d’application est l’autorité de certification `CN=Azure IoT OPC Vault CA, O=Microsoft Corp.` le PLC OPC confiance également tous les certificats signés par cette autorité de certification.
 
 
-Vérifiez que la connexion à la PLC OPC a été créée avec succès et que le Client OPC peut lire les données à partir d’OPC PLC. Vous devez voir la sortie suivante dans le Client OPC consigner la sortie :
+Vérifiez que la connexion à la PLC OPC a été créée avec succès et que le client OPC peut lire les données à partir d’OPC PLC. Vous devez voir la sortie suivante dans la sortie du journal client OPC :
 ```
 opcclient-123456 | [20:54:42 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [20:54:42 INF] Session successfully created with Id ns=3;i=1085867946.
@@ -189,10 +189,10 @@ opcclient-123456 | [20:54:42 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [20:54:42 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [20:54:42 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/20/2018 20:54:42
 ```
-Si vous voyez cette sortie, puis le PLC OPC est maintenant approbation OPC Client et vice versa, car elles disposent désormais les certificats signés par une autorité de certification et les deux approbation des certificats qui where signés par cette autorité de certification.
+Si vous voyez cette sortie, puis le PLC OPC est maintenant approbation OPC client et vice versa, étant donné que les deux ont maintenant des certificats signés par une autorité de certification et approbation de certificats qui where signés par cette autorité de certification.
 
 > [!NOTE] 
-> Bien que nous vous avons montré les premières étapes de deux vérification uniquement pour OPC PLC, ceux doivent être vérifiés également pour OPC Client.
+> Bien que nous vous avons montré les premières étapes de deux vérification uniquement pour OPC PLC, ceux doivent être vérifiés également pour les clients OPC.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

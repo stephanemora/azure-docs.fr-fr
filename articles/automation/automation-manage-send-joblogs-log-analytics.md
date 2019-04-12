@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1897ddf328413decdc13cffaab0fb569d8d95665
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521667"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496588"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Transférer l’état du travail et flux de travail d’Automation dans les journaux d’Azure Monitor
 
@@ -32,7 +32,7 @@ Automation peut envoyer un état de tâche du runbook et des flux de tâches à 
 
 Pour commencer à envoyer vos journaux Automation dans les journaux d’Azure Monitor, vous devez :
 
-* Version de novembre 2016 ou une version ultérieure d’[Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
+* La dernière version de [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 * Un espace de travail Log Analytics. Pour plus d’informations, consultez [prise en main Azure Monitor journaux](../log-analytics/log-analytics-get-started.md). 
 * L’ID de ressource de votre compte Azure Automation.
 
@@ -40,14 +40,14 @@ Pour trouver l’ID de ressource de votre compte Azure Automation :
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
-Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
 Pour trouver l’ID de ressource de votre espace de travail Log Analytics, exécutez la commande PowerShell suivante :
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
 Si vous possédez plusieurs comptes Automation ou plusieurs espaces de travail, recherchez le *Nom* à configurer dans la sortie des commandes précédentes et copiez la valeur de *ResourceId*.
@@ -63,19 +63,20 @@ Pour rechercher Le *Nom* de votre compte Automation, sélectionnez votre compte 
    $workspaceId = "[resource id of the log analytics workspace]"
    $automationAccountId = "[resource id of your automation account]"
 
-   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
+   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
 Après avoir exécuté ce script, il peut prendre une heure avant de commencer à voir les enregistrements dans les journaux Azure Monitor de nouveaux JobLogs ou JobStreams.
 
-Pour afficher les journaux, exécutez la requête suivante dans la recherche de journal log analytique : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Pour afficher les journaux, exécutez la requête suivante dans la recherche de journal log analytique :
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Vérifier la configuration
 
 Pour vous assurer que votre compte Automation envoie des journaux à votre espace de travail Log Analytics, vérifiez que les diagnostics sont correctement configurés sur le compte Automation à l’aide de la commande PowerShell suivante :
 
 ```powershell-interactive
-Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Get-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 Dans la sortie, assurez-vous que :
@@ -136,7 +137,8 @@ Diagnostic d’Azure Automation crée deux types d’enregistrements dans les jo
 
 Maintenant que vous commencé à envoyer vos journaux de travaux Automation dans les journaux d’Azure Monitor, nous allons voir ce que vous pouvez faire avec ces journaux dans les journaux Azure Monitor.
 
-Pour afficher les journaux, exécutez la requête suivante :`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Pour afficher les journaux, exécutez la requête suivante :
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Envoyer un e-mail en cas d’échec ou de suspension d’un travail de runbook
 Nos clients demandent souvent à pouvoir envoyer un e-mail ou un SMS lorsqu’une erreur survient sur un travail de runbook.   
@@ -144,7 +146,7 @@ Nos clients demandent souvent à pouvoir envoyer un e-mail ou un SMS lorsqu’un
 Pour créer une règle d’alerte, vous devez commencer par créer une recherche de journal pour les enregistrements de travaux de runbook qui doivent appeler l’alerte. Cliquez sur le bouton **Alerte** pour créer et configurer la règle d’alerte.
 
 1. Dans la page de vue d’ensemble d’espace de travail Analytique de journal, cliquez sur **afficher les journaux**.
-2. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`. Vous pouvez également effectuer un regroupement par nom de runbook à l’aide de `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`.
+2. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  Vous pouvez également regrouper par RunbookName à l’aide de : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Si vous avez configuré des journaux dans votre espace de travail sur plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation. Le nom du compte Automation se trouve dans le champ Ressource de la recherche de JobLogs.
 3. Pour ouvrir l’écran **Créer une règle**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, voir [Alertes de journaux dans Azure](../azure-monitor/platform/alerts-unified-log.md).
@@ -164,7 +166,7 @@ Lorsque vous déboguez un travail, vous pouvez également examiner les flux de t
 Vous pouvez enfin souhaiter visualiser l’historique de vos travaux dans le temps. Vous pouvez utiliser cette requête pour rechercher l’état de vos travaux au fil du temps.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![Graphique de l’état de la tâche historique de Log Analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Journal Analytique travail historique état graphique](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="remove-diagnostic-settings"></a>Supprimer les paramètres de diagnostic
 
@@ -173,7 +175,7 @@ Pour supprimer les paramètres de diagnostic du compte Automation, exécutez les
 ```powershell-interactive
 $automationAccountId = "[resource id of your automation account]"
 
-Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 ## <a name="summary"></a>Résumé

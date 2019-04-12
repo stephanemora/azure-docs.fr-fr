@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652584"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494167"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Stratégies de point de terminaison de service de réseau virtuel (préversion)
 
@@ -24,7 +24,7 @@ Les stratégies de points de terminaison de service de réseau virtuel permetten
 
 Cette fonctionnalité est disponible en __préversion__ pour les services et régions Azure suivants :
 
-__Stockage Azure__ : WestCentralUS, WestUS2.
+__Stockage Azure__ : WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2.
 
 Pour obtenir des notifications actualisées concernant la préversion, consultez la page [Mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -35,13 +35,13 @@ Pour obtenir des notifications actualisées concernant la préversion, consultez
 
 Les stratégies de point de terminaison de service de réseau virtuel offrent les avantages suivants :
 
-- __Sécurité renforcée pour votre trafic de réseau virtuel vers les services Azure__
+- __Améliorer la sécurité de votre trafic de réseau virtuel aux Services Azure__
 
   Les [balises de service Azure pour les groupes de sécurité réseau](https://aka.ms/servicetags) vous permettent de restreindre le trafic sortant du réseau virtuel vers des services Azure spécifiques. Cependant, elles autorisent le trafic vers toutes les ressources de ce service Azure. 
   
   Avec les stratégies de point de terminaison, vous pouvez désormais restreindre l’accès sortant du réseau virtuel à des ressources Azure spécifiques. Cela apporte un contrôle de sécurité beaucoup plus granulaire pour la protection des données accessibles dans votre réseau virtuel. 
 
-- __Stratégies évolutives et hautement disponibles pour filtrer le trafic de service Azure__
+- __Stratégies évolutifs, hautement disponibles pour filtrer le trafic de service Azure__
 
    Les stratégies de point de terminaison fournissent une solution évolutive horizontalement et hautement disponible pour filtrer le trafic de service Azure à partir de réseaux virtuels, sur les points de terminaison de service. Aucun temps système supplémentaire n’est nécessaire afin de maintenir les appliances réseau centrales pour ce trafic sur vos réseaux virtuels.
 

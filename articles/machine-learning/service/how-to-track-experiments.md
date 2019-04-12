@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ef3cfe1df792721db3fe3657c08f58ca82e3c91
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 41797caa89108448f0eaa27309046c01d7432823
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652312"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494625"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métriques de journal pendant la formation s’exécute dans Azure Machine Learning
 
@@ -34,7 +34,7 @@ Les métriques suivantes peuvent être ajoutées à une exécution pendant l’e
 |Table|Fonction :<br>`run.log_table(name, value, description='')`<br><br>Exemple :<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Journalisez un objet dictionnaire dans l’exécution avec le nom donné. |
 |Images|Fonction :<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemple :<br>`run.log_image("ROC", plt)` | Journalisez une image dans l’enregistrement d’exécution. Utilisez log_image pour consigner un fichier image ou un tracé matplotlib dans l’exécution.  Ces images seront visibles et comparables dans l’enregistrement d’exécution.|
 |Étiqueter une exécution|Fonction :<br>`run.tag(key, value=None)`<br><br>Exemple :<br>run.tag("selected", "yes") | Étiquetez l’exécution avec une clé de chaîne et une valeur de chaîne facultative.|
-|Charger un fichier ou un répertoire|Fonction :<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemple :<br>run.upload_file("best_model.pkl", "./model.pkl") | Chargez un fichier sur l’enregistrement d’exécution. Les exécutions capturent automatiquement le fichier dans le répertoire de sortie spécifié, par défaut « ./outputs » pour la plupart des types d’exécutions.  Utilisez upload_file uniquement quand des fichiers supplémentaires doivent être chargés ou qu’aucun répertoire de sortie n’est spécifié. Nous vous suggérons d’ajouter `outputs` au nom afin qu’il soit chargé sur le répertoire outputs. Vous pouvez répertorier tous les fichiers qui sont associés à cet enregistrement d’exécution en appelant `run.get_file_names()`|
+|Charger un fichier ou un répertoire|Fonction :<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemple :<br>run.upload_file("best_model.pkl", "./model.pkl") | Chargez un fichier sur l’enregistrement d’exécution. Les exécutions capturent automatiquement le fichier dans le répertoire de sortie spécifié, par défaut « ./outputs » pour la plupart des types d’exécutions.  Utilisez upload_file uniquement quand des fichiers supplémentaires doivent être chargés ou qu’aucun répertoire de sortie n’est spécifié. Nous vous suggérons d’ajouter `outputs` au nom afin qu’il soit chargé sur le répertoire outputs. Vous pouvez répertorier tous les fichiers qui sont associés à cette exécution enregistrement par appelé `run.get_file_names()`|
 
 > [!NOTE]
 > Les métriques pour les valeurs scalaires, listes, lignes et tables peuvent être de type float, integer ou string.
@@ -217,37 +217,9 @@ Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effect
    run = experiment.submit(src)
    ```
 
-## <a name="cancel-a-run"></a>Annuler une exécution
+## <a name="manage-a-run"></a>Gérer une exécution
 
-Une exécution de ALTER est soumis, vous pouvez l’annuler même si vous avez perdu la référence d’objet, tant que vous connaissez le nom de l’expérience et l’ID de série 
-
-
-```python
-from azureml.core import Experiment
-exp = Experiment(ws, "my-experiment-name")
-
-# if you don't know the run id, you can list all runs under an experiment
-for r in exp.get_runs():  
-    print(r.id, r.get_status())
-
-# if you know the run id, you can "rehydrate" the run
-from azureml.core import get_run
-r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
-  
-# check the returned run type and status
-print(type(r), r.get_status())
-
-# you can cancel a run if it hasn't completed or failed
-if r.get_status() not in ['Complete', 'Failed']:
-    r.cancel()
-```
-Actuellement, seuls les types ScriptRun et PipelineRun prennent en charge l’opération d’annulation.
-
-En outre, vous pouvez annuler une exécution via l’interface CLI à l’aide de la commande suivante :
-```shell
-az ml run cancel -r <run_id> -p <project_path>
-```
-
+Le [Démarrer, surveiller et annuler les exécutions d’apprentissage](how-to-manage-runs.md) article met en évidence des flux de travail Azure Machine Learning spécifiques pour savoir comment gérer vos expériences.
 
 ## <a name="view-run-details"></a>Afficher les détails de l’exécution
 
@@ -293,7 +265,7 @@ Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de ```
 
 Une fois l’exécution d’une expérimentation terminée, vous pouvez accéder à l’enregistrement d’exécution de l’expérimentation. Vous pouvez faire accéder à l’historique de deux manières :
 
-* Obtenez l’URL vers l’exécution directement ```print(run.get_portal_url())```
+* Obtenez l’URL de l’exécution directement ```print(run.get_portal_url())```
 * Affichez les détails de l’exécution en envoyant son nom (dans ce cas, ```run```). Cette méthode vous oriente vers le nom de l’expérience, l’ID, le type, l’état, la page de détails, un lien vers le Portail Azure et un lien vers la documentation.
 
 Le lien pour l’exécution vous amène directement à la page de détails de l’exécution dans le portail Azure. Ici, vous pouvez voir les propriétés, les métriques suivies, les images et les graphiques consignés dans l’expérimentation. Dans ce cas, nous avons consigné MSE et les valeurs alpha.
@@ -319,9 +291,9 @@ Il existe différentes manières d’utiliser les API de journalisation pour enr
 Après avoir soumis un travail de ML automatisé dans un notebook, vous pouvez trouver un historique de ces exécutions dans votre espace de travail de service de Machine Learning. 
 
 Pour en savoir plus :
-+ [Graphiques et courbes pour les modèles de classification](#classification)
-+ [Graphiques pour les modèles de régression](#regression)
-+ [Explication du modèle](#model-explain-ability-and-feature-importance)
++ [Graphiques et des courbes pour les modèles de classification](#classification)
++ [Les graphiques pour les modèles de régression](#regression)
++ [Modèle expliquent la capacité](#model-explain-ability-and-feature-importance)
 
 
 ### <a name="view-the-run-charts"></a>Afficher les graphiques d’exécution
@@ -351,7 +323,7 @@ Pour en savoir plus :
 Pour chaque modèle de classification que vous créez à l’aide des fonctionnalités de Machine Learning automatisé d’Azure Machine Learning, vous pouvez voir les graphiques suivants : 
 + [Matrice de confusion](#confusion-matrix)
 + [Graphique de rappel de précision](#precision-recall-chart)
-+ [ROC (Receiver operating characteristic)](#roc)
++ [Récepteur d’exploitation caractéristiques (ou ROC)](#roc)
 + [Courbe d’élévation](#lift-curve)
 + [Courbe de gains](#gains-curve)
 + [Tracé d’étalonnage](#calibration-plot)
@@ -362,9 +334,9 @@ Une matrice de confusion décrit les performances d’un modèle de classificati
 
 Pour les problèmes de classification, Azure Machine Learning fournit automatiquement une matrice de confusion associée à chaque modèle généré. Pour chaque matrice de confusion, le ML automatisé affiche les étiquettes bien classées en vert, et les étiquettes mal classées en rouge. La taille du cercle représente le nombre d’échantillons dans cet emplacement. En outre, la fréquence de chaque étiquette prévue et chaque étiquette true est fournie dans les graphiques à barres adjacents. 
 
-Exemple 1 : Modèle de classification avec précision médiocre ![Modèle de classification avec précision médiocre](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+Exemple 1 : Un modèle de classification avec précision médiocre ![un modèle de classification avec précision médiocre](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
 
-Exemple 2 : Modèle de classification avec précision élevée (idéal) ![Modèle de classification avec précision élevée](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+Exemple 2 : Un modèle de classification avec haute précision (idéal) ![un modèle de classification avec haute précision](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
 
 
 #### <a name="precision-recall-chart"></a>Graphique de rappel de précision
@@ -373,17 +345,17 @@ Avec ce graphique, vous pouvez comparer les courbes de rappel de précision pour
 
 Le terme Précision représente la capacité d’un classifieur à étiqueter correctement toutes les instances. Le rappel représente la capacité d’un classifieur à rechercher toutes les instances d’une étiquette spécifique. La courbe de rappel de précision montre la relation entre ces deux concepts. Dans l’idéal, le modèle aurait une précision de 100 % et une exactitude de 100 %.
 
-Exemple 1 : Modèle de classification avec une précision faible et un rappel faible ![Modèle de classification avec une précision faible et un rappel faible](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+Exemple 1 : Un modèle de classification avec précision faible et le rappel faible ![un modèle de classification avec précision faible et le rappel faible](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
 
-Exemple 2 : Modèle de classification avec une précision d’environ 100 % et un rappel d’environ 100 % (idéal)![Modèle de classification avec une précision élevée et un rappel élevé](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+Exemple 2 : Un modèle de classification avec rappel précision et d’environ 100 % ~ 100 % (idéal) ![une précision élevée de modèle de classification et le rappel](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
 
 #### <a name="roc"></a>ROC
 
 Le ROC (Receiver Operating Characteristic) est un tracé d’étiquettes bien classées et mal classées pour un modèle spécifique. La courbe ROC peut être moins informative lors de la formation de modèles sur des jeux de données présentant un biais élevé, car elle n’affiche pas les étiquettes de type faux positif.
 
-Exemple 1 : Modèle de classification avec des étiquettes true faibles et des étiquettes false élevées![Modèle de classification avec des étiquettes true faibles et des étiquettes false élevées](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+Exemple 1 : Un modèle de classification avec des étiquettes réelles basse et haute étiquettes false ![modèle de Classification avec des étiquettes réelles basse et haute étiquettes false](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
 
-Exemple 2 : Modèle de classification avec des étiquettes true élevées et des étiquettes false faibles![Modèle de classification avec des étiquettes true élevées et des étiquettes false faibles](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+Exemple 2 : Un modèle de classification avec des étiquettes réelles haute et basse étiquettes false ![un modèle de classification avec des étiquettes réelles haute et basse étiquettes false](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
 
 #### <a name="lift-curve"></a>Courbe d’élévation
 
@@ -391,9 +363,9 @@ Vous pouvez comparer l’élévation du modèle généré automatiquement avec A
 
 Les graphiques de courbes d’élévation permettent d’évaluer les performances d’un modèle de classification. Ils montrent tous les atouts d’un modèle par rapport à une utilisation sans ce modèle. 
 
-Exemple 1 : Les performances du modèle sont inférieures à celles d’un modèle de sélection aléatoire ![Modèle de classification dont les performances sont inférieures à celles d’un modèle de sélection aléatoire](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+Exemple 1 : Modèle effectue la pire qu’un modèle de sélection aléatoire ![un modèle de classification qui pire qu’une sélection aléatoire de modèle](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
 
-Exemple 2 : Les performances du modèle sont supérieures à celles d’un modèle de sélection aléatoire ![Modèle de classification qui offre de meilleures performances](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+Exemple 2 : Modèle plus performant qu’un modèle de sélection aléatoire ![un modèle de classification qui offre de meilleures performances](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
 
 #### <a name="gains-curve"></a>Courbe de gains
 
@@ -401,9 +373,9 @@ Un graphique de gains évalue les performances d’un modèle de classification 
 
 Utilisez le graphique de gains cumulés pour choisir la limite de classification au moyen d’un pourcentage qui correspond à un gain souhaité à partir du modèle. Ces informations offrent une autre façon d’observer les résultats dans le graphique de courbes d’élévation associé.
 
-Exemple 1 : Modèle de classification avec gain minimal ![Modèle de classification avec gain minimal](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+Exemple 1 : Un modèle de classification avec gain minime ![un modèle de classification avec gain minime](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
 
-Exemple 2 : Modèle de classification avec gain significatif ![Modèle de classification avec gain significatif](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+Exemple 2 : Un modèle de classification avec gain significatif ![un modèle de classification avec gain significatif](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
 
 #### <a name="calibration-plot"></a>Tracé d’étalonnage
 
@@ -411,9 +383,9 @@ Pour tous les problèmes de classification, vous pouvez consulter la ligne d’�
 
 Un tracé d’étalonnage permet d’afficher le niveau de confiance d’un modèle prédictif. Pour ce faire, il affiche la relation entre la probabilité prévue et la probabilité réelle, où le terme « probabilité » représente la vraisemblance pour une instance spécifique d’appartenir à une étiquette. Un modèle bien étalonné s’aligne avec la ligne y=x, où il est raisonnablement confiant dans ses prédictions. Un modèle trop confiant s’aligne sur la ligne y=0, où la probabilité prévue est présente alors qu’il n’existe aucune probabilité réelle.
 
-Exemple 1 : Modèle mieux étalonné ![ Modèle mieux étalonné](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
+Exemple 1 : Un modèle plus bien étalonné ![ modèle plus bien étalonné](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
 
-Exemple 2 : Modèle trop confiant ![Modèle trop confiant](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+Exemple 2 : Un modèle confidentiel excédentaire ![un modèle confidentiel excessive](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
 
 ### <a name="regression"></a>régression ;
 Pour chaque modèle de régression que vous créez à l’aide des fonctionnalités de Machine Learning automatisé d’Azure Machine Learning, vous pouvez voir les graphiques suivants : 
@@ -428,9 +400,9 @@ Prédiction et True indique la relation entre une valeur prévue et sa valeur tr
 
 Après chaque exécution, vous pouvez afficher un graphique de type Prédiction et True pour chaque modèle de régression. Pour protéger la confidentialité des données, les valeurs sont réunies dans un conteneur et la taille de chaque emplacement est affichée sous la forme d’un graphique à barres au bas de la zone de graphique. Vous pouvez comparer le modèle prédictif, dont la zone la plus claire indique les marges d’erreur, par rapport à la valeur idéale du modèle.
 
-Exemple 1 : Modèle de régression avec faible précision dans les prédictions ![Modèle de régression avec faible précision dans les prédictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
+Exemple 1 : Un modèle de régression avec une faible précision dans les prédictions ![un modèle de régression avec une faible précision dans les prédictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
 
-Exemple 2 : Modèle de régression avec précision élevée dans les prédictions ![Modèle de régression avec précision élevée dans les prédictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+Exemple 2 : Un modèle de régression avec une précision élevée dans ses prédictions ![un modèle de régression avec haute précision des prédictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
 
 <a name="histo"></a>
 
@@ -438,9 +410,9 @@ Exemple 2 : Modèle de régression avec précision élevée dans les prédictio
 
 Un résidu représente une valeur y observée : la valeur y prévue. Pour afficher une marge d’erreur avec un biais faible, l’histogramme des résidus doit avoir la forme d’une cloche centrée sur 0. 
 
-Exemple 1 : Modèle de régression avec biais dans ses erreurs ![Modèle de régression avec biais dans ses erreurs](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
+Exemple 1 : Un modèle de régression avec écart dans ses erreurs ![le modèle de régression SA avec écart dans ses erreurs](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
 
-Exemple 2 : Modèle de régression avec distribution plus équilibrée des erreurs ![Modèle de régression avec distribution plus équilibrée des erreurs](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+Exemple 2 : Un modèle de régression avec une distribution plus équilibrée d’erreurs ![un modèle de régression avec une distribution plus égale des erreurs](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
 
 ### <a name="model-explain-ability-and-feature-importance"></a>Explication du modèle et importance des fonctionnalités
 

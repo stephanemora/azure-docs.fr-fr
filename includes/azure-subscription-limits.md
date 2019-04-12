@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 188cb21688ee092db426e51c6ae327def3ff02d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e8fe694cc757f5bcb9cf470f17306e8aa0028744
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919217"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502779"
 ---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ ms.locfileid: "58919217"
 | Serveurs DNS par abonnement |9 |100 |
 | Adresses IP réservées par abonnement |20 |100 |
 | [Groupes d'affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement |256 |256 |
-
+| Longueur de nom d’abonnement (caractères) | 64 | 64 |
 
 <sup>1</sup>trop petites instances comptent pour un processeur virtuel pour la limite de processeur virtuel malgré l’utilisation d’un cœur de processeur partiels.
 

@@ -1,6 +1,6 @@
 ---
-title: Sécuriser OPC UA Client et Application de serveur OPC UA à l’aide de la gestion des certificats Azure IoT OPC UA | Microsoft Docs
-description: Sécuriser OPC UA Client et Application de serveur OPC UA avec une nouvelle paire de clés et le certificat à l’aide d’OPC coffre.
+title: Sécuriser OPC UA client et l’application de serveur OPC UA à l’aide d’OPC coffre - Azure | Microsoft Docs
+description: Client OPC UA et OPC UA server application sécurisé avec une nouvelle paire de clés et le certificat à l’aide d’OPC coffre.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: bfa6bdf6a54cb5e54087055988e9682565667105
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759423"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495292"
 ---
-# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>OPC UA Client et OPC UA server application sécurisé 
-Azure IoT OPC UA gestion des certificats, également connu sous le nom coffre OPC, est un microservice peut configurer, inscrire et gérer le cycle de vie de certificat pour les applications de serveur et client OPC UA dans le cloud. Cet article vous montre comment sécuriser OPC UA Client et Application de serveur OPC UA avec une paire de clés et le certificat à l’aide d’OPC coffre.
+# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Sécuriser OPC UA client et l’application de serveur OPC UA 
+OPC Vault est un microservice qui peut configurer, inscrire et gérer le cycle de vie de certificat pour le serveur UA OPC et les applications clientes dans le cloud. Cet article vous montre comment sécuriser un client OPC UA et un OPC UA application serveur avec une nouvelle paire de clés et le certificat à l’aide d’OPC coffre.
 
-Dans la configuration suivante, le Client OPC teste la connectivité à la PLC OPC. Par défaut, la connectivité n’est pas possible, car les deux composants n’ont pas été approvisionnés avec les certificats de droite. Dans ce flux de travail, nous pas utiliser les certificats auto-signés de composants OPC UA et signez-les via OPC Vault. Consultez le précédent [banc d’essai](howto-opc-vault-deploy-existing-client-plc-communication.md). Au lieu de cela, cette banc d’essai configure les composants avec un nouveau certificat, ainsi qu’avec une nouvelle clé privée qui sont générés par OPC Vault. Vous trouverez des informations générales sur la sécurité de OPC UA dans ce [livre blanc](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). Vous trouverez les informations complètes dans la spécification OPC UA.
+Dans la configuration suivante, le client OPC teste la connectivité à la PLC OPC. Par défaut, la connectivité n’est pas possible, car les deux composants n’ont pas été approvisionnés avec les certificats de droite. Dans ce flux de travail, nous pas utiliser les certificats auto-signés de composants OPC UA et signez-les via OPC Vault. Consultez le précédent [banc d’essai](howto-opc-vault-deploy-existing-client-plc-communication.md). Au lieu de cela, cette banc d’essai configure les composants avec un nouveau certificat, ainsi qu’avec une nouvelle clé privée qui sont générés par OPC Vault. Vous trouverez des informations générales sur la sécurité de OPC UA dans ce [livre blanc](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). Vous trouverez les informations complètes dans la spécification OPC UA.
 
 Banc d’essai : L’environnement suivant est configuré pour le test.
 
 Scripts de OPC coffre :
-- Sécuriser OPC UA Client et Application de serveur OPC UA avec une nouvelle paire de clés et le certificat à l’aide d’OPC coffre.
+- Sécuriser les applications serveur avec une nouvelle paire de clés et le certificat à l’aide d’OPC coffre client OPC UA et OPC UA.
 
 > [!NOTE]
 > Pour plus d’informations, consultez le GitHub [référentiel](https://github.com/Azure-Samples/iot-edge-industrial-configs#testbeds).
@@ -37,11 +37,11 @@ Scripts de OPC coffre :
 **Démarrage rapide**
 1. Accédez à la [site Web OPC coffre](https://opcvault.azurewebsites.net/)
 
-1. Sélectionnez `Register New`.
+1. Sélectionnez `Register New`
 
 1. Entrez les informations de OPC PLC tel qu’il a été affiché dans la sortie du journal du banc d’essai précédente `CreateSigningRequest information` zone dans les champs d’entrée sur le `Register New OPC UA Application` page, sélectionnez `Server` comme ApplicationType.
 
-1. Sélectionnez `Register`.
+1. Sélectionnez `Register`
 
 1. Sur la page suivante, `Request New Certificate for OPC UA Application` sélectionnez `Request new KeyPair and Certificate`
 
@@ -51,7 +51,7 @@ Scripts de OPC coffre :
 
 1. Dans la page suivante `Generate a new KeyPair and for an OPC UA Application` entrez `CN=OpcPlc` comme SubjectName, `opcplc-<_OPCVAULTID>` (remplacez `<_OPCVAULTID>` avec le vôtre) en tant que nom de domaine, sélectionnez `PEM` comme PrivateKeyFormat et entrez un mot de passe (nous faisons référence plus tard en tant que `<certpassword-string>`)
 
-1. Sélectionnez `Generate New KeyPair`.
+1. Sélectionnez `Generate New KeyPair`
 
 1. Vous sont maintenant passer à `View Certificate Request Details`. Dans cette page, vous pouvez télécharger toutes les informations requises pour approvisionner les magasins de certificats de `opc-plc`.
 
@@ -67,7 +67,7 @@ Scripts de OPC coffre :
 
     Remplacez les chaînes transmis en tant que chaînes Base64 d’option valeurs que vous extraites depuis le site Web.  
 
-1. Répétez le processus complet en commençant par `Register New` pour le Client OPC. Il existe uniquement les différences suivantes que vous devez être conscient :
+1. Répétez le processus complet en commençant par `Register New` pour le client OPC. Il existe uniquement les différences suivantes que vous devez être conscient :
     - Utiliser la sortie du journal à partir de la `opcclient`.
     - Sélectionnez `Client` comme ApplicationType lors de l’inscription.
     - Utilisez `$env:_CLIENT_OPT` comme nom de la variable PowerShell.
@@ -85,7 +85,7 @@ docker-compose -f connecttest.yml up
 
 **Vérification**
 
-Vérifiez que les deux composants n’ont pas un certificat d’application existant. Vérifiez la sortie de journal. Voici la sortie de OPC PLC et OPC Client a une sortie de journal similaires.
+Vérifiez que les deux composants n’ont pas un certificat d’application existant. Vérifiez la sortie de journal. Voici la sortie de OPC PLC et client OPC a une sortie de journal similaires.
 
 ```
 opcplc-123456 | [13:40:08 INF] There is no existing application certificate.
@@ -105,9 +105,9 @@ opcplc-123456 | [13:40:09 INF] Trusted peer store has 1 CRLs.
 opcplc-123456 | [13:40:09 INF] 01: Issuer 'CN=Azure IoT OPC Vault CA, O=Microsoft Corp.', Next update time '10/19/2019 22:06:46'
 opcplc-123456 | [13:40:09 INF] Rejected certificate store contains 0 certs
 ```
-Le PLC OPC approuve désormais de tous les Clients d’UA OPC avec des certificats signés par OPC Vault.
+Le PLC OPC approuve désormais de tous les clients OPC UA avec des certificats signés par OPC Vault.
 
-Vérifiez dans le journal que le format de clé privée est reconnu comme PEM et que le nouveau certificat de l’application est installé. Voici la sortie du journal de OPC PLC et OPC Client a une sortie de journal similaires. 
+Vérifiez dans le journal que le format de clé privée est reconnu comme PEM et que le nouveau certificat de l’application est installé. Voici la sortie du journal de OPC PLC et client OPC a une sortie de journal similaires. 
 
 ```
 opcplc-123456 | [13:40:09 INF] The private key for the new certificate was passed in using PEM format.
@@ -118,7 +118,7 @@ opcplc-123456 | [13:40:09 INF] Activating the new application certificate with t
 
 Le certificat d’application et la clé privée sont maintenant installés dans le magasin de certificats d’application et utilisés par l’application OPC UA.
 
-Vérifiez que la connexion entre le Client d’OPC et OPC PLC peut être établie avec succès et OPC Client peuvent lire correctement les données de OPC PLC. Vous devez voir la sortie suivante dans le Client OPC consigner la sortie :
+Vérifiez que la connexion entre le client d’OPC et OPC PLC peut être établie avec succès et que le client OPC peut lire correctement les données de OPC PLC. Vous devez voir la sortie suivante dans la sortie du journal client OPC :
 ```
 opcclient-123456 | [13:40:12 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [13:40:12 INF] Session successfully created with Id ns=3;i=941910499.
@@ -132,7 +132,7 @@ opcclient-123456 | [13:40:12 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [13:40:12 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [13:40:12 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/21/2018 13:40:12
 ```
-Si vous voyez cette sortie, puis le PLC OPC est à présent faire confiance à OPC Client et vice versa, car elles disposent désormais les certificats signés par une autorité de certification et les deux certificats de confiance qui ont été signés par cette autorité de certification.
+Si vous voyez cette sortie, puis le PLC OPC est désormais autorisé à approuver l’OPC client et vice versa, car elles disposent désormais les certificats signés par une autorité de certification et les deux certificats de confiance qui ont été signés par cette autorité de certification.
 
 ### <a name="a-testbed-for-opc-publisher"></a>Un banc d’essai pour l’éditeur d’OPC ###
 
@@ -145,7 +145,7 @@ docker-compose -f testbed.yml up
 
 **Vérification**
 - Vérifiez que les données sont envoyées à la IoTHub que vous avez configuré en définissant `_HUB_CS` à l’aide de [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou [iothub-explorer](https://github.com/Azure/iothub-explorer).
-- Client OPC Test va utiliser les appels de méthode directe de IoTHub et appels de méthode OPC pour configurer le serveur de publication OPC pour publier/annuler la publication de nœuds de OPC Testserver.
+- Client de test OPC va utiliser les appels de méthode directe de IoTHub et appels de méthode OPC pour configurer le serveur de publication OPC pour publier/annuler la publication de nœuds à partir du serveur de test OPC.
 - Regardez la sortie des messages d’erreur.
 
 ## <a name="next-steps"></a>Étapes suivantes

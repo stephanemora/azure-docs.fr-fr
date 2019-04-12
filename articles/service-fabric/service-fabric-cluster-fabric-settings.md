@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2018
+ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 97f75438cf6401b4e2d5043038c1ca32b7022e7c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361547"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501295"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -403,10 +403,11 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève Description** |
 | --- | --- | --- | --- |
+|AutomaticUnprovisionInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromMinutes(5)|Dynamique|Spécifiez la durée en secondes. L’intervalle de nettoyage pour autorisé pour désinscrire le type d’application au cours du nettoyage de type d’application automatique.|
 |AzureStorageMaxConnections | Entier (valeur par défaut : 5000) |Dynamique|Nombre maximum de connexions simultanées au stockage Azure. |
 |AzureStorageMaxWorkerThreads | Entier (valeur par défaut : 25) |Dynamique|Nombre maximum de threads de travail en parallèle. |
 |AzureStorageOperationTimeout | Durée en secondes (valeur par défaut : 6000) |Dynamique|Spécifiez la durée en secondes. Délai permettant de finaliser l’opération xstore. |
-|CleanupApplicationPackageOnProvisionSuccess|valeur booléenne, valeur par défaut : FALSE |Dynamique|Cette configuration active ou désactive le nettoyage automatique du package d’application en cas de provisionnement réussi. |
+|CleanupApplicationPackageOnProvisionSuccess|valeur booléenne, valeur par défaut : FALSE |Dynamique|Active ou désactive le nettoyage automatique du package d’application sur l’approvisionnement réussi. |
 |CleanupUnusedApplicationTypes|Valeur booléenne, valeur par défaut : FALSE |Dynamique|Cette configuration si activé, permet d’annuler l’inscription automatiquement des versions de types d’applications inutilisés ignorant les versions inutilisées trois dernières, réduisant ainsi l’espace disque occupé par le magasin d’images. Le nettoyage automatique sera déclenché à la fin de la fourniture de ce type d’application spécifique et également s’exécute périodiquement une fois par jour pour tous les types d’application. Nombre de versions inutilisées à ignorer est configurable à l’aide du paramètre « MaxUnusedAppTypeVersionsToKeep ». |
 |DisableChecksumValidation | Valeur booléenne (valeur par défaut : false) |statique| Cette configuration nous permet d’activer ou de désactiver la validation de la somme de contrôle pendant l’approvisionnement de l’application. |
 |DisableServerSideCopy | Valeur booléenne (valeur par défaut : false) |statique|Cette configuration active ou désactive la copie côté serveur du package d’application sur le magasin ImageStore pendant l’approvisionnement de l’application. |

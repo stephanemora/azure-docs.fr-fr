@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278868"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501465"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -1107,7 +1107,7 @@ Liste des faces persistedFaceId et userData dans une liste de visage de grande t
 Mettre à jour de champ d’userData d’un visage spécifié dans une liste de visages de grande taille en son persistedFaceId. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Récupérer les largeFaceListId d’une liste de visages de grande taille, le nom, userData.
 Liste des informations des grandes face affiche de largeFaceListId, le nom et userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Soumettre une tâche de formation face grande liste. La formation est une étape essentielle uniquement une liste de visage volumineux formé peut être utilisée par |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Soumettre une tâche de formation face grande liste. La formation est une étape essentielle uniquement une liste de visage volumineux formé peut utiliser. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | Pour vérifier l’état de formation face grande liste terminée ou encore en cours. Formation de LargeFaceList est une opération asynchrone |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Créer une liste de visage volumineux vide avec largeFaceListId spécifié par l’utilisateur, le nom et une userData facultatif.
 Mettre à jour les informations d’une liste de visages de grande taille, notamment le nom et userData. |
@@ -1123,7 +1123,7 @@ Répertorier les informations de toutes les personnes dans le groupe spécifié 
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Nom de la mise à jour ou userData d’une personne. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Récupérer les informations d’un groupe de personne volumineux, notamment son nom et son userData. Cette API retourne les informations de groupe de personne volumineux
 Répertorier de tous les grandes personne groupes existants largePesonGroupId, nom et userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Soumettre une tâche de formation de personne grand groupe. La formation est une étape essentielle qu’uniquement un groupe de personne volumineux formé peut être utilisé |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Soumettre une tâche de formation de personne grand groupe. La formation est une étape essentielle uniquement un groupe de personne volumineux formé peut utiliser. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | Pour vérifier l’état de formation du groupe de personne volumineux terminé ou encore en cours. Formation de LargePersonGroup est une opération asynchrone |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Créer un nouveau groupe de personne volumineux avec largePersonGroupId spécifié par l’utilisateur, le nom et userData facultatif.
 Mettre à jour un groupe existant personne grand nom et userData. Les propriétés conservent inchangées si elles ne sont pas dans le corps de la demande. |
@@ -1139,7 +1139,7 @@ Répertorier les informations de toutes les personnes dans le groupe de personne
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Nom de la mise à jour ou userData d’une personne. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Récupérer userData et un nom de groupe de personne. Pour obtenir des informations de la personne sous ce groupe de personnes, utilisez
 Liste de groupes de personnes pesonGroupId, nom et userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Soumettre une tâche de formation de groupe de personne. La formation est une étape essentielle uniquement un groupe de personne formé peut être utilisé par |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Soumettre une tâche de formation de groupe de personne. La formation est une étape essentielle uniquement un groupe de personne formé peut utiliser. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | Pour vérifier l’état de formation du groupe de personne terminé ou encore en cours. Formation de groupe de personnes est une opération asynchrone est déclenchée |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Créer un nouveau groupe de personnes avec personGroupId spécifié, le nom et userData fourni par l’utilisateur.
 Mettre à jour un groupe existant personne nom et userData. Les propriétés conservent inchangées si elles ne sont pas dans le corps de la demande. |

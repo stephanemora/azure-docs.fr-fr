@@ -10,15 +10,15 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: c9be129624c87ca0bff1e85a5d1c71425ef06b89
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471880"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489688"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance"></a>Fuseau horaire dans la base de données Azure SQL Managed Instance
+# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Fuseau horaire dans la base de données Azure SQL Managed Instance (version préliminaire)
 
 À l’aide de temps universel coordonné (UTC) est une pratique recommandée pour la couche de données de solutions de cloud, Azure SQL Database Managed Instance offre un choix de fuseau horaire en fonction des besoins des applications existantes qui stockent les valeurs de date et d’heure et date de l’appel et fonctions d’heure avec un contexte implicite d’un fuseau horaire spécifique.
 
@@ -72,7 +72,7 @@ Si non spécifié, fuseau horaire est défini sur UTC.
 
 ## <a name="checking-the-time-zone-of-instance"></a>La vérification du fuseau horaire de l’instance
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql) fonction retourne un nom d’affichage du fuseau horaire de l’instance.
+[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) fonction retourne un nom d’affichage du fuseau horaire de l’instance.
 
 ## <a name="cross-feature-considerations"></a>Considérations relatives à l’entre fonctionnalités
 

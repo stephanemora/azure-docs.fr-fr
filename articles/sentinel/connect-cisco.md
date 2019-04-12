@@ -1,6 +1,6 @@
 ---
-title: Collecter des données de Cisco Sentinel version préliminaire d’Azure | Microsoft Docs
-description: Découvrez comment collecter des données de Cisco dans Azure Sentinel.
+title: Connectez les données de Cisco pour Azure en version préliminaire Sentinel | Microsoft Docs
+description: Découvrez comment connecter des données de Cisco pour Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 37dcd1dd7052db864797407897851d57e91d43e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5bc57d448b8aa04b8cb6fb16000205fda8964150
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883904"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495700"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Connecter votre application Cisco ASA 
 
@@ -30,7 +30,7 @@ ms.locfileid: "58883904"
 Vous pouvez connecter Azure Sentinel vers n’importe quel appareil Cisco ASA. Cisco ASA est intégré en mode natif avec Azure Sentinel d’ingestion des données, afin que même si votre équipement Cisco n’enregistre pas les journaux en tant que format CEF, Sentinel Azure les ingère dans la même façon qu’il gère des journaux CEF. L’intégration avec Azure Sentinel permet d’exécuter facilement analytique et des requêtes sur les données du fichier journal à partir de Cisco ASA. 
 
 > [!NOTE]
-> - Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
+> Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
 ## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>Étape 1 : Connecter votre application Cisco ASA à l’aide d’un agent
 
@@ -42,7 +42,7 @@ Pour afficher un diagramme de réseau des deux options, consultez [connecter des
 
 ### <a name="deploy-the-agent-in-azure"></a>Déployer l’agent dans Azure
 
-1. Dans le portail Azure Sentinel, cliquez sur **collecte des données** et sélectionnez le type de votre appliance. 
+1. Dans le portail Azure Sentinel, cliquez sur **connecteurs de données** et sélectionnez le type de votre appliance. 
 
 1. Sous **configuration de l’agent Linux Syslog**:
    - Choisissez **déploiement automatique** si vous souhaitez créer un nouvel ordinateur qui est préinstallé avec l’agent Sentinel Azure et inclut tous les besoins de configuration, comme décrit ci-dessus. Sélectionnez **déploiement automatique** et cliquez sur **déploiement d’agent automatique**. Vous accédez à la page d’achat pour une machine virtuelle dédiée qui est automatiquement connecté à votre espace de travail, est. La machine virtuelle est un **standard D2s v3 (2 processeurs virtuels, 8 Go de mémoire)** et a une adresse IP publique.
@@ -79,7 +79,7 @@ Pour afficher un diagramme de réseau des deux options, consultez [connecter des
 Si vous n’utilisez pas Azure, déployer manuellement l’agent Sentinel Azure s’exécute sur un serveur Linux dédié.
 
 
-1. Dans le portail Azure Sentinel, cliquez sur **collecte des données** et sélectionnez le type de votre appliance.
+1. Dans le portail Azure Sentinel, cliquez sur **connecteurs de données** et sélectionnez le type de votre appliance.
 1. Pour créer une VM Linux dédié, sous **configuration de l’agent Linux Syslog** choisissez **déploiement manuel**.
    1. Sous **télécharger et installer l’agent Syslog**, sélectionnez **machine Non-Azure Linux**. 
    1. Dans le **agent Direct** écran qui s’affiche, sélectionnez **Agent pour Linux** pour télécharger l’agent ou exécutez cette commande pour le télécharger sur votre ordinateur Linux :   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

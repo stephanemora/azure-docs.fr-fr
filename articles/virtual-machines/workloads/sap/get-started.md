@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40ed06bef45948068e3845e728d9c1d63ed62e71
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 3e07824db683b55cf5827962c1030d6cfd6c9f66
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762801"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490427"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilisation d’Azure pour l’hébergement et l’exécution de scénarios de charge de travail SAP
 
@@ -32,7 +32,7 @@ En plus de l’hébergement des scénarios de SAP NetWeaver avec différents SGB
 
 Le caractère unique d’Azure pour SAP HANA est une offre qui distingue Azure de la concurrence. Pour permettre l’accès à un plus grand nombre de scénarios SAP exigeants en mémoire et en ressources processeur impliquant SAP HANA, Azure propose du matériel nu dédié au client pour les déploiements de SAP HANA nécessitant jusqu’à 24 To (scale-out de 120 To) de mémoire pour S/4HANA ou toute autre charge de travail SAP HANA. Cette solution Azure unique de SAP HANA sur Azure (grandes instances) vous autorise à exécuter SAP HANA sur le matériel nu dédié avec la couche application SAP ou une couche intermédiaire de la charge de travail hébergées dans des Machines virtuelles Azure natives. Cette solution est documentée dans plusieurs documents à la section « SAP HANA sur Azure (grandes instances) ».   
 
-L’hébergement de scénarios de charge de travail SAP dans Azure peut aussi créer des exigences d’intégration d’identité et d’authentification unique à l’aide d’Azure Activity Directory pour différents composants SAP et SaaS SAP ou offres PaaS. Une liste de ces scénarios d’intégration et d’authentification unique avec Azure Active Directory (AAD) et des entités SAP est décrite et documentée dans la section « Intégration d’identité AAD SAP et authentification unique ».
+Hébergement des scénarios de charge de travail SAP dans Azure pouvez également créer des exigences en matière d’intégration d’identité-authentification unique à l’aide d’Azure Active Directory à différents composants SAP et SaaS SAP ou offres PaaS. Une liste de ces scénarios d’intégration et d’authentification unique avec Azure Active Directory (AAD) et des entités SAP est décrite et documentée dans la section « Intégration d’identité AAD SAP et authentification unique ».
 
 ## <a name="latest-changes"></a>Dernières modifications
 
@@ -53,8 +53,8 @@ Mise à disposition de la [liste de contrôle relative à la planification et au
 
 Une série de documents vous guide dans l’utilisation de SAP HANA sur Azure (grandes instances). Les documents couvrent les domaines répertoriés relatifs aux grandes instances HANA :
 
-- [Présentation de SAP HANA sur Azure (grandes instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- [Architecture de SAP HANA sur Azure (grandes instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
+- [Vue d’ensemble de SAP HANA sur Azure (grandes Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [Architecture de SAP HANA sur Azure (grandes Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
 - [Infrastructure et connectivité à SAP HANA sur Azure (grandes instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
 - [Installation de SAP HANA sur SAP HANA sur Azure (grandes instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
 - [Haute disponibilité et récupération d’urgence de SAP HANA sur Azure (grandes instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
@@ -71,14 +71,14 @@ Cette partie de la documentation couvre différents aspects de SAP HANA. Vous de
 
 La documentation spécifique à la solution HANA sur Azure se compose de cette liste d’articles et de leurs sous-articles :
 
-- [Démarrage rapide : Installation manuelle d’un système SAP HANA à instance unique sur des machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
+- [Démarrage rapide : Installation manuelle d’un système SAP HANA à une instance sur des machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Déploiement de SAP S/4HANA ou BW/4HANA sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)
 - [Configurations et opérations de l’infrastructure SAP HANA sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 - [Haute disponibilité de SAP HANA pour les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
 - [Disponibilité de SAP HANA au sein d’une région Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 - [Disponibilité de SAP HANA dans l’ensemble des régions Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions)
 - [Haute disponibilité de SAP HANA sur des machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
-- [Guide de sauvegarde pour SAP HANA sur des machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Guide de sauvegarde pour SAP HANA sur Machines Virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [Sauvegarde SAP HANA sur Azure au niveau fichier](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
 - [Sauvegarde SAP HANA à partir de captures instantanées de stockage](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
@@ -115,13 +115,13 @@ Le document d’entrée pointe vers divers autres documents relatifs à l’arch
 
 Concernant l’intégration entre Azure Active Directory (AAD), les services SAP et l’authentification unique, les documents disponibles sont les suivants :
 
-- [Tutoriel : Intégration d’Azure Active Directory avec SAP Cloud for Customer](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Tutoriel : Intégration d’Azure Active Directory avec SAP Cloud Platform Identity Authentication](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Tutoriel : Intégration d’Azure Active Directory avec SAP Cloud Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Tutoriel : Intégration d’Azure Active Directory avec SAP NetWeaver](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Tutoriel : Intégration d’Azure Active Directory avec SAP Business ByDesign](https://docs.microsoft.com/azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Tutoriel : Intégration d’Azure Active Directory avec SAP HANA](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Votre environnement S/4HANA - Authentification unique Fiori Launchpad SAML avec Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
+- [Didacticiel : Intégration d’Azure Active Directory à SAP Cloud pour le client](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Didacticiel : Intégration d'Azure Active Directory à SAP Cloud Platform Identity Authentication](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Didacticiel : Intégration d’Azure Active Directory avec SAP Cloud Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Didacticiel : Intégration d’Azure Active Directory avec SAP NetWeaver](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Didacticiel : Intégration d'Azure Active Directory à SAP Business ByDesign](https://docs.microsoft.com/azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Didacticiel : intégration d’Azure Active Directory à SAP HANA](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Votre environnement de S/4HANA – Fiori Launchpad SAML Single Sign-On avec Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
 
 Concernant l’intégration des services Azure avec les composants SAP, les documents disponibles sont les suivants :
 

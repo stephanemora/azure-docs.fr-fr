@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f3f041fa3b594b4b680d794c1c013e55b97da4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235187"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501587"
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs
 
@@ -55,8 +55,7 @@ Sachant que *{Your Search Terms}* correspond aux mots clés de votre recherche.
 | Outil  | Description  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Collez un ID ou un jeton d'accès pour décoder les noms et les valeurs des revendications. |
-| [Analyseur de code d’erreur](https://apps.dev.microsoft.com/portal/tools/errors)| Collez un code d'erreur obtenu au moment de la connexion ou dans les pages d'acceptation pour afficher les causes et les résolutions possibles. |
-| [Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Cet outil vous permet de soumettre des requêtes et de voir les réponses par rapport à l'API Microsoft Graph. |
+| [Explorateur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Cet outil vous permet de soumettre des requêtes et de voir les réponses par rapport à l'API Microsoft Graph. |
 
 ## <a name="post-a-question-to-stack-overflow"></a>Publication d’une question sur Stack Overflow
 
@@ -76,7 +75,7 @@ Si vous ne trouvez pas de réponse à votre question par l'intermédiaire de la 
 
 Les publications suivantes de Stack Overflow contiennent des conseils sur la formulation des questions et sur l'ajout de code source. Suivez ces recommandations pour que les membres de la communauté étudient votre question et y répondent rapidement :
 
-* [Comment poser une bonne question](https://stackoverflow.com/help/how-to-ask)
+* [Comment pour poser une question de bon](https://stackoverflow.com/help/how-to-ask)
 * [Comment créer un exemple minimal, complet et vérifiable](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Créer un problème GitHub

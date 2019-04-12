@@ -1,5 +1,5 @@
 ---
-title: Comment déployer le module de gestion de certificat Azure IoT OPC UA à partir de zéro | Microsoft Docs
+title: Comment déployer le module OPC coffre à partir de zéro - Azure | Microsoft Docs
 description: Comment déployer OPC coffre à partir de zéro.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a3a9d21b70f16482f05d27aa0df8d8865459aeb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759428"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496894"
 ---
-# <a name="deploy-opc-vault-from-scratch"></a>Déployer OPC coffre à partir de zéro
+# <a name="deploy-opc-vault-from-scratch"></a>Déployer OPC Vault à partir de zéro
 
-Azure IoT OPC UA gestion des certificats, également connu sous le nom coffre OPC, est un microservice peut configurer, inscrire et gérer le cycle de vie de certificat pour les applications de serveur et client OPC UA dans le cloud. Cet article vous montre comment déployer OPC coffre à partir de zéro.
+OPC Vault est un microservice qui peut configurer, inscrire et gérer le cycle de vie de certificat pour le serveur UA OPC et les applications clientes dans le cloud. Cet article vous montre comment déployer OPC coffre à partir de zéro.
 
 ## <a name="configuration-and-environment-variables"></a>Variables d’environnement et de configuration
 
@@ -130,7 +130,7 @@ Nous fournissons également un [version Java](https://github.com/Azure/iot-opc-g
 
 Voici quelques-unes des IDE que vous pouvez utiliser pour travailler sur Azure IoT PC :
 
-- [Visual Studio](https://www.visualstudio.com)
+- [Visual Studio](https://www.visualstudio.com)
 - [Visual Studio pour Mac](https://www.visualstudio.com/vs/visual-studio-mac)
 - [IntelliJ Rider](https://www.jetbrains.com/rider)
 - [Visual Studio Code](https://code.visualstudio.com)

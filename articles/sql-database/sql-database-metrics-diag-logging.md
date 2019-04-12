@@ -1,10 +1,10 @@
 ---
 title: Journalisation des diagnostics et métriques Azure SQL Database | Microsoft Docs
-description: Apprenez à configurer Azure SQL Database pour stocker les statistiques d’utilisation des ressources et d’exécution des requêtes.
+description: Découvrez comment activer les diagnostics dans la base de données SQL Azure pour stocker des informations sur l’utilisation des ressources et les statistiques d’exécution de requête.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
@@ -12,14 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426486"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490066"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
+
+Dans cette rubrique, vous allez apprendre à configurer la journalisation de télémétrie de diagnostic pour la base de données SQL Azure via le portail Azure, PowerShell, Azure CLI, API REST Azure Monitor et modèle Azure Resource Manager. Ces outils de diagnostic peuvent être utilisés pour évaluer l’utilisation des ressources et les statistiques d’exécution de requête. 
 
 Les bases de données uniques, les bases de données en pool dans les pools élastiques et les bases de données d’instances dans une instance gérée peuvent diffuser en continu des métriques et des journaux de diagnostic pour faciliter la supervision des performances. Vous pouvez configurer une base de données de sorte qu’elle transmette les informations relatives à l’utilisation des ressources, aux workers et sessions ainsi qu’à la connectivité à l’une de ces ressources Azure :
 

@@ -12,30 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242596"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500496"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Utilisation des files d’attente Service Bus avec Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Cet article décrit l’utilisation des files d’attente Service Bus. Les exemples sont écrits en Python et utilisent le [package Python Azure Service Bus][Python Azure Service Bus package]. Les scénarios couverts dans ce guide sont les suivants : **création de files d’attente, envoi et réception de messages** et **suppression de files d’attente**.
+Dans ce didacticiel, vous allez apprendre à créer des applications Python pour envoyer des messages à et de recevoir des messages à partir d’une file d’attente Service Bus. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Conditions préalables
+1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Suivez les étapes de la [utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) article.
+    1. Lire le plus rapide pour **vue d’ensemble** de Service Bus **files d’attente**. 
+    2. Créer un Service Bus **espace de noms**. 
+    3. Obtenir le **chaîne de connexion**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-> [!IMPORTANT]
-> Pour installer Python ou le [package Python Azure Service Bus][Python Azure Service Bus package], consultez le [Python Installation Guide (Guide d’installation de Python)](../python-how-to-install.md).
-> 
-> Consultez la documentation complète du kit SDK de Service Bus Python [ici](/python/api/overview/azure/servicebus?view=azure-python)
-
+        > [!NOTE]
+        > Vous allez créer un **file d’attente** dans l’espace de noms Service Bus à l’aide de Python dans ce didacticiel. 
+1. Installer Python ou le [package Python Azure Service Bus][Python Azure Service Bus package], consultez le [Guide d’Installation de Python](../python-how-to-install.md). Consultez la documentation complète du kit SDK de Service Bus Python [ici](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Créer une file d’attente
 Le **ServiceBusClient** objet vous permet d’utiliser des files d’attente. Ajoutez le code suivant au début de chaque fichier Python dans lequel vous souhaitez accéder à Service Bus par programme :

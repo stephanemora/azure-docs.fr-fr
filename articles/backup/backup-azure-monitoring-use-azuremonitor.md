@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: aa97e60fe296190f3478d29bc80c70ea487e8955
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 15bb64917fa58ba2d13c6f372640957508ab29c1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258579"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494557"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Surveillance à l’échelle à l’aide d’Azure Monitor
 
@@ -109,7 +109,7 @@ L’aspect clé est la condition de déclenchement de l’alerte. En cliquant su
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Modifiez la requête Kusto, si nécessaire, sélectionnez le seuil de droite (qui décidera lorsque l’alerte sera déclenchée), la période de droite (fenêtre de temps pour lequel la requête est exécutée) et la fréquence. Pour par exemple : Pour par exemple : Si le seuil est supérieur à 0, la période est de 5 minutes et la fréquence est de 5 minutes, puis la règle est traduite en tant que « Exécuter la requête toutes les 5 minutes pour les 5 dernières minutes et si le nombre de résultats est supérieur à 0, m’avertir par le groupe d’actions sélectionné »
+Modifiez la requête Kusto, si nécessaire, sélectionnez le seuil de droite (qui décidera lorsque l’alerte sera déclenchée), la période de droite (fenêtre de temps pour lequel la requête est exécutée) et la fréquence. Pour par exemple : Si le seuil est supérieur à 0, la période est de 5 minutes et la fréquence est de 5 minutes, puis la règle est traduite en tant que « Exécuter la requête toutes les 5 minutes pour les 5 dernières minutes et si le nombre de résultats est supérieur à 0, m’avertir par le groupe d’actions sélectionné »
 
 #### <a name="action-group-integration"></a>Intégration des groupes d’action
 

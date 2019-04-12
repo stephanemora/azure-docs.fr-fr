@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: d22fffcb792227b4d0805abd005d8c050cb97248
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006201"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505598"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
@@ -158,21 +158,20 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-Vous pouvez désactiver manuellement les mises à jour automatiques.
+### <a name="disable-automatic-updates"></a>Désactiver les mises à jour automatiques
 
-Pour désactiver les mises à jour automatiques :
+Pour désactiver les mises à jour automatiques via la stratégie de groupe locale :
 
-1. Installer Office 365 en suivant les instructions dans [préparation de logiciels et d’installation](set-up-customize-master-image.md#software-preparation-and-installation).
-2. Installer des applications supplémentaires en suivant les instructions dans [configurer le conteneur de profil utilisateur (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [configurer Windows Defender](set-up-customize-master-image.md#configure-windows-defender), et [d’autres applications et le Registre configuration](set-up-customize-master-image.md#other-applications-and-registry-configuration).
-3. Désactiver le Service de mise à jour automatique de Windows sur la machine virtuelle locale.
-4. Ouvrez **éditeur de stratégie de groupe locale\\modèles d’administration\\les composants Windows\\mise à jour Windows**.
-5. Avec le bouton droit **configurer la mise à jour automatique** et affectez-lui la valeur **désactivé**.
+1. Ouvrez **éditeur de stratégie de groupe locale\\modèles d’administration\\les composants Windows\\mise à jour Windows**.
+2. Avec le bouton droit **configurer la mise à jour automatique** et affectez-lui la valeur **désactivé**.
 
 Vous pouvez également exécuter la commande suivante dans une invite de commande pour désactiver les mises à jour automatiques.
 
 ```batch
 reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
+
+### <a name="specify-start-layout-for-windows-10-pcs-optional"></a>Spécifier la mise en page de démarrage pour les PC Windows 10 (facultatif)
 
 Exécutez cette commande pour spécifier une mise en page de démarrage pour les PC Windows 10.
 

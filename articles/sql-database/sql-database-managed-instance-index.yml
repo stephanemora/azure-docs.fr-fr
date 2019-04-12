@@ -15,7 +15,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: null
   ms.topic: overview
-  ms.date: 01/03/2019
+  ms.date: 04/09/2019
   ms.author: jovanpop
 abstract:
   description: 'Une instance gérée dans la base de données SQL Azure est une Instance entièrement géré de moteur de base de données serveur SQL hébergé dans Azure cloud. Il s’agit de la meilleure option PaaS pour la migration de votre base de données SQL Server vers le cloud. Découvrez comment créer et utiliser Managed Instance avec nos guides de démarrage rapide, nos tutoriels et nos exemples.'
@@ -78,6 +78,7 @@ sections:
           - html: Les instances gérées sont protégées avec <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">pare-feu intégré</a>.
           - html: '(Version préliminaire) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Recréer des bases de données à l’aide de PowerShell supprimées</a>'
           - html: 'Fonctionnalité de géo-restauration vous permet de <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurer votre base de données vers un autre centre de données à l’aide de PowerShell</a>.'
+          - html: '(Version préliminaire) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Fuseau horaire de configurer</a> lors de la création d’instance.'
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph

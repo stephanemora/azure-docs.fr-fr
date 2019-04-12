@@ -84,6 +84,22 @@ items:
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4- Nettoyer votre cluster et supprimer l’infrastructure
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: Bonnes pratiques
+  items:
+  - name: Vue d’ensemble des bonnes pratiques Service Fabric
+    href: service-fabric-best-practices-overview.md
+  - name: Sécurité
+    href: service-fabric-best-practices-security.md
+  - name: Mise en réseau
+    href: service-fabric-best-practices-networking.md
+  - name: Planification et mise à l’échelle de la capacité de calcul
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: Infrastructure as code
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: Surveillance et diagnostics
+    href: service-fabric-best-practices-monitoring.md
+  - name: Liste de vérification de disponibilité de la production
+    href: service-fabric-production-readiness-checklist.md
 - name: Exemples
   items:
   - name: Exemples de code
@@ -112,20 +128,6 @@ items:
       href: service-fabric-cluster-security.md
     - name: Attributs de sécurité courants Azure
       href: service-fabric-security-attributes.md
-  - name: Bonnes pratiques
-    items:
-    - name: Vue d’ensemble des bonnes pratiques Service Fabric
-      href: service-fabric-best-practices-overview.md
-    - name: Mise en réseau
-      href: service-fabric-best-practices-networking.md
-    - name: Planification et mise à l’échelle de la capacité de calcul
-      href: service-fabric-best-practices-capacity-scaling.md
-    - name: Infrastructure as code
-      href: service-fabric-best-practices-infrastructure-as-code.md
-    - name: Surveillance et diagnostics
-      href: service-fabric-best-practices-monitoring.md
-    - name: Liste de vérification de disponibilité de la production
-      href: service-fabric-production-readiness-checklist.md
   - name: Terminologie
     href: service-fabric-technical-overview.md
   - name: Création d’applications
@@ -851,9 +853,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 02b5712aedc96fce447f11b755b837b52855379b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9490e4a9b91dc752e373d696e27069bc4d402342
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278460"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495581"

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
 ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469129"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490841"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exporter et importer des inscriptions Azure Notification Hubs en bloc
 Il existe des scénarios dans lesquels il est nécessaire pour créer ou modifier un grand nombre d’inscriptions dans un concentrateur de notification. Certains de ces scénarios sont mises à jour de balise calculs par lots, ou la migration d’une implémentation push existante pour utiliser Notification Hubs.

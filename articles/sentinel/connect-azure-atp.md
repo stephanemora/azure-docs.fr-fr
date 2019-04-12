@@ -1,6 +1,6 @@
 ---
-title: Collecter des données d’Azure ATP dans Azure en version préliminaire Sentinel | Microsoft Docs
-description: Découvrez comment collecter des données d’Azure ATP dans Azure Sentinel.
+title: Connectez les données de Azure ATP à la version préliminaire d’Azure Sentinel | Microsoft Docs
+description: Découvrez comment connecter des données d’Azure ATP à Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 153b6cb44cbcf5ecca9a4941c6bef7a8721dc56c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574941"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492649"
 ---
-# <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>Collecter des données à partir d’Azure Advanced Threat Protection (ATP)
+# <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Se connecter aux données à partir d’Azure Advanced Threat Protection (ATP)
 
 > [!IMPORTANT]
 > Azure Sentinel est actuellement disponible en préversion publique.
@@ -42,7 +42,7 @@ Si Azure ATP est déployé et l’ingestion de vos données, les alertes suspect
 
 
 
-1. Dans Azure Sentinel, sélectionnez **collecte des données** puis cliquez sur le **Azure ATP** vignette.
+1. Dans Azure Sentinel, sélectionnez **connecteurs de données** puis cliquez sur le **Azure ATP** vignette.
 
 2. Cliquez sur **Connecter**.
 

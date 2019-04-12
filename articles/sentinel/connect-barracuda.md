@@ -1,6 +1,6 @@
 ---
-title: Collecter des données de Barracuda Sentinel version préliminaire d’Azure | Microsoft Docs
-description: Découvrez comment collecter des données de Barracuda dans Azure Sentinel.
+title: Connectez les données de Barracuda pour Azure en version préliminaire Sentinel | Microsoft Docs
+description: Découvrez comment connecter les données Barracuda pour Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d8e92fd3918230b48449926dcbb7528d919fd96f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574716"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492836"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Se connecter à votre appliance Barracuda 
 
@@ -31,11 +31,10 @@ Connecteur de pare-feu d’applications Web (WAF) Barracuda vous permet de conne
 
 
 > [!NOTE]
-> 
-> - Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
+> Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Configurer et connecter WAF Barracuda
-Pare-feu d’applications Web Barracuda peut intégrer et exporter des journaux directement vers [ASI] via le serveur Azure OMS.
+Pare-feu d’applications Web Barracuda peut intégrer et exporter les journaux directement vers Azure Sentinel via le serveur Azure OMS.
 1. Accédez à [flux de configuration WAF Barracuda](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)et suivez les instructions pour configurer la connexion à l’aide de ces paramètres :
     - **ID de l’espace de travail**: copiez la valeur de votre ID d’espace de travail à partir de la page du connecteur Azure Sentinel Barracuda.
     - **Clé primaire**: copiez la valeur de votre clé primaire à partir de la page du connecteur Azure Sentinel Barracuda.

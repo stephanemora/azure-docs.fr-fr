@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144814"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489809"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Authentification des appareils à l’aide de certificats d’autorité de certification X.509
 
@@ -24,7 +24,7 @@ Cet article décrit comment utiliser des certificats d’autorité de certificat
 * Comment signer des appareils à l’aide de certificats d’autorité de certification X.509
 * Comment les appareils signés à l’aide d’une autorité de certification X.509 sont authentifiés
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 La fonctionnalité d’autorité de certification X.509 permet l’authentification des appareils auprès d’IoT Hub à l’aide d’une autorité de certification. Elle simplifie considérablement le processus d’inscription initial des appareils et la logistique de la chaîne d’approvisionnement lors de la fabrication de l’appareil. [Pour en savoir plus, consultez cet article de scénario sur l’importance d’utiliser des certificats d’autorités de certification X.509](iot-hub-x509ca-concept.md) pour l’authentification des appareils.  Nous vous invitons à lire cet article de scénario avant de poursuivre car il explique l’objectif des étapes qui suivent.
 
@@ -40,7 +40,7 @@ Pour un environnement de production, nous vous recommandons d’acheter un certi
 
 Vous pouvez également créer une autorité de certification X.509 auto-signée à des fins de tests ou pour une utilisation sur des réseaux IoT fermés.
 
-Quelle que soit la provenance de votre certificat d’autorité de certification X.509, veillez constamment à garder secrète et à protéger sa clé privée.  Cette condition est nécessaire pour établir une relation de confiance dans le cadre de l’authentification de l’autorité de certification X.509. 
+Quelle que soit la provenance de votre certificat d’autorité de certification X.509, veillez constamment à garder secrète et à protéger sa clé privée.  Cette condition est nécessaire pour établir une relation de confiance dans le cadre de l’authentification de l’autorité de certification X.509.
 
 Découvrez comment [créer un certificat d’autorité de certification auto-signé](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) à des fins d’expérimentation tout au long de la description de cette fonctionnalité.
 
@@ -49,6 +49,8 @@ Découvrez comment [créer un certificat d’autorité de certification auto-sig
 Le propriétaire d’un certificat d’autorité de certification X.509 peut signer par chiffrement une autorité de certification intermédiaire qui peut à son tour signer une autre autorité de certification intermédiaire, et ainsi de suite, jusqu’à ce que la dernière autorité de certification intermédiaire mette fin à ce processus en signant un appareil. Vous obtenez ainsi une chaîne de certificats en cascade appelée chaîne de certificats de confiance. En réalité, il s’agit d’une délégation d’approbation pour la signature d’appareils. Cette délégation est importante car elle établit une chaîne de responsabilités variable par chiffrement et évite le partage des clés de signature.
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+
+Le certificat de périphérique (également appelé un certificat feuille) doit avoir le *nom de l’objet* défini sur le **ID d’appareil** qui a été utilisé lors de l’inscription de l’appareil IoT dans Azure IoT Hub. Ce paramètre est requis pour l’authentification.
 
 Découvrez ici comment [créer une chaîne de certificats](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) lors de la signature des appareils.
 

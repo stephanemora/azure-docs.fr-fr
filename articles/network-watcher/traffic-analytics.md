@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051884"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490994"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -173,15 +173,16 @@ New-AzStorageAccount `
 Sélectionnez les options suivantes, comme indiqué dans l’image :
 
 1. Sélectionnez *Actif* pour **État**.
-2. Sélectionnez un compte de stockage existant dans lequel conserver les journaux de flux. Si vous souhaitez stocker les données indéfiniment, définissez la valeur sur *0*. Des frais de stockage Azure peuvent s’appliquer pour le compte de stockage.
-3. Définissez **Rétention** sur le nombre de jours durant lequel vous souhaitez stocker les données.
-4. Sélectionnez *Activé* pour **Traffic Analytics Status** (État Traffic Analytics).
-5. Sélectionnez un espace de travail Analytique de journal existant ou **créer un nouvel espace de travail** pour créer un nouveau. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les régions prises en charge et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Azure Monitor enregistre la mise à niveau vers la nouvelle recherche de journal](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+2. Sélectionnez *Version 2* pour **version de journaux des flux**. La version 2 contient des statistiques de session des flux (octets et paquets).
+3. Sélectionnez un compte de stockage existant dans lequel conserver les journaux de flux. Si vous souhaitez stocker les données indéfiniment, définissez la valeur sur *0*. Des frais de stockage Azure peuvent s’appliquer pour le compte de stockage.
+4. Définissez **Rétention** sur le nombre de jours durant lequel vous souhaitez stocker les données.
+5. Sélectionnez *Activé* pour **Traffic Analytics Status** (État Traffic Analytics).
+6. Sélectionnez un espace de travail Log Analytics (OMS) existant ou cliquez sur **Créer un espace de travail** pour en créer un. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les [régions prises en charge](#supported-regions) et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    L’espace de travail Analytique de journal qui héberge la solution d’analytique du trafic et les groupes de sécurité réseau n’est pas obligé de se trouver dans la même région. Par exemple, Traffic Analytics se trouve peut-être dans un espace de travail de la région Europe Ouest, tandis que vos groupes de sécurité réseau sont hébergés dans les régions USA Est et USA Ouest. Plusieurs groupes de sécurité réseau peuvent être configurés dans le même espace de travail.
-6. Sélectionnez **Enregistrer**.
+    L’espace de travail Log Analytics qui héberge la solution Traffic Analytics et les groupes de sécurité réseau ne doivent pas nécessairement se trouver dans la même région. Par exemple, Traffic Analytics se trouve peut-être dans un espace de travail de la région Europe Ouest, tandis que vos groupes de sécurité réseau sont hébergés dans les régions USA Est et USA Ouest. Plusieurs groupes de sécurité réseau peuvent être configurés dans le même espace de travail.
+7. Sélectionnez **Enregistrer**.
 
-    ![Sélection du compte de stockage, de l’espace de travail Log Analytics et activation de Traffic Analytics](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
+    ![Sélection du compte de stockage, de l’espace de travail Log Analytics et activation de Traffic Analytics](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
 Répétez les étapes précédentes pour les autres groupes de sécurité réseau pour lesquels vous souhaitez activer Traffic Analytics. Les données des journaux de flux étant envoyées à l’espace de travail, assurez-vous que les lois et réglementations locales de votre pays autorisent le stockage de données dans la région où se trouve l’espace de travail.
 
@@ -300,7 +301,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
     ![Tableau de bord présentant la distribution de réseau virtuel](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - La topologie du réseau virtuel affiche le ruban supérieur pour sélectionner les paramètres comme les flux malveillants, les flux actifs, les connexions externes (connexions du réseau virtuel internes/actives/inactives) d’un réseau virtuel.
-- Vous pouvez filtrer la topologie du réseau virtuel en fonction des abonnements, des espaces de travail, des groupes de ressources et de l’intervalle de temps. D’autres filtres vous aident à comprendre le flux : type de flux (entre réseaux virtuels, dans un même réseau virtuel, etc.), direction du flux (entrant, sortant), état du flux (autorisé, bloqué) des réseaux virtuels (ciblé et connecté), type de connexion (peering ou passerelle - P2S et S2S) et groupe de sécurité réseau. Utilisez ces filtres pour vous concentrer sur les réseaux virtuels que vous souhaitez examiner en détail.
+- Vous pouvez filtrer la topologie du réseau virtuel en fonction des abonnements, des espaces de travail, des groupes de ressources et de l’intervalle de temps. D’autres filtres vous aident à comprendre le flux : Flux de Type (inter-réseaux virtuels IntraVNET et ainsi de suite), Direction du flux (entrante, sortante), état de flux (autorisés, bloqués), réseaux virtuels (ciblés et connecté), Type de connexion (l’homologation ou passerelle - P2S et S2S) et le groupe de sécurité réseau. Utilisez ces filtres pour vous concentrer sur les réseaux virtuels que vous souhaitez examiner en détail.
 - La topologie du réseau virtuel montre la distribution du trafic sur un réseau virtuel en ce qui concerne les flux (autorisés/bloqués/entrants/sortants/inoffensifs/malveillants), le protocole d’application et les groupes de sécurité réseau, par exemple :
 
     ![Topologie du réseau virtuel présentant la distribution du trafic et détails du flux](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

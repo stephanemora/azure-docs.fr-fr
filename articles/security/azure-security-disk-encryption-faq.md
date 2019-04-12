@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 413ed4a56afad5ced221ba957af9ddb007622b6a
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470047"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493142"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>FAQ Azure Disk Encryption pour machines virtuelles IaaS
 
@@ -37,11 +37,11 @@ Azure Disk Encryption est disponible sur les machines virtuelles du niveau stand
 
 ## <a name="bkmk_LinuxOSSupport"></a> Quelles sont les distributions Linux prises en charge par Azure Disk Encryption ?
 
-Azure Disk Encryption est pris en charge sur un sous-ensemble de [distributions Linux approuvées par Azure](../virtual-machines/linux/endorsed-distros.md), qui est lui-même un sous-ensemble de toutes les distributions possibles.
+Azure Disk Encryption est pris en charge sur un sous-ensemble de la [distributions Linux approuvées par Azure](../virtual-machines/linux/endorsed-distros.md), qui est lui-même un sous-ensemble de toutes les distributions de Linux server possible.
 
  ![Diagramme de Venn de serveur distributions Linux qui prennent en charge Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-Les distributions qui ne sont pas approuvées par Azure ne prennent pas en charge Azure Disk Encryption et, de celles qui sont approuvées, seuls les distributions de serveur Linux suivantes et les versions prennent en charge Azure Disk Encryption :
+Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne prennent pas en charge Azure Disk Encryption et, de celles qui sont approuvées, uniquement les versions et les distributions suivantes prennent en charge Azure Disk Encryption :
 
 | Distribution Linux | Version | Type de volume pris en charge pour le chiffrement|
 | --- | --- |--- |

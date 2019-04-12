@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: d1f4c72ec0a67baa6f523c1ab632903b0580f3a7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339378"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505573"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte (préversion)
 
@@ -56,7 +56,7 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 | Quantité      | Température   | « 32 degrés »    |
 | DateTime      | N/A\*         | « 6 h 30 le 4 février 2012 »      | 
 | DateTime      | Date          | « 2 mai 2017 », « 02/05/2017 »   | 
-| Date Heure     | Temps          | « 8 h », « 8:00 »  | 
+| DateTime      | Temps          | « 8 h », « 8:00 »  | 
 | DateTime      | DateRange     | « Du 2 au 5 mai »    | 
 | DateTime      | TimeRange     | « De 18 à 19 h »     | 
 | DateTime      | Duration      | « 1 minute et 45 secondes »   | 
@@ -96,7 +96,7 @@ Vous trouverez plus d’informations sur la définition d’une demande dans [Gu
 
 + Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API de liaison d’entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Définissez le point de terminaison HTTP pour l’extraction d’entité. Il doit inclure la ressource `/entities` : `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Définissez le point de terminaison HTTP pour l’extraction d’entité. Il doit inclure le `/entities` ressource : `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
 
@@ -288,8 +288,8 @@ Dans cet article, vous avez vu les concepts et le flux de travail de liaison d'e
 ## <a name="see-also"></a>Voir aussi 
 
  [Vue d’ensemble d’Analyse de texte](../overview.md)  
- [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
- [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Forum Aux Questions (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Page de produit Analytique de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

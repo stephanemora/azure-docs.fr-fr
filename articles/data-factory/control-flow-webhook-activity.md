@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
-ms.openlocfilehash: 0b8b892f02e54c3b0ddb155af97ce63ff115bb1f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522936"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495906"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Activité de Webhook dans Azure Data Factory
 Vous pouvez utiliser une activité de raccordement web pour contrôler l’exécution des pipelines via votre code personnalisé. Utilisation de l’activité de webhook, les clients peuvent appeler un point de terminaison et passer une URL de rappel. L’exécution du pipeline attend le rappel à appeler avant de passer à l’activité suivante.
@@ -63,21 +63,21 @@ url | Point de terminaison cible et chemin d’accès | Chaîne (ou expression a
 headers | En-têtes envoyés à la demande. Par exemple, pour définir la langue et le type sur une demande : « headers » : {« Accept-Language » : « en-us », « Content-Type » : « application/json »}. | Chaîne (ou expression avec resultType de chaîne) | Oui, l’en-tête Content-type est obligatoire. "headers":{ "Content-Type":"application/json"} |
 body | Représente la charge utile envoyée au point de terminaison. | Le corps est retransmis à l’appel de retour URI doit être un JSON valide. Voir le schéma de la charge utile de demande dans la section [Schéma de la charge utile](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0). | Oui |
 Authentification | Méthode d’authentification utilisée pour appeler le point de terminaison. Types pris en charge sont « Basic » ou « ClientCertificate ». Pour en savoir plus, voir la section [Authentification](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0). Si l’authentification n’est pas obligatoire, excluez cette propriété. | Chaîne (ou expression avec resultType de chaîne) | Non  |
-timeout | Délai d’attente pour l’activité de la &#39;callbackuri&#39; à appeler. La durée pendant laquelle l’activité attend 'callbackuri' à appeler. Valeur par défaut est 10mins (« 00 : 10:00 »). Le format est d.hh:mm:ss par exemple, de l’intervalle de temps | Chaîne | Non  |
+timeout | Délai d’attente pour l’activité de la &#39;callBackUri&#39; à appeler. La durée pendant laquelle l’activité attend 'callBackUri' à appeler. Valeur par défaut est 10mins (« 00 : 10:00 »). Le format est d.hh:mm:ss par exemple, de l’intervalle de temps | Chaîne | Non  |
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
 
-Azure Data Factory transmettra une propriété supplémentaire « callbackuri » dans le corps au point de terminaison url et s’attendent à cet uri à appeler avant la valeur de délai d’attente spécifiée. Si l’uri n’est pas appelé, l’activité échoue avec l’état « TimedOut ».
+Azure Data Factory transmettra une propriété supplémentaire « callBackUri » dans le corps au point de terminaison url et s’attendent à cet uri à appeler avant la valeur de délai d’attente spécifiée. Si l’uri n’est pas appelé, l’activité échoue avec l’état « TimedOut ».
 
 L’activité de raccordement web elle-même échoue uniquement lorsque l’appel au point de terminaison personnalisé échoue. N’importe quel message d’erreur peut être ajouté dans le corps du rappel et utilisé dans une activité ultérieure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory :
 
-- [Activité IfCondition](control-flow-if-condition-activity.md)
+- [Activité Condition si](control-flow-if-condition-activity.md)
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
 - [Pour chaque activité](control-flow-for-each-activity.md)
 - [Activité d’obtention des métadonnées](control-flow-get-metadata-activity.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
-- [Activité Web](control-flow-web-activity.md)
+- [Activité web](control-flow-web-activity.md)
 - [Activité jusqu’à](control-flow-until-activity.md)

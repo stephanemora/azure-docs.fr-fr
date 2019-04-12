@@ -1,5 +1,5 @@
 ---
-title: Comment déployer le module de gestion d’appareil Azure IoT OPC UA à un projet existant | Microsoft Docs
+title: Comment déployer un module jumeau de OPC à un projet Azure existant | Microsoft Docs
 description: Comment déployer des représentations d’OPC à un projet existant.
 author: dominicbetts
 ms.author: dobett
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dcf6acca344fe2a34fdc48fe89c5a1ee62b10b23
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59255884"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493244"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Déployer la représentation d’OPC à un projet existant
 
-Le module jumeau OPC s’exécute sur IoT Edge et fournit plusieurs services edge à OPC jumeau et les services de Registre. 
+Le module jumeau de OPC s’exécute sur IoT Edge et fournit plusieurs services edge à la représentation d’OPC et les services de Registre. 
 
-Le service de micro jumeau OPC facilite la communication entre les opérateurs de fabrique et des appareils de serveur OPC UA en usine via un module OPC représentations IoT Edge. Le service micro expose des services OPC UA (Parcourir, lecture, écriture et exécuter) via l’API REST. 
+Le service de micro OPC Twin facilite la communication entre les opérateurs de fabrique et des appareils de serveur OPC UA en usine via un module OPC représentations IoT Edge. Le service micro expose des services OPC UA (Parcourir, lecture, écriture et exécuter) via l’API REST. 
 
-Le service de Registre d’appareil OPC UA micro donne accès aux applications OPC UA inscrites et leurs points de terminaison. Opérateurs et administrateurs peuvent inscrire et annuler l’inscription de nouvelles applications OPC UA et parcourir les existantes, y compris leurs points de terminaison. Outre application et la gestion de point de terminaison, le service de Registre répertorie également les modules OPC appareil jumeau IoT Edge inscrits. L’API de service vous donne contrôle des fonctionnalités de module edge, par exemple, le démarrage ou l’arrêt de la découverte de serveurs (services d’analyse) ou activation nouvelle jumeaux de point de terminaison qui sont accessibles via le service de micro OPC jumeau.
+Le microservice de Registre d’appareil OPC UA fournit l’accès aux applications OPC UA inscrites et leurs points de terminaison. Opérateurs et administrateurs peuvent inscrire et annuler l’inscription de nouvelles applications OPC UA et parcourir les existantes, y compris leurs points de terminaison. Outre application et la gestion de point de terminaison, le service de Registre répertorie également les modules OPC représentations IoT Edge inscrits. L’API de service vous donne contrôle des fonctionnalités de module edge, par exemple, le démarrage ou l’arrêt de la découverte de serveurs (services d’analyse) ou activation nouvelle jumeaux de point de terminaison qui sont accessibles via le service de micro OPC jumeau.
 
-Le cœur du module est l’identité du superviseur. Le superviseur gère les représentations de point de terminaison, qui correspond aux points de terminaison OPC UA server qui sont activés à l’aide de l’API du Registre OPC UA correspondant. Représentations de ce point de terminaison traduisent OPC UA JSON reçu du service de micro OPC représentations en cours d’exécution dans le cloud en messages binaire OPC UA, qui sont envoyées via un canal sécurisé avec état au point de terminaison géré. Le superviseur fournit également des services de découverte qui envoient des événements de découverte de périphérique pour le service d’intégration d’appareil OPC UA pour le traitement, dans lequel ces événements sont le résultat dans les mises à jour dans le Registre OPC UA.  Cet article vous montre comment déployer le module jumeau de OPC à un projet existant. 
+Le cœur du module est l’identité du superviseur. Le superviseur gère les représentations de point de terminaison, qui correspond aux points de terminaison OPC UA server qui sont activés à l’aide de l’API du Registre OPC UA correspondant. Représentations de ce point de terminaison traduisent OPC UA JSON reçu du service de micro OPC représentations en cours d’exécution dans le cloud en messages binaire OPC UA, qui sont envoyées via un canal sécurisé avec état au point de terminaison géré. Le superviseur fournit également des services de découverte qui envoient des événements de découverte de périphérique pour le service de l’intégration d’appareil OPC UA pour le traitement, dans lequel ces événements sont le résultat dans les mises à jour dans le Registre OPC UA.  Cet article vous montre comment déployer le module jumeau de OPC à un projet existant. 
 
 > [!NOTE]
 > Pour plus d’informations sur les détails de déploiement et des instructions, consultez le GitHub [référentiel](https://github.com/Azure/azure-iiot-opc-twin-module).
@@ -71,7 +71,7 @@ Le script de déploiement tente d’inscrire deux applications AAD dans Azure Ac
 2. Vous pouvez également déployer un locataire AAD privé dans un autre abonnement, redémarrer le script et sélectionnez cette option pour l’utiliser.
 
 > [!WARNING]
-> JAMAIS continuer sans authentification.  Si vous choisissez pour ce faire, tout le monde peut accéder à vos points de terminaison de gestion des appareils OPC à partir d’Internet non authentifié.   Vous pouvez toujours choisir la [option de déploiement « local »](howto-opc-twin-deploy-dependencies.md) pour vos premiers pas.
+> JAMAIS continuer sans authentification.  Si vous choisissez pour ce faire, tout le monde peut accéder à vos points de terminaison OPC Twin à partir d’Internet non authentifié.   Vous pouvez toujours choisir la [option de déploiement « local »](howto-opc-twin-deploy-dependencies.md) pour vos premiers pas.
 
 ## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Déployer une démonstration de services IoT industrielle tout-en-un
 

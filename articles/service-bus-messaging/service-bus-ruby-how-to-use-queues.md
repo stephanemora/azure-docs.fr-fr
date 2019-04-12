@@ -12,26 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 074976ea1f889893b5daa21cea5c186ec77145c4
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6c42fbffd0b4569a9b04dede94061e716c48ecf1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588345"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501108"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Utilisation des files d’attente Service Bus avec Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Ce guide décrit l’utilisation des files d’attente Service Bus. Les exemples sont écrits en Ruby et utilisent le module Azure gem. Les scénarios couverts dans ce guide sont les suivants : **création de files d’attente, envoi et réception de messages** et **suppression de files d’attente**. Pour plus d’informations sur les files d’attente Service Bus, consultez la section [Étapes suivantes](#next-steps).
+Dans ce didacticiel, vous allez apprendre à créer des applications Ruby pour envoyer des messages à et de recevoir des messages à partir d’une file d’attente Service Bus. Les exemples sont écrits en Ruby et utilisent le module Azure gem.
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Conditions préalables
+1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Suivez les étapes de la [utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) article.
+    1. Lire le plus rapide pour **vue d’ensemble** de Service Bus **files d’attente**. 
+    2. Créer un Service Bus **espace de noms**. 
+    3. Obtenir le **chaîne de connexion**. 
 
-## <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-   
+        > [!NOTE]
+        > Vous allez créer un **file d’attente** dans l’espace de noms Service Bus à l’aide de Ruby dans ce didacticiel. 
+
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="how-to-create-a-queue"></a>Création d’une file d’attente
@@ -74,7 +79,7 @@ La méthode `receive_queue_message()` de l’objet **Azure::ServiceBusService** 
 
 Avec le comportement par défaut, la lecture et la suppression sont une opération en deux étapes, ce qui permet également de prendre en charge des applications ne pouvant pas fonctionner avec des messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode `delete_queue_message()` et en fournissant le message à supprimer sous la forme d’un paramètre. La méthode `delete_queue_message()` marque le message comme étant consommé et le supprime de la file d’attente.
 
-Si le paramètre `:peek_lock` est défini sur **false**, le modèle le plus simple correspond à la lecture et à la suppression du message. Ce modèle fonctionne mieux pour les scénarios dans lesquels une application peut accepter de ne pas traiter un message en cas d’échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Étant donné que Service Bus a marqué le message comme étant consommé, lorsque l’application redémarre et recommence à consommer des messages, elle manque le message consommé avant l’incident.
+Si le `:peek_lock` paramètre est défini sur **false**, la lecture et suppression du message devient le modèle le plus simple et mieux adapté aux scénarios dans lesquels une application peut tolérer de ne pas traiter un message en cas de défaillance. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Étant donné que Service Bus a marqué le message comme étant consommé, lorsque l’application redémarre et recommence à consommer des messages, elle manque le message consommé avant l’incident.
 
 L’exemple suivant montre comment recevoir et traiter des messages à l’aide de la méthode `receive_queue_message()`. Dans l’exemple, un message est d’abord reçu puis supprimé par le biais de `:peek_lock` défini sur **false**. Un autre message est ensuite reçu, puis supprimé via `delete_queue_message()` :
 

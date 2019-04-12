@@ -1,5 +1,5 @@
 ---
-title: Collecter des données d’intelligence contre les menaces dans Azure en version préliminaire Sentinel | Microsoft Docs
+title: Connecter des données intelligence des menaces à la version préliminaire d’Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter des données d’analyse décisionnelle contre les menaces à Azure Sentinel.
 documentationcenter: na
 author: rkarlin
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: a33b00e4e553824f1f719be2c8518487241f0a11
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400631"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494831"
 ---
-# <a name="collect-data-from-threat-intelligence-providers"></a>Collecter des données à partir de fournisseurs d’informations 
+# <a name="connect-data-from-threat-intelligence-providers"></a>Connectez des données à partir de fournisseurs d’informations 
 
 > [!IMPORTANT]
-> Sentinel Azure est actuellement en version préliminaire publique.
+> Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Une fois que vous diffusez vos données dans Azure Sentinel, vous pouvez enrichir il avec le flux de threat intelligence que vous utilisez dans votre organisation. 
@@ -44,7 +44,7 @@ Vous pouvez diffuser des journaux à partir de fournisseurs d’informations dan
 
 1. Si vous utilisez déjà un fournisseur d’intelligence des menaces, veillez à accéder à votre application de l’info-bulle et accorder l’autorisation d’envoyer des indicateurs à Microsoft et de spécifier le service comme Azure Sentinel.  
 
-2. Dans Azure Sentinel, sélectionnez **collecte des données** puis cliquez sur le **Threat Intelligence** vignette.
+2. Dans Azure Sentinel, sélectionnez **connecteurs de données** puis cliquez sur le **Threat Intelligence** vignette.
 
 3. Cliquez sur **Connecter**. 
 
@@ -55,5 +55,5 @@ Vous pouvez diffuser des journaux à partir de fournisseurs d’informations dan
 
 Dans ce document, vous avez appris à connecter votre fournisseur de menaces à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, consultez les articles suivants.
 
-- Pour la prise en main Azure Sentinel, vous avez besoin d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
-- Découvrez comment [intégrer vos données vers Azure Sentinel](quickstart-onboard.md), et [obtenez une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
+- Pour commencer à utiliser Azure Sentinel, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
+- Découvrez comment [intégrer vos données à Azure Sentinel](quickstart-onboard.md) et [obtenir une visibilité de vos données et des menaces potentielles](quickstart-get-visibility.md).

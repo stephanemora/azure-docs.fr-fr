@@ -1,5 +1,5 @@
 ---
-title: Comment déployer le module de gestion d’appareil Azure IoT OPC UA à partir de zéro | Microsoft Docs
+title: Comment déployer le module de représentations de OPC pour Azure à partir de zéro | Microsoft Docs
 description: Comment déployer des représentations d’OPC à partir de zéro.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: fe1b141ecacbd1d96c217322e69709828a3bf36c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759410"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491354"
 ---
-# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Déployer le Module de représentation d’OPC et les dépendances à partir de zéro
+# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Déployer le module de représentations de OPC et les dépendances à partir de zéro
 
-Le module jumeau OPC s’exécute sur IoT Edge et fournit plusieurs services edge à OPC jumeau et les services de Registre. 
+Le module jumeau de OPC s’exécute sur IoT Edge et fournit plusieurs services edge au jumeau d’appareil OPC et les services de Registre. 
 
 Il existe plusieurs options pour déployer des modules à votre [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) passerelle, entre eux
 
@@ -109,7 +109,7 @@ Le moyen le plus simple pour déployer les modules sur un appareil de passerelle
 
 ### <a name="prerequisites"></a>Conditions préalables
 
-1. Déployer la gestion des appareils d’UA OPC [dépendances](howto-opc-twin-deploy-dependencies.md) et obtenu résultant `.env` fichier. Notez déployé `hub name` de la `PCS_IOTHUBREACT_HUB_NAME` variable résultant `.env` fichier.
+1. Déployer la représentation d’OPC [dépendances](howto-opc-twin-deploy-dependencies.md) et obtenu résultant `.env` fichier. Notez déployé `hub name` de la `PCS_IOTHUBREACT_HUB_NAME` variable résultant `.env` fichier.
 
 2. Inscrire et démarrer un [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) ou [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) passerelle IoT Edge et notez son `device id`.
 
@@ -205,7 +205,7 @@ Pour des problèmes dépannage et débogage il sont utile d’exécuter les modu
 
 ### <a name="prerequisites"></a>Conditions préalables
 
-1. Déployer la gestion des appareils d’UA OPC [dépendances](howto-opc-twin-deploy-dependencies.md).
+1. Déployer la représentation d’OPC [dépendances](howto-opc-twin-deploy-dependencies.md).
 
 2. Installer [Docker CE (18.02.0+)](https://www.docker.com/community-edition) sur [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) ou [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
 

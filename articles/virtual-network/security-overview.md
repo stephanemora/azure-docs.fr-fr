@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: efce606f9c48668f569b0fb4fc45745adc6652c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6b100846ec08ca1bdda49d0d7bce9eb78ecf019b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262140"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501125"
 ---
 # <a name="security-groups"></a>Groupes de sécurité
 <a name="network-security-groups"></a>
@@ -80,6 +80,7 @@ Les règles de sécurité augmentée simplifient la définition de la sécurité
 * **AzureMonitor** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service AzureMonitor. Si vous spécifiez *AzureMonitor* comme valeur, le trafic vers AzureMonitor est autorisé ou refusé. 
 * **ServiceFabric** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service ServiceFabric. Si vous spécifiez *ServiceFabric* comme valeur, le trafic vers ServiceFabric est autorisé ou refusé. 
 * **AzureMachineLearning** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service AzureMachineLearning. Si vous spécifiez *AzureMachineLearning* comme valeur, le trafic est autorisé ou refusé à AzureMachineLearning. 
+* **BatchNodeManagement** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure BatchNodeManagement. Si vous spécifiez *BatchNodeManagement* pour la valeur, le trafic est autorisé ou refusé à partir du service de traitement par lots pour les nœuds de calcul.
 
 > [!NOTE]
 > Les balises des services Azure indiquent les préfixes d’adresse du cloud spécifique utilisé. 

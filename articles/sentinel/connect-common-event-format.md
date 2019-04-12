@@ -1,6 +1,6 @@
 ---
-title: Collecter des données CEF Sentinel version préliminaire d’Azure | Microsoft Docs
-description: Découvrez comment collecter des données CEF dans Azure Sentinel.
+title: Connectez les données de format CEF vers Azure Sentinel Preview | Microsoft Docs
+description: Découvrez comment connecter des données CEF à Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2117a139de52643f7cdbc6d054f46e5fb8ec0a77
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 18eb305beb79913713898b939ef840ca9ffab014
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005603"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489397"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe à l’aide du Format d’événement commun
 
@@ -29,8 +29,7 @@ ms.locfileid: "59005603"
 
 Vous pouvez connecter Azure Sentinel avec une solution externe qui vous permet d’enregistrer les fichiers journaux dans Syslog. Si votre appliance vous permet d’enregistrer les journaux comme Syslog Common Event Format CEF (), l’intégration avec Azure Sentinel vous permet de facilement exécuter analytique et les requêtes sur les données.
 
-> [!NOTE]
-> 
+> [!NOTE] 
 > Données sont stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
 ## <a name="how-it-works"></a>Fonctionnement
@@ -59,7 +58,7 @@ Vous pouvez également déployer l’agent manuellement sur une machine virtuell
 ### <a name="deploy-the-agent-in-azure"></a>Déployer l’agent dans Azure
 
 
-1. Dans le portail Azure Sentinel, cliquez sur **collecte des données** et sélectionnez le type de votre appliance. 
+1. Dans le portail Azure Sentinel, cliquez sur **connecteurs de données** et sélectionnez le type de votre appliance. 
 
 1. Sous **configuration de l’agent Linux Syslog**:
    - Choisissez **déploiement automatique** si vous souhaitez créer un nouvel ordinateur qui est préinstallé avec l’agent Sentinel Azure et inclut tous les besoins de configuration, comme décrit ci-dessus. Sélectionnez **déploiement automatique** et cliquez sur **déploiement d’agent automatique**. Vous accédez à la page d’achat pour une VM Linux dédié qui est automatiquement connecté à votre espace de travail, est. La machine virtuelle est un **standard D2s v3 (2 processeurs virtuels, 8 Go de mémoire)** et a une adresse IP publique.
@@ -96,7 +95,7 @@ Vous pouvez également déployer l’agent manuellement sur une machine virtuell
 Si vous n’utilisez pas Azure, déployer manuellement l’agent Sentinel Azure s’exécute sur un serveur Linux dédié.
 
 
-1. Dans le portail Azure Sentinel, cliquez sur **collecte des données** et sélectionnez le type de votre appliance.
+1. Dans le portail Azure Sentinel, cliquez sur **connecteurs de données** et sélectionnez le type de votre appliance.
 1. Pour créer une VM Linux dédié, sous **configuration de l’agent Linux Syslog** choisissez **déploiement manuel**.
    1. Sous **télécharger et installer l’agent Syslog**, sélectionnez **machine Non-Azure Linux**. 
    1. Dans le **agent Direct** écran qui s’affiche, sélectionnez **Agent pour Linux** pour télécharger l’agent ou exécutez cette commande pour le télécharger sur votre ordinateur Linux :   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

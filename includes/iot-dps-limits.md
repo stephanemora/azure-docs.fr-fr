@@ -4,20 +4,20 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1ae6c6ee59b66e6c61714c0ece9f306f1a885096
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65c89730e7d3d492b91daa8aba50e5606ca700a1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553503"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502706"
 ---
 Le tableau suivant répertorie les limites qui s’appliquent aux ressources de Service Azure IoT Hub Device Provisioning.
 
 | Ressource | Limite |
 | --- | --- |
 | Maximale services device provisioning par abonnement Azure | 10 |
-| Nombre maximal d’inscriptions | 500 000 |
-| Nombre maximal d’inscriptions | 500 000 |
+| Nombre maximal d’inscriptions | 1 000 000 |
+| Nombre maximal d’inscriptions | 1 000 000 |
 | Nombre maximal de groupes d’inscription | 100 |
 | Nombre maximal d’autorités de certification | 25 |
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734553"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496962"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -25,7 +25,7 @@ ms.locfileid: "55734553"
 
 Cet article présente les questions fréquemment posées sur Network Performance Monitor (NPM) dans Azure
 
-[Network Performance Monitor](/azure/networking/network-monitoring-overview) est une solution [d’analyse réseau hybride](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) basé sur le cloud qui vous permet d’analyser les performances du réseau entre différents points de votre infrastructure réseau. Vous pouvez également analyser la connectivité réseau avec le [service et les points de terminaison d’application](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md) ainsi que les [performances d’Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Network Performance Monitor](/azure/networking/network-monitoring-overview) est une solution [d’analyse réseau hybride](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) basé sur le cloud qui vous permet d’analyser les performances du réseau entre différents points de votre infrastructure réseau. Vous pouvez également analyser la connectivité réseau avec le [service et les points de terminaison d’application](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) ainsi que les [performances d’Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Network Performance Monitor détecte les problèmes réseau comme le blocage du trafic, les erreurs de routage et autres problèmes que les méthodes d’analyse réseau classiques ne sont pas capables de détecter. La solution génère des alertes et vous informe en cas de dépassement d’un seuil pour une liaison réseau. Il assure également la détection en temps opportun des problèmes de performances réseau et en localise la source en identifiant un segment ou un appareil réseau particuliers. 
 

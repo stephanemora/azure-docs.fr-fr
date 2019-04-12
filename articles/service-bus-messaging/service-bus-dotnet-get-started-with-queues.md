@@ -12,38 +12,29 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: dfdea9f8d50c467bf0e4317c8d95135afefa765f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778006"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500683"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-Ce didacticiel couvre les étapes suivantes :
-
-1. Créer un espace de noms Service Bus à l’aide du Portail Azure.
-2. Créer une file d’attente Service Bus à l’aide du portail Azure.
-3. Écrivez une application de console .NET Core pour envoyer un ensemble de messages à la file d’attente.
-4. Écrivez une application de console .NET Core pour recevoir ces messages de la file d’attente.
+Dans ce didacticiel, vous créez des applications de console .NET Core pour envoyer des messages à et de recevoir des messages à partir d’une file d’attente Service Bus. 
 
 ## <a name="prerequisites"></a>Conditions préalables
 
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur.
 2. [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
-2. Un abonnement Azure.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
-
+2. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+3. Si vous n’avez pas une file d’attente pour travailler avec, suivez les étapes de la [utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) article pour créer une file d’attente.
+    1. Lire le plus rapide pour **vue d’ensemble** de Service Bus **files d’attente**. 
+    2. Créer un Service Bus **espace de noms**. 
+    3. Obtenir le **chaîne de connexion**. 
+    4. Créer un Service Bus **file d’attente**. 
 
 ## <a name="send-messages-to-the-queue"></a>Envoyer des messages à la file d’attente
 
@@ -206,7 +197,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)**.
 
 ## <a name="receive-messages-from-the-queue"></a>Recevoir les messages d'une file d'attente
 
-Pour recevoir les messages que vous venez d’envoyer, créez une autre application de console .NET Core et installez le package NuGet **Microsoft.Azure.ServiceBus**, identique à l’application d’expéditeur précédente.
+Pour recevoir les messages que vous avez envoyé, créez une autre application de console .NET Core et installez le **Microsoft.Azure.ServiceBus** package NuGet, identique à l’application d’expéditeur précédente.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Écrire du code pour recevoir des messages de la file d’attente
 

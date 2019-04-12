@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469368"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490737"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Créez une fabrique d’image personnalisée dans Azure DevTest Labs
 Cet article traite de définition d’une stratégie de rétention, nettoyage de la fabrique et retrait d’anciennes images à partir de tous les autres dev/test dans l’organisation. 

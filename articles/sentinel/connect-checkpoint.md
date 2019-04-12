@@ -1,6 +1,6 @@
 ---
-title: Point de vérification de collecter des données Sentinel version préliminaire d’Azure | Microsoft Docs
-description: Découvrez comment collecter des données de Point de vérification dans Azure Sentinel.
+title: Connectez les données de Check Point vers Azure Sentinel Preview | Microsoft Docs
+description: Découvrez comment connecter les données de Point de vérification à Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1fb4f9165be03a7fc3cd055ef616dcfadb58ac9d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 664b09a8ad0cb7d06019281869e390a465637c00
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876494"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489174"
 ---
 # <a name="connect-your-check-point-appliance"></a>Se connecter à votre appliance de Check Point
 
@@ -30,7 +30,7 @@ ms.locfileid: "58876494"
 Vous pouvez vous connecter Azure Sentinel vers n’importe quel appareil Check Point en enregistrant les fichiers journaux sous Syslog CEF. L’intégration avec Azure Sentinel permet d’exécuter facilement analytique et des requêtes sur les données du fichier journal à partir de Check Point. Pour plus d’informations sur la façon dont Azure Sentinel ingère les données de format CEF, consultez [appliances de connecter le format CEF](connect-common-event-format.md).
 
 > [!NOTE]
-> - Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
+> Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
 ## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>Étape 1 : Se connecter à votre appliance de Check Point à l’aide d’un agent
 
@@ -42,7 +42,7 @@ Pour afficher un diagramme de réseau des deux options, consultez [connecter des
 
 ### <a name="deploy-the-agent-in-azure"></a>Déployer l’agent dans Azure
 
-1. Dans le portail Azure Sentinel, cliquez sur **collecte des données** et sélectionnez le type de votre appliance. 
+1. Dans le portail Azure Sentinel, cliquez sur **connecteurs de données** et sélectionnez le type de votre appliance. 
 
 1. Sous **configuration de l’agent Linux Syslog**:
    - Choisissez **déploiement automatique** si vous souhaitez créer un nouvel ordinateur qui est préinstallé avec l’agent Sentinel Azure et inclut tous les besoins de configuration, comme décrit ci-dessus. Sélectionnez **déploiement automatique** et cliquez sur **déploiement d’agent automatique**. Vous accédez à la page d’achat pour une machine virtuelle dédiée qui est automatiquement connectée à votre espace de travail. La machine virtuelle est un **standard D2s v3 (2 processeurs virtuels, 8 Go de mémoire)** et a une adresse IP publique.

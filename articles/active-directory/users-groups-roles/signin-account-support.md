@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/10/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a62c4d56fbfca34ff6291863149b078f7ddc6680
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2d26ff0f9259e3531259673f94fe477444cc786b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288590"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491593"
 ---
 # <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Options de connexion pour les comptes Microsoft dans Azure Active Directory
 
-La page de connexion Microsoft 365 pour Azure Active Directory (Azure AD) prend en charge une ou les deux comptes scolaires et professionnels ou comptes Microsoft, selon la situation, pour prendre en charge :
+La page de connexion Microsoft 365 pour Azure Active Directory (Azure AD) prend en charge les comptes scolaires et professionnels ou comptes Microsoft, mais en fonction de la situation de l’utilisateur, il peut être une ou l’autre ou les deux. Par exemple, la page de connexion Azure AD prend en charge :
 
 * Applications qui acceptent les connexions depuis les deux types de compte
 * Organisations qui acceptent des invités
@@ -32,7 +32,7 @@ Vous pouvez indiquer si la page de connexion que votre organisation utilise pren
 
 ![Différence entre les pages de connexion compte](./media/signin-account-support/ui-prompt.png)
 
-[Options de connexion supplémentaires fonctionnent uniquement pour les comptes Microsoft personnels](index.yml) mais ne peut pas être utilisée pour la connexion à des professionnels ou scolaires de ressources de compte.
+[Options de connexion supplémentaires fonctionnent uniquement pour les comptes Microsoft personnels](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) mais ne peut pas être utilisée pour la connexion à des professionnels ou scolaires de ressources de compte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

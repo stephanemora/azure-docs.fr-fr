@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803523"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500462"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guide du développeur Java pour App Service sur Linux
 
@@ -69,43 +69,50 @@ Pour plus d’informations, consultez [Envoi de journaux avec l’interface Azur
 
 ### <a name="app-logging"></a>Journalisation des applications
 
-Activez [Journal des applications](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) via le portail Azure ou [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) pour configurer App Service de sorte à écrire la sortie de console standard de votre application et les flux d’erreur de console standard dans le système de fichiers local ou le service Stockage Blob Azure. La journalisation sur l’instance du système de fichiers App Service locale est désactivée 12 heures après avoir été configurée. Si vous en avez besoin plus longtemps, configurez l’application pour écrire la sortie sur un conteneur de stockage d’objets blob.
+Activez [Journal des applications](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) via le portail Azure ou [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) pour configurer App Service de sorte à écrire la sortie de console standard de votre application et les flux d’erreur de console standard dans le système de fichiers local ou le service Stockage Blob Azure. La journalisation sur l’instance du système de fichiers App Service locale est désactivée 12 heures après avoir été configurée. Si vous en avez besoin plus longtemps, configurez l’application pour écrire la sortie sur un conteneur de stockage d’objets blob. Vous trouverez vos journaux d’application Java et Tomcat dans le `/home/LogFiles/Application/` directory.
 
 Si votre application utilise [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) pour le traçage, vous pouvez transférer ces traces pour révision vers Azure Application Insights en suivant les instructions de configuration des frameworks de journalisation dans [Exploration des journaux de traces Java dans Application Insights](/azure/application-insights/app-insights-java-trace-logs).
+
+### <a name="troubleshooting-tools"></a>Outils de dépannage
+
+Les images de Java intégrées sont basées sur le [Linux Alpine](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) système d’exploitation. Utilisez le `apk` Gestionnaire de package pour installer des procédures de dépannage des outils ou commandes.
 
 ## <a name="customization-and-tuning"></a>Personnalisation et réglage
 
 Azure App Service pour Linux prend en charge le réglage et la personnalisation prêts à l’emploi par le biais du portail Azure et de l’interface CLI. Consultez les articles suivants pour configurer des applications web spécifiques non-Java :
 
 - [Configurer les paramètres App Service](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Configurer un nom de domaine personnalisé](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Activer le protocole SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurer un domaine personnalisé](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Activer SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Ajouter un CDN](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurer le site Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### <a name="set-java-runtime-options"></a>Définir les options de runtime Java
 
-Pour définir la mémoire allouée ou d’autres options de runtime JVM dans les environnements Tomcat et Java SE, définissez JAVA_OPTS comme indiqué ci-dessous en tant que [paramètre d’application](/azure/app-service/web-sites-configure#app-settings). App Service Linux transmet ce paramètre comme variable d’environnement au runtime Java quand celui-ci démarre.
+Pour définir la mémoire allouée ou autres options de runtime JVM dans les environnements de Tomcat et de Java SE, créez un [paramètre d’application](/azure/app-service/web-sites-configure#app-settings) nommé `JAVA_OPTS` avec les options. App Service Linux transmet ce paramètre comme variable d’environnement au runtime Java quand celui-ci démarre.
 
-Dans le portail Azure, sous **Paramètres d’application** de l’application web, créez un paramètre d’application appelé `JAVA_OPTS` qui contient les paramètres supplémentaires tels que `$JAVA_OPTS -Xms512m -Xmx1204m`.
+Dans le portail Azure, sous **Paramètres d’application** de l’application web, créez un paramètre d’application appelé `JAVA_OPTS` qui contient les paramètres supplémentaires tels que `-Xms512m -Xmx1204m`.
 
-Pour configurer le paramètre d’application à partir du plug-in Maven Azure App Service Linux, ajoutez des étiquettes paramètre/valeur dans la section du plug-in Azure. L’exemple suivant définit une taille de segment de mémoire Java minimale et maximale spécifique :
+Pour configurer le paramètre d’application à partir du plug-in Maven, ajouter des balises de paramètre/valeur dans la section plug-in Azure. L’exemple suivant définit une taille de segment de mémoire Java minimale et maximale spécifique :
 
 ```xml
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value>
+        <value>-Xms512m -Xmx1204m</value>
     </property>
 </appSettings>
 ```
 
 Les développeurs exécutant une seule application avec un seul emplacement de déploiement dans leur plan App Service peuvent utiliser les options suivantes :
 
-- Instances B1 et S1 : -Xms1024m -Xmx1024m
-- Instances B2 et S2 : -Xms3072m -Xmx3072m
-- Instances B3 et S3 : -Xms6144m -Xmx6144m
+- Instances B1 et S1 : `-Xms1024m -Xmx1024m`
+- Instances B2 et S2 : `-Xms3072m -Xmx3072m`
+- Instances B3 et S3 : `-Xms6144m -Xmx6144m`
 
 Lors du réglage des paramètres de segment de mémoire de l’application, consultez les détails de votre plan App Service et prenez en compte qu’avec plusieurs applications et emplacements de déploiement, vous devez trouver l’allocation de mémoire optimale.
+
+Si vous déployez une application du fichier JAR, il doit être nommé `app.jar` afin que l’image intégrée peut identifier correctement votre application. (Le plug-in Maven effectue automatiquement cette modification du nom). Si vous ne souhaitez pas renommer votre fichier JAR à `app.jar`, vous pouvez télécharger un script d’interpréteur de commandes avec la commande pour exécuter votre fichier JAR. Puis collez le chemin d’accès complet à ce script dans le [fichier de démarrage](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) zone de texte dans la section de Configuration du portail.
 
 ### <a name="turn-on-web-sockets"></a>Activer les sockets web
 
@@ -126,7 +133,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ### <a name="set-default-character-encoding"></a>Définir l’encodage de caractères par défaut
 
-Dans le portail Azure, sous **Paramètres d’application** de l’application web, créez un paramètre d’application appelé `JAVA_OPTS` avec la valeur `$JAVA_OPTS -Dfile.encoding=UTF-8`.
+Dans le portail Azure, sous **Paramètres d’application** de l’application web, créez un paramètre d’application appelé `JAVA_OPTS` avec la valeur `-Dfile.encoding=UTF-8`.
 
 Vous pouvez aussi configurer le paramètre d’application à l’aide du plug-in Maven App Service. Ajoutez le nom du paramètre et les étiquettes des valeurs dans la configuration du plug-in :
 
@@ -134,10 +141,14 @@ Vous pouvez aussi configurer le paramètre d’application à l’aide du plug-i
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value>
+        <value>-Dfile.encoding=UTF-8</value>
     </property>
 </appSettings>
 ```
+
+### <a name="adjust-startup-timeout"></a>Ajuster le délai de démarrage
+
+Si votre application Java est particulièrement volumineux, vous devez augmenter la limite de temps de démarrage. Pour ce faire, créez un paramètre d’application, `WEBSITES_CONTAINER_START_TIME_LIMIT` et définissez-le sur le nombre de secondes pendant lesquelles le Service de l’application doit attendre avant l’expiration. La valeur maximale est `1800` secondes.
 
 ## <a name="secure-applications"></a>Sécuriser les applications
 
@@ -171,9 +182,9 @@ Ces instructions s’appliquent à toutes les connexions de base de données. Vo
 
 | Base de données   | Nom de la classe du pilote                             | Pilote JDBC                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Télécharger](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Téléchargement](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Télécharger](https://dev.mysql.com/downloads/connector/j/) (sélectionnez « Indépendant de la plateforme ») |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Télécharger](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Téléchargement](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
 Pour configurer Tomcat afin d’utiliser Java Database Connectivity (JDBC) ou l’API Java Persistence (JPA), commencez par personnaliser la variable d’environnement `CATALINA_OPTS` lue par Tomcat au démarrage. Définissez ces valeurs via un paramètre d’application dans le [plug-in Maven App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) :
 

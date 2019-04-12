@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba77772352d3f6f6494abeddc7faf9f12e5f80c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262565"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489191"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Résolution des problèmes combinée d’inscription des informations de sécurité (version préliminaire)
 
@@ -154,7 +154,7 @@ Dans une fenêtre PowerShell, exécutez la commande suivante, en fournissant les
 
 Pour désactiver l’expérience de préversion pour vos utilisateurs, procédez comme suit :
 
-1. Connectez-vous au portail Azure en tant qu’administrateur général ou administrateur d’utilisateurs.
+1. Connectez-vous au portail Azure en tant qu’utilisateur administrateur.
 2. Accédez à **Azure Active Directory** > **paramètres utilisateur** > **gérer les paramètres des fonctionnalités en version préliminaire de panneau accès**.
 3. Sous **les utilisateurs peuvent utiliser les fonctionnalités en version préliminaire de l’inscription et la gestion des informations de sécurité**, la valeur est le sélecteur **aucun**, puis sélectionnez **enregistrer**.
 

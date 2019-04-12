@@ -1,5 +1,5 @@
 ---
-title: Comment déployer des dépendances de cloud gestion des appareils Azure IoT OPC UA | Microsoft Docs
+title: Comment déployer des dépendances de cloud OPC représentation dans Azure | Microsoft Docs
 description: Comment déployer des dépendances OPC Twin Azure.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cdd89293328da47c8e338bb6fca8c7b93dd84f97
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759556"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491984"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Déploiement des dépendances pour un développement local
 
@@ -52,7 +52,7 @@ Le script de déploiement essaie d’inscrire des applications AAD dans Azure Ac
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez correctement déployé les services de gestion des appareils OPC à un projet existant, voici l’étape suivante suggérée :
+Maintenant que vous avez correctement déployé les services du jumeau d’OPC à un projet existant, voici l’étape suivante suggérée :
 
 > [!div class="nextstepaction"]
-> [Découvrez comment déployer des modules de gestion des appareils OPC](howto-opc-twin-deploy-modules.md)
+> [Découvrez comment déployer des modules de représentations d’OPC](howto-opc-twin-deploy-modules.md)

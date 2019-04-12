@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 04/10/2019
 ms.author: carlrab
-ms.openlocfilehash: c63ce51f442c8d7552c382f0e103be443afb9c75
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360087"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495103"
 ---
 # <a name="sql-database-release-notes"></a>Notes de publication de base de données SQL
 
@@ -42,6 +42,8 @@ Cet article répertorie les nouvelles fonctionnalités et améliorations dans le
 |En Mode Batch Rowstore (sous le niveau de compatibilité 150)|Pour plus d’informations, consultez [Rowstore en Mode Batch](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
 |Retour d’allocation de mémoire (Mode en ligne) (sous le niveau de compatibilité 150)|Pour plus d’informations, consultez [retour d’allocation de mémoire (Mode en ligne)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
 |Table Variable différée Compilation (sous le niveau de compatibilité 150)|Pour plus d’informations, consultez [Compilation différée Variable de Table](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|SQL Analytics|Pour plus d’informations, consultez [Analytique de SQL Azure](../azure-monitor/insights/azure-sql.md)|
+| Prise en charge de fuseau horaire pour les instances managées|Pour plus d’informations, consultez [fuseau horaire dans Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 |||
 
 ## <a name="march-2019"></a>Mars 2019
@@ -57,6 +59,7 @@ Cet article répertorie les nouvelles fonctionnalités et améliorations dans le
 
 | Améliorations de la documentation | Détails |
 | --- | --- |
+| Prise en charge de fuseau horaire pour les instances managées|Pour plus d’informations, consultez [fuseau horaire dans Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 | Limites du journal ajouté des bases de données|Pour plus d’informations, consultez [limites de ressources vCore de base de données unique](sql-database-vcore-resource-limits-single-databases.md).|
 | Limites du journal ajouté pour les pools et bases de données regroupées|Pour plus d’informations, consultez [limites de ressources vCore des pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md).|
 | Ajout gouvernance de taux de journal de Transaction| Ajouté le nouveau contenu pour [gouvernance de taux de Transaction log](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|

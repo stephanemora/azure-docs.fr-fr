@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471526"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495394"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -71,7 +71,7 @@ Pour que Profiler fonctionne correctement :
 
     |Paramètre d'application    | Valeur    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey vous ressource Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey de votre ressource Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -83,7 +83,7 @@ Pour que Profiler fonctionne correctement :
    
       ![profiler-webjob]   
    
-   1. Pour voir les détails de la tâche web, y compris le journal, sélectionnez le lien **ApplicationInsightsProfiler2**.  
+   1. Pour afficher les détails de la tâche Web, y compris le journal, sélectionnez le **ApplicationInsightsProfiler3** lien.  
      Le volet **Détails de la tâche web continue** s’ouvre.
 
       ![profiler-webjob-log]
@@ -92,7 +92,7 @@ Si vous ne pouvez pas déterminer pourquoi Profiler ne fonctionne pas, télécha
     
 ### <a name="manual-installation"></a>Installation manuelle
 
-Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramètres de l’application web. Si votre environnement l’exige, vous pouvez appliquer les mises à jour manuellement. Cela peut être le cas, par exemple, si votre application s’exécute dans un environnement d’applications web pour PowerApps. Pour appliquer les mises à jour manuellement, effectuez les étapes suivantes :
+Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramètres de l’application web. Si votre environnement l’exige, vous pouvez appliquer les mises à jour manuellement. Cela peut être le cas, par exemple, si votre application s’exécute dans un environnement d’applications web pour PowerApps. Pour appliquer manuellement les mises à jour :
 
 1. Dans le **volet de contrôle de l’application web**, ouvrez **Paramètres**.
 
@@ -103,7 +103,7 @@ Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramè
 
     |Paramètre d'application    | Valeur    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey vous ressource Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey de votre ressource Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 

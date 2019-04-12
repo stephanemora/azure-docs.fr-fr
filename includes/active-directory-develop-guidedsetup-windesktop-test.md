@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 6345eca674086801f8bb0f45476009f04a10f2e3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58214470"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502777"
 ---
 ## <a name="test-your-code"></a>Test de votre code
 
@@ -39,14 +39,13 @@ La première fois que vous vous connectez à votre application, vous êtes égal
 
 ### <a name="view-application-results"></a>Afficher les résultats de l’application
 
-Une fois connecté, vous devez voir les informations de profil utilisateur qui sont retournées par l’appel à l’API Microsoft Graph. Les résultats s’affichent dans la zone **API Call Results** (Résultats de l’appel à l’API). Les informations de base concernant le jeton qui a été acquis via l’appel à `AcquireTokenAsync` ou `AcquireTokenSilentAsync` doivent s’afficher dans la zone **Token Info** (Informations sur le jeton). Les résultats contiennent les propriétés suivantes :
+Une fois connecté, vous devez voir les informations de profil utilisateur qui sont retournées par l’appel à l’API Microsoft Graph. Les résultats s’affichent dans la zone **API Call Results** (Résultats de l’appel à l’API). Les informations de base concernant le jeton qui a été acquis via l’appel à `AcquireTokenInteractive` ou `AcquireTokenSilent` doivent s’afficher dans la zone **Token Info** (Informations sur le jeton). Les résultats contiennent les propriétés suivantes :
 
 |Propriété  |Format  |Description |
 |---------|---------|---------|
-|**Name** |Nom complet de l’utilisateur |Prénom et nom de l’utilisateur|
-|**Nom d’utilisateur** |<span>user@domain.com</span> |Nom d’utilisateur employé pour identifier l’utilisateur.|
-|**Token Expires** |Datetime |Date et heure auxquelles expire le jeton. MSAL repousse la date d’expiration en renouvelant le jeton si nécessaire.|
-|**Access Token** |Chaîne |Chaîne de jeton qui est envoyée aux requêtes HTTP qui nécessitent un *en-tête d’autorisation*.|
+
+|**Nom d’utilisateur**  | <span> user@domain.com </span> | Le nom d’utilisateur qui est utilisé pour identifier l’utilisateur. | | **Expiration du jeton** | Date/heure | Heure à laquelle le jeton expire. MSAL repousse la date d’expiration en renouvelant le jeton en fonction des besoins. |
+
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Informations supplémentaires sur les étendues et les autorisations déléguées

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial;anavin
-ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882901"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491285"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer une homologation de réseau virtuel
 
@@ -113,7 +113,7 @@ Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au l
 - <a name="cross-region"></a>Vous pouvez appairer des réseaux virtuels dans la même région ou dans différentes régions. Homologation de réseaux virtuels dans différentes régions est également appelé *Global VNet Peering*. 
 - Lorsque vous créez une homologation globale, les réseaux virtuels homologués peuvent exister dans n’importe quel cloud public Azure ou les régions de cloud de Chine ou les Government cloud régions. Vous ne pouvez pas homologuer dans les clouds. Par exemple, un réseau virtuel dans le cloud public Azure ne peut pas être homologué l’un à un réseau virtuel dans le cloud Azure China.
 - Ressources dans un réseau virtuel ne peut pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne de base dans un réseau virtuel homologué dans le monde entier. Prise en charge pour l’équilibreur de charge existe uniquement dans la même région. Prise en charge de l’équilibreur de charge Standard existe pour à la fois, l’homologation et Global VNet Peering.
-- Vous pouvez utiliser des passerelles distantes ou autoriser le transit par passerelle dans les réseaux virtuels homologués dans le monde entier en version préliminaire. La version préliminaire est disponible dans toutes les régions Azure, les régions de cloud de Chine et régions de cloud Government. Aucune mise en liste verte n’est nécessaire. Vous pouvez tester en version préliminaire via l’interface CLI, PowerShell, des modèles ou des API. Portail n’est pas pris en charge dans la version préliminaire.
+- Vous pouvez utiliser des passerelles distantes ou autoriser le transit par passerelle dans les réseaux virtuels homologués dans le monde entier et les réseaux virtuels homologués localement.
 - Les réseaux virtuels peuvent être dans des abonnements identiques ou différents. Quand vous appairez des réseaux virtuels de différents abonnements, les deux abonnements peuvent être associés au même locataire Azure Active Directory ou à un locataire différent. Si vous ne disposez pas d’un locataire AD, vous pouvez [créez-le](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). La prise en charge du peering entre réseaux virtuels à partir d’abonnements associés à différents locataires Azure Active Directory n’est pas disponible dans le portail. Vous pouvez utiliser l’interface CLI, PowerShell ou des modèles.
 - Les réseaux virtuels que vous homologuez doivent avoir des espaces d’adressage IP qui ne se chevauchent pas.
 - Il n’est pas possible d’ajouter ou de supprimer des plages d’adresses dans l’espace d’adressage d’un réseau virtuel après que celui-ci a été homologué avec un autre réseau virtuel. Pour ajouter ou supprimer des plages d’adresses, supprimez l’homologation, ajoutez ou supprimez les plages d’adresses, puis recréez l’homologation. Pour ajouter ou supprimer des plages d’adresses dans des réseaux virtuels, voir [Gérer les réseaux virtuels](manage-virtual-network.md).

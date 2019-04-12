@@ -2,18 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: networking
-author: jimdial
+author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 02/07/2019
-ms.author: jdial
+ms.date: 04/10/2019
+ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: c6c57390e0a2fba0c79d3198df0f5577eb813f88
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553574"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503203"
 ---
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
@@ -44,7 +44,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | --- | --- |
 | Réseaux virtuels |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |3 000 |
-| Homologations de réseaux virtuels par réseau virtuel |100 |
+| Homologations de réseaux virtuels par réseau virtuel |500 |
 | Serveurs DNS par réseau virtuel |20 |
 | Adresses IP privées par réseau virtuel |65,536 |
 | Adresses IP privées par interface réseau |256 |
@@ -68,7 +68,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
 | Adresses IP publiques (dynamiques) | 1 000 pour Basic. |Contactez le support technique. |
-| Adresses IP publiques (statiques) | 200 pour Basic. |Contactez le support technique. |
+| Adresses IP publiques (statiques) | 1 000 pour Basic. |Contactez le support technique. |
 | Adresses IP publiques (statiques) | 200 pour l’Édition Standard.|Contactez le support technique. |
 | Taille de préfixe IP publique (version préliminaire) | /28 | /28 |
 

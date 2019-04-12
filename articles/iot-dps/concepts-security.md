@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 7835553dafd66830b7a483c58bc2c7b7cf8c93f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046892"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490270"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concepts de sécurité du service IoT Hub Device Provisioning 
 
@@ -77,7 +77,11 @@ Un certificat intermédiaire est un certificat X.509 qui a été signé par le c
 
 ### <a name="end-entity-leaf-certificate"></a>Certificat « feuille» d’entité finale
 
-Le certificat feuille, ou certificat d’entité finale, identifie le détenteur du certificat. Il possède le certificat racine dans sa chaîne d’approbation, ainsi que zéro ou plusieurs certificats intermédiaires. Le certificat feuille n’est pas utilisé pour signer d’autres certificats. Il identifie de façon unique l’appareil auprès du service de provisionnement et est parfois appelé « certificat d’appareil ». Pendant l’authentification, l’appareil utilise la clé privée associée à ce certificat pour répondre à une preuve de vérification de possession émise par le service. Pour plus d’informations, consultez [Authentification d’appareils signés avec des certificats d’autorité de certification X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Le certificat feuille, ou certificat d’entité finale, identifie le détenteur du certificat. Il possède le certificat racine dans sa chaîne d’approbation, ainsi que zéro ou plusieurs certificats intermédiaires. Le certificat feuille n’est pas utilisé pour signer d’autres certificats. Il identifie de façon unique l’appareil auprès du service de provisionnement et est parfois appelé « certificat d’appareil ». Pendant l’authentification, l’appareil utilise la clé privée associée à ce certificat pour répondre à une preuve de vérification de possession émise par le service.
+
+Les terminaux de certificats utilisés avec un [inscription individuelle](./concepts-service.md#individual-enrollment) entrée a une exigence qui le **nom de l’objet** doit être définie sur l’ID d’inscription de l’entrée d’inscription individuelle. Les terminaux de certificats utilisés avec un [groupe d’inscription](./concepts-service.md#enrollment-group) entrée doit avoir le **nom de l’objet** définie sur l’ID d’appareil souhaité qui s’affichera dans le **les enregistrements d’inscription** pour l’appareil authentifié dans le groupe d’inscription.
+
+Pour plus d’informations, consultez [Authentification d’appareils signés avec des certificats d’autorité de certification X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509
 

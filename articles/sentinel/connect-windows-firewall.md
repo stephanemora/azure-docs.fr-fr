@@ -1,6 +1,6 @@
 ---
-title: Collecter des données de pare-feu Windows dans Azure en version préliminaire Sentinel | Microsoft Docs
-description: Découvrez comment collecter des données de pare-feu Windows dans Azure Sentinel.
+title: Connectez les données de pare-feu de Windows vers Azure Sentinel Preview | Microsoft Docs
+description: Découvrez comment connecter les données du pare-feu Windows à Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3839d81f70b8bc6dcb1da3c4dd77f52443294707
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27a82545f77fe15541ac598abadbfc8ffb6d3405
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574838"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494202"
 ---
 # <a name="connect-windows-firewall"></a>Connecter le Pare-feu Windows
 
@@ -31,12 +31,11 @@ Le connecteur de pare-feu Windows vous permet de connecter facilement vos journa
 
 
 > [!NOTE]
-> 
-> - Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
+> Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
 ## <a name="enable-the-connector"></a>Activer le connecteur 
 
-1. Dans le portail Azure Sentinel, sélectionnez **collecte des données** , puis cliquez sur le **pare-feu de Windows** vignette. 
+1. Dans le portail Azure Sentinel, sélectionnez **connecteurs de données** , puis cliquez sur le **pare-feu de Windows** vignette. 
 1. Sélectionnez les types de données que vous souhaitez diffuser.
 1. Cliquez sur **Installer**.
 6. Pour utiliser le schéma pertinent dans Analytique de journal pour le pare-feu Windows, recherchez **SecurityEvent**.

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265247"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490635"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
 
@@ -39,20 +39,11 @@ Azure Migrate doit accéder à des serveurs VMware pour découvrir automatiqueme
 - Détails : L’utilisateur est affecté au niveau du centre de données et a accès à tous les objets dans le centre de données.
 - Pour restreindre l’accès, attribuez le rôle Aucun accès avec l’objet Propager vers l’objet enfant défini sur les objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
 
-Si vous effectuez un déploiement dans un environnement de locataire, voici une façon de procéder :
+Si vous déployez dans un environnement mutualisé et que vous souhaitez étendue par dossier de machines virtuelles pour un seul client, vous ne pouvez pas sélectionner directement le dossier de la machine virtuelle lors de l’étendue de collection dans Azure Migrate. Voici des instructions sur la découverte d’étendue par le dossier de machines virtuelles :
 
-1. Créez un utilisateur par locataire et, à l’aide de [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assignez des autorisations en lecture seule à toutes les machines virtuelles appartenant à un locataire particulier. Utilisez ensuite ces informations d’identification pour la découverte. RBAC garantit que l’utilisateur vCenter correspondant aura accès uniquement aux machines virtuelles spécifiques d’un locataire.
-2. Pour configurer RBAC pour des utilisateurs de locataires différents, procédez comme indiqué dans l’exemple suivant pour Utilisateur n°1 et Utilisateur n°2 :
-
-    - Dans **User name** (Nom d’utilisateur) et **Password** (Mot de passe), spécifiez les informations d’identification du compte en lecture seule que le collecteur doit utiliser pour découvrir les machines virtuelles dans
-    - Datacenter1 : donnez des autorisations en lecture seule à Utilisateur n°1 et Utilisateur n°2. Ne propagez pas ces autorisations à tous les objets enfants, car vous allez définir des autorisations sur des machines virtuelles individuelles.
-
-      - MV1 (Locataire n°1) (autorisation en lecture seule à Utilisateur n°1)
-      - MV2 (Locataire n°1) (autorisation en lecture seule à Utilisateur n°1)
-      - MV3 (Locataire n°2) (autorisation en lecture seule à Utilisateur n°2)
-      - MV4 (Locataire n°2) (autorisation en lecture seule à Utilisateur n°2)
-
-   - Si vous effectuez la détection à l’aide des informations d’identification d’Utilisateur n°1, seules MV1 et MV2 seront détectées.
+1. Créer un utilisateur par locataire et affecter des autorisations en lecture seule à toutes les machines virtuelles appartenant à un locataire particulier. 
+2. Accorder cet utilisateur l’accès en lecture seule à tous les objets parent où se trouvent les machines virtuelles. Tous les objets parents - host, dossier des ordinateurs hôtes, cluster, dossier de clusters - dans la hiérarchie jusqu'à le centre de données doivent être incluses. Vous n’avez pas besoin propager les autorisations à tous les objets enfants.
+3. Utiliser les informations d’identification pour la découverte en sélectionnant centre de données en tant que *étendue de Collection*. Le RBAC configurer garantit que l’utilisateur vCenter correspondant aura accès aux machines virtuelles uniquement spécifique au client.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Planifier vos projets de migration et détections
 
@@ -97,7 +88,7 @@ Si vous avez plusieurs instances de vCenter Server avec moins de 1 500 machines 
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Plus de 1 500 machines dans un seul serveur vCenter Server
 
-Si vous avez plus de 1 500 machines virtuelles dans un seul serveur vCenter Server, vous devez fractionner la détection en plusieurs projets de migration. Pour fractionner les détections, vous pouvez utiliser le champ Étendue de l’appliance et spécifier l’hôte, le cluster ou le centre de données à détecter. Par exemple, si vous avez deux dossiers dans le serveur vCenter Server, l’un avec 1000 machines virtuelles (Dossier1) et l’autre avec 800 machines virtuelles (Dossier2), vous pouvez utiliser le champ Étendue pour fractionner les détections entre ces dossiers.
+Si vous avez plus de 1 500 machines virtuelles dans un seul serveur vCenter Server, vous devez fractionner la détection en plusieurs projets de migration. Pour fractionner des découvertes, vous pouvez tirer parti du champ de la portée de l’appliance et spécifier l’hôte, le cluster, le dossier d’hôtes, le dossier des clusters ou centre de données que vous souhaitez découvrir. Par exemple, si vous avez deux dossiers dans le serveur vCenter Server, l’un avec 1000 machines virtuelles (Dossier1) et l’autre avec 800 machines virtuelles (Dossier2), vous pouvez utiliser le champ Étendue pour fractionner les détections entre ces dossiers.
 
 **Détection continue :** dans ce cas, vous devez créer deux appliances collecteur et, pour le premier collecteur, spécifier l’étendue en tant que Dossier1, puis le connecter au premier projet de migration. Vous pouvez en parallèle commencer la détection du Dossier2 à l’aide de la deuxième appliance collecteur, puis la connecter au deuxième projet de migration.
 

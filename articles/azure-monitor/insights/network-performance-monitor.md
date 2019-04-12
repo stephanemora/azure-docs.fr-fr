@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 465d59ff13982eee8432d7ef97e2f522b0d7125b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006754"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489722"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -33,7 +33,7 @@ Network Performance Monitor offre trois fonctionnalités générales :
 
 * [Analyseur de performances](network-performance-monitor-performance-monitor.md) : Vous pouvez superviser la connectivité réseau dans les déploiements cloud et les emplacements locaux, plusieurs centres de données, ainsi que les filiales et les applications microservices multiniveaux critiques. Avec l’Analyseur de performances, vous pouvez détecter les problèmes réseau avant que vos utilisateurs ne se plaignent.
 
-* [Moniteur de connectivité de service](network-performance-monitor-service-endpoint.md) : Vous pouvez superviser la connectivité entre vos utilisateurs et les services qui vous intéressent, déterminer l’infrastructure présente dans le chemin et identifier l’emplacement des goulots d’étranglement. Découvrez les pannes avant vos utilisateurs et déterminez l’emplacement exact des problèmes sur votre chemin d’accès réseau. 
+* [Moniteur de connectivité de service](network-performance-monitor-service-connectivity.md) : Vous pouvez superviser la connectivité entre vos utilisateurs et les services qui vous intéressent, déterminer l’infrastructure présente dans le chemin et identifier l’emplacement des goulots d’étranglement. Découvrez les pannes avant vos utilisateurs et déterminez l’emplacement exact des problèmes sur votre chemin d’accès réseau. 
 
     Cette fonctionnalité vous permet d’effectuer des tests HTTP, HTTPS, TCP et ICMP afin d’analyser, en temps quasi réel ou dans le temps, la disponibilité et le temps de réponse de votre service. Vous pouvez également analyser la contribution du réseau en perte de paquets et en latence. Avec un mappage de topologie réseau, vous pouvez isoler les ralentissements du réseau. Vous pouvez identifier les points problématiques sur le chemin d’accès réseau entre le nœud et le service, avec les données de latence sur chaque tronçon. Au moyen de tests intégrés, analysez la connectivité réseau vers Office 365 et Dynamics CRM sans aucune configuration préalable. Avec cette fonctionnalité, vous pouvez analyser la connectivité réseau vers n’importe quel point de terminaison compatible TCP, comme des sites web, des applications SaaS, des applications PaaS et des bases de données SQL.
 
@@ -83,7 +83,7 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
     > Le script configure uniquement le pare-feu Windows en local. Si vous avez un pare-feu réseau, assurez-vous qu’il autorise le trafic destiné au port TCP que Network Performance Monitor utilise.
 
     >[!NOTE]
-    > Vous n’avez pas besoin d’exécuter le script PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript ) pour le Moniteur de points de terminaison de service.
+    > Vous n’avez pas besoin exécuter le [EnableRules.ps1](https://aka.ms/npmpowershellscript ) script PowerShell pour l’Analyseur de connectivité de Service.
 
     
 
@@ -115,7 +115,7 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
     
    **Moniteur de connectivité de service** : Cette fonctionnalité fournit des tests intégrés préconfigurés permettant d’analyser la connectivité réseau à Office 365 et à Dynamics 365 à partir de vos agents. Choisissez les services Office 365 et Dynamics 365 que vous souhaitez analyser en cochant les cases à côté d’eux. Pour sélectionnez les agents à partir desquels vous souhaitez effectuer une analyse, cliquez sur **Ajouter des agents**. Si vous ne souhaitez pas utiliser cette fonctionnalité ou la configurer ultérieurement, ne choisissez aucune option et sélectionnez **Enregistrer et continuer**.
 
-   ![Affichage Moniteur de points de terminaison de service](media/network-performance-monitor/npm-service-endpoint-monitor.png)
+   ![Vue du moniteur de connectivité de service](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
    **Moniteur ExpressRoute** : Sélectionnez **Découvrir maintenant** pour découvrir tous les appairages privés ExpressRoute connectés aux réseaux virtuels dans l’abonnement Azure lié à cet espace de travail Log Analytics. 
 
@@ -152,7 +152,7 @@ Tous les nœuds sur lesquels un agent est installé sont répertoriés sous l’
 Configurez les fonctionnalités que vous souhaitez :
 
 - [Analyseur de performances](network-performance-monitor-performance-monitor.md#configuration)
-- [Moniteur de points de terminaison de service](network-performance-monitor-performance-monitor.md#configuration)
+- [Moniteur de connectivité de service](network-performance-monitor-performance-monitor.md#configuration)
 - [Moniteur ExpressRoute](network-performance-monitor-expressroute.md#configuration)
 
  

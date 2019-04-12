@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471648"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493312"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versions et historique des schémas de configuration de l’extension Azure Diagnostics
 Cette page est un index des versions de schémas d’extension Azure Diagnostics fournies avec le kit Microsoft Azure SDK.  
@@ -29,7 +29,7 @@ Cette page est un index des versions de schémas d’extension Azure Diagnostic
 >
 > Cette page vous concerne uniquement si vous utilisez l’un de ces services.
 
-L’extension Azure Diagnostics est utilisée avec d’autres produits de diagnostic Microsoft tels que Azure Monitor, Application Insights et Log Analytics. Pour plus d’informations, voir [Vue d’ensemble des outils d’analyse Microsoft](../../azure-monitor/overview.md).
+L’extension Azure Diagnostics est utilisée avec d’autres produits de diagnostic Microsoft comme Azure Monitor, qui inclut l’Application Insights et Analytique de journal. Pour plus d’informations, voir [Vue d’ensemble des outils d’analyse Microsoft](../../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Graphique des versions d’Azure Diagnostics et SDK  
 
@@ -56,11 +56,11 @@ L’extension Azure Diagnostics est utilisée avec d’autres produits de diagno
 ## <a name="schemas-index"></a>Index des schémas  
 Les différentes versions d’Azure Diagnostics utilisent des schémas de configuration différents.
 
-[Schéma de configuration des diagnostics 1.0](diagnostics-extension-schema-1dot0.md)  
+[Schéma de Configuration Diagnostics 1.0](diagnostics-extension-schema-1dot0.md)  
 
-[Schéma de configuration des diagnostics 1.2](diagnostics-extension-schema-1dot2.md)  
+[Schéma de Configuration Diagnostics 1.2](diagnostics-extension-schema-1dot2.md)  
 
-[Diagnostics 1.3 et schéma de configuration ultérieur](diagnostics-extension-schema-1dot3.md)  
+[Diagnostics 1.3 et schéma de Configuration ultérieur](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Historique des versions
 
@@ -207,7 +207,7 @@ Par exemple, supposons que vous activiez cette case à cocher et que la chaîne 
 Si vous mettez à niveau votre projet du Kit de développement logiciel (SDK) Azure 2.4 vers le Kit de développement logiciel (SDK) Azure 2.5 ou les versions ultérieures, vous devez garder à l’esprit les différences existant entre les fonctionnalités de diagnostics suivantes.
 
 * **Les API de configuration sont déconseillées** : la configuration par programmation des diagnostics est disponible dans le Kit de développement logiciel (SDK) Azure 2.4 ou les versions antérieures, mais déconseillée dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures. Si votre configuration des diagnostics est actuellement définie dans un code, vous devez reconfigurer ces paramètres à partir de rien dans le projet migré, afin que les diagnostics continuent à fonctionner. Le nom du fichier de configuration des diagnostics est diagnostics.wadcfg dans le Kit de développement logiciel (SDK) Azure 2.4 et diagnostics.wadcfgx dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures.
-* **Les diagnostics pour les applications du service cloud peuvent uniquement être configurés au niveau du rôle, pas au niveau de l’instance.**
+* **Diagnostics pour les applications de service cloud peuvent être configurées uniquement au niveau du rôle, pas au niveau de l’instance.**
 * **Chaque fois que vous déployez votre application, la configuration des diagnostics est mise à jour** : cela peut occasionner des problèmes de parité si vous modifiez votre configuration des diagnostics à partir de l’Explorateur de serveurs, puis redéployez votre application.
 * **Dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures, les vidages sur incident sont configurés dans le fichier de configuration des diagnostics, pas dans le code** : si vous avez des vidages sur incident configurés dans le code, vous devez transférer la configuration manuellement du code vers le fichier de configuration, car les vidages sur incident ne sont pas transférés durant la migration vers le Kit de développement logiciel (SDK) Azure 2.6.
 

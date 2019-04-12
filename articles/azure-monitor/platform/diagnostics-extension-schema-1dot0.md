@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811526"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492717"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schéma de configuration Azure Diagnostics 1.0
 > [!NOTE]
 > Azure Diagnostics est le composant utilisé pour collecter les compteurs de performances et d’autres statistiques d’Azure Virtual Machines, de Virtual Machine Scale Sets, de Service Fabric et de Cloud Services.  Cette page vous concerne uniquement si vous utilisez l’un de ces services.
 >
 
-Azure Diagnostics est utilisé avec d’autres produits de diagnostic Microsoft tels que Azure Monitor, Application Insights et Log Analytics.
+Azure Diagnostics est utilisé avec d’autres produits de diagnostic Microsoft comme Azure Monitor, qui inclut l’Application Insights et Analytique de journal.
 
 Le fichier de configuration Azure Diagnostics définit les valeurs qui sont utilisées pour initialiser le moniteur de diagnostics. Ce fichier est utilisé pour initialiser les paramètres de configuration de diagnostic lorsque le moniteur de diagnostic démarre.  
 
@@ -116,7 +116,7 @@ Attributs :
 |Attribut|Type|Description|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
-|**scheduledTransferLogLevelFilter**|chaîne|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
+|**scheduledTransferLogLevelFilter**|string|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
 
 ## <a name="logs-element"></a>Élément Logs  
@@ -129,7 +129,7 @@ Attributs :
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
-|**scheduledTransferLogLevelFilter**|chaîne|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
+|**scheduledTransferLogLevelFilter**|string|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
 
 ## <a name="directories-element"></a>Élément Directories  
@@ -154,7 +154,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**conteneur**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ## <a name="failedrequestlogs-element"></a>Élément FailedRequestLogs  
@@ -166,7 +166,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**conteneur**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ##  <a name="iislogs-element"></a>Élément IISLogs  
@@ -178,7 +178,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**conteneur**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ## <a name="datasources-element"></a>Élément DataSources  
@@ -195,7 +195,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**container**|chaîne|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**conteneur**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ## <a name="absolute-element"></a>Élément Absolute  
@@ -207,7 +207,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**path**|chaîne|Requis. Chemin d’accès absolu au répertoire à surveiller.|  
+|**chemin d’accès**|string|Requis. Chemin d’accès absolu au répertoire à surveiller.|  
 |**expandEnvironment**|booléenne|Requis. Si la valeur **true** est attribuée, les variables d’environnement du chemin d’accès sont développées.|  
 
 ## <a name="localresource-element"></a>Élément LocalResource  
@@ -219,8 +219,8 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**name**|chaîne|Requis. Nom de la ressource locale qui contient le répertoire à surveiller.|  
-|**relativePath**|chaîne|Requis. Chemin d’accès relatif à la ressource locale à surveiller.|  
+|**Nom**|string|Requis. Nom de la ressource locale qui contient le répertoire à surveiller.|  
+|**relativePath**|string|Requis. Chemin d’accès relatif à la ressource locale à surveiller.|  
 
 ## <a name="performancecounters-element"></a>Élément PerformanceCounters  
  Définit le chemin d’accès au compteur de performance à collecter.
@@ -244,7 +244,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|chaîne|Requis. Chemin d’accès au compteur de performance à collecter.|  
+|**counterSpecifier**|string|Requis. Chemin d’accès au compteur de performance à collecter.|  
 |**sampleRate**|duration|Requis. Vitesse à laquelle le compteur de performance doit être collecté.|  
 
 ## <a name="windowseventlog-element"></a>Élément WindowsEventLog  
@@ -257,7 +257,7 @@ Attributs :
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
-|**scheduledTransferLogLevelFilter**|chaîne|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
+|**scheduledTransferLogLevelFilter**|string|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut est **Non défini**. Les autres valeurs possibles sont **Détaillé**, **Informations**, **Avertissement**, **Erreur**, et **Critique**.|  
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
 
 ## <a name="datasource-element"></a>Élément DataSource  
@@ -269,5 +269,5 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**name**|chaîne|Requis. Expression XPath spécifiant le journal à collecter.|  
+|**Nom**|string|Requis. Expression XPath spécifiant le journal à collecter.|  
 

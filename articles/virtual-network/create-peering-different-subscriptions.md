@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Découvrez comment créer une homologation de réseaux virtuels entre des réseaux virtuels créés via Resource Manager dans des abonnements Azure différents.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 2965f72a1f0532cd9e13d5fa03750cf4ed8bab99
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.date: 04/09/2019
+ms.author: anavin
+ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403458"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492292"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer une homologation de réseaux virtuels - Resource Manager - Abonnements différents
 
@@ -27,9 +27,9 @@ Les étapes de création d’une homologation de réseaux virtuels sont différe
 
 |Modèle de déploiement Azure  | Abonnement Azure  |
 |--------- |---------|
-|[Tous deux Resource Manager](tutorial-connect-virtual-networks-portal.md) |Identique|
+|[Les deux modèles Resource Manager](tutorial-connect-virtual-networks-portal.md) |Identique|
 |[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models.md) |Identique|
-|[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models-subscriptions.md) |Différent|
+|[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models-subscriptions.md) |Différent|
 
 Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Si vous avez besoin de connecter des réseaux virtuels tous deux créés par le biais du modèle de déploiement classique, vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
 
@@ -39,7 +39,9 @@ Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de com
 
 ## <a name="portal"></a>Créer une homologation - portail Azure
 
-Si les réseaux virtuels que vous voulez appairer se trouvent dans les abonnements qui sont associés à différents locataires Azure Active Directory, suivez les étapes décrites dans la section CLI et PowerShell de cet article. Le portail n’offre pas de prise en charge pour appairer des réseaux virtuels appartenant à des abonnements à partir de différents locataires Active Directory.
+Si les réseaux virtuels que vous voulez appairer se trouvent dans les abonnements qui sont associés à différents locataires Azure Active Directory, suivez les étapes décrites dans la section CLI et PowerShell de cet article. Le portail n’offre pas de prise en charge pour appairer des réseaux virtuels appartenant à des abonnements à partir de différents locataires Active Directory. 
+
+Notez que Cloud Shell a les limitations lors du basculement des abonnements et vos clients en raison de laquelle l’homologation ou Global VNet Peering entre réseaux virtuels appartenant aux abonnements dans différents locataires Azure Active Directory ne fonctionnera pas. Utilisez PowerShell ou CLI.
 
 Les étapes suivantes utilisent des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion du portail et ignorer les étapes d’affectation d’autorisations d’accès aux réseaux virtuels à un autre utilisateur.
 
