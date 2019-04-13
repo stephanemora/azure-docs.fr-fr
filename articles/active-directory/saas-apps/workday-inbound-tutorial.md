@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897620"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524631"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -50,7 +50,7 @@ Les flux de travail d’approvisionnement de l’utilisateur Workday pris en cha
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>À qui cette solution d’attribution d’utilisateurs convient-elle le mieux ?
 
-Cette solution d’attribution d’utilisateurs Workday, actuellement en préversion publique, est idéale pour :
+Cette solution d’attribution d’utilisateurs Workday est idéal pour :
 
 * les organisations qui souhaitent une solution cloud prédéfinie pour l’attribution d’utilisateurs Workday ;
 
@@ -460,7 +460,7 @@ Dans cette section, vous allez configurer le flux des données de l’utilisateu
 
 2. Dans le champ **Portée de l'objet source**, vous pouvez sélectionner les ensembles d'utilisateurs de Workday concernés par l'approvisionnement vers AD, en définissant des filtres basés sur des attributs. La portée par défaut est « tous les utilisateurs dans Workday ». Exemples de filtres :
 
-   * Exemple : Étendue pour les utilisateurs avec des ID d’employés entre 1000000 et 2000000
+   * Exemple : Étendue pour les utilisateurs avec des ID d’employés entre 1000000 et 2000000 (à l’exclusion de 2000000)
 
       * Attribut : WorkerID
 

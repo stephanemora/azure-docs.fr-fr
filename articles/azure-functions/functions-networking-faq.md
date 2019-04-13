@@ -3,19 +3,19 @@ title: Forum aux Questions sur la mise en réseau dans Azure Functions
 description: Réponses à certaines questions et des scénarios de mise en réseau avec Azure Functions les plus courants.
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
-ms.author: alkarche
-ms.openlocfilehash: 7946b7f45ff3df9225a27b70ccfbdb895bfd03c4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.date: 4/11/2019
+ms.author: alkarche, glenga
+ms.openlocfilehash: 126b9ccefedee1f5cefdac8a8666a58e7a4a1fef
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896358"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548632"
 ---
-# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Forum aux Questions sur la mise en réseau dans Azure Functions
+# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Questions fréquemment posées sur la mise en réseau dans Azure Functions
 
 Voici une liste de forum aux questions de mise en réseau. Pour obtenir une présentation plus complète, consultez le [fonctions document options mise en réseau](functions-networking-options.md)
 
@@ -23,7 +23,7 @@ Voici une liste de forum aux questions de mise en réseau. Pour obtenir une pré
 
 Actuellement, le déploiement d’une fonction dans un environnement App Service (ASE) est le seul moyen d’avoir une entrante et sortante adresse IP statique pour votre fonction. Pour plus d’informations sur l’utilisation d’un ASE, commencez par l’article ici : [Création et utilisation d’un environnement ASE](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Comment limiter les accès à Internet à ma fonction ?
+## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Comment limiter les accès à internet à ma fonction ?
 
 Vous pouvez restreindre l’accès internet dans un nombre de méthodes, répertoriées ci-dessous.
 
@@ -54,3 +54,13 @@ Vous pouvez uniquement déclencher une fonction à partir d’une ressource dans
 Déploiement dans un environnement App Service est la seule façon de créer une application de fonction qui est entièrement à l’intérieur d’un réseau virtuel pour plus d’informations sur l’utilisation d’un environnement ASE, commencez par lire l’article suivant : [Création et utilisation d’un environnement ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
 Pour les scénarios où vous devez uniquement accès à sens unique aux ressources de réseau virtuel, ou moins d’isolation réseau complète, consultez le [mise en réseau de vue d’ensemble de fonctions](functions-networking-options.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour en savoir plus sur la mise en réseau et les fonctions : 
+
+* [Suivez notre didacticiel de l’intégration démarrage réseau virtuel](./functions-create-vnet.md)
+* [En savoir plus sur les options de mise en réseau dans les fonctions ici](./functions-networking-options.md)
+* [En savoir plus sur l’intégration au réseau virtuel avec App Service/Functions](../app-service/web-sites-integrate-with-vnet.md)
+* [En savoir plus sur les réseaux virtuels dans Azure](../virtual-network/virtual-networks-overview.md)
+* [Activer plusieurs fonctionnalités mise en réseau et le contrôle avec les environnements App Service](../app-service/environment/intro.md)

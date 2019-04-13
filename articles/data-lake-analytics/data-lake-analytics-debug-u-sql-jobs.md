@@ -9,18 +9,18 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 1fd1ce54dea672b19baea84bbf3a40b4365093b8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 5417f66696191cebadc2af9c6d634419a0eb8e5b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046216"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526450"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Débogage de code C# défini par l’utilisateur pour des travaux U-SQL ayant échoué
 
 U-SQL fournit un modèle d’extensibilité à l’aide de C#. Dans les scripts U-SQL, il est facile d’appeler des fonctions C# pour accomplir des fonctions d’analyse qu’un langage déclaratif apparenté à SQL ne prend pas en charge. Pour en savoir plus sur l’extensibilité U-SQL, consultez le [Guide de programmabilité U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
-Dans la pratique, un code peut nécessiter un débogage, mais il est difficile de déboguer une tâche distribuée par le biais d’un code personnalisé sur le cloud avec des fichiers journaux limités. [Azure Data Lake Tools pour Visual Studio](http://aka.ms/adltoolsvs) fournit une fonctionnalité appelée **Débogage d’échec du vertex** qui facilite le débogage des défaillances se produisant dans votre code personnalisé. En cas d’échec d’une tâche U-SQL, le service conserve l’état d’échec, et l’outil permet de télécharger l’environnement de défaillance du cloud sur l’ordinateur local en vue de l’opération de débogage. Le téléchargement local capture l’environnement cloud en entier, y compris les données d’entrée et le code utilisateur.
+Dans la pratique, un code peut nécessiter un débogage, mais il est difficile de déboguer une tâche distribuée par le biais d’un code personnalisé sur le cloud avec des fichiers journaux limités. [Azure Data Lake Tools pour Visual Studio](https://aka.ms/adltoolsvs) fournit une fonctionnalité appelée **Débogage d’échec du vertex** qui facilite le débogage des défaillances se produisant dans votre code personnalisé. En cas d’échec d’une tâche U-SQL, le service conserve l’état d’échec, et l’outil permet de télécharger l’environnement de défaillance du cloud sur l’ordinateur local en vue de l’opération de débogage. Le téléchargement local capture l’environnement cloud en entier, y compris les données d’entrée et le code utilisateur.
 
 La vidéo suivante montre la fonctionnalité Débogage d'échec du vertex dans Azure Data Lake Tools pour Visual Studio.
 
@@ -28,7 +28,7 @@ La vidéo suivante montre la fonctionnalité Débogage d'échec du vertex dans A
 >
 
 > [!IMPORTANT]
-> Visual Studio a besoin des deux mises à jour suivantes pour utiliser cette fonctionnalité : [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) et [Universal C Runtime pour Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+> Visual Studio requiert les deux mises à jour suivantes pour utiliser cette fonctionnalité : [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) et [Runtime C universel pour Windows](https://www.microsoft.com/download/details.aspx?id=50410).
 >
 
 ## <a name="download-failed-vertex-to-local-machine"></a>Télécharger le vertex ayant échoué sur l’ordinateur local
@@ -80,7 +80,7 @@ Si le code utilisateur n’est pas inclus dans le fichier code-behind, ou si vou
 
 2. Récupérez le chemin du dossier du projet pour le projet **FailedVertexDebugHost**. 
 
-3. Cliquez avec le bouton droit sur le **projet du code source de l’assembly ajouté > Propriétés**, sélectionnez l’onglet **Générer** à gauche, puis collez le chemin copié finissant par \bin\debug en tant que **Sortie > Chemin de sortie**. Le chemin de la sortie finale est semblable à « <DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\" ».
+3. Cliquez avec le bouton droit sur le **projet du code source de l’assembly ajouté > Propriétés**, sélectionnez l’onglet **Générer** à gauche, puis collez le chemin copié finissant par \bin\debug en tant que **Sortie > Chemin de sortie**. Le chemin d’accès de la sortie finale est comme `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
 
     ![Chemin d’accès de pdb de définition de débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

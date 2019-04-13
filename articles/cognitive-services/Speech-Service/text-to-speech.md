@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 597932ae9ad4dba76428fa6a4882c50f6ff98754
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263109"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549503"
 ---
 # <a name="what-is-text-to-speech"></a>Quelle est la synthèse vocale ?
 
@@ -56,7 +56,7 @@ Ce tableau répertorie les principales fonctionnalités pour la synthèse vocale
 \* *Ces services sont disponibles à l’aide du point de terminaison cris.ai. Consultez [Swagger référence](https://westus.cris.ai/swagger/ui/index).*
 
 > [!NOTE]
-> Le point de terminaison de synthèse vocale implémente la limitation qui limite les requêtes à 25 par 5 secondes. Lorsque la limitation se produit, vous serez averti par les en-têtes de message.
+> Les points de terminaison vocaux personnalisés implémentent la limitation qui limite les requêtes à 25 par 5 secondes. Lorsque la limitation se produit, vous serez averti par les en-têtes de message.
 
 ## <a name="get-started-with-text-to-speech"></a>Bien démarrer avec le texte par synthèse vocale
 
@@ -66,17 +66,17 @@ Nous proposons des guides de démarrage rapide conçu pour que vous exécutez le
 
 | Guide de démarrage rapide (SDK) | Plateforme | Informations de référence sur l'API |
 |------------|----------|---------------|
-| [C#, .NET framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Parcourir](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Parcourir](https://aka.ms/csspeech/cppref) |
-| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Parcourir](https://aka.ms/csspeech/cppref) |
+| [C#, .NET framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
 
 ### <a name="rest-quickstarts"></a>Guides de démarrage rapide REST
 
 | Guide de démarrage rapide (REST) | Plateforme | Informations de référence sur l'API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Parcourir](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Parcourir](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Parcourir](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.JS](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>Exemple de code
 
@@ -88,12 +88,12 @@ Exemple de code pour la synthèse vocale est disponible sur GitHub. Ces exemples
 ## <a name="reference-docs"></a>Documents de référence
 
 * [Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk-reference.md)
-* [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md)
+* [SDK Speech Devices](speech-devices-sdk.md)
 * [API REST : Reconnaissance vocale](rest-speech-to-text.md)
 * [API REST : Synthèse vocale](rest-text-to-speech.md)
-* [API REST : Personnalisation et la transcription de lot](https://westus.cris.ai/swagger/ui/index)
+* [API REST : Transcription et personnalisation par lot](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir un abonnement de Services de reconnaissance vocale gratuit](get-started.md)
-* [Créer des polices de la voix personnalisée](how-to-customize-voice-font.md)
+* [Obtenir un abonnement gratuit aux services Speech](get-started.md)
+* [Créer des polices de la voix personnalisées](how-to-customize-voice-font.md)

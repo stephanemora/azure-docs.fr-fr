@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 3b286bbe2c246345bf6acd84a4fc0c400451c706
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 04b13c1e511f54c1fcf7b632d3a368fde16bf319
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445345"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549011"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrer des données en bloc vers Azure File Sync
 Vous pouvez migrer des données en bloc vers Azure File Sync de deux manières :
@@ -36,13 +36,13 @@ Voici les principaux avantages de l’utilisation d’un outil de transfert comm
 - Data Box et Azure File Sync ne nécessitent aucun arrêt. Lorsque vous utilisez Data Box pour transférer des données dans Azure, la bande passante réseau efficacement et de préserver la fidélité du fichier. Vous également garder votre espace de noms à jour en téléchargeant uniquement les fichiers modifiés après avoir déplacé les données vers Azure.
 
 ## <a name="prerequisites-for-the-offline-data-transfer"></a>Conditions préalables pour le transfert de données hors connexion
-Avant de commencer le transfert de données hors connexion :
+Vous ne devez pas activer la synchronisation sur le serveur que vous effectuez une migration avant d’effectuer le transfert de données hors connexion. Autres choses à prendre en compte avant de commencer sont les suivantes :
 
-- Migrer vos données en bloc à un ou plusieurs partages de fichiers Azure avant d’activer la synchronisation avec Azure File Sync.
-- Si vous envisagez d’utiliser la zone de données pour votre migration en bloc, passez en revue la [conditions préalables au déploiement de Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
-- Planifiez votre topologie Azure File Sync finale. Pour plus d’informations, consultez [planifier un déploiement Azure File Sync](storage-sync-files-planning.md).
-- Sélectionnez l’ou les comptes qui contiendront les partages de fichiers que vous souhaitez synchroniser avec le stockage Azure. Migrer vos données en bloc à des partages de zone de transit temporaires qui se trouvent dans le même compte de stockage ou les comptes. Vous pouvez utiliser uniquement un partage final et un partage intermédiaire qui se trouvent dans le même compte de stockage.
-- Créer une nouvelle relation de synchronisation avec un emplacement de serveur. Vous ne pouvez pas utiliser une relation de synchronisation existante pour migrer des données en bloc.
+- Si vous envisagez d’utiliser Data Box pour votre migration en bloc : Passez en revue les [prérequis de déploiement pour Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
+- Planifiez votre topologie Azure File Sync finale : [Planifier un déploiement de la fonctionnalité Synchronisation de fichiers Azure](storage-sync-files-planning.md)
+- Sélectionnez le ou les comptes de stockage Azure destinés à contenir les partages de fichiers avec lesquels vous souhaitez vous synchroniser. Veillez à effectuer votre migration en bloc dans des partages intermédiaires temporaires situés dans les mêmes comptes de stockage. La migration en bloc ne peut être activée qu’en utilisant un partage final (et une partage intermédiaire) résidant dans le même compte de stockage.
+- Une migration en bloc ne peut être utilisée que si vous créez une nouvelle relation de synchronisation avec un emplacement serveur. Vous ne pouvez pas activer une migration en bloc avec une relation de synchronisation existante.
+
 
 ## <a name="process-for-offline-data-transfer"></a>Processus de transfert de données hors connexion
 Voici comment configurer la synchronisation de fichiers Azure de manière compatible avec les outils de migration en bloc telles que Azure Data Box :
@@ -51,7 +51,7 @@ Voici comment configurer la synchronisation de fichiers Azure de manière compat
 
 | Étape | Détails |
 |---|---------------------------------------------------------------------------------------|
-| ![Étape 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Commandez votre Data Box](../../databox/data-box-deploy-ordered.md). Les offres de famille Data Box [plusieurs produits](https://azure.microsoft.com/services/storage/databox/data) à vos besoins. Lorsque vous recevez votre Data Box, suivez son [documentation pour copier vos données](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) à ce chemin d’accès UNC sur la zone de données : *\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>*. Ici, *nom_partage* est le nom du partage intermédiaire. Renvoyez la Data Box à Azure. |
+| ![Étape 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Commandez votre Data Box](../../databox/data-box-deploy-ordered.md). Les offres de famille Data Box [plusieurs produits](https://azure.microsoft.com/services/storage/databox/data) à vos besoins. Lorsque vous recevez votre Data Box, suivez son [documentation pour copier vos données](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) à ce chemin d’accès UNC sur la zone de données :  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\> \<Nom_partage\>*. Ici, *nom_partage* est le nom du partage intermédiaire. Renvoyez la Data Box à Azure. |
 | ![Étape 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Attendez que vos fichiers s’affichent dans les partages de fichiers Azure que vous avez choisi en tant que partages intermédiaires temporaires. *N’activez pas la synchronisation à ces partages.* |
 | ![Étape 3 :](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Créer un nouveau partage vide pour chaque partage de fichiers Data Box est créé pour vous. Ce nouveau partage doit être dans le même compte de stockage que le partage de la zone de données. [Guide pratique pour créer un partage de fichiers Azure](storage-how-to-create-file-share.md). |
 | ![Étape 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Créer un groupe de synchronisation](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) dans un service de synchronisation de stockage. Référencer le partage vide en tant que point de terminaison cloud. Répétez cette étape pour chaque partage de fichiers Data Box. [Configurer Azure File Sync](storage-sync-files-deployment-guide.md). |

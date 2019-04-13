@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: b65182cac91f6ed3dc653d6d9e77f80e99346bb7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918006"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527283"
 ---
 # <a name="translator-text-api-v20"></a>API de traduction de texte Translator Text v2.0
 
@@ -45,7 +45,7 @@ Si vous souhaitez éviter toute vulgarité dans la traduction, indépendamment d
 |ProfanityAction    |Action |Exemple de source (japonais)  |Exemple de traduction (français)  |
 |:--|:--|:--|:--|
 |NoAction   |Par défaut. Équivaut à ne pas définir d’option. La vulgarité de la source est reflétée dans la cible.        |彼はジャッカスです。     |Il est un imbécile.   |
-|Marked     |Les mots vulgaires sont entourés des balises XML <profanity> et </profanity>.     |彼はジャッカスです。 |Il est un <profanity>imbécile</profanity>.    |
+|Marked     |Des mots profanes entourés de balises XML \<obscénités > et \</profanity >.       |彼はジャッカスです。 |Il est un \<obscénités > jackass\</profanity >.  |
 |Deleted    |Les mots vulgaires sont retirés de la cible sans remplacement.     |彼はジャッカスです。 |Il est un.   |
 
     
@@ -135,7 +135,7 @@ Les éléments à l’intérieur de `TranslateArrayRequest` sont les suivants :
     - `Category`: Chaîne contenant la catégorie (domaine) de la traduction. La valeur par défaut est `general`.
     - `ContentType`: Format du texte en cours de traduction. Les formats pris en charge sont `text/plain` (par défaut), `text/xml` et `text/html`. Tout code HTML doit être un élément bien formé et complet.
     - `ProfanityAction`: Spécifie comment les vulgarités sont traitées, comme expliqué ci-dessus. Les valeurs de `ProfanityAction` acceptées sont `NoAction` (par défaut), `Marked` et `Deleted`.
-    - `State`: état utilisateur pour aider à mettre en corrélation la requête et la réponse. Le même contenu sera renvoyé dans la réponse.
+    - `State`: État utilisateur pour aider à mettre en corrélation la requête et la réponse. Le même contenu sera renvoyé dans la réponse.
     - `Uri`: Filtrer les résultats sur cet URI. Par défaut : `all`.
     - `User`: Filtrer les résultats sur cet utilisateur. Par défaut : `all`.
 * `texts`: Requis. Tableau contenant les textes à traduire. Toutes les chaînes doivent être dans la même langue. Les textes à traduire ne peuvent pas totaliser plus de 10 000 caractères. Le tableau ne peut pas contenir plus de 2 000 éléments.
@@ -151,7 +151,7 @@ La méthode de TranslateArray accepte les valeurs `application/xml` ou `text/xml
 * `OriginalSentenceLengths`: Tableau d’entiers indiquant la longueur de chaque phrase du texte source d’origine. La longueur du tableau indique le nombre de phrases.
 * `TranslatedText`: Texte traduit.
 * `TranslatedSentenceLengths`: Tableau d’entiers indiquant la longueur de chaque phrase du texte traduit. La longueur du tableau indique le nombre de phrases.
-* `State`: état utilisateur pour aider à mettre en corrélation la requête et la réponse. Renvoie le même contenu que dans la demande.
+* `State`: État utilisateur pour aider à mettre en corrélation la requête et la réponse. Renvoie le même contenu que dans la demande.
 
 Le format du corps de la réponse est le suivant.
 
@@ -241,7 +241,7 @@ Type de contenu de réponse : application/xml
 ## <a name="get-getlanguagesfortranslate"></a>GET /GetLanguagesForTranslate
 
 ### <a name="implementation-notes"></a>Remarques relatives à l’implémentation
-Obtient une liste des codes de langue représentant les langues prises en charge par le service Translator.  `Translate` et `TranslateArray` peut traduire entre les deux de ces langages.
+Obtient une liste des codes de langue représentant les langues prises en charge par le service Translator.  `Translate` et `TranslateArray` peuvent traduire entre n’importe quelle paire de ces langues.
 
 L’URI de demande est `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`.
 
@@ -327,7 +327,7 @@ Type de contenu de réponse : application/xml
 |texte|(empty)   |Requis. Chaîne contenant une ou plusieurs phrases dans la langue spécifiée, à prononcer pour le flux WAV. La taille du texte à prononcer ne peut pas dépasser 2 000 caractères.|query|string|
 |Langage|(empty)   |Requis. Chaîne représentant le code de la langue prise en charge dans laquelle prononcer le texte. Le code doit être présent dans la liste des codes renvoyée par la méthode `GetLanguagesForSpeak`.|query|string|
 |format|(empty)|facultatif. Chaîne spécifiant l’ID de type de contenu. Actuellement, `audio/wav` et `audio/mp3` sont disponibles. La valeur par défaut est `audio/wav`.|query|string|
-|options|(empty)    |<ul><li>facultatif. Chaîne spécifiant les propriétés de la parole synthétisée :<li>`MaxQuality` et `MinSize` sont disponibles pour spécifier la qualité des signaux audio. Avec `MaxQuality`, vous obtenez des voix de la qualité la plus haute et avec `MinSize`, vous obtenez des voix de la qualité la plus basse. La valeur par défaut est `MinSize`.</li><li>`female` et `male` sont disponibles pour spécifier le sexe souhaité de la voix. La valeur par défaut est `female`. Utilisez la barre verticale <code>\|</code> pour inclure plusieurs options. Par exemple : `MaxQuality|Male`.</li></li></ul> |query|string|
+|options|(empty)    |<ul><li>facultatif. Chaîne spécifiant les propriétés de la parole synthétisée :<li>`MaxQuality` et `MinSize` sont disponibles pour spécifier la qualité des signaux audio. Avec `MaxQuality`, vous obtenez des voix de la qualité la plus haute et avec `MinSize`, vous obtenez des voix de la qualité la plus basse. La valeur par défaut est `MinSize`.</li><li>`female` et `male` sont disponibles pour spécifier le genre souhaité de la voix. La valeur par défaut est `female`. Utilisez la barre verticale <code>\|</code> pour inclure plusieurs options. Par exemple : `MaxQuality|Male`.</li></li></ul> |query|string|
 |Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|string|
 |Ocp-Apim-Subscription-Key|(empty)  |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|string|
 
@@ -597,11 +597,11 @@ L’objet `TranslateOptions` contient les valeurs répertoriées ci-dessous. Tou
 
 * `Category`: Chaîne contenant la catégorie (domaine) de la traduction. La valeur par défaut est « general ».
 * `ContentType`: La seule option prise en charge (et donc par défaut) est text/plain.
-* `IncludeMultipleMTAlternatives`: indicateur booléen pour déterminer si plusieurs alternatives doivent être retournées à partir du moteur de serveur cible maître. Les valeurs valides sont true et false (respecte la casse). Par défaut, la valeur est false et n’offre qu’une seule alternative. Définir l’indicateur sur true permet de générer des alternatives artificielles de traduction, entièrement intégrées avec l’infrastructure de traduction collaborative (CTF). La fonctionnalité permet de renvoyer des alternatives de traduction pour des phrases qui n’ont pas d’alternatives dans l’infrastructure de traduction collaborative, en ajoutant des alternatives artificielles à partir de la liste n-meilleures traductions du décodeur.
+* `IncludeMultipleMTAlternatives` : indicateur booléen pour déterminer si plusieurs alternatives doivent être renvoyées à partir du moteur de traduction automatique. Les valeurs valides sont true et false (respecte la casse). Par défaut, la valeur est false et n’offre qu’une seule alternative. Définir l’indicateur sur true permet de générer des alternatives artificielles de traduction, entièrement intégrées avec l’infrastructure de traduction collaborative (CTF). La fonctionnalité permet de renvoyer des alternatives de traduction pour des phrases qui n’ont pas d’alternatives dans l’infrastructure de traduction collaborative, en ajoutant des alternatives artificielles à partir de la liste n-meilleures traductions du décodeur.
     - Les notes sont appliquées comme suit : (1) La meilleure traduction automatique obtient une note de 5. (2) Les alternatives de l’infrastructure de traduction collaborative reflètent l’autorité de leur auteur, de -10 à +10. (3) Les alternatives de traduction générées automatiquement (n-meilleures) ont la note 0, et leur degré de correspondance est 100.
     - Nombre d’Alternatives Le nombre d’alternatives renvoyé peut atteindre la valeur maxTranslations, mais peut être inférieur.
     - Paires de langues Cette fonctionnalité n’est pas disponible pour les traductions entre le chinois simplifié et le chinois traditionnel, dans les deux sens. Elle est disponible pour toutes les autres paires de langues que Microsoft Translator prend en charge.
-* `State`: état utilisateur pour aider à mettre en corrélation la requête et la réponse. Le même contenu sera renvoyé dans la réponse.
+* `State`: État utilisateur pour aider à mettre en corrélation la requête et la réponse. Le même contenu sera renvoyé dans la réponse.
 * `Uri`: Filtrer les résultats sur cet URI. Si aucune valeur n’est définie, la valeur par défaut est all.
 * `User`: Filtrer les résultats sur cet utilisateur. Si aucune valeur n’est définie, la valeur par défaut est all.
 
@@ -630,7 +630,7 @@ Cela inclut un élément `GetTranslationsResponse` contenant les valeurs suivant
 
 * `Translations`: Tableau des correspondances trouvées, stockées dans des objets TranslationMatch (voir ci-dessous). Les traductions peuvent inclure de légères variantes du texte d’origine (correspondances approximatives). Les traductions seront triées : Correspondances à 100 % en premier, correspondances approximatives ensuite.
 * `From`: Si la méthode ne spécifie pas de langue From (source), cette langue est le résultat de la détection automatique de la langue. Sinon, il s’agit de la langue source spécifiée.
-* `State`: état utilisateur pour aider à mettre en corrélation la requête et la réponse. Contient la même valeur que celle fournie dans le paramètre TranslateOptions.
+* `State`: État utilisateur pour aider à mettre en corrélation la requête et la réponse. Contient la même valeur que celle fournie dans le paramètre TranslateOptions.
 
 L’objet TranslationMatch comprend les éléments suivants :
 
@@ -698,7 +698,7 @@ Le format du corps de la demande est le suivant.
 </GetTranslationsArrayRequest>
 ```
 
-`GetTranslationsArrayRequest` inclut les éléments suivants :
+`GetTranslationsArrayRequest` contient les éléments suivants :
 
 * `AppId`: Requis. Si l’en-tête Authorization est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.
 * `From`: Requis. Chaîne représentant le code de langue du texte source.
@@ -706,11 +706,11 @@ Le format du corps de la demande est le suivant.
 * `Options`: facultatif. Objet Options contenant les valeurs répertoriées ci-dessous. Tous sont facultatives. Par défaut, il s’agit des paramètres les plus courants. Les éléments spécifiés doivent être répertoriés dans l’ordre alphabétique.
     - Catégorie : Chaîne contenant la catégorie (domaine) de la traduction. La valeur par défaut est general.
     - `ContentType`: La seule option prise en charge (et donc par défaut) est text/plain.
-    - `IncludeMultipleMTAlternatives`: indicateur booléen pour déterminer si plusieurs alternatives doivent être retournées à partir du moteur de serveur cible maître. Les valeurs valides sont true et false (respecte la casse). Par défaut, la valeur est false et n’offre qu’une seule alternative. Définir l’indicateur sur true permet de générer des alternatives artificielles de traduction, entièrement intégrées avec l’infrastructure de traduction collaborative (CTF). La fonctionnalité permet de renvoyer des alternatives de traduction pour des phrases qui n’ont pas d’alternatives dans l’infrastructure de traduction collaborative, en ajoutant des alternatives artificielles à partir de la liste n-meilleures traductions du décodeur.
+    - `IncludeMultipleMTAlternatives` : indicateur booléen pour déterminer si plusieurs alternatives doivent être renvoyées à partir du moteur de traduction automatique. Les valeurs valides sont true et false (respecte la casse). Par défaut, la valeur est false et n’offre qu’une seule alternative. Définir l’indicateur sur true permet de générer des alternatives artificielles de traduction, entièrement intégrées avec l’infrastructure de traduction collaborative (CTF). La fonctionnalité permet de renvoyer des alternatives de traduction pour des phrases qui n’ont pas d’alternatives dans l’infrastructure de traduction collaborative, en ajoutant des alternatives artificielles à partir de la liste n-meilleures traductions du décodeur.
         - Les notes sont appliquées comme suit : (1) La meilleure traduction automatique obtient une note de 5. (2) Les alternatives de l’infrastructure de traduction collaborative reflètent l’autorité de leur auteur, de -10 à +10. (3) Les alternatives de traduction générées automatiquement (n-meilleures) ont la note 0, et leur degré de correspondance est 100.
         - Nombre d’Alternatives Le nombre d’alternatives renvoyé peut atteindre la valeur maxTranslations, mais peut être inférieur.
         - Paires de langues Cette fonctionnalité n’est pas disponible pour les traductions entre le chinois simplifié et le chinois traditionnel, dans les deux sens. Elle est disponible pour toutes les autres paires de langues que Microsoft Translator prend en charge.
-* `State`: état utilisateur pour aider à mettre en corrélation la requête et la réponse. Le même contenu sera renvoyé dans la réponse.
+* `State`: État utilisateur pour aider à mettre en corrélation la requête et la réponse. Le même contenu sera renvoyé dans la réponse.
 * `Uri`: Filtrer les résultats sur cet URI. Si aucune valeur n’est définie, la valeur par défaut est all.
 * `User`: Filtrer les résultats sur cet utilisateur. Si aucune valeur n’est définie, la valeur par défaut est all.
 * `Texts`: Requis. Tableau contenant les textes à traduire. Toutes les chaînes doivent être dans la même langue. Les textes à traduire ne peuvent pas totaliser plus de 10 000 caractères. Le nombre maximal d’éléments de tableau est 10.
@@ -751,11 +751,11 @@ Chaque élément `GetTranslationsResponse` contient les valeurs suivantes :
 
 * `Translations`: Tableau des correspondances trouvées, stockées dans des objets `TranslationMatch` (voir ci-dessous). Les traductions peuvent inclure de légères variantes du texte d’origine (correspondances approximatives). Les traductions seront triées : Correspondances à 100 % en premier, correspondances approximatives ensuite.
 * `From`: Si la méthode ne spécifie pas de langue `From`, cette langue est le résultat de la détection automatique de la langue. Sinon, il s’agit de la langue source spécifiée.
-* `State`: état utilisateur pour aider à mettre en corrélation la requête et la réponse. Contient la même valeur que celle fournie dans le paramètre `TranslateOptions`.
+* `State`: État utilisateur pour aider à mettre en corrélation la requête et la réponse. Contient la même valeur que celle fournie dans le paramètre `TranslateOptions`.
 
-`TranslationMatch` objet se compose des éléments suivants :
+Un objet `TranslationMatch` comprend les éléments suivants :
 * `Error`: Si une erreur s’est produite pour une chaîne d’entrée spécifique, le code d’erreur est stocké. Sinon, le champ est vide.
-* `MatchDegree`: Le système établit des correspondances entre les phrases entrées et celles contenues dans le magasin, y compris des correspondances inexactes.  `MatchDegree` Indique quelle mesure le texte d’entrée correspond au texte d’origine trouvé dans le magasin. La valeur renvoyée est comprise entre 0 et 100, où 0 est indique l’absence totale de similarité, et 100 une correspondance exacte respectant la casse.
+* `MatchDegree`: Le système établit des correspondances entre les phrases entrées et celles contenues dans le magasin, y compris des correspondances inexactes.  `MatchDegree` indique à quel point le texte d’entrée correspond au texte d’origine trouvé dans le magasin. La valeur renvoyée est comprise entre 0 et 100, où 0 est indique l’absence totale de similarité, et 100 une correspondance exacte respectant la casse.
 * `MatchedOriginalText`: Texte d’origine mis en correspondance pour ce résultat. Renvoyé uniquement si le texte d’origine mis en correspondance diffère du texte d’entrée. Utilisé pour renvoyer le texte source d’une correspondance approximative. Non renvoyé pour les résultats de Microsoft Translator.
 * `Rating`: Indique l’autorité de la personne décidant de la qualité. Les résultats de la traduction automatique ont la note 5. Les traductions d’origine anonyme ont généralement une note de 1 à 4, tandis que les traductions provenant de personnes ayant un degré d’autorité ont généralement une note de 6 à 10.
 * `Count`: Nombre de fois où cette traduction avec cette note a été sélectionnée. La valeur est 0 pour la réponse traduite automatiquement.
@@ -787,7 +787,7 @@ Type de contenu de réponse : application/xml
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Migrer vers l’API Translator Text v3](../migrate-to-v3.md)
+> [Migrer vers l’API de traduction de texte Translator Text v3](../migrate-to-v3.md)
 
 
 

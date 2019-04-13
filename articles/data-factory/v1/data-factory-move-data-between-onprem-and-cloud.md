@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 72e93b99783441bda97c52ff295a89b0fcf4e629
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4eb881992b7e40e0a9d67bd2cee94f1f09958e9e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995898"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524104"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
 > [!NOTE]
@@ -280,7 +280,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
    * Le paramètre **folderPath** est défini sur **adftutorial/outfromonpremdf**, où « outfromonpremdf » est le dossier dans le conteneur adftutorial. S’il n’existe pas déjà, créez le conteneur **adftutorial** .
    * **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
 
-   Si vous ne spécifiez pas **fileName** pour une **table de sortie**, les fichiers générés dans **folderPath** sont nommés selon le format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Si vous ne spécifiez pas un **fileName** pour un **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : `Data.<Guid>.txt` (par exemple : : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Pour affecter une valeur à **folderPath** et **fileName** de manière dynamique en fonction de l’heure de **SliceStart**, utilisez la propriété partitionedBy. Dans l’exemple suivant, folderPath utilise les valeurs Year, Month et Day à partir de SliceStart (heure de début de la partie en cours de traitement), alors que fileName utilise la valeur Hour à partir de SliceStart. Par exemple, si une partie est produite pour 2014-10-20T08:00:00, la valeur folderName est wikidatagateway/wikisampledataout/2014/10/20, alors que la valeur de fileName est 08.csv.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: cc10c9be5bab3b84c8773d8a930473267db353ab
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: f37a0c9e4c664ac9631a0a07fa6f114e62939845
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411310"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522881"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Comment configurer votre application App Service de manière à utiliser la connexion via Facebook
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -48,7 +48,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
    > La clé secrète de l'application est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
    > 
    > 
-9. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d’autres comptes Facebook, cliquez sur **Révision de l’application** et activez **Rendre public <nom-de-votre-application>** pour activer l’accès public général à l’aide de l’authentification Facebook.
+9. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier les autres comptes Facebook, cliquez sur **révision de l’application** et activer **rendre \<your-application-name > public** pour activer l’accès public général à l’aide de l’authentification Facebook.
 
 ## <a name="secrets"></a>Ajout des informations Facebook à votre application
 1. Revenez au [portail Azure]et accédez à votre application. Cliquez sur **Paramètres** > **Authentification / Autorisation**, et vérifiez que **l’authentification App Service** est activée, sur **On**.

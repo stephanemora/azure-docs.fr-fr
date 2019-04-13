@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 5ec5109aa8079b37015f66443b8ebac905ad2fcb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370557"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526270"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Compte de stockage managé Azure Key Vault – CLI
 
@@ -109,7 +109,7 @@ Vous pouvez également demander à Key Vault de générer des jetons SAS (Shared
 Une fois que vous avez terminé les étapes répertoriées ci-dessus, vous pouvez exécuter les commandes suivantes pour demander à Key Vault de générer des jetons SAS pour vous. 
 
 Voici les choses qui peuvent être accomplies avec les étapes ci-dessous
-- Configure une définition de compte SAS nommé « <YourSASDefinitionName> » sur un compte de stockage géré par KeyVault « <YourStorageAccountName> » dans    votre coffre « <VaultName> ». 
+- Définit un compte de sa définition nommé `<YourSASDefinitionName>` sur un compte de stockage géré KeyVault `<YourStorageAccountName>` dans votre coffre `<VaultName>`. 
 - Crée un jeton SAS de compte pour les services Blob, Fichier, Table et File d’attente, pour les types de ressources Service, Conteneur et Objet, avec toutes les autorisations, via le protocole https et avec les dates de début et de fin spécifiées
 - Configure une définition SAQ de stockage géré par KeyVault dans le coffre, avec l’URI de modèle en tant que le jeton SAS créé ci-dessus, avec un « compte » de type SAS et une validité de N jours
 - Récupère le jeton d’accès réel à partir du secret KeyVault correspondant à la définition SAS

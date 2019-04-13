@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 084f347c688c6b255ecbb58c16d8463d06cc2347
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870909"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528150"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Tests par lot avec 1000 énoncés dans le portail de LUIS
 
@@ -75,6 +75,8 @@ Utilisez le modèle suivant pour démarrer votre fichier de commandes :
 ```
 
 Le fichier de commandes utilise les propriétés **startPos** et **endPos** pour noter le début et la fin d’une entité. Les valeurs commencent à zéro ; elles ne doivent ni commencer ni se terminer par un espace. Les journaux de requêtes, eux, utilisent les propriétés startIndex et endIndex. 
+
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="batch-syntax-template-for-intents-without-entities"></a>Modèle de syntaxe de lot pour les intentions sans entité
 

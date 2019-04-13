@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314448"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525526"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer les alertes StorSimple
 
@@ -160,7 +160,7 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 | Basculement de l’appareil vers <*nom de l’appareil*>. |Autre cause/cause inconnue. |Si vous voyez un grand nombre de ces alertes, contactez le Support Microsoft. Une fois que le problème est résolu, effacez cette alerte de la page des alertes. |
 | Un service d’appareil critique indique l’état En échec. |Échec du service du chemin d’accès des données. |Contactez le Support Microsoft pour obtenir de l’assistance. |
 | L’adresse IP virtuelle de l’interface réseau <*DONNÉES*> indique l’état en échec. |Autre cause/cause inconnue. |Les conditions temporaires peuvent parfois provoquer ces alertes. Si tel est le cas, cette alerte est automatiquement effacée après un certain temps. Si le problème persiste, contactez le support technique Microsoft. |
-| L’adresse IP virtuelle de l’interface réseau <*DONNÉES*> indique l’état en échec. |Nom de l’interface : l’adresse IP <IP address> <*DONNÉES*> ne peut pas être mise en ligne, car une adresse IP en double a été détectée sur le réseau. |Assurez-vous que l’adresse IP en double a été supprimée du réseau ou veillez à reconfigurer l’interface avec une adresse IP différente. |
+| L’adresse IP virtuelle de l’interface réseau <*DONNÉES*> indique l’état en échec. |Nom de l’interface : l’adresse IP `<IP address>` <*DONNÉES*> ne peut pas être mise en ligne, car une adresse IP en double a été détectée sur le réseau. |Assurez-vous que l’adresse IP en double a été supprimée du réseau ou veillez à reconfigurer l’interface avec une adresse IP différente. |
 
 ### <a name="disaster-recovery-alerts"></a>Alertes de récupération d'urgence
 
@@ -200,8 +200,8 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
 |:--- |:--- |:--- |
 | Impossible de démarrer les services StorSimple. |Erreur de chemin d’accès des données |Si le problème persiste, contactez le support technique Microsoft. |
-| Adresse IP en double détectée pour « Data0 ». | |Le système a détecté un conflit pour l’adresse IP 10.0.0.1. La ressource réseau « Data0 » sur l’appareil *<device1>* est hors connexion. Assurez-vous que cette adresse IP n’est pas utilisée par une autre entité de ce réseau. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Pour obtenir de l’aide sur la résolution de ce problème, contactez votre administrateur réseau. Si le problème persiste, contactez le support technique Microsoft. |
-| Adresse IPv4 (ou IPv6) de « Data0 » hors connexion. | |La ressource réseau « Data0 » pourvue de l’adresse IP 10.0.0.1. et de la longueur de préfixe 22 sur l’appareil *<device1>* est hors connexion. Assurez-vous que les ports de commutateur auxquels cette interface est connectée sont opérationnels. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Adresse IP en double détectée pour « Data0 ». | |Le système a détecté un conflit pour l’adresse IP 10.0.0.1. La ressource réseau « Data0 » sur l’appareil  *\<device1 >* est hors connexion. Assurez-vous que cette adresse IP n’est pas utilisée par une autre entité de ce réseau. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Pour obtenir de l’aide sur la résolution de ce problème, contactez votre administrateur réseau. Si le problème persiste, contactez le support technique Microsoft. |
+| Adresse IPv4 (ou IPv6) de « Data0 » hors connexion. | |La ressource réseau « Data0 » pourvue de l’adresse IP 10.0.0.1. et le préfixe de longueur '22' sur l’appareil  *\<device1 >* est hors connexion. Assurez-vous que les ports de commutateur auxquels cette interface est connectée sont opérationnels. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 | Impossible de se connecter au service d’authentification. |Erreur de chemin d’accès des données |L’URL qui est utilisée pour l’authentification n’est pas accessible. Vérifiez que vos règles de pare-feu incluent les modèles d’URL spécifiés pour l’appareil StorSimple. Pour plus d’informations sur les modèles d’URL dans le portail Azure, accédez à https :\//aka.ms/ss-8000-network-reqs. Si vous utilisez le Cloud Azure Government, accédez aux modèles d’URL https :\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertes de performances

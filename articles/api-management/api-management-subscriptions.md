@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1f7c2bde631e42ac94ce4c0394d13e369f6ea23f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049756"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526586"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Abonnements dans Gestion des API Azure
 
@@ -50,9 +50,6 @@ Habituellement, les abonnements dans la Gestion des API sont toujours associés 
 > Dans certains scénarios, les éditeurs d’API peuvent parfois souhaiter publier un produit d’API à destination du public, sans passer par les abonnements. Ils peuvent pour cela décocher l’option **Exiger un abonnement** dans la page **Paramètres** du produit sur le portail Azure. De cette façon, toutes les API du produit sont accessibles sans clé API.
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>Abonnements pour toutes les API ou une API individuelle
-
-> [!NOTE]
-> Actuellement, cette fonctionnalité est disponible uniquement dans le niveau Consommation de Gestion des API.
 
 Quand nous avons introduit le niveau [Consommation](https://aka.ms/apimconsumptionblog) de la Gestion des API, nous avons apporté quelques changements afin de simplifier la gestion des clés :
 - Tout d’abord, nous avons ajouté deux étendues d’abonnement : toutes les API et une seule API. L’étendue des abonnements n’est plus limitée à un produit d’API. Vous pouvez maintenant créer des clés accordant l’accès à une API, ou à toutes les API au sein d’une instance de Gestion des API, sans préalablement devoir créer un produit et lui ajouter les API. De plus, chaque instance de Gestion des API intègre désormais un abonnement immuable à toutes les API. Cet abonnement simplifie et facilite les tests et le débogage des API dans la console de test.

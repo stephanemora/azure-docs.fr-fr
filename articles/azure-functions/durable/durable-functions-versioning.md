@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a90a6811b1c59538db98b85d950906dba2969d57
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338224"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549082"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Contrôle de version dans l’extension Fonctions durables (Azure Functions)
 
@@ -140,7 +140,7 @@ Toutes les entités de stockage Azure sont nommées en fonction de la valeur de 
 Nous vous recommandons de déployer la nouvelle version de l’application de fonction vers un nouvel [emplacement de déploiement](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Les emplacements de déploiement vous permettent d’exécuter plusieurs instances de votre application de fonction et ce, en parallèle avec l’une d’elles seulement, en tant qu’emplacement de *production*. Lorsque vous êtes prêt à exposer la nouvelle logique d’orchestration dans l’infrastructure existante, cette opération peut s’avérer aussi simple que l’échange d’une nouvelle version dans l’emplacement de production.
 
 > [!NOTE]
-> Cette stratégie est d’autant plus efficace lorsque vous utilisez des déclencheurs Webhook et HTTP pour les fonctions d’orchestrateur. Pour les déclencheurs autres que HTTP, tels que les files d’attente ou les concentrateurs Event Hubs, la définition du déclencheur doit dériver d’un paramètre d’application mis à jour dans le cadre de l’opération d’échange.
+> Cette stratégie est d’autant plus efficace lorsque vous utilisez des déclencheurs Webhook et HTTP pour les fonctions d’orchestrateur. Pour les déclencheurs non-HTTP, tels que les files d’attente ou Event Hubs, la définition du déclencheur doit [dériver à partir d’un paramètre d’application](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) qui est mis à jour dans le cadre de l’opération d’échange.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

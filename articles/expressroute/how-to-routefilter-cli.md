@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: cfd9f4c52d3ddddd944186a833cba48e6ca76182
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079294"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527963"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurer des filtres de routage pour l’homologation Microsoft : Azure CLI
 
@@ -103,13 +103,13 @@ az network route-filter rule list-service-communities
 
 Dressez la liste des valeurs de communauté BGP que vous souhaitez utiliser dans le filtre de routage. Par exemple, la valeur de communauté BGP pour les services Dynamics 365 est 12076:5040.
 
-## <a name="filter"></a>Étape 2 : Créer un filtre de routage et une règle de filtre
+## <a name="filter"></a>Étape 2 : Créer un filtre de routage et une règle de filtre
 
 Un filtre de routage ne peut avoir qu’une seule règle, et cette règle doit être de type « Autoriser ». Cette règle peut être associée à une liste des valeurs de communauté BGP.
 
 ### <a name="1-create-a-route-filter"></a>1. Créer un filtre de routage
 
-Commencez par créer le filtre de routage. La commande 'az network route-filter create' crée uniquement une ressource de filtre de routage. Après avoir créé la ressource, vous devez créer une règle et la joindre à l’objet de filtre de routage. Utilisez la commande suivante pour créer une ressource de filtre de routage :
+Commencez par créer le filtre de routage. La commande `az network route-filter create` crée uniquement une ressource de filtre de routage. Après avoir créé la ressource, vous devez créer une règle et la joindre à l’objet de filtre de routage. Utilisez la commande suivante pour créer une ressource de filtre de routage :
 
 ```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup

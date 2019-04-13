@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 635b4e71c09a2e8b3901af5580f221bc4716831d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917768"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547588"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilisation d’Azure CDN avec CORS
 ## <a name="what-is-cors"></a>Présentation de CORS
@@ -32,7 +32,7 @@ Il existe deux types de demandes CORS : les *demandes simples* et *les demandes 
 
 1. Le navigateur envoie la demande CORS avec un en-tête de demande HTTP d’**origine** supplémentaire. La valeur de cet en-tête est l’origine qui a servi la page mère, définie comme la combinaison du *protocole,* du *domaine* et du *port*.  Quand une page de https://www.contoso.com tente d’accéder aux données d’un utilisateur dans l’origine fabrikam.com, l’en-tête de la requête suivant est envoyé à fabrikam.com :
 
-   `Origin: https://www.contoso.com`
+   `Origin: https:\//www.contoso.com`
 
 2. Le serveur peut renvoyer les éléments suivants :
 

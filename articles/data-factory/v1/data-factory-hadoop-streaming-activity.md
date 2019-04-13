@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f4bdeee08e81c16dfdd03620eb1fc61251f90400
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: dd00c0a2998009ce6c39ca19abb25a2548682cee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025171"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523220"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -42,7 +42,7 @@ Vous pouvez utiliser l’activité HDInsightStreamingActivity pour appeler une t
 L’activité de streaming HDInsight dans un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des programmes de streaming Hadoop sur votre cluster HDInsight [propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
 > [!NOTE] 
-> Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le Tutoriel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
+> Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le tutoriel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
 
 ## <a name="json-sample"></a>Exemple JSON
 Le cluster HDInsight est automatiquement rempli avec les données (davinci.txt) et les exemples de programmes (wc.exe et cat.exe). Par défaut, le nom du conteneur utilisé par le cluster HDInsight est le nom du cluster lui-même. Par exemple, si votre nom de cluster est myhdicluster, le nom du conteneur d’objets blob associé est myhdicluster. 
@@ -99,7 +99,7 @@ Notez les points suivants :
 2. Affectez au type de l’activité la valeur **HDInsightStreaming**.
 3. Pour la propriété **mapper** , spécifiez le nom du fichier exécutable du mappeur. Dans l’exemple, cat.exe est le fichier exécutable du mappeur.
 4. Pour la propriété **reducer** , spécifiez le nom du fichier exécutable du raccord de réduction. Dans l’exemple, wc.exe est le fichier exécutable du raccord de réduction.
-5. Pour la propriété de type **input** , spécifiez le fichier en entrée (y compris son emplacement) du mappeur. Dans l’exemple « wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt », adfsample est le conteneur de l’objet blob, example/data/Gutenberg est le dossier et davinci.txt est l’objet blob.
+5. Pour la propriété de type **input** , spécifiez le fichier en entrée (y compris son emplacement) du mappeur. Dans l’exemple : `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt` : adfsample est le conteneur de l’objet blob, example/data/Gutenberg est le dossier et davinci.txt est l’objet blob.
 6. Pour la propriété de type **output** , spécifiez le fichier en sortie (y compris son emplacement) du raccord de réduction. La sortie de la tâche de diffusion en continu Hadoop est écrite à l’emplacement spécifié pour cette propriété.
 7. Dans la section **filePaths** , spécifiez les chemins des fichiers exécutables du mappeur et du raccord de réduction. Dans l’exemple « adfsample/example/apps/wc.exe », adfsample est le conteneur de l’objet blob, example/apps est le dossier et wc.exe est le fichier exécutable.
 8. Pour la propriété **fileLinkedService** , spécifiez le service lié Azure Storage qui représente le stockage Azure qui contient les fichiers spécifiés dans la section filePaths.

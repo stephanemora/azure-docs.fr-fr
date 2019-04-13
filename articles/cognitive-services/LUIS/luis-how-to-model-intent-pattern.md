@@ -1,7 +1,7 @@
 ---
 title: Ajout de précision à l’aide de modèles
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Découvrez comment ajouter des gabarits de modèle dans les applications Language Understanding (LUIS) pour améliorer la précision de la prédiction.
+description: Ajouter des modèles de modèle pour améliorer la précision de prédiction dans les applications de reconnaissance vocale (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 132f6eab86c02e28fe562a0c7d3357175e5813b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195045"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521252"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Comment ajouter des modèles pour améliorer la précision de prédiction
-Une fois une application LUIS reçoit énoncés de point de terminaison, utilisez un [modèle](luis-concept-patterns.md) pour améliorer la précision de prédiction des séquences dont qui révèlent un modèle dans l’ordre des mots et du choix de word. Modèles d’utilisent spécifique [syntaxe](luis-concept-patterns.md#pattern-syntax) pour indiquer l’emplacement de : [entités](luis-concept-entity-types.md), rôles de l’entité et un texte facultatif.
+Une fois une application LUIS reçoit énoncés de point de terminaison, utilisez un [modèle](luis-concept-patterns.md) pour améliorer la précision de prédiction des séquences dont qui révèlent un modèle dans l’ordre des mots et du choix de word. Modèles d’utilisent spécifique [syntaxe](luis-concept-patterns.md#pattern-syntax) pour indiquer l’emplacement de : [entités](luis-concept-entity-types.md), entité [rôles](luis-concept-roles.md)et un texte facultatif.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Ajouter un énoncé de gabarit pour créer un modèle
 1. Ouvrez votre application en sélectionnant son nom sur la page **Mes applications**, puis sélectionnez **Patterns** (Modèles) dans le panneau gauche, sous **Improve app performance** (Améliorer les performances de l’application).
@@ -34,7 +34,7 @@ Une fois une application LUIS reçoit énoncés de point de terminaison, utilise
 
     ![Capture d’écran de l’entité pour le modèle](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Si votre entité inclut un rôle, indiquez le rôle avec un signe deux-points, `:`, après le nom de l’entité, tel que `{Location:Origin}`. La liste des rôles pour les entités s’affiche dans une liste. Sélectionnez le rôle, puis Entrée. 
+    Si votre entité inclut un [rôle](luis-concept-roles.md), indiquer le rôle avec un seul signe deux-points, `:`, après le nom de l’entité, tel que `{Location:Origin}`. La liste des rôles pour les entités s’affiche dans une liste. Sélectionnez le rôle, puis Entrée. 
 
     ![Capture d’écran de l’entité avec le rôle](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 

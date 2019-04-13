@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630626"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522726"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Génération et transfert de clés HSM protégées pour Azure clé de coffre
 
@@ -445,7 +445,7 @@ Quand vous exécutez cette commande, remplacez *contosokey* par la valeur spéci
 
 Vous êtes invité à connecter vos cartes d’administrateur du monde de sécurité.
 
-Une fois la commande exécutée, vous voyez **Résultat : RÉUSSITE**. La copie de votre clé et des autorisations réduites figurent dans le fichier nommé key_xferacId_<contosokey>.
+Une fois la commande exécutée, vous voyez **Résultat : RÉUSSITE** et la copie de votre clé avec autorisations réduites figurent dans le fichier nommé key_xferacId_\<contosokey >.
 
 Vous pouvez inspecter les listes de contrôle d’accès en utilisant les commandes suivantes dans les utilitaires Thales :
 

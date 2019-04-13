@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860709"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549679"
 ---
 # <a name="schema-format"></a>Format de schéma
 
@@ -43,14 +43,14 @@ Voici une liste des types de données d’attributs pris en charge :
 
 | Type | Description | Opérations | Exemples |
 |------|-------------|------------|---------|
-| Chaîne | Chaîne (de 1 à 1 024 caractères) | equals, starts_with | « Hello World » |
-| Int32 | Entier 32 bits signé | equals, starts_with, is_between | 2016 |
-| Int64 | Entier 64 bits signé | equals, starts_with, is_between | 9876543210 |
-| Double | Valeur à virgule flottante double précision | equals, starts_with, is_between | 1.602e-19 |
-| Date | Date (du 01/01/1400 au 31/12/9999) | equals, is_between | « 14/03/2016 » |
-| Guid | Identificateur global unique | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
-| Blob | Données non indexées compressées en interne | *Aucun* | « Permettre à chaque personne et à chaque organisation sur cette planète d'accomplir davantage » |
-| Composite | Composition de plusieurs sous-attributs| *N/A* | { "Name":"harry shum", "Affiliation":"microsoft" } |
+| `String` | Chaîne (de 1 à 1 024 caractères) | equals, starts_with | « Hello World » |
+| `Int32` | Entier 32 bits signé | equals, starts_with, is_between | 2016 |
+| `Int64` | Entier 64 bits signé | equals, starts_with, is_between | 9876543210 |
+| `Double` | Valeur à virgule flottante double précision | equals, starts_with, is_between | 1.602e-19 |
+| `Date` | Date (du 01/01/1400 au 31/12/9999) | equals, is_between | « 14/03/2016 » |
+| `Guid` | Identificateur global unique | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Blob` | Données non indexées compressées en interne | *Aucun* | « Permettre à chaque personne et à chaque organisation sur cette planète d'accomplir davantage » |
+| `Composite` | Composition de plusieurs sous-attributs| *N/A* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 
 Les attributs de chaîne sont utilisés pour représenter les valeurs de chaîne qui peuvent apparaître dans la requête utilisateur.  Ils prennent en charge l’opération de correspondance exacte *equals*, ainsi que l’opération *starts_with* pour les scénarios d’achèvement de requête, tels que la mise en correspondance de « micros » avec « microsoft ».  Le non-respect de la casse et la correspondance approximative pour gérer les fautes d’orthographe seront pris en charge dans une version ultérieure.
 

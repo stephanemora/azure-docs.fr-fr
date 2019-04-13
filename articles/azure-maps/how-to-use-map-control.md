@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ffd2afd66c108f9eef690d641d9c4cbc85e9d609
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9e3a442a3d6c420c548979327c193628efbee5aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256088"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549216"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utiliser le Map Control Azure Maps
 
@@ -166,8 +166,7 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
 
 8. Ouvrez le fichier dans votre navigateur web et consultez la carte ayant fait l’objet du rendu. Il doit ressembler le code suivant :
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="Comment utiliser le contrôle de carte" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consultez la section <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>Ajout d’un contrôle de carte</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Comment utiliser le contrôle de carte" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consultez le stylet <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>comment utiliser le contrôle de carte</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -180,4 +179,4 @@ Découvrez comment créer une carte et interagir avec elle :
 Découvrez comment appliquer un style à un mappage :
 
 > [!div class="nextstepaction"]
-> [Choisir un style de mappage](choose-map-style.md)
+> [Choisir un style de carte](choose-map-style.md)

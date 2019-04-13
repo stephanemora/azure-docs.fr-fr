@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477452"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545312"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Phase de présentation de l’entreprise du cycle de vie Team Data Science Process
 
@@ -46,7 +46,7 @@ Deux tâches principales sont traitées dans cette phase :
 ### <a name="define-objectives"></a>Définir les objectifs
 1. Un objectif central de cette étape consiste à identifier les variables d’activité clés que l’analyse doit prédire. Nous appelons ces variables *cibles du modèle*, et utilisons les mesures qui leur sont associées pour déterminer la réussite du projet. Deux exemples de telles cibles sont les prévisions de ventes ou la probabilité qu’une commande soit frauduleuse.
 
-2. Définissez les objectifs du projet en posant et affinant des questions « précises » qui sont à la fois pertinentes, spécifiques et non équivoques. La science des données est un processus utilisant des noms et des nombres pour répondre à ces questions. Pour plus d’informations sur la manière de poser des questions précises, consultez le blog [How to do data science (Comment pratiquer la science des données)](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/). En règle générale, vous utilisez la science des données ou l’apprentissage automatique pour répondre à cinq types de question :
+2. Définissez les objectifs du projet en posant et affinant des questions « précises » qui sont à la fois pertinentes, spécifiques et non équivoques. La science des données est un processus utilisant des noms et des nombres pour répondre à ces questions. En règle générale, vous utilisez la science des données ou l’apprentissage automatique pour répondre à cinq types de question :
  
    * Quelle quantité (ou combien) ? (régression)
    * Quelle catégorie ? (classification)

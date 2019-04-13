@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: a71b09ba8b3e7fa7299c34c3cdc64503ae4e9857
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736547"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523407"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utiliser Microsoft Azure Traffic Manager pour gérer le quota de points de terminaison entre les clés
 Language Understanding (LUIS) offre la possibilité d’augmenter le quota de demandes des points de terminaison au-delà du quota d’une seule clé. Il suffit de créer plusieurs clés pour LUIS et de les ajouter à l’application LUIS dans la section **Ressources et clés** de la page **Publier**. 
@@ -86,7 +86,7 @@ Pour créer le profil Traffic Manager USA Est, il y a plusieurs étapes à suiv
     |-RelativeDnsName|luis-dns-eastus|Sous-domaine du service : luis-dns-eastus.trafficmanager.net.|
     |-Ttl|30|Intervalle d'interrogation, 30 secondes.|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Le port et le protocole de LUIS sont HTTPS/443.|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Remplacez <appIdLuis> et <subscriptionKeyLuis> par vos propres valeurs.|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Remplacez `<appIdLuis>` et `<subscriptionKeyLuis>` par vos propres valeurs.|
     
     En cas de succès, la demande ne reçoit aucune réponse.
 
@@ -154,7 +154,7 @@ Pour créer le profil Traffic Manager USA Ouest, suivez les mêmes étapes : cr�
     |-RelativeDnsName|luis-dns-westus|Sous-domaine du service : luis-dns-westus.trafficmanager.net.|
     |-Ttl|30|Intervalle d'interrogation, 30 secondes.|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Le port et le protocole de LUIS sont HTTPS/443.|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Remplacez <appId> et <subscriptionKey> par vos propres valeurs. N’oubliez pas que cette clé de point de terminaison est différente de celle de l’Est|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Remplacez `<appId>` et `<subscriptionKey>` par vos propres valeurs. N’oubliez pas que cette clé de point de terminaison est différente de celle de l’Est|
     
     En cas de succès, la demande ne reçoit aucune réponse.
 

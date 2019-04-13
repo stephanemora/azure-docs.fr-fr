@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916816"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525107"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Créer un point de terminaison CDN Azure
 Cet article décrit tous les paramètres de création d’un point de terminaison [Azure Content Delivery Network (CDN)](cdn-overview.md) dans un profil CDN existant. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients. Pour un démarrage rapide sur la création d’un profil et un point de terminaison, consultez [Guide de démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
@@ -44,7 +44,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
    
     ![Page Ajouter un point de terminaison](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. Comme **Nom**, entrez un nom unique pour le nouveau point de terminaison CDN. Ce nom sert à accéder à vos ressources en cache au niveau du domaine _<endpointname>_.azureedge.net.
+3. Comme **Nom**, entrez un nom unique pour le nouveau point de terminaison CDN. Ce nom est utilisé pour accéder à vos ressources mises en cache au niveau du domaine  _\<nom_point_de_terminaison >_. azureedge.net.
 
 4. Pour **Type d’origine**, choisissez l’un des types d’origine suivants : 
    - **Stockage** pour Stockage Azure
@@ -62,7 +62,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
    > Certains types d’origine, tels que Azure Storage et Web Apps, nécessitent l’en-tête de l’hôte pour correspondre au domaine de l’origine. À moins d’avoir une origine nécessitant un en-tête d’hôte différent de son domaine, vous devriez laisser la valeur par défaut.
    > 
     
-8. Pour **Protocole** et **Port de l’origine**, spécifiez les protocoles et les ports utilisés pour accéder à vos ressources au niveau du serveur d’origine. Vous devez sélectionner au moins un protocole (HTTP ou HTTPS). Utilisez le domaine fourni par CDN (_<endpointname>_.azureedge.net) pour accéder au contenu HTTPS. 
+8. Pour **Protocole** et **Port de l’origine**, spécifiez les protocoles et les ports utilisés pour accéder à vos ressources au niveau du serveur d’origine. Vous devez sélectionner au moins un protocole (HTTP ou HTTPS). Utiliser le domaine fourni par le CDN (_\<nom_point_de_terminaison >_. azureedge.net) pour accéder au contenu HTTPS. 
    
    > [!NOTE]
    > La valeur **Port de l’origine** ne concerne que le port utilisé par le point de terminaison pour récupérer des informations à partir du serveur d’origine. Le point de terminaison est uniquement disponible pour les clients sur les ports HTTP et HTTPS par défaut (80 et 443), quel que soit la valeur **port d’origine**.  
@@ -84,7 +84,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
     - Profils **CDN Azure Standard fourni par Akamai** :
        - [**Livraison web générale**](cdn-optimization-overview.md#general-web-delivery)
        - [**Diffusion multimédia en continu générale**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Streaming de vidéo à la demande**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Diffusion multimédia en continu de vidéos à la demande**](cdn-optimization-overview.md#video-on-demand-media-streaming)
        - [**Téléchargement de fichiers volumineux**](cdn-optimization-overview.md#large-file-download)
        - [**Accélération de site dynamique**](cdn-optimization-overview.md#dynamic-site-acceleration)
 

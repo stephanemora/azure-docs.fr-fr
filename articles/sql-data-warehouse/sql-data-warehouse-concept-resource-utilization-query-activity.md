@@ -7,21 +7,24 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: de5d8a3cd329e023b57d887a22db5459f13c7486
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f80c1817d5c0ce79f2dc53f40a2cc4e00dd5c72b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492785"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545554"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Supervision de l’utilisation des ressources et de l’activité des requêtes dans Azure SQL Data Warehouse
 Azure SQL Data Warehouse fournit une expérience de supervision enrichie dans le portail Azure pour intégrer des insights à la charge de travail de votre entrepôt de données. Le portail Azure est l’outil recommandé pour superviser votre entrepôt de données car il offre des périodes de conservation configurables, des alertes, des suggestions, ainsi que des graphiques et des tableaux de bord personnalisables pour les métriques et les journaux. Le portail vous permet également d’intégrer d’autres services de surveillance Azure tels que Operations Management Suite (OMS) et Azure Monitor (journaux) pour fournir une expérience de surveillance holistique pour votre entrepôt de données, mais également votre ensemble analytique Azure plateforme pour une expérience de surveillance intégrée. Cette documentation décrit les fonctionnalités de supervision disponibles pour optimiser et gérer votre plateforme d’analytique avec SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Utilisation des ressources 
 Les métriques suivantes sont disponibles dans le portail Azure pour SQL Data Warehouse. Ces métriques sont exposées via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
+
+> [!NOTE]
+> Actuellement au niveau du nœud du processeur et les mesures d’e/s ne reflètent pas correctement l’utilisation de l’entrepôt de données. Ces mesures seront supprimés dans un avenir proche, comme l’équipe améliore la surveillance et la résolution des problèmes d’expérience pour SQL Data Warehouse. 
 
 | Nom de métrique                           | Description     | Type d’agrégation |
 | --------------------------------------- | ---------------- | --------------------------------------- |
@@ -49,5 +52,5 @@ Métriques et journaux peuvent être exportées vers Azure Monitor, en particuli
 ## <a name="next-steps"></a>Étapes suivantes
 Les guides pratiques suivants décrivent des scénarios courants et des cas d’utilisation pour la supervision et la gestion de votre entrepôt de données :
 
-- [Surveiller votre charge de travail de l’entrepôt de données avec des vues de gestion dynamique](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
+- [Surveiller votre charge de travail à l’aide de vues de gestion dynamique](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
 

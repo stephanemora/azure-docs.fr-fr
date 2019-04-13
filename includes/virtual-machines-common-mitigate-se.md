@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 130cc66831b25621cb022eb19005c624fcd71b9e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
-ms.translationtype: HT
+ms.openlocfilehash: 4c5b4c5eacd4be751004af551e3753a61873c7a7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40105504"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551520"
 ---
-**Dernière mise à jour du document** : 14 août 2018, 10h00 PST.
+**Dernière mise à jour du document**: 14 août 2018 10:00 AM PST.
 
 La divulgation d’une [nouvelle classe de vulnérabilités de processeur](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) appelées attaques par canal latéral de l’exécution spéculative a généré des questions de la part de clients recherchant plus d’explications.  
 
 Microsoft a déployé des solutions d’atténuation des risques sur l’ensemble de ses services cloud. L’infrastructure qui exécute Azure et isole les différentes charges de travail des clients est protégée. Cela signifie qu’un éventuel attaquant utilisant la même infrastructure ne peut pas attaquer votre application à l’aide de ces vulnérabilités.
 
-Azure utilise autant que possible la [maintenance avec préservation de la mémoire](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) afin de réduire l’impact sur le client et d’éliminer la nécessité de redémarrages. Azure continuera à utiliser ces méthodes lors des mises à jour à l’échelle du système sur l’hôte et à protéger nos clients.
+Azure utilise autant que possible la [maintenance avec préservation de la mémoire](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot) afin de réduire l’impact sur le client et d’éliminer la nécessité de redémarrages. Azure continuera à utiliser ces méthodes lors des mises à jour à l’échelle du système sur l’hôte et à protéger nos clients.
 
 Plus d’informations sur l’intégration de la sécurité dans chaque aspect d’Azure sont disponibles sur le site de [documentation sur la sécurité Azure](https://docs.microsoft.com/azure/security/). 
 
@@ -70,17 +70,17 @@ Vous pouvez activer des fonctionnalités de sécurité supplémentaires dans vot
 
 Votre système d’exploitation cible doit être à jour pour pouvoir activer ces fonctionnalités de sécurité supplémentaires. Bien que de nombreuses atténuations des risques de canal côté exécution spéculative soient activées par défaut, les fonctionnalités supplémentaires décrites ici doivent être activées manuellement et peuvent affecter les performances. 
 
-**Étape 1** : [contactez le support Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) pour exposer le microprogramme (microcode) mis à jour dans vos machines virtuelles. 
+**Étape 1** : [Contactez le Support Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) ou exposer mis à jour de microprogramme (microcode) dans vos Machines virtuelles. 
 
-**Étape 2** : activez votre prise en charge de système d’exploitation KVAS (Kernel Virtual Address Shadowing) et BTI (Branch Target Injection). Suivez les instructions de l’article [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour activer les protections via les clés de Registre `Session Manager`. Un redémarrage est nécessaire. 
+**Étape 2** : Activer la prise en charge du noyau virtuels adresse occultation (KVAS) et du système d’exploitation de l’Injection de cible de branche (RTC). Suivez les instructions de l’article [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour activer les protections via les clés de Registre `Session Manager`. Un redémarrage est nécessaire. 
 
-**Étape 3** : pour les déploiements qui utilisent la [virtualisation imbriquée](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 et E3 uniquement) : ces instructions s’appliquent à la machine virtuelle que vous utilisez comme hôte Hyper-V. 
+**Étape 3** : Pour les déploiements qui utilisent [virtualisation imbriquée](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 et E3 uniquement) : Ces instructions s’appliquent à l’intérieur de la machine virtuelle que vous utilisez comme un hôte Hyper-V. 
 
 1. Suivez les instructions de l’article [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour activer les protections via les clés de Registre `MinVmVersionForCpuBasedMitigations`.  
  
 1. Définissez le type de planificateur d’hyperviseur sur **Core** en suivant les instructions fournies [ici](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types). 
 
-**Étape 4** : suivez les instructions de l’article [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour vérifier que les protections sont activées à l’aide du module PowerShell [SpeculationControl](https://aka.ms/SpeculationControlPS). 
+**Étape 4** : Suivez les instructions de [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour vérifier des protections sont activées à l’aide de la [SpeculationControl](https://aka.ms/SpeculationControlPS) module PowerShell. 
 
 > [!NOTE]
 > Si vous avez déjà téléchargé ce module, vous devez installer la dernière version.
@@ -101,11 +101,11 @@ L1TFWindowsSupportEnabled: True
 
 <a name="linux"></a>L’activation de l’ensemble de fonctionnalités de sécurité supplémentaires nécessite que le système d’exploitation cible soit entièrement à jour. Certaines atténuations des risques sont activées par défaut. La section suivante décrit les fonctionnalités qui sont désactivées par défaut et/ou qui dépendent de la prise en charge matérielle (microcode). L’activation de ces fonctionnalités peut affecter les performances. Consultez la documentation du fournisseur de votre système d’exploitation pour obtenir des instructions
  
-**Étape 1** : [contactez le support Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) pour exposer le microprogramme (microcode) mis à jour dans vos machines virtuelles.
+**Étape 1** : [Contactez le Support Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) ou exposer mis à jour de microprogramme (microcode) dans vos Machines virtuelles.
  
-**Étape 2** : activez la prise en charge de système d’exploitation BTI (Branch Target Injection) pour atténuer CVE-2017-5715 (Spectre Variante 2) en suivant la documentation du fournisseur de votre système d’exploitation. 
+**Étape 2** : Activer la prise en charge de l’Injection de cible de branche (RTC) du système d’exploitation atténuer CVE-2017-5715 (Spectre variante 2) en suivant la documentation de votre fournisseur de système d’exploitation. 
  
-**Étape 3** : activez KPTI (Kernel Page Table Isolation) pour atténuer CVE-2017-5754 (Meltdown Variante 3) en suivant la documentation du fournisseur de votre système d’exploitation. 
+**Étape 3** : Activer Kernel Page Table Isolation (KPTI) pour atténuer CVE-2017-5754 (Meltdown Variant 3) en suivant la documentation de votre fournisseur de système d’exploitation. 
  
 Des informations supplémentaires sont disponibles auprès du fournisseur de votre système d’exploitation :  
  

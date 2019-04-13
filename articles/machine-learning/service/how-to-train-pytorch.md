@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004060"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548543"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Entraîner des modèles PyTorch avec le service Azure Machine Learning
 
@@ -46,7 +46,7 @@ Ici, nous spécifions les paramètres suivants pour le constructeur PyTorch :
 Paramètre | Description
 --|--
 `source_directory` |  Répertoire local qui contient l’ensemble du code nécessaire à la tâche d’entraînement. Ce dossier est copié de votre ordinateur local vers la cible de calcul distante
-`script_params` |  Dictionnaire spécifiant les arguments de ligne de commande de votre script d’entraînement `entry_script`, sous la forme de paires <argument de ligne de commande, valeur>
+`script_params` |  Dictionnaire en spécifiant les arguments de ligne de commande à votre script de formation `entry_script`, sous la forme de < argument de ligne de commande, valeur > paires.  Pour spécifier un indicateur verbose dans `script_params`, utilisez `<command-line argument, "">`.
 `compute_target` |  Cible de calcul à distance sur laquelle votre script de formation s’exécute, ici un cluster de calcul Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute))
 `entry_script` |  Chemin de fichier (relatif à `source_directory`) du script d’entraînement à exécuter sur la cible de calcul distante. Ce fichier et tous les autres fichiers dont il dépend doivent se trouver dans ce dossier
 `conda_packages` |  Liste des packages Python à installer via conda et dont a besoin votre script d’entraînement. Le constructeur a un autre paramètre appelé `pip_packages` que vous pouvez utiliser pour tous les packages pip nécessaires

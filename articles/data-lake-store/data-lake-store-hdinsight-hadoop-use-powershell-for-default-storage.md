@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 9daa7fc15ecbb4065c8d26bb5cefa27f17f66f4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878256"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524087"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Créer des clusters HDInsight avec Data Lake Storage Gen1 comme stockage par défaut à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
-> * [Utilisation du portail Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Utiliser le portail Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Utiliser PowerShell (pour le stockage par défaut)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [Utiliser PowerShell (pour le stockage supplémentaire)](data-lake-store-hdinsight-hadoop-use-powershell.md)
-> * [Utilisez le Gestionnaire de ressources](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+> * [Utiliser Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 Découvrez comment utiliser Azure PowerShell pour configurer des clusters Azure HDInsight avec Azure Data Lake Storage Gen1 comme stockage par défaut. Pour obtenir des instructions sur la création d’un cluster HDInsight avec Data Lake Storage Gen1 comme stockage supplémentaire, consultez [Créer un cluster HDInsight avec Data Lake Storage Gen1 en tant que stockage supplémentaire](data-lake-store-hdinsight-hadoop-use-powershell.md).
 
@@ -215,7 +215,7 @@ Dans cette section, vous allez créer un cluster HDInsight Hadoop Linux avec Dat
     Après exécution de l’applet de commande, le résultat énumère les détails du cluster.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Exécuter des tâches de test sur le cluster HDInsight pour utiliser Data Lake Storage Gen1
-Une fois que vous avez configuré un cluster HDInsight, vous pouvez exécuter des tâches de test sur le cluster pour vérifier qu’il peut accéder à Data Lake Storage Gen1. Pour ce faire, exécutez un exemple de tâche Hive qui crée une table avec les exemples de données déjà disponibles dans Data Lake Storage Gen1 dans *<cluster root>/example/data/sample.log*.
+Une fois que vous avez configuré un cluster HDInsight, vous pouvez exécuter des tâches de test sur le cluster pour vérifier qu’il peut accéder à Data Lake Storage Gen1. Pour ce faire, exécutez un exemple de tâche Hive pour créer une table qui utilise les exemples de données qui sont déjà disponibles dans Data Lake Storage Gen1 à  *\<racine du cluster > /example/data/sample.log*.
 
 Dans cette section, vous établissez une connexion SSH (Secure Shell) au cluster HDInsight Linux que vous avez créé, puis vous exécutez l’exemple de requête Hive.
 
@@ -255,7 +255,7 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 
 ## <a name="see-also"></a>Voir aussi
 * [Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [Portail Azure : Créer un cluster HDInsight pour utiliser Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Portail Azure : créer un cluster HDInsight pour utiliser Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

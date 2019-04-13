@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 248a51da76cdee06e55438a706c543c70dcf141e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917751"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526179"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Limiter l’accès à votre contenu CDN Azure par pays
 
@@ -59,8 +59,8 @@ Par exemple, tous les filtres de chemin d’accès au répertoire suivants sont 
 - **Bloc**: Accès sont refusés aux utilisateurs des pays spécifiés pour les ressources demandées à partir du chemin d’accès récursif. Si aucune autre option de filtrage par pays n'a été configurée pour cet emplacement, tous les autres utilisateurs sont autorisés à y accéder.
 
 Par exemple, une règle de filtrage géographique pour le blocage du chemin d’accès */Photos/Strasbourg/* filtre les fichiers suivants :     
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
+*http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
+*http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countries"></a>Définir les pays
 Dans la liste **CODES DE PAYS**, sélectionnez les pays pour lesquels vous souhaitez bloquer ou autoriser le chemin d’accès. 

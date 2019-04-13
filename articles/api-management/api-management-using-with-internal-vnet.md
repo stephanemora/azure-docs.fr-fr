@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: da27c772a0650a923068b3c519ef39494573f96a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 738dd451ca44801c799d793e6501c547655bd0e0
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793116"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524141"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
@@ -44,7 +44,8 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ **Une instance du service Gestion des API Azure**. Pour plus d'informations, consultez [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
++ **Une instance du service Gestion des API Azure**. Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
++ Lorsqu’un service de gestion des API est déployé dans un réseau virtuel, un [la liste des ports](./api-management-using-with-vnet.md#required-ports) sont utilisés et doivent être ouverts. 
 
 ## <a name="enable-vpn"> </a>Créer une Gestion des API dans un réseau virtuel interne
 Le service de gestion des API dans un réseau virtuel interne est hébergé derrière un [équilibreur de charge interne (classique)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Ceci est la seule option disponible et ne peut pas être modifié.

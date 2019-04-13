@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 60307d51439b4474c8be4f040792c03a6f83b0fd
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 6b4ddcadfe63f74d115c155354a276e45c6b53f9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473195"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544498"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Démarrage rapide : Détecter les anomalies dans vos données de série chronologique à l’aide de l’API REST de détecteur d’anomalies et Python
 
@@ -65,7 +65,7 @@ Utilisez ce guide de démarrage rapide pour commencer à utiliser deux modes de 
     data_location = "[PATH_TO_TIME_SERIES_DATA]"
     ```
 
-3. Lire le fichier de données JSON en ouvrant et en utilisant `json.load()`. 
+3. Lire le fichier de données JSON en ouvrant et en utilisant `json.load()`.
 
     ```python
     file_handler = open(data_location)
@@ -78,28 +78,24 @@ Utilisez ce guide de démarrage rapide pour commencer à utiliser deux modes de 
 
 2. Créer un dictionnaire pour les en-têtes de demande. Définir le `Content-Type` à `application/json`et ajoutez votre clé d’abonnement pour le `Ocp-Apim-Subscription-Key` en-tête.
 
-3. Envoyer la demande à l’aide `requests.post()`. Combinez votre URL de détection des anomalies et de point de terminaison pour l’URL de demande complète et inclure vos en-têtes et les données de demande json. 
+3. Envoyer la demande à l’aide `requests.post()`. Combinez votre URL de détection des anomalies et de point de terminaison pour l’URL de demande complète et inclure vos en-têtes et les données de demande json. Puis retourner la réponse.
 
-4. Si la demande est acceptée, retourner la réponse.  
-    
-    ```python
-    def send_request(endpoint, url, subscription_key, request_data):
-        headers = {'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key': subscription_key}
-        response = requests.post(endpoint+url, data=json.dumps(request_data), headers=headers)
-        if response.status_code == 200:
-            return json.loads(response.content.decode("utf-8"))
-        else:
-            print(response.status_code)
-            raise Exception(response.text)
-    ```
+```python
+def send_request(endpoint, url, subscription_key, request_data):
+    headers = {'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key': subscription_key}
+    response = requests.post(endpoint+url, data=json.dumps(request_data), headers=headers)
+    return json.loads(response.content.decode("utf-8"))
+```
 
 ## <a name="detect-anomalies-as-a-batch"></a>Détecter les anomalies en tant que lot
 
-1. Créer une méthode appelée `detect_batch()` pour détecter les anomalies dans les données en tant que lot. Appelez le `send_request()` méthode créé ci-dessus avec votre point de terminaison, url, clé d’abonnement et les données json. 
+1. Créer une méthode appelée `detect_batch()` pour détecter les anomalies dans les données en tant que lot. Appelez le `send_request()` méthode créé ci-dessus avec votre point de terminaison, url, clé d’abonnement et les données json.
 
 2. Appeler `json.dumps()` sur le résultat à mettre en forme et l’imprimer à la console.
 
-3. Trouver les positions des anomalies dans le jeu de données. La réponse `isAnomaly` champ contient une valeur booléenne relatives aux si un point de données donné est une anomalie. Effectuer une itération dans la liste et imprimer l’index de n’importe quel `True` valeurs. Ces valeurs correspondent à l’index de points de données anormales, si un a été trouvé.
+3. Si la réponse contient `code` champ, d’imprimer le code d’erreur et un message d’erreur.
+
+4. Sinon, recherchez les positions d’anomalies dans le jeu de données. La réponse `isAnomaly` champ contient une valeur booléenne relatives aux si un point de données donné est une anomalie. Effectuer une itération dans la liste et imprimer l’index de n’importe quel `True` valeurs. Ces valeurs correspondent à l’index de points de données anormales, si un a été trouvé.
 
 ```python
 def detect_batch(request_data):
@@ -107,12 +103,15 @@ def detect_batch(request_data):
     result = send_request(endpoint, batch_detection_url, subscription_key, request_data)
     print(json.dumps(result, indent=4))
 
-    # Find and display the positions of anomalies in the data set
-    anomalies = result["isAnomaly"]
-    print("Anomalies detected in the following data positions:")
-    for x in range(len(anomalies)):
-        if anomalies[x] == True:
-            print (x)
+    if result.get('code') != None:
+        print("Detection failed. ErrorCode:{}, ErrorMessage:{}".format(result['code'], result['message']))
+    else:
+        # Find and display the positions of anomalies in the data set
+        anomalies = result["isAnomaly"]
+        print("Anomalies detected in the following data positions:")
+        for x in range(len(anomalies)):
+            if anomalies[x] == True:
+                print (x)
 ```
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Détecter les anomalies le dernier point de données
@@ -132,14 +131,14 @@ def detect_latest(request_data):
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Charger vos données de série chronologique et envoyer la demande
 
 1. Charger vos données de série chronologique JSON ouvrant un gestionnaire de fichiers et en utilisant `json.load()` dessus. Appelez ensuite l’anomalie des méthodes de détection créés ci-dessus.
-    
-    ```python
-    file_handler = open (data_location)
-    json_data = json.load(file_handler)
-    
-    detect_batch(json_data)
-    detect_latest(json_data)
-    ```
+
+```python
+file_handler = open(data_location)
+json_data = json.load(file_handler)
+
+detect_batch(json_data)
+detect_latest(json_data)
+```
 
 ### <a name="example-response"></a>Exemple de réponse
 

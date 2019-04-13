@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2f5b530ea469e0e0755e4416fda1e0863614a059
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478829"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551630"
 ---
 > [!IMPORTANT]
 > **Activez la synchronisation du hachage de mot de passe avec Azure AD Domain Services avant d’effectuer les tâches de cet article.**
 >
-> Suivez les instructions ci-dessous qui varient selon le type d’utilisateur de votre annuaire Azure AD. Effectuez les deux ensembles d’instructions si vous disposez d’une combinaison de comptes d’utilisateurs uniquement cloud et synchronisés dans votre annuaire Azure AD.
+> Suivez les instructions ci-dessous qui varient selon le type d’utilisateur de votre annuaire Azure AD. Effectuez les deux ensembles d’instructions si vous disposez d’une combinaison de comptes d’utilisateurs uniquement cloud et synchronisés dans votre annuaire Azure AD. Vous n’êtes peut-être pas en mesure d’effectuer les opérations suivantes dans le cas où vous essayez d’utiliser un compte invités de B2B (exemple, gmail ou MSA à partir d’un autre fournisseur d’identité qui nous autorisons), car nous n’avons pas le mot de passe pour ces utilisateurs synchronisés à un domaine géré en tant que ces sont des comptes d’invité dans le répertoire. Les informations complètes sur ces comptes, y compris leurs mots de passe serait en dehors d’Azure AD et que cette information n’est pas dans Azure AD, par conséquent, il ne pas encore synchronisée avec le domaine géré. 
 > - [Instructions pour les comptes d’utilisateurs uniquement cloud](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
 > - [Instructions pour les comptes d’utilisateurs synchronisés à partir d’un répertoire local](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)

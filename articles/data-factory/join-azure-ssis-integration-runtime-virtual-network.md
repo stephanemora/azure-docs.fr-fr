@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107795"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526671"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 Joignez le runtime d’intégration (IR) Azure-SSIS à un réseau virtuel Azure dans les scénarios suivants : 
@@ -135,9 +135,9 @@ Vous en trouverez un exemple dans [ce script PowerShell](https://gallery.technet
 
 ### <a name="resource-group"></a> Configuration requise pour le groupe de ressources
 -   Le runtime d’intégration Azure-SSIS doit créer certaines ressources réseau sous le même groupe de ressources que le réseau virtuel. Ces ressources sont les suivantes :
-    -   Un équilibreur de charge Azure, avec le nom *<Guid>-azurebatch-cloudserviceloadbalancer*.
-    -   Une adresse IP publique Azure, avec le nom *<Guid>-azurebatch-cloudservicepublicip*.
-    -   Un groupe de sécurité de travail réseau, avec le nom *<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
+    -   Un équilibreur de charge Azure, avec le nom  *\<Guid > - azurebatch - cloudserviceloadbalancer*.
+    -   Une adresse IP publique Azure, avec le nom  *\<Guid > - azurebatch - cloudservicepublicip*.
+    -   Un travail groupe de sécurité réseau avec le nom  *\<Guid > - azurebatch - cloudservicenetworksecuritygroup*. 
 
 -   Vérifiez qu’il n’existe aucun verrou de ressource sur le groupe de ressources ou l’abonnement auquel appartient le réseau virtuel. Si vous configurez un verrou en lecture seule ou un verrou de suppression, le démarrage et l’arrêt du runtime d’intégration peuvent échouer ou se bloquer. 
 

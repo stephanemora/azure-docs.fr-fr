@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444121"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549301"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Groupes d’ordinateurs dans les requêtes de journal Azure Monitor
 Les groupes d’ordinateurs d’Azure Monitor permettent de formuler des [requêtes de journal](../log-query/log-query-overview.md) portant sur un ensemble spécifique d’ordinateurs.  Vous peuplez chaque groupe d’ordinateurs soit à l’aide d’une requête que vous définissez, soit en important des groupes à partir de différentes sources.  Quand le groupe est inclus dans une requête de journal, les résultats sont limités aux enregistrements correspondant aux ordinateurs du groupe.
@@ -127,15 +127,15 @@ Un enregistrement est créé dans l’espace de travail Log Analytics pour chaqu
 
 | Propriété | Description |
 |:--- |:--- |
-| Type |*ComputerGroup* |
-| SourceSystem |*SourceSystem* |
-| Ordinateur |Nom de l’ordinateur membre. |
-| Groupe |Nom du groupe. |
-| GroupFullName |Chemin d’accès complet au groupe, incluant la source et le nom de la source. |
-| GroupSource |Source à partir de laquelle ce groupe a été collecté. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Nom de la source à partir de laquelle le groupe a été collecté.  Pour Active Directory, il s’agit du nom de domaine. |
-| ManagementGroupName |Nom du groupe d'administration pour les agents SCOM.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
-| TimeGenerated |Date et heure de création ou de mise à jour du groupe d’ordinateurs. |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*SourceSystem* |
+| `Computer` |Nom de l’ordinateur membre. |
+| `Group` |Nom du groupe. |
+| `GroupFullName` |Chemin d’accès complet au groupe, incluant la source et le nom de la source. |
+| `GroupSource` |Source à partir de laquelle ce groupe a été collecté. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |Nom de la source à partir de laquelle le groupe a été collecté.  Pour Active Directory, il s’agit du nom de domaine. |
+| `ManagementGroupName` |Nom du groupe d'administration pour les agents SCOM.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
+| `TimeGenerated` |Date et heure de création ou de mise à jour du groupe d’ordinateurs. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez les [requêtes dans les journaux](../log-query/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions.  

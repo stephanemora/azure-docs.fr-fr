@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1973d7e360f77aed028d8a93a625f0f6cb7e1ab8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730041"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523441"
 ---
 # <a name="security-in-azure-app-service"></a>Sécurité dans Azure App Service
 
@@ -58,7 +58,7 @@ App Service prend en charge FTP et FTPS pour le déploiement de vos fichiers. To
 
 Par défaut, votre application App Service accepte les demandes émanant de toutes les adresses IP d’internet, mais vous pouvez limiter cet accès à un petit sous-ensemble d’adresses IP. App Service sur Windows permet de définir une liste d’adresses IP pouvant accéder à votre application. La liste autorisée peut inclure des adresses IP individuelles ou une plage d’adresses IP définie par un masque de sous-réseau. Pour plus d’informations, consultez [Restrictions d’adresse IP statique avec Azure App Service](app-service-ip-restrictions.md).
 
-Pour App Service sur Windows, vous pouvez également limiter les adresses IP dynamiquement en configurant _web.config_. Pour plus d’informations, consultez [Sécurité IP dynamique <dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Pour App Service sur Windows, vous pouvez également limiter les adresses IP dynamiquement en configurant _web.config_. Pour plus d’informations, consultez [sécurité IP dynamique \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Authentification et autorisation clientes
 

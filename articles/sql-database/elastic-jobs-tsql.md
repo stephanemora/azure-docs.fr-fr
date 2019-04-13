@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621496"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523764"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
 
@@ -193,7 +193,7 @@ L’exemple suivant crée un nouveau travail pour collecter des données de perf
 Par défaut, l’agent de travail cherchera à créer la table dans laquelle stocker les résultats retournés. Par conséquent, la connexion associée aux informations d’identification utilisées pour les informations d’identification de sortie devront disposer des autorisations suffisantes pour effectuer cette opération. Si vous souhaitez créer manuellement la table à l’avance, elle doit avoir les propriétés suivantes :
 1. Colonnes avec le nom et les types de données corrects pour le jeu de résultats.
 2. Colonne supplémentaire pour internal_execution_id avec le type de données uniqueidentifier.
-3. Index non cluster nommé « IX_<TableName>_Internal_Execution_ID » sur la colonne internal_execution_id.
+3. Un index non cluster nommé `IX_<TableName>_Internal_Execution_ID` sur la colonne internal_execution_id.
 
 Se connecter à la [*base de données de travail*](sql-database-job-automation-overview.md#job-database) et exécuter les commandes suivantes :
 

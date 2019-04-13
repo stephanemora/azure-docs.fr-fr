@@ -7,23 +7,23 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361993"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527677"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de VMware sur Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modes d’exécution du planificateur de déploiement
-Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) dans l’un des quatre modes suivants :
+Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) dans l’un des trois modes suivants :
 
 1.  [Profilage](#profile-vmware-vms)
 2.  [Génération de rapport](#generate-report)
-3.  [GetThroughput](#get-throughput)
+3.  [Obtenir le débit](#get-throughput)
 
 Tout d’abord, exécutez l’outil en mode profilage pour rassembler l’activité des données de machine virtuelle et les E/S par seconde. Ensuite, exécutez l’outil pour générer le rapport afin de déterminer les besoins de bande passante réseau et de stockage et les coûts de la récupération d’urgence.
 
@@ -136,7 +136,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>Générer le rapport
-L’outil génère un fichier Microsoft Excel avec les macros activées (fichier XLSM) en tant que sortie du rapport, qui résume toutes les recommandations de déploiement. Le rapport est intitulé DeploymentPlannerReport_<unique numeric identifier>.xlsm et placé dans le répertoire spécifié.
+L’outil génère un fichier Microsoft Excel avec les macros activées (fichier XLSM) en tant que sortie du rapport, qui résume toutes les recommandations de déploiement. Le rapport est intitulé `DeploymentPlannerReport_<unique numeric identifier>.xlsm` et placé dans le répertoire spécifié.
 
 >[!NOTE]
 >Le rapport nécessite que le symbole décimal soit configuré en « . » pour produire des estimations de coût sur le serveur où vous exécutez le planificateur de déploiement. Si vous avez configuré « , » comme symbole décimal sur une machine Windows, accédez à « Changer les formats de date, d’heure ou de nombre » dans le Panneau de configuration, puis accédez à « Paramètres supplémentaires » pour changer le symbole décimal en « . ».
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Valeur de centile utilisée pour le calcul
-**Quelle valeur de centile par défaut les métriques de performances collectées pendant le profilage l’outil va-t-il utiliser lorsqu’il génère un rapport ?**
+**Quelle valeur de centile par défaut des indicateurs de performance collectés pendant le profilage l’outil va-t-il utiliser au moment de la génération de rapport ?**
 
 L’outil est configuré par défaut sur les valeurs du 95e centile des E/S par seconde de lecture/écriture, des E/S par seconde d’écriture et de l’activité des données collectées pendant le profilage de toutes les machines virtuelles. Cette mesure garantit que le pic du 100e centile que vos machines virtuelles peuvent voir en raison d’événements temporaires n’est pas utilisé pour déterminer vos besoins de compte de stockage cible et de bande passante source. Par exemple, un événement temporaire peut être une tâche de sauvegarde exécutée une fois par jour, une indexation de base de données périodique ou une activité de génération de rapport d’analyse ou d’autres événements similaires ponctuels et de courte durée.
 
@@ -226,7 +226,7 @@ L’utilisation des valeurs du 95e centile permet de donner une image exacte de
 ```
 
 ## <a name="growth-factor-considerations"></a>Considérations relatives au facteur de croissance
-**Pourquoi devrais-je tenir compte du facteur de croissance lors de la planification de déploiements ?**
+**Pourquoi devrais-je tenir compte du facteur de croissance lors de la planification de déploiement ?**
 
 Il est essentiel de tenir compte de la croissance dans vos caractéristiques de charge de travail en supposant une augmentation potentielle de l’utilisation au fil du temps. Une fois la protection en place, si les caractéristiques de votre charge de travail changent, vous ne pouvez pas basculer vers un compte de stockage différent pour la protection sans désactiver et réactiver la protection.
 
@@ -242,9 +242,9 @@ Le rapport Microsoft Excel généré contient les informations suivantes :
 
 * [Résumé local](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recommandations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [Machine virtuelle <> – Storage Placement](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
-* [Machines virtuelles compatibles](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
-* [Machines virtuelles incompatibles](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
+* [VM&lt;-&gt;Storage Placement](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [Compatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
+* [Incompatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
 * [Estimation des coûts](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Deployment planner](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)

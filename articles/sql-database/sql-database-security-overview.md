@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/11/2019
+ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359052"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523696"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -107,7 +107,7 @@ Comme meilleure pratique, stipulent que, dans la connexion de votre application,
 Par exemple, lorsque vous utilisez le pilote ADO.NET, cela s’effectue par **Encrypt = True** et **TrustServerCertificate = False**. Si vous obtenez votre chaîne de connexion à partir du portail Azure, il aura les paramètres appropriés.
 
 > [!IMPORTANT]
-> Notez que certains pilotes non Microsoft ne peuvent pas utiliser TLS par défaut ou s’appuient sur une version antérieure de TLS (< 2.0) pour pouvoir fonctionner. Dans ce cas SQL Server vous permet de se connecter à votre base de données. Toutefois, nous vous recommandons d’évaluer les risques de sécurité de l’autorisation de ces pilotes et l’application se connecte à la base de données SQL, en particulier si vous stockez des données sensibles. 
+> Notez que certains pilotes non Microsoft ne peuvent pas utiliser TLS par défaut ou s’appuient sur une version antérieure de TLS (< 1.2) pour pouvoir fonctionner. Dans ce cas SQL Server vous permet de se connecter à votre base de données. Toutefois, nous vous recommandons d’évaluer les risques de sécurité de l’autorisation de ces pilotes et l’application se connecte à la base de données SQL, en particulier si vous stockez des données sensibles. 
 >
 > Pour plus d’informations sur TLS et de connectivité, consultez [considérations relatives à TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

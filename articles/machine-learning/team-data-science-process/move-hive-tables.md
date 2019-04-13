@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840645"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522501"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Créer des tables Hive et charger des données à partir de Stockage Blob Azure
 
@@ -112,7 +112,7 @@ Si vous ouvrez le conteneur par défaut du cluster Hadoop à l’aide d’Azure 
 ![Explorateur Stockage Azure montrant la sortie de la requête Hive](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Envoyer des requêtes Hive avec l'éditeur Hive
-Vous pouvez aussi utiliser la console de requête (éditeur Hive) en entrant une URL sous la forme *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* dans un navigateur web. Vous devez être connecté pour afficher cette console, et vous devez donc saisir ici vos informations d’identification de cluster Hadoop.
+Vous pouvez également utiliser la Console de requête (éditeur Hive) en entrant une URL sous la forme *https :\//\<nom du cluster Hadoop >.azurehdinsight.net/Home/HiveEditor* dans un navigateur web. Vous devez être connecté pour afficher cette console, et vous devez donc saisir ici vos informations d’identification de cluster Hadoop.
 
 ### <a name="ps"></a> 3. Envoyer des requêtes Hive avec les commandes Azure PowerShell
 Vous pouvez également utiliser PowerShell pour envoyer des requêtes Hive. Pour obtenir de l'aide, consultez [Envoi de tâches Hive avec PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -149,7 +149,7 @@ Voici la requête Hive qui charge les données dans une table Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<path to blob data\>**  : si le fichier blob à charger dans la table Hive se trouve dans le conteneur par défaut du cluster Hadoop HDInsight, le chemin *\<path to blob data\>* doit se présenter sous la forme *'wasb:///<directory in this container>/<blob file name>'*. Le fichier blob peut également se trouver dans un autre conteneur du cluster Hadoop HDInsight. Dans ce cas, *\<path to blob data\>* doit être au format *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **\<path to blob data\>**  : Si le fichier blob à charger dans la table Hive se trouve dans le conteneur par défaut du cluster HDInsight Hadoop, le *\<chemin d’accès à des données blob\>* doit être au format *' wasb : / /\< répertoire dans ce conteneur > /\<nom de fichier blob >'*. Le fichier blob peut également se trouver dans un autre conteneur du cluster Hadoop HDInsight. Dans ce cas, *\<chemin d’accès à des données blob\>* doit être au format *' wasb : / /\<nom_conteneur >\<nom de compte de stockage >.blob.core.windows.net/\<nom de fichier blob >'*.
 
   > [!NOTE]
   > Les données blob à charger dans la table Hive doivent se trouver dans le conteneur par défaut ou un autre conteneur du compte de stockage du cluster Hadoop. Sinon, la requête *LOAD DATA* ne peut pas s'exécuter car elle n'aura pas accès aux données.

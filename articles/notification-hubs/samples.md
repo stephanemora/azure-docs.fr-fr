@@ -11,30 +11,23 @@ ms.workload: mobile
 ms.topic: article
 ms.author: jowargo
 ms.date: 03/28/2019
-ms.openlocfilehash: 0aa93d7109eb1bdf7db35f1d9124d02b5cfc163e
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1d035513418147b8fae1d8e2f217d20d19f02f2e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623092"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524841"
 ---
 # <a name="azure-notification-hubs-samples"></a>Exemples de Hubs de Notification Azure
-Microsoft et des tiers publient des kits de développement logiciel (SDK) pour Microsoft Azure Notification Hubs. Les référentiels de Microsoft pour Android, iOS et .NET incluent également des exemples d’applications pour chaque plateforme cible.
+Cet article fournit des liens vers des exemples qui illustrent des fonctionnalités clés dans Azure Notification Hubs.
 
 ## <a name="samples"></a>Exemples
 
-| Kit SDK             | Publisher      |
-| -------------- | -------------- |
-| [.NET Server](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
-| [Android](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |
-| [Apache Cordova](https://github.com/derek82511/cordova-azure-notification-hubs) | Tiers |
-| [iOS](https://github.com/Azure/azure-notificationhubs-ios) |Microsoft |
-| [Serveur Java](https://github.com/Azure/azure-notificationhubs-java-backend) |Microsoft |
-| [Nodejs](https://github.com/Azure/azure-sdk-for-node) | Microsoft |
-| [React Native](https://github.com/CatalystCode/react-native-azurenotificationhub) | Tiers |
-
-> [!Note]
-> Microsoft n’est pas responsable de la qualité, du caractère utile ou de la capacité de prise en charge de toutes les solutions tierces.
+- [.NET](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples)
+- [Android](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples)
+- [Apache Cordova](https://github.com/Azure/azure-notificationhubs-samples/tree/master/apache-cordova)
+- [Ionic](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Ionic)
+- [iOS](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les didacticiels dans la **didacticiels** section de la table des matières (table des matières).

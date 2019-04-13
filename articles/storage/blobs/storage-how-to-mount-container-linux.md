@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: article
 ms.date: 2/1/2019
 ms.author: seguler
-ms.openlocfilehash: 1e26eb213ad2613877c46758299c2e962894d358
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: eadf52afd115eb1cb642082cea4b9f338bd44914
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698000"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521651"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Comment monter le stockage Blob en tant que système de fichiers avec blobfuse
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) est un pilote de système de fichiers virtuel pour Stockage Blob Azure. Blobfuse vous permet d’accéder à vos données d’objets blob de blocs existantes dans votre compte de stockage via le système de fichiers Linux. Le Stockage Blob Azure est un service de stockage d’objets qui n’a pas d’espace de noms hiérarchique. Blobfuse fournit cet espace de noms via le schéma de répertoire virtuel avec la barre oblique (/) comme délimiteur.  
 
 Ce guide vous explique comment utiliser blobfuse, monter un conteneur de stockage Blob sur Linux et accéder aux données. Pour en savoir plus sur blobfuse, consultez le [référentiel blobfuse](https://github.com/Azure/azure-storage-fuse).
@@ -29,7 +29,7 @@ Ce guide vous explique comment utiliser blobfuse, monter un conteneur de stockag
 ## <a name="install-blobfuse-on-linux"></a>Installer blobfuse sur Linux
 Les fichiers binaires de blobfuse sont disponibles sur les [dépôts de logiciels Microsoft pour Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) (distributions Ubuntu et RHEL). Pour installer blobfuse sur ces distributions, configurez l’un des dépôts de la liste. Si les fichiers binaires ne sont pas disponibles pour votre distribution, vous pouvez les générer à partir du code source en suivant les [étapes d’installation du Stockage Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source).
 
-Blobfuse prend en charge l’installation sur Ubuntu 14.04 et 16.04. Exécutez cette commande pour vous assurer qu’une de ces versions est déployée :
+Blobfuse prend en charge l’installation sur Ubuntu 14.04, 16.04 et 18.04. Exécutez cette commande pour vous assurer qu’une de ces versions est déployée :
 ```
 lsb_release -a
 ```
@@ -51,11 +51,11 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-De manière similaire, remplacez l’URL par `.../ubuntu/16.04/...` pour pointer vers une distribution Ubuntu 16.04.
+De même, remplacez l’URL par `.../ubuntu/16.04/...` ou `.../ubuntu/18.04/...` pour référencer une autre version d’Ubuntu.
 
 ### <a name="install-blobfuse"></a>Installer blobfuse
 
-Sur une distribution Ubuntu/Debian :
+Sur une distribution Ubuntu/Debian :
 ```bash
 sudo apt-get install blobfuse
 ```
@@ -85,7 +85,7 @@ Dans Azure, vous pouvez utiliser les disques éphémères (SSD) disponibles sur 
 
 Vérifiez que votre utilisateur a accès au chemin d’accès temporaire :
 ```bash
-sudo mkdir /mnt/resource/blobfusetmp
+sudo mkdir /mnt/resource/blobfusetmp -p
 sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
@@ -97,8 +97,15 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
+Le `accountName` est le préfixe pour votre compte de stockage - pas l’URL complète.
 
-Dès que vous avez créé ce fichier, veillez à en restreindre l’accès afin qu’aucun autre utilisateur ne puisse le lire.
+Créez ce fichier à l’aide de :
+
+```
+touch ~/fuse_connection.cfg
+```
+
+Une fois que vous avez créé et modifié ce fichier, veillez à restreindre l’accès afin qu’aucun autre utilisateur ne puisse la lire.
 ```bash
 chmod 600 fuse_connection.cfg
 ```

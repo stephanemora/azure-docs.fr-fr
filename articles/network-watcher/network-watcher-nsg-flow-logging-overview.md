@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 62b526950367987e26c1c67394bc0720ae895fa6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 6e15149dec9fdbb7413745d36b3f6a158113b586
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983793"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547020"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -92,6 +92,8 @@ Le texte ci-dessous est un exemple de journal de flux. Comme vous pouvez le voir
 **Activer la journalisation de flux NSG sur tous les groupes de sécurité réseau associés à une ressource** : la journalisation de flux dans Azure est configurée sur la ressource NSG. Un flux ne peut être associé qu’à une règle de groupe de sécurité réseau. Dans les scénarios où plusieurs groupes de sécurité réseau sont utilisés, nous recommandons que la journalisation de flux NSG soit activée sur tous les groupes de sécurité réseau auxquels le sous-réseau ou l’interface réseau d’une ressource est appliqué pour vous assurer que tout le trafic est enregistré. Consultez [Évaluation du trafic](../virtual-network/security-overview.md#how-traffic-is-evaluated) pour obtenir plus d’informations sur les groupes de sécurité réseau. 
 
 **Coûts de la journalisation de flux** : la journalisation de flux NSG est facturée selon le volume de journaux produits. Un volume de trafic élevé peut entraîner un volume important de journaux de flux avec les coûts associés. Les tarifs des journaux de flux NSG n’incluent pas les coûts de stockage afférents. L’utilisation de la fonctionnalité de stratégie de conservation avec la journalisation des flux de groupe de sécurité réseau peut entraîner un volume élevé d’opérations de stockage avec les coûts associés. Si vous n’avez pas besoin de la fonctionnalité de stratégie de conservation, nous vous recommandons de définir cette valeur sur 0. Consultez [Tarifs Network Watcher](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) et [Tarifs du stockage Azure](https://azure.microsoft.com/en-us/pricing/details/storage/) pour de plus amples informations.
+
+**Trafic entrant du flux connectés à partir d’internet des adresses IP aux machines virtuelles sans les adresses IP publiques**: Machines virtuelles qui n’ont pas une adresse IP publique attribuée via une adresse IP publique associée à la carte réseau comme une adresse IP publique de niveau d’instance, ou qui font partie d’un pool back-end équilibrage de la charge de base, utilisez [par défaut SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) et une adresse IP est affectée par Azure afin de faciliter la connectivité sortante. Par conséquent, vous pouvez voir les entrées de journal de flux pour les flux à partir d’internet des adresses IP, si le flux est destiné à un port dans la plage de ports attribués pour SNAT. Bien que Azure n’autorise pas ces flux à la machine virtuelle, la tentative est enregistrée et apparaît dans le journal de flux de groupe de sécurité réseau de Network Watcher par sa conception. Nous recommandons que le trafic internet entrant indésirable bloqué explicitement avec le groupe de sécurité réseau.
 
 ## <a name="sample-log-records"></a>Exemples d’enregistrements de journal
 

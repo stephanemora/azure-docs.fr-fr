@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à RightScale | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à RightScale | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RightScale.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99bc4ef23ee2d8f4478bbaab591e7b36c7ea75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 416a98c5f9c5a2ec813206ea9ea7f311b23e86cb
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109829"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525576"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Tutoriel : Intégration d’Azure Active Directory à RightScale
+# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Didacticiel : Intégration d’Azure Active Directory à RightScale
 
 Dans ce didacticiel, vous allez apprendre à intégrer RightScale avec Azure Active Directory (Azure AD).
 
@@ -131,8 +131,8 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans la section **Configuration de RightScale**, cliquez sur **Configurer RightScale** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**
 
-    ![Configurer l’authentification unique](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
-   <CS>
+    ![Configurer l'authentification unique](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
+
 1. Pour que l’authentification unique soit configurée pour votre application, vous devez vous connecter à votre locataire RightScale en tant qu’administrateur.
 
     a. Dans le menu situé en haut, cliquez sur l’onglet **Paramètres** et sélectionnez **Authentification unique**.
@@ -164,7 +164,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     ![Configurer l'authentification unique](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
     h. Cliquez sur **Enregistrer**.
-   <CE>
+
    > [!TIP]
    > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
    > 

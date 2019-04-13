@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 96fc58ca8456e9a2e539e432f0ed85f6edc1a54f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664113"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527048"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Fonctionnalité de diagnostic pour Reliable Services avec état
 La classe StatefulServiceBase de Reliable Services avec état dans Azure Service Fabric émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) qui peuvent être utilisés pour déboguer le service, fournir des informations sur le fonctionnement du runtime et vous aider lors du dépannage.
@@ -106,7 +106,7 @@ Le runtime Reliable Services émet les événements suivants dans la catégorie 
 | --- | --- |
 | Opérations BeginTransaction/s | Nombre de nouvelles transactions d’écriture créées par seconde.|
 | Opérations de transaction/s | Nombre d’opérations d’ajout/de mise à jour/de suppression effectuée sur des collections fiables par seconde.|
-| Avg. Latence de vidage (ms) | Nombre d'octets vidés sur le disque chaque seconde par le réplicateur transactionnel |
+| Octets du journal vidés/s | Nombre d'octets vidés sur le disque chaque seconde par le réplicateur transactionnel |
 | Opérations limitées/s | Nombre d'opérations rejetées chaque seconde par le réplicateur transactionnel en raison de la limitation. |
 | Avg. Transaction en ms/validation | Latence de validation moyenne par transaction en millisecondes |
 | Avg. Latence de vidage (ms) | Durée moyenne des opérations de vidage disque initiées par le réplicateur transactionnel en millisecondes |

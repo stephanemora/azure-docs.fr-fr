@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886721"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525634"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Flux de modification dans Azure Cosmos DB - Vue d'ensemble
 
@@ -58,7 +58,7 @@ Si une propriété de durée de vie (TTL) est définie sur -1 pour un élément,
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Flux de modification et formats _etag, _lsn ou _ts
 
-Le format _etag est un format interne. Vous ne devez pas vous y fier, car il peut être modifié à tout moment. Le format _ts correspond à un horodatage de modification ou de création. Vous pouvez utiliser les données _ts à des fins de comparaison chronologique. Le format _lsn est un ID de lot qui est ajouté uniquement pour le flux de modification. Il représente l’ID de transaction. De nombreux éléments peuvent avoir un même _lsn. L’étiquette d’entité (ETag) de FeedResponse est différente du _etag que vous voyez dans l’élément. _etag est un identificateur interne utilisé pour le contrôle de l’accès concurrentiel, qui indique la version du document, alors que l’ETag est utilisé pour le séquencement du flux.
+Le format _etag est un format interne. Vous ne devez pas vous y fier, car il peut être modifié à tout moment. Le format _ts correspond à un horodatage de modification ou de création. Vous pouvez utiliser les données _ts à des fins de comparaison chronologique. _lsn est un ID de lot est ajouté pour la modification de flux uniquement ; Il représente l’ID de transaction. De nombreux éléments peuvent avoir un même _lsn. L’étiquette d’entité (ETag) de FeedResponse est différente du _etag que vous voyez dans l’élément. _etag est un identificateur interne utilisé pour le contrôle de l’accès concurrentiel, qui indique la version du document, alors que l’ETag est utilisé pour le séquencement du flux.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Cas d’utilisation et scénarios du flux de modification
 
@@ -84,7 +84,7 @@ Par exemple, avec un flux de modification, vous pouvez effectuer efficacement le
 
 Voici quelques-uns des scénarios que vous pouvez facilement implémenter avec le flux de modification :
 
-* Dans les applications web et mobiles [serverless](https://azure.microsoft.com/en-us/solutions/serverless/), vous pouvez suivre les événements tels que les modifications apportées au profil, aux préférences ou à l’emplacement de votre client, ou déclencher certaines actions, comme l’envoi de notifications Push à ses appareils avec [Azure Functions](change-feed-functions.md).
+* Dans les applications web et mobiles [serverless](https://azure.microsoft.com/solutions/serverless/), vous pouvez suivre les événements tels que les modifications apportées au profil, aux préférences ou à l’emplacement de votre client, ou déclencher certaines actions, comme l’envoi de notifications Push à ses appareils avec [Azure Functions](change-feed-functions.md).
 
 * Si vous utilisez Azure Cosmos DB pour créer un jeu, vous pouvez, par exemple, utiliser le flux de modification pour implémenter des classements en temps réel basés sur des scores de jeux terminés.
 

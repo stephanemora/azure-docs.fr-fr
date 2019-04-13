@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: cfb90dc31635001291b1661f31ec2ee1fc378404
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258460"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523339"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
 
@@ -115,7 +115,7 @@ L’application « BulkImportSample » génère des documents aléatoires et l
    |NumberOfDocumentsImported (long)   |  Nombre total de documents qui ont été importés avec succès, sur tous les documents fournis à l’appel d’API d’importation en bloc.       |
    |TotalRequestUnitsConsumed (double)   |   Nombre total d’unités de requête (RU) consommées par l’appel d’API d’importation en bloc.      |
    |TotalTimeTaken (TimeSpan)    |   Temps total nécessaire à l’exécution de l’appel d’API d’importation en bloc.      |
-   |BadInputDocuments (List<object>)   |     Liste de documents au format incorrect qui n’ont pas été importés dans l’appel d’API d’importation en bloc. L’utilisateur doit corriger les documents retournés et retenter l’importation. Les documents au format incorrect incluent les documents dont la valeur d’ID n’est pas une chaîne (null ou tout autre type de données est considéré comme non valide).    |
+   |BadInputDocuments (List\<object>)   |     Liste de documents au format incorrect qui n’ont pas été importés dans l’appel d’API d’importation en bloc. L’utilisateur doit corriger les documents retournés et retenter l’importation. Les documents au format incorrect incluent les documents dont la valeur d’ID n’est pas une chaîne (null ou tout autre type de données est considéré comme non valide).    |
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Mettre à jour des données en bloc dans Azure Cosmos DB
 

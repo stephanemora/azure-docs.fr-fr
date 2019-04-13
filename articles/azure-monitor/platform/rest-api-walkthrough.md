@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: f47e9fd8842f9884ced290385e5f647fac57bc13
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ddbc00155c3c5c136f7d33861e9ad5177df77470
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484980"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528065"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor
 
@@ -657,7 +657,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour récupérer l’ID de ressource d’un compte Stockage Azure à l’aide de l’interface CLI Azure, exécutez la commande 'az storage account show', comme indiqué dans l’exemple suivant :
+Pour récupérer l’ID de ressource pour un compte de stockage Azure à l’aide de l’interface CLI, exécutez le `az storage account show` de commande, comme indiqué dans l’exemple suivant :
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

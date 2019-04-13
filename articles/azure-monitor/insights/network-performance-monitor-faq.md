@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496962"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546236"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -40,7 +40,7 @@ Vous trouverez ci-dessous la plateforme requise pour les différentes fonctionna
 - La fonctionnalité Moniteur ExpressRoute de NPM prend uniquement en charge le système d'exploitation du serveur Windows (2008 SP1 ou version ultérieure).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Puis-je utiliser des machines Linux en tant que nœuds de surveillance dans NPM ?
-La fonctionnalité de surveillance des réseaux utilisant des nœuds basés sur Linux est actuellement en préversion privée. Pour en savoir plus, adressez-vous au responsable de votre compte. Lorsque vous aurez entré l'ID d'espace de travail, nous activerons la fonctionnalité. Les agents Linux fournissent une fonctionnalité de surveillance réservée à la fonctionnalité Analyseur de performances de NPM et ne sont pas disponibles pour les fonctionnalités Analyseur de connectivité de service et Moniteur ExpressRoute
+La capacité à surveiller les réseaux à l’aide des nœuds basés sur Linux est actuellement en version préliminaire. Pour en savoir plus, adressez-vous au responsable de votre compte. Lorsque vous aurez entré l'ID d'espace de travail, nous activerons la fonctionnalité. Les agents Linux fournissent une fonctionnalité de surveillance réservée à la fonctionnalité Analyseur de performances de NPM et ne sont pas disponibles pour les fonctionnalités Analyseur de connectivité de service et Moniteur ExpressRoute
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quelle est la taille requise pour les nœuds à utiliser à des fins de surveillance par NPM ?
 Pour exécuter la solution NPM sur des machines virtuelles à nœuds, ces derniers doivent présenter au moins 500 Mo de mémoire et un cœur. Vous n'êtes pas tenu d’utiliser des nœuds distincts pour exécuter NPM. La solution peut s’exécuter sur des nœuds présentant d'autres charges de travail. La solution peut arrêter le processus de surveillance si elle utilise plus de 5 % d'UC.

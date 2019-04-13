@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 225c86ee1a7f764f60b2da0b8e3be02aa5dd22e7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74666149824627308b6c5b026e0c9ba7a7750ada
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123298"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523611"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportement des alertes SMS dans les groupes d’actions
 ## <a name="overview"></a>Présentation ##
@@ -32,8 +32,8 @@ Un destinataire de SMS, configuré dans le cadre d’un groupe d’actions, reç
 
 | REPLY | Description |
 | ----- | ----------- |
-| DISABLE <Action Group Short name> | Désactive les futurs SMS en provenance du groupe d’actions |
-| ENABLE <Action Group Short name> | Réactive les SMS en provenance du groupe d’actions |
+| DISABLE `<Action Group Short name>` | Désactive les futurs SMS en provenance du groupe d’actions |
+| ENABLE `<Action Group Short name>` | Réactive les SMS en provenance du groupe d’actions |
 | STOP | Désactive les futurs SMS en provenance de tous les groupes d’actions |
 | START | Réactive les SMS en provenance de tous les groupes d’actions |
 | HELP | Une réponse est envoyée à l’utilisateur avec un lien vers cet article. |

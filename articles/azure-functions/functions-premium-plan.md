@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: ca65b6a1691a870054682b36109f2bdc10d4ad98
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918703"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543741"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Offre des fonctions Premium Azure (version préliminaire)
 
@@ -42,7 +42,7 @@ Les fonctionnalités suivantes sont disponibles pour les applications de fonctio
 
 Si aucun événements et les exécutions se produisent dès aujourd'hui dans le plan consommation, votre application peut descendre en puissance aux instances de zéro. Lorsque de nouveaux événements sont effectués, une nouvelle instance doit être spécialisé avec votre application en cours d’exécution sur ce dernier.  Spécialisation de nouvelles instances peuvent prendre un certain temps en fonction de l’application.  Cette latence supplémentaire sur le premier appel est souvent appelée démarrage à froid de l’application.
 
-Dans le plan Premium, vous pouvez avoir votre application préalable initialisée sur un nombre spécifié d’instances.  Instances préalablement chauffés vous permettent également de préalable mettre à l’échelle une application avant une charge élevée. Comme l’application monte en charge, il s’adapte tout d’abord dans les instances chauffés préalable. Des instances supplémentaires continuent à mettre en mémoire tampon à chaud immédiatement en préparation pour la prochaine opération de mise à l’échelle des instances. En ayant une mémoire tampon d’instances chauffés préalable, vous pouvez efficacement éviter les latences de démarrage à froid.  Instances préalablement chauffés est une fonctionnalité du plan Premium et vous devez conserver au moins une instance en cours d’exécution et disponible à tout moment le plan est actif.
+Dans le plan Premium, vous pouvez avoir votre application préalable initialisée sur un nombre spécifié d’instances, jusqu'à la taille de votre plan minimale.  Instances préalablement chauffés vous permettent également de préalable mettre à l’échelle une application avant une charge élevée. Comme l’application monte en charge, il s’adapte tout d’abord dans les instances chauffés préalable. Des instances supplémentaires continuent à mettre en mémoire tampon à chaud immédiatement en préparation pour la prochaine opération de mise à l’échelle des instances. En ayant une mémoire tampon d’instances chauffés préalable, vous pouvez efficacement éviter les latences de démarrage à froid.  Instances préalablement chauffés est une fonctionnalité du plan Premium et vous devez conserver au moins une instance en cours d’exécution et disponible à tout moment le plan est actif.
 
 Vous pouvez configurer le nombre d’instances préalablement chauffés dans le portail Azure en sélectionnant **Scale Out** dans le **fonctionnalités de la plateforme** onglet.
 
@@ -69,6 +69,8 @@ Instances de calcul supplémentaires sont automatiquement ajoutés pour votre ap
 ### <a name="unbounded-run-duration"></a>Non délimité de la durée d’exécution
 
 Azure Functions dans un plan de consommation sont limitées à 10 minutes pour une seule exécution.  Dans le plan Premium, la durée d’exécution par défaut est 30 minutes pour empêcher les exécutions de perte de contrôle. Toutefois, vous pouvez [modifier la configuration de host.json](./functions-host-json.md#functiontimeout) à faire illimitée pour les applications du plan Premium.
+
+Dans la version préliminaire, votre durée n’est pas garantie au-delà de 12 minutes et aura les meilleures chances de s’exécuter au-delà de 30 minutes, si votre application n’est pas mis à l’échelle au-delà de son nombre minimal de travail.
 
 ## <a name="plan-and-sku-settings"></a>Paramètres de référence (SKU) et de plan
 
@@ -106,7 +108,6 @@ Voici les régions actuellement prises en charge pour la version préliminaire p
 |Australie Est|
 |Australie Sud-Est|
 |Centre du Canada|
-|Inde Centre|
 |USA Centre|
 |Asie Est|
 |USA Est 2|

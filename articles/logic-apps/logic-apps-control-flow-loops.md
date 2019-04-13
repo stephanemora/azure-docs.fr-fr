@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360767"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522999"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
@@ -236,9 +236,9 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
 
       | Propriété | Valeur | Description |
       | -------- | ----- | ----------- | 
-      | **À** | *<email-address\@domain>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
+      | **To** | *\<email-address\@domain>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
       | **Objet** | La valeur actuelle de la variable « Limite » est **Limite** | Spécifiez l’objet du message électronique. Pour cet exemple, assurez-vous d’inclure la variable **Limite**. | 
-      | **body** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
+      | **Corps** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
       |||| 
 
 1. Enregistrez votre application logique. Pour tester manuellement votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur.
@@ -253,7 +253,7 @@ Une boucle « Until » dispose de limites par défaut qui arrêtent l’exécuti
 
 | Propriété | Valeur par défaut | Description | 
 | -------- | ------------- | ----------- | 
-| **Nombre** | 60 | Quantité maximale de boucles qui s’exécutent avant que la boucle ne sorte. La valeur par défaut est 60 cycles. | 
+| **Count** | 60 | Quantité maximale de boucles qui s’exécutent avant que la boucle ne sorte. La valeur par défaut est 60 cycles. | 
 | **Délai d'expiration** | PT1H | Durée d’exécution maximale d’une boucle avant que la boucle ne sorte. La valeur par défaut est d’une heure et est spécifiée au format ISO 8601. <p>La valeur du délai d’attente est évaluée pour chaque cycle de boucle. Si une action dans la boucle dure plus longtemps que la limite de délai d’attente, le cycle actuel ne s’arrête pas. Toutefois, le cycle suivant ne démarre pas, car la condition de limite n’est pas remplie. | 
 |||| 
 
@@ -344,7 +344,7 @@ Cet exemple de boucle « Until » appelle un point de terminaison HTTP, qui cr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Exécuter des étapes en fonction d’une condition (instructions conditionnelles)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Étapes d’exécution en fonction des valeurs différentes (instructions switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Exécuter ou joindre des étapes parallèles (les branches)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Exécutez les étapes en fonction de l’état de l’action groupée (étendues)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Instructions switch : Exécuter différentes étapes en fonction de valeurs spécifiques](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Exécuter ou joindre des étapes (branches) parallèles](../logic-apps/logic-apps-control-flow-branches.md)
+* [Étendues : Exécuter des étapes en fonction de l’état d’un groupe](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

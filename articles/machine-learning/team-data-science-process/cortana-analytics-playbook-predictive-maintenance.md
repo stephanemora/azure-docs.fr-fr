@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: fdc7aec703fdb5b6bb9744fad226b51769e73385
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650476"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524043"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -227,7 +227,7 @@ Les spécifications techniques de l’équipement, comme la date de fabrication,
 
 Les efforts de préparation des données présentées jusqu’ici doivent aboutir à une organisation des données comme indiqué ci-dessous. Les données d’apprentissage, de test et de validation doivent avoir ce schéma logique (cet exemple illustre le temps en unités de jours).
 
-| ID d’équipement | Temps | <Feature Columns> | Étiquette |
+| ID d’équipement | Temps | \<Colonnes de fonctionnalités > | Étiquette |
 | ---- | ---- | --- | --- |
 | A123 |Jour 1 | . . . | . |
 | A123 |Jour 2 | . . . | . |

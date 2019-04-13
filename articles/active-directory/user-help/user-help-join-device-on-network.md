@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369137"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524364"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Joindre votre appareil professionnel au réseau de votre organisation
 Joignez votre appareil Windows 10 professionnel au réseau de votre organisation afin de pouvoir accéder à des ressources potentiellement restreintes.
@@ -62,7 +62,7 @@ Vous pouvez vérifier que vous êtes joint en examinant vos paramètres.
 
     ![Comptes dans l’écran Paramètres](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Sélectionnez **Accès Professionnel ou Scolaire** et vérifiez que vous voyez un texte similaire à **Connecté à *<votre_organisation>* Azure AD**.
+2. Sélectionnez **accès scolaire ou Professionnel**et vérifiez que vous voyez le texte, par exemple, **connecté à  *\<votre_organisation >* Azure AD**.
 
     ![Écran Accès Professionnel ou Scolaire avec compte contoso connecté](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ Vous pouvez vérifier que vous êtes joint en examinant vos paramètres.
 
     ![Comptes dans l’écran Paramètres](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Sélectionnez **Accès Professionnel ou Scolaire** et vérifiez que vous voyez un texte similaire à **Connecté à *<votre_organisation>* Azure AD**.
+2. Sélectionnez **accès scolaire ou Professionnel**et vérifiez que vous voyez le texte, par exemple, **connecté à  *\<votre_organisation >* Azure AD**.
 
     ![Écran Accès Professionnel ou Scolaire avec compte contoso connecté](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

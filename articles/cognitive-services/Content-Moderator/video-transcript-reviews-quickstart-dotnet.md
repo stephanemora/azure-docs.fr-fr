@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 56cd608d337d817b849a0902569e9aeddeca80ab
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758573"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524495"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Révisions de transcriptions de vidéos à l’aide de .NET
 
@@ -154,7 +154,7 @@ Créez une révision de vidéo avec **ContentModeratorClient.Reviews.CreateVideo
 **CreateVideoReviews** a les paramètres obligatoires suivants :
 1. Une chaîne contenant un type MIME, qui doit être « application/json ». 
 1. Le nom de votre équipe Content Moderator.
-1. Un objet **IList<CreateVideoReviewsBodyItem>**. Chaque objet **CreateVideoReviewsBodyItem** représente une révision de vidéo. Ce guide de démarrage rapide crée une révision à la fois.
+1. Un **IList\<CreateVideoReviewsBodyItem >** objet. Chaque objet **CreateVideoReviewsBodyItem** représente une révision de vidéo. Ce guide de démarrage rapide crée une révision à la fois.
 
 **CreateVideoReviewsBodyItem** a plusieurs propriétés. Vous définissez au moins les propriétés suivantes :
 - **Content**. URL de la vidéo à réviser.
@@ -243,16 +243,16 @@ En plus d’ajouter une transcription à une révision de vidéo, vous pouvez é
 **AddVideoTranscriptModerationResult** a les paramètres requis suivants :
 1. Une chaîne qui contient un type MIME, qui doit être « application/json ». 
 1. Le nom de votre équipe Content Moderator.
-1. L’ID de révision de vidéo renvoyé par **CreateVideoReviews**.
-1. Une IList<TranscriptModerationBodyItem>. Un élément **TranscriptModerationBodyItem** a les propriétés suivantes :
-1. **Termes** Une IList<TranscriptModerationBodyItemTermsItem>. Un élément **TranscriptModerationBodyItemTermsItem** a les propriétés suivantes :
+1. L’ID de révision de vidéo retourné par **CreateVideoReviews**.
+1. IList\<TranscriptModerationBodyItem >. Un élément **TranscriptModerationBodyItem** a les propriétés suivantes :
+1. **Termes** IList\<TranscriptModerationBodyItemTermsItem >. Un élément **TranscriptModerationBodyItemTermsItem** a les propriétés suivantes :
 1. **Index**. L’index de base zéro du terme.
 1. **Terme**. Une chaîne qui contient le terme.
 1. **Horodatage** Une chaîne qui contient le moment (exprimé en secondes) où se trouvent les termes dans la transcription.
 
 La transcription doit être au format WebVTT. Pour plus d'informations, consultez [WebVTT : le format Web Video Text Tracks](https://www.w3.org/TR/webvtt1/).
 
-Ajoutez la définition de méthode suivante à l’espace de noms VideoTranscriptReview de la classe Program. Cette méthode envoie une transcription à la méthode **ContentModeratorClient.TextModeration.ScreenText**. Elle traduit également le résultat en une IList<TranscriptModerationBodyItem> et l’envoie à **AddVideoTranscriptModerationResult**.
+Ajoutez la définition de méthode suivante à l’espace de noms VideoTranscriptReview de la classe Program. Cette méthode envoie une transcription à la méthode **ContentModeratorClient.TextModeration.ScreenText**. Il convertit également le résultat dans une IList\<TranscriptModerationBodyItem > et soumet à **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -299,7 +299,7 @@ static void AddTranscriptModerationResult(ContentModeratorClient client, string 
 }
 ```
 
-## <a name="publish-video-review"></a>Publier la révision de vidéo
+## <a name="publish-video-review"></a>Publier une révision de vidéo
 
 Vous publiez une révision de vidéo avec **ContentModeratorClient.Reviews.PublishVideoReview**. **PublishVideoReview** a les paramètres obligatoires suivants :
 1. Le nom de votre équipe Content Moderator.

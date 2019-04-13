@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdf5f07f9b27a17eb4c15495c4ac9776d77f525c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313938"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525165"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Créer et installer des fichiers de configuration du client VPN avec des configurations d’authentification par certificat de connexions P2S Azure natives
 
@@ -174,7 +174,7 @@ Vous pouvez utiliser les commandes d’interface de ligne de commande suivantes 
 2. Extrayez le fichier.
 3. À partir du dossier **Générique**, copiez ou déplacez le VpnServerRoot.cer dans /etc/ipsec.d/cacerts.
 4. Copiez ou déplacez client.p12 cp dans /etc/ipsec.d/private/. Ce fichier est un certificat client pour la passerelle VPN Azure.
-5. Ouvrez le fichier VpnSettings.xml et copiez la valeur <VpnServer>. Vous utiliserez cette valeur à l'étape suivante.
+5. Ouvrez le fichier VpnSettings.xml et copiez la valeur `<VpnServer>`. Vous utiliserez cette valeur à l'étape suivante.
 6. Ajustez les valeurs de l’exemple ci-dessous, puis ajoutez l’exemple à la configuration /etc/ipsec.conf.
   
    ```

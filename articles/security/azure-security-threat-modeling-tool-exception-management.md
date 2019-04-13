@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5c768497cc21b3fae82a9db290531af33841a2cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d881454eb857080f1178f228a1f7bec36cae178
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877290"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527419"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Infrastructure de sécurité : Gestion des exceptions | Solutions d’atténuation 
 | Produit/Service | Article |
@@ -201,7 +201,7 @@ Vérifiez les liens dans la section Références pour plus d’informations sur 
 | **Technologies applicables** | Générique |
 | **Attributs**              | S.O.  |
 | **Informations de référence**              | [Modifier la boîte de dialogue des paramètres des pages d’erreur ASP.NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Étapes** | <p>Lorsqu’une application ASP.NET échoue et provoque une erreur serveur interne HTTP/1.x 500, ou que la configuration d’une fonctionnalité (comme le filtrage des demandes) empêche l’affichage d’une page, un message d’erreur est généré. Les administrateurs peuvent choisir si l’application doit afficher ou non un message convivial pour le client, un message d’erreur détaillé au client ou un message d’erreur détaillé à l’hôte local uniquement. La balise <customErrors> dans le fichier web.config comporte trois modes :</p><ul><li>**On :** Spécifie que les erreurs personnalisées sont activées. Si aucun attribut defaultRedirect n’est spécifié, les utilisateurs voient une erreur générique. Les erreurs personnalisées sont présentées aux clients distants et à l’hôte local</li><li>**Désactivé :** Spécifie que les erreurs personnalisées sont désactivées. Les erreurs ASP.NET détaillées sont présentées aux clients distants et à l’hôte local</li><li>**RemoteOnly :** Spécifie que les erreurs personnalisées sont visibles uniquement pour les clients distants, et que les erreurs ASP.NET sont visibles à l’hôte local. Il s’agit de la valeur par défaut</li></ul><p>Ouvrez le fichier `web.config` pour l’application/le site et vérifiez que la balise est définie sur `<customErrors mode="RemoteOnly" />` ou `<customErrors mode="On" />`.</p>|
+| **Étapes** | <p>Lorsqu’une application ASP.NET échoue et provoque une erreur serveur interne HTTP/1.x 500, ou que la configuration d’une fonctionnalité (comme le filtrage des demandes) empêche l’affichage d’une page, un message d’erreur est généré. Les administrateurs peuvent choisir si l’application doit afficher ou non un message convivial pour le client, un message d’erreur détaillé au client ou un message d’erreur détaillé à l’hôte local uniquement. La balise `<customErrors>` dans le fichier web.config comporte trois modes :</p><ul><li>**On :** Spécifie que les erreurs personnalisées sont activées. Si aucun attribut defaultRedirect n’est spécifié, les utilisateurs voient une erreur générique. Les erreurs personnalisées sont présentées aux clients distants et à l’hôte local</li><li>**Désactivé :** Spécifie que les erreurs personnalisées sont désactivées. Les erreurs ASP.NET détaillées sont présentées aux clients distants et à l’hôte local</li><li>**RemoteOnly :** Spécifie que les erreurs personnalisées sont visibles uniquement pour les clients distants, et que les erreurs ASP.NET sont visibles à l’hôte local. Il s’agit de la valeur par défaut</li></ul><p>Ouvrez le fichier `web.config` pour l’application/le site et vérifiez que la balise est définie sur `<customErrors mode="RemoteOnly" />` ou `<customErrors mode="On" />`.</p>|
 
 ## <a id="deployment"></a>Définir la méthode de déploiement sur Vente au détail dans IIS
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 609e774c36ab685d017f311a74c8680dbb9750c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283016"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525923"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -109,9 +109,9 @@ Tous les partages peuvent croître jusqu'à au moins 100 débit d’e/s et la ci
 >
 > Limite de rafale = 3 * ligne de base d’e/s. (Jusqu'à un maximum de 100 000 e/s).
 >
-> taux de sortie = 60 Mio/s + 0.06 Gio approvisionné (jusqu'à 6 Gio/s)
+> taux de sortie = 60 Mio/s + 0,06 * approvisionné Gio
 >
-> taux d’entrée = 40 Mio/s + 0,04 Gio approvisionné (jusqu'à 4 Go)
+> taux d’entrée = 40 Mio/s + 0.04 * approvisionné Gio
 
 Taille du partage peut être augmentée à toute heure et une réduction à tout moment, mais peut être réduite à une fois toutes les 24 heures depuis l’augmentation de la dernière. Modifications de mise à l’échelle d’IOPS/débit entreront en vigueur dans les 24 heures après le changement de taille.
 
@@ -128,9 +128,9 @@ Le tableau suivant illustre quelques exemples de ces formules pour les tailles d
 |10,240 *     | 10,240  | Jusqu'à 30 720  | 675 | 450   |
 |33,792 *     | 33,792  | Jusqu'à 100 000 | 2,088 | 1,392   |
 |51,200 *     | 51,200  | Jusqu'à 100 000 | 3 132 | 2,088   |
-|100,000 *    | 100 000 | Jusqu'à 100 000 | 6,204 | 4,136   |
+|102,400 *    | 100 000 | Jusqu'à 100 000 | 6,204 | 4,136   |
 
-Actuellement, taille de partage de fichier jusqu'à 5 To est en version préliminaire publique, tandis que les tailles jusqu'à 102 TIO sont en version préliminaire publique limitée, pour demander l’accès à la version préliminaire publique limitée complète [cette enquête.](https://aka.ms/azurefilesatscalesurvey)
+Actuellement, taille de partage de fichier jusqu'à 5 To est en version préliminaire publique, tandis que les tailles jusqu'à 100 To sont en version préliminaire publique limitée, pour demander l’accès à la version préliminaire publique limitée complète [cette enquête.](https://aka.ms/azurefilesatscalesurvey)
 
 ### <a name="bursting"></a>Rupture
 
@@ -204,6 +204,6 @@ Il existe de nombreuses options pour facilement transférer en bloc les données
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)** : AzCopy est un utilitaire de ligne de commande conçu pour copier des données à destination et à partir d’Azure Files, ou d’un stockage blob Azure, en utilisant des commandes simples avec des performances optimales. AzCopy est disponible pour Windows et Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md)
-* [Déploiement de fichiers Azure](storage-files-deployment-guide.md)
+* [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md)
+* [Déploiement d’Azure Files](storage-files-deployment-guide.md)
 * [Déploiement d’Azure File Sync](storage-sync-files-deployment-guide.md)

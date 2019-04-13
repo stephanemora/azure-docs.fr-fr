@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 9229a583dac526d09d7c5046c4bb81d30c9d4c3f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873561"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522743"
 ---
 # <a name="collaborating-with-other-authors"></a>Collaboration avec d’autres auteurs
 
-LUIS offre la collaboration pour permettre à un groupe de personnes de créer une application.
+Les applications LUIS exigent un seul propriétaire et des collaborateurs facultatifs afin que plusieurs personnes puissent créer une même application.
 
 ## <a name="luis-account"></a>Compte LUIS
 Un compte de LUIS est associé à un seul compte [Microsoft Live](https://login.live.com/). Chaque compte LUIS reçoit une [clé de création](luis-concept-keys.md#authoring-key) gratuite à utiliser pour la création de toutes les applications LUIS auxquelles le compte a accès. 
@@ -30,7 +30,8 @@ Un compte LUIS peut contenir de nombreuses applications LUIS.
 Pour plus d’informations sur les comptes d’utilisateur Active Directory, voir [Utilisateur du locataire Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user). 
 
 ## <a name="luis-app-owner"></a>Propriétaire d’application LUIS
-Le compte qui crée une application en est le propriétaire. Chaque application a un seul propriétaire. Le propriétaire apparaît dans les **[Paramètres](luis-how-to-collaborate.md)** de l’application. Il s’agit du compte qui peut supprimer l’application. C’est également le compte qui reçoit un e-mail lorsque le quota du point de terminaison atteint 75 % de la limite mensuelle. 
+
+Le compte qui crée une application est le propriétaire, et chaque application dispose d’un seul propriétaire. Le propriétaire est répertorié dans l’application **[paramètres](luis-how-to-collaborate.md)** page. Le propriétaire peut supprimer l’application de réception e-mail lorsque le quota de point de terminaison atteint 75 % de la limite mensuelle. 
 
 ## <a name="authorization-roles"></a>Rôles d’autorisation
 LUIS ne prend pas en charge des rôles différents pour les propriétaires et collaborateurs, à une exception près. Le propriétaire est le seul compte qui peut supprimer l’application.
@@ -61,6 +62,10 @@ Cette méthode vous permet d’avoir une version active, une version intermédia
 [Exportez](luis-how-to-manage-versions.md#export-version) la version de base. Chaque auteur importe la version. La personne qui importe l’application est le propriétaire de la version. Une fois la modification de l’application terminée, exportez la version. 
 
 Les applications exportées sont des fichiers au format JSON, qui peuvent être utilisés pour comparer les modifications avec l’exportation de base. Combinez les fichiers pour créer un seul fichier JSON de la nouvelle version. Modifiez la propriété **versionId** dans le fichier JSON pour indiquer la nouvelle version fusionnée. Importez cette version dans l’application d’origine.
+
+## <a name="collaborator-roles-vs-entity-roles"></a>Rôles d’entité collaborateur rôles vs
+
+[Rôles de l’entité](luis-concept-roles.md) s’appliquent au modèle de données de l’application LUIS. Rôles de collaborateur s’appliquent aux niveaux d’accès de création. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

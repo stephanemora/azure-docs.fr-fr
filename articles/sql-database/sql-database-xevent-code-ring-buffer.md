@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: f47c6b63ce5f18aa896b086ec884b9a3020cadd2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bb493fc0a9d3a9173ef4faf17b3cdd4e3781a557
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993270"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526161"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Code cible de la mémoire tampon en anneau pour les événements étendus dans SQL Database
 
@@ -223,7 +223,7 @@ Pour afficher les résultats, nous avons cliqué sur la cellule sous l’en-têt
 
 Puis, dans le volet de résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target_data_XML**. Ce clic a créé un autre onglet Fichier dans ssms.exe pour afficher (au format XML) le contenu de la cellule de résultat.
 
-La sortie est présentée dans le bloc suivant. Elle semble longue, mais ne comprend que deux éléments **<event>** .
+La sortie est présentée dans le bloc suivant. Elle semble longue, mais ne comprend que deux  **\<événement >** éléments.
 
 &nbsp;
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d1453a558032e458e89c724e30472cc06f9cf33c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: fea9bae9fadc20622a6ca3d2e08db9cd3a92c800
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295128"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523985"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Prendre en main la diffusion de contenus à la demande avec REST  
 
@@ -560,7 +560,7 @@ Si l’opération réussit, la réponse suivante est retournée :
 Il convient de noter quelques points importants concernant les demandes de travail :
 
 * les propriétés TaskBody DOIVENT utiliser un XML littéral pour définir le nombre de ressources d’entrée ou de sortie qui sont utilisées par la tâche. L’article Tâche contient la définition du schéma XML pour le XML.
-* Dans la définition TaskBody, chaque valeur interne de <inputAsset> et <outputAsset> doit être définie en tant que JobInputAsset(valeur) ou JobOutputAsset(valeur).
+* Dans la définition TaskBody, chaque valeur interne de `<inputAsset>` et `<outputAsset>` doit être définie en tant que JobInputAsset(valeur) ou JobOutputAsset(valeur).
 * Une tâche peut comporter plusieurs ressources de sortie. Un JobOutputAsset(x) ne peut être utilisé qu’une fois en tant que résultat d’une tâche dans un travail.
 * Vous pouvez spécifier JobInputAsset ou JobOutputAsset en tant que ressource d’entrée d’une tâche.
 * Les tâches ne doivent pas former un cycle.
@@ -572,7 +572,7 @@ Il convient de noter quelques points importants concernant les demandes de trava
 >
 
 * InputMediaAssets mappe vers une ou plusieurs ressources que vous avez créées dans Media Services. Les OutputMediaAssets sont créés par le système. Ils ne font pas référence à une ressource existante.
-* OutputMediaAssets peut être nommé à l’aide de l’attribut assetName. Si cet attribut n’est pas présent, le nom d’OutputMediaAsset est la valeur de texte interne de l’élément <outputAsset> avec le suffixe de la valeur du nom du travail ou de l’ID de travail (dans le cas où la propriété Name n’est pas définie). Par exemple, si vous affectez à assetName la valeur « Sample », la propriété de Nom d’OutputMediaAsset est définie sur « Sample ». Toutefois, si vous n’avez pas défini de valeur pour assetName, mais avez défini le nom du travail comme « NewJob », le nom d’OutputMediaAsset est « JobOutputAsset(value)_NewJob ».
+* OutputMediaAssets peut être nommé à l’aide de l’attribut assetName. Si cet attribut n’est pas présent, le nom d’OutputMediaAsset est la valeur de texte interne de l’élément `<outputAsset>` avec le suffixe de la valeur du nom du travail ou de l’ID de travail (dans le cas où la propriété Name n’est pas définie). Par exemple, si vous affectez à assetName la valeur « Sample », la propriété de Nom d’OutputMediaAsset est définie sur « Sample ». Toutefois, si vous n’avez pas défini de valeur pour assetName, mais avez défini le nom du travail comme « NewJob », le nom d’OutputMediaAsset est « JobOutputAsset(value)_NewJob ».
 
     L’exemple suivant montre comment définir l’attribut assetName :
 

@@ -3,17 +3,17 @@ title: Options de mise en réseau d’Azure Functions
 description: Une vue d’ensemble de toutes les options de mise en réseau disponibles dans Azure Functions
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a4ae2d8bad50a4103da6afaa0bee5cbb75c877aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358160"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545503"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -32,14 +32,14 @@ Applications de fonction peuvent être hébergée de plusieurs façons différen
 |                |[Plan de consommation](functions-scale.md#consumption-plan)|⚠ [Plan Premium](functions-scale.md##premium-plan-public-preview)|[Plan App Service](functions-scale.md#app-service-plan)|[Environnement App Service](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**Restrictions d’adresse IP entrante**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**Intégration au réseau virtuel**](#vnet-integration)|❌No|⚠ Oui|✅Yes|✅Yes|
-|[**Intégration de réseau virtuel d’aperçu (Express Route & points de terminaison de Service)**](#preview-vnet-integration)|❌No|⚠ Oui|⚠ Oui|✅Yes|
-|[**les connexions hybrides**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[**Intégration au réseau virtuel**](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
+|[**Intégration de réseau virtuel d’aperçu (Express Route & points de terminaison de Service)**](#preview-vnet-integration)|❌No|⚠Oui|⚠Oui|✅Yes|
+|[**Connexions hybrides**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[**Accès à un Site privé**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
 ⚠ Fonctionnalité en version préliminaire, pas à des fins de production
 
-## <a name="inbound-ip-restrictions"></a>Restrictions d’adresse IP entrante
+## <a name="inbound-ip-restrictions"></a>Restrictions d’adresse IP entrantes
 
 Les restrictions d’adresse IP permettent de définir la liste des adresses IP qui sont autorisées à accéder à votre application. Dans cette liste, les adresses IP sont classées par ordre de priorité (Autoriser/Refuser). Les adresses autorisées peuvent inclure des adresses IPv4 et IPv6. Lorsqu’il y a une ou plusieurs entrées, il existe une règle implicite « Tout refuser » qui se trouve à la fin de la liste. La fonctionnalité de Restrictions d’adresse IP fonctionne avec la fonction toutes les options d’hébergement.
 
@@ -76,7 +76,7 @@ La nouvelle version de l’intégration au réseau virtuel, ce qui est actuellem
 
 Pour en savoir plus sur l’utilisation de l’intégration de réseau virtuel en version préliminaire, consultez [intégrer une application de fonction à un réseau virtuel Azure](functions-create-vnet.md).
 
-## <a name="hybrid-connections"></a>les connexions hybrides
+## <a name="hybrid-connections"></a>Connexions hybrides
 
 [Connexions hybrides](../service-bus-relay/relay-hybrid-connections-protocol.md) est une fonctionnalité d’Azure Relay qui peut être utilisé pour accéder aux ressources d’application dans d’autres réseaux. Elles permettent d’accéder depuis votre application à un point de terminaison d’application. Il ne peut pas être utilisé pour accéder à votre application. Les connexions hybrides sont disponibles pour les fonctions en cours d’exécution un [plan App Service](functions-scale.md#app-service-plan) et un [environnement App Service](../app-service/environment/intro.md).
 
@@ -84,8 +84,18 @@ Utilisée dans les fonctions, chaque connexion hybride correspond à une combina
 
 Pour plus d’informations, consultez le [documentation App Service pour les connexions hybrides](../app-service/app-service-hybrid-connections.md), qui prend en charge les fonctions et les applications Web.
 
-## <a name="private-site-access"></a>Accès à un Site privé
+## <a name="private-site-access"></a>Accès aux sites privés
 
 L’accès au site privé fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. L’accès privé aux sites est disponible uniquement via un ASE configuré avec un équilibreur de charge interne (ILB). Pour plus d’informations sur l’utilisation d’un environnement ASE, consultez [création et utilisation d’un environnement ASE](../app-service/environment/create-ilb-ase.md).
 
 Il existe plusieurs façons d’accéder aux ressources de réseau virtuel dans les autres options d’hébergement, mais un ASE est la seule façon d’autoriser les déclencheurs pour une fonction doit être effectuée via un réseau virtuel.
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus sur la mise en réseau et les fonctions : 
+
+* [Suivez notre didacticiel de l’intégration démarrage réseau virtuel](./functions-create-vnet.md)
+* [Lire les fonctions de mise en réseau FAQ ici](./functions-networking-faq.md)
+* [En savoir plus sur l’intégration au réseau virtuel avec App Service/Functions](../app-service/web-sites-integrate-with-vnet.md)
+* [En savoir plus sur les réseaux virtuels dans Azure](../virtual-network/virtual-networks-overview.md)
+* [Activer plusieurs fonctionnalités mise en réseau et le contrôle avec les environnements App Service](../app-service/environment/intro.md)
+* [Se connecter à des ressources locales sans modifier le pare-feu à l’aide des connexions hybrides](../app-service/app-service-hybrid-connections.md)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835014"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524903"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
 Ce document montre comment créer des fonctionnalités pour des données stockées dans un cluster Hadoop Azure HDInsight à l’aide de requêtes Hive. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive, dont les scripts sont intégrés.
@@ -89,14 +89,14 @@ Hive est livré avec un ensemble de FDU pour traiter des champs d’horodatage. 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Cette requête Hive suppose que *<datetime field>* est au format d’horodatage par défaut.
+Cette requête Hive suppose que le  *\<champ datetime >* est au format de date/heure par défaut.
 
 Si un champ d’horodatage n’est pas au format par défaut, il faut d’abord le convertir en horodatage Unix puis en chaîne d’horodatage au format par défaut. Une fois l’horodatage au format par défaut, les utilisateurs peuvent appliquer les FDU d’horodatage intégrées pour extraire des fonctionnalités.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Dans cette requête, si *<datetime field>* suit le modèle *03/26/2015 12:04:39*,  *<pattern of the datetime field>'* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
+Dans cette requête, si le  *\<champ datetime >* suit le modèle *26/03/2015 12:04:39*, le  *\<modèle du champ dateheure >'* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

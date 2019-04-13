@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895543"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528031"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Types d’entités et leurs objectifs dans LUIS
 
@@ -24,7 +24,15 @@ Entités extraire des données à partir de l’énoncé. Types d’entité vous
 
 ## <a name="entity-compared-to-intent"></a>Comparaison entre entité et intention
 
-L’entité représente un mot ou une phrase dans l’énoncé que vous souhaitez extraire. Un énoncé peut inclure plusieurs entités ou aucune. Une entité représente une classe, notamment une collection d’objets similaires (lieux, choses, personnes, événements ou concepts). Les entités décrivent des informations relatives à l’intention, et sont parfois essentiels pour que votre application effectue sa tâche. Par exemple, une application Recherche d’actualités peut inclure des entités telles que « sujet », « source », « mot clé » et « date de publication », qui sont des données clés pour rechercher des informations. Dans une application de réservation de voyages, « emplacement », « date », « compagnie aérienne », « classe voyage » et « tickets » sont des informations clés pour la réservation des vols (pertinentes pour l’intention « Bookflight »).
+L’entité représente un mot ou une phrase dans l’énoncé que vous souhaitez extraire. Un énoncé peut inclure plusieurs entités ou aucune. Une application cliente peut-être l’entité pour effectuer sa tâche ou de l’utiliser comme un guide de plusieurs choix pour présenter à l’utilisateur. 
+
+Une entité :
+
+* Représente une classe, notamment une collection d’objets similaires (lieux, choses, personnes, événements ou concepts). 
+* Décrit les informations relatives à l’intention
+
+
+Par exemple, une application Recherche d’actualités peut inclure des entités telles que « sujet », « source », « mot clé » et « date de publication », qui sont des données clés pour rechercher des informations. Dans une application de réservation de voyages, « emplacement », « date », « compagnie aérienne », « classe voyage » et « tickets » sont des informations clés pour la réservation des vols (pertinentes pour l’intention « Bookflight »).
 
 En comparaison, l’intention représente la prédiction de l’énoncé entier. 
 
@@ -89,14 +97,14 @@ Une fois que l’entité extraite, ses données peuvent être représentées com
 |Issue de l’apprentissage automatique|Peut marquer|Didacticiel|Exemples<br>response|Type d’entité|Objectif|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composite**](#composite-entity)|Regroupement d’entités, quel que soit le type d’entité.|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hiérarchique**](#hierarchical-entity)|Regroupement d’entités simples.|
+|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hiérarchique**](#hierarchical-entity)|Regroupement d’entités simples.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Liste**](#list-entity)|Liste d’éléments et de leurs synonymes extraits avec une correspondance de texte exact.|
-|Mixte||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.Any**](#patternany-entity)|Entité dont la fin est difficile à déterminer.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prédéfinis**](#prebuilt-entity)|Déjà formée pour extraire différents types de données.|
+|Mixte||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entité dont la fin est difficile à déterminer.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prédéfinie**](#prebuilt-entity)|Déjà formée pour extraire différents types de données.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Expression régulière**](#regular-expression-entity)|Utilise une expression régulière pour établir une correspondance de texte.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Contient un concept unique dans un mot ou une expression.|
 
-Seules les entités issues de l’apprentissage automatique doivent être marquées dans les exemples d’énoncés pour chaque intention. Les entités issues de l’apprentissage automatique fonctionnent mieux quand elles sont testées via des [requêtes du point de terminaison](luis-concept-test.md#endpoint-testing) et [l’examen des énoncés du point de terminaison](luis-how-to-review-endpoint-utterances.md). 
+Seules les entités Machine a appris doivent être marqués dans énoncés exemple. Les entités issues de l’apprentissage automatique fonctionnent mieux quand elles sont testées via des [requêtes du point de terminaison](luis-concept-test.md#endpoint-testing) et [l’examen des énoncés du point de terminaison](luis-how-to-review-endoint-utt.md). 
 
 Les entités pattern.any doivent être marquées dans les exemples de modèles [Pattern](luis-how-to-model-intent-pattern.md), et non dans les exemples d’utilisateurs d’intention. 
 
@@ -117,33 +125,19 @@ Cette entité convient bien lorsque les données :
 ![entité composite](./media/luis-concept-entities/composite-entity.png)
 
 [Didacticiel](luis-tutorial-composite-entity.md)<br>
-[Exemple de réponse JSON pour l’entité](luis-concept-data-extraction.md#composite-entity-data)<br>
+[Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#composite-entity-data)<br>
 
 ## <a name="hierarchical-entity"></a>Entité hiérarchique
 
+**Entités hiérarchiques risque d’être dépréciées. Utilisez [rôles de l’entité](luis-concept-roles.md) pour déterminer des sous-types d’entité, au lieu d’entités hiérarchiques.**
+
 Une entité hiérarchique est une catégorie d’entités simples apprises de façon contextuelle, appelées enfants.
-
-Cette entité convient bien lorsque les données :
-
-* Sont des entités simples.
-* Sont liés l’un à l’autre dans le contexte de l’énoncé.
-* Utilisent un choix de mots spécifique pour indiquer chaque entité enfant. Exemples : de/à, quitte/arrive à, loin de/vers...
-* Les enfants se trouvent fréquemment dans le même énoncé. 
-* Doivent être regroupées et traitées par l’application cliente en tant qu’unité d’informations.
-
-Ne pas utiliser si :
-
-* Vous avez besoin d’une entité qui a des correspondances de texte exact pour ses enfants, quel que soit le contexte. Utilisez plutôt une [liste d’entités](#list-entity). 
-* Vous avez besoin d’une entité pour une relation parent-enfant avec d’autres types d’entités. Utilisez une [entité composite](#composite-entity).
 
 ![entité hiérarchique](./media/luis-concept-entities/hierarchical-entity.png)
 
-[Didacticiel](luis-quickstart-intent-and-hier-entity.md)<br>
-[Exemple de réponse JSON pour l’entité](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
-
 ### <a name="roles-versus-hierarchical-entities"></a>Rôles et entités hiérarchiques
 
-Les [rôles](luis-concept-roles.md#roles-versus-hierarchical-entities) d’un modèle résolvent le même problème que des entités hiérarchiques, mais s’appliquent à tous les types d’entité. Les rôles ne sont actuellement disponibles que dans des modèles. Les rôles ne sont pas disponibles dans les exemples d’énoncés d’intentions.  
+[Rôles](luis-concept-roles.md) résoudre le même problème comme entités hiérarchiques, mais s’applique à tous les types d’entité.  
 
 ## <a name="list-entity"></a>Entité de liste
 
@@ -158,7 +152,7 @@ L’entité convient bien lorsque les données de texte :
 ![entité de liste](./media/luis-concept-entities/list-entity.png)
 
 [Didacticiel](luis-quickstart-intent-and-list-entity.md)<br>
-[Exemple de réponse JSON pour l’entité](luis-concept-data-extraction.md#list-entity-data)
+[Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#list-entity-data)
 
 ## <a name="patternany-entity"></a>Entité Pattern.any
 
@@ -168,9 +162,9 @@ L’entité convient bien quand :
 
 * La fin de l’entité peut être confondue avec le reste du texte de l’énoncé. 
 [Didacticiel](luis-tutorial-pattern.md)<br>
-[Exemple de réponse JSON pour l’entité](luis-concept-data-extraction.md#patternany-entity-data)
+[Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#patternany-entity-data)
 
-**Exemples**  
+**Exemple**  
 Si une application cliente recherche des livres en fonction du titre, pattern.any extrait le titre complet. Un modèle d’énoncé utilisant pattern.any pour cette recherche de livre est `Was {BookTitle} written by an American this year[?]`. 
 
 Dans le tableau suivant, chaque ligne contient deux versions de l’énoncé. L’énoncé du haut est la manière dont LUIS voit initialement l’énoncé, où il est difficile de déterminer où le titre du livre commence et finit. L’énoncé du bas est la manière dont LUIS reconnaîtra le titre du livre quand un modèle sera en place pour l’extraction. 
@@ -195,7 +189,7 @@ Des entités prédéfinies peuvent être ajoutées et supprimées à tout moment
 ![Entité prédéfinie Number (nombre)](./media/luis-concept-entities/number-entity.png)
 
 [Didacticiel](luis-tutorial-prebuilt-intents-entities.md)<br>
-[Exemple de réponse JSON pour l’entité](luis-concept-data-extraction.md#prebuilt-entity-data)
+[Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Certaines de ces entités prédéfinies dans le projet open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si votre culture ou entité spécifique n’est pas encore prise en charge, vous pouvez contribuer au projet. 
 
@@ -243,7 +237,7 @@ L’entité convient bien quand :
 ![Entité d’expression régulière](./media/luis-concept-entities/regex-entity.png)
 
 [Didacticiel](luis-quickstart-intents-regex-entity.md)<br>
-[Exemple de réponse JSON pour l’entité](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+[Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
 ## <a name="simple-entity"></a>Entité simple 
 
@@ -262,24 +256,15 @@ L’entité convient bien quand :
 
 Consultez les [limites](luis-boundaries.md#model-boundaries) pour comprendre le nombre de chaque type d’entité que vous pouvez ajouter à un modèle.
 
-## <a name="composite-vs-hierarchical-entities"></a>Entités composites et hiérarchiques
-
-Les entités composites et les entités hiérarchiques ont des relations parent-enfant et sont issues de l’apprentissage automatique. L’apprentissage automatique permet à LUIS de comprendre les entités dans différents contextes (organisation des mots). Les entités composite sont plus flexibles, car elles acceptent différents types d’entités en tant qu’enfants. Les enfants d’une entité hiérarchique sont des entités simples. 
-
-|Type|Objectif|Exemples|
-|--|--|--|
-|Hiérarchique|Parent-enfant d’entités simples|Location.Origin=New York<br>Location.Destination=London|
-|Composite|Entités parent-enfant : prédéfinie, liste, simple, hiérarchique| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|
-
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Si vous avez besoin de plus que le nombre maximal d’entités 
 
-Vous devrez peut-être utiliser des entités hiérarchiques et composites. Les entités hiérarchiques reflètent la relation entre des entités qui partagent des caractéristiques ou qui sont membres d’une catégorie. Les entités enfants sont toutes membres de la catégorie de leur parent. Par exemple, une entité hiérarchique nommée PlaneTicketClass peut avoir les entités enfants EconomyClass et FirstClass. La hiérarchie s’étend sur un seul niveau de profondeur.  
+Vous devrez peut-être utiliser des entités composites en combinaison avec les rôles de l’entité.
 
-Les entités composites représentent les parties d’un ensemble. Par exemple, une entité composite nommée PlaneTicketOrder peut avoir les entités enfants Airline, Destination, DepartureCity, DepartureDate et PlaneTicketClass. Vous générez une entité composite à partir d’entités simples existantes, d’enfants d’entités hiérarchiques ou d’entités prédéfinies.  
+Les entités composites représentent les parties d’un ensemble. Par exemple, une entité composite nommée PlaneTicketOrder peut avoir les entités enfants Airline, Destination, DepartureCity, DepartureDate et PlaneTicketClass.
 
 LUIS fournit également le type d’entité de liste qui n’est pas issu de l’apprentissage automatique, mais qui permet à votre application LUIS de spécifier une liste fixe de valeurs. Consultez les [Limites de LUIS](luis-boundaries.md) pour passer en revue les limites du type d’entité de liste. 
 
-Si vous avez envisagé les entités hiérarchiques, composites et liste, mais avez besoin d’aller au-delà de la limite, contactez le support technique. Pour cela, rassemblez des informations détaillées sur votre système, accédez au site web [LUIS](luis-reference-regions.md#luis-website), puis sélectionnez **Support**. Si votre abonnement Azure comprend des services de support, contactez le [support technique Azure](https://azure.microsoft.com/support/options/). 
+Si vous avez considéré comme ces entités et que vous avez besoin de plus de la limite, contactez le support technique. Pour cela, rassemblez des informations détaillées sur votre système, accédez au site web [LUIS](luis-reference-regions.md#luis-website), puis sélectionnez **Support**. Si votre abonnement Azure comprend des services de support, contactez le [support technique Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

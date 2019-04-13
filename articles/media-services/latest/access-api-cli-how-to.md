@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 257fe51cae245708816cd9a7bb0c33b6edf5aa05
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 1b872c5c2ff0f581300a843650d7434c7c526c84
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756004"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545617"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Accéder à l’API Azure Media Services avec Azure CLI
  
@@ -27,6 +27,8 @@ Vous devez utiliser l’authentification de principal de service Azure AD pour v
 * URI de ressource Media Services
 * URI de ressource pour REST Media Services
 * Valeurs de l’application Azure AD : ID client et clé secrète client
+
+Pour plus d’informations, consultez [développement avec Media Services v3 API](media-services-apis-overview.md).
 
 Cet article vous montre comment utiliser Azure CLI pour créer une application et un principal de service Azure AD afin d’obtenir les valeurs nécessaires pour accéder aux ressources Azure Media Services.
 

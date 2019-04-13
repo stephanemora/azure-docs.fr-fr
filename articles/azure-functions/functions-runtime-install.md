@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093666"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547543"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installer la préversion 2 du runtime Azure Functions
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Si vous souhaitez installer la préversion 2 du runtime d’Azure Functions, suivez ces étapes :
 
@@ -28,7 +30,7 @@ Si vous souhaitez installer la préversion 2 du runtime d’Azure Functions, su
 1. Terminez la configuration de la préversion 2 du runtime Azure Functions.
 1. Créer votre première fonction dans la préversion du runtime Azure Functions
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant d’installer la version préliminaire du runtime d’Azure Functions, vous devez disposer des ressources suivantes :
 
@@ -102,36 +104,37 @@ Pour terminer l’installation du runtime d’Azure Functions, vous devez termin
 
 Pour créer votre première fonction dans la préversion du runtime Azure Functions
 
-1. Accédez au **portail du runtime Azure Functions** en tant que https://<machinename>.<domain> Par exemple https://mycomputer.mydomain.com
+1. Accédez à la **portail du Runtime Azure Functions** comme `https://<machinename>.<domain>` par exemple `https://mycomputer.mydomain.com`.
+
 1. Vous êtes invité à vous **connecter**. Avec un déploiement dans un domaine, utilisez le nom d'utilisateur et le mot de passe de votre compte de domaine. Sinon, utilisez le nom d'utilisateur et le mot de passe de votre compte local pour vous connecter au portail.
 
-![Connexion au portail de la préversion du runtime Azure Functions][14]
+    ![Connexion au portail de la préversion du runtime Azure Functions][14]
 
-1. Pour créer des applications de fonction, vous devez créer un abonnement.  Dans l'angle supérieur gauche du portail, cliquez sur l'option **+** en regard des abonnements
+1. Pour créer des applications de fonction, vous devez créer un abonnement.  Dans le coin supérieur gauche du portail, cliquez sur le **+** option en regard des abonnements.
 
-![Abonnements du portail de la préversion du runtime Azure Functions][15]
+    ![Abonnements du portail de la préversion du runtime Azure Functions][15]
 
 1. Choisissez **DefaultPlan**, entrez un nom pour votre abonnement, puis cliquez sur **Créer**.
 
-![Plan et nom de l'abonnement du portail de la préversion du runtime Azure Functions][16]
+    ![Plan et nom de l'abonnement du portail de la préversion du runtime Azure Functions][16]
 
 1. Toutes vos applications de fonction sont répertoriées dans le volet gauche du portail.  Pour créer une application de fonction, sélectionnez l'en-tête **Applications de fonction**, puis cliquez sur l'option **+**.
 
 1. Entrez un nom pour votre application de fonction, sélectionnez l'abonnement approprié, choisissez la version du runtime Azure Functions pour la programmation, puis cliquez sur **Créer**
 
-![Nouvelle application de fonction du portail de la préversion du runtime Azure Functions][17]
+    ![Nouvelle application de fonction du portail de la préversion du runtime Azure Functions][17]
 
 1. Votre nouvelle application de fonction est répertoriée dans le volet gauche du portail.  Sélectionnez Fonctions, puis cliquez sur **Nouvelle fonction** en haut du volet central du portail.
 
-![Modèles de préversion du runtime Azure Functions][18]
+    ![Modèles de préversion du runtime Azure Functions][18]
 
 1. Sélectionnez la fonction Déclencheur de minuteur, nommez votre fonction dans le menu déroulant de droite, définissez le calendrier sur `*/5 * * * * *` (cette expression cron déclenche le minuteur toutes les cinq secondes), puis cliquez sur **Créer**
 
-![Configuration d'une nouvelle fonction de minuteur pour la préversion du runtime Azure Functions][19]
+    ![Configuration d'une nouvelle fonction de minuteur pour la préversion du runtime Azure Functions][19]
 
 1. Votre fonction est maintenant créée.  Vous pouvez afficher le journal d'exécution de votre application de fonction en développant le volet du **journal** au bas du portail.
 
-![Exécution de la fonction de la préversion du runtime Azure Functions][20]
+    ![Exécution de la fonction de la préversion du runtime Azure Functions][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

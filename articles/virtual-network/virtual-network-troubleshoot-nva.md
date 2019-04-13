@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 40e034a563074e10a2dfbee36b6792a095022057
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b7ac96d3588923727a71cf6152ba36481ef44545
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649627"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526654"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problèmes d’appliance virtuelle réseau dans Azure
 
@@ -67,7 +67,9 @@ Utiliser PowerShell
 1. Ouvrez PowerShell, puis connectez-vous à votre compte Azure.
 2. Exécutez la commande suivante (en remplaçant les valeurs entre crochets par vos informations) :
 
-   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>  
+   ```powershell
+   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+   ```
 
 3. Vérifiez la propriété **EnableIPForwarding**.
 4. Si le transfert IP n’est pas activé, exécutez les commandes suivantes pour l’activer :

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 1e550002948fc1320b8645bf1af635536d524fe6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f61c7a939902ee5d02b2e9ba896c7555968f9d0d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282387"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547983"
 ---
 # <a name="add-a-shape-to-a-map"></a>Ajouter une forme à une carte
 
@@ -26,7 +26,7 @@ Cet article vous montre comment restituer des géométries sur la carte à l’a
 
 `LineString` et `MultiLineString` fonctionnalités sont utilisées pour représenter les chemins d’accès et les plans sur la carte.
 
-## <a name="use-a-line"></a>Utiliser une ligne
+### <a name="add-a-line"></a>Ajouter une ligne
 
 <iframe height='500' scrolling='no' title='Ajouter une ligne à une carte' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez le stylet <a href='https://codepen.io/azuremaps/pen/qomaKv/'>Add a line to a map</a> (Ajouter une ligne à une carte) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -53,7 +53,7 @@ En plus de pouvoir appliquer une couleur de contour unique à une ligne, vous po
 
 <br/>
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="Ligne avec trait dégradé" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Ligne avec trait dégradé" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le stylet <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>ligne avec trait dégradé</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -156,7 +156,7 @@ Un élément [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps
 ## <a name="make-a-geometry-easy-to-update"></a>Faciliter la mise à jour une géométrie
 
 Un `Shape` classe encapsule une [Geometry](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) ou [fonctionnalité](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) et facilite la mise à jour et leur gestion.
-`new Shape(data: Feature<data.Geometry, any>)` Construit un objet de forme et l’initialise avec la fonctionnalité spécifiée.
+`new Shape(data: Feature<data.Geometry, any>)` construit un objet forme et l’initialise avec la fonctionnalité spécifiée.
 
 <br/>
 
@@ -171,7 +171,7 @@ Le troisième bloc de code crée une fonction qui prend la valeur de l’éléme
 
 Dans le quatrième bloc de code, un objet source de données est créé à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Le point est alors ajouté à la source de données.
 
-Un élément [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) restitue les données encapsulées dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sur la carte. Le troisième bloc de code crée une couche de polygones. Consultez les propriétés d’une couche de polygones dans [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). La source de données, le hanlder d’événement de clic et la couche de polygones sont créés et ajoutés à la carte dans le [Gestionnaire d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que le point est affiché après charge complet de la carte.
+Un élément [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) restitue les données encapsulées dans l’élément [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sur la carte. Le troisième bloc de code crée une couche de polygones. Consultez les propriétés d’une couche de polygones dans [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). La source de données, le Gestionnaire d’événements click et la couche de polygones sont créés et ajoutés à la carte dans le [Gestionnaire d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour garantir que le point est affiché après charge complet de la carte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

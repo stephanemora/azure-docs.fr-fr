@@ -1,7 +1,7 @@
 ---
 title: Extraction de données
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Découvrez quel type de données il est possible d’extraire à partir de Language Understanding (LUIS).
+description: Extraire des données de texte énoncé avec les intentions et entités. Découvrez le type de données peut être extraites à partir de LUIS (Language Understanding).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893977"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526287"
 ---
-# <a name="data-extraction-from-intents-and-entities"></a>Extraction de données à partir d’intentions et d’entités
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données de texte énoncé avec les intentions et entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
 
 Les données les plus difficiles à extraire sont les données issues du Machine Learning, car il n’y a pas de correspondance de texte exacte. L’extraction de données à partir [d’entités](luis-concept-entity-types.md) issues du Machine Learning doit faire partie du [cycle de création](luis-concept-app-iteration.md) jusqu’à ce que vous ayez la certitude de recevoir les données attendues.
@@ -170,9 +170,11 @@ Le point de terminaison retourne les données suivantes : nom de l’entité, te
 
 |Objet de données|Nom de l’entité|Valeur|
 |--|--|--|
-|Entité simple|"Customer"|"bob jones"|
+|Entité simple|`Customer`|`bob jones`|
 
 ## <a name="hierarchical-entity-data"></a>Données d’entité hiérarchique
+
+**Entités hiérarchiques risque d’être dépréciées. Utilisez [rôles de l’entité](luis-concept-roles.md) pour déterminer des sous-types d’entité, au lieu d’entités hiérarchiques.**
 
 Les entités [hiérarchiques](luis-concept-entity-types.md) sont des valeurs issues du Machine Learning. Elles peuvent comporter un mot ou une expression. Les enfants sont identifiés par le contexte. Si vous recherchez une relation parent-enfant avec correspondance de texte exacte, utilisez une entité de [liste](#list-entity-data).
 
@@ -432,13 +434,18 @@ Il est difficile d’extraire des noms d’un énoncé, car un nom peut être pr
 Les entités [PersonName](luis-reference-prebuilt-person.md) et [GeographyV2](luis-reference-prebuilt-geographyV2.md) sont disponibles dans certaines [cultures de langue](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Noms de personnes
-Les noms de personnes peuvent avoir un format légèrement en fonction de la langue et de la culture. Utilisez soit une entité hiérarchique avec comme enfants le prénom et le nom, soit une entité simple avec des rôles de nom et de prénom. Veillez à donner des exemples qui utilisent le prénom et le nom à différents endroits de l’énoncé, dans des énoncés de longueurs différentes et pour toutes les intentions, y compris l’intention None. [Vérifiez](luis-how-to-review-endpoint-utterances.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
+
+Les noms de personnes peuvent avoir un format légèrement en fonction de la langue et de la culture. Utiliser soit un **[personName](luis-reference-prebuilt-person.md)** entité ou un **[entité simple](luis-concept-entity-types.md#simple-entity)** avec [rôles](luis-concept-roles.md) de première et nom de famille. 
+
+Si vous utilisez l’entité simple, veillez à donner des exemples qui utilisent le nom et prénom dans différentes parties de l’énoncé dans énoncés de longueurs différentes et énoncés entre tous les intentions, y compris l’aucun intentionnelle. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
 
 ### <a name="names-of-places"></a>Noms de lieux
-Les noms d’endroits sont définis et connus : villes, départements, États, provinces et pays. Si votre application utilise un ensemble connu de lieux, envisagez d’utiliser une entité de liste. Si vous devez rechercher tous les noms de lieux, créez une entité simple et donnez différents exemples. Ajoutez une liste d’expressions de noms de lieux pour renforcer le type de noms de lieux de votre application. [Vérifiez](luis-how-to-review-endpoint-utterances.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
+
+Les noms d’endroits sont définis et connus : villes, départements, États, provinces et pays. Utiliser l’entité prédéfinie **[geographyV2](luis-reference-prebuilt-geographyv2.md)** pour extraire des informations d’emplacement.
 
 ### <a name="new-and-emerging-names"></a>Nouveaux noms
-Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Ces types de noms sont les plus difficiles à extraire. Commencez par une entité simple et ajoutez une liste d’expressions. [Vérifiez](luis-how-to-review-endpoint-utterances.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
+
+Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Ces types de noms sont le type plus difficile d’extraction de données. Commencer avec un **[entité simple](luis-concept-entity-types.md#simple-entity)** et ajoutez un [liste d’expressions](luis-concept-feature.md). [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
 
 ## <a name="pattern-roles-data"></a>Données de rôles de modèle
 Les rôles sont des différences d’entités contextuelles.

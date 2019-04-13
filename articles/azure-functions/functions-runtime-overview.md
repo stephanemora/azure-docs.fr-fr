@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 4d11af1edc13fa675bef5cf9067dbe95646abff1
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: 2af9575c50ee522d6330ddf46c75b666132b7a84
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091915"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546831"
 ---
 # <a name="azure-functions-runtime-overview-preview"></a>Vue d’ensemble du runtime d’Azure Functions (préversion)
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Le runtime d’Azure Functions (préversion) vous fournit une nouvelle façon de tirer parti de la simplicité et de la flexibilité du modèle de programmation Azure Functions sur site. Basé sur les mêmes racines open source qu’Azure Functions, le runtime d’Azure Functions est déployé sur site pour fournir une expérience de développement quasiment identique à celle du service cloud.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 7cbd21ce9f8e5d9d3c03eb7c626ab41b8d28498d
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: db48db5ce9402267570ac9e41f9f4b5bec2781ad
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505666"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527946"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -106,13 +106,13 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 
 * **Ports requis pour la gestion des API** : le trafic entrant et sortant dans un sous-réseau dans lequel est déployée la gestion des API peut être contrôlé à l’aide du [groupe de sécurité réseau][Network Security Group]. Si ces ports ne sont pas disponibles, la gestion des API risque de ne pas fonctionner correctement et d’être inaccessible. Le blocage d’un ou plusieurs de ces ports constitue un autre problème de configuration courant lorsque vous utilisez la gestion des API dans un réseau virtuel.
 
-Lorsque l’instance de service Gestion des API est hébergée dans un réseau virtuel, les ports du tableau suivant sont utilisés.
+<a name="required-ports"> </a> Lorsqu’une instance de service de gestion des API est hébergée dans un réseau virtuel, les ports dans le tableau suivant sont utilisées.
 
 | Port(s) source / de destination | Direction          | Protocole de transfert |   [Balises de service](../virtual-network/security-overview.md#service-tags) <br> Source / Destination   | Objectif ( * )                                                 | Type de réseau virtuel |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Trafic entrant            | TCP                | INTERNET / VIRTUAL_NETWORK            | Communication client avec Gestion des API                      | Externe             |
 | * / 3443                     | Trafic entrant            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Point de terminaison de gestion pour le portail Azure et Powershell         | Externe et interne  |
-| * / 80, 443                  | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / Storage             | **Dépendance sur le stockage Azure**                             | Externe et interne  |
+| * / 80, 443                  | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / Storage             | **Dépendance sur le Stockage Azure**                             | Externe et interne  |
 | * / 80, 443                  | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (le cas échéant)                   | Externe et interne  |
 | * / 1433                     | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / SQL                 | **Accès aux points de terminaison de SQL Azure**                           | Externe et interne  |
 | * / 5672                     | Règle de trafic sortant           | TCP                | VIRTUAL_NETWORK / EventHub            | Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Externe et interne  |
@@ -136,7 +136,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 
     | Environnement Azure | Points de terminaison                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure (public)      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com où `East US 2` est eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Azure (public)      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com où `East US 2` est eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
@@ -194,9 +194,9 @@ Le calcul ci-dessus, la taille minimale du sous-réseau, dans lequel la gestion 
 
 
 ## <a name="related-content"></a>Contenu connexe
-* [Connexion d’un réseau virtuel au serveur principal à l’aide de la passerelle Vpn](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
-* [Connexion d’un réseau virtuel à partir de différents modèles de déploiement](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-* [Utilisation de l'inspecteur d'API pour le suivi des appels dans Gestion des API Azure](api-management-howto-api-inspector.md)
+* [Connexion d’un réseau virtuel au serveur principal à l’aide de la passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
+* [Connexion d’un réseau virtuel utilisant des modèles de déploiement différents](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+* [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure](api-management-howto-api-inspector.md)
 * [FAQ sur le réseau virtuel](../virtual-network/virtual-networks-faq.md)
 * [Balises de service](../virtual-network/security-overview.md#service-tags)
 

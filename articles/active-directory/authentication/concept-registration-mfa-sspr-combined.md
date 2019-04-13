@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f3eec1f846f1b74ab3e19bca022d4e009540d1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280007"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521431"
 ---
 # <a name="combined-security-information-registration-preview"></a>Inscription d’informations de sécurité combinée (version préliminaire)
 
@@ -25,6 +25,8 @@ Avant l’inscription combinée, utilisateurs inscrits des méthodes d’authent
 ![Affichage de mon profil inscrit les informations de sécurité pour un utilisateur](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Avant d’activer la nouvelle expérience, consultez cette documentation axée sur l’administrateur et la documentation orienté utilisateur afin de bien que comprendre les fonctionnalités et les effets de cette fonctionnalité. Baser votre formation sur la documentation utilisateur pour préparer vos utilisateurs pour la nouvelle expérience et de contribuer à assurer un déploiement réussi.
+
+Azure AD associé à l’inscription n’est pas disponible actuellement sur des clouds nationaux tels que Azure US Government, Azure Allemagne ou Azure China 21Vianet des informations de sécurité.
 
 |     |
 | --- |
@@ -139,4 +141,4 @@ Un utilisateur qui a créé précédemment au moins une méthode qui peut être 
 
 [Configurer la réinitialisation du mot de passe libre-service](howto-sspr-deployment.md)
 
-[Configuration d’Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+[Configurer l’authentification multifacteur Azure](howto-mfa-getstarted.md)

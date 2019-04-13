@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
-ms.openlocfilehash: 838fc1da3e167d1df04fbb36a2fea33b8ac248a4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482604"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527164"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Résolution des problèmes du cache Azure pour Redis
 
@@ -250,6 +250,7 @@ Ce message d’erreur contient des mesures qui peuvent vous aider à identifier 
 1. Y a-t-il eu une demande importante précédant plusieurs petites demandes au cache ayant expiré ? Le paramètre `qs` dans l’erreur message vous indique combien de requêtes ont été envoyés à partir du client au serveur, mais n’avez pas traité une réponse. Cette valeur peut continuer d’augmenter car StackExchange.Redis utilise une seule connexion TCP et ne peut lire qu’une réponse à la fois. Même si la première opération a expiré, il ne s’arrête pas plus de données d’être envoyé à ou à partir du serveur. Autres demandes sont bloquées jusqu'à ce que la demande volumineuse est terminée et peut entraîner des délais d’expiration. Une solution pour réduire le risque de délais d’expiration consiste à vérifier que le cache est assez grand pour votre charge de travail et à fractionner les valeurs importantes en valeurs plus petites. Une autre solution consiste à utiliser un pool d’objets `ConnectionMultiplexer` dans votre client et à choisir le `ConnectionMultiplexer` le moins chargé lors de l’envoi d’une nouvelle demande. Le chargement de plusieurs objets de connexion doit empêcher un délai de provoquer des autres demandes envoyées à l’expiration du délai également.
 1. Si vous utilisez `RedisSessionStateProvider`, vous avez définie correctement le délai d’attente de nouvelle tentative. `retryTimeoutInMilliseconds` doit être supérieur à `operationTimeoutInMilliseconds`, sans quoi aucune nouvelle tentative ne se produit. Dans l’exemple suivant, `retryTimeoutInMilliseconds` est réglé sur 3 000. Pour plus d’informations, consultez la page [Fournisseur d’état de session ASP.NET pour cache Azure pour Redis](cache-aspnet-session-state-provider.md) et [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration) (Comment utiliser les paramètres de configuration du fournisseur d’état de session et du fournisseur de caches de sortie).
 
+    ```xml
     <add
       name="AFRedisCacheSessionStateProvider"
       type="Microsoft.Web.Redis.RedisSessionStateProvider"
@@ -262,6 +263,7 @@ Ce message d’erreur contient des mesures qui peuvent vous aider à identifier 
       connectionTimeoutInMilliseconds = "5000"
       operationTimeoutInMilliseconds = "1000"
       retryTimeoutInMilliseconds="3000" />
+    ```
 
 1. Vérifiez l’utilisation de la mémoire sur le serveur du cache Azure pour Redis en [surveillant](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` et `Used Memory`. Si une stratégie d’éviction est en place, Redis commence la suppression de clés lorsque `Used_Memory` atteint la taille du cache. Dans l’idéal, `Used Memory RSS` doit être légèrement supérieur à `Used memory`. Une grande différence signifie que la fragmentation de mémoire (interne ou externe). Lorsque `Used Memory RSS` est inférieur à `Used Memory`, cela signifie que le système d’exploitation a permuté une partie de la mémoire cache. Si cette permutation se produit, vous pouvez rencontrer des latences importantes. Étant donné que Redis ne contrôlez comment ses allocations sont mappées aux pages de mémoire haute `Used Memory RSS` est souvent le résultat d’un pic d’utilisation de la mémoire. Lorsque le serveur Redis libère de la mémoire, l’allocateur prend la mémoire, mais il est peut-être ou ne peut-être pas, rendez la mémoire au système. Il peut y avoir une différence entre la valeur de `Used Memory` et la consommation de mémoire telle qu’elle est indiquée par le système d’exploitation. Mémoire ont été utilisée et publiée par Redis, mais pas restituée au système. Pour aider à atténuer les problèmes de mémoire, vous pouvez effectuer les étapes suivantes :
 

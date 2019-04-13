@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9c628b02961ee289833e669a4c77de0bf824de22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 061156a455664a5a3f0b4c4497d24f4e8ff6eea7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999978"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527249"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès URL à l’aide d’Azure CLI
 
@@ -220,7 +220,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Pour obtenir l’adresse IP publique de la passerelle d’application, vous pouvez utiliser la commande [az network public-ip show](/cli/azure/network/public-ip). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, ou `http://40.121.222.19:8080/video/test.htm`.
+Pour obtenir l’adresse IP publique de la passerelle d’application, vous pouvez utiliser la commande [az network public-ip show](/cli/azure/network/public-ip). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm` ou `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -232,11 +232,11 @@ az network public-ip show \
 
 ![Tester l’URL de base dans la passerelle d’application](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Modifiez l’URL : http://<addresse-ip>:8080/video/test.html à la fin de l’URL de base. Voici ce qui apparaît :
+Remplacez l’URL par `http://<ip-address>:8080/video/test.html` à la fin de l’URL de base et vous devriez voir quelque chose comme dans l’exemple suivant :
 
 ![Tester l’URL images dans la passerelle d’application](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Modifiez l’URL : http://<addresse-ip>:8080/video/test.html. Voici ce qui apparaît :
+Remplacez l’URL par `http://<ip-address>:8080/video/test.html` et vous devez voir quelque chose comme l’exemple suivant.
 
 ![Tester l’URL vidéo dans la passerelle d’application](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

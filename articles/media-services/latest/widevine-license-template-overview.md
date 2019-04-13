@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3615bd88cfadf2f59942fab7678d36d4d20d8c9f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c6fc363a7ab9de215647e371a9d3c846f8688bd5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992736"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548700"
 ---
 # <a name="widevine-license-template-overview"></a>Vue d’ensemble du modèle de licence Widevine 
 
@@ -64,8 +64,8 @@ Une demande de licence Widevine se présente sous forme de message JSON.
 | --- | --- | --- |
 | payload |Chaîne codée en Base64 |La demande de licence envoyée par un client. |
 | content_id |Chaîne codée en Base64 |Identificateur utilisé afin de dériver l’ID de clé et la clé de contenu pour chaque content_key_specs.track_type. |
-| provider |chaîne |Utilisé pour rechercher les stratégies et les clés de contenu. Si la remise de clé Microsoft est utilisée pour la remise de licence Widevine, ce paramètre est ignoré. |
-| policy_name |chaîne |Nom d'une stratégie précédemment enregistrée. facultatif. |
+| provider |string |Utilisé pour rechercher les stratégies et les clés de contenu. Si la remise de clé Microsoft est utilisée pour la remise de licence Widevine, ce paramètre est ignoré. |
+| policy_name |string |Nom d'une stratégie précédemment enregistrée. facultatif. |
 | allowed_track_types |enum |SD_ONLY ou SD_HD. Contrôle les clés de contenu incluses dans une licence. |
 | content_key_specs |Tableau de structures JSON (voir la section « Spécifications de clé de contenu »).  |Un contrôle plus fin sur les clés de contenu à retourner. Pour plus d’informations, consultez la section « Spécifications de clé de contenu ». Une seule valeur allowed_track_types et content_key_specs peut être spécifiée. |
 | use_policy_overrides_exclusively |Booléen, true ou false |Utiliser les attributs de la stratégie spécifiés par policy_overrides, et ignorer toutes les stratégies stockées précédemment. |
@@ -80,7 +80,7 @@ Chaque valeur content_key_specs doit être spécifiée pour toutes les pistes, q
 
 | Nom | Valeur | Description |
 | --- | --- | --- |
-| content_key_specs. track_type |chaîne |Un nom de type de piste. Si la valeur content_key_specs est spécifiée dans la demande de licence, assurez-vous de spécifier tous les types de pistes de façon explicite. Dans le cas contraire, vous serez confronté à un échec de lecture des 10 dernières secondes. |
+| content_key_specs. track_type |string |Un nom de type de piste. Si la valeur content_key_specs est spécifiée dans la demande de licence, assurez-vous de spécifier tous les types de pistes de façon explicite. Dans le cas contraire, vous serez confronté à un échec de lecture des 10 dernières secondes. |
 | content_key_specs  <br/> security_level |uint32 |Définit la configuration requise de robustesse du client pour la lecture. <br/> - Chiffrement whitebox logiciel requis. <br/> - Chiffrement logiciel et décodeur masqué requis. <br/> - Le matériel de clé et les opérations de chiffrement doivent être effectués dans un environnement d’exécution approuvé soutenu par le matériel. <br/> - Le chiffrement et le décodage du contenu doivent être effectués dans un environnement d’exécution approuvé soutenu par le matériel.  <br/> - Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement d’exécution approuvé soutenu par le matériel. |
 | content_key_specs <br/> required_output_protection.hdc |string : HDCP_NONE, HDCP_V1 ou HDCP_V2 |Indique si HDCP est obligatoire. |
 | content_key_specs <br/>key |Chaîne<br/>encodée Base64 |Clé de contenu à utiliser pour cette piste. Si spécifié, track_type ou key_id est requis. Le fournisseur de contenu peut utiliser cette option pour injecter la clé de contenu de cette piste, au lieu de laisser le serveur de licences Widevine générer ou rechercher une clé. |
@@ -95,7 +95,7 @@ Chaque valeur content_key_specs doit être spécifiée pour toutes les pistes, q
 | policy_overrides&#46;license_duration_seconds |int64 |Indique la fenêtre de temps pour cette licence spécifique. La valeur 0 indique qu'il n'existe aucune limite de durée. La valeur par défaut est 0. |
 | policy_overrides&#46;rental_duration_seconds |int64 |Indique la fenêtre de temps où la lecture est autorisée. La valeur 0 indique qu'il n'existe aucune limite de durée. La valeur par défaut est 0. |
 | policy_overrides&#46;playback_duration_seconds |int64 |Fenêtre d’affichage du temps une fois la lecture démarrée dans la durée de la licence. La valeur 0 indique qu'il n'existe aucune limite de durée. La valeur par défaut est 0. |
-| policy_overrides&#46;renewal_server_url |chaîne |Toutes les demandes de pulsation (renouvellement) de cette licence sont dirigées vers l’URL spécifiée. Ce champ est utilisé uniquement si can_renew a la valeur true. |
+| policy_overrides&#46;renewal_server_url |string |Toutes les demandes de pulsation (renouvellement) de cette licence sont dirigées vers l’URL spécifiée. Ce champ est utilisé uniquement si can_renew a la valeur true. |
 | policy_overrides&#46;renewal_delay_seconds |int64 |Nombre de secondes après license_start_time avant la première tentative de renouvellement. Ce champ est utilisé uniquement si can_renew a la valeur true. La valeur par défaut est 0. |
 | policy_overrides&#46;renewal_retry_interval_seconds |int64 |Spécifie le délai en secondes entre les demandes de renouvellement de licence suivantes, en cas d'échec. Ce champ est utilisé uniquement si can_renew a la valeur true. |
 | policy_overrides&#46;renewal_recovery_duration_seconds |int64 |La fenêtre de temps pendant laquelle la lecture peut se poursuivre pendant la tentative de renouvellement, malgré l’échec en raison de problèmes de backend avec le serveur de licences. La valeur 0 indique qu'il n'existe aucune limite de durée. Ce champ est utilisé uniquement si can_renew a la valeur true. |
@@ -118,12 +118,12 @@ Pour configurer le modèle, vous pouvez :
 
 Cette méthode peut être sujette aux erreurs. Il est recommandé d’utiliser une autre méthode, décrite dans [Définir les classes nécessaires et sérialiser en JSON](#classes).
 
-    ```csharp
-    ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
-    {
-        WidevineTemplate = @"{""allowed_track_types"":""SD_HD"",""content_key_specs"":[{""track_type"":""SD"",""security_level"":1,""required_output_protection"":{""hdcp"":""HDCP_V2""}}],""policy_overrides"":{""can_play"":true,""can_persist"":true,""can_renew"":false}}"
-    };
-    ```
+```csharp
+ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
+{
+    WidevineTemplate = @"{""allowed_track_types"":""SD_HD"",""content_key_specs"":[{""track_type"":""SD"",""security_level"":1,""required_output_protection"":{""hdcp"":""HDCP_V2""}}],""policy_overrides"":{""can_play"":true,""can_persist"":true,""can_renew"":false}}"
+};
+```
 
 ### <a id="classes"></a> Définir les classes nécessaires et sérialiser en JSON
 
@@ -131,36 +131,36 @@ Cette méthode peut être sujette aux erreurs. Il est recommandé d’utiliser u
 
 L’exemple suivant illustre les définitions de classes qui mappent au schéma JSON Widevine. Vous pouvez instancier les classes avant de les sérialiser en chaîne JSON.  
 
-    ```csharp
-    public class PolicyOverrides
-    {
-        public bool CanPlay { get; set; }
-        public bool CanPersist { get; set; }
-        public bool CanRenew { get; set; }
-        public int RentalDurationSeconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int PlaybackDurationSeconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int LicenseDurationSeconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
-    }
+```csharp
+public class PolicyOverrides
+{
+    public bool CanPlay { get; set; }
+    public bool CanPersist { get; set; }
+    public bool CanRenew { get; set; }
+    public int RentalDurationSeconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
+    public int PlaybackDurationSeconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
+    public int LicenseDurationSeconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
+}
 
-    public class ContentKeySpec
-    {
-        public string TrackType { get; set; }
-        public int SecurityLevel { get; set; }
-        public OutputProtection RequiredOutputProtection { get; set; }
-    }
+public class ContentKeySpec
+{
+    public string TrackType { get; set; }
+    public int SecurityLevel { get; set; }
+    public OutputProtection RequiredOutputProtection { get; set; }
+}
 
-    public class OutputProtection
-    {
-        public string HDCP { get; set; }
-    }
+public class OutputProtection
+{
+    public string HDCP { get; set; }
+}
 
-    public class WidevineTemplate
-    {
-        public string AllowedTrackTypes { get; set; }
-        public ContentKeySpec[] ContentKeySpecs { get; set; }
-        public PolicyOverrides PolicyOverrides { get; set; }
-    }
-    ```
+public class WidevineTemplate
+{
+    public string AllowedTrackTypes { get; set; }
+    public ContentKeySpec[] ContentKeySpecs { get; set; }
+    public PolicyOverrides PolicyOverrides { get; set; }
+}
+```
 
 #### <a name="configure-the-license"></a>Configurer la licence
 

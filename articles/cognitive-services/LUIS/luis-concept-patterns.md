@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547416"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523101"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Les modèles améliorent la précision de la prédiction
 Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires.  Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus. 
@@ -31,7 +31,7 @@ Imaginez une application Ressources humaines qui génère des rapports sur l’o
 |Qui est subordonné à Tom ?|GetOrgChart|.30|
 |Qui est le subordonné de Tom ?|GetOrgChart|.30|
 
-Si une application présente entre 10 et 20 énoncés de longueurs différentes, avec un ordre de mots, voire même des mots différents (synonymes de « subordonné », « gérer », « rapport »), LUIS peut renvoyer un score de confiance faible. Créer un modèle pour aider les LUIS à comprendre l’importance de l’ordre de word. 
+Si une application présente entre 10 et 20 énoncés de longueurs différentes, avec un ordre de mots, voire même des mots différents (synonymes de « subordonné », « gérer », « rapport »), LUIS peut renvoyer un score de confiance faible. Créer un modèle pour aider les LUIS à comprendre l’importance de l’ordre des mots. 
 
 Les modèles peuvent résoudre les situations suivantes : 
 
@@ -41,7 +41,7 @@ Les modèles peuvent résoudre les situations suivantes :
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Les modèles ne garantissent pas l’intention
 Les modèles utilisent un mélange de technologies de prédiction. La définition d’une intention pour un exemple d’énoncé dans un modèle ne garantit pas la prédiction de l’intention, mais constitue un signal fort. 
 
-<a name="patterns-do-not-improve-entity-detection"/>
+<a name="patterns-do-not-improve-entity-detection"/></a>
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Modèles n’améliorent pas la détection de la machine a appris une entité
 
@@ -50,7 +50,7 @@ Un modèle est principalement destiné à la prédiction des intentions et des r
 Ne vous attendez pas à constater une amélioration de la prédiction d’entité si vous réduisez plusieurs énoncés dans un modèle unique. Pour que les entités Simple se déclenchent, vous devez ajouter des énoncés ou utiliser des entités de liste, sinon votre modèle ne se déclenchera pas.
 
 ## <a name="patterns-use-entity-roles"></a>Les modèles utilisent des rôles d’entités
-Si deux ou plusieurs entités dans un modèle sont associées de manière contextuelle, les modèles utilisent des [rôles](luis-concept-roles.md) d’entités pour extraire des informations contextuelles sur les entités. Cela équivaut aux enfants d’entité hiérarchique, mais n’est disponible que dans les modèles **uniquement**. 
+Si deux ou plusieurs entités dans un modèle sont associées de manière contextuelle, les modèles utilisent des [rôles](luis-concept-roles.md) d’entités pour extraire des informations contextuelles sur les entités.  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Scores de prédiction avec et sans modèles
 Avec suffisamment d’exemples d’énoncés, LUIS doit pouvoir accroître la confiance des prévisions sans modèles. Les modèles augmentent le score de confiance sans avoir à fournir autant énoncés.  
@@ -83,7 +83,7 @@ Le **facultatif** syntaxe, avec des crochets, peut être imbriquées deux niveau
 |est une nouvelle forme|correspond au mot facultatif externe et les mots non facultatifs dans le modèle|
 |un nouveau formulaire|mots de correspondances requis uniquement|
 
-Le **regroupement** syntaxe, avec des parenthèses, peut être imbriquées deux niveaux. Par exemple : `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Ainsi, une des trois entités à mettre en correspondance. 
+Le **regroupement** syntaxe, avec des parenthèses, peut être imbriquées deux niveaux. Par exemple : `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Cette fonctionnalité permet une des trois entités à mettre en correspondance. 
 
 Si Entity1 est un emplacement avec les rôles, tels que l’origine (Seattle) et de destination (Le Caire) et 2 de l’entité est un nom connu de construction d’une entité de liste (RedWest-C), les énoncés suivants seraient mappée à ce modèle :
 
@@ -170,7 +170,7 @@ Marquez un texte facultatif dans l’énoncé à l’aide de la syntaxe en croch
 |Modèle avec un texte facultatif|Signification|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` et `from {person}` sont facultatives|
-|« Pouvez-vous m’aider [ ?]|Le signe de ponctuation est facultatif|
+|« Pouvez-vous m’aider [ ?] | Le signe de ponctuation est facultatif|
 
 Signes de ponctuation (`?`, `!`, `.`) doivent être ignorées et vous devez les ignorer à l’aide de la syntaxe d’un crochet dans les modèles. 
 

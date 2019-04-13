@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492292"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528253"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer une homologation de réseaux virtuels - Resource Manager - Abonnements différents
 
@@ -27,9 +27,9 @@ Les étapes de création d’une homologation de réseaux virtuels sont différe
 
 |Modèle de déploiement Azure  | Abonnement Azure  |
 |--------- |---------|
-|[Les deux modèles Resource Manager](tutorial-connect-virtual-networks-portal.md) |Identique|
+|[Tous deux Resource Manager](tutorial-connect-virtual-networks-portal.md) |Identique|
 |[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models.md) |Identique|
-|[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models-subscriptions.md) |Différent|
+|[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models-subscriptions.md) |Différent|
 
 Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Si vous avez besoin de connecter des réseaux virtuels tous deux créés par le biais du modèle de déploiement classique, vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
 
@@ -61,7 +61,7 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
 7. Dans la zone **Rôle**, sélectionnez **Contributeur de réseaux**.
 8. Dans la zone **Sélectionner**, sélectionnez *UserB* ou tapez l’adresse e-mail de UserB pour rechercher cet utilisateur.
 9. Sélectionnez **Enregistrer**.
-10. Sous **myVnetA - Contrôle d’accès (IAM)**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+10. Sous **myVnetA - Contrôle d’accès (IAM)**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Déconnectez-vous du portail en tant que UserA, puis connectez-vous en tant que UserB.
 12. Effectuez les étapes 2 et 3, en entrant ou en sélectionnant les valeurs suivantes à l’étape 3 :
 
@@ -74,7 +74,7 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
     - **Emplacement** : *USA Est*
 
 13. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetB*. Quand **myVnetB** apparaît dans les résultats de recherche, sélectionnez cette entrée.
-14. Sous **myVnetB**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L'ID de ressource est semblable à l'exemple suivant : /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. Sous **myVnetB**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
 15. Sous **myVnetB**, sélectionnez **Contrôle d’accès (IAM)**, puis suivez les étapes 5 à 10 pour myVnetB, en entrant **UserA** à l’étape 8.
 16. Déconnectez-vous du portail en tant que UserB, puis connectez-vous en tant que UserA.
 17. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand **myVnetA** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
@@ -111,7 +111,7 @@ Les scripts suivants :
 Au lieu d’installer l’interface CLI et ses dépendances, vous pouvez utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Sélectionnez le bouton **Try it** dans le script qui suit afin d’appeler un Cloud Shell avec lequel vous pouvez vous connecter à votre compte Azure.
 
 1. Ouvrez une session CLI et connectez-vous à Azure en tant que UserA à l’aide de la commande `azure login`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
-2. Copiez le script suivant dans un éditeur de texte sur votre ordinateur, remplacez `<SubscriptionA-Id>` par l’ID de l’abonnement A, puis copiez le script modifié, collez-le dans votre session CLI et appuyez sur `Enter`. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande « az account show ». La valeur de **id** dans la sortie est votre ID d’abonnement.
+2. Copiez le script suivant dans un éditeur de texte sur votre ordinateur, remplacez `<SubscriptionA-Id>` par l’ID de l’abonnement A, puis copiez le script modifié, collez-le dans votre session CLI et appuyez sur `Enter`. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande `az account show`. La valeur de **id** dans la sortie est votre ID d’abonnement.
 
     ```azurecli-interactive
     # Create a resource group.

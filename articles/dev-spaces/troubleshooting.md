@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: b205f7782dc14c9108032d2b4a274f884194874e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357864"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548778"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -187,7 +187,7 @@ Le port du conteneur n’est pas disponible. Ce problème peut se produire, car�
 1. Vérifiez la configuration du port. Les numéros de port spécifiés doivent être **identiques** dans toutes les ressources suivantes :
     * **Dockerfile :** Spécifié par l’instruction `EXPOSE`.
     * **[Graphique Helm](https://docs.helm.sh) :** Spécifié par les valeurs `externalPort` et `internalPort` d’un service (souvent situées dans un fichier `values.yml`),
-    * Tous les ports ouverts dans le code d’application, par exemple dans Node.js : `var server = app.listen(80, function () {...}`
+    * Ports ouverts dans le code d’application, par exemple dans Node.js : `var server = app.listen(80, function () {...}`
 
 
 ## <a name="config-file-not-found"></a>Fichier de configuration introuvable
@@ -208,7 +208,7 @@ Le démarrage du débogueur VS Code peut parfois générer cette erreur.
 2. Appuyez de nouveau sur F5.
 
 ## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>Erreur de débogage « Failed to find debugger extension for type:coreclr » (Impossible de trouver l’extension du débogueur pour type: coreclr)
-Exécuter le débogueur de VS Code signale l’erreur : `Failed to find debugger extension for type:coreclr.`
+L’exécution du débogueur VS Code signale l’erreur : `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Motif
 L’extension VS Code pour C# n’est pas installée sur votre ordinateur de développement. Le C# extension inclut la prise en charge de .NET Core (CoreCLR) de débogage.
@@ -217,7 +217,7 @@ L’extension VS Code pour C# n’est pas installée sur votre ordinateur de dé
 Installez [l’extension VS Code pour C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>Erreur de débogage « Le type de débogage configuré « coreclr » n’est pas prise en charge »
-Exécuter le débogueur de VS Code signale l’erreur : `Configured debug type 'coreclr' is not supported.`
+L’exécution du débogueur VS Code signale l’erreur : `Configured debug type 'coreclr' is not supported.`
 
 ### <a name="reason"></a>Motif
 L’extension VS Code pour Azure Dev Spaces n’est pas installée sur votre ordinateur de développement.
@@ -226,7 +226,7 @@ L’extension VS Code pour Azure Dev Spaces n’est pas installée sur votre ord
 Installez l’[extension VS Code pour Azure Dev Spaces](get-started-netcore.md).
 
 ## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Erreur de débogage « ’valeur ’cwd’ ’/src’. Le système ne peut pas trouver le fichier spécifié. » ou «launch: program ’/src/ [chemin d’accès au fichier binaire du projet]’ n’existe pas »
-Exécuter le débogueur de VS Code signale l’erreur `Invalid 'cwd' value '/src'. The system cannot find the file specified.` et/ou `launch: program '/src/[path to project executable]' does not exist`
+L’exécution du débogueur VS Code signale l’erreur : `Invalid 'cwd' value '/src'. The system cannot find the file specified.` et/ou `launch: program '/src/[path to project executable]' does not exist`
 
 ### <a name="reason"></a>Motif
 Par défaut, l’extension VS Code utilise `src` comme répertoire de travail du projet sur le conteneur. Si vous avez mis à jour votre `Dockerfile` pour spécifier un répertoire de travail différent, vous pouvez voir cette erreur.
@@ -325,3 +325,35 @@ Le nœud qui exécute le pod avec l’application Node.js que vous tentez d’at
 
 ### <a name="try"></a>Essai
 Une solution de contournement temporaire pour ce problème consiste à augmenter la valeur de *fs.inotify.max_user_watches* sur chaque nœud du cluster et redémarrer ce nœud pour que les modifications entrent en vigueur.
+
+## <a name="new-pods-are-not-starting"></a>Nouveaux pods ne démarrent pas
+
+### <a name="reason"></a>Motif
+
+L’initialiseur de Kubernetes ne peut pas appliquer le PodSpec pour les nouveaux pods en raison de modifications de l’autorisation RBAC pour le *administrateur de cluster* rôle dans le cluster. Le nouveau module peut-être également avoir un PodSpec non valide, par exemple le compte de service associé avec le pod n’existe plus. Pour voir les pods qui se trouvent dans un *en attente* état en raison du problème d’initialiseur, utilisez le `kubectl get pods` commande :
+
+```bash
+kubectl get pods --all-namespaces --include-uninitialized
+```
+
+Ce problème peut affecter les pods dans *tous les espaces de noms* dans le cluster, y compris les espaces de noms où les espaces de développement Azure n’est pas activé.
+
+### <a name="try"></a>Essai
+
+[La mise à jour de l’interface CLI espaces de développement vers la dernière version](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) et en supprimant le *azds InitializerConfiguration* à partir du contrôleur d’espaces de développement Azure :
+
+```bash
+az aks get-credentials --resource-group <resource group name> --name <cluster name>
+kubectl delete InitializerConfiguration azds
+```
+
+Une fois que vous avez supprimé le *azds InitializerConfiguration* à partir du contrôleur d’espaces de développement Azure, utilisez `kubectl delete` à supprimer n’importe quel nombre de pods dans un *en attente* état. Après tout, en attente de pods ont été supprimés, redéployer vos PODS sera supprimé.
+
+Si les nouveaux pods sont toujours bloqués dans une *en attente* état après un redéploiement, utilisez `kubectl delete` à supprimer n’importe quel nombre de pods dans un *en attente* état. Après tout en attente de pods ont été supprimés, supprimer le contrôleur à partir du cluster et le réinstaller :
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+Une fois que votre contrôleur est réinstallé, redéployez vos PODS sera supprimé.

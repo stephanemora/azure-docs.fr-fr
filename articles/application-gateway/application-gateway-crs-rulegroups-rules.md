@@ -4,22 +4,24 @@ description: Cette page fournit des informations sur les règles et groupes CRS 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/8/2019
+ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279701"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523917"
 ---
-# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Liste des règles et groupes de règles CRS de pare-feu d’applications web proposées
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Règles et groupes de règles CRS de pare-feu d’applications web
 
-Le pare-feu d’applications web Application Gateway protège les applications web contre les vulnérabilités et failles de sécurité. Cette protection s’effectue via des règles définies basées sur les ensembles de règles de base OWASP 2.2.9 ou 3.0. Ces règles peuvent être désactivées une par une. Cet article contient les règles et ensembles de règles actuellement proposées.
+Le pare-feu d’applications web Application Gateway protège les applications web contre les vulnérabilités et failles de sécurité. Cela s’effectue via des règles définies basées sur les ensembles de règles OWASP core 3.0 ou 2.2.9. Ces règles peuvent être désactivées une par une. Cet article contient les règles et ensembles de règles actuellement proposées.
 
-Les tableaux suivants correspondent aux groupes de règles et règles disponibles lors de l’utilisation de la passerelle d’Application Gateway avec le pare-feu d’applications web.  Chaque tableau représente les règles trouvées dans un groupe de règles pour une version CRS spécifique.
+Les groupes de règles suivants et les règles sont disponibles lors de l’utilisation de la passerelle d’Application avec le pare-feu d’applications web.
 
-## <a name="owasp30"></a> OWASP_3.0
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+
+## <a name="owasp30"></a> Ensembles de règles
 
 ### <a name="General"></a> <p x-ms-format-detection="none">Généralités</p>
 
@@ -50,7 +52,7 @@ Les tableaux suivants correspondent aux groupes de règles et règles disponible
 |---|---|
 |920100|Ligne de requête HTTP non valide|
 |920130|Échec de l’analyse du corps de la requête.|
-|920140|Échec de la validation stricte du corps de la requête en plusieurs parties  =     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|920140|Échec de validation stricte de corps de la requête en plusieurs parties|
 |920160|L’en-tête HTTP Content-Length n’est pas numérique.|
 |920170|Requête GET ou HEAD avec contenu du corps.|
 |920180|En-tête Content-Length manquant dans la requête POST.|
@@ -216,7 +218,9 @@ Les tableaux suivants correspondent aux groupes de règles et règles disponible
 |943110|Possible attaque par fixation de session = Nom du paramètre SessionID avec référent hors domaine|
 |943120|Possible attaque par fixation de session = Nom du paramètre SessionID sans référent|
 
-## <a name="owasp229"></a> OWASP_2.2.9
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> Ensembles de règles
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -225,7 +229,7 @@ Les tableaux suivants correspondent aux groupes de règles et règles disponible
 |960911|Ligne de requête HTTP non valide|
 |981227|Erreur Apache = URI non valide dans la requête.|
 |960912|Échec de l’analyse du corps de la requête.|
-|960914|Échec de la validation stricte du corps de la requête en plusieurs parties  =     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|960914|Échec de validation stricte de corps de la requête en plusieurs parties|
 |960915|L’analyseur multipart a détecté une possible limite sans correspondance.|
 |960016|L’en-tête HTTP Content-Length n’est pas numérique.|
 |960011|Requête GET ou HEAD avec contenu du corps.|
@@ -472,6 +476,8 @@ Les tableaux suivants correspondent aux groupes de règles et règles disponible
 |950921|Accès par porte dérobée|
 |950922|Accès par porte dérobée|
 
+---
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir comment désactiver des règles WAF, consultez : [Personnaliser les règles de pare-feu d’application web](application-gateway-customize-waf-rules-portal.md)
+Découvrez comment désactiver les règles de pare-feu d’applications Web : [Personnaliser les règles de pare-feu d’application web](application-gateway-customize-waf-rules-portal.md)

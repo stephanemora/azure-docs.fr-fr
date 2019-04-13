@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4ece2dc1df3d29a3024c7efe15dd8cecfd9666db
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663857"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528184"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utiliser les rapports d’intégrité du système pour la résolution des problèmes
 Les composants Azure Service Fabric fournissent des rapports d’intégrité du système prêts à l’emploi pour toutes les entités du cluster. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) crée et supprime des entités en fonction des rapports du système. Il les organise au sein d’une hiérarchie qui tient compte des interactions entre les entités.
@@ -640,7 +640,7 @@ D’autres appels d’API qui peuvent être bloqués se trouvent dans l’interf
 
 - **IReplicator.CatchupReplicaSet**: Cet avertissement indique qu’une des deux choses. Il n’y a pas assez de réplicas. Pour voir si c’est le cas, regardez le statut de réplica des réplicas se trouvant dans la partition ou dans le rapport d’intégrité de System.FM pour une reconfiguration bloquée. Soit que les réplicas n’accusent pas réception des opérations. La cmdlet PowerShell `Get-ServiceFabricDeployedReplicaDetail` peut être utilisée pour déterminer la progression de tous les réplicas. Le problème se situe dans les réplicas dont la valeur `LastAppliedReplicationSequenceNumber` se trouve derrière la valeur `CommittedSequenceNumber` du réplica principal.
 
-- **IReplicator.BuildReplica(<Remote ReplicaId>)**: Cet avertissement indique un problème dans le processus de génération. Pour en savoir plus, consultez [Réplicas et instances](service-fabric-concepts-replica-lifecycle.md). Cela peut être dû à une configuration incorrecte de l’adresse du réplicateur. Pour plus d’informations, consultez [Configuration des services fiables (Reliable Services) avec état](service-fabric-reliable-services-configuration.md) et [Spécifier des ressources dans un manifeste de service](service-fabric-service-manifest-resources.md). Il peut également s’agir d’un problème sur le nœud distant.
+- **IReplicator.BuildReplica (\<ReplicaId distant >)**: Cet avertissement indique un problème dans le processus de génération. Pour en savoir plus, consultez [Réplicas et instances](service-fabric-concepts-replica-lifecycle.md). Cela peut être dû à une configuration incorrecte de l’adresse du réplicateur. Pour plus d’informations, consultez [Configuration des services fiables (Reliable Services) avec état](service-fabric-reliable-services-configuration.md) et [Spécifier des ressources dans un manifeste de service](service-fabric-service-manifest-resources.md). Il peut également s’agir d’un problème sur le nœud distant.
 
 ### <a name="replicator-system-health-reports"></a>Rapports d’intégrité du système sur le réplicateur
 **File d’attente de réplication complète :**

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: yluiu
-ms.openlocfilehash: 02e4e73bbbc7f843a3483bab4791484b89f97dd7
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 8502d643986392ba846d509819c6d8f63f931c07
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862027"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544548"
 ---
 # <a name="face-api-release-notes"></a>Notes de publication d’API Visage
 
@@ -27,7 +27,7 @@ Cet article fait référence à la version 1.0 du service API Visage.
 
 ### <a name="release-changes-in-january-2019"></a>Modifications apportées à la version de janvier 2019
 
-* Ajout de la fonctionnalité de capture instantanée pour prendre en charge la migration des données entre des abonnements : [Capture instantanée](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot). Plus de détails dans [comment migrer vos données face à un autre abonnement Face](Face-API-How-to-Topics/how-to-migrate-face-data.md).
+* Ajout de la fonctionnalité de capture instantanée pour prendre en charge la migration des données entre des abonnements : [Capture instantanée](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get). Plus de détails dans [comment migrer vos données face à un autre abonnement Face](Face-API-How-to-Topics/how-to-migrate-face-data.md).
 
 ### <a name="release-changes-in-october-2018"></a>Modifications apportées à la version d’octobre 2018
 

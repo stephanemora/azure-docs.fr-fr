@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0ab6e3f189d4a2e7e8f3bc96108d7979c99fffa8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102667"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524512"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Guide pratique pour paramétrer les fichiers de configuration dans Service Fabric
 
@@ -27,7 +27,7 @@ Cet article vous explique comment paramétrer un fichier de configuration dans S
 
 Dans cet exemple, vous remplacez une valeur de configuration à l’aide de paramètres dans le déploiement de votre application.
 
-1. Ouvrez le fichier  *<MyService>\PackageRoot\Config\Settings.xml* dans votre projet de service.
+1. Ouvrez le  *\<MyService > \PackageRoot\Config\Settings.xml* fichier dans votre projet de service.
 1. Définissez un nom de paramètre de configuration et une valeur, par exemple la taille du cache égale à 25, en ajoutant le code XML suivant :
 
    ```xml
@@ -37,7 +37,7 @@ Dans cet exemple, vous remplacez une valeur de configuration à l’aide de para
    ```
 
 1. Enregistrez et fermez le fichier.
-1. Ouvrez le fichier *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml*.
+1. Ouvrez le  *\<MyApplication > \ApplicationPackageRoot\ApplicationManifest.xml* fichier.
 1. Dans le fichier ApplicationManifest.xml, déclarez une valeur de paramètre et une valeur par défaut dans l’élément `Parameters`.  Il est recommandé que le nom du paramètre contienne le nom du service (par exemple, « MyService »).
 
    ```xml

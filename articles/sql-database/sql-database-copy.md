@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
-ms.author: carlrab
+ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2aeb756bda50597bf3e43c0c84391e0750bd8acb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 04/11/2019
+ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486816"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549685"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d'une base de données Azure SQL Database
 
@@ -90,10 +90,16 @@ Cette commande copie Database1 sur server1 dans une nouvelle base de données no
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> Pare-feu de deux serveurs doivent être configurés pour autoriser la connexion entrante à partir de l’adresse IP du client émettant la commande de copie de T-SQL.
 
-## <a name="to-move-a-database-between-subscriptions"></a>Pour déplacer une base de données entre des abonnements
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copier une base de données SQL vers un autre abonnement
 
-Dans le [portail Azure](https://portal.azure.com), cliquez sur **Serveurs SQL**, puis sélectionnez le serveur qui héberge votre base de données dans la liste. Cliquez sur **Déplacer**, puis sélectionnez les ressources à déplacer et l’abonnement cible.
+Vous pouvez utiliser le descrbed étapes dans la section précédente pour copier votre base de données à un serveur de base de données SQL dans un autre abonnement. Assurez-vous que vous utilisez une connexion qui a le même nom et mot de passe en tant que le propriétaire de la base de données de la base de données source et elle est membre du rôle dbmanager, soit la connexion du principal au niveau du serveur. 
+
+> [!NOTE]
+> Le [Azure portal](https://portal.azure.com) ne prend pas en charge la copie vers un autre abonnement, car le portail appelle l’API ARM et il utilise les certificats d’abonnement pour accéder aux deux serveurs impliqués dans la géo-réplication.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Contrôle de la progression de l’opération de copie
 

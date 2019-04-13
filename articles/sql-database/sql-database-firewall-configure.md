@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f2ea9f784064a926a391ba0eadebd9fa5224a36d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875184"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549727"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et SQL Data Warehouse
 
@@ -249,6 +249,7 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Confirmez que votre environnement de réseau d’entreprise autorise les communications entrantes issues les plages d’adresses IP de calcul (y compris les plages SQL) utilisées par les centres de données Microsoft Azure. Il peut être nécessaire à la liste verte ces adresses IP, consultez [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653)  
 - Pour obtenir un guide de démarrage rapide sur la création d’une règle de pare-feu IP au niveau du serveur, consultez [Créer une base de données SQL Azure](sql-database-single-database-get-started.md).
 - Pour obtenir de l’aide afin de vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Exemples de code de démarrage rapide client pour Base de données SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Pour plus d’informations sur les autres ports que vous devrez peut-être ouvrir, consultez la section **SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).

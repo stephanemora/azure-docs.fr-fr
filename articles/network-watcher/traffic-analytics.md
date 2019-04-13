@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490994"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545397"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -202,7 +202,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
 ### <a name="find-traffic-hotspots"></a>Rechercher les zones réactives du trafic
 
-**Chercher**
+**Rechercher**
 
 - Quels ordinateurs hôtes, sous-réseaux et réseaux virtuels envoient ou recevoir le plus de trafic, hébergent le maximum de trafic malveillant et bloquent des flux importants ?
     - Vérifiez le graphique comparatif de l’ordinateur hôte, du sous-réseau et du réseau virtuel. Le fait de savoir quels hôtes, sous-réseaux et réseaux virtuels envoient ou reçoivent le plus de trafic vous permet d’identifier les hôtes qui traitent le plus de trafic et si le trafic est correctement distribué.
@@ -222,7 +222,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
     ![Tendance des cinq principaux hôtes qui communiquent le plus](media/traffic-analytics/top-five-most-talking-host-trend.png)
 
-**Chercher**
+**Rechercher**
 
 - Quelles sont les paires d’hôtes qui communiquent le plus ?
     - Comportement attendu comme la communication frontend ou backend, ou comportement anormal comme le trafic Internet backend.
@@ -238,7 +238,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
     ![Tendance et détails des cinq principales conversations les plus fréquentes](./media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
-**Chercher**
+**Rechercher**
 
 - Quel est le protocole d’application le plus utilisé dans votre environnement, et quelles paires d’hôtes qui communiquent utilisent le plus le protocole d’application ?
     - Ces applications sont-elles autorisées sur ce réseau ?
@@ -252,7 +252,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
     ![Détails du flux pour un protocole d’application dans Recherche dans les journaux](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
-**Chercher**
+**Rechercher**
 
 - Tendances d’utilisation de la capacité d’une passerelle VPN dans votre environnement.
     - Chaque référence SKU de VPN autorise une certaine quantité de bande passante. Les passerelles VPN sont-elles sous-exploitées ?
@@ -268,7 +268,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
 ### <a name="visualize-traffic-distribution-by-geography"></a>Visualiser la distribution du trafic par zone géographique
 
-**Chercher**
+**Rechercher**
 
 - Distribution du trafic par centre de données comme les principales sources de trafic vers un centre de données, les principaux réseaux non fiables communiquant avec le centre de données et les principaux protocoles d’application qui communiquent.
   - Si vous remarquez plus de charge sur un centre de données, vous pouvez planifier une distribution du trafic efficace.
@@ -290,7 +290,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
 ### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Visualiser la distribution du trafic par réseaux virtuels
 
-**Chercher**
+**Rechercher**
 
 - Distribution du trafic par réseau virtuel, topologie, principales sources de trafic vers le réseau virtuel, principaux réseaux non fiables qui communiquent avec le réseau virtuel, principaux protocoles d’application qui communiquent.
   - Savoir quel réseau virtuel communique avec quel réseau virtuel. Si la conversation n’est pas attendue, cela peut être corrigé.
@@ -310,7 +310,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
     ![Détails du flux pour la distribution du trafic de réseau virtuel dans la recherche dans les journaux](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
-**Chercher**
+**Rechercher**
 
 - Distribution du trafic par sous-réseau, topologie, principales sources de trafic vers le sous-réseau, principaux réseaux non autorisés qui communiquent avec le sous-réseau et principaux protocoles d’application qui communiquent.
     - Savoir quel sous-réseau communique avec quel sous-réseau. Si vous remarquez des conversations inattendues, vous pouvez corriger votre configuration.
@@ -320,7 +320,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
     ![Topologie de sous-réseau présentant la distribution du trafic sur un sous-réseau de réseau virtuel en ce qui concerne les flux](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
-**Chercher**
+**Rechercher**
 
 Distribution du trafic par passerelle d’application et équilibreur de charge, topologie, principales sources de trafic, principaux réseaux non autorisés qui communiquent avec la passerelle d’application et l’équilibreur de charge, et principaux protocoles d’application qui communiquent. 
     
@@ -331,7 +331,7 @@ Distribution du trafic par passerelle d’application et équilibreur de charge,
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Afficher les ports et les machines virtuelles recevant le trafic d’Internet
 
-**Chercher**
+**Rechercher**
 
 - Quels sont les ports ouverts qui communiquent sur Internet ?
   - Si des ports inattendus sont trouvés ouverts, vous pouvez corriger votre configuration :
@@ -340,7 +340,7 @@ Distribution du trafic par passerelle d’application et équilibreur de charge,
 
     ![Détails des hôtes et ports de destination Azure](./media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
 
-**Chercher**
+**Rechercher**
 
 Avez-vous détecté la présence de trafic malveillant dans votre environnement ? D’où provient-il ? Où va-t-il ?
 
@@ -349,7 +349,7 @@ Avez-vous détecté la présence de trafic malveillant dans votre environnement 
 
 ### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>Visualiser les tendances dans les correspondances de règles de groupe de sécurité réseau/groupes de sécurité réseau
 
-**Chercher**
+**Rechercher**
 
 - Quels règles de groupe de sécurité réseau/groupes de sécurité réseau ont le plus de résultats dans le graphique comparatif avec la distribution de flux ?
 - Quelles sont les principales paires de conversation source et destination par règle de groupe de sécurité réseau/groupe de sécurité réseau ?
@@ -369,3 +369,8 @@ Avez-vous détecté la présence de trafic malveillant dans votre environnement 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 Pour obtenir des réponses aux questions fréquemment posées, consultez [Traffic Analytics FAQ](traffic-analytics-faq.md) (Forum aux questions sur Traffic Analytics).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Pour savoir comment activer les journaux de flux, consultez [Enable flow logs](network-watcher-nsg-flow-logging-portal.md) (Activer les journaux de flux).
+- Pour comprendre le schéma et les détails de l’Analytique du trafic de traitement, consultez [schéma d’analytique du trafic](traffic-analytics-schema.md).

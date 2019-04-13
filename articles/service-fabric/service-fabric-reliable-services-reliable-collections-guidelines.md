@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: aljo
-ms.openlocfilehash: d4d0145ef07a6a89cbae1fe18d2cb7df88cdd113
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667104"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549016"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Instructions et recommandations pour les collections fiables dans Azure Service Fabric
 Cette section fournit des instructions pour l’utilisation du gestionnaire d’état fiable et des collections fiables. L’objectif consiste à aider les utilisateurs à éviter les pièges courants.
@@ -32,6 +32,7 @@ Les directives sont organisées comme de simples recommandations avec les termes
 * N’utilisez pas une transaction une fois qu’elle a été validée, abandonnée ou supprimée.
 * N’utilisez pas une énumération en dehors de l’étendue de transaction dans laquelle elle a été créée.
 * Ne créez pas une transaction au sein de l’instruction `using` d’une autre transaction, car cela peut provoquer des blocages.
+* Ne créez pas d’état fiable avec `IReliableStateManager.GetOrAddAsync` et utilisez l’état fiable dans la même transaction. Cela entraîne une exception InvalidOperationException.
 * Assurez-vous que votre implémentation de `IComparable<TKey>` est correcte. Le système dépend de `IComparable<TKey>` pour la fusion des points de contrôle et des lignes.
 * N’utilisez pas un verrou de mise à jour lors de la lecture d’un élément avec l’intention de le mettre à jour pour empêcher une certaine classe de blocages.
 * Envisagez de conserver le nombre de Reliable Collections par partition sur un nombre inférieur à 1 000. Privilégiez les Reliable Collections avec plus d’éléments par rapport à plus de Reliable Collections avec moins d’éléments.

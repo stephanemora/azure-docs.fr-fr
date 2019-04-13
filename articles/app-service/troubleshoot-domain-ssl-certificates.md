@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905815"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525379"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaines et de certificats SSL dans Azure App Service
 
@@ -111,21 +111,21 @@ Si vous accédez au site à l’aide du nom de domaine personnalisé, le message
 
 #### <a name="cause-and-solution"></a>Cause et solution
 
-**Cause 1** 
+**Cause 1** 
 
 Un enregistrement CNAME ou A est manquant dans le domaine personnalisé que vous avez configuré. 
 
-**Solution pour la cause 1**
+**Solution pour la cause 1**
 
 - Si vous avez ajouté un enregistrement A, vérifiez qu’un enregistrement TXT a également été ajouté. Pour plus d’informations, consultez [Créer un enregistrement A](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
 - Si vous n’avez pas à utiliser le domaine racine de votre application, nous vous recommandons d’utiliser un enregistrement CNAME au lieu d’un enregistrement A.
 - N’utilisez pas à la fois un enregistrement CNAME et un enregistrement A pour un même domaine. Ce problème peut provoquer un conflit et empêcher que le domaine en cours de résolution. 
 
-**Cause 2** 
+**Cause 2** 
 
 Le navigateur Internet met peut-être en cache l’ancienne adresse IP de votre domaine. 
 
-**Solution pour la cause 2**
+**Solution pour la cause 2**
 
 Effacez le cache du navigateur. Pour les appareils Windows, vous pouvez exécuter la commande `ipconfig /flushdns`. Utilisez [WhatsmyDNS.net](https://www.whatsmydns.net/) pour vérifier que votre domaine pointe vers l’adresse IP de l’application. 
 
@@ -270,8 +270,8 @@ Ce problème se produit pour l’une des raisons suivantes :
     |Type d’enregistrement|Host|Pointe vers|
     |------|------|-----|
     |A|@|Adresse IP d’une application|
-    |TXT|@|< nom_application >. azurewebsites.net|
-    |CNAME|www|< nom_application >. azurewebsites.net|
+    |TXT|@|`<app-name>.azurewebsites.net`|
+    |CNAME|www|`<app-name>.azurewebsites.net`|
 
 ## <a name="faq"></a>Forum Aux Questions
 

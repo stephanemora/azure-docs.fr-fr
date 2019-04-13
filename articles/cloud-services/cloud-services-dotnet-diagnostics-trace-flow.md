@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
-ms.openlocfilehash: f0724fd6e5f08f3e09bcb147c12d1657235dc704
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916884"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525559"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Assurer le suivi du flux dans une application Cloud Services avec Diagnostics Azure
 Le suivi est un moyen de surveiller l’exécution de votre application pendant son exécution . Vous pouvez utiliser les classes [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) et [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) pour enregistrer des informations relatives aux erreurs et à l’exécution des applications dans des journaux, des fichiers texte ou d’autres périphériques pour une analyse ultérieure. Pour plus d’informations sur le suivi, consultez [Applications de suivi et instrumentation](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
@@ -69,7 +69,7 @@ Pour plus d’informations sur les écouteurs, consultez [Suivi des écouteurs](
 Une fois les opérations destinées à ajouter l’écouteur terminées, vous pouvez ajouter des instructions de suivi à votre code.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Pour ajouter des instructions de suivi à votre code
-1. Ouvrez un fichier source pour votre application. Par exemple, le fichier <RoleName>.cs pour le rôle de travail ou le rôle web.
+1. Ouvrez un fichier source pour votre application. Par exemple, le \<RoleName > fichier .cs pour le rôle de travail ou un rôle web.
 2. Ajoutez le code suivant à l’aide d’une instruction s’il n’a pas été encore ajouté :
     ```
         using System.Diagnostics;

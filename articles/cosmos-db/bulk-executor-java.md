@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6a5712c617ab1e16b5341d9727b840fe8ea2213
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863353"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524019"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utiliser la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc sur les données Azure Cosmos DB
 
@@ -118,8 +118,8 @@ Le référentiel cloné contient deux exemples, « bulkimport » et « bulkup
    |int getNumberOfDocumentsImported()  |   Nombre total de documents qui ont été importés avec succès, sur tous les documents fournis à l’appel d’API d’importation en bloc.      |
    |double getTotalRequestUnitsConsumed()   |  Nombre total d’unités de requête (RU) consommées par l’appel d’API d’importation en bloc.       |
    |Duration getTotalTimeTaken()   |    Temps total nécessaire à l’exécution de l’appel d’API d’importation en bloc.     |
-   |List<Exception> getErrors() |  Obtient la liste des erreurs si certains documents du lot fourni à l’appel d’API d’importation en bloc n’ont pas pu être insérés.       |
-   |List<Object> getBadInputDocuments()  |    Liste de documents au format incorrect qui n’ont pas été importés dans l’appel d’API d’importation en bloc. L’utilisateur doit corriger les documents retournés et retenter l’importation. Les documents au format incorrect incluent les documents dont la valeur d’ID n’est pas une chaîne (null ou tout autre type de données est considéré comme non valide).     |
+   |Liste\<Exception > getErrors() |  Obtient la liste des erreurs si certains documents du lot fourni à l’appel d’API d’importation en bloc n’ont pas pu être insérés.       |
+   |List\<Object> getBadInputDocuments()  |    Liste de documents au format incorrect qui n’ont pas été importés dans l’appel d’API d’importation en bloc. L’utilisateur doit corriger les documents retournés et retenter l’importation. Les documents au format incorrect incluent les documents dont la valeur d’ID n’est pas une chaîne (null ou tout autre type de données est considéré comme non valide).     |
 
 5. Une fois l’application d’importation en bloc prête, générez l’outil en ligne de commande à partir de la source à l’aide de la commande « mvn clean package ». Cette commande génère un fichier jar dans le dossier cible :  
 
@@ -182,7 +182,7 @@ Vous pouvez mettre à jour des documents existants à l’aide de l’API BulkUp
    |int getNumberOfDocumentsUpdated()  |   Nombre total de documents qui ont été mis à jour avec succès, sur tous les documents fournis à l’appel d’API de mise à jour en bloc.      |
    |double getTotalRequestUnitsConsumed() |  Nombre total d’unités de requête (RU) consommées par l’appel d’API de mise à jour en bloc.       |
    |Duration getTotalTimeTaken()  |   Temps total nécessaire à l’exécution de l’appel d’API de mise à jour en bloc.      |
-   |List<Exception> getErrors()   |     Obtient la liste des erreurs si certains documents du lot fourni à l’appel d’API de mise à jour en bloc n’ont pas pu être insérés.      |
+   |Liste\<Exception > getErrors()   |    Obtient la liste des erreurs si certains documents du lot fourni à l’appel d’API de mise à jour en bloc n’ont pas pu être insérés.      |
 
 3. Une fois l’application de mise à jour en bloc prête, générez l’outil en ligne de commande à partir de la source à l’aide de la commande « mvn clean package ». Cette commande génère un fichier jar dans le dossier cible :  
 

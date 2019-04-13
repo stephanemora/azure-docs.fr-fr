@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106931"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522348"
 ---
 # <a name="create-entities-without-utterances"></a>Créer des entités sans énoncés
 
-L’entité représente un mot ou une phrase dans l’énoncé que vous souhaitez extraire. Une entité représente une classe, notamment une collection d’objets similaires (lieux, choses, personnes, événements ou concepts). Les entités décrivent des informations relatives à l’intention, et sont parfois essentiels pour que votre application effectue sa tâche. Vous pouvez créer des entités lorsque vous ajoutez un énoncé à une intention ou les unes des autres à partir de (avant ou après) Ajout d’un énoncé à une intention.
+L’entité représente un mot ou une phrase dans l’énoncé que vous souhaitez extraire. Une entité représente une classe, notamment une collection d’objets similaires (lieux, choses, personnes, des événements ou concepts). Les entités décrivent des informations relatives à l’intention, et sont parfois essentiels pour que votre application effectue sa tâche. Vous pouvez créer des entités lorsque vous ajoutez un énoncé à une intention ou les unes des autres à partir de (avant ou après) Ajout d’un énoncé à une intention.
 
 La **liste des entités** de la page **Entities** permet d’ajouter, de modifier et de supprimer des entités dans une application LUIS. LUIS propose deux grands types d’entités : les [entités prédéfinies](luis-reference-prebuilt-entities.md) et les [entités personnalisées](luis-concept-entity-types.md#types-of-entities).
 
@@ -56,7 +56,7 @@ Une entité simple décrit un concept unique. Appliquez la procédure suivante p
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Ajouter des entités d’expression régulière pour les concepts très structurées
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Ajouter des entités d’expression régulière pour les concepts très structurés
 
 Une entité d’expression régulière sert à extraire des données de l’énoncé suivant l’expression régulière fournie. 
 
@@ -135,7 +135,7 @@ Dans l’énoncé `Where is Request relocation from employee new to the company 
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>Ajouter un rôle pour distinguer les différents contextes
 
-Un rôle est un sous-type nommé d’une entité en fonction du contexte. Il s’apparente à une entité [hiérarchique](#add-hierarchical-entities), à ceci près qu’il ne peut être utilisé que dans un [modèle](luis-how-to-model-intent-pattern.md). 
+Un rôle est un sous-type nommé en fonction du contexte. Il est disponible dans toutes les entités, y compris des entités prédéfinies et non-machine-appris. 
 
 Si l’on continue avec le même exemple d’entité hiérarchique de villes d’origine et de destination, la différence est qu’un rôle est nommé origine au lieu d’un enfant hiérarchique. 
 

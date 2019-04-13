@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493312"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526336"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versions et historique des schémas de configuration de l’extension Azure Diagnostics
 Cette page est un index des versions de schémas d’extension Azure Diagnostics fournies avec le kit Microsoft Azure SDK.  
@@ -56,11 +56,11 @@ L’extension Azure Diagnostics est utilisée avec d’autres produits de diagno
 ## <a name="schemas-index"></a>Index des schémas  
 Les différentes versions d’Azure Diagnostics utilisent des schémas de configuration différents.
 
-[Schéma de Configuration Diagnostics 1.0](diagnostics-extension-schema-1dot0.md)  
+[Schéma de configuration des diagnostics 1.0](diagnostics-extension-schema-1dot0.md)  
 
-[Schéma de Configuration Diagnostics 1.2](diagnostics-extension-schema-1dot2.md)  
+[Schéma de configuration des diagnostics 1.2](diagnostics-extension-schema-1dot2.md)  
 
-[Diagnostics 1.3 et schéma de Configuration ultérieur](diagnostics-extension-schema-1dot3.md)  
+[Diagnostics 1.3 et schéma de configuration ultérieur](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Historique des versions
 
@@ -187,7 +187,7 @@ Il existe des différences notables entre la façon dont la chaîne de connexion
 
 * Dans le Kit de développement logiciel (SDK) Azure 2.4 et les versions antérieures, la chaîne de connexion était utilisée pendant le runtime par le plug-in des diagnostics pour obtenir les informations du compte de stockage relatives au transfert de journaux de diagnostic.
 * Dans Azure SDK 2.6 et les versions ultérieures, Visual Studio utilise la chaîne de connexion des diagnostics pour configurer l’extension des diagnostics avec les informations de compte de stockage appropriées lors de la publication. La chaîne de connexion permet de définir des comptes de stockage différents pour différentes configurations de service que Visual Studio utilise lors de la publication. Toutefois, étant donné que le plug-in des diagnostics n’est plus disponible (après le Kit de développement logiciel (SDK) Azure 2.5), le fichier .cscfg par lui-même ne peut pas activer l’extension des diagnostics. Vous devez activer l’extension séparément par le biais d’outils tels que Visual Studio ou PowerShell.
-* Pour simplifier le processus de configuration de l’extension des diagnostics avec PowerShell, la sortie du package à partir de Visual Studio contient également les fichiers XML de configuration publique pour l’extension des diagnostics pour chaque rôle. Visual Studio utilise la chaîne de connexion des diagnostics pour renseigner les informations de compte de stockage présentes dans la configuration publique. Les fichiers de configuration publique sont créés dans le dossier Extensions et suivent le modèle PaaSDiagnostics<RoleName>.PubConfig.xml. Tout déploiement basé sur PowerShell peut utiliser ce modèle pour mapper chaque configuration à un rôle.
+* Pour simplifier le processus de configuration de l’extension des diagnostics avec PowerShell, la sortie du package à partir de Visual Studio contient également les fichiers XML de configuration publique pour l’extension des diagnostics pour chaque rôle. Visual Studio utilise la chaîne de connexion des diagnostics pour renseigner les informations de compte de stockage présentes dans la configuration publique. Les fichiers de configuration publique sont créés dans le dossier Extensions et suivent le modèle `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Tout déploiement basé sur PowerShell peut utiliser ce modèle pour mapper chaque configuration à un rôle.
 * La chaîne de connexion dans le fichier .cscfg est également utilisée par le portail Azure pour accéder aux données de diagnostic afin de pouvoir les intégrer sous l’onglet **Analyse** . La chaîne de connexion est nécessaire pour configurer le service afin qu’il affiche les données d’analyse détaillées dans le portail.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migration de projets vers le Kit de développement logiciel (SDK) Azure 2.6 et les versions ultérieures
@@ -207,7 +207,7 @@ Par exemple, supposons que vous activiez cette case à cocher et que la chaîne 
 Si vous mettez à niveau votre projet du Kit de développement logiciel (SDK) Azure 2.4 vers le Kit de développement logiciel (SDK) Azure 2.5 ou les versions ultérieures, vous devez garder à l’esprit les différences existant entre les fonctionnalités de diagnostics suivantes.
 
 * **Les API de configuration sont déconseillées** : la configuration par programmation des diagnostics est disponible dans le Kit de développement logiciel (SDK) Azure 2.4 ou les versions antérieures, mais déconseillée dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures. Si votre configuration des diagnostics est actuellement définie dans un code, vous devez reconfigurer ces paramètres à partir de rien dans le projet migré, afin que les diagnostics continuent à fonctionner. Le nom du fichier de configuration des diagnostics est diagnostics.wadcfg dans le Kit de développement logiciel (SDK) Azure 2.4 et diagnostics.wadcfgx dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures.
-* **Diagnostics pour les applications de service cloud peuvent être configurées uniquement au niveau du rôle, pas au niveau de l’instance.**
+* **Les diagnostics pour les applications du service cloud peuvent uniquement être configurés au niveau du rôle, pas au niveau de l’instance.**
 * **Chaque fois que vous déployez votre application, la configuration des diagnostics est mise à jour** : cela peut occasionner des problèmes de parité si vous modifiez votre configuration des diagnostics à partir de l’Explorateur de serveurs, puis redéployez votre application.
 * **Dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures, les vidages sur incident sont configurés dans le fichier de configuration des diagnostics, pas dans le code** : si vous avez des vidages sur incident configurés dans le code, vous devez transférer la configuration manuellement du code vers le fichier de configuration, car les vidages sur incident ne sont pas transférés durant la migration vers le Kit de développement logiciel (SDK) Azure 2.6.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426424"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527181"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
 
@@ -147,7 +147,7 @@ Le transfert DNS permet aussi la résolution DNS entre réseaux virtuels et perm
 
 > [!NOTE]
 > Une instance de rôle peut résoudre les noms des machines virtuelles appartenant au même réseau virtuel. Pour cela, elle utilise le nom de domaine complet, qui est constitué du nom d’hôte de la machine virtuelle et du suffixe DNS **internal.cloudapp.net**. Toutefois, dans ce cas, la résolution de noms réussit uniquement si l’instance de rôle a le nom de la machine virtuelle défini dans le [Schéma Rôle (fichier .cscfg)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
-> <Role name="<role-name>" vmName="<vm-name>">
+> `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > Les instances de rôle qui doivent effectuer une résolution de noms des machines virtuelles dans un autre réseau virtuel (nom de domaine complet utilisant le suffixe **internal.cloudapp.net**) doivent le faire à l’aide de la méthode décrite dans cette section, c’est-à-dire, en transférant les serveurs DNS personnalisés entre les deux réseaux virtuels.
 >
@@ -219,6 +219,6 @@ Modèle de déploiement Azure Resource Manager :
 
 Modèle de déploiement classique :
 
-* [Schéma de Configuration de Service Azure](https://msdn.microsoft.com/library/azure/ee758710)
-* [Schéma de Configuration de réseau virtuel](https://msdn.microsoft.com/library/azure/jj157100)
+* [Schéma de configuration de service Microsoft Azure](https://msdn.microsoft.com/library/azure/ee758710)
+* [Schéma de configuration du réseau virtuel](https://msdn.microsoft.com/library/azure/jj157100)
 * [Configurer un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)

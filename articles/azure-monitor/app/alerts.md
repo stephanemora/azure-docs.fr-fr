@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491540"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548703"
 ---
 # <a name="set-alerts-in-application-insights"></a>Configuration d’alertes dans Application Insights
 [Azure Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application web. 
@@ -45,7 +45,7 @@ Ouvrez l’onglet Règles d’alerte, puis utilisez le bouton Ajouter.
 * Définissez une [adresse de webhook](../../azure-monitor/platform/alerts-webhooks.md) si vous avez configuré une application web qui répondra aux alertes. Elle est appelée lorsque l’alerte est Activée ou Résolue. (Mais notez qu’à l’heure actuelle, les paramètres de requête ne sont pas transmis en tant que propriétés webhook.)
 * Vous pouvez désactiver ou activer l’alerte : consultez les boutons en haut.
 
-*Je ne vois pas le bouton Ajouter une alerte.*
+*Je ne vois pas apparaître le bouton Ajouter une alerte.*
 
 * Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Examinez l’onglet de contrôle d’accès. [En savoir plus sur le contrôle d’accès][roles].
 
@@ -147,7 +147,7 @@ Dans cette section, nous allons examiner comment définir une alerte d’excepti
 
 ## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Comment se désabonner des notifications d’alerte par courrier
 
-Cette section s’applique aux **alertes de disponibilité classic**, **les alertes de métrique Application Insights**et **alertes d’échec classique d’anomalies**.
+Cette section s’applique aux **alertes de disponibilité classic**, **les alertes de métriques classiques de Application Insights**et **alertes d’échec classique d’anomalies**.
 
 Vous recevez des notifications par courrier électronique pour ces alertes classiques si les éléments suivants s’applique :
 
@@ -178,7 +178,7 @@ Utilisez la nouvelle expérience d'alerte ou les alertes en temps quasi-réel si
 
 ## <a name="automation"></a>Automatisation
 * [Utiliser PowerShell pour automatiser la configuration d’alertes](../../azure-monitor/app/powershell-alerts.md)
-* [Utiliser des webhooks pour automatiser la réponse aux alertes](../../azure-monitor/platform/alerts-webhooks.md)
+* [Utiliser les webhooks pour automatiser la réponse aux alertes](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="see-also"></a>Voir aussi
 * [Tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md)

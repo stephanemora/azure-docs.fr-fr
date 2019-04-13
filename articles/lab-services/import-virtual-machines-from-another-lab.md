@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b2eee0bfd32b58cd751f8bf70aff1d4f460a353
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 9cd2e5e211fcda7c59469d3b09e9c9e5bdefdbd6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340138"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546581"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importer des ordinateurs virtuels à partir d’un autre laboratoire dans Azure DevTest Labs
 Cet article fournit des informations sur comment importer des machines virtuelles à partir d’un autre laboratoire dans votre laboratoire. 
@@ -47,7 +47,7 @@ Il existe deux contraintes de clé à connaître lors de la planification import
 - Actuellement, cette fonctionnalité est prise en charge uniquement par le biais de Powershell et API REST.
 
 ## <a name="use-powershell"></a>Utiliser PowerShell
-Téléchargez le fichier ImportVirtualMachines.ps1 à partir de la [GitHub](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/ImportVirtualMachines/ImportVirtualMachines.ps1). Vous pouvez utiliser le script pour importer une seule machine virtuelle ou toutes les machines virtuelles dans le laboratoire de source dans le laboratoire de destination. 
+Téléchargez le fichier ImportVirtualMachines.ps1 à partir de la [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Vous pouvez utiliser le script pour importer une seule machine virtuelle ou toutes les machines virtuelles dans le laboratoire de source dans le laboratoire de destination. 
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>Utiliser PowerShell pour importer une seule machine virtuelle
 L’exécution de ce script powershell nécessite l’identifiant de la machine virtuelle source et l’atelier de destination et si vous le souhaitez en fournissant un nouveau nom à utiliser pour l’ordinateur de destination :

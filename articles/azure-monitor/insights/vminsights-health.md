@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b1118a3add665de403e4e0f8fd8883ce0094d9dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490039"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549863"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendre l’intégrité de vos machines virtuelles Azure
 
@@ -235,7 +235,9 @@ Pour afficher l’état d’intégrité mis à jour, vous pouvez actualiser la p
 
 ## <a name="alerts"></a>Alertes
 
-La fonctionnalité Azure Monitor pour l’intégrité des machines virtuelles s’intègre aux [Alertes Azure](../../azure-monitor/platform/alerts-overview.md) et déclenche une alerte lorsque les critères d’intégrité prédéfinis passent d’un état sain à un état non intègre lorsque la condition est détectée. Les alertes sont classées par niveau de gravité : de 0 à 4, la gravité 0 représentant le niveau de gravité le plus élevé.  
+La fonctionnalité Azure Monitor pour l’intégrité des machines virtuelles s’intègre aux [Alertes Azure](../../azure-monitor/platform/alerts-overview.md) et déclenche une alerte lorsque les critères d’intégrité prédéfinis passent d’un état sain à un état non intègre lorsque la condition est détectée. Les alertes sont classées par niveau de gravité : de 0 à 4, la gravité 0 représentant le niveau de gravité le plus élevé. 
+
+Les alertes ne sont pas associés à un groupe d’actions pour vous avertir quand l’alerte a été déclenchée. Propriétaire de l’abonnement a besoin configurer les notifications suivant les étapes [plus loin dans cette section](#configure-alerts).   
 
 Le nombre total d’alertes d’intégrité de machine virtuelle classées par niveau de gravité est disponible au niveau du tableau de bord **Intégrité** dans la section **Alertes**. Lorsque vous sélectionnez le nombre total d’alertes ou le numéro correspondant à un niveau de gravité, la page **Alertes** s’ouvre et affiche toutes les alertes correspondant à votre sélection.  Par exemple, si vous avez sélectionné la ligne correspondant au **Niveau de gravité 1**, vous voyez l’écran suivant :
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0191c56e1140870b1710b48c4fa1189fd92a337b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090973"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521473"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problèmes courants dans Stream Analytics et étapes de dépannage
 
@@ -26,7 +26,7 @@ ms.locfileid: "53090973"
 
 ![Vignette d’entrées sur le tableau de bord Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Pour plus d’informations, activez les journaux de diagnostics pour afficher les détails de l’avertissement. Pour les événements d’entrée incorrectement formés, les journaux d’exécution contiennent une entrée avec un message semblable à celui-ci : « Message : Impossible de désérialiser le ou les événements d’entrée à partir de la ressource <blob URI> au format json ». 
+Pour plus d’informations, activez les journaux de diagnostics pour afficher les détails de l’avertissement. Pour les événements d’entrée incorrectement formés, les journaux d’exécution contiennent une entrée avec un message semblable à celui-ci : « Message : Impossible de désérialiser l’ou les événements d’entrée à partir de la ressource \<URI d’objet blob > au format json ». 
 
 ### <a name="troubleshooting-steps"></a>Étapes de dépannage
 

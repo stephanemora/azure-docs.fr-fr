@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: df8196389ecb92229ff9495002c4bce394d7c048
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: ac2edb4c12e95a915790c1fadfb2dcdcce554aad
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202705"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545571"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight
 
@@ -46,8 +46,6 @@ Hive et Pig permettent de transmettre des données vers des applications externe
 * __Clusters HDInsight Linux__ utilisant [Mono (https://mono-project.com)](https://mono-project.com) pour exécuter les applications .NET. La version 4.2.1 de Mono est incluse dans la version 3.6 de HDInsight.
 
     Pour plus d’informations sur la compatibilité Mono avec les versions de .NET Framework, consultez [Compatibilité Mono](https://www.mono-project.com/docs/about-mono/compatibility/).
-
-    Pour utiliser une version particulière de Mono, consultez le document [Installation ou mise à jour de Mono](../hdinsight-hadoop-install-mono.md).
 
 * Les clusters __HDInsight sous Windows__ utilisent le CLR Microsoft .NET pour exécuter des applications .NET.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 34723a6ee37e54ea2d81e6d1143672e3ccb30d1e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53805712"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551655"
 ---
 Azure met régulièrement à jour la plateforme pour améliorer la fiabilité, le niveau de performance et la sécurité de l’infrastructure hôte des machines virtuelles. Ces mises à jour vont de l’application d’une mise à jour corrective aux composants logiciels de l’environnement d’hébergement, en passant par la mise à niveau des composants réseau, à la désactivation du matériel. La majorité de ces mises à jour n’a aucun impact sur les machines virtuelles hébergées. Toutefois, dans certains cas, les mises à jour ont un impact. Azure choisit alors la méthode ayant le moins d’impact pour l’exécution des mises à jour :
 
@@ -27,9 +27,9 @@ Vous pouvez recevoir une notification de machine virtuelle concernant une mainte
 
 Pour obtenir des guides pratiques sur la gestion de la maintenance planifiée, consultez « Gestion des notifications de maintenance planifiée » pour [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="memory-preserving-maintenance"></a>Maintenance avec préservation de la mémoire
+## <a name="maintenance-not-requiring-a-reboot"></a>Maintenance ne pas nécessitant un redémarrage
 
-L’objectif de la plupart des mises à jour sans redémarrage est une pause de moins de 10 secondes pour la machine virtuelle. Dans certains cas, des mécanismes de maintenance liés à la conservation de la mémoire sont utilisés, ce qui permet de mettre la machine virtuelle en pause pendant 30 secondes au maximum et de préserver le contenu de la RAM. La machine virtuelle est redémarrée et l’horloge de la machine virtuelle est automatiquement synchronisée. Azure utilise de plus en plus les technologies de migration dynamique et améliore le mécanisme de maintenance lié à la conservation de la mémoire pour réduire la durée de la mise en pause.
+L’objectif de la plupart des maintenance qui ne nécessite pas un redémarrage est inférieure à 10 secondes Suspendre pour la machine virtuelle. Dans certains cas, des mécanismes de maintenance liés à la conservation de la mémoire sont utilisés, ce qui permet de mettre la machine virtuelle en pause pendant 30 secondes au maximum et de préserver le contenu de la RAM. La machine virtuelle est redémarrée et l’horloge de la machine virtuelle est automatiquement synchronisée. Azure utilise de plus en plus les technologies de migration dynamique et améliore le mécanisme de maintenance lié à la conservation de la mémoire pour réduire la durée de la mise en pause.
 
 Ces opérations de maintenance sans redémarrage sont appliquées domaine d’erreur par domaine d’erreur et sont arrêtées si des signaux d’avertissement sont reçus. 
 

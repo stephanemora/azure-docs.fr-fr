@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/18/2019
+ms.date: 04/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e2360b5587d204ec87fe82c029391c7252d27914
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189544"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546894"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Surveiller votre charge de travail à l'aide de vues de gestion dynamique
 Cet article décrit comment utiliser des vues de gestion dynamique (DMV) pour surveiller votre charge de travail. Cela inclut l’examen de l’exécution des requêtes dans Azure SQL Data Warehouse.
@@ -170,33 +170,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Si la requête attend activement des ressources provenant d'une autre requête, l'état affichera **AcquireResources**.  Si la requête possède toutes les ressources requises, l'état sera **Granted**.
 
 ## <a name="monitor-tempdb"></a>Surveiller tempdb
-Une utilisation élevée de tempdb peut être la cause racine du ralentissement des performances et des problèmes de mémoire insuffisante. Envisagez la mise à l’échelle de votre entrepôt de données si tempdb atteint ses limites lors de l’exécution de requêtes. Les informations suivantes décrivent comment identifier l’utilisation de tempdb par requête sur chaque nœud. 
+Tempdb est utilisé pour stocker les résultats intermédiaires pendant l’exécution de requête. Une utilisation élevée de la base de données tempdb peut conduire à ralentir les performances de requête. Chaque nœud dans Azure SQL Data Warehouse a environ 1 To d’espace brutes pour tempdb. Vous trouverez ci-dessous des conseils pour la surveillance de l’utilisation de tempdb et pour réduire l’utilisation de tempdb dans vos requêtes. 
 
-Créez la vue suivante pour associer l’ID de nœud approprié à sys.dm_pdw_sql_requests. L’ID de nœud vous permet d’utiliser d’autres vues de gestion dynamique directes et de joindre ces tables à sys.dm_pdw_sql_requests.
-
-```sql
--- sys.dm_pdw_sql_requests with the correct node id
-CREATE VIEW sql_requests AS
-(SELECT
-       sr.request_id,
-       sr.step_index,
-       (CASE 
-              WHEN (sr.distribution_id = -1 ) THEN 
-              (SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL') 
-              ELSE d.pdw_node_id END) AS pdw_node_id,
-       sr.distribution_id,
-       sr.status,
-       sr.error_id,
-       sr.start_time,
-       sr.end_time,
-       sr.total_elapsed_time,
-       sr.row_count,
-       sr.spid,
-       sr.command
-FROM sys.pdw_distributions AS d
-RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
-```
-Exécutez la requête suivante pour surveiller tempdb :
+### <a name="monitoring-tempdb-with-views"></a>Tempdb avec des vues de surveillance
+Pour surveiller l’utilisation de tempdb, tout d’abord installer le [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) afficher à partir de la [Microsoft Toolkit pour SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Vous pouvez ensuite exécuter la requête suivante pour afficher l’utilisation de tempdb par nœud pour toutes les requêtes exécutées :
 
 ```sql
 -- Monitor tempdb
@@ -221,12 +198,17 @@ SELECT
 FROM sys.dm_pdw_nodes_db_session_space_usage AS ssu
     INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
     INNER JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
-    INNER JOIN sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
+    INNER JOIN microsoft.vw_sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
 WHERE DB_NAME(ssu.database_id) = 'tempdb'
     AND es.session_id <> @@SPID
     AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
+
+Si vous avez une requête qui consomme une grande quantité de mémoire ou ont reçu un message d’erreur lié à l’allocation de tempdb, il est souvent en raison d’un très grand [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) instruction en cours d’exécution qui échoue dans l’opération de déplacement des données finales. Cela peut généralement être identifiée comme une opération ShuffleMove dans le plan de requête distribuée juste avant la dernière instruction INSERT SELECT.
+
+L’atténuation plus courante consiste à diviser l’instruction CTAS ou INSERT SELECT en plusieurs instructions load pour le volume de données ne dépasse pas 1 To par limite de tempdb de nœud. Vous pouvez également monter votre cluster vers une plus grande taille qui répartit la taille de tempdb sur plus de nœuds en réduisant la tempdb sur chaque nœud. 
+
 ## <a name="monitor-memory"></a>Surveiller la mémoire
 
 La mémoire peut être la cause racine du ralentissement des performances et des problèmes de mémoire insuffisante. Envisagez la mise à l’échelle de votre entrepôt de données si l’utilisation de la mémoire SQL Server atteint ses limites lors de l’exécution de requêtes.

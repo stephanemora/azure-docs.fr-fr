@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448779"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548402"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrer vos données de visage vers un autre abonnement API Visage
 
@@ -79,7 +79,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> Le processus de prise et d’application d’instantanés n’interrompt pas les appels réguliers aux objets **PersonGroup** (ou **FaceList**) source et cible. Toutefois, nous vous déconseillons d’effectuer des appels simultanés qui changent l’objet source ([appels de gestion de FaceList](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) ou appel d’[entraînement de PersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train), par exemple), car l’opération d’instantané est susceptible de s’effectuer avant ou après ces opérations, ou de rencontrer des erreurs. 
+> Le processus de prise et d’application d’instantanés n’interrompt pas les appels réguliers aux objets **PersonGroup** (ou **FaceList**) source et cible. Toutefois, nous ne recommandons pas effectuer des appels simultanés qui modifient l’objet source ([appels de gestion FaceList](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) ou [Train de groupe de personnes](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) appeler, par exemple), car l’opération de capture instantanée peut exécuter avant ou après ces opérations ou rencontrer des erreurs.
 
 ## <a name="retrieve-the-snapshot-id"></a>Récupérer l’ID de l’instantané
 

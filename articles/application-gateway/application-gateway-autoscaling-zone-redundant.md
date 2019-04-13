@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 4410dd9e61fe5b585ca5b245dbf33dbf8c38e701
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 95b14a0028134e522206f3595bc3b9ebf9aaf396
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010207"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548711"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)
 
@@ -31,7 +31,7 @@ Application Gateway et le pare-feu d’applications web (WAF) sont désormais di
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 > [!NOTE]
-> La mise à l’échelle et la passerelle d’application redondant référence (SKU) prend désormais en charge [sonde d’intégrité](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) pour surveiller l’intégrité de toutes les ressources dans son pool back-end et de supprimer les ressources considérées comme non intègre du pool automatiquement. La sonde de contrôle d’intégrité par défaut finiront par être automatiquement configurés pour ces serveurs principaux pour lesquels vous n’avez pas configuré de n’importe quelle configuration de sonde personnalisée. Pour plus d’informations, consultez [sondes d’intégrité dans application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+> La mise à l’échelle et la passerelle d’application redondant référence (SKU) prend désormais en charge [sonde d’intégrité](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) pour surveiller l’intégrité de toutes les ressources dans son pool back-end et mettez en surbrillance ces membres principaux qui sont considérés comme automatiquement défectueux. La sonde de contrôle d’intégrité par défaut finiront par être automatiquement configurés pour ces serveurs principaux pour lesquels vous n’avez pas configuré de n’importe quelle configuration de sonde personnalisée. Pour plus d’informations, consultez [sondes d’intégrité dans application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparaison des fonctionnalités de la référence (SKU) v1 et v2 référence (SKU)
 
@@ -79,6 +79,6 @@ La version préliminaire, aucun frais n’est. Vous êtes facturé pour les ress
 |Intégration de Network Watcher|Non prise en charge dans la Préversion publique.|
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Créer une mise à l’échelle, la passerelle d’application redondant de zone avec une adresse IP réservée à l’aide d’Azure PowerShell](tutorial-autoscale-ps.md)
+- [Créer une passerelle d’application redondante dans une zone, avec mise à l’échelle automatique et avec une adresse IP virtuelle réservée à l’aide d’Azure PowerShell](tutorial-autoscale-ps.md)
 - Découvrez [Application Gateway](overview.md).
 - Découvrez le [Pare-feu Azure](../firewall/overview.md).

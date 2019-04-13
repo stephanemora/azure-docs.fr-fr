@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64e3cbd082f2d18668dff87fbec098add73ffda6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 30c4a6817272f7b5f1810873a93280b234ff6cc9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010085"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524308"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurer la méthode de routage du trafic géographique à l’aide de Traffic Manager
 
@@ -26,7 +26,7 @@ La méthode de routage du trafic géographique vous permet de diriger le trafic 
 1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free/).
 2. Cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
 4. Dans **Créer un profil Traffic Manager** :
-    1. Entrez un nom pour votre profil. Ce nom doit être unique dans la zone trafficmanager.net. Pour accéder à votre profil Traffic Manager, vous utilisez le nom DNS <profilename>.trafficmanager.net.
+    1. Entrez un nom pour votre profil. Ce nom doit être unique dans la zone trafficmanager.net. Pour accéder à votre profil Traffic Manager, vous utilisez le nom DNS `<profilename>.trafficmanager.net`.
     2. Sélectionnez la méthode de routage **géographique**.
     3. Sélectionnez l’abonnement pour lequel vous souhaitez créer ce profil.
     4. Utilisez un groupe de ressources existant ou créez-en un où placer ce profil. Si vous choisissez de créer un nouveau groupe de ressources, utilisez la liste déroulante **Emplacement du groupe de ressources** pour spécifier l’emplacement du groupe de ressources. Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur le profil Traffic Manager qui est déployé globalement.

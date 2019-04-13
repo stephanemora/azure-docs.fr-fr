@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: f417aef1fd1cc48a37399ff7a157a0e658bbbb02
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879282"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547946"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Créer un espace de travail du service Azure Machine Learning
 
@@ -34,10 +34,10 @@ Lorsque vous créez un espace de travail les ressources Azure suivantes sont ajo
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 - [Stockage Azure](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!Note]
->À l’instar des autres services Azure, certains quotas et limites sont associés au Machine Learning. [En savoir plus sur les quotas et comment demander plus d’informations.](how-to-manage-quotas.md)
+>À l’instar des autres services Azure, certains quotas et limites sont associés au Machine Learning. [En savoir plus sur les quotas et comment demander à les relever.](how-to-manage-quotas.md)
 
 
 ## <a name="prerequisites"></a>Conditions préalables
@@ -160,7 +160,7 @@ Créez votre espace de travail dans un notebook Jupyter à l’aide du kit SDK P
 
 ### <a name="write-a-configuration-file"></a>Création d’un fichier de configuration
 
-Enregistrez les détails de votre espace de travail dans un fichier de configuration se trouvant dans le répertoire courant. Ce fichier est appelé *aml_config/config.json*.  
+Enregistrez les détails de votre espace de travail dans un fichier de configuration se trouvant dans le répertoire courant. Ce fichier est appelé *.azureml/config.json*.  
 
 Ce fichier de configuration de l’espace de travail facilite son chargement ultérieur. Vous pouvez le charger avec d’autres ordinateurs portables et les scripts dans le même répertoire ou un sous-répertoire en utilisant le code `ws=Workspace.from_config()` . 
 
@@ -177,13 +177,14 @@ L’appel d’API `write_config()` crée le fichier de configuration dans le ré
 ```
 
 > [!TIP]
-> Pour utiliser votre espace de travail dans les scripts Python ou les blocs-notes Jupyter situés dans d’autres répertoires, copiez ce fichier à ce répertoire. Le fichier peut être dans le même répertoire, un sous-répertoire nommé *aml_config*, ou dans un répertoire parent.
+> Pour utiliser votre espace de travail dans les scripts Python ou les blocs-notes Jupyter situés dans d’autres répertoires, copiez ce fichier à ce répertoire. Le fichier peut être dans le même répertoire, un sous-répertoire nommé *.azureml*, ou dans un répertoire parent.
 
 ## <a name="resource-manager-template"></a>Modèle resource manager
 
 Pour créer un espace de travail avec un modèle, consultez [créer un espace de travail du service Azure Machine Learning à l’aide d’un modèle](how-to-create-workspace-template.md)
 
-## <a name="cli"></a>Interface de ligne de commande
+<a name="cli"></a>
+## <a name="command-line-interface"></a>Interface de ligne de commande
 
 Pour créer un espace de travail avec l’interface CLI, consultez [utiliser l’extension CLI pour le service Azure Machine Learning](reference-azure-machine-learning-cli.md).
 

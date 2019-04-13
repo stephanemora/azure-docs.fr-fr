@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046977"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549369"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -179,7 +179,7 @@ Vous ne pouvez pas actuellement utiliser un modèle Azure Resource Manager pour 
 
 Pour configurer l’analytique du trafic à l’aide d’un client Azure Resource Manager, consultez les exemples suivants.
 
-**Exemple d’applet de commande Set :**
+**Exemple d’applet de commande Set :**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
@@ -220,7 +220,7 @@ $apiversion = "2016-09-01"
 armclient login
 armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
 ```
-**Obtenir un exemple d’applet de commande :**
+**Exemple d’applet de commande Get :**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
@@ -239,12 +239,27 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-
 ## <a name="how-is-traffic-analytics-priced"></a>Quel est le prix de Traffic Analytics ?
 
 Traffic Analytics est mesuré. Les mesures sont basées sur le traitement des données de journal de flux par le service et sur le stockage des journaux améliorés résultants dans un espace de travail Log Analytics. 
 
 Par exemple, conformément au [plan tarifaire](https://azure.microsoft.com/pricing/details/network-watcher/), concernant la région USA Centre-Ouest, si des données de journal de flux stockées dans un compte de stockage traité par Traffic Analytics ont un volume de 10 Go et que les journaux améliorés ingérés dans l’espace de travail Log Analytics ont un volume de 1 Go, les charges applicables sont les suivantes : 10 x 2.3$ + 1 x 2.76$ = 25.76$
+
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>La fréquence à laquelle le trafic Analytique ne traite pas les données ?
+
+Reportez-vous à la [section d’agrégation de données](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) dans le schéma d’Analytique du trafic et les données d’agrégation Document
+
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Comment Analytique du trafic choisir qu’une adresse IP est malveillante ? 
+
+Analytique du trafic s’appuie sur les systèmes d’intelligence Microsoft contre les menaces internes pour l’estimer comme une adresse IP comme étant malveillante. Ces systèmes de tirer parti de sources diverses données de télémétrie telles que les produits Microsoft et des services, Microsoft Digital Crimes Unit (DCU), le Microsoft Security Response Center (MSRC) et des sources externes et générer un grand nombre d’intelligence par-dessus. Certaines de ces données est interne de Microsoft. Si une adresse IP connue est bien marquée comme malicios, envoyez un ticket prise en charge pour connaître les détails.
+
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Comment puis-je définir des alertes sur les données d’Analytique du trafic ?
+
+Analytique du trafic n’a pas de prise en charge intégrée pour les alertes. Toutefois, étant donné que les données d’Analytique du trafic sont stockées dans le journal Analytique vous pouvez écrire des requêtes personnalisées et définir des alertes sur ces derniers. Étapes suivantes :
+- Vous pouvez utiliser le lien court pour l’Analytique de journal dans l’Analytique du trafic. 
+- Utilisez le [schéma documenté ici](traffic-analytics-schema.md) pour écrire vos requêtes 
+- Cliquez sur « Nouvelle règle d’alerte » pour créer l’alerte
+- Reportez-vous à [documentation des alertes de journal](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) pour créer l’alerte
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Comment faire pour naviguer dans la vue de la carte géographique à l’aide du clavier ?
 

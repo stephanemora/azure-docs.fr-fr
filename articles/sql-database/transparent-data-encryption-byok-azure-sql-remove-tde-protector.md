@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 73fcb2753fa7eb15f34b04ddc5bb0b55c4636623
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 51cdd43e62bd511da55978bbac3215200c3a8e01
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847803"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528262"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Supprimer un protecteur Transparent Data Encryption (TDE) à l’aide de PowerShell
 
@@ -40,6 +40,12 @@ Les procédures suivantes doivent uniquement être effectuées dans les cas extr
 Si vous suspectez qu’une clé est compromise, en cas d’accès non autorisé d’un utilisateur ou d’un service à cet clé, par exemple, nous vous recommandons de supprimer cette clé.
 
 Gardez à l’esprit qu’une fois le protecteur TDE supprimé dans Key Vault, **toutes les connexions aux bases de données chiffrées du serveur sont bloquées et mises hors connexion, ces bases de données sont ensuite supprimées dans les 24 heures**. Les anciennes sauvegardes chiffrées avec la clé compromise ne sont plus accessibles.
+
+Les étapes suivantes décrivent comment vérifier les empreintes numériques de protecteur TDE en cours d’utilisation par virtuel journal des fichiers (fichier journal virtuel) d’une base de données. Vous trouverez l’empreinte numérique du protecteur TDE actuels de la base de données et l’ID de base de données en exécutant : Sélectionnez [database_id],       [encryption_state], [encryptor_type], /*clé asymétrique signifie AKV, certificat, des clés gérées par le service*/ [encryptor_thumbprint], à partir de [sys]. [ dm_database_encryption_keys] 
+ 
+La requête suivante retourne les fichiers journaux virtuels et le chiffreur empreintes respectifs en cours d’utilisation. Chaque autre empreinte numérique fait référence à l’autre clé Azure Key Vault (AKV) : Sélectionnez * à partir de sys.dm_db_log_info (database_id) 
+
+La commande PowerShell Get-AzureRmSqlServerKeyVaultKey fournit l’empreinte numérique du protecteur TDE utilisé dans la requête, afin de voir les clés à conserver et les clés à supprimer dans AKV. Seules les clés n’est plus utilisés par la base de données peuvent être supprimés en toute sécurité à partir d’Azure Key Vault.
 
 Ce guide pratique expose deux approches possibles en fonction du résultat souhaité après la réponse aux incidents :
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 970e570d9ad27da2690cd38fe480823128322db0
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c5f37873b51d6257ffec3ada10be886995f7f5d5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370701"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521867"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configuration du serveur Azure Multi-Factor Authentication pour travailler avec AD FS dans Windows Server
 
@@ -81,7 +81,7 @@ Avant de commencer, tenez compte des informations suivantes :
 Procédez comme suit pour modifier le fichier MultiFactorAuthenticationAdfsAdapter.config :
 
 1. Définissez le nœud **UseWebServiceSdk** sur la valeur **true**.  
-2. Définissez le champ **WebServiceSdkUrl** sur l’URL du Kit de développement logiciel (SDK) du service web Multi-Factor Authentication. Par exemple : *<https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx>*, où *certificatename* est le nom de votre certificat.  
+2. Définissez le champ **WebServiceSdkUrl** sur l’URL du Kit de développement logiciel (SDK) du service web Multi-Factor Authentication. Par exemple : *https :\/\/contoso.com/\<certificatename > /MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, où  *\<certificatename >* est le nom de votre certificat.  
 3. Modifiez le script Register-MultiFactorAuthenticationAdfsAdapter.ps1 en ajoutant `-ConfigurationFilePath &lt;path&gt;` à la fin de la commande `Register-AdfsAuthenticationProvider`, où *&lt;chemin&gt;* correspond au chemin d’accès complet au fichier MultiFactorAuthenticationAdfsAdapter.config file.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Configurer le Kit de développement logiciel (SDK) du service web avec un nom d’utilisateur et un mot de passe

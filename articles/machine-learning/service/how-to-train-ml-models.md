@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 2/14/2019
+ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 818b6e5994a4f5b9d21d511f0a31eab6e00033f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012478"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548168"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Former des modèles avec Azure Machine Learning à l’aide de l’estimateur
 
@@ -59,7 +59,7 @@ Cet extrait de code spécifie les paramètres suivants au constructeur `Estimato
 Paramètre | Description
 --|--
 `source_directory`| Répertoire local qui contient l’ensemble du code nécessaire à la tâche d’entraînement. Ce dossier est copié de votre ordinateur local vers la cible de calcul distante 
-`script_params`| Dictionnaire spécifiant les arguments de ligne de commande de votre script d’entraînement `entry_script`, sous la forme de paires <argument de ligne de commande, valeur>
+`script_params`| Dictionnaire en spécifiant les arguments de ligne de commande à votre script de formation `entry_script`, sous la forme de < argument de ligne de commande, valeur > paires. Pour spécifier un indicateur verbose dans `script_params`, utilisez `<command-line argument, "">`.
 `compute_target`| Cible de calcul à distance sur laquelle votre script de formation s’exécute, ici un cluster de capacité de calcul Machine Learning Azure ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Veuillez noter que même si le cluster AmlCompute est la cible couramment utilisée, il est également possible de choisir d’autres types de cibles de calcul, tels que des machines virtuelles Azure, voire un ordinateur local.)
 `entry_script`| Chemin de fichier (relatif à `source_directory`) du script d’entraînement à exécuter sur la cible de calcul distante. Ce fichier et tous les autres fichiers dont il dépend doivent se trouver dans ce dossier
 `conda_packages`| Liste des packages Python à installer via conda et dont a besoin votre script d’entraînement.  

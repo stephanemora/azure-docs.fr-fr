@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268498"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544753"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -46,7 +46,7 @@ Les runbooks d'Azure Automation peuvent s'exécuter dans un bac à sable Azure o
 |Installation d'un module nécessitant un programme d'installation|Runbook Worker hybride|Modules pour le bac à sable doivent être qui peut être copiées|
 |Utilisation de runbooks ou de modules nécessitant une version de .NET Framework autre que la version 4.7.2|Runbook Worker hybride|Les bacs à sable Automation disposent de .NET Framework 4.7.2, et aucune mise à niveau n'est possible|
 |Scripts qui requièrent une élévation|Runbook Worker hybride|Les bacs à sable ne permettent pas d’élévation. Pour résoudre ce problème, utilisez un Runbook Worker hybride et vous pouvez désactiver l’UAC et utilisez `Invoke-Command` lorsque l’exécution de la commande qui nécessite une élévation|
-|Scripts qui requièrent l’accès à WMI|Runbook Worker hybride|Travaux en cours d’exécution dans les bacs à sable le cloud [n’ont pas accès WMI](#device-and-application-characteristics)|
+|Scripts qui requièrent l’accès à WMI|Runbook Worker hybride|Travaux en cours d’exécution dans les bacs à sable dans le cloud [n’ont pas accès à WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Comportement des runbooks
 
@@ -192,7 +192,7 @@ Les runbooks s’exécutent dans les bacs à sable Azure ne gèrent pas le proce
 
 ### <a name="device-and-application-characteristics"></a>Caractéristiques de l’appareil et l’application
 
-Tâches de Runbook s’exécutent dans les bacs à sable Azure n’ont pas accès à des caractéristiques du périphérique ou une application. L’API courant utilisé pour interroger les métriques de performances sur Windows est WMI. Certaines de ces mesures courantes sont l’utilisation du processeur et mémoire. Toutefois, n’importe quel API est utilisée. Travaux en cours d’exécution dans le cloud n’avez pas accès l’implémentation Microsoft du Web Based Enterprise Management (WBEM), qui est basé sur le modèle CIM (Common Information), qui sont les normes du secteur pour la définition des caractéristiques de l’appareil et l’application.
+Tâches de Runbook s’exécutent dans les bacs à sable Azure n’ont pas accès à des caractéristiques du périphérique ou une application. L’API courant utilisé pour interroger les métriques de performances sur Windows est WMI. Certaines de ces mesures courantes sont l’utilisation du processeur et mémoire. Toutefois, n’importe quel API est utilisée. Travaux en cours d’exécution dans le cloud ont accès à l’implémentation Microsoft de Web WBEM Based Enterprise Management (), qui est basé sur le modèle CIM (Common Information), qui sont les normes du secteur pour la définition des caractéristiques de l’appareil et l’application.
 
 ## <a name="job-statuses"></a>États des tâches
 

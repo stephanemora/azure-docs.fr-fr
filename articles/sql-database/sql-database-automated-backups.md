@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: a4907a65f100fd6efcabe422becad69aaee4b6ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/12/2019
+ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57882707"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545822"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -72,7 +72,7 @@ Si vous utilisez le [modèle d’achat basé sur vCore](sql-database-service-tie
 
 ### <a name="backups-for-point-in-time-restore"></a>Sauvegardes pour une restauration dans le temps
 
-SQL Database prend en charge la limite de restauration dans le temps en libre-service en créant automatiquement une sauvegarde complète, des sauvegardes différentielles et des sauvegardes du journal des transactions. Les sauvegardes de base de données complètes sont créées chaque semaine, les sauvegardes différentielles généralement toutes les 12 heures, et les sauvegardes de journal des transactions généralement toutes les 5 à 10 minutes, la fréquence variant selon la taille de calcul et l’activité de la base de données. La première sauvegarde complète est planifiée immédiatement après la création d’une base de données. Elle s’exécute généralement en 30 minutes, mais elle peut nécessiter davantage de temps s’il s’agit d’une base de données de taille considérable. Par exemple, la sauvegarde initiale peut prendre davantage de temps sur une base de données restaurée ou une copie de base de données. Après la première sauvegarde complète, toutes les sauvegardes sont planifiées automatiquement et gérées en mode silencieux en arrière-plan. Le moment exact de toutes les sauvegardes de base de données est déterminé par le service SQL Database en fonction de l’équilibrage de la charge de travail globale du système.
+SQL Database prend en charge la limite de restauration dans le temps en libre-service en créant automatiquement une sauvegarde complète, des sauvegardes différentielles et des sauvegardes du journal des transactions. Les sauvegardes de base de données complètes sont créées chaque semaine, les sauvegardes différentielles généralement toutes les 12 heures, et les sauvegardes de journal des transactions généralement toutes les 5 à 10 minutes, la fréquence variant selon la taille de calcul et l’activité de la base de données. La première sauvegarde complète est planifiée immédiatement après la création d’une base de données. Elle s’exécute généralement en 30 minutes, mais elle peut nécessiter davantage de temps s’il s’agit d’une base de données de taille considérable. Par exemple, la sauvegarde initiale peut prendre davantage de temps sur une base de données restaurée ou une copie de base de données. Après la première sauvegarde complète, toutes les sauvegardes sont planifiées automatiquement et gérées en mode silencieux en arrière-plan. Le moment exact de toutes les sauvegardes de base de données est déterminé par le service SQL Database en fonction de l’équilibrage de la charge de travail globale du système. Vous ne pouvez pas modifier ou désactiver les travaux de sauvegarde. 
 
 Les sauvegardes PITR sont géo-redondantes et protégées par la [réplication entre les régions du stockage Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -107,14 +107,14 @@ Lorsque vous migrez votre base de données à partir d’un niveau de service ba
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Comment modifier la période de conservation des sauvegardes PITR ?
 
-Vous pouvez modifier la période de conservation des sauvegardes PITR par défaut à l’aide du Portail Azure, de PowerShell ou de l’API REST. Les valeurs prises en charge sont les suivantes : 7, 14, 21, 28 ou 35 jours. Les exemples suivants illustrent comment modifier la conservation de récupération jusqu’à une date et heure pour la faire passer à 28 jours.
+Vous pouvez modifier la période de rétention des sauvegardes jusqu'à une date par défaut à l’aide du portail Azure, PowerShell ou l’API REST. Les valeurs prises en charge sont les suivantes : 7, 14, 21, 28 ou 35 jours. Les exemples suivants illustrent comment modifier la conservation de récupération jusqu’à une date et heure pour la faire passer à 28 jours.
 
 > [!NOTE]
 > Ces API impactent uniquement la période de conservation PITR. Si vous avez configuré la conservation à long terme pour votre base de données, elle ne sera pas affectée. Consultez [Conservation à long terme](sql-database-long-term-retention.md) pour en savoir plus sur la modification des périodes de conservation à long terme.
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Modifier la période de conservation des sauvegardes PITR à l’aide du Portail Azure
 
-Pour changer la période de conservation des sauvegardes PITR dans le portail Azure, accédez à l’objet serveur dont vous souhaitez changer la période de conservation dans le portail, puis sélectionnez l’option appropriée selon l’objet serveur que vous modifiez.
+Pour modifier la période de rétention des sauvegardes jusqu'à une date et à l’aide du portail Azure, accédez à l’objet serveur dont vous souhaitez modifier dans le portail, puis sélectionnez l’option appropriée la période de rétention basée sur quel objet de serveur que vous modifiez.
 
 #### <a name="change-pitr-for-a-sql-database-server"></a>Modification de la récupération jusqu’à une date et heure d’un serveur SQL Database
 

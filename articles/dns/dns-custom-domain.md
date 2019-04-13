@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 78496dbc7891fe911ab0affd81f8a7d887e5d76e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111410"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521817"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure
 
@@ -69,7 +69,7 @@ Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Ent
 |Type     | A        | Utiliser un enregistrement A si la ressource est une adresse IP.        |
 |TTL     | 1        | 1 est utilisé pour 1 heure        |
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
-|Adresse IP     | <your ip address>       | Adresse IP publique.|
+|Adresse IP     | `<your ip address>`       | Adresse IP publique.|
 
 ![Créer un enregistrement A](./media/dns-custom-domain/arecord.png)
 

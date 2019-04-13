@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68581c957e2835aa8841e3ce490c9a7898ed4ff5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084096"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527470"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Noyaux pour Jupyter Notebook sur des clusters Apache Spark dans Azure HDInsight 
 
@@ -69,7 +69,7 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-
    
     En revanche, vous pouvez utiliser directement les contextes prédéfinis dans votre application.
 
-- **Commandes magiques de cellule**. Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui sont des commandes spéciales que vous pouvez appeler avec `%%` (par exemple, `%%MAGIC` <args>). La commande magique doit se trouver au tout début d’une cellule de code et autoriser plusieurs lignes de contenu. Le mot magic doit être le premier mot de la cellule. Ajouter quoi que ce soit avant la commande magique, même des commentaires, provoque une erreur.     Pour plus d’informations sur les commandes magiques, cliquez [ici](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **Commandes magiques de cellule**. Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui sont des commandes spéciales que vous pouvez appeler avec `%%` (par exemple, `%%MAGIC` `<args>`). La commande magique doit se trouver au tout début d’une cellule de code et autoriser plusieurs lignes de contenu. Le mot magic doit être le premier mot de la cellule. Ajouter quoi que ce soit avant la commande magique, même des commentaires, provoque une erreur.     Pour plus d’informations sur les commandes magiques, cliquez [ici](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
     Le tableau suivant répertorie les différentes commandes magiques disponibles par le biais des noyaux.
 

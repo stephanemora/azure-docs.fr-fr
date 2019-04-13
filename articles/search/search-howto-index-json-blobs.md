@@ -1,7 +1,7 @@
 ---
 title: Indexer les objets blob JSON à partir de l’indexeur Azure Blob pour une recherche en texte intégral - Recherche Azure
 description: Analyser les objets blob Azure JSON pour le contenu de texte à l’aide de l’indexeur d’objets blob Recherche Azure. Les indexeurs automatisent l’ingestion des données pour certaines sources de données, comme le Stockage Blob Azure.
-ms.date: 02/28/2019
+ms.date: 04/11/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518743"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527351"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Comment indexer des objets BLOB JSON à l’aide d’indexeur d’objets Blob Azure Search
 Cet article vous montre comment configurer un objet blob Azure Search [indexeur](search-indexer-overview.md) pour extraire le contenu structuré à partir de documents JSON dans stockage Blob Azure et les rendre détectables dans Azure Search. Ce flux de travail crée un index Azure Search et la charge de texte existant extrait des objets BLOB JSON. 
@@ -40,14 +40,15 @@ Nous vous recommandons d’utiliser le même abonnement Azure pour Azure Search 
 
 ### <a name="1---prepare-source-data"></a>1 - Préparez les données sources
 
-Vous devez avoir un compte de stockage Azure avec Stockage Blob et un conteneur de documents JSON. Si vous n’êtes pas familiarisé avec une de ces conditions, consultez « Configurer les exemples de données Azure Blob service et de charge » dans le [recherche cognitive-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
+1. [Connectez-vous au portail Azure](https://portal.azure.com/).
 
-> [!Important]
-> Sur le conteneur, veillez à ce que **niveau d’accès Public** est définie sur « Conteneur (accès en lecture anonyme pour les conteneurs et objets BLOB) ». Stockage Azure et Azure Search doivent être sous le même abonnement et si possible, dans la même région. 
+1. [Créer un conteneur d’objets Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) pour accueillir vos données. Le niveau d’accès Public peut être défini à un de ses valeurs valides.
+
+Vous aurez besoin du nom de compte de stockage, nom du conteneur et une clé d’accès pour récupérer vos données dans le **importer des données** Assistant.
 
 ### <a name="2---start-import-data-wizard"></a>2 - Démarrez l’Assistant Importation de données
 
-Vous pouvez [démarrer l’Assistant](search-import-data-portal.md) à partir de la barre de commandes dans la page du service Recherche Azure, ou en cliquant sur **Ajouter Recherche Azure** dans la section **Service Blob** du volet de navigation gauche de votre compte de stockage.
+Dans la page Vue d’ensemble de votre service Azure Search, vous pouvez [démarrer l’Assistant](search-import-data-portal.md) à partir de la barre de commandes, ou en cliquant sur **ajouter recherche Azure** dans le **service Blob** section de votre volet de navigation gauche de compte de stockage.
 
    ![Commande Importer des données dans le portail](./media/search-import-data-portal/import-data-cmd2.png "Démarrer l’Assistant Importation de données")
 

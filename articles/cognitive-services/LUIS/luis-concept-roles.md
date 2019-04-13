@@ -9,28 +9,82 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 958194d49cd403caeaf9dd21dd90a02cab098e45
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881455"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522484"
 ---
-# <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Les rôles d’entité dans les modèles sont des sous-types contextuels
-Les rôles sont des sous-types contextuels nommés d’une entité utilisée uniquement dans des [modèles](luis-concept-patterns.md).
+# <a name="entity-roles-for-contextual-subtypes"></a>Rôles d’entité pour les sous-types contextuelles
 
-Par exemple, dans l’énoncé `buy a ticket from New York to London`, New York et Londres sont des villes, mais chacune a une signification différente dans la phrase. New York est la ville d’origine et Londres est la ville de destination. 
+Les rôles permettent d’entités à avoir nommé sous-types. Un rôle peut être utilisé avec n’importe quel type d’entité prédéfinies ou personnalisées et utilisé dans les énoncés d’exemple et les modèles. 
+
+<a name="example-role-for-entities"></a>
+<a name="roles-with-prebuilt-entities"></a>
+
+## <a name="machine-learned-entity-example-of-roles"></a>Exemple de machine a appris une entité de rôles
+
+Dans l’énoncé « acheter un ticket à partir **New York** à **Londres**, New York et Londres sont villes, mais chacune a une signification différente dans la phrase. New York est la ville d’origine et Londres est la ville de destination. 
+
+```
+buy a ticket from New York to London
+```
 
 Les rôles donnent un nom à ces différences :
 
-|Entité|Rôle|Objectif|
+|Type d’entité|Nom de l’entité|Rôle|Objectif|
+|--|--|--|--|
+|Simple|Lieu|origin|où le plan part de|
+|Simple|Lieu|destination|où le plan arrive à|
+
+## <a name="non-machine-learned-entity-example-of-roles"></a>Exemple d’entité non-machine-a appris de rôles
+
+Dans l’énoncé « Planifier la réunion de 8 à 9 », les deux les nombres indiquent une heure, mais chaque fois a une signification différente dans l’énoncé. Rôles de fournissent le nom des différences. 
+
+```
+Schedule the meeting from 8 to 9
+```
+
+|Type d’entité|Nom de rôle|Valeur|
 |--|--|--|
-|Lieu|origin|où le plan part de|
-|Lieu|destination|où le plan arrive à|
-|datetimeV2 prédéfini|to|date de fin|
-|datetimeV2 prédéfini|from|date de début|
+|datetimeV2 prédéfini|Starttime|8|
+|datetimeV2 prédéfini|heure de fin|9|
+
+## <a name="are-multiple-entities-in-an-utterance-the-same-thing-as-roles"></a>Sont plusieurs entités dans un énoncé de la même chose en tant que rôles ? 
+
+Plusieurs entités peuvent exister dans un énoncé et peuvent être extraites sans l’aide de rôles. Si le contexte de la phrase indique à la version de l’entité a une valeur, alors un rôle doit être utilisé. 
+
+### <a name="dont-use-roles-for-duplicates-without-meaning"></a>N’utilisez pas les rôles pour les doublons sans signification
+
+Si l’énoncé inclut une liste d’emplacements, `I want to travel to Seattle, Cairo, and London.`, il s’agit d’une liste dans lequel chaque élément n’a une signification supplémentaire. 
+
+### <a name="use-roles-if-duplicates-indicate-meaning"></a>Utiliser des rôles si les doublons indiquent le sens
+
+Si l’énoncé inclut une liste des emplacements ayant une signification, `I want to travel from Seattle, with a layover in Londen, landing in Cairo.`, cette signification d’origine, d’escale et de destination doit être capturée avec les rôles.
+
+### <a name="roles-can-indicate-order"></a>Rôles peuvent indiquer l’ordre
+
+Si l’énoncé modifié pour indiquer l’ordre dans lequel vous souhaitez extraire, `I want to first start with Seattle, second London, then third Cairo`, vous pouvez extraire de deux façons. Vous pouvez marquer les jetons qui indiquent le rôle, `first start with`, `second`, `third`. Vous pouvez également utiliser l’entité prédéfinie **Ordinal** et **GeographyV2** prédéfinis d’entité dans une entité composite pour capturer l’idée de commande et de la place. 
+
+## <a name="how-are-roles-used-in-example-utterances"></a>Comment les rôles sont utilisés dans les énoncés exemple ?
+
+Lorsqu’une entité a un rôle, et l’entité est marquée dans un énoncé de l’exemple, vous avez le choix de sélectionner uniquement l’entité ou l’entité et le rôle. 
+
+Énoncés d’exemple suivant utilisent les entités et les rôles :
+
+|Vue du jeton|Vue de l’entité|
+|--|--|
+|Je souhaite en savoir plus sur **Seattle**|Je souhaite en savoir plus sur {Location}|
+|Acheter un ticket de Seattle à New York|Acheter un ticket à partir de {emplacement : origine} à {emplacement : Destination}|
+
+## <a name="how-are-roles-related-to-hierarchical-entities"></a>Comment les rôles sont liés aux entités hiérarchiques ?
+
+Les rôles sont désormais disponibles pour toutes les entités dans énoncés d’exemple, ainsi que l’utilisation précédente de modèles. Car ils sont disponibles partout, elles remplacent la nécessité pour les entités hiérarchiques. Nouvelles entités doivent être créées avec les rôles, au lieu d’utiliser des entités hiérarchiques. 
+
+Entités hiérarchiques risque d’être dépréciées.
 
 ## <a name="how-are-roles-used-in-patterns"></a>Comment les rôles sont-ils utilisés dans les modèles ?
 Dans l’énoncé d’un gabarit de modèle, les rôles sont utilisés dans l’énoncé : 
@@ -43,27 +97,13 @@ Dans l’énoncé d’un gabarit de modèle, les rôles sont utilisés dans l’
 ## <a name="role-syntax-in-patterns"></a>Syntaxe du rôle dans les modèles
 L’entité et le rôle sont placés entre parenthèses, `{}`. L’entité et le rôle sont séparés par un signe deux-points. 
 
+## <a name="entity-roles-versus-collaborator-roles"></a>Rôles d’entité par rapport aux rôles de collaborateur
 
-[!INCLUDE [H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+Rôles de l’entité s’appliquent au modèle de données de l’application LUIS. [Collaborateur](luis-concept-collaborator.md) rôles s’appliquent aux niveaux d’accès de création. 
 
-## <a name="example-role-for-entities"></a>Exemple de rôle d’entité
-
-Un rôle correspond simplement au positionnement appris en contexte d’une entité dans un énoncé. Son efficacité est optimale quand l’énoncé comprend plusieurs instances de ce type d’entité. L’exemple le plus simple pour tout type d’entité consiste à faire la distinction entre un emplacement d’origine et un emplacement de destination. L’emplacement peut être représenté dans un grand nombre de types d’entité différents. 
-
-Citons un cas d’utilisation où un employé doit être transféré d’un service à un autre et où chaque service est un élément dans une liste. Par exemple :  
-
-`Move [PersonName] from [Department:from] to [Department:to]`. 
-
-Dans la prédiction retournée, les deux entités de service sont retournées dans la réponse JSON et chacune inclut le nom du rôle. 
-
-## <a name="roles-with-prebuilt-entities"></a>Rôles avec des entités prédéfinies
-
-Utilisez des rôles avec des entités prédéfinies pour donner du sens aux différentes instances de l’entité prédéfinie dans un énoncé. 
-
-### <a name="roles-with-datetimev2"></a>Rôles avec l’entité datetimeV2
-
-L’entité prédéfinie datetimeV2 effectue un travail remarquable pour comprendre un grand nombre de dates et d’heures dans des énoncés. Vous pouvez indiquer des dates et des plages de dates différemment de la compréhension par défaut de l’entité prédéfinie. 
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Utilisez un [didacticiel](tutorial-entity-roles.md) à l’aide de rôles de l’entité avec les entités non-machine-a appris
 * Découvrir comment ajouter des [rôles](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 332f899f3502f34e46b4f158a6980dc96248140e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651121"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544022"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
@@ -28,7 +28,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 
 ## <a name="create-a-classroom-lab"></a>Créer un laboratoire de classe
 
-1. Accédez au [site web Azure Lab Services](https://labs.azure.com). 
+1. Accédez au [site web Azure Lab Services](https://labs.azure.com). Notez que Internet Explorer 11 n'est pas encore pris en charge. 
 2. Sélectionnez **Connexion**. Sélectionnez ou entrez un **ID utilisateur** qui est un membre du rôle **Créateur de laboratoire** dans le compte de laboratoire, puis entrez un mot de passe. Azure Lab Services prend en charge les comptes professionnels et les comptes Microsoft. 
 3. Dans la fenêtre **New Lab** (Nouveau laboratoire), effectuez les actions suivantes : 
     1. Spécifiez un **nom** pour votre laboratoire. 
@@ -37,9 +37,9 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 
         ![Créer un laboratoire de classe](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Sur la page **Select virtual machine specifications** (sélectionner les spécifications de machine virtuelle), procédez aux étapes suivantes :
-    1. Sélectionnez une **taille** pour les machines virtuelles (VM) créées dans le laboratoire. Actuellement, **petit**, **support**, **grand**, et **GPU** tailles sont autorisées.
+    1. Sélectionnez une **taille** pour les machines virtuelles (VM) créées dans le laboratoire. Actuellement, les tailles **petite**, **moyenne**, **grande** et **GPU** sont autorisées.
     2. Sélectionnez la **région** dans laquelle vous souhaitez créer les VM. 
-    3. Sélectionnez l'**image de machine virtuelle** à utiliser pour créer des VM dans le laboratoire. Si vous sélectionnez une image Linux, vous voyez une option pour activer la connexion Bureau à distance pour celui-ci. Pour plus d’informations, consultez [activer une connexion Bureau à distance pour Linux](how-to-enable-remote-desktop-linux.md).
+    3. Sélectionnez l'**image de machine virtuelle** à utiliser pour créer des VM dans le laboratoire. Si vous sélectionnez une image Linux, vous voyez une option pour activer la connexion Bureau à distance pour celle-ci. Pour plus d’informations, consultez [Activer la connexion Bureau à distance pour Linux](how-to-enable-remote-desktop-linux.md).
     4. Sélectionnez **Suivant**.
 
         ![Définir les spécifications de VM](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -60,7 +60,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
     ![Page Configurer le modèle une fois terminé](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Les étapes suivantes sont facultatives dans ce didacticiel : 
     1. Démarrez le modèle de machine virtuelle en sélectionnant **Démarrer**.
-    2. Connectez-vous au modèle de machine virtuelle en sélectionnant **Se connecter**. Dans le cas d’un modèle de Linux machine virtuelle, vous choisissez si vous souhaitez vous connecter à l’aide de SSH ou RDP (si le protocole RDP est activé).
+    2. Connectez-vous au modèle de machine virtuelle en sélectionnant **Se connecter**. S’il s’agit d’un modèle de machine virtuelle Linux, choisissez si vous voulez vous connecter avec SSH ou RDP (si RDP est activé).
     3. Installez et configurez des logiciels sur votre modèle de machine virtuelle. 
     4. **Arrêtez** la machine virtuelle.  
     5. Entrez une **description** pour le modèle

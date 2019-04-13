@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 888cc9d894861c7d7b808500cd60bbed9faa05d7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ffde6f3e94cab94fca5a815db28478790a2a4221
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309115"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523390"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Solutions de stockage Azure pour ML Services sur Azure HDInsight
 
@@ -95,7 +95,7 @@ Dans votre code R, pointez la référence du nœud de nom vers le compte de stoc
 
 Toutes les références de fichier et de répertoire pointent désormais vers le compte de stockage `wasb://container2@storage2.blob.core.windows.net`. Il s’agit du **nom de nœud** que vous avez spécifié.
 
-Vous devez configurer ainsi le répertoire /user/RevoShare/<SSH username> sur **storage2** :
+Vous devez configurer le `/user/RevoShare/<SSH username>` répertoire **storage2** comme suit :
 
 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user

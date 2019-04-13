@@ -9,20 +9,24 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/10/2019
 ms.author: juliako
-ms.openlocfilehash: e543f6e69632da67900e3b49a9c77e125df5f852
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d6e5142bec29f58671c553b7b32bb72202cae263
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316913"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544175"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure Media Services v3
 
 Cet article donne des réponses aux questions les plus fréquentes sur Azure Media Services (AMS) v3.
 
 ## <a name="v3-apis"></a>API v3
+
+### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Les rôles Azure peuvent effectuer des actions sur les ressources Azure Media Services ? 
+
+Consultez [le contrôle d’accès en fonction du rôle (RBAC) pour les comptes Media Services](rbac-overview.md).
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>Comment configurer des unités réservées Multimédia ?
 
@@ -66,14 +70,14 @@ Utilisez Azure Media Services API pour la configuration/clé de licence de remis
 
 Pour plus d'informations, consultez les pages suivantes :
 
-- [Vue d’ensemble de la protection du contenu](content-protection-overview.md)
+- [Présentation de la protection du contenu](content-protection-overview.md)
 - [Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès](design-multi-drm-system-with-access-control.md)
 
 ## <a name="media-services-v2-vs-v3"></a>Media Services v2 et v3 
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Puis-je utiliser le portail Azure pour gérer des ressources v3 ?
 
-Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez le [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou l’un des prises en charge [kits de développement logiciel](developers-guide.md).
+Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](developers-guide.md) pris en charge.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe-t-il un concept de fichier d’élément multimédia dans v3 ?
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848923"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521592"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Passer à un certificat de passerelle d’autorité de certification public pour P2S
 
@@ -56,7 +56,7 @@ Seules les passerelles les plus anciennes sont concernées par ce changement. Si
 
 ### <a name="classic"></a>Classique
 
-1. Sur un ordinateur client, accédez à l'emplacement %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. Dans le dossier Gateway ID, vous pouvez afficher le certificat.
+1. Sur un ordinateur client, accédez au chemin d’accès `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. Dans le dossier Gateway ID, vous pouvez afficher le certificat.
 2. Dans l'onglet Général du certificat, vérifiez que l'autorité émettrice est « DigiCert Global Root CA ». Si vous avez autre chose que cette autorité émettrice, cela signifie que le certificat de votre passerelle est concerné par la mise à jour et qu'il va faire l'objet d'un remplacement.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. Consultez le calendrier de mise à jour des certificats

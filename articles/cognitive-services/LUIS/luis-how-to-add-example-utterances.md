@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096688"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524257"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Ajouter une entité à des exemples d’énoncés 
 
@@ -91,6 +91,8 @@ En supposant que l’énoncé, `Does John Smith work in Seattle?`, un énoncé c
 
 ## <a name="add-hierarchical-entity"></a>Ajouter une entité hiérarchique
 
+**Entités hiérarchiques risque d’être dépréciées. Utilisez [rôles de l’entité](luis-concept-roles.md) pour déterminer des sous-types d’entité, au lieu d’entités hiérarchiques.**
+
 Une entité hiérarchique est une catégorie d’entités apprises de façon contextuelle et associées de façon conceptuelle. Dans l’exemple suivant, l’entité contient des lieux de départ et de destination. 
 
 Dans l’énoncé `Move John Smith from Seattle to Cairo`, Seattle est le lieu de départ et Cairo (Le Caire) le lieu de destination. Chaque lieu est différent sur le plan du contexte, et appris à partir de l’ordre des mots et du choix des mots dans l’énoncé.
@@ -105,6 +107,12 @@ Dans l’énoncé `Move John Smith from Seattle to Cairo`, Seattle est le lieu d
 
     >[!CAUTION]
     >Les noms d’entité enfant doivent être uniques parmi toutes les entités dans une même application. Deux entités hiérarchiques différentes ne peuvent pas contenir d’entités enfants portant le même nom. 
+
+## <a name="add-entitys-role-to-utterance"></a>Ajouter le rôle de l’entité à énoncé
+
+Un rôle est un sous-type nommé d’une entité, déterminé par le contexte de l’énoncé. Vous pouvez marquer une entité dans un énoncé en tant que l’entité, ou sélectionner un rôle au sein de cette entité. Toute entité peut avoir des rôles, y compris les entités personnalisées qui font la machine a appris (entités simples et entités composites), ne sont pas machine a appris (des entités prédéfinies, entités de l’expression régulière, les entités de liste). 
+
+En savoir plus [comment marquer un énoncé avec des rôles de l’entité](tutorial-entity-roles.md) à partir d’un didacticiel. 
 
 ## <a name="entity-status-predictions"></a>Prédictions de l’état de l’entité
 
@@ -151,11 +159,11 @@ Pour supprimer une étiquette d’entité apprise automatiquement d’un énonc�
 
 ### <a name="add-prebuilt-entity-label"></a>Ajouter une étiquette d’entité prédéfinie
 
-Quand vous ajoutez les entités prédéfinies à votre application LUIS, vous n’avez pas besoin de marquer les énoncés avec ces entités. Pour plus d’informations sur les entités prédéfinies et la manière de les ajouter, voir [Ajouter des entités](luis-how-to-add-entities.md#add-prebuilt-entity).
+Quand vous ajoutez les entités prédéfinies à votre application LUIS, vous n’avez pas besoin de marquer les énoncés avec ces entités. Pour plus d’informations sur les entités prédéfinies et la manière de les ajouter, voir [Ajouter des entités](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ### <a name="add-regular-expression-entity-label"></a>Ajouter une étiquette d’entité regular expression
 
-Si vous ajoutez les entités d’expression régulière à votre application LUIS, vous n’avez pas besoin de marquer les énoncés avec ces entités. Pour plus d’informations sur les entités d’expression régulière et la manière de les ajouter, voir [Ajouter des entités](luis-how-to-add-entities.md#add-regular-expression-entities).
+Si vous ajoutez les entités d’expression régulière à votre application LUIS, vous n’avez pas besoin de marquer les énoncés avec ces entités. Pour plus d’informations sur les entités d’expression régulière et la manière de les ajouter, voir [Ajouter des entités](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
 
 ### <a name="create-a-pattern-from-an-utterance"></a>Créer un modèle à partir d’un énoncé

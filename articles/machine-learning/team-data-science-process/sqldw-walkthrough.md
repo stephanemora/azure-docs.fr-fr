@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838882"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523594"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse
 Dans ce didacticiel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant SQL Data Warehouse (SQL DW) pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire établi prédit si un pourboire a été donné pour une course. Des modèles de classification multiclasse et de régression sont également présentés, qui prévoient la distribution des montants de pourboire réglés.
@@ -77,7 +77,7 @@ Pour configurer votre environnement de science des données Azure, procédez com
 **Approvisionnez votre instance Azure SQL DW.**
 Suivez les étapes indiquées dans [Créer un entrepôt de données SQL](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) pour approvisionner une instance SQL Data Warehouse. Assurez-vous de prendre note des informations d’identification suivantes de SQL Data Warehouse dont vous aurez besoin dans les étapes ultérieures.
 
-* **Nom du serveur** : <server Name>.database.windows.net
+* **Nom du serveur**: \<nom de serveur >. database.windows.net
 * **Nom SQL DW (base de données)**
 * **Nom d’utilisateur**
 * **Mot de passe**

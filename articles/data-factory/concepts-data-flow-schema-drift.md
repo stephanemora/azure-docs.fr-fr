@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 42fde2804c04b2449068d649e1c660d02e72edb1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729353"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547142"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Dérive de schéma de mappage de flux de données
 
@@ -26,7 +26,7 @@ Afin de vous protéger contre la dérive de schéma, il est important de dispose
 * Définir des paramètres de transformation qui peuvent fonctionner avec des modèles de données et non avec des champs et des valeurs codés en dur
 * Définir des expressions qui comprennent les modèles pour correspondre aux champs entrants, au lieu d’utiliser des champs nommés
 
-Dans Data Flow d’Azure Data Factory, ces installations sont exposées grâce à ce flux de travail :
+## <a name="how-to-implement-schema-drift"></a>Comment implémenter une dérive du schéma
 
 * Choisissez « Allow Schema Drift » (« Autoriser la dérive de schéma ») dans votre transformation de la source
 
@@ -67,3 +67,10 @@ Vous pouvez tester cela avec l’exemple Data Flow « Taxi Demo » d’Azure D
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## <a name="access-new-columns-downstream"></a>Accéder aux nouvelles colonnes en aval
+
+Lorsque vous générez de nouvelles colonnes avec le modèle de colonne, vous pouvez accéder à ces nouvelles colonnes plus loin dans vos transformations du flux de données à l’aide de la fonction d’expression « byName ».
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans le [langage d’Expression de flux de données](data-flow-expression-functions.md) vous trouverez des fonctionnalités supplémentaires pour les modèles de colonne et une dérive du schéma, y compris « byName » et « byPosition ».

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 465d59ff13982eee8432d7ef97e2f522b0d7125b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ac10f1f1c6336098afc2abd2b8f720cedfb6f579
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489722"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548933"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -251,13 +251,13 @@ Network Performance Monitor utilise les fonctionnalités d’alerte [d’Azure M
 
 Cela signifie que toutes les notifications sont gérées à l’aide de [groupes d’actions](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Si vous êtes un utilisateur NPM création d’une alerte via LAzure Monitor : 
-1. Un lien permettant de vous rediriger vers le portail Azure s’affiche. Cliquez dessus pour accéder au portail.
+Si vous êtes un utilisateur NPM créant une alerte via Log Analytics : 
+1. Vous verrez un lien qui vous redirige vers le portail Azure. Cliquez dessus pour accéder au portail.
 2. Cliquez sur la vignette de la solution Network Performance Monitor. 
 3. Accédez Configurer.  
 4. Sélectionnez le test souhaité pour y créer une alerte et suivez les étapes mentionnées ci-dessous.
 
-Si vous êtes un utilisateur NPM créant une alerte via le portail Azure :  
+Si vous êtes un utilisateur NPM création d’une alerte via le portail Azure :  
 1. Vous pouvez choisir d’entrer votre adresse e-mail directement ou vous pouvez choisir de créer des alertes via des groupes d’actions.
 2. Si vous choisissez d’entrer votre adresse e-mail directement, un groupe d’actions nommé **NPM Email ActionGroup** est créé auquel l’ID d’e-mail est ajouté.
 3. Si vous choisissez d’utiliser des groupes d’actions, vous devez sélectionner un groupe d’actions précédemment créé. Pour découvrir comment créer un groupe d’actions, cliquez [ici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal). 

@@ -6,14 +6,14 @@ author: alexkarcher-msft
 manager: jehollan
 ms.service: azure-functions
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 4f27bbeb43bbf373b621d151d68583f0041378b3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894199"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523730"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Intégrer une application de fonction à un réseau virtuel Azure
 
@@ -99,7 +99,7 @@ L’application de fonction peut désormais accéder au réseau virtuel avec not
     <img src="./media/functions-create-vnet/new-proxy.png" width="250">
 
 1. Configurez le nom et la route du proxy. J’ai choisi la route /plant.
-1. Renseignez IP de votre site wordpress précédemment et définissez l’URL de serveur principal sur `http://{YOUR VM IP}/wp-content/themes/twentyseventeen/assets/images/header.jpg`
+1. Indiquez l’adresse IP de votre site WordPress et définissez l’URL back-end sur `http://{YOUR VM IP}/wp-content/themes/twentyseventeen/assets/images/header.jpg`.
     
     <img src="./media/functions-create-vnet/create-proxy.png" width="900">
 
@@ -111,13 +111,14 @@ Votre application de fonction est connectée à la fois à Internet et à votre 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Fonctions exécutées dans un plan Premium partagent la même infrastructure App Service sous-jacent comme des applications Web. Cela signifie que toute la documentation pour les applications Web s’applique à vos fonctions de plan Premium.
+Fonctions exécutées dans un plan Premium partagent la même infrastructure sous-jacente de App Service Web Apps sur PV2 plans. Cela signifie que toute la documentation pour les applications Web s’applique à vos fonctions de plan Premium.
 
-1. [En savoir plus sur l’intégration de réseau virtuel avec App Service / fonctions ici](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
-1. [En savoir plus sur les réseaux virtuels dans Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
-1. [Activer pour les fonctionnalités de mise en réseau et le contrôle avec les environnements App Service](https://docs.microsoft.com/azure/app-service/environment/intro)
-1. [Se connecter à des ressources locales sans modifications de pare-feu à l’aide de connexions hybrides](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
-1. [En savoir plus sur les proxys de fonction](https://review.docs.microsoft.com/azure/azure-functions/functions-proxies)
+1. [En savoir plus sur les options de mise en réseau dans les fonctions ici](./functions-networking-options.md)
+1. [Lire les fonctions de mise en réseau FAQ ici](./functions-networking-faq.md)
+1. [En savoir plus sur les réseaux virtuels dans Azure](../virtual-network/virtual-networks-overview.md)
+1. [Activer plusieurs fonctionnalités mise en réseau et le contrôle avec les environnements App Service](../app-service/environment/intro.md)
+1. [Se connecter à des ressources locales sans modifier le pare-feu à l’aide des connexions hybrides](../app-service/app-service-hybrid-connections.md)
+1. [En savoir plus sur Functions Proxies](./functions-proxies.md)
 
 <!--Image references-->
 [1]: ./media/functions-create-vnet/topology.png

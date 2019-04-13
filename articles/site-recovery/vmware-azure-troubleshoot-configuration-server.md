@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 287a4104104c12e33fa2c50c398f422f9e6ea8c5
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418701"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525838"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Résoudre les problèmes de serveur de configuration
 
@@ -203,7 +203,7 @@ En général, cela est dû à une erreur avec le port 443. Utilisez les étapes
 
 Pour vérifier que l’agent du serveur cible maître peut créer une session TCP pour l’adresse IP du serveur de configuration, recherchez une trace semblable à ce qui suit dans les journaux de l’agent du serveur cible maître :
 
-TCP <Replace IP with CS IP here>:52739 <Replace IP with CS IP here>:443 SYN_SENT 
+TCP \<remplacer une adresse IP avec l’adresse IP de CS ici > : 52739 \<remplacer une adresse IP avec l’adresse IP de CS ici > : 443 SYN_SENT 
 
 TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Remplacer l’adresse IP par l’adresse IP du serveur CS ici
 

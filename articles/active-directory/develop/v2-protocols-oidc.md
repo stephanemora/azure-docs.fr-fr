@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65515566e5bd0701d218d993f4fe97cae08e1a75
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501176"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523458"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plateforme d’identité Microsoft et le protocole OpenID Connect
 
@@ -57,7 +57,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 | `common` |Utilisateurs avec un compte Microsoft personnel et un compte professionnel ou scolaire à partir d’Azure AD peuvent se connecter à l’application. |
 | `organizations` |Seuls les utilisateurs avec des comptes professionnels ou scolaires Azure AD peuvent se connecter à l’application. |
 | `consumers` |Seuls les utilisateurs avec un compte personnel Microsoft peuvent se connecter à l’application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Seuls les utilisateurs avec un compte professionnel ou scolaire d'un client Azure AD spécifique peuvent se connecter à l’application. Le nom de domaine convivial du client Azure AD ou l’identificateur GUID du client peut être utilisé. Vous pouvez également utiliser le client consommateur, `9188040d-6c67-4c5b-b112-36a304b66dad`, à la place de la `consumers` client.  |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` | Seuls les utilisateurs avec un compte professionnel ou scolaire d'un client Azure AD spécifique peuvent se connecter à l’application. Le nom de domaine convivial du client Azure AD ou l’identificateur GUID du client peut être utilisé. Vous pouvez également utiliser le client consommateur, `9188040d-6c67-4c5b-b112-36a304b66dad`, à la place de la `consumers` client.  |
 
 Les métadonnées représentent un simple document JavaScript Objet Notation (JSON). Consultez l’extrait suivant pour obtenir un exemple. Le contenu de l'extrait de code est décrit en détail dans les [spécifications d’OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
@@ -215,7 +215,7 @@ Beaucoup d’applications web nécessitent une connexion de l’utilisateur, pu
 
 Le flux complet de connexion OpenID Connect et d’acquisition des jetons ressemble à l'exemple du diagramme suivant. Nous décrirons en détail chaque étape dans les sections suivantes de cet article.
 
-![Protocole OpenID Connect : Acquisition de jeton](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
+![Protocole OpenID Connect : Acquisition de jeton](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
 
 ## <a name="get-access-tokens"></a>Obtenir des jetons d’accès
 Pour acquérir des jetons d’accès, modifiez la requête de connexion :

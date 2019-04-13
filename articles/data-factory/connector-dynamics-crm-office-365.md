@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f40be655481481946929c4d79210cb360797f174
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017155"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545431"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -70,7 +70,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour la source, oui pour le récepteur si le service lié à la source n’a pas de runtime d’intégration |
 
 >[!IMPORTANT]
->Lorsque vous copiez des données dans Salesforce, le runtime d’intégration Azure par défaut ne peut pas être utilisé pour exécuter la copie. En d’autres termes, si votre service lié à la source n’a pas de runtime d’intégration spécifié, [créez un Runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) de manière explicite, avec un emplacement près de votre instance Dynamics. Associez-le dans le service lié Dynamics comme dans l’exemple suivant.
+>Lorsque vous copiez des données dans Salesforce, le runtime d’intégration Azure par défaut ne peut pas être utilisé pour exécuter la copie. En d’autres termes, si votre service lié à la source n’a pas de runtime d’intégration spécifié, [créez un Runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) de manière explicite, avec un emplacement près de votre instance Dynamics. Trouver où se trouve votre instance Dynamics en référençant le [la liste des régions pour Dynamics 365](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions). Associez-le dans le service lié Dynamics comme dans l’exemple suivant.
 
 >[!NOTE]
 >Le connecteur Dynamics utilisé pour la propriété facultative « organizationName » afin d’identifier votre instance de Dynamics CRM/365 Online. Pendant qu’il continue de fonctionner, vous êtes invité à spécifier à la place la nouvelle propriété « serviceUri » pour obtenir de meilleures performances pour l’instance de détection.
@@ -332,14 +332,14 @@ Configurez le type de données Data Factory correspondant dans la structure du j
 | AttributeTypeCode.Boolean | Booléen | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
-| AttributeType.Decimal | Décimal | ✓ | ✓ |
+| AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | Chaîne | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (avec une seule cible associée) |
 | AttributeType.ManagedProperty | Booléen | ✓ | |
 | AttributeType.Memo | Chaîne | ✓ | ✓ |
-| AttributeType.Money | Décimal | ✓ | ✓ |
+| AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |

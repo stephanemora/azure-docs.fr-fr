@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267699"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521714"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Objectifs de performance et d’extensibilité stockage Azure pour les comptes de stockage
 
@@ -58,13 +58,13 @@ Par exemple :  Un partage unique peut atteindre 100 000 e/s et un seul fichier 
 
 |Domaine  |Cible  |
 |---------|---------|
-|Taille min.                        |100 Gio      |
-|Taille maximale                        |100 TiB      |
+|Taille min configuré.                        |100 Gio      |
+|Nombre maximal configuré de taille                        |100 TiB      |
 |Augmenter/diminuer la taille minimale    |1 GiB      |
 |IOPS de base    |1 Go jusqu'à 100 000 par seconde|
 |E/s de rupture    |3 x IOPS par Gio jusqu'à 100 000|
-|Bande passante minimale                     |100        |
-|Bande passante |0,1 Mo/s par Gio jusqu'à 5 Go/s     |
+|Taux de sortie         |60 Mio/s + 0,06 * approvisionné Gio        |
+|Taux d’entrée| 40 Mio/s + 0.04 * approvisionné Gio |
 |Nombre maximal d’instantanés        |200       |
 
 #### <a name="premium-file-limits"></a>Limites du fichier Premium
@@ -91,7 +91,7 @@ Azure File Sync a été conçu pour proposer un usage illimité, mais cela n’e
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Tarification – Stockage](https://azure.microsoft.com/pricing/details/storage/)
-- [Abonnement Azure et limites de Service, Quotas et contraintes](../../azure-subscription-service-limits.md)
-- [Réplication du stockage Azure](../storage-redundancy.md)
-- [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](../storage-performance-checklist.md)
+- [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
+- [Abonnement Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md)
+- [Réplication Azure Storage](../storage-redundancy.md)
+- [Liste de contrôle des performances et de l’évolutivité de Microsoft Azure Storage](../storage-performance-checklist.md)

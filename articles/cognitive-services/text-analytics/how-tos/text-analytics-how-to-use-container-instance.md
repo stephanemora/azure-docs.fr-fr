@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 00e2c143116550aa77d38b4bc93bbe2e0b41c331
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868342"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526493"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Déployer le conteneur Détection de langue sur Azure Kubernetes Service
 
 Découvrez comment déployer le conteneur Détection de langue. Cette procédure vous montre comment créer les conteneurs Docker locaux, envoyer (push) les conteneurs à votre propre registre de conteneurs privés, exécuter le conteneur dans un cluster Kubernetes et le tester dans un navigateur web. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cette procédure nécessite plusieurs outils qui doivent être installés et exécutés localement. N’utilisez pas Azure Cloud Shell. 
 
@@ -206,7 +206,7 @@ Les étapes suivantes sont nécessaires pour obtenir les informations permettant
 
     Enregistrez la valeur complète pour l’étape 3 de cette section. 
 
-1. Pour accorder l’accès correct permettant au cluster AKS d’utiliser des images stockées dans votre registre de conteneurs, créez une attribution de rôle. Remplacez <appId> et <acrId> par les valeurs recueillies au cours des deux étapes précédentes.
+1. Pour accorder l’accès correct permettant au cluster AKS d’utiliser des images stockées dans votre registre de conteneurs, créez une attribution de rôle. Remplacez `<appId>` et `<acrId>` par les valeurs recueillies au cours des deux étapes précédentes.
 
     ```azurecli
     az role assignment create --assignee <appId> --scope <acrId> --role Reader

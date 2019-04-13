@@ -2,20 +2,20 @@
 title: Plutôt qu’ETL, concevoir ELT pour Azure SQL Data Warehouse | Microsoft Docs
 description: Plutôt qu’ETL, concevoir un processus d’extraction, de chargement et de transformation (ELT) pour charger les données dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 04/12/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 96f6da7e081430768b5a6f8fd874e289b8256271
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2e65c1a33a60e19538a26e0f47f205235dd1695c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308480"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548658"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Conception d’une stratégie de chargement de données PolyBase pour Azure SQL Data Warehouse
 
@@ -99,7 +99,7 @@ Pour charger des données avec PolyBase, vous pouvez utiliser l’une des option
 - [PolyBase avec T-SQL](load-data-from-azure-blob-storage-using-polybase.md) fonctionne bien lorsque vos données se trouvent dans le stockage Blob Azure ou dans Azure Data Lake Store. Il vous offre un contrôle optimal sur le processus de chargement, mais nécessite également que vous définissiez des objets de données externes. Les autres méthodes définissent ces objets en arrière-plan pendant que vous mappez les tables sources vers les tables de destination.  Pour orchestrer les chargements T-SQL, vous pouvez utiliser Azure Data Factory, SSIS ou les fonctions Azure. 
 - [PolyBase avec SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) fonctionne bien lorsque vos données sources se trouvent dans SQL Server, que ce soit SQL Server sur site ou dans le cloud. SSIS définit le mappage de la table « source vers destination » et orchestre aussi le chargement. Si vous disposez déjà de packages SSIS, vous pouvez modifier les packages pour travailler avec le nouvel entrepôt de données de destination. 
 - [PolyBase avec Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) est un autre outil d’orchestration.  Il définit un pipeline et planifie les travaux. 
-- [PolyBase avec Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfère les données d’une table SQL Data Warehouse vers une tramedonnées Databricks et/ou écrit des données d’une tramedonnées Databricks dans une table SQL Data Warehouse.
+- [PolyBase avec Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfère les données à partir d’une table SQL Data Warehouse vers une tramedonnées Databricks et/ou écrit des données d’une tramedonnées Databricks dans une table SQL Data Warehouse à l’aide de PolyBase.
 
 ### <a name="non-polybase-loading-options"></a>Options de chargement non-PolyBase
 

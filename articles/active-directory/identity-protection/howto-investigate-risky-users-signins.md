@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 743b078eac783365ae83e540a7dc05aba0ae8754
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517591"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547054"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Procédure : Examiner les utilisateurs et les connexions à risque 
 
@@ -151,9 +151,9 @@ Le filtre **État** vous permet de sélectionner les états suivants :
 
 ### <a name="download-risky-users-data"></a>Téléchargement des données des utilisateurs à risque
 
-Vous pouvez télécharger les données des utilisateurs à risque pour les utiliser en dehors du portail Azure. Cliquer sur Télécharger permet de créer un fichier CSV contenant les 5 000 enregistrements les plus récents. 
+Vous pouvez télécharger les données d’utilisateurs à risque si vous souhaitez les utiliser en dehors du portail Azure. En cliquant sur le téléchargement crée un fichier CSV contenant les enregistrements de 2 500 plus récents. 
 
-![Rapport Utilisateurs à risque](./media/howto-investigate-risky-users-signins/07.png)
+![Rapport sur les utilisateurs à risque](./media/howto-investigate-risky-users-signins/07.png)
 
 
 Vous pouvez personnaliser le mode Liste en cliquant sur Colonnes dans la barre d’outils.
@@ -320,9 +320,9 @@ Les valeurs possibles sont les suivantes :
 
 ### <a name="download-risky-sign-ins-data"></a>Téléchargement des données des connexions à risque
 
-Vous pouvez télécharger les données des connexions à risque pour les utiliser en dehors du portail Azure. Cliquer sur Télécharger permet de créer un fichier CSV contenant les 5 000 enregistrements les plus récents. 
+Vous pouvez télécharger les données de connexions risquées si vous souhaitez les utiliser en dehors du portail Azure. En cliquant sur le téléchargement crée un fichier CSV contenant les enregistrements de 2 500 plus récents. 
 
-![Rapport Utilisateurs à risque](./media/howto-investigate-risky-users-signins/15.png)
+![Rapport sur les utilisateurs à risque](./media/howto-investigate-risky-users-signins/15.png)
 
 
 

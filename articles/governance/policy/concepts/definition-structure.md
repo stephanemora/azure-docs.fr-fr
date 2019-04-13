@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 4d7ecdcff356f27e17eca95a0d42290037d6b570
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426458"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549352"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -74,12 +74,12 @@ Tous les exemples Azure Policy se trouvent dans [Exemples de stratégies](../sam
 
 Le **mode** détermine les types de ressources à évaluer pour une stratégie. Les modes pris en charge sont les suivants :
 
-- `all`: évaluer les groupes de ressources et tous les types de ressources
-- `indexed`: évaluer uniquement les types de ressources qui prennent en charge les balises et l’emplacement
+- `all` : évaluer les groupes de ressources et tous les types de ressources
+- `indexed` : évaluer uniquement les types de ressources qui prennent en charge les balises et l’emplacement
 
 Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode**, elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
 
-`indexed` doit être utilisé lors de la création de stratégies qui appliquent des balises ou des emplacements. car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste de ressources qui prennent en charge les balises, consultez [prise en charge pour les ressources Azure étiquette](../../../azure-resource-manager/tag-support.md).
+Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste de ressources qui prennent en charge les balises, consultez [prise en charge pour les ressources Azure étiquette](../../../azure-resource-manager/tag-support.md).
 
 ## <a name="parameters"></a>parameters
 
@@ -94,7 +94,7 @@ Les paramètres fonctionnent de manière identique durant la création de strat�
 Un paramètre possède les propriétés suivantes qui sont utilisées dans la définition de la stratégie :
 
 - **nom** : Nom de votre paramètre. Utilisé par la fonction de déploiement `parameters` dans le cadre de la règle de stratégie. Pour plus d’informations, consultez [Utilisation d’une valeur de paramètre](#using-a-parameter-value).
-- `type`: Détermine si le paramètre est une **chaîne**ou un**tableau.
+- `type`: Détermine si le paramètre est une **chaîne** ou un **tableau**.
 - `metadata`: Définit les sous-propriétés utilisées principalement par le portail Azure pour afficher des informations conviviales :
   - `description`: Explication du rôle du paramètre. Utilisable pour fournir des exemples de valeurs acceptables.
   - `displayName`: Nom convivial du paramètre visible dans le portail.
@@ -262,7 +262,7 @@ Les champs suivants sont pris en charge :
 - alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, et `tags[tag.with.dots]` sont toujours acceptables façons de déclarer un champ de balises.
+> `tags.<tagName>`, `tags[tagName]` et `tags[tag.with.dots]` sont toujours des manières acceptables de déclarer un champ de balises.
 > Toutefois, les expressions préférées sont celles répertoriées ci-dessus.
 
 #### <a name="use-tags-with-parameters"></a>Utiliser des balises avec des paramètres
@@ -424,7 +424,7 @@ Toutes les [fonctions du modèle Resource Manager](../../../azure-resource-manag
 - resourceId()
 - variables()
 
-De plus, la fonction `field` est disponible pour les règles de stratégie. `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** aux champs de référence sur la ressource qui sont en cours d’évaluation. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
+De plus, la fonction `field` est disponible pour les règles de stratégie. `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-example"></a>Exemple de fonction de stratégie
 
@@ -487,36 +487,7 @@ Plusieurs alias disponibles possèdent une version qui apparaîtra avec un nom �
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-L’alias « normal » représente le champ sous la forme d’une valeur unique. Ce champ est pour les scénarios de comparaison de correspondance exacte, lors de l’ensemble de valeurs doit être exactement tel que défini, pas d’autres et non moins. À l’aide de **ipRules**, un exemple serait validation qu’un jeu de règles exact existe notamment le nombre de règles et composition de chaque règle. Cet exemple de règle de contrôles pour exactement **192.168.1.1** et **10.0.4.1** avec _action_ de **autoriser** dans **ipRules** pour appliquer le **effectType**:
-
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "Equals": [
-                    {
-                        "action": "Allow",
-                        "value": "192.168.1.1"
-                    },
-                    {
-                        "action": "Allow",
-                        "value": "10.0.4.1"
-                    }
-                ]
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+L’alias « normal » représente le champ sous la forme d’une valeur unique. Ce champ est pour les scénarios de comparaison de correspondance exacte, lors de l’ensemble de valeurs doit être exactement tel que défini, pas d’autres et non moins.
 
 Le **[\*]** alias permet de comparer la valeur de chaque élément du tableau et les propriétés spécifiques de chaque élément. Cette approche permet de comparer les propriétés de l’élément 'absence de', 'Si un des', ou ' Si tous les de ' scénarios. À l’aide de **ipRules [\*]**, un exemple serait la validation que chaque _action_ est _Deny_, mais ne pas se préoccuper de savoir combien de règles existent ou l’adresse IP _valeur_ est. Cette règle de l’exemple vérifie toutes les correspondances de **ipRules [\*] .value** à **10.0.4.1** et applique la **effectType** uniquement s’il ne trouve pas au moins une correspondance :
 

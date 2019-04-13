@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: bded6c76aa209a718929c891bd2443f8517ec44a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 70dac62e3e19ad0e9b33ea7b376a8fe479bf3131
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649632"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522982"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Affecter plusieurs adresses IP à des machines virtuelles avec PowerShell
 
@@ -96,7 +96,7 @@ Les étapes qui suivent expliquent comment créer un exemple de machine virtuell
 
 6. Définissez la configuration IP principale de la carte réseau. Remplacez 10.0.0.4 par une adresse valide dans le sous-réseau que vous avez créé, si vous n’utilisez pas la valeur définie précédemment. Avant d’attribuer une adresse IP statique, il est recommandé de vérifier tout d’abord qu’elle n’est pas déjà utilisée. Entrez la commande `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Si l’adresse est disponible, la sortie retourne *True*. S’il n’est pas disponible, la sortie retourne *False* et la liste des adresses disponibles. 
 
-    Dans les commandes suivantes, **remplacez <replace-with-your-unique-name> par le nom DNS unique à utiliser.** Le nom doit être unique sur toutes les adresses IP publiques au sein d’une région Azure. Paramètre facultatif. Il peut être supprimé si vous voulez uniquement vous connecter à la machine virtuelle à l’aide de l’adresse IP publique.
+    Dans les commandes suivantes, **remplacer \<replace-avec-your-unique-name > par le nom DNS unique à utiliser.** Le nom doit être unique sur toutes les adresses IP publiques au sein d’une région Azure. Paramètre facultatif. Il peut être supprimé si vous voulez uniquement vous connecter à la machine virtuelle à l’aide de l’adresse IP publique.
 
     ```powershell
     
