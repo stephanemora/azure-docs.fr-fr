@@ -24,9 +24,9 @@ sections:
         className: cardImageOuter
         items:
           - title: Découvrir les concepts
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Chargement et stockage sur le cloud</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encodage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Surveillance</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Analytique multimédia</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Packaging</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protection</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Vidéo en flux continu</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Clients Player</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Chargement et stockage cloud</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encodage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Surveillance</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Analytique multimédia</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Empaquetage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protection</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Vidéo en flux continu</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Clients Player</a></p>'
           - title: "Développer avec l’API\_V3"
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Commencer à développer avec des kits SDK</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Développer avec REST</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Commencer à développer avec des kits SDK</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Développer avec REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Se connecter avec Java</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Se connecter avec .NET</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Se connecter avec Node.js</a></p>'
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
@@ -120,9 +120,9 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: '<a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>'
+          - html: '<a href="https://aka.ms/ams-v3-cli-ref">Interface de ligne de commande Azure</a>'
           - html: '<a href="https://aka.ms/ams-v3-rest-ref">REST</a>'
           - html: '<a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>'
           - html: '<a href="https://aka.ms/ams-v3-java-ref">Java</a>'
           - html: '<a href="https://aka.ms/ams-v3-python-ref">Python</a>'
-          - html: '<a href="https://aka.ms/ams-v3-nodejs-ref">Node.js</a>'
+          - html: '<a href="https://aka.ms/ams-v3-nodejs-ref">Node.JS</a>'

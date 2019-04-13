@@ -18,8 +18,6 @@ items:
   expanded: true
 - name: Tutoriels
   items:
-  - name: Héberger un seul site
-    href: quick-create-portal.md
   - name: Activer le pare-feu d’applications web
     href: application-gateway-web-application-firewall-portal.md
   - name: Sécuriser avec SSL
@@ -32,8 +30,6 @@ items:
     href: tutorial-url-redirect-cli.md
   - name: Mise à l’échelle et redondant dans une zone
     href: tutorial-autoscale-ps.md
-  - name: Réécrire les en-têtes HTTP
-    href: tutorial-http-header-rewrite-powershell.md
 - name: Exemples
   items:
   - name: Azure PowerShell
@@ -178,8 +174,10 @@ items:
         href: redirect-internal-site-cli.md
     - name: Rediriger le trafic web avec Azure PowerShell
       href: tutorial-url-redirect-powershell.md
-  - name: Réécrire les en-têtes HTTP dans la passerelle existante
+  - name: Réécrire les en-têtes HTTP
     items:
+    - name: Portail Azure
+      href: rewrite-http-headers-portal.md
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
   - name: Configurer une application web App Service et un service multilocataire
@@ -240,9 +238,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 01ca52cb94059cd0281fb81f605380c8bd852704
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 26ec063b5ad05325eb654a3b112eb5dd6ef23bcc
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803763"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547378"
