@@ -34,7 +34,7 @@ Les propriétés des planifications sont décrites dans le tableau suivant.
 
 | Propriété | Description |
 |:--- |:--- |
-| Intervalle |Fréquence à laquelle la recherche est exécutée. Exprimée en minutes. |
+| Interval |Fréquence à laquelle la recherche est exécutée. Exprimée en minutes. |
 | QueryTimeSpan |Intervalle de temps pendant lequel les critères sont évalués. Doit être égal ou supérieur à Interval. Exprimée en minutes. |
 | Version |Version de l’API utilisée.  Actuellement, cette propriété doit toujours être définie sur 1. |
 
@@ -360,8 +360,8 @@ Les notifications par courrier électronique envoient un e-mail à un ou plusieu
 | Propriété | Description |
 |:--- |:--- |
 | Recipients |Liste d’adresses de messagerie. |
-| Objet |Objet de l’e-mail. |
-| Pièce jointe |Les pièces jointes n’étant pas actuellement prises en charge, cette propriété est toujours définie sur « None ». |
+| Subject |Objet de l’e-mail. |
+| Attachment |Les pièces jointes n’étant pas actuellement prises en charge, cette propriété est toujours définie sur « None ». |
 
 Voici un exemple de réponse pour une action de notification par courrier électronique comportant un seuil.  
 
