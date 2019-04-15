@@ -63,7 +63,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| TableName |Nom de la table dans l'instance de base de données Table Azure à laquelle le service lié fait référence. |Oui. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination. |
+| tableName |Nom de la table dans l'instance de base de données Table Azure à laquelle le service lié fait référence. |Oui. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination. |
 
 ### <a name="schema-by-data-factory"></a>Schéma par Data Factory
 Pour les magasins de données sans schéma comme Azure Table, le service Data Factory déduit le schéma de l’une des manières suivantes :
@@ -82,7 +82,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l'ac
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête de table Azure. Consultez les exemples dans la section suivante. |Non. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination. |
+| azureTableSourceQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête de table Azure. Consultez les exemples dans la section suivante. |Non. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination. |
 | azureTableSourceIgnoreTableNotFound |Indiquer si l'exception de la table n'existe pas. |TRUE<br/>FALSE |Non  |
 
 ### <a name="azuretablesourcequery-examples"></a>Exemples azureTableSourceQuery
@@ -484,7 +484,7 @@ Pendant le déplacement de données à partir de et vers Table Azure, les [mappa
 | Edm.Guid |Guid |Identificateur global unique de 128 bits. |
 | Edm.Int32 |Int32 |Nombre entier 32 bits. |
 | Edm.Int64 |Int64 |Nombre entier 64 bits. |
-| Edm.String |Chaîne |Valeur encodée en UTF-16. Les valeurs de chaîne peuvent aller jusqu’à 64 Ko. |
+| Edm.String |String |Valeur encodée en UTF-16. Les valeurs de chaîne peuvent aller jusqu’à 64 Ko. |
 
 ### <a name="type-conversion-sample"></a>Exemple de conversion de type
 L'exemple suivant montre la copie de données à partir d'un objet Blob Azure vers Table Azure avec des conversions de type.
