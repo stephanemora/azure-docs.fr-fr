@@ -34,7 +34,7 @@ Les propriétés des planifications sont décrites dans le tableau suivant.
 
 | Propriété | Description |
 |:--- |:--- |
-| Intervalle |Fréquence à laquelle la recherche est exécutée. Exprimée en minutes. |
+| Interval |Fréquence à laquelle la recherche est exécutée. Exprimée en minutes. |
 | QueryTimeSpan |Intervalle de temps pendant lequel les critères sont évalués. Doit être égal ou supérieur à Interval. Exprimée en minutes. |
 | Version |Version de l’API utilisée.  Actuellement, cette propriété doit toujours être définie sur 1. |
 
@@ -94,9 +94,9 @@ Toutes les actions des planifications sont décrites dans le tableau suivant.  D
 
 | Propriété | Description |
 |:--- |:--- |
-| Type |Type de l’action.  Actuellement, les valeurs possibles sont Alert et Webhook. |
-| Nom |Nom d’affichage de l’alerte. |
-| Version |Version de l’API utilisée.  Actuellement, cette propriété doit toujours être définie sur 1. |
+| `Type` |Type de l’action.  Actuellement, les valeurs possibles sont Alert et Webhook. |
+| `Name` |Nom d’affichage de l’alerte. |
+| `Version` |Version de l’API utilisée.  Actuellement, cette propriété doit toujours être définie sur 1. |
 
 ### <a name="retrieving-actions"></a>Récupération des actions
 
@@ -155,7 +155,7 @@ Les propriétés des seuils sont décrites dans le tableau suivant.
 | Propriété | Description |
 |:--- |:--- |
 | Operator |Opérateur de comparaison de seuil. <br> gt = supérieur à <br>  lt = inférieur à |
-| Valeur |Valeur du seuil. |
+| Value |Valeur du seuil. |
 
 Par exemple, considérez une requête d’événement avec Interval défini sur 15 minutes, QueryTimeSpan sur 30 minutes et Threshold sur une valeur supérieure à 10. Dans ce cas, la requête est exécutée toutes les 15 minutes et une alerte se déclenche si la requête renvoie 10 événements créés en l’espace de 30 minutes.
 
@@ -187,9 +187,9 @@ Log Analytics vous permet de classer vos alertes en catégories, pour faciliter 
 
 |Niveau de gravité Log Analytics  |Niveau de gravité des alertes Azure  |
 |---------|---------|
-|Critique |Gravité 0|
-|Avertissement |Gravité 1|
-|information | Gravité 2|
+|`critical` |Gravité 0|
+|`warning` |Gravité 1|
+|`informational` | Gravité 2|
 
 Voici un exemple de réponse pour une action comportant uniquement un seuil et une gravité. 
 
@@ -360,8 +360,8 @@ Les notifications par courrier électronique envoient un e-mail à un ou plusieu
 | Propriété | Description |
 |:--- |:--- |
 | Recipients |Liste d’adresses de messagerie. |
-| Objet |Objet de l’e-mail. |
-| Pièce jointe |Les pièces jointes n’étant pas actuellement prises en charge, cette propriété est toujours définie sur « None ». |
+| Subject |Objet de l’e-mail. |
+| Attachment |Les pièces jointes n’étant pas actuellement prises en charge, cette propriété est toujours définie sur « None ». |
 
 Voici un exemple de réponse pour une action de notification par courrier électronique comportant un seuil.  
 
