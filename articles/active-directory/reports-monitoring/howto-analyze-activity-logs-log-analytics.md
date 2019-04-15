@@ -36,14 +36,14 @@ Cet article vous montre comment analyser les journaux d’activité Azure AD dan
 
 Pour suivre l’article, vous devez préalablement :
 
-* Créer un espace de travail Log Analytics dans votre abonnement Azure. Découvrez comment [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Espace de travail Log Analytics dans votre abonnement Azure. Découvrez comment [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * Effectuer les étapes nécessaires pour [envoyer les journaux d’activité Azure AD dans votre espace de travail Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Accéder à l’espace de travail Log Analytics
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
 
-2. Sélectionnez **Azure Active Directory**, puis sélectionnez **Journaux** dans la section **Supervision** pour ouvrir votre espace de travail Log Analytics. L’espace de travail s’ouvre avec une requête par défaut.
+2. Sélectionnez **Azure Active Directory**, puis sélectionnez **Journaux d’activité** dans la section **Supervision** pour ouvrir votre espace de travail Log Analytics. L’espace de travail s’ouvre avec une requête par défaut.
 
     ![Requête par défaut](./media/howto-analyze-activity-logs-log-analytics/defaultquery.png)
 
@@ -102,7 +102,7 @@ Vous pouvez également télécharger les vues Log Analytics prédéfinies pour l
 * **Événements de connexion** : Cette vue affiche les rapports les plus pertinents relatifs à la supervision de l’activité de connexion, par exemple, les connexions par application, utilisateur et appareil, ainsi qu’un récapitulatif de l’ensemble des connexions effectuées.
 * **Consentement des utilisateurs** : Cette vue affiche les rapports relatifs au consentement des utilisateurs, comme le consentement donné par utilisateur, les connexions par les utilisateurs qui ont donné leur consentement ainsi que les connexions par application pour toutes les applications basées sur le consentement. 
 
-Découvrez comment [installer et utiliser les affichages Log Analytics des journaux d’activité Azure AD](howto-install-use-log-analytics-views.md). 
+Découvrez comment [installer et utiliser les vues Log Analytics pour les journaux d’activité Azure AD](howto-install-use-log-analytics-views.md). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

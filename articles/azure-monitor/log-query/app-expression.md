@@ -78,6 +78,6 @@ union
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez l'[expression workspace](workspace-expression.md) pour référence à un espace de travail Log Analytics.
+- Consultez l’[expression workspace](workspace-expression.md) pour référence à un espace de travail Log Analytics.
 - Découvrez-en plus sur le stockage des [données Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 - Accédez à la documentation complète sur le [langage de requête Kusto](/azure/kusto/query/).

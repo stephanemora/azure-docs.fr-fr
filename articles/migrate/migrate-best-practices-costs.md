@@ -269,7 +269,7 @@ Souvent, les groupes de ressources sont utilisés pour représenter des limites 
 
 ## <a name="best-practice-optimize-azure-monitor-retention"></a>Meilleure pratique : optimiser la rétention d’Azure Monitor
 
-Lorsque vous déplacez des ressources dans Azure et activez la journalisation des diagnostics, vous générez un gros volume de données de journal. En général, ces données de journal sont envoyées à un compte de stockage mappé avec un espace de travail Log Analytics.
+Lorsque vous déplacez des ressources dans Azure et activez la journalisation des diagnostics, vous générez un gros volume de données de journal. En général, ces données de journal d’activité sont envoyées à un compte de stockage mappé avec un espace de travail Log Analytics.
 
 - Plus la période de rétention de données de journal est longue, plus vous aurez de données.
 - Toutes les données de journal ne sont pas identiques, et certaines ressources génèrent plus de données de journal que d’autres.

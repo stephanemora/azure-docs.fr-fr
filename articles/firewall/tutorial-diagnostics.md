@@ -53,7 +53,7 @@ L’affichage des données dans vos journaux peut prendre quelques minutes aprè
 
 3. Cliquez sur **Activer les diagnostics** pour démarrer la collecte de données.
 4. La page **Paramètres de diagnostic** contient les paramètres des journaux de diagnostic. 
-5. Dans cet exemple, les journaux Azure Monitor stockent les journaux. Par conséquent, tapez **Firewall log analytics** comme nom.
+5. Dans cet exemple, les journaux d’activité Azure Monitor stockent les journaux d’activité. Par conséquent, tapez **analytique des journaux d’activité de pare-feu** comme nom.
 6. Cliquez sur **Envoyer à Log Analytics** pour configurer votre espace de travail. Vous pouvez également utiliser des concentrateurs d’événements et un compte de stockage pour enregistrer les journaux de diagnostic.
 7. Sous **Log Analytics**, cliquez sur **Configurer**.
 8. Sur la page Espaces de travail Log Analytics, cliquez sur **Créer un espace de travail**.
@@ -101,7 +101,7 @@ Vous pouvez afficher et analyser les données du journal d’activité en utilis
 
 Les [journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) collectent les compteurs et les fichiers journaux des événements. Il inclut des visualisations et des fonctionnalités puissantes de recherche pour analyser vos journaux.
 
-Pour accéder aux exemples de requêtes Log Analytics du Pare-feu Azure, consultez [Exemples Log Analytics du Pare-feu Azure](log-analytics-samples.md).
+Pour accéder aux exemples de requêtes d’analytique des journaux d’activité de Pare-feu Azure, consultez [Exemples d’analytique des journaux d’activité de pare-feu](log-analytics-samples.md).
 
 Vous pouvez également vous connecter à votre compte de stockage et récupérer les entrées de journal JSON pour les journaux d’accès et des performances. Après avoir téléchargé les fichiers JSON, vous pouvez les convertir en CSV et les afficher dans Excel, PowerBI ou tout autre outil de visualisation de données.
 

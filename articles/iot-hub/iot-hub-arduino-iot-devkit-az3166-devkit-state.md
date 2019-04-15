@@ -11,7 +11,7 @@ ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
 ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55811050"
@@ -111,7 +111,7 @@ Avec l’appareil DevKit IoT MXChip connecté à votre ordinateur :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez appris à effectuer les actions suivantes :
-- Connecter un appareil DevKit IoT MXChip à votre accélérateur de solution de surveillance à distance Azure IoT.
+- Connecter un appareil DevKit IoT MXChip à votre accélérateur de solution de supervision à distance Azure IoT.
 - Utilisation la fonction de jumeaux d’appareil Azure IoT pour détecter et contrôler la couleur du voyant RVB du Kit de développement.
 
 Voici les prochaines étapes suggérées :

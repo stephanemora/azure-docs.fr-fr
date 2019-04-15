@@ -17,9 +17,9 @@ ms.locfileid: "52284559"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutoriel : Effectuer une analyse de cause racine sur une alerte
 
-Dans ce tutoriel, vous découvrez comment utiliser l’accélérateur de solution Surveillance à distance pour diagnostiquer la cause racine d’une alerte. Vous voyez qu’une alerte a été déclenchée dans le tableau de bord de la solution Surveillance à distance, puis vous utilisez l’Explorateur Azure Time Series Insights pour en rechercher la cause racine.
+Dans ce tutoriel, vous découvrez comment utiliser l’accélérateur de solution de supervision à distance pour diagnostiquer la cause racine d’une alerte. Vous voyez qu’une alerte a été déclenchée dans le tableau de bord de la solution de supervision à distance, puis vous utilisez l’Explorateur Azure Time Series Insights pour en rechercher la cause racine.
 
-Le tutoriel utilise deux appareils simulés sur des camions de livraison, qui envoient des données de télémétrie sur l’emplacement, l’altitude, la vitesse et la température de la cargaison. Les camions sont gérés par une entreprise appelée Contoso et sont connectés à l’accélérateur de solution Monitoring à distance. En tant qu’opérateur de Contoso, vous devez comprendre pourquoi un de vos camions (delivery-truck-02) a signalé une alerte de température basse.
+Le tutoriel utilise deux appareils simulés sur des camions de livraison, qui envoient des données de télémétrie sur l’emplacement, l’altitude, la vitesse et la température de la cargaison. Les camions sont gérés par une entreprise appelée Contoso et sont connectés à l’accélérateur de solution de supervision à distance. En tant qu’opérateur de Contoso, vous devez comprendre pourquoi un de vos camions (delivery-truck-02) a signalé une alerte de température basse.
 
 Dans ce tutoriel, vous allez :
 
@@ -98,7 +98,7 @@ Pour découvrir comment créer et modifier des règles, consultez le tutoriel pr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce tutoriel vous a montré comment utiliser l’Explorateur Time Series Insights avec l’accélérateur de solution Surveillance à distance pour diagnostiquer la cause racine d’une alerte. Pour découvrir comment utiliser l’accélérateur de solution pour identifier et résoudre les problèmes relatifs à vos appareils connectés, passez au didacticiel suivant.
+Ce tutoriel vous a montré comment utiliser l’Explorateur Time Series Insights avec l’accélérateur de solution de supervision à distance pour diagnostiquer la cause racine d’une alerte. Pour découvrir comment utiliser l’accélérateur de solution pour identifier et résoudre les problèmes relatifs à vos appareils connectés, passez au didacticiel suivant.
 
 > [!div class="nextstepaction"]
 > [Utiliser des alertes d’appareil pour identifier et résoudre les problèmes liés aux appareils connectés à votre solution de surveillance](iot-accelerators-remote-monitoring-maintain.md)

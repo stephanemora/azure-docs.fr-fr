@@ -12,7 +12,7 @@ ms.date: 01/09/2018
 ms.author: magoedte
 ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
 ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56243771"
@@ -52,7 +52,7 @@ Pendant le processus d’intégration, l’état d’avancement de chacun des é
 Si vous avez commencé l’intégration et que des messages indiquant que la machine virtuelle doit être intégrée s’affichent, attendez jusqu’à 30 minutes pour que la machine virtuelle puisse terminer le processus. 
 
 ## <a name="i-only-enabled-azure-monitor-for-vms-why-do-i-see-all-my-vms-monitored-by-the-health-feature"></a>Pourquoi toutes mes machines virtuelles sont-elles supervisées par la fonctionnalité Intégrité alors que j'ai juste activé Azure Monitor pour machines virtuelles ?
-La fonctionnalité Intégrité est activée pour toutes les machines virtuelles connectées à l'espace de travail Log Analytics, même si l'action est initiée pour une seule et même machine virtuelle.
+La fonctionnalité Intégrité est activée pour toutes les machines virtuelles connectées à l’espace de travail Log Analytics, même si l’action est initiée pour une seule et même machine virtuelle.
 
 ## <a name="can-i-modify-the-schedule-for-when-health-criteria-evaluates-a-condition"></a>Est-il possible de modifier le planning lorsque des critères d'intégrité évaluent une condition ?
 Non, cette version ne permet pas de modifier la période et la fréquence des critères d'intégrité. 
@@ -127,7 +127,7 @@ Bien que nous ayons apporté des améliorations au mappage pour la gestion de co
 La page d’aperçu d’une machine virtuelle Azure affiche des graphiques basés sur la mesure de l’activité de l’hôte dans la machine virtuelle hôte.  Dans le cas du graphique du réseau sur l’aperçu de la machine virtuelle Azure, seul le trafic réseau qui sera facturé est affiché.  Le trafic entre réseaux virtuels n’est pas compris.  Les données et les graphiques présentés dans Azure Monitor pour les machines virtuelles sont basés sur les données de la machine virtuelle invitée et le graphique du réseau affiche tout le trafic TCP/IP entrant et sortant vers cette machine virtuelle, y compris le trafic entre réseaux virtuels.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Existe-t-il des limites avec l'utilisation du plan tarifaire Gratuit de Log Analytics ?
-Si vous avez configuré Azure Monitor avec un espace de travail Log Analytics en utilisant le niveau tarifaire *Gratuit*, la fonctionnalité de mappage d'Azure Monitor pour machines virtuelles ne prend en charge que cinq machines connectées à l'espace de travail. Ainsi, si cinq machines virtuelles sont connectées à un espace de travail gratuit et que vous déconnectez l'une d'elle, puis connectez une nouvelle machine virtuelle, la nouvelle machine virtuelle n'est ni surveillée ni reflétée sur la page dédiée aux mappages.  
+Si vous avez configuré Azure Monitor avec un espace de travail Log Analytics en utilisant le niveau tarifaire *Gratuit*, la fonctionnalité de mappage d’Azure Monitor pour machines virtuelles ne prend en charge que cinq machines connectées à l’espace de travail. Ainsi, si cinq machines virtuelles sont connectées à un espace de travail gratuit et que vous déconnectez l'une d'elle, puis connectez une nouvelle machine virtuelle, la nouvelle machine virtuelle n'est ni surveillée ni reflétée sur la page dédiée aux mappages.  
 
 Dans ce cas, l'option **Essayer maintenant** apparaîtra lorsque vous ouvrirez la machine virtuelle et sélectionnerez **Insights (préversion)** dans le volet de gauche, même après son installation sur la machine virtuelle.  Mais aucune option ne vous est proposée, contrairement à ce qui aurait eu lieu si cette machine virtuelle n'avait pas été intégrée à Azure Monitor pour machines virtuelles. 
 

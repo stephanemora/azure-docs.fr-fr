@@ -1,5 +1,5 @@
 ---
-title: Choix d’architecture de la solution de surveillance à distance - Azure | Microsoft Docs
+title: Choix d’architecture de la solution de supervision à distance - Azure | Microsoft Docs
 description: Cet article décrit les choix techniques et d’architecture effectués dans la surveillance à distance
 author: timlaverty
 manager: camerons
@@ -10,7 +10,7 @@ ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54464219"
@@ -41,7 +41,7 @@ Vous pouvez implémenter les microservices avec plusieurs technologies. Par exem
 
 ## <a name="technology-choices"></a>Choix de technologie
 
-Cette section détaille les choix de technologie effectués dans la solution de surveillance à distance pour chaque sous-système principal.
+Cette section détaille les choix de technologie effectués dans la solution de supervision à distance pour chaque sous-système principal.
 
 ![Diagramme principal](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png)
 
@@ -61,7 +61,7 @@ Pour le traitement des flux de données, la solution de supervision à distance 
 
 ### <a name="storage"></a>Stockage
 
-En ce qui concerne le stockage, l’accélérateur de solution de surveillance à distance utilise à la fois Azure Time Series Insights et Azure Cosmos DB. Azure Time Series Insights stocke les messages provenant de IoT Hub à partir de vos appareils connectés. L’accélérateur de solution utilise Azure Cosmos DB pour tous les autres systèmes de stockage tels que le stockage à froid, des définitions de règles, des alertes et des paramètres de configuration.
+En ce qui concerne le stockage, l’accélérateur de solution de supervision à distance utilise à la fois Azure Time Series Insights et Azure Cosmos DB. Azure Time Series Insights stocke les messages provenant de IoT Hub à partir de vos appareils connectés. L’accélérateur de solution utilise Azure Cosmos DB pour tous les autres systèmes de stockage tels que le stockage à froid, des définitions de règles, des alertes et des paramètres de configuration.
 
 Azure Cosmos DB est la solution recommandée de stockage à chaud à usage général pour les applications IoT. Cependant, les solutions comme Azure Time Series Insights et Azure Data Lake sont appropriées pour nombreux cas d’utilisation. Avec Azure Time Series Insight, vous bénéficiez d’informations plus détaillées sur les données de vos capteurs Time Series et vous identifiez rapidement les tendances et les anomalies. Cette fonctionnalité vous permet d’effectuer des analyses de la cause première et d’éviter des temps d’arrêt coûteux.
 
@@ -84,6 +84,6 @@ Les alternatives à Docker incluent l’hébergement de microservices dans les s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Déployer votre solution de surveillance à distance [ici](https://www.azureiotsolutions.com/).
+* Déployer votre solution de supervision à distance [ici](https://www.azureiotsolutions.com/).
 * Explorer le code GitHub en [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) et [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
 * En savoir plus sur l’architecture de référence IoT [ici](https://aka.ms/iotrefarchitecture).

@@ -10,14 +10,14 @@ ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: c79b6f854dc78670a7eb8a1275c3e2fc46fcdd99
 ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/06/2018
 ms.locfileid: "48831685"
 ---
 ### <a name="code-walkthrough"></a>Vérification du code
 
-Cette section décrit certaines parties essentielles de l’exemple de code et explique comment elles sont liées à l’accélérateur de solution de la surveillance à distance.
+Cette section décrit certaines parties essentielles de l’exemple de code et explique comment elles sont liées à l’accélérateur de solution de supervision à distance.
 
 L’extrait de code suivant montre comment les propriétés signalées qui décrivent les fonctionnalités de l’appareil sont définies. Ces propriétés sont les suivantes :
 

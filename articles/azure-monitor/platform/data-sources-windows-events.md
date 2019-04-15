@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001117"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522708"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Sources de données de journal d’événements Windows dans Azure Monitor
 Les journaux d’événements Windows sont les [sources de données](agent-data-sources.md) les plus communément utilisées pour collecter des données à l’aide d’agents Windows puisque de nombreuses applications écrivent dans le journal d’événements Windows.  Vous pouvez collecter des événements à partir de journaux standard tels que Système et Application, ou spécifier des journaux personnalisés créés par les applications que vous souhaitez surveiller.
@@ -54,7 +54,7 @@ Les enregistrements d'événements Windows sont de type **Événement** et poss�
 | EventLevelName |Gravité de l'événement au format texte. |
 | EventLog |Nom du journal des événements à partir duquel l'événement a été collecté. |
 | ParameterXml |Valeurs des paramètres d'événement au format XML. |
-| ManagementGroupName |Nom du groupe d’administration pour les agents System Center Operations Manager.  Pour les autres agents, cette valeur est AOI-<workspace ID> |
+| ManagementGroupName |Nom du groupe d’administration pour les agents System Center Operations Manager.  Pour les autres agents, cette valeur est `AOI-<workspace ID>` |
 | RenderedDescription |Description de l'événement avec les valeurs de paramètres |
 | Source |Source de l’événement. |
 | SourceSystem |Type d’agent auprès duquel l’événement a été collecté. <br> Ops Manager – Agent Windows, connexion directe ou géré par Operations Manager <br>  Linux – Tous les agents Linux  <br>  AzureStorage – Diagnostics Azure |

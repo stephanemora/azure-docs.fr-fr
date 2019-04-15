@@ -1,6 +1,6 @@
 ---
 title: Intégration de Time Series Insights à une solution de supervision à distance | Microsoft Docs
-description: Dans cette procédure, vous allez apprendre à configurer Time Series Insights pour une solution de surveillance à distance existante qui ne contient pas déjà Time Series Insights.
+description: Dans cette procédure, vous allez apprendre à configurer Time Series Insights pour une solution de supervision à distance existante qui ne contient pas déjà Time Series Insights.
 author: aditidugar
 manager: timlt
 ms.author: adugar
@@ -19,14 +19,14 @@ ms.locfileid: "58085148"
 
 Azure Time Series Insights est un service entièrement managé d’analytique, de stockage et de visualisation pour la gestion des données chronologiques IoT dans le cloud. Vous pouvez utiliser Time Series Insights pour stocker et gérer des données chronologiques, explorer et visualiser plusieurs événements de façon simultanée, procéder à une analyse de la cause racine et comparer plusieurs sites et ressources.
 
-L’accélérateur de solution de surveillance à distance assure désormais le déploiement automatique et l’intégration à Time Series Insights. Dans cette procédure, vous allez apprendre à configurer Time Series Insights pour une solution de surveillance à distance existante qui ne contient pas déjà Time Series Insights.
+L’accélérateur de solution de supervision à distance assure désormais le déploiement automatique et l’intégration à Time Series Insights. Dans cette procédure, vous allez apprendre à configurer Time Series Insights pour une solution de supervision à distance existante qui ne contient pas déjà Time Series Insights.
 
 > [!NOTE]
 > Time Series Insights n’est pas encore disponible dans le cloud Azure Chine. Les nouveaux déploiements d’accélérateurs de solution de supervision à distance dans le cloud Azure en Chine utilisent Cosmos DB pour la totalité du stockage.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Pour effectuer cette procédure, vous devez avoir déjà déployé une solution de surveillance à distance :
+Pour effectuer cette procédure, vous devez avoir déjà déployé une solution de supervision à distance :
 
 * [Déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md)
 
@@ -47,7 +47,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 ## <a name="deploy-time-series-insights"></a>Déploiement de Time Series Insights
 
-À présent, déployez Time Series Insights comme ressource supplémentaire dans votre solution de surveillance à distance et connectez-le au hub IoT.
+À présent, déployez Time Series Insights comme ressource supplémentaire dans votre solution de supervision à distance et connectez-le au hub IoT.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -62,7 +62,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
     | Nom de l’environnement | La capture d’écran suivante utilise le nom **contorosrmtsi**. Choisissez votre propre nom unique quand vous effectuez cette étape. |
     | Abonnement | Sélectionnez votre abonnement Azure dans la liste déroulante. |
     | Groupe de ressources | **Utilisez la valeur existante**. Sélectionnez le nom de votre groupe de ressources existant pour la surveillance à distance. |
-    | Lieu | Nous utilisons **USA Est**. Si possible, créez votre environnement dans la même région que votre solution de surveillance à distance. |
+    | Lieu | Nous utilisons **USA Est**. Si possible, créez votre environnement dans la même région que votre solution de supervision à distance. |
     | Sku |**S1** |
     | Capacité | **1** |
 
@@ -92,7 +92,7 @@ Créez une source d’événement à connecter à votre hub IoT. Vérifiez que v
     | Source | **IoT Hub** |
     | Option d’importation | **Utiliser Iot Hub à partir des abonnements disponibles** |
     | Identifiant d’abonnement | Sélectionnez votre abonnement Azure dans la liste déroulante. |
-    | Nom du hub IoT | **contosorma57a6**. Utilisez le nom du hub IoT associé à votre solution de surveillance à distance. |
+    | Nom du hub IoT | **contosorma57a6**. Utilisez le nom du hub IoT associé à votre solution de supervision à distance. |
     | Nom de la stratégie du hub IoT | **iothubowner** Vérifiez que la stratégie utilisée est une stratégie propriétaire. |
     | Clé de stratégie du hub IoT | Ce champ est rempli automatiquement. |
     | Groupe de consommateurs du hub IoT | **timeseriesinsights** |
@@ -105,7 +105,7 @@ Créez une source d’événement à connecter à votre hub IoT. Vérifiez que v
 
 ## <a name="configure-the-data-access-policy"></a>Configuration de la stratégie d’accès aux données
 
-Pour vous assurer que tous les utilisateurs qui ont accès à votre solution de surveillance à distance sont en mesure d’explorer les données dans l’Explorateur Time Series Insights, ajoutez votre application et vos utilisateurs dans les stratégies d’accès aux données dans le portail Azure. 
+Pour vous assurer que tous les utilisateurs qui ont accès à votre solution de supervision à distance sont en mesure d’explorer les données dans l’Explorateur Time Series Insights, ajoutez votre application et vos utilisateurs dans les stratégies d’accès aux données dans le portail Azure. 
 
 1. Dans la liste de navigation, sélectionnez **Groupes de ressources**.
 

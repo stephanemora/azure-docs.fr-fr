@@ -67,7 +67,7 @@ Journaux de diagnostic sous tension et en les envoyant aux journaux d’Azure Mo
 
     ![Paramètres des journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. Lorsque votre tâche Stream Analytics démarre, les journaux de diagnostic sont routés vers votre espace de travail Log Analytics. Accédez à l’espace de travail Log Analytics et sélectionnez **Journaux** sous la section **Général**.
+3. Lorsque votre tâche Stream Analytics démarre, les journaux de diagnostic sont routés vers votre espace de travail Log Analytics. Accédez à l’espace de travail Log Analytics et sélectionnez **Journaux d’activité** sous la section **Général**.
 
    ![Journaux d’analyse Azure sous la section Général](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 

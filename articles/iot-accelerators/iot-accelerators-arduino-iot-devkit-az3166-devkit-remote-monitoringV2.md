@@ -111,7 +111,7 @@ Pour modifier la couleur d’une des LED de l’appareil DevKit, utilisez la mé
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous envisagez de passer aux tutoriels, laissez l’accélérateur de solution Monitoring à distance déployé.
+Si vous envisagez de passer aux tutoriels, laissez l’accélérateur de solution de supervision à distance déployé.
 
 Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le de la page Solutions approvisionnées en le sélectionnant et en cliquant sur Supprimer la solution :
 

@@ -11,4 +11,4 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56741142"
 ---
-Les données collectées par cette solution de surveillance sont disponibles sur la page **Vue d’ensemble** d'Azure Monitor dans le portail Azure. Ouvrez cette page à partir du menu **Azure Monitor** en cliquant sur **Plus** sous la section **Insights**. Chaque solution est représentée par une vignette. Cliquez sur une vignette pour afficher les données détaillées collectées par cette solution.
+Les données collectées par cette solution de supervision sont disponibles sur la page **Vue d’ensemble** d’Azure Monitor dans le portail Azure. Ouvrez cette page à partir du menu **Azure Monitor** en cliquant sur **Plus** sous la section **Insights**. Chaque solution est représentée par une vignette. Cliquez sur une vignette pour afficher les données détaillées collectées par cette solution.

@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble des accélérateurs de solution de surveillance à distance | Microsoft Docs
-description: Cet article présente le déploiement de l’accélérateur de solution de surveillance à distance.
+title: Vue d’ensemble des accélérateurs de solution de supervision à distance | Microsoft Docs
+description: Cet article présente le déploiement de l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -15,11 +15,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58176134"
 ---
-# <a name="remote-monitoring-solution-accelerator-overview"></a>Vue d’ensemble des accélérateurs de solution de surveillance à distance
+# <a name="remote-monitoring-solution-accelerator-overview"></a>Vue d’ensemble des accélérateurs de solution de supervision à distance
 
 [L’accélérateur de solution](../iot-accelerators/about-iot-accelerators.md) de surveillance à distance implémente une solution de surveillance de bout en bout, destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise. Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) pour répondre à vos propres exigences professionnelles.
 
-Cet article vous présente certains des éléments clés de la solution Surveillance à distance pour vous permettre de comprendre son fonctionnement. Ces connaissances vous aident à :
+Cet article vous présente certains des éléments clés de la solution de supervision à distance pour vous permettre de comprendre son fonctionnement. Ces connaissances vous aident à :
 
 * Résoudre les problèmes dans la solution.
 * Adapter la solution à vos besoins professionnels.
@@ -32,7 +32,7 @@ Le code de l’accélérateur de solution de supervision à distance est disponi
 
 ## <a name="logical-architecture"></a>Architecture logique
 
-Le diagramme suivant montre l’articulation des composants logiques de l’accélérateur de solution Surveillance à distance dans [l’architecture IoT](../iot-fundamentals/iot-introduction.md) :
+Le diagramme suivant montre l’articulation des composants logiques de l’accélérateur de solution de supervision à distance dans [l’architecture IoT](../iot-fundamentals/iot-introduction.md) :
 
 ![Architecture logique](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -170,4 +170,4 @@ Si vous souhaitez consulter le code source et la documentation de développement
 Diagrammes détaillés de l’architecture de la solution :
 * [Accélérateur de solution pour l’architecture de la solution Surveillance à distance](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Pour plus d’informations conceptuelles sur l’accélérateur de la solution Surveillance à distance, consultez [Personnaliser l’accélérateur de solution](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
+Pour plus d’informations conceptuelles sur l’accélérateur de la solution de supervision à distance, consultez [Personnaliser l’accélérateur de solution](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

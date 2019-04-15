@@ -27,7 +27,7 @@ Cet article explique brièvement comment diagnostiquer et déboguer des fonction
 
 Le fait de savoir comment diagnostiquer tout problème se produisant au sein de votre instance Azure Digital Twins vous aide à identifier efficacement celui-ci, ainsi que sa cause et une solution.
 
-### <a name="enable-log-analytics-for-your-instance"></a>Activer l’analytique des journaux pour votre instance
+### <a name="enable-log-analytics-for-your-instance"></a>Activer l’analytique des journaux d’activité pour votre instance
 
 Les journaux et les métriques de votre instance Azure Digital Twins sont affichés dans Azure Monitor. Cette documentation suppose que vous avez créé un [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md) espace de travail via le [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), jusqu'à [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), ou via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Ajouter une grille à l’interface utilisateur de la solution Supervision à distance - Azure | Microsoft Docs
-description: Cet article vous montre comment ajouter une nouvelle grille à une page dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance.
+title: Ajouter une grille à l’interface utilisateur de la solution de supervision à distance - Azure | Microsoft Docs
+description: Cet article vous montre comment ajouter une nouvelle grille à une page dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,19 +10,19 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
 ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/28/2018
 ms.locfileid: "52496446"
 ---
-# <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance
+# <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance
 
-Cet article vous montre comment ajouter une nouvelle grille à une page dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance. Cet article aborde les points suivants :
+Cet article vous montre comment ajouter une nouvelle grille à une page dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance. Cet article aborde les points suivants :
 
 - Comment préparer un environnement de développement local.
 - Comment ajouter une nouvelle grille à une page dans l’interface utilisateur web.
 
-L’exemple de grille de cet article affiche les données du service que l’article sur les procédures [Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-service.md) vous montre comment ajouter.
+L’exemple de grille de cet article affiche les données du service que l’article sur les procédures [Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-service.md) vous montre comment ajouter.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -279,8 +279,8 @@ Si l’utilisateur doit agir sur une seule ligne, configurez un lien de sélecti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez découvert les ressources disponibles pour ajouter ou personnaliser des pages dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance.
+Dans cet article, vous avez découvert les ressources disponibles pour ajouter ou personnaliser des pages dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 
-Maintenant que vous avez défini une grille, l’étape suivante consiste à [Ajouter un menu volant personnalisé à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-flyout.md) qui s’affiche dans l’exemple de page.
+Maintenant que vous avez défini une grille, l’étape suivante consiste à [Ajouter un menu volant personnalisé à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-flyout.md) qui s’affiche dans l’exemple de page.
 
-Pour plus d’informations conceptuelles sur l’accélérateur de solution Supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Pour plus d’informations conceptuelles sur l’accélérateur de solution de supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md).

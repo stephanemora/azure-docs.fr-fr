@@ -12,4 +12,4 @@ ms.lasthandoff: 02/23/2019
 ms.locfileid: "56741569"
 ---
 >[!NOTE]
->Les versions précédentes de cet article faisaient référence à Log Analytics comme un service à part entière. Ses fonctionnalités n'ont pas changé, mais il a été renommé pour intégrer la fonctionnalité de journal d'Azure Monitor. Suite à ce changement de nom, cet article décrit les données stockées dans un espace de travail Log Analytics d'Azure Monitor. Pour plus d'informations, consultez [Changements liés à la marque Azure Monitor](../articles/azure-monitor/azure-monitor-rebrand.md).
+>Les versions précédentes de cet article faisaient référence à Log Analytics comme un service à part entière. Ses fonctionnalités n'ont pas changé, mais il a été renommé pour intégrer la fonctionnalité de journal d'Azure Monitor. Suite à ce changement de nom, cet article décrit les données stockées dans un espace de travail Log Analytics d’Azure Monitor. Pour plus d'informations, consultez [Changements liés à la marque Azure Monitor](../articles/azure-monitor/azure-monitor-rebrand.md).

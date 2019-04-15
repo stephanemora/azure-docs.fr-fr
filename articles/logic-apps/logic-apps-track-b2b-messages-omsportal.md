@@ -45,7 +45,7 @@ Après avoir configuré la communication B2B entre les partenaires commerciaux d
 
 Vous pouvez avoir des journaux d’Azure Monitor suivre des messages B2B pour votre application logique, avant d’ajouter le **Logic Apps B2B** solution dans les journaux d’Azure Monitor. En savoir plus sur [Ajout de solutions dans les journaux d’Azure Monitor](../azure-monitor/learn/quick-create-workspace.md).
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « log analytics », puis sélectionnez **Log Analytics**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « Log Analytics », puis sélectionnez **Log Analytics**.
 
    ![Sélectionner Log Analytics](media/logic-apps-track-b2b-messages-omsportal/find-log-analytics.png)
 
@@ -63,7 +63,7 @@ Vous pouvez avoir des journaux d’Azure Monitor suivre des messages B2B pour vo
 
    Si vous ne trouvez pas la solution, choisissez **Charger plus** en bas de la liste jusqu’à ce que la solution s’affiche.
 
-1. Choisissez **Créer**, confirmez l’espace de travail Log Analytics dans lequel vous souhaitez installer la solution, puis sélectionnez à nouveau **Créer**.   
+1. Choisissez **Créer**, vérifiez l’espace de travail Log Analytics dans lequel vous souhaitez installer la solution, puis sélectionnez à nouveau **Créer**.   
 
    ![Sélection de l’option « Créer » pour Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 

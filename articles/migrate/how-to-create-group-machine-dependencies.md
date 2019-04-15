@@ -127,7 +127,7 @@ Pour exécuter des requêtes Kusto :
 
 1. Après avoir installé les agents, accédez au portail et cliquez sur **Vue d’ensemble**.
 2. Dans **Vue d’ensemble**, accédez à la section **Essentials** du projet et cliquez sur le nom de l’espace de travail fourni en regard de **Espace de travail OMS**.
-3. Sur la page de l’espace de travail Log Analytics, cliquez sur **Général** > **Journaux**.
+3. Sur la page de l’espace de travail Log Analytics, cliquez sur **Général** > **Journaux d’activité**.
 4. Écrivez votre requête pour collecter des données de dépendance à l’aide des journaux Azure Monitor. Rechercher des exemples de requêtes dans la section suivante.
 5. Exécutez votre requête en cliquant sur Exécuter. 
 

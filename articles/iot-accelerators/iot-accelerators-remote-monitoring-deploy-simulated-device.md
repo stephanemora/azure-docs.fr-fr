@@ -1,6 +1,6 @@
 ---
 title: Déploiement IoT d’appareils simulés personnalisés - Azure | Microsoft Docs
-description: Ce guide montre comment déployer des appareils simulés personnalisés sur l’accélérateur de solution Surveillance à distance.
+description: Ce guide montre comment déployer des appareils simulés personnalisés sur l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,24 +10,24 @@ ms.date: 08/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8491acfd28524ee3bbbd06c788afb668c40c98b9
 ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54450566"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Déployer un nouvel appareil simulé
 
-Les accélérateurs de solution Surveillance à distance et Simulation d’appareil vous permettent tous deux de définir vos propres appareils simulés. Cet article montre comment déployer un type d’appareil personnalisé Réfrigérateur et un nouveau type d’appareil Ampoule sur l’accélérateur de solution Surveillance à distance.
+Les accélérateurs de solution Surveillance à distance et Simulation d’appareil vous permettent tous deux de définir vos propres appareils simulés. Cet article montre comment déployer un type d’appareil personnalisé Réfrigérateur et un nouveau type d’appareil Ampoule sur l’accélérateur de solution de supervision à distance.
 
 Les étapes décrites dans cet article supposent que vous avez suivi les procédures décrites dans le guide [Créer et tester un appareil simulé](iot-accelerators-remote-monitoring-create-simulated-device.md) et disposez des fichiers qui définissent le type d’appareil personnalisé Réfrigérateur et le nouveau type d’appareil Ampoule.
 
 Les étapes décrites dans ce guide montrent comment :
 
-1. Utiliser SSH pour accéder au système de fichiers de la machine virtuelle hébergeant l’accélérateur de solution Surveillance à distance.
+1. Utiliser SSH pour accéder au système de fichiers de la machine virtuelle hébergeant l’accélérateur de solution de supervision à distance.
 
 1. Configurer Docker pour charger les modèles d’appareils à partir d’un emplacement extérieur au conteneur Docker.
 
-1. Exécuter l’accélérateur de solution Surveillance à distance à l’aide de fichiers de modèles d’appareils personnalisés.
+1. Exécuter l’accélérateur de solution de supervision à distance à l’aide de fichiers de modèles d’appareils personnalisés.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -39,7 +39,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour effectuer les procédures de ce guide, vous avez besoin des éléments suivants :
 
-- Une instance déployée de l’[accélérateur de solution Surveillance à distance](https://www.azureiotsolutions.com/Accelerators#solutions/types/RM2).
+- Une instance déployée de l’[accélérateur de solution de supervision à distance](https://www.azureiotsolutions.com/Accelerators#solutions/types/RM2).
 - Un interpréteur de commandes **bash** local pour exécuter les commandes `ssh` et `scp`. Sur Windows, une manière simple d’installer **bash** consiste à installer [git](https://git-scm.com/download/win).
 - Vos fichiers de modèles d’appareils personnalisés, tels que ceux décrits dans [Créer et tester un appareil simulé](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
@@ -131,7 +131,7 @@ Dans cette section, vous allez configurer Docker pour charger les fichiers de mo
 
 ## <a name="run-simulation"></a>Exécuter une simulation
 
-Vous pouvez désormais utiliser vos modèles d’appareils personnalisés dans la solution Surveillance à distance :
+Vous pouvez désormais utiliser vos modèles d’appareils personnalisés dans la solution de supervision à distance :
 
 1. Lancez votre tableau de bord Surveillance à distance à partir de [Accélérateurs de solution Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators#dashboard).
 
@@ -141,10 +141,10 @@ Vous pouvez désormais utiliser vos modèles d’appareils personnalisés dans l
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous envisagez d’explorer davantage, laissez l’accélérateur de solution Surveillance à distance déployé.
+Si vous envisagez d’explorer davantage, laissez l’accélérateur de solution de supervision à distance déployé.
 
 Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le de la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) en le sélectionnant et en cliquant sur **Supprimer la solution**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce guide vous a montré comment déployer des modèles d’appareils personnalisés sur l’accélérateur de solution Surveillance à distance. Nous vous suggérons à présent de découvrir comment [connecter un appareil réel à votre solution de surveillance à distance](iot-accelerators-connecting-devices-node.md).
+Ce guide vous a montré comment déployer des modèles d’appareils personnalisés sur l’accélérateur de solution de supervision à distance. Nous vous suggérons à présent de découvrir comment [connecter un appareil réel à votre solution de supervision à distance](iot-accelerators-connecting-devices-node.md).

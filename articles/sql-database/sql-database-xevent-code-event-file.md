@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 0a9472dec9b76dfbde1690e11f13836746b0dfaa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 983a090942a77c2f40e0136b00acdc0a3d49c571
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862894"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528337"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Code cible du fichier d’événements pour les événements étendus dans SQL Database
 
@@ -463,9 +463,9 @@ GO
 
 ## <a name="output"></a>Sortie
 
-Quand le script Transact-SQL a fini de s’exécuter, cliquez sur une cellule sous l’en-tête de colonne **event_data_XML**. Un élément **<event>** s’affiche, avec une instruction UPDATE.
+Quand le script Transact-SQL a fini de s’exécuter, cliquez sur une cellule sous l’en-tête de colonne **event_data_XML**. Un  **\<événement >** élément s’affiche, avec une instruction UPDATE.
 
-Voici un élément **<event>** généré pendant le test :
+Voici un  **\<événement >** élément qui a été généré pendant le test :
 
 
 ```xml

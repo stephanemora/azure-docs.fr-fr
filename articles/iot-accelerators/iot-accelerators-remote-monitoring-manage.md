@@ -18,7 +18,7 @@ ms.locfileid: "58183388"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutoriel : Configurer les appareils connectés à votre solution de supervision
 
-Dans ce didacticiel, vous utilisez l’accélérateur de solution de surveillance à distance pour configurer et gérer vos appareils IoT connectés. Vous ajoutez un nouvel appareil à l’accélérateur de solution et vous le configurez.
+Dans ce didacticiel, vous utilisez l’accélérateur de solution de supervision à distance pour configurer et gérer vos appareils IoT connectés. Vous ajoutez un nouvel appareil à l’accélérateur de solution et vous le configurez.
 
 Contoso a commandé de nouvelles machines visant à développer l’une de ses usines. En attendant la livraison des nouvelles machines, vous souhaitez exécuter une simulation pour tester le comportement de votre solution. Pour exécuter la simulation, vous ajoutez un nouvel appareil de moteur simulé à l’accélérateur de solution de supervision à distance, puis vous vérifiez si cet appareil simulé répond correctement aux mises à jour de configuration. Bien que ce tutoriel se serve d’appareils simulés, un développeur d’appareil peut implémenter des méthodes directes dans un [appareil réel connecté à l’accélérateur de solution de supervision à distance](iot-accelerators-connecting-devices.md).
 
@@ -123,7 +123,7 @@ L’opérateur Contoso peut désormais interroger les appareils selon l’équip
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous a montré comment configurer et gérer les appareils connectés à l’accélérateur de solution de surveillance à distance. Pour apprendre à utiliser l’accélérateur de solution pour effectuer une analyse des causes premières sur une alerte inattendue, passez au didacticiel suivant.
+Ce didacticiel vous a montré comment configurer et gérer les appareils connectés à l’accélérateur de solution de supervision à distance. Pour apprendre à utiliser l’accélérateur de solution pour effectuer une analyse des causes premières sur une alerte inattendue, passez au didacticiel suivant.
 
 > [!div class="nextstepaction"]
 > [Effectuer une analyse de cause racine sur une alerte](iot-accelerators-remote-monitoring-root-cause-analysis.md)

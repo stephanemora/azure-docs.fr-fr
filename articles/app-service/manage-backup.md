@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 18fc86e8d9b9622f11faad0f11dc57a83124a857
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417503"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549486"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
 La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application. 
@@ -121,6 +121,9 @@ Parfois, vous ne souhaitez pas sauvegarder tout le contenu de votre application.
 * Vous ne souhaitez pas sauvegarder les fichiers journaux.
 
 Les sauvegardes partielles vous permettent de choisir exactement les fichiers à sauvegarder.
+
+> [!NOTE]
+> Bases de données individuelles dans la sauvegarde peuvent être maximale de 4 Go, mais la taille totale maximale de la sauvegarde est de 10 Go
 
 ### <a name="exclude-files-from-your-backup"></a>Exclusion de fichiers de votre sauvegarde
 Supposons que vous avez une application qui contient des fichiers journaux et des images statiques créés à un moment donné et qui ne seront jamais modifiés. Dans ce cas, vous pouvez exclure ces fichiers et dossiers du stockage lors de vos sauvegardes futures. Pour exclure des fichiers et dossiers de vos sauvegardes, créez un fichier `_backup.filter` dans le dossier `D:\home\site\wwwroot` de votre application. Spécifiez la liste des fichiers et dossiers à exclure de ce fichier. 

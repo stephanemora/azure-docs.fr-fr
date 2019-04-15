@@ -18,12 +18,12 @@ ms.locfileid: "58004104"
 
 Ce tutoriel vous montre comment modifier un des [microservices](https://azure.com/microservices) de la solution de surpervision à distance, générer une image de votre microservice, déployer l’image sur votre hub Docker, puis l’utiliser dans une solution de supervision à distance. Pour présenter ce concept, le tutoriel utilise un scénario de base où vous appelez une API de microservice et remplacez le message d’état « Alive and Well » par « New Edits Made Here! »
 
-La solution de surveillance à distance utilise des microservices qui sont générés à l’aide d’images Docker extraites d’un hub Docker. 
+La solution de supervision à distance utilise des microservices qui sont générés à l’aide d’images Docker extraites d’un hub Docker. 
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 >[!div class="checklist"]
-> * Modifier et générer un microservice dans la solution de surveillance à distance
+> * Modifier et générer un microservice dans la solution de supervision à distance
 > * Générer une image Docker
 > * Envoyer une image Docker à votre hub Docker
 > * Extraire la nouvelle image Docker
@@ -42,7 +42,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 Dans cette partie, vous appelez l’API de microservice Gestionnaire IoT Hub par défaut. L’API retourne un message d’état que vous modifiez ultérieurement en personnalisant le microservice.
 
-1. Vérifiez que la solution de surveillance à distance est en cours d’exécution localement sur votre ordinateur.
+1. Vérifiez que la solution de supervision à distance est en cours d’exécution localement sur votre ordinateur.
 2. Recherchez l’endroit où vous avez téléchargé Postman et ouvrez-le.
 3. Dans Postman, entrez ce qui suit dans la zone GET : `http://localhost:8080/iothubmanager/v1/status`.
 4. Affichez la valeur de retour : vous devez voir « Status » : « OK:Alive and Well ».
@@ -53,7 +53,7 @@ Dans cette partie, vous appelez l’API de microservice Gestionnaire IoT Hub par
 
 Remplacez maintenant le message d’état du microservice Gestionnaire IoT Hub par « New Edits Made Here! » et regénérez l’image Docker avec ce nouvel état. Si vous rencontrez des problèmes ici, reportez-vous à notre section [Résolution des problèmes](#Troubleshoot).
 
-1. Vérifiez que votre terminal est ouvert et accédez au répertoire où vous avez cloné la solution de surveillance à distance. 
+1. Vérifiez que votre terminal est ouvert et accédez au répertoire où vous avez cloné la solution de supervision à distance. 
 1. Accédez au répertoire « azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services ».
 1. Ouvrez StatusService.cs dans l’éditeur de texte ou l’IDE de votre choix. 
 1. Recherchez le code suivant :
@@ -116,7 +116,7 @@ Avant de pouvoir envoyer votre nouvelle image Docker à un hub Docker, Docker at
 5. Vous devez maintenant voir votre image Docker qui vient d’être envoyée sur votre hub Docker.
 ![Image Docker dans le hub Docker](./media/iot-accelerators-microservices-example/docker-image-in-docker-hub.png)
 
-## <a name="update-your-remote-monitoring-solution"></a>Mettre à jour votre solution de surveillance à distance
+## <a name="update-your-remote-monitoring-solution"></a>Mettre à jour votre solution de supervision à distance
 Vous devez maintenant mettre à jour le fichier docker-compose.yml local pour extraire votre nouvelle image Docker de votre hub Docker. Si vous rencontrez des problèmes ici, reportez-vous à notre section [Résolution des problèmes](#Troubleshoot).
 
 1. Revenez au terminal et passez au répertoire suivant : « azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local ».
@@ -134,10 +134,10 @@ Vous devez maintenant mettre à jour le fichier docker-compose.yml local pour ex
     ```
 
 ## <a name="view-the-new-response-status"></a>Afficher le nouvel état de la réponse
-Terminez en redéployant une instance locale de la solution de surveillance à distance et en affichant le nouvel état de la réponse dans Postman.
+Terminez en redéployant une instance locale de la solution de supervision à distance et en affichant le nouvel état de la réponse dans Postman.
 
 1. Revenez à votre terminal et passez au répertoire suivant : « azure-iot-pcs-remote-monitoring-dotnet/scripts/local ».
-2. Démarrez votre instance locale de la solution de surveillance à distance en tapant la commande suivante dans le terminal :
+2. Démarrez votre instance locale de la solution de supervision à distance en tapant la commande suivante dans le terminal :
 
     ```cmd/sh
     docker-compose up
@@ -187,15 +187,15 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Modifier et générer un microservice dans la solution de surveillance à distance
+> * Modifier et générer un microservice dans la solution de supervision à distance
 > * Générer une image Docker
 > * Envoyer une image Docker à votre hub Docker
 > * Extraire la nouvelle image Docker
 > * Visualiser les modifications 
 
-La prochaine opération à tenter est la [personnalisation du microservice de simulateur d’appareil dans la solution de surveillance à distance](iot-accelerators-microservices-example.md)
+La prochaine opération à tenter est la [personnalisation du microservice de simulateur d’appareil dans la solution de supervision à distance](iot-accelerators-microservices-example.md)
 
-Pour plus d’informations sur le développement de la solution de surveillance à distance, consultez :
+Pour plus d’informations sur le développement de la solution de supervision à distance, consultez :
 
 * [Guide d’informations de référence pour les développeurs](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 <!-- Next tutorials in the sequence -->

@@ -1,6 +1,6 @@
 ---
-title: Ajouter une page à l’interface utilisateur de la solution Supervision à distance - Azure | Microsoft Docs
-description: Cet article vous montre comment ajouter une nouvelle page à l’interface utilisateur web de l’accélérateur de solution Supervision à distance.
+title: Ajouter une page à l’interface utilisateur de la solution de supervision à distance - Azure | Microsoft Docs
+description: Cet article vous montre comment ajouter une nouvelle page à l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,14 +10,14 @@ ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
 ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2018
 ms.locfileid: "49094492"
 ---
-# <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance
+# <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance
 
-Cet article vous montre comment ajouter une nouvelle page à l’interface utilisateur web de l’accélérateur de solution Supervision à distance. Cet article aborde les points suivants :
+Cet article vous montre comment ajouter une nouvelle page à l’interface utilisateur web de l’accélérateur de solution de supervision à distance. Cet article aborde les points suivants :
 
 - Comment préparer un environnement de développement local.
 - Comment ajouter une nouvelle page à l’interface utilisateur web.
@@ -33,7 +33,7 @@ Pour effectuer les étapes de ce guide pratique, vous devez avoir installé les 
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>Préparer un environnement de développement local pour l’interface utilisateur
 
-Le code de l’interface utilisateur de l’accélérateur de solution Supervision à distance est implémenté à l’aide du framework [React](https://reactjs.org/) JavaScript. Vous pouvez trouver le code source dans le dépôt GitHub [Interface utilisateur web Supervision à distance](https://github.com/Azure/pcs-remote-monitoring-webui).
+Le code de l’interface utilisateur de l’accélérateur de solution de supervision à distance est implémenté à l’aide du framework [React](https://reactjs.org/) JavaScript. Vous pouvez trouver le code source dans le dépôt GitHub [Interface utilisateur web Supervision à distance](https://github.com/Azure/pcs-remote-monitoring-webui).
 
 Pour effectuer et tester les modifications de l’interface utilisateur, vous pouvez l’exécuter sur votre ordinateur de développement local. Si vous le souhaitez, la copie locale peut se connecter à une instance déployée de l’accélérateur de solution pour lui permettre d’interagir avec vos appareils simulés ou réels.
 
@@ -150,7 +150,7 @@ Vous pouvez maintenant modifier le code pendant que le site s’exécute localem
 
 ## <a name="optional-connect-to-deployed-instance"></a>[Facultatif] Se connecter à une instance déployée
 
-Si vous le souhaitez, vous pouvez connecter votre copie locale en cours d’exécution de l’interface utilisateur web à l’accélérateur de solution Supervision à distance dans le cloud :
+Si vous le souhaitez, vous pouvez connecter votre copie locale en cours d’exécution de l’interface utilisateur web à l’accélérateur de solution de supervision à distance dans le cloud :
 
 1. Déployez une instance de **base** de l’accélérateur de solution à l’aide de l’interface CLI **pcs**. Notez le nom de votre déploiement et les informations d’identification que vous avez fournies pour la machine virtuelle. Pour plus d’informations, consultez [Déployer à l’aide de l’interface CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
@@ -189,8 +189,8 @@ Si vous le souhaitez, vous pouvez connecter votre copie locale en cours d’exé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez découvert les ressources disponibles pour personnaliser l’interface utilisateur web dans l’accélérateur de solution de surveillance à distance.
+Dans cet article, vous avez découvert les ressources disponibles pour personnaliser l’interface utilisateur web dans l’accélérateur de solution de supervision à distance.
 
-Maintenant que vous avez défini une page, l’étape suivante consiste à [Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-service.md) qui récupère des données à afficher dans l’interface utilisateur.
+Maintenant que vous avez défini une page, l’étape suivante consiste à [Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-service.md) qui récupère des données à afficher dans l’interface utilisateur.
 
-Pour plus d’informations conceptuelles sur l’accélérateur de solution Supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Pour plus d’informations conceptuelles sur l’accélérateur de solution de supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md).

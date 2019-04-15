@@ -36,7 +36,7 @@ La solution montre les conteneurs qui sont actuellement exécutés, l’image co
 - Service Fabric
 - Red Hat OpenShift
 
-Si vous souhaitez superviser les performances de vos charges de travail déployées dans des environnements Kubernetes hébergés sur Azure Kubernetes Service (AKS), consultez l’article [Surveillance d’Azure Kubernetes Service](../../azure-monitor/insights/container-insights-overview.md). La solution Container Monitoring ne prend pas en charge la surveillance de cette plateforme.  
+Si vous souhaitez superviser les performances de vos charges de travail déployées dans des environnements Kubernetes hébergés sur Azure Kubernetes Service (AKS), consultez l’article [Surveillance d’Azure Kubernetes Service](../../azure-monitor/insights/container-insights-overview.md). La solution de supervision de conteneurs ne prend pas en charge la supervision de cette plateforme.  
 
 Le diagramme suivant montre les relations entre les différents hôtes de conteneur et les agents avec Azure Monitor.
 
@@ -46,7 +46,7 @@ Le diagramme suivant montre les relations entre les différents hôtes de conten
 
 Avant de commencer, prenez connaissance des informations suivantes pour vérifier que les conditions préalables sont remplies.
 
-### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Prise en charge de solution de surveillance de conteneur pour la plateforme Docker Orchestrator et celle du système d’exploitation
+### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Prise en charge de solution de supervision de conteneur pour la plateforme Docker Orchestrator et celle du système d’exploitation
 Le tableau suivant présente l’orchestration de Docker et le système d’exploitation prise en charge de l’inventaire de conteneur, les performances et les journaux de surveillance avec Azure Monitor.   
 
 | | ACS | Linux | Windows | Conteneur<br>Inventaire | Image<br>Inventaire | Nœud<br>Inventaire | Conteneur<br>Performances | Conteneur<br>Événement | Événement<br>Journal | Conteneur<br>Journal |
@@ -516,17 +516,17 @@ Pour activer la surveillance des conteneurs Windows et Hyper-V, installez Micros
 
 Vous pouvez surveiller les conteneurs Windows en cours d’exécution sur Service Fabric. Toutefois, seules les [machines virtuelles qui s’exécutent dans Azure](../../azure-monitor/learn/quick-collect-azurevm.md) et les [ordinateurs exécutant Windows dans votre environnement local](../../azure-monitor/platform/agent-windows.md) sont actuellement pris en charge pour Service Fabric.
 
-Vous pouvez vérifier que la solution Container Monitoring est correctement configurée pour Windows. Pour vérifier que le pack d’administration a été correctement téléchargé, recherchez *ContainerManagement.xxx*. Les fichiers doivent se trouver dans le dossier C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
+Vous pouvez vérifier que la solution de supervision de conteneurs est correctement configurée pour Windows. Pour vérifier que le pack d’administration a été correctement téléchargé, recherchez *ContainerManagement.xxx*. Les fichiers doivent se trouver dans le dossier C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 
 
 ## <a name="solution-components"></a>Composants de la solution
 
-Dans le Portail Azure, accédez à la *Galerie Solutions* et ajoutez la **solution Container Monitoring**. Si vous utilisez des agents Windows, le pack d’administration suivant est installé sur chaque ordinateur où se trouve un agent lorsque vous ajoutez cette solution. Le pack d’administration ne nécessite aucune opération de configuration ou de maintenance.
+Dans le Portail Azure, accédez à la *Galerie Solutions* et ajoutez la **solution de supervision de conteneurs**. Si vous utilisez des agents Windows, le pack d’administration suivant est installé sur chaque ordinateur où se trouve un agent lorsque vous ajoutez cette solution. Le pack d’administration ne nécessite aucune opération de configuration ou de maintenance.
 
 - *ContainerManagement.xxx* installé dans le dossier C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
 ## <a name="container-data-collection-details"></a>Détails sur la collecte de données des conteneurs
-La solution Container Monitoring collecte diverses métriques de performances et données de journaux à partir des hôtes de conteneur et des conteneurs utilisant les agents que vous avez activés.
+La solution de supervision de conteneurs collecte diverses métriques de performances et données de journaux à partir des hôtes de conteneur et des conteneurs utilisant les agents que vous avez activés.
 
 Les données sont collectées toutes les trois minutes par les types d’agents suivants.
 
@@ -537,7 +537,7 @@ Les données sont collectées toutes les trois minutes par les types d’agents 
 
 ### <a name="container-records"></a>Enregistrements de conteneur
 
-Le tableau suivant présente des exemples d’enregistrements collectés par la solution Container Monitoring, ainsi que les types de données qui s’affichent dans les résultats de recherche des journaux.
+Le tableau suivant présente des exemples d’enregistrements collectés par la solution de supervision de conteneurs, ainsi que les types de données qui s’affichent dans les résultats de recherche des journaux.
 
 | Type de données | Type de données dans Recherche de journaux | Champs |
 | --- | --- | --- |

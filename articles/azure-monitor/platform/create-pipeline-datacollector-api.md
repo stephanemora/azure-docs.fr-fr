@@ -1,6 +1,6 @@
 ---
 title: Créer un pipeline de données avec l'API Collecte de données d'Azure Monitor | Microsoft Docs
-description: L'API Collecte de données HTTP d'Azure Monitor permet d'ajouter des données POST JSON à l'espace de travail Log Analytics à partir de tout client capable d'appeler l'API REST. Cet article explique comment charger automatiquement des données stockées dans des fichiers.
+description: L’API Collecte de données HTTP d’Azure Monitor permet d’ajouter des données POST JSON à l’espace de travail Log Analytics à partir de tout client capable d’appeler l’API REST. Cet article explique comment charger automatiquement des données stockées dans des fichiers.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,14 +15,14 @@ ms.date: 08/09/2018
 ms.author: magoedte
 ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56003854"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Créer un pipeline de données avec l’API Collecte de données
 
-L'[API Collecte de données d'Azure Monitor ](data-collector-api.md) vous permet d'importer des données de journal personnalisées dans un espace de travail Log Analytics d'Azure Monitor. Cette opération suppose simplement que les données soient au format JSON et qu’elles soient fractionnées en segments de 30 Mo maximum. Ce mécanisme parfaitement flexible peut être déclenché de nombreuses manières : avec des données directement envoyées à partir de votre application ou bien par des chargements ponctuels ad hoc. Cet article décrit les points de départ pour un scénario courant : télécharger des données stockées dans des fichiers de façon régulière et automatisée. Bien que le pipeline présenté ici ne soit pas le plus performant ou optimisé, il est destiné à servir de point de départ pour vous aider à créer votre propre pipeline de production.
+L’[API Collecte de données d’Azure Monitor ](data-collector-api.md) vous permet d’importer des données de journal d’activité personnalisées dans un espace de travail Log Analytics d’Azure Monitor. Cette opération suppose simplement que les données soient au format JSON et qu’elles soient fractionnées en segments de 30 Mo maximum. Ce mécanisme parfaitement flexible peut être déclenché de nombreuses manières : avec des données directement envoyées à partir de votre application ou bien par des chargements ponctuels ad hoc. Cet article décrit les points de départ pour un scénario courant : télécharger des données stockées dans des fichiers de façon régulière et automatisée. Bien que le pipeline présenté ici ne soit pas le plus performant ou optimisé, il est destiné à servir de point de départ pour vous aider à créer votre propre pipeline de production.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -165,7 +165,7 @@ Cet article a présenté un prototype opérationnel et la logique sous-jacente q
 
 * Ajoutez une logique de gestion des erreurs et de nouvelle tentative dans votre Logic App et votre Azure Function.
 * Ajoutez une logique pour vous assurer que la limite de 30 Mo par simple appel de l’API d’ingestion Log Analytics n’est pas dépassée. Fractionnez si besoin les données en plus petits segments.
-* Configurez une stratégie de nettoyage sur votre stockage blob. Une fois les données envoyées à l'espace de travail Log Analytics, à moins que vous ne souhaitiez conserver les données brutes à des fins d'archivage, rien ne vous oblige à les stocker. 
+* Configurez une stratégie de nettoyage sur votre stockage blob. Une fois les données envoyées à l’espace de travail Log Analytics, à moins que vous ne souhaitiez conserver les données brutes à des fins d’archivage, rien ne vous oblige à les stocker. 
 * Vérifiez que la supervision est activée dans l’ensemble du pipeline, en ajoutant des points de trace et des alertes si besoin.
 * Tirez parti du contrôle de code source pour gérer le code pour votre fonction et votre Logic App.
 * Assurez-vous que la stratégie de gestion des changements appropriée est bien respectée, de sorte que si le schéma est modifié, la fonction et les Logic Apps soient modifiées en conséquence.
@@ -173,4 +173,4 @@ Cet article a présenté un prototype opérationnel et la logique sous-jacente q
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur l'[API Collecte de données](data-collector-api.md) pour écrire des données dans l'espace de travail Log Analytics à partir d'un client API REST.
+En savoir plus sur l’[API Collecte de données](data-collector-api.md) pour écrire des données dans l’espace de travail Log Analytics à partir d’un client API REST.

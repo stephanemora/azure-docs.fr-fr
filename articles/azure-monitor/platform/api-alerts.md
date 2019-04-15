@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: 31d9e2170461b9c4023bfe6b3e01fb1d7dda7fee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895887"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549710"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Créer et gérer des règles d’alerte dans Log Analytics avec l’API REST
 L’API REST d’alerte Log Analytics vous permet de créer et de gérer des alertes dans Log Analytics.  Cet article fournit des détails sur l’API et plusieurs exemples pour effectuer différentes opérations.
@@ -154,8 +154,8 @@ Les propriétés des seuils sont décrites dans le tableau suivant.
 
 | Propriété | Description |
 |:--- |:--- |
-| Operator |Opérateur de comparaison de seuil. <br> gt = supérieur à <br>  lt = inférieur à |
-| Value |Valeur du seuil. |
+| `Operator` |Opérateur de comparaison de seuil. <br> gt = supérieur à <br>  lt = inférieur à |
+| `Value` |Valeur du seuil. |
 
 Par exemple, considérez une requête d’événement avec Interval défini sur 15 minutes, QueryTimeSpan sur 30 minutes et Threshold sur une valeur supérieure à 10. Dans ce cas, la requête est exécutée toutes les 15 minutes et une alerte se déclenche si la requête renvoie 10 événements créés en l’espace de 30 minutes.
 
@@ -284,7 +284,7 @@ Utilisez la méthode Put avec un ID d’action existant pour modifier un groupe 
 Par défaut, les actions suivent le modèle et le format standard des notifications. Mais l’utilisateur peut personnaliser certaines actions, même si elles sont contrôlées par les groupes d’actions. Actuellement, la personnalisation est possible pour les objets d’e-mail et les charges utiles de Webhook.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Personnaliser l’objet d’e-mail du groupe d’actions
-Par défaut, l’objet de l’e-mail pour les alertes est : Notification d’alerte <AlertName> pour <WorkspaceName>. Mais cela peut être personnalisé, afin que vous puissiez ajouter des mots ou mots-clés spécifiques, utiles pour les règles de filtrage dans votre boîte de réception. Les informations sur l’en-tête d’e-mail personnalisé doivent être envoyées, ainsi que les informations sur ActionGroup, comme dans les exemples ci-dessous.
+Par défaut, l’objet de l’e-mail pour les alertes est : Notification d’alerte `<AlertName>` pour `<WorkspaceName>`. Mais cela peut être personnalisé, afin que vous puissiez ajouter des mots ou mots-clés spécifiques, utiles pour les règles de filtrage dans votre boîte de réception. Les informations sur l’en-tête d’e-mail personnalisé doivent être envoyées, ainsi que les informations sur ActionGroup, comme dans les exemples ci-dessous.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {

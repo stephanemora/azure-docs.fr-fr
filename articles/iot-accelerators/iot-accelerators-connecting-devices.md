@@ -1,6 +1,6 @@
 ---
 title: Provisionner des appareils Windows pour la supervision à distance en C - Azure | Microsoft Docs
-description: Explique comment connecter un appareil à l’accélérateur de solution de surveillance à distance avec une application écrite en C exécutée sur Windows.
+description: Explique comment connecter un appareil à l’accélérateur de solution de supervision à distance avec une application écrite en C exécutée sur Windows.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -15,11 +15,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58182895"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Connecter votre appareil à l’accélérateur de solution de surveillance à distance (Windows)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Connecter votre appareil à l’accélérateur de solution de supervision à distance (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Ce tutoriel vous montre comment connecter un appareil réel à l’accélérateur de solution Supervision à distance.
+Ce tutoriel vous montre comment connecter un appareil réel à l’accélérateur de solution de supervision à distance.
 
 Comme avec la plupart des applications embarquées qui s’exécutent sur des appareils limités, le code client pour l’application d’appareil est écrit en C. Dans ce didacticiel, vous générez l’application cliente d’appareil sur une machine exécutant Windows.
 

@@ -88,7 +88,7 @@ Avant de commencer, vous devez disposer d’un espace de travail Log Analytics. 
 
    ![Activer les journaux de diagnostic](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Sélectionnez à présent l’espace de travail Log Analytics et la catégorie d’événement pour la journalisation, comme illustré :
+4. Sélectionnez à présent l’espace de travail Log Analytics et la catégorie d’événement pour la journalisation comme illustré :
 
    1. Sélectionnez **Envoyer à Log Analytics**. 
    2. Sous **Log Analytics**, choisissez **Configurer**. 
@@ -109,7 +109,7 @@ Avant de commencer, vous devez disposer d’un espace de travail Log Analytics. 
 
 Pour rechercher et afficher dans votre application logique des événements tels que des événements de déclencheur, des événements d’exécution et des événements d’action, procédez comme suit.
 
-1. Dans le [portail Azure](https://portal.azure.com), choisissez **Tous les services**. Recherchez « log analytics », puis choisissez **Log Analytics** comme illustré ici :
+1. Dans le [portail Azure](https://portal.azure.com), choisissez **Tous les services**. Recherchez « Log Analytics », puis choisissez **Log Analytics** comme illustré ici :
 
    ![Choisir « Log Analytics »](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

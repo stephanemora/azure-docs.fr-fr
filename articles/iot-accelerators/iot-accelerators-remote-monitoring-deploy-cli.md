@@ -1,6 +1,6 @@
 ---
-title: Déployer la solution de surveillance à distance à l’aide d’Azure CLI – Azure | Microsoft Docs
-description: Ce guide pratique montre comment approvisionner l’accélérateur de solution de surveillance à distance à l’aide d’Azure CLI.
+title: Déployer la solution de supervision à distance à l’aide d’Azure CLI – Azure | Microsoft Docs
+description: Ce guide pratique montre comment approvisionner l’accélérateur de solution de supervision à distance à l’aide d’Azure CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -15,13 +15,13 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/01/2019
 ms.locfileid: "58793759"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI
+# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de supervision à distance à l’aide de l’interface CLI
 
-Ce guide pratique montre comment déployer l’accélérateur de solution de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web à azureiotsolutions.com, pour en savoir plus sur cette option, consultez la [déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md) Guide de démarrage rapide.
+Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web à azureiotsolutions.com, pour en savoir plus sur cette option, consultez la [déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md) Guide de démarrage rapide.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Pour déployer l’accélérateur de solution de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
+Pour déployer l’accélérateur de solution de supervision à distance, vous avez besoin d’un abonnement Azure actif.
 
 Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -54,7 +54,7 @@ Quand vous déployez l’accélérateur de solution, vous disposez de plusieurs 
 | SKU    | `basic`, `standard`, `local` | Utilisez un déploiement _basic_ à des fins de test et de démonstration ; il déploie tous les microservices sur une seule machine virtuelle. Utilisez un déploiement _standard_ à des fins de production ; il déploie les microservices sur plusieurs machines virtuelles. Un déploiement _local_ configure un conteneur Docker pour exécuter les microservices sur votre ordinateur local, et il utilise des services Azure tels que Stockage et Cosmos DB. |
 | Runtime | `dotnet`, `java` | Sélectionne l’implémentation de langage des microservices. |
 
-Pour découvrir comment utiliser le déploiement local, consultez [Running the remote monitoring solution locally](iot-accelerators-remote-monitoring-deploy-local.md) (Exécution locale de la solution de surveillance à distance).
+Pour découvrir comment utiliser le déploiement local, consultez [Running the remote monitoring solution locally](iot-accelerators-remote-monitoring-deploy-local.md) (Exécution locale de la solution de supervision à distance).
 
 ## <a name="basic-and-standard-deployments"></a>Déploiements de base et standard
 
@@ -111,7 +111,7 @@ Exemples de déploiements :
 
 ### <a name="example-deploy-net-version"></a>Exemple : déployer la version .NET
 
-L’exemple suivant montre comment déployer la version .NET de base de l’accélérateur de solution de surveillance à distance :
+L’exemple suivant montre comment déployer la version .NET de base de l’accélérateur de solution de supervision à distance :
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
@@ -119,7 +119,7 @@ pcs -t remotemonitoring -s basic -r dotnet
 
 ### <a name="example-deploy-java-version"></a>Exemple : déployer la version Java
 
-L’exemple suivant montre comment déployer la version Java standard de l’accélérateur de solution de surveillance à distance :
+L’exemple suivant montre comment déployer la version Java standard de l’accélérateur de solution de supervision à distance :
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java
@@ -153,6 +153,6 @@ Dans ce guide pratique, vous avez appris à effectuer les opérations suivantes�
 > * Déployer l’accélérateur de solution
 > * Établir une connexion à l’accélérateur de solution
 
-La solution de surveillance à distance étant déployée, l’étape suivante consiste à [explorer les fonctionnalités du tableau de bord des solutions](./quickstart-remote-monitoring-deploy.md).
+La solution de supervision à distance étant déployée, l’étape suivante consiste à [explorer les fonctionnalités du tableau de bord des solutions](./quickstart-remote-monitoring-deploy.md).
 
 <!-- Next how-to guides in the sequence -->

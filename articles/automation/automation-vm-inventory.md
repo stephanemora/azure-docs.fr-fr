@@ -99,7 +99,7 @@ Pour visualiser vos groupes de machines, sélectionnez l’onglet **Groupes de m
 
 ![Affichage des groupes de machines sur la page d’inventaire](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-La sélection d’un groupe de machines dans la liste affiche la page Groupes de machines. Cette page affiche des détails sur le groupe de machines. Ces détails comprennent la requête Log Analytics utilisée pour définir le groupe. La partie inférieure de la page présente une liste paginée des machines qui font partie de ce groupe.
+La sélection d’un groupe de machines dans la liste affiche la page Groupes de machines. Cette page affiche des détails sur le groupe de machines. Ces détails comprennent la requête d’analytique des journaux d’activité utilisée pour définir le groupe. La partie inférieure de la page présente une liste paginée des machines qui font partie de ce groupe.
 
 ![Affichage de la page d’un groupe de machines](./media/automation-vm-inventory/machine-group-page.png)
 

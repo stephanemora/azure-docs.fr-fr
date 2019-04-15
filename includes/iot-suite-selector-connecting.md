@@ -41,17 +41,17 @@ Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure actif. Si vo
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Avant d’écrire du code pour votre appareil, déployez votre accélérateur de solution Monitoring à distance, puis ajoutez un nouvel appareil réel à cette solution.
+Avant d’écrire du code pour votre appareil, déployez votre accélérateur de solution de supervision à distance, puis ajoutez un nouvel appareil réel à cette solution.
 
-### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Déployer votre accélérateur de solution Monitoring à distance
+### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Déployer votre accélérateur de solution de supervision à distance
 
-L’appareil **Condenseur** que vous créez dans le cadre de ce tutoriel envoie des données à une instance de l’accélérateur de solution [Monitoring à distance](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md). Si vous n’avez pas déjà provisionné l’accélérateur de solution Monitoring à distance dans votre compte Azure, consultez [Déployer l’accélérateur de solution Monitoring à distance](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md).
+L’appareil **Condenseur** que vous créez dans le cadre de ce tutoriel envoie des données à une instance de l’accélérateur de solution [Monitoring à distance](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md). Si vous n’avez pas déjà provisionné l’accélérateur de solution de supervision à distance dans votre compte Azure, consultez [Déployer l’accélérateur de solution de supervision à distance](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md).
 
-Au terme du processus de déploiement de la solution Monitoring à distance, cliquez sur **Lancer** pour ouvrir le tableau de bord de la solution dans votre navigateur.
+Au terme du processus de déploiement de la solution de supervision à distance, cliquez sur **Lancer** pour ouvrir le tableau de bord de la solution dans votre navigateur.
 
 ![Tableau de bord de la solution](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Ajouter votre appareil à la solution Monitoring à distance
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Ajouter votre appareil à la solution de supervision à distance
 
 > [!NOTE]
 > Si vous avez déjà ajouté un appareil dans votre solution, vous pouvez ignorer cette étape. Toutefois, l’étape suivante requiert la chaîne de connexion de votre appareil. Vous pouvez récupérer la chaîne de connexion d’un appareil à partir du [portail Azure](https://portal.azure.com) ou à l’aide de l’outil d’interface de ligne de commande (CLI) [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest).
@@ -72,7 +72,7 @@ Pour ajouter un appareil à votre solution de surveillance à distance, procéde
 
     ![Récupérer les informations d’identification](media/iot-suite-selector-connecting/credentials.png)
 
-Vous venez d’ajouter un appareil réel à l’accélérateur de solution Monitoring à distance et de noter sa chaîne de connexion d’appareil. Dans les sections suivantes, vous allez implémenter l’application cliente qui utilise la chaîne de connexion de l’appareil pour se connecter à votre solution.
+Vous venez d’ajouter un appareil réel à l’accélérateur de solution de supervision à distance et de noter sa chaîne de connexion d’appareil. Dans les sections suivantes, vous allez implémenter l’application cliente qui utilise la chaîne de connexion de l’appareil pour se connecter à votre solution.
 
 L’application cliente met en œuvre le modèle de périphérique **Condenseur** intégré. Un modèle d’appareil d’accélérateur de solution spécifie les éléments ci-après concernant un appareil :
 

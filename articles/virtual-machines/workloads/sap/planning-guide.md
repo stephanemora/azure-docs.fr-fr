@@ -804,7 +804,7 @@ Consultez l’exemple ici :
 <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 
-Le déploiement de l’extension Surveillance Azure pour SAP (consultez le chapitre [Solution de surveillance Azure pour SAP][planning-guide-9.1] dans ce document) n’est possible que via PowerShell ou l’interface de ligne de commande. Ainsi, il est obligatoire d’installer et de configurer PowerShell ou l’interface de ligne de commandes durant le déploiement ou l’administration d’un système SAP NetWeaver dans Azure.  
+Le déploiement de l’extension Supervision Azure pour SAP (consultez le chapitre [Solution de supervision Azure pour SAP][planning-guide-9.1] dans ce document) n’est possible que via PowerShell ou l’interface de ligne de commande. Ainsi, il est obligatoire d’installer et de configurer PowerShell ou l’interface de ligne de commandes durant le déploiement ou l’administration d’un système SAP NetWeaver dans Azure.  
 
 Étant donné qu’Azure propose davantage de fonctionnalités, de nouvelles applets de commande PS vont être ajoutées ; celles-ci nécessiteront une mise à jour des applets de commande. Il est donc recommandé de consulter le site de téléchargement Azure <https://azure.microsoft.com/downloads/> au moins une fois par mois, pour vérifier si une nouvelle version des applets de commande est disponible. La nouvelle version est installée par-dessus l’ancienne version.
 
@@ -1791,7 +1791,7 @@ La solution développée pour activer la surveillance SAP repose sur l’archite
 
 L’« agent de machine virtuelle Azure » qui permet une gestion des extensions de machines virtuelles Azure spécifiques au sein de la machine virtuelle est intégré aux machines virtuelles Windows par défaut pendant la création de machines virtuelles dans le portail Azure. Dans le cas de SUSE, Red Hat ou Oracle Linux, l’agent de machine virtuelle fait déjà partie de l’image de la Place de marché Azure. Dans le cas du chargement d’une machine virtuelle LINUX d’un système local vers Azure, l’agent de machine virtuelle doit être installé manuellement.
 
-Les blocs de construction de base de la solution de surveillance dans Azure pour SAP ressemble à ceci :
+Les blocs de construction de base de la solution de supervision dans Azure pour SAP ressemble à ceci :
 
 ![Composants d’extension Microsoft Azure][planning-guide-figure-2400]
 
@@ -1801,9 +1801,9 @@ Lorsque vous déployez une nouvelle machine virtuelle Windows, l’agent de mach
 
 Toutefois, il reste une étape à exécuter par le client. Il s’agit de l’activation et de la configuration de la collecte des performances. Le processus relatif à la configuration est automatisé par un script PowerShell ou une commande d’interface de ligne de commande. Le script PowerShell peut être téléchargé à partir du Centre de scripts Microsoft Azure, comme décrit dans le [Guide de déploiement][deployment-guide].
 
-L’Architecture globale de la solution de surveillance Azure pour SAP ressemble à ce qui suit :
+L’Architecture globale de la solution de supervision Azure pour SAP ressemble à ce qui suit :
 
-![Solution de surveillance Azure pour SAP NetWeaver][planning-guide-figure-2500]
+![Solution de supervision Azure pour SAP NetWeaver][planning-guide-figure-2500]
 
 **Pour connaître la procédure exacte et pour une procédure détaillée de l’utilisation de ces applets de commande PowerShell ou de la commande CLI au cours des déploiements, suivez les instructions fournies le [Guide de déploiement][deployment-guide].**
 

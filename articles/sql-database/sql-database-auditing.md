@@ -95,7 +95,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 
     ![compte de stockage](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Pour configurer l’écriture des journaux d’audit dans un espace de travail Log Analytics, sélectionnez **Log Analytics (préversion)**, puis ouvrez **Détails de Log Analytics**. Sélectionnez ou créez l’espace de travail Log Analytics où les journaux doivent être écrits, puis cliquez sur **OK**.
+7. Pour configurer l’écriture des journaux d’audit dans un espace de travail Log Analytics, sélectionnez **Log Analytics (préversion)**, puis ouvrez **Détails de Log Analytics**. Sélectionnez ou créez l’espace de travail Log Analytics où les journaux d’activité doivent être écrits, puis cliquez sur **OK**.
 
     ![Espace de travail Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
@@ -124,7 +124,7 @@ Si vous avez choisi écrire des journaux d’audit dans les journaux Azure Monit
 
     ![Ouvrir dans Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
-- Vous pouvez également accéder aux journaux d’audit à partir du panneau Log Analytics. Ouvrez votre espace de travail Log Analytics, puis, dans la section **Général**, cliquez sur **Journaux**. Vous pouvez démarrer par une requête simple, telle que : *search "SQLSecurityAuditEvents"* pour afficher les journaux d’audit.
+- Vous pouvez également accéder aux journaux d’audit à partir du panneau Log Analytics. Ouvrez votre espace de travail Log Analytics, puis, dans la section **Général**, cliquez sur **Journaux d’activité**. Vous pouvez démarrer par une requête simple, telle que : *search "SQLSecurityAuditEvents"* pour afficher les journaux d’audit.
     À ce stade, vous pouvez également utiliser [Azure Monitor enregistre](../log-analytics/log-analytics-log-search.md) pour exécuter des recherches avancées sur vos données de journal d’audit. Journaux d’Azure Monitor vous donne des informations opérationnelles en temps réel à l’aide de la recherche intégrée et des tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements toutes vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage de recherche de journaux Azure Monitor et les commandes, consultez [Azure Monitor enregistre la référence de recherche](../log-analytics/log-analytics-log-search.md).
 
 Si vous avez choisi d’écrire les journaux d’audit dans un hub d’événements :

@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/20/2019
+  ms.date: 04/12/2019
   ms.author: juliako
 abstract:
   description: "Découvrez comment encoder et empaqueter du contenu, diffuser des vidéos en streaming à la demande, diffuser en direct et analyser vos vidéos avec Media Services\_v3. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs. <br/> Les kits de développement logiciel sont basés sur <a href=\"https://aka.ms/ams-v3-rest-sdk\">Spécification OpenAPI Media Services v3 (Swagger)</a>."
@@ -26,7 +26,7 @@ sections:
           - title: Découvrir les concepts
             html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Chargement et stockage cloud</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encodage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Surveillance</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Analytique multimédia</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Empaquetage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protection</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Vidéo en flux continu</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Clients Player</a></p>'
           - title: "Développer avec l’API\_V3"
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Commencer à développer avec des kits SDK</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Développer avec REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Se connecter avec Java</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Se connecter avec .NET</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Se connecter avec Node.js</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Développer avec REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Développer avec des kits SDK</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Se connecter avec Java</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Se connecter avec .NET</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Se connecter avec Node.js</a></p>'
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph

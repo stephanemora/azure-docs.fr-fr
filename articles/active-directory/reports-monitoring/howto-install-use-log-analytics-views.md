@@ -24,7 +24,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58437303"
 ---
-# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installer et utiliser les affichages Log Analytics pour Azure Active Directory
+# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installer et utiliser les vues Log Analytics pour Azure Active Directory
 
 Les vues Log Analytics pour Azure Active Directory facilitent la recherche et l’analyse des journaux d’activité Azure AD dans votre locataire Azure AD. Les journaux d’activité Azure AD sont les suivants :
 
@@ -35,7 +35,7 @@ Les vues Log Analytics pour Azure Active Directory facilitent la recherche et l�
 
 Pour utiliser les vues Log Analytics, vous avez besoin de :
 
-* Créer un espace de travail Log Analytics dans votre abonnement Azure. Découvrez comment [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Espace de travail Log Analytics dans votre abonnement Azure. Découvrez comment [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * Effectuer les étapes nécessaires pour [envoyer les journaux d’activité Azure AD dans votre espace de travail Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 * Télécharger les vues du [dépôt GitHub](https://aka.ms/AADLogAnalyticsviews) sur votre ordinateur local.
 

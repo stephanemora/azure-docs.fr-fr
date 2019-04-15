@@ -312,7 +312,7 @@ Dans cette section, vous allez générer et exécuter le projet localement et d�
 
 ## <a name="add-application-insights-logging"></a>Ajouter la journalisation dans Application Insights
 
-Lorsque le projet s’exécute dans Azure, vous ne pouvez pas surveiller l’exécution de la fonction en affichant la sortie de la console. Nous vous recommandons d’utiliser [Application Insights](../azure-monitor/app/app-insights-overview.md) comme solution de surveillance. Pour plus d’informations, consultez [Surveiller l’exécution des fonctions Azure](../azure-functions/functions-monitoring.md).
+Lorsque le projet s’exécute dans Azure, vous ne pouvez pas surveiller l’exécution de la fonction en affichant la sortie de la console. Nous vous recommandons d’utiliser [Application Insights](../azure-monitor/app/app-insights-overview.md) comme solution de supervision. Pour plus d’informations, consultez [Surveiller l’exécution des fonctions Azure](../azure-functions/functions-monitoring.md).
 
 Dans cette section, vous allez effectuer les tâches suivantes pour configurer la journalisation dans Application Insights avant de procéder au déploiement sur Azure :
 

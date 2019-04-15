@@ -29,14 +29,14 @@ Cet article décrit les étapes requises pour configurer le conteneur de journau
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="set-up-the-container-monitoring-solution"></a>Configurer la solution de surveillance des conteneurs
+## <a name="set-up-the-container-monitoring-solution"></a>Configurer la solution de supervision des conteneurs
 
 > [!NOTE]
 > Vous devez disposer d’Azure Monitor journaux configurée pour votre cluster, ainsi que déployer sur vos nœuds de l’agent Log Analytique. Si vous ne faites pas, suivez les étapes de [configuré des journaux d’Azure Monitor](service-fabric-diagnostics-oms-setup.md) et [ajouter l’agent d’Analytique de journal à un cluster](service-fabric-diagnostics-oms-agent.md) première.
 
 1. Une fois que votre cluster est configuré avec les journaux d’Azure Monitor et de l’agent d’Analytique de journal, déployez vos conteneurs. Attendez que vos conteneurs soient déployés avant de passer à l’étape suivante.
 
-2. Dans la Place de marché Azure, recherchez *Solution Container Monitoring*, puis cliquez sur la ressource **Solution Container Monitoring** qui doit s’afficher sous la catégorie Surveillance + Gestion.
+2. Dans la Place de marché Azure, recherchez *Solution de supervision de conteneurs*, puis cliquez sur la ressource **Solution de supervision de conteneurs** qui doit s’afficher sous la catégorie Supervision + Gestion.
 
     ![Ajout de la solution Conteneurs](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 

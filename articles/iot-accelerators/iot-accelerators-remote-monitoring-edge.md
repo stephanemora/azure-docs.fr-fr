@@ -68,7 +68,7 @@ Dans le panneau **Nouvel appareil**, choisissez **Appareil IoT Edge**, puis entr
 
 Notez la chaîne de connexion d’appareil, car vous en aurez besoin dans la section suivante de ce tutoriel.
 
-Quand vous inscrivez un appareil auprès du hub IoT dans l’accélérateur de solution Supervision à distance, l’appareil est listé dans la page **Device Explorer** de l’interface utilisateur web :
+Quand vous inscrivez un appareil auprès du hub IoT dans l’accélérateur de solution de supervision à distance, l’appareil est listé dans la page **Device Explorer** de l’interface utilisateur web :
 
 [![Nouvel appareil IoT Edge](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 

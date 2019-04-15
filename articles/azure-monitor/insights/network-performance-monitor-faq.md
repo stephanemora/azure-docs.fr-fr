@@ -134,7 +134,7 @@ NPM peut surveiller la connectivité entre les réseaux dans n’importe quelle 
 NPM peut surveiller la connectivité des services dans n’importe quelle partie du monde, à partir d’un espace de travail hébergé dans une des [régions prises en charge](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quelles régions sont-elles prises en charge pour la fonctionnalité Moniteur ExpressRoute de NPM ?
-NPM peut surveiller vos circuits ExpressRoute situés dans n’importe quelle région Azure. Pour intégrer NPM, vous devez disposer d'un espace de travail Log Analytics hébergé dans l'une des [régions prises en charge](/azure/expressroute/how-to-npm)
+NPM peut surveiller vos circuits ExpressRoute situés dans n’importe quelle région Azure. Pour intégrer NPM, vous devez disposer d’un espace de travail Log Analytics hébergé dans l’une des [régions prises en charge](/azure/expressroute/how-to-npm)
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 

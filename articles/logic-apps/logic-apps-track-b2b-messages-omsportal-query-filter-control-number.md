@@ -37,7 +37,7 @@ Pour rechercher, X12 ou EDIFACT messages AS2 que vous effectuez le suivi avec [A
 
 Pour rechercher des messages en fonction de propriétés ou de valeurs spécifiques, vous pouvez créer des requêtes qui utilisent des filtres. 
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « log analytics », puis sélectionnez **Log Analytics**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « Log Analytics », puis sélectionnez **Log Analytics**.
 
    ![Sélectionner Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
@@ -110,7 +110,7 @@ Pour enregistrer votre requête dans la vue **Journaux (vue classique)**, procé
 
 ## <a name="find-and-run-saved-queries"></a>Rechercher et exécuter des requêtes enregistrées
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « log analytics », puis sélectionnez **Log Analytics**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « Log Analytics », puis sélectionnez **Log Analytics**.
 
    ![Sélectionner Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 

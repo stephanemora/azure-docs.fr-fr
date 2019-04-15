@@ -22,19 +22,16 @@ items:
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutoriels
   items:
-  - name: 1 - Utiliser Apache Spark Structured Streaming
+  - name: Utiliser Apache Spark Structured Streaming
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
-  - name: 2 - Lire/écrire à partir d’Apache Kafka avec Apache Storm
+  - name: Lire/écrire à partir d’Apache Kafka avec Apache Storm
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
-  - name: 3 - Utiliser une API de producteur et de consommateur Apache Kafka
+  - name: Utiliser une API de producteur et de consommateur Apache Kafka
     href: apache-kafka-producer-consumer-api.md
-  - name: 4 - Développer une application avec l’API Apache Kafka Streams
+  - name: Développer une application avec l’API Apache Kafka Streams
     href: apache-kafka-streams-api.md
-  - name: Superviser la disponibilité de cluster avec les journaux Azure Monitor et Ambari
-    href: ../hdinsight-cluster-availability.md
-    maintainContext: true
 - name: Concepts
   items:
   - name: planification de la capacité
@@ -159,6 +156,9 @@ items:
       - name: Utiliser l’API REST Apache Ambari
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+      - name: Superviser la disponibilité de cluster avec les journaux Azure Monitor
+        href: ../hdinsight-cluster-availability.md
+        maintainContext: true
       maintainContext: true
     - name: Gérer les journaux pour un cluster HDInsight
       href: ../hdinsight-log-management.md
@@ -271,9 +271,9 @@ items:
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 1bc035c80492c283364e5216184d2e943bacc3aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4549b041bc9e754aca632826c8e1a2afc7622a82
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668141"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565090"

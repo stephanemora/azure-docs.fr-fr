@@ -1,6 +1,6 @@
 ---
 title: Contrôle d’accès pour la supervision à distance - Azure | Microsoft Docs
-description: Cet article fournit des informations sur la façon dont vous pouvez configurer les contrôles d’accès en fonction du rôle (RBAC) dans l’accélérateur de solution de surveillance à distance.
+description: Cet article fournit des informations sur la façon dont vous pouvez configurer les contrôles d’accès en fonction du rôle (RBAC) dans l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -15,9 +15,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58180753"
 ---
-# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de surveillance à distance
+# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de supervision à distance
 
-Cet article fournit des informations sur la façon de configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de surveillance à distance. Les contrôles d’accès en fonction du rôle vous permettent de limiter l’accès de certains utilisateurs à des fonctionnalités spécifiques de la solution.
+Cet article fournit des informations sur la façon de configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de supervision à distance. Les contrôles d’accès en fonction du rôle vous permettent de limiter l’accès de certains utilisateurs à des fonctionnalités spécifiques de la solution.
 
 ## <a name="default-settings"></a>Paramètres par défaut
 
@@ -55,7 +55,7 @@ En tant que propriétaire d’une application Azure Active Directory, vous pouve
 
 1. Vérifiez que [l’utilisateur se trouve dans le répertoire](../active-directory/fundamentals/add-users-azure-active-directory.md) que vous utilisez. Vous avez choisi le répertoire à utiliser lors de votre connexion au site [Accélérateurs de solution Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators). Le nom du répertoire est indiqué dans l’angle supérieur droit de la [page](https://www.azureiotsolutions.com/Accelerators).
 
-1. Recherchez **l’application d’entreprise** pour votre solution dans le Portail Azure. Ensuite, filtrez la liste en définissant **Type d’application** sur **Toutes les applications**. Recherchez votre application par son nom. Le nom de l’application est celui de votre solution de surveillance à distance. Dans la capture d’écran suivante, le nom d’affichage de la solution et de l’application est **contoso-rm4**.
+1. Recherchez **l’application d’entreprise** pour votre solution dans le Portail Azure. Ensuite, filtrez la liste en définissant **Type d’application** sur **Toutes les applications**. Recherchez votre application par son nom. Le nom de l’application est celui de votre solution de supervision à distance. Dans la capture d’écran suivante, le nom d’affichage de la solution et de l’application est **contoso-rm4**.
 
     ![Application d’entreprise](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 
@@ -73,13 +73,13 @@ En tant que propriétaire d’une application Azure Active Directory, vous pouve
 
     ![Sélectionner un rôle](media/iot-accelerators-remote-monitoring-rbac/selectrole.png)
 
-1. L’utilisateur peut désormais accéder à la solution de surveillance à distance avec les autorisations définies par le rôle.
+1. L’utilisateur peut désormais accéder à la solution de supervision à distance avec les autorisations définies par le rôle.
 
 1. Vous pouvez supprimer des utilisateurs de l’application dans la page **Users and groups** (Utilisateurs et groupes) du portail.
 
 ## <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 
-La solution de surveillance à distance inclut les rôles **administrateur** et **lecture seule** lors de son déploiement. Vous pouvez ajouter des rôles personnalisés avec différents ensembles d’autorisations. Pour définir un rôle personnalisé, vous devez :
+La solution de supervision à distance inclut les rôles **administrateur** et **lecture seule** lors de son déploiement. Vous pouvez ajouter des rôles personnalisés avec différents ensembles d’autorisations. Pour définir un rôle personnalisé, vous devez :
 
 - Ajouter un nouveau rôle à l’application dans le Portail Azure
 - Définir une stratégie pour le nouveau rôle dans le microservice d’authentification et d’autorisation
@@ -87,9 +87,9 @@ La solution de surveillance à distance inclut les rôles **administrateur** et 
 
 ### <a name="define-a-custom-role-in-the-azure-portal"></a>Définir un rôle personnalisé dans le Portail Azure
 
-Les étapes suivantes décrivent comment ajouter un rôle à une application dans Azure Active Directory. Dans cet exemple, vous créez un rôle qui permet aux membres de créer, mettre à jour et supprimer des appareils dans la solution de surveillance à distance.
+Les étapes suivantes décrivent comment ajouter un rôle à une application dans Azure Active Directory. Dans cet exemple, vous créez un rôle qui permet aux membres de créer, mettre à jour et supprimer des appareils dans la solution de supervision à distance.
 
-1. Recherchez **l’inscription d’application** pour votre solution dans le Portail Azure. Le nom de l’application est celui de votre solution de surveillance à distance. Dans la capture d’écran suivante, le nom d’affichage de la solution et de l’application est **contoso-rm4**.
+1. Recherchez **l’inscription d’application** pour votre solution dans le Portail Azure. Le nom de l’application est celui de votre solution de supervision à distance. Dans la capture d’écran suivante, le nom d’affichage de la solution et de l’application est **contoso-rm4**.
 
     ![Inscription d'application](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
 
@@ -243,11 +243,11 @@ public async Task DeleteAsync(string id)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris comment les contrôles d’accès en fonction du rôle sont implémentés dans l’accélérateur de solution de surveillance à distance.
+Dans cet article, vous avez appris comment les contrôles d’accès en fonction du rôle sont implémentés dans l’accélérateur de solution de supervision à distance.
 
-Consultez [Configurer des contrôles d’accès pour l’explorateur Time Series Insights](iot-accelerators-remote-monitoring-rbac-tsi.md) pour en savoir plus sur la gestion des accès à l’explorateur Time Series Insights dans l’accélérateur de solution Supervision à distance.
+Consultez [Configurer des contrôles d’accès pour l’explorateur Time Series Insights](iot-accelerators-remote-monitoring-rbac-tsi.md) pour en savoir plus sur la gestion des accès à l’explorateur Time Series Insights dans l’accélérateur de solution de supervision à distance.
 
-Pour plus d’informations conceptuelles sur l’accélérateur de solution de surveillance à distance, consultez [Architecture de la surveillance à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Pour plus d’informations conceptuelles sur l’accélérateur de solution de supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Pour plus d’informations sur la personnalisation de la solution de surveillance à distance, consultez [Personnaliser et redéployer un microservice](iot-accelerators-microservices-example.md)
+Pour plus d’informations sur la personnalisation de la solution de supervision à distance, consultez [Personnaliser et redéployer un microservice](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

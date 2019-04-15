@@ -198,7 +198,7 @@ Si vous rencontrez des problèmes, consultez le [FAQ sur le DevKit IoT](https://
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez appris à connecter un appareil DevKit à votre accélérateur de solution de surveillance à distance Azure IoT et à utiliser le service SendGrid pour envoyer un e-mail. Voici les prochaines étapes suggérées :
+Vous avez appris à connecter un appareil DevKit à votre accélérateur de solution de supervision à distance Azure IoT et à utiliser le service SendGrid pour envoyer un e-mail. Voici les prochaines étapes suggérées :
 
 * [Vue d’ensemble des accélérateurs de solution de surveillance à distance Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
 * [Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

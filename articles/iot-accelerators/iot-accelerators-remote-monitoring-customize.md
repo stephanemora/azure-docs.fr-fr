@@ -1,6 +1,6 @@
 ---
-title: Personnaliser l’interface utilisateur de la solution de monitoring à distance – Azure | Microsoft Docs
-description: Cet article fournit des informations sur la façon dont vous pouvez accéder au code source pour l’interface utilisateur de l’accélérateur de solution de surveillance à distance et effectuer quelques personnalisations.
+title: Personnaliser l’interface utilisateur de la solution de supervision à distance – Azure | Microsoft Docs
+description: Cet article fournit des informations sur la façon dont vous pouvez accéder au code source pour l’interface utilisateur de l’accélérateur de solution de supervision à distance et effectuer quelques personnalisations.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -15,15 +15,15 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/21/2019
 ms.locfileid: "58317593"
 ---
-# <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personnaliser l’accélérateur de solution de surveillance à distance
+# <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personnaliser l’accélérateur de solution de supervision à distance
 
-Cet article fournit des informations sur la façon dont vous pouvez accéder au code source et personnaliser l’interface utilisateur de l’accélérateur de solution de surveillance à distance.
+Cet article fournit des informations sur la façon dont vous pouvez accéder au code source et personnaliser l’interface utilisateur de l’accélérateur de solution de supervision à distance.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>Préparer un environnement de développement local pour l’interface utilisateur
 
-Le code de l’interface utilisateur de l’accélérateur de solution de surveillance à distance est implémenté à l’aide du framework React.js. Vous pouvez trouver le code source dans le dépôt GitHub [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui).
+Le code de l’interface utilisateur de l’accélérateur de solution de supervision à distance est implémenté à l’aide du framework React.js. Vous pouvez trouver le code source dans le dépôt GitHub [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui).
 
 Pour apporter des modifications à l’interface utilisateur, vous pouvez en exécuter une copie localement. Pour effectuer des actions comme la récupération des données de télémétrie, la copie locale se connecte à une instance déployée de la solution.
 
@@ -77,7 +77,7 @@ Les étapes suivantes décrivent le processus de configuration d’un environnem
 
 ## <a name="customize-the-layout"></a>Personnaliser la disposition
 
-Chaque page de la solution de surveillance à distance est composée d’un ensemble de contrôles, appelés *panneaux* dans le code source. La page **Tableau de bord** se compose de cinq panneaux : Vue d’ensemble, Carte, Alertes, Télémétrie et Analytique. Vous trouverez le code source qui définit chaque page et ses panneaux dans le dépôt GitHub [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui). Par exemple, le code qui définit la page **Tableau de bord**, sa disposition et ses panneaux se trouve dans le dossier [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
+Chaque page de la solution de supervision à distance est composée d’un ensemble de contrôles, appelés *panneaux* dans le code source. La page **Tableau de bord** se compose de cinq panneaux : Vue d’ensemble, Carte, Alertes, Télémétrie et Analytique. Vous trouverez le code source qui définit chaque page et ses panneaux dans le dépôt GitHub [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui). Par exemple, le code qui définit la page **Tableau de bord**, sa disposition et ses panneaux se trouve dans le dossier [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
 
 Étant donné que les panneaux gèrent leurs propres disposition et dimensionnement, vous pouvez facilement modifier la disposition d’une page. Apportez les modifications suivantes à l’élément **PageContent** du fichier `src/components/pages/dashboard/dashboard.js` pour :
 
@@ -486,7 +486,7 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 ## <a name="other-customization-options"></a>Autres options de personnalisation
 
-Pour affiner la couche de présentation et de visualisations dans la solution de surveillance à distance, vous pouvez modifier le code. Les dépôts GitHub pertinents sont les suivants :
+Pour affiner la couche de présentation et de visualisations dans la solution de supervision à distance, vous pouvez modifier le code. Les dépôts GitHub pertinents sont les suivants :
 
 * [Microservice de configuration pour solutions Azure IoT (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)
 * [Microservice de configuration pour solutions Azure IoT (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config)
@@ -494,7 +494,7 @@ Pour affiner la couche de présentation et de visualisations dans la solution de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez découvert les ressources disponibles pour personnaliser l’interface utilisateur web dans l’accélérateur de solution de surveillance à distance. Pour en savoir plus sur la personnalisation de l’interface utilisateur, consultez les articles suivants :
+Dans cet article, vous avez découvert les ressources disponibles pour personnaliser l’interface utilisateur web dans l’accélérateur de solution de supervision à distance. Pour en savoir plus sur la personnalisation de l’interface utilisateur, consultez les articles suivants :
 
 * [Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-page.md)
 * [Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-service.md)
@@ -502,7 +502,7 @@ Dans cet article, vous avez découvert les ressources disponibles pour personnal
 * [Ajouter un menu volant personnalisé à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-flyout.md)
 * [Ajouter un panneau personnalisé au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-panel.md)
 
-Pour plus d’informations conceptuelles sur l’accélérateur de solution de surveillance à distance, consultez [Architecture de la surveillance à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Pour plus d’informations conceptuelles sur l’accélérateur de solution de supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Pour plus d’informations sur la personnalisation des microservices de la solution Supervision à distance, consultez [Personnaliser et redéployer un microservice](iot-accelerators-microservices-example.md).
+Pour plus d’informations sur la personnalisation des microservices de la solution de supervision à distance, consultez [Personnaliser et redéployer un microservice](iot-accelerators-microservices-example.md).
 <!-- Next tutorials in the sequence -->

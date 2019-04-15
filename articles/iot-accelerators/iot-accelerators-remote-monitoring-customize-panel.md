@@ -1,6 +1,6 @@
 ---
-title: Ajouter un panneau à l’interface utilisateur de la solution Supervision à distance - Azure | Microsoft Docs
-description: Cet article vous montre comment ajouter un nouveau panneau au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance.
+title: Ajouter un panneau à l’interface utilisateur de la solution de supervision à distance - Azure | Microsoft Docs
+description: Cet article vous montre comment ajouter un nouveau panneau au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,14 +10,14 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
 ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49165876"
 ---
-# <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter un panneau personnalisé au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance
+# <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter un panneau personnalisé au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance
 
-Cet article vous montre comment ajouter un nouveau panneau à une page du tableau de bord dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance. Cet article aborde les points suivants :
+Cet article vous montre comment ajouter un nouveau panneau à une page du tableau de bord dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance. Cet article aborde les points suivants :
 
 - Comment préparer un environnement de développement local.
 - Comment ajouter un nouveau panneau à une page du tableau de bord dans l’interface utilisateur web.
@@ -33,7 +33,7 @@ Pour effectuer les étapes de ce guide pratique, vous devez avoir installé les 
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Vous devez effectuer les étapes décrites dans l’article [Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-page.md) avant de continuer.
+Vous devez effectuer les étapes décrites dans l’article [Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-page.md) avant de continuer.
 
 ## <a name="add-a-panel"></a>Ajouter un panneau
 
@@ -94,6 +94,6 @@ La commande précédente exécute l’interface utilisateur localement sur [http
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez découvert les ressources disponibles pour ajouter ou personnaliser des tableaux de bord dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance.
+Dans cet article, vous avez découvert les ressources disponibles pour ajouter ou personnaliser des tableaux de bord dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 
-Pour plus d’informations conceptuelles sur l’accélérateur de solution Supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Pour plus d’informations conceptuelles sur l’accélérateur de solution de supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md).

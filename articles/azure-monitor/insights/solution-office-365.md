@@ -167,7 +167,7 @@ Pour activer le compte d’administration pour la première fois, vous devez fou
     AdminConsent -ErrorAction Stop
     ```
 
-2. Exécutez le script avec la commande suivante. Vous êtes ensuite invité à entrer deux fois vos informations d’identification. Fournissez d'abord les informations d'identification de votre espace de travail Log Analytics, puis les informations d'identification d’administrateur général de votre locataire Office 365.
+2. Exécutez le script avec la commande suivante. Vous êtes ensuite invité à entrer deux fois vos informations d’identification. Fournissez d’abord les informations d’identification de votre espace de travail Log Analytics, puis les informations d’identification d’administrateur général de votre locataire Office 365.
 
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>

@@ -18,9 +18,9 @@ ms.locfileid: "58792499"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Démarrage rapide : Essayer une solution cloud de supervision à distance
 
-Ce guide de démarrage rapide vous montre comment déployer l’accélérateur de solution de surveillance à distance Azure IoT. Dans cette solution informatique, vous utilisez la page **Tableau de bord** pour visualiser les appareils simulés sur une carte, et la page **Maintenance** pour répondre à une alerte concernant la pression d’un appareil de refroidissement simulé. Vous pouvez utiliser cet accélérateur de solution comme point de départ de votre propre implémentation ou comme outil d’apprentissage.
+Ce guide de démarrage rapide vous montre comment déployer l’accélérateur de solution de supervision à distance Azure IoT. Dans cette solution informatique, vous utilisez la page **Tableau de bord** pour visualiser les appareils simulés sur une carte, et la page **Maintenance** pour répondre à une alerte concernant la pression d’un appareil de refroidissement simulé. Vous pouvez utiliser cet accélérateur de solution comme point de départ de votre propre implémentation ou comme outil d’apprentissage.
 
-Le déploiement initial configure l’accélérateur de solution pour une société appelée Contoso. En tant qu’opérateur chez Contoso, vous prenez en charge la gestion d’une sélection de types d’appareil variés, tels que des appareils de refroidissement, déployés dans différents environnements physiques. Un appareil de refroidissement envoie la télémétrie de la température, de l’humidité et de la pression à l’accélérateur de la solution Monitoring à distance.
+Le déploiement initial configure l’accélérateur de solution pour une société appelée Contoso. En tant qu’opérateur chez Contoso, vous prenez en charge la gestion d’une sélection de types d’appareil variés, tels que des appareils de refroidissement, déployés dans différents environnements physiques. Un appareil de refroidissement envoie la télémétrie de la température, de l’humidité et de la pression à l’accélérateur de la solution de supervision à distance.
 
 Ce guide de démarrage rapide déploie une version de **base** de l’accélérateur de solution qui réduit les coûts, à des fins de test et de démonstration. Pour plus d’informations sur les différentes versions que vous pouvez déployer, consultez [Déploiements de base et standard](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
@@ -40,28 +40,28 @@ Cliquez sur la vignette **Supervision à distance**. Dans la page **Supervision 
 
 Choisissez **Microservices C#** comme **Options de déploiement**. Les implémentations Java et C# ont les mêmes fonctionnalités.
 
-Entrez un **Nom de la solution** unique pour votre accélérateur de solution Monitoring à distance. Pour ce guide de démarrage rapide, nous appelons le nôtre **contoso-rm**.
+Entrez un **Nom de la solution** unique pour votre accélérateur de solution de supervision à distance. Pour ce guide de démarrage rapide, nous appelons le nôtre **contoso-rm**.
 
 Sélectionnez l’**Abonnement** et la **Région** à utiliser pour déployer l’accélérateur de solution. En général, vous choisissez la région la plus proche. Pour ce guide de démarrage rapide, nous utilisons **USA Est**.
 Vous pouvez choisir **Visual Studio Enterprise** à la condition d’être [administrateur ou utilisateur général](iot-accelerators-permissions.md).
 
 Pour commencer le déploiement, cliquez sur **Créer**. L’exécution de ce processus prend au moins cinq minutes :
 
-![Détails de la solution Monitoring à distance](./media/quickstart-remote-monitoring-deploy/createform.png)
+![Détails de la solution de supervision à distance](./media/quickstart-remote-monitoring-deploy/createform.png)
 
 ## <a name="sign-in-to-the-solution"></a>Se connecter à la solution
 
-Lorsque le déploiement vers votre abonnement Azure est terminé, vous pouvez observer une coche verte ainsi que la mention **Ready** sur la vignette de la solution. À présent, vous pouvez vous connecter au tableau de bord de l’accélérateur de solution Surveillance à distance.
+Lorsque le déploiement vers votre abonnement Azure est terminé, vous pouvez observer une coche verte ainsi que la mention **Ready** sur la vignette de la solution. À présent, vous pouvez vous connecter au tableau de bord de l’accélérateur de solution de supervision à distance.
 
-Dans la page **Solutions approvisionnées**, cliquez sur votre nouvel accélérateur de solution Monitoring à distance :
+Dans la page **Solutions approvisionnées**, cliquez sur votre nouvel accélérateur de solution de supervision à distance :
 
 ![Choisir la nouvelle solution](./media/quickstart-remote-monitoring-deploy/choosenew.png)
 
-Vous pouvez consulter les informations relatives à votre accélérateur de solution Monitoring à distance dans le panneau qui s’affiche. Choisissez **Accéder à votre accélérateur de solution** pour voir votre accélérateur de solution de supervision à distance :
+Vous pouvez consulter les informations relatives à votre accélérateur de solution de supervision à distance dans le panneau qui s’affiche. Choisissez **Accéder à votre accélérateur de solution** pour voir votre accélérateur de solution de supervision à distance :
 
 ![Panneau de solutions](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 
-Cliquez sur **Accepter** pour accepter la demande d’autorisation. Le tableau de bord de la solution Monitoring à distance s’affiche dans votre navigateur :
+Cliquez sur **Accepter** pour accepter la demande d’autorisation. Le tableau de bord de la solution de supervision à distance s’affiche dans votre navigateur :
 
 [![Tableau de bord des solutions](./media/quickstart-remote-monitoring-deploy/solutiondashboard-inline.png)](./media/quickstart-remote-monitoring-deploy/solutiondashboard-expanded.png#lightbox)
 
@@ -129,7 +129,7 @@ La valeur dans la colonne d’état devient **Fermé**.
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Si vous envisagez de passer aux tutoriels, laissez l’accélérateur de solution Monitoring à distance déployé.
+Si vous envisagez de passer aux tutoriels, laissez l’accélérateur de solution de supervision à distance déployé.
 
 Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le de la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) en le sélectionnant et en cliquant sur **Supprimer la solution** :
 
@@ -140,7 +140,7 @@ Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez déployé l’accélérateur de solution Monitoring à distance et effectué une tâche de monitoring en utilisant des appareils simulés dans le déploiement de Contoso par défaut.
+Dans ce guide de démarrage rapide, vous avez déployé l’accélérateur de solution de supervision à distance et effectué une tâche de supervision en utilisant des appareils simulés dans le déploiement de Contoso par défaut.
 
 Pour en savoir plus sur l’accélérateur de solution à l’aide d’appareils simulés, passez au didacticiel suivant.
 

@@ -22,7 +22,7 @@ ms.locfileid: "57848811"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Créer un espace de travail Log Analytics avec Azure CLI 2.0
 
-Vous utilisez Azure CLI 2.0 pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce démarrage rapide vous montre comment utiliser l’interface de ligne de commande Azure 2.0 pour déployer un espace de travail Log Analytics dans Azure Monitor. Un espace de travail Log Analytics est un environnement unique pour les données de journal Azure Monitor. Chaque espace de travail dispose d’un référentiel de données et d’une configuration propres. Les sources de données et les solutions sont configurées de façon à stocker leurs données dans un espace de travail particulier. Vous devez avoir un espace de travail Log Analytics si vous souhaitez collecter des données à partir des sources suivantes :
+Vous utilisez Azure CLI 2.0 pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce démarrage rapide vous montre comment utiliser l’interface de ligne de commande Azure 2.0 pour déployer un espace de travail Log Analytics dans Azure Monitor. Un espace de travail Log Analytics est un environnement unique pour les données de journal d’activité Azure Monitor. Chaque espace de travail dispose d’un référentiel de données et d’une configuration propres. Les sources de données et les solutions sont configurées de façon à stocker leurs données dans un espace de travail particulier. Vous devez avoir un espace de travail Log Analytics si vous souhaitez collecter des données à partir des sources suivantes :
 
 * Ressources Azure dans votre abonnement  
 * Ordinateurs locaux surveillés par System Center Operations Manager  

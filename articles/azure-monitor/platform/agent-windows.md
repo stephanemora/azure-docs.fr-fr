@@ -40,7 +40,7 @@ L’agent peut être installé à l’aide d’une des méthodes suivantes. La p
 Pour comprendre la configuration prise en charge, consultez les pages [Prise en charge des systèmes d’exploitation Windows](log-analytics-agent.md#supported-windows-operating-systems) et [Configuration du pare-feu réseau](log-analytics-agent.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obtenir l’ID et la clé d’espace de travail
-Avant d'installer l'agent Log Analytics pour Windows, vous devez disposer de l'ID et de la clé de votre espace de travail Log Analytics.  Ces informations sont requises lors de l’installation à partir de chaque méthode d’installation pour configurer correctement l’agent et qu’il puisse communiquer avec Azure Monitor dans Azure commercial et de cloud du gouvernement.  
+Avant d’installer l’agent Log Analytics pour Windows, vous devez disposer de l’ID et de la clé de votre espace de travail Log Analytics.  Ces informations sont requises lors de l’installation à partir de chaque méthode d’installation pour configurer correctement l’agent et qu’il puisse communiquer avec Azure Monitor dans Azure commercial et de cloud du gouvernement.  
 
 1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans la liste des espaces de travail Log Analytics, sélectionnez celui auquel vous envisagez que l’agent rende compte.

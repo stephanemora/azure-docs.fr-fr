@@ -94,8 +94,8 @@ Vous pouvez fusionner des bases de données uniques avec des pools élastiques e
 Vous utilisez les outils intégrés de [surveillance](sql-database-performance.md) et [d’alerte](sql-database-insights-alerts-portal.md) de performances, combinées avec les évaluations de performance. Ces outils vous permettent d’évaluer rapidement l’impact des mises à l’échelle (montées ou descentes en charge) en fonction de vos besoins en performances actuels ou pour un projet. En outre, SQL Database peut [émettre des mesures et des journaux de diagnostic](sql-database-metrics-diag-logging.md) pour faciliter la surveillance. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
 
 - **Stockage Azure** : pour archiver à petit prix de gros volumes de données de télémétrie.
-- **Azure Event Hub** : pour intégrer des données de télémétrie SQL Database à votre solution de surveillance personnalisée ou à vos pipelines chauds.
-- **Journaux Azure Monitor** : pour une solution de surveillance intégrée offrant des fonctionnalités de génération de rapports, d'alerte et d'atténuation.
+- **Azure Event Hub** : pour intégrer des données de télémétrie SQL Database à votre solution de supervision personnalisée ou à vos pipelines chauds.
+- **Journaux Azure Monitor** : pour une solution de supervision intégrée offrant des fonctionnalités de génération de rapports, d’alerte et d’atténuation.
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Superviser vos appareils IoT à partir d’une solution Azure - Azure | Microsoft Docs'
-description: Dans ce tutoriel, vous découvrez comment surveiller vos appareils IoT avec l’accélérateur de solution Monitoring à distance.
+description: Dans ce tutoriel, vous découvrez comment surveiller vos appareils IoT avec l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -18,9 +18,9 @@ ms.locfileid: "58173819"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Tutoriel : Superviser vos appareils IoT
 
-Dans ce tutoriel, vous utilisez l’accélérateur de solution Monitoring à distance pour surveiller vos appareils IoT connectés. Vous utilisez le tableau de bord des solutions pour afficher des données de télémétrie, des informations sur les appareils, des alertes et des indicateurs de performance clés.
+Dans ce tutoriel, vous utilisez l’accélérateur de solution de supervision à distance pour surveiller vos appareils IoT connectés. Vous utilisez le tableau de bord des solutions pour afficher des données de télémétrie, des informations sur les appareils, des alertes et des indicateurs de performance clés.
 
-Le tutoriel utilise deux appareils simulés sur des camions, qui envoient l’emplacement, la vitesse et la télémétrie de température de la cargaison. Les camions sont gérés par une entreprise appelée Contoso et sont connectés à l’accélérateur de solution Monitoring à distance. En tant qu’opérateur de Contoso, vous devez surveiller la position et le comportement d’un de vos camions (truck-02) sur la route.
+Le tutoriel utilise deux appareils simulés sur des camions, qui envoient l’emplacement, la vitesse et la télémétrie de température de la cargaison. Les camions sont gérés par une entreprise appelée Contoso et sont connectés à l’accélérateur de solution de supervision à distance. En tant qu’opérateur de Contoso, vous devez surveiller la position et le comportement d’un de vos camions (truck-02) sur la route.
 
 Dans ce tutoriel, vous allez :
 
@@ -97,7 +97,7 @@ Les mêmes filtres que ceux qui définissent l’intervalle de temps pour les al
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce tutoriel vous a montré comment utiliser la page **Tableau de bord** de l’accélérateur de solution Monitoring à distance pour filtrer et surveiller les camions simulés. Pour découvrir comment utiliser l’accélérateur de solution pour détecter des problèmes avec vos appareils connectés, passez au tutoriel suivant.
+Ce tutoriel vous a montré comment utiliser la page **Tableau de bord** de l’accélérateur de solution de supervision à distance pour filtrer et surveiller les camions simulés. Pour découvrir comment utiliser l’accélérateur de solution pour détecter des problèmes avec vos appareils connectés, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
 > [Détectez les problèmes liés aux appareils connectés à votre solution de monitoring](iot-accelerators-remote-monitoring-automate.md)

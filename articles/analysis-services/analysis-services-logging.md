@@ -83,7 +83,7 @@ La catégorie Métriques journalise les mêmes [métriques serveur](analysis-ser
 
     * **Archive vers un compte de stockage**. Pour utiliser cette option, vous avez besoin d’un compte de stockage existant auquel vous connecter. Voir [Créer un compte de stockage](../storage/common/storage-create-storage-account.md). Suivez les instructions pour créer un compte Resource Manager à usage général, puis sélectionnez votre compte de stockage en retournant sur cette page du portail. L’affichage des comptes de stockage nouvellement créés dans le menu déroulant peut prendre quelques minutes.
     * **Transmettre à un Event Hub**. Pour utiliser cette option, vous avez besoin d’un espace de noms Event Hub existant et d’un Event Hub auquel vous connecter. Pour plus d’informations, consultez [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le portail Azure](../event-hubs/event-hubs-create.md). Puis revenez à cette page dans le portail pour sélectionner l’espace de noms Event Hub et le nom de la stratégie.
-    * **Envoyer à Azure Monitor (espace de travail Log Analytics)**. Pour utiliser cette option, servez-vous d’un espace de travail existant ou [créez une ressource d’espace de travail](../azure-monitor/learn/quick-create-workspace.md) sur le portail. Pour savoir comment afficher vos journaux, voir [Afficher les journaux dans l’espace de travail Log Analytics](#view-logs-in-log-analytics-workspace) dans cet article.
+    * **Envoyer à Azure Monitor (espace de travail Log Analytics)**. Pour utiliser cette option, servez-vous d’un espace de travail existant ou [créez une ressource d’espace de travail](../azure-monitor/learn/quick-create-workspace.md) sur le portail. Pour savoir comment afficher vos journaux d’activité, voir [Afficher les journaux d’activité dans l’espace de travail Log Analytics](#view-logs-in-log-analytics-workspace) dans cet article.
 
     * **Moteur**. Sélectionnez cette option pour journaliser les événements XEvent. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
     * **Service**. Sélectionnez cette option pour journaliser les événements de niveau Service. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
@@ -151,11 +151,11 @@ En règle générale, les journaux sont disponibles deux heures après la config
 * Supprimez les journaux que vous ne souhaitez plus conserver dans votre compte de stockage.
 * Veillez à définir une période de rétention qui supprime les très anciens journaux de votre compte de stockage.
 
-## <a name="view-logs-in-log-analytics-workspace"></a>Afficher les journaux dans l’espace de travail Log Analytics
+## <a name="view-logs-in-log-analytics-workspace"></a>Afficher les journaux d’activité dans l’espace de travail Log Analytics
 
 Les métriques et les événements de type serveur sont intégrés aux événements XEvent dans la ressource d’espace de travail Log Analytics, ce qui permet une analyse côte à côte. Il est également possible de configurer l’espace de travail Log Analytics pour qu’il reçoive des événements provenant d’autres services Azure, afin d’obtenir une vue globale des données de journalisation des diagnostics sur l’architecture.
 
-Pour afficher vos données de diagnostic, ouvrez **Journaux** dans le menu de gauche de l’espace de travail Log Analytics.
+Pour afficher vos données de diagnostic, ouvrez **Journaux d’activité** dans le menu de gauche de l’espace de travail Log Analytics.
 
 ![Options de recherche dans les journaux dans le portail Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 

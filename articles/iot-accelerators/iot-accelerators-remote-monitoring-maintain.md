@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Utiliser des alertes et résoudre les problèmes des appareils dans la solution de surveillance à distance - Azure | Microsoft Docs'
-description: Ce tutoriel vous montre comment utiliser des alertes pour identifier et résoudre les problèmes avec les appareils connectés à l’accélérateur de solution Monitoring à distance.
+title: 'Tutoriel : Utiliser des alertes et résoudre les problèmes des appareils dans la solution de supervision à distance - Azure | Microsoft Docs'
+description: Ce tutoriel vous montre comment utiliser des alertes pour identifier et résoudre les problèmes avec les appareils connectés à l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -18,7 +18,7 @@ ms.locfileid: "54451713"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Tutoriel : Résoudre et corriger les problèmes liés aux appareils
 
-Dans ce tutoriel, vous utilisez l’accélérateur de solution Monitoring à distance pour identifier et résoudre les problèmes avec vos appareils IoT connectés. Vous utilisez des alertes dans le tableau de bord de l’accélérateur de solution pour identifier les problèmes, puis vous exécutez des tâches à distance pour résoudre ces problèmes.
+Dans ce tutoriel, vous utilisez l’accélérateur de solution de supervision à distance pour identifier et résoudre les problèmes avec vos appareils IoT connectés. Vous utilisez des alertes dans le tableau de bord de l’accélérateur de solution pour identifier les problèmes, puis vous exécutez des tâches à distance pour résoudre ces problèmes.
 
 Contoso fait le test d’un nouvel appareil **Prototype** sur le terrain. En tant qu’opérateur de Contoso, vous remarquerez pendant le test que l’appareil **Prototype** déclenche de façon inattendue une alerte de température dans le tableau de bord. Vous devez maintenant examiner le comportement de cet appareil **Prototype** défectueux et résoudre le problème.
 
@@ -86,4 +86,4 @@ Vous pouvez vérifier que la température de l’appareil a diminué en consulta
 
 Ce tutoriel vous a montré comment utiliser des alertes pour identifier des problèmes avec vos appareils et comment intervenir sur ces appareils pour résoudre les problèmes. Pour savoir comment connecter un appareil réel à votre accélérateur de solution, continuez avec les articles de guide pratique.
 
-Maintenant que vous savez comment gérer les problèmes des appareils, l’étape suivante que nous vous suggérons est d’apprendre à [connecter votre appareil à l’accélérateur de solution Monitoring à distance](iot-accelerators-connecting-devices.md).
+Maintenant que vous savez comment gérer les problèmes des appareils, l’étape suivante que nous vous suggérons est d’apprendre à [connecter votre appareil à l’accélérateur de solution de supervision à distance](iot-accelerators-connecting-devices.md).

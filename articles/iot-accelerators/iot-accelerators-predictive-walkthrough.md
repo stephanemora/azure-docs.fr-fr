@@ -31,7 +31,7 @@ Les éléments en bleu sont des services Azure configurés dans la région dans 
 
 L’élément vert simule un moteur d’avion. Des informations supplémentaires sur ces appareils simulés sont disponibles dans la section [Simulations d’appareils](#simulated-devices).
 
-Les éléments gris sont des composants qui implémentent les fonctionnalités de *gestion des appareils* . La version actuelle de l’accélérateur de solution Maintenance prédictive ne configure pas ces ressources. Pour en savoir plus sur la gestion des appareils, reportez-vous à l’[accélérateur de solution de surveillance à distance][lnk-remote-monitoring].
+Les éléments gris sont des composants qui implémentent les fonctionnalités de *gestion des appareils* . La version actuelle de l’accélérateur de solution Maintenance prédictive ne configure pas ces ressources. Pour en savoir plus sur la gestion des appareils, reportez-vous à l’[accélérateur de solution de supervision à distance][lnk-remote-monitoring].
 
 ## <a name="azure-resources"></a>Ressources Azure
 

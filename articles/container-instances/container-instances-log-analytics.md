@@ -46,7 +46,7 @@ Pour obtenir l’ID et la clé primaire de l’espace de travail Log Analytics 
 
 Maintenant que vous disposez de l’ID et de la clé primaire de l’espace de travail Log Analytics, vous êtes prêt à créer un groupe de conteneurs dans lequel la journalisation est activée.
 
-Les exemples suivants illustrent deux façons de créer un groupe de conteneurs avec un seul conteneur [fluentd][fluentd] : Azure CLI et Azure CLI avec un modèle YAML. Le conteneur Fluentd produit plusieurs lignes de sortie dans sa configuration par défaut. Cette sortie étant envoyée à votre espace de travail Log Analytics, elle convient parfaitement à l’affichage et à l’interrogation des journaux.
+Les exemples suivants illustrent deux façons de créer un groupe de conteneurs avec un seul conteneur [fluentd][fluentd] : Azure CLI et Azure CLI avec un modèle YAML. Le conteneur Fluentd produit plusieurs lignes de sortie dans sa configuration par défaut. Cette sortie étant envoyée à votre espace de travail Log Analytics, elle convient parfaitement à l’affichage et à l’interrogation des journaux d’activité.
 
 ### <a name="deploy-with-azure-cli"></a>Déploiement avec l’interface de ligne de commande Azure
 
@@ -100,7 +100,7 @@ Vous devriez recevoir une réponse à partir des détails du déploiement de con
 
 ## <a name="view-logs-in-azure-monitor-logs"></a>Voir les journaux Azure Monitor
 
-Une fois que vous avez déployé le groupe de conteneurs, l’affichage dans le portail Azure des premières entrées de journal peut prendre plusieurs minutes (jusqu’à 10). Pour afficher les journaux du groupe de conteneurs, ouvrez votre espace de travail Log Analytics, puis :
+Une fois que vous avez déployé le groupe de conteneurs, l’affichage dans le portail Azure des premières entrées de journal peut prendre plusieurs minutes (jusqu’à 10). Pour afficher les journaux d’activité du groupe de conteneurs, ouvrez votre espace de travail Log Analytics, puis :
 
 1. Dans la vue d’ensemble de l’**Espace de travail OMS**, sélectionnez **Recherche dans les journaux**. Les espaces de travail OMS sont désormais appelés « espaces de travail Log Analytics ».  
 1. Sous **Quelques requêtes supplémentaires à essayer**, sélectionnez le lien **Toutes les données collectées**

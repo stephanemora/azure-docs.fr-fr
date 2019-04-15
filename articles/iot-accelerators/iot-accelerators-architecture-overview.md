@@ -11,7 +11,7 @@ services: iot-accelerators
 manager: philmea
 ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54467313"
@@ -28,9 +28,9 @@ L'architecture de référence décrit les éléments qui constituent une solutio
 
 Au plus haut niveau, vous pouvez considérer qu'une solution IoT est constituée de ce qui suit :
 
-* Appareils qui génèrent et envoient des données de télémétrie telles que des mesures et des événements. Par exemple, dans l'accélérateur de solution Supervision à distance, les camions et les ascenseurs envoient des données de télémétrie.
-* Insights générés à partir des données de télémétrie envoyées par les appareils. Dans l'accélérateur de solution Supervision à distance, une règle génère un insight. Par exemple, une règle peut identifier le moment où la température atteint un certain seuil dans un moteur.
-* Actions, basées sur les insights, qui aident à améliorer une activité ou un processus. Dans l'accélérateur de solution Supervision à distance, une action par e-mail peut avertir un opérateur d'un problème potentiel sur un moteur.
+* Appareils qui génèrent et envoient des données de télémétrie telles que des mesures et des événements. Par exemple, dans l’accélérateur de solution de supervision à distance, les camions et les ascenseurs envoient des données de télémétrie.
+* Insights générés à partir des données de télémétrie envoyées par les appareils. Dans l’accélérateur de solution de supervision à distance, une règle génère un insight. Par exemple, une règle peut identifier le moment où la température atteint un certain seuil dans un moteur.
+* Actions, basées sur les insights, qui aident à améliorer une activité ou un processus. Dans l’accélérateur de solution de supervision à distance, une action par e-mail peut avertir un opérateur d’un problème potentiel sur un moteur.
 
 L'[architecture de référence Azure IoT](https://aka.ms/iotrefarchitecture) est un document évolutif mis à jour à mesure que la technologie progresse.
 
@@ -40,7 +40,7 @@ L'architecture de référence identifie les sous-systèmes principaux représent
 
 ![Sous-systèmes principaux](media/iot-accelerators-architecture-overview/CoreSubsystems.png)
 
-Les sections suivantes décrivent la façon dont les composants de l'accélérateur de solution Supervision à distance sont mis en correspondance avec les sous-systèmes principaux.
+Les sections suivantes décrivent la façon dont les composants de l’accélérateur de solution de supervision à distance sont mis en correspondance avec les sous-systèmes principaux.
 
 ### <a name="iot-devices"></a>Appareils IoT
 
@@ -51,9 +51,9 @@ Une passerelle locale, ou appareil de périmètre, est un appareil spécialisé 
 * Facilitateur de communication pour gérer la conversion de protocole.
 * Système local de contrôle des appareils et centre de traitement des données de télémétrie des appareils. Un appareil de périmètre peut traiter les données de télémétrie localement pour contrôler les appareils sans communiquer avec le cloud. Un appareil de périmètre peut également filtrer ou agréger les données de télémétrie des appareils afin de réduire le volume de données de télémétrie transférées vers le cloud.
 
-Dans la solution Supervision à distance, les appareils se connectent à un hub IoT et envoient des données de télémétrie à des fins de traitement. La solution Supervision à distance permet également aux opérateurs de gérer les appareils à l'aide de travaux ou d'un processus automatique. Vous pouvez utiliser les kits Azure IoT device SDK pour implémenter vos appareils.
+Dans la solution de supervision à distance, les appareils se connectent à un hub IoT et envoient des données de télémétrie à des fins de traitement. La solution de supervision à distance permet également aux opérateurs de gérer les appareils à l’aide de travaux ou d’un processus automatique. Vous pouvez utiliser les kits Azure IoT device SDK pour implémenter vos appareils.
 
-La solution Supervision à distance peut déployer et gérer des appareils IoT Edge. Le traitement en périphérie permet de réduire le volume des données de télémétrie transférées vers le cloud et d'accélérer les réponses fournies aux événements des appareils.
+La solution de supervision à distance peut déployer et gérer des appareils IoT Edge. Le traitement en périphérie permet de réduire le volume des données de télémétrie transférées vers le cloud et d'accélérer les réponses fournies aux événements des appareils.
 
 ### <a name="cloud-gateway"></a>Passerelle cloud
 
@@ -61,7 +61,7 @@ Une passerelle cloud permet la communication vers et depuis les appareils et app
 
 La passerelle gère les communications des appareils, notamment la gestion des connexions, la protection du chemin de communication, l'authentification et les autorisations. La passerelle applique également des quotas de connexion et de débit, et collecte les données de télémétrie utilisées pour la facturation, le diagnostic et d'autres tâches de supervision.
 
-La solution Supervision à distance déploie un hub IoT pour fournir un point de terminaison sécurisé aux appareils auxquels les données de télémétrie doivent être envoyées. En outre, le hub IoT :
+La solution de supervision à distance déploie un hub IoT pour fournir un point de terminaison sécurisé aux appareils auxquels les données de télémétrie doivent être envoyées. En outre, le hub IoT :
 
 * inclut un magasin d'identités d'appareils pour gérer les appareils autorisés à se connecter à la solution ;
 * permet à la solution d'envoyer des commandes aux appareils. Par exemple, pour ouvrir une vanne afin de relâcher la pression ;
@@ -79,13 +79,13 @@ Au fur et à mesure que la solution ingère des données de télémétrie, il es
 
 Le routage peut acheminer les données de télémétrie vers un(e) ou plusieurs points de terminaison de stockage, processus d'analyse et actions. Une solution peut combiner les étapes dans des ordres différents et les traiter avec des tâches parallèles simultanées.
 
-La solution Supervision à distance utilise [Azure Stream Analytics](/azure/stream-analytics/) pour le traitement de flux. Le moteur de règles de la solution utilise des requêtes Stream Analytics pour générer les alertes et les actions. Par exemple, la solution peut utiliser une requête pour identifier le moment où, sur cinq minutes, la température moyenne du compartiment de stockage d'un camion passe en dessous des 2 degrés Celsius.
+La solution de supervision à distance utilise [Azure Stream Analytics](/azure/stream-analytics/) pour le traitement de flux. Le moteur de règles de la solution utilise des requêtes Stream Analytics pour générer les alertes et les actions. Par exemple, la solution peut utiliser une requête pour identifier le moment où, sur cinq minutes, la température moyenne du compartiment de stockage d'un camion passe en dessous des 2 degrés Celsius.
 
 ### <a name="storage"></a>Stockage
 
 Les solutions IoT peuvent générer de gros volumes de données, généralement des données de séries chronologiques. Ces données doivent être stockées là où elles peuvent être utilisées pour la visualisation et la création de rapports. Une solution peut également avoir besoin d'accéder ultérieurement aux données à des fins d'analyse ou de traitement supplémentaire. Les données sont souvent réparties en deux magasins : le magasin de données chaudes et le magasin de données froides. Le magasin de données chaudes contient les données récentes pour un accès à faible latence. Le magasin de données froides stocke généralement les données historiques.
 
-La solution Supervision à distance utilise [Azure Time Series Insights](/azure/time-series-insights/) comme magasin de données chaudes et Cosmos DB comme magasin de données froides.
+La solution de supervision à distance utilise [Azure Time Series Insights](/azure/time-series-insights/) comme magasin de données chaudes et Cosmos DB comme magasin de données froides.
 
 ### <a name="ui-and-reporting-tools"></a>Interface utilisateur et outils de création de rapports
 
@@ -99,7 +99,7 @@ L'interface utilisateur de la solution peut fournir ce qui suit :
 * Intégration à des tableaux de bord interactifs en temps réel pour afficher les données d'un grand nombre d'appareils  
 * Géolocalisation et services géo-conscients
 
-La solution Supervision à distance comprend une interface utilisateur web pour fournir cette fonctionnalité. L'interface utilisateur web inclut ce qui suit :
+La solution de supervision à distance comprend une interface utilisateur web pour fournir cette fonctionnalité. L'interface utilisateur web inclut ce qui suit :
 
 * Une carte interactive pour désigner l'emplacement des appareils
 * Un accès à l'explorateur de Time Series Insights pour interroger et analyser les données de télémétrie
@@ -108,8 +108,8 @@ La solution Supervision à distance comprend une interface utilisateur web pour 
 
 La couche d'intégration d'entreprise gère l'intégration de la solution IoT à des systèmes d'entreprise tels que les applications CRM, ERP et métier. Exemples : facturation des services, assistance clientèle et fourniture de pièces de rechange.
 
-La solution Supervision à distance utilise des règles pour envoyer des e-mails lorsqu'une condition est remplie. Par exemple, la solution peut avertir un opérateur lorsque la température d'un camion passe en dessous des 2 degrés Celsius.
+La solution de supervision à distance utilise des règles pour envoyer des e-mails lorsqu’une condition est remplie. Par exemple, la solution peut avertir un opérateur lorsque la température d'un camion passe en dessous des 2 degrés Celsius.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a présenté l'architecture de référence Azure IoT et fourni quelques exemples sur la façon dont l'accélérateur de solution Supervision à distance suit ses recommandations. L'étape suivante consiste à lire l'article [Architecture de référence Microsoft Azure IoT](https://aka.ms/iotrefarchitecture).
+Cet article vous a présenté l’architecture de référence Azure IoT et fourni quelques exemples sur la façon dont l’accélérateur de solution de supervision à distance suit ses recommandations. L'étape suivante consiste à lire l'article [Architecture de référence Microsoft Azure IoT](https://aka.ms/iotrefarchitecture).

@@ -1,6 +1,6 @@
 ---
 title: DevKit IoT vers cloud -- Connecter le DevKit IoT MXChip à Azure IoT Hub | Microsoft Docs
-description: Dans ce tutoriel, découvrez comment envoyer l’état des capteurs sur IoT DevKit AZ3166 vers l’accélérateur de solution de surveillance à distance Azure IoT.
+description: Dans ce tutoriel, découvrez comment envoyer l’état des capteurs sur IoT DevKit AZ3166 vers l’accélérateur de solution de supervision à distance Azure IoT.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -16,9 +16,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58100783"
 ---
-# <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Connecter MXChip IoT DevKit à l’accélérateur de solution de surveillance à distance Azure IoT
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Connecter MXChip IoT DevKit à l’accélérateur de solution de supervision à distance Azure IoT
 
-Dans ce tutoriel, vous allez apprendre à exécuter un exemple d’application sur votre kit DevKit pour envoyer les données des capteurs vers votre accélérateur de solution de surveillance à distance Azure IoT.
+Dans ce tutoriel, vous allez apprendre à exécuter un exemple d’application sur votre kit DevKit pour envoyer les données des capteurs vers votre accélérateur de solution de supervision à distance Azure IoT.
 
 [IoT MXChip DevKit](https://aka.ms/iot-devkit) est une carte tout-en-un compatible Arduino qui est équipée de périphériques et de capteurs élaborés. Vous pouvez développer pour ce kit à l’aide de l’[extension Visual Studio Code pour Arduino](https://aka.ms/arduino). Par ailleurs, il s’accompagne d’un [catalogue de projets](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) en plein développement pour vous guider dans la réalisation de prototypes de solutions IoT (Internet des objets) qui exploitent les services Microsoft Azure.
 
@@ -35,14 +35,14 @@ Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire v
 
 * Réclamez votre [crédit Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) si vous êtes abonné à MSDN ou Visual Studio
 
-## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Créer un accélérateur de solution de surveillance à distance Azure IoT
+## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Créer un accélérateur de solution de supervision à distance Azure IoT
 
 1. Accédez au [site des accélérateurs de solution Azure IoT](https://www.azureiotsolutions.com/) et cliquez sur **Créer une solution**.
 
    ![Sélection du type d’accélérateur de solution Azure IoT](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
 
    > [!WARNING]
-   > Par défaut, cet exemple crée un hub IoT S2 après avoir créé un accélérateur de solution de surveillance à distance IoT. Si ce hub IoT n’est pas utilisé avec un très grand nombre d’appareils, nous vous recommandons vivement de le rétrograder de la version S2 à la version S1 et de supprimer l’accélérateur de solution de surveillance à distance IoT pour pouvoir aussi supprimer le hub IoT associé au moment requis. 
+   > Par défaut, cet exemple crée un hub IoT S2 après avoir créé un accélérateur de solution de supervision à distance IoT. Si ce hub IoT n’est pas utilisé avec un très grand nombre d’appareils, nous vous recommandons vivement de le rétrograder de la version S2 à la version S1 et de supprimer l’accélérateur de solution de supervision à distance IoT pour pouvoir aussi supprimer le hub IoT associé au moment requis. 
 
 2. Sélectionnez **Surveillance à distance**.
 
@@ -110,13 +110,13 @@ Le DevKit redémarre et commence à exécuter le code.
 
 ## <a name="test-the-project"></a>Tester le projet
 
-Quand l’exemple d’application s’exécute, le kit DevKit envoie les données des capteurs par WiFi à votre accélérateur de solution de surveillance à distance Azure IoT. Pour voir le résultat, procédez comme suit :
+Quand l’exemple d’application s’exécute, le kit DevKit envoie les données des capteurs par WiFi à votre accélérateur de solution de supervision à distance Azure IoT. Pour voir le résultat, procédez comme suit :
 
-1. Accédez à votre accélérateur de solution de surveillance à distance Azure IoT, puis cliquez sur **TABLEAU DE BORD**.
+1. Accédez à votre accélérateur de solution de supervision à distance Azure IoT, puis cliquez sur **TABLEAU DE BORD**.
 
-2. Dans la console de la solution de surveillance à distance, vous voyez l’état des capteurs de votre kit DevKit.
+2. Dans la console de la solution de supervision à distance, vous voyez l’état des capteurs de votre kit DevKit.
 
-   ![Données des capteurs dans l’accélérateur de solution de surveillance à distance Azure IoT](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
+   ![Données des capteurs dans l’accélérateur de solution de supervision à distance Azure IoT](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
 
 ## <a name="change-device-id"></a>Modifier l’ID de l’appareil
 
@@ -131,7 +131,7 @@ Si vous rencontrez des problèmes, consultez les [FAQ IoT DevKit](https://micros
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez appris à connecter un appareil DevKit à votre accélérateur de solution de surveillance à distance Azure IoT et à visualiser les données des capteurs ; nous vous suggérons à présent les étapes suivantes :
+Vous avez appris à connecter un appareil DevKit à votre accélérateur de solution de supervision à distance Azure IoT et à visualiser les données des capteurs ; nous vous suggérons à présent les étapes suivantes :
 
 * [Vue d’ensemble des accélérateurs de solution Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
 
