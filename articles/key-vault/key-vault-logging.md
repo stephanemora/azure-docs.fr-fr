@@ -26,10 +26,10 @@ ms.locfileid: "58484106"
 
 Après avoir créé un ou plusieurs coffres de clés, vous souhaiterez probablement surveiller comment et quand vos coffres de clés sont utilisées et par qui. Vous pouvez le faire en activant la journalisation pour Azure Key Vault, qui enregistre les informations dans un compte de stockage Azure que vous fournissez. Un conteneur nommé **insights-logs-auditevent** est automatiquement créé pour votre compte de stockage spécifié. Vous pouvez utiliser ce même compte de stockage pour recueillir les journaux de plusieurs coffres de clés.
 
-Vous pouvez accéder à vos informations de journalisation 10 minutes (au plus) après l’opération de coffre de clés. Dans la plupart des cas, ce sera plus rapide.  C’est à vous de gérer vos journaux dans votre compte de stockage :
+Vous pouvez accéder à vos informations de journalisation 10 minutes (au plus) après l’opération de coffre de clés. Dans la plupart des cas, ce sera plus rapide.  C’est à vous de gérer vos journaux d’activité dans votre compte de stockage :
 
-* Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux en limitant l’accès à ces derniers.
-* Supprimez les journaux que vous ne souhaitez plus conserver dans votre compte de stockage.
+* Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux d’activité en limitant l’accès à ces derniers.
+* Supprimez les journaux d’activité que vous ne souhaitez plus conserver dans votre compte de stockage.
 
 Utilisez ce didacticiel pour vous aider à vous familiariser avec la journalisation du coffre de clés. Vous allez créer un compte de stockage, activez la journalisation et interpréter les informations de journal collecté.  
 
@@ -47,7 +47,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un coffre de clés existant que vous utilisez déjà.  
 * Azure PowerShell, version minimale de 1.0.0. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version, à partir de la console Azure PowerShell, entrez `$PSVersionTable.PSVersion`.  
-* Espace de stockage suffisant sur Azure pour vos journaux de coffre de clés.
+* Espace de stockage suffisant sur Azure pour vos journaux d’activité de coffre de clés.
 
 ## <a id="connect"></a>Connectez-vous à votre abonnement de coffre de clés
 
@@ -194,13 +194,13 @@ Lorsque vous exécutez cette seconde commande, le délimiteur **/** présent dan
 
 Pour télécharger les objets blob de façon sélective, utilisez des caractères génériques. Par exemple : 
 
-* Si vous disposez de plusieurs coffres de clés et souhaitez télécharger les journaux d’un seul d’entre eux nommé CONTOSOKEYVAULT3 :
+* Si vous disposez de plusieurs coffres de clés et souhaitez télécharger les journaux d’activité d’un seul d’entre eux nommé CONTOSOKEYVAULT3 :
 
   ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
-* Si vous disposez de plusieurs groupes de ressources et souhaitez télécharger les journaux d’un seul d’entre eux, utilisez `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
+* Si vous disposez de plusieurs groupes de ressources et souhaitez télécharger les journaux d’activité d’un seul d’entre eux, utilisez `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
   ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
@@ -212,7 +212,7 @@ Pour télécharger les objets blob de façon sélective, utilisez des caractère
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
-Vous êtes maintenant prêt à commencer les recherches dans le contenu des journaux. Mais avant de passer à cela, vous devez connaître deux autres commandes :
+Vous êtes maintenant prêt à commencer les recherches dans le contenu des journaux d’activité. Mais avant de passer à cela, vous devez connaître deux autres commandes :
 
 * Pour interroger l’état des paramètres de diagnostic de votre ressource de coffre de clés : `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Pour désactiver la journalisation de votre ressource de coffre de clés : `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
@@ -255,7 +255,7 @@ Le tableau suivant répertorie les noms de champs et les descriptions :
 | Nom du champ | Description |
 | --- | --- |
 | **time** |Date et heure UTC. |
-| **resourceId** |ID de ressource Azure Resource Manager. Pour les journaux de coffre de clés, il s’agit toujours de l’ID de ressource du coffre de clés. |
+| **resourceId** |ID de ressource Azure Resource Manager. Pour les journaux d’activité de coffre de clés, il s’agit toujours de l’ID de ressource du coffre de clés. |
 | **operationName** |Nom de l’opération, comme indiqué dans le tableau suivant. |
 | **operationVersion** |Version de l’API REST demandée par le client. |
 | **category** |Type de résultat. Pour les journaux de Key Vault, **AuditEvent** est la seule valeur disponible. |
@@ -264,7 +264,7 @@ Le tableau suivant répertorie les noms de champs et les descriptions :
 | **resultDescription** |Description supplémentaire du résultat le cas échéant. |
 | **durationMs** |Délai nécessaire pour répondre à la demande API REST, en millisecondes. La latence du réseau n’est pas incluse dans ce chiffre et donc, le temps mesuré côté client peut ne pas correspondre à cette durée. |
 | **callerIpAddress** |Adresse IP du client qui a effectué la demande. |
-| **correlationId** |GUID facultatif que le client peut transférer pour mettre en corrélation les journaux côté client avec les journaux côté service (Key Vault). |
+| **correlationId** |GUID facultatif que le client peut transférer pour mettre en corrélation les journaux d’activité côté client avec les journaux d’activité côté service (Key Vault). |
 | **identity** |Identité du jeton qui a été présenté dans la demande de l’API REST. Il s’agit généralement d’un « utilisateur », « principal de service », ou la combinaison « utilisateur + appId, » comme dans le cas d’une demande qui résulte d’une applet de commande Azure PowerShell. |
 | **properties** |Informations varient en fonction de l’opération (**NomOpération**). Dans la plupart des cas, ce champ contient des informations sur le client (chaîne d’agent utilisateur transmise par le client), l’URI de la demande d’API REST exacte et le code d’état HTTP. En outre, quand un objet est retourné suite à une demande (par exemple, **KeyCreate** ou **VaultGet**), elle contient également la clé URI ou URI du secret du coffre URI (sous la forme « id »). |
 

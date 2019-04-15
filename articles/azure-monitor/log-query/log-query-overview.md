@@ -24,7 +24,7 @@ Les données de journal collectées par Azure Monitor sont stockées dans un esp
 
 ## <a name="log-queries"></a>Requêtes dans les journaux
 
-Pour récupérer des données de journal à partir d'Azure Monitor, vous devez exécuter une requête de journal.  Que vous [analysiez des données sur le portail](portals.md), [configuriez une règle d'alerte](../platform/alerts-metric.md) pour être averti d'une condition particulière ou récupériez des données à l'aide de l'[API Journaux Azure Monitor](https://dev.loganalytics.io/), vous devrez utiliser une requête afin de spécifier les données souhaitées.  Cet article explique comment les requêtes de journal sont utilisées dans Azure Monitor et présente les concepts avec lesquels vous devez vous familiariser avant de créer une requête.
+Pour récupérer des données de journal à partir d'Azure Monitor, vous devez exécuter une requête de journal.  Que vous [analysiez des données sur le portail](portals.md), [configuriez une règle d’alerte](../platform/alerts-metric.md) pour être averti d’une condition particulière ou récupériez des données à l’aide de l’[API Journaux d’activité Azure Monitor](https://dev.loganalytics.io/), vous devrez utiliser une requête afin de spécifier les données souhaitées.  Cet article explique comment les requêtes de journal sont utilisées dans Azure Monitor et présente les concepts avec lesquels vous devez vous familiariser avant de créer une requête.
 
 ## <a name="where-log-queries-are-used"></a>Lorsque les requêtes dans les journaux sont utilisées
 
@@ -37,7 +37,7 @@ Les différentes façons, que vous allez utiliser des requêtes dans Azure Monit
 
 - **Exportation.**  Lorsque vous importez des données de journal d'Azure Monitor vers Excel ou [Power BI](../platform/powerbi.md), vous créez une requête de journal pour définir les données à exporter.
 - **PowerShell.** Vous pouvez exécuter un script PowerShell à partir d’une ligne de commande ou d’un runbook Azure Automation qui utilise [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresults) pour récupérer des données de journal à partir d’Azure Monitor.  Cette applet de commande nécessite une requête pour déterminer les données à récupérer.
-- **API des journaux Azure Monitor.**  L'[API Journaux Azure Monitor](../platform/alerts-overview.md) permet à tout client d'API REST de récupérer des données de journal à partir de l'espace de travail.  La demande API comprend une requête qui est exécutée sur Azure Monitor pour déterminer les données à récupérer.
+- **API des journaux Azure Monitor.**  L’[API Journaux d’activité Azure Monitor](../platform/alerts-overview.md) permet à tout client d’API REST de récupérer des données de journal d’activité à partir de l’espace de travail.  La demande API comprend une requête qui est exécutée sur Azure Monitor pour déterminer les données à récupérer.
 
 ![Recherches dans les journaux](media/log-query-overview/queries-overview.png)
 
@@ -88,7 +88,7 @@ union Update, workspace("contoso-workspace").Update
 ## <a name="how-azure-monitor-log-data-is-organized"></a>Organisation des données de journal Azure Monitor
 Quand vous générez une requête, commencez par déterminer les tables où figurent les données que vous recherchez. Les différents types de données sont séparés en tables dédiées dans chaque [espace de travail Log Analytics](../learn/quick-create-workspace.md).  La documentation des diverses sources de données inclut le nom du type de données créé et une description de chacune de ses propriétés.  De nombreuses requêtes nécessitent les données d’une seule table, mais d’autres peuvent utiliser diverses options pour inclure des données provenant de plusieurs tables.
 
-Bien qu'[Application Insights](../app/app-insights-overview.md) stocke les données d'application telles que les requêtes, les exceptions, les traces et les données d'utilisation dans les journaux Azure Monitor, ces données sont stockées dans une partition différente de celle des autres données de journal. Le même langage de requête vous permet d’accéder à ces données, mais vous devez utiliser la [console Application Insights](../app/analytics.md) ou l’[API REST Application Insights](https://dev.applicationinsights.io/) pour y accéder. Vous pouvez utiliser des [requêtes interressources](../log-query/cross-workspace-query.md) pour combiner des données Application Insights avec d'autres données de journal dans Azure Monitor.
+Bien qu’[Application Insights](../app/app-insights-overview.md) stocke les données d’application telles que les requêtes, les exceptions, les traces et les données d’utilisation dans les journaux d’activité Azure Monitor, ces données sont stockées dans une partition différente de celle des autres données de journal d’activité. Le même langage de requête vous permet d’accéder à ces données, mais vous devez utiliser la [console Application Insights](../app/analytics.md) ou l’[API REST Application Insights](https://dev.applicationinsights.io/) pour y accéder. Vous pouvez utiliser des [requêtes interressources](../log-query/cross-workspace-query.md) pour combiner des données Application Insights avec d'autres données de journal dans Azure Monitor.
 
 
 ![Tables](media/log-query-overview/queries-tables.png)

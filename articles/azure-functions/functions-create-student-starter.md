@@ -108,7 +108,7 @@ Vous pouvez maintenant exécuter la nouvelle fonction en envoyant une requête H
 
     L’URL de demande inclut une clé qui est requise, par défaut, pour accéder à votre fonction sur HTTP.
 
-3. Lorsque votre fonction s’exécute, des informations de suivi sont écrites dans les journaux. Pour afficher la sortie de suivi de l’exécution précédente, revenez à votre fonction dans le portail et cliquez sur la flèche figurant en bas de l’écran pour développer **Journaux**.
+3. Lorsque votre fonction s’exécute, des informations de suivi sont écrites dans les journaux d’activité. Pour afficher la sortie de suivi de l’exécution précédente, revenez à votre fonction dans le portail et cliquez sur la flèche figurant en bas de l’écran pour développer **Journaux d’activité**.
 
    ![Affichage des journaux de fonction dans le portail Azure.](./media/functions-create-student-starter/function-view-logs.png)
 

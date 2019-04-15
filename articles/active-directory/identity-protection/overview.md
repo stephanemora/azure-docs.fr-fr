@@ -116,7 +116,7 @@ Le tableau de bord vous donne accès à :
 * des rapports comme **Utilisateurs associés à un indicateur de risque**, **Événements à risque** et **Vulnérabilités** ;
 * des paramètres vous permettant notamment de configurer vos **stratégies de sécurité**, vos **notifications** et **l’inscription à l’authentification multifacteur**.
 
-Il s’agit généralement de votre point de départ pour l’investigation, le processus consistant à vérifier les activités, les journaux et les autres informations pertinentes concernant un événement à risque, afin de déterminer s’il est nécessaire d’appliquer des mesures de correction ou d’atténuation, de comprendre comment l’identité a été compromise et d’identifier la manière dont l’identité compromise a été exploitée.
+Il s’agit généralement de votre point de départ pour l’investigation, le processus consistant à vérifier les activités, les journaux d’activité et les autres informations pertinentes concernant un événement à risque, afin de déterminer s’il est nécessaire d’appliquer des mesures de correction ou d’atténuation, de comprendre comment l’identité a été compromise et d’identifier la manière dont l’identité compromise a été exploitée.
 
 Vous pouvez lier vos activités d’investigation aux [notifications](notifications.md) d’Azure Active Directory Protection envoyées par courrier électronique.
 

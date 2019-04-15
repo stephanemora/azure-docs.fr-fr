@@ -450,7 +450,7 @@ Vous pouvez également vérifier que tous les modules sont opérationnels sur vo
 
 Il existe deux façons d’afficher les résultats de vos modules, soit sur l’appareil lui-même avec la création et l’envoi de messages, soit depuis Visual Studio Code avec la réception des messages sur l’IoT Hub. 
 
-Sur votre appareil, affichez les journaux du module cameraCapture pour voir les messages envoyés et leur confirmation de réception par IoT Hub. 
+Sur votre appareil, affichez les journaux d’activité du module cameraCapture pour voir les messages envoyés et leur confirmation de réception par IoT Hub. 
 
    ```bash
    iotedge logs cameraCapture

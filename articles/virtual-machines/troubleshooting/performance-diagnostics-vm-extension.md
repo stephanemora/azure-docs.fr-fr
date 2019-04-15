@@ -82,7 +82,7 @@ Le code JSON suivant montre le schéma de l’extension de machine virtuelle Dia
 |srNumber|123452016365929|Numéro du ticket de support, s’il est disponible. Laissez la valeur vide si vous ne l’avez pas.
 |requestTimeUtc|2017-09-28T22:08:53.736Z|Date et heure actuelles UTC. Vous n’avez pas besoin de fournir cette valeur si vous utilisez le portail pour installer cette extension.
 |ResourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|Identificateur unique d’une machine virtuelle.
-|storageAccountName|mystorageaccount|Nom du compte de stockage pour stocker les journaux et les résultats de diagnostic.
+|storageAccountName|mystorageaccount|Nom du compte de stockage pour stocker les journaux d’activité et les résultats de diagnostic.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Clé du compte de stockage.
 
 ## <a name="install-the-extension"></a>Installer l’extension
@@ -230,7 +230,7 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ```
 
 ## <a name="information-on-the-data-captured"></a>Informations sur les données capturées
-L’outil PerfInsights collecte différents types de journaux, de configurations et de données de diagnostic, selon le scénario sélectionné. Pour plus d’informations, consultez la [documentation PerfInsights](https://aka.ms/perfinsights).
+L’outil PerfInsights collecte différents types de journaux d’activité, de configurations et de données de diagnostic, selon le scénario sélectionné. Pour plus d’informations, consultez la [documentation PerfInsights](https://aka.ms/perfinsights).
 
 ## <a name="view-and-share-the-results"></a>Afficher et partager les résultats
 
@@ -252,7 +252,7 @@ Vous devriez également pouvoir télécharger le fichier zip directement sur le 
 - Il peut arriver que l’état du déploiement de l’extension (dans la zone de notification) indique « Déploiement en cours » même si l’extension est correctement approvisionnée.
 
     Vous pouvez ignorer ce problème sans risque tant que l’état de l’extension indique que l’extension est correctement approvisionnée.
-- Vous pouvez résoudre certains problèmes survenant lors de l’installation en utilisant les journaux de l’extension. La sortie de l’exécution de l’extension est enregistrée dans les fichiers qui que se trouvent dans le répertoire suivant :
+- Vous pouvez résoudre certains problèmes survenant lors de l’installation en utilisant les journaux d’activité de l’extension. La sortie de l’exécution de l’extension est enregistrée dans les fichiers qui que se trouvent dans le répertoire suivant :
 
         C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 

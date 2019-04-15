@@ -186,7 +186,7 @@ Pour définir le type de données pour une liaison d’entrée, utilisez la prop
 Les options pour `dataType` sont `binary`, `stream` et `string`.
 
 ## <a name="context-object"></a>Objet de contexte
-Le runtime utilise un objet `context` pour transmettre des données vers et à partir de votre fonction et vous permettre de communiquer avec le runtime. L’objet de contexte peut être utilisé pour lire et définir des données à partir de liaisons, écrire des journaux et utiliser le rappel `context.done` lorsque votre fonction exportée est synchrone.
+Le runtime utilise un objet `context` pour transmettre des données vers et à partir de votre fonction et vous permettre de communiquer avec le runtime. L’objet de contexte peut être utilisé pour lire et définir des données à partir de liaisons, écrire des journaux d’activité et utiliser le rappel `context.done` lorsque votre fonction exportée est synchrone.
 
 L’objet `context` est toujours le premier paramètre d’une fonction. Il doit être inclus, car il possède des méthodes importantes telles que `context.done` et `context.log`. Vous pouvez nommer l’objet comme vous le souhaitez (par exemple, `ctx` ou `c`).
 
@@ -268,7 +268,7 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-Vous permet d’écrire dans les journaux de fonction de streaming au niveau de trace par défaut. Des méthodes de journalisation supplémentaires sont disponibles sur `context.log` pour vous permettre d’écrire des journaux de fonction à d’autres niveaux de trace :
+Vous permet d’écrire dans les journaux d’activité de fonction de streaming au niveau de trace par défaut. Des méthodes de journalisation supplémentaires sont disponibles sur `context.log` pour vous permettre d’écrire des journaux d’activité de fonction à d’autres niveaux de trace :
 
 
 | Méthode                 | Description                                |
@@ -284,13 +284,13 @@ L’exemple suivant écrit un journal au niveau de trace d’avertissement :
 context.log.warn("Something has happened."); 
 ```
 
-Vous pouvez [configurer le seuil du niveau de trace pour la journalisation](#configure-the-trace-level-for-console-logging) dans le fichier host.json. Pour plus d’informations sur l’écriture de journaux, consultez [Écriture de sorties de trace](#writing-trace-output-to-the-console) plus loin.
+Vous pouvez [configurer le seuil du niveau de trace pour la journalisation](#configure-the-trace-level-for-console-logging) dans le fichier host.json. Pour plus d’informations sur l’écriture de journaux d’activité, consultez [Écriture de sorties de trace](#writing-trace-output-to-the-console) plus loin.
 
-Consultez [Supervision des fonctions Azure](functions-monitoring.md) pour en savoir plus sur l’affichage et l’interrogation des journaux de fonction.
+Consultez [Supervision des fonctions Azure](functions-monitoring.md) pour en savoir plus sur l’affichage et l’interrogation des journaux d’activité de fonction.
 
 ## <a name="writing-trace-output-to-the-console"></a>Écrire la sortie de trace dans la console 
 
-Dans Functions, vous utilisez les méthodes `context.log` pour écrire la sortie de trace dans la console. Dans Functions v2.x, les sorties de trace via `console.log` sont capturées au niveau de l’application Functions. Cela signifie que les sorties de `console.log` ne sont pas liées à un appel de fonction spécifique et qu’elles ne sont donc pas affichées dans les journaux d’une fonction spécifique. Elles sont, toutefois, propagées à Application Insights. Dans Functions v1.x, vous ne pouvez pas utiliser `console.log` pour écrire dans la console.
+Dans Functions, vous utilisez les méthodes `context.log` pour écrire la sortie de trace dans la console. Dans Functions v2.x, les sorties de trace via `console.log` sont capturées au niveau de l’application Functions. Cela signifie que les sorties de `console.log` ne sont pas liées à un appel de fonction spécifique et qu’elles ne sont donc pas affichées dans les journaux d’activité d’une fonction spécifique. Elles sont, toutefois, propagées à Application Insights. Dans Functions v1.x, vous ne pouvez pas utiliser `console.log` pour écrire dans la console.
 
 Lorsque vous appelez `context.log()`, votre message est écrit dans la console au niveau de trace par défaut, qui est le niveau de trace d’_informations_. Le code suivant écrit dans la console au niveau de trace d’informations :
 
@@ -312,7 +312,7 @@ context.log.error("An error has occurred.");
 
 Étant donné que le niveau d’_erreur_ constitue le niveau de trace le plus élevé, cette trace est écrite dans la sortie à tous les niveaux de trace tant que la journalisation est activée.
 
-Toutes les méthodes `context.log` prennent en charge le même format de paramètre que celui pris en charge par la [méthode util.format](https://nodejs.org/api/util.html#util_util_format_format) Node.js. Prenons le code suivant, qui écrit des journaux de fonction en utilisant le niveau de trace par défaut :
+Toutes les méthodes `context.log` prennent en charge le même format de paramètre que celui pris en charge par la [méthode util.format](https://nodejs.org/api/util.html#util_util_format_format) Node.js. Prenons le code suivant, qui écrit des journaux d’activité de fonction en utilisant le niveau de trace par défaut :
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);

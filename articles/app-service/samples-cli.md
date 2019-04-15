@@ -52,5 +52,5 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | [Créer une sauvegarde planifiée pour une application](./scripts/cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et une sauvegarde planifiée pour celle-ci. |
 | [Restaurer une application à partir d’une sauvegarde](./scripts/cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Restaure une application App Service à partir d’une sauvegarde. |
 |**Surveiller l’application**||
-| [Superviser une application avec les journaux de serveur web](./scripts/cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service, active sa journalisation et télécharge les journaux sur votre ordinateur local. |
+| [Superviser une application avec les journaux de serveur web](./scripts/cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service, active sa journalisation et télécharge les journaux d’activité sur votre ordinateur local. |
 | | |

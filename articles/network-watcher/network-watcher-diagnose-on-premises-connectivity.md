@@ -62,7 +62,7 @@ Ces problèmes sont difficiles à résoudre et les causes premières sont souven
 
 Pour diagnostiquer votre connexion, connectez-vous à Azure PowerShell et lancez l’applet de commande `Start-AzNetworkWatcherResourceTroubleshooting`. Vous trouverez des détails sur l’utilisation de cette applet de commande à la page [Troubleshoot Virtual Network Gateway and connections - PowerShell](network-watcher-troubleshoot-manage-powershell.md) (Résoudre les problèmes de connexions et de passerelle de réseau virtuel - PowerShell). L’exécution de cette applet de commande peut prendre plusieurs minutes.
 
-Suite à son exécution, vous pouvez accéder à l’emplacement de stockage spécifié dans l’applet de commande pour obtenir des informations détaillées sur le problème et les journaux. Azure Network Watcher crée un dossier zip qui contient les fichiers journaux suivants :
+Suite à son exécution, vous pouvez accéder à l’emplacement de stockage spécifié dans l’applet de commande pour obtenir des informations détaillées sur le problème et les journaux d’activité. Azure Network Watcher crée un dossier zip qui contient les fichiers journaux suivants :
 
 ![1][1]
 

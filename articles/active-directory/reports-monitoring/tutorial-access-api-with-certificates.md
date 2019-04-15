@@ -94,7 +94,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser un certificat de test pour
 9. Interrogez le point de terminaison directoryAudits pour récupérer les journaux d’audit. 
    ![Portail Azure](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Interrogez le point de terminaison SignIns pour récupérer les journaux de connexion.
+10. Interrogez le point de terminaison SignIns pour récupérer les journaux d’activité de connexion.
     ![Portail Azure](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. Vous pouvez maintenant choisir d’exporter ces données dans un fichier CSV et de les enregistrer dans un système SIEM. Vous pouvez également encapsuler votre script dans une tâche planifiée pour obtenir régulièrement des données Azure AD à partir de votre client sans avoir à stocker des clés d’application dans le code source. 

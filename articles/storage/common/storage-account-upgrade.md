@@ -131,9 +131,9 @@ Pour plus d’informations sur l’activation, la collecte et l’affichage des 
 
 #### <a name="capacity-costs"></a>Coûts de capacité
 
-La dernière entrée de la table de métriques de capacité *$MetricsCapacityBlob* avec la clé de ligne *'data'* affiche la capacité de stockage utilisée par les données utilisateur. La dernière entrée de la table de métriques de capacité *$MetricsCapacityBlob* avec la clé de ligne *'analytics'* affiche la capacité de stockage utilisée par les journaux d’analyse.
+La dernière entrée de la table de métriques de capacité *$MetricsCapacityBlob* avec la clé de ligne *'data'* affiche la capacité de stockage utilisée par les données utilisateur. La dernière entrée de la table de métriques de capacité *$MetricsCapacityBlob* avec la clé de ligne *’analytics’* affiche la capacité de stockage utilisée par les journaux d’activité d’analyse.
 
-Cette capacité totale utilisée par les données utilisateur et les journaux d’analyse (si l’option est activée) permet ensuite d’estimer le coût de stockage des données dans le compte de stockage. La même méthode peut également être utilisée pour estimer les coûts de stockage dans les comptes de stockage GPv1.
+Cette capacité totale utilisée par les données utilisateur et les journaux d’activité d’analyse (si l’option est activée) permet ensuite d’estimer le coût de stockage des données dans le compte de stockage. La même méthode peut également être utilisée pour estimer les coûts de stockage dans les comptes de stockage GPv1.
 
 #### <a name="transaction-costs"></a>Coûts de transaction
 

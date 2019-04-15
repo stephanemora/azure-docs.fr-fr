@@ -39,7 +39,7 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
    * Vous ne pouvez pas utiliser la redirection / mappage de port sans utiliser un équilibreur de charge Azure.
 4. Vérifiez [l’intégrité des ressources de la machine virtuelle](../../resource-health/resource-health-overview.md).
    * Assurez-vous que la machine virtuelle est intègre.
-   * Si vous avez des [diagnostics de démarrage activés](boot-diagnostics.md), vérifiez que la machine virtuelle ne signale pas les erreurs de démarrage dans les journaux.
+   * Si vous avez des [diagnostics de démarrage activés](boot-diagnostics.md), vérifiez que la machine virtuelle ne signale pas les erreurs de démarrage dans les journaux d’activité.
 5. [Redémarrez la machine virtuelle](#restart-vm).
 6. [Redéployez la machine virtuelle](#redeploy-vm).
 

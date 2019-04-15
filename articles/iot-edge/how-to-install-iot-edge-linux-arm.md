@@ -152,7 +152,7 @@ Vous pouvez vérifier l’état du démon IoT Edge à l’aide de la commande su
 systemctl status iotedge
 ```
 
-Examinez les journaux du démon à l’aide de la commande suivante :
+Examinez les journaux d’activité du démon à l’aide de la commande suivante :
 
 ```bash
 journalctl -u iotedge --no-pager --no-full

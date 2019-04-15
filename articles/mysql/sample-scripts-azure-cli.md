@@ -29,5 +29,5 @@ Le tableau suivant comprend des liens vers des exemples de scripts de CLI Azure 
 |**Restaurer un serveur**||
 | [Restaurer un serveur](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Un script Azure CLI qui restaure un seul serveur Azure Database pour MySQL à un point antérieur dans le temps. |
 |**Manipuler les journaux du serveur**||
-| [Activer et télécharger les journaux du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Un script Azure CLI qui active et télécharge les journaux du serveur pour un seul serveur Azure Database pour MySQL. |
+| [Activer et télécharger les journaux du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Un script Azure CLI qui active et télécharge les journaux d’activité du serveur pour un seul serveur Azure Database pour MySQL. |
 |||

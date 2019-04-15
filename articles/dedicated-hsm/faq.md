@@ -173,11 +173,11 @@ Le logiciel client HSM Gemalto sert à gérer les modules HSM et les partitions.
 
 ### <a name="q-how-do-i-monitor-my-hsm"></a>Q : Comment superviser mon HSM ?
 
-Un client dispose d’un accès complet aux journaux d’activité HSM via syslog et SNMP. Pour recevoir les journaux ou les événements des modules HSM, le client doit configurer un serveur syslog ou un serveur SNMP.
+Un client dispose d’un accès complet aux journaux d’activité HSM via syslog et SNMP. Pour recevoir les journaux d’activité ou les événements des modules HSM, le client doit configurer un serveur syslog ou un serveur SNMP.
 
 ### <a name="q-can-i-get-full-access-log-of-all-hsm-operations-from-dedicated-hsm"></a>Q : Puis-je obtenir un journal d’accès complet de toutes les opérations HSM du HSM dédié ?
 
-Oui. Vous pouvez envoyer des journaux de l’appliance HSM vers un serveur syslog.
+Oui. Vous pouvez envoyer des journaux d’activité de l’appliance HSM vers un serveur syslog.
 
 ## <a name="high-availability"></a>Haute disponibilité
 

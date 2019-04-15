@@ -57,7 +57,7 @@ Après avoir créé plusieurs coffres de clés, vous voudrez surveiller le mode 
 - diffusion sur un Event Hub ;
 - envoi des journaux aux journaux Azure Monitor.
 
-Vous pouvez contrôler vos journaux et les sécuriser en limitant l’accès, ainsi que supprimer les journaux dont vous n’avez plus besoin.
+Vous pouvez contrôler vos journaux d’activité et les sécuriser en limitant l’accès, ainsi que supprimer les journaux d’activité dont vous n’avez plus besoin.
 
 ### <a name="simplified-administration-of-application-secrets"></a>Administration simplifiée des secrets d’application
 

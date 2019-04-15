@@ -20,11 +20,11 @@ ms.locfileid: "58481907"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Intégration au centre de données Azure Stack - transfert de Syslog
 
-Cet article vous montre comment utiliser Syslog pour intégrer l’infrastructure Azure Stack avec une ou plusieurs solutions de sécurité externes déjà déployées dans votre centre de données. Par exemple, un système SIEM (Security Information and Event Management). Le canal syslog présente des audits, des alertes et des journaux de sécurité provenant de tous les composants de l’infrastructure Azure Stack. Utilisez le transfert de Syslog pour intégrer des solutions de surveillance de la sécurité et/ou pour récupérer la totalité des audits, alertes et journaux de sécurité afin de les stocker pour la rétention.
+Cet article vous montre comment utiliser Syslog pour intégrer l’infrastructure Azure Stack avec une ou plusieurs solutions de sécurité externes déjà déployées dans votre centre de données. Par exemple, un système SIEM (Security Information and Event Management). Le canal syslog présente des audits, des alertes et des journaux d’activité de sécurité provenant de tous les composants de l’infrastructure Azure Stack. Utilisez le transfert de Syslog pour intégrer des solutions de supervision de la sécurité et/ou pour récupérer la totalité des audits, alertes et journaux d’activité de sécurité afin de les stocker pour la rétention.
 
 À compter de la mise à jour 1809, Azure Stack dispose d’un client syslog intégré qui, une fois configuré, émet des messages syslog avec la charge utile au format CEF (Common Event Format).
 
-Le diagramme suivant décrit l’intégration d’Azure Stack avec un SIEM externe. Deux modèles d’intégration doivent être pris en compte : le premier (en bleu) est l’infrastructure Azure Stack qui englobe les machines virtuelles d’infrastructure et les nœuds Hyper-V. Tous les audits, journaux de sécurité et alertes provenant de ces composants sont recueillis et exposés de manière centralisée par le biais de syslog avec une charge utile au format CEF. Ce modèle d’intégration est décrit dans cette page de document.
+Le diagramme suivant décrit l’intégration d’Azure Stack avec un SIEM externe. Deux modèles d’intégration doivent être pris en compte : le premier (en bleu) est l’infrastructure Azure Stack qui englobe les machines virtuelles d’infrastructure et les nœuds Hyper-V. Tous les audits, journaux d’activité de sécurité et alertes provenant de ces composants sont recueillis et exposés de manière centralisée par le biais de syslog avec une charge utile au format CEF. Ce modèle d’intégration est décrit dans cette page de document.
 Le second modèle d’intégration est celui représenté en orange. Il couvre les contrôleurs de gestion de la carte de base (BMC), l’hôte de cycle de vie du matériel (HLH), les machines virtuelles et/ou appliances virtuelles qui exécutent le logiciel de gestion et de supervision du partenaire matériel, et les commutateurs TOR (Top Of Rack). Ces composants étant propres au partenaire matériel, contactez celui-ci pour obtenir une documentation sur la façon de les intégrer à un SIEM externe.
 
 ![Diagramme de transfert de Syslog](media/azure-stack-integrate-security/syslog-forwarding.png)
@@ -260,12 +260,12 @@ Tableau de sévérité PEP :
 
 | Severity | Niveau | Valeur numérique |
 |----------|-------| ----------------|
-|0|Undefined|Valeur : 0. Indique les journaux à tous les niveaux|
-|10|Critique|Valeur : 1. Indique les journaux pour une alerte critique|
-|8|Error| Valeur : 2. Indique les journaux pour une erreur|
-|5.|Avertissement|Valeur : 3. Indique les journaux pour un avertissement|
-|2|Information|Valeur : 4. Indique les journaux pour un message d’information|
-|0|Détaillé|Valeur : 5. Indique les journaux à tous les niveaux|
+|0|Undefined|Valeur : 0. Indique les journaux d’activité à tous les niveaux|
+|10|Critique|Valeur : 1. Indique les journaux d’activité pour une alerte critique|
+|8|Error| Valeur : 2. Indique les journaux d’activité pour une erreur|
+|5.|Avertissement|Valeur : 3. Indique les journaux d’activité pour un avertissement|
+|2|Information|Valeur : 4. Indique les journaux d’activité pour un message d’information|
+|0|Détaillé|Valeur : 5. Indique les journaux d’activité à tous les niveaux|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>Mappage CEF pour les événements de point de terminaison de récupération
 
@@ -291,12 +291,12 @@ Tableau de sévérité REP :
 
 | Severity | Niveau | Valeur numérique |
 |----------|-------| ----------------|
-|0|Undefined|Valeur : 0. Indique les journaux à tous les niveaux|
-|10|Critique|Valeur : 1. Indique les journaux pour une alerte critique|
-|8|Error| Valeur : 2. Indique les journaux pour une erreur|
-|5.|Avertissement|Valeur : 3. Indique les journaux pour un avertissement|
-|2|Information|Valeur : 4. Indique les journaux pour un message d’information|
-|0|Détaillé|Valeur : 5. Indique les journaux à tous les niveaux|
+|0|Undefined|Valeur : 0. Indique les journaux d’activité à tous les niveaux|
+|10|Critique|Valeur : 1. Indique les journaux d’activité pour une alerte critique|
+|8|Error| Valeur : 2. Indique les journaux d’activité pour une erreur|
+|5.|Avertissement|Valeur : 3. Indique les journaux d’activité pour un avertissement|
+|2|Information|Valeur : 4. Indique les journaux d’activité pour un message d’information|
+|0|Détaillé|Valeur : 5. Indique les journaux d’activité à tous les niveaux|
 
 ### <a name="cef-mapping-for-windows-events"></a>Mappage CEF pour les événements Windows
 
@@ -311,12 +311,12 @@ Tableau de sévérité pour les événements Windows :
 
 | Valeur de gravité CEF | Niveau d’événement Windows | Valeur numérique |
 |--------------------|---------------------| ----------------|
-|0|Undefined|Valeur : 0. Indique les journaux à tous les niveaux|
-|10|Critique|Valeur : 1. Indique les journaux pour une alerte critique|
-|8|Error| Valeur : 2. Indique les journaux pour une erreur|
-|5.|Avertissement|Valeur : 3. Indique les journaux pour un avertissement|
-|2|Information|Valeur : 4. Indique les journaux pour un message d’information|
-|0|Détaillé|Valeur : 5. Indique les journaux à tous les niveaux|
+|0|Undefined|Valeur : 0. Indique les journaux d’activité à tous les niveaux|
+|10|Critique|Valeur : 1. Indique les journaux d’activité pour une alerte critique|
+|8|Error| Valeur : 2. Indique les journaux d’activité pour une erreur|
+|5.|Avertissement|Valeur : 3. Indique les journaux d’activité pour un avertissement|
+|2|Information|Valeur : 4. Indique les journaux d’activité pour un message d’information|
+|0|Détaillé|Valeur : 5. Indique les journaux d’activité à tous les niveaux|
 
 Table d’extension personnalisée pour les événements Windows dans Azure Stack :
 

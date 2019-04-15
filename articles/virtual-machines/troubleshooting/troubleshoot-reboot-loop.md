@@ -39,9 +39,9 @@ Un service tiers marqué comme étant critique ne peut pas être démarré. Ce p
 
 ### <a name="cause-2"></a>Cause 2
 
-Des changements ont été apportés au système d’exploitation. En général, ceux-ci sont liés à l’installation d’une mise à jour, à l’installation d’une application ou à l’application d’une nouvelle stratégie. Vous devrez peut-être consulter les journaux suivants pour obtenir plus d’informations :
+Des changements ont été apportés au système d’exploitation. En général, ceux-ci sont liés à l’installation d’une mise à jour, à l’installation d’une application ou à l’application d’une nouvelle stratégie. Vous devrez peut-être consulter les journaux d’activité suivants pour obtenir plus d’informations :
 
-- Journaux d’événements
+- Journaux des événements
 - CBS.logWindows
 - Update.log
 

@@ -703,7 +703,7 @@ Context.Logger.Info("Component started");
 Les informations enregistrées peuvent être affichées dans le **journal du service Hadoop**, qui se trouve dans **l’Explorateur de serveurs**. Développez l’entrée pour votre Storm sur le cluster HDInsight , puis le **journal du service Hadoop**. Enfin, sélectionnez le fichier journal à afficher.
 
 > [!NOTE]  
-> Les journaux sont stockés dans le compte de stockage Azure utilisé par votre cluster. Pour afficher les journaux dans Visual Studio, vous devez vous connecter à l’abonnement Azure contenant le compte de stockage.
+> Les journaux d’activité sont stockés dans le compte de stockage Azure utilisé par votre cluster. Pour afficher les journaux d’activité dans Visual Studio, vous devez vous connecter à l’abonnement Azure contenant le compte de stockage.
 
 ### <a name="view-error-information"></a>Afficher les informations relatives aux erreurs
 
@@ -719,7 +719,7 @@ Pour afficher les erreurs qui se sont produites dans une topologie en cours d’
 
 ### <a name="errors-submitting-topologies"></a>Erreurs lors de la soumission des topologies
 
-Si vous rencontrez des erreurs lors de la soumission d’une topologie à HDInsight, vous trouverez des journaux pour les composants côté serveur qui gèrent la soumission de topologie sur votre cluster HDInsight. Pour extraire ces journaux, utilisez la commande suivante à partir d’une ligne de commande :
+Si vous rencontrez des erreurs lors de la soumission d’une topologie à HDInsight, vous trouverez des journaux d’activité pour les composants côté serveur qui gèrent la soumission de topologie sur votre cluster HDInsight. Pour extraire ces journaux d’activité, utilisez la commande suivante à partir d’une ligne de commande :
 
     scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 

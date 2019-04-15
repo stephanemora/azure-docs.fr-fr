@@ -38,7 +38,7 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 
 1. Au moment où la réplication initiale est déclenchée, un [instantané des machines virtuelles Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) a lieu.
 2. Les disques durs virtuels sur la machine virtuelle sont répliqués un par un vers l’emplacement secondaire.
-3. Si des modifications interviennent sur les disques pendant la réplication initiale, le dispositif de suivi de réplication des réplicas Hyper-V assure le suivi des modifications dans des journaux de réplication Hyper-V (.hrl). Ces fichiers journaux se trouvent dans le même dossier que les disques. À chaque disque correspond un fichier .hrl, qui est envoyé à l’emplacement secondaire. L’instantané et les fichiers journaux consomment des ressources disque pendant la réplication initiale.
+3. Si des modifications interviennent sur les disques pendant la réplication initiale, le dispositif de suivi de réplication des réplicas Hyper-V assure le suivi des modifications dans des journaux d’activité de réplication Hyper-V (.hrl). Ces fichiers journaux se trouvent dans le même dossier que les disques. À chaque disque correspond un fichier .hrl, qui est envoyé à l’emplacement secondaire. L’instantané et les fichiers journaux consomment des ressources disque pendant la réplication initiale.
 4. Quand la réplication initiale s’achève, l’instantané de machine virtuelle est supprimé et la réplication delta commence.
 5. Les modifications d’ordre différentiel dans le fichier journal sont synchronisées et fusionnées sur le disque parent.
 

@@ -165,7 +165,7 @@ Pour créer le pipeline de mise en production dans Azure Pipelines :
 1. Sélectionnez **+ Mise en production** et sélectionnez **Créer une mise en production**.
 2. Sélectionnez la build que vous avez générée dans la liste déroulante en surbrillance, puis sélectionnez **File d’attente**.
 3. Dans le message qui s’affiche, sélectionnez le lien de la mise en production. Par exemple :  « Mise en production **Mise en production-1** a été créé. »
-4. Ouvrez l’onglet **Journaux** pour surveiller la sortie de console de mise en production.
+4. Ouvrez l’onglet **Journaux d’activité** pour surveiller la sortie de console de mise en production.
 5. Dans votre navigateur, ouvrez l’URL de l’un des serveurs que vous avez ajoutés à votre groupe de déploiement. Par exemple, entrez **http://{adresse-ip-de-votre-serveur}**.
 6. Accédez au dépôt Git source et modifiez le contenu du titre **h1** dans le fichier app/views/index.jade en apportant quelques corrections au texte.
 7. Validez votre modification.

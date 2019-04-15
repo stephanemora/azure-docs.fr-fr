@@ -65,7 +65,7 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
    * Espace de travail Log Analytics : entrez un nom pour votre espace de travail.
    * Abonnement : si vous possédez plusieurs abonnements, choisissez celui que vous souhaitez associer au nouvel espace de travail.
    * Groupe de ressources : créez un groupe de ressources ou utilisez un groupe existant.
-   * Emplacement : cet emplacement est utilisé pour spécifier l’emplacement du compte de stockage qui est utilisé pour les journaux de connexion de l’agent.
+   * Emplacement : cet emplacement est utilisé pour spécifier l’emplacement du compte de stockage qui est utilisé pour les journaux d’activité de connexion de l’agent.
    * Niveau tarifaire : sélectionnez le niveau tarifaire.
   
      >[!NOTE]
@@ -145,7 +145,7 @@ Vous pouvez facilement vérifier si vos agents communiquent.
 
 Pour utiliser le protocole TCP, vous devez ouvrir des ports de pare-feu pour veiller à ce que les agents de surveillance puissent communiquer.
 
-Vous pouvez exécuter un script PowerShell pour créer les clés de Registre requises par Network Performance Monitor. Ce script crée également des règles de pare-feu Windows pour autoriser les agents de surveillance à créer des connexions TCP entre eux. Les clés de Registre créées par le script spécifient également s’il faut enregistrer les journaux de débogage et le chemin d’accès des fichiers journaux. Le script définit également le port TCP de l’agent utilisé pour la communication. Les valeurs de ces clés sont définies automatiquement par le script. Vous ne devez pas modifier manuellement ces clés.
+Vous pouvez exécuter un script PowerShell pour créer les clés de Registre requises par Network Performance Monitor. Ce script crée également des règles de pare-feu Windows pour autoriser les agents de surveillance à créer des connexions TCP entre eux. Les clés de Registre créées par le script spécifient également s’il faut enregistrer les journaux d’activité de débogage et le chemin d’accès des fichiers journaux. Le script définit également le port TCP de l’agent utilisé pour la communication. Les valeurs de ces clés sont définies automatiquement par le script. Vous ne devez pas modifier manuellement ces clés.
 
 Le port 8084 est ouvert par défaut. Vous pouvez utiliser un port personnalisé en ajoutant le paramètre « portNumber » au script. Toutefois, si vous le faites, vous devez spécifier le même port pour tous les serveurs sur lesquels vous exécutez le script.
 

@@ -36,14 +36,14 @@ Vous pouvez choisir de collecter :
 
 * Un ensemble prédéfini de compteurs de performance et de journaux d’événements du système d’exploitation, ou vous pouvez spécifier ce que vous souhaitez collecter. 
 * Toutes les requêtes et/ou requêtes ayant échoué vers un serveur web IIS
-* Journaux de sortie de suivi d’application .NET
+* Journaux d’activité de sortie de suivi d’application .NET
 * Suivi d’événements pour les événements Windows (ETW) 
 * Collecter les événements de journaux de syslog  
 * Vidages sur incident 
 
 L’agent Azure Diagnostics doit être utilisé lorsque vous souhaitez effectuer les opérations suivantes :
 
-* Archiver des journaux et des mesures dans le stockage Azure
+* Archiver des journaux d’activité et des mesures dans le stockage Azure
 * Intégrer des données de surveillance dans des outils tiers. Ces outils utilisent une variété de méthodes incluant l'interrogation du compte de stockage, transféré vers [Event Hubs](../../event-hubs/event-hubs-about.md), ou l'interrogation avec [Azure Monitoring REST API](../../azure-monitor/platform/rest-api-walkthrough.md).
 * Charger des données dans Azure Monitor pour créer des graphiques de métriques dans le portail Azure ou créer quasiment en temps réel [alertes de métriques](../../azure-monitor/platform/alerts-metric-overview.md). 
 * Mettre à l’échelle automatiquement des jeux de mise à l’échelle de machines virtuelles et des services cloud classiques sur la base de métriques du système d'exploitation.

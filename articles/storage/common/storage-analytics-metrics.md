@@ -32,7 +32,7 @@ Storage Analytics peut stocker des métriques qui comprennent les statistiques d
 
  Par exemple, si vous exécutez une opération **GetBlob** sur votre service BLOB, les métriques Storage Analytics enregistrent la demande et l’incluent dans les données agrégées pour le service BLOB et l’opération **GetBlob**. Toutefois, si aucun **GetBlob** opération est demandée pendant l’heure, une entité ne sera pas écrite dans le *$MetricsTransactionsBlob* pour cette opération.  
 
- Les métriques de transaction sont enregistrées pour les demandes utilisateur et les demandes effectuées par Storage Analytics. Par exemple, les demandes par Storage Analytics pour écrire des journaux et des entités de table sont enregistrées.
+ Les métriques de transaction sont enregistrées pour les demandes utilisateur et les demandes effectuées par Storage Analytics. Par exemple, les demandes par Storage Analytics pour écrire des journaux d’activité et des entités de table sont enregistrées.
 
 ## <a name="capacity-metrics"></a>Métriques de capacité  
 

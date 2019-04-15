@@ -340,7 +340,7 @@ Une fois le profil technique défini pour votre API RESTful, configurez votre st
 ### <a name="step-46-optional-troubleshoot-your-rest-api"></a>Étape 4.6 : (Facultatif) Résoudre les problèmes liés à votre API REST
 Vous pouvez afficher et surveiller les informations de journalisation en temps quasi-réel.
 
-1. Dans le menu des paramètres de votre application RESTful, sous **Surveillance**, sélectionnez **Journaux de Diagnostic**.
+1. Dans le menu des paramètres de votre application RESTful, sous **Supervision**, sélectionnez **Journaux d’activité de Diagnostic**.
 
 1. Définissez **Journal des applications (Système de fichiers)** sur **Activé**.
 

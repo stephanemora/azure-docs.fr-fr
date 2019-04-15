@@ -99,7 +99,7 @@ S’il n’y a aucun écouteur pour les événements DiagnosticSource, l’instr
 
 Avant de passer à l’implémentation, passez en revue le [guide de l’utilisateur de DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
-Nous allons créer un écouteur pour les événements Service Bus dans une application ASP.NET Core qui écrit des journaux avec Microsoft.Extension.Logger.
+Nous allons créer un écouteur pour les événements Service Bus dans une application ASP.NET Core qui écrit des journaux d’activité avec Microsoft.Extension.Logger.
 L’abonnement à DiagnosticSource s’effectue à l’aide de la bibliothèque [System.Reactive.Core](https://www.nuget.org/packages/System.Reactive.Core) (vous pouvez aussi vous abonner facilement à DiagnosticSource sans cette bibliothèque).
 
 ```csharp

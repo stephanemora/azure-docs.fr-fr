@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Archiver des journaux Azure Active Directory dans un compte de stockage (préversion) | Microsoft Docs'
-description: Découvrez comment configurer Azure Diagnostics pour envoyer des journaux Azure Active Directory sur un compte de stockage (préversion)
+title: 'Tutoriel : Archiver des journaux d’activité Azure Active Directory dans un compte de stockage (préversion) | Microsoft Docs'
+description: Découvrez comment configurer Azure Diagnostics pour envoyer des journaux d’activité Azure Active Directory sur un compte de stockage (préversion)
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -24,9 +24,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58434719"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Didacticiel : Archiver des journaux Azure AD dans un compte de stockage Azure (préversion)
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Didacticiel : Archiver des journaux d’activité Azure AD dans un compte de stockage Azure (préversion)
 
-Dans ce didacticiel, vous découvrez comment configurer les paramètres de diagnostic Azure Monitor pour acheminer des journaux Azure Active Directory (Azure AD) vers un compte de stockage Azure.
+Dans ce didacticiel, vous découvrez comment configurer les paramètres de diagnostic Azure Monitor pour acheminer des journaux d’activité Azure Active Directory (Azure AD) vers un compte de stockage Azure.
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -36,7 +36,7 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 * Un locataire Azure AD.
 * Utilisateur considéré comme *administrateur général* ou *administrateur de la sécurité* pour un locataire Azure AD.
 
-## <a name="archive-logs-to-an-azure-storage-account"></a>Archiver les journaux dans un compte de stockage Azure
+## <a name="archive-logs-to-an-azure-storage-account"></a>Archiver les journaux d’activité dans un compte de stockage Azure
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
 
@@ -55,21 +55,21 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 6. Cochez la case **Archiver dans un compte de stockage**, puis sélectionnez **Compte de stockage**. 
 
-7. Sélectionnez l’abonnement Azure et compte de stockage vers lesquels vous voulez acheminer les journaux.
+7. Sélectionnez l’abonnement Azure et compte de stockage vers lesquels vous voulez acheminer les journaux d’activité.
  
 8. Cliquez sur **OK** pour quitter la configuration.
 
 9. Effectuez une ou plusieurs des actions suivantes :
     * Cochez la case **AuditLogs** pour envoyer les journaux d’audit vers le compte de stockage. 
-    * Cochez la case **SignInLogs** pour envoyer les journaux de connexion vers le compte de stockage.
+    * Cochez la case **SignInLogs** pour envoyer les journaux d’activité de connexion vers le compte de stockage.
 
-10. Utilisez le curseur pour définir la rétention de vos données de journal. Par défaut, cette valeur est *0*, ce qui signifie que les journaux sont conservés indéfiniment dans le compte de stockage. Si vous définissez une valeur différente, les événements plus anciens que le nombre de jours indiqué sont automatiquement effacés.
+10. Utilisez le curseur pour définir la rétention de vos données de journal. Par défaut, cette valeur est *0*, ce qui signifie que les journaux d’activité sont conservés indéfiniment dans le compte de stockage. Si vous définissez une valeur différente, les événements plus anciens que le nombre de jours indiqué sont automatiquement effacés.
 
 11. Sélectionnez **Enregistrer** pour enregistrer le paramètre.
 
     ![Paramètres de diagnostic](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. Après environ 15 minutes, vérifiez que les journaux sont transmis à votre compte de stockage. Accédez au [portail Azure](https://portal.azure.com), sélectionnez **Comptes de stockage**, sélectionnez le compte de stockage que vous avez utilisé précédemment, puis sélectionnez **Blobs**. Dans **Journaux d’audit**, sélectionnez **insights-log-audit**. Dans **Journaux de connexion**, sélectionnez **insights-logs-signin**.
+12. Après environ 15 minutes, vérifiez que les journaux d’activité sont transmis à votre compte de stockage. Accédez au [portail Azure](https://portal.azure.com), sélectionnez **Comptes de stockage**, sélectionnez le compte de stockage que vous avez utilisé précédemment, puis sélectionnez **Blobs**. Dans **Journaux d’audit**, sélectionnez **insights-log-audit**. Dans **Journaux d’activité de connexion**, sélectionnez **insights-logs-signin**.
 
     ![Compte de stockage](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 

@@ -235,16 +235,16 @@ Vous pouvez utiliser le même widget Jupyter que celui du [tutoriel d’entraîn
 from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
-Voici une image statique du widget.  Dans le bloc-notes, vous pouvez cliquer sur n’importe quelle ligne du tableau pour voir les propriétés d’exécution et les journaux de sortie pour cette série.   Vous pouvez également utiliser la liste déroulante au-dessus du graphe pour afficher un graphe de chaque métrique disponible pour chaque itération.
+Voici une image statique du widget.  Dans le bloc-notes, vous pouvez cliquer sur n’importe quelle ligne du tableau pour voir les propriétés d’exécution et les journaux d’activité de sortie pour cette série.   Vous pouvez également utiliser la liste déroulante au-dessus du graphe pour afficher un graphe de chaque métrique disponible pour chaque itération.
 
 ![table de widget](./media/how-to-auto-train-remote/table.png)
 ![tracé de widget](./media/how-to-auto-train-remote/plot.png)
 
 Le widget affiche une URL qui vous permet de voir et d’explorer les différents détails de l’exécution.
  
-### <a name="view-logs"></a>Consulter les journaux
+### <a name="view-logs"></a>Afficher les journaux d’activité
 
-Recherchez les journaux sur la DSVM sous `/tmp/azureml_run/{iterationid}/azureml-logs`.
+Recherchez les journaux d’activité sur la DSVM sous `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 ## <a name="best-model-explanation"></a>Meilleure explication de modèle
 

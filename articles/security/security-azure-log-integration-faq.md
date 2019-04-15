@@ -29,9 +29,9 @@ Cet article contient les réponses à certaines questions fréquemment posées s
 >[!IMPORTANT]
 > La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 01/06/2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
 
-Azure Log Integration est un service du système d’exploitation Windows que vous pouvez utiliser pour intégrer des journaux bruts de vos ressources Azure dans vos systèmes SIEM (Security Information and Event Management) locaux. Cette intégration offre un tableau de bord unifié pour toutes vos ressources, en local ou dans le cloud, pour vous permettre d’agréger, de mettre en corrélation, d’analyser et d’alerter en cas d’événements de sécurité associés à vos applications.
+Azure Log Integration est un service du système d’exploitation Windows que vous pouvez utiliser pour intégrer des journaux d’activité bruts de vos ressources Azure dans vos systèmes SIEM (Security Information and Event Management) locaux. Cette intégration offre un tableau de bord unifié pour toutes vos ressources, en local ou dans le cloud, pour vous permettre d’agréger, de mettre en corrélation, d’analyser et d’alerter en cas d’événements de sécurité associés à vos applications.
 
-La méthode recommandée pour intégrer des journaux Azure consiste à utiliser le connecteur Azure Monitor de votre fournisseur SIEM et à suivre les [instructions](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) ci-après. Toutefois, si votre fournisseur SIEM ne propose pas de connecteur pour Azure Monitor, vous pouvez utiliser le service Azure Log Integration de façon temporaire (s’il prend en charge votre système SIEM) jusqu’à ce qu’un tel connecteur soit disponible.
+La méthode recommandée pour intégrer des journaux d’activité Azure consiste à utiliser le connecteur Azure Monitor de votre fournisseur SIEM et à suivre les [instructions](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) ci-après. Toutefois, si votre fournisseur SIEM ne propose pas de connecteur pour Azure Monitor, vous pouvez utiliser le service Azure Log Integration de façon temporaire (s’il prend en charge votre système SIEM) jusqu’à ce qu’un tel connecteur soit disponible.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -43,13 +43,13 @@ Oui. Il n’existe aucun frais pour le logiciel d’intégration des journaux Az
 
 Elle est actuellement disponible dans les versions commerciales d’Azure et dans Azure Government, mais n’est pas disponible en Chine ni en Allemagne.
 
-## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Comment puis-je voir les comptes de stockage desquels l’intégration des journaux Azure extrait des journaux de machines virtuelles Azure ?
+## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Comment puis-je voir les comptes de stockage desquels l’intégration des journaux d’activité Azure extrait des journaux d’activité de machines virtuelles Azure ?
 
 Exécutez la commande **AzLlog source list**.
 
-## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Comment puis-je savoir de quel abonnement proviennent les journaux d’intégration Azure ?
+## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Comment puis-je savoir de quel abonnement proviennent les journaux d’activité d’intégration Azure ?
 
-Dans le cas des journaux d’audit qui sont placés dans les répertoires **AzureResourcemanagerJson**, l’ID d’abonnement figure dans le nom du fichier journal. Il en va de même pour les journaux dans le dossier **AzureSecurityCenterJson**. Par exemple : 
+Dans le cas des journaux d’audit qui sont placés dans les répertoires **AzureResourcemanagerJson**, l’ID d’abonnement figure dans le nom du fichier journal. Il en va de même pour les journaux d’activité dans le dossier **AzureSecurityCenterJson**. Par exemple : 
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
@@ -144,9 +144,9 @@ Après avoir apporté les modifications, vérifiez le compte de stockage pour vo
 
 Si vous rencontrez des problèmes pendant l’installation et la configuration, ouvrez une [demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pour ce faire, sélectionnez **Intégration du journal** comme service pour lequel vous demandez de l’aide.
 
-## <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>Puis-je utiliser l’intégration des journaux Azure pour intégrer des journaux Network Watcher dans mon SIEM ?
+## <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>Puis-je utiliser l’intégration des journaux d’activité Azure pour intégrer des journaux d’activité Network Watcher dans mon SIEM ?
 
-Azure Network Watcher génère de grandes quantités d’informations de journalisation. Ces journaux ne sont pas destinés à être envoyés à un serveur SIEM. La seule destination prise en charge pour les journaux Network Watcher est un compte de stockage. L’intégration des journaux Azure ne prend pas en charge la lecture de ces journaux et leur mise à disposition d’un serveur SIEM.
+Azure Network Watcher génère de grandes quantités d’informations de journalisation. Ces journaux d’activité ne sont pas destinés à être envoyés à un serveur SIEM. La seule destination prise en charge pour les journaux d’activité Network Watcher est un compte de stockage. L’intégration des journaux d’activité Azure ne prend pas en charge la lecture de ces journaux d’activité et leur mise à disposition d’un serveur SIEM.
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

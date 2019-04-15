@@ -182,11 +182,11 @@ items:
     - name: Azure Monitor pour des conteneurs
       href: ../azure-monitor/insights/container-insights-overview.md
       maintainContext: true
-    - name: Afficher les journaux du composant principal
+    - name: Afficher les journaux d’activité du composant principal
       href: view-master-logs.md
-    - name: Afficher les journaux Kubelet
+    - name: Afficher les journaux d’activité Kubelet
       href: kubelet-logs.md
-    - name: Afficher les journaux de conteneur en temps réel (préversion)
+    - name: Afficher les journaux d’activité de conteneur en temps réel (préversion)
       href: ../azure-monitor/insights/container-insights-live-logs.md
       maintainContext: true
   - name: Développer et exécuter des applications

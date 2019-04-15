@@ -217,9 +217,9 @@ Si vous ne connaissez pas les composants fournis par un service, vous pouvez uti
 
 ### <a name="ssh"></a>SSH
 
-Lorsque vous êtes connecté à un nœud principal via SSH, les fichiers journaux se trouvent sous **/var/log**. Par exemple, **/var/log/hadoop-yarn/yarn** contiennent les journaux correspondant à YARN.
+Lorsque vous êtes connecté à un nœud principal via SSH, les fichiers journaux se trouvent sous **/var/log**. Par exemple, **/var/log/hadoop-yarn/yarn** contiennent les journaux d’activité correspondant à YARN.
 
-Chaque nœud principal peut contenir des entrées de journal uniques. Vous devez donc vérifier les journaux correspondant aux deux.
+Chaque nœud principal peut contenir des entrées de journal d’activité uniques. Vous devez donc vérifier les journaux d’activité correspondant aux deux.
 
 ### <a name="sftp"></a>SFTP
 
@@ -242,9 +242,9 @@ Pour obtenir la liste des commandes disponibles, entrez `help` au niveau de l’
 > [!NOTE]  
 > Pour accéder aux fichiers journaux avec Ambari, vous devez utiliser un tunnel SSH. Les interfaces web des différents services ne sont pas exposée publiquement sur Internet. Pour plus d’informations sur l’utilisation du tunnel SSH, voir le document [Utilisation d’un Tunneling SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
-Dans l’interface utilisateur web d’Ambari, sélectionnez le service dont vous souhaitez afficher les journaux (par exemple, YARN). Utilisez ensuite les **liens rapides** pour sélectionner le nœud principal pour lequel vous souhaitez afficher les journaux.
+Dans l’interface utilisateur web d’Ambari, sélectionnez le service dont vous souhaitez afficher les journaux d’activité (par exemple, YARN). Utilisez ensuite les **liens rapides** pour sélectionner le nœud principal pour lequel vous souhaitez afficher les journaux d’activité.
 
-![Utilisation des liens rapides pour afficher les journaux](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Utilisation des liens rapides pour afficher les journaux d’activité](./media/hdinsight-high-availability-linux/viewlogs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>Configuration de la taille des nœuds
 

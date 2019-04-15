@@ -28,7 +28,7 @@ Recherche est disponible dans le niveau Gratuit et le niveau Standard de Securit
 
 
 > [!NOTE]
-> Security Center n’enregistre pas les données de sécurité d’un espace de travail avec le niveau Gratuit. Vous pouvez envoyer différents journaux à un espace de travail dans le niveau Gratuit et effectuer des recherches sur ces données, mais les résultats de recherche n’incluent pas de données de Security Center. Security Center enregistre uniquement les données dans un espace de travail appartenant au niveau Standard.
+> Security Center n’enregistre pas les données de sécurité d’un espace de travail avec le niveau Gratuit. Vous pouvez envoyer différents journaux d’activité à un espace de travail dans le niveau Gratuit et effectuer des recherches sur ces données, mais les résultats de recherche n’incluent pas de données de Security Center. Security Center enregistre uniquement les données dans un espace de travail appartenant au niveau Standard.
 >
 >
 

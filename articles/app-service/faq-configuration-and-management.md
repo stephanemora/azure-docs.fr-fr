@@ -17,7 +17,7 @@ ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56118443"
@@ -128,9 +128,9 @@ Dans les plans App Service Standard et Premium, lorsque vous déployez votre app
 
 Pour plus d’informations sur l’utilisation des emplacements de déploiement, voir [Configurer des environnements intermédiaires dans Azure App Service](deploy-staging-slots.md).
 
-## <a name="how-do-i-access-and-review-webjob-logs"></a>Comment accéder aux journaux de tâche web (WebJob) et les consulter ?
+## <a name="how-do-i-access-and-review-webjob-logs"></a>Comment accéder aux journaux d’activité de tâche web (WebJob) et les consulter ?
 
-Pour consulter les journaux de tâche web (WebJob) :
+Pour consulter les journaux d’activité de tâche web (WebJob) :
 
 1. Connectez-vous à votre [site web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
 2. Sélectionnez la tâche web.

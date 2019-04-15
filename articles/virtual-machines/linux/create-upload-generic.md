@@ -170,7 +170,7 @@ Les correctifs suivants doivent être inclus dans le noyau. Cette liste ne peut 
     ```  
     rhgb quiet crashkernel=auto
     ```
-    Le démarrage graphique et en mode silencieux n’est pas utile dans un environnement cloud où nous voulons tous les journaux envoyés au port série. L’option `crashkernel` peut être conservée si nécessaire. Notez cependant que ce paramètre réduit la quantité de mémoire disponible dans la machine virtuelle d’au moins 128 Mo, ce qui peut être problématique pour les machines virtuelles plus petites.
+    Le démarrage graphique et en mode silencieux n’est pas utile dans un environnement cloud où nous voulons tous les journaux d’activité envoyés au port série. L’option `crashkernel` peut être conservée si nécessaire. Notez cependant que ce paramètre réduit la quantité de mémoire disponible dans la machine virtuelle d’au moins 128 Mo, ce qui peut être problématique pour les machines virtuelles plus petites.
 
 1. Installez l'agent Linux Azure.
   

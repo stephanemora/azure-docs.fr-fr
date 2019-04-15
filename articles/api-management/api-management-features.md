@@ -15,7 +15,7 @@ ms.date: 11/26/2018
 ms.author: apimpm
 ms.openlocfilehash: eae36aa6e60e3da03c59952a1d9e035e6a773d2d
 ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54156695"
@@ -39,7 +39,7 @@ Chacun des [niveaux tarifaires](https://aka.ms/apimpricing) de la Gestion des AP
 | [Sauvegarde et restauration](api-management-howto-disaster-recovery-backup-restore.md)               | Non                             | OUI            | OUI            | OUI            | Oui            |
 | [Gestion sur Git](api-management-configuration-repository-git.md)                        | Non                             | OUI            | OUI            | OUI            | Oui            |
 | API de gestion directe                                                                        | Non                             | OUI            | OUI            | OUI            | Oui            |
-| Journaux et métriques Azure Monitor                                                               | Non<sup>5</sup>                | Oui            | OUI            | OUI            | Oui            |
+| Journaux d’activité et métriques Azure Monitor                                                               | Non<sup>5</sup>                | Oui            | OUI            | OUI            | Oui            |
 
 <sup>1</sup> Permet l’utilisation d’Azure AD (et d’Azure AD B2C) comme fournisseur d’identité pour la connexion utilisateur sur le portail des développeurs.<br/>
 <sup>2</sup> Y compris les fonctionnalités liées, par exemple, les utilisateurs, les groupes, les problèmes, les modèles d’application et de courrier électronique et les notifications.<br/>

@@ -239,9 +239,9 @@ Certaines opérations peuvent générer le message suivant :
 
 Vérifiez que le point de terminaison du cluster spécifié est disponible et à l’écoute. Vérifiez également que l’interface utilisateur de Service Fabric Explorer est disponible au niveau de cet hôte et de ce port. Utilisez `sfctl cluster select` pour mettre à jour le point de terminaison.
 
-### <a name="detailed-logs"></a>Journaux détaillés
+### <a name="detailed-logs"></a>Journaux d’activité détaillés
 
-Les journaux détaillés sont souvent utiles lorsque vous déboguez ou signalez un problème. L’indicateur `--debug` augmente les commentaires de la sortie.
+Les journaux d’activité détaillés sont souvent utiles lorsque vous déboguez ou signalez un problème. L’indicateur `--debug` augmente les commentaires de la sortie.
 
 ### <a name="command-help-and-syntax"></a>Aide et syntaxe de commande
 

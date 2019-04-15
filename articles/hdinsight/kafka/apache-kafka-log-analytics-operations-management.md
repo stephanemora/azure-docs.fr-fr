@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/22/2019
 ms.locfileid: "58359855"
 ---
-# <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyser les journaux pour Apache Kafka sur HDInsight
+# <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyser les journaux d’activité pour Apache Kafka sur HDInsight
 
 Découvrez comment utiliser les journaux d’Azure Monitor pour analyser les journaux générés par Apache Kafka sur HDInsight.
 
@@ -45,7 +45,7 @@ Les étapes pour activer les journaux d’Azure Monitor pour HDInsight sont les 
 > [!IMPORTANT]  
 > Il peut prendre environ 20 minutes avant que les données sont disponibles pour les journaux d’Azure Monitor.
 
-## <a name="query-logs"></a>Journaux des requêtes
+## <a name="query-logs"></a>Journaux d’activité des requêtes
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre espace de travail Log Analytics.
 
@@ -64,7 +64,7 @@ Les étapes pour activer les journaux d’Azure Monitor pour HDInsight sont les 
      > [!IMPORTANT]  
      > Remplacez les valeurs de la requête par les informations spécifiques à votre cluster. Par exemple, `ClusterName_s` doit être définie sur le nom de votre cluster. La valeur `HostName_s` doit être définie sur le nom de domaine d’un nœud de travail dans le cluster.
 
-     Vous pouvez également entrer `*` pour rechercher tous les types consignés. Actuellement, les fichiers journaux suivants sont disponibles pour les requêtes :
+     Vous pouvez également entrer `*` pour rechercher tous les types consignés. Actuellement, les fichiers journaux d’activité suivants sont disponibles pour les requêtes :
 
      | Type de journal | Description |
      | ---- | ---- |

@@ -289,9 +289,9 @@ Dans la plupart des cas, vous n’avez pas besoin d’accorder aux utilisateurs 
 
 Utilisez Privileged Identity Management avec des rôles d’administrateur Azure AD pour gérer, contrôler et surveiller l’accès aux ressources Azure. PIM protège les comptes privilégiés contre les cyber-attaques en réduisant le temps d’exposition des privilèges et en augmentant votre visibilité sur leur utilisation grâce à des rapports et des alertes. Pour plus d’informations, consultez [Gérer l’accès RBAC aux ressources Azure avec Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md).
 
-#### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Utiliser des intégrations des journaux Azure pour envoyer les journaux Azure pertinents à vos systèmes SIEM 
+#### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Utiliser des intégrations des journaux d’activité Azure pour envoyer les journaux d’activité Azure pertinents à vos systèmes SIEM 
 
-L’intégration des journaux Azure permet d’intégrer des journaux bruts de vos ressources Azure dans les systèmes SIEM (Security Information and Event Management) existants de votre organisation. L’[intégration des journaux Azure](../../security/security-azure-log-integration-overview.md) collecte les événements Windows à partir des journaux de l’Observateur d’événements et des ressources Azure des journaux d’activité Azure, des alertes Azure Security Center et des journaux de diagnostic Azure. 
+L’intégration des journaux d’activité Azure permet d’intégrer des journaux d’activité bruts de vos ressources Azure dans les systèmes SIEM (Security Information and Event Management) existants de votre organisation. L’[intégration des journaux Azure](../../security/security-azure-log-integration-overview.md) collecte les événements Windows à partir des journaux de l’Observateur d’événements et des ressources Azure des journaux d’activité Azure, des alertes Azure Security Center et des journaux de diagnostic Azure. 
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Étapes supplémentaires pour les organisations gérant l’accès à d’autres applications cloud via Azure AD
@@ -383,7 +383,7 @@ Déterminez si vous devez [transférer la propriété d’un abonnement Azure à
 
 7. Surveillez les courriers électroniques des comptes privilégiés.
 
-8. Veillez à effectuer des sauvegardes des journaux concernés en vue d’un éventuel examen légal et plus approfondi.
+8. Veillez à effectuer des sauvegardes des journaux d’activité concernés en vue d’un éventuel examen légal et plus approfondi.
 
 Pour plus d’informations sur la façon dont Microsoft Office 365 gère les incidents de sécurité, consultez [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM) (Gestion des incidents de sécurité dans Microsoft Office 365).
 

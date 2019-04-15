@@ -207,7 +207,7 @@ Ces étapes peuvent être automatisées via une tâche de démarrage de manière
  
 Une fois terminé, vous pouvez vérifier si la connexion HTTP/2 a été activée ou non en utilisant l’une des méthodes suivantes :
 
-- Activez la version de protocole dans les journaux IIS et consultez ces derniers. Vous y trouverez les informations sur HTTP/2. 
+- Activez la version de protocole dans les journaux d’activité IIS et consultez ces derniers. Vous y trouverez les informations sur HTTP/2. 
 - Activez l’outil de développement F12 dans Internet Explorer/Microsoft Edge et basculez vers l’onglet Réseau pour vérifier le protocole. 
 
 Pour plus d’informations, consultez [HTTP/2 sur IIS](https://blogs.iis.net/davidso/http2).

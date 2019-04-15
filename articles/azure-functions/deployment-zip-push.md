@@ -27,7 +27,7 @@ Pour accélérer le développement, vous pouvez déployer vos fichiers projet d�
 
 + Suppression des fichiers conservés suite aux déploiements antérieurs
 + Personnalisation du déploiement, notamment exécution de scripts de déploiement
-+ Journaux de déploiement
++ Journaux d’activité de déploiement
 + La fonction de synchronisation se déclenche dans une application de fonction [Plan Consommation](functions-scale.md).
 
 Pour plus d’informations, consultez la [documentation de référence sur le déploiement zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).

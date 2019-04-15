@@ -145,7 +145,7 @@ Pour envoyer un projet à un émulateur :
     1. Dans la liste déroulante **Cluster Spark (Linux uniquement)**, sélectionnez votre Hortonworks Sandbox local.
     2. Dans la zone **Nom de la classe principale**, sélectionnez ou entrez le nom de la classe principale. Pour ce didacticiel, il s’agit de **GroupByTest**.
 
-3. Sélectionnez **Envoyer**. Les journaux d’envoi de travaux sont affichés dans la fenêtre d’outil d’envoi Spark.
+3. Sélectionnez **Envoyer**. Les journaux d’activité d’envoi de travaux sont affichés dans la fenêtre d’outil d’envoi Spark.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

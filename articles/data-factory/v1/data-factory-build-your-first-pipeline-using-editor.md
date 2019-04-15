@@ -152,7 +152,7 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
    |:--- |:--- |
    | clusterSize |Spécifie la taille du cluster HDInsight. |
    | timeToLive | Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
-   | linkedServiceName | Spécifie le compte de stockage utilisé pour stocker les journaux générés par HDInsight. |
+   | linkedServiceName | Spécifie le compte de stockage utilisé pour stocker les journaux d’activité générés par HDInsight. |
 
     Notez les points suivants :
 
@@ -399,7 +399,7 @@ Dans cette étape, vous créez votre premier pipeline avec une activité HDInsig
 
     ![Fenêtre Détails de l’exécution d’activité](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
-   Dans les fichiers journaux, vous pouvez voir la requête Hive qui a été exécutée et son état. Ces journaux sont utiles pour résoudre les problèmes.
+   Dans les fichiers journaux, vous pouvez voir la requête Hive qui a été exécutée et son état. Ces journaux d’activité sont utiles pour résoudre les problèmes.
    Pour en savoir plus, consultez l’article [Surveiller et gérer les pipelines à l’aide des panneaux du portail Azure](data-factory-monitor-manage-pipelines.md).
 
 > [!IMPORTANT]

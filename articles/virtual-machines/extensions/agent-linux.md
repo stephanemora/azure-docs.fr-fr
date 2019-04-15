@@ -128,7 +128,7 @@ Consultez la documentation dans le [référentiel de l’agent Linux Azure sur G
 
 * deprovision + user : Effectue tous les éléments dans - deprovision (ci-dessus) et également supprime le dernier compte d’utilisateur approvisionné (obtenu à partir de /var/lib/waagent) et les données associées. Ce paramètre est utilisé pour déprovisionner une image qui a été précédemment provisionnée sur Azure, afin qu’elle soit capturée et réutilisée.
 * Version : Affiche la version de waagent
-* serialconsole : Configure GRUB pour marquer ttyS0 (premier port série) en tant que console de démarrage. Les journaux de démarrage du noyau sont ainsi envoyés au port série et sont prêts à être débogués.
+* serialconsole : Configure GRUB pour marquer ttyS0 (premier port série) en tant que console de démarrage. Les journaux d’activité de démarrage du noyau sont ainsi envoyés au port série et sont prêts à être débogués.
 * démon : Exécute waagent en tant que démon pour gérer l’interaction avec la plateforme. Cet argument est spécifié à waagent dans le script waagent init.
 * Démarrer : Exécute waagent en tant qu’un processus en arrière-plan
 
@@ -291,7 +291,7 @@ Taille du fichier d'échange en mégaoctets.
 Type: Boolean  
 Default: n
 ```
-Si elle est définie, le niveau de détail du journal est optimisé. Waagent enregistre dans /var/log/waagent.log et utilise la fonctionnalité logrotate du système pour faire tourner les journaux.
+Si elle est définie, le niveau de détail du journal est optimisé. Waagent enregistre dans /var/log/waagent.log et utilise la fonctionnalité logrotate du système pour faire tourner les journaux d’activité.
 
 **OS.EnableRDMA**  
 ```

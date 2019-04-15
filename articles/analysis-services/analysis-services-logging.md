@@ -17,9 +17,9 @@ ms.locfileid: "57010920"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurer la journalisation des diagnostics
 
-Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic des ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md), vous pouvez analyser et envoyer des journaux au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers les [journaux Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
+Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic des ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md), vous pouvez analyser et envoyer des journaux d’activité au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers les [journaux d’activité Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
 
-![Journalisation des diagnostics dans le Stockage, Event Hubs ou les journaux Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
+![Journalisation des diagnostics dans le Stockage, Event Hubs ou les journaux d’activité Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -79,15 +79,15 @@ La catégorie Métriques journalise les mêmes [métriques serveur](analysis-ser
 
 2. Dans **Paramètres de diagnostic**, spécifiez les options suivantes : 
 
-    * **Nom**. Entrez un nom pour les journaux à créer.
+    * **Nom**. Entrez un nom pour les journaux d’activité à créer.
 
     * **Archive vers un compte de stockage**. Pour utiliser cette option, vous avez besoin d’un compte de stockage existant auquel vous connecter. Voir [Créer un compte de stockage](../storage/common/storage-create-storage-account.md). Suivez les instructions pour créer un compte Resource Manager à usage général, puis sélectionnez votre compte de stockage en retournant sur cette page du portail. L’affichage des comptes de stockage nouvellement créés dans le menu déroulant peut prendre quelques minutes.
     * **Transmettre à un Event Hub**. Pour utiliser cette option, vous avez besoin d’un espace de noms Event Hub existant et d’un Event Hub auquel vous connecter. Pour plus d’informations, consultez [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le portail Azure](../event-hubs/event-hubs-create.md). Puis revenez à cette page dans le portail pour sélectionner l’espace de noms Event Hub et le nom de la stratégie.
     * **Envoyer à Azure Monitor (espace de travail Log Analytics)**. Pour utiliser cette option, servez-vous d’un espace de travail existant ou [créez une ressource d’espace de travail](../azure-monitor/learn/quick-create-workspace.md) sur le portail. Pour savoir comment afficher vos journaux d’activité, voir [Afficher les journaux d’activité dans l’espace de travail Log Analytics](#view-logs-in-log-analytics-workspace) dans cet article.
 
-    * **Moteur**. Sélectionnez cette option pour journaliser les événements XEvent. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
-    * **Service**. Sélectionnez cette option pour journaliser les événements de niveau Service. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
-    * **Métriques**. Sélectionnez cette option pour stocker des données détaillées dans [Métriques](analysis-services-monitor.md#server-metrics). Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
+    * **Moteur**. Sélectionnez cette option pour journaliser les événements XEvent. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux d’activité sont supprimés automatiquement après l’expiration de la période de rétention.
+    * **Service**. Sélectionnez cette option pour journaliser les événements de niveau Service. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux d’activité sont supprimés automatiquement après l’expiration de la période de rétention.
+    * **Métriques**. Sélectionnez cette option pour stocker des données détaillées dans [Métriques](analysis-services-monitor.md#server-metrics). Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux d’activité sont supprimés automatiquement après l’expiration de la période de rétention.
 
 3. Cliquez sur **Enregistrer**.
 
@@ -107,7 +107,7 @@ Pour activer la journalisation des métriques et diagnostics à l’aide de Powe
    Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
-   L’ID de compte de stockage est l’ID de ressource du compte de stockage où vous souhaitez envoyer les journaux.
+   L’ID de compte de stockage est l’ID de ressource du compte de stockage où vous souhaitez envoyer les journaux d’activité.
 
 - Pour activer le streaming des journaux de diagnostic vers un hub d’événements, utilisez cette commande :
 
@@ -143,13 +143,13 @@ Découvrez comment [modifier les paramètres de diagnostic à l’aide de l’AP
 
 Découvrez comment [activer les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md). 
 
-## <a name="manage-your-logs"></a>Gérer vos journaux
+## <a name="manage-your-logs"></a>Gérer vos journaux d’activité
 
-En règle générale, les journaux sont disponibles deux heures après la configuration de la journalisation. C’est à vous de gérer vos journaux dans votre compte de stockage :
+En règle générale, les journaux d’activité sont disponibles deux heures après la configuration de la journalisation. C’est à vous de gérer vos journaux d’activité dans votre compte de stockage :
 
-* Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux en limitant l’accès à ces derniers.
-* Supprimez les journaux que vous ne souhaitez plus conserver dans votre compte de stockage.
-* Veillez à définir une période de rétention qui supprime les très anciens journaux de votre compte de stockage.
+* Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux d’activité en limitant l’accès à ces derniers.
+* Supprimez les journaux d’activité que vous ne souhaitez plus conserver dans votre compte de stockage.
+* Veillez à définir une période de rétention qui supprime les très anciens journaux d’activité de votre compte de stockage.
 
 ## <a name="view-logs-in-log-analytics-workspace"></a>Afficher les journaux d’activité dans l’espace de travail Log Analytics
 
@@ -222,9 +222,9 @@ Set-AzContext -SubscriptionId <subscription ID>
 >
 >
 
-### <a name="create-a-new-storage-account-for-your-logs"></a>Créer un nouveau compte de stockage pour vos journaux
+### <a name="create-a-new-storage-account-for-your-logs"></a>Créer un nouveau compte de stockage pour vos journaux d’activité
 
-Vous pouvez utiliser un compte de stockage pour vos journaux, à condition qu’il figure dans le même abonnement que votre serveur. Ce tutoriel vise à créer un compte de stockage dédié aux journaux Analysis Services. Pour plus de commodité, vous stockez les détails du compte de stockage dans une variable nommée **sa**.
+Vous pouvez utiliser un compte de stockage pour vos journaux d’activité, à condition qu’il figure dans le même abonnement que votre serveur. Ce tutoriel vise à créer un compte de stockage dédié aux journaux d’activité Analysis Services. Pour plus de commodité, vous stockez les détails du compte de stockage dans une variable nommée **sa**.
 
 Vous utilisez également le même groupe de ressources que celui qui contient votre serveur Analysis Services. Remplacez les valeurs de `awsales_resgroup`, `awsaleslogs` et `West Central US` par les vôtres :
 
@@ -233,7 +233,7 @@ $sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
-### <a name="identify-the-server-account-for-your-logs"></a>Identifier le compte de serveur pour les journaux
+### <a name="identify-the-server-account-for-your-logs"></a>Identifier le compte de serveur pour les journaux d’activité
 
 Définissez le nom du compte dans une variable nommée **account**, où ResourceName est le nom du compte.
 
@@ -291,7 +291,7 @@ Tags                        :
 
 Cette sortie confirme que la journalisation est maintenant activée pour le serveur et enregistre les informations dans le compte de stockage.
 
-Vous pouvez également définir une stratégie de rétention qui supprime automatiquement vos anciens journaux. Par exemple, définissez une stratégie de rétention en attribuant à l’indicateur **-RetentionEnabled** la valeur **$true** et en réglant le paramètre **-RetentionInDays** sur **90**. Ainsi, les journaux de plus de 90 jours sont automatiquement supprimés.
+Vous pouvez également définir une stratégie de rétention qui supprime automatiquement vos anciens journaux d’activité. Par exemple, définissez une stratégie de rétention en attribuant à l’indicateur **-RetentionEnabled** la valeur **$true** et en réglant le paramètre **-RetentionInDays** sur **90**. Ainsi, les journaux d’activité de plus de 90 jours sont automatiquement supprimés.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId $account.ResourceId`

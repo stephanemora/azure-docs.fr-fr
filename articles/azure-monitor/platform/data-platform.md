@@ -1,6 +1,6 @@
 ---
 title: Plateforme de données Azure Monitor | Microsoft Docs
-description: La supervision des données collectées par Azure Monitor est divisée en plusieurs métriques légères et capables de prendre en charge des scénarios en temps quasi-réel ainsi que les journaux utilisés pour une analyse avancée.
+description: La supervision des données collectées par Azure Monitor est divisée en plusieurs métriques légères et capables de prendre en charge des scénarios en temps quasi-réel ainsi que les journaux d’activité utilisés pour une analyse avancée.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -42,7 +42,7 @@ Métriques sont disponibles pour effectuer une analyse interactive dans le porta
 
 En savoir plus sur les mesures Azure Monitor, y compris leurs sources de données dans [métriques dans Azure Monitor](data-platform-metrics.md).
 
-### <a name="logs"></a>Journaux
+### <a name="logs"></a>Journaux d’activité
 [Journaux](data-platform-logs.md) sont des événements qui se sont produites au sein du système. Ils peuvent contenir différents types de données et peuvent être structurés ou libérer le texte de forme avec un horodatage. Ils peuvent être créés par intermittence comme des événements dans l’environnement de génèrent des entrées de journal, et un système surchargé généralement générera plus volume de journal.
 
 Dans Azure Monitor sont stockés dans un espace de travail Analytique de journal qui est basé sur [Explorateur de données Azure](/azure/data-explorer/) qui fournit un moteur d’analyse puissante et [langage de requête riche](/azure/kusto/query/). En général, les journaux fournissent suffisamment d’informations pour fournir un contexte complet du problème identifié et sont utiles pour identifier les cas de la racine des problèmes.
@@ -67,7 +67,7 @@ En savoir plus sur traçage à distribué [What ' s traçage distribué ?](../a
 
 Le tableau suivant compare les métriques et les journaux dans Azure Monitor.
 
-| Attribut  | Mesures | Journaux |
+| Attribut  | Mesures | Journaux d’activité |
 |:---|:---|:---|
 | Avantages | Léger et capable de scénarios quasiment en temps réel telles que des alertes. Idéal pour la détection rapide des problèmes. | Analyser avec riche langage de requête. Idéal pour une analyse approfondie et identifier la cause racine. |
 | Données | Valeurs numériques uniquement | Données numériques ou de texte |

@@ -400,7 +400,7 @@ Vous pouvez vérifier l’état de l’application à l’aide de la commande ap
 az mesh app show --resource-group myResourceGroup --name todolistapp
 ```
 
-Examinez les journaux de l’application déployée en utilisant la commande `az mesh code-package-log get` :
+Examinez les journaux d’activité de l’application déployée en utilisant la commande `az mesh code-package-log get` :
 ```azurecli
 az mesh code-package-log get --resource-group myResourceGroup --application-name todolistapp --service-name WebFrontEnd --replica-name 0 --code-package-name WebFrontEnd
 ```

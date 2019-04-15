@@ -278,7 +278,7 @@ Vérifiez l’état du démon IoT Edge.
 systemctl status iotedge
 ```
 
-Examinez les journaux du démon.
+Examinez les journaux d’activité du démon.
 
 ```cmd/sh
 journalctl -u iotedge --no-pager --no-full

@@ -173,7 +173,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 /var/lib/waagent/apphealth
 ```
 
-Les journaux capturent également régulièrement l’état d’intégrité de l’application.
+Les journaux d’activité capturent également régulièrement l’état d’intégrité de l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [déployer votre application](virtual-machine-scale-sets-deploy-app.md) sur des groupes de machines virtuelles identiques.

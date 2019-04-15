@@ -16,7 +16,7 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
 ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/14/2019
 ms.locfileid: "54259680"
@@ -111,7 +111,7 @@ Procédez comme suit pour installer l’agent de machine virtuelle en mode hors 
 
 11.  Détachez le disque du système d’exploitation, puis recréez la machine virtuelle à l’aide du disque du système d’exploitation.
 
-12.  Accédez à la machine virtuelle. Notez que le RdAgent est en cours d’exécution et que les journaux sont générés.
+12.  Accédez à la machine virtuelle. Notez que le RdAgent est en cours d’exécution et que les journaux d’activité sont générés.
 
 Si vous avez créé la machine virtuelle à l’aide du modèle de déploiement Resource Manager, vous avez terminé.
 

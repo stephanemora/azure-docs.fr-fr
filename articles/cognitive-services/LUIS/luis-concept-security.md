@@ -30,7 +30,7 @@ Le propriétaire et tous les collaborateurs disposent de l’accès requis pour 
 |--|--|
 |Ajouter ou supprimer des clés de point de terminaison||
 |Exporter la version||
-|Exporter les journaux du point de terminaison||
+|Exporter les journaux d’activité du point de terminaison||
 |Importer la version||
 |Rendre une application publique|Lorsqu’une application est publique, toute personne disposant d’une clé de création ou de point de terminaison peut interroger l’application.|
 |Modifier le modèle|

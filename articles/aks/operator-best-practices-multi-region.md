@@ -86,7 +86,7 @@ La géoréplication est une fonctionnalité disponible pour les registres ACR da
 
 **Bonne pratique** : dans la mesure du possible, ne stockez pas l’état du service dans le conteneur. Au lieu de cela, utilisez des services PaaS Azure qui prennent en charge la réplication dans plusieurs régions.
 
-L’état du service correspond aux données en mémoire ou sur disque nécessaires au bon fonctionnement du service. L’état comprend des variables membres et des structures de données que le service lit et écrit. Selon l’architecture du service, l’état peut aussi inclure des fichiers ou d’autres ressources stockés sur le disque, par exemple, les fichiers qu’utiliserait une base de données pour stocker les journaux des transactions et des données.
+L’état du service correspond aux données en mémoire ou sur disque nécessaires au bon fonctionnement du service. L’état comprend des variables membres et des structures de données que le service lit et écrit. Selon l’architecture du service, l’état peut aussi inclure des fichiers ou d’autres ressources stockés sur le disque, par exemple, les fichiers qu’utiliserait une base de données pour stocker les journaux d’activité des transactions et des données.
 
 L’état peut être externalisé ou colocalisé avec le code qui le manipule. L’externalisation d’état s’effectue généralement à l’aide d’une base de données ou autre magasin de données, qui s’exécute sur différentes machines du réseau ou en dehors du processus sur la même machine.
 

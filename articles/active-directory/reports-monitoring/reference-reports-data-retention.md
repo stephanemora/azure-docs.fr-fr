@@ -72,7 +72,7 @@ Pour les signaux de sécurité, le processus de collection démarre lorsque vous
 | Activité de connexion       | S.O.           |  S.O.           | 30 jours             | 30 jours             |
 | Utilisation d’Azure MFA        | 30 jours       |  30 jours       | 30 jours             | 30 jours             |
 
-Vous pouvez conserver les données d'activité d'audit et de connexion au-delà de la période de conservation par défaut décrite ci-dessus en les acheminant vers un compte de stockage Azure à l'aide d'Azure Monitor. Pour plus d'informations, consultez [Archiver des journaux Azure AD sur un compte de stockage Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
+Vous pouvez conserver les données d'activité d'audit et de connexion au-delà de la période de conservation par défaut décrite ci-dessus en les acheminant vers un compte de stockage Azure à l'aide d'Azure Monitor. Pour plus d’informations, consultez [Archiver des journaux d’activité Azure AD sur un compte de stockage Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Signaux de sécurité**
 

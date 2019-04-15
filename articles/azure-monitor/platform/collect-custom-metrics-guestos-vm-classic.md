@@ -58,7 +58,7 @@ Donnez à l’application créée dans « Surveillance de l’éditeur de métri
 
 ## <a name="author-diagnostics-extension-configuration"></a>Créer la configuration de l’extension Diagnostics
 
-1. Préparez le fichier config de l’extension Diagnostics. Ce fichier détermine quels journaux et compteurs de performances doivent être collectés par l’extension Diagnostics pour votre machine virtuelle classique. Vous trouverez ci-dessous un exemple :
+1. Préparez le fichier config de l’extension Diagnostics. Ce fichier détermine quels journaux d’activité et compteurs de performances doivent être collectés par l’extension Diagnostics pour votre machine virtuelle classique. Vous trouverez ci-dessous un exemple :
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -181,7 +181,7 @@ Donnez à l’application créée dans « Surveillance de l’éditeur de métri
     ```
 
 > [!NOTE]
-> Il est obligatoire de fournir un compte de stockage dans le cadre de l’installation de l’extension Diagnostics. Les journaux et les compteurs de performances spécifiés dans le fichier config de diagnostics sont écrits dans le compte de stockage spécifié.
+> Il est obligatoire de fournir un compte de stockage dans le cadre de l’installation de l’extension Diagnostics. Les journaux d’activité et les compteurs de performances spécifiés dans le fichier config de diagnostics sont écrits dans le compte de stockage spécifié.
 
 ## <a name="plot-the-metrics-in-the-azure-portal"></a>Traçage des métriques dans le portail Azure
 

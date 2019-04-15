@@ -32,11 +32,11 @@ Vous pouvez avoir besoin de données personnalisées dans les situations suivant
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Comment mettre en corrélation des données personnalisées avec des données Application Insights 
 
-Étant donné qu'Application Insights est associé à la puissante plateforme de journaux Azure Monitor, nous sommes en mesure d'exploiter toute la puissance d'Azure Monitor pour ingérer les données. Nous allons ensuite rédiger des requêtes à l'aide de l'opérateur « join », qui mettra en corrélation ces données personnalisées avec les données dont nous disposons dans les journaux Azure Monitor. 
+Étant donné qu'Application Insights est associé à la puissante plateforme de journaux Azure Monitor, nous sommes en mesure d'exploiter toute la puissance d'Azure Monitor pour ingérer les données. Nous allons ensuite rédiger des requêtes à l’aide de l’opérateur « join », qui mettra en corrélation ces données personnalisées avec les données dont nous disposons dans les journaux d’activité Azure Monitor. 
 
 ## <a name="ingesting-data"></a>Ingestion des données
 
-Dans cette section, vous allez importer vos données dans les journaux Azure Monitor.
+Dans cette section, vous allez importer vos données dans les journaux d’activité Azure Monitor.
 
 Si vous ne l’avez pas déjà fait, configurez un nouvel espace de travail Log Analytics en suivant [ces instructions](../learn/quick-collect-azurevm.md) jusqu’à l’étape relative à la création d’un espace de travail.
 

@@ -275,7 +275,7 @@ Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
 
-Une fois que vous avez envoyé une validation vers votre référentiel, le webhook créé par ACR Tasks déclenche et démarre une génération dans Azure Container Registry. Affichez les journaux de la tâche en cours d’exécution pour vérifier et surveiller l’avancement de la génération :
+Une fois que vous avez envoyé une validation vers votre référentiel, le webhook créé par ACR Tasks déclenche et démarre une génération dans Azure Container Registry. Affichez les journaux d’activité de la tâche en cours d’exécution pour vérifier et surveiller l’avancement de la génération :
 
 ```azurecli-interactive
 az acr task logs --registry $ACR_NAME

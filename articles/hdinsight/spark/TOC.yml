@@ -134,7 +134,7 @@ items:
     items:
     - name: Prévoir les résultats d’inspections alimentaires
       href: apache-spark-machine-learning-mllib-ipython.md
-    - name: Analyser les journaux des sites web
+    - name: Analyser les journaux d’activité des sites web
       href: apache-spark-custom-library-website-log-analysis.md
     - name: Utiliser Caffe pour l’apprentissage profond
       href: apache-spark-deep-learning-caffe.md
@@ -147,7 +147,7 @@ items:
     - name: Utiliser Apache Spark pour lire et écrire des données Apache HBase
       href: ../hdinsight-using-spark-query-hbase.md
       maintainContext: true
-    - name: Analyser les journaux Application Insights Telemetry
+    - name: Analyser les journaux d’activité Application Insights Telemetry
       href: apache-spark-analyze-application-insight-logs.md
   - name: Étendre des clusters
     items:
@@ -263,7 +263,7 @@ items:
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
-    - name: Gérer les journaux pour un cluster HDInsight
+    - name: Gérer les journaux d’activité pour un cluster HDInsight
       href: ../hdinsight-log-management.md
       maintainContext: true
     - name: Ajouter des comptes de stockage
@@ -338,7 +338,7 @@ items:
       - name: Performances et mémoire Apache Hadoop
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Accéder aux journaux d’applications YARN Apache Hadoop sous Linux
+      - name: Accéder aux journaux d’activité d’applications YARN Apache Hadoop sous Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
       - name: Activer les dumps de tas pour les services Apache Hadoop
@@ -386,12 +386,12 @@ items:
     - name: Connecter HDInsight à un réseau local
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Supervision de l’utilisation des journaux Azure Monitor
+  - name: Supervision de l’utilisation des journaux d’activité Azure Monitor
     items:
-    - name: Utiliser les journaux Azure Monitor
+    - name: Utiliser les journaux d’activité Azure Monitor
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: Utiliser des requêtes avec les journaux Azure Monitor
+    - name: Utiliser des requêtes avec les journaux d’activité Azure Monitor
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: Surveiller les performances du cluster

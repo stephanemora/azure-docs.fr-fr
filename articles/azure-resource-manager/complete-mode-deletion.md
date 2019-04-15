@@ -8,7 +8,7 @@ ms.date: 02/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: b38b1af8c72b814813804a49642668c28f3898d6
 ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56302619"
@@ -47,7 +47,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | agents | Non  | 
 | anonymousapiusers | Non  | 
 | configuration | Non  | 
-| logs | Non  | 
+| journaux d’activité | Non  | 
 | reports | Non  | 
 | services | Non  | 
 
@@ -671,7 +671,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | extendedDiagnosticSettings | Non  | 
 | logDefinitions | Non  | 
 | logprofiles | Non  | 
-| logs | Non  | 
+| journaux d’activité | Non  | 
 | metricAlerts | OUI |
 | migrateToNewPricingModel | Non  | 
 | myWorkbooks | Non  | 
@@ -733,7 +733,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| logs | Non  | 
+| journaux d’activité | Non  | 
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Type de ressource | Effectuer la suppression du mode |

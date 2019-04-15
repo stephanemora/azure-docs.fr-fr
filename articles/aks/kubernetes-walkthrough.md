@@ -228,7 +228,7 @@ Pour voir l’application Azure Vote en action, ouvrez un navigateur web en util
 
 ![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-## <a name="monitor-health-and-logs"></a>Analyser le fonctionnement et les journaux
+## <a name="monitor-health-and-logs"></a>Analyser le fonctionnement et les journaux d’activité
 
 Au moment de la création du cluster AKS, Azure Monitor pour conteneurs a été activé afin de capturer les métriques d’intégrité pour les nœuds de cluster et les pods. Ces mesures sont disponibles dans le portail Azure.
 
@@ -245,9 +245,9 @@ Les conteneurs *azure-vote-back* et *azure-vote-front* s’affichent, comme illu
 
 ![Afficher l’intégrité des conteneurs en cours d’exécution dans AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-Pour visualiser les journaux relatifs au pod `azure-vote-front`, sélectionnez le lien **Afficher les journaux de conteneurs** sur le côté droit de la liste de conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
+Pour visualiser les journaux d’activité relatifs au pod `azure-vote-front`, sélectionnez le lien **Afficher les journaux d’activité de conteneurs** sur le côté droit de la liste de conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
 
-![Afficher les journaux de conteneurs dans AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
+![Afficher les journaux d’activité de conteneurs dans AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Supprimer un cluster
 

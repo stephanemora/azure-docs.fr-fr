@@ -265,7 +265,7 @@ Vous devez voir l’application exécutée avec l’URL distante dans la barre d
 
  ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
-## <a name="view-logs-to-troubleshoot-the-app"></a>Afficher des journaux pour dépanner l’application
+## <a name="view-logs-to-troubleshoot-the-app"></a>Afficher des journaux d’activité pour dépanner l’application
 
 Activer la journalisation pour l’application web Java déployée dans App Service sous Linux :
 
@@ -275,7 +275,7 @@ az webapp log config --name ${WEBAPP_NAME} \
   --web-server-logging filesystem
 ```
 
-Diffusez ensuite les journaux de l’application web vers votre terminal :
+Diffusez ensuite les journaux d’activité de l’application web vers votre terminal :
 
 ```bash
 az webapp log tail --name ${WEBAPP_NAME} \

@@ -132,14 +132,14 @@ Attendez quelques minutes et réessayez, jusqu'à accéder à la page d’accuei
 
 **Félicitations !** Vous exécutez votre premier conteneur Windows personnalisé dans Azure App Service.
 
-## <a name="see-container-start-up-logs"></a>Consulter les journaux de démarrage du conteneur
+## <a name="see-container-start-up-logs"></a>Consulter les journaux d’activité de démarrage du conteneur
 
 Le chargement du conteneur Windows peut prendre un certain temps. Pour afficher la progression, accédez à l’URL suivante en remplaçant *\<app_name >* par le nom de votre application.
 ```
 https://<app_name>.scm.azurewebsites.net/api/logstream
 ```
 
-Les journaux en continu ressemblent à ceci :
+Les journaux d’activité en continu ressemblent à ceci :
 
 ```
 2018-07-27T12:03:11  Welcome, you are now connected to log-streaming service.

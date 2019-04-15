@@ -47,7 +47,7 @@ Voici une liste des problèmes généraux que vous pouvez explorer si vous savez
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Le service d’approvisionnement ne semble pas démarrer
 
-Si vous définissez le paramètre **État de l’approvisionnement** sur **Activé** dans la section **Azure Active Directory &gt; Applications d’entreprise &gt; \[Nom de l’application\] &gt;Approvisionnement** du Portail Azure. Cependant aucune autre information d’état n’apparaît sur cette page après de nouveaux chargements. Le service est probablement en cours d’exécution mais n’a pas encore terminé la synchronisation initiale. Vérifiez les **journaux d’audit** décrits ci-dessus pour déterminer les opérations effectuées par le service et la présence éventuelle d’erreurs.
+Si vous définissez le paramètre **État de l’approvisionnement** sur **Activé** dans la section **Azure Active Directory &gt; Applications d’entreprise &gt; \[Nom de l’application\] &gt;Approvisionnement** du Portail Azure. Cependant aucune autre information d’état n’apparaît sur cette page après de nouveaux chargements. Le service est probablement en cours d’exécution mais n’a pas encore terminé la synchronisation initiale. Vérifiez les **journaux d’audit** décrits ci-dessus pour déterminer les opérations effectuées par le service, et la présence éventuelle d’erreurs.
 
 >[!NOTE]
 >Une synchronisation initiale peut prendre de 20 minutes à plusieurs heures, en fonction de la taille de l’annuaire Azure AD et du nombre d’utilisateurs présents dans l’étendue de l’approvisionnement. Les synchronisations qui suivent la synchronisation initiale sont plus rapides, car le service d’approvisionnement stocke les filigranes qui représentent l’état des deux systèmes après la synchronisation initiale, ce qui améliore les performances des synchronisations suivantes.
@@ -60,7 +60,7 @@ Pour un fonctionnement correct de l’approvisionnement, Azure AD nécessite de
 
 ## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Les journaux d’audit indiquent que les utilisateurs sont ignorés et non approvisionnés, bien qu’ils soient affectés
 
-Lorsqu’un utilisateur apparaît comme « ignoré » dans les journaux d’audit, il est essentiel de consulter les détails du message du journal pour en déterminer la raison. Voici les raisons les plus courantes et les solutions correspondantes :
+Lorsqu’un utilisateur apparaît comme « ignoré » dans les journaux d’audit, il est essentiel de consulter les détails du message du journal d’activité pour en déterminer la raison. Voici les raisons les plus courantes et les solutions correspondantes :
 
 - **Un filtre d’étendue a été configuré** **et exclut l’utilisateur en fonction d’une valeur d’attribut**. Pour plus d’informations sur les filtres d’étendue, voir <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
 

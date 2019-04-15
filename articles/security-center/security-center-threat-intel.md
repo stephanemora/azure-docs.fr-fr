@@ -93,7 +93,7 @@ Pour les machines virtuelles Azure, le tableau de bord **Informations sur les me
 
 - Données CEF (Type = CommonSecurityLog)
 - WireData (Type = WireData)
-- Journaux IIS (Type = W3CIISLog)
+- Journaux d’activité IIS (Type = W3CIISLog)
 - Pare-feu Windows (Type = WindowsFirewall)
 - Événements DNS (Type = DnsEvents)
 

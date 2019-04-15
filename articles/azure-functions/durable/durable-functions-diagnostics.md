@@ -157,7 +157,7 @@ Le résultat est une liste d’ID d’instances et leur actuel état d’exécut
 
 ## <a name="logging"></a>Journalisation
 
-Il est important de garder à l’esprit le comportement de réexécution de l’orchestrateur lors de l’écriture des journaux directement à partir d’une fonction d’orchestrateur. Par exemple, considérez la fonction d’orchestrateur suivante :
+Il est important de garder à l’esprit le comportement de réexécution de l’orchestrateur lors de l’écriture des journaux d’activité directement à partir d’une fonction d’orchestrateur. Par exemple, considérez la fonction d’orchestrateur suivante :
 
 ### <a name="c"></a>C#
 
@@ -208,7 +208,7 @@ Done!
 ```
 
 > [!NOTE]
-> N’oubliez pas que même si les journaux annoncent appeler les fonctions F1, F2 et F3, ces fonctions sont uniquement *réellement* appelées la première fois qu’elles sont rencontrées. Les prochains appels qui se produisent lors de la réexécution sont ignorés et les sorties sont réexécutées à la logique d’orchestrateur.
+> N’oubliez pas que même si les journaux d’activité annoncent appeler les fonctions F1, F2 et F3, ces fonctions sont uniquement *réellement* appelées la première fois qu’elles sont rencontrées. Les prochains appels qui se produisent lors de la réexécution sont ignorés et les sorties sont réexécutées à la logique d’orchestrateur.
 
 Si vous souhaitez uniquement consigner une non réexécution, vous pouvez écrire une expression conditionnelle qui écrit dans le journal uniquement si `IsReplaying` est `false`. Considérez l’exemple ci-dessus, mais cette fois avec des vérifications de réexécution.
 

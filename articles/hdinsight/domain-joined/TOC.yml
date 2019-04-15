@@ -47,12 +47,12 @@ items:
   - name: Réplication de cluster Apache HBase dans le réseau virtuel Azure
     href: ../hbase/apache-hbase-replication.md
     maintainContext: true
-- name: Supervision de l’utilisation des journaux Azure Monitor
+- name: Supervision de l’utilisation des journaux d’activité Azure Monitor
   items:
-  - name: Utiliser les journaux Azure Monitor
+  - name: Utiliser les journaux d’activité Azure Monitor
     href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
     maintainContext: true
-  - name: Utiliser des requêtes avec les journaux Azure Monitor
+  - name: Utiliser des requêtes avec les journaux d’activité Azure Monitor
     href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
     maintainContext: true
   - name: Surveiller les performances du cluster

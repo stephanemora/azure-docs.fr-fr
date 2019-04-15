@@ -94,7 +94,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 
     La création du compte de stockage peut prendre environ une minute. Ne passez pas aux étapes restantes tant que la création du compte de stockage n’est pas terminée. Si vous utilisez un compte de stockage existant au lieu d’en créer un, veillez à en sélectionner un pour lequel l’option **Tous les réseaux** (par défaut) est sélectionnée pour **Pare-feux et réseaux virtuels**, sous **PARAMÈTRES** pour le compte de stockage.
 4. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
-5. Sous **JOURNAUX**, sélectionnez **Journaux de flux NSG**, comme illustré dans l’image suivante :
+5. Sous **JOURNAUX D’ACTIVITÉ**, sélectionnez **Journaux de flux NSG**, comme illustré dans l’image suivante :
 
     ![Groupes de sécurité réseau](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
@@ -109,7 +109,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 
 ## <a name="download-flow-log"></a>Télécharger le journal de flux
 
-1. Dans Network Watcher, dans le portail, sélectionnez **Journaux de flux NSG** sous **JOURNAUX**.
+1. Dans Network Watcher, dans le portail, sélectionnez **Journaux de flux NSG** sous **JOURNAUX D’ACTIVITÉ**.
 2. Sélectionnez **Vous pouvez télécharger les journaux de flux à partir de comptes de stockage configurés** comme illustré sur l’image suivante :
 
    ![Télécharger des journaux de flux](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)

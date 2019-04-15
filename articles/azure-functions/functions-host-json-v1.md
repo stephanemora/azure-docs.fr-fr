@@ -193,7 +193,7 @@ Si vous partagez un compte de stockage entre plusieurs applications de fonction,
 
 ## <a name="logger"></a>logger
 
-Contrôle le filtrage des journaux écrits par un [objet ILogger](functions-monitoring.md#write-logs-in-c-functions) ou par [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Contrôle le filtrage des journaux d’activité écrits par un [objet ILogger](functions-monitoring.md#write-logs-in-c-functions) ou par [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
 ```json
 {
@@ -213,7 +213,7 @@ Contrôle le filtrage des journaux écrits par un [objet ILogger](functions-moni
 |Propriété  |Default | Description |
 |---------|---------|---------| 
 |categoryFilter|n/a|Spécifie un filtrage par catégorie.| 
-|defaultLevel|Information|Pour toutes les catégories non spécifiées dans le tableau `categoryLevels`, envoie les journaux de ce niveau et des niveaux supérieurs à Application Insights.| 
+|defaultLevel|Information|Pour toutes les catégories non spécifiées dans le tableau `categoryLevels`, envoie les journaux d’activité de ce niveau et des niveaux supérieurs à Application Insights.| 
 |categoryLevels|n/a|Tableau des catégories qui spécifie le niveau de journalisation minimal à envoyer à Application Insights pour chaque catégorie. La catégorie indiquée ici contrôle toutes les catégories qui commencent par la même valeur, et les valeurs plus longues sont prioritaires. Dans l’exemple de fichier *host.json* précédent, toutes les catégories qui commencent par « Host.Aggregator » journalisent au niveau `Information`. Toutes les autres catégories commençant par « Host », comme « Host.Executor », journalisent au niveau `Error`.| 
 
 ## <a name="queues"></a>queues
@@ -288,7 +288,7 @@ Paramètres de configuration du comportement de verrouillage Singleton. Pour plu
 
 *Version 1.x*
 
-Paramètres de configuration des journaux que vous créez à l’aide d’un objet `TraceWriter`. Consultez les sections relatives à la [journalisation en C#](functions-reference-csharp.md#logging) et à la [journalisation Node.js](functions-reference-node.md#writing-trace-output-to-the-console).
+Paramètres de configuration des journaux d’activité que vous créez à l’aide d’un objet `TraceWriter`. Consultez les sections relatives à la [journalisation en C#](functions-reference-csharp.md#logging) et à la [journalisation Node.js](functions-reference-node.md#writing-trace-output-to-the-console).
 
 ```json
 {

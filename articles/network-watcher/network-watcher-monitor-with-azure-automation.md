@@ -45,7 +45,7 @@ Avant de réaliser ce scénario, vous devez disposer des éléments suivants :
 - Vous devez avoir configuré des informations d’identification dans Azure Automation. Pour en savoir plus, consultez l’article [Sécurité dans Azure Automation](../automation/automation-security-overview.md).
 - Un serveur SMTP valide (Office 365, votre messagerie locale ou une autre) et les informations d’identification définies dans Azure Automation.
 - Une passerelle de réseau virtuel configurée dans Azure.
-- Un compte de stockage existant avec un conteneur existant pour y stocker les journaux.
+- Un compte de stockage existant avec un conteneur existant pour y stocker les journaux d’activité.
 
 > [!NOTE]
 > L’infrastructure décrite dans l’image précédente est présentée à titre d’illustration. Elle n’a pas été créée avec la procédure indiquée dans cet article.

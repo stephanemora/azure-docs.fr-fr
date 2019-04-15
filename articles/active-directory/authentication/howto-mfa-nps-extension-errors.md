@@ -20,7 +20,7 @@ ms.locfileid: "58313428"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Résoudre les messages d’erreur liés à l’extension NPS pour Azure Multi-Factor Authentication
 
-Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-Factor Authentication, utilisez cet article pour les résoudre plus rapidement. Les journaux d'extension NPS se trouvent dans l’Observateur d’événements sous **Affichages personnalisés** > **Rôles serveur** > **Services de stratégie et d’accès réseau** sur le serveur où l’extension NPS est installée.
+Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-Factor Authentication, utilisez cet article pour les résoudre plus rapidement. Les journaux d’activité d’extension NPS se trouvent dans l’Observateur d’événements sous **Affichages personnalisés** > **Rôles serveur** > **Services de stratégie et d’accès réseau** sur le serveur où l’extension NPS est installée.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Étapes de résolution des erreurs courantes
 
@@ -51,7 +51,7 @@ Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-F
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Le locataire de l’appelant n’a pas les autorisations d’accès pour l’authentification de l’utilisateur | Vérifiez que le domaine du locataire et le domaine du nom d’utilisateur principal sont identiques. Par exemple, assurez-vous que user@contoso.com essaie de s’authentifier sur le locataire Contoso. Le nom d’utilisateur principal représente un utilisateur valide du locataire dans Azure. |
 | **AuthenticationMethodNotConfigured** | La méthode d’authentification spécifiée n’est pas configurée pour l’utilisateur | Invitez l’utilisateur à ajouter ou vérifier ses méthodes de vérification en suivant les instructions de la page [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
-| **AuthenticationMethodNotSupported** | La méthode d’authentification spécifiée n’est pas prise en charge. | Effectuez la collecte de tous les journaux incluant cette erreur et [contactez le support technique](#contact-microsoft-support). Lorsque vous contactez le support technique, indiquez le nom d’utilisateur et la méthode de vérification secondaire ayant déclenché l’erreur. |
+| **AuthenticationMethodNotSupported** | La méthode d’authentification spécifiée n’est pas prise en charge. | Effectuez la collecte de tous les journaux d’activité incluant cette erreur et [contactez le support technique](#contact-microsoft-support). Lorsque vous contactez le support technique, indiquez le nom d’utilisateur et la méthode de vérification secondaire ayant déclenché l’erreur. |
 | **BecAccessDenied** | L’appel de MSODS Bec a retourné une erreur de type accès refusé. Le nom d’utilisateur n’est probablement pas défini dans le locataire | L’utilisateur est présent dans le répertoire Active Directory local, mais il n’est pas synchronisé dans Azure AD par AD Connect. Ou bien, l’utilisateur est manquant pour le locataire. Ajoutez l’utilisateur dans Azure AD et invitez-le à ajouter ses méthodes de vérification en suivant les instructions de la page [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
 | **InvalidFormat** ou **StrongAuthenticationServiceInvalidParameter** | Le format du numéro de téléphone est inconnu | Demandez à l’utilisateur de corriger son numéro de téléphone de vérification. |
 | **InvalidSession** | La session spécifiée n’est pas valide ou a expiré | La session a duré plus de trois minutes. Vérifiez que l’utilisateur entre le code de vérification ou répond à la notification de l’application dans les trois minutes suivant l’initiation de la demande d’authentification. Si le problème persiste, vérifiez qu’il n’y a aucune latence réseau entre le client, le serveur NAS, le serveur NPS et le point de terminaison Azure MFA.  |
@@ -98,9 +98,9 @@ Si vos utilisateurs ont [des difficultés avec la vérification en deux étapes]
 
 ### <a name="contact-microsoft-support"></a>Contact Microsoft support
 
-Si vous avez besoin d’une assistance supplémentaire, contactez un professionnel du support via le [Support du serveur Azure Multi-Factor Authentication](https://support.microsoft.com/oas/default.aspx?prid=14947). Lorsque vous nous contactez, veillez à inclure autant d’informations que possible concernant votre problème. Vous pouvez notamment préciser la page sur laquelle vous avez rencontré l’erreur, le code d’erreur spécifique, l’ID de session spécifique, l’ID de l’utilisateur qui a vu l’erreur et les journaux de débogage.
+Si vous avez besoin d’une assistance supplémentaire, contactez un professionnel du support via le [Support du serveur Azure Multi-Factor Authentication](https://support.microsoft.com/oas/default.aspx?prid=14947). Lorsque vous nous contactez, veillez à inclure autant d’informations que possible concernant votre problème. Vous pouvez notamment préciser la page sur laquelle vous avez rencontré l’erreur, le code d’erreur spécifique, l’ID de session spécifique, l’ID de l’utilisateur qui a vu l’erreur et les journaux d’activité de débogage.
 
-Pour collecter les journaux de débogage pour les diagnostics de support sur le serveur NPS (Network Policy Server), effectuez les étapes suivantes :
+Pour collecter les journaux d’activité de débogage pour les diagnostics de support sur le serveur NPS (Network Policy Server), effectuez les étapes suivantes :
 
 1. Ouvrez l’Éditeur du Registre, accédez à HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa, puis définissez **VERBOSE_LOG** sur **TRUE**.
 2. Ouvrez une invite de commandes administrateur et exécutez les commandes suivantes :

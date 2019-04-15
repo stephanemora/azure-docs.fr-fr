@@ -98,7 +98,7 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
 1. Sélectionnez **enregistrer** pour démarrer le service d’approvisionnement AD Azure. 
 1. Si la synchronisation affecté uniquement les utilisateurs et groupes (recommandés), veillez à sélectionner le **utilisateurs et groupes** onglet, puis attribuez les utilisateurs ou groupes que vous souhaitez synchroniser.
 
-Une fois la synchronisation initiale a démarré, vous pouvez sélectionner **journaux d’Audit** dans le volet gauche pour surveiller la progression, qui montre toutes les actions effectuées par le service d’approvisionnement sur votre application. Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](check-status-user-account-provisioning.md).
+Une fois la synchronisation initiale a démarré, vous pouvez sélectionner **journaux d’Audit** dans le volet gauche pour surveiller la progression, qui montre toutes les actions effectuées par le service d’approvisionnement sur votre application. Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](check-status-user-account-provisioning.md).
 
 > [!NOTE]
 > La synchronisation initiale prend plus de temps que les synchronisations ultérieures, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. 
@@ -687,7 +687,7 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
 
 1. Si la synchronisation affecté uniquement les utilisateurs et groupes (recommandés), veillez à sélectionner le **utilisateurs et groupes** onglet, puis attribuez les utilisateurs ou groupes que vous souhaitez synchroniser.
 
-Une fois la synchronisation initiale a démarré, vous pouvez sélectionner **journaux d’Audit** dans le volet gauche pour surveiller la progression, qui montre toutes les actions effectuées par le service d’approvisionnement sur votre application. Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](check-status-user-account-provisioning.md).
+Une fois la synchronisation initiale a démarré, vous pouvez sélectionner **journaux d’Audit** dans le volet gauche pour surveiller la progression, qui montre toutes les actions effectuées par le service d’approvisionnement sur votre application. Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](check-status-user-account-provisioning.md).
 
 La dernière étape de vérification de l’exemple consiste à ouvrir le fichier TargetFile.csv dans le dossier \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug sur votre machine Windows. Une fois le processus de déploiement exécuté, ce fichier affiche les détails de tous les utilisateurs et groupes affectés et configurés.
 

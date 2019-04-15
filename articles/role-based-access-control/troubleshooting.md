@@ -65,7 +65,7 @@ Si vous accordez un accès utilisateur en lecture seule à une seule application
 * Commandes (comme start, stop, etc.)
 * Modification de paramètres tels que la configuration générale, les paramètres de mise à l’échelle, les paramètres de sauvegarde et les paramètres d’analyse
 * Accès aux informations d’identification de publication et autres informations secrètes, telles que les paramètres d’application et les chaînes de connexion
-* Diffusion de journaux
+* Diffusion de journaux d’activité
 * Configuration des journaux de diagnostic
 * Console (invite de commandes)
 * Déploiements actifs et récents (pour le déploiement continu Git local)

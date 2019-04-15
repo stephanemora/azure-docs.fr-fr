@@ -19,7 +19,7 @@ ms.locfileid: "57890013"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Dépannage Azure Blockchain Workbench
 
-Un script PowerShell est disponible pour aider le développeur avec les activités de débogage ou de support technique. Le script génère un résumé et collecte les journaux détaillés pour le dépannage. Les journaux détaillés sont relatifs aux éléments suivants :
+Un script PowerShell est disponible pour aider le développeur avec les activités de débogage ou de support technique. Le script génère un résumé et collecte les journaux d’activité détaillés pour le dépannage. Les journaux d’activité détaillés sont relatifs aux éléments suivants :
 
 * Réseau Blockchain, tels qu’Ethereum
 * Microservices Blockchain Workbench
@@ -39,7 +39,7 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>Exécutez le script
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-Exécutez le script `collectBlockchainWorkbenchTroubleshooting.ps1` pour collecter des journaux et créer un fichier ZIP contenant un dossier des données de dépannage. Par exemple : 
+Exécutez le script `collectBlockchainWorkbenchTroubleshooting.ps1` pour collecter des journaux d’activité et créer un fichier ZIP contenant un dossier des données de dépannage. Par exemple : 
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
@@ -65,12 +65,12 @@ Le fichier ZIP de sortie contient la structure de dossier suivante :
 | \Summary.txt | Résumé du système |
 | \Metrics\blockchain | Mesures relatives à l’application blockchain |
 | \Metrics\Workbench | Mesures relatives à l’application Workbench |
-| \Details\Blockchain | Journaux détaillés relatifs à l’application blockchain |
-| \Details\Workbench | Journaux détaillés relatifs à l’application workbench |
+| \Details\Blockchain | Journaux d’activité détaillés relatifs à l’application blockchain |
+| \Details\Workbench | Journaux d’activité détaillés relatifs à l’application workbench |
 
 Le fichier de résumé vous octroie un aperçu sur l’état global de l’application et sur l’intégrité de l’application. Le résumé communique les actions recommandées, met en évidence les erreurs principales et les métadonnées sur les services en cours d’exécution.
 
-Le dossier **Métriques** contient les métriques des différents composants système, collectées jusqu’à présent. Par exemple, le fichier de sortie `\Details\Workbench\apiMetrics.txt` contient un récapitulatif des différents codes de réponse et temps de réponse collectés au cours d’une période donnée. Le dossier **Détails** contient des journaux détaillés permettant de résoudre les problèmes liés à Workbench ou au réseau blockchain sous-jacent. Par exemple, `\Details\Workbench\Exceptions.csv` contient la liste des exceptions qui se sont produites dans le système dernièrement, ce qui est utile pour résoudre les erreurs liées aux contrats intelligents ou aux interactions avec le blockchain. 
+Le dossier **Métriques** contient les métriques des différents composants système, collectées jusqu’à présent. Par exemple, le fichier de sortie `\Details\Workbench\apiMetrics.txt` contient un récapitulatif des différents codes de réponse et temps de réponse collectés au cours d’une période donnée. Le dossier **Détails** contient des journaux d’activité détaillés permettant de résoudre les problèmes liés à Workbench ou au réseau blockchain sous-jacent. Par exemple, `\Details\Workbench\Exceptions.csv` contient la liste des exceptions qui se sont produites dans le système dernièrement, ce qui est utile pour résoudre les erreurs liées aux contrats intelligents ou aux interactions avec le blockchain. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

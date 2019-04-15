@@ -26,7 +26,7 @@ ms.locfileid: "57879937"
 
 Les [journaux de flux des groupes de sécurité réseau ](network-watcher-nsg-flow-logging-overview.md) fournissent des informations permettant de comprendre le trafic IP entrant et sortant des interfaces réseau Azure. Les journaux de flux affichent les flux entrants et sortants en fonction de la règle du groupe de sécurité réseau, l’interface réseau à laquelle le flux s’applique, des informations à 5 tuples (adresse IP source/de destination, port source/de destination, protocole) relatives au flux, et l’autorisation ou le refus du trafic.
 
-Un réseau peut comprendre de nombreux groupes de sécurité réseau pour lesquels la journalisation de flux est activée. La journalisation de flux activée sur plusieurs groupes de sécurité réseau peut rendre difficile l’analyse et l’exploitation d’informations à partir de vos journaux. Cet article fournit une solution de gestion centralisée de ces journaux de flux des groupes de sécurité réseau avec l’utilisation de Graylog, un outil open source d’analyse et de gestion des journaux, et de Logstash, un pipeline open source de traitement des données côté serveur.
+Un réseau peut comprendre de nombreux groupes de sécurité réseau pour lesquels la journalisation de flux est activée. La journalisation de flux activée sur plusieurs groupes de sécurité réseau peut rendre difficile l’analyse et l’exploitation d’informations à partir de vos journaux d’activité. Cet article fournit une solution de gestion centralisée de ces journaux de flux des groupes de sécurité réseau avec l’utilisation de Graylog, un outil open source d’analyse et de gestion des journaux d’activité, et de Logstash, un pipeline open source de traitement des données côté serveur.
 
 > [!Warning]
 > Les étapes suivantes fonctionnent avec les journaux de flux version 1. Pour plus d’informations, consultez [Présentation de la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md). Les instructions suivantes ne fonctionnent pas avec la version 2 des fichiers journaux, sans modification.
@@ -60,7 +60,7 @@ Vous pouvez installer Graylog de bien des façons, selon votre plateforme et vos
 
 ### <a name="install-logstash"></a>Installer Logstash
 
-Logstash vous permet d’aplatir à un niveau de tuple de flux les journaux de flux au format JSON. L’aplanissement des journaux de flux facilite l’organisation et la recherche des journaux dans Graylog.
+Logstash vous permet d’aplatir à un niveau de tuple de flux les journaux de flux au format JSON. L’aplanissement des journaux de flux facilite l’organisation et la recherche des journaux d’activité dans Graylog.
 
 1. Pour installer Logstash, exécutez les commandes suivantes :
 
@@ -150,7 +150,7 @@ Logstash vous permet d’aplatir à un niveau de tuple de flux les journaux de f
         }
     }
     ```
-   Le fichier de configuration Logstash fourni comporte trois parties : l’entrée, le filtre et la sortie. La section d’entrée désigne la source d’entrée des journaux que Logstash va traiter. Dans ce cas, vous allez utiliser un plug-in d’entrée d’objets blob Azure (installé aux étapes suivantes) qui nous permet d’accéder aux fichiers JSON de journalisation des flux des groupes de sécurité réseau qui sont stockés dans le stockage Blob.
+   Le fichier de configuration Logstash fourni comporte trois parties : l’entrée, le filtre et la sortie. La section d’entrée désigne la source d’entrée des journaux d’activité que Logstash va traiter. Dans ce cas, vous allez utiliser un plug-in d’entrée d’objets blob Azure (installé aux étapes suivantes) qui nous permet d’accéder aux fichiers JSON de journalisation des flux des groupes de sécurité réseau qui sont stockés dans le stockage Blob.
 
 La section de filtre aplatit ensuite chaque fichier journal du flux pour que chaque tuple de flux et les propriétés qui lui sont associées deviennent un événement Logstash à part entière.
 

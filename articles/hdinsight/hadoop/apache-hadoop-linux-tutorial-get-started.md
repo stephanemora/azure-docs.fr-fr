@@ -107,7 +107,7 @@ Une requête interactive est beaucoup plus rapide que [l’exécution d’un pro
 
 5. Sélectionnez le cluster vers lequel vous souhaitez effectuer l’envoi.  
 
-    Après l’envoi du travail Hive, les informations sur la réussite de l’envoi et l’ID du travail s’affichent dans le panneau **OUTPUT** (SORTIE). Le travail Hive ouvre également l’élément **WEB BROWSER** (NAVIGATEUR WEB), qui affiche les journaux et l’état en temps réel du travail.
+    Après l’envoi du travail Hive, les informations sur la réussite de l’envoi et l’ID du travail s’affichent dans le panneau **OUTPUT** (SORTIE). Le travail Hive ouvre également l’élément **WEB BROWSER** (NAVIGATEUR WEB), qui affiche les journaux d’activité et l’état en temps réel du travail.
 
    ![résultat de l’envoi du travail Hive](./media/apache-hadoop-linux-tutorial-get-started/submit-Hivejob-result.png)
 

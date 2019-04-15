@@ -239,49 +239,49 @@ Si vous obtenez des erreurs liées à la connexion à la banque de données ou a
 
 ![Tester la connexion dans l’onglet Diagnostics](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
 
-## <a name="gateway-logs"></a>Journaux de la passerelle
-### <a name="send-gateway-logs-to-microsoft"></a>Envoyer les journaux de la passerelle à Microsoft
-Lorsque vous contactez le Support Microsoft pour résoudre des problèmes de passerelle, il peut vous être demandé de fournir les journaux de votre passerelle. Avec la dernière version de la passerelle, vous pouvez partager les journaux de passerelle requis en deux clics de bouton dans le Gestionnaire de configuration de passerelle de gestion des données.    
+## <a name="gateway-logs"></a>Journaux d’activité de la passerelle
+### <a name="send-gateway-logs-to-microsoft"></a>Envoyer les journaux d’activité de la passerelle à Microsoft
+Lorsque vous contactez le Support Microsoft pour résoudre des problèmes de passerelle, il peut vous être demandé de fournir les journaux d’activité de votre passerelle. Avec la dernière version de la passerelle, vous pouvez partager les journaux d’activité de passerelle requis en deux clics de bouton dans le Gestionnaire de configuration de passerelle de gestion des données.    
 
 1. Basculez vers l’onglet **Diagnostics** du Gestionnaire de configuration de passerelle de gestion des données.
 
     ![Onglet Diagnostics de la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png)
-2. Cliquez sur **Envoyer des journaux** pour afficher la boîte de dialogue suivante.
+2. Cliquez sur **Envoyer des journaux d’activité** pour afficher la boîte de dialogue suivante.
 
-    ![Lien Envoyer des journaux de la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
-3. (Facultatif) Cliquez sur **Afficher les journaux** pour consulter les journaux dans l’Observateur d’événements.
+    ![Lien Envoyer des journaux d’activité de la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
+3. (Facultatif) Cliquez sur **Afficher les journaux d’activité** pour consulter les journaux d’activité dans l’Observateur d’événements.
 4. (Facultatif) Cliquez sur **Confidentialité** pour consulter la déclaration de confidentialité relative aux services web Microsoft.
-5. Lorsque vous êtes satisfait des éléments que vous vous apprêtez à charger, cliquez sur **Envoyer des journaux** pour envoyer les journaux des sept derniers jours à Microsoft en vue de résoudre les problèmes. L’état de l’opération d’envoi des journaux devrait s’afficher comme dans la capture d’image suivante.
+5. Lorsque vous êtes satisfait des éléments que vous vous apprêtez à charger, cliquez sur **Envoyer des journaux d’activité** pour envoyer les journaux d’activité des sept derniers jours à Microsoft en vue de résoudre les problèmes. L’état de l’opération d’envoi des journaux devrait s’afficher comme dans la capture d’image suivante.
 
-    ![État de l’opération Envoyer des journaux pour la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    ![État de l’opération Envoyer des journaux d’activité pour la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. Une fois l’opération terminée, la boîte de dialogue illustrée dans la capture d’écran suivante s’affiche.
 
-    ![État de l’opération Envoyer des journaux pour la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. Notez l’**ID du rapport** et communiquez-le au Support Microsoft. L’ID du rapport permet de localiser les journaux de la passerelle que vous avez chargés pour la résolution des problèmes.  L’ID du rapport est également enregistré dans l’Observateur d’événements.  Vous pouvez le trouver en recherchant l’ID d’événement « 25 » et en vérifiant la date et l’heure.
+    ![État de l’opération Envoyer des journaux d’activité pour la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
+7. Notez l’**ID du rapport** et communiquez-le au Support Microsoft. L’ID du rapport permet de localiser les journaux d’activité de la passerelle que vous avez chargés pour la résolution des problèmes.  L’ID du rapport est également enregistré dans l’Observateur d’événements.  Vous pouvez le trouver en recherchant l’ID d’événement « 25 » et en vérifiant la date et l’heure.
 
-    ![ID du rapport de l’opération Envoyer des journaux pour la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
+    ![ID du rapport de l’opération Envoyer des journaux d’activité pour la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 
 ### <a name="archive-gateway-logs-on-gateway-host-machine"></a>La passerelle d’archive ouvre une session sur l’ordinateur hôte de la passerelle
-Dans certains cas, il se peut que vous ayez des problèmes avec la passerelle et que vous ne puissiez pas partager directement les journaux de la passerelle :
+Dans certains cas, il se peut que vous ayez des problèmes avec la passerelle et que vous ne puissiez pas partager directement les journaux d’activité de la passerelle :
 
 * Vous installez et inscrivez manuellement la passerelle.
 * Vous essayez d’inscrire la passerelle avec une clé régénérée dans le Gestionnaire de configuration de passerelle de gestion des données.
-* Vous tentez d’envoyer des journaux et le service hôte de la passerelle ne peut pas être connecté.
+* Vous tentez d’envoyer des journaux d’activité et le service hôte de la passerelle ne peut pas être connecté.
 
-Dans ces cas de figure, vous pouvez enregistrer les journaux de la passerelle dans un fichier zip et fournir celui-ci au Support Microsoft. Par exemple, si vous recevez une erreur lorsque vous inscrivez la passerelle, comme illustré dans la capture d’écran suivante.   
+Dans ces cas de figure, vous pouvez enregistrer les journaux d’activité de la passerelle dans un fichier zip et fournir celui-ci au Support Microsoft. Par exemple, si vous recevez une erreur lorsque vous inscrivez la passerelle, comme illustré dans la capture d’écran suivante.   
 
 ![Erreur d’inscription de la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-registration-error.png)
 
-Cliquez sur le lien **Archiver les journaux de la passerelle** pour archiver et enregistrer les journaux, puis fournissez le fichier zip au Support Microsoft.
+Cliquez sur le lien **Archiver les journaux d’activité de la passerelle** pour archiver et enregistrer les journaux d’activité, puis fournissez le fichier zip au Support Microsoft.
 
-![Lien Archiver les journaux de la passerelle de gestion de données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png)
+![Lien Archiver les journaux d’activité de la passerelle de gestion de données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png)
 
-### <a name="locate-gateway-logs"></a>Rechercher dans les journaux de la passerelle
-Vous pouvez accéder à des informations détaillées sur les journaux de la passerelle dans les journaux d’événements Windows.
+### <a name="locate-gateway-logs"></a>Rechercher dans les journaux d’activité de la passerelle
+Vous pouvez accéder à des informations détaillées sur les journaux d’activité de la passerelle dans les journaux d’événements Windows.
 
 1. Démarrez l’**Observateur d’événements** Windows.
-2. Localisez les journaux dans le dossier **Journaux des applications et services** > **Passerelle de gestion des données**.
+2. Localisez les journaux d’activité dans le dossier **Journaux des applications et services** > **Passerelle de gestion des données**.
 
    Lors de la résolution de problèmes liés à la passerelle, recherchez les événements de niveau Erreur dans l’Observateur d’événements.
 
-![Journaux de la passerelle de gestion des données dans l’Observateur d’événements](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
+![Journaux d’activité de la passerelle de gestion des données dans l’Observateur d’événements](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

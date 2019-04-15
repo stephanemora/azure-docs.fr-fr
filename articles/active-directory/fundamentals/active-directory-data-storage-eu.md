@@ -40,11 +40,11 @@ Une grande partie des données d’identité européennes concernant Azure AD, p
     
         - Les codes OATH sont toujours validés aux États-Unis. 
     
-    - Les journaux MFA ou SSPR sont stockés aux États-Unis pendant 30 jours, quel que soit le type d’authentification.
+    - Les journaux d’activité MFA ou SSPR sont stockés aux États-Unis pendant 30 jours, quel que soit le type d’authentification.
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
 
-    Azure AD B2C stocke toutes les données utilisateur au repos dans des centres de données européens. Toutefois, les journaux des opérations (avec les données personnelles supprimées) restent à l’emplacement d’où la personne accède aux services. Par exemple, si un utilisateur B2C accède au service depuis les États-Unis, les journaux des opérations restent aux États-Unis. En outre, toutes les données de configuration de stratégie ne contenant aucune donnée personnelle sont uniquement stockées aux États-Unis. Pour plus d’informations sur les configurations de stratégie, consultez l’article [Azure Active Directory B2C : stratégies intégrées](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
+    Azure AD B2C stocke toutes les données utilisateur au repos dans des centres de données européens. Toutefois, les journaux d’activité des opérations (avec les données personnelles supprimées) restent à l’emplacement d’où la personne accède aux services. Par exemple, si un utilisateur B2C accède au service depuis les États-Unis, les journaux d’activité des opérations restent aux États-Unis. En outre, toutes les données de configuration de stratégie ne contenant aucune donnée personnelle sont uniquement stockées aux États-Unis. Pour plus d’informations sur les configurations de stratégie, consultez l’article [Azure Active Directory B2C : stratégies intégrées](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
 
 - **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
     

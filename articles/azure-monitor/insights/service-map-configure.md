@@ -236,7 +236,7 @@ Procédez comme suit pour installer l’agent de dépendances sur chaque ordinat
     `InstallDependencyAgent-Windows.exe`
 
 3.  Suivez les instructions de l’assistant de configuration pour installer l’agent.
-4.  Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux. Sur les agents Windows, le répertoire des journaux est %Programfiles%\Microsoft Dependency Agent\logs. 
+4.  Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Sur les agents Windows, le répertoire des journaux d’activité est %Programfiles%\Microsoft Dependency Agent\logs. 
 
 #### <a name="windows-command-line"></a>Ligne de commande Windows
 
@@ -265,7 +265,7 @@ Procédez comme suit pour installer l’agent de dépendances sur chaque ordinat
     
     `sh InstallDependencyAgent-Linux64.bin`
 
-3.  Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux. Sur les agents Linux, le répertoire des journaux est /var/opt/microsoft/dependency-agent/log.
+3.  Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Sur les agents Linux, le répertoire des journaux est /var/opt/microsoft/dependency-agent/log.
 
 Pour afficher la liste des indicateurs d’installation, exécutez le programme d’installation avec l’indicateur -help comme suit.
 
@@ -380,7 +380,7 @@ L’agent de dépendances ne nécessite *généralement* pas un redémarrage à 
 
 L’agent de dépendances Microsoft repose sur les bibliothèques runtime de Microsoft Visual Studio. Vous recevrez un message si un problème est survenu lors de l’installation des bibliothèques. 
 
-Les programmes d’installation des bibliothèques Runtime créent des journaux dans le dossier %LOCALAPPDATA%\temp. Le fichier est dd_vcredist_arch_aaaammjjhhmmss.log, où *arch* prend la valeur « x86 » ou « amd64 » et *aaaammjjhhmmss* correspond à la date et à l’heure (au format 24 heures) de création du journal. Le journal fournit des détails sur le problème qui bloque l’installation.
+Les programmes d’installation des bibliothèques Runtime créent des journaux d’activité dans le dossier %LOCALAPPDATA%\temp. Le fichier est dd_vcredist_arch_aaaammjjhhmmss.log, où *arch* prend la valeur « x86 » ou « amd64 » et *aaaammjjhhmmss* correspond à la date et à l’heure (au format 24 heures) de création du journal. Le journal fournit des détails sur le problème qui bloque l’installation.
 
 Il peut être utile d’installer d’abord les [dernières bibliothèques runtime](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) par vous-même.
 

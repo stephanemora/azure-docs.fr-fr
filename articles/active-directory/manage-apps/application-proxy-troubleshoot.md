@@ -29,7 +29,7 @@ Si des erreurs se produisent dans l’accès à une application publiée ou dans
 * Ouvrez la console Services Windows et vérifiez que le service **Connecteur de proxy d’application Microsoft AAD** est activé et en cours d’exécution. Vous pouvez également consulter la page de propriétés du service Proxy d’application, comme le montre l’image suivante :   
   ![Capture d’écran de la fenêtre Propriétés du connecteur de proxy d’application Microsoft AAD](./media/application-proxy-troubleshoot/connectorproperties.png)
 * Ouvrez l’Observateur d’événements et recherchez les événements du proxy d’application sous **Journaux des applications et des services** > **Microsoft** > **AadApplicationProxy** > **Connecteur** > **Admin**.
-* Si nécessaire, des journaux plus détaillés sont disponibles [en activant les journaux de session du connecteur de proxy d’application](application-proxy-connectors.md#under-the-hood).
+* Si nécessaire, des journaux d’activité plus détaillés sont disponibles [en activant les journaux d’activité de session du connecteur de proxy d’application](application-proxy-connectors.md#under-the-hood).
 
 Pour plus d’informations sur l’outil de dépannage d’Azure AD, consultez [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites) (Outil de dépannage pour valider la configuration requise pour la mise en réseau d’un connecteur).
 

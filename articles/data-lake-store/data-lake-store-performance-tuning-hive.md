@@ -14,7 +14,7 @@ ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
 ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/25/2018
 ms.locfileid: "50024288"
@@ -77,7 +77,7 @@ Supposons que vous disposiez d’un cluster D14 à 8 nœuds.
 
 **Limitation de bande passante Data Lake Storage Gen1** 
 
-Vous pouvez constater des échecs de tâche si vous atteignez les limites de la bande passante fournie par Data Lake Storage Gen1. Vous pouvez identifier le problème en consultant les erreurs de limitation dans les journaux des tâches.  Vous pouvez réduire le parallélisme en augmentant la taille du conteneur Tez.  Si vous avez besoin de davantage de simultanéité pour votre travail, contactez-nous.
+Vous pouvez constater des échecs de tâche si vous atteignez les limites de la bande passante fournie par Data Lake Storage Gen1. Vous pouvez identifier le problème en consultant les erreurs de limitation dans les journaux d’activité des tâches.  Vous pouvez réduire le parallélisme en augmentant la taille du conteneur Tez.  Si vous avez besoin de davantage de simultanéité pour votre travail, contactez-nous.
 
 Pour vérifier si une limitation est appliquée, vous devez activer la journalisation du débogage côté client. Voici comment procéder :
 

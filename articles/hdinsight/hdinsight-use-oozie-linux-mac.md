@@ -505,7 +505,7 @@ L’interface utilisateur web Oozie fournit une vue web de l’état des travaux
    * Définition du travail
    * Configuration
    * Un graphique des actions exécutées sur le travail
-   * Les journaux du travail
+   * Les journaux d’activité du travail
 
 Vous pouvez également afficher les détails pour les actions au sein d’un travail.
 
@@ -529,7 +529,7 @@ Pour accéder à l’interface utilisateur web Oozie, procédez comme suit :
 
 6. Sous l’onglet **Infos travail**, vous pouvez voir les informations de base sur le travail, ainsi que les actions individuelles au sein du travail. Vous pouvez utiliser les onglets en haut de la page pour afficher la **définition du travail**, la **configuration du travail**, accéder au **journal du travail** ou afficher un graphe orienté acyclique (DAG) du travail sous **Job DAG** (DAG du travail).
 
-   * **Journal de la tâche** : Cliquez sur le bouton **Obtenir les journaux** pour obtenir tous les journaux de la tâche, ou utilisez le champ **Entrer un filtre de recherche** pour filtrer les journaux.
+   * **Journal de la tâche** : Cliquez sur le bouton **Obtenir les journaux d’activité** pour obtenir tous les journaux d’activité de la tâche, ou utilisez le champ **Entrer un filtre de recherche** pour filtrer les journaux d’activité.
 
        ![Journal du travail](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
@@ -654,13 +654,13 @@ Vous pouvez utiliser le coordinateur pour spécifier un début, une fin et la fr
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Avec l’interface utilisateur Oozie, vous pouvez afficher les journaux Oozie. L’interface utilisateur Oozie contient également des liens vers les journaux JobTracker pour les tâches MapReduce démarrées par le workflow. Le modèle pour la résolution des problèmes doit être le suivant :
+Avec l’interface utilisateur Oozie, vous pouvez afficher les journaux d’activité Oozie. L’interface utilisateur Oozie contient également des liens vers les journaux d’activité JobTracker pour les tâches MapReduce démarrées par le workflow. Le modèle pour la résolution des problèmes doit être le suivant :
 
    1. Affichez le travail dans l’interface utilisateur web Oozie.
 
    2. En cas d’erreur ou d’échec d’une action spécifique, sélectionnez l’action pour voir si le champ **Message d’erreur** fournit plus d’informations sur l’échec.
 
-   3. Si elle est disponible, utilisez l’URL de l’action pour afficher des détails supplémentaires (tels que les journaux JobTracker) pour l’action.
+   3. Si elle est disponible, utilisez l’URL de l’action pour afficher des détails supplémentaires (tels que les journaux d’activité JobTracker) pour l’action.
 
 Voici des erreurs spécifiques que vous pouvez rencontrer avec une description de la marche à suivre pour les résoudre.
 

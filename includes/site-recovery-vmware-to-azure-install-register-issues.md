@@ -6,7 +6,7 @@ ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 9919521c8cb77f23f50a8097c4e630b4467dc725
 ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50164743"
@@ -17,7 +17,7 @@ ms.locfileid: "50164743"
 |ERREUR   Impossible de charger des comptes. Erreur : System.IO.IOException : Impossible de lire les données de la connexion de transport lors de l’installation et de l’inscription du serveur CS.| Vérifiez que TLS 1.0 est activé sur l’ordinateur. |
 
 ### <a name="registration-failures"></a>Échecs d’enregistrement
-Les échecs d’enregistrement peuvent être débogués en consultant les journaux dans le dossier **%ProgramData%\ASRLogs**.
+Les échecs d’enregistrement peuvent être débogués en consultant les journaux d’activité dans le dossier **%ProgramData%\ASRLogs**.
 
 | **Exemple de message d’erreur** | **Action recommandée** |
 |--------------------------|------------------------|

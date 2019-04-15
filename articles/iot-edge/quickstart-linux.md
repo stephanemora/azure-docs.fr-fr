@@ -154,7 +154,7 @@ Vérifiez que le runtime a été correctement installé et configuré sur votre 
 
    ![Voir le démon Edge s’exécuter en tant que service système](./media/quickstart-linux/iotedged-running.png)
 
-2. Si vous avez besoin de résoudre les problèmes du service, récupérez les journaux de ce dernier.
+2. Si vous avez besoin de résoudre les problèmes du service, récupérez les journaux d’activité de ce dernier.
 
    ```bash
    journalctl -u iotedge

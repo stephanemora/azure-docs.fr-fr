@@ -133,7 +133,7 @@ Fonctionnalités d’infrastructure d’expérience de stratégie/identité pers
 | Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Notes |
 | ------- | ----------- | ------- | -- | ----- |
 | Expérience utilisateur de l’infrastructure d’expérience d’identité dans le Portail Azure |  |  | X |  |
-| Journaux du parcours utilisateur Application Insights |  | X |  | Utilisé pour la résolution des problèmes pendant le développement.  |
+| Journaux d’activité du parcours utilisateur Application Insights |  | X |  | Utilisé pour la résolution des problèmes pendant le développement.  |
 | Journaux des événements application Insights (via les étapes d’orchestration) |  | X |  | Utilisé pour contrôler le flux d’utilisateurs en production. |
 
 ## <a name="next-steps"></a>Étapes suivantes

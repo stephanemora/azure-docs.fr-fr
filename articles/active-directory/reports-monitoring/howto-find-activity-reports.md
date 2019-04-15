@@ -178,13 +178,13 @@ Les actions n’apparaissent pas immédiatement dans les journaux d’activité.
 
 #### <a name="resolution"></a>Résolution :
 
-Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent dans le journal. Si vous ne voyez toujours pas les journaux après deux heures, [créez un ticket de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) et nous l’étudierons.
+Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent dans le journal. Si vous ne voyez toujours pas les journaux d’activité après deux heures, [créez un ticket de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) et nous l’étudierons.
 
-### <a name="missing-logs-for-recent-user-sign-ins-in-the-azure-ad-sign-ins-activity-log"></a>Journaux manquants pour des connexions utilisateur récentes dans le journal d’activité des connexions à Azure AD
+### <a name="missing-logs-for-recent-user-sign-ins-in-the-azure-ad-sign-ins-activity-log"></a>Journaux d’activité manquants pour des connexions utilisateur récentes dans le journal d’activité des connexions à Azure AD
 
 #### <a name="symptoms"></a>Symptômes
 
-Je me suis connecté récemment au portail Azure et je pensais pouvoir consulter les journaux de connexion associés dans le panneau `Activity logs > Sign-ins`, mais je ne les trouve pas.
+Je me suis connecté récemment au portail Azure et je pensais pouvoir consulter les journaux d’activité de connexion associés dans le panneau `Activity logs > Sign-ins`, mais je ne les trouve pas.
 
  ![Reporting](./media/troubleshoot-missing-audit-data/02.png)
  
@@ -199,7 +199,7 @@ Les actions n’apparaissent pas immédiatement dans les journaux d’activité.
 
 #### <a name="resolution"></a>Résolution :
 
-Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent dans le journal. Si vous ne voyez toujours pas les journaux après deux heures, [créez un ticket de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) et nous l’étudierons.
+Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent dans le journal. Si vous ne voyez toujours pas les journaux d’activité après deux heures, [créez un ticket de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) et nous l’étudierons.
 
 ### <a name="i-cant-view-more-than-30-days-of-report-data-in-the-azure-portal"></a>Je n’arrive pas à afficher plus de 30 jours de données de rapport dans le portail Azure
 

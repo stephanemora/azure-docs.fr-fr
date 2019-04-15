@@ -1,6 +1,6 @@
 ---
-title: Gérer les journaux des flux de groupe de sécurité réseau avec Azure Network Watcher - API REST | Microsoft Docs
-description: Cette page explique comment gérer les journaux des flux de groupe de sécurité réseau dans Azure Network Watcher avec l’API REST
+title: Gérer les journaux d’activité des flux de groupe de sécurité réseau avec Azure Network Watcher - API REST | Microsoft Docs
+description: Cette page explique comment gérer les journaux d’activité des flux de groupe de sécurité réseau dans Azure Network Watcher avec l’API REST
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -21,7 +21,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58485015"
 ---
-# <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configuration des journaux des flux de groupe de sécurité réseau avec l’API REST
+# <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configuration des journaux d’activité des flux de groupe de sécurité réseau avec l’API REST
 
 > [!div class="op_single_selector"]
 > - [Portail Azure](network-watcher-nsg-flow-logging-portal.md)
@@ -29,7 +29,7 @@ ms.locfileid: "58485015"
 > - [Interface de ligne de commande Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
-Les journaux des flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau. Ces flux de journaux sont écrits au format json et affichent les flux entrants et sortants en fonction de la règle, la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), ainsi que l’autorisation ou le refus du trafic.
+Les journaux de flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet d’afficher des informations sur le trafic IP entrant et sortant d’un groupe de sécurité réseau. Ces journaux de flux sont écrits au format json et affichent les flux entrants et sortants en fonction de règles, de la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), et de l’autorisation ou du refus du trafic.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -42,13 +42,13 @@ Ce scénario repose sur l’hypothèse que vous avez déjà suivi la procédure 
 
 ## <a name="scenario"></a>Scénario
 
-Le scénario décrit dans cet article vous indique comment activer, désactiver et interroger les journaux des flux à l’aide de l’API REST. Pour plus d’informations sur la journalisation des flux de groupe de sécurité réseau, consultez l’article [Network Security Group flow logging - Overview](network-watcher-nsg-flow-logging-overview.md) (Présentation de la journalisation des flux de groupe de sécurité réseau).
+Le scénario décrit dans cet article vous indique comment activer, désactiver et interroger les journaux d’activité des flux à l’aide de l’API REST. Pour plus d’informations sur la journalisation des flux de groupe de sécurité réseau, consultez l’article [Network Security Group flow logging - Overview](network-watcher-nsg-flow-logging-overview.md) (Présentation de la journalisation des flux de groupe de sécurité réseau).
 
 Dans ce scénario, vous allez :
 
-* Activer les journaux des flux (version 2)
-* Désactiver les journaux des flux
-* Interroger l’état des journaux des flux
+* Activer les journaux d’activité des flux (version 2)
+* Désactiver les journaux d’activité des flux
+* Interroger l’état des journaux d’activité des flux
 
 ## <a name="log-in-with-armclient"></a>Se connecter à ARMClient
 
@@ -67,7 +67,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000"
 armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2016-09-01"
 ```
 
-## <a name="enable-network-security-group-flow-logs"></a>Activer les journaux des flux de groupe de sécurité réseau
+## <a name="enable-network-security-group-flow-logs"></a>Activer les journaux d’activité des flux de groupe de sécurité réseau
 
 La commande d’activation des journaux de flux version 2 est illustrée dans l’exemple suivant. Pour la version 1, remplacez le champ « version » par « 1 » :
 
@@ -118,9 +118,9 @@ La réponse renvoyée par l’exemple précédent est la suivante :
 }
 ```
 
-## <a name="disable-network-security-group-flow-logs"></a>Désactiver les journaux des flux de groupe de sécurité réseau
+## <a name="disable-network-security-group-flow-logs"></a>Désactiver les journaux d’activité des flux de groupe de sécurité réseau
 
-Utilisez l’exemple ci-après pour désactiver les journaux des flux. L’appel est identique à l’activation des journaux des flux, à l’exception de la définition de la propriété enabled sur la valeur **false**.
+Utilisez l’exemple ci-après pour désactiver les journaux d’activité des flux. L’appel est identique à l’activation des journaux d’activité des flux, à l’exception de la définition de la propriété enabled sur la valeur **false**.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -169,9 +169,9 @@ La réponse renvoyée par l’exemple précédent est la suivante :
 }
 ```
 
-## <a name="query-flow-logs"></a>Interroger les journaux des flux
+## <a name="query-flow-logs"></a>Interroger les journaux d’activité des flux
 
-L’appel REST ci-après interroge l’état des journaux des flux sur un groupe de sécurité réseau.
+L’appel REST ci-après interroge l’état des journaux d’activité des flux sur un groupe de sécurité réseau.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -219,6 +219,6 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [visualiser vos journaux de flux de groupe de sécurité réseau avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+Découvrez comment [visualiser vos journaux d’activité des flux de groupe de sécurité réseau avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 Découvrez comment [visualiser vos journaux de flux de groupe de sécurité réseau avec des outils open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md).

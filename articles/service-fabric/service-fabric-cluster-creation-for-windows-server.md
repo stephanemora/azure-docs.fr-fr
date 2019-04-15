@@ -38,7 +38,7 @@ Cet article vous guide tout au long du processus de création d’un cluster Ser
 * Ouvrez un ticket pour obtenir le [support professionnel Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  En savoir plus sur le support professionnel Microsoft [ici](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Vous pouvez également bénéficier du support pour ce package dans le cadre du [Support Premier Microsoft](https://support.microsoft.com/en-us/premier).
 * Pour plus d’informations, consultez [Options de support d’Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
-* Pour collecter des journaux à des fins de support, exécutez le [collecteur de journaux de Service Fabric autonome](service-fabric-cluster-standalone-package-contents.md).
+* Pour collecter des journaux d’activité à des fins de support, exécutez le [collecteur de journaux d’activité de Service Fabric autonome](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
 

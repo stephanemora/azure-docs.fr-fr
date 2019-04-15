@@ -41,7 +41,7 @@ Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dan
 * `aggregatewordcount`: Programme mapreduce basé sur une agrégation qui compte les mots des fichiers d’entrée.
 * `aggregatewordhist`: Programme mapreduce basé sur une agrégation qui calcule l’histogramme des mots des fichiers d’entrée.
 * `bbp`: Programme mapreduce qui utilise Bailey-Borwein-Plouffe pour calculer les chiffres exacts de Pi.
-* `dbcount`: Exemple de travail qui compte les journaux de consultation de pages stockés dans une base de données.
+* `dbcount`: Exemple de travail qui compte les journaux d’activité de consultation de pages stockés dans une base de données.
 * `distbbp`: Programme mapreduce qui utilise une formule de type BBP pour calculer le nombre exact de bits de Pi.
 * `grep`: Programme mapreduce qui compte les correspondances regex dans l’entrée.
 * `join`: Travail qui effectue une jointure sur des jeux de données triés, à partition égale.

@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: bb7d6531da330bcfbf6de786ffb19984cfd1964e
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54017427"
@@ -28,7 +28,7 @@ Contoso est une société qui crée des jeux pour plusieurs plateformes : des c
 
 L’objectif de Contoso est d’identifier des opportunités de vente incitative/croisée basées sur l’historique du jeu des joueurs et d’ajouter de nouvelles fonctionnalités intéressantes, pour stimuler la croissance de l’entreprise et offrir une meilleure expérience aux clients. Pour ce cas d’utilisation, nous prenons l’exemple d’un développeur de jeux. L’entreprise souhaite optimiser ses jeux en fonction du comportement des joueurs. Ces principes s’appliquent à toute entreprise cherchant à fidéliser ses clients autour de ses produits et services et à améliorer leur expérience d’achat.
 
-Dans cette solution, Contoso souhaite évaluer l’efficacité d’une campagne marketing qu'elle a lancée récemment. Nous commençons avec des journaux de jeu bruts, les traitons et les enrichissons avec des données de géolocalisation, les joignons avec des données de référence publicitaires et enfin les copions dans Azure SQL Database pour analyser l’impact de la campagne.
+Dans cette solution, Contoso souhaite évaluer l’efficacité d’une campagne marketing qu'elle a lancée récemment. Nous commençons avec des journaux d’activité de jeu bruts, les traitons et les enrichissons avec des données de géolocalisation, les joignons avec des données de référence publicitaires et enfin les copions dans Azure SQL Database pour analyser l’impact de la campagne.
 
 ## <a name="deploy-solution"></a>Déployer la solution
 Pour accéder à ce cas d’utilisation simple et l’essayer, il vous suffit d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/), d’un [compte de stockage d’objets Blob Azure](../../storage/common/storage-quickstart-create-account.md) et d’une [base de données Azure SQL Database](../../sql-database/sql-database-get-started.md). Vous déployez le pipeline de profilage de client à partir du panneau **Exemples de pipelines** sur la page d’accueil de votre Data Factory.

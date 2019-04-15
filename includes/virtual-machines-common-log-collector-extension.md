@@ -11,7 +11,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/27/2019
 ms.locfileid: "58505811"
 ---
-Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessitent la collecte des fichiers journaux du service sur les machines virtuelles au fur et à mesure que les problèmes surviennent. Vous pouvez utiliser l’extension AzureLogCollector à la demande pour exécuter une collecte unique de journaux à partir d’une ou de plusieurs machines virtuelles de service cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à l’une des machines virtuelles.
+Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessitent la collecte des fichiers journaux du service sur les machines virtuelles au fur et à mesure que les problèmes surviennent. Vous pouvez utiliser l’extension AzureLogCollector à la demande pour exécuter une collecte unique de journaux d’activité à partir d’une ou de plusieurs machines virtuelles de service cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à l’une des machines virtuelles.
 
 > [!NOTE]
 > Vous trouverez des descriptions pour la plupart des informations journalisées dans http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
@@ -20,14 +20,14 @@ Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessitent 
 
 Il existe deux modes de collecte dépendant des types de fichiers à recueillir.
 
-* **Journaux des agents invités Azure uniquement (GA)**. Ce mode de collecte inclut tous les journaux liés aux agents invités Azure et d’autres composants Azure.
+* **Journaux des agents invités Azure uniquement (GA)**. Ce mode de collecte inclut tous les journaux d’activité liés aux agents invités d’Azure et d’autres composants Azure.
 * **Tous les journaux (Complet)**. Ce mode de collecte recueille tous les fichiers en mode GA, plus les suivants :
   
   * journaux des événements système et d’application
-  * Journaux d’erreurs HTTP
-  * Journaux IIS
-  * Fichiers journaux d’installation
-  * autres journaux système.
+  * Journaux d’activité d’erreurs HTTP
+  * Journaux d’activité IIS
+  * Fichiers journaux d’activité d’installation
+  * autres journaux d’activité système.
 
 Dans les deux modes de collecte, les dossiers de collecte de données supplémentaires peuvent être spécifiés à l’aide d’une collection de la structure suivante :
 
@@ -527,5 +527,5 @@ else
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez maintenant examiner ou copier vos journaux à partir d’un emplacement simple.
+Vous pouvez maintenant examiner ou copier vos journaux d’activité à partir d’un emplacement simple.
 

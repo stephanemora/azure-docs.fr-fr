@@ -45,7 +45,7 @@ Pour plus d’informations, consultez [Planifier l’adressage IP pour votre clu
 Il peut y avoir diverses raisons pour que le pod soit bloqué dans ce mode. Vous pourriez examiner :
 
 * Le pod lui-même, en utilisant `kubectl describe pod <pod-name>`.
-* Les journaux en utilisant `kubectl log <pod-name>`.
+* Les journaux d’activité en utilisant `kubectl log <pod-name>`.
 
 Pour plus d’informations sur la façon de résoudre les problèmes de pod, voir [Déboguer des applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
@@ -63,7 +63,7 @@ La façon la plus simple d’accéder à votre service à l’extérieur du clus
 
 Si vous ne voyez pas le tableau de bord Kubernetes, vérifiez si le pod `kube-proxy` est en cours d’exécution dans l’espace de noms `kube-system`. S’il n’est pas en cours d’exécution, supprimez-le afin qu’il redémarre.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Je ne parviens pas à obtenir les journaux à l’aide des journaux de kubectl, ou à me connecter au serveur API. J’obtiens « erreur de serveur : back-end de l’erreur de numérotation : composer tcp... ». Que dois-je faire ?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Je ne parviens pas à obtenir les journaux d’activité à l’aide des journaux d’activité de kubectl, ou à me connecter au serveur API. J’obtiens « erreur de serveur : back-end de l’erreur de numérotation : composer tcp... ». Que dois-je faire ?
 
 Assurez-vous que le groupe de sécurité réseau par défaut n’est pas modifié et que le port 22 est ouvert pour la connexion au serveur d’API. Vérifiez si le `tunnelfront` pod est en cours d’exécution le *kube-system* à l’aide de l’espace de noms le `kubectl get pods --namespace kube-system` commande. Si ce n’est pas le cas, forcez la suppression du pod pour qu’il redémarre.
 

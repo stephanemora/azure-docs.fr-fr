@@ -153,13 +153,13 @@ Cet article décrit le schéma de journal d’audit Azure Active Directory (Azur
 | operationName | Nom de l’opération. |
 | operationVersion | Version d’API REST demandée par le client. |
 | category | Actuellement, *Audit* est la seule valeur prise en charge. |
-| tenantId | GUID de locataire associé aux journaux. |
+| tenantId | GUID de locataire associé aux journaux d’activité. |
 | resultType | Résultat de l’opération. Le résultat peut être *Success* (Réussite) ou *Failure* (Échec). |
 | resultSignature |  Ce champ n’étant pas mappé, vous pouvez l’ignorer en toute sécurité. | 
 | resultDescription | Description supplémentaire du résultat, si disponible. | 
 | durationMS |  Ce champ n’étant pas mappé, vous pouvez l’ignorer en toute sécurité. |
 | callerIpAddress | Adresse IP du client à l’origine de la demande. | 
-| correlationId | GUID facultatif passé par le client. Il peut aider à corréler des opérations côté client avec des opérations côté serveur, et est utile lors du suivi de journaux couvrant plusieurs services. |
+| correlationId | GUID facultatif passé par le client. Il peut aider à corréler des opérations côté client avec des opérations côté serveur, et est utile lors du suivi de journaux d’activité couvrant plusieurs services. |
 | identité | Identité extraite du jeton présenté lors de la création de la demande. Il peut s’agir d’un compte d’utilisateur, d’un compte système ou d’un principal du service. |
 | level | Type de message. Pour les journaux d’audit, le niveau est toujours *informatif*. |
 | location | Emplacement du centre de données. |

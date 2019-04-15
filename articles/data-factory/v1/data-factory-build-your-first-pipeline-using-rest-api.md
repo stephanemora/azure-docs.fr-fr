@@ -127,7 +127,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de co
 |:--- |:--- |
 | ClusterSize |Taille du cluster HDInsight. |
 | TimeToLive |Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
-| linkedServiceName |Spécifie le compte de stockage utilisé pour stocker les journaux générés par HDInsight |
+| linkedServiceName |Spécifie le compte de stockage utilisé pour stocker les journaux d’activité générés par HDInsight |
 
 Notez les points suivants :
 

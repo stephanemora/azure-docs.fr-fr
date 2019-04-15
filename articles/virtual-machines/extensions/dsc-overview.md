@@ -200,7 +200,7 @@ Le portail collecte l’entrée suivante :
 
 - **Automatiquement mettre à niveau la version mineure** : ce champ est mappé au commutateur **AutoUpdate** dans les cmdlets et permet à l'extension de procéder automatiquement à la mise à jour vers la version la plus récente lors de l'installation. **Oui** demande au Gestionnaire d’extensions d’utiliser la toute dernière version disponible, et **Non** force l’installation de la **Version** spécifiée. Ne sélectionner ni **Oui** ni **Non** revient à sélectionner **Non**.
 
-## <a name="logs"></a>Journaux
+## <a name="logs"></a>Journaux d’activité
 
 Journaux pour l’extension sont stockés dans l’emplacement suivant : `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
 

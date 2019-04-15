@@ -40,7 +40,7 @@ Voici quelques exemples d’utilisation de points de terminaison de service :
 
 Voici les étapes requises pour configurer les pare-feux et réseaux virtuels. Ces étapes s’appliquent si vous utilisez PowerShell, Azure CLI ou le portail Azure.
 
-1. Activez la [journalisation Key Vault](key-vault-logging.md) pour voir des journaux d’accès détaillés. Ceci vous aide à poser des diagnostics quand des règles de pare-feux et de réseau virtuel empêchent l’accès à un coffre de clés. (Cette étape est facultative mais fortement recommandée.)
+1. Activez la [journalisation Key Vault](key-vault-logging.md) pour voir des journaux d’activité d’accès détaillés. Ceci vous aide à poser des diagnostics quand des règles de pare-feux et de réseau virtuel empêchent l’accès à un coffre de clés. (Cette étape est facultative mais fortement recommandée.)
 2. Activez des **points de terminaison de service pour Key Vault** pour les réseaux et sous-réseaux virtuels cibles.
 3. Définissez des règles de pare-feux et de réseau virtuel pour un coffre de clés, afin de restreindre l’accès à ce coffre de clés à partir de réseaux virtuels, sous-réseaux et plages d’adresses IPv4 spécifiques.
 4. Si ce coffre de clés doit être accessible à tous les services Microsoft approuvés, vous devez activer l’option autorisant des **services Microsoft approuvés** à se connecter à Key Vault.

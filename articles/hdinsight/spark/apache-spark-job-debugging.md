@@ -11,7 +11,7 @@ ms.date: 12/05/2018
 ms.author: hrasheed
 ms.openlocfilehash: 1601663266f59668918e6799b5c4a7ff606431c4
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53600010"
@@ -40,9 +40,9 @@ Vous devez disposer des éléments suivants :
     ![Rechercher l’ID d’application Spark](./media/apache-spark-job-debugging/find-application-id.png)
    
     Pour les applications lancées à partir des bloc-notes Jupyter, l’état est toujours **EN COURS D’EXÉCUTION** tant que vous ne fermez pas le bloc-notes.
-3. Dans la vue de l’application, vous pouvez descendre pour rechercher les conteneurs associés à l’application et aux journaux (stdout/stderr). Vous pouvez également lancer l’interface utilisateur Spark en cliquant sur le lien qui correspond à l’ **URL de suivi**, comme indiqué ci-dessous. 
+3. Dans la vue de l’application, vous pouvez descendre pour rechercher les conteneurs associés à l’application et aux journaux d’activité (stdout/stderr). Vous pouvez également lancer l’interface utilisateur Spark en cliquant sur le lien qui correspond à l’ **URL de suivi**, comme indiqué ci-dessous. 
    
-    ![Télécharger les journaux de conteneur](./media/apache-spark-job-debugging/download-container-logs.png)
+    ![Télécharger les journaux d’activité de conteneur](./media/apache-spark-job-debugging/download-container-logs.png)
 
 ## <a name="track-an-application-in-the-spark-ui"></a>Effectuer le suivi d’une application dans l’interface utilisateur Spark
 Dans l’interface utilisateur Spark, vous pouvez explorer les travaux Spark générés par l’application que vous avez démarrée précédemment.

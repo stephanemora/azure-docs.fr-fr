@@ -369,7 +369,7 @@ Toutes les tâches existantes sont toujours affichées. Lorsque vous republiez v
 
 ## <a name="stream-diagnostic-logs"></a>Diffuser les journaux de diagnostic
 
-Pendant l’exécution de l’application ASP.NET Core dans Azure App Service, vous pouvez acheminer les journaux de la console vers Cloud Shell. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
+Pendant l’exécution de l’application ASP.NET Core dans Azure App Service, vous pouvez acheminer les journaux d’activité de la console vers Cloud Shell. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
 
 L’exemple de projet suit déjà les instructions fournies dans [Journalisation ASP.NET Core dans Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure), et apporte deux changements à la configuration :
 
@@ -392,11 +392,11 @@ Pour démarrer la diffusion de journaux, utilisez la commande [`az webapp log ta
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-Une fois que la diffusion a démarré, actualisez l’application Azure dans le navigateur pour générer un trafic web. Vous pouvez maintenant voir les journaux de la console acheminés vers le terminal. Si vous ne voyez pas les journaux de la console, attendez 30 secondes et vérifiez à nouveau.
+Une fois que la diffusion a démarré, actualisez l’application Azure dans le navigateur pour générer un trafic web. Vous pouvez maintenant voir les journaux d’activité de la console acheminés vers le terminal. Si vous ne voyez pas les journaux d’activité de la console, attendez 30 secondes et vérifiez à nouveau.
 
 Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl`+`C`.
 
-Pour plus d’informations sur la personnalisation des journaux ASP.NET Core, consultez [Journalisation dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+Pour plus d’informations sur la personnalisation des journaux d’activité ASP.NET Core, consultez [Journalisation dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
@@ -422,7 +422,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Connecter une application .NET Core à une instance SQL Database
 > * Déploiement de l’application dans Azure
 > * Mettre à jour le modèle de données et redéployer l’application
-> * Diffuser des journaux à partir d’Azure vers votre terminal
+> * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.

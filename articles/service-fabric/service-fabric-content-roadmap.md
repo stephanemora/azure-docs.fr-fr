@@ -185,7 +185,7 @@ Les principaux objectifs de la surveillance et des diagnostics sont de :
  
 Le flux de travail global de la surveillance et des diagnostics se compose de trois étapes :
 
-1. Génération d’événements : il s’agit d’événements (journaux, traces, événements personnalisés) au niveau de l’infrastructure (cluster), de la plateforme et de l’application/du service.
+1. Génération d’événements : il s’agit d’événements (journaux d’activité, traces, événements personnalisés) au niveau de l’infrastructure (cluster), de la plateforme et de l’application/du service.
 2. Agrégation d’événements : les événements générés doivent être collectés et agrégés pour pouvoir être affichés.
 3. Analyse : les événements doivent être visualisés et accessibles dans un certain format pour permettre l’analyse et l’affichage souhaités.
 

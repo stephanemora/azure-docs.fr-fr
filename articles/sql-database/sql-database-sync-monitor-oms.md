@@ -32,7 +32,7 @@ Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des 
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tableau de bord de surveillance pour tous vos groupes de synchronisation 
 
-Vous n’avez plus besoin d’examiner les journaux de chaque groupe de synchronisation individuellement pour rechercher des problèmes. Vous pouvez surveiller tous vos groupes de synchronisation à partir d’un de vos abonnements au même endroit à l’aide d’une vue personnalisée de Azure Monitor. Cette vue met en évidence les informations qui intéressent les clients SQL Data Sync.
+Vous n’avez plus besoin d’examiner les journaux d’activité de chaque groupe de synchronisation individuellement pour rechercher des problèmes. Vous pouvez surveiller tous vos groupes de synchronisation à partir d’un de vos abonnements au même endroit à l’aide d’une vue personnalisée de Azure Monitor. Cette vue met en évidence les informations qui intéressent les clients SQL Data Sync.
 
 ![Tableau de surveillance Data Sync](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 

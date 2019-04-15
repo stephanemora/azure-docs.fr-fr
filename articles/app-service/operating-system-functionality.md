@@ -17,13 +17,13 @@ ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
 ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/25/2019
 ms.locfileid: "54901783"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
-Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications Windows exécutées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l'accès aux fichiers, l'accès réseau et l'accès au registre, ainsi que les journaux et événements de diagnostic. 
+Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications Windows exécutées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l’accès aux fichiers, l’accès réseau et l’accès au registre, ainsi que les journaux d’activité et événements de diagnostic. 
 
 > [!NOTE] 
 > Les [applications Linux](containers/app-service-linux-intro.md) dans App Service s’exécutent dans leurs propres conteneurs. Aucun accès au système d’exploitation hôte n’est autorisé, car vous n’avez pas d’accès racine au conteneur. De même, pour les [applications qui s’exécutent dans des conteneurs Windows](app-service-web-get-started-windows-container.md), vous disposez d’un accès administratif au conteneur mais pas d’un accès au système d’exploitation hôte. 
@@ -80,7 +80,7 @@ En raison du mode de fonctionnement des services Azure, la machine virtuelle cha
 <a id="TypesOfFileAccess"></a>
 
 ### <a name="types-of-file-access-granted-to-an-app"></a>Types d'accès aux fichiers octroyés à une application
-L’abonnement de chaque client comporte une structure de répertoires réservée sur un partage UNC spécifique dans un centre de données. Un client peut disposer de plusieurs applications créées dans un centre de données spécifique, ainsi tous les répertoires appartenant à un abonnement client sont créés sur le même partage UNC. Le partage peut inclure des répertoires tels que ceux destinés au contenu, aux journaux d’erreurs et de diagnostic et aux précédentes versions de l’application créées par le contrôle du code source. Les répertoires de l’application d’un client sont accessibles en lecture et en écriture lors de l’exécution par le code d’application de l’application.
+L’abonnement de chaque client comporte une structure de répertoires réservée sur un partage UNC spécifique dans un centre de données. Un client peut disposer de plusieurs applications créées dans un centre de données spécifique, ainsi tous les répertoires appartenant à un abonnement client sont créés sur le même partage UNC. Le partage peut inclure des répertoires tels que ceux destinés au contenu, aux journaux d’activité d’erreurs et de diagnostic et aux précédentes versions de l’application créées par le contrôle du code source. Les répertoires de l’application d’un client sont accessibles en lecture et en écriture lors de l’exécution par le code d’application de l’application.
 
 Sur les lecteurs locaux associés à la machine virtuelle qui exécute une application, App Service réserve une partie de l’espace sur le lecteur C:\ au stockage local temporaire propre à l’application. Bien qu’une application dispose d’un accès en lecture/écriture complet à son propre stockage local temporaire, ce stockage n’est pas destiné à être directement utilisé par le code d’application. Il a pour but de fournir un stockage de fichiers temporaire à IIS et aux infrastructures d'applications Web. App Service limite également le stockage local temporaire accessible à chaque application pour empêcher que différentes applications n’utilisent une part excessive du stockage de fichiers local.
 
@@ -113,10 +113,10 @@ Les applications peuvent générer et exécuter un code arbitraire. Une applicat
 
 <a id="Diagnostics"></a>
 
-## <a name="diagnostics-logs-and-events"></a>Journaux et événements de diagnostic
+## <a name="diagnostics-logs-and-events"></a>Journaux d’activité et événements de diagnostic
 Certaines applications peuvent également tenter d'accéder aux informations de journalisation. Les types d’informations de journalisation accessibles au code exécuté dans App Service englobent les informations de diagnostic et de journalisation générées par une application et sont également facilement accessibles à une application. 
 
-Par exemple, les journaux HTTP W3C générés par une application active sont disponibles dans un répertoire de journaux du partage réseau créé pour l’application ou dans un stockage d’objets blob si le client a configuré la journalisation W3C pour le stockage. Cette dernière option permet de collecter de gros volumes de journaux sans risquer de dépasser les limites de stockage de fichiers associées à un partage réseau.
+Par exemple, les journaux d’activité HTTP W3C générés par une application active sont disponibles dans un répertoire de journaux d’activité du partage réseau créé pour l’application ou dans un stockage d’objets blob si le client a configuré la journalisation W3C pour le stockage. Cette dernière option permet de collecter de gros volumes de journaux d’activité sans risquer de dépasser les limites de stockage de fichiers associées à un partage réseau.
 
 De même, les informations de diagnostic en temps réel des applications .NET peuvent être consignées via l’infrastructure de suivi et de diagnostic .NET, avec possibilité de consigner les informations de suivi sur le partage réseau de l’application ou à un emplacement de stockage d’objets blob.
 

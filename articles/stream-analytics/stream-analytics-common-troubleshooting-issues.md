@@ -26,7 +26,7 @@ ms.locfileid: "59521473"
 
 ![Vignette d’entrées sur le tableau de bord Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Pour plus d’informations, activez les journaux de diagnostics pour afficher les détails de l’avertissement. Pour les événements d’entrée incorrectement formés, les journaux d’exécution contiennent une entrée avec un message semblable à celui-ci : « Message : Impossible de désérialiser l’ou les événements d’entrée à partir de la ressource \<URI d’objet blob > au format json ». 
+Pour plus d’informations, activez les journaux de diagnostics pour afficher les détails de l’avertissement. Pour les événements d’entrée incorrectement formés, les journaux d’activité d’exécution contiennent une entrée avec un message semblable à celui-ci : « Message : Impossible de désérialiser l’ou les événements d’entrée à partir de la ressource \<URI d’objet blob > au format json ». 
 
 ### <a name="troubleshooting-steps"></a>Étapes de dépannage
 

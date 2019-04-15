@@ -494,7 +494,7 @@ L'ajout d'entité ou de suffixe d'entité à vos entités stockées pousse gén�
 ![Structure des entités](media/storage-table-design-guide/storage-table-design-IMAGE26.png)
 
 ### <a name="solution"></a>Solution
-La structure d'entité alternative suivante permet d'éviter une zone sensible dans n'importe quelle partition particulière tandis que l'application journalise les événements :  
+La structure d’entité alternative suivante permet d’éviter une zone sensible dans n’importe quelle partition particulière tandis que l’application journalise les événements :  
 
 ![Structure alternative des entités](media/storage-table-design-guide/storage-table-design-IMAGE27.png)
 

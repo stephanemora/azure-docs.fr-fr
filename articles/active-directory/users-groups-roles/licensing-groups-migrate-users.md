@@ -37,7 +37,7 @@ La chose la plus importante à retenir est que vous devez éviter toute situatio
 
 3. Attribuez les licences nécessaires à ces groupes. Vous devez refléter l’état de licence que votre procédure de gestion automatisée existante (par exemple, avec PowerShell) applique à ces utilisateurs.
 
-4. Vérifiez que les licences ont bien été appliquées à tous les utilisateurs de ces groupes. Pour ce faire, vérifiez l’état de traitement de chaque groupe, ainsi que les journaux d’audit.
+4. Vérifiez que les licences ont bien été appliquées à tous les utilisateurs de ces groupes. Pour ce faire, vérifiez l’état de traitement de chaque groupe, ainsi que les journaux d’activité d’audit.
 
    - Vous pouvez vérifier ponctuellement certains utilisateurs individuels en examinant les détails de leur licence. Vous constaterez qu’ils disposent des mêmes licences attribuées « directement » et « héritées » de groupes.
 

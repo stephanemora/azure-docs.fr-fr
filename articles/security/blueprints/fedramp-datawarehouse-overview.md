@@ -69,7 +69,7 @@ Coffre Recovery Services
 
 Azure Key Vault
 
-Journaux Azure Monitor
+Journaux d’activité Azure Monitor
 
 ## <a name="deployment-architecture"></a>Architecture de déploiement
 
@@ -129,8 +129,8 @@ L’architecture protège les données au repos à l’aide d’un chiffrement, 
 ### <a name="logging-and-audit"></a>Journalisation et audit
 [Journaux d’analyse Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fournit une journalisation complète de l’activité système et utilisateur, ainsi que l’intégrité du système. Le [Azure Monitor enregistre](https://azure.microsoft.com/services/log-analytics/) solution collecte et analyse les données générées par les ressources dans Azure et environnements locaux.
 - **Journaux d’activité** : les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement.
-- **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluent l’ensemble des journaux générés par chaque ressource. Ces journaux incluent les journaux système des événements Windows, ainsi que les journaux du service Stockage Blob Azure, des tables et des files d’attente.
-- **Journaux du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux de pare-feu sont disponibles pour les ressources Application Gateway pour lesquelles WAF est activé.
+- **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluent l’ensemble des journaux générés par chaque ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité du service Stockage Blob Azure, des tables et des files d’attente.
+- **Journaux du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux d’activité de pare-feu sont disponibles pour les ressources Application Gateway pour lesquelles WAF est activé.
 - **Archivage des journaux** : tous les journaux de diagnostic sont archivés dans un compte de stockage Azure centralisé et chiffré, et sont conservés pendant une période prédéfinie de deux jours. Ces journaux se connecter aux journaux d’Azure Monitor pour traitement, de stockage et les rapports de tableau de bord.
 
 En outre, cette architecture intègre également les solutions de supervision suivantes :

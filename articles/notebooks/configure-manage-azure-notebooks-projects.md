@@ -28,7 +28,7 @@ Un projet dans Azure Notebooks est essentiellement une configuration de la machi
 - les métadonnées du projet, à savoir un nom, une description, un identificateur utilisé lors du partage du projet et le type (public ou privé) ;
 - le notebook, les données et d’autres fichiers du projet, gérés comme n’importe quel autre système de fichiers ;
 - l’environnement du projet, géré avec des scripts de démarrage ou directement dans le terminal ;
-- les journaux, accessibles dans le terminal.
+- les journaux d’activité, accessibles dans le terminal.
 
 > [!Note]
 > Les fonctionnalités de gestion et de configuration décrites ici ne sont accessibles qu’au propriétaire du projet, qui l’a initialement créé. Vous pouvez cependant cloner le projet dans votre propre compte pour en devenir propriétaire et le configurer comme vous le souhaitez.
@@ -202,13 +202,13 @@ Les modifications apportées au serveur s’appliquent uniquement à la session 
 > [!Note]
 > Si vous utilisez `python` ou `python3`, vous appelez les versions de Python installées par le système, qui ne sont pas utilisées pour les notebooks. Comme vous ne disposez pas non plus des autorisations nécessaires pour les opérations telles que `pip install`, veillez à utiliser les alias spécifiques à la version.
 
-## <a name="access-notebook-logs"></a>Accéder aux journaux du notebook
+## <a name="access-notebook-logs"></a>Accéder aux journaux d’activité du notebook
 
-Si vous rencontrez des problèmes lors de l’exécution d’un notebook, la sortie de Jupyter est stockée dans un dossier nommé *.nb.log*. Vous pouvez accéder à ces journaux via la commande **Terminal** ou le tableau de bord du projet.
+Si vous rencontrez des problèmes lors de l’exécution d’un notebook, la sortie de Jupyter est stockée dans un dossier nommé *.nb.log*. Vous pouvez accéder à ces journaux d’activité via la commande **Terminal** ou le tableau de bord du projet.
 
 En général, quand vous exécutez Jupyter en local, vous pouvez l’avoir démarré à partir d’une fenêtre de terminal. La fenêtre de terminal affiche une sortie telle que l’état du noyau.
 
-Pour afficher les journaux, utilisez la commande suivante dans le terminal :
+Pour afficher les journaux d’activité, utilisez la commande suivante dans le terminal :
 
 ```bash
 cat .nb.log

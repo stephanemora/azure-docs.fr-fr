@@ -51,7 +51,7 @@ Dans la mesure où une sauvegarde complète regroupe les points de contrôle et 
 Les sauvegardes complètes posent problème dès lors qu’elles impliquent des points de contrôle volumineux.
 Par exemple, un réplica associé à un état de 16 Go verra ses points de contrôle s’accumuler jusqu’à environ 16 Go.
 Si l’objectif de point de récupération est fixé à cinq minutes, le réplica devra être sauvegardé toutes les cinq minutes.
-Chaque sauvegarde suppose de copier 16 Go de points de contrôle en plus des 50 Mo (configurables avec `CheckpointThresholdInMB`) de journaux.
+Chaque sauvegarde suppose de copier 16 Go de points de contrôle en plus des 50 Mo (configurables avec `CheckpointThresholdInMB`) de journaux d’activité.
 
 ![Exemple de sauvegarde complète.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
 

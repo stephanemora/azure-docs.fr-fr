@@ -1,6 +1,6 @@
 ---
 title: Tutoriel de détection des problèmes d’appareils dans une solution de supervision à distance - Azure | Microsoft Docs
-description: Ce tutoriel montre comment utiliser des règles et des actions pour détecter automatiquement les problèmes d’appareils liés au seuil dans la solution de surveillance à distance.
+description: Ce tutoriel montre comment utiliser des règles et des actions pour détecter automatiquement les problèmes d’appareils liés au seuil dans la solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -18,9 +18,9 @@ ms.locfileid: "53598672"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Didacticiel : Détecter les problèmes liés aux appareils connectés à votre solution de supervision
 
-Dans ce tutoriel, vous configurez l’accélérateur de solution de surveillance à distance pour détecter les problèmes liés à vos appareils IoT connectés. Pour détecter les problèmes liés à vos appareils, vous ajoutez des règles qui génèrent des alertes sur le tableau de bord de la solution.
+Dans ce tutoriel, vous configurez l’accélérateur de solution de supervision à distance pour détecter les problèmes liés à vos appareils IoT connectés. Pour détecter les problèmes liés à vos appareils, vous ajoutez des règles qui génèrent des alertes sur le tableau de bord de la solution.
 
-Pour présenter les règles et alertes, le tutoriel utilise un condenseur simulé. L’appareil de refroidissement est géré par une entreprise appelée Contoso et est connecté à l’accélérateur de solution de surveillance à distance. Contoso a déjà une règle qui génère une alerte critique lorsque la pression signalée par un appareil de refroidissement dépasse 298 psi. En tant qu’opérateur chez Contoso, vous souhaitez identifier les appareils de refroidissement avec des capteurs défectueux en recherchant des pics de pression initiale. Pour identifier ces appareils, vous ajoutez une règle qui génère une alerte d’avertissement lorsque la pression dans le refroidisseur dépasse 150 psi.
+Pour présenter les règles et alertes, le tutoriel utilise un condenseur simulé. L’appareil de refroidissement est géré par une entreprise appelée Contoso et est connecté à l’accélérateur de solution de supervision à distance. Contoso a déjà une règle qui génère une alerte critique lorsque la pression signalée par un appareil de refroidissement dépasse 298 psi. En tant qu’opérateur chez Contoso, vous souhaitez identifier les appareils de refroidissement avec des capteurs défectueux en recherchant des pics de pression initiale. Pour identifier ces appareils, vous ajoutez une règle qui génère une alerte d’avertissement lorsque la pression dans le refroidisseur dépasse 150 psi.
 
 Vous devez également créer une alerte critique pour un refroidisseur lorsque, au cours des cinq dernières minutes, l’humidité moyenne dans l’appareil était supérieure à 80 % et la température de l’appareil était supérieure à 75 degrés Fahrenheit (24 degrés Celsius).
 
@@ -72,7 +72,7 @@ Vous pouvez voir le moment où la règle est déclenchée dans la page **Règles
 
 ## <a name="create-an-advanced-rule"></a>Créer une règle avancée
 
-Pour créer une règle avec plusieurs conditions qui génère une alerte critique quand l’humidité moyenne de l’appareil de refroidissement des cinq dernières minutes est supérieure à 80 % et que la température moyenne de l’appareil de refroidissement est supérieure à 75 degrés Fahrenheit (24 degrés Celsius), choisissez Nouvelle règle. Utilisez les valeurs suivantes pour créer la règle :
+Pour créer une règle avec plusieurs conditions qui génère une alerte critique quand l’humidité moyenne de l’appareil de refroidissement des cinq dernières minutes est supérieure à 80 % et que la température moyenne de l’appareil de refroidissement est supérieure à 75 degrés Fahrenheit (24 degrés Celsius), choisissez **Nouvelle règle**. Utilisez les valeurs suivantes pour créer la règle :
 
 | Paramètre          | Valeur                                 |
 | ---------------- | ------------------------------------- |
@@ -134,7 +134,7 @@ Vous ne pouvez supprimer qu’une règle à la fois.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce tutoriel vous a montré comment utiliser la page **Règles** dans l’accélérateur de solution de surveillance à distance pour créer et gérer des règles qui déclenchent des alertes dans la solution. Pour découvrir comment utiliser l’accélérateur de solution pour gérer et configurer vos appareils connectés, passez au tutoriel suivant.
+Ce tutoriel vous a montré comment utiliser la page **Règles** dans l’accélérateur de solution de supervision à distance pour créer et gérer des règles qui déclenchent des alertes dans la solution. Pour découvrir comment utiliser l’accélérateur de solution pour gérer et configurer vos appareils connectés, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
 > [Configurer et gérer les appareils connectés à votre solution de surveillance](iot-accelerators-remote-monitoring-manage.md)

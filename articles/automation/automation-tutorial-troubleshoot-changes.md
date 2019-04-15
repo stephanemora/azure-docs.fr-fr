@@ -27,7 +27,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Intégrer une machine virtuelle pour le suivi des modifications et l’inventaire
-> * Rechercher les journaux des modifications des services arrêtés
+> * Rechercher les journaux d’activité des modifications des services arrêtés
 > * Configurer le suivi des modifications
 > * Activer la connexion du journal d’activité
 > * Déclencher un événement
@@ -62,15 +62,15 @@ Au cours de l’intégration, la machine virtuelle est approvisionnée avec l’
 Cet agent sert à communiquer avec la machine virtuelle et à obtenir des informations sur les logiciels installés.
 
 L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur.
-Une fois la solution activée, des informations sur les logiciels installés et les changements apportés à la machine virtuelle sont envoyées aux journaux Azure Monitor.
+Une fois la solution activée, des informations sur les logiciels installés et les changements apportés à la machine virtuelle sont envoyées aux journaux d’activité Azure Monitor.
 Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="using-change-tracking-in-azure-monitor-logs"></a>Utilisation du suivi des changements dans les journaux Azure Monitor
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Utilisation du suivi des changements dans les journaux d’activité Azure Monitor
 
-Le suivi des changements génère des données de journal qui sont envoyées aux journaux Azure Monitor.
-Pour rechercher les journaux en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Suivi des modifications**.
+Le suivi des changements génère des données de journal d’activité qui sont envoyées aux journaux d’activité Azure Monitor.
+Pour rechercher les journaux d’activité en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Suivi des modifications**.
 Les données de suivi des modifications sont stockées sous le type **ConfigurationData**.
 L’exemple de requête Log Analytics ci-après renvoie tous les services Windows arrêtés.
 
@@ -79,7 +79,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux Azure Monitor, consultez [Journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux d’activité Azure Monitor, consultez [Journaux d’activité Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configurer le suivi des modifications
 
@@ -219,7 +219,7 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Intégrer une machine virtuelle pour le suivi des modifications et l’inventaire
-> * Rechercher les journaux des modifications des services arrêtés
+> * Rechercher les journaux d’activité des modifications des services arrêtés
 > * Configurer le suivi des modifications
 > * Activer la connexion du journal d’activité
 > * Déclencher un événement

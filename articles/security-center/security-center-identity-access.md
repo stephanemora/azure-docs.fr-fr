@@ -119,7 +119,7 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations Identit
 |Abonnement|5.|Supprimer de votre abonnement les comptes déconseillés|Supprimez de vos abonnements les comptes déconseillés afin de restreindre l’accès aux utilisateurs actuels. |
 |Abonnement|5.|Désigner plusieurs propriétaires de votre abonnement|Désignez plusieurs propriétaires d’abonnement pour assurer une redondance de l’accès administrateur.|
 |Abonnement|5.|Désigner jusqu’à 3 propriétaires de votre abonnement|Désignez moins de trois propriétaires d’abonnement afin de réduire le risque de violation par un propriétaire compromis.|
-|Coffre de clés|5.|Activer les journaux de diagnostic dans Key Vault|Activez les journaux et conservez-les un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
+|Coffre de clés|5.|Activer les journaux de diagnostic dans Key Vault|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
 |Abonnement|15|Supprimer les comptes externes avec des autorisations de lecture de votre abonnement|Supprimez de votre abonnement les comptes externes disposant de privilèges d’accès en lecture afin d’empêcher tout accès non contrôlé.|
 |Abonnement|1|Fournir des informations de contact de sécurité|Indiquez des informations de contact de sécurité pour chacun de vos abonnements. Les informations de contact correspondent à une adresse électronique et à un numéro de téléphone. Elles sont utilisées pour vous contacter si notre équipe de sécurité détecte que vos ressources sont compromises.|
 

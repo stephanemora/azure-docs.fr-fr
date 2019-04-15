@@ -126,7 +126,7 @@ Cette requête génère des résultats similaires à ce qui suit :
 
 Pour plus d’informations sur l’API Spark Structured Stream, ainsi que les sources de données d’entrée, les opérations et les récepteurs de sortie qu’elle prend en charge, consultez le [Guide de programmation d’Apache Spark Structured Streaming](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
-## <a name="checkpointing-and-write-ahead-logs"></a>Points de contrôle et journaux WAL
+## <a name="checkpointing-and-write-ahead-logs"></a>Points de contrôle et journaux d’activité WAL
 
 Pour la résilience et la tolérance de panne, Structured Streaming s’appuie sur les *points de contrôle* pour s’assurer que le traitement de flux de données s’effectue sans interruption, même en cas de défaillances de nœud. Dans HDInsight, Spark crée des points de contrôle pour un stockage durable (Data Lake Storage ou le stockage Azure). Ces derniers stockent les informations de progression concernant la requête de diffusion en continu. Structured Streaming utilise également un *journal WAL* (write-ahead log). Le journal WAL capture les données ingérées qui ont été reçues, mais qui n’ont pas encore été traitées par une requête. En cas de défaillance et de redémarrage du traitement à partir du journal WAL, aucun des événements reçus de la source ne sera perdu.
 

@@ -97,7 +97,7 @@ Ces fonctionnalités sont conçues pour personnaliser les données stockées dan
 Nom | Objectif
 -----|--------
 [Custom Log Field 1](#custom-log-field-1) | Détermine le format et le contenu à attribuer au champ de fichier journal personnalisé dans un fichier journal brut.
-[Log Query String](#log-query-string) | Détermine si une chaîne de requête est stockée avec l’URL dans les journaux d’accès.
+[Log Query String](#log-query-string) | Détermine si une chaîne de requête est stockée avec l’URL dans les journaux d’activité d’accès.
 
 
 <!---

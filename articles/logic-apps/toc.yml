@@ -299,14 +299,14 @@ items:
     items:
     - name: Surveiller les applications logiques
       href: logic-apps-monitor-your-logic-apps.md
-    - name: Superviser les applications logiques avec les journaux Azure Monitor
+    - name: Superviser les applications logiques avec les journaux d’activité Azure Monitor
       href: logic-apps-monitor-your-logic-apps-oms.md
-    - name: Superviser les messages B2B avec les journaux Azure Monitor
+    - name: Superviser les messages B2B avec les journaux d’activité Azure Monitor
       href: logic-apps-monitor-b2b-message.md
       items:
-      - name: Suivre les messages B2B avec les journaux Azure Monitor
+      - name: Suivre les messages B2B avec les journaux d’activité Azure Monitor
         href: logic-apps-track-b2b-messages-omsportal.md
-      - name: Créer des requêtes pour les messages B2B avec les journaux Azure Monitor
+      - name: Créer des requêtes pour les messages B2B avec les journaux d’activité Azure Monitor
         href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
   - name: Exemples, scénarios et procédures pas à pas
     href: logic-apps-examples-and-scenarios.md

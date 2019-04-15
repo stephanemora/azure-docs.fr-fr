@@ -226,7 +226,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Configurer une règle DNAT
 > * Tester le pare-feu
 
-Ensuite, vous pouvez surveiller les journaux de Pare-feu Azure.
+Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Superviser les journaux de Pare-feu Azure](./tutorial-diagnostics.md)
+> [Didacticiel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)

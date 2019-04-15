@@ -116,7 +116,7 @@ Network Performance Monitor vous permet de diagnostiquer plusieurs problèmes de
 
 Vous pouvez afficher les codes de notification et définir des alertes avec **Log Analytics**. La page **Diagnostics NPM** présente la description de tous les messages de diagnostic déclenchés.
 
-| Code de notification (journaux) | Description |
+| Code de notification (journaux d’activité) | Description |
 | --- | --- |
 | 5501 | Impossible de passer par la connexion secondaire du circuit ExpressRoute |
 | 5502 | Impossible de passer par la connexion principale du circuit ExpressRoute |

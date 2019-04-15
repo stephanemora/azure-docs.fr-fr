@@ -45,7 +45,7 @@ La liste suivante répertorie les valeurs retournées par l’API de résolution
       * **actionUri** : URI de la documentation sur le mode d’action.
       * **actionUriText** : brève description du texte de l’action.
 
-Les tableaux suivants présentent les différents types d’erreur (« id » dans les résultats de la liste précédente) qui sont disponibles et indiquent si l’erreur génère des journaux.
+Les tableaux suivants présentent les différents types d’erreur (« id » dans les résultats de la liste précédente) qui sont disponibles et indiquent si l’erreur génère des journaux d’activité.
 
 ### <a name="gateway"></a>Passerelle
 
@@ -105,7 +105,7 @@ Les fichiers journaux de dépannage des ressources sont stockés dans un compte 
 ![fichier zip][1]
 
 > [!NOTE]
-> Dans certains cas, seul un sous-ensemble des fichiers journaux est écrit dans l’espace de stockage.
+> Dans certains cas, seul un sous-ensemble des fichiers journaux d’activité est écrit dans l’espace de stockage.
 
 Pour obtenir des instructions de téléchargement des fichiers à partir des comptes de stockage Azure, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). L’explorateur de stockage peut aussi être utilisé. Pour en savoir plus sur l’Explorateur Stockage, cliquez sur le lien suivant : [Explorateur Stockage](https://storageexplorer.com/)
 

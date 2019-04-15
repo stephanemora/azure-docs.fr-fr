@@ -1,6 +1,6 @@
 ---
-title: Nettoyer les journaux SSISDB avec les travaux de base de données élastique Azure | Microsoft Docs
-description: Cet article explique comment nettoyer les journaux SSISDB à l’aide de travaux de base de données élastique Azure pour déclencher la procédure stockée prévue à cet effet
+title: Nettoyer les journaux d’activité SSISDB avec les travaux de base de données élastique Azure | Microsoft Docs
+description: Cet article explique comment nettoyer les journaux d’activité SSISDB à l’aide de travaux de base de données élastique Azure pour déclencher la procédure stockée prévue à cet effet
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -19,17 +19,17 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57430915"
 ---
-# <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Nettoyer les journaux SSISDB avec les travaux de base de données élastique Azure
+# <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Nettoyer les journaux d’activité SSISDB avec les travaux de base de données élastique Azure
 
-Cet article explique comment utiliser des travaux de base de données élastique Azure pour déclencher la procédure stockée qui nettoie les journaux pour la base de données de catalogue SQL Server Integration Services, `SSISDB`.
+Cet article explique comment utiliser des travaux de base de données élastique Azure pour déclencher la procédure stockée qui nettoie les journaux d’activité pour la base de données de catalogue SQL Server Integration Services, `SSISDB`.
 
 Les travaux de base de données élastique constituent un service Azure qui simplifie l’automatisation et l’exécution de travaux par rapport à une base de données ou un groupe de bases de données. Vous pouvez planifier, exécuter et surveiller ces travaux à l’aide du portail Azure, Transact-SQL, PowerShell ou des API REST. Utilisez le travail de base de données élastique pour déclencher la procédure stockée de nettoyage unique du journal ou selon une planification. Vous pouvez choisir l’intervalle de planification en fonction de l’utilisation des ressources SSISDB afin d’éviter une lourde charge de base de données.
 
 Pour plus d’informations, consultez [Gérer des groupes de bases de données avec des travaux de base de données élastique](../sql-database/elastic-jobs-overview.md).
 
-Les sections suivantes décrivent comment déclencher la procédure stockée `[internal].[cleanup_server_retention_window_exclusive]`, qui supprime les journaux SSISDB en dehors de la fenêtre de rétention définie par l’administrateur.
+Les sections suivantes décrivent comment déclencher la procédure stockée `[internal].[cleanup_server_retention_window_exclusive]`, qui supprime les journaux d’activité SSISDB en dehors de la fenêtre de rétention définie par l’administrateur.
 
-## <a name="clean-up-logs-with-power-shell"></a>Nettoyer les journaux avec Power Shell
+## <a name="clean-up-logs-with-power-shell"></a>Nettoyer les journaux d’activité avec Power Shell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -157,13 +157,13 @@ Write-Output "Start the execution schedule of the stored procedure for SSISDB lo
 $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $IntervalCount -StartTime $StartTime -Enable
 ```
 
-## <a name="clean-up-logs-with-transact-sql"></a>Nettoyer les journaux avec Transact-SQL
+## <a name="clean-up-logs-with-transact-sql"></a>Nettoyer les journaux d’activité avec Transact-SQL
 
 Les exemples de scripts Transact-SQL suivants créent un nouveau travail élastique pour déclencher la procédure stockée de nettoyage du journal SSISDB. Pour plus d’informations, consultez [Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique](../sql-database/elastic-jobs-tsql.md).
 
 1. Créez ou identifiez un S0 vide ou une Azure SQL Database de niveau supérieur comme base de données des travaux SSISDBCleanup. Créez ensuite un agent de travail élastique dans le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
-2. Dans la base de données des travaux, créez des informations d’identification pour le travail de nettoyage du journal SSISDB. Ces informations d’identification sont utilisées pour se connecter à votre base de données SSISDB dans le but de nettoyer les journaux.
+2. Dans la base de données des travaux, créez des informations d’identification pour le travail de nettoyage du journal SSISDB. Ces informations d’identification sont utilisées pour se connecter à votre base de données SSISDB dans le but de nettoyer les journaux d’activité.
 
     ```sql
     -- Connect to the job database specified when creating the job agent
@@ -214,7 +214,7 @@ Les exemples de scripts Transact-SQL suivants créent un nouveau travail élasti
     @credential_name='SSISDBLogCleanupCred',
     @target_group_name='SSISDBTargetGroup'
     ```
-6. Avant de continuer, assurez-vous que la fenêtre de rétention a été correctement définie. Les journaux SSISDB en dehors de la fenêtre sont supprimés et ne peuvent pas être récupérés.
+6. Avant de continuer, assurez-vous que la fenêtre de rétention a été correctement définie. Les journaux d’activité SSISDB en dehors de la fenêtre sont supprimés et ne peuvent pas être récupérés.
 
    Ensuite, vous pouvez exécuter le travail immédiatement pour commencer le nettoyage du journal SSISDB.
 
@@ -228,7 +228,7 @@ Les exemples de scripts Transact-SQL suivants créent un nouveau travail élasti
     select @je
     select * from jobs.job_executions where job_execution_id = @je
     ```
-7. Si vous le souhaitez, planifiez des exécutions du travail pour supprimer les journaux SSISDB en dehors de la fenêtre de rétention selon une planification. Utilisez une instruction similaire pour mettre à jour les paramètres du travail.
+7. Si vous le souhaitez, planifiez des exécutions du travail pour supprimer les journaux d’activité SSISDB en dehors de la fenêtre de rétention selon une planification. Utilisez une instruction similaire pour mettre à jour les paramètres du travail.
 
     ```sql
     --Connect to the job database 

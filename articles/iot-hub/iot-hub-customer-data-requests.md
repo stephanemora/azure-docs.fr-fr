@@ -31,7 +31,7 @@ Si vous utilisez la fonctionnalité de routage du service Azure IoT Hub pour tra
 
 Si vous utilisez la fonctionnalité d’intégration à Azure Event Grid du service Azure IoT Hub, les demandes de données doivent être effectuées par l’administrateur client pour chaque abonné à ces événements. Pour plus d’informations, consultez l’article [Réagir aux événements IoT Hub en utilisant Event Grid](iot-hub-event-grid.md).
 
-Si vous utilisez la fonctionnalité d’intégration à Azure Monitor du service Azure IoT Hub pour créer des journaux de diagnostic, l’administrateur client doit exécuter les demandes de données sur les journaux stockés. Pour plus d’informations, consultez l’article [Surveiller l’intégrité d’Azure IoT Hub](iot-hub-monitor-resource-health.md).
+Si vous utilisez la fonctionnalité d’intégration à Azure Monitor du service Azure IoT Hub pour créer des journaux de diagnostic, l’administrateur client doit exécuter les demandes de données sur les journaux d’activité stockés. Pour plus d’informations, consultez l’article [Surveiller l’intégrité d’Azure IoT Hub](iot-hub-monitor-resource-health.md).
 
 ## <a name="deleting-customer-data"></a>Suppression des données client
 
@@ -46,7 +46,7 @@ Les administrateurs clients peuvent utiliser les opérations de copie et de coll
 Il est également possible d’effectuer des opérations d’exportation pour les appareils à l’aide des API REST. Pour plus d’informations, consultez [Service - Obtenir un appareil](/rest/api/iothub/service/getdevice).
 
 > [!NOTE]
-> Lorsque vous utilisez les services d’entreprise Microsoft, Microsoft génère des informations appelées journaux générés par le système. Certains journaux générés par le système Azure IoT Hub ne sont pas accessibles ni exportables par les administrateurs clients. Ces journaux consignent les actions factuelles exécutées au sein du service, ainsi que les données de diagnostic relatives aux différents appareils.
+> Lorsque vous utilisez les services d’entreprise Microsoft, Microsoft génère des informations appelées journaux d’activité générés par le système. Certains journaux d’activité générés par le système Azure IoT Hub ne sont pas accessibles ni exportables par les administrateurs clients. Ces journaux d’activité, qui consignent les actions factuelles effectuées au sein du service et les données de diagnostic relatives aux appareils individuels.
 
 ## <a name="links-to-additional-documentation"></a>Liens vers la documentation complémentaire
 

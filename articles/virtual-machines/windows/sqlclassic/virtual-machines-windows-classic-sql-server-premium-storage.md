@@ -473,7 +473,7 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 6. Arrêtez les services du moteur SQL Server sur tous les nœuds (si vous utilisez des pools de stockage).
 7. Ajoutez de nouveaux nœuds de cluster et effectuez la validation complète.
 8. Une fois la validation réussie, démarrez tous les services SQL Server.
-9. Sauvegardez les journaux des transactions et restaurez les bases de données utilisateur.
+9. Sauvegardez les journaux d’activité des transactions et restaurez les bases de données utilisateur.
 10. Ajoutez de nouveaux nœuds au groupe de disponibilité Always On et définissez la réplication sur **Synchrone**.
 11. Ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud par le biais de PowerShell pour Always On en fonction de l’exemple multisite de [l’annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). Dans le clustering Windows, définissez les **propriétaires possibles** de la ressource d’**adresse IP** sur les nouveaux nœuds. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de [l'annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 12. Basculement vers un des nouveaux nœuds.

@@ -223,7 +223,7 @@ Quand vous spécifiez un plug-in de volume, Service Fabric crée automatiquement
 
 Les paramètres d’application sont pris en charge pour les volumes comme indiqué dans l’extrait de code de manifeste précédent (recherchez `MyStorageVar` pour obtenir un exemple d’utilisation).
 
-Si un pilote de journalisation Docker est spécifié, vous devez déployer des agents (ou conteneurs) pour gérer les journaux dans le cluster. Vous pouvez utiliser la balise **DriverOption** pour spécifier des options pour le pilote de journal.
+Si un pilote de journalisation Docker est spécifié, vous devez déployer des agents (ou conteneurs) pour gérer les journaux d’activité dans le cluster. Vous pouvez utiliser la balise **DriverOption** pour spécifier des options pour le pilote de journal.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour voir des exemples de conteneur, y compris le pilote de volume, consultez les [exemples de conteneur Service Fabric](https://github.com/Azure-Samples/service-fabric-containers).

@@ -1,6 +1,6 @@
 ---
-title: Journaux de serveur pour Azure Database pour MySQL
-description: Décrit les journaux disponibles dans Azure Database pour MySQL et les paramètres disponibles pour l’activation de différents niveaux de journalisation.
+title: Journaux d’activité de serveur pour Azure Database pour MySQL
+description: Décrit les journaux d’activité disponibles dans Azure Database pour MySQL et les paramètres disponibles pour l’activation de différents niveaux de journalisation.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -13,22 +13,22 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/25/2019
 ms.locfileid: "58417766"
 ---
-# <a name="server-logs-in-azure-database-for-mysql"></a>Journaux de serveur dans Azure Database pour MySQL
+# <a name="server-logs-in-azure-database-for-mysql"></a>Journaux d’activité de serveur dans Azure Database pour MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître. 
 
 Pour plus d’informations sur le journal des requêtes lentes MySQL, consultez la [section sur le journal des requêtes lentes](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) du manuel de référence MySQL.
 
-## <a name="access-server-logs"></a>Accéder aux journaux du serveur
-Vous pouvez répertorier et télécharger les journaux des serveurs Azure Database pour MySQL à l’aide du portail Azure et de l’interface de ligne de commande Azure.
+## <a name="access-server-logs"></a>Accéder aux journaux d’activité du serveur
+Vous pouvez répertorier et télécharger les journaux d’activité des serveurs Azure Database pour MySQL à l’aide du portail Azure et de l’interface de ligne de commande Azure.
 
-Dans le portail Azure, sélectionnez votre serveur Azure Database pour MySQL. Sous l’en-tête **Surveillance**, sélectionnez la page **Journaux des serveurs**.
+Dans le portail Azure, sélectionnez votre serveur Azure Database pour MySQL. Sous l’en-tête **Supervision**, sélectionnez la page **Journaux d’activité des serveurs**.
 
-Pour plus d’informations sur l’interface de ligne de commande Azure, consultez [Configuration et accès aux journaux du serveur à l’aide de la ligne de commande Azure](howto-configure-server-logs-in-cli.md).
+Pour plus d’informations sur l’interface de ligne de commande Azure, consultez [Configuration et accès aux journaux d’activité du serveur à l’aide de la ligne de commande Azure](howto-configure-server-logs-in-cli.md).
 
 ## <a name="log-retention"></a>Rétention des journaux
-Les journaux sont disponibles pendant sept jours à compter de leur création. Si la taille totale des journaux disponibles dépasse 7 Go, les fichiers les plus anciens sont supprimés jusqu’à ce que de l’espace soit disponible. 
+Les journaux d’activité sont disponibles pendant sept jours à compter de leur création. Si la taille totale des journaux d’activité disponibles dépasse 7 Go, les fichiers les plus anciens sont supprimés jusqu’à ce que de l’espace soit disponible. 
 
-Une rotation des journaux s’effectue toutes les 24 heures ou une fois les 7 Go atteints, selon ce qui se produit en premier.
+Une rotation des journaux d’activité s’effectue toutes les 24 heures ou une fois les 7 Go atteints, selon ce qui se produit en premier.
 
 
 ## <a name="configure-logging"></a>Configuration de la journalisation 

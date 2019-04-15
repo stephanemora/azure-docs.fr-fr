@@ -32,7 +32,7 @@ Pour des versions Sqoop prises en charge sur des clusters HDInsight, consultez [
 
 Le cluster HDInsight inclut des exemples de données. Vous utilisez les deux éléments suivants :
 
-* Un fichier journal Apache Log4j, qui se trouve dans `/example/data/sample.log`. Ce fichier inclut les journaux suivants :
+* Un fichier journal Apache Log4j, qui se trouve dans `/example/data/sample.log`. Ce fichier inclut les journaux d’activité suivants :
 
 ```text
 2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851

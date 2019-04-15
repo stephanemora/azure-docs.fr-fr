@@ -98,7 +98,7 @@ Exécutez la commande suivante sur la machine source :
 Paramètre | Détails
 --- | ---
 Usage | UnifiedAgentConfigurator.exe /CSEndPoint <adresse IP du serveur configuration\>/PassphraseFilePath <chemin d’accès du fichier de phrase secrète\>
-Journaux de configuration de l’agent | Situés sous %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
+Journaux d’activité de configuration de l’agent | Situés sous %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Paramètre obligatoire. Spécifie l’adresse IP du serveur de configuration. Utilisez une adresse IP valide.
 /PassphraseFilePath |  Obligatoire. Emplacement de la phrase secrète. Utilisez n’importe quel chemin d’accès UNC ou local valide.
 
@@ -201,13 +201,13 @@ En général, cela est dû à une erreur avec le port 443. Utilisez les étapes
 
 **Vérifier que l’agent MARS est appelé par l’agent du serveur cible maître**
 
-Pour vérifier que l’agent du serveur cible maître peut créer une session TCP pour l’adresse IP du serveur de configuration, recherchez une trace semblable à ce qui suit dans les journaux de l’agent du serveur cible maître :
+Pour vérifier que l’agent du serveur cible maître peut créer une session TCP pour l’adresse IP du serveur de configuration, recherchez une trace semblable à ce qui suit dans les journaux d’activité de l’agent du serveur cible maître :
 
 TCP \<remplacer une adresse IP avec l’adresse IP de CS ici > : 52739 \<remplacer une adresse IP avec l’adresse IP de CS ici > : 443 SYN_SENT 
 
 TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Remplacer l’adresse IP par l’adresse IP du serveur CS ici
 
-Si vous trouvez des traces similaires à ce qui suit dans les journaux de l’agent du serveur cible maître, l’agent du serveur cible maître signale les erreurs sur le port 443 :
+Si vous trouvez des traces similaires à ce qui suit dans les journaux d’activité de l’agent du serveur cible maître, l’agent du serveur cible maître signale les erreurs sur le port 443 :
 
     #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
     #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server

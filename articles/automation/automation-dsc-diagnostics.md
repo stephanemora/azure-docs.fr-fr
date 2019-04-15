@@ -71,9 +71,9 @@ Si vous souhaitez arrêter l’importation de données à partir de la Configura
 Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories 'DscNodeStatus'
 ```
 
-## <a name="view-the-state-configuration-logs"></a>Afficher les journaux State Configuration
+## <a name="view-the-state-configuration-logs"></a>Afficher les journaux d’activité State Configuration
 
-Après avoir configuré l’intégration avec les journaux d’Azure Monitor pour vos données de Configuration d’état Automation, un **recherche dans les journaux** bouton s’affiche sur le **les nœuds DSC** Panneau de votre compte automation. Cliquez sur le bouton **Recherche dans les journaux** pour afficher les journaux des données de nœud DSC.
+Après avoir configuré l’intégration avec les journaux d’Azure Monitor pour vos données de Configuration d’état Automation, un **recherche dans les journaux** bouton s’affiche sur le **les nœuds DSC** Panneau de votre compte automation. Cliquez sur le bouton **Recherche dans les journaux d’activité** pour afficher les journaux d’activité des données de nœud DSC.
 
 ![Bouton Recherche dans les journaux](media/automation-dsc-diagnostics/log-search-button.png)
 
@@ -85,7 +85,7 @@ Cliquez sur chaque opération dans la liste pour afficher les données correspon
 
 Vous pouvez également afficher les journaux en effectuant une recherche dans les journaux Azure Monitor.
 Consultez [Recherche de données à l’aide de recherches de journal](../log-analytics/log-analytics-log-searches.md).
-Tapez la requête suivante pour rechercher vos journaux State Configuration : `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
+Tapez la requête suivante pour rechercher vos journaux d’activité State Configuration : `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
 
 Vous pouvez également affiner la requête par nom d’opération. Par exemple : `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
 
@@ -98,7 +98,7 @@ Pour créer une règle d’alerte, vous commencez par créer une recherche dans 
 1. Dans la page de vue d’ensemble d’espace de travail Analytique de journal, cliquez sur **journaux**.
 1. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`.
 
-   Si vous avez configuré des journaux dans votre espace de travail à partir de plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation.  
+   Si vous avez configuré des journaux d’activité dans votre espace de travail à partir de plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation.  
    Le nom du compte Automation peut être dérivé du champ Ressource dans la recherche de DscNodeStatusData.  
 1. Pour ouvrir l’écran **Créer une règle**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, consultez [créer une règle d’alerte](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
@@ -133,7 +133,7 @@ Diagnostic d’Azure Automation crée deux catégories d’enregistrements dans 
 | NodeName_s |Le nom du nœud géré. |
 | NodeComplianceStatus_s |Indique si le nœud est conforme. |
 | DscReportStatus |Indique si la vérification de conformité a été correctement exécutée. |
-| ConfigurationMode | La façon dont la configuration est appliquée au nœud. Les valeurs possibles sont __« ApplyOnly »__,__« ApplyandMonitor »__ et __« ApplyandAutoCorrect »__. <ul><li>__ApplyOnly__ : DSC applique la configuration et ne fait rien de plus, sauf si une nouvelle configuration est envoyée au nœud cible ou quand une nouvelle configuration est extraite d’un serveur. Après l’application initiale d’une nouvelle configuration, DSC ne vérifie pas l’écart par rapport à un état configuré précédemment. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyOnly__ prenne effet. </li><li> __ApplyAndMonitor__ : Il s’agit de la valeur par défaut. Le gestionnaire de configuration locale applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyAndMonitor__ prenne effet.</li><li>__ApplyAndAutoCorrect__ : DSC applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux puis applique à nouveau la configuration actuelle.</li></ul> |
+| ConfigurationMode | La façon dont la configuration est appliquée au nœud. Les valeurs possibles sont __« ApplyOnly »__,__« ApplyandMonitor »__ et __« ApplyandAutoCorrect »__. <ul><li>__ApplyOnly__ : DSC applique la configuration et ne fait rien de plus, sauf si une nouvelle configuration est envoyée au nœud cible ou quand une nouvelle configuration est extraite d’un serveur. Après l’application initiale d’une nouvelle configuration, DSC ne vérifie pas l’écart par rapport à un état configuré précédemment. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyOnly__ prenne effet. </li><li> __ApplyAndMonitor__ : Il s’agit de la valeur par défaut. Le gestionnaire de configuration locale applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyAndMonitor__ prenne effet.</li><li>__ApplyAndAutoCorrect__ : DSC applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité puis applique à nouveau la configuration actuelle.</li></ul> |
 | HostName_s | Le nom du nœud géré. |
 | IPAddress | L’adresse IPv4 du nœud géré. |
 | Catégorie | DscNodeStatus |

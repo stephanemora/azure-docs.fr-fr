@@ -30,7 +30,7 @@ Vous pouvez utiliser [modèles Azure Resource Manager](../../azure-resource-mana
 * Ajouter une solution
 * Créer des recherches enregistrées
 * Créer un groupe d’ordinateurs
-* Activer la collecte de journaux IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
+* Activer la collecte de journaux d’activité IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
 * Collecter les compteurs de performances d’ordinateurs Linux et Windows
 * Collecter les événements de Syslog sur des ordinateurs Linux 
 * Collecter les événements des journaux des événements Windows
@@ -143,12 +143,12 @@ L’exemple de modèle suivant illustre comment :
 1. Ajouter des solutions à l’espace de travail
 2. Créer des recherches enregistrées
 3. Créer un groupe d’ordinateurs
-4. Activer la collecte de journaux IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
+4. Activer la collecte de journaux d’activité IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
 5. Collecter les compteurs de performances de disque logique d’ordinateurs Linux (% d’Inodes utilisés, Mo libres, % d’espace utilisé, Transferts disque/s, Lectures disque/s, Écritures disque/s)
 6. Collecter les événements Syslog d’ordinateurs Linux
 7. Collecter les événements d’erreur et d’avertissement du journal des événements d’application d’ordinateurs Windows
 8. Collecter le compteur de performances Mo de mémoire disponible d’ordinateurs Windows
-9. Collecter les journaux IIS et les journaux des événements Windows écrits par les diagnostics Azure dans un compte de stockage
+9. Collecter les journaux d’activité IIS et les journaux des événements Windows écrits par les diagnostics Azure dans un compte de stockage
 
 ```json
 {

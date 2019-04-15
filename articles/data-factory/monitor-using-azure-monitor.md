@@ -22,7 +22,7 @@ ms.locfileid: "58013318"
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances ou la facilité de gestion de l’application, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
 
-Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux pour la plupart des services Microsoft Azure. Pour plus d’informations, consultez [Vue d’ensemble de la surveillance](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Les journaux de diagnostic Azure sont des journaux émis par une ressource qui fournissent des informations riches et fréquentes sur le fonctionnement de cette ressource. Data Factory génère les journaux de diagnostic dans Azure Monitor.
+Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux d’activité pour la plupart des services Microsoft Azure. Pour plus d’informations, consultez [Vue d’ensemble de la surveillance](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Les journaux de diagnostic Azure sont des journaux d’activité émis par une ressource qui fournissent des informations riches et fréquentes sur le fonctionnement de cette ressource. Data Factory génère les journaux de diagnostic dans Azure Monitor.
 
 ## <a name="persist-data-factory-data"></a>Conserver les données de Data Factory
 La fabrique de données stocke uniquement les données d’exécution du pipeline pendant 45 jours. Si vous voulez conserver les données d’exécution du pipeline pendant plus de 45 jours, Azure Monitor vous permet non seulement de router les journaux de diagnostic pour analyse, mais également de les conserver dans un compte de stockage, pour que vous puissiez disposer des informations de la fabrique pendant la durée de votre choix.
@@ -33,7 +33,7 @@ La fabrique de données stocke uniquement les données d’exécution du pipelin
 * Envoyez-les à **Event Hubs** pour ingestion par un service tiers ou une solution d’analytique personnalisée comme Power BI.
 * Analysez-les avec **Log Analytics**
 
-Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hub qui ne se trouve pas dans le même abonnement que la ressource émettrice des journaux. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC (contrôle d’accès en fonction du rôle) approprié aux deux abonnements.
+Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hub qui ne se trouve pas dans le même abonnement que la ressource émettrice des journaux d’activité. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC (contrôle d’accès en fonction du rôle) approprié aux deux abonnements.
 
 ## <a name="set-up-diagnostic-logs"></a>Configurer les journaux de diagnostic
 
@@ -43,9 +43,9 @@ Les journaux de diagnostic pour les ressources non liées au calcul sont configu
 * Où les journaux de diagnostic sont envoyés (compte de stockage, concentrateurs d’événements ou journaux Azure Monitor).
 * Les catégories de journal qui sont envoyées
 * La durée pendant laquelle chaque catégorie de journal doit être conservée dans un compte de stockage
-* Une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647.
+* Une durée de rétention de zéro jour signifie que les journaux d’activité sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647.
 * Si les stratégies de rétention sont définies, mais le stockage des journaux dans un compte de stockage est désactivée (par exemple, les concentrateurs d’événements ou Azure Monitor journaux options sont sélectionnées), les stratégies de rétention n’ont aucun effet.
-* Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés.
+* Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux d’activité de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’activité d’avant-hier seront supprimés.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>Activer les journaux de diagnostic via les API REST
 
@@ -109,12 +109,12 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | serviceBusRuleId |Chaîne | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que des concentrateurs d’événements soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle a le format suivant : « {ID de ressource Service Bus}/authorizationrules/{nom de la clé} ».|
 | workspaceId | Type complexe | Tableau de fragments de temps de métrique et leurs stratégies de rétention. Actuellement, cette propriété est vide. |
 |Mesures| Valeurs de paramètre de l’exécution de pipeline à passer au pipeline appelé| Objet JSON mappant des noms de paramètres à des valeurs d’arguments. |
-| logs| Type complexe| Nom d’une catégorie de journal de diagnostic pour un type de ressource. Pour obtenir la liste des catégories de journal de diagnostic pour une ressource, commencez par effectuer une opération d’obtention (GET) des paramètres de diagnostic. |
+| journaux d’activité| Type complexe| Nom d’une catégorie de journal de diagnostic pour un type de ressource. Pour obtenir la liste des catégories de journal de diagnostic pour une ressource, commencez par effectuer une opération d’obtention (GET) des paramètres de diagnostic. |
 | category| Chaîne| Tableau de catégories de journal et leurs stratégies de rétention. |
 | timeGrain | Chaîne | Granularité des métriques capturées au format de durée ISO 8601. Elle doit être de PT1M (une minute).|
 | Activé| Booléen | Indique si la collection de cette métrique ou catégorie de journal est activée pour cette ressource.|
 | retentionPolicy| Type complexe| Décrit la stratégie de rétention pour une métrique ou une catégorie de journal. Utilisé pour l’option de compte de stockage uniquement.|
-| days| Int| Nombre de jours durant lesquels les métriques ou les journaux sont conservés. La valeur 0 indique que les journaux sont conservés indéfiniment. Utilisé pour l’option de compte de stockage uniquement. |
+| days| Int| Nombre de jours durant lesquels les métriques ou les journaux d’activité sont conservés. La valeur 0 indique que les journaux d’activité sont conservés indéfiniment. Utilisé pour l’option de compte de stockage uniquement. |
 
 **Réponse**
 
@@ -234,7 +234,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ## <a name="schema-of-logs--events"></a>Schéma des journaux et des événements
 
-### <a name="activity-run-logs-attributes"></a>Attributs des journaux d’exécution d’activité
+### <a name="activity-run-logs-attributes"></a>Attributs des journaux d’activité d’exécution d’activité
 
 ```json
 {
@@ -275,7 +275,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriété | Type | Description | Exemples |
 | --- | --- | --- | --- |
-| Niveau |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est toujours celui associé aux journaux d’exécution d’activité. | `4`  |
+| Niveau |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est toujours celui associé aux journaux d’activité d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| Chaîne| ID de l’exécution d’activité | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
@@ -289,7 +289,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| Chaîne | Début de l’exécution d’activité dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
 |end| Chaîne | Met fin à l’exécution d’activité dans l’intervalle de temps, au format UTC. Si l’activité n’est pas encore terminée (journal de diagnostic pour une activité qui démarre), une valeur par défaut de `1601-01-01T00:00:00Z` est définie.  | `2017-06-26T20:55:29.5007959Z` |
 
-### <a name="pipeline-run-logs-attributes"></a>Attributs des journaux d’exécution de pipeline
+### <a name="pipeline-run-logs-attributes"></a>Attributs des journaux d’activité d’exécution de pipeline
 
 ```json
 {
@@ -321,7 +321,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriété | Type | Description | Exemples |
 | --- | --- | --- | --- |
-| Niveau |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est celui associé aux journaux d’exécution d’activité. | `4`  |
+| Niveau |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est celui associé aux journaux d’activité d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| Chaîne| ID de l’exécution de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
@@ -334,7 +334,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |end| Chaîne | Met fin aux exécutions d’activité dans l’intervalle de temps, au format UTC. Si l’activité n’est pas encore terminée (journal de diagnostic pour une activité qui démarre), une valeur par défaut de `1601-01-01T00:00:00Z` est définie.  | `2017-06-26T20:55:29.5007959Z` |
 |status| Chaîne | État final de l’exécution de pipeline (Succeeded ou Failed) | `Succeeded`|
 
-### <a name="trigger-run-logs-attributes"></a>Attributs des journaux d’exécution de déclencheur
+### <a name="trigger-run-logs-attributes"></a>Attributs des journaux d’activité d’exécution de déclencheur
 
 ```json
 {
@@ -365,7 +365,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriété | Type | Description | Exemples |
 | --- | --- | --- | --- |
-| Niveau |Chaîne | Niveau des journaux de diagnostic. Défini au niveau 4 pour les journaux d’exécution d’activité. | `4`  |
+| Niveau |Chaîne | Niveau des journaux de diagnostic. Défini au niveau 4 pour les journaux d’activité d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| Chaîne| ID de l’exécution du déclencheur | `08587023010602533858661257311` |

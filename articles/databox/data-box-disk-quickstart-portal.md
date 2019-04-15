@@ -100,7 +100,7 @@ Le temps nécessaire à cette opération dépend de la taille de vos données.
 1. Lorsque le disque Data Box est connecté au réseau du centre de données Azure, le chargement des données vers Azure démarre automatiquement.
 2. Le service Azure Data Box vous avertit que la copie des données est terminée via le portail Azure.
     
-    1. Vérifiez les journaux d’erreurs pour connaître les échecs éventuels et prendre les mesures appropriées.
+    1. Vérifiez les journaux d’activité d’erreurs pour connaître les échecs éventuels et prendre les mesures appropriées.
     2. Vérifiez que vos données se trouvent dans les comptes de stockage avant de les supprimer de la source.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

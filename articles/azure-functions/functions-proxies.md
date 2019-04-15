@@ -103,7 +103,7 @@ Par exemple, dans une URL de serveur principal de *https://%ORDER_PROCESSING_HOS
 
 ## <a name="debugProxies"></a>Résolution des problèmes de proxy
 
-En ajoutant l’indicateur `"debug":true` à tout proxy de votre instance `proxies.json`, vous activez la journalisation du débogage. Les journaux sont stockés dans `D:\home\LogFiles\Application\Proxies\DetailedTrace` et accessibles via les outils avancés (kudu). Toute réponse HTTP comporte également un en-tête `Proxy-Trace-Location` avec une URL dirigeant vers le fichier journal.
+En ajoutant l’indicateur `"debug":true` à tout proxy de votre instance `proxies.json`, vous activez la journalisation du débogage. Les journaux d’activité sont stockés dans `D:\home\LogFiles\Application\Proxies\DetailedTrace` et accessibles via les outils avancés (kudu). Toute réponse HTTP comporte également un en-tête `Proxy-Trace-Location` avec une URL dirigeant vers le fichier journal.
 
 Pour déboguer un proxy du côté client, ajoutez un jeu d’en-têtes `Proxy-Trace-Enabled` à `true`. Ce faisant, vous enregistrez également une trace sur le système de fichiers et renvoyez l’URL de suivi en tant qu’en-tête dans la réponse.
 

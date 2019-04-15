@@ -31,7 +31,7 @@ Par défaut, la threat intelligence filtrage est activé en mode d’alerte. Imp
 
 ![Sur les menaces en fonction de filtrage interface du portail](media/threat-intel/threat-intel-ui.png)
 
-## <a name="logs"></a>Journaux
+## <a name="logs"></a>Journaux d’activité
 
 L’extrait de journal suivant montre une règle déclenchée :
 

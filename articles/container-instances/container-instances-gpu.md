@@ -99,7 +99,7 @@ Déployez le groupe de conteneurs avec la commande [az container create][az-cont
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
 ```
 
-Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute une opération d’ajout de vecteur CUDA. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal :
+Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute une opération d’ajout de vecteur CUDA. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal d’activité :
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
@@ -176,7 +176,7 @@ Déployez ensuite le modèle avec la commande [az group deployment create][az-gr
 az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
-Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute le travail TensorFlow. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal :
+Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute le travail TensorFlow. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal d’activité :
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer

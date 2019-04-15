@@ -199,7 +199,7 @@ L’agent de travail élastique est gratuit. La base de données de travaux est 
 
 #### <a name="job-database"></a>Base de données de travaux
 
-La *base de données de travaux* permet de définir des travaux et de suivre l’état et l’historique des exécutions des travaux. La *base de données de travaux* permet également de stocker les métadonnées de l’agent, les journaux, les résultats et les définitions des travaux. Par ailleurs, elle contient de nombreuses procédures stockées utiles, ainsi que d’autres objets de base de données pour créer, exécuter et gérer des travaux avec T-SQL.
+La *base de données de travaux* permet de définir des travaux et de suivre l’état et l’historique des exécutions des travaux. La *base de données de travaux* permet également de stocker les métadonnées de l’agent, les journaux d’activité, les résultats et les définitions des travaux. Par ailleurs, elle contient de nombreuses procédures stockées utiles, ainsi que d’autres objets de base de données pour créer, exécuter et gérer des travaux avec T-SQL.
 
 Pour la préversion actuelle, une base de données SQL Azure existante (S0 au minimum) est nécessaire pour créer un agent de travail élastique.
 

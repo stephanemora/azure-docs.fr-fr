@@ -297,7 +297,7 @@ ms.locfileid: "59051033"
                                                         <h3><a href="reports-monitoring/index.yml">Rapports et analyse</a></h3>
                                                         <p>
                                                             <a href="reports-monitoring/concept-audit-logs.md">Journaux d’audit</a><br>
-                                                            <a href="reports-monitoring/concept-sign-ins.md">Journaux de connexion</a><br>
+                                                            <a href="reports-monitoring/concept-sign-ins.md">Journaux d’activité de connexion</a><br>
                                                             <a href="reports-monitoring/reference-sign-ins-error-codes.md">Informations de référence sur les codes d’erreur de connexion</a><br>
                                                             <a href="reports-monitoring/index.yml"><i>Voir plus &gt;</i></a>
                                                         </p>

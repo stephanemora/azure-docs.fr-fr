@@ -26,7 +26,7 @@ Cet article explique comment configurer des alertes de journal à l’aide de l�
 Le terme **alertes de journal** pour décrire les alertes où le signal est requête de journal dans un [espace de travail Analytique de journal](../learn/tutorial-viewdata.md) ou [Application Insights](../app/analytics.md). Obtenez plus d’informations sur la fonctionnalité, la terminologie et les types dans [Alertes de journal - Vue d’ensemble](alerts-unified-log.md).
 
 > [!NOTE]
-> À partir des données de journaux populaires [un espace de travail Analytique de journal](../../azure-monitor/learn/tutorial-viewdata.md) est désormais également disponible sur la plateforme de métriques dans Azure Monitor. Pour en savoir plus, voir [Alerte de métrique pour les journaux](alerts-metric-logs.md)
+> À partir des données de journaux populaires [un espace de travail Analytique de journal](../../azure-monitor/learn/tutorial-viewdata.md) est désormais également disponible sur la plateforme de métriques dans Azure Monitor. Pour la vue de détails, consultez [Alerte de métrique pour les journaux d’activité](alerts-metric-logs.md)
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Gestion des alertes de journal à partir du portail Azure
 

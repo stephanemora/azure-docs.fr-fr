@@ -69,7 +69,7 @@ Vous vous abonnez à une rubrique pour communiquer à Event Grid les événement
 1. Appuyez sur **Créer**.
 1. Donnez un nom à votre abonnement.
 
-   ![Sélectionner des journaux](./media/monitor-events-portal/create-subscription.png)
+   ![Sélectionner des journaux d’activité](./media/monitor-events-portal/create-subscription.png)
 
 1. Affichez à nouveau votre application web, et notez qu’un événement de validation d’abonnement lui a été envoyé. 
 

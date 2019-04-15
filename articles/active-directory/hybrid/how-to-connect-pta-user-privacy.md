@@ -69,7 +69,7 @@ Pour en savoir plus sur les exigences RGPD relatives à Azure AD Connect, consul
 
 Ce produit peut également créer des **Journaux des événements Windows**. Pour plus d’informations, consultez [cet article](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
 
-Pour afficher les journaux relatifs à l’agent d’authentification directe, ouvrez l’application **Observateur d’événements** sur le serveur et cherchez dans **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
+Pour afficher les journaux d’activité relatifs à l’agent d’authentification directe, ouvrez l’application **Observateur d’événements** sur le serveur et cherchez dans **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Supprimer les fichiers journaux des traces de l’Agent d’authentification
 
@@ -101,9 +101,9 @@ Pour planifier une exécution de ce script toutes les 48 heures, effectuez les 
 9.  Tapez **PowerShell** dans le champ Programme/script. Ensuite, dans le champ **Ajouter des arguments (facultatif)**, entrez le chemin complet du script que vous avez créé précédemment, puis cliquez sur **Suivant**.
 10. L’écran suivant montre un récapitulatif de la tâche que vous êtes sur le point de créer. Vérifiez les valeurs, puis cliquez sur **Terminer** pour créer la tâche :
  
-### <a name="note-about-domain-controller-logs"></a>Remarque concernant les journaux des contrôleurs de domaine
+### <a name="note-about-domain-controller-logs"></a>Remarque concernant les journaux d’activité des contrôleurs de domaine
 
-Si l’enregistrement d’audit est activé, ce produit peut générer des journaux de sécurité pour vos contrôleurs de domaine. Pour en savoir plus sur la configuration des stratégies d’audit, consultez cet [article](https://technet.microsoft.com/library/dd277403.aspx).
+Si l’enregistrement d’audit est activé, ce produit peut générer des journaux d’activité de sécurité pour vos contrôleurs de domaine. Pour en savoir plus sur la configuration des stratégies d’audit, consultez cet [article](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Lire la politique de confidentialité Microsoft sur le Centre de confidentialité](https://www.microsoft.com/trustcenter)

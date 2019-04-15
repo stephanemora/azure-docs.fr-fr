@@ -29,7 +29,7 @@ Suricata fait partie de ces outils open source. Il s’agit d’un moteur de sys
 
 ## <a name="scenario"></a>Scénario
 
-Cet article explique comment configurer votre environnement pour détecter des intrusions dans un réseau à l’aide de Network Watcher, Suricata et de la pile élastique. Network Watcher vous fournit les captures de paquets permettant de détecter les intrusions dans un réseau. Suricata traite les captures de paquets et déclenche des alertes basées sur les paquets qui correspondent à son ensemble de règles de menaces donné. Ces alertes sont stockées dans un fichier journal sur votre ordinateur local. La pile élastique vous permet d’indexer les journaux générés par Suricata et de les utiliser pour créer un tableau de bord Kibana. Vous bénéficiez ainsi d’une représentation visuelle des journaux et d’un moyen pour obtenir rapidement des informations sur les vulnérabilités éventuelles du réseau.  
+Cet article explique comment configurer votre environnement pour détecter des intrusions dans un réseau à l’aide de Network Watcher, Suricata et de la pile élastique. Network Watcher vous fournit les captures de paquets permettant de détecter les intrusions dans un réseau. Suricata traite les captures de paquets et déclenche des alertes basées sur les paquets qui correspondent à son ensemble de règles de menaces donné. Ces alertes sont stockées dans un fichier journal sur votre ordinateur local. La pile élastique vous permet d’indexer les journaux d’activité générés par Suricata et de les utiliser pour créer un tableau de bord Kibana. Vous bénéficiez ainsi d’une représentation visuelle des journaux d’activité et d’un moyen pour obtenir rapidement des informations sur les vulnérabilités éventuelles du réseau.  
 
 ![scénario d’application web simple][1]
 
@@ -77,7 +77,7 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="set-up-the-elastic-stack"></a>Configurer la pile élastique
 
-Même si les journaux créés par Suricata contiennent des informations importantes sur l’activité de notre réseau, ceux-ci ne sont pas les plus faciles à lire et à comprendre. En connectant Suricata à la pile élastique, nous pouvons générer un tableau de bord Kibana qui nous permet de rechercher, de créer des graphiques, d’analyser et d’obtenir des informations à partir de nos journaux.
+Même si les journaux d’activité créés par Suricata contiennent des informations importantes sur l’activité de notre réseau, ceux-ci ne sont pas les plus faciles à lire et à comprendre. En connectant Suricata à la pile élastique, nous pouvons générer un tableau de bord Kibana qui nous permet de rechercher, de créer des graphiques, d’analyser et d’obtenir des informations à partir de nos journaux d’activité.
 
 #### <a name="install-elasticsearch"></a>Installer Elasticsearch
 
@@ -235,7 +235,7 @@ Pour plus d’informations sur l’installation de Logstash, reportez-vous à la
     ```
 
 1. Pour afficher votre interface web Kibana, accédez à `http://localhost:5601`.
-1. Dans ce scénario, le modèle d’index utilisé pour les journaux Suricata est « logstash-* ».
+1. Dans ce scénario, le modèle d’index utilisé pour les journaux d’activité Suricata est « logstash-* ».
 
 1. Si vous souhaitez afficher le tableau de bord Kibana à distance, créez une règle de groupe de sécurité réseau entrante autorisant l’accès au **port 5601**.
 
@@ -251,9 +251,9 @@ Vous avez également la possibilité de créer vos propres visualisations et tab
 
 ![tableau de bord Kibana][2]
 
-### <a name="visualize-ids-alert-logs"></a>Visualiser les journaux d’alertes de système de détection d’intrusions
+### <a name="visualize-ids-alert-logs"></a>Visualiser les journaux d’activité d’alertes de système de détection d’intrusions
 
-L’exemple de tableau de bord fournit plusieurs visualisations des journaux d’alertes Suricata :
+L’exemple de tableau de bord fournit plusieurs visualisations des journaux d’activité d’alertes Suricata :
 
 1. Alerts by GeoIP (Alertes par GeoIP) : une carte affichant la répartition des alertes par pays d’origine en fonction de l’emplacement géographique (déterminé par l’adresse IP).
 
@@ -285,7 +285,7 @@ L’association des captures de paquets fournies par Network Watcher et des outi
 
 Découvrez comment déclencher des captures de paquets en fonction des alertes en vous rendant sur [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md) (Utiliser des captures de paquets pour la surveillance proactive du réseau avec Azure Functions).
 
-Découvrez comment visualiser vos journaux de flux NSG avec Power BI en consultant la page [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualiser les journaux de flux NSG avec Power BI)
+Découvrez comment visualiser vos journaux de flux de groupe de sécurité réseau avec Power BI en consultant la page [Visualizing Network Security Group flow logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualisation des journaux de flux de groupe de sécurité réseau avec Power BI).
 
 
 

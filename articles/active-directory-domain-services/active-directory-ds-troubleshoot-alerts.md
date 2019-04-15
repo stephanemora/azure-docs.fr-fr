@@ -242,7 +242,7 @@ Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [suppr
 
 **Résolution :**
 
-1.  Passez en revue les journaux des opérations Resource Manager sur les ressources réseau (cela doit vous fournir des informations sur le verrouillage qui empêche la modification).
+1.  Passez en revue les journaux d’activité des opérations Resource Manager sur les ressources réseau (cela doit vous fournir des informations sur le verrouillage qui empêche la modification).
 2.  Supprimez les verrous sur les ressources afin que le principal de service Azure AD Domain Services puisse opérer sur ces dernières.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116 : Des ressources sont inutilisables
@@ -253,7 +253,7 @@ Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [suppr
 
 **Résolution :**
 
-1.  Passez en revue les journaux des opérations Resource Manager sur les ressources réseau pour votre domaine managé.
+1.  Passez en revue les journaux d’activité des opérations Resource Manager sur les ressources réseau pour votre domaine managé.
 2.  Assouplissez les restrictions de stratégie sur les ressources afin que le principal de service AAD-DS puisse opérer sur ces dernières.
 
 

@@ -12,18 +12,18 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 83c7e808e48733487e84d668236cdb327c21c44c
 ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55249076"
 ---
 # <a name="managing-user-data"></a>Gestion des données utilisateur
 
-Cette page décrit ce que le service cloud Apprenant de conversation enregistre lors de la gestion des dialogues avec les utilisateurs finaux.  Elle décrit également comment associer les journaux Apprenant de conversation à l’ID d’utilisateur, afin que vous puissiez récupérer ou supprimer tous les journaux associés à un utilisateur particulier.
+Cette page décrit ce que le service cloud Apprenant de conversation enregistre lors de la gestion des dialogues avec les utilisateurs finaux.  Elle décrit également comment associer les journaux d’activité Apprenant de conversation à l’ID d’utilisateur, afin que vous puissiez récupérer ou supprimer tous les journaux d’activité associés à un utilisateur particulier.
 
 ## <a name="overview-of-end-user-data-logging"></a>Vue d’ensemble de la journalisation des données de l’utilisateur final
 
-Par défaut, le service cloud Apprenant de conversation enregistre les interactions entre les utilisateurs finaux et votre robot.  Ces journaux sont importants pour améliorer votre robot, car ils vous permettent d’identifier les cas où votre robot a extrait une entité incorrecte ou sélectionné une action incorrecte.  Ces erreurs peuvent ensuite être corrigées en accédant à la page « Consigner les dialogues » de l’interface utilisateur, en apportant des corrections et en stockant un dialogue corrigé en tant que nouveau dialogue d’apprentissage. Pour plus d’informations, consultez le didacticiel sur « Consigner les dialogues ».
+Par défaut, le service cloud Apprenant de conversation enregistre les interactions entre les utilisateurs finaux et votre robot.  Ces journaux d’activité sont importants pour améliorer votre robot, car ils vous permettent d’identifier les cas où votre robot a extrait une entité incorrecte ou sélectionné une action incorrecte.  Ces erreurs peuvent ensuite être corrigées en accédant à la page « Consigner les dialogues » de l’interface utilisateur, en apportant des corrections et en stockant un dialogue corrigé en tant que nouveau dialogue d’apprentissage. Pour plus d’informations, consultez le didacticiel sur « Consigner les dialogues ».
 
 ## <a name="how-to-disable-logging"></a>Comment désactiver la journalisation
 
@@ -31,7 +31,7 @@ Vous pouvez spécifier si les conversations avec les utilisateurs finaux doivent
 
 ## <a name="what-is-logged"></a>Quels sont les éléments consignés ? 
 
-Dans les journaux de dialogue, Apprenant de conversation stocke l’entrée utilisateur, les valeurs d’entité, les actions sélectionnées et les horodatages pour chaque tour.  Ces journaux sont stockés pendant une certaine période, puis ignorés (voir la page d’aide sur les valeurs et limites par défaut pour plus d’informations).  
+Dans les journaux de dialogue, Apprenant de conversation stocke l’entrée utilisateur, les valeurs d’entité, les actions sélectionnées et les horodatages pour chaque tour.  Ces journaux d’activité sont stockés pendant une certaine période, puis ignorés (voir la page d’aide sur les valeurs et limites par défaut pour plus d’informations).  
 
 Apprenant de conversation crée un ID unique pour chaque dialogue consigné.  Apprenant de conversation ne stocke *pas* d’identificateur d’utilisateur avec les dialogues consignés.  
 

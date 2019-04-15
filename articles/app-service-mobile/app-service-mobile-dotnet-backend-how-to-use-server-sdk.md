@@ -436,9 +436,9 @@ Azure App Service fournit plusieurs techniques de débogage et de résolution de
 * [Dépanner un service Azure App dans Visual Studio](../app-service/troubleshoot-dotnet-visual-studio.md)
 
 ### <a name="logging"></a>Journalisation
-Vous pouvez écrire dans les journaux de diagnostics App Service à l’aide du traçage ASP.NET standard. Avant de pouvoir écrire dans les journaux, vous devez activer les diagnostics de votre serveur principal d’application mobile.
+Vous pouvez écrire dans les journaux de diagnostics App Service à l’aide du traçage ASP.NET standard. Avant de pouvoir écrire dans les journaux d’activité, vous devez activer les diagnostics de votre serveur principal d’application mobile.
 
-Pour activer les diagnostics et écrire dans les journaux :
+Pour activer les diagnostics et écrire dans les journaux d’activité :
 
 1. Suivez les étapes indiquées dans [Activer des diagnostics](../app-service/troubleshoot-diagnostic-logs.md#enablediag).
 2. Ajoutez l’instruction using suivante dans votre fichier de code :
@@ -449,7 +449,7 @@ Pour activer les diagnostics et écrire dans les journaux :
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Publiez à nouveau votre projet de serveur et accédez au serveur principal d’application mobile pour exécuter le chemin d’accès du code avec la journalisation.
-5. Téléchargez et évaluez les journaux, comme décrit dans [Guide pratique : Télécharger des journaux](../app-service/troubleshoot-diagnostic-logs.md#download).
+5. Téléchargez et évaluez les journaux d’activité, comme décrit dans [Guide pratique : Télécharger des journaux d’activité](../app-service/troubleshoot-diagnostic-logs.md#download).
 
 ### <a name="local-debug"></a>Débogage local avec authentification
 Vous pouvez exécuter localement votre application afin de tester les modifications avant de les publier dans le cloud. Pour la plupart des backends Azure Mobile Apps, appuyez sur *F5* lorsque vous êtes dans Visual Studio. Toutefois, certains points spécifiques sont à prendre en compte en lien avec l’authentification.

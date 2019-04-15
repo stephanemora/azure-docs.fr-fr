@@ -116,9 +116,9 @@ Sélectionnez **Affichage des opérations** à partir du menu contextuel pour af
 
 ![Affichage des opérations](media/manage-test_context-menu-operations.png)
 
-#### <a name="download-logs-for-a-completed-test-instance"></a>Télécharger les journaux pour une instance de test terminée
+#### <a name="download-logs-for-a-completed-test-instance"></a>Télécharger les journaux d’activité pour une instance de test terminée
 
-Sélectionnez **Télécharger les journaux** dans le menu contextuel pour télécharger un fichier `.zip` de la sortie des journaux pendant l’exécution du test. Cette action est disponible uniquement pour les tests terminés, par exemple, un test avec un statut `Cancelled`, `Failed`, `Aborted` ou `Succeeded`.
+Sélectionnez **Télécharger les journaux d’activité** dans le menu contextuel pour télécharger un fichier `.zip` de la sortie des journaux d’activité pendant l’exécution du test. Cette action est disponible uniquement pour les tests terminés, par exemple, un test avec un statut `Cancelled`, `Failed`, `Aborted` ou `Succeeded`.
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Replanifier une instance de test ou planifier un test
 
@@ -126,7 +126,7 @@ La planification des tests à partir de la page de gestion varie selon le type d
 
 ##### <a name="test-pass-workflow"></a>Workflow de passe de test
 
-Dans le workflow Passe de test, la **replanification** d’une instance de test réutilise le même ensemble de paramètres que l’instance de test d’origine et *remplace* le résultat d’origine, y compris ses journaux. Vous devrez entrer à nouveau les chaînes sensibles comme les mots de passe lorsque vous replanifiez.
+Dans le workflow Passe de test, la **replanification** d’une instance de test réutilise le même ensemble de paramètres que l’instance de test d’origine et *remplace* le résultat d’origine, y compris ses journaux d’activité. Vous devrez entrer à nouveau les chaînes sensibles comme les mots de passe lorsque vous replanifiez.
 
 1. Sélectionnez **Replanifier** dans le menu contextuel pour ouvrir une invite de replanification de l’instance de test.
 

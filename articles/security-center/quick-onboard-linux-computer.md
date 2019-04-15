@@ -57,9 +57,9 @@ Vous devez utiliser le niveau tarifaire Standard de Security Center pour commenc
 
    ![Installer l’agent][5]
 
-Les journaux de l’agent Security Center pour Linux sont disponibles à l’emplacement : */var/opt/microsoft/omsagent/<workspace id>/log/*
+Les journaux d’activité de l’agent Security Center pour Linux sont disponibles à l’emplacement : */var/opt/microsoft/omsagent/<workspace id>/log/*
 
-  ![Journaux de l’agent][6]
+  ![Journaux d’activité de l’agent][6]
 
 Au bout d’un certain temps, jusqu'à 30 minutes, le nouvel ordinateur Linux s’affiche dans Security Center.
 

@@ -39,7 +39,7 @@ Vous avez besoin d’une licence Azure AD premium (P1/P2) pour utiliser le pack 
 
 Consultez le [démarrage rapide](quickstart-install-power-bi-content-pack.md) pour installer le pack de contenu Azure AD Power BI.
 
-### <a name="reports-included-in-this-version-of-azure-ad-logs-content-pack"></a>Rapports inclus dans cette version du pack de contenu de journaux Azure AD
+### <a name="reports-included-in-this-version-of-azure-ad-logs-content-pack"></a>Rapports inclus dans cette version du pack de contenu de journaux d’activité Azure AD
 
 Les rapports suivants sont inclus dans le pack de contenu Power BI Azure AD. Les rapports contiennent les données des **30 derniers jours**.
 

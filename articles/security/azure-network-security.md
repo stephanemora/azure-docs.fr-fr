@@ -391,9 +391,9 @@ Le pare-feu WAF Application Gateway peut être exécuté en mode détection ou p
 
 Par ailleurs, le pare-feu WAF Application Gateway vous aide à surveiller les applications par rapport aux attaques via un journal WAF en temps réel intégré à [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) et [Azure Security Center](https://azure.microsoft.com/services/security-center/) qui permet d’assurer le suivi des alertes WAF et d’analyser facilement les tendances.
 
-Ce journal au format JSON est directement intégré au compte de stockage du client. Vous bénéficiez d’un contrôle total sur ces journaux et pouvez appliquer vos propres stratégies de rétention.
+Ce journal au format JSON est directement intégré au compte de stockage du client. Vous bénéficiez d’un contrôle total sur ces journaux d’activité et pouvez appliquer vos propres stratégies de rétention.
 
-Vous pouvez aussi ingérer ces journaux dans votre propre système analytique via l’[intégration des journaux Azure](https://aka.ms/AzLog). Journaux WAF étant également intégrés à [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md) afin de pouvoir utiliser les journaux Azure Monitor pour exécuter des requêtes précises et sophistiquées.
+Vous pouvez aussi ingérer ces journaux d’activité dans votre propre système analytique via l’[intégration des journaux d’activité Azure](https://aka.ms/AzLog). Journaux WAF étant également intégrés à [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md) afin de pouvoir utiliser les journaux Azure Monitor pour exécuter des requêtes précises et sophistiquées.
 
 #### <a name="azure-web-application-firewall-waf"></a>Pare-feu d’applications web (WAF) Azure
 
@@ -507,7 +507,7 @@ Azure propose de nombreux outils destinés à surveiller, prévenir, détecter e
 
 -   Surveillance au niveau des ressources réseau
 
--   Journaux Azure Monitor
+-   Journaux d’activité Azure Monitor
 
 ### <a name="network-watcher"></a>Network Watcher
 
@@ -553,7 +553,7 @@ Obtient les règles de sécurité effectives et appliquées à une machine virtu
 
 #### <a name="nsg-flow-logging"></a>Journal des flux de groupe de sécurité réseau
 
- Les journaux de flux des groupes de sécurité réseau vous permettent de capturer les journaux relatifs au trafic autorisé ou refusé par les règles de sécurité des groupes. Le flux est défini par des informations de tuple à 5 éléments : adresse IP source, adresse IP de destination, port source, port de destination et protocole.
+ Les journaux de flux des groupes de sécurité réseau vous permettent de capturer les journaux d’activité relatifs au trafic autorisé ou refusé par les règles de sécurité des groupes. Le flux est défini par des informations de tuple à 5 éléments : adresse IP source, adresse IP de destination, port source, port de destination et protocole.
 
 Les [journaux des flux de groupe de sécurité réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) désignent une fonctionnalité de Network Watcher qui vous permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau.
 
@@ -581,7 +581,7 @@ Les fonctionnalités suivantes sont disponibles pour la surveillance au niveau d
 
 #### <a name="audit-log"></a>Journal d’audit
 
-Les opérations réalisées dans le cadre de la configuration des réseaux sont journalisées. Ces journaux d’audit sont essentiels pour établir les différentes conformités. Ces journaux peuvent être affichés dans le portail Azure ou récupérés à l’aide des outils Microsoft tels que Power BI ou des outils tiers. Les journaux d’audit sont disponibles via le portail, PowerShell, l’interface de ligne de commande et l’API REST.
+Les opérations réalisées dans le cadre de la configuration des réseaux sont journalisées. Ces journaux d’audit sont essentiels pour établir les différentes conformités. Ces journaux d’activité peuvent être affichés dans le portail Azure ou récupérés à l’aide des outils Microsoft tels que Power BI ou des outils tiers. Les journaux d’audit sont disponibles via le portail, PowerShell, l’interface de ligne de commande et l’API REST.
 
 > [!Note]
 > Pour plus d’informations sur les journaux d’audit, consultez [Opérations d’audit avec Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
@@ -597,13 +597,13 @@ Les métriques sont des indicateurs et des compteurs de performances collectés 
 
 #### <a name="diagnostic-logs"></a>Journaux de diagnostic
 
-Les événements périodiques et spontanés sont créés par les ressources réseau et enregistrés dans les comptes de stockage, envoyés à un concentrateur d’événements ou journaux Azure Monitor. Ces journaux fournissent des informations sur l’intégrité d’une ressource. Ces journaux peuvent être affichés dans les outils tels que les journaux de Power BI et Azure Monitor. Pour savoir comment afficher les journaux de diagnostic, consultez [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Les événements périodiques et spontanés sont créés par les ressources réseau et enregistrés dans les comptes de stockage, envoyés à un concentrateur d’événements ou journaux Azure Monitor. Ces journaux d’activité fournissent des informations sur l’intégrité d’une ressource. Ces journaux peuvent être affichés dans les outils tels que les journaux de Power BI et Azure Monitor. Pour savoir comment afficher les journaux de diagnostic, consultez [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Les journaux de diagnostic sont disponibles pour [l’équilibrage de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), les itinéraires, et [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
 Network Watcher permet d’afficher les journaux de diagnostic. Cet affichage contient toutes les ressources réseau qui prennent en charge la journalisation des diagnostics. À partir de celui-ci, vous pouvez activer et désactiver les ressources réseau facilement et rapidement.
 
-### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
+### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
 [Journaux d’analyse Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) est un service dans Azure qui surveille votre cloud locales et dans des environnements pour maintenir leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
 
@@ -629,7 +629,7 @@ Elle est utilisée pour contrôler la connectivité entre :
 
 #### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Analytique de passerelle d’application Azure dans les journaux Azure Monitor
 
-Les journaux pris en charge pour les passerelles d’application sont les suivants :
+Les journaux d’activité pris en charge pour les passerelles d’application sont les suivants :
 
 -   ApplicationGatewayAccessLog
 
@@ -643,7 +643,7 @@ Les métriques prises en charge pour les passerelles d’application sont les su
 
 #### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Analytique de groupe de sécurité réseau Azure dans les journaux Azure Monitor
 
-Les journaux suivants sont pris en charge pour les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) :
+Les journaux d’activité suivants sont pris en charge pour les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) :
 
 - **NetworkSecurityGroupEvent :** Contient les entrées pour lesquelles des règles de groupe de sécurité réseau sont appliquées aux machines virtuelles et aux rôles d’instance en fonction de l’adresse MAC. L’état de ces règles est collecté toutes les 60 secondes.
 

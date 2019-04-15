@@ -585,7 +585,7 @@ Si vous avez ajouté des tâches, celles-ci sont conservées dans la base de don
 
 ## <a name="stream-diagnostic-logs"></a>Diffuser les journaux de diagnostic
 
-Pendant l’exécution de l’application PHP dans Azure App Service, vous pouvez acheminer les journaux de la console vers votre terminal. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
+Pendant l’exécution de l’application PHP dans Azure App Service, vous pouvez acheminer les journaux d’activité de la console vers votre terminal. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
 
 Pour démarrer la diffusion de journaux, utilisez la commande [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) dans Cloud Shell.
 
@@ -593,7 +593,7 @@ Pour démarrer la diffusion de journaux, utilisez la commande [`az webapp log ta
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-Une fois que la diffusion a démarré, actualisez l’application Azure dans le navigateur pour générer un trafic web. Vous pouvez maintenant voir les journaux de la console acheminés vers le terminal. Si vous ne voyez pas les journaux de la console, attendez 30 secondes et vérifiez à nouveau.
+Une fois que la diffusion a démarré, actualisez l’application Azure dans le navigateur pour générer un trafic web. Vous pouvez maintenant voir les journaux d’activité de la console acheminés vers le terminal. Si vous ne voyez pas les journaux d’activité de la console, attendez 30 secondes et vérifiez à nouveau.
 
 Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl`+`C`.
 

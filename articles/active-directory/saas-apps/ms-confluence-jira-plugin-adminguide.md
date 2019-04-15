@@ -156,7 +156,7 @@ L’image suivante montre l’écran de configuration dans Jira et Confluence :
 
   * Accédez à l’URL dans un navigateur et vérifiez si vous recevez le fichier XML des métadonnées de fédération.
 
-* **Une erreur interne du serveur s'est produite** : consultez les journaux dans le répertoire des journaux de l’installation. Si vous obtenez cette erreur quand l’utilisateur essaie de se connecter à l’aide de l’authentification unique Azure AD, vous pouvez partager les journaux avec l’équipe de support technique.
+* **Une erreur interne du serveur s'est produite** : consultez les journaux d’activité dans le répertoire des journaux d’activité de l’installation. Si vous obtenez cette erreur quand l’utilisateur essaie de se connecter à l’aide de l’authentification unique Azure AD, vous pouvez partager les journaux d’activité avec l’équipe de support technique.
 
 * **Une erreur du type « Identifiant d’utilisateur introuvable » apparaît lorsque l’utilisateur tente de se connecter** : créez l’ID d’utilisateur dans Jira ou Confluence.
 

@@ -139,7 +139,7 @@ Notre client DNN a déclaré : « Application Insights a représenté pour nous
 ### <a name="configuring-application-insights"></a>Configuration d'Application Insights
 Visual Studio et Eclipse disposent d’outils pour configurer les packages de kit de développement logiciel (SDK) correspondant au projet que vous développez. Il existe une commande de menu permettant d’ajouter Application Insights.
 
-Si vous utilisez une fonctionnalité de journalisation des traces, telle que Log4N, NLog ou System.Diagnostics.Trace, vous pouvez envoyer les journaux à Application Insights avec les autres données télémétriques, ce qui facilite la mise en corrélation des traces avec les demandes, les appels de dépendance et les exceptions.
+Si vous utilisez une fonctionnalité de journalisation des traces, telle que Log4N, NLog ou System.Diagnostics.Trace, vous pouvez envoyer les journaux d’activité à Application Insights avec les autres données télémétriques, ce qui facilite la mise en corrélation des traces avec les demandes, les appels de dépendance et les exceptions.
 
 ### <a name="search-telemetry-in-visual-studio"></a>Recherche de données télémétriques dans Visual Studio
 Lors du développement et du débogage d’une fonctionnalité, vous pouvez afficher les données télémétriques directement dans Visual Studio, et effectuer des recherches à l’aide des mêmes fonctionnalités que dans le portail web.

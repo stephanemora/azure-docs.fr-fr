@@ -4913,7 +4913,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 | accountName |Nom du compte Azure Batch. |Oui |
 | accessKey |Clé d'accès du compte Azure Batch. |Oui |
 | poolName |Nom du pool de machines virtuelles. |Oui |
-| linkedServiceName |Nom du service lié Azure Storage associé à ce service lié Azure Batch. Ce service lié est utilisé pour présenter les fichiers nécessaires à l'exécution de l'activité et stocker les journaux d'exécution de l'activité. |Oui |
+| linkedServiceName |Nom du service lié Azure Storage associé à ce service lié Azure Batch. Ce service lié est utilisé pour présenter les fichiers nécessaires à l’exécution de l’activité et stocker les journaux d’activité d’exécution de l’activité. |Oui |
 
 
 #### <a name="json-example"></a>Exemple JSON
@@ -5292,7 +5292,7 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
 | filePaths | Chemins d’accès pour les exécutables du mappeur et du raccord de réduction. Dans l’exemple « adfsample/example/apps/wc.exe », adfsample est le conteneur de l’objet blob, example/apps est le dossier et wc.exe est le fichier exécutable. |
 | fileLinkedService | Service lié Stockage Azure qui représente le stockage Azure qui contient les fichiers spécifiés dans la section filePaths. |
 | arguments | Une liste séparée par des virgules des arguments du programme MapReduce. Lors de l’exécution, vous verrez quelques arguments supplémentaires (par exemple : mapreduce.job.tags) à partir de l’infrastructure MapReduce. Pour différencier vos arguments avec les arguments MapReduce, envisagez d’utiliser l’option et la valeur en tant qu’arguments, comme indiqué dans l’exemple suivant (-s, --entrée, --sortie, etc. sont des options immédiatement suivies par leurs valeurs) |
-| getDebugInfo | Un élément facultatif. Si sa valeur est Failure, les journaux ne sont téléchargés qu’en cas d’échec. Si sa valeur est All, les journaux sont toujours téléchargés, quel que soit l’état de l’exécution. |
+| getDebugInfo | Un élément facultatif. Si sa valeur est Failure, les journaux d’activité ne sont téléchargés qu’en cas d’échec. Si sa valeur est All, les journaux d’activité sont toujours téléchargés, quel que soit l’état de l’exécution. |
 
 > [!NOTE]
 > Vous devez spécifier un jeu de données de sortie pour l’activité de diffusion en continu Hadoop pour la propriété **outputs** . Il peut s’agir simplement d’un jeu de données factice qui est nécessaire au fonctionnement de la planification (horaire, quotidienne, etc.) du pipeline. Si l’activité n’accepte pas d’entrée, vous pouvez ignorer la spécification d’un jeu de données d’entrée relatif à l’activité pour la propriété **inputs**.
@@ -5356,7 +5356,7 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
 | proxyUser | Identité du compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non  |
 | sparkConfig | Propriétés de configuration Spark. | Non  |
 | getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucune. | Non  |
-| sparkJobLinkedService | Service lié de stockage Azure qui contient le fichier de travail, les dépendances et les journaux Spark.  Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non  |
+| sparkJobLinkedService | Service lié de stockage Azure qui contient le fichier de travail, les dépendances et les journaux d’activité Spark.  Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non  |
 
 ### <a name="json-example"></a>Exemple JSON
 

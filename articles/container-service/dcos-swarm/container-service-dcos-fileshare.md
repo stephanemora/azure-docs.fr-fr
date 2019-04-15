@@ -20,7 +20,7 @@ ms.locfileid: "54329818"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Ce didacticiel explique en détail comment créer un partage de fichiers dans Azure et comment le monter sur chaque agent et chaque maître du cluster DC/OS. La configuration d’un partage de fichiers facilite le partage de fichiers sur votre cluster, par exemple la configuration, l’accès, les journaux et bien plus encore. Dans ce didacticiel, les tâches suivantes sont effectuées :
+Ce didacticiel explique en détail comment créer un partage de fichiers dans Azure et comment le monter sur chaque agent et chaque maître du cluster DC/OS. La configuration d’un partage de fichiers facilite le partage de fichiers sur votre cluster, par exemple la configuration, l’accès, les journaux d’activité et bien plus encore. Dans ce didacticiel, les tâches suivantes sont effectuées :
 
 > [!div class="checklist"]
 > * Créer un compte de stockage Azure

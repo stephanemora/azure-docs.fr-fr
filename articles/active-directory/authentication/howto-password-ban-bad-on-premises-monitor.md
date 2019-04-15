@@ -318,7 +318,7 @@ En outre, la plupart des applets de commande PowerShell de Protection de mot de 
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
-En cas d’erreur du cmdlet et si solution et/ou la cause n’est pas évidente, ces journaux texte peuvent servir de référence.
+En cas d’erreur du cmdlet et si solution et/ou la cause n’est pas évidente, ces journaux d’activité texte peuvent servir de référence.
 
 ## <a name="proxy-discovery"></a>Détection de services Proxy
 

@@ -394,11 +394,11 @@ En savoir plus :
 
 La journalisation au niveau du réseau est un élément clé de tout scénario de sécurité réseau. Dans Azure, vous pouvez consigner les informations obtenues pour les NSG afin de collecter les données de journalisation au niveau du réseau. La journalisation des groupes de sécurité réseau vous permet de consigner les données des journaux suivants :
 
-* [Journaux d’activité](../azure-monitor/platform/activity-logs-overview.md). Utilisez ces journaux pour consulter toutes les opérations envoyées à vos abonnements Azure. Ces journaux sont activés par défaut et peuvent être affichés dans le portail Azure. Ils étaient auparavant nommés « Journaux d’audit » ou « Journaux des opérations ».
-* Journaux d’événements. Ces journaux permettent de savoir quelles règles de groupe de sécurité réseau (NSG) ont été appliquées.
-* Journaux des compteurs. Ces journaux affichent le nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
+* [Journaux d’activité](../azure-monitor/platform/activity-logs-overview.md). Utilisez ces journaux d’activité pour consulter toutes les opérations envoyées à vos abonnements Azure. Ces journaux d’activité sont activés par défaut et peuvent être affichés dans le portail Azure. Ils étaient auparavant nommés « Journaux d’activité d’audit » ou « Journaux d’activité des opérations ».
+* Journaux d’événements. Ces journaux d’activité permettent de savoir quelles règles de groupe de sécurité réseau (NSG) ont été appliquées.
+* Journaux d’activité des compteurs. Ces journaux d’activité affichent le nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
 
-Vous pouvez également utiliser [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), un puissant outil de visualisation de données, pour afficher et analyser ces journaux.
+Vous pouvez également utiliser [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), un puissant outil de visualisation de données, pour afficher et analyser ces journaux d’activité.
 En savoir plus :
 
 * [Journaux d’analyse Azure pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)

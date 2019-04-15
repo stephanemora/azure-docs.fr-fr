@@ -1,5 +1,5 @@
 ---
-title: Conserver les résultats ou les journaux des tâches et des travaux terminés dans un magasin de données - Azure Batch | Microsoft Docs
+title: Conserver les résultats ou les journaux d’activité des tâches et des travaux terminés dans un magasin de données - Azure Batch | Microsoft Docs
 description: Découvrez les différentes possibilités pour conserver les données de sortie des tâches et des travaux Batch. Vous pouvez conserver les données dans le Stockage Azure ou un autre magasin de données.
 services: batch
 author: laurenhughes

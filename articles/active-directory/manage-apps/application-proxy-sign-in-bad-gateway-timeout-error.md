@@ -99,7 +99,7 @@ Pour vérifier que tous les ports nécessaires sont ouverts, consultez la docume
 
 Si aucune des procédures précédentes ne résout le problème, l’étape suivante consiste à rechercher des problèmes ou des erreurs liés au connecteur proprement dit. Certaines erreurs courantes sont répertoriées dans le [document de dépannage](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
 
-Vous pouvez également consulter directement les journaux du connecteur pour identifier d’éventuelles erreurs. De nombreux messages d’erreur partagent des recommandations spécifiques pour y remédier. Pour voir les journaux, consultez la [documentation sur les connecteurs](application-proxy-connectors.md#under-the-hood).
+Vous pouvez également consulter directement les journaux d’activité du connecteur pour identifier d’éventuelles erreurs. De nombreux messages d’erreur partagent des recommandations spécifiques pour y remédier. Pour voir les journaux d’activité, consultez la [documentation sur les connecteurs](application-proxy-connectors.md#under-the-hood).
 
 ## <a name="additional-resolutions"></a>Résolutions supplémentaires
 
@@ -111,7 +111,7 @@ Si votre application est configurée pour utiliser l’authentification Windows 
 
 Si l’erreur persiste, accédez à l’ordinateur sur lequel le connecteur est installé, ouvrez un navigateur et essayez d’atteindre l’URL interne utilisée pour l’application. Le connecteur agit comme un autre client à partir du même ordinateur. Si vous ne pouvez pas atteindre l’application, cherchez à savoir pourquoi cet ordinateur vous en empêche ou utilisez un connecteur sur un serveur capable d’accéder à l’application.
 
-Si vous pouvez atteindre l’application à partir de cet ordinateur, recherchez des problèmes ou des erreurs liés au connecteur proprement dit. Certaines erreurs courantes sont listées dans le [document de dépannage](application-proxy-troubleshoot.md#connector-errors). Vous pouvez également consulter directement les journaux du connecteur pour identifier d’éventuelles erreurs. La plupart des messages d’erreur indiquent des recommandations plus spécifiques sur les corrections à apporter. Pour savoir comment afficher les journaux, consultez [notre documentation sur les connecteurs](application-proxy-connectors.md#under-the-hood).
+Si vous pouvez atteindre l’application à partir de cet ordinateur, recherchez des problèmes ou des erreurs liés au connecteur proprement dit. Certaines erreurs courantes sont listées dans le [document de dépannage](application-proxy-troubleshoot.md#connector-errors). Vous pouvez également consulter directement les journaux d’activité du connecteur pour identifier d’éventuelles erreurs. La plupart des messages d’erreur indiquent des recommandations plus spécifiques sur les corrections à apporter. Pour savoir comment afficher les journaux d’activité, consultez [notre documentation sur les connecteurs](application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)

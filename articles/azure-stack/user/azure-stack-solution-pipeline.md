@@ -495,13 +495,13 @@ D’autres vues, comme la liste des mises en production, affichent aussi une ic�
 
 Cette section montre comment vous pouvez surveiller et suivre tous vos déploiements. La mise en production pour le déploiement de deux sites web Azure App Services en est un bon exemple.
 
-1. Sur la page récapitulative « Release-2 », sélectionnez **Journaux**. Pendant un déploiement, cette page affiche le journal en direct de l’agent. Le volet gauche indique l’état de chaque opération du déploiement pour chaque environnement.
+1. Sur la page récapitulative « Release-2 », sélectionnez **Journaux d’activité**. Pendant un déploiement, cette page affiche le journal en direct de l’agent. Le volet gauche indique l’état de chaque opération du déploiement pour chaque environnement.
 
     Vous pouvez choisir une personne dans la colonne **Action** pour une approbation de prédéploiement ou de postdéploiement afin de voir qui a approuvé (ou rejeté) le déploiement ainsi que le message qu’elle a entré.
 
-2. Lorsque le déploiement est terminé, l’intégralité du fichier journal s’affiche dans le volet droit. Vous pouvez choisir une **étape** dans le volet gauche pour afficher le fichier journal d’une seule étape telle que « Initialiser le travail ». La possibilité de voir les journaux individuels facilite le suivi et le débogage de parties du déploiement global. Vous pouvez également **enregistrer** le fichier journal d’une étape ou **Télécharger tous les journaux au format zip**.
+2. Lorsque le déploiement est terminé, l’intégralité du fichier journal s’affiche dans le volet droit. Vous pouvez choisir une **étape** dans le volet gauche pour afficher le fichier journal d’une seule étape telle que « Initialiser le travail ». La possibilité de voir les journaux d’activité individuels facilite le suivi et le débogage de parties du déploiement global. Vous pouvez également **enregistrer** le fichier journal d’une étape ou **Télécharger tous les journaux d’activité au format zip**.
 
-    ![Journaux de mise en production](media/azure-stack-solution-hybrid-pipeline/203.png)
+    ![Journaux d’activité de mise en production](media/azure-stack-solution-hybrid-pipeline/203.png)
 
 3. Ouvrez l’onglet **Résumé** pour afficher des informations générales sur la mise en production. Cette vue montre les détails de la build, les environnements où elle a été déployée, l’état du déploiement et d’autres informations sur la mise en production.
 

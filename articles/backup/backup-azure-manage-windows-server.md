@@ -10,7 +10,7 @@ ms.date: 8/21/2018
 ms.author: raynew
 ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
 ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56268870"
@@ -286,7 +286,7 @@ Oui. Dans les cas suivants, les notifications ne sont pas envoyées :
 
 2. Si le processus n’est pas en cours d’exécution, ouvrez le **Panneau de configuration** et parcourez la liste des services. Démarrez ou redémarrez l’**Agent de gestion Microsoft Azure Recovery Services**.
 
-    Pour plus d’informations, consultez les journaux à l’emplacement suivant :<br/>
+    Pour plus d’informations, consultez les journaux d’activité à l’emplacement suivant :<br/>
    `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Par exemple :<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 

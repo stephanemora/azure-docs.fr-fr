@@ -23,13 +23,13 @@ Les **journaux de diagnostic Azure Monitor** sont des journaux émis par un serv
 * **Journaux de locataire** : ces journaux proviennent des services au niveau du locataire qui existent en dehors d’un abonnement Azure, tels que les journaux Azure Active Directory.
 * **Journaux de ressources** : ces journaux proviennent des services Azure qui déploient des ressources au sein d’un abonnement Azure, tels que les groupes de sécurité réseau ou les comptes de stockage.
 
-    ![Comparaison entre les journaux de diagnostic des ressources et les autres types de journaux](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![Comparaison entre les journaux de diagnostic des ressources et les autres types de journaux d’activité](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
-Le contenu de ces journaux varie en fonction du service Azure et du type de ressource. Les compteurs de règles du groupe de sécurité réseau et les audits de coffres de clés sont deux exemples de types de journaux de diagnostic.
+Le contenu de ces journaux d’activité varie en fonction du service Azure et du type de ressource. Les compteurs de règles du groupe de sécurité réseau et les audits de coffres de clés sont deux exemples de types de journaux de diagnostic.
 
-Ces journaux sont différents du [journal d’activité](activity-logs-overview.md). Le journal d’activité fournit un aperçu des opérations qui ont été effectuées sur les ressources de votre abonnement à l’aide de Resource Manager (par exemple, la création d’une machine virtuelle ou la suppression d’une application logique). Il s’intéresse aux opérations effectuées au niveau de l’abonnement. Les journaux de diagnostic des ressources, quant à eux, donnent un aperçu des opérations qui ont été effectuées au sein d’une ressource (par exemple, l’obtention d’un secret à partir d’un coffre de clés).
+Ces journaux d’activité sont différents du [journal d’activité](activity-logs-overview.md). Le journal d’activité fournit un aperçu des opérations qui ont été effectuées sur les ressources de votre abonnement à l’aide de Resource Manager (par exemple, la création d’une machine virtuelle ou la suppression d’une application logique). Il s’intéresse aux opérations effectuées au niveau de l’abonnement. Les journaux de diagnostic des ressources, quant à eux, donnent un aperçu des opérations qui ont été effectuées au sein d’une ressource (par exemple, l’obtention d’un secret à partir d’un coffre de clés).
 
-Ces journaux diffèrent également des journaux de diagnostic de système d’exploitation invité. Les journaux de diagnostic de système d’exploitation invité sont collectés par un agent exécuté sur une machine virtuelle ou un autre type de ressource pris en charge. Les journaux de diagnostic des ressources ne nécessitent aucun agent et capturent les données relatives à la ressource à partir de la plateforme Azure, alors que les journaux de diagnostic du système d’exploitation invité capturent les données provenant du système d’exploitation et des applications exécutées sur la machine virtuelle.
+Ces journaux d’activité diffèrent également des journaux de diagnostic de système d’exploitation invité. Les journaux de diagnostic de système d’exploitation invité sont collectés par un agent exécuté sur une machine virtuelle ou un autre type de ressource pris en charge. Les journaux de diagnostic des ressources ne nécessitent aucun agent et capturent les données relatives à la ressource à partir de la plateforme Azure, alors que les journaux de diagnostic du système d’exploitation invité capturent les données provenant du système d’exploitation et des applications exécutées sur la machine virtuelle.
 
 Toutes les services ne prennent pas en charge les journaux de diagnostic décrits ici. [Cet article contient une section répertoriant les services prenant en charge les journaux de diagnostic](./../../azure-monitor/platform/diagnostic-logs-schema.md).
 
@@ -44,7 +44,7 @@ Voici ce que vous pouvez faire avec les journaux de diagnostic :
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hubs qui n’est pas dans le même abonnement que celui générant des journaux. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements.
+Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hubs qui n’est pas dans le même abonnement que celui générant des journaux d’activité. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements.
 
 > [!NOTE]
 >  Il n’est pas possible actuellement d’archiver les journaux de flux du réseau sur un compte de stockage situé derrière un réseau virtuel sécurisé.
@@ -56,9 +56,9 @@ Les journaux de diagnostic des ressources sont configurés à l’aide des param
 * Où les journaux de diagnostic et les métriques sont envoyés (compte de stockage, Event Hubs et/ou Azure Monitor).
 * Les catégories de journal envoyées et les données de mesure également envoyées.
 * La durée pendant laquelle chaque catégorie de journal doit être conservée dans un compte de stockage
-    - Une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. Sinon, la valeur peut être n’importe quel nombre de jours compris entre 1 et 365.
-    - Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou Log Analytics sont sélectionnées), les stratégies de rétention n’ont aucun effet.
-    - Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux de votre compte de stockage peut prendre jusqu’à 24 heures.
+    - Une durée de rétention de zéro jour signifie que les journaux d’activité sont conservés indéfiniment. Sinon, la valeur peut être n’importe quel nombre de jours compris entre 1 et 365.
+    - Si des stratégies de rétention sont définies, mais que le stockage des journaux d’activité dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou Log Analytics sont sélectionnées), les stratégies de rétention n’ont aucun effet.
+    - Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux d’activité de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’activité d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux d’activité de votre compte de stockage peut prendre jusqu’à 24 heures.
 
 Ces paramètres peuvent être facilement configurés à partir des paramètres de diagnostics du portail Azure, à l’aide des commandes Azure PowerShell et de l’interface CLI, ou à l’aide de l’[API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
@@ -94,7 +94,7 @@ Vous pouvez activer la collecte des journaux de diagnostic des ressources dans l
 
    ![Ajouter le paramètre de diagnostic - paramètres existants](media/diagnostic-logs-overview/diagnostic-settings-multiple.png)
 
-3. Donnez un nom à votre définition, cochez les cases pour chaque destination vers laquelle vous souhaitez envoyer des données et configurez la ressource utilisée pour chaque destination. Si vous le souhaitez, vous pouvez définir un nombre de jours pour conserver ces journaux à l’aide des curseurs **Rétention (jours)** (uniquement applicable à la destination du compte de stockage). Si la valeur zéro est appliquée à la rétention, les journaux sont stockés pour une durée indéfinie.
+3. Donnez un nom à votre définition, cochez les cases pour chaque destination vers laquelle vous souhaitez envoyer des données et configurez la ressource utilisée pour chaque destination. Si vous le souhaitez, vous pouvez définir un nombre de jours pour conserver ces journaux d’activité à l’aide des curseurs **Rétention (jours)** (uniquement applicable à la destination du compte de stockage). Si la valeur zéro est appliquée à la rétention, les journaux d’activité sont stockés pour une durée indéfinie.
 
    ![Ajouter le paramètre de diagnostic - paramètres existants](media/diagnostic-logs-overview/diagnostic-settings-configure.png)
 
@@ -118,7 +118,7 @@ Pour activer le stockage des journaux de diagnostic dans un compte de stockage, 
 Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
-L’ID de compte de stockage est l’ID de ressource du compte de stockage auquel vous souhaitez envoyer les journaux.
+L’ID de compte de stockage est l’ID de ressource du compte de stockage auquel vous souhaitez envoyer les journaux d’activité.
 
 Pour activer le streaming des journaux de diagnostic vers un hub d’événements, utilisez cette commande :
 

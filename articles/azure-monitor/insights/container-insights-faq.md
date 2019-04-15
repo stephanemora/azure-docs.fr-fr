@@ -62,7 +62,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 Pour en savoir plus, utilisez le [lien GitHub](https://github.com/moby/moby/issues/22920) suivant.
 
-## <a name="how-do-i-resolve-azure-active-directory-errors-when-i-enable-live-logs"></a>Comment puis-je résoudre les erreurs Azure Active Directory lorsque j'active les journaux dynamiques ? 
+## <a name="how-do-i-resolve-azure-active-directory-errors-when-i-enable-live-logs"></a>Comment puis-je résoudre les erreurs Azure Active Directory lorsque j’active les journaux d’activité dynamiques ? 
 L'erreur suivante peut apparaître : **La réponse à l’url spécifiée dans la demande ne correspond pas à l’URL de réponse configurées pour l’application : « < ID d’application\>'**. Vous trouverez la solution pour résoudre le problème dans l’article [comment afficher le conteneur journaux en temps réel avec Azure Monitor pour les conteneurs](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
 ## <a name="next-steps"></a>Étapes suivantes

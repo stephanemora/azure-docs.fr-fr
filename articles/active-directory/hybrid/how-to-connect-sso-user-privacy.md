@@ -62,9 +62,9 @@ Enregistrez le script dans un fichier avec l’extension « .PS1 ». Exécutez
 
 Pour en savoir plus sur les exigences RGPD relatives à Azure AD Connect, consultez [cet article](reference-connect-user-privacy.md).
 
-### <a name="note-about-domain-controller-logs"></a>Remarque concernant les journaux des contrôleurs de domaine
+### <a name="note-about-domain-controller-logs"></a>Remarque concernant les journaux d’activité des contrôleurs de domaine
 
-Si l’enregistrement d’audit est activé, ce produit peut générer des journaux de sécurité pour vos contrôleurs de domaine. Pour en savoir plus sur la configuration des stratégies d’audit, consultez cet [article](https://technet.microsoft.com/library/dd277403.aspx).
+Si l’enregistrement d’audit est activé, ce produit peut générer des journaux d’activité de sécurité pour vos contrôleurs de domaine. Pour en savoir plus sur la configuration des stratégies d’audit, consultez cet [article](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -24,7 +24,7 @@ ms.locfileid: "58085616"
 
 Vous pouvez afficher les opérations d’un déploiement via le portail Azure. Voir les opérations est plus particulièrement intéressant quand vous avez reçu une erreur lors du déploiement : cet article se concentre donc sur la visualisation des opérations qui ont échoué. Le portail fournit une interface qui vous permet de rechercher facilement les erreurs et de déterminer des corrections potentielles.
 
-Vous pouvez dépanner votre déploiement en examinant les journaux d'audit ou les opérations de déploiement. Cet article illustre les deux méthodes. Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Vous pouvez dépanner votre déploiement en examinant les journaux d’audit ou les opérations de déploiement. Cet article illustre les deux méthodes. Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -14,7 +14,7 @@ ms.date: 10/18/2018
 ms.author: bwren
 ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55990426"
@@ -92,9 +92,9 @@ Gérez la plupart des paramètres de données dans le menu **Paramètres avancé
 | Journaux des événements Windows           | Menu **Paramètres avancés** de l’espace de travail. |
 | Compteurs de performances Windows | Menu **Paramètres avancés** de l’espace de travail. |
 | Compteurs de performances Linux   | Menu **Paramètres avancés** de l’espace de travail. |
-| Journaux IIS                     | Menu **Paramètres avancés** de l’espace de travail. |
+| Journaux d’activité IIS                     | Menu **Paramètres avancés** de l’espace de travail. |
 | Champs personnalisés                | Menu **Paramètres avancés** de l’espace de travail. |
-| Journaux personnalisés                  | Menu **Paramètres avancés** de l’espace de travail. |
+| Journaux d’activité personnalisés                  | Menu **Paramètres avancés** de l’espace de travail. |
 | syslog                       | Menu **Paramètres avancés** de l’espace de travail. |
 | Application Insights         | Cette solution est déconseillée maintenant que Log Analytics et Application Insights partagent le même moteur de données.  |
 | Suivi des fichiers Windows        | Le menu **Suivi des modifications** dans Azure Automation. Voir [Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications](../../automation/automation-change-tracking.md) pour plus de détails. |

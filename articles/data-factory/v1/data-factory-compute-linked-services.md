@@ -86,7 +86,7 @@ Data Factory peut automatiquement créer un cluster HDInsight à la demande bas�
 Notez les points *clés* suivants sur le service lié HDInsight à la demande :
 
 * Le cluster HDInsight à la demande n’apparaît pas dans votre abonnement Azure. Le service Data Factory gère le cluster HDInsight à la demande à votre place.
-* Les journaux des tâches exécutées sur un cluster HDInsight à la demande sont copiés dans le compte de stockage qui est associé au cluster HDInsight. Pour accéder à ces journaux, dans le portail Azure, accédez au volet **Détails sur l’exécution d’activité**. Pour plus d’informations, consultez [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
+* Les journaux d’activité des tâches exécutées sur un cluster HDInsight à la demande sont copiés dans le compte de stockage qui est associé au cluster HDInsight. Pour accéder à ces journaux d’activité, dans le portail Azure, accédez au volet **Détails sur l’exécution d’activité**. Pour plus d’informations, consultez [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
 * Vous êtes facturé uniquement lorsque le cluster HDInsight est actif et exécute des tâches.
 
 > [!IMPORTANT]
@@ -311,7 +311,7 @@ Une autre option consiste à fournir le point de terminaison **batchUri**. Par e
 | accountName       | Le nom du compte Batch.         | Oui      |
 | accessKey         | La clé d’accès du compte Batch.  | Oui      |
 | poolName          | Le nom du pool de machines virtuelles.    | Oui      |
-| linkedServiceName | Le nom du service lié de stockage qui est associé à ce service lié Batch. Ce service lié est utilisé pour présenter les fichiers nécessaires à l’exécution de l’activité et pour stocker les journaux d’exécution de l’activité. | Oui      |
+| linkedServiceName | Le nom du service lié de stockage qui est associé à ce service lié Batch. Ce service lié est utilisé pour présenter les fichiers nécessaires à l’exécution de l’activité et pour stocker les journaux d’activité d’exécution de l’activité. | Oui      |
 
 ## <a name="azure-machine-learning-linked-service"></a>Service lié Microsoft Azure Machine Learning
 Vous pouvez créer un service lié Machine Learning pour inscrire un point de terminaison de notation par lot Machine Learning à une fabrique de données.

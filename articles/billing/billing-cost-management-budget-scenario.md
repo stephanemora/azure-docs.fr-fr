@@ -263,7 +263,7 @@ Lorsque vous avez enregistré votre application logique, une URL a été génér
 
 ## <a name="create-an-azure-monitor-action-group"></a>Créer un groupe d’actions Azure Monitor
 
-Un groupe d’actions est une collection de préférences de notification que vous définissez. Lorsqu’une alerte est déclenchée, un groupe d’actions spécifique peut recevoir l’alerte par le biais de la notification. Une alerte Azure déclenche par anticipation une notification basée sur des conditions spécifiques pour donner la possibilité d’agir. Une alerte peut utiliser les données provenant de plusieurs sources, notamment les métriques et les journaux.
+Un groupe d’actions est une collection de préférences de notification que vous définissez. Lorsqu’une alerte est déclenchée, un groupe d’actions spécifique peut recevoir l’alerte par le biais de la notification. Une alerte Azure déclenche par anticipation une notification basée sur des conditions spécifiques pour donner la possibilité d’agir. Une alerte peut utiliser les données provenant de plusieurs sources, notamment les métriques et les journaux d’activité.
 
 Les groupes d’actions sont le seul point de terminaison que vous intégrez à votre budget. Vous pouvez configurer des notifications sur de nombreux canaux, mais dans le cadre de ce scénario, vous privilégiez l’application logique que vous avez créée précédemment dans ce tutoriel.
 

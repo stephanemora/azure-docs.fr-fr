@@ -24,7 +24,7 @@ Vous pouvez appeler l’opération [Get Job](/rest/api/storageimportexport/jobs)
 
 -   L’état actuel de chaque disque.
 
--   Les URI des blobs contenant les journaux d’erreurs et des informations de journalisation détaillées (si activé).
+-   Les URI des blobs contenant les journaux d’activité d’erreurs et des informations de journalisation détaillées (si activé).
 
 Les sections suivantes décrivent les informations renvoyées par l’opération `Get Job`.
 

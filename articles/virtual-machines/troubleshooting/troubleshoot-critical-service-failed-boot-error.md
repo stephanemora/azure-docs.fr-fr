@@ -50,11 +50,11 @@ Pour résoudre ce problème, [contactez le support technique et envoyez un fichi
 2. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](./troubleshoot-recovery-disks-portal-windows.md). 
 3. Établissez une connexion Bureau à distance avec la machine virtuelle Site Recovery.
 
-### <a name="enable-dump-logs-and-serial-console"></a>Activer les journaux de vidage et la console série
+### <a name="enable-dump-logs-and-serial-console"></a>Activer les journaux d’activité de vidage et la console série
 
 Le journal de vidage et la [console série](./serial-console-windows.md) nous aideront à effectuer des dépannages supplémentaires.
 
-Pour activer les journaux de vidage et la console série, exécutez le script suivant.
+Pour activer les journaux d’activité de vidage et la console série, exécutez le script suivant.
 
 1. Ouvrez une session Invite de commande avec élévation de privilèges (exécuter en tant qu’administrateur).
 2. Exécutez le script qui suit :
@@ -104,7 +104,7 @@ Pour activer les journaux de vidage et la console série, exécutez le script su
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  Redémarrez la machine virtuelle. 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Facultatif : Analyser les journaux de vidage en mode Vidage sur incident
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Facultatif : Analyser les journaux d’activité de vidage en mode Vidage sur incident
 
 Pour analyser les journaux de vidage vous-même, procédez comme suit :
 

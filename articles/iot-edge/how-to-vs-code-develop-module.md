@@ -224,7 +224,7 @@ Sur votre ordinateur de développement, plutôt que d'installer le démon de sé
 
 1. Ouvrez le fichier de votre module (`Program.cs`, `app.js`, `App.java` ou `<your module name>.cs`) et ajoutez un point d'arrêt.
 
-1. Dans l'affichage Explorateur de Visual Studio Code, cliquez sur le fichier `deployment.debug.template.json` de votre solution, puis sélectionnez **Générer et exécuter la solution IoT Edge dans le simulateur**. Vous pouvez surveiller tous les journaux du conteneur de module dans la même fenêtre. Vous pouvez aussi accéder à l'affichage Docker pour surveiller l'état du conteneur.
+1. Dans l'affichage Explorateur de Visual Studio Code, cliquez sur le fichier `deployment.debug.template.json` de votre solution, puis sélectionnez **Générer et exécuter la solution IoT Edge dans le simulateur**. Vous pouvez surveiller tous les journaux d’activité du conteneur de module dans la même fenêtre. Vous pouvez aussi accéder à l'affichage Docker pour surveiller l'état du conteneur.
 
    ![Surveiller des variables](media/how-to-develop-csharp-module/view-log.png)
 

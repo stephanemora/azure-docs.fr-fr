@@ -154,7 +154,7 @@ Fichier d’état extension contient le sous-état et codes de réussite/erreur 
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```
 
-Les journaux de sortie de l’extension sont enregistrés dans le répertoire suivant :
+Les journaux d’activité de sortie de l’extension sont enregistrés dans le répertoire suivant :
 
 ```
 C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
@@ -164,7 +164,7 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 
 | Code d'erreur | Signification | Action possible |
 | :---: | --- | --- |
-| 1 000 | Erreur générique | Le message de cette erreur est fourni par l’exception spécifique dans les journaux de l’extension |
+| 1 000 | Erreur générique | Le message de cette erreur est fourni par l’exception spécifique dans les journaux d’activité de l’extension |
 | 52 | Erreur d’installation de l’extension | Le message de cette erreur est fourni par l’exception spécifique |
 | 1002 | Erreur d’installation de WMF | Erreur durant l'installation de WMF. |
 | 1004 | Package Zip non valide | Zip non valide ; Erreur lors de la décompression du fichier zip |

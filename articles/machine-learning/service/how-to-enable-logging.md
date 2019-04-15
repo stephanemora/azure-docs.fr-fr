@@ -19,7 +19,7 @@ ms.locfileid: "58885891"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Activer la journalisation dans Azure Machine Learning service
 
-Le kit de développement logiciel (SDK) Python Azure Machine Learning permet d’activer la journalisation avec aussi bien le package de journalisation Python par défaut que des fonctionnalités spécifiques du SDK, pour la journalisation en local et dans un espace de travail sur le portail. Les journaux fournissent aux développeurs des informations en temps réel sur l’état de l’application et peuvent aider à diagnostiquer les erreurs et les avertissements. Dans cet article, vous allez découvrir différentes façons d’activer la journalisation dans les domaines suivants :
+Le kit de développement logiciel (SDK) Python Azure Machine Learning permet d’activer la journalisation avec aussi bien le package de journalisation Python par défaut que des fonctionnalités spécifiques du SDK, pour la journalisation en local et dans un espace de travail sur le portail. Les journaux d’activité fournissent aux développeurs des informations en temps réel sur l’état de l’application et peuvent aider à diagnostiquer les erreurs et les avertissements. Dans cet article, vous allez découvrir différentes façons d’activer la journalisation dans les domaines suivants :
 
 > [!div class="checklist"]
 > * Modèles d’apprentissage et cibles de calcul
@@ -99,7 +99,7 @@ service.wait_for_deployment(show_output=True)
 
 ## <a name="logging-for-deployed-models"></a>Journalisation pour les modèles déployés
 
-Pour récupérer les journaux d’un service web déjà déployé, chargez ce service et utilisez la fonction `get_logs()`. Les journaux peuvent contenir des informations détaillées sur les éventuelles erreurs qui se seraient produites au cours du déploiement.
+Pour récupérer les journaux d’activité d’un service web déjà déployé, chargez ce service et utilisez la fonction `get_logs()`. Les journaux d’activité peuvent contenir des informations détaillées sur les éventuelles erreurs qui se seraient produites au cours du déploiement.
 
 ```python
 from azureml.core.webservice import Webservice
@@ -119,7 +119,7 @@ Pour plus d’informations sur l’utilisation d’Application Insights sur le P
 
 ## <a name="python-native-logging-settings"></a>Paramètres de journalisation natifs de Python
 
-Certains journaux du kit SDK risquent de contenir une erreur qui exige de définir le niveau de journalisation sur DÉBOGAGE. Pour définir le niveau de journalisation, ajoutez le code suivant à votre script.
+Certains journaux d’activité du kit SDK risquent de contenir une erreur qui exige de définir le niveau de journalisation sur DÉBOGAGE. Pour définir le niveau de journalisation, ajoutez le code suivant à votre script.
 
 ```python
 import logging

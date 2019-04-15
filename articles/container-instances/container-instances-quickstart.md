@@ -72,17 +72,17 @@ Si l’élément `ProvisioningState` du conteneur est défini sur **Réussite**,
 
 Si l’application n’apparaît pas dans un premier temps, vous devrez peut-être patienter quelques secondes, le temps que le DNS se propage, puis essayez d’actualiser votre navigateur.
 
-## <a name="pull-the-container-logs"></a>Extraire les journaux de conteneur
+## <a name="pull-the-container-logs"></a>Extraire les journaux d’activité de conteneur
 
-Lorsque vous avez besoin de résoudre les problèmes relatifs à un conteneur ou à l’application qu’il exécute (ou simplement afficher son résultat), commencez par consulter les journaux de l’instance de conteneur.
+Lorsque vous avez besoin de résoudre les problèmes relatifs à un conteneur ou à l’application qu’il exécute (ou simplement afficher son résultat), commencez par consulter les journaux d’activité de l’instance de conteneur.
 
-Extrayez les journaux d’instance de conteneur avec la commande [az container logs][az-container-logs] :
+Extrayez les journaux d’activité d’instance de conteneur avec la commande [az container logs][az-container-logs] :
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-La sortie affiche les journaux du conteneur et, normalement, les requêtes HTTP GET générées lorsque vous avez affiché l’application dans votre navigateur.
+La sortie affiche les journaux d’activité du conteneur et, normalement, les requêtes HTTP GET générées lorsque vous avez affiché l’application dans votre navigateur.
 
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer
@@ -94,7 +94,7 @@ listening on port 80
 
 ## <a name="attach-output-streams"></a>Joindre des flux de sortie
 
-En plus de consulter les journaux, vous pouvez joindre vos flux de sortie locale standard et d’erreur standard à ceux du conteneur.
+En plus de consulter les journaux d’activité, vous pouvez joindre vos flux de sortie locale standard et d’erreur standard à ceux du conteneur.
 
 Exécutez d’abord la commande [az container attach][az-container-attach] pour joindre votre console locale aux flux de sortie du conteneur :
 

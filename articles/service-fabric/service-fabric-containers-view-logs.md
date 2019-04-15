@@ -1,6 +1,6 @@
 ---
-title: Afficher des journaux de conteneurs dans Azure Service Fabric | Microsoft Docs
-description: Décrit comment afficher des fichiers journaux de conteneurs de services Service Fabric en cours d’exécution à l’aide de Service Fabric Explorer.
+title: Afficher des journaux d’activité de conteneurs dans Azure Service Fabric | Microsoft Docs
+description: Décrit comment afficher des fichiers journaux d’activité de conteneurs de services Service Fabric en cours d’exécution à l’aide de Service Fabric Explorer.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -21,20 +21,20 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58662820"
 ---
-# <a name="view-logs-for-a-service-fabric-container-service"></a>Afficher les fichiers journaux d’un service de conteneurs Service Fabric
-Azure Service Fabric, qui est un orchestrateur de conteneurs, prend en charge les [conteneurs Linux et Windows](service-fabric-containers-overview.md).  Cet article décrit comment afficher les fichiers journaux de conteneurs d’un service de conteneurs en cours d’exécution ou d’un conteneur mort, de manière à pouvoir diagnostiquer et résoudre les problèmes.
+# <a name="view-logs-for-a-service-fabric-container-service"></a>Afficher les fichiers journaux d’activité d’un service de conteneurs Service Fabric
+Azure Service Fabric, qui est un orchestrateur de conteneurs, prend en charge les [conteneurs Linux et Windows](service-fabric-containers-overview.md).  Cet article décrit comment afficher les fichiers journaux d’activité de conteneurs d’un service de conteneurs en cours d’exécution ou d’un conteneur mort, de manière à pouvoir diagnostiquer et résoudre les problèmes.
 
-## <a name="access-the-logs-of-a-running-container"></a>Accéder aux journaux d’un conteneur en cours d’exécution
-Les fichiers journaux de conteneurs sont accessibles via [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Dans un navigateur web, ouvrez Service Fabric Explorer à partir du point de terminaison de gestion du cluster, en accédant à [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer).  
+## <a name="access-the-logs-of-a-running-container"></a>Accéder aux journaux d’activité d’un conteneur en cours d’exécution
+Les fichiers journaux d’activité de conteneurs sont accessibles via [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Dans un navigateur web, ouvrez Service Fabric Explorer à partir du point de terminaison de gestion du cluster, en accédant à [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer).  
 
-Les fichiers journaux de conteneurs sont hébergés sur le nœud de cluster sur lequel est exécutée l’instance du service de conteneurs. Par exemple, récupérez les journaux du conteneur web frontal de l’[exemple d’application Linux Voting](service-fabric-quickstart-containers-linux.md). Dans l’arborescence, développez **Cluster**>**Applications**>**VotingType**>**fabric:/Voting/azurevotefront**.  Ensuite, développez la partition (d1aa737e-f22a-e347-be16-eec90be24bc1, dans cet exemple) et vérifiez que le conteneur est exécuté sur le nœud de cluster *_lnxvm_0*.
+Les fichiers journaux d’activité de conteneurs sont hébergés sur le nœud de cluster sur lequel est exécutée l’instance du service de conteneurs. Par exemple, récupérez les journaux d’activité du conteneur web frontal de l’[exemple d’application Linux Voting](service-fabric-quickstart-containers-linux.md). Dans l’arborescence, développez **Cluster**>**Applications**>**VotingType**>**fabric:/Voting/azurevotefront**.  Ensuite, développez la partition (d1aa737e-f22a-e347-be16-eec90be24bc1, dans cet exemple) et vérifiez que le conteneur est exécuté sur le nœud de cluster *_lnxvm_0*.
 
-Dans l’arborescence, recherchez le package de code sur le nœud *_lnxvm_0*, en développant **Nœuds**>**_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Packages de code**>**code**.  Ensuite, sélectionnez **Journaux de conteneur** afin d’afficher les fichiers journaux de conteneurs.
+Dans l’arborescence, recherchez le package de code sur le nœud *_lnxvm_0*, en développant **Nœuds**>**_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Packages de code**>**code**.  Ensuite, sélectionnez **Journaux d’activité de conteneur** afin d’afficher les fichiers journaux d’activité de conteneurs.
 
 ![Plateforme Service Fabric][Image1]
 
-## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Accéder aux journaux d’un conteneur planté ou mort
-À compter de v6.2, vous pouvez également extraire les journaux pour un conteneur mort ou planté à l’aide d’[API REST](/rest/api/servicefabric/sfclient-index) ou de commandes [SFCTL (Service Fabric CLI)](service-fabric-cli.md).
+## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Accéder aux journaux d’activité d’un conteneur planté ou mort
+À compter de v6.2, vous pouvez également extraire les journaux d’activité pour un conteneur mort ou planté à l’aide d’[API REST](/rest/api/servicefabric/sfclient-index) ou de commandes [SFCTL (Service Fabric CLI)](service-fabric-cli.md).
 
 ### <a name="set-container-retention-policy"></a>Définir la stratégie de rétention de conteneur
 Pour aider à diagnostiquer les échecs de démarrage du conteneur, Service Fabric (version 6.1 ou supérieure) prend en charge les conteneurs conservés qui ont terminé ou échoué leur démarrage. Cette stratégie peut être définie dans le fichier **ApplicationManifest.xml** comme indiqué dans l’extrait de code suivant :
@@ -47,7 +47,7 @@ Le paramètre **ContainersRetentionCount** spécifie le nombre de conteneurs à 
 Le paramètre **RunInteractive** correspond aux [indicateurs](https://docs.docker.com/engine/reference/commandline/run/#options) `--interactive` et `tty` de Docker. Quand ce paramètre a la valeur true dans le fichier manifeste, ces indicateurs sont utilisés pour démarrer le conteneur.  
 
 ### <a name="rest"></a>REST
-Utilisez l’opération [Obtenir les journaux de conteneur déployés sur le nœud](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) afin d’obtenir les journaux pour un conteneur planté. Spécifiez le nom du nœud sur lequel le conteneur s’exécutait, le nom de l’application, le nom du manifeste de service et le nom du package de code.  Spécifiez `&Previous=true`. La réponse contiendra les journaux du conteneur mort de l’instance de package de code.
+Utilisez l’opération [Obtenir les journaux d’activité de conteneur déployés sur le nœud](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) afin d’obtenir les journaux d’activité pour un conteneur planté. Spécifiez le nom du nœud sur lequel le conteneur s’exécutait, le nom de l’application, le nom du manifeste de service et le nom du package de code.  Spécifiez `&Previous=true`. La réponse contiendra les journaux d’activité du conteneur mort de l’instance de package de code.
 
 L’URI de requête a le format suivant :
 
@@ -66,7 +66,7 @@ Corps de réponse 200 :
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
-Utilisez la commande [sfctl service get-container-logs](service-fabric-sfctl-service.md) afin d’extraire les journaux pour un conteneur planté.  Spécifiez le nom du nœud sur lequel le conteneur s’exécutait, le nom de l’application, le nom du manifeste de service et le nom du package de code. Spécifiez l’indicateur `--previous`.  La réponse contiendra les journaux du conteneur mort de l’instance de package de code.
+Utilisez la commande [sfctl service get-container-logs](service-fabric-sfctl-service.md) afin d’extraire les journaux d’activité pour un conteneur planté.  Spécifiez le nom du nœud sur lequel le conteneur s’exécutait, le nom de l’application, le nom du manifeste de service et le nom du package de code. Spécifiez l’indicateur `--previous`.  La réponse contiendra les journaux d’activité du conteneur mort de l’instance de package de code.
 
 ```
 sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous

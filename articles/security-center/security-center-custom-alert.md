@@ -45,7 +45,7 @@ Pour recréer vos alertes à l’aide d’alertes de journal Azure Monitor, cons
 
 Security Center possède un ensemble d’[alertes de sécurité prédéfinies](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts), qui sont déclenchées en cas de menace ou d’activité suspecte. Dans certains scénarios, vous souhaiterez peut-être créer une alerte personnalisée pour gérer les besoins spécifiques de votre environnement.
 
-Les règles d’alerte personnalisés de Security Center permettent de définir de nouvelles alertes de sécurité basées sur les données déjà collectées à partir de votre environnement. Vous pouvez créer des requêtes, dont le résultat peut être utilisé comme critère pour la règle personnalisée et une fois ce critère mis en correspondance, la règle est exécutée. Vous pouvez utiliser les événements de sécurité des ordinateurs, les journaux des solutions de sécurité du partenaire ou les données ingérées à l’aide d’API pour créer des requêtes personnalisées.
+Les règles d’alerte personnalisés de Security Center permettent de définir de nouvelles alertes de sécurité basées sur les données déjà collectées à partir de votre environnement. Vous pouvez créer des requêtes, dont le résultat peut être utilisé comme critère pour la règle personnalisée et une fois ce critère mis en correspondance, la règle est exécutée. Vous pouvez utiliser les événements de sécurité des ordinateurs, les journaux d’activité des solutions de sécurité du partenaire ou les données ingérées à l’aide d’API pour créer des requêtes personnalisées.
 
 > [!NOTE]
 > Les Alertes personnalisées ne sont pas prises en charge dans la [fonctionnalité d’investigation](security-center-investigation.md) de Security Center.

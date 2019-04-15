@@ -102,14 +102,14 @@ Si le proxy n’est pas configuré correctement, une erreur apparaît : ![proxy2
 Quand Azure AD Connect envoie une demande d'exportation à Azure AD, Azure AD peut prendre jusqu'à 5 minutes pour traiter la demande avant de générer une réponse. Cela peut se produire en particulier si plusieurs objets de groupe appartiennent à de grands groupes inclus dans la même demande d'exportation. Assurez-vous que le délai d'inactivité du proxy est supérieur à 5 minutes. Sinon, vous risquez de rencontrer un problème de connectivité intermittente avec Azure AD sur le serveur Azure AD Connect.
 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Modèle de communication entre Azure AD Connect et Azure AD
-Si vous avez suivi l’ensemble des étapes précédentes et que vous ne pouvez toujours pas vous connecter, vous pouvez commencer à examiner les journaux du réseau. Cette section documente un modèle de connectivité réussi et normal. Elle indique également les fausses pistes courantes qui peuvent être ignorées quand vous lisez les journaux du réseau.
+Si vous avez suivi l’ensemble des étapes précédentes et que vous ne pouvez toujours pas vous connecter, vous pouvez commencer à examiner les journaux d’activité du réseau. Cette section documente un modèle de connectivité réussi et normal. Elle indique également les fausses pistes courantes qui peuvent être ignorées quand vous lisez les journaux d’activité du réseau.
 
 * Il s’agit d’appels vers https://dc.services.visualstudio.com. Il n’est pas impératif que cette URL soit ouverte dans le proxy pour que l’installation réussisse, et vous pouvez ignorer ces appels.
 * Vous constatez que la résolution DNS répertorie les hôtes réels de l’espace de noms DNS nsatc.net et d’autres espaces de noms ne figurant pas sous microsoftonline.com. Néanmoins, il n’existe pas de demandes de service web sur les noms de serveur réels, et vous n’avez pas à ajouter ces URL au proxy.
 * Les points de terminaison adminwebservice et provisioningapi sont des points de terminaison de découverte, et ils sont utilisés pour rechercher le point de terminaison réel à utiliser. Ces points de terminaison diffèrent selon votre région.
 
-### <a name="reference-proxy-logs"></a>Journaux de proxy de référence
-Voici une image mémoire d’un journal de proxy réel et la page de l’Assistant Installation d’où elle a été prise (les entrées en double pour un même point de terminaison ont été supprimées). Cette section peut être utilisée comme référence pour vos propres journaux de proxy et de réseau. Les points de terminaison réels peuvent être différents dans votre environnement (en particulier les URL en *italique*).
+### <a name="reference-proxy-logs"></a>Journaux d’activité de proxy de référence
+Voici une image mémoire d’un journal de proxy réel et la page de l’Assistant Installation d’où elle a été prise (les entrées en double pour un même point de terminaison ont été supprimées). Cette section peut être utilisée comme référence pour vos propres journaux d’activité de proxy et de réseau. Les points de terminaison réels peuvent être différents dans votre environnement (en particulier les URL en *italique*).
 
 **Connexion à Azure AD**
 

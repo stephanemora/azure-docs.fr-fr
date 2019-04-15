@@ -1,6 +1,6 @@
 ---
 title: Surveillance au niveau de l’application Azure Service Fabric | Microsoft Docs
-description: Découvrez les événements et journaux de niveau application et service utilisés pour surveiller et diagnostiquer les clusters Azure Service Fabric.
+description: Découvrez les événements et journaux d’activité de niveau application et service utilisés pour surveiller et diagnostiquer les clusters Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -31,7 +31,7 @@ Pour obtenir des exemples d’utilisation de ces suggestions, consultez [Ajouter
 
 ## <a name="application-insights-sdk"></a>Kit de développement logiciel (SDK) Application Insights
 
-Application Insights bénéficie d’une intégration riche et prête à l’emploi avec Service Fabric. Les utilisateurs peuvent ajouter les packages NuGet AI Service Fabric et ainsi recevoir des données et journaux créés et collectés tel qu’affichés dans le Portail Azure. En outre, ils sont invités à ajouter leurs propres données de télémétrie pour diagnostiquer et déboguer leurs applications, mais aussi pour effectuer le suivi des services et parties de leur application les plus utilisés. Dans le SDK, la classe [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) offre de nombreuses façons d’effectuer le suivi des données de télémétrie dans vos applications. Regardez un exemple dans notre didacticiel montrant comment utiliser et ajouter Application Insights à votre application pour [surveiller et diagnostiquer une application .NET](service-fabric-tutorial-monitoring-aspnet.md).
+Application Insights bénéficie d’une intégration riche et prête à l’emploi avec Service Fabric. Les utilisateurs peuvent ajouter les packages NuGet AI Service Fabric et ainsi recevoir des données et journaux d’activité créés et collectés tel qu’affichés dans le Portail Azure. En outre, ils sont invités à ajouter leurs propres données de télémétrie pour diagnostiquer et déboguer leurs applications, mais aussi pour effectuer le suivi des services et parties de leur application les plus utilisés. Dans le SDK, la classe [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) offre de nombreuses façons d’effectuer le suivi des données de télémétrie dans vos applications. Regardez un exemple dans notre didacticiel montrant comment utiliser et ajouter Application Insights à votre application pour [surveiller et diagnostiquer une application .NET](service-fabric-tutorial-monitoring-aspnet.md).
 
 ## <a name="eventsource"></a>EventSource
 
@@ -43,4 +43,4 @@ Il est important de planifier avec soin la manière dont vous allez instrumenter
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois votre fournisseur de journalisation choisi pour l’instrumentation de vos applications et services, vos journaux et événements doivent être agrégés pour pouvoir être envoyés à une plateforme d’analyse. Pour mieux comprendre certaines des options recommandées d’Azure Monitor, lisez les informations relatives à [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) et [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md).
+Une fois votre fournisseur de journalisation choisi pour l’instrumentation de vos applications et services, vos journaux d’activité et événements doivent être agrégés pour pouvoir être envoyés à une plateforme d’analyse. Pour mieux comprendre certaines des options recommandées d’Azure Monitor, lisez les informations relatives à [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) et [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md).

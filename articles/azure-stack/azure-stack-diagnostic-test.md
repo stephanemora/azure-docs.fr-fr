@@ -25,7 +25,7 @@ ms.locfileid: "56203809"
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-En tant qu’opérateur Azure Stack, il est essentiel que vous puissiez déterminer l’intégrité et l’état de votre système à la demande. L’outil de validation Azure Stack (**Test-AzureStack**) est une applet de commande PowerShell qui vous permet d’exécuter une série de tests sur votre système pour identifier les éventuelles défaillances. Il vous sera généralement demandé d’exécuter cet outil par le biais du [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) quand vous contacterez les services de support technique (CSS) Microsoft pour signaler un problème. Avec toutes les informations sur l’état et l’intégrité du système à portée de main, les services CSS peuvent collecter et analyser des journaux détaillés, se concentrer sur la zone où l’erreur s’est produite et collaborer avec vous afin de résoudre le problème.
+En tant qu’opérateur Azure Stack, il est essentiel que vous puissiez déterminer l’intégrité et l’état de votre système à la demande. L’outil de validation Azure Stack (**Test-AzureStack**) est une applet de commande PowerShell qui vous permet d’exécuter une série de tests sur votre système pour identifier les éventuelles défaillances. Il vous sera généralement demandé d’exécuter cet outil par le biais du [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) quand vous contacterez les services de support technique (CSS) Microsoft pour signaler un problème. Avec toutes les informations sur l’état et l’intégrité du système à portée de main, les services CSS peuvent collecter et analyser des journaux d’activité détaillés, se concentrer sur la zone où l’erreur s’est produite et collaborer avec vous afin de résoudre le problème.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Exécution de l’outil de validation et accès aux résultats
 
@@ -54,9 +54,9 @@ Comme indiqué précédemment, l’outil de validation est exécuté par le biai
    Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath "<path>" -OutputShareCredential $cred
    ```
 
-   L’applet de commande recueille des journaux générés par Test-AzureStack. Pour plus d’informations sur les journaux de diagnostic, voir [Outils de diagnostics Azure Stack](azure-stack-diagnostics.md). Vous ne devez pas recueillir de journaux ni contacter les services de support technique si les tests retournent **WARN**.
+   L’applet de commande recueille des journaux d’activité générés par Test-AzureStack. Pour plus d’informations sur les journaux de diagnostic, voir [Outils de diagnostics Azure Stack](azure-stack-diagnostics.md). Vous ne devez pas recueillir de journaux d’activité ni contacter les services de support technique si les tests retournent **WARN**.
 
-4. Si les services de support technique vous ont demandé d’exécuter l’outil de validation, le représentant du support technique vous demandera de lui fournir les journaux que vous avez recueillis afin de poursuivre la résolution de votre problème.
+4. Si les services de support technique vous ont demandé d’exécuter l’outil de validation, le représentant du support technique vous demandera de lui fournir les journaux d’activité que vous avez recueillis afin de poursuivre la résolution de votre problème.
 
 ## <a name="tests-available"></a>Tests disponibles
 

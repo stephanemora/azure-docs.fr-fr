@@ -275,7 +275,7 @@ Lorsque vous déplacez des ressources dans Azure et activez la journalisation de
 - Toutes les données de journal ne sont pas identiques, et certaines ressources génèrent plus de données de journal que d’autres.
 - En raison des réglementations et de la conformité, il est probable que vous devrez conserver les données de journal de certaines ressources plus longtemps que d’autres.
 - Vous devez trouver le bon équilibre entre l’optimisation des coûts de stockage de journal et la rétention des données de journal dont vous avez besoin.
-- Nous vous recommandons d’évaluer et de configurer la journalisation immédiatement après une migration, afin de ne pas gaspiller de l’argent en conservant des journaux sans importance.
+- Nous vous recommandons d’évaluer et de configurer la journalisation immédiatement après une migration, afin de ne pas gaspiller de l’argent en conservant des journaux d’activité sans importance.
 
 **En savoir plus :**
 

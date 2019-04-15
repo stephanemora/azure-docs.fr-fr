@@ -163,7 +163,7 @@ Le panneau des conditions d’utilisation affiche le nombre d’utilisateurs aya
     ![Volet Afficher l’historique](./media/terms-of-use/view-history-pane.png)
 
 ## <a name="view-azure-ad-audit-logs"></a>Afficher les journaux d’audit Azure AD
-Si vous souhaitez afficher d’autres activités, la fonctionnalité Conditions d’utilisation d’Azure AD inclut des journaux d’audit. Chaque consentement d’utilisateur déclenche un événement dans les journaux d’audit qui est stocké pendant **30 jours**. Vous pouvez afficher ces journaux dans le portail ou les télécharger sous forme de fichier .csv.
+Si vous souhaitez afficher d’autres activités, la fonctionnalité Conditions d’utilisation d’Azure AD inclut des journaux d’audit. Chaque consentement d’utilisateur déclenche un événement dans les journaux d’audit qui est stocké pendant **30 jours**. Vous pouvez afficher ces journaux d’activité dans le portail ou les télécharger sous forme de fichier .csv.
 
 Pour démarrer avec les journaux d’audit Azure AD, effectuez les étapes suivantes :
 

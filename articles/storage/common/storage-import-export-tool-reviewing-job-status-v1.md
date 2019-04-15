@@ -10,7 +10,7 @@ ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 306e3ccf19ba8db2de01e4b20a52707215a4a040
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55470363"
@@ -26,7 +26,7 @@ Voici des exemples d’URL de fichiers journaux de copie pour un travail d’imp
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
   
- Consultez la page [Format des fichiers journaux du Service Import-Export](../storage-import-export-file-format-log.md) pour connaître le format des journaux de copie et la liste complète des codes d’état.  
+ Consultez la page [Format des fichiers journaux d’activité du Service Import-Export](../storage-import-export-file-format-log.md) pour connaître le format des journaux d’activité de copie et la liste complète des codes d’état.  
   
 ## <a name="next-steps"></a>Étapes suivantes
  

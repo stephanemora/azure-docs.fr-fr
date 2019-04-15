@@ -155,7 +155,7 @@ Les points de montage suivants sont préconfigurés :
 |/Hana/Shared/SID | Installation HANA | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux | 
-|/hana/logbackups/SID | Journaux de rétablissement |
+|/hana/logbackups/SID | Journaux d’activité de rétablissement |
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
@@ -190,11 +190,11 @@ Les points de montage suivants sont préconfigurés :
 |/hana/shared/SID1 | Installation HANA pour SID1 | 
 |/hana/data/SID1/mnt00001 | Installation des fichiers de données pour SID1 | 
 |/hana/log/SID1/mnt00001 | Installation des fichiers journaux pour SID1 | 
-|/hana/logbackups/SID1 | Journaux de rétablissement pour SID1 |
+|/hana/logbackups/SID1 | Journaux d’activité de rétablissement pour SID1 |
 |/hana/shared/SID2 | Installation HANA pour SID2 | 
 |/hana/data/SID2/mnt00001 | Installation des fichiers de données pour SID2 | 
 |/hana/log/SID2/mnt00001 | Installation des fichiers journaux pour SID2 | 
-|/hana/logbackups/SID2 | Journaux de rétablissement pour SID2 |
+|/hana/logbackups/SID2 | Journaux d’activité de rétablissement pour SID2 |
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
@@ -230,7 +230,7 @@ Les points de montage suivants sont préconfigurés :
 |/Hana/Shared/SID | Installation HANA pour SID | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux pour SID | 
-|/hana/logbackups/SID | Journaux de rétablissement pour SID |
+|/hana/logbackups/SID | Journaux d’activité de rétablissement pour SID |
 
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
@@ -272,7 +272,7 @@ Les points de montage suivants sont préconfigurés :
 |/Hana/Shared/SID | Installation HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux pour SID de production | 
-|/hana/logbackups/SID | Fichiers de rétablissement pour SID de production |
+|/hana/logbackups/SID | Journaux de rétablissement pour SID de production |
 |**Sur le site de reprise après sinistre**|
 |/Hana/Shared/SID | Installation HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 
@@ -280,7 +280,7 @@ Les points de montage suivants sont préconfigurés :
 |/hana/shared/QA-SID | Installation HANA pour SID AQ | 
 |/hana/data/QA-SID/mnt00001 | Installation des fichiers de données pour SID AQ | 
 |/hana/log/QA-SID/mnt00001 | Installation des fichiers journaux pour SID AQ |
-|/hana/logbackups/QA-SID | Journaux de rétablissement pour SID AQ |
+|/hana/logbackups/QA-SID | Journaux d’activité de rétablissement pour SID AQ |
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
@@ -326,7 +326,7 @@ Les points de montage suivants sont préconfigurés :
 |/Hana/Shared/SID | Installation HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux pour SID de production | 
-|/hana/logbackups/SID | Fichiers de rétablissement pour SID de production |
+|/hana/logbackups/SID | Journaux de rétablissement pour SID de production |
 |**Sur le nœud secondaire**|
 |/Hana/Shared/SID | Installation HANA pour SID secondaire | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID secondaire | 
@@ -374,7 +374,7 @@ Les points de montage suivants sont préconfigurés :
 |/Hana/Shared/SID | Installation HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux pour SID de production | 
-|/hana/logbackups/SID | Fichiers de rétablissement pour SID de production |
+|/hana/logbackups/SID | Journaux de rétablissement pour SID de production |
 |**Sur le nœud secondaire du site principal**|
 |/Hana/Shared/SID | Installation HANA pour SID secondaire | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID secondaire | 
@@ -387,7 +387,7 @@ Les points de montage suivants sont préconfigurés :
 |/hana/shared/QA-SID | Installation HANA pour SID AQ | 
 |/hana/data/QA-SID/mnt00001 | Installation des fichiers de données pour SID AQ | 
 |/hana/log/QA-SID/mnt00001 | Installation des fichiers journaux pour SID AQ |
-|/hana/logbackups/QA-SID | Journaux de rétablissement pour SID AQ |
+|/hana/logbackups/QA-SID | Journaux d’activité de rétablissement pour SID AQ |
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
@@ -433,7 +433,7 @@ Les points de montage suivants sont préconfigurés :
 |/hana/shared | Installation HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux pour SID de production | 
-|/hana/logbackups/SID | Fichiers de rétablissement pour SID de production |
+|/hana/logbackups/SID | Journaux de rétablissement pour SID de production |
 
 
 
@@ -474,7 +474,7 @@ Les points de montage suivants sont préconfigurés :
 |/hana/shared | Installation HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux pour SID de production | 
-|/hana/logbackups/SID | Fichiers de rétablissement pour SID de production |
+|/hana/logbackups/SID | Journaux de rétablissement pour SID de production |
 
 
 ## <a name="9-scale-out-without-standby"></a>9. Scale-out sans nœud de secours
@@ -510,7 +510,7 @@ Les points de montage suivants sont préconfigurés :
 |/hana/shared | Installation HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux pour SID de production | 
-|/hana/logbackups/SID | Fichiers de rétablissement pour SID de production |
+|/hana/logbackups/SID | Journaux de rétablissement pour SID de production |
 
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
@@ -549,7 +549,7 @@ Les points de montage suivants sont préconfigurés :
 |/hana/shared | Installation HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux pour SID de production | 
-|/hana/logbackups/SID | Fichiers de rétablissement pour SID de production |
+|/hana/logbackups/SID | Journaux de rétablissement pour SID de production |
 |**Sur le nœud du site de reprise après sinistre**|
 |/hana/shared | Installation HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 

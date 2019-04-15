@@ -176,8 +176,8 @@ Vous pouvez utiliser l’audit SQL Database pour :
 
 Il existe deux méthodes d’audit :
 
--   **Audit d’objets blob** : Les journaux sont écrits dans le Stockage Blob Azure. Cette méthode d’audit est récente. Elle est plus performante, prend en charge l’audit avec une granularité plus élevée au niveau des objets et est plus économique.
--   **Audit de table** : Les journaux sont écrits dans le Stockage Table Azure.
+-   **Audit d’objets blob** : Les journaux d’activité sont écrits dans le Stockage Blob Azure. Cette méthode d’audit est récente. Elle est plus performante, prend en charge l’audit avec une granularité plus élevée au niveau des objets et est plus économique.
+-   **Audit de table** : Les journaux d’activité sont écrits dans le Stockage Table Azure.
 
 ### <a name="threat-detection"></a>Détection de menaces
 

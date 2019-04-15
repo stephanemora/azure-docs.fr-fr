@@ -42,7 +42,7 @@ En tant que développeur/architecte de solutions, **vous devez envisager d’uti
 
 * Votre application doit stocker plus de 80 Go de messages dans une file d’attente.
 * Votre application veut suivre la progression du traitement d'un message dans la file d'attente. Cela est utile si le processus traitant un message se bloque. Un processus suivant peut alors utiliser ces informations pour continuer là où le processus précédent s'était arrêté.
-* Vous avez besoin de journaux côté serveur de toutes les transactions exécutées sur les files d'attente.
+* Vous avez besoin de journaux d’activité côté serveur de toutes les transactions exécutées sur les files d’attente.
 
 En tant que développeur/architecte de solutions, **vous devez envisager d’utiliser les files d’attente Service Bus** lorsque :
 

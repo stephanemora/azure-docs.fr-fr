@@ -52,7 +52,7 @@ Avant de commencer ce tutoriel :
 
 ## <a name="create-a-service-fabric-cluster-in-azure"></a>Créer un cluster Service Fabric dans Azure
 
-Les étapes suivantes créent les ressources nécessaires pour déployer votre application sur un cluster Service Fabric. En outre, les ressources nécessaires pour surveiller l’intégrité de votre solution à l’aide de la pile ELK (Elasticsearch, Logstash, Kibana) sont configurées. Plus précisément, [Event Hubs](https://azure.microsoft.com/services/event-hubs/) est utilisé en tant que récepteur pour les journaux de Service Fabric. Il est configuré pour envoyer des journaux du cluster Service Fabric à votre instance Logstash.
+Les étapes suivantes créent les ressources nécessaires pour déployer votre application sur un cluster Service Fabric. En outre, les ressources nécessaires pour surveiller l’intégrité de votre solution à l’aide de la pile ELK (Elasticsearch, Logstash, Kibana) sont configurées. Plus précisément, [Event Hubs](https://azure.microsoft.com/services/event-hubs/) est utilisé en tant que récepteur pour les journaux d’activité de Service Fabric. Il est configuré pour envoyer des journaux d’activité du cluster Service Fabric à votre instance Logstash.
 
 1. Ouvrez un terminal et téléchargez le package suivant qui contient les scripts d’assistance et les modèles nécessaires pour créer les ressources dans Azure
 
@@ -88,7 +88,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     Certificate Thumbprint: <THUMBPRINT>
     ```
 
-5. Créez un groupe de ressources pour le compte de stockage qui stocke vos journaux
+5. Créez un groupe de ressources pour le compte de stockage qui stocke vos journaux d’activité
 
     ```bash
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
@@ -96,7 +96,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     Example: az group create --location westus --name teststorageaccountrg
     ```
 
-6. Créez un compte de stockage qui sera utilisé pour stocker les journaux produits
+6. Créez un compte de stockage qui sera utilisé pour stocker les journaux d’activité produits
 
     ```bash
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
@@ -159,7 +159,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     }
     ```
 
-11. Exécutez le script *eventhubssastoken.py* pour générer l’URL de la SAP pour la ressource EventHubs que vous avez créée. Cette URL de SAP est utilisée par le cluster Service Fabric pour envoyer des journaux à Event Hubs. Par conséquent, la stratégie **expéditeur** est utilisée pour générer l’URL. Le script renvoie l’URL de SAP pour la ressource Event Hubs qui est utilisée dans l’étape suivante :
+11. Exécutez le script *eventhubssastoken.py* pour générer l’URL de la SAP pour la ressource EventHubs que vous avez créée. Cette URL de SAP est utilisée par le cluster Service Fabric pour envoyer des journaux d’activité à Event Hubs. Par conséquent, la stratégie **expéditeur** est utilisée pour générer l’URL. Le script renvoie l’URL de SAP pour la ressource Event Hubs qui est utilisée dans l’étape suivante :
 
     ```python
     python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' 'sender' '[PRIMARY-KEY]'

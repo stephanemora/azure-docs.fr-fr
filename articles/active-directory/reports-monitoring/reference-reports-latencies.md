@@ -41,7 +41,7 @@ Le tableau suivant répertorie les informations de latence pour les rapports d�
 > **Latence (95e centile)** fait référence au délai auquel 95 % des journaux seront déclarés et **Latence (99e centile)** fait référence au délai auquel 99 % des journaux seront déclarés. 
 >
 
-| Rapport | Latence (95e centile) |Latence (99e centile)|Intervalle au cours duquel les journaux seront rapportés|
+| Rapport | Latence (95e centile) |Latence (99e centile)|Intervalle au cours duquel les journaux d’activité seront rapportés|
 | :-- | --- | --- | --- |
 | Journaux d’audit | 2 minutes  | 5 minutes  | 2 à 60 minutes |
 | Connexions | 2 minutes  | 5 minutes | 2 à 120 minutes |

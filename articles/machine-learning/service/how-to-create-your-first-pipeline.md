@@ -305,7 +305,7 @@ Lorsque vous exécutez un pipeline pour la première fois, Azure Machine Learnin
 * Télécharge l’image docker de chaque étape sur la cible de calcul à partir du registre de conteneurs.
 * Monte le magasin de données si un objet `DataReference` est spécifié dans une étape. Si le montage n’est pas pris en charge, alors les données sont copiées sur la cible de calcul.
 * Exécute l’étape dans la cible de calcul spécifiée dans la définition de l’étape. 
-* Crée les artefacts tels que les journaux, stdout et stderr,les métriques mesures et la sortie spécifiée par l’étape. Ces artefacts sont ensuite téléchargés et conservés dans le magasin de données par défaut de l’utilisateur.
+* Crée les artefacts tels que les journaux d’activité, stdout et stderr,les métriques mesures et la sortie spécifiée par l’étape. Ces artefacts sont ensuite téléchargés et conservés dans le magasin de données par défaut de l’utilisateur.
 
 ![Diagramme d’exécution d’une expérience en tant que pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 

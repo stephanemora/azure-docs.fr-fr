@@ -29,7 +29,7 @@ Dans l’application, les adresses e-mail peuvent être configurées pour recevo
 
 Au niveau des appareils, Microsoft ne conserve aucune information et n’a pas accès aux données permettant la corrélation entre l’appareil et l’utilisateur. Nombre des appareils gérés dans Azure IoT Central ne sont pas des appareils personnels, par exemple un distributeur automatique ou une machine à café. Cependant, les clients peuvent décider que certains appareils sont personnels et gérer eux-mêmes leurs propres systèmes de gestion des ressources ou de l’inventaire afin d’associer des appareils à des personnes. Azure IoT Central gère et stocke toutes les données associées aux appareils comme s’il s’agissait de données personnelles.
 
-Lorsque vous utilisez les services d’entreprise Microsoft, Microsoft génère des informations appelées journaux générés par le système. Ces journaux, qui consignent les actions factuelles effectuées au sein du service et les données de diagnostic relatives aux appareils individuels, ne sont pas liés à l’activité de l’utilisateur. Les journaux générés par le système Azure IoT Central ne sont pas accessibles ou exportables par les administrateurs de l’application.
+Lorsque vous utilisez les services d’entreprise Microsoft, Microsoft génère des informations appelées journaux d’activité générés par le système. Ces journaux d’activité, qui consignent les actions factuelles effectuées au sein du service et les données de diagnostic relatives aux appareils individuels, ne sont pas liés à l’activité de l’utilisateur. Les journaux d’activité générés par le système Azure IoT Central ne sont pas accessibles ou exportables par les administrateurs de l’application.
 
 ## <a name="deleting-customer-data"></a>Suppression des données client
 

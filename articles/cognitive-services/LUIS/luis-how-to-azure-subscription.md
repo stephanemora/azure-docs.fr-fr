@@ -66,7 +66,7 @@ La case à cocher **Include all predicted intent scores** (Inclure tous les scor
 
 Ce paramètre permet à votre chatbot ou à application appelante de LUIS de prendre une décision par programmation basée sur les scores des intentions renvoyées. En règle générale, les deux premières intentions sont les plus intéressantes. Si le score supérieur est l’intention None, votre chatbot peut choisir de poser une question de suivi qui effectue un choix définitif entre l’intention None et l’autre intention de score élevé. 
 
-Les intentions et leurs scores sont également inclus dans les journaux de point de terminaison. Vous pouvez [exporter](luis-how-to-start-new-app.md#export-app) ces journaux et analyser les scores. 
+Les intentions et leurs scores sont également inclus dans les journaux d’activité de point de terminaison. Vous pouvez [exporter](luis-how-to-start-new-app.md#export-app) ces journaux d’activité et analyser les scores. 
 
 ```JSON
 {

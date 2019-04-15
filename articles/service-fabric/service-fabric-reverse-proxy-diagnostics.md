@@ -27,7 +27,7 @@ Depuis la mise en production 5.7 de Service Fabric, il est possible de collecte
 Reportez-vous à [Collecter les événements de proxy inverse](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) pour activer la collecte d’événements à partir de ces canaux dans les clusters locaux et les clusters Azure Service Fabric.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>Résoudre les problèmes à l’aide de journaux de diagnostic
-Voici quelques exemples sur la façon d’interpréter les journaux d’échecs courants que vous pouvez rencontrer :
+Voici quelques exemples sur la façon d’interpréter les journaux d’activité d’échecs courants que vous pouvez rencontrer :
 
 1. Le proxy inverse retourne un code d’état de réponse 504 (délai d’expiration).
 

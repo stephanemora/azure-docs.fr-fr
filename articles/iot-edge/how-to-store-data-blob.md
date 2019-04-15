@@ -345,7 +345,7 @@ Voici un exemple des propriétés souhaitées pour ce module : ![, définissez 
     }
 
    ```
-## <a name="logs"></a>Journaux
+## <a name="logs"></a>Journaux d’activité
 
 Suivez les instructions à [configurer vos journaux de docker pour les modules IoT Edge](production-checklist.md#set-up-logs-and-diagnostics)
 

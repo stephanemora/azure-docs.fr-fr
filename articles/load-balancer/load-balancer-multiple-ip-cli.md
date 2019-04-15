@@ -15,7 +15,7 @@ ms.date: 06/25/2018
 ms.author: kumud
 ms.openlocfilehash: 1e8911847a555e3b6326f15d15a09344a4472f2c
 ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53165503"
@@ -121,4 +121,4 @@ Pour accomplir le scénario décrit dans cet article, suivez les étapes ci-dess
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour en savoir plus sur la combinaison de services d’équilibrage de charge dans Azure, consultez [Utilisation des services d’équilibrage de charge dans Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Pour savoir comment gérer et dépanner l’équilibrage de charge à l’aide de différents types de journaux dans Azure, consultez [Log Analytics pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Pour savoir comment gérer et dépanner l’équilibrage de charge à l’aide de différents types de journaux d’activité dans Azure, consultez [Log Analytics pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

@@ -38,11 +38,11 @@ Lorsque vous vous connectez vos journaux d’activité Azure à un espace de tra
 - Voir les tendances des activités se produisant sur chacun de vos services Azure
 - Signaler les modifications d’autorisation sur toutes vos ressources Azure
 - Identifier les problèmes d’intégrité de service ou de panne qui ont un impact sur vos ressources
-- Utiliser la fonction Recherche de journal pour mettre en corrélation les activités d’utilisateur, les opérations de mise à l’échelle automatique, les modifications d’autorisation et l’intégrité du service avec d’autres journaux ou métriques de votre environnement
+- Utiliser la fonction Recherche de journal pour mettre en corrélation les activités d’utilisateur, les opérations de mise à l’échelle automatique, les modifications d’autorisation et l’intégrité du service avec d’autres journaux d’activité ou métriques de votre environnement
 
 <sup>1</sup>par défaut, Azure Monitor conserve vos journaux d’activité Azure dans un espace de travail Analytique de journal pendant 90 jours, même si vous êtes sur le niveau gratuit. Ou si votre espace de travail est réglé sur une rétention de moins de 90 jours. Si votre espace de travail a une rétention de plus de 90 jours, les journaux d’activité sont conservés en fonction de la période de rétention de votre espace de travail.
 
-L’espace de travail Analytique de journal collecte des journaux d’activité gratuitement et stocke les journaux pendant 90 jours sans frais. Si vous conservez des journaux pendant plus de 90 jours, des frais de rétention vous seront facturés pour les données stockées pendant plus de 90 jours.
+L’espace de travail Analytique de journal collecte des journaux d’activité gratuitement et stocke les journaux pendant 90 jours sans frais. Si vous conservez des journaux d’activité pendant plus de 90 jours, des frais de rétention vous seront facturés pour les données stockées pendant plus de 90 jours.
 
 Si vous êtes sur le niveau de tarification Gratuit, les journaux d’activité ne s’appliquent pas à votre consommation de données quotidienne.
 
@@ -110,4 +110,4 @@ Les données de journal d’activité apparaissent uniquement *après* avoir con
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Créez une [alerte](../platform/alerts-metric.md) lorsqu’une activité spécifique se produit.
-- Utilisez la fonction [Recherche dans les journaux](../log-query/log-query-overview.md) pour afficher des informations détaillées provenant de vos journaux d’activité.
+- Utilisez la fonction [Recherche dans les journaux d’activité](../log-query/log-query-overview.md) pour afficher des informations détaillées provenant de vos journaux d’activité.

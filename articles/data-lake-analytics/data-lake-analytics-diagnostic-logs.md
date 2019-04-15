@@ -17,7 +17,7 @@ ms.locfileid: "56959123"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accès aux journaux de diagnostic d’Azure Data Lake Analytics
 
-La journalisation de diagnostic vous permet de collecter les pistes d’audit d’accès aux données. Ces journaux fournissent des informations comme :
+La journalisation de diagnostic vous permet de collecter les pistes d’audit d’accès aux données. Ces journaux d’activité fournissent des informations comme :
 
 * Une liste des utilisateurs qui ont accédé aux données.
 * La fréquence à laquelle les données sont consultées.
@@ -29,7 +29,7 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
 
 2. Ouvrez votre compte Data Lake Analytics et sélectionnez **Journaux de diagnostic** dans la section __Surveiller__. Ensuite, sélectionnez __Activer les diagnostics__.
 
-    ![Activer les diagnostics pour collecter des journaux d’audit et de requêtes](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![Activer les diagnostics pour collecter des journaux d’activité d’audit et de requêtes](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
 3. Dans __Paramètres de diagnostic__, entrez un __Nom__ pour cette configuration de journalisation, puis sélectionnez les options de journalisation.
 
@@ -37,12 +37,12 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
 
    * Vous pouvez choisir de stocker/traiter les données de trois manières différentes.
 
-     * Sélectionnez __Archive to a storage account (Archiver dans un compte de stockage)__ pour stocker les journaux dans un compte de stockage Azure. Utilisez cette option si vous souhaitez archiver les données. Si vous sélectionnez cette option, vous devez fournir un compte de stockage Azure dans lequel enregistrer les journaux.
+     * Sélectionnez __Archive to a storage account (Archiver dans un compte de stockage)__ pour stocker les journaux d’activité dans un compte de stockage Azure. Utilisez cette option si vous souhaitez archiver les données. Si vous sélectionnez cette option, vous devez fournir un compte de stockage Azure dans lequel enregistrer les journaux d’activité.
 
-     * Sélectionnez **Stream to an Event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Utilisez cette option si vous disposez d’un pipeline de traitement en aval qui analyse les journaux entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
+     * Sélectionnez **Stream to an Event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Utilisez cette option si vous disposez d’un pipeline de traitement en aval qui analyse les journaux d’activité entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
 
      * Sélectionnez __envoyer à Log Analytique__ pour envoyer les données au service Azure Monitor. Utilisez cette option si vous souhaitez utiliser des journaux Azure Monitor pour collecter et analyser les journaux.
-   * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux de demande ou les deux.  Un journal des requêtes capture chaque demande d’API. Un journal d’audit enregistre toutes les opérations qui sont déclenchées par cette demande d’API.
+   * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux d’activité de demande ou les deux.  Un journal des requêtes capture chaque demande d’API. Un journal d’audit enregistre toutes les opérations qui sont déclenchées par cette demande d’API.
 
    * Pour __Archiver dans un compte de stockage__, spécifiez le nombre de jours pendant lesquels conserver les données.
 
@@ -56,9 +56,9 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
 1. Pour afficher les conteneurs d’objets blob qui contiennent les données de journalisation, ouvrez le compte de stockage Azure utilisé par Data Lake Analytics pour la journalisation, puis cliquez sur __Objets blob__.
 
    * Le conteneur **insights-logs-audit** contient les journaux d’audit.
-   * Le conteneur **insights-logs-requests** contient les journaux de demande.
+   * Le conteneur **insights-logs-requests** contient les journaux d’activité de demande.
 
-2. Les journaux sont stockés dans ces conteneurs, selon la structure de fichiers suivante :
+2. Les journaux d’activité sont stockés dans ces conteneurs, selon la structure de fichiers suivante :
 
         resourceId=/
           SUBSCRIPTIONS/
@@ -89,9 +89,9 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
 
 ## <a name="log-structure"></a>Structure journal
 
-Les journaux d’audit et de demande présentent un format JSON structuré.
+Les journaux d’activité d’audit et de demande présentent un format JSON structuré.
 
-### <a name="request-logs"></a>journaux de demande
+### <a name="request-logs"></a>journaux d’activité de demande
 
 Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque objet blob a un objet racine appelé **enregistrements** qui contient un tableau d’objets du journal.
 

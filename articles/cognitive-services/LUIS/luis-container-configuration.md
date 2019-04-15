@@ -99,7 +99,7 @@ Le tableau suivant décrit les paramètres pris en charge.
 |Obligatoire| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
 |Oui| `Input` | Chaîne | Cible du montage d’entrée. La valeur par défaut est `/input`. Il s’agit de l’emplacement des fichiers de package LUIS. <br><br>Exemple :<br>`--mount type=bind,src=c:\input,target=/input`|
-|Non | `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux. Cela comprend les journaux de requêtes LUIS et les journaux de conteneur. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
+|Non | `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux d’activité. Cela comprend les journaux d’activité de requêtes LUIS et les journaux d’activité de conteneur. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exemples de commandes docker run
 

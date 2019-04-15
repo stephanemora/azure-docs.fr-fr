@@ -66,7 +66,7 @@ Voici une liste des limitations connues du débogage de conteneurs dans Service 
     * Résolution : Recréez le cluster avec la nouvelle adresse IP principale sur l’hôte ou utilisez le nom de la machine. C’est normal.
 * Si le FQDN avec lequel le cluster a été créé ne peut pas être résolu sur le réseau, DNS échoue.
     * Résolution : Recréez le cluster local avec l’adresse IP principale de l’hôte. C’est normal.
-* Lors du débogage d’un conteneur, les journaux de docker sont disponibles uniquement dans la fenêtre de sortie de Visual Studio, ils ne le sont pas via les API Service Fabric, ni non plus dans Service Fabric Explorer.
+* Lors du débogage d’un conteneur, les journaux d’activité de docker sont disponibles uniquement dans la fenêtre de sortie de Visual Studio, ils ne le sont pas via les API Service Fabric, ni non plus dans Service Fabric Explorer.
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Déboguer une application .NET exécutée dans des conteneurs docker sur Service Fabric
 

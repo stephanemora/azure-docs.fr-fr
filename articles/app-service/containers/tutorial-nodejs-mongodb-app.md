@@ -476,7 +476,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Connecter une application Node.js à une base de données
 > * Déploiement de l’application dans Azure
 > * Mettre à jour le modèle de données et redéployer l’application
-> * Diffuser des journaux à partir d’Azure vers votre terminal
+> * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.

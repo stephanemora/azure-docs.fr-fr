@@ -10,22 +10,22 @@ ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
 ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/04/2019
 ms.locfileid: "55697830"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Format de fichier journal du service Azure Import/Export
-Lorsque le service Microsoft Azure Import/Export exécute une action sur un lecteur dans le cadre d’un travail d’importation ou d’exportation, les journaux sont écrits pour bloquer des objets blob dans le compte de stockage associé à ce travail.  
+Lorsque le service Microsoft Azure Import/Export exécute une action sur un lecteur dans le cadre d’un travail d’importation ou d’exportation, les journaux d’activité sont écrits pour bloquer des objets blob dans le compte de stockage associé à ce travail.  
   
-Il existe deux journaux pouvant être écrits par le service d’importation/exportation :  
+Il existe deux journaux d’activité pouvant être écrits par le service d’importation/exportation :  
   
 -   Le journal d’erreurs est toujours généré en cas d’erreur.  
   
 -   Le journal détaillé n’est pas activé par défaut, mais il peut être activé en définissant la propriété `EnableVerboseLog` sur une opération [Put Job](/rest/api/storageimportexport/jobs) ou [Update Job Properties](/rest/api/storageimportexport/jobs).  
   
 ## <a name="log-file-location"></a>Emplacement du fichier journal  
-Les journaux sont écrits pour bloquer des objets blob dans le conteneur ou le répertoire virtuel spécifié par le paramètre `ImportExportStatesPath`, que vous pouvez définir sur une opération `Put Job`. L’emplacement dans lequel les journaux sont écrits dépend de la façon dont l’authentification est spécifiée pour le travail, ainsi que de la valeur spécifiée pour `ImportExportStatesPath`. L’authentification du travail peut être spécifiée via une clé de compte de stockage ou une SAP (signature d’accès partagé) de conteneur.  
+Les journaux d’activité sont écrits pour bloquer des objets blob dans le conteneur ou le répertoire virtuel spécifié par le paramètre `ImportExportStatesPath`, que vous pouvez définir sur une opération `Put Job`. L’emplacement dans lequel les journaux d’activité sont écrits dépend de la façon dont l’authentification est spécifiée pour le travail, ainsi que de la valeur spécifiée pour `ImportExportStatesPath`. L’authentification du travail peut être spécifiée via une clé de compte de stockage ou une SAP (signature d’accès partagé) de conteneur.  
   
 Le nom du conteneur ou du répertoire virtuel peut être le nom par défaut `waimportexport` ou le nom d’un autre conteneur ou répertoire virtuel que vous spécifiez.  
   
@@ -38,10 +38,10 @@ Le tableau ci-dessous présente les options possibles :
 |SAP de conteneur|Valeur par défaut|Un répertoire virtuel nommé `waimportexport`, qui est le nom par défaut, sous le conteneur spécifié dans la SAP.<br /><br /> Par exemple, si la SAP spécifiée pour le travail est `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, l’emplacement du journal serait alors `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |SAP de conteneur|Valeur spécifiée par l’utilisateur|Un répertoire virtuel nommé par l’utilisateur, sous le conteneur spécifié dans la SAP.<br /><br /> Par exemple, si la SAP spécifiée pour le travail est `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue` et le répertoire virtuel spécifié est nommé `mylogblobs`, l’emplacement du journal serait `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-Vous pouvez récupérer l’URL de l’erreur et les journaux détaillés en appelant l’opération [Get Job](/rest/api/storageimportexport/jobs). Les journaux sont disponibles dès que le traitement du lecteur est terminé.  
+Vous pouvez récupérer l’URL de l’erreur et les journaux d’activité détaillés en appelant l’opération [Get Job](/rest/api/storageimportexport/jobs). Les journaux d’activité sont disponibles dès que le traitement du lecteur est terminé.  
   
 ## <a name="log-file-format"></a>Format de fichier journal  
-Le format de ces deux journaux est le même : un objet blob contenant des descriptions XML des événements qui se sont produits lors de la copie des objets blob entre le disque dur et le compte du client.  
+Le format de ces deux journaux d’activité est le même : un objet blob contenant des descriptions XML des événements qui se sont produits lors de la copie des objets blob entre le disque dur et le compte du client.  
   
 Le journal détaillé contient des informations complètes sur l’état de l’opération de copie pour chaque objet blob (pour un travail d’importation) ou un fichier (pour un travail d’exportation), alors que le journal d’erreurs contient uniquement les informations des objets blob ou fichiers qui ont rencontré des erreurs lors du travail d’importation ou d’exportation.  
   
@@ -253,7 +253,7 @@ Le tableau suivant répertorie les codes d’état pour le traitement des propri
 |`Failed`|Une erreur inconnue s’est produite lors du traitement des propriétés.|  
 |`Cancelled`|Une erreur précédente a arrêté le traitement des propriétés.|  
   
-## <a name="sample-logs"></a>Exemples de journaux  
+## <a name="sample-logs"></a>Exemples de journaux d’activité  
 Vous trouverez ci-dessous un exemple de journal détaillé.  
   
 ```xml

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ff4d39a69df90c31186153c077b1b6183a08dd34
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397209"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259987"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Surveiller et résoudre les problèmes d’une application de stockage cloud
 
@@ -25,11 +25,11 @@ Dans ce quatrième volet, vous apprenez à :
 > * Activer la journalisation et les métriques
 > * Activer les alertes pour les erreurs d’autorisation
 > * Exécuter un trafic de test avec des jetons SAS incorrects
-> * Télécharger et analyser des journaux
+> * Télécharger et analyser des journaux d’activité
 
 [Azure Storage Analytics](../common/storage-analytics.md) fournit la journalisation et les données de métriques d’un compte de stockage. Ces données fournissent des insights sur l’intégrité de votre compte de stockage. Pour collecter des données Azure Storage Analytics, vous pouvez configurer la journalisation, les mesures et les alertes. Ce processus implique l’activation de la journalisation, la configuration des métriques et l’activation des alertes.
 
-La journalisation et les métriques des comptes de stockage sont activées sous l’onglet **Diagnostics** du portail Azure. La journalisation du stockage permet d’enregistrer les détails des demandes ayant réussi ou échoué dans votre compte de stockage. Ces journaux permettent d'afficher les détails des opérations de lecture, d'écriture et de suppression sur vos tables, files d'attente et objets blob Azure. Ils permettent également de connaître la raison des échecs de demande comme les délais d’attente, la limitation et les erreurs d’autorisation.
+La journalisation et les métriques des comptes de stockage sont activées sous l’onglet **Diagnostics** du portail Azure. La journalisation du stockage permet d’enregistrer les détails des demandes ayant réussi ou échoué dans votre compte de stockage. Ces journaux d’activité permettent d’afficher les détails des opérations de lecture, d’écriture et de suppression sur vos tables, files d’attente et objets blob Azure. Ils permettent également de connaître la raison des échecs de demande comme les délais d’attente, la limitation et les erreurs d’autorisation.
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
@@ -79,11 +79,11 @@ L’illustration suivante représente un exemple d’alerte basée sur l’éche
 
  ![Exemple d’alerte](media/storage-monitor-troubleshoot-storage-application/email-alert.png)
 
-## <a name="download-and-view-logs"></a>Télécharger et afficher des journaux
+## <a name="download-and-view-logs"></a>Télécharger et afficher des journaux d’activité
 
-Les journaux de stockage stockent des données dans un ensemble d’objets blob dans un conteneur d’objets blob nommé **$logs** dans votre compte de stockage. Ce conteneur n’apparaît pas si vous répertoriez tous les conteneurs d’objets blob de votre compte, mais vous pouvez voir son contenu si vous y accédez directement.
+Les journaux d’activité de stockage stockent des données dans un ensemble d’objets blob dans un conteneur d’objets blob nommé **$logs** dans votre compte de stockage. Ce conteneur n’apparaît pas si vous répertoriez tous les conteneurs d’objets blob de votre compte, mais vous pouvez voir son contenu si vous y accédez directement.
 
-Dans ce scénario, vous utilisez [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) pour interagir avec votre compte de stockage Azure.
+Dans ce scénario, vous utilisez [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) pour interagir avec votre compte de stockage Azure.
 
 ### <a name="download-microsoft-message-analyzer"></a>Télécharger Microsoft Message Analyzer
 
@@ -115,7 +115,7 @@ Dans le quatrième et dernier volet de la série, vous avez appris à surveiller
 > * Activer la journalisation et les métriques
 > * Activer les alertes pour les erreurs d’autorisation
 > * Exécuter un trafic de test avec des jetons SAS incorrects
-> * Télécharger et analyser des journaux
+> * Télécharger et analyser des journaux d’activité
 
 Suivez ce lien pour consulter des exemples de stockage préconçus.
 

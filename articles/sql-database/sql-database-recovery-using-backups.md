@@ -49,7 +49,7 @@ Le temps de récupération pour restaurer une base de données à l’aide des s
 
 - la taille de la base de données ;
 - la taille de calcul de la base de données ;
-- le nombre de journaux de transactions impliqués ;
+- le nombre de journaux d’activité de transactions impliqués ;
 - la quantité d’activité devant être relue pour effectuer une récupération au point de restauration ;
 - la bande passante du réseau, si la restauration s’effectue dans une autre région ;
 - le nombre de demandes de restauration simultanées en cours de traitement dans la région cible.

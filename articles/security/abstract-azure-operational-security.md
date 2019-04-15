@@ -16,7 +16,7 @@ ms.locfileid: "57242868"
 # <a name="azure-operational-security"></a>Azure Operational Security
 ## <a name="abstract"></a>Résumé
 Microsoft Azure Operational Security fait référence aux services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Azure. Azure Operational Security repose sur un framework qui intègre les connaissances acquises via différentes fonctionnalités propres à Microsoft, notamment Microsoft Security Development Lifecycle (SDL), le programme Microsoft Security Response Center et une connaissance approfondie des cybermenaces. Ce livre blanc décrit comment aborder la sécurité opérationnelle à l’aide d’Azure. Il couvre plusieurs services Azure, notamment :
-* Journaux Azure Monitor
+* Journaux d’activité Azure Monitor
 * Sauvegarde Azure
 * Azure Security Center
 * Azure Monitor

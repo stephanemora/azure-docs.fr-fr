@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Diffuser en continu des journaux Azure Active Directory sur un Event Hub Azure (préversion) | Microsoft Docs'
-description: Découvrez comment configurer Azure Diagnostics pour envoyer des journaux Azure Active Directory vers un Hub Event (préversion)
+title: 'Didacticiel : Diffuser en continu des journaux d’activité Azure Active Directory sur un Event Hub Azure (préversion) | Microsoft Docs'
+description: Découvrez comment configurer Azure Diagnostics pour envoyer des journaux d’activité Azure Active Directory vers un Hub Event (préversion)
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -24,9 +24,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58436929"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Didacticiel : Diffuser en continu des journaux Azure Active Directory sur un hub d’événements Azure (préversion)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Didacticiel : Diffuser en continu des journaux d’activité Azure Active Directory sur un hub d’événements Azure (préversion)
 
-Dans ce didacticiel, vous découvrez comment configurer les paramètres de diagnostic Azure Monitor pour diffuser en continu des journaux Azure Active Directory (Azure AD) sur un hub d’événements Azure. Ce mécanisme permet d’intégrer vos journaux Security Information and Event Management (SIEM) tiers, tels que Splunk et QRadar.
+Dans ce didacticiel, vous découvrez comment configurer les paramètres de diagnostic Azure Monitor pour diffuser en continu des journaux d’activité Azure Active Directory (Azure AD) sur un hub d’événements Azure. Ce mécanisme permet d’intégrer vos journaux d’activité Security Information and Event Management (SIEM) tiers, tels que Splunk et QRadar.
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -37,7 +37,7 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 * Utilisateur considéré comme *administrateur général* ou *administrateur de la sécurité* pour un locataire Azure AD.
 * Espace de noms Event Hubs et hub d’événements de votre abonnement Azure. Découvrez comment [créer un hub d’événements](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-## <a name="stream-logs-to-an-event-hub"></a>Transmettre en continu des journaux vers un hub d’événements
+## <a name="stream-logs-to-an-event-hub"></a>Transmettre en continu des journaux d’activité vers un hub d’événements
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
 
@@ -54,14 +54,14 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 5. Cochez la case **Stream to an event hub (Diffuser sur un hub d’événements)**, puis cliquez sur **Event Hub/Configure (Hub d’événements/Configurer)**.
 
-6. Sélectionnez un abonnement Azure et un espace de noms Event Hubs vers lequel acheminer les journaux.  
-    L’abonnement et l’espace de noms Event Hubs doivent tous deux être associés au locataire Azure AD à partir duquel les journaux sont diffusés. Vous pouvez également spécifier un hub d’événements au sein de l’espace de noms Event Hubs vers lequel les journaux doivent être envoyés. Si aucun hub d’événements n’est spécifié, il sera créé dans l’espace de noms et aura pour nom par défaut **insights-logs-audit**.
+6. Sélectionnez un abonnement Azure et un espace de noms Event Hubs vers lequel acheminer les journaux d’activité.  
+    L’abonnement et l’espace de noms Event Hubs doivent tous deux être associés au locataire Azure AD à partir duquel les journaux d’activité sont diffusés. Vous pouvez également spécifier un hub d’événements au sein de l’espace de noms Event Hubs vers lequel les journaux d’activité doivent être envoyés. Si aucun hub d’événements n’est spécifié, il sera créé dans l’espace de noms et aura pour nom par défaut **insights-logs-audit**.
 
 7. Cliquez sur **OK** pour quitter la configuration du hub d’événements.
 
 8. Effectuez une ou plusieurs des actions suivantes :
     * Cochez la case **AuditLogs** pour envoyer les journaux d’audit vers le compte de stockage. 
-    * Cochez la case **SignInLogs** pour envoyer les journaux de connexion vers le compte de stockage.
+    * Cochez la case **SignInLogs** pour envoyer les journaux d’activité de connexion vers le compte de stockage.
 
 9. Sélectionnez **Enregistrer** pour enregistrer le paramètre.
 
@@ -76,7 +76,7 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 Une fois que les données apparaissent dans le hub d’événements, vous pouvez y accéder et les lire de deux manières :
 
 * **Configurez un outil SIEM pris en charge**. Pour lire les données du hub d’événements, la plupart des outils nécessitent la chaîne de connexion du hub d’événements, ainsi que certaines autorisations de votre abonnement Azure. Voici une liste non exhaustive des outils tiers avec intégration Azure Monitor :
-    * **Splunk** : pour plus d’informations sur l’intégration des journaux Azure AD à Splunk, consultez [Comment intégrer les journaux Azure AD à Splunk à l’aide d’Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
+    * **Splunk** : pour plus d’informations sur l’intégration des journaux d’activité Azure AD à Splunk, consultez [Comment intégrer les journaux d’activité Azure AD à Splunk à l’aide d’Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
     
     * **IBM QRadar** : vous pouvez télécharger le module DSM et le protocole Azure Event Hub depuis l’adresse du [service d’assistance d’IBM](https://www.ibm.com/support). Pour plus d’informations sur l’intégration avec Azure, accédez au site [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
     

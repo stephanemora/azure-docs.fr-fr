@@ -28,10 +28,10 @@ ms.locfileid: "58629267"
 
 Vous pouvez utiliser la solution Azure Key Vault dans Azure Monitor pour passer en revue les journaux AuditEvent de coffre de clé Azure.
 
-Pour l’utiliser, vous devez activer la journalisation des diagnostics d’Azure Key Vault et diriger les diagnostics vers un espace de travail Log Analytics. Il n’est pas nécessaire d’écrire les journaux dans le stockage Blob Azure.
+Pour l’utiliser, vous devez activer la journalisation des diagnostics d’Azure Key Vault et diriger les diagnostics vers un espace de travail Log Analytics. Il n’est pas nécessaire d’écrire les journaux d’activité dans le stockage Blob Azure.
 
 > [!NOTE]
-> En janvier 2017, le mode d’envoi des journaux de Key Vault vers Log Analytics a changé. Si le titre de la solution Key Vault que vous utilisez comprend la mention *(déprécié)*, consultez la section [Migration à partir d’une ancienne version de Key Vault](#migrating-from-the-old-key-vault-solution) pour connaître la marche à suivre.
+> En janvier 2017, le mode d’envoi des journaux d’activité de Key Vault vers Log Analytics a changé. Si le titre de la solution Key Vault que vous utilisez comprend la mention *(déprécié)*, consultez la section [Migration à partir d’une ancienne version de Key Vault](#migrating-from-the-old-key-vault-solution) pour connaître la marche à suivre.
 >
 >
 
@@ -53,7 +53,7 @@ Suivez les instructions suivantes pour installer et configurer la solution Azure
 4. Donnez un nom pour le paramètre de diagnostic.
 5. Cochez la case à côté de l’option *Envoyer à Log Analytics*.
 6. Sélectionnez un espace de travail Log Analytics existant ou créez-en un.
-7. Pour activer les journaux *AuditEvent*, cochez la case située sous Journal.
+7. Pour activer les journaux d’activité *AuditEvent*, cochez la case située sous Journal.
 8. Cliquez sur *enregistrer* pour activer la journalisation des diagnostics pour l’espace de travail Analytique de journal.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Activer les diagnostics Key Vault avec PowerShell
@@ -70,7 +70,7 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -E
 
 ## <a name="review-azure-key-vault-data-collection-details"></a>Examiner les détails de la collecte de données par Azure Key Vault
 La solution Azure Key Vault collecte des journaux de diagnostics directement à partir de Key Vault.
-Il n’est pas nécessaire d’écrire les journaux dans le stockage Blob Azure, et aucun agent n’est requis pour la collecte de données.
+Il n’est pas nécessaire d’écrire les journaux d’activité dans le stockage Blob Azure, et aucun agent n’est requis pour la collecte de données.
 
 Le tableau suivant présente les méthodes de collecte des données et d’autres détails sur le mode de collecte de données pour Azure Key Vault.
 
@@ -109,7 +109,7 @@ La solution Azure Key Vault analyse les enregistrements de type **KeyVaults** qu
 | SourceSystem |*Microsoft Azure* |
 | callerIpAddress |Adresse IP du client qui a effectué la demande. |
 | Catégorie | *AuditEvent* |
-| CorrelationId |GUID facultatif que le client peut transférer pour mettre en corrélation les journaux côté client avec les journaux côté service (Key Vault). |
+| CorrelationId |GUID facultatif que le client peut transférer pour mettre en corrélation les journaux d’activité côté client avec les journaux d’activité côté service (Key Vault). |
 | DurationMs |Délai nécessaire pour répondre à la demande API REST, en millisecondes. La latence du réseau n’étant pas incluse dans ce chiffre, le temps mesuré côté client peut ne pas correspondre à cette durée. |
 | httpStatusCode_d |Code d’état HTTP retourné par la demande (par exemple, *200*) |
 | id_s |ID unique de la demande. |
@@ -119,7 +119,7 @@ La solution Azure Key Vault analyse les enregistrements de type **KeyVaults** qu
 | requestUri_s |URI de la demande. |
 | Ressource |Nom du Key Vault. |
 | ResourceGroup |Groupe de ressources du Key Vault. |
-| ResourceId |ID de ressource Azure Resource Manager Pour les journaux de coffre de clés, il s’agit de l’ID de ressource du coffre de clés. |
+| ResourceId |ID de ressource Azure Resource Manager Pour les journaux d’activité de coffre de clés, il s’agit de l’ID de ressource du coffre de clés. |
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *VAULTS* |
 | ResultSignature |État HTTP (par exemple *OK*) |
@@ -127,9 +127,9 @@ La solution Azure Key Vault analyse les enregistrements de type **KeyVaults** qu
 | SubscriptionId |ID de l’abonnement Azure contenant le Key Vault. |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migration à partir d’une ancienne version de Key Vault
-En janvier 2017, le mode d’envoi des journaux de Key Vault vers Log Analytics a changé. Ces modifications présentent les avantages suivants :
+En janvier 2017, le mode d’envoi des journaux d’activité de Key Vault vers Log Analytics a changé. Ces modifications présentent les avantages suivants :
 + Journaux sont écrits directement dans un espace de travail Analytique de journal sans la nécessité d’utiliser un compte de stockage
-+ La durée de latence est plus courte entre le moment où les journaux sont générés et celui où ils deviennent disponibles dans Log Analytics.
++ La durée de latence est plus courte entre le moment où les journaux d’activité sont générés et celui où ils deviennent disponibles dans Log Analytics.
 + Le nombre d’étapes de configuration est réduit.
 + Tous les types de diagnostics Azure sont au même format.
 
@@ -138,7 +138,7 @@ Pour utiliser la solution mise à jour :
 1. [Configurez les diagnostics pour être envoyées directement à un espace de travail Analytique de journal à partir de Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
 2. Activer la solution Azure Key Vault à l’aide de la procédure décrite dans [solutions ajouter Azure Monitor à partir de la galerie de Solutions](../../azure-monitor/insights/solutions.md)
 3. Mettez à jour les requêtes, les tableaux de bord et les alertes enregistrés pour qu’ils utilisent le nouveau type de données.
-   + Le type KeyVaults est remplacé par : AzureDiagnostics. Vous pouvez utiliser ResourceType pour filtrer les journaux Key Vault.
+   + Le type KeyVaults est remplacé par : AzureDiagnostics. Vous pouvez utiliser ResourceType pour filtrer les journaux d’activité Key Vault.
    + Au lieu de `KeyVaults`, utilisez `AzureDiagnostics | where ResourceType'=="VAULTS"`.
    + Champs : (les noms de champs sont sensibles à la casse)
    + Pour tous les champs dont le suffixe est \_s, \_d ou \_g, remplacez le premier caractère du nom par une lettre minuscule.

@@ -369,7 +369,7 @@ Dans cette section, vous allez effectuer les tâches suivantes pour configurer l
 
 Pour tirer parti de la journalisation [Application Insights](../azure-monitor/app/app-insights-overview.md), mettez à jour votre code de journalisation pour effectuer les opérations suivantes :
 
-* Ajouter un fournisseur de journalisation Application Insights avec le [filtrage](webjobs-sdk-how-to.md#log-filtering) par défaut. Tous les journaux d’information et de niveau supérieur accèdent à la console et à Application Insights lorsque vous l’exécutez localement.
+* Ajouter un fournisseur de journalisation Application Insights avec le [filtrage](webjobs-sdk-how-to.md#log-filtering) par défaut. Tous les journaux d’activité d’information et de niveau supérieur accèdent à la console et à Application Insights lorsque vous l’exécutez localement.
 * Placer l’objet `LoggerFactory` dans un bloc `using` pour garantir le vidage de la sortie du journal lorsque l’hôte s’arrête.
 
 1. Installez la dernière version 3.x stable du package NuGet pour le fournisseur de journalisation Application Insights : `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
@@ -421,7 +421,7 @@ Dans cette section, vous allez effectuer une nouvelle exécution locale pour vé
 
 1. Exécutez le projet.
 
-   Le Kit de développement logiciel (SDK) WebJobs traite le message en file d’attente, et vous pouvez observer les journaux dans la fenêtre de console.
+   Le Kit de développement logiciel (SDK) WebJobs traite le message en file d’attente, et vous pouvez observer les journaux d’activité dans la fenêtre de console.
 
 1. Fermez la fenêtre de console.
 
@@ -431,9 +431,9 @@ Dans cette section, vous allez effectuer une nouvelle exécution locale pour vé
 
    ![Sélectionner Recherche](./media/webjobs-sdk-get-started/select-search.png)
 
-1. Si le message *Hello App Insights !* ne s’affiche pas, sélectionnez **Actualiser** à plusieurs reprises pendant plusieurs minutes. (Les journaux n’apparaissent pas immédiatement, car un certain temps est nécessaire au client Application Insights pour vider les journaux traités.)
+1. Si le message *Hello App Insights !* ne s’affiche pas, sélectionnez **Actualiser** à plusieurs reprises pendant plusieurs minutes. (Les journaux d’activité n’apparaissent pas immédiatement, car un certain temps est nécessaire au client Application Insights pour vider les journaux d’activité traités.)
 
-   ![Journaux dans Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
+   ![Journaux d’activité dans Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
 1. Fermez la fenêtre de console.
 
@@ -454,7 +454,7 @@ Au cours du déploiement, vous créez une instance de service d’application da
    > [!TIP]
    > Si vous procédez au test dans Azure, utilisez le [mode de développement](webjobs-sdk-how-to.md#host-development-settings) pour vous assurer qu’une fonction de déclenchement de file d’attente est appelée immédiatement et éviter les retards dus à la [temporisation exponentielle de l’interrogation de la file d’attente](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
 
-### <a name="view-logs-in-application-insights"></a>Afficher les journaux dans Application Insights
+### <a name="view-logs-in-application-insights"></a>Afficher les journaux d’activité dans Application Insights
 
 1. Ouvrez le [portail Azure](https://portal.azure.com/), puis accédez à la ressource Application Insights.
 
@@ -462,7 +462,7 @@ Au cours du déploiement, vous créez une instance de service d’application da
 
 1. Si le message *Hello Azure !* ne s’affiche pas, sélectionnez **Actualiser** à plusieurs reprises pendant plusieurs minutes.
 
-   Vous pouvez observer les journaux de la fonction exécutée dans une tâche web, y compris le texte *Hello Azure !* que vous avez entré dans la section précédente.
+   Vous pouvez observer les journaux d’activité de la fonction exécutée dans une tâche web, y compris le texte *Hello Azure !* que vous avez entré dans la section précédente.
 
 ## <a name="add-an-input-binding"></a>Ajouter une liaison d’entrée
 

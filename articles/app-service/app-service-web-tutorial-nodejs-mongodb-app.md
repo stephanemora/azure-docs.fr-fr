@@ -472,7 +472,7 @@ Si vous avez ajouté des articles précédemment, vous pouvez toujours les visua
 
 ## <a name="stream-diagnostic-logs"></a>Diffuser les journaux de diagnostic 
 
-Pendant l’exécution de votre application Node.js dans Azure App Service, vous pouvez acheminer les journaux de la console vers votre terminal. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
+Pendant l’exécution de votre application Node.js dans Azure App Service, vous pouvez acheminer les journaux d’activité de la console vers votre terminal. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
 
 Pour démarrer la diffusion de journaux, utilisez la commande [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) dans Cloud Shell.
 
@@ -480,7 +480,7 @@ Pour démarrer la diffusion de journaux, utilisez la commande [`az webapp log ta
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 
-Une fois que la diffusion a démarré, actualisez votre application Azure dans le navigateur pour générer un trafic web. Vous voyez maintenant les journaux de la console acheminés vers votre terminal.
+Une fois que la diffusion a démarré, actualisez votre application Azure dans le navigateur pour générer un trafic web. Vous voyez maintenant les journaux d’activité de la console acheminés vers votre terminal.
 
 Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl+C`. 
 
@@ -508,7 +508,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Connecter une application Node.js à MongoDB
 > * Déploiement de l’application dans Azure
 > * Mettre à jour le modèle de données et redéployer l’application
-> * Diffuser des journaux à partir d’Azure vers votre terminal
+> * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à l’application.

@@ -172,7 +172,7 @@ La plupart des échecs des machines virtuelles Linux liés aux agents ou aux ext
    * Pour les autres distributions : `service waagent start`
 
 3. [Configurez l’agent de redémarrage automatique](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
-4. Exécutez une nouvelle sauvegarde de test. Si la défaillance persiste, collectez les journaux suivants à partir de la machine virtuelle :
+4. Exécutez une nouvelle sauvegarde de test. Si la défaillance persiste, collectez les journaux d’activité suivants à partir de la machine virtuelle :
 
    * /var/lib/waagent/*.xml
    * /var/log/waagent.log

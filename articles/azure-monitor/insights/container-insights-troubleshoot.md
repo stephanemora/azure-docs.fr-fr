@@ -78,7 +78,7 @@ Si Azure Monitor pour les conteneurs est correctement configurée et activée, m
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-4. Vérifiez les journaux de l’agent. Quand l’agent conteneurisé est déployé, il effectue une vérification rapide en exécutant les commandes OMI, puis indique la version de l’agent et du fournisseur. 
+4. Vérifiez les journaux d’activité de l’agent. Quand l’agent conteneurisé est déployé, il effectue une vérification rapide en exécutant les commandes OMI, puis indique la version de l’agent et du fournisseur. 
 
 5. Pour vérifier que l’agent a bien été intégré, exécutez la commande : `kubectl logs omsagent-484hw --namespace=kube-system`
 

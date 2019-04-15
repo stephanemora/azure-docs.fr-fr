@@ -115,7 +115,7 @@ La simulation inscrit elle-même les appareils suivants :
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Comment obtenir les données de journal des composants de simulation ?
 
-Tous les composants de la simulation enregistrent des informations dans des fichiers journaux. Ces fichiers se trouvent dans la machine virtuelle dans le dossier `home/docker/Logs`. Pour récupérer les journaux, vous pouvez utiliser le script PowerShell `Simulation/Factory/Get-SimulationLogs.ps1` du [dépôt](https://github.com/Azure/azure-iot-connected-factory).
+Tous les composants de la simulation enregistrent des informations dans des fichiers journaux. Ces fichiers se trouvent dans la machine virtuelle dans le dossier `home/docker/Logs`. Pour récupérer les journaux d’activité, vous pouvez utiliser le script PowerShell `Simulation/Factory/Get-SimulationLogs.ps1` du [dépôt](https://github.com/Azure/azure-iot-connected-factory).
 
 Ce script doit se connecter à la machine virtuelle. Vous serez peut-être amené à fournir des informations d’identification pour vous connecter. Pour savoir comment trouver les informations d’identification, consultez [Comment se connecter à la machine virtuelle de simulation ?](#how-do-i-sign-in-to-the-simulation-vm).
 

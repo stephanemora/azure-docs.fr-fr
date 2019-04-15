@@ -163,7 +163,7 @@ Les administrateurs de Contoso exécutent l’outil de migration de TFS sur la b
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection2.png)
 
-5. Ils ont localisé les fichiers journaux situés dans le dossier **Journaux**, juste avant l’emplacement de l’outil. Un fichier journal est généré pour chaque validation majeure. **TfsMigration.log** contient les informations principales.
+5. Ils ont localisé les fichiers journaux situés dans le dossier **Journaux d’activité**, juste avant l’emplacement de l’outil. Un fichier journal est généré pour chaque validation majeure. **TfsMigration.log** contient les informations principales.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection3.png)
 

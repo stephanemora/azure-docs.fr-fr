@@ -38,9 +38,9 @@ Voici les caractéristiques spécifiques de Kafka sur HDInsight :
 
     Pour plus d’informations, consultez [Haute disponibilité avec Apache Kafka dans HDInsight](apache-kafka-high-availability.md).
 
-* Les journaux Azure Monitor peuvent servir à superviser Kafka sur HDInsight. En effet, ils révèlent des informations au niveau de la machine virtuelle, comme les métriques des disques et des cartes réseau, et les métriques JMX de Kafka.
+* Les journaux d’activité Azure Monitor peuvent servir à superviser Kafka sur HDInsight. En effet, ils révèlent des informations au niveau de la machine virtuelle, comme les métriques des disques et des cartes réseau, et les métriques JMX de Kafka.
 
-    Pour plus d’informations, consultez [Analyser les journaux pour Apache Kafka dans HDInsight](apache-kafka-log-analytics-operations-management.md).
+    Pour plus d’informations, consultez [Analyser les journaux d’activité pour Apache Kafka dans HDInsight](apache-kafka-log-analytics-operations-management.md).
 
 ### <a name="apache-kafka-on-hdinsight-architecture"></a>Architecture Apache Kafka dans HDInsight
 

@@ -191,7 +191,7 @@ L’article explique comment gérer ces paramètres à l’aide des applets de c
 
 Les **métriques d’analyse de stockage** servent à collecter des mesures pour vos comptes de stockage Azure que vous pouvez utiliser pour surveiller l’intégrité d’un compte de stockage. Les métriques peuvent être activées pour les objets Blob, les fichiers, les tables et les files d’attente.
 
-La **journalisation de l’analyse du stockage** se produit côté serveur. Elle vous permet d’enregistrer les détails des demandes ayant réussi et des demandes ayant échoué dans votre compte de stockage. Ces journaux permettent d'afficher les détails des opérations de lecture, d'écriture et de suppression sur vos tables, vos files d'attente et vos objets blob, ainsi que la raison de l'échec de certaines demandes. La journalisation n’est pas disponible pour les fichiers Azure.
+La **journalisation de l’analyse du stockage** se produit côté serveur. Elle vous permet d’enregistrer les détails des demandes ayant réussi et des demandes ayant échoué dans votre compte de stockage. Ces journaux d’activité permettent d’afficher les détails des opérations de lecture, d’écriture et de suppression sur vos tables, vos files d’attente et vos objets blob, ainsi que la raison de l’échec de certaines demandes. La journalisation n’est pas disponible pour les fichiers Azure.
 
 Vous pouvez configurer la surveillance en utilisant le [portail Azure](https://portal.azure.com) ou PowerShell, ou par programmation en utilisant la bibliothèque cliente de stockage.
 

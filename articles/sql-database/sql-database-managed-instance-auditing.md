@@ -52,7 +52,7 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
       ![Créer une configuration de conteneur d’objets blob](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
-1. Après avoir créé le conteneur pour les journaux d’audit, vous pouvez le configurer comme cible pour ces journaux de deux façons : [à l’aide de T-SQL](#blobtsql) ou [à l’aide de l’interface utilisateur de SSMS (SQL Server Management Studio)](#blobssms).
+1. Après avoir créé le conteneur pour les journaux d’audit, vous pouvez le configurer comme cible pour ces journaux d’activité de deux façons : [à l’aide de T-SQL](#blobtsql) ou [à l’aide de l’interface utilisateur de SSMS (SQL Server Management Studio)](#blobssms).
 
    - <a id="blobtsql"></a>Configurer le stockage d’objets blob pour les journaux d’audit à l’aide de T-SQL :
 
@@ -168,7 +168,7 @@ Journaux d’audit à partir d’une instance gérée peuvent être envoyés à 
 
 3. Cliquez sur **Activer les diagnostics**. Si les diagnostics sont déjà activés, l’option *+Ajouter un paramètre de diagnostic* s’affiche à la place.
 
-4. Sélectionnez **SQLSecurityAuditEvents** dans la liste des journaux.
+4. Sélectionnez **SQLSecurityAuditEvents** dans la liste des journaux d’activité.
 
 5. Sélectionnez une destination pour les événements d’audit - Hub d’événements, journaux d’Azure Monitor ou les deux. Configurez les paramètres requis (par exemple, espace de travail Log Analytics) pour chaque cible.
 
@@ -199,9 +199,9 @@ Journaux d’audit à partir d’une instance gérée peuvent être envoyés à 
 
 ## <a name="consume-audit-logs"></a>Utiliser les journaux d’audit
 
-### <a name="consume-logs-stored-in-azure-storage"></a>Utiliser les journaux stockés dans Stockage Azure
+### <a name="consume-logs-stored-in-azure-storage"></a>Utiliser les journaux d’activité stockés dans Stockage Azure
 
-Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’objets blob.
+Plusieurs méthodes vous permettent d’afficher des journaux d’activité d’audit d’objets blob.
 
 - Utilisez la fonction système `sys.fn_get_audit_file` pour retourner les données du journal d’audit dans un format tabulaire. Pour plus d’informations sur l’utilisation de cette fonction, consultez la [documentation sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
@@ -209,7 +209,7 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 
 - Pour obtenir la liste complète des méthodes de consommation du journal d’audit, reportez-vous à l’article [Bien démarrer avec l’audit de bases de données SQL](sql-database-auditing.md).
 
-### <a name="consume-logs-stored-in-event-hub"></a>Utiliser les journaux stockés dans Event Hub
+### <a name="consume-logs-stored-in-event-hub"></a>Utiliser les journaux d’activité stockés dans Event Hub
 
 Pour utiliser les données des journaux d’audit à partir d’un hub d’événements, vous devez configurer un flux de données destiné à consommer les événements et à les écrire dans une cible. Pour plus d’informations, voir la Documentation concernant Azure Event Hubs.
 
@@ -229,7 +229,7 @@ Les principales différences entre l’audit des bases de données dans Azure SQ
 - Avec les options de déploiement de base de données unique et de pool élastique dans Azure SQL Database, l’audit fonctionne au niveau de la base de données.
 - Dans SQL Server (en local ou sur machines virtuelles), l’audit fonctionne au niveau du serveur, mais stocke les événements dans les journaux des événements du système de fichiers/Windows.
 
-L’audit XEvent d’une instance gérée prend en charge les cibles de Stockage Blob Azure. Les journaux de fichiers et de Windows ne sont **pas pris en charge**.
+L’audit XEvent d’une instance gérée prend en charge les cibles de Stockage Blob Azure. Les journaux d’activité de fichiers et de Windows ne sont **pas pris en charge**.
 
 Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azure sont :
 

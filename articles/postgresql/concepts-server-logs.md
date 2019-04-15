@@ -1,6 +1,6 @@
 ---
-title: Journaux de serveur dans une base de données Azure pour PostgreSQL
-description: Cet article explique comment Azure Database pour PostgreSQL génère les journaux des requêtes et des erreurs et comment la rétention de journal est configurée.
+title: Journaux d’activité de serveur dans une base de données Azure pour PostgreSQL
+description: Cet article explique comment Azure Database pour PostgreSQL génère les journaux d’activité des requêtes et des erreurs et comment la rétention de journal d’activité est configurée.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -13,8 +13,8 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57195096"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>Journaux de serveur dans Azure Database pour PostgreSQL 
-La base de données Azure pour PostgreSQL génère des journaux des requêtes et des erreurs. Les journaux des requêtes et des erreurs peuvent être utilisés pour identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. (L’accès aux journaux des transactions n’est pas pris en charge.) 
+# <a name="server-logs-in-azure-database-for-postgresql"></a>Journaux d’activité de serveur dans Azure Database pour PostgreSQL 
+La base de données Azure pour PostgreSQL génère des journaux d’activité des requêtes et des erreurs. Les journaux d’activité des requêtes et des erreurs peuvent être utilisés pour identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. (L’accès aux journaux d’activité des transactions n’est pas pris en charge.) 
 
 ## <a name="configure-logging"></a>Configuration de la journalisation 
 Vous pouvez configurer la journalisation sur votre serveur avec les paramètres de journalisation. Sur chaque nouveau serveur, les options **log_checkpoints** et **log_connections** sont activées par défaut. Il existe d’autres paramètres que vous pouvez définir en fonction de vos besoins de journalisation : 
@@ -23,8 +23,8 @@ Vous pouvez configurer la journalisation sur votre serveur avec les paramètres 
 
 Pour plus d’informations sur ces paramètres, consultez la documentation PostgreSQL [Signalement et journalisation des erreurs](https://www.postgresql.org/docs/current/static/runtime-config-logging.html). Pour savoir comment configurer les paramètres Azure Database pour PostgreSQL, consultez la [documentation du portail](howto-configure-server-parameters-using-portal.md) ou la [documentation de la CLI](howto-configure-server-parameters-using-cli.md).
 
-## <a name="access-server-logs-through-portal-or-cli"></a>Accès aux journaux serveur via le portail ou l’interface CLI
-Si vous avez activé les journaux, vous pouvez y accéder à partir d’Azure Database pour PostgreSQL avec le [portail Azure](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md) et les API REST Azure. Les fichiers journaux tournent toutes les heures ou par tranches de 100 Mo, sachant que la limite atteinte en premier prévaut. Vous pouvez définir la période de conservation de ce stockage de journal en utilisant le paramètre **log\_période\_conservation** associé à votre serveur. La valeur par défaut est de 3 jours et la valeur maximale est de 7 jours. Votre serveur doit disposer de suffisamment de stockage pour contenir les fichiers journaux conservés. (Ce paramètre de rétention ne régit pas les journaux de diagnostic Azure.)
+## <a name="access-server-logs-through-portal-or-cli"></a>Accès aux journaux d’activité serveur via le portail ou l’interface CLI
+Si vous avez activé les journaux d’activité, vous pouvez y accéder à partir d’Azure Database pour PostgreSQL avec le [portail Azure](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md) et les API REST Azure. Les fichiers journaux tournent toutes les heures ou par tranches de 100 Mo, sachant que la limite atteinte en premier prévaut. Vous pouvez définir la période de conservation de ce stockage de journal en utilisant le paramètre **log\_période\_conservation** associé à votre serveur. La valeur par défaut est de 3 jours et la valeur maximale est de 7 jours. Votre serveur doit disposer de suffisamment de stockage pour contenir les fichiers journaux conservés. (Ce paramètre de rétention ne régit pas les journaux de diagnostic Azure.)
 
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
@@ -60,5 +60,5 @@ Le tableau suivant décrit ce que contient chaque journal. En fonction du point 
 | _ResourceId | URI de ressource |
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur l’accès aux journaux à partir du [portail Azure](howto-configure-server-logs-in-portal.md) ou de l’[interface de ligne de commande Azure](howto-configure-server-logs-using-cli.md).
+- En savoir plus sur l’accès aux journaux d’activité à partir du [portail Azure](howto-configure-server-logs-in-portal.md) ou de l’[interface de ligne de commande Azure](howto-configure-server-logs-using-cli.md).
 - En savoir plus sur la [tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).

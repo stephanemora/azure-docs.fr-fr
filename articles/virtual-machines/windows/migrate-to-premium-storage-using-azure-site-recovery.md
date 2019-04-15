@@ -63,7 +63,7 @@ Voici les prérequis Azure pour ce scénario de migration :
 * Un abonnement Azure.
 * Un compte de stockage Premium Azure pour stocker les données répliquées.
 * Un réseau virtuel Azure auquel les machines virtuelles se connectent quand elles sont créées au moment du basculement. Le réseau virtuel Azure doit se trouver dans la même région que celle dans laquelle s’exécute Site Recovery.
-* Un compte de stockage Azure standard pour stocker les journaux de réplication. Il peut s'agir du même compte de stockage que celui des disques de machine virtuelle en cours de migration.
+* Un compte de stockage Azure standard pour stocker les journaux d’activité de réplication. Il peut s'agir du même compte de stockage que celui des disques de machine virtuelle en cours de migration.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -135,7 +135,7 @@ Sélectionnez **Préparer l'infrastructure** > **Cible** et spécifiez le modèl
 Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles. 
 
 > [!NOTE]
-> Si vous utilisez un compte de stockage Premium pour les données répliquées, vous devez configurer un compte de stockage standard supplémentaire pour stocker les journaux de réplication.
+> Si vous utilisez un compte de stockage Premium pour les données répliquées, vous devez configurer un compte de stockage standard supplémentaire pour stocker les journaux d’activité de réplication.
 
 ### <a name="step-5-set-up-replication-settings"></a>Étape 5 : Configurer les paramètres de réplication
 
@@ -159,7 +159,7 @@ Pour vérifier que votre serveur de configuration est correctement associé à l
 2. Activez la réplication comme suit :
    1. Sélectionnez **Répliquer l’application** > **Source**. Après avoir activé la réplication pour la première fois, sélectionnez **+Répliquer** dans le coffre pour activer la réplication de machines supplémentaires.
    2. À l’étape 1, configurez **Source** comme votre serveur de processus.
-   3. À l’étape 2, spécifiez le modèle de déploiement après le basculement, un compte de stockage Premium vers lequel effectuer la migration, un compte de stockage standard pour enregistrer les journaux et un réseau virtuel vers lequel effectuer le basculement.
+   3. À l’étape 2, spécifiez le modèle de déploiement après le basculement, un compte de stockage Premium vers lequel effectuer la migration, un compte de stockage standard pour enregistrer les journaux d’activité et un réseau virtuel vers lequel effectuer le basculement.
    4. À l’étape 3, ajoutez des machines virtuelles protégées par leur adresse IP. (Vous avez peut-être besoin d’une adresse IP interne pour les rechercher.)
    5. À l’étape 4, configurez les propriétés en sélectionnant les comptes que vous avez configurés précédemment sur le serveur de processus.
    6. À l’étape 5, choisissez la stratégie de réplication que vous avez créée précédemment dans la section « Étape 5 : Configurer les paramètres de réplication ».

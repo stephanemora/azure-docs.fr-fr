@@ -59,7 +59,7 @@ La page [Utilisation de Python pour interroger une base de données SQL Azure](h
 
 Le stockage Azure fournit plusieurs types différents de stockage non relationnel, selon le type de données dont vous disposez et la façon dont vous avez besoin d’y accéder :
 
-- Stockage Table : fournit un stockage économique et de volumes élevés pour les données tabulaires, telles que les journaux de capteur collectés, les journaux de diagnostic et ainsi de suite.
+- Stockage Table : fournit un stockage économique et de volumes élevés pour les données tabulaires, telles que les journaux d’activité de capteur collectés, les journaux de diagnostic et ainsi de suite.
 - Stockage Blob : fournit un stockage de type fichier pour n’importe quel type de données.
 
 L’exemple de notebook illustre l’utilisation des tables et objets blob, notamment comment utiliser une signature d’accès partagé pour autoriser l’accès en lecture seule aux objets blob.

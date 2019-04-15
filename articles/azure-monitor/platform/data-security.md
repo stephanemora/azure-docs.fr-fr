@@ -67,7 +67,7 @@ Le tableau ci-après répertorie certaines des solutions disponibles et fournit 
 | --- | --- |
 | Capacity and Performance |Données et métadonnées de performances |
 | Update Management |Métadonnées et données d'état |
-| Gestion du journal |Journaux des événements défini par l’utilisateur, journaux des événements Windows et/ou journaux IIS |
+| Gestion du journal |Journaux des événements défini par l’utilisateur, journaux des événements Windows et/ou journaux d’activité IIS |
 | Suivi des modifications |Inventaire des logiciels, métadonnées de service Windows et de démon Linux, et métadonnées de fichiers Windows/Linux |
 | Évaluation de SQL et d'Active Directory |Données WMI, données du Registre, données de performances et résultats de vues de gestion dynamique de SQL Server |
 

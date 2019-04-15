@@ -22,7 +22,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/02/2019
 ms.locfileid: "58850307"
 ---
-# <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux Batch pour l’évaluation de diagnostic et la surveillance
+# <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
 
  
 Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-platform-metrics.md) et des [journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../azure-monitor/platform/alerts-overview.md) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée. 
@@ -75,7 +75,7 @@ Vous pouvez également configurer une alerte en temps quasi-réel à l’aide de
 
 ## <a name="batch-diagnostics"></a>Diagnostics Batch
 
-Les journaux de diagnostic contiennent des informations émises par les ressources Azure qui décrivent le fonctionnement de chaque ressource. Pour Batch, vous pouvez collecter les journaux suivants :
+Les journaux de diagnostic contiennent des informations émises par les ressources Azure qui décrivent le fonctionnement de chaque ressource. Pour Batch, vous pouvez collecter les journaux d’activité suivants :
 
 * Les événements **Journaux de service** émis par le service Azure Batch pendant la durée de vie d’une ressource Batch individuelle telle qu’un pool ou une tâche. 
 
@@ -85,7 +85,7 @@ Les paramètres pour autoriser la collecte des journaux de diagnostic ne sont pa
 
 ### <a name="log-destinations"></a>Destinations des journaux
 
-Un scénario courant consiste à sélectionner un compte de stockage Azure en tant que destination du journal. Pour stocker les journaux dans le stockage Azure, créez le compte avant d’activer la collecte de journaux. Si vous avez associé un compte de stockage à votre compte Batch, vous pouvez choisir ce compte comme destination du journal. 
+Un scénario courant consiste à sélectionner un compte de stockage Azure en tant que destination du journal. Pour stocker les journaux d’activité dans le stockage Azure, créez le compte avant d’activer la collecte de journaux d’activité. Si vous avez associé un compte de stockage à votre compte Batch, vous pouvez choisir ce compte comme destination du journal. 
 
 Autres destinations facultatives pour les journaux de diagnostic :
 
@@ -100,7 +100,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Activer la collecte des journaux de diagnostic Batch
 
 1. Dans le portail, cliquez sur **Tous les services** > **Comptes Batch**, puis sur le nom de votre compte Batch.
-2. Sous **Surveillance**, cliquez sur **Journaux de diagnostic** > **Activer les diagnostics**.
+2. Sous **Supervision**, cliquez sur **Journaux de diagnostic** > **Activer les diagnostics**.
 3. Dans **les paramètres de Diagnostic**, entrez un nom pour le paramètre et choisir une destination de journal (compte de stockage, concentrateur d’événements ou journaux Azure Monitor). Sélectionnez **ServiceLog** et **AllMetrics**, ou l’un des deux.
 
     Lorsque vous sélectionnez un compte de stockage, définissez éventuellement une stratégie de rétention. Si vous ne spécifiez pas de nombre de jours de rétention, les données sont conservées pendant la durée de vie du compte de stockage.
@@ -135,10 +135,10 @@ Chaque fichier blob PT1H.json contient des événements au format JSON qui se so
 
 Pour plus d’informations sur le schéma des journaux de diagnostic dans le compte de stockage, consultez [Archivage des journaux de diagnostic Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
-Pour accéder par programme aux journaux de votre compte de stockage, utilisez les API de stockage. 
+Pour accéder par programme aux journaux d’activité de votre compte de stockage, utilisez les API de stockage. 
 
 ### <a name="service-log-events"></a>Événements du journal de service
-Les journaux de service Azure Batch, s’ils sont collectés, contiennent des événements émis par le service Azure Batch pendant la durée de vie d’une ressource Batch individuelle telle qu’un pool ou une tâche. Chaque événement émis par Batch est enregistré au format JSON. Par exemple, ceci est le corps d’un exemple d’**événement de création de pool** :
+Les journaux d’activité de service Azure Batch, s’ils sont collectés, contiennent des événements émis par le service Azure Batch pendant la durée de vie d’une ressource Batch individuelle telle qu’un pool ou une tâche. Chaque événement émis par Batch est enregistré au format JSON. Par exemple, ceci est le corps d’un exemple d’**événement de création de pool** :
 
 ```json
 {

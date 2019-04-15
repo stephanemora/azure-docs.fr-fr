@@ -109,7 +109,7 @@ Pour plus d’informations sur la compilation des configurations, consultez [Con
 
 ## <a name="viewing-a-compilation-job"></a>Affichage d’une tâche de compilation
 
-Après avoir démarré une compilation, vous pouvez l’afficher sur la mosaïque **Travaux de compilation** de la page **Configuration**. La mosaïque **Tâches de compilation** affiche les tâches en cours d’exécution, terminées et en échec. Quand vous ouvrez la page d’une tâche de compilation, vous obtenez des informations sur cette tâche, notamment les erreurs ou les avertissements rencontrés, les paramètres d’entrée utilisés dans la configuration et les journaux de compilation.
+Après avoir démarré une compilation, vous pouvez l’afficher sur la mosaïque **Travaux de compilation** de la page **Configuration**. La mosaïque **Tâches de compilation** affiche les tâches en cours d’exécution, terminées et en échec. Quand vous ouvrez la page d’une tâche de compilation, vous obtenez des informations sur cette tâche, notamment les erreurs ou les avertissements rencontrés, les paramètres d’entrée utilisés dans la configuration et les journaux d’activité de compilation.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.

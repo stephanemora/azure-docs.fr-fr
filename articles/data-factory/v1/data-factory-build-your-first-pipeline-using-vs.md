@@ -126,7 +126,7 @@ Avec le service lié HDInsight à la demande, le cluster HDInsight à la demande
     -------- | ----------- 
     ClusterSize | Spécifie la taille du cluster HDInsight Hadoop.
     TimeToLive | Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression.
-    linkedServiceName | Spécifie le compte de stockage utilisé pour stocker les journaux générés par le cluster HDInsight Hadoop. 
+    linkedServiceName | Spécifie le compte de stockage utilisé pour stocker les journaux d’activité générés par le cluster HDInsight Hadoop. 
 
     > [!IMPORTANT]
     > Le cluster HDInsight crée un **conteneur par défaut** dans le Stockage Blob que vous avez spécifié dans le code JSON (linkedServiceName). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Ce comportement est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé dès qu’une tranche est traitée, à moins qu’il n’existe un cluster actif (timeToLive). Ce cluster est supprimé, une fois le traitement terminé.
@@ -388,7 +388,7 @@ Au cours de cette étape, vous allez surveiller le pipeline à l’aide de la Vu
   
     ![Détails de l'exécution d'activité](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
 
-    Dans les fichiers journaux, vous pouvez voir la requête Hive qui a été exécutée et son état. Ces journaux sont utiles pour résoudre les problèmes.  
+    Dans les fichiers journaux, vous pouvez voir la requête Hive qui a été exécutée et son état. Ces journaux d’activité sont utiles pour résoudre les problèmes.  
 
 Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour obtenir des instructions sur l’utilisation du portail Azure afin de surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
 

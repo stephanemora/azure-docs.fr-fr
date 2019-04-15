@@ -251,5 +251,5 @@ Voici la liste complète des événements fournis par Service Fabric avant la ve
 
 * Obtenir une vue d’ensemble des [diagnostics dans Service Fabric](service-fabric-diagnostics-overview.md)
 * En savoir plus sur le service EventStore dans [Vue d’ensemble du service EventStore Service Fabric](service-fabric-diagnostics-eventstore.md)
-* Modification de votre configuration [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) pour collecter davantage de journaux
+* Modification de votre configuration [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) pour collecter davantage de journaux d’activité
 * [Configuration d’Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) pour voir les journaux de votre canal opérationnel

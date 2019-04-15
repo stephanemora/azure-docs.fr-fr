@@ -1,5 +1,5 @@
 ---
-title: "Résolution des problèmes : Données manquantes dans les journaux d'activité Azure Active Directory téléchargés | Microsoft Docs"
+title: 'Résolution des problèmes : Données manquantes dans les journaux d’activité Azure Active Directory téléchargés | Microsoft Docs'
 description: Fournit une résolution au problème de données manquantes dans les journaux d’activité Azure Active Directory téléchargés.
 services: active-directory
 documentationcenter: ''

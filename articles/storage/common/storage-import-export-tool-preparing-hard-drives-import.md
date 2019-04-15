@@ -332,7 +332,7 @@ Pour chaque disque dur que vous préparez avec l’outil Azure Import/Export, ce
 
 #### <a name="what-is-a-log-directory"></a>Qu’est-ce qu’un répertoire de journaux ?
 
-Le répertoire de journaux désigne le répertoire à utiliser pour stocker les journaux détaillés et les fichiers manifestes temporaires. Si ce paramètre n’est pas spécifié, le répertoire courant est utilisé comme répertoire de journaux. Les journaux sont détaillés.
+Le répertoire de journaux d’activité désigne le répertoire à utiliser pour stocker les journaux d’activité détaillés et les fichiers manifestes temporaires. Si ce paramètre n’est pas spécifié, le répertoire courant est utilisé comme répertoire de journaux. Les journaux d’activité sont détaillés.
 
 ### <a name="prerequisites"></a>Conditions préalables
 

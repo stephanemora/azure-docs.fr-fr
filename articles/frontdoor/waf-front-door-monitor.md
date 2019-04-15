@@ -35,7 +35,7 @@ Pare-feu d’applications Web avec les journaux principale est intégré avec [A
 
 ## <a name="logs-and-diagnostics"></a>Journaux et diagnostics
 
-Pare-feu d’applications Web avec la porte d’entrée fournit des rapports détaillés sur chaque menace détectée. La journalisation est intégrée aux journaux Azure Diagnostics et les alertes sont enregistrées au format json. Ces journaux peuvent être intégrés aux [journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
+Pare-feu d’applications Web avec la porte d’entrée fournit des rapports détaillés sur chaque menace détectée. La journalisation est intégrée aux journaux d’activité Azure Diagnostics et les alertes sont enregistrées au format json. Ces journaux d’activité peuvent être intégrés aux [journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 
 ![WAFDiag](./media/waf-front-door-monitor/waf-frontdoor-diagnostics.png)
 

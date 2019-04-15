@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 10/13/2016
 ms.openlocfilehash: 9f834d697c0d3fe537bbdb190b0ba0d0f294ac87
 ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43041011"
@@ -52,5 +52,5 @@ Le volet central inférieur affiche des informations sur chaque vertex :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour consigner les informations de diagnostic, consultez [Accès aux journaux de diagnostic d’Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
-* Pour voir une requête plus complexe, consultez [Analyse de journaux des sites web à l'aide d'Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+* Pour voir une requête plus complexe, consultez [Analyse de journaux d’activité des sites web à l’aide d’Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Pour afficher les détails d’un travail, consultez [Utilisation de l’Explorateur de travaux et de la Vue des travaux pour les travaux Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md)

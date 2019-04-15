@@ -110,7 +110,7 @@ Restaurez comme ceci :
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Restaurer à un point spécifique dans le temps
 
-Si vous avez sélectionné **Journaux (point dans le temps)** comme type de restauration, effectuez les actions suivantes :
+Si vous avez sélectionné **Journaux d’activité (point dans le temps)** comme type de restauration, effectuez les actions suivantes :
 
 1.  Sous **restaurer de Date/heure**, ouvrez le calendrier. Dans le calendrier, les dates qui ont des points de récupération sont affichés en gras, et la date actuelle est mise en surbrillance.
 1. Sélectionnez une date qui a des points de récupération. Vous ne pouvez pas sélectionner des dates qui n’ont aucun point de récupération.

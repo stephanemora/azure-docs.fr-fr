@@ -204,7 +204,7 @@ namespace LifeCycleEventSpike
 
 Si vous appelez `Sample_HttpStart` avec Postman ou votre navigateur, Fonctions durables commence à envoyer les événements du cycle de vie. Le point de terminaison est généralement `http://localhost:7071/api/Sample_HttpStart` pour le débogage local.
 
-Consultez les journaux associés à la fonction créée dans le portail Azure.
+Consultez les journaux d’activité associés à la fonction créée dans le portail Azure.
 
 ```
 2018-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)

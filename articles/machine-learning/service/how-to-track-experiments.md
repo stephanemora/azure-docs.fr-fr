@@ -89,7 +89,7 @@ L’exemple suivant entraîne un simple modèle Ridge sklearn localement dans un
    joblib.dump(value = reg, filename = 'model.pkl');
    ```
 
-2. Ajoutez le suivi d’expérimentation à l’aide du kit SDK du service Azure Machine Learning et chargez un modèle persistant sur l’enregistrement d’exécution de l’expérimentation. Le code suivant ajoute des balises, des journaux, puis charge un fichier de modèle sur l’exécution de l’expérimentation.
+2. Ajoutez le suivi d’expérimentation à l’aide du kit SDK du service Azure Machine Learning et chargez un modèle persistant sur l’enregistrement d’exécution de l’expérimentation. Le code suivant ajoute des balises, des journaux d’activité, puis charge un fichier de modèle sur l’exécution de l’expérimentation.
 
    ```python
    # Get an experiment object from Azure Machine Learning
@@ -272,7 +272,7 @@ Le lien pour l’exécution vous amène directement à la page de détails de l�
 
   ![Détails de l’exécution dans le Portail Azure](./media/how-to-track-experiments/run-details-page-web.PNG)
 
-Vous pouvez également afficher les sorties ou les journaux de l’exécution, ou télécharger la capture instantanée de l’expérimentation que vous avez envoyée afin de pouvoir partager le dossier de l’expérimentation avec d’autres utilisateurs.
+Vous pouvez également afficher les sorties ou les journaux d’activité de l’exécution, ou télécharger la capture instantanée de l’expérimentation que vous avez envoyée afin de pouvoir partager le dossier de l’expérimentation avec d’autres utilisateurs.
 
 ### <a name="viewing-charts-in-run-details"></a>Affichage de graphiques dans des détails d’exécution
 

@@ -29,13 +29,13 @@ ms.locfileid: "58505756"
 
 4. Nommez les paramètres de diagnostic.
 
-5. Indiquez où vous voulez envoyer les journaux. Vous pouvez sélectionner n’importe quelle combinaison des trois options suivantes :
+5. Indiquez où vous voulez envoyer les journaux d’activité. Vous pouvez sélectionner n’importe quelle combinaison des trois options suivantes :
 
    * Archiver dans un compte de stockage
    * Diffuser vers un hub d’événements
    * Envoyer à Log Analytics
 
-6. Choisissez les opérations à surveiller et activez les journaux de ces opérations. Les opérations sur lesquelles les paramètres de diagnostic peuvent établir des rapports sont :
+6. Choisissez les opérations à surveiller et activez les journaux d’activité de ces opérations. Les opérations sur lesquelles les paramètres de diagnostic peuvent établir des rapports sont :
 
    * connexions
    * Télémétrie d’appareil
@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux apparaissent dans la cible d’archivage configurée, dans le panneau **Paramètres de diagnostic**. Pour en savoir plus sur la configuration des diagnostics, consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../articles/azure-monitor/platform/diagnostic-logs-overview.md).
+Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux d’activité apparaissent dans la cible d’archivage configurée, dans le panneau **Paramètres de diagnostic**. Pour en savoir plus sur la configuration des diagnostics, consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../articles/azure-monitor/platform/diagnostic-logs-overview.md).

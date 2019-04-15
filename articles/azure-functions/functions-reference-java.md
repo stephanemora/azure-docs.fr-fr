@@ -321,7 +321,7 @@ Le contenu `ExecutionContext` défini dans la bibliothèque `azure-functions-jav
 
 ### <a name="logger"></a>Enregistreur
 
-Utilisez `getLogger`, défini dans `ExecutionContext`, pour écrire des journaux à partir du code de fonction.
+Utilisez `getLogger`, défini dans `ExecutionContext`, pour écrire des journaux d’activité à partir du code de fonction.
 
 Exemple :
 
@@ -340,7 +340,7 @@ public class Function {
 }
 ```
 
-## <a name="view-logs-and-trace"></a>Afficher les journaux et le suivi
+## <a name="view-logs-and-trace"></a>Afficher les journaux d’activité et le suivi
 
 Vous pouvez utiliser Azure CLI pour diffuser en continu la journalisation Java stdout et stderr, ainsi que toute autre journalisation d’application. 
 

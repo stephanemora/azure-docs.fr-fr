@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57997968"
 ---
-# <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux
+# <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux d’activité
 
 Ce document décrit la version 3.0 et les versions ultérieures de l’extension de diagnostic Linux.
 
@@ -250,7 +250,7 @@ Les éléments restants sont décrits en détail dans les sections suivantes.
 }
 ```
 
-Cette structure facultative contrôle la collecte des métriques et des journaux pour les délivrer au service des métriques Azure et à d’autres récepteurs. Vous devez spécifier `performanceCounters` ou `syslogEvents`, ou les deux. Vous devez spécifier la structure `metrics`.
+Cette structure facultative contrôle la collecte des métriques et des journaux d’activité pour les délivrer au service des métriques Azure et à d’autres récepteurs. Vous devez spécifier `performanceCounters` ou `syslogEvents`, ou les deux. Vous devez spécifier la structure `metrics`.
 
 Élément | Valeur
 ------- | -----
@@ -329,7 +329,7 @@ counterSpecifier est un identificateur arbitraire. Les consommateurs de métriqu
 
 Ni l’extension de diagnostic Linux ni le portail Azure n’attendent un modèle particulier pour la valeur de counterSpecifier. Soyez cohérent dans la façon dont vous construisez les valeurs de counterSpecifier.
 
-Quand vous spécifiez `performanceCounters`, l’extension de diagnostic Linux écrit toujours les données dans une table de Stockage Azure. Les mêmes données peuvent être écrites dans des objets blob JSON et/ou des Event Hubs, mais vous ne pouvez pas désactiver le stockage des données dans une table. Toutes les instances de l’extension de diagnostic configuré pour utiliser le même nom et le même point de terminaison de compte de stockage ajoutent leurs mesures et leurs journaux à la même table. Si un trop grand nombre de machines virtuelles écrivent dans la même partition de table, Azure peut limiter les écritures sur cette partition. Le paramètre eventVolume permet de répartir les entrées entre 1 (Small), 10 (Medium) ou 100 (Large) partitions différentes. En règle générale, « Medium » est suffisant pour que le trafic ne soit pas limité. La fonctionnalité des métriques Azure du portail Azure utilise les données de cette table pour produire des graphes ou déclencher des alertes. Le nom de la table est la concaténation des chaînes suivantes :
+Quand vous spécifiez `performanceCounters`, l’extension de diagnostic Linux écrit toujours les données dans une table de Stockage Azure. Les mêmes données peuvent être écrites dans des objets blob JSON et/ou des Event Hubs, mais vous ne pouvez pas désactiver le stockage des données dans une table. Toutes les instances de l’extension de diagnostic configuré pour utiliser le même nom et le même point de terminaison de compte de stockage ajoutent leurs mesures et leurs journaux d’activité à la même table. Si un trop grand nombre de machines virtuelles écrivent dans la même partition de table, Azure peut limiter les écritures sur cette partition. Le paramètre eventVolume permet de répartir les entrées entre 1 (Small), 10 (Medium) ou 100 (Large) partitions différentes. En règle générale, « Medium » est suffisant pour que le trafic ne soit pas limité. La fonctionnalité des métriques Azure du portail Azure utilise les données de cette table pour produire des graphes ou déclencher des alertes. Le nom de la table est la concaténation des chaînes suivantes :
 
 * `WADMetrics`
 * « ScheduledTransferPeriod » pour les valeurs agrégées stockées dans la table

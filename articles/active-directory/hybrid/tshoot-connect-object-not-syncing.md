@@ -18,7 +18,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
 ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/19/2019
 ms.locfileid: "56416919"
@@ -58,7 +58,7 @@ Le processus de synchronisation comprend les étapes suivantes :
 
 Pour rechercher les erreurs, regardez à différents endroits, dans l’ordre suivant :
 
-1. Les [journaux des opérations](#operations) pour rechercher les erreurs identifiées par le moteur de synchronisation pendant l’importation et la synchronisation.
+1. Les [journaux d’activité des opérations](#operations) pour rechercher les erreurs identifiées par le moteur de synchronisation pendant l’importation et la synchronisation.
 2. L’[espace connecteur](#connector-space-object-properties) pour rechercher les objets manquants et les erreurs de synchronisation.
 3. Le [métaverse](#metaverse-object-properties) pour rechercher les problèmes liés aux données.
 

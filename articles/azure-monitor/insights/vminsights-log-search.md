@@ -1,5 +1,5 @@
 ---
-title: Comment interroger des journaux des requête à partir d’Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
+title: Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
 description: Azure Monitor pour les machines virtuelles solution collecte les mesures et les données de journal et de cet article décrit les enregistrements et inclut des exemples de requêtes.
 services: azure-monitor
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/11/2019
 ms.locfileid: "59492086"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux des requête à partir d’Azure Monitor pour machines virtuelles (préversion)
+# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion)
 Azure Monitor pour les machines virtuelles collecte des performances et métriques de connexion, ordinateur et traiter les données de l’inventaire et informations d’état d’intégrité et la transfère à l’espace de travail Analytique de journal dans Azure Monitor.  Ces données sont disponibles pour [requête](../../azure-monitor/log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
 ## <a name="map-records"></a>Mapper des enregistrements

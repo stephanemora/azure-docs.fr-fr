@@ -65,7 +65,7 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, proc�
 
 15. Cliquez sur le bouton **Attribuer** pour affecter l’application aux utilisateurs sélectionnés.
 
-Si l’approvisionnement est configuré et déjà en cours d’exécution pour une application, les nouveaux utilisateurs doivent être affectés à une application en 10 minutes environ. Consultez **les journaux d’audit** pour plus d’informations.
+Si l’approvisionnement est configuré et déjà en cours d’exécution pour une application, les nouveaux utilisateurs doivent être affectés à une application en 10 minutes environ. Consultez **les journaux d’activité d’audit** pour plus d’informations.
 
 ## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Affecter un groupe directement à une application en tant qu’administrateur
 
@@ -103,7 +103,7 @@ Pour affecter un ou plusieurs groupes directement à une application, procédez 
 
 15. Cliquez sur le bouton **Attribuer** pour affecter l’application aux groupes sélectionnés.
 
-Si l’approvisionnement est configuré et déjà en cours d’exécution pour une application, les nouveaux utilisateurs de ce groupe doivent être affectés à une application en 10 minutes environ. Consultez **les journaux d’audit** pour plus d’informations.
+Si l’approvisionnement est configuré et déjà en cours d’exécution pour une application, les nouveaux utilisateurs de ce groupe doivent être affectés à une application en 10 minutes environ. Consultez **les journaux d’activité d’audit** pour plus d’informations.
 
 >[!IMPORTANT]
 >Approvisionnement du nom du groupe et des détails du groupe, en plus des membres, si la prise en charge est effective pour certaines applications. Vous pouvez activer ou désactiver cette fonctionnalité en activant ou désactivant la **mappage** pour les objets de groupe affichés dans l’onglet **Approvisionnement**. 

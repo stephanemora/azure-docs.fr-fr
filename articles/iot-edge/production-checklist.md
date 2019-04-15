@@ -181,14 +181,14 @@ Si vos appareils sont destinés à être déployés sur un réseau qui utilise u
 ## <a name="solution-management"></a>Gestion de solution
 
 * **Utile**
-    * Configurer les journaux et les diagnostics
+    * Configurer les journaux d’activité et les diagnostics
     * Prendre en compte les tests et les pipelines CI/CD
 
-### <a name="set-up-logs-and-diagnostics"></a>Configurer les journaux et les diagnostics
+### <a name="set-up-logs-and-diagnostics"></a>Configurer les journaux d’activité et les diagnostics
 
-Sur Linux, le démon IoT Edge utilise les journaux en tant que le pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux du démon. Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux du démon avec `Get-WinEvent`. Modules IoT Edge utilisent le pilote JSON pour la journalisation, qui est la valeur par défaut.  
+Sur Linux, le démon IoT Edge utilise les journaux en tant que le pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux d’activité du démon. Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux d’activité du démon avec `Get-WinEvent`. Modules IoT Edge utilisent le pilote JSON pour la journalisation, qui est la valeur par défaut.  
 
-Lorsque vous testez un déploiement IoT Edge, vous pouvez généralement accéder à vos appareils pour récupérer les journaux et résoudre les problèmes. Dans un scénario de déploiement, vous n’avez pas forcément cette option. Réfléchissez à la façon dont vous allez collecter des informations sur vos appareils en production. Il est possible d’utiliser un module de journalisation, par exemple, [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), qui recueille des informations auprès des autres modules et les envoie vers le cloud. Vous pouvez également concevoir votre propre module de journalisation. 
+Lorsque vous testez un déploiement IoT Edge, vous pouvez généralement accéder à vos appareils pour récupérer les journaux d’activité et résoudre les problèmes. Dans un scénario de déploiement, vous n’avez pas forcément cette option. Réfléchissez à la façon dont vous allez collecter des informations sur vos appareils en production. Il est possible d’utiliser un module de journalisation, par exemple, [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), qui recueille des informations auprès des autres modules et les envoie vers le cloud. Vous pouvez également concevoir votre propre module de journalisation. 
 
 ### <a name="place-limits-on-log-size"></a>Placer les limites de taille de journal
 

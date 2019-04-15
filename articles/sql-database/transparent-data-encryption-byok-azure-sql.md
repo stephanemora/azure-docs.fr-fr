@@ -77,7 +77,7 @@ Quand TDE est tout d’abord configuré pour utiliser un protecteur TDE de Key V
   > [!NOTE]
   > Si le chiffrement transparent des données chiffrées, bases de données SQL de perdre l’accès au coffre de clés, car ils ne puissent pas contourner le pare-feu, les bases de données sont inaccessibles dans les 24 heures.
 
-- Activer l’audit et la création de rapports sur toutes les clés de chiffrement : Key Vault fournit des journaux faciles à injecter dans d’autres outils de gestion d’événements et d’informations de sécurité (SIEM). Operations Management Suite (OMS) [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) est un exemple d’un service qui est déjà intégré.
+- Activer l’audit et la création de rapports sur toutes les clés de chiffrement : Key Vault fournit des journaux d’activité faciles à injecter dans d’autres outils de gestion d’événements et d’informations de sécurité (SIEM). Operations Management Suite (OMS) [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) est un exemple d’un service qui est déjà intégré.
 - Pour garantir la haute disponibilité des bases de données chiffrées, configurez chaque serveur SQL Database avec deux instances Azure Key Vault résidant dans des régions différentes.
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Lignes directrices en matière de configuration du protecteur TDE (clé asymétrique)

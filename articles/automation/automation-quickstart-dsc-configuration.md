@@ -144,5 +144,5 @@ Dans ce démarrage rapide, vous avez intégré une machine virtuelle Linux à DS
 
 * Pour en savoir plus sur le service de configuration d’état souhaité PowerShell, consultez [Vue d’ensemble de la configuration d’état souhaité PowerShell](https://docs.microsoft.com/powershell/dsc/overview).
 * Pour en savoir plus sur la gestion d’Automation DSC à partir de PowerShell, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)
-* Pour apprendre à transférer des rapports DSC à des journaux Azure Monitor à des fins de création de rapports et d’alertes, consultez [Transfert de rapports DSC à des journaux Azure Monitor](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics). 
+* Pour apprendre à transférer des rapports DSC à des journaux d’activité Azure Monitor à des fins de création de rapports et d’alertes, consultez [Transfert de rapports DSC à des journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics). 
 

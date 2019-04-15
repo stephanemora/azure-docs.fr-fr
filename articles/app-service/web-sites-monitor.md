@@ -17,7 +17,7 @@ ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
 ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/25/2019
 ms.locfileid: "54913155"
@@ -59,7 +59,7 @@ Si une application dépasse le quota *Temps UC (court)*, *Temps UC (jour)* ou 
 
 Si le quota Mémoire d’une application est dépassé, l’application est redémarrée.
 
-En cas de dépassement du quota Système de fichiers, toute opération d’écriture échoue. Les échecs des opérations d’écriture incluent toutes les écritures dans les journaux.
+En cas de dépassement du quota Système de fichiers, toute opération d’écriture échoue. Les échecs des opérations d’écriture incluent toutes les écritures dans les journaux d’activité.
 
 Vous pouvez augmenter ou supprimer les quotas dans votre application en procédant à la mise à niveau de votre plan App Service.
 

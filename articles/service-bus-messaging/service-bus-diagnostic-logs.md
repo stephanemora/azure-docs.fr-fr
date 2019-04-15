@@ -24,15 +24,15 @@ ms.locfileid: "57216337"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Journaux de diagnostic Service Bus
 
-Vous pouvez afficher deux types de journaux pour Azure Service Bus :
-* **[Journaux d’activité](../azure-monitor/platform/activity-logs-overview.md)**. Ces journaux contiennent des informations sur les opérations effectuées sur un travail. Les journaux sont toujours activés.
+Vous pouvez afficher deux types de journaux d’activité pour Azure Service Bus :
+* **[Journaux d’activité](../azure-monitor/platform/activity-logs-overview.md)**. Ces journaux d’activité contiennent des informations sur les opérations effectuées sur un travail. Les journaux d’activité sont toujours activés.
 * **[Journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md)**. Vous pouvez configurer les journaux de diagnostic pour obtenir des informations plus détaillés sur tous les événements associés à un travail. Les journaux de diagnostic couvrent les activités qui se déroulent entre la création du travail et sa suppression, notamment les mises à jour et les activités durant l’exécution du travail.
 
 ## <a name="turn-on-diagnostic-logs"></a>Activer les journaux de diagnostic
 
 Les journaux de diagnostic sont désactivés par défaut. Pour activer les journaux de diagnostic, suivez les étapes ci-dessous :
 
-1.  Dans le [portail Azure](https://portal.azure.com), sous **Surveillance + gestion**, cliquez sur **Journaux de diagnostic**.
+1.  Dans le [portail Azure](https://portal.azure.com), sous **Supervision + gestion**, cliquez sur **Journaux de diagnostic**.
 
     ![navigation dans le panneau jusqu’aux journaux de diagnostic](./media/service-bus-diagnostic-logs/image1.png)
 
@@ -50,17 +50,17 @@ Les journaux de diagnostic sont désactivés par défaut. Pour activer les journ
 
 6.  Enregistrez les nouveaux paramètres de diagnostic.
 
-Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux apparaissent dans la cible d’archivage configurée, dans le panneau **Journaux de diagnostic**.
+Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux d’activité apparaissent dans la cible d’archivage configurée, dans le panneau **Journaux de diagnostic**.
 
 Pour plus d’informations sur la configuration des diagnostics, consultez la [vue d’ensemble des journaux de diagnostic Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="diagnostic-logs-schema"></a>Schéma des journaux de diagnostic
 
-Tous les journaux sont stockés au format JSON (JavaScript Object Notation). Chaque entrée comporte des champs de type chaîne au format décrit dans la section suivante.
+Tous les journaux d’activité sont stockés au format JSON (JavaScript Object Notation). Chaque entrée comporte des champs de type chaîne au format décrit dans la section suivante.
 
-## <a name="operational-logs-schema"></a>Schéma des journaux des opérations
+## <a name="operational-logs-schema"></a>Schéma des journaux d’activité des opérations
 
-Les journaux de la catégorie **OperationalLogs** capturent ce qui se passe durant l’opération Service Bus. Plus précisément, ces journaux capturent le type d’opération, notamment la création de la file d’attente, les ressources utilisées et l’état de l’opération.
+Les journaux d’activité de la catégorie **OperationalLogs** capturent ce qui se passe durant l’opération Service Bus. Plus précisément, ces journaux d’activité capturent le type d’opération, notamment la création de la file d’attente, les ressources utilisées et l’état de l’opération.
 
 Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
 

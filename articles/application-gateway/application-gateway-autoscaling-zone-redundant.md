@@ -72,7 +72,7 @@ La version préliminaire, aucun frais n’est. Vous êtes facturé pour les ress
 |Combinaison de Standard_v2 et Standard Application Gateway sur le même sous-réseau|Non pris en charge|
 |Route définie par l’utilisateur sur le sous-réseau d’Application Gateway|Non pris en charge|
 |Groupe de sécurité réseau pour plage de ports entrants| - 65 200 à 65 535 pour référence (SKU) Standard_v2<br>- 65 503 à 65 534 pour référence (SKU) Standard<br>Pour plus d’informations, visitez le [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
-|Journaux de performances dans les diagnostics Azure|Non pris en charge.<br>Les métriques Azure doivent être utilisées.|
+|Journaux d’activité de performances dans les diagnostics Azure|Non pris en charge.<br>Les métriques Azure doivent être utilisées.|
 |Facturation|Aucune facturation.|
 |Mode FIPS|Ils ne sont pas pris en charge.|
 |Mode ILB uniquement|Non pris en charge actuellement. Les modes public et ILB sont pris en charge ensemble.|

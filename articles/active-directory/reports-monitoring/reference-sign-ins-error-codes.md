@@ -171,7 +171,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |81001|Le ticket Kerberos de l’utilisateur est trop volumineux. Cela peut se produire si l’utilisateur appartient à trop de groupes, auquel cas le ticket Kerberos contient trop d’appartenances aux groupes. Réduisez les appartenances à des groupes de l’utilisateur, puis réessayez.|
 |81005|Le package d’authentification n’est pas pris en charge.|
 |81007|Le locataire n’est pas activé pour l’authentification unique transparente.|
-|81012|Ce n’est pas un état d’erreur. Cela indique que l’utilisateur qui tente de se connecter à Azure AD est différent de l’utilisateur connecté à l’appareil. Vous pouvez ignorer sans problème ce code dans les journaux.|
+|81012|Ce n’est pas un état d’erreur. Cela indique que l’utilisateur qui tente de se connecter à Azure AD est différent de l’utilisateur connecté à l’appareil. Vous pouvez ignorer sans problème ce code dans les journaux d’activité.|
 |90010|La requête n’est pas prise en charge pour diverses raisons. Par exemple, la requête est effectuée à l’aide d’une méthode de requête non prise en charge (seule la méthode POST est prise en charge) ou l’algorithme de signature de jeton demandé n’est pas pris en charge. Contactez le développeur de l’application.|
 |90014| Un champ obligatoire du message de protocole n’a pas été renseigné. Contactez le propriétaire de l’application. Si vous êtes le propriétaire de l’application, vérifiez que vous disposez de tous les paramètres nécessaires pour la requête de connexion. |
 |90072| Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous, puis connectez-vous avec un autre compte Azure AD.|

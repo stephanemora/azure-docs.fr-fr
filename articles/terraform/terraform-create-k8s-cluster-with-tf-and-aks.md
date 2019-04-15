@@ -408,7 +408,7 @@ Les outils Kubernetes peuvent être utilisés pour vérifier le cluster nouvelle
 
     ![L’outil kubectl vous permet de vérifier l’intégrité de votre cluster Kubernetes](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
-## <a name="monitor-health-and-logs"></a>Analyser le fonctionnement et les journaux
+## <a name="monitor-health-and-logs"></a>Analyser le fonctionnement et les journaux d’activité
 Lorsque de la création du cluster AKS, la supervision a été activée pour capturer les métriques d’intégrité pour les nœuds de cluster et les pods. Ces mesures sont disponibles dans le portail Azure. Pour plus d’informations sur la supervision de l’intégrité des conteneurs, consultez [Superviser l’intégrité d’Azure Kubernetes Service](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes

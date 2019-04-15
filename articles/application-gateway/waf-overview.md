@@ -151,7 +151,7 @@ Journaux de passerelle d’application sont intégrés avec [Azure Monitor](../m
 
 #### <a name="logging"></a>Journalisation
 
-Application Gateway WAF fournit des rapports détaillés sur chaque menace qu’il détecte. La journalisation est intégrée aux journaux Azure Diagnostics. Alertes sont enregistrées au format .json. Ces journaux peuvent être intégrés aux [journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
+Application Gateway WAF fournit des rapports détaillés sur chaque menace qu’il détecte. La journalisation est intégrée aux journaux Azure Diagnostics. Alertes sont enregistrées au format .json. Ces journaux d’activité peuvent être intégrés aux [journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 
 ![Journaux de diagnostics de passerelle d’application windows](./media/waf-overview/waf2.png)
 

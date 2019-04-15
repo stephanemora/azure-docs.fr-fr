@@ -371,7 +371,7 @@ L’exemple de projet suit déjà les instructions fournies dans [Journalisation
 > Le niveau de journalisation du projet est défini sur `Information` dans *appsettings.json*.
 > 
 
-Dans App Service sur Linux, les applications sont exécutées dans un conteneur d’une image Docker par défaut. Vous pouvez accéder aux journaux de console générés à partir du conteneur. Pour obtenir ces journaux, activez tout d’abord la journalisation du conteneur en exécutant la commande [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) dans Cloud Shell.
+Dans App Service sur Linux, les applications sont exécutées dans un conteneur d’une image Docker par défaut. Vous pouvez accéder aux journaux d’activité de console générés à partir du conteneur. Pour obtenir ces journaux d’activité, activez tout d’abord la journalisation du conteneur en exécutant la commande [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) dans Cloud Shell.
 
 ```azurecli-interactive
 az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
@@ -383,11 +383,11 @@ Une fois que la journalisation du conteneur est activée, surveillez le flux de 
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-Une fois que la diffusion a démarré, actualisez l’application Azure dans le navigateur pour générer un trafic web. Vous pouvez maintenant voir les journaux de la console acheminés vers le terminal. Si vous ne voyez pas les journaux de la console, attendez 30 secondes et vérifiez à nouveau.
+Une fois que la diffusion a démarré, actualisez l’application Azure dans le navigateur pour générer un trafic web. Vous pouvez maintenant voir les journaux d’activité de la console acheminés vers le terminal. Si vous ne voyez pas les journaux d’activité de la console, attendez 30 secondes et vérifiez à nouveau.
 
 Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl`+`C`.
 
-Pour plus d’informations sur la personnalisation des journaux ASP.NET Core, consultez [Journalisation dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+Pour plus d’informations sur la personnalisation des journaux d’activité ASP.NET Core, consultez [Journalisation dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
@@ -413,7 +413,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Connecter une application .NET Core à une instance SQL Database
 > * Déploiement de l’application dans Azure
 > * Mettre à jour le modèle de données et redéployer l’application
-> * Diffuser des journaux à partir d’Azure vers votre terminal
+> * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.

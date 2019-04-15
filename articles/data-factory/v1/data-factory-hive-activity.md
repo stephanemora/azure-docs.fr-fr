@@ -86,7 +86,7 @@ L’activité Hive HDInsight d’un [pipeline](data-factory-create-pipelines.md)
 | defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive à l'aide de ’hiveconf’ |Non  |
 
 ## <a name="example"></a>Exemples
-Prenons un exemple d'analyse de journaux de jeux où vous souhaitez identifier le temps passé par les utilisateurs à jouer à des jeux créés par votre entreprise. 
+Prenons un exemple d’analyse de journaux d’activité de jeux où vous souhaitez identifier le temps passé par les utilisateurs à jouer à des jeux créés par votre entreprise. 
 
 Le journal suivant est un exemple de journal de jeu séparé par des virgules (`,`) et contenant les champs suivants : ProfileID, SessionStart, Duration, SrcIPAddress et GameType.
 
@@ -174,7 +174,7 @@ Pour exécuter ce script Hive dans un pipeline Data Factory, vous devez effectue
 7. Surveillez le pipeline à l'aide des vues de gestion et de surveillance Data Factory. Consultez l’article [Surveillance et gestion des pipelines Data Factory](data-factory-monitor-manage-pipelines.md) pour plus d'informations. 
 
 ## <a name="specifying-parameters-for-a-hive-script"></a>Spécification des paramètres d’un script Hive
-Dans cet exemple, les journaux de jeux sont reçus quotidiennement dans le stockage blob Azure et sont conservés dans un dossier partitionné par date et par heure. Vous souhaitez paramétrer le script Hive et fournir dynamiquement l'emplacement du dossier d'entrée pendant l'exécution mais aussi produire la sortie partitionnée par date et par heure.
+Dans cet exemple, les journaux d’activité de jeux sont reçus quotidiennement dans le stockage blob Azure et sont conservés dans un dossier partitionné par date et par heure. Vous souhaitez paramétrer le script Hive et fournir dynamiquement l'emplacement du dossier d'entrée pendant l'exécution mais aussi produire la sortie partitionnée par date et par heure.
 
 Pour utiliser le script Hive paramétré, procédez comme suit :
 

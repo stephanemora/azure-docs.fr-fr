@@ -171,7 +171,7 @@ items:
     items:
     - name: Quotas et alertes
       href: web-sites-monitor.md
-    - name: Activer les journaux
+    - name: Activer les journaux d’activité
       href: troubleshoot-diagnostic-logs.md
   - name: Gérer l’application
     items:

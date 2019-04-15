@@ -394,7 +394,7 @@ Accédez à `<app_name>.azurewebsites.net` et connectez-vous à l’aide de l’
 
 ## <a name="access-diagnostic-logs"></a>Accéder aux journaux de diagnostic
 
-Dans App Service sur Linux, les applications sont exécutées dans un conteneur d’une image Docker par défaut. Vous pouvez accéder aux journaux de console générés à partir du conteneur. Pour obtenir ces journaux, activez tout d’abord la journalisation du conteneur en exécutant la commande suivante dans Cloud Shell :
+Dans App Service sur Linux, les applications sont exécutées dans un conteneur d’une image Docker par défaut. Vous pouvez accéder aux journaux d’activité de console générés à partir du conteneur. Pour obtenir ces journaux d’activité, activez tout d’abord la journalisation du conteneur en exécutant la commande suivante dans Cloud Shell :
 
 ```azurecli-interactive
 az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem

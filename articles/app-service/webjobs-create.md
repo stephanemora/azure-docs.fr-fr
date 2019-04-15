@@ -186,9 +186,9 @@ Pour plus d’informations, consultez [planification d’une tâche Web déclenc
 
 ## <a name="ViewJobHistory"></a> Affichage de l’historique des tâches
 
-1. Choisissez la tâche web dont vous souhaitez afficher l’historique, puis sélectionnez le bouton **Journaux**.
+1. Choisissez la tâche web dont vous souhaitez afficher l’historique, puis sélectionnez le bouton **Journaux d’activité**.
    
-   ![Bouton Journaux](./media/web-sites-create-web-jobs/wjbladelogslink.png)
+   ![Bouton Journaux d’activité](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 
 2. À la page **Détails de la tâche web**, sélectionnez une heure pour afficher les détails d’une exécution.
    

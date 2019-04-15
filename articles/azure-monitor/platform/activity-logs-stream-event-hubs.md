@@ -34,7 +34,7 @@ Si vous n’avez pas d’espace de noms Event Hubs, vous devez d’abord en cré
 
 La stratégie d’accès partagé définit les autorisations dont dispose le mécanisme de diffusion en continu. À l’heure actuelle, la diffusion vers Event Hubs requiert des autorisations de **gestion**, d’**envoi** et d’**écoute**. Vous pouvez créer ou modifier des stratégies d’accès partagé de l’espace de noms Event Hubs dans le portail Azure, sous l’onglet **Configurer** de votre espace de noms Event Hubs. 
 
-Pour mettre à jour le profil de journal d’activité afin d’inclure la diffusion en continu, l’utilisateur qui apporte la modification doit avoir l’autorisation ListKey sur la règle d’autorisation Event Hubs. Il n’est pas nécessaire que l’espace de noms Event Hubs se trouve dans le même abonnement que l’abonnement qui génère des journaux, à condition que l’utilisateur configurant le paramètre dispose d’un accès RBAC aux deux abonnements, et que ces derniers se trouvent dans le même locataire AAD.
+Pour mettre à jour le profil de journal d’activité afin d’inclure la diffusion en continu, l’utilisateur qui apporte la modification doit avoir l’autorisation ListKey sur la règle d’autorisation Event Hubs. Il n’est pas nécessaire que l’espace de noms Event Hubs se trouve dans le même abonnement que l’abonnement qui génère des journaux d’activité, à condition que l’utilisateur configurant le paramètre dispose d’un accès RBAC aux deux abonnements, et que ces derniers se trouvent dans le même locataire AAD.
 
 ### <a name="via-the-azure-portal"></a>Via le portail azure
 1. Accédez au panneau **Journal d’activité** à l’aide de la recherche **Tous les services** sur le côté gauche du portail.
@@ -53,7 +53,7 @@ Pour mettre à jour le profil de journal d’activité afin d’inclure la diffu
    > Si vous sélectionnez autre chose que **Toutes les régions**, vous manquerez des événements clés que vous attendez de recevoir. Le journal d’activité étant un journal global (non régional), aucune région n’est associée à la plupart des événements. 
    >
 
-4. Cliquez sur l’option **Azure Event Hubs**, sélectionnez l’espace de noms Event Hubs vers lequel les journaux doivent être envoyés, puis cliquez sur **OK**.
+4. Cliquez sur l’option **Azure Event Hubs**, sélectionnez l’espace de noms Event Hubs vers lequel les journaux d’activité doivent être envoyés, puis cliquez sur **OK**.
 5. Sélectionnez **Enregistrer** pour enregistrer ces paramètres. Les paramètres sont appliqués immédiatement à votre abonnement.
 6. Si vous avez plusieurs abonnements, répétez cette action et envoyez toutes les données au même Hub d’événements.
 

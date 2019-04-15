@@ -136,7 +136,7 @@ En outre, vous pouvez étendre la solution complète au-delà d’Azure, par exe
 
 Security Center fournit une intégration transparente et native à Azure et aux ressources Azure. Cela signifie que vous pouvez mettre en place une approche de sécurité complète impliquant Azure Policy et les stratégies Security Center intégrées sur toutes vos ressources Azure, et vous assurer qu’elle est automatiquement appliquée aux ressources détectées à mesure que vous les créez dans Azure.
 
-Collecte de journaux complète : les journaux de Windows et Linux sont exploités dans le moteur d’analyse de sécurité et utilisés pour créer des recommandations et des alertes.
+Collecte de journaux d’activité complète : les journaux d’activité de Windows et Linux sont exploités dans le moteur d’analyse de sécurité et utilisés pour créer des recommandations et des alertes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

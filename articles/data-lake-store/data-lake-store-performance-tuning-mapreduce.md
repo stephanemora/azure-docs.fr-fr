@@ -14,7 +14,7 @@ ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: b661499786057a3083f79684dfd12c85266b7b5c
 ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/18/2018
 ms.locfileid: "46128789"
@@ -85,7 +85,7 @@ Supposons que vous avez actuellement un cluster composé de 8 nœuds D14 et que 
 
 **Limitation de bande passante Data Lake Storage Gen1**
 
-En tant que service mutualisé, Data Lake Storage Gen1 définit des limites de bande passante de niveau de compte.  Si vous rencontrez ces limites, vous commencerez à observer des échecs pour vos tâches. Vous pouvez identifier le problème en consultant les erreurs de limitation dans les journaux des tâches.  Si vous avez besoin de davantage de bande passante pour votre travail, veuillez nous contacter.   
+En tant que service mutualisé, Data Lake Storage Gen1 définit des limites de bande passante de niveau de compte.  Si vous rencontrez ces limites, vous commencerez à observer des échecs pour vos tâches. Vous pouvez identifier le problème en consultant les erreurs de limitation dans les journaux d’activité des tâches.  Si vous avez besoin de davantage de bande passante pour votre travail, veuillez nous contacter.   
 
 Pour vérifier si une limitation est appliquée, vous devez activer la journalisation du débogage côté client. Voici comment procéder :
 

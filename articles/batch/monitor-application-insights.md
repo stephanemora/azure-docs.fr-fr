@@ -13,7 +13,7 @@ ms.date: 04/05/2018
 ms.author: lahugh
 ms.openlocfilehash: 42ea8398fa1a8b1fbc42108d1165dc17da2c34d7
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55473460"
@@ -265,17 +265,17 @@ Maintenant que vous avez configuré le travail et les tâches pour utiliser Appl
 
 ### <a name="view-live-stream-data"></a>Afficher les données du flux temps réel
 
-Pour afficher les journaux de suivi dans votre ressource Applications Insights, cliquez sur **Flux temps réel**. La capture d’écran suivante montre comment afficher les données temps réel provenant des nœuds de calcul dans le pool, comme l’utilisation du processeur par nœud de calcul.
+Pour afficher les journaux d’activité de suivi dans votre ressource Applications Insights, cliquez sur **Flux temps réel**. La capture d’écran suivante montre comment afficher les données temps réel provenant des nœuds de calcul dans le pool, comme l’utilisation du processeur par nœud de calcul.
 
 ![Flux temps réel des données des nœuds de calcul](./media/monitor-application-insights/applicationinsightslivestream.png)
 
-### <a name="view-trace-logs"></a>Afficher les journaux de suivi
+### <a name="view-trace-logs"></a>Afficher les journaux d’activité de suivi
 
-Pour afficher les journaux de suivi dans votre ressource Applications Insights, cliquez sur **Rechercher**. Cette vue affiche une liste des données de diagnostic capturées par Application Insights, avec les traces, les événements et les exceptions. 
+Pour afficher les journaux d’activité de suivi dans votre ressource Applications Insights, cliquez sur **Rechercher**. Cette vue affiche une liste des données de diagnostic capturées par Application Insights, avec les traces, les événements et les exceptions. 
 
 La capture d’écran suivante montre comment une trace d’une tâche est journalisée puis interrogée à des fins de débogage.
 
-![Image des journaux de suivi](./media/monitor-application-insights/tracelogsfortask.png)
+![Image des journaux d’activité de suivi](./media/monitor-application-insights/tracelogsfortask.png)
 
 ### <a name="view-unhandled-exceptions"></a>Afficher les exceptions non prises en charge
 

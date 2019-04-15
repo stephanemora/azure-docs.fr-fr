@@ -12,7 +12,7 @@ ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
 ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54043955"
@@ -142,7 +142,7 @@ Comme vous pouvez le voir, le `runtimeStatus` de l’instance est *Terminé* et 
 > [!NOTE]
 > Le point de terminaison HTTP POST qui a démarré la fonction d’orchestrateur est implémenté dans l’application exemple en tant que fonction de déclenchement HTTP nommée « HttpStart ». Vous pouvez implémenter une logique de démarrage similaire pour d’autres types de déclenchement, comme `queueTrigger`, `eventHubTrigger`, ou `timerTrigger`.
 
-Examinez les journaux d’exécution de fonction. La fonction `E1_HelloSequence` démarrée et terminée plusieurs fois en raison du comportement de relecture décrit dans le [Vue d’ensemble](durable-functions-concepts.md). En revanche, il n’y a eu que trois exécutions de `E1_SayHello` étant donné que les exécutions de la fonction ne sont pas relues.
+Examinez les journaux d’activité d’exécution de fonction. La fonction `E1_HelloSequence` démarrée et terminée plusieurs fois en raison du comportement de relecture décrit dans le [Vue d’ensemble](durable-functions-concepts.md). En revanche, il n’y a eu que trois exécutions de `E1_SayHello` étant donné que les exécutions de la fonction ne sont pas relues.
 
 ## <a name="visual-studio-sample-code"></a>Exemple de code Visual Studio
 

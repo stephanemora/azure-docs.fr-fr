@@ -21,7 +21,7 @@ items:
       href: quickstart-install-power-bi-content-pack.md
   - name: Surveillance
     items:
-    - name: Acheminer des journaux vers un compte de stockage
+    - name: Acheminer des journaux d’activité vers un compte de stockage
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
   expanded: true
 - name: Tutoriels
@@ -32,7 +32,7 @@ items:
       href: tutorial-access-api-with-certificates.md
   - name: Surveillance
     items:
-    - name: Transmettre en continu des journaux vers un Event Hub
+    - name: Transmettre en continu des journaux d’activité vers un Event Hub
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
     - name: Intégrer les journaux d’activité à Splunk
       href: tutorial-integrate-activity-logs-with-splunk.md
@@ -42,7 +42,7 @@ items:
     items:
     - name: Journaux d’audit
       href: concept-audit-logs.md
-    - name: Journaux de connexion
+    - name: Journaux d’activité de connexion
       href: concept-sign-ins.md
     - name: Connexions risquées
       href: concept-risky-sign-ins.md
@@ -54,7 +54,7 @@ items:
       href: concept-reporting-api.md
   - name: Surveillance
     items:
-    - name: Journaux Azure AD dans Azure Monitor
+    - name: Journaux d’activité Azure AD dans Azure Monitor
       href: concept-activity-logs-azure-monitor.md
 - name: Guides pratiques
   items:
@@ -72,9 +72,9 @@ items:
       href: howto-configure-prerequisites-for-reporting-api.md
   - name: Surveillance
     items:
-    - name: Intégrer les journaux d’activité aux journaux Azure Monitor
+    - name: Intégrer les journaux d’activité aux journaux d’activité Azure Monitor
       href: howto-integrate-activity-logs-with-log-analytics.md
-    - name: Analyser les journaux d’activité dans les journaux Azure Monitor
+    - name: Analyser les journaux d’activité dans les journaux d’activité Azure Monitor
       href: howto-analyze-activity-logs-log-analytics.md
     - name: Installer et utiliser les vues Log Analytics pour Azure AD
       href: howto-install-use-log-analytics-views.md
@@ -99,7 +99,7 @@ items:
     items:
     - name: Informations de référence sur l’API des journaux d’audit
       href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
-    - name: Informations de référence sur l’API des journaux de connexion
+    - name: Informations de référence sur l’API des journaux d’activité de connexion
       href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
     - name: Activités d’audit
       href: reference-audit-activities.md

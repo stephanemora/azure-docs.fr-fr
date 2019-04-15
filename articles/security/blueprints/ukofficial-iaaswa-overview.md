@@ -156,7 +156,7 @@ Ces réseaux virtuels sont toujours gérés comme des ressources distinctes. Tou
 
 **Active Directory Domain Services (AD DS)**  : cette architecture permet un déploiement dédié d’[Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx).
 
-**Journalisation et audit** : le [journal d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) capture les opérations effectuées sur les ressources de votre abonnement (par exemple, qui a démarré l’opération, quand l’opération a eu lieu ou l’état de l’opération) ainsi que les valeurs des autres propriétés qui peuvent vous aider à analyser l’opération. Le journal d’activité Azure est un service de plateforme Azure qui capture toutes les actions effectuées dans un abonnement. Les journaux peuvent être archivés ou exportés si nécessaire.
+**Journalisation et audit** : le [journal d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) capture les opérations effectuées sur les ressources de votre abonnement (par exemple, qui a démarré l’opération, quand l’opération a eu lieu ou l’état de l’opération) ainsi que les valeurs des autres propriétés qui peuvent vous aider à analyser l’opération. Le journal d’activité Azure est un service de plateforme Azure qui capture toutes les actions effectuées dans un abonnement. Les journaux d’activité peuvent être archivés ou exportés si nécessaire.
 
 **Supervision réseau et alertes** : [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) est un service de plateforme qui fournit une fonctionnalité de capture des paquets réseau, une fonctionnalité de journalisation des flux, des outils de topologie et une fonctionnalité de diagnostic pour le trafic sur vos réseaux virtuels.
 
@@ -168,13 +168,13 @@ Ces réseaux virtuels sont toujours gérés comme des ressources distinctes. Tou
 
 ### <a name="logging-and-audit"></a>Journalisation et audit
 
-**Supervision** : [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) est le service de plateforme qui permet de superviser en un seul et même endroit le journal d’activité, les métriques et les journaux de diagnostic de toutes vos ressources Azure. Azure Monitor peut être configuré pour visualiser, interroger, acheminer, archiver et agir sur les métriques et les journaux provenant des ressources Azure. Il est recommandé d’utiliser le contrôle d’accès basé sur les ressources pour sécuriser la piste d’audit et garantir que les utilisateurs ne puissent pas modifier les journaux.
+**Supervision** : [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) est le service de plateforme qui permet de superviser en un seul et même endroit le journal d’activité, les métriques et les journaux de diagnostic de toutes vos ressources Azure. Azure Monitor peut être configuré pour visualiser, interroger, acheminer, archiver et agir sur les métriques et les journaux d’activité provenant des ressources Azure. Il est recommandé d’utiliser le contrôle d’accès basé sur les ressources pour sécuriser la piste d’audit et garantir que les utilisateurs ne puissent pas modifier les journaux d’activité.
 
 **Journaux d’activité** : configurez les [journaux d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) pour fournir un insight des opérations qui ont été effectuées sur les ressources de votre abonnement.
 
-**Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) correspondent à l’ensemble des journaux émis par une ressource. Ces journaux incluent les journaux des événements système Windows, ainsi que les journaux des objets blob, des tables et des files d’attente.
+**Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) correspondent à l’ensemble des journaux émis par une ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité des objets blob, des tables et des files d’attente.
 
-**Journaux du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux de pare-feu sont disponibles pour les ressources de passerelle d’application avec WAF activé.
+**Journaux du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux d’activité de pare-feu sont disponibles pour les ressources de passerelle d’application avec WAF activé.
 
 **Archivage des journaux** : Stockage de données de journal peut être configuré pour écrire dans un compte de stockage Azure centralisé pour archivage et pendant une période de rétention définie. Les journaux peuvent être traitées à l’aide des journaux Azure Monitor ou par un système SIEM tiers.
 

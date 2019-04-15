@@ -116,7 +116,7 @@ New-AzRoleDefinition -Role $role
 Les données d’analyse (les fichiers journaux en particulier) peuvent contenir des informations sensibles, comme des adresses IP ou des noms d’utilisateur. La surveillance de données dans Azure se présente sous trois formes de base :
 
 1. Le journal d’activité qui décrit toutes les actions de plan de contrôle sur votre abonnement Azure.
-2. Les journaux de diagnostic, qui sont des journaux émis par une ressource.
+2. Les journaux de diagnostic, qui sont des journaux d’activité émis par une ressource.
 3. Les mesures, qui sont émises par les ressources.
 
 Ces trois types de données peuvent être stockés dans un compte de stockage ou diffusés vers un hub d’événements, qui sont tous deux des ressources Azure à usage général. Étant donné qu’il s’agit de ressources à usage général, leur création, leur suppression et leur accès sont des opérations privilégiées réservées à un administrateur. Nous vous conseillons d’utiliser les pratiques suivantes pour les ressources liées à l’analyse afin d’éviter une mauvaise utilisation :
@@ -182,7 +182,7 @@ Azure Monitor a besoin d’accéder à vos ressources Azure pour fournir les ser
 ### <a name="secured-storage-accounts"></a>Comptes de stockage sécurisés 
 
 Les données de supervision sont souvent écrites dans un compte de stockage. Vous souhaitez peut-être vous assurer que les données copiées dans un compte de stockage ne sont pas accessibles aux utilisateurs non autorisés. Pour plus de sécurité, vous pouvez verrouiller l’accès réseau pour permettre uniquement à vos ressources autorisées et services Microsoft approuvés d’accéder à un compte de stockage. Pour cela, vous pouvez forcer un compte de stockage à utiliser uniquement les « réseaux sélectionnés ».
-![Boîte de dialogue des paramètres du Stockage Azure](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor est considéré comme l’un de ces « services Microsoft approuvés ». Si vous autorisez les services Microsoft approuvés à accéder à votre stockage sécurisé, Azure Monitor peut accéder à votre compte de stockage sécurisé. Ceci permettra l’écriture de métriques, journaux d’activité et journaux de diagnostic Azure Monitor dans votre compte de stockage conformément à ces conditions de protection. Ceci permet également à Log Analytics de lire les journaux à partir du stockage sécurisé.   
+![Boîte de dialogue des paramètres du Stockage Azure](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor est considéré comme l’un de ces « services Microsoft approuvés ». Si vous autorisez les services Microsoft approuvés à accéder à votre stockage sécurisé, Azure Monitor peut accéder à votre compte de stockage sécurisé. Ceci permettra l’écriture de métriques, journaux d’activité et journaux de diagnostic Azure Monitor dans votre compte de stockage conformément à ces conditions de protection. Ceci permet également à Log Analytics de lire les journaux d’activité à partir du stockage sécurisé.   
 
 
 Pour plus d’informations, consultez [Network security and Azure Storage](../../storage/common/storage-network-security.md) (Sécurité réseau et Stockage Azure).

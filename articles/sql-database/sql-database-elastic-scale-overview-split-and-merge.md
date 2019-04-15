@@ -81,7 +81,7 @@ L'outil de fractionnement et de fusion fonctionne comme un service web Azure. Gr
 
 - **Stockage des métadonnées**
 
-  Le service de fractionnement/fusion utilise une base de données pour mettre à jour son état et conserver les journaux pendant le traitement des demandes. L'utilisateur crée cette base de données dans son abonnement et lui fournit la chaîne de connexion dans le fichier de configuration pour le déploiement du service. Les administrateurs de l’organisation de l’utilisateur peuvent également se connecter à cette base de données pour examiner la progression de la demande et pour analyser des informations détaillées sur les défaillances potentielles.
+  Le service de fractionnement/fusion utilise une base de données pour mettre à jour son état et conserver les journaux d’activité pendant le traitement des demandes. L'utilisateur crée cette base de données dans son abonnement et lui fournit la chaîne de connexion dans le fichier de configuration pour le déploiement du service. Les administrateurs de l’organisation de l’utilisateur peuvent également se connecter à cette base de données pour examiner la progression de la demande et pour analyser des informations détaillées sur les défaillances potentielles.
 
 - **Détection de partitionnements**
 
@@ -212,7 +212,7 @@ Le service de fractionnement et de fusion fournit la table **RequestStatus** dan
 
 ### <a name="azure-diagnostics"></a>Diagnostics Azure
 
-Le service de fusion et de fractionnement utilise l’Azure Diagnostics basé sur Azure SDK 2.5 pour la surveillance et les diagnostics. Vous contrôlez la configuration des diagnostics comme expliqué ici : [Activation des diagnostics dans Azure Cloud Services et les machines virtuelles Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). Le package de téléchargement comprend deux configurations de diagnostic : un pour le rôle Web et un pour le rôle de travail. Elle inclut les définitions permettant d'enregistrer les compteurs de performances, les journaux IIS, les journaux des événements Windows et les journaux des événements de l'application de fractionnement et de fusion.
+Le service de fusion et de fractionnement utilise l’Azure Diagnostics basé sur Azure SDK 2.5 pour la surveillance et les diagnostics. Vous contrôlez la configuration des diagnostics comme expliqué ici : [Activation des diagnostics dans Azure Cloud Services et les machines virtuelles Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). Le package de téléchargement comprend deux configurations de diagnostic : un pour le rôle Web et un pour le rôle de travail. Elle inclut les définitions permettant d’enregistrer les compteurs de performances, les journaux d’activité IIS, les journaux des événements Windows et les journaux des événements de l’application de fractionnement et de fusion.
 
 ## <a name="deploy-diagnostics"></a>Déployer des diagnostics
 
@@ -242,7 +242,7 @@ Vous pouvez accéder facilement aux diagnostics à partir de l’Explorateur de 
 
 ![WADLogsTable][2]
 
-La table WADLogsTable mise en surbrillance dans la figure ci-dessus comporte les événements détaillés du journal des applications du service de fractionnement et de fusion. Notez que la configuration par défaut fournie dans le cadre du package téléchargé est destinée à un déploiement de production. Par conséquent, l'intervalle auquel les journaux et les compteurs sont extraits par les instances du service est grand (5 minutes). Pour le test et le développement, réduisez l'intervalle en ajustant les paramètres de diagnostic du rôle Web ou du rôle de travail selon vos besoins. Effectuez cet ajustement en cliquant avec le bouton droit sur le rôle dans l’Explorateur de serveurs Visual Studio (voir ci-dessus), puis en ajustant la période de transfert dans la boîte de dialogue des paramètres de configuration de Diagnostics :
+La table WADLogsTable mise en surbrillance dans la figure ci-dessus comporte les événements détaillés du journal des applications du service de fractionnement et de fusion. Notez que la configuration par défaut fournie dans le cadre du package téléchargé est destinée à un déploiement de production. Par conséquent, l’intervalle auquel les journaux d’activité et les compteurs sont extraits par les instances du service est grand (5 minutes). Pour le test et le développement, réduisez l'intervalle en ajustant les paramètres de diagnostic du rôle Web ou du rôle de travail selon vos besoins. Effectuez cet ajustement en cliquant avec le bouton droit sur le rôle dans l’Explorateur de serveurs Visual Studio (voir ci-dessus), puis en ajustant la période de transfert dans la boîte de dialogue des paramètres de configuration de Diagnostics :
 
 ![Configuration][3]
 

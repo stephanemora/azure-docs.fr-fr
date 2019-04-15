@@ -44,7 +44,7 @@ La journalisation de l’activité pour Azure Digital Twins est activée par dé
 
 Pour la journalisation de l’activité avancée :
 
-1. Sélectionnez l’option **Journaux** pour afficher la **Vue d’ensemble de l’analytique des journaux d’activité** :
+1. Sélectionnez l’option **Journaux d’activité** pour afficher la **Vue d’ensemble d’Activity Log Analytics** :
 
     ![Sélection][2]
 
@@ -86,18 +86,18 @@ Pour activer les journaux de diagnostic pour une instance :
 
 Les applications IoT unifient des ressources, des appareils, des emplacements et des données disparates. La journalisation affinée fournit des informations détaillées sur chaque élément, service ou composant de l’architecture globale de l’application, mais une vue d’ensemble unifiée est souvent nécessaire pour la maintenance et le débogage.
 
-Azure Monitor inclut le service d’analytique de journaux puissant, qui permet la journalisation des sources pour afficher et analyser dans un emplacement. Azure Monitor est donc très utile pour l’analyse des journaux dans des applications IoT sophistiquées.
+Azure Monitor inclut le service d’analytique de journaux puissant, qui permet la journalisation des sources pour afficher et analyser dans un emplacement. Azure Monitor est donc très utile pour l’analyse des journaux d’activité dans des applications IoT sophistiquées.
 
 Voici quelques exemples d’utilisation :
 
 * Interrogation de plusieurs historiques de journal de diagnostic
-* Visualisation des journaux relatifs à plusieurs fonctions définies par l’utilisateur
-* Affichage des journaux relatifs à deux ou plusieurs services dans un intervalle de temps spécifique
+* Visualisation des journaux d’activité relatifs à plusieurs fonctions définies par l’utilisateur
+* Affichage des journaux d’activité relatifs à deux ou plusieurs services dans un intervalle de temps spécifique
 
 Interrogation du journal complet est fourni via [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md). Pour configurer ces fonctionnalités puissantes :
 
 1. Recherchez **Log Analytics** dans le portail Azure.
-1. Vous verrez votre disponible **espace de travail Analytique de journal** instances. Choisissez-en une et sélectionnez les **Journaux** à interroger :
+1. Vous verrez votre disponible **espace de travail Analytique de journal** instances. Choisissez-en une et sélectionnez les **Journaux d’activité** à interroger :
 
     ![Log Analytics][6]
 

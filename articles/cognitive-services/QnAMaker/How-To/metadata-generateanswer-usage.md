@@ -82,7 +82,7 @@ Le corps JSON a plusieurs paramètres :
 |--|--|--|--|
 |`question`|required|string|Une question de l’utilisateur à envoyer à votre base de connaissances.|
 |`top`|facultatif|integer|nombre de résultats classés à inclure dans la sortie. La valeur par défaut est 1.|
-|`userId`|facultatif|string|ID unique d’identification de l’utilisateur. Cet ID est enregistré dans les journaux de conversations.|
+|`userId`|facultatif|string|ID unique d’identification de l’utilisateur. Cet ID est enregistré dans les journaux d’activité de conversations.|
 |`strictFilters`|facultatif|string|si elle est spécifiée, cette chaîne indique à QnA Maker de retourner uniquement les réponses qui contiennent les métadonnées spécifiées.|
 
 Un exemple de corps JSON ressemble à :

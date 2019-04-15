@@ -10,7 +10,7 @@ ms.date: 03/24/2017
 ms.author: kasinh
 ms.openlocfilehash: 40541596b4da9e0590d497785afd7d6d7f4cbcb4
 ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55495392"
@@ -61,7 +61,7 @@ Pour installer l’agent de protection du serveur de sauvegarde Azure sur le se
 9. Sélectionnez la base de données pour **Sauvegarde de copie**, puis cliquez sur **Suivant**.
 
    > [!NOTE]
-   > Si vous ne sélectionnez pas « Sauvegarde complète » pour au moins une copie DAG d’une base de données, les journaux ne seront pas tronqués.
+   > Si vous ne sélectionnez pas « Sauvegarde complète » pour au moins une copie DAG d’une base de données, les journaux d’activité ne seront pas tronqués.
    >
    >
 10. Configurez les objectifs de **Sauvegarde à court terme**, puis cliquez sur **Suivant**.

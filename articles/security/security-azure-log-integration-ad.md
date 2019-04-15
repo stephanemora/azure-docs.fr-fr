@@ -1,6 +1,6 @@
 ---
-title: Intégration des journaux Azure aux journaux d’audit Azure Active Directory | Microsoft Docs
-description: Découvrez comment installer le service d’intégration des journaux Azure et intégrer les journaux à partir des journaux d’audit Azure.
+title: Intégration des journaux d’activité Azure aux journaux d’audit Azure Active Directory | Microsoft Docs
+description: Découvrez comment installer le service d’intégration des journaux d’activité Azure et intégrer les journaux d’activité à partir des journaux d’audit Azure.
 services: security
 documentationcenter: na
 author: Barclayn
@@ -17,7 +17,7 @@ ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: 473f9db7eb507fa910657696590bb656a8aff52f
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56109875"
@@ -76,4 +76,4 @@ Pour en savoir plus sur l’intégration des journaux Azure, consultez :
 * [Microsoft Azure Log Integration pour les journaux Azure](https://www.microsoft.com/download/details.aspx?id=53324) : La page Centre de téléchargement contient des informations détaillées, la configuration système requise et des instructions d'installation pour Azure Log Integration.
 * [Présentation d'Azure Log Integration](security-azure-log-integration-overview.md) : Cet article présente Azure Log Integration, ses principales fonctionnalités et son fonctionnement.
 * [Forum aux questions sur Azure Log Integration](security-azure-log-integration-faq.md) : Cet article répond à des questions sur l’intégration des journaux Azure.
-* [Nouvelles fonctionnalités d'Azure Diagnostics et des journaux d'audit Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) : Ce billet de blog présente les journaux d'audit Azure ainsi que d'autres fonctionnalités pour vous aider à mieux comprendre le fonctionnement de vos ressources Azure.
+* [Nouvelles fonctionnalités d'Azure Diagnostics et des journaux d'audit Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) : Ce billet de blog présente les journaux d’audit Azure ainsi que d’autres fonctionnalités pour vous aider à mieux comprendre le fonctionnement de vos ressources Azure.

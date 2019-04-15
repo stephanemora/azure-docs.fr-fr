@@ -75,7 +75,7 @@ PIM vous permet de :
 
 -   Recevoir des alertes sur l'accès à un rôle privilégié.
 
-## <a name="azure-monitor-logs"></a>Journaux Azure Monitor
+## <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
 [Journaux d’analyse Azure](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est une Microsoft basée sur le cloud solution de gestion informatique qui vous permet de gérer et de protéger votre réseau local et d’infrastructure cloud. Étant donné que les journaux Azure Monitor est implémenté comme un service basé sur le cloud, vous pouvez être en cours d’exécution rapidement avec un investissement minimal en services d’infrastructure. Les nouvelles fonctionnalités de sécurité sont fournies automatiquement, ce qui vous permet d’économiser sur les coûts de mise à niveau et de maintenance.
 
@@ -176,7 +176,7 @@ L’analyse comportementale est une technique qui analyse et compare les donnée
 
 ![Découvrtes sur l’analyse comportementale](./media/azure-threat-detection/azure-threat-detection-fig11.jpg)
 
-Ils sont également déterminés à travers une analyse minutieuse des comportements malveillants par des experts. Azure Security Center peut utiliser l’analyse comportementale pour identifier les ressources compromises en se basant sur l’analyse des journaux de la machine virtuelle, des journaux du périphérique réseau virtuel, des journaux Service Fabric, des vidages sur incident et d’autres sources.
+Ils sont également déterminés à travers une analyse minutieuse des comportements malveillants par des experts. Azure Security Center peut utiliser l’analyse comportementale pour identifier les ressources compromises en se basant sur l’analyse des journaux d’activité de la machine virtuelle, des journaux d’activité du périphérique réseau virtuel, des journaux d’activité Service Fabric, des vidages sur incident et d’autres sources.
 
 En outre, il existe une corrélation entre les modèles et les autres signaux pour rechercher les preuves d’une campagne généralisée. Ce rapprochement permet d’identifier les événements qui sont cohérents avec les indicateurs de compromission établis.
 
@@ -293,7 +293,7 @@ La configuration WAF au niveau de votre passerelle d’application vous offre pl
 
 -   Protection simultanée de plusieurs applications web derrière une passerelle d’application. Prise en charge d’une passerelle d’application qui peut héberger jusqu’à 20 sites web.
 
--   Surveillance des applications web contre les attaques à l’aide de rapports en temps réel générés par les journaux WAF de la passerelle d’application.
+-   Supervision des applications web contre les attaques à l’aide de rapports en temps réel générés par les journaux d’activité WAF de la passerelle d’application.
 
 -   Aide au respect des exigences en matière de conformité. Certains contrôles de conformité nécessitent que tous les points de terminaison qui accèdent à Internet soient protégés par une solution WAF.
 

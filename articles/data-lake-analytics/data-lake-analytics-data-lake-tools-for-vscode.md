@@ -96,7 +96,7 @@ Ouvrez la palette de commandes (Ctrl+Maj+P) et entrez **ADL: Open Sample Script*
 1. Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes. 
 2. Entrez **ADL: Submit Job**. Vous pouvez également cliquer avec le bouton droit sur un fichier de script, puis sélectionner **ADL: Submit Job**. 
 
-Une fois que vous avez envoyé un travail U-SQL, les journaux d’envoi apparaissent dans la fenêtre **Output** dans VS Code. La vue des travaux apparaît dans le volet droit. Si l’envoi a abouti, l’URL du travail est également affichée. Vous pouvez ouvrir l’URL du travail dans un navigateur web pour suivre l’état du travail en temps réel. 
+Une fois que vous avez envoyé un travail U-SQL, les journaux d’activité d’envoi apparaissent dans la fenêtre **Output** dans VS Code. La vue des travaux apparaît dans le volet droit. Si l’envoi a abouti, l’URL du travail est également affichée. Vous pouvez ouvrir l’URL du travail dans un navigateur web pour suivre l’état du travail en temps réel. 
 
 L’onglet **SUMMARY** (RÉSUMÉ) de la vue des travaux affiche les détails du travail. Les principales fonctions disponibles sont le renvoi d'un script, la duplication d'un script et l’ouverture dans le portail. L’onglet **DATA** (DONNÉES) de la vue des travaux vous permet de vous référer aux fichiers d’entrée, aux fichiers de sortie et aux ressources. Vous pouvez télécharger les fichiers sur l’ordinateur local.
 

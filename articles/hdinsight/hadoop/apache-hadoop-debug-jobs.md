@@ -1,5 +1,5 @@
 ---
-title: 'Déboguer Apache Hadoop : Afficher les journaux et interpréter les messages d’erreur - Azure HDInsight'
+title: 'Déboguer Apache Hadoop : Afficher les journaux d’activité et interpréter les messages d’erreur - Azure HDInsight'
 description: Découvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la procédure de récupération.
 services: hdinsight
 ms.reviewer: jasonh
@@ -16,13 +16,13 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58449483"
 ---
-# <a name="analyze-apache-hadoop-logs"></a>Analyser les journaux Apache Hadoop
+# <a name="analyze-apache-hadoop-logs"></a>Analyser les journaux d’activité Apache Hadoop
 
-Chaque cluster Apache Hadoop dans Azure HDInsight dispose d'un compte de stockage Azure utilisé comme système de fichiers par défaut. Le compte de stockage est désigné comme le compte de stockage par défaut. Le cluster utilise le stockage de tables Azure et le stockage d’objets Blob sur le compte de stockage par défaut pour stocker ses journaux.  Pour trouver le compte de stockage par défaut pour votre cluster, consultez [Gestion des clusters Apache Hadoop dans HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). Les journaux sont conservés dans le compte de stockage, même après la suppression du cluster.
+Chaque cluster Apache Hadoop dans Azure HDInsight dispose d'un compte de stockage Azure utilisé comme système de fichiers par défaut. Le compte de stockage est désigné comme le compte de stockage par défaut. Le cluster utilise le stockage de tables Azure et le stockage d’objets Blob sur le compte de stockage par défaut pour stocker ses journaux d’activité.  Pour trouver le compte de stockage par défaut pour votre cluster, consultez [Gestion des clusters Apache Hadoop dans HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). Les journaux d’activité sont conservés dans le compte de stockage, même après la suppression du cluster.
 
-## <a name="logs-written-to-azure-tables"></a>Journaux écrits dans les tables Azure
+## <a name="logs-written-to-azure-tables"></a>Journaux d’activité écrits dans les tables Azure
 
-Les journaux écrits dans les tables Azure fournissent un niveau de compréhension sur ce qui se passe avec un cluster HDInsight.
+Les journaux d’activité écrits dans les tables Azure fournissent un niveau de compréhension sur ce qui se passe avec un cluster HDInsight.
 
 Lorsque vous créez un cluster HDInsight, six tables sont automatiquement créées pour les clusters Linux dans le stockage de tables par défaut :
 
@@ -51,7 +51,7 @@ Ces tables contiennent les champs suivants :
 * TIMESTAMP
 * TraceLevel
 
-### <a name="tools-for-accessing-the-logs"></a>Outils permettant d’accéder aux journaux
+### <a name="tools-for-accessing-the-logs"></a>Outils permettant d’accéder aux journaux d’activité
 Il existe de nombreux outils permettant d’accéder aux données de ces tables :
 
 * Visual Studio
@@ -70,11 +70,11 @@ Power Query peut être installé à partir de [Microsoft Power Query pour Excel]
 3. Entrez le nom du compte de stockage, le nom court ou le nom de domaine complet.
 4. Entrez la clé du compte de stockage. Une liste de tables doit s’afficher :
    
-    ![Journaux HDInsight Hadoop stockés dans le stockage de tables Azure](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
+    ![Journaux d’activité HDInsight Hadoop stockés dans le stockage de tables Azure](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
 5. Cliquez avec le bouton droit de la souris sur la table hadoopservicelog dans le volet du **navigateur** et sélectionnez **Modifier**. Vous devez voir quatre colonnes. Vous pouvez supprimer les colonnes **Clé de partition**, **Clé de ligne** et **Horodatage** en les sélectionnant, puis en cliquant sur **Supprimer les colonnes** dans les options du ruban.
 6. Cliquez sur l’icône de développement de la colonne Contenu pour choisir les colonnes que vous souhaitez importer dans la feuille de calcul Excel. Pour cette démonstration, j’ai choisi les colonnes TraceLevel et ComponentName : Elles peuvent me donner des informations de base sur les composants ayant rencontré des problèmes.
    
-    ![Choisir les colonnes des journaux HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
+    ![Choisir les colonnes des journaux d’activité HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
 7. Cliquez sur **OK** pour importer les données.
 8. Sélectionnez les colonnes **TraceLevel**, Rôle et **ComponentName**, puis cliquez sur la commande **Regroupement** dans le ruban.
 9. Cliquez sur **OK** dans la boîte de dialogue Regroupement.
@@ -94,20 +94,20 @@ Vous pouvez maintenant utiliser Excel pour filtrer et trier en fonction de vos b
    
         TraceLevel eq 'ERROR'
    
-    ![Choisir les colonnes des journaux HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
+    ![Choisir les colonnes des journaux d’activité HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
    
     Pour plus d’informations sur la création de filtres, consultez [Construction de chaînes de filtrage pour le Concepteur de tables](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
-## <a name="logs-written-to-azure-blob-storage"></a>Journaux écrits dans le stockage d’objets Blob Azure
-Les journaux écrits dans les tables Azure fournissent un niveau de compréhension sur ce qui se passe avec un cluster HDInsight. Toutefois, ces tables ne fournissent pas de journaux au niveau des tâches, qui peuvent être utiles pour explorer les problèmes lorsqu’ils se produisent. Pour fournir ce niveau de détail supérieur, les clusters HDInsight sont configurés pour écrire les journaux des tâches dans votre compte de stockage d’objets Blob pour toute tâche envoyée par le biais de Templeton. En pratique, cela signifie les tâches envoyées à l’aide des applets de commande Microsoft Azure PowerShell ou les API de soumission de tâche .NET, pas les tâches envoyées via RDP/accès par ligne de commande au cluster. 
+## <a name="logs-written-to-azure-blob-storage"></a>Journaux d’activité écrits dans le stockage d’objets Blob Azure
+Les journaux d’activité écrits dans les tables Azure fournissent un niveau de compréhension sur ce qui se passe avec un cluster HDInsight. Toutefois, ces tables ne fournissent pas de journaux d’activité au niveau des tâches, qui peuvent être utiles pour explorer les problèmes lorsqu’ils se produisent. Pour fournir ce niveau de détail supérieur, les clusters HDInsight sont configurés pour écrire les journaux d’activité des tâches dans votre compte de stockage d’objets Blob pour toute tâche envoyée par le biais de Templeton. En pratique, cela signifie les tâches envoyées à l’aide des applets de commande Microsoft Azure PowerShell ou les API de soumission de tâche .NET, pas les tâches envoyées via RDP/accès par ligne de commande au cluster. 
 
-Pour afficher les journaux, consultez [Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight sous Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
-
-
-Pour plus d’informations sur les journaux des applications, consultez la page [Simplifier la gestion et l’accès des journaux utilisateur dans Apache Hadoop YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+Pour afficher les journaux d’activité, consultez [Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight sous Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 
-## <a name="view-cluster-health-and-job-logs"></a>Afficher les journaux de travail et d’état d’intégrité du cluster
+Pour plus d’informations sur les journaux des applications, consultez la page [Simplifier la gestion et l’accès des journaux d’activité utilisateur dans Apache Hadoop YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
+
+## <a name="view-cluster-health-and-job-logs"></a>Afficher les journaux d’activité de travail et d’état d’intégrité du cluster
 ### <a name="access-the-ambari-ui"></a>Accéder à l’interface utilisateur Ambari
 À partir du portail Azure, cliquez sur un nom de cluster HDInsight pour ouvrir le volet du cluster. Dans le volet du cluster, cliquez sur **Tableau de bord**.
 
@@ -123,7 +123,7 @@ Vous pouvez utiliser l’interface utilisateur YARN pour effectuer les opératio
   
     ![Tableau de bord du cluster](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png)
 * **Obtenir l’état du nœud**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Nodes**. Cette opération répertorie tous les nœuds du cluster, l’adresse HTTP de chaque nœud, les ressources allouées à chaque nœud, etc.
-* **Surveiller l’état du travail**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Applications** pour répertorier tous les travaux dans le cluster. Si vous souhaitez examiner les travaux dans un état spécifique (comme nouveau, envoyé, en cours d’exécution, etc.), cliquez sur le lien approprié sous **Applications**. Vous pouvez cliquer sur le nom du travail pour obtenir des informations supplémentaires sur celui-ci, relatives par exemple à la sortie ou aux journaux.
+* **Surveiller l’état du travail**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Applications** pour répertorier tous les travaux dans le cluster. Si vous souhaitez examiner les travaux dans un état spécifique (comme nouveau, envoyé, en cours d’exécution, etc.), cliquez sur le lien approprié sous **Applications**. Vous pouvez cliquer sur le nom du travail pour obtenir des informations supplémentaires sur celui-ci, relatives par exemple à la sortie ou aux journaux d’activité.
 
 ### <a name="access-the-hbase-ui"></a>Accéder à l’interface utilisateur HBase
 À partir du portail Azure, cliquez sur un nom de cluster HDInsight HBase pour ouvrir le volet du cluster. Dans le volet du cluster, cliquez sur **Tableau de bord**. Quand vous y êtes invité, entrez les informations d’identification d’administrateur du cluster. Dans Ambari, sélectionnez HBase dans la liste des services. Sélectionnez **Liens rapides** en haut de la page, pointez vers le lien de nœud Zookeeper actif, puis cliquez sur HBase Master UI (Interface utilisateur principale HBase).

@@ -86,10 +86,10 @@ Utilisez la liste de contrôle suivante pour résoudre les problèmes d’authen
 - Affichez la liste des tickets Kerberos existants sur l’appareil à l’aide de la commande `klist` dans une invite de commandes. Vérifiez que les tickets émis pour le compte d’ordinateur `AZUREADSSOACC` y figurent. En règle générale, la durée de validité des tickets Kerberos des utilisateurs est de 10 heures. L'instance Active Directory est peut-être paramétrée différemment.
 - Si vous avez désactivé et réactivé l’authentification unique transparente sur votre client, les utilisateurs ne recevront pas l’expérience d’authentification unique jusqu'à ce que leurs tickets Kerberos expirent.
 - Videz les tickets Kerberos existants de l’appareil à l’aide de la commande `klist purge`, puis réessayez.
-- Pour déterminer si des problèmes liés à JavaScript existent, passez en revue les journaux de console du navigateur (sous **Outils de développement**).
-- Examinez les [journaux des contrôleurs de domaine](#domain-controller-logs).
+- Pour déterminer si des problèmes liés à JavaScript existent, passez en revue les journaux d’activité de console du navigateur (sous **Outils de développement**).
+- Examinez les [journaux d’activité des contrôleurs de domaine](#domain-controller-logs).
 
-### <a name="domain-controller-logs"></a>Journaux des contrôleurs de domaine
+### <a name="domain-controller-logs"></a>Journaux d’activité des contrôleurs de domaine
 
 Si vous activez l’audit des réussites sur votre contrôleur de domaine, chaque fois qu’un utilisateur se connecte à l’aide de l’authentification unique transparente, une entrée de sécurité est enregistrée dans le journal des événements. Vous trouverez ces événements de sécurité au moyen de la requête suivante. (Recherchez l'événement **4769** associé au compte d'ordinateur **AzureADSSOAcc$**.)
 

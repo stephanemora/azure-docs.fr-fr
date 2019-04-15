@@ -1,6 +1,6 @@
 ---
-title: Gérer les journaux des flux de groupe de sécurité réseau avec Azure Network Watcher - Azure CLI | Microsoft Docs
-description: Cette page explique comment gérer les journaux des flux de groupe de sécurité réseau dans Azure Network Watcher avec l’interface de ligne de commande Azure
+title: Gérer les journaux d’activité des flux de groupe de sécurité réseau avec Azure Network Watcher - Azure CLI | Microsoft Docs
+description: Cette page explique comment gérer les journaux d’activité des flux de groupe de sécurité réseau dans Azure Network Watcher avec l’interface de ligne de commande Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -21,7 +21,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57904982"
 ---
-# <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configuration des journaux des flux de groupe de sécurité réseau avec l’interface de ligne de commande Azure
+# <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configuration des journaux d’activité des flux de groupe de sécurité réseau avec l’interface de ligne de commande Azure
 
 > [!div class="op_single_selector"]
 > - [Portail Azure](network-watcher-nsg-flow-logging-portal.md)
@@ -29,7 +29,7 @@ ms.locfileid: "57904982"
 > - [Interface de ligne de commande Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
-Les journaux des flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau. Ces flux de journaux sont écrits au format json et affichent les flux entrants et sortants en fonction de la règle, la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), ainsi que l’autorisation ou le refus du trafic.
+Les journaux de flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet d’afficher des informations sur le trafic IP entrant et sortant d’un groupe de sécurité réseau. Ces journaux de flux sont écrits au format json et affichent les flux entrants et sortants en fonction de règles, de la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), et de l’autorisation ou du refus du trafic.
 
 Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure pour Mac, Linux et Windows (CLI)](/cli/azure/install-azure-cli).
 
@@ -41,7 +41,7 @@ Pour que les journaux de flux puissent correctement fonctionner, le fournisseur 
 az provider register --namespace Microsoft.Insights
 ```
 
-## <a name="enable-network-security-group-flow-logs"></a>Activer les journaux des flux de groupe de sécurité réseau
+## <a name="enable-network-security-group-flow-logs"></a>Activer les journaux d’activité des flux de groupe de sécurité réseau
 
 La commande d’activation des journaux de flux est illustrée dans l’exemple suivant :
 
@@ -55,7 +55,7 @@ Le compte de stockage que vous spécifiez ne peut pas avoir de règles réseau c
 
 Si le compte de stockage se trouve dans un autre groupe de ressources ou un autre abonnement que le groupe de sécurité réseau, spécifiez l’ID complet du compte de stockage plutôt que son nom. Par exemple, si le compte de stockage figure dans un groupe de ressources nommé *RG-Storage*, au lieu de spécifier *storageAccountName* dans la commande précédente, vous indiqueriez */subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*.
 
-## <a name="disable-network-security-group-flow-logs"></a>Désactiver les journaux des flux de groupe de sécurité réseau
+## <a name="disable-network-security-group-flow-logs"></a>Désactiver les journaux d’activité des flux de groupe de sécurité réseau
 
 Utilisez l’exemple suivant pour désactiver les journaux de flux :
 
@@ -77,6 +77,6 @@ Pour plus d’informations sur la structure du journal, consultez [Network Secur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [visualiser vos journaux de flux de groupe de sécurité réseau avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+Découvrez comment [visualiser vos journaux d’activité des flux de groupe de sécurité réseau avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 Découvrez comment [visualiser vos journaux de flux de groupe de sécurité réseau avec des outils open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md).

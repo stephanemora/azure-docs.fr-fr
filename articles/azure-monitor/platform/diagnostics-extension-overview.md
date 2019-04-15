@@ -26,14 +26,14 @@ L’extension Azure Diagnostics peut collecter les types de données suivants :
 | source de données | Description |
 | --- | --- |
 | Métriques du compteur de performances |Système d’exploitation et compteurs de performances personnalisés |
-| Journaux d’application |Messages de trace écrits par votre application |
+| Journaux d’activité d’application |Messages de trace écrits par votre application |
 | Journaux d’événements Windows |Informations envoyées au système de journalisation des événements Windows |
-| Journaux .NET EventSource |Événements d’écriture de code à l'aide de la classe .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) |
-| Journaux IIS |Informations au sujet des sites Web IIS |
+| Journaux d’activité .NET EventSource |Événements d’écriture de code à l'aide de la classe .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) |
+| Journaux d’activité IIS |Informations au sujet des sites Web IIS |
 | [Journaux ETW basés sur les manifestes](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Événements de suivi d’événements pour Windows générés par n’importe quel processus.(1) |
-| Vidages sur incident (journaux) |Informations sur l’état du processus si une application se bloque |
-| Journaux d'erreurs personnalisés |Journaux créés par votre application ou service |
-| Journaux d’infrastructure Azure Diagnostic |Informations sur les Diagnostics Microsoft Azure eux-mêmes |
+| Vidages sur incident (journaux d’activité) |Informations sur l’état du processus si une application se bloque |
+| Journaux d’activité d’erreurs personnalisés |Journaux d’activité créés par votre application ou service |
+| Journaux d’activité d’infrastructure Azure Diagnostic |Informations sur les Diagnostics Microsoft Azure eux-mêmes |
 
 (1) pour obtenir la liste des fournisseurs d’ETW, exécutez `c:\Windows\System32\logman.exe query providers` dans une fenêtre de console sur la machine à partir de laquelle vous souhaitez recueillir des informations.
 

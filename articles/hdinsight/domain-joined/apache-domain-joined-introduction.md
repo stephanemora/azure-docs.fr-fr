@@ -51,7 +51,7 @@ L’audit de tous les accès aux ressources du cluster, et aux données, est né
 
 L’administrateur peut afficher et signaler tout accès aux données et aux ressources du cluster HDInsight. L’administrateur peut également voir et signaler toutes les modifications des stratégies de contrôle d’accès créées dans les points de terminaison pris en charge par Apache Ranger. 
 
-Un cluster HDInsight avec ESP utilise l’interface utilisateur familière d’Apache Ranger pour rechercher les journaux d’audit. Sur le backend, Ranger utilise [Apache Solr](https://hortonworks.com/apache/solr/) pour le stockage et la recherche des journaux.
+Un cluster HDInsight avec ESP utilise l’interface utilisateur familière d’Apache Ranger pour rechercher les journaux d’audit. Sur le backend, Ranger utilise [Apache Solr](https://hortonworks.com/apache/solr/) pour le stockage et la recherche des journaux d’activité.
 
 ## <a name="encryption"></a>Chiffrement
 La protection des données est essentielle pour se conformer aux exigences de l’organisation en matière de conformité et de sécurité. Parallèlement à la restriction de l’accès aux données des employés non autorisés, vous devez procéder à leur chiffrement. 

@@ -28,7 +28,7 @@ Ce forum aux questions répond aux questions courantes sur Azure Multi-Factor Au
 
 Avec le serveur Multi-Factor Authentication, les données utilisateur sont stockées uniquement sur les serveurs locaux. Aucune donnée utilisateur persistante n'est stockée dans le cloud. Lorsque l’utilisateur effectue une vérification en deux étapes, le serveur Multi-Factor Authentication envoie les données au service cloud Azure Multi-Factor Authentication à des fins d’authentification. La communication entre le serveur Multi-Factor Authentication et le service cloud Multi-Factor Authentication utilise le protocole SSL (Secure Sockets Layer) ou TLS (Transport Layer Security) sur le port 443 sortant.
 
-Lorsque les demandes d’authentification sont envoyées au service cloud, les données collectées pour les rapports d’utilisation et d’authentification. Les champs de données inclus dans les journaux de vérification en deux étapes sont les suivants :
+Lorsque les demandes d’authentification sont envoyées au service cloud, les données collectées pour les rapports d’utilisation et d’authentification. Les champs de données inclus dans les journaux d’activité de vérification en deux étapes sont les suivants :
 
 * **ID unique** (soit le nom d’utilisateur soit l’ID de serveur Multi-Factor Authentication local)
 * **Prénom et nom** (facultatif)

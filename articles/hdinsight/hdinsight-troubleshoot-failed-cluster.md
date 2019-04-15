@@ -136,7 +136,7 @@ Si un serveur WebHCat ne répond toujours pas, consultez le journal des opérati
 
 Une passerelle HDInsight renvoie `502 BadGateway` lorsque les réponses dépassent un délai de deux minutes. WebHCat interroge les services YARN pour connaître l’état des travaux. Si YARN met plus de deux minutes à répondre, cette demande peut expirer.
 
-Dans ce cas, consultez les journaux suivants dans le répertoire `/var/log/webhcat` :
+Dans ce cas, consultez les journaux d’activité suivants dans le répertoire `/var/log/webhcat` :
 
 * **webhcat.log** est le journal log4j sur lequel le serveur écrit des fichiers journaux
 * **webhcat-console.log** est le stdout du serveur au démarrage
@@ -213,31 +213,31 @@ La page **Pile et version** de l’interface utilisateur Ambari fournit des info
 
 ## <a name="step-5-examine-the-log-files"></a>Étape 5 : Examiner les fichiers journaux
 
-De nombreux types de fichiers journaux sont générés à partir des nombreux services et composants qui composent un cluster HDInsight. Les [fichiers journaux WebHCat](#check-your-webhcat-service) ont été décrits précédemment. Il existe d’autres fichiers journaux utiles que vous pouvez examiner pour réduire les problèmes liés à votre cluster, comme décrit ci-dessous.
+De nombreux types de fichiers journaux d’activité sont générés à partir des nombreux services et composants qui composent un cluster HDInsight. Les [fichiers journaux WebHCat](#check-your-webhcat-service) ont été décrits précédemment. Il existe d’autres fichiers journaux utiles que vous pouvez examiner pour réduire les problèmes liés à votre cluster, comme décrit ci-dessous.
 
 * Les clusters HDInsight sont constitués de plusieurs nœuds, dont la plupart sont chargés d’exécuter les travaux soumis. Les travaux s’exécutent simultanément, mais les fichiers journaux peuvent uniquement afficher des résultats de façon linéaire. HDInsight exécute de nouvelles tâches, en mettant d’abord fin à celles qui ne parviennent pas à s’exécuter. Tous ces activités sont consignées dans les fichiers `stderr` et `syslog`.
 
 * Les fichiers journaux d’actions de script indiquent les erreurs ou les changements de configuration inattendus pendant le processus de création de votre cluster.
 
-* Les journaux d’étape Hadoop identifient les travaux Hadoop lancés dans le cadre d’une étape contenant des erreurs.
+* Les journaux d’activité d’étape Hadoop identifient les travaux Hadoop lancés dans le cadre d’une étape contenant des erreurs.
 
-### <a name="check-the-script-action-logs"></a>Vérifier les journaux d’actions de script
+### <a name="check-the-script-action-logs"></a>Vérifier les journaux d’activité d’actions de script
 
-Les [actions de script](hdinsight-hadoop-customize-cluster-linux.md) HDInsight exécutent des scripts sur le cluster manuellement ou à l’intervalle spécifié. Par exemple, des actions de script peuvent être utilisées pour installer des logiciels supplémentaires sur le cluster ou pour modifier les paramètres de configuration à partir des valeurs par défaut. La vérification des journaux d’actions de script peut donnent une idée des erreurs qui se sont produites pendant l’installation et la configuration du cluster.  Vous pouvez consulter l’état d’une action de script en sélectionnant le bouton **ops** dans l’interface utilisateur Ambari, ou en accédant aux journaux à partir du compte de stockage par défaut.
+Les [actions de script](hdinsight-hadoop-customize-cluster-linux.md) HDInsight exécutent des scripts sur le cluster manuellement ou à l’intervalle spécifié. Par exemple, des actions de script peuvent être utilisées pour installer des logiciels supplémentaires sur le cluster ou pour modifier les paramètres de configuration à partir des valeurs par défaut. La vérification des journaux d’activité d’actions de script peut donnent une idée des erreurs qui se sont produites pendant l’installation et la configuration du cluster.  Vous pouvez consulter l’état d’une action de script en sélectionnant le bouton **ops** dans l’interface utilisateur Ambari, ou en accédant aux journaux d’activité à partir du compte de stockage par défaut.
 
-Les journaux d’actions de script se trouvent dans le répertoire `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
+Les journaux d’activité d’actions de script se trouvent dans le répertoire `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-### <a name="view-hdinsight-logs-using-ambari-quick-links"></a>Afficher les journaux HDInsight à l’aide des liens rapides d’Ambari
+### <a name="view-hdinsight-logs-using-ambari-quick-links"></a>Afficher les journaux d’activité HDInsight à l’aide des liens rapides d’Ambari
 
 L’interface utilisateur HDInsight Ambari comprend un certain nombre de sections **Liens rapides**.  Pour accéder aux liens vers les journaux d’un service donné de votre cluster HDInsight, ouvrez l’interface utilisateur Ambari de votre cluster, puis sélectionnez le lien du service dans la liste située à gauche. Sélectionnez la liste déroulante **Liens rapides**, puis le nœud HDInsight qui vous intéresse, et sélectionnez le lien vers le journal correspondant.
 
-Par exemple, pour les journaux HDFS :
+Par exemple, pour les journaux d’activité HDFS :
 
 ![Liens rapides Ambari vers des fichiers journaux](./media/hdinsight-troubleshoot-failed-cluster/quick-links.png)
 
 ### <a name="view-hadoop-generated-log-files"></a>Afficher les fichiers journaux générés par Hadoop
 
-Un cluster HDInsight génère des fichiers journaux qui sont écrits dans les tables Azure et dans le stockage Blob Azure. YARN crée ses propres journaux d’exécution. Pour plus d’informations, consultez la rubrique [Gérer les journaux pour un cluster HDInsight](hdinsight-log-management.md#access-the-hadoop-log-files).
+Un cluster HDInsight génère des fichiers journaux d’activité qui sont écrits dans les tables Azure et dans le stockage Blob Azure. YARN crée ses propres journaux d’activité d’exécution. Pour plus d’informations, consultez la rubrique [Gérer les journaux d’activité pour un cluster HDInsight](hdinsight-log-management.md#access-the-hadoop-log-files).
 
 ### <a name="review-heap-dumps"></a>Examiner les dumps de tas
 

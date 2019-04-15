@@ -260,9 +260,9 @@ Cliquer sur une modification ou un événement permet de faire apparaître des i
 
 ![image des détails du suivi des modifications](./media/automation-change-tracking/change-tracking-details.png)
 
-## <a name="search-logs"></a>Rechercher dans les journaux
+## <a name="search-logs"></a>Rechercher des journaux d’activité
 
-En plus des détails fournis dans le portail, des recherches peuvent être effectuées dans les journaux. Avec le **Change Tracking** page, cliquez sur **Analytique de journal**, cette opération ouvre le **journaux** page.
+En plus des détails fournis dans le portail, des recherches peuvent être effectuées dans les journaux d’activité. Avec le **Change Tracking** page, cliquez sur **Analytique de journal**, cette opération ouvre le **journaux** page.
 
 ### <a name="sample-queries"></a>Exemples de requêtes
 

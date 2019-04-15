@@ -93,7 +93,7 @@ Data Lake Analytics prend actuellement en charge les deux sources de données su
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Stockage Azure](../storage/common/storage-introduction.md)
 
-Lorsque vous créez un compte Analytics, vous devez désigner un compte Azure Data Lake Storage comme compte de stockage par défaut. Le compte de stockage Data Lake par défaut est utilisé pour stocker les métadonnées et les journaux d'audit des tâches. Après la création d'un compte Analytics, vous pouvez ajouter des comptes Data Lake Storage et/ou des comptes Azure Storage supplémentaires. 
+Lorsque vous créez un compte Analytics, vous devez désigner un compte Azure Data Lake Storage comme compte de stockage par défaut. Le compte de stockage Data Lake par défaut est utilisé pour stocker les métadonnées et les journaux d’audit des tâches. Après la création d'un compte Analytics, vous pouvez ajouter des comptes Data Lake Storage et/ou des comptes Azure Storage supplémentaires. 
 
 ### <a name="find-the-default-data-lake-store-account"></a>Rechercher le compte Data Lake Store par défaut
 

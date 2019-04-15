@@ -260,7 +260,7 @@ Si vous n’avez pas utilisé l’outil Split Copy pour copier les données, vou
     
     ![Sortie de l’outil de validation Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-2. Choisissez l’option appropriée. **Nous vous recommandons de toujours valider les fichiers et générer des sommes de contrôle en sélectionnant l’option 2**. Selon la taille de vos données, cette étape peut prendre un certain temps. Une fois le script exécuté, quittez la fenêtre de commandes. Si des erreurs se produisent pendant la validation et la génération des sommes de contrôle, vous en êtes averti, et un lien d’accès aux journaux des erreurs vous est également fourni.
+2. Choisissez l’option appropriée. **Nous vous recommandons de toujours valider les fichiers et générer des sommes de contrôle en sélectionnant l’option 2**. Selon la taille de vos données, cette étape peut prendre un certain temps. Une fois le script exécuté, quittez la fenêtre de commandes. Si des erreurs se produisent pendant la validation et la génération des sommes de contrôle, vous en êtes averti, et un lien d’accès aux journaux d’activité des erreurs vous est également fourni.
 
     ![Sortie de la somme de contrôle](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
 

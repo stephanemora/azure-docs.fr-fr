@@ -23,7 +23,7 @@ Vous pouvez utiliser la [applets de commande PowerShell d’Analytique de journa
 * Ajouter ou supprimer une solution
 * Importer et exporter des recherches enregistrées
 * Créer un groupe d’ordinateurs
-* Activer la collecte de journaux IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
+* Activer la collecte de journaux d’activité IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
 * Collecter les compteurs de performances d’ordinateurs Linux et Windows
 * Collecter les événements de Syslog sur des ordinateurs Linux
 * Collecter les événements des journaux des événements Windows
@@ -51,7 +51,7 @@ L’exemple de script suivant illustre comment :
 4. Importer des recherches enregistrées
 5. Exporter des recherches enregistrées
 6. Créer un groupe d’ordinateurs
-7. Activer la collecte de journaux IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
+7. Activer la collecte de journaux d’activité IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
 8. Collecter les compteurs de performances de disque logique d’ordinateurs Linux (% d’Inodes utilisés, Mo libres, % d’espace utilisé, Transferts disque/s, Lectures disque/s, Écritures disque/s)
 9. Collecter les événements Syslog d’ordinateurs Linux
 10. Collecter les événements d’erreur et d’avertissement du journal des événements d’application d’ordinateurs Windows
@@ -197,7 +197,7 @@ Dans l’exemple ci-dessus regexDelimiter a été défini comme « \\n » pour
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configuration d’Analytique de journal à envoyer des diagnostics Azure
 Pour une analyse sans agent des ressources Azure, celles-ci doivent avoir les diagnostics Azure activés et configurés pour écrire dans un espace de travail Log Analytics. Cette approche envoie des données directement à l’espace de travail et ne nécessite pas de données à écrire dans un compte de stockage. Les ressources prises en charge sont les suivantes :
 
-| Type de ressource | Journaux | Mesures |
+| Type de ressource | Journaux d’activité | Mesures |
 | --- | --- | --- |
 | Passerelles d’application    | Oui | Oui |
 | Comptes Automation     | Oui | |
@@ -220,7 +220,7 @@ Pour une analyse sans agent des ressources Azure, celles-ci doivent avoir les di
 
 Pour plus d’informations sur les métriques disponibles, voir [Mesures prises en charge avec Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
-Pour plus d’informations sur les journaux disponibles, voir [Schéma et services pris en charge pour les journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-schema.md).
+Pour plus d’informations sur les journaux d’activité disponibles, voir [Schéma et services pris en charge pour les journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ```powershell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -230,7 +230,7 @@ $resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/D
 Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-Vous pouvez également utiliser l’applet de commande précédente pour collecter des journaux à partir de ressources qui se trouvent dans différents abonnements. La cmdlet peut fonctionner sur différents abonnements dans la mesure où vous fournissez les ID de la ressource qui crée les journaux et de l'espace de travail auquel les journaux sont envoyés.
+Vous pouvez également utiliser l’applet de commande précédente pour collecter des journaux d’activité à partir de ressources qui se trouvent dans différents abonnements. La cmdlet peut fonctionner sur différents abonnements dans la mesure où vous fournissez les ID de la ressource qui crée les journaux d’activité et de l’espace de travail auquel les journaux d’activité sont envoyés.
 
 
 ## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configuration d’espace de travail Analytique des journaux pour collecter des diagnostics Azure à partir du stockage
@@ -268,7 +268,7 @@ Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resourc
 
 ```
 
-Vous pouvez également utiliser le script précédent pour collecter les journaux de comptes de stockage dans différents abonnements. Le script peut fonctionner sur différents abonnements dans la mesure où vous fournissez l'ID de ressource du compte de stockage et une clé d'accès correspondante. Lorsque vous modifiez la clé d’accès, vous devez mettre à jour Storage Insight pour avoir la nouvelle clé.
+Vous pouvez également utiliser le script précédent pour collecter les journaux d’activité de comptes de stockage dans différents abonnements. Le script peut fonctionner sur différents abonnements dans la mesure où vous fournissez l'ID de ressource du compte de stockage et une clé d'accès correspondante. Lorsque vous modifiez la clé d’accès, vous devez mettre à jour Storage Insight pour avoir la nouvelle clé.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -24,7 +24,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58439054"
 ---
-# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Interpréter le schéma des journaux de connexion Azure Active Directory dans Azure Monitor (préversion)
+# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Interpréter le schéma des journaux d’activité de connexion Azure Active Directory dans Azure Monitor (préversion)
 
 Cet article décrit le schéma de journal de connexion Azure Active Directory (Azure AD) dans Azure Monitor. La plupart des informations liées aux connexions sont fournies sous l’attribut *Propriétés* de l’objet `records`.
 
@@ -158,13 +158,13 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
 | OperationName | Pour les connexions, cette valeur est toujours *Activité de connexion*. |
 | operationVersion | Version d’API REST demandée par le client. |
 | Catégorie | Pour les connexions, cette valeur est toujours *SignIn*. | 
-| TenantId | GUID de locataire associé aux journaux. |
+| TenantId | GUID de locataire associé aux journaux d’activité. |
 | ResultType | Le résultat de l’opération de connexion peut être *Success* (Réussite) ou *Failure* (Échec). | 
 | ResultSignature | Contient le code d’erreur éventuel de l’opération de connexion. |
 | resultDescription | Fournit la description de l’erreur pour l’opération de connexion. |
 | DurationMs |  Valeur non mappée, vous pouvez ignorer ce champ.|
 | callerIpAddress | Adresse IP du client à l’origine de la demande. | 
-| CorrelationId | GUID facultatif transmis par le client. Cette valeur peut aider à corréler des opérations côté client avec des opérations côté serveur, et est utile lors du suivi de journaux couvrant plusieurs services. |
+| CorrelationId | GUID facultatif transmis par le client. Cette valeur peut aider à corréler des opérations côté client avec des opérations côté serveur, et est utile lors du suivi de journaux d’activité couvrant plusieurs services. |
 | Identité | Identité extraite du jeton présenté lors de la création de la demande. Il peut s’agir d’un compte d’utilisateur, d’un compte système ou d’un principal du service. |
 | Niveau | Fournit le type de message. Pour l’audit, il s’agit toujours d’*Information*. |
 | Lieu | Indique l’emplacement de l’activité de connexion. |

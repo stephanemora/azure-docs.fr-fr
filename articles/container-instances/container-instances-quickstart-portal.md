@@ -69,13 +69,13 @@ Une fois que son **État** est *En cours d’exécution*, accédez au nom de dom
 
 Félicitations ! En configurant simplement quelques paramètres, vous avez déployé une application accessible publiquement dans Azure Container Instances.
 
-## <a name="view-container-logs"></a>Afficher les journaux d’un conteneur
+## <a name="view-container-logs"></a>Afficher les journaux d’activité du conteneur
 
-Il est utile d’afficher les journaux d’une instance de conteneur pour résoudre des problèmes liés au conteneur ou à l’application qu’il exécute.
+Il est utile d’afficher les journaux d’activité d’une instance de conteneur pour résoudre des problèmes liés au conteneur ou à l’application qu’il exécute.
 
-Pour afficher les journaux du conteneur, sous **Paramètres**, sélectionnez **Conteneurs**, puis **Journaux**. Vous devez normalement voir la requête HTTP GET générée quand vous affichez l’application dans votre navigateur.
+Pour afficher les journaux d’activité du conteneur, sous **Paramètres**, sélectionnez **Conteneurs**, puis **Journaux d’activité**. Vous devez normalement voir la requête HTTP GET générée quand vous affichez l’application dans votre navigateur.
 
-![Journaux du conteneur dans le portail Azure][aci-portal-11]
+![Journaux d’activité du conteneur dans le portail Azure][aci-portal-11]
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

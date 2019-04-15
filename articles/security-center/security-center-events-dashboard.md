@@ -32,7 +32,7 @@ Le tableau de bord Événements fournit une vue d’ensemble sur le nombre d’�
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Qu’est-ce qu’un événement de sécurité ?
-Security Center utilise Microsoft Monitoring Agent pour collecter différents événements et configurations liées à la sécurité à partir de vos machines et stocke ces événements dans vos espaces de travail. Ces données peuvent être : des journaux de système d’exploitation (journaux d’événements Windows), des processus d’exécution et des événements de solutions de sécurité intégrées à Security Center. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans vos espaces de travail.
+Security Center utilise Microsoft Monitoring Agent pour collecter différents événements et configurations liées à la sécurité à partir de vos machines et stocke ces événements dans vos espaces de travail. Ces données peuvent être : des journaux d’activité de système d’exploitation (journaux d’événements Windows), des processus d’exécution et des événements de solutions de sécurité intégrées à Security Center. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans vos espaces de travail.
 
 ## <a name="events-processed-dashboard"></a>Tableau de bord Événements traités
 Vous accédez au tableau de bord **Événements** à partir du menu principal de Security Center ou du panneau **Vue d’ensemble** de Security Center.  

@@ -38,7 +38,7 @@ Dans cet article, vous allez apprendre à utiliser les tâches Azure IoT Edge in
 Pour plus d’informations sur l’utilisation d’Azure Repos, consultez [Partager votre code avec Visual Studio et Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 ## <a name="configure-continuous-integration"></a>Configurer l’intégration continue
-Dans cette section, vous créez un pipeline de build. Configurez le pipeline de manière à ce qu'il s'exécute automatiquement lorsque vous archivez des modifications dans l'exemple de solution IoT Edge et publiez des journaux de génération.
+Dans cette section, vous créez un pipeline de build. Configurez le pipeline de manière à ce qu’il s’exécute automatiquement lorsque vous archivez des modifications dans l’exemple de solution IoT Edge et publiez des journaux d’activité de génération.
 
 >[!NOTE]
 >Cet article utilise le concepteur visuel Azure DevOps. Avant de suivre les étapes décrites dans cette section, désactivez la fonctionnalité d’évaluation de la nouvelle expérience de création de pipeline YAML. 
@@ -114,7 +114,7 @@ Dans cette section, vous créez un pipeline de build. Configurez le pipeline de 
 Ce pipeline est maintenant configuré pour s’exécuter automatiquement lorsque vous envoyez (push) un nouveau code à votre référentiel. La dernière tâche, publier les artefacts de pipeline, déclenche un pipeline de mise en production. Passez à la section suivante pour générer le pipeline de mise en production. 
 
 ## <a name="configure-continuous-deployment"></a>Configurer le déploiement continu
-Dans cette section, vous créez un pipeline de mise en production configuré pour s’exécuter automatiquement quand votre pipeline de build supprime des artefacts. Ce pipeline de build affichera les journaux de déploiement dans Azure Pipelines.
+Dans cette section, vous créez un pipeline de mise en production configuré pour s’exécuter automatiquement quand votre pipeline de build supprime des artefacts. Ce pipeline de build affichera les journaux d’activité de déploiement dans Azure Pipelines.
 
 Dans cette section, vous créez deux phases différentes, l'une pour les déploiements de test et l’autre pour les déploiements de production. 
 
@@ -210,7 +210,7 @@ Pour déclencher un travail de build, envoyez (push) une validation dans le dép
 
 3. Sélectionnez le travail de build afin de consulter sa progression. Si le pipeline de build s'achève correctement, il déclenche une mise en production sur la phase **AQ**. 
 
-    ![Journaux de génération](./media/how-to-ci-cd/build-logs.png)
+    ![Journaux d’activité de génération](./media/how-to-ci-cd/build-logs.png)
 
 4. Le déploiement réussi à la phase **AQ** déclenche l’envoi d’une notification à l’approbateur. Vérifiez que les modules ont été correctement déployés sur le ou les appareils que vous avez ciblés avec la phase AQ. Accédez ensuite au pipeline de mise en production et approuvez cette dernière pour accéder à la phase PROD en sélectionnant le bouton **PROD**, puis **Approuver**. 
 

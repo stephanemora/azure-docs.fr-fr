@@ -185,7 +185,7 @@ Pour plus d’informations sur les journaux et autres fonctionnalités de diagno
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Quelle est la stratégie de conservation sur les journaux de diagnostic ?
 
-Les journaux de diagnostic circulent vers le compte de stockage des clients, et les clients peuvent définir la stratégie de rétention en fonction de leurs préférences. Les journaux de diagnostic peuvent également être envoyés à un hub d'événements ou à des journaux Azure Monitor. Pour plus d’informations, consultez [Diagnostics du Service Azure porte d’entrée](front-door-diagnostics.md).
+Les journaux de diagnostic circulent vers le compte de stockage des clients, et les clients peuvent définir la stratégie de rétention en fonction de leurs préférences. Les journaux de diagnostic peuvent également être envoyés à un hub d’événements ou à des journaux d’activité Azure Monitor. Pour plus d’informations, consultez [Diagnostics du Service Azure porte d’entrée](front-door-diagnostics.md).
 
 ### <a name="how-do-i-get-audit-logs-for-azure-front-door-service"></a>Comment obtenir des journaux d’audit pour le Service de porte d’entrée Azure ?
 

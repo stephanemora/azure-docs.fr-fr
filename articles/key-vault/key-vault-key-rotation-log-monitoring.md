@@ -250,7 +250,7 @@ Dans le volet de l’éditeur, sélectionnez **volet de Test** pour tester votre
 
 ## <a name="key-vault-auditing-pipeline"></a>Pipeline d’audit de Key Vault
 
-Lorsque vous configurez un coffre de clés, vous pouvez activer la fonction d’audit afin de collecter des journaux de demandes d’accès au coffre de clés. Ces journaux sont stockés dans un compte de stockage Azure désigné et peut être récupérés, contrôlés et analysés. Le scénario suivant utilise Azure functions, Azure logic apps et les journaux d’audit de coffre de clés pour créer un pipeline qui envoie un e-mail quand une application qui ne correspond pas à l’ID d’application de l’application web récupère les secrets du coffre.
+Lorsque vous configurez un coffre de clés, vous pouvez activer la fonction d’audit afin de collecter des journaux d’activité de demandes d’accès au coffre de clés. Ces journaux sont stockés dans un compte de stockage Azure désigné et peut être récupérés, contrôlés et analysés. Le scénario suivant utilise Azure functions, Azure logic apps et les journaux d’audit de coffre de clés pour créer un pipeline qui envoie un e-mail quand une application qui ne correspond pas à l’ID d’application de l’application web récupère les secrets du coffre.
 
 Vous devez tout d’abord activer la journalisation sur votre coffre de clés. Utilisez les commandes PowerShell suivantes. (Vous pouvez afficher les détails complets dans [cet article sur la journalisation de coffre de clé](key-vault-logging.md).)
 
@@ -260,7 +260,7 @@ $kv = Get-AzKeyVault -VaultName '<vaultName>'
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
-Une fois que la journalisation est activée, les journaux d’audit démarrer en cours stockées dans le compte de stockage désigné. Ces journaux contiennent des événements indiquant la méthode et la date/l’heure d’accès à vos coffres de clés, et qui y a accédé.
+Une fois que la journalisation est activée, les journaux d’audit démarrer en cours stockées dans le compte de stockage désigné. Ces journaux d’activité contiennent des événements indiquant la méthode et la date/l’heure d’accès à vos coffres de clés, et qui y a accédé.
 
 > [!NOTE]
 > Vous pouvez accéder aux informations de journalisation 10 minutes après l’opération sur le coffre de clés. Il souvent sera disponible plus tôt que.
@@ -394,7 +394,7 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 > [!NOTE]
 > Modifier les variables dans le code précédent pour pointer vers votre compte de stockage où sont écrits les journaux de coffre de clés, à l’instance de Service Bus que vous avez créé précédemment et le chemin d’accès spécifiques dans les journaux de stockage de coffre de clés.
 
-La fonction récupère le dernier fichier journal du compte de stockage dans lequel les journaux de coffre de clés sont écrits, extrait les événements les plus récents de ce fichier et les place dans une file d’attente Service Bus. 
+La fonction récupère le dernier fichier journal du compte de stockage dans lequel les journaux d’activité de coffre de clés sont écrits, extrait les événements les plus récents de ce fichier et les place dans une file d’attente Service Bus. 
 
 Comme un seul fichier peut avoir plusieurs événements, vous devez créer un fichier sync.txt que la fonction examine également pour déterminer l’horodatage du dernier événement récupéré. À l’aide de ce fichier permet de s’assurer que vous n’envoyez le même événement plusieurs fois. 
 

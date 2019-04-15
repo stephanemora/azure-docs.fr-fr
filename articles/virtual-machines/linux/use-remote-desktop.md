@@ -126,7 +126,7 @@ Si le service *xrdp-sesman* n’écoute pas, sur une machine virtuelle Ubuntu, r
 sudo service xrdp restart
 ```
 
-Examinez les journaux dans */var/log* sur votre machine virtuelle Ubuntu pour savoir pourquoi le service ne répond pas. Vous pouvez également surveiller le journal système lors d’une tentative de connexion au Bureau à distance pour afficher les erreurs :
+Examinez les journaux d’activité dans */var/log* sur votre machine virtuelle Ubuntu pour savoir pourquoi le service ne répond pas. Vous pouvez également surveiller le journal système lors d’une tentative de connexion au Bureau à distance pour afficher les erreurs :
 
 ```bash
 tail -f /var/log/syslog

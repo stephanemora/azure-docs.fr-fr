@@ -268,13 +268,13 @@ Cette erreur peut être due à plusieurs raisons. Suivez ces étapes pour résou
 
 -------------------------------------------------------------
 
-### <a name="why-does-authentication-fail-with-an-error-in-http-logs-stating-that-the-user-is-not-found"></a>Pourquoi l’authentification échoue-t-elle avec une erreur dans les journaux HTTP indiquant que l’utilisateur est introuvable ?
+### <a name="why-does-authentication-fail-with-an-error-in-http-logs-stating-that-the-user-is-not-found"></a>Pourquoi l’authentification échoue-t-elle avec une erreur dans les journaux d’activité HTTP indiquant que l’utilisateur est introuvable ?
 
 Vérifiez qu’AD Connect est en cours d’exécution et que l’utilisateur se trouve dans Windows Active Directory et Azure Active Directory.
 
 -------------------------------------------------------------
 
-### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Pourquoi existe-t-il des erreurs de connexion HTTP dans les journaux pour tous mes échecs d’authentification ?
+### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Pourquoi existe-t-il des erreurs de connexion HTTP dans les journaux d’activité pour tous mes échecs d’authentification ?
 
 Vérifiez que https://adnotifications.windowsazure.com est accessible depuis le serveur exécutant l’extension NPS.
 

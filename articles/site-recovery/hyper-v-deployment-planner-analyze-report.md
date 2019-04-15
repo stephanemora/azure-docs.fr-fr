@@ -158,7 +158,7 @@ Vous pouvez vous trouver dans une situation dans laquelle vous ne pouvez pas con
 
 **Nom de compte suggéré** : nom du compte de stockage après l’ajout du préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
 
-**Compte de stockage de journal** : tous les journaux de réplication sont stockés dans un compte de stockage standard. Pour les machines virtuelles qui répliquent vers un compte de stockage premium, configurez un compte de stockage standard supplémentaire pour le stockage des journaux. Un seul et même compte de stockage standard des journaux peut être utilisé par plusieurs comptes de stockage de réplication premium. Les machines virtuelles qui sont répliquées vers les comptes de stockage standard utilisent le même compte de stockage pour les journaux.
+**Compte de stockage de journal** : tous les journaux d’activité de réplication sont stockés dans un compte de stockage standard. Pour les machines virtuelles qui répliquent vers un compte de stockage premium, configurez un compte de stockage standard supplémentaire pour le stockage des journaux. Un seul et même compte de stockage standard des journaux peut être utilisé par plusieurs comptes de stockage de réplication premium. Les machines virtuelles qui sont répliquées vers les comptes de stockage standard utilisent le même compte de stockage pour les journaux d’activité.
 
 **Nom de compte de journal suggéré** : nom de votre compte de stockage des journaux après l’ajout du préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
 

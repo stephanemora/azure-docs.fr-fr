@@ -23,7 +23,7 @@ Répertoriés par ordre alphabétique.
 
 ![Logo de AlertLogic](./media/partners/alertlogic.png)
 
-Alert Logic Log Manager collecte les journaux de la plateforme Azure, des applications et des machines virtuelles pour l’analyse de la sécurité et la rétention. Le journal d’activité Azure est également collecté par le biais de l’API Azure Monitor. Ces informations sont utilisées pour détecter les méfaits et répondre aux exigences de conformité.
+Alert Logic Log Manager collecte les journaux d’activité de la plateforme Azure, des applications et des machines virtuelles pour l’analyse de la sécurité et la rétention. Le journal d’activité Azure est également collecté par le biais de l’API Azure Monitor. Ces informations sont utilisées pour détecter les méfaits et répondre aux exigences de conformité.
 
 [Consultez la documentation.][alertlogic-doc]
 

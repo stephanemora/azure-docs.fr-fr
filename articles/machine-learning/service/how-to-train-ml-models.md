@@ -78,7 +78,7 @@ print(run.get_portal_url())
 >
 > Pour créer des artefacts pendant l’entraînement (par exemple, des fichiers de modèle, des points de contrôle, des fichiers de données ou des images tracées), écrivez-les dans le dossier `./outputs`.
 >
-> De même, vous pouvez écrire tous les journaux de votre exécution d’entraînement dans le dossier `./logs`. Pour utiliser [l’intégration TensorBoard](https://aka.ms/aml-notebook-tb) d’Azure Machine Learning, écrivez vos journaux TensorBoard dans ce dossier. Lorsque votre exécution est en cours, vous pouvez lancer TensorBoard et diffuser ces journaux en continu.  Plus tard, vous pourrez également restaurer les journaux à partir de l’une de vos exécutions précédentes.
+> De même, vous pouvez écrire tous les journaux d’activité de votre exécution d’entraînement dans le dossier `./logs`. Pour utiliser [l’intégration TensorBoard](https://aka.ms/aml-notebook-tb) d’Azure Machine Learning, écrivez vos journaux d’activité TensorBoard dans ce dossier. Lorsque votre exécution est en cours, vous pouvez lancer TensorBoard et diffuser ces journaux d’activité en continu.  Plus tard, vous pourrez également restaurer les journaux d’activité à partir de l’une de vos exécutions précédentes.
 >
 > Par exemple, pour télécharger sur votre ordinateur local un fichier écrit dans le dossier *outputs* après votre exécution d’entraînement distant : `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 

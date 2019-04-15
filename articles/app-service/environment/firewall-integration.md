@@ -75,11 +75,11 @@ Cette utilisation de la passerelle Application Gateway est un exemple de configu
 
 ## <a name="logging"></a>Journalisation 
 
-Le Pare-feu Azure peut envoyer des journaux aux services Stockage Azure, Event Hub ou Azure Monitor. Pour intégrer votre application avec n’importe quelle destination prise en charge, accédez au portail Pare-feu Azure > Journaux de diagnostic, puis activez les journaux pour la destination choisie. Si vous intégrez des journaux Azure Monitor, vous pouvez suivre dans les journaux tout le trafic envoyé au Pare-feu Azure. Pour voir le trafic refusé, ouvrez votre portail d’espace de travail Log Analytics > Journaux et entrez une requête comme celle-ci 
+Le Pare-feu Azure peut envoyer des journaux d’activité aux services Stockage Azure, Event Hub ou Azure Monitor. Pour intégrer votre application avec n’importe quelle destination prise en charge, accédez au portail Pare-feu Azure > Journaux de diagnostic, puis activez les journaux pour la destination choisie. Si vous intégrez des journaux d’activité Azure Monitor, vous pouvez suivre dans les journaux d’activité tout le trafic envoyé au Pare-feu Azure. Pour voir le trafic refusé, ouvrez votre portail d’espace de travail Log Analytics > Journaux et entrez une requête comme celle-ci 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-L’intégration de votre Pare-feu Azure à des journaux Azure Monitor est très utile quand vous préparez une application sans connaître toutes ses dépendances. Pour en savoir plus sur les journaux Azure Monitor, consultez [Analyser les données de journal dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+L’intégration de votre Pare-feu Azure à des journaux d’activité Azure Monitor est très utile quand vous préparez une application sans connaître toutes ses dépendances. Pour en savoir plus sur les journaux d’activité Azure Monitor, consultez [Analyser les données de journal d’activité dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
  
 ## <a name="dependencies"></a>Les dépendances
 

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: c88518749129abed1cf43a70b9165035626a780f
 ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/05/2019
 ms.locfileid: "55731561"
@@ -50,4 +50,4 @@ az postgres server configuration set --name log_min_messages --resource-group my
 Cette commande réinitialise la configuration **log\_min\_messages** à la valeur par défaut **WARNING**. Pour plus d’informations sur la configuration du serveur et les valeurs autorisées, consultez la documentation PostgreSQL à la rubrique [Configuration du serveur](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour configurer et accéder aux journaux du serveur, consultez la rubrique [Journaux de serveur dans Azure Database pour PostgreSQL](concepts-server-logs.md)
+- Pour configurer et accéder aux journaux d’activité du serveur, consultez la rubrique [Journaux d’activité de serveur dans Azure Database pour PostgreSQL](concepts-server-logs.md)

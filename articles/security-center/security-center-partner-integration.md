@@ -62,7 +62,7 @@ Les solutions de sécurité Azure déployées à partir de Security Center sont 
 
    ![Vue d’ensemble de Security Center](./media/security-center-partner-integration/overview.png)
 
-Sous **Solutions de sécurité**, vous pouvez consulter des informations sur le fonctionnement des solutions de sécurité Azure intégrées et effectuer des tâches de gestion de base. Vous pouvez également connecter d’autres types de sources de données de sécurité, telles que des journaux de pare-feu et des alertes Azure AD Identity Protection au format CEF.
+Sous **Solutions de sécurité**, vous pouvez consulter des informations sur le fonctionnement des solutions de sécurité Azure intégrées et effectuer des tâches de gestion de base. Vous pouvez également connecter d’autres types de sources de données de sécurité, telles que des journaux d’activité de pare-feu et des alertes Azure AD Identity Protection au format CEF.
 
 ### <a name="connected-solutions"></a>Solutions connectées
 
@@ -104,7 +104,7 @@ Sélectionne **CONNECTER** sous une solution pour l’intégrer à Security Cent
 
 ![Solutions découvertes](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Security Center découvre aussi les solutions déployées dans l’abonnement, capables d’envoyer des journaux CEF (Common Event Format). Découvrez comment [Connecter une solution de sécurité](quick-security-solutions.md) qui utilise des journaux CEF dans Security Center.
+Security Center découvre aussi les solutions déployées dans l’abonnement, capables d’envoyer des journaux d’activité CEF (Common Event Format). Découvrez comment [Connecter une solution de sécurité](quick-security-solutions.md) qui utilise des journaux d’activité CEF dans Security Center.
 
 ### <a name="add-data-sources"></a>Ajouter des sources de données
 
@@ -117,7 +117,7 @@ La section **Ajouter des sources de données** comprend d’autres sources de do
 En plus de la collecte de données de sécurité depuis vos ordinateurs, vous pouvez intégrer des données de sécurité à partir d’un éventail de solutions de sécurité, y compris celles prenant en charge le format d’événement commun (CEF). Le format CEF est un format standard du secteur en plus des messages Syslog. Il est utilisé par de nombreux fournisseurs de sécurité pour permettre l’intégration des événements entre différentes plateformes.
 
 Ce démarrage rapide vous montre comment :
-- Connecter une solution de sécurité à Security Center à l’aide des journaux CEF
+- Connecter une solution de sécurité à Security Center à l’aide des journaux d’activité CEF
 - Valider la connexion avec la solution de sécurité
 
 #### <a name="prerequisites"></a>Conditions préalables
@@ -139,7 +139,7 @@ Vous avez également besoin d’une [machine Linux](https://docs.microsoft.com/a
 
     ![Ajouter une source de données](./media/quick-security-solutions/quick-security-solutions-fig2.png)
 
-5. Dans la page Journaux CFE, développez la deuxième étape, **Configurer le transfert Syslog pour envoyer les journaux nécessaires à l’agent sur le port UDP 25226**, suivez les instructions ci-dessous sur votre ordinateur Linux :
+5. Dans la page Journaux d’activité CFE, développez la deuxième étape, **Configurer le transfert Syslog pour envoyer les journaux d’activité nécessaires à l’agent sur le port UDP 25226**, suivez les instructions ci-dessous sur votre ordinateur Linux :
 
     ![Configurer les messages Syslog](./media/quick-security-solutions/quick-security-solutions-fig3.png)
 

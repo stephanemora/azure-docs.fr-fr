@@ -18,7 +18,7 @@ ms.locfileid: "58370055"
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Préparation à la modification du format dans les journaux de diagnostics Azure Monitor archivés dans un compte de stockage
 
 > [!WARNING]
-> Si vous envoyez des [journaux ou des métriques de diagnostics de ressources Azure à un compte de stockage via les paramètres de diagnostic de ressources](./../../azure-monitor/platform/archive-diagnostic-logs.md) ou [des journaux d’activités à un compte de stockage via les profils de journaux](./../../azure-monitor/platform/archive-activity-log.md), le format des données dans le compte de stockage sera modifié en lignes JSON le 1er novembre 2018. Les instructions ci-dessous détaillent les conséquences liées à ce changement et comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format. 
+> Si vous envoyez des [journaux ou des métriques de diagnostics de ressources Azure à un compte de stockage via les paramètres de diagnostic de ressources](./../../azure-monitor/platform/archive-diagnostic-logs.md) ou [des journaux d’activités à un compte de stockage via les profils de journaux d’activité](./../../azure-monitor/platform/archive-activity-log.md), le format des données dans le compte de stockage sera modifié en lignes JSON le 1er novembre 2018. Les instructions ci-dessous détaillent les conséquences liées à ce changement et comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format. 
 >
 > 
 
@@ -36,14 +36,14 @@ Azure Monitor offre une fonctionnalité qui vous permet d’envoyer des données
   * [Données des journaux d’activité Azure en cours d’exportation par les profils de journaux](./../../azure-monitor/platform/archive-activity-log.md)
 * Cette modification n’affecte pas :
   * Journaux de flux de réseau
-  * Les journaux du service Azure ne sont pas encore disponibles via Azure Monitor (par exemple, les journaux de diagnostics Azure App Service, les journaux d’analyses de stockage)
+  * Les journaux d’activité du service Azure ne sont pas encore disponibles via Azure Monitor (par exemple, les journaux de diagnostics Azure App Service, les journaux d’activité d’analyses de stockage)
   * Routage des journaux de diagnostics et d’activité Azure vers d’autres destinations (Event Hubs, Log Analytics)
 
 ### <a name="how-to-see-if-you-are-impacted"></a>Comme savoir si vous êtes affecté
 
 Vous n’êtes affecté par cette modification que si vous :
 1. envoyez des données de journaux dans un compte de stockage Azure à l’aide d’un paramètre de diagnostic de ressources, et que vous
-2. disposez d’outils qui dépendent de la structure JSON de ces journaux dans le stockage.
+2. disposez d’outils qui dépendent de la structure JSON de ces journaux d’activité dans le stockage.
  
 Pour identifier si vous disposez de paramètres de diagnostic de ressources qui envoient des données à un compte de stockage Azure, vous pouvez accéder à la section **Moniteur** du portail, puis cliquez sur **Paramètres de diagnostic** et identifiez toutes les ressources dont le **Statut de diagnostic** est **Activé** :
 
@@ -129,7 +129,7 @@ Ce nouveau format permet à Azure Monitor d’envoyer (push) des fichiers journa
 
 ## <a name="how-to-update"></a>Comment effectuer la mise à jour
 
-Vous n’avez qu’à effectuer les mises à jour si vous disposez d’outils qui ingèrent ces fichiers journaux pour un traitement ultérieur. Si vous utilisez un outil externe Log Analytics ou SIEM, nous vous recommandons d’[utiliser Event Hubs pour ingérer ces données à la place](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). L’intégration Event Hubs est plus facile en termes de traitement de journaux de plusieurs services et d’ancrage d’emplacement dans un journal particulier.
+Vous n’avez qu’à effectuer les mises à jour si vous disposez d’outils qui ingèrent ces fichiers journaux pour un traitement ultérieur. Si vous utilisez un outil externe Log Analytics ou SIEM, nous vous recommandons d’[utiliser Event Hubs pour ingérer ces données à la place](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). L’intégration Event Hubs est plus facile en termes de traitement de journaux d’activité de plusieurs services et d’ancrage d’emplacement dans un journal particulier.
 
 Les outils personnalisés doivent être mis à jour pour gérer le format actuel et le format en lignes JSON décrit ci-dessus. Votre outil est ainsi garanti de ne pas s’arrêter lorsque les données commencent à s’afficher dans le nouveau format.
 

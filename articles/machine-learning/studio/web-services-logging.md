@@ -49,7 +49,7 @@ Vous activez la journalisation à partir du portail des [services web Azure Mach
 
 7. Pour les services web classiques, créez le conteneur **ml-diagnostics**.
 
-   Tous les journaux du service web sont conservés dans un conteneur d’objets blob nommé **ml-diagnostics** dans le compte de stockage associé au service web. Pour les nouveaux services web, ce conteneur est créé la première fois que vous accédez au service. Pour les services web classiques, vous devez créer le conteneur s’il n’existe pas. 
+   Tous les journaux d’activité du service web sont conservés dans un conteneur d’objets blob nommé **ml-diagnostics** dans le compte de stockage associé au service web. Pour les nouveaux services web, ce conteneur est créé la première fois que vous accédez au service. Pour les services web classiques, vous devez créer le conteneur s’il n’existe pas. 
 
    1. Dans le [portail Azure](https://portal.azure.com), accédez au compte de stockage associé au service web.
 
@@ -67,7 +67,7 @@ Vous activez la journalisation à partir du portail des [services web Azure Mach
 ## <a name="the-effects-of-enabling-logging"></a>Effets de l’activation de la journalisation
 Lorsque la journalisation est activée, les diagnostics et erreurs du point de terminaison du service web sont journalisés dans le conteneur d’objets blob **ml-diagnostics** dans le compte de Stockage Azure lié à l’espace de travail de l’utilisateur. Ce conteneur contient toutes les informations de diagnostic pour tous les points de terminaison de service web pour tous les espaces de travail associés à ce compte de stockage.
 
-Les journaux peuvent être consultés à l’aide de plusieurs outils servant à « explorer » un compte de Stockage Azure. Le plus simple peut être d’accéder au compte de stockage dans le portail Azure, de cliquer sur **Conteneurs**, puis sur le conteneur **ml-diagnostics**.  
+Les journaux d’activité peuvent être consultés à l’aide de plusieurs outils servant à « explorer » un compte de Stockage Azure. Le plus simple peut être d’accéder au compte de stockage dans le portail Azure, de cliquer sur **Conteneurs**, puis sur le conteneur **ml-diagnostics**.  
 
 ## <a name="log-blob-detail-information"></a>Journaliser les informations détaillées sur l’objet blob
 Chaque objet blob dans le conteneur conserve les informations de diagnostic pour une et une seule des actions suivantes :

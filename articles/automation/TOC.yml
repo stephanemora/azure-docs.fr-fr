@@ -170,7 +170,7 @@ items:
     - name: Déploiement continu avec Chocolatey
       displayName: dsc, state configuration
       href: automation-dsc-cd-chocolatey.md
-    - name: Transférer des données de rapport de configuration d’état aux journaux Azure Monitor
+    - name: Transférer des données de rapport de configuration d’état aux journaux d’activité Azure Monitor
       displayName: DSC
       href: automation-dsc-diagnostics.md
   - name: Gérer les ressources partagées
@@ -212,7 +212,7 @@ items:
       href: how-to/move-account.md
   - name: Surveiller
     items:
-    - name: Transférer des données de travaux Azure Automation aux journaux Azure Monitor
+    - name: Transférer des données de travaux Azure Automation aux journaux d’activité Azure Monitor
       href: automation-manage-send-joblogs-log-analytics.md
   - name: Migrer
     items:

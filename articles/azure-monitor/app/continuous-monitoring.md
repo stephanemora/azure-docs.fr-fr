@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 41999defb01e024773b6364f169a1ce3b1377237
 ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54056351"
@@ -80,13 +80,13 @@ Azure DevOps Services prend désormais en charge l’analyse continue, grâce à
 
 5. Saisissez un **intervalle d’échantillonnage.**
 
-## <a name="deployment-gate-status-logs"></a>Journaux d’état du portail de déploiement
+## <a name="deployment-gate-status-logs"></a>Journaux d’activité d’état du portail de déploiement
 
 Une fois que vous ajoutez des portails de déploiement, une alerte dans Application Insights, d’une valeur supérieure au seuil défini précédemment, protège votre déploiement de toute promotion non souhaitée de la mise en production. Une fois l’alerte résolue, le déploiement peut s’effectuer automatiquement.
 
 Pour observer ce comportement, sélectionnez **Mises en production** > clic droit sur le nom de la mise en production **ouvrir** > **Journaux.**
 
-![Journaux](media/continuous-monitoring/006.png)
+![Journaux d’activité](media/continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

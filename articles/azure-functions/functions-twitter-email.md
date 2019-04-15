@@ -256,9 +256,9 @@ Maintenant que le flux de travail est terminé, vous pouvez activer l’applicat
 
 3. (Facultatif) Cliquez sur une des exécutions pour afficher les détails de l’exécution.
 
-4. Accédez à votre fonction, affichez les journaux et vérifiez que les valeurs des sentiments ont été reçues et traitées.
+4. Accédez à votre fonction, affichez les journaux d’activité et vérifiez que les valeurs des sentiments ont été reçues et traitées.
  
-    ![Affichez les journaux de fonction](media/functions-twitter-email/sent.png)
+    ![Affichez les journaux d’activité de fonction](media/functions-twitter-email/sent.png)
 
 5. Lorsqu’un sentiment potentiellement négatif est détecté, vous recevez un courrier électronique. Si vous n’avez pas reçu de courrier électronique, vous pouvez modifier le code de fonction pour renvoyer RED à chaque fois :
 
@@ -283,7 +283,7 @@ Maintenant, vous savez à quel point il est facile d’intégrer des fonctions d
 
 Pour désactiver l’application logique, cliquez sur **Vue d’ensemble**, puis cliquez sur **Désactiver** en haut de l’écran. La désactivation de l’application empêche son exécution et évite d’entraîner des frais, sans supprimer l’application.
 
-![Journaux de fonction](media/functions-twitter-email/disable-logic-app.png)
+![Journaux d’activité de fonction](media/functions-twitter-email/disable-logic-app.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

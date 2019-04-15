@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Connecter une application ASP.NET à SQL Database
 > * Déploiement de l’application dans Azure
 > * Mettre à jour le modèle de données et redéployer l’application
-> * Diffuser des journaux à partir d’Azure vers votre terminal
+> * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -330,7 +330,7 @@ Essayez d’ajouter à nouveau des tâches et de sélectionner **Terminé** : el
 Toutes les tâches existantes sont toujours affichées. Lorsque vous republiez votre application ASP.NET, les données existantes dans votre instance SQL Database ne sont pas perdues. En outre, Code First Migrations modifie uniquement le schéma de données, sans toucher à vos données existantes.
 
 
-## <a name="stream-application-logs"></a>Diffuser les journaux d’applications
+## <a name="stream-application-logs"></a>Diffuser les journaux d’activité d’applications
 
 Vous pouvez diffuser des messages de suivi directement entre votre application Azure et Visual Studio.
 
@@ -348,15 +348,15 @@ Dans **l’Explorateur de serveurs**, développez **Azure** > **App Service**.
 
 Développez le groupe de ressources **myResourceGroup** que vous avez créé quand vous avez créé l’application Azure.
 
-Cliquez avec le bouton droit sur votre application Azure et sélectionnez **Afficher les journaux de streaming**.
+Cliquez avec le bouton droit sur votre application Azure et sélectionnez **Afficher les journaux d’activité de streaming**.
 
 ![Activer la diffusion de journaux](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
-Les journaux sont maintenant transmis à la fenêtre **Sortie**. 
+Les journaux d’activité sont maintenant transmis à la fenêtre **Sortie**. 
 
 ![Diffusion des journaux dans la fenêtre Sortie](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
-Vous ne pourrez cependant pas visualiser les messages de suivi à ce stade. La raison est simple : quand vous sélectionnez **Afficher les journaux de streaming**, votre application Azure définit le niveau de suivi sur `Error`, ce qui enregistre uniquement les événements d’erreur (avec la méthode `Trace.TraceError()`).
+Vous ne pourrez cependant pas visualiser les messages de suivi à ce stade. La raison est simple : quand vous sélectionnez **Afficher les journaux d’activité de streaming**, votre application Azure définit le niveau de suivi sur `Error`, ce qui enregistre uniquement les événements d’erreur (avec la méthode `Trace.TraceError()`).
 
 ### <a name="change-trace-levels"></a>Modifier les niveaux de suivi
 
@@ -369,7 +369,7 @@ Dans la liste déroulante **Journal des applications (Système de fichiers)**, s
 ![Définir le niveau de suivi sur Détaillé](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
 > [!TIP]
-> Vous pouvez expérimenter différents niveaux de suivi pour connaître les types de messages qui s’affichent pour chaque niveau. Par exemple, le niveau **Informations** inclut tous les journaux créés par `Trace.TraceInformation()`, `Trace.TraceWarning()`, et `Trace.TraceError()`, mais pas les journaux créés par `Trace.WriteLine()`.
+> Vous pouvez expérimenter différents niveaux de suivi pour connaître les types de messages qui s’affichent pour chaque niveau. Par exemple, le niveau **Informations** inclut tous les journaux d’activité créés par `Trace.TraceInformation()`, `Trace.TraceWarning()`, et `Trace.TraceError()`, mais pas les journaux d’activité créés par `Trace.WriteLine()`.
 >
 >
 
@@ -417,7 +417,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Connecter une application ASP.NET à SQL Database
 > * Déploiement de l’application dans Azure
 > * Mettre à jour le modèle de données et redéployer l’application
-> * Diffuser des journaux à partir d’Azure vers votre terminal
+> * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
 Passez au didacticiel suivant pour apprendre à améliorer facilement la sécurité de votre connexion à la base de données SQL Azure.

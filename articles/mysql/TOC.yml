@@ -92,7 +92,7 @@ items:
     items:
     - name: Surveiller
       href: concepts-monitoring.md
-    - name: Journaux des serveurs
+    - name: Journaux d’activité du serveur
       href: concepts-server-logs.md
   - name: Développement
     items:
@@ -158,7 +158,7 @@ items:
       href: howto-server-parameters.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
-  - name: Accéder aux journaux du serveur
+  - name: Accéder aux journaux d’activité du serveur
     items:
     - name: Portail Azure
       href: howto-configure-server-logs-in-portal.md

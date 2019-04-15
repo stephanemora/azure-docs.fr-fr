@@ -67,13 +67,13 @@ Connectez-vous au [Portail Azure](https://portal.azure.com). Si vous n’avez pa
 
 ### <a name="enable-logging-with-azure-storage"></a>Activation de la journalisation avec Stockage Azure
 
-Pour utiliser un compte de stockage afin de stocker les journaux, effectuez les étapes suivantes :
+Pour utiliser un compte de stockage afin de stocker les journaux d’activité, effectuez les étapes suivantes :
     
 1. Dans le champ **Nom**, entrez un nom pour les paramètres du journal de diagnostic.
  
 2. Sélectionnez **Archiver dans un compte de stockage**, puis **CoreAnalytics**. 
 
-2. Dans le champ **Rétention (jours)**, choisissez le nombre de jours de rétention. Si la valeur zéro est appliquée à la rétention, les journaux sont stockés pour une durée indéfinie. 
+2. Dans le champ **Rétention (jours)**, choisissez le nombre de jours de rétention. Si la valeur zéro est appliquée à la rétention, les journaux d’activité sont stockés pour une durée indéfinie. 
 
     ![Portail - Journaux de diagnostics](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
 
@@ -167,7 +167,7 @@ L’exemple suivant montre comment activer les journaux de diagnostic via les ap
     ```
 
 ## <a name="consuming-diagnostics-logs-from-azure-storage"></a>Utilisation des journaux de diagnostic à partir de Stockage Azure
-Cette section décrit le schéma de l’analytique principale CDN et leur organisation à l’intérieur d’un compte de stockage Azure, et fournit un exemple de code pour télécharger les journaux dans un fichier CSV.
+Cette section décrit le schéma de l’analytique principale CDN et leur organisation à l’intérieur d’un compte de stockage Azure, et fournit un exemple de code pour télécharger les journaux d’activité dans un fichier CSV.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Utilisation de l’explorateur de stockage Microsoft Azure
 Pour pouvoir accéder aux données d’analyse de base à partir d’un compte de stockage Azure, vous avez d’abord besoin d’un outil pour accéder au contenu dans un compte de stockage. Si plusieurs outils sont disponibles sur le marché, celui que nous recommandons est l’Explorateur de stockage Microsoft Azure. Pour télécharger l’outil, consultez [Explorateur de stockage Azure](https://storageexplorer.com/). Après le téléchargement et l’installation du logiciel, configurez-le pour utiliser le même compte de stockage Azure que celui qui a été configuré en tant que destination pour les journaux de diagnostic CDN.
@@ -177,13 +177,13 @@ Pour pouvoir accéder aux données d’analyse de base à partir d’un compte d
 3.  Développez le nœud **Conteneurs d’objets Blob** sous ce compte de stockage.
 4.  Sélectionnez le conteneur nommé *journaux-insights-coreanalytics*.
 5.  Les résultats s’affichent dans le volet droit, en commençant par le premier niveau, soir *resourceId=*. Continuez à sélectionner chaque niveau jusqu’à atteindre le fichier *PT1H.json*. Pour obtenir une explication sur le chemin, consultez [Format du chemin des objets blob](cdn-azure-diagnostic-logs.md#blob-path-format).
-6.  Chaque fichier d’objet blob *PT1H.json* représente les journaux d’analyse pendant une heure pour un point de terminaison CDN spécifique ou son domaine personnalisé.
-7.  Le schéma du contenu de ce fichier JSON est décrit dans la section Schéma des journaux Core Analytics.
+6.  Chaque fichier d’objet blob *PT1H.json* représente les journaux d’activité d’analyse pendant une heure pour un point de terminaison CDN spécifique ou son domaine personnalisé.
+7.  Le schéma du contenu de ce fichier JSON est décrit dans la section Schéma des journaux d’activité Core Analytics.
 
 
 #### <a name="blob-path-format"></a>Format du chemin des objets blob
 
-Les journaux Core Analytics sont générés toutes les heures et les données sont collectées et stockées dans un objet blob Azure unique sous forme de charge utile JSON. Étant donné que l’outil Explorateur Stockage interprète « / » comme un séparateur de répertoires et affiche la hiérarchie, le chemin d’accès à l’objet blob Azure apparaît sous forme de structure hiérarchique et représente le nom de l’objet blob. Ce nom d’objet blob suit la convention d’affectation de noms suivante :   
+Les journaux d’activité Core Analytics sont générés toutes les heures et les données sont collectées et stockées dans un objet blob Azure unique sous forme de charge utile JSON. Étant donné que l’outil Explorateur Stockage interprète « / » comme un séparateur de répertoires et affiche la hiérarchie, le chemin d’accès à l’objet blob Azure apparaît sous forme de structure hiérarchique et représente le nom de l’objet blob. Ce nom d’objet blob suit la convention d’affectation de noms suivante :   
 
 ```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
@@ -313,14 +313,14 @@ Le tableau suivant présente les retards des données de journal pour **CDN Azur
 
 Retards des données de journal Microsoft | Retards des données de journal Verizon | Retards des données de journal Akamai
 --- | --- | ---
-Retard de 1 heure. | Retard de 1 heure et possibilité de nécessiter jusqu’à 2 heures pour commencer à apparaître après l’achèvement de la propagation du point de terminaison. | Retard de 24 heures. Si la création remonte à plus de 24 heures, il faut attendre jusqu’à 2 heures avant leur apparition. Si elle a été effectuée récemment, il peut falloir jusqu’à 25 heures pour que les journaux commencent à apparaître.
+Retard de 1 heure. | Retard de 1 heure et possibilité de nécessiter jusqu’à 2 heures pour commencer à apparaître après l’achèvement de la propagation du point de terminaison. | Retard de 24 heures. Si la création remonte à plus de 24 heures, il faut attendre jusqu’à 2 heures avant leur apparition. Si elle a été effectuée récemment, il peut falloir jusqu’à 25 heures pour que les journaux d’activité commencent à apparaître.
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Types de journaux de diagnostic pour l’analytique principale CDN
 
-Microsoft propose uniquement les journaux de l’analytique principale, qui contiennent les métriques affichant les statistiques de réponse HTTP et de sortie, comme dans les points de présence/périmètres CDN.
+Microsoft propose uniquement les journaux d’activité de l’analytique principale, qui contiennent les métriques affichant les statistiques de réponse HTTP et de sortie, comme dans les points de présence/périmètres CDN.
 
 ### <a name="core-analytics-metrics-details"></a>Détails des métriques de Core Analytics
-Le tableau suivant présente la liste des métriques disponibles dans les journaux d’analyse principale pour **CDN Azure Standard fourni par Microsoft**, **CDN Azure Standard fourni par Akamai** et **CDN Azure Standard/Premium fourni par Verizon**. Toutes les métriques ne sont pas disponibles auprès tous les fournisseurs, même si ces différences sont minimes. Ce tableau indique également si une métrique donnée est disponible à partir d’un fournisseur particulier. Les métriques sont disponibles uniquement pour les points de terminaison CDN recevant du trafic.
+Le tableau suivant présente la liste des métriques disponibles dans les journaux d’activité d’analyse principale pour **CDN Azure Standard fourni par Microsoft**, **CDN Azure Standard fourni par Akamai** et **CDN Azure Standard/Premium fourni par Verizon**. Toutes les métriques ne sont pas disponibles auprès tous les fournisseurs, même si ces différences sont minimes. Ce tableau indique également si une métrique donnée est disponible à partir d’un fournisseur particulier. Les métriques sont disponibles uniquement pour les points de terminaison CDN recevant du trafic.
 
 
 |Métrique                     | Description | Microsoft | Verizon | Akamai |
@@ -356,9 +356,9 @@ Le tableau suivant présente la liste des métriques disponibles dans les journa
 * Le transfert de données sortantes fait référence au trafic produit des serveurs POP CDN vers le client.
 
 
-### <a name="schema-of-the-core-analytics-logs"></a>Schéma des journaux Core Analytics 
+### <a name="schema-of-the-core-analytics-logs"></a>Schéma des journaux d’activité Core Analytics 
 
-Tous les journaux sont stockés au format JSON, et chaque entrée comprend des champs de chaîne conformément au schéma suivant :
+Tous les journaux d’activité sont stockés au format JSON, et chaque entrée comprend des champs de chaîne conformément au schéma suivant :
 
 ```json
     "records": [

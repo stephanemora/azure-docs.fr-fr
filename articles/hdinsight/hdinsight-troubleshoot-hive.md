@@ -48,25 +48,25 @@ Le code présenté dans les étapes de résolution suppose que les chemins de do
 - [Se connecter à HDInsight (Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Comment localiser les journaux Hive dans un cluster ?
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Comment localiser les journaux d’activité Hive dans un cluster ?
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
 1. Connectez-vous au cluster HDInsight à l’aide de SSH. Pour plus d’informations, consultez la section **Documentation supplémentaire**.
 
-2. Pour afficher les journaux du client Hive, utilisez la commande suivante :
+2. Pour afficher les journaux d’activité du client Hive, utilisez la commande suivante :
 
    ```apache
    /tmp/<username>/hive.log 
    ```
 
-3. Pour afficher les journaux du metastore Hive, utilisez la commande suivante :
+3. Pour afficher les journaux d’activité du metastore Hive, utilisez la commande suivante :
 
    ```apache
    /var/log/hive/hivemetastore.log 
    ```
 
-4. Pour afficher les journaux du serveur Hive, utilisez la commande suivante :
+4. Pour afficher les journaux d’activité du serveur Hive, utilisez la commande suivante :
 
    ```apache
    /var/log/hive/hiveserver2.log 

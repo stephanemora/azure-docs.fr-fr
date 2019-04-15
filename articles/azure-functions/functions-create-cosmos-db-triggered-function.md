@@ -23,7 +23,7 @@ ms.locfileid: "58137842"
 
 Découvrez comment créer une fonction qui est déclenchée quand des données sont ajoutées à Azure Cosmos DB ou y sont changées. Pour plus d’informations sur Azure Cosmos DB, consultez [Azure Cosmos DB : Utilisation des bases de données serverless avec Azure Functions](../cosmos-db/serverless-computing-database.md).
 
-![Affichage du message dans les journaux.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
+![Affichez le message dans les journaux d’activité.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -80,7 +80,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
     ![Modèle de fonction Cosmos DB en C#](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
 
-    Ce modèle de fonction écrit le nombre de documents et le premier ID de document dans les journaux.
+    Ce modèle de fonction écrit le nombre de documents et le premier ID de document dans les journaux d’activité.
 
 Ensuite, vous vous connectez à votre compte Azure Cosmos DB et créez la collection `Items` dans la base de données `Tasks`.
 
@@ -128,11 +128,11 @@ Une fois créée la collection spécifiée dans la liaison de fonction, vous pou
             "description": "some task"
         }
 
-1. Passez au premier onglet de navigateur qui contient votre fonction dans le portail. Développez les journaux de la fonction et vérifiez que le nouveau document a déclenché la fonction. La valeur d’ID de document `task1` doit être écrite dans les journaux. 
+1. Passez au premier onglet de navigateur qui contient votre fonction dans le portail. Développez les journaux d’activité de la fonction et vérifiez que le nouveau document a déclenché la fonction. La valeur d’ID de document `task1` doit être écrite dans les journaux d’activité. 
 
-    ![Affichage du message dans les journaux.](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-view-logs.png)
+    ![Affichez le message dans les journaux d’activité.](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-view-logs.png)
 
-1. (Facultatif) Accédez à votre document, apportez une modification, puis cliquez sur **Mettre à jour**. Ensuite, revenez aux journaux de la fonction, puis vérifiez que la mise à jour a également déclenché la fonction.
+1. (Facultatif) Accédez à votre document, apportez une modification, puis cliquez sur **Mettre à jour**. Ensuite, revenez aux journaux d’activité de la fonction, puis vérifiez que la mise à jour a également déclenché la fonction.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

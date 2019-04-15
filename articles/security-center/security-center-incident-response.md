@@ -16,7 +16,7 @@ ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56114295"
@@ -97,7 +97,7 @@ Sam reçoit le dossier de Judy et commence à examiner les étapes de correction
 ![Cycle de vie de la réponse aux incidents](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### <a name="additional-resources"></a>Ressources supplémentaires
-Les entreprises qui utilisent leur solution SIEM (Security Information and Event Management) pendant le processus d’examen peuvent également [intégrer Azure Security Center à celle-ci](security-center-integrating-alerts-with-log-integration.md). Vous pouvez également intégrer les journaux d’audit et les événements de sécurité des machines virtuelles Azure à l’aide de [l’outil d’intégration des journaux Azure](https://azure.microsoft.com/blog/introducing-hdinsight-integration-with-azure-log-analytics/). Pour examiner ces attaques, vous pouvez utiliser ces informations conjointement avec les informations fournies par Azure Security Center. Vous pouvez également utiliser la fonctionnalité [d’enquête](https://docs.microsoft.com/azure/security-center/security-center-investigation) de Security Center pour vous aider à déterminer la cause d’un incident.
+Les entreprises qui utilisent leur solution SIEM (Security Information and Event Management) pendant le processus d’examen peuvent également [intégrer Azure Security Center à celle-ci](security-center-integrating-alerts-with-log-integration.md). Vous pouvez également intégrer les journaux d’audit et les événements de sécurité des machines virtuelles Azure à l’aide de [l’outil d’intégration des journaux d’activité Azure](https://azure.microsoft.com/blog/introducing-hdinsight-integration-with-azure-log-analytics/). Pour examiner ces attaques, vous pouvez utiliser ces informations conjointement avec les informations fournies par Azure Security Center. Vous pouvez également utiliser la fonctionnalité [d’enquête](https://docs.microsoft.com/azure/security-center/security-center-investigation) de Security Center pour vous aider à déterminer la cause d’un incident.
 
 ## <a name="conclusion"></a>Conclusion
 La mise en place d’une équipe avant la survenue d’un incident est très importante pour votre organisation et aura un impact positif sur la gestion des incidents. Si elle dispose des bons outils pour surveiller les ressources, cette équipe pourra plus facilement prendre des mesures précises pour résoudre un incident de sécurité. Les [fonctionnalités de détection](security-center-detection-capabilities.md) d’Azure Security Center aident le département informatique à répondre aux incidents de sécurité et à corriger les problèmes de sécurité rapidement.

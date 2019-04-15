@@ -94,7 +94,7 @@ Nous allons maintenant modifier notre modèle pour le distinguer de la version 
 2. Notez que le bot répond « hi there (version 1) » (« bonjour (version 1) »).
     - Cela permet de vérifier que la version 1 est active.
 
-### <a name="view-the-conversation-logs-in-conversation-learner-web-ui"></a>Afficher les journaux de conversation dans l’interface Web de Conversation Learner
+### <a name="view-the-conversation-logs-in-conversation-learner-web-ui"></a>Afficher les journaux d’activité de conversation dans l’interface Web de Conversation Learner
 
 1. Dans le panneau gauche, cliquez sur « Log Dialogs »
     - Si vous ne voyez pas de boîtes de dialogue, cliquez sur le bouton Actualiser.

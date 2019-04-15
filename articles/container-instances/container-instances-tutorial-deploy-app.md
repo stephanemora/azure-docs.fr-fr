@@ -24,7 +24,7 @@ Dans ce tutoriel, vous allez :
 > [!div class="checklist"]
 > * Déployer le conteneur à partir d’Azure Container Registry vers Azure Container Instances
 > * Afficher l’application en cours d’exécution dans le navigateur
-> * Afficher les journaux du conteneur
+> * Afficher les journaux d’activité du conteneur
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -64,7 +64,7 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 
 Répétez la commande [az container show][az-container-show] jusqu’à ce que l’état passe de *En attente* à *En cours d’exécution*, ce qui prend normalement moins d’une minute. Lorsque le conteneur est *En cours d’exécution*, passez à l’étape suivante.
 
-## <a name="view-the-application-and-container-logs"></a>Afficher les journaux d’applications et de conteneurs
+## <a name="view-the-application-and-container-logs"></a>Afficher les journaux d’activité d’applications et de conteneurs
 
 Une fois le déploiement réussi, affichez le nom de domaine complet du conteneur avec la commande [az container show][az-container-show] :
 
@@ -112,7 +112,7 @@ Dans ce didacticiel, vous avez terminé le processus de déploiement de votre co
 > [!div class="checklist"]
 > * Déployer le conteneur à partir d’Azure Container Registry à l’aide d’Azure CLI
 > * afficher l’application dans le navigateur ;
-> * afficher les journaux du conteneur.
+> * afficher les journaux d’activité du conteneur.
 
 Maintenant que vous avez les bases, continuez pour en savoir plus sur Azure Container Instances, par exemple sur le fonctionnement des groupes de conteneurs :
 

@@ -11,14 +11,14 @@ ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
 ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/14/2019
 ms.locfileid: "54263065"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Ajouter des objets blob à des objets dans Azure Digital Twins
 
-Les objets blob sont des représentations non structurées de types de fichier courants, comme les images et les journaux. Les blobs assurent le suivi du type de données qu’ils représentent à l’aide d’un type MIME (par exemple : « image/jpeg ») et de métadonnées (nom, description, type, etc.).
+Les objets blob sont des représentations non structurées de types de fichier courants, comme les images et les journaux d’activité. Les blobs assurent le suivi du type de données qu’ils représentent à l’aide d’un type MIME (par exemple : « image/jpeg ») et de métadonnées (nom, description, type, etc.).
 
 Azure Digital Twins prend en charge l’attachement d’objets blob à des appareils, des espaces et des utilisateurs. Les blobs peuvent représenter une image de profil pour un utilisateur, une photo de l’appareil, une vidéo, une carte, un zip de microprogramme, des données JSON, un journal, etc.
 

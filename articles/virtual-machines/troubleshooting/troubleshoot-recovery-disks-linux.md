@@ -43,7 +43,7 @@ Dans les exemples suivants, remplacez les noms de paramètres avec vos propres v
 ## <a name="determine-boot-issues"></a>Identifier les problèmes de démarrage
 Examinez la sortie en série afin d’identifier la raison pour laquelle votre machine virtuelle ne démarre pas correctement. Comme exemple courant, citons une entrée non valide dans `/etc/fstab`, ou le disque dur virtuel en cours de suppression ou de déplacement.
 
-Accédez aux journaux du démarrage avec [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics). L’exemple suivant récupère la sortie en série de la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
+Accédez aux journaux d’activité du démarrage avec [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics). L’exemple suivant récupère la sortie en série de la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM

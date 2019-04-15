@@ -263,7 +263,7 @@ Scout Update 4 est une mise à jour cumulative. Elle contient tous les correctif
 * Sur Windows, correction d’un problème d’expiration de délai lors de l’émission d’un signet de cohérence distribué commun sur les applications distribuées très chargées, comme les clusters SQL Server et SharePoint.
 * Correctif relatif au journal dans le programme d’installation de base du serveur de configuration.
 * Un lien de téléchargement vers VMware vCLI 6.0 a été ajouté au programme d’installation de base du serveur cible maître Windows.
-* Des vérifications et des journaux supplémentaires ont été ajoutés pour les modifications de la configuration réseau lors des tests de basculement et de récupération d’urgence.
+* Des vérifications et des journaux d’activité supplémentaires ont été ajoutés pour les modifications de la configuration réseau lors des tests de basculement et de récupération d’urgence.
 * Correctif pour un problème qui provoquait la non-communication des informations de conservation au serveur de configuration.  
 * Pour les clusters physiques, correctif pour un problème qui provoquait l’échec du redimensionnement du volume dans l’Assistant vContinuum lors de la réduction du volume source.
 * Un correctif pour un problème de protection du cluster qui a échoué avec l’erreur : « Impossible de trouver la signature de disque » lorsque le disque de cluster est un disque PRDM.

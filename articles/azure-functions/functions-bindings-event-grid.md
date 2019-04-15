@@ -549,9 +549,9 @@ Les captures d’écran suivantes montrent les en-têtes et le corps de la requ�
 
 ![Corps de la requête dans Postman](media/functions-bindings-event-grid/postman.png)
 
-La fonction de déclenchement Event Grid s’exécute et affiche des journaux de ce type :
+La fonction de déclenchement Event Grid s’exécute et affiche des journaux d’activité de ce type :
 
-![Exemple de journaux d’une fonction de déclenchement Event Grid](media/functions-bindings-event-grid/eg-output.png)
+![Exemple de journaux d’activité d’une fonction de déclenchement Event Grid](media/functions-bindings-event-grid/eg-output.png)
 
 ## <a name="local-testing-with-ngrok"></a>Tests locaux avec ngrok
 
@@ -624,9 +624,9 @@ Pour plus d’informations sur la création d’abonnements, consultez la sectio
 
 Déclenchez un événement qui génèrera du trafic HTTP sur votre point de terminaison ngrok.  Par exemple, si vous avez créé un abonnement au Stockage Blob, chargez ou supprimez un objet blob.
 
-La fonction de déclenchement Event Grid s’exécute et affiche des journaux de ce type :
+La fonction de déclenchement Event Grid s’exécute et affiche des journaux d’activité de ce type :
 
-![Exemple de journaux d’une fonction de déclenchement Event Grid](media/functions-bindings-event-grid/eg-output.png)
+![Exemple de journaux d’activité d’une fonction de déclenchement Event Grid](media/functions-bindings-event-grid/eg-output.png)
 
 ## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>Utiliser un déclencheur HTTP comme déclencheur Event Grid
 

@@ -22,7 +22,7 @@ Il arrive parfois qu’un travail Azure Stream Analytics s’arrête de manière
 
 ## <a name="log-types"></a>Types de journaux
 
-Stream Analytics fournit deux types de journaux :
+Stream Analytics fournit deux types de journaux d’activité :
 
 * Les [journaux d'activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (activés en permanence) fournissent des détails sur les opérations effectuées sur les travaux.
 
@@ -35,7 +35,7 @@ Stream Analytics fournit deux types de journaux :
 
 ## <a name="debugging-using-activity-logs"></a>Débogage à l’aide des journaux d’activité
 
-Les journaux d’activité sont activés par défaut et proposent des informations détaillées sur les opérations effectuées par votre travail Stream Analytics. Les informations présentes dans les journaux d’activité vous aident à déterminer la cause racine des problèmes ayant un impact sur votre travail. Pour utiliser les journaux d'activité dans Stream Analytics, procédez comme suit :
+Les journaux d’activité sont activés par défaut et proposent des informations détaillées sur les opérations effectuées par votre travail Stream Analytics. Les informations présentes dans les journaux d’activité vous aident à déterminer la cause racine des problèmes ayant un impact sur votre travail. Pour utiliser les journaux d’activité dans Stream Analytics, procédez comme suit :
 
 1. Connectez-vous au portail Azure et sélectionnez **Journal d’activité** sous **Vue d’ensemble**.
 
@@ -59,7 +59,7 @@ Les journaux d’activité sont activés par défaut et proposent des informatio
 
 Journaux de diagnostic sous tension et en les envoyant aux journaux d’Azure Monitor sont fortement recommandé. Les journaux de diagnostic sont **désactivés** par défaut. Pour activer les journaux de diagnostic, procédez comme suit :
 
-1.  Connectez-vous au portail Azure et accédez à votre travail Stream Analytics. Sous **Surveillance**, sélectionnez **Journaux de diagnostic**. Ensuite, sélectionnez **Activer les diagnostics**.
+1.  Connectez-vous au portail Azure et accédez à votre travail Stream Analytics. Sous **Supervision**, sélectionnez **Journaux de diagnostic**. Ensuite, sélectionnez **Activer les diagnostics**.
 
     ![Navigation dans le panneau jusqu’aux journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
@@ -75,7 +75,7 @@ Journaux de diagnostic sous tension et en les envoyant aux journaux d’Azure Mo
 
    ![Requête de diagnostic et résultats](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
 
-5. Après avoir écrit une requête pour rechercher les journaux qui conviennent, enregistrez-la en sélectionnant **Enregistrer** et attribuez-lui un nom ainsi qu'une catégorie. Vous pouvez alors créer une alerte en sélectionnant **Nouvelle règle d’alerte**. Spécifiez ensuite la condition de l’alerte. Sélectionnez **Condition** et entrez la valeur de seuil et la fréquence à laquelle cette recherche de journal personnalisée est évaluée.  
+5. Après avoir écrit une requête pour rechercher les journaux d’activité qui conviennent, enregistrez-la en sélectionnant **Enregistrer** et attribuez-lui un nom ainsi qu’une catégorie. Vous pouvez alors créer une alerte en sélectionnant **Nouvelle règle d’alerte**. Spécifiez ensuite la condition de l’alerte. Sélectionnez **Condition** et entrez la valeur de seuil et la fréquence à laquelle cette recherche de journal personnalisée est évaluée.  
 
    ![Requête de recherche de journal de diagnostic](./media/stream-analytics-job-diagnostic-logs/search-query.png)
 
@@ -96,7 +96,7 @@ Deux catégories de journaux de diagnostic sont actuellement disponibles :
 
 ## <a name="diagnostics-logs-schema"></a>Schéma des journaux de diagnostic
 
-Tous les journaux sont stockés au format JSON. Chaque entrée comprend les champs de chaîne courants suivants :
+Tous les journaux d’activité sont stockés au format JSON. Chaque entrée comprend les champs de chaîne courants suivants :
 
 Nom | Description
 ------- | -------
@@ -110,11 +110,11 @@ properties | Détail spécifique de l’entrée du journal, sérialisé comme ch
 
 ### <a name="execution-log-properties-schema"></a>Schéma de propriétés des journaux d’exécution
 
-Les journaux d’exécution contiennent des informations sur les événements qui se sont produits pendant l’exécution du travail Stream Analytics. Le schéma de propriétés varie selon le type d’événement. Les types de journaux d’exécution suivants sont actuellement disponibles :
+Les journaux d’activité d’exécution contiennent des informations sur les événements qui se sont produits pendant l’exécution du travail Stream Analytics. Le schéma de propriétés varie selon le type d’événement. Les types de journaux d’activité d’exécution suivants sont actuellement disponibles :
 
 ### <a name="data-errors"></a>Erreurs de données
 
-Toute erreur qui se produit lorsque le travail traite des données est consignée dans cette catégorie de journaux. La plupart du temps, ces journaux sont créés au cours des opérations de lecture, de sérialisation et d’écriture des données. Ces journaux n’incluent pas les erreurs de connectivité. Les erreurs de connectivité sont traitées comme des événements génériques.
+Toute erreur qui se produit lorsque le travail traite des données est consignée dans cette catégorie de journaux d’activité. La plupart du temps, ces journaux d’activité sont créés au cours des opérations de lecture, de sérialisation et d’écriture des données. Ces journaux d’activité n’incluent pas les erreurs de connectivité. Les erreurs de connectivité sont traitées comme des événements génériques.
 
 Nom | Description
 ------- | -------

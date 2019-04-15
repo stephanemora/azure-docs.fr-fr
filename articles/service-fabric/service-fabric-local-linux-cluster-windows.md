@@ -98,7 +98,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. Le démarrage du cluster prend un certain temps. Vous pouvez afficher les journaux à l’aide de la commande suivante ou accéder au tableau de bord pour afficher l’intégrité des clusters [http://localhost:19080](http://localhost:19080) :
+5. Le démarrage du cluster prend un certain temps. Vous pouvez afficher les journaux d’activité à l’aide de la commande suivante ou accéder au tableau de bord pour afficher l’intégrité des clusters [http://localhost:19080](http://localhost:19080) :
 
     ```powershell 
     docker logs sftestcluster

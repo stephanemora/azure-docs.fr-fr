@@ -23,7 +23,7 @@ L’Accélérateur des écritures est généralement disponible pour les machine
 
 ## <a name="planning-for-using-write-accelerator"></a>Planification de l’utilisation de l’Accélérateur des écritures
 
-Utilisez l’Accélérateur des écritures pour les volumes qui stockent le journal des transactions ou les journaux de restauration d’un SGBD (système de gestion de base de données). Il n’est pas recommandé d’utiliser l’Accélérateur des écritures pour les volumes de données d’une SGBD car la fonctionnalité a été optimisée pour être utilisée sur les disques journaux.
+Utilisez l’Accélérateur des écritures pour les volumes qui stockent le journal des transactions ou les journaux d’activité de restauration d’un SGBD (système de gestion de base de données). Il n’est pas recommandé d’utiliser l’Accélérateur des écritures pour les volumes de données d’une SGBD car la fonctionnalité a été optimisée pour être utilisée sur les disques journaux.
 
 L’Accélérateur des écritures fonctionne uniquement en association avec [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/).
 

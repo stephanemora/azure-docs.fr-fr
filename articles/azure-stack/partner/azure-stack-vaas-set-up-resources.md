@@ -90,7 +90,7 @@ En tant qu’administrateur Azure AD, attribuez à l’application VaaS Azure AD
 
 ## <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
-Pendant l’exécution du test, VaaS génère des journaux de diagnostic vers un compte de stockage Azure. En plus des journaux de test, le compte de stockage peut également servir à charger les packages d’extension OEM pour le workflow de validation du package.
+Pendant l’exécution du test, VaaS génère des journaux de diagnostic vers un compte de stockage Azure. En plus des journaux d’activité de test, le compte de stockage peut également servir à charger les packages d’extension OEM pour le workflow de validation du package.
 
 Le compte de stockage Azure est hébergé dans le cloud public Azure, et non sur votre environnement Azure Stack.
 
@@ -104,7 +104,7 @@ Le compte de stockage Azure est hébergé dans le cloud public Azure, et non sur
 
 5. Sélectionnez la région **USA Ouest** pour votre compte de stockage.
 
-    Afin d’éviter que des frais de mise en réseau ne vous soient facturés pour le stockage des journaux, le compte de stockage Azure peut être configuré pour utiliser uniquement la région **USA Ouest**. Les fonctions de réplication des données et de niveau d’accès chaud ne sont pas nécessaires pour ces données. L’activation de ces fonctionnalités augmentera considérablement les coûts.
+    Afin d’éviter que des frais de mise en réseau ne vous soient facturés pour le stockage des journaux d’activité, le compte de stockage Azure peut être configuré pour utiliser uniquement la région **USA Ouest**. Les fonctions de réplication des données et de niveau d’accès chaud ne sont pas nécessaires pour ces données. L’activation de ces fonctionnalités augmentera considérablement les coûts.
 
 6. Conservez les paramètres aux valeurs par défaut ,à l’exception de **Type de compte** :
 

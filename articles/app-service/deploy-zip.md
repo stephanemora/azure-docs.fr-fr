@@ -30,7 +30,7 @@ Ce déploiement de fichier ZIP utilise le même service Kudu que celui qui pilot
 - Suppression des fichiers laissés par un déploiement précédent
 - Option pour activer le processus de génération par défaut, qui inclut la restauration de package
 - [Personnalisation du déploiement](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), notamment exécution de scripts de déploiement  
-- Journaux de déploiement 
+- Journaux d’activité de déploiement 
 - Une limite de taille de 2 048 Mo.
 
 Pour plus d’informations, consultez la [documentation Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).

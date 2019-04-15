@@ -49,9 +49,9 @@ Pour des instructions permettant de configurer New Relic et AppDynamics avec des
 
 Connectivité SSH à l’environnement Linux exécutant votre application est disponible. Consultez [Prise en charge SSH pour Azure App Service sur Linux](/azure/app-service/containers/app-service-linux-ssh-support) pour obtenir des instructions complètes sur la connexion au système Linux via votre navigateur web ou terminal local.
 
-### <a name="streaming-logs"></a>Diffusion de journaux
+### <a name="streaming-logs"></a>Diffusion de journaux d’activité
 
-Pour un débogage et un dépannage rapides, vous pouvez envoyer des journaux à votre console en utilisant l’interface Azure CLI. Configurez l’interface CLI avec `az webapp log config` pour activer la journalisation :
+Pour un débogage et un dépannage rapides, vous pouvez envoyer des journaux d’activité à votre console en utilisant l’interface Azure CLI. Configurez l’interface CLI avec `az webapp log config` pour activer la journalisation :
 
 ```azurecli-interactive
 az webapp log config --name ${WEBAPP_NAME} \
@@ -59,19 +59,19 @@ az webapp log config --name ${WEBAPP_NAME} \
  --web-server-logging filesystem
 ```
 
-Ensuite, envoyez les journaux à votre console en utilisant `az webapp log tail` :
+Ensuite, envoyez les journaux d’activité à votre console en utilisant `az webapp log tail` :
 
 ```azurecli-interactive
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-Pour plus d’informations, consultez [Envoi de journaux avec l’interface Azure CLI](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
+Pour plus d’informations, consultez [Envoi de journaux d’activité avec l’interface Azure CLI](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
 
 ### <a name="app-logging"></a>Journalisation des applications
 
 Activez [Journal des applications](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) via le portail Azure ou [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) pour configurer App Service de sorte à écrire la sortie de console standard de votre application et les flux d’erreur de console standard dans le système de fichiers local ou le service Stockage Blob Azure. La journalisation sur l’instance du système de fichiers App Service locale est désactivée 12 heures après avoir été configurée. Si vous en avez besoin plus longtemps, configurez l’application pour écrire la sortie sur un conteneur de stockage d’objets blob. Vous trouverez vos journaux d’application Java et Tomcat dans le `/home/LogFiles/Application/` directory.
 
-Si votre application utilise [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) pour le traçage, vous pouvez transférer ces traces pour révision vers Azure Application Insights en suivant les instructions de configuration des frameworks de journalisation dans [Exploration des journaux de traces Java dans Application Insights](/azure/application-insights/app-insights-java-trace-logs).
+Si votre application utilise [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) pour le traçage, vous pouvez transférer ces traces pour révision vers Azure Application Insights en suivant les instructions de configuration des frameworks de journalisation dans [Exploration des journaux d’activité de traces Java dans Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
 ### <a name="troubleshooting-tools"></a>Outils de dépannage
 

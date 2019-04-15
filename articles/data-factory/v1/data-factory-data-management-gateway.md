@@ -335,7 +335,7 @@ Cette fonctionnalité sera activée plus tard. Dans les futures mises à jour (v
 ### <a name="diagnostics-page"></a>Page Diagnostics
 La page Diagnostics permet d’effectuer les actions suivantes :
 
-* Activer la **journalisation**détaillée, afficher les journaux dans l’observateur d’événements et envoyer des journaux à Microsoft en cas de défaillance.
+* Activer la **journalisation**détaillée, afficher les journaux d’activité dans l’observateur d’événements et envoyer des journaux d’activité à Microsoft en cas de défaillance.
 * **Tester la connexion** à une source de données.
 
 ### <a name="help-page"></a>Help page

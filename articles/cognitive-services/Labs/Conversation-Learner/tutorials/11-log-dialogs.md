@@ -33,7 +33,7 @@ Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécutio
 et que le modèle de météo ait été créé dans le cadre des didacticiels précédents.
 
 ## <a name="details"></a>Détails
-Les dialogues journalisés sont des journaux enregistrés des interactions de votre bot avec des utilisateurs finaux. Ces dialogues journalisés vous permettent de corriger des étiquettes d’entité et des sélections d’action afin d’améliorer les performances du modèle et les performances globales du système.
+Les dialogues journalisés sont des journaux d’activité enregistrés des interactions de votre bot avec des utilisateurs finaux. Ces dialogues journalisés vous permettent de corriger des étiquettes d’entité et des sélections d’action afin d’améliorer les performances du modèle et les performances globales du système.
 
 ## <a name="steps"></a>Étapes
 

@@ -96,7 +96,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Journalisation
-Pour consigner la sortie dans vos [journaux de streaming](../app-service/troubleshoot-diagnostic-logs.md) en F#, votre fonction doit utiliser un argument de type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Par souci de cohérence, nous vous recommandons de nommer cet argument `log`. Par exemple : 
+Pour consigner la sortie dans vos [journaux d’activité de streaming](../app-service/troubleshoot-diagnostic-logs.md) en F#, votre fonction doit utiliser un argument de type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Par souci de cohérence, nous vous recommandons de nommer cet argument `log`. Par exemple : 
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -230,7 +230,7 @@ Lorsque vous chargez un fichier `project.json` , le runtime obtient les packages
 Si vous le souhaitez, vous pouvez placer automatiquement les assemblys de référence dans votre préambule destiné à l’éditeur, afin d’améliorer l’interaction de votre éditeur avec F# Compile Services.
 
 ### <a name="how-to-add-a-projectjson-file-to-your-azure-function"></a>Ajout d’un fichier `project.json` à votre fonction Azure
-1. Commencez par vous assurer que votre conteneur de fonctions est en cours d’exécution. Ce que vous pouvez faire en ouvrant votre fonction dans le portail Azure. Il donne également accès aux journaux de diffusion en continu où le résultat de l’installation du package s’affiche.
+1. Commencez par vous assurer que votre conteneur de fonctions est en cours d’exécution. Ce que vous pouvez faire en ouvrant votre fonction dans le portail Azure. Il donne également accès aux journaux d’activité de diffusion en continu où le résultat de l’installation du package s’affiche.
 2. Pour charger un fichier `project.json` , utilisez l’une des méthodes décrites dans l’article [Comment mettre à jour les fichiers du conteneur de fonctions](functions-reference.md#fileupdate). Si vous utilisez l’article [Déploiement continu pour Azure Functions](functions-continuous-deployment.md), vous pouvez ajouter un fichier `project.json` à votre branche intermédiaire afin de le tester avant de l’ajouter à votre branche de déploiement.
 3. Une fois le fichier `project.json` ajouté, une sortie semblable à l’exemple ci-après apparaîtra dans le journal de diffusion en continu de votre fonction :
 

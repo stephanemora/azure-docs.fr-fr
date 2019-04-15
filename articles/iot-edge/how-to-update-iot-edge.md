@@ -76,7 +76,7 @@ La façon dont vous mettez à jour les conteneurs de l’agent IoT Edge et du hu
 
 Vérifiez la version des modules de l’agent IoT Edge et du hub IoT Edge sur votre appareil à l’aide des commandes `iotedge logs edgeAgent` ou `iotedge logs edgeHub`. 
 
-  ![Rechercher la version du conteneur dans les journaux](./media/how-to-update-iot-edge/container-version.png)
+  ![Rechercher la version du conteneur dans les journaux d’activité](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>Comprendre les étiquettes IoT Edge
 

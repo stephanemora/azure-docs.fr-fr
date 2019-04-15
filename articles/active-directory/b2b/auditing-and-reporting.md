@@ -27,7 +27,7 @@ Vous pouvez utiliser les révisions d’accès pour vérifier périodiquement si
 
 ## <a name="audit-logs"></a>Journaux d’audit
 
-Les journaux d’audit d’Azure AD fournissent des enregistrements de l’activité du système et des utilisateurs, y compris les activités initiées par les utilisateurs invités. Pour accéder aux journaux d’audit, dans **Azure Active Directory**, sous **Surveillance**, sélectionnez **Journaux d’Audit**. Voici un exemple de l’historique d’invitation et d’échange pour l’invité Sam Oogle :
+Les journaux d’audit d’Azure AD fournissent des enregistrements de l’activité du système et des utilisateurs, y compris les activités initiées par les utilisateurs invités. Pour accéder aux journaux d’audit, dans **Azure Active Directory**, sous **Supervision**, sélectionnez **Journaux d’audit**. Voici un exemple de l’historique d’invitation et d’échange pour l’invité Sam Oogle :
 
 ![Capture d’écran et exemple d’audit consigne la sortie](./media/auditing-and-reporting/audit-log.png)
 
@@ -35,7 +35,7 @@ Vous pouvez explorer chacun de ces événements pour en obtenir les détails. Ex
 
 ![Capture d’écran et exemple de sortie de détails de l’activité](./media/auditing-and-reporting/activity-details.png)
 
-Vous pouvez également exporter ces journaux à partir d’Azure AD et utiliser l’outil de création de rapports de votre choix afin d’obtenir des rapports personnalisés.
+Vous pouvez également exporter ces journaux d’activité à partir d’Azure AD et utiliser l’outil de création de rapports de votre choix afin d’obtenir des rapports personnalisés.
 
 ### <a name="next-steps"></a>Étapes suivantes
 

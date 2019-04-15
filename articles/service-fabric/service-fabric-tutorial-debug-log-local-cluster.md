@@ -1,6 +1,6 @@
 ---
 title: Déboguer une application Java sur un cluster Service Fabric local | Microsoft Docs
-description: Dans ce didacticiel, découvrez comment déboguer et obtenir des journaux à partir d’une application Java Service Fabric s’exécutant sur un cluster local.
+description: Dans ce didacticiel, découvrez comment déboguer et obtenir des journaux d’activité à partir d’une application Java Service Fabric s’exécutant sur un cluster local.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -38,7 +38,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 Dans ce deuxième volet, vous apprenez à :
 > [!div class="checklist"]
 > * Déboguer une application Java à l’aide d’Eclipse
-> * Rediriger les journaux vers un emplacement configurable
+> * Rediriger les journaux d’activité vers un emplacement configurable
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -132,7 +132,7 @@ Dans cette partie du tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Déboguer une application Java à l’aide d’Eclipse
-> * Rediriger les journaux vers un emplacement configurable
+> * Rediriger les journaux d’activité vers un emplacement configurable
 
 Passez au tutoriel suivant :
 > [!div class="nextstepaction"]

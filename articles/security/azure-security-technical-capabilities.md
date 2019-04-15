@@ -234,7 +234,7 @@ Les services qui s’exécutent sur PaaS v2 au moyen de Service Fabric peuvent 
 
 #### <a name="paas-v1"></a>PaaS v1
 
-Actuellement, Azure Disk Encryption n’est pas pris en charge sur PaaS v1. Par conséquent, vous devez utiliser le chiffrement au niveau de l’application pour chiffrer les données persistantes au repos.  Cela inclut, mais n’est pas limité aux données d’application, fichiers temporaires, journaux et vidages sur incident.
+Actuellement, Azure Disk Encryption n’est pas pris en charge sur PaaS v1. Par conséquent, vous devez utiliser le chiffrement au niveau de l’application pour chiffrer les données persistantes au repos.  Cela inclut, mais n’est pas limité aux données d’application, fichiers temporaires, journaux d’activité et vidages sur incident.
 
 La plupart des services devraient tenter de tirer parti du chiffrement d’un fournisseur de ressources de stockage. Certains services doivent procéder à un chiffrement explicite, par exemple, le matériel de clé persistante (certificats, clé racine / principale) doit être stocké dans Key Vault.
 
@@ -406,11 +406,11 @@ Azure Operational Security repose sur un framework qui intègre les connaissance
 
 Avec Azure Monitor, vous pouvez gérer n’importe quelle instance dans n’importe quel cloud, notamment en local, Azure, AWS, Windows Server, Linux, VMware et OpenStack, à moindre coût que les solutions concurrentes. Conçu pour les environnements cloud, Azure Monitor offre une nouvelle approche de gestion de votre entreprise est le moyen le plus rapide, plus économique pour répondre aux nouveaux défis commerciaux et de prendre en charge de nouvelles charges de travail, applications et les environnements de cloud.
 
-### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
+### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
 [Journaux d’analyse Azure](https://azure.microsoft.com/documentation/services/log-analytics) fournit des services de surveillance en collectant des données à partir de ressources managées dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
 
-![Journaux Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Journaux d’activité Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 Cette méthode vous permet de regrouper les données issues de différentes sources, et de combiner des données de vos services Azure avec votre environnement local existant. En outre, cette approche dissocie clairement la collecte des données de l’exécution d’actions sur ces dernières, de sorte que toutes les actions sont disponibles sur tous les types de données.
 

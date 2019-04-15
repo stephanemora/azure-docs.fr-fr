@@ -27,52 +27,52 @@ ms.locfileid: "58002344"
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
 
 
-## <a name="new-logs-experience"></a>Nouvelle expérience de journaux
+## <a name="new-logs-experience"></a>Nouvelle expérience de journaux d’activité
 
-### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>Q : Quelle est la différence entre la nouvelle expérience de journaux et Log Analytics ?
+### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>Q : Quelle est la différence entre la nouvelle expérience de journaux d’activité et Log Analytics ?
 
-R : Il n’y en a pas. [Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor](../../azure-monitor/azure-monitor-rebrand.md) pour fournir une expérience de surveillance plus uniforme. La nouvelle expérience de journaux dans Azure Monitor est strictement identique aux requêtes Log Analytics déjà utilisées par de nombreux clients.
+R : Il n’y en a pas. [Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor](../../azure-monitor/azure-monitor-rebrand.md) pour fournir une expérience de surveillance plus uniforme. La nouvelle expérience de journaux d’activité dans Azure Monitor est strictement identique aux requêtes Log Analytics déjà utilisées par de nombreux clients.
 
 ### <a name="q-can-i-still-use-log-search"></a>Q : Puis-je continuer à utiliser Recherche dans les journaux ? 
 
-R : Recherche dans les journaux est actuellement toujours disponible dans le portail OMS et dans le portail Azure, sous le nom **Journaux (classique)**. Le portail OMS sera officiellement mis hors-service le 15 janvier 2019. L’expérience de journaux classique dans le portail Azure sera progressivement retirée et remplacée par la nouvelle expérience de journaux. 
+R : Recherche dans les journaux d’activité est actuellement toujours disponible dans le portail OMS et dans le portail Azure, sous le nom **Journaux d’activité (classique)**. Le portail OMS sera officiellement mis hors-service le 15 janvier 2019. L’expérience de journaux d’activité classique dans le portail Azure sera progressivement retirée et remplacée par la nouvelle expérience de journaux d’activité. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>Q. Puis-je continuer à utiliser le portail Advanced Analytics ? 
-La nouvelle expérience de journaux dans le portail Azure est basée sur le portail Advanced Analytics, mais vous pouvez toujours y accéder en dehors du portail Azure. La feuille de route de suppression de ce portail externe sera bientôt annoncée.
+La nouvelle expérience de journaux d’activité dans le portail Azure est basée sur le portail Advanced Analytics, mais vous pouvez toujours y accéder en dehors du portail Azure. La feuille de route de suppression de ce portail externe sera bientôt annoncée.
 
-### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>Q. Pourquoi ne puis-je pas voir les boutons Explorateur de requêtes et Enregistrer dans la nouvelle expérience de journaux ?
+### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>Q. Pourquoi ne puis-je pas voir les boutons Explorateur de requêtes et Enregistrer dans la nouvelle expérience de journaux d’activité ?
 
-Les boutons **Explorateur de requêtes**, **Enregistrer** et **Définir l’alerte** ne sont pas disponibles lorsque vous explorez des journaux dans le contexte d’une ressource spécifique. Pour créer des alertes, enregistrer ou charger une requête, l’étendue des journaux doit être un espace de travail. Pour ouvrir des journaux dans le contexte de l’espace de travail, sélectionnez **Tous les services** > **Surveiller** > **Journaux**. Le dernier espace de travail utilisée est sélectionné, mais vous pouvez sélectionner n’importe quel autre espace de travail. Consultez [Affichage et analyse de données dans Log Analytics](../log-query/portals.md) pour plus d’informations.
+Les boutons **Explorateur de requêtes**, **Enregistrer** et **Définir l’alerte** ne sont pas disponibles lorsque vous explorez des journaux dans le contexte d’une ressource spécifique. Pour créer des alertes, enregistrer ou charger une requête, l’étendue des journaux d’activité doit être un espace de travail. Pour ouvrir des journaux d’activité dans le contexte de l’espace de travail, sélectionnez **Tous les services** > **Surveiller** > **Journaux d’activité**. Le dernier espace de travail utilisée est sélectionné, mais vous pouvez sélectionner n’importe quel autre espace de travail. Consultez [Affichage et analyse de données dans Log Analytics](../log-query/portals.md) pour plus d’informations.
 
-### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>Q. Comment extraire des champs personnalisés dans la nouvelle expérience de journaux ? 
+### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>Q. Comment extraire des champs personnalisés dans la nouvelle expérience de journaux d’activité ? 
 
-R : L’extraction de champs personnalisée est actuellement prise en charge dans l’expérience de journaux classique. 
+R : L’extraction de champs personnalisée est actuellement prise en charge dans l’expérience de journaux d’activité classique. 
 
-### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>Q. Où trouver le mode liste dans les nouveaux journaux ? 
+### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>Q. Où trouver le mode liste dans les nouveaux journaux d’activité ? 
 
-R : Le mode Liste n’est pas disponible dans les nouveaux journaux. Il existe une flèche à gauche de chaque enregistrement dans le tableau des résultats. Cliquez sur cette flèche pour ouvrir les détails de l’enregistrement correspondant. 
+R : Le mode Liste n’est pas disponible dans les nouveaux journaux d’activité. Il existe une flèche à gauche de chaque enregistrement dans le tableau des résultats. Cliquez sur cette flèche pour ouvrir les détails de l’enregistrement correspondant. 
 
 ### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>Q. Après l'exécution d'une requête, une liste de filtres suggérés est disponible. Comment puis-je voir ces filtres ? 
 
 R : Cliquez sur « Filtres » dans le volet de gauche pour afficher un aperçu de la nouvelle implémentation des filtres. Elle est désormais basée sur votre jeu de résultats complet plutôt que restreinte selon la limite de 10 000 enregistrements de l’interface utilisateur. Il s’agit actuellement d’une liste des filtres les plus populaires et des 10 valeurs les plus courantes pour chaque filtre. 
 
-### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. Pourquoi l’erreur : « Inscrivez le fournisseur de ressources 'Microsoft.Insights' pour cet abonnement afin d’activer cette requête » dans les journaux après une exploration à partir d’une machine virtuelle ? 
+### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. Pourquoi l’erreur : « Inscrivez le fournisseur de ressources ’Microsoft.Insights’ pour cet abonnement afin d’activer cette requête » dans les journaux d’activité après une exploration à partir d’une machine virtuelle ? 
 
 R : Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement ; toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Ceci configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Pour plus d’informations, consultez [Fournisseurs et types de ressources](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
-### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>Q. Pourquoi est-ce que je ne reçois aucun message d’erreur d’accès lorsque j’accède aux journaux à partir d’une page de machine virtuelle ? 
+### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>Q. Pourquoi est-ce que je ne reçois aucun message d’erreur d’accès lorsque j’accède aux journaux d’activité à partir d’une page de machine virtuelle ? 
 
-R : Pour voir les journaux de machine virtuelle, vous devez disposer de l’autorisation de lecture sur les espaces de travail qui les stockent. Dans ce cas, votre administrateur doit vous accorder des autorisations dans Azure.
+R : Pour voir les journaux d’activité de machine virtuelle, vous devez disposer de l’autorisation de lecture sur les espaces de travail qui les stockent. Dans ce cas, votre administrateur doit vous accorder des autorisations dans Azure.
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>Q. Pourquoi puis-je accéder à mon espace de travail dans le portail OMS, mais que je reçois l’erreur « Vous n’avez aucun accès » dans le portail Azure ?  
 
 R : Pour accéder à un espace de travail dans Azure, des autorisations Azure doivent vous être assignées. Dans certains cas, vous ne disposerez peut-être pas des autorisations d’accès appropriées. Dans ce cas, votre administrateur doit vous accorder des autorisations dans Azure. Consultez [Migration du portail OMS vers Azure](oms-portal-transition.md) pour plus d’informations.
 
-### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. Pourquoi ne puis-je pas voir l’entrée Concepteur de vues dans les journaux ? 
-R : Le Concepteur de vues est disponible dans les journaux seulement pour les utilisateurs auxquels des autorisations Contributeur ou supérieures ont été assignées.
+### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. Pourquoi ne puis-je pas voir l’entrée Concepteur de vues dans les journaux d’activité ? 
+R : Le Concepteur de vues est disponible dans les journaux d’activité seulement pour les utilisateurs auxquels des autorisations Contributeur ou supérieures ont été assignées.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>Q. Puis-je continuer à utiliser le portail Analytics en dehors d’Azure ?
-R. Oui, la page Journaux dans Azure et le portail Advanced Analytics reposent sur le même code. Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor pour fournir une expérience de supervision plus uniforme. Vous pouvez toujours accéder à l’aide de l’URL du portail d’Analytique : https :\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+R. Oui, la page Journaux d’activité dans Azure et le portail Advanced Analytics reposent sur le même code. Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor pour fournir une expérience de supervision plus uniforme. Vous pouvez toujours accéder à l’aide de l’URL du portail d’Analytique : https :\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 
@@ -233,8 +233,8 @@ R. La bande passante est fonction de la quantité de données envoyées. Les don
 R. La quantité de données envoyées par agent dépend :
 
 * des solutions activées ;
-* du nombre de journaux et de compteurs de performances collectés ;
-* du volume de données des journaux.
+* du nombre de journaux d’activité et de compteurs de performances collectés ;
+* du volume de données des journaux d’activité.
 
 Le niveau tarifaire gratuit est un bon moyen d’intégrer plusieurs serveurs et de mesurer le volume de données classique. L’utilisation globale est indiquée sur la page [Utilisation](../../azure-monitor/platform/data-usage.md) .
 

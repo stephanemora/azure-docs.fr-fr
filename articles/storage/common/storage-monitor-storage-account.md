@@ -17,7 +17,7 @@ ms.locfileid: "58317678"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
-[Azure Storage Analytics](storage-analytics.md) fournit des métriques pour tous les services de stockage et des journaux pour les objets Blob, les files d’attente et les tables. Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour configurer les métriques et les journaux enregistrés pour votre compte, et configurer des graphiques qui fournissent des représentations visuelles de vos données de métrique.
+[Azure Storage Analytics](storage-analytics.md) fournit des métriques pour tous les services de stockage et des journaux pour les objets Blob, les files d’attente et les tables. Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour configurer les métriques et les journaux d’activité enregistrés pour votre compte, et configurer des graphiques qui fournissent des représentations visuelles de vos données de métrique.
 
 > [!NOTE]
 > L’analyse des données de surveillance dans le portail Azure occasionne des frais. Pour plus d’informations, consultez [Storage Analytics](storage-analytics.md).
@@ -120,7 +120,7 @@ Une fois que vous avez ajouté des graphiques à votre tableau de bord, vous pou
 
 ## <a name="configure-logging"></a>Configuration de la journalisation
 
-Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnostic pour les requêtes de lecture, d’écriture et de suppression pour les services blob, table et file d’attente. La stratégie de rétention des données que vous définissez s’applique également à ces journaux.
+Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnostic pour les requêtes de lecture, d’écriture et de suppression pour les services blob, table et file d’attente. La stratégie de rétention des données que vous définissez s’applique également à ces journaux d’activité.
 
 > [!NOTE]
 > Azure Files prend actuellement en charge les métriques de Storage Analytics, mais pas encore la journalisation.

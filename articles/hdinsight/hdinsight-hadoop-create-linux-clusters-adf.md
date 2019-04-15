@@ -318,7 +318,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
     - Vous voyez un conteneur **adfhdidatafactory-\<nom_service_lié>-\<horodatage>**. Ce conteneur est l’emplacement de stockage par défaut du cluster HDInsight qui a été créé dans le cadre de l’exécution du pipeline.
 
-    - Vous voyez un conteneur **adfjobs** qui contient les journaux des tâches Azure Data Factory.  
+    - Vous voyez un conteneur **adfjobs** qui contient les journaux d’activité des tâches Azure Data Factory.  
 
         ![Vérifier la sortie du pipeline Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-verify-output.png "Vérifier la sortie du pipeline Azure Data Factory")
 

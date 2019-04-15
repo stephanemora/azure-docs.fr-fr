@@ -172,7 +172,7 @@ Dans le portail Azure, lorsque vous essayez de vous connecter à une machine vir
 
 ## <a name="auditing-jit-access-activity"></a>Audit de l’activité d’accès JIT
 
-Vous pouvez obtenir des informations sur les activités des machines virtuelles à l’aide de la recherche dans les journaux. Pour consulter les journaux :
+Vous pouvez obtenir des informations sur les activités des machines virtuelles à l’aide de la recherche dans les journaux. Pour consulter les journaux d’activité :
 
 1. Sous **Accès juste-à-temps à la machine virtuelle**, sélectionnez l’onglet **Configuré**.
 2. Sous **Machines virtuelles**, sélectionnez la machine virtuelle dont vous souhaitez consulter les informations en cliquant sur l’ellipse qui se trouve sur la ligne de cette machine virtuelle. Un menu s’ouvre.

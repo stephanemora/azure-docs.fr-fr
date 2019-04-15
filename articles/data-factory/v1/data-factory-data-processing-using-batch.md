@@ -124,7 +124,7 @@ Créez un pool Azure Batch comprenant au moins deux nœuds de calcul.
    f. Sélectionnez **OK** pour créer le pool.
 
 #### <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
-Vous utilisez [Explorateur Stockage Azure 6](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (à partir de ClumsyLeaf Software) pour inspecter et modifier les données dans vos projets de stockage. Vous pouvez également examiner et modifier les données dans les journaux de vos applications hébergées dans le cloud.
+Vous utilisez [Explorateur Stockage Azure 6](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (à partir de ClumsyLeaf Software) pour inspecter et modifier les données dans vos projets de stockage. Vous pouvez également examiner et modifier les données dans les journaux d’activité de vos applications hébergées dans le cloud.
 
 1. Créez un conteneur nommé **mycontainer** avec un accès privé (sans accès anonyme).
 
@@ -593,7 +593,7 @@ Les services liés relient des magasins de données ou des services de calcul à
       >
       >
    
-   e. Spécifiez **StorageLinkedService** for the **StorageLinkedService** . Vous avez créé ce service lié à l’étape précédente. Ce stockage est utilisé en tant que zone de transit pour les fichiers et les journaux.
+   e. Spécifiez **StorageLinkedService** for the **StorageLinkedService** . Vous avez créé ce service lié à l’étape précédente. Ce stockage est utilisé en tant que zone de transit pour les fichiers et les journaux d’activité.
 
 1. Sélectionnez **Déployer** dans la barre de commandes pour déployer le service lié.
 

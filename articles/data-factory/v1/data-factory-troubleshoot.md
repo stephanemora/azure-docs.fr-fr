@@ -103,7 +103,7 @@ Pour résoudre l’erreur, ajoutez la propriété **external** et la section **e
 Consultez la page [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) pour savoir comment résoudre les problèmes de copie depuis/vers un magasin de données local avec la passerelle de gestion des données.
 
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problème : Échec du provisionnement HDInsight à la demande
-Lorsque vous utilisez un service lié de type HDInsightOnDemand, vous devez spécifier un linkedServiceName qui pointe vers un stockage d’objets blob Azure. Le service Data Factory utilise ce stockage pour stocker les journaux et les fichiers d’accompagnement pour votre cluster HDInsight à la demande.  Parfois, l’approvisionnement d'un cluster HDInsight à la demande échoue avec l'erreur suivante :
+Lorsque vous utilisez un service lié de type HDInsightOnDemand, vous devez spécifier un linkedServiceName qui pointe vers un stockage d’objets blob Azure. Le service Data Factory utilise ce stockage pour stocker les journaux d’activité et les fichiers d’accompagnement pour votre cluster HDInsight à la demande.  Parfois, l’approvisionnement d'un cluster HDInsight à la demande échoue avec l'erreur suivante :
 
 ```
 Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.

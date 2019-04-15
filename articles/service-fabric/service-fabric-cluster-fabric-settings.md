@@ -127,7 +127,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | --- | --- | --- | --- |
 |AppDiagnosticStoreAccessRequiresImpersonation |Valeur booléenne (valeur par défaut : true) | Dynamique |Indique si l’emprunt d’identité est requis lors de l’accès aux magasins de diagnostics pour le compte de l’application. |
 |AppEtwTraceDeletionAgeInDays |Entier (valeur par défaut : 3) | Dynamique |Délai en jours à l’issue duquel nous supprimons les anciens fichiers ETL contenant les traces ETW d’application. |
-|ApplicationLogsFormatVersion |Entier (valeur par défaut : 0) | Dynamique |Version du format des journaux de l’application. Valeurs prises en charge : 0 et 1. La version 1 comprend davantage de champs de l’enregistrement d’événement ETW que la version 0. |
+|ApplicationLogsFormatVersion |Entier (valeur par défaut : 0) | Dynamique |Version du format des journaux d’activité de l’application. Valeurs prises en charge : 0 et 1. La version 1 comprend davantage de champs de l’enregistrement d’événement ETW que la version 0. |
 |ClusterId |Chaîne | Dynamique |ID unique du cluster. Valeur générée lors de la création du cluster. |
 |ConsumerInstances |Chaîne | Dynamique |Liste des instances de consommateur DCA. |
 |DiskFullSafetySpaceInMB |Entier (valeur par défaut : 1024) | Dynamique |Espace disque restant (en Mo) à protéger contre toute utilisation par DCA. |
@@ -805,7 +805,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ContainerNetworkName|Chaîne (valeur par défaut : "")| statique |Le nom du réseau à utiliser lors de la configuration d’un réseau de conteneur.|
 |ContainerNetworkSetup|valeur booléenne, valeur par défaut : FALSE| statique |Spécifie si un réseau de conteneur doit être configuré.|
 |FabricDataRoot |Chaîne | Non autorisée |Répertoire racine des données Service Fabric. La valeur par défaut pour Azure est d:\svcfab |
-|FabricDataRoot |Chaîne | Non autorisée |Répertoire racine du journal Service Fabric. Il s’agit de l’emplacement des journaux et des traces de SF. |
+|FabricDataRoot |Chaîne | Non autorisée |Répertoire racine du journal Service Fabric. Il s’agit de l’emplacement des journaux d’activité et des traces de SF. |
 |NodesToBeRemoved|Chaîne (valeur par défaut : "")| Dynamique |Les nœuds qui doivent être supprimés dans le cadre de la mise à niveau de la configuration. (Uniquement pour les déploiements autonomes)|
 |ServiceRunAsAccountName |Chaîne | Non autorisée |Nom du compte sous lequel exécuter le service hôte Fabric. |
 |SkipContainerNetworkResetOnReboot|valeur booléenne, valeur par défaut : FALSE|Non autorisé|Indique s’il faut ou non ignorer la réinitialisation du réseau de conteneur au redémarrage.|

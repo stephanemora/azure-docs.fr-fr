@@ -31,7 +31,7 @@ Pour obtenir une présentation d’Azure Monitor, parcourir une vue d’ensemble
 
 ![Panneau Azure Stack Monitor](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-Azure Monitor est le service de plateforme qui fournit une source unique d’analyse des ressources Azure. Azure Monitor permet de visualiser, d’interroger, de router et d’archiver les métriques et journaux provenant de ressources Azure, ainsi que d’entreprendre des actions sur ceux-ci. Vous pouvez utiliser ces données à l’aide du portail d’administration Azure Stack, des cmdlets PowerShell Monitor, de l’interface de ligne de commande multiplateforme ou des API REST Azure Monitor. Pour en savoir plus sur la connectivité spécifique prise en charge par Azure Stack, consultez l’article portant sur la [consommation des données de surveillance issues d’Azure Stack](azure-stack-metrics-monitor.md).
+Azure Monitor est le service de plateforme qui fournit une source unique d’analyse des ressources Azure. Azure Monitor permet de visualiser, d’interroger, de router et d’archiver les métriques et journaux d’activité provenant de ressources Azure, ainsi que d’entreprendre des actions sur ceux-ci. Vous pouvez utiliser ces données à l’aide du portail d’administration Azure Stack, des cmdlets PowerShell Monitor, de l’interface de ligne de commande multiplateforme ou des API REST Azure Monitor. Pour en savoir plus sur la connectivité spécifique prise en charge par Azure Stack, consultez l’article portant sur la [consommation des données de surveillance issues d’Azure Stack](azure-stack-metrics-monitor.md).
 
 > [!Note]
 > Les métriques et les journaux de diagnostic ne sont pas disponibles pour le kit de développement Azure Stack.
@@ -48,7 +48,7 @@ Enregistrer le fournisseur de ressources **Microsoft.insights** dans les paramè
 
 ## <a name="overview-of-azure-monitor-on-azure-stack"></a>Vue d’ensemble d’Azure Monitor sur Azure Stack
 
-Tout comme Azure Monitor sur Azure, Azure Monitor sur Azure Stack fournit des métriques et journaux de base à propos de l’infrastructure pour une majorité de services.
+Tout comme Azure Monitor sur Azure, Azure Monitor sur Azure Stack fournit des métriques et journaux d’activité de base à propos de l’infrastructure pour une majorité de services.
 
 ## <a name="azure-monitor-sources-compute-subset"></a>Sources Azure Monitor : sous-ensemble de calcul
 
@@ -58,19 +58,19 @@ Le fournisseur de ressources **Microsoft.Compute** dans Azure Stack inclut :
  - Virtual Machines 
  - Groupes de machines virtuelles identiques
 
-### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>Application – Journaux de diagnostic, journaux d’application et métriques
+### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>Application – Journaux de diagnostic, journaux d’activité d’application et métriques
 
-Les applications peuvent s’exécuter dans le système d’exploitation d’une machine virtuelle fonctionnant avec le fournisseur de ressources **Microsoft.Compute**. Ces applications et les machines virtuelles émettent leur propre ensemble de journaux et de métriques. Azure Monitor s’appuie sur l’extension de diagnostics Azure pour collecter la plupart des métriques et journaux de niveau application (Windows ou Linux). 
+Les applications peuvent s’exécuter dans le système d’exploitation d’une machine virtuelle fonctionnant avec le fournisseur de ressources **Microsoft.Compute**. Ces applications et les machines virtuelles émettent leur propre ensemble de journaux d’activité et de métriques. Azure Monitor s’appuie sur l’extension de diagnostics Azure pour collecter la plupart des métriques et journaux d’activité de niveau application (Windows ou Linux). 
 
 Parmi ces types de mesures, on compte :
  - Compteurs de performances
- - Journaux d’application
+ - Journaux d’activité d’application
  - Journaux des événements Windows
  - Source d’événement .NET
- - Journaux IIS
+ - Journaux d’activité IIS
  - Suivi d’événements pour Windows basé sur les manifestes
  - Vidages sur incident
- - Journaux d'erreurs client
+ - Journaux d’activité d’erreurs client
 
 > [!Note]  
 > L’extension Linux Diagnostics n’est pas prise en charge sur Azure Stack.

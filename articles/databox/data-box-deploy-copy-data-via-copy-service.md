@@ -102,7 +102,7 @@ Pour copier des données par l’intermédiaire du service de copie des données
 
         ![Redémarrage d’une tâche ayant échoué](media/data-box-deploy-copy-data-via-copy-service/restart-failed-job.png)
 
-        Si vous ne parvenez pas à redémarrer le travail après un échec, téléchargez les journaux d’erreurs pour comprendre les raisons de cet échec. Une fois le problème corrigé, créez un travail pour copier les fichiers. Vous pouvez également [copier les fichiers sur SMB](data-box-deploy-copy-data.md).
+        Si vous ne parvenez pas à redémarrer le travail après un échec, téléchargez les journaux d’activité d’erreurs pour comprendre les raisons de cet échec. Une fois le problème corrigé, créez un travail pour copier les fichiers. Vous pouvez également [copier les fichiers sur SMB](data-box-deploy-copy-data.md).
     
     - Dans cette version, vous ne pouvez pas supprimer de tâche.
     
@@ -123,7 +123,7 @@ Pour copier des données par l’intermédiaire du service de copie des données
     - Dans la colonne **Fichiers**, vous pouvez voir le nombre ainsi que la taille totale des fichiers en cours de copie.
     - Dans la colonne **Traités**, vous pouvez voir le nombre ainsi que la taille totale des fichiers qui sont traités.
     - Dans la colonne **Détails du travail**, sélectionnez **Afficher** pour voir les informations concernant le travail.
-    - Si des erreurs se produisent pendant le processus de copie, comme indiqué dans la colonne **Nombre d’erreurs**, accédez à la colonne **Journal des erreurs**, puis téléchargez les journaux d’erreurs pour résoudre les problèmes.
+    - Si des erreurs se produisent pendant le processus de copie, comme indiqué dans la colonne **Nombre d’erreurs**, accédez à la colonne **Journal des erreurs**, puis téléchargez les journaux d’activité d’erreurs pour résoudre les problèmes.
 
 Attendez la fin du travail de copie. Comme certaines erreurs ne sont journalisées que dans la page **Connexion et copie**, vérifiez que le travail de copie s’est terminé sans erreur avant de passer à l’étape suivante.
 

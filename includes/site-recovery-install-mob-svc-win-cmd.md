@@ -46,7 +46,7 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 |/Silent|Facultatif|Indique que le programme d’installation doit être exécuté en mode silencieux.| S.O.|
 
 >[!TIP]
-> Les journaux d’installation se trouvent sous %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+> Les journaux d’activité d’installation se trouvent sous %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 
 #### <a name="mobility-service-registration-command-line-arguments"></a>Arguments de ligne de commande de l’inscription du service Mobilité
 
@@ -62,4 +62,4 @@ UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <Passphrase
 
 
 >[!TIP]
-> Les journaux de configuration de l’agent se trouvent sous %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
+> Les journaux d’activité de configuration de l’agent se trouvent sous %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.

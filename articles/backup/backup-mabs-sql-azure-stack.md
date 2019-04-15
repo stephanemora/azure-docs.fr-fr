@@ -10,7 +10,7 @@ ms.date: 6/8/2018
 ms.author: adigan
 ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
 ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55493505"
@@ -58,7 +58,7 @@ La gestion de sauvegarde et de récupération de base de données SQL Server dan
     ![Objectifs à court terme](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
-   > Dans l’exemple suivant, un point de sauvegarde est créé tous les jours à 20 h 00 en transférant les données modifiées provenant du point de sauvegarde créé à 20 h 00 la veille. Ce processus est appelé **Sauvegarde expresse rapide**. Les journaux des transactions sont synchronisés toutes les 15 minutes. Si vous devez récupérer la base de données à 21 h 00, le point est créé à partir des journaux du dernier point de la sauvegarde complète express (20 h 00 dans ce cas).
+   > Dans l’exemple suivant, un point de sauvegarde est créé tous les jours à 20 h 00 en transférant les données modifiées provenant du point de sauvegarde créé à 20 h 00 la veille. Ce processus est appelé **Sauvegarde expresse rapide**. Les journaux d’activité des transactions sont synchronisés toutes les 15 minutes. Si vous devez récupérer la base de données à 21 h 00, le point est créé à partir des journaux d’activité du dernier point de la sauvegarde complète express (20 h 00 dans ce cas).
    >
    >
 

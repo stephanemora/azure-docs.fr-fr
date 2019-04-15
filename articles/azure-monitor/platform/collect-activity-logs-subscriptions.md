@@ -21,7 +21,7 @@ ms.locfileid: "58540752"
 ---
 # <a name="collect-azure-activity-logs-into-a-log-analytics-workspace-across-subscriptions-in-different-azure-active-directory-tenants"></a>Collecter les journaux d’activité Azure différents abonnements dans différents locataires Azure Active Directory dans un espace de travail Analytique de journal
 
-Cet article décrit une méthode pour collecter des journaux d’activité Azure dans un espace de travail Analytique de journal dans Azure Monitor à l’aide du connecteur Azure Log Analytique Data Collector pour Logic Apps. Utilisez la procédure de cet article lorsque vous devez envoyer des journaux à un espace de travail situé dans un autre locataire Azure Active Directory. Par exemple, si vous êtes un fournisseur de service managé, vous pouvez collecter les journaux d’activité de l’abonnement d’un client et les stocker dans un espace de travail Log Analytics de votre propre abonnement.
+Cet article décrit une méthode pour collecter des journaux d’activité Azure dans un espace de travail Analytique de journal dans Azure Monitor à l’aide du connecteur Azure Log Analytique Data Collector pour Logic Apps. Utilisez la procédure de cet article lorsque vous devez envoyer des journaux d’activité à un espace de travail situé dans un autre locataire Azure Active Directory. Par exemple, si vous êtes un fournisseur de service managé, vous pouvez collecter les journaux d’activité de l’abonnement d’un client et les stocker dans un espace de travail Log Analytics de votre propre abonnement.
 
 Si l’espace de travail Log Analytics est situé dans le même abonnement Azure, ou dans un autre abonnement mais au sein du même répertoire Azure Active Directory, utilisez la procédure décrite dans la [solution de journal d’activité Azure](collect-activity-logs.md) pour collecter les journaux d’activité Azure.
 
@@ -43,7 +43,7 @@ Cet article vous explique les procédures détaillées pour :
 ## <a name="requirements"></a>Configuration requise
 Voici la configuration requise pour les ressources Azure utilisées dans ce scénario.
 
-- L’espace de noms Event Hub ne doit pas nécessairement se trouver dans l’abonnement qui émet les journaux. L’utilisateur qui configure le paramètre doit disposer d’autorisations d’accès appropriées aux deux abonnements. Si vous avez plusieurs abonnements dans le même répertoire Azure Active Directory, vous pouvez envoyer les journaux d’activité de tous les abonnements à un seul Event Hub.
+- L’espace de noms Event Hub ne doit pas nécessairement se trouver dans l’abonnement qui émet les journaux d’activité. L’utilisateur qui configure le paramètre doit disposer d’autorisations d’accès appropriées aux deux abonnements. Si vous avez plusieurs abonnements dans le même répertoire Azure Active Directory, vous pouvez envoyer les journaux d’activité de tous les abonnements à un seul Event Hub.
 - L’application logique peut se trouver dans un abonnement différent de celui de l’Event Hub et ne doit pas nécessairement se trouver dans le même répertoire Azure Active Directory. L’application logique lit à partir de l’Event Hub à l’aide de la clé d’accès partagé de celui-ci.
 - L’espace de travail Log Analytics peut se trouver dans un abonnement et un répertoire Azure Active Directory différents de ceux de l’application logique. Toutefois, par souci de simplicité, il est recommandé qu’ils se trouvent dans le même abonnement. L’application logique envoie à l’espace de travail à l’aide de l’ID d’espace de travail Analytique de journal et la clé.
 
@@ -78,7 +78,7 @@ Voici la configuration requise pour les ressources Azure utilisées dans ce scé
 
 Pour permettre le streaming du journal d’activité, vous pouvez choisir un espace de noms Event Hub et une stratégie d’accès partagé pour cet espace de noms. Un Event Hub est créé dans cet espace de noms lorsque le premier nouvel événement de journal d’activité se produit. 
 
-Vous pouvez utiliser un espace de noms Event Hub situé dans un abonnement différent de celui qui émet les journaux. Les abonnements doivent cependant figurer dans le même répertoire Azure Active Directory. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements. 
+Vous pouvez utiliser un espace de noms Event Hub situé dans un abonnement différent de celui qui émet les journaux d’activité. Les abonnements doivent cependant figurer dans le même répertoire Azure Active Directory. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements. 
 
 1. Dans le portail Azure, sélectionnez **Moniteur** > **Journal d’activité**.
 3. Cliquez sur le bouton **Exporter** en haut de la page.

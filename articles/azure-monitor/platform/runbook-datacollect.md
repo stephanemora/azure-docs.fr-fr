@@ -201,7 +201,7 @@ Une fois que la planification est créée, vous devez définir les valeurs de pa
 1. Dans les propriétés de votre runbook, sélectionnez **Travaux** sous **Ressources**.
 2. Vous devez voir une liste des travaux pour chaque démarrage du runbook.
 3. Cliquez sur l’un des travaux pour en afficher les détails.
-4. Cliquez sur **Tous les journaux** pour afficher les journaux et les sorties du runbook.
+4. Cliquez sur **Tous les journaux d’activité** pour afficher les journaux d’activité et les sorties du runbook.
 5. Faites défiler vers le bas pour rechercher une entrée similaire à l’image ci-dessous.<br>![Détaillé](media/runbook-datacollect/verbose.png)
 6. Cliquez sur cette entrée pour afficher les données json détaillées qui ont été envoyées à Log Analytics.
 

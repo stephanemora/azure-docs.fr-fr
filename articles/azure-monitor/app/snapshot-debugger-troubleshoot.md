@@ -43,9 +43,9 @@ Assurez-vous que vous utilisez la clé d’instrumentation correcte dans votre a
 
 Si le débogueur de capture instantanée a été activée par le biais du [volet Application Insights dans le portail](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), puis votre application doit déjà être en cours d’exécution le dernier package NuGet. Si le débogueur de capture instantanée a été activé en incluant le [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) package NuGet, Gestionnaire de Package NuGet d’utilisation de Visual Studio s’assurer que vous utilisez la dernière version de Microsoft.ApplicationInsights.SnapshotCollector. Les notes de publication sont disponibles dans la page https://github.com/Microsoft/ApplicationInsights-Home/issues/167.
 
-## <a name="check-the-uploader-logs"></a>Vérifier les journaux du chargeur
+## <a name="check-the-uploader-logs"></a>Vérifier les journaux d’activité du chargeur
 
-Une fois une capture instantanée créée, un fichier minidump (.dmp) est créé sur le disque. Un processus distinct du chargeur crée ce fichier minidump et le charge, ainsi que tous les fichiers PDB associés, vers le stockage du Débogueur de capture instantanée d’Application Insights. Une fois le fichier minidump correctement chargé, il est supprimé du disque. Les fichiers journaux du processus de chargement sont conservés sur disque. Dans un environnement App Service, vous pouvez trouver ces fichiers journaux dans `D:\Home\LogFiles`. Le site de gestion Kudu pour App Service permet de rechercher ces fichiers journaux.
+Une fois une capture instantanée créée, un fichier minidump (.dmp) est créé sur le disque. Un processus distinct du chargeur crée ce fichier minidump et le charge, ainsi que tous les fichiers PDB associés, vers le stockage du Débogueur de capture instantanée d’Application Insights. Une fois le fichier minidump correctement chargé, il est supprimé du disque. Les fichiers journaux du processus de chargement sont conservés sur disque. Dans un environnement App Service, vous pouvez trouver ces fichiers journaux d’activité dans `D:\Home\LogFiles`. Le site de gestion Kudu pour App Service permet de rechercher ces fichiers journaux.
 
 1. Ouvrez votre application App Service dans le portail Azure.
 2. Cliquez sur **Outils avancés**, ou recherchez **Kudu**.
@@ -100,7 +100,7 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
     DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
-Pour les applications qui ne sont _pas_ hébergées dans App Service, les fichiers journaux du chargeur figurent dans le même dossier que les fichiers minidump : `%TEMP%\Dumps\<ikey>` (où `<ikey>` est votre clé d’instrumentation).
+Pour les applications qui ne sont _pas_ hébergées dans App Service, les fichiers journaux d’activité du chargeur figurent dans le même dossier que les fichiers minidump : `%TEMP%\Dumps\<ikey>` (où `<ikey>` est votre clé d’instrumentation).
 
 ## <a name="troubleshooting-cloud-services"></a>Dépannage de Cloud Services
 Pour les rôles dans Cloud Services, le dossier temporaire par défaut peut être trop petit pour contenir les fichiers minidump, conduisant à des pertes d’instantanés.
@@ -209,13 +209,13 @@ Quand un instantané est créé, l’exception levée est marquée avec un ID d�
 
 Si cette recherche ne retourne aucun résultat, cela signifie qu’aucun instantané n’a été signalé à Application Insights pour votre application dans l’intervalle de temps sélectionné.
 
-Pour rechercher un ID d’instantané spécifique dans les fichiers journaux du chargeur, tapez cet ID dans la zone de recherche. Si vous ne trouvez la télémétrie d’une capture instantanée dont vous savez qu’elle a été chargée, procédez comme suit :
+Pour rechercher un ID d’instantané spécifique dans les fichiers journaux d’activité du chargeur, tapez cet ID dans la zone de recherche. Si vous ne trouvez la télémétrie d’une capture instantanée dont vous savez qu’elle a été chargée, procédez comme suit :
 
 1. Vérifiez soigneusement que vous examinez la ressource Application Insights appropriée en vérifiant la clé d’instrumentation.
 
 2. À l’aide de l’horodateur du fichier journal du chargeur, ajustez le filtre Intervalle de temps de la recherche pour couvrir cet intervalle.
 
-Si vous ne voyez toujours pas d’exception avec cet ID d’instantané, cela signifie que la télémétrie de l’exception n’a pas été signalée à Application Insights. Cette situation peut se produire si votre application s’est arrêtée anormalement après avoir pris la capture instantanée, mais avant d’avoir signalé la télémétrie de l’exception. Dans ce cas, vérifiez les journaux d’App Service sous `Diagnose and solve problems` pour voir si des redémarrages intempestifs ou des exceptions non prises en charge se sont produits.
+Si vous ne voyez toujours pas d’exception avec cet ID d’instantané, cela signifie que la télémétrie de l’exception n’a pas été signalée à Application Insights. Cette situation peut se produire si votre application s’est arrêtée anormalement après avoir pris la capture instantanée, mais avant d’avoir signalé la télémétrie de l’exception. Dans ce cas, vérifiez les journaux d’activité d’App Service sous `Diagnose and solve problems` pour voir si des redémarrages intempestifs ou des exceptions non prises en charge se sont produits.
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>Modifier les règles de pare-feu ou de proxy réseau
 

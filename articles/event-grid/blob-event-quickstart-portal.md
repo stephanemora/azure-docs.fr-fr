@@ -72,7 +72,7 @@ Vous vous abonnez à une rubrique pour communiquer à Event Grid les événement
 
 1. L’abonnement aux événements est prérempli avec les valeurs de votre stockage d’objets blob. Pour le point de terminaison du webhook, indiquez l’URL de votre application web et ajoutez `api/updates` à l’URL de la page d’accueil. Donnez un nom à votre abonnement. Quand vous avez terminé, sélectionnez **Créer**.
 
-   ![Sélectionner des journaux](./media/blob-event-quickstart-portal/create-subscription.png)
+   ![Sélectionner des journaux d’activité](./media/blob-event-quickstart-portal/create-subscription.png)
 
 1. Affichez à nouveau votre application web, et notez qu’un événement de validation d’abonnement lui a été envoyé. Sélectionnez l’icône en forme d’œil pour développer les données d’événements. Event Grid envoie l’événement de validation pour que le point de terminaison puisse vérifier qu’il souhaite recevoir des données d’événement. L’application web inclut du code pour valider l’abonnement.
 

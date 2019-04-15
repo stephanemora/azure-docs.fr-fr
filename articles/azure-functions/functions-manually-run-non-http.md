@@ -45,7 +45,7 @@ Accédez à votre fonction dans le portail Azure. Cliquez sur **Gérer**, puis r
 
 ![Copier la clé principale à partir de l’écran Gestion des fonctions](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
 
-Après avoir copié la clé principale, cliquez sur le nom de fonction pour revenir à la fenêtre du fichier de code. Cliquez ensuite sur l'onglet **Journaux**. Vous noterez ici la présence de messages émanant de la fonction consignée lors de l'exécution de la fonction à partir de Postman.
+Après avoir copié la clé principale, cliquez sur le nom de fonction pour revenir à la fenêtre du fichier de code. Cliquez ensuite sur l’onglet **Journaux d’activité**. Vous noterez ici la présence de messages émanant de la fonction consignée lors de l'exécution de la fonction à partir de Postman.
 
 > [!CAUTION]  
 > En raison des autorisations élevées dans votre application de fonction accordées par la clé principale, vous ne devez pas partager celle-ci avec des tiers, ou la distribuer dans une application.
@@ -73,7 +73,7 @@ Ouvrez Postman et procédez comme suit :
 
 Postman indique alors un état **202 Accepté**.
 
-Revenez ensuite à votre fonction sur le Portail Azure. Reportez-vous à la fenêtre *Journaux* afin de consulter les messages émanant de l'appel manuel de la fonction.
+Revenez ensuite à votre fonction sur le Portail Azure. Reportez-vous à la fenêtre *Journaux d’activité* afin de consulter les messages émanant de l’appel manuel de la fonction.
 
 ![Résultats du journal de la fonction à partir d'un appel manuel](./media/functions-manually-run-non-http/azure-portal-function-log.png)
 

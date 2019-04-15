@@ -156,7 +156,7 @@ Register-AppProxyConnector
 
 ## <a name="under-the-hood"></a>Sous le capot
 
-Comme les connecteurs sont basés sur le proxy d’application web Windows Server, la plupart ont les mêmes outils de gestion, y compris les journaux d’événements Windows
+Comme les connecteurs sont basés sur le proxy d’application web Windows Server, la plupart ont les mêmes outils de gestion, y compris les journaux d’activité d’événements Windows
 
  ![Gérez les journaux d’événements avec l’Observateur d’événements](./media/application-proxy-connectors/event-view-window.png)
 
@@ -164,9 +164,9 @@ et les compteurs de performances Windows.
 
  ![Ajouter des compteurs au connecteur avec l’Analyseur de performances](./media/application-proxy-connectors/performance-monitor.png)
 
-Les connecteurs ont des journaux de session et admin. Les journaux admin incluent les événements principaux et leurs erreurs. Les journaux de session incluent toutes les transactions et les détails de traitement. 
+Les connecteurs ont des journaux d’activité de session et admin. Les journaux d’activité admin incluent les événements principaux et leurs erreurs. Les journaux d’activité de session incluent toutes les transactions et les détails de traitement. 
 
-Pour afficher les journaux, accédez l’Observateur d’événements, ouvrez le menu **Affichage**, puis activez **Afficher les journaux d’analyse et de débogage**. Ensuite, permettez-leur de lancer la collecte d’événements. Ces journaux n’apparaissent pas dans le proxy d’application web dans Windows Server 2012 R2, car les connecteurs sont basés sur une version plus récente.
+Pour afficher les journaux d’activité, accédez l’Observateur d’événements, ouvrez le menu **Affichage**, puis activez **Afficher les journaux d’activité d’analyse et de débogage**. Ensuite, permettez-leur de lancer la collecte d’événements. Ces journaux d’activité n’apparaissent pas dans le proxy d’application web dans Windows Server 2012 R2, car les connecteurs sont basés sur une version plus récente.
 
 Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecteur se compose de deux services Windows : le connecteur lui-même et le programme de mise à jour. Tous deux doivent s’exécuter en permanence.
 

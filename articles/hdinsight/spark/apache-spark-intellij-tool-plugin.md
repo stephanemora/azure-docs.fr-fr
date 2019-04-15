@@ -244,7 +244,7 @@ Vous pouvez effectuer diverses opérations à l’aide du kit de ressources Azur
 
     ![Détails des étapes du travail](./media/apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
-4. Pour afficher les journaux fréquemment utilisés tels que les journaux *Driver Stderr*, *Driver Stdout* et *Directory Info*, sélectionnez l’onglet **Journal**.
+4. Pour afficher les journaux d’activité fréquemment utilisés tels que les journaux d’activité *Driver Stderr*, *Driver Stdout* et *Directory Info*, sélectionnez l’onglet **Journal**.
 
     ![Détails des journaux](./media/apache-spark-intellij-tool-plugin/Job-log-info.png)
 

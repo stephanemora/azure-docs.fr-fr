@@ -36,7 +36,7 @@ Des FAQ pertinentes liées aux performances de SAP HANA se trouvent dans les Not
 
 ## <a name="sap-hana-alerts"></a>Alertes SAP HANA
 
-Dans un premier temps, vérifiez les journaux d’alerte SAP HANA. Dans SAP HANA Studio, accédez à **Console d’Administration : Alertes : Afficher : toutes les alertes**. Cet onglet affiche toutes les alertes SAP HANA ayant des valeurs spécifiques (mémoire physique disponible, utilisation du processeur, etc.) qui se situent en dehors des seuils minimum et maximum définis. Par défaut, les vérifications sont effectuées automatiquement toutes les 15 minutes.
+Dans un premier temps, vérifiez les journaux d’activité d’alerte SAP HANA. Dans SAP HANA Studio, accédez à **Console d’Administration : Alertes : Afficher : toutes les alertes**. Cet onglet affiche toutes les alertes SAP HANA ayant des valeurs spécifiques (mémoire physique disponible, utilisation du processeur, etc.) qui se situent en dehors des seuils minimum et maximum définis. Par défaut, les vérifications sont effectuées automatiquement toutes les 15 minutes.
 
 ![Dans SAP HANA Studio, accédez à la Console d’Administration : Alertes : Afficher : toutes les alertes](./media/troubleshooting-monitoring/image1-show-alerts.png)
 

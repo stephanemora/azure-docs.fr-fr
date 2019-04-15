@@ -19,7 +19,7 @@ ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47273bf687d88e82afba5de878f08bd53422479c
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56204766"
@@ -59,7 +59,7 @@ Vous devez également connaître les services cloud dont votre entreprise dispos
 * Cette intégration est-elle actuellement en production ou s’agit-il d’un pilote ?
 
 > [!NOTE]
-> Cloud Discovery analyse vos journaux de trafic par rapport au catalogue d’applications cloud de Microsoft Cloud App Security, qui contient plus de 16 000 applications cloud classées et évaluées selon plus de 70 facteurs de risque, pour vous fournir une visibilité permanente sur l’utilisation du cloud, les clichés instantanés et le risque des clichés instantanés dans votre organisation. Pour commencer, consultez la [configuration de Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
+> Cloud Discovery analyse vos journaux d’activité de trafic par rapport au catalogue d’applications cloud de Microsoft Cloud App Security, qui contient plus de 16 000 applications cloud classées et évaluées selon plus de 70 facteurs de risque, pour vous fournir une visibilité permanente sur l’utilisation du cloud, les clichés instantanés et le risque des clichés instantanés dans votre organisation. Pour commencer, consultez la [configuration de Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 

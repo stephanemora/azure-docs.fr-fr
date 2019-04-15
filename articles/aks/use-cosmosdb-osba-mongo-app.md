@@ -267,7 +267,7 @@ press Ctrl+C to detach
 ...
 ```
 
-Accédez à l’URL affichée dans les journaux. Dans l’exemple précédent, vous utiliseriez *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/*. 
+Accédez à l’URL affichée dans les journaux d’activité. Dans l’exemple précédent, vous utiliseriez *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/*. 
 
 Vérifiez que l’application est visible, avec vos modifications.
 

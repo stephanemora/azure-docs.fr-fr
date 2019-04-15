@@ -29,7 +29,7 @@ Le fait de savoir comment diagnostiquer tout problème se produisant au sein de 
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Activer l’analytique des journaux d’activité pour votre instance
 
-Les journaux et les métriques de votre instance Azure Digital Twins sont affichés dans Azure Monitor. Cette documentation suppose que vous avez créé un [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md) espace de travail via le [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), jusqu'à [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), ou via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+Les journaux d’activité et les métriques de votre instance Azure Digital Twins sont affichés dans Azure Monitor. Cette documentation suppose que vous avez créé un [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md) espace de travail via le [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), jusqu'à [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), ou via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
 > Vous pouvez rencontrer un délai de 5 minutes lors de l’envoi des événements dans les journaux d’Azure Monitor pour la première fois.
@@ -45,7 +45,7 @@ Pour savoir comment configurer les paramètres du journal de diagnostic dans Azu
 
 Pour suivre la télémétrie du capteur, vérifiez que les paramètres de diagnostic sont activés pour votre instance Azure Digital Twins. Ensuite, assurez-vous que toutes les catégories de journaux souhaitées sont sélectionnées. Enfin, vérifiez que les journaux de votre choix sont envoyés aux journaux d’Azure Monitor.
 
-Pour faire correspondre un message de télémétrie de capteur à ses journaux respectifs, vous pouvez spécifier un ID de corrélation sur les données d’événement envoyées. Pour ce faire, définissez la propriété `x-ms-client-request-id` sur un GUID.
+Pour faire correspondre un message de télémétrie de capteur à ses journaux d’activité respectifs, vous pouvez spécifier un ID de corrélation sur les données d’événement envoyées. Pour ce faire, définissez la propriété `x-ms-client-request-id` sur un GUID.
 
 Après l’envoi des données de télémétrie, ouvrez analytique de journal pour rechercher des journaux à l’aide de l’ensemble des ID de corrélation :
 
@@ -209,4 +209,4 @@ Si vous activez les paramètres de diagnostic, vous pouvez rencontrer ces except
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment activer la [supervision et les journaux](../azure-monitor/platform/activity-logs-overview.md) dans Azure Digital Twins.
+- Découvrez comment activer la [supervision et les journaux d’activité](../azure-monitor/platform/activity-logs-overview.md) dans Azure Digital Twins.

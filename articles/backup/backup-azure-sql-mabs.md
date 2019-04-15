@@ -10,7 +10,7 @@ ms.date: 03/24/2017
 ms.author: kasinh
 ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
 ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55490463"
@@ -49,7 +49,7 @@ Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de
     ![Spécifier les objectifs à court terme](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
-   > À 20 h 00 (selon la saisie de l’écran), un point de sauvegarde est créé chaque jour par le transfert de données modifiées depuis le point de sauvegarde de 20 h 00 du jour précédent. Ce processus est appelé **Sauvegarde expresse rapide**. Lorsque les journaux de transaction sont synchronisés toutes les 15 minutes, s'il faut récupérer la base de données à 21h00, le point est créé suite à la relecture des journaux à partir du point de sauvegarde complète rapide (20h00 dans le cas présent).
+   > À 20 h 00 (selon la saisie de l’écran), un point de sauvegarde est créé chaque jour par le transfert de données modifiées depuis le point de sauvegarde de 20 h 00 du jour précédent. Ce processus est appelé **Sauvegarde expresse rapide**. Lorsque les journaux d’activité de transaction sont synchronisés toutes les 15 minutes, s’il faut récupérer la base de données à 21h00, le point est créé suite à la relecture des journaux d’activité à partir du point de sauvegarde complète rapide (20h00 dans le cas présent).
    >
    >
 

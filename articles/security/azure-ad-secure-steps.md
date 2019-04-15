@@ -142,7 +142,7 @@ Le risque à la connexion est la probabilité qu’une personne autre que le pro
 
 ## <a name="step-4---increase-your-awareness"></a>Étape 4 - Augmenter votre connaissance
 
-L’audit et la journalisation des événements liés à la sécurité, de même que les alertes associées, constituent des composants essentiels dans une stratégie de protection efficace. Les journaux et les rapports de sécurité vous fournissent un enregistrement électronique des activités suspectes et vous aident à détecter les motifs pouvant indiquer une tentative d’intrusion ou une intrusion externe effective sur le réseau, ainsi que des attaques internes. Vous pouvez avoir recours aux audits pour surveiller les activités des utilisateurs, documenter la conformité aux exigences réglementaires, effectuer des analyses d’investigation, etc. Les alertes fournissent des notifications des événements de sécurité.
+L’audit et la journalisation des événements liés à la sécurité, de même que les alertes associées, constituent des composants essentiels dans une stratégie de protection efficace. Les journaux d’activité et les rapports de sécurité vous fournissent un enregistrement électronique des activités suspectes et vous aident à détecter les motifs pouvant indiquer une tentative d’intrusion ou une intrusion externe effective sur le réseau, ainsi que des attaques internes. Vous pouvez avoir recours aux audits pour surveiller les activités des utilisateurs, documenter la conformité aux exigences réglementaires, effectuer des analyses d’investigation, etc. Les alertes fournissent des notifications des événements de sécurité.
 
 ### <a name="monitor-azure-ad"></a>Surveiller Azure AD
 

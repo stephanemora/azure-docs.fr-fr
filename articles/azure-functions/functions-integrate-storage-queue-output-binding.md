@@ -114,7 +114,7 @@ Dans cette section, vous ajoutez le code qui écrit un message dans la file d’
     
     Plutôt que de sélectionner **Exécuter** ici, vous pouvez appeler la fonction en entrant une URL dans un navigateur et en spécifiant la valeur `name` dans la chaîne de requête. La méthode du navigateur est affichée dans le [démarrage rapide précédent](functions-create-first-azure-function.md#test-the-function).
 
-2. Vérifiez les journaux pour vous assurer que la fonction a réussi. 
+2. Vérifiez les journaux d’activité pour vous assurer que la fonction a réussi. 
 
 Une nouvelle file d’attente nommée **outqueue** est créée dans votre compte de stockage, par le runtime des fonctions, lorsque la liaison de sortie est utilisée pour la première fois. Vous allez utiliser l’Explorateur Stockage pour vérifier que la file d’attente et un message dans celle-ci ont bien été créés.
 

@@ -104,7 +104,7 @@ Notez les points suivants :
 7. Dans la section **filePaths** , spécifiez les chemins des fichiers exécutables du mappeur et du raccord de réduction. Dans l’exemple « adfsample/example/apps/wc.exe », adfsample est le conteneur de l’objet blob, example/apps est le dossier et wc.exe est le fichier exécutable.
 8. Pour la propriété **fileLinkedService** , spécifiez le service lié Azure Storage qui représente le stockage Azure qui contient les fichiers spécifiés dans la section filePaths.
 9. Pour la propriété **arguments** , spécifiez les arguments de la tâche de diffusion en continu.
-10. La propriété **getDebugInfo** est un élément facultatif. Si sa valeur est Failure, les journaux ne sont téléchargés qu’en cas d’échec. Si sa valeur est Toujours, les journaux sont toujours téléchargés, quel que soit l’état de l’exécution.
+10. La propriété **getDebugInfo** est un élément facultatif. Si sa valeur est Failure, les journaux d’activité ne sont téléchargés qu’en cas d’échec. Si sa valeur est Toujours, les journaux d’activité sont toujours téléchargés, quel que soit l’état de l’exécution.
 
 > [!NOTE]
 > Comme indiqué dans l’exemple, vous spécifiez un jeu de données de sortie pour l’activité de diffusion en continu Hadoop pour la propriété **outputs** . Il s’agit simplement d’un ensemble de données factice qui est nécessaire au fonctionnement de la planification de pipeline. Il est inutile de spécifier un jeu de données en entrée pour l’activité de la propriété **entrées** .  

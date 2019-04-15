@@ -95,7 +95,7 @@ Pour une résolution des problèmes avancée, l’Observateur d’événements p
 
 ### <a name="sync-does-not-work-on-devices-that-have-apps-side-loaded-using-mdm-software"></a>La synchronisation ne fonctionne pas sur les appareils contenant des applications chargées à l’aide de logiciels de gestion des appareils mobiles
 
-Concerne les appareils exécutant la mise à jour anniversaire de Windows 10 (version 1607). Dans l’Observateur d’événements, dans les journaux SettingSync-Azure, l’ID d’événement 6013 avec l’erreur 80070259 apparaît fréquemment.
+Concerne les appareils exécutant la mise à jour anniversaire de Windows 10 (version 1607). Dans l’Observateur d’événements, dans les journaux d’activité SettingSync-Azure, l’ID d’événement 6013 avec l’erreur 80070259 apparaît fréquemment.
 
 **Action recommandée**  
 Assurez-vous que le client Windows 10 v1607 inclut la mise à jour cumulative du 23 août 2016 ([KB3176934](https://support.microsoft.com/kb/3176934) version du système d’exploitation 14393.82). 
@@ -171,7 +171,7 @@ Dans l’étape de nettoyage, nettoyez les fichiers suivants :
 
 ### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID d’événement 6065 : 80070533 Cet utilisateur ne peut pas se connecter car ce compte est actuellement désactivé  
 
-Dans l’Observateur d’événements, dans les journaux SettingSync/Debug, cette erreur peut apparaître lorsque les informations d’identification de l’utilisateur ont expiré. Par ailleurs, cette erreur peut apparaître lorsque le locataire n’a pas automatiquement configuré AzureRMS. 
+Dans l’Observateur d’événements, dans les journaux d’activité SettingSync/Debug, cette erreur peut apparaître lorsque les informations d’identification de l’utilisateur ont expiré. Par ailleurs, cette erreur peut apparaître lorsque le locataire n’a pas automatiquement configuré AzureRMS. 
 
 **Action recommandée**  
 Dans le premier cas, demandez à l’utilisateur de mettre à jour ses informations d’identification et de se connecter à l’appareil avec les nouvelles informations d’identification. Pour résoudre le problème AzureRMS, effectuez les étapes répertoriées dans [KB3193791](https://support.microsoft.com/kb/3193791). 
@@ -180,7 +180,7 @@ Dans le premier cas, demandez à l’utilisateur de mettre à jour ses informati
 
 ### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID d’événement 1098 : Error: Échec de l’opération de service Broker de jeton 0xCAA5001C  
 
-Dans l’Observateur d’événements, dans les journaux AAD/Operational, cette erreur peut apparaître avec l’événement 1104 : le jeton Get de l’appel du plug-in AAD Cloud AP a renvoyé une erreur : 0xC000005F. Ce problème se produit si des autorisations ou des attributs de propriété sont manquants.  
+Dans l’Observateur d’événements, dans les journaux d’activité AAD/Operational, cette erreur peut apparaître avec l’événement 1104 : le jeton Get de l’appel du plug-in AAD Cloud AP a renvoyé une erreur : 0xC000005F. Ce problème se produit si des autorisations ou des attributs de propriété sont manquants.  
 
 **Action recommandée**  
 Effectuez les étapes répertoriées dans [KB3196528](https://support.microsoft.com/kb/3196528).  

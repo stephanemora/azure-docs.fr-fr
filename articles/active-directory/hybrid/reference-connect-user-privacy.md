@@ -43,7 +43,7 @@ Un serveur de synchronisation Azure AD Connect stocke les données de confidenti
 
 Les clients Azure AD Connect doivent respecter les directives suivantes lors de la suppression de données utilisateur :
 1.  Supprimer régulièrement le contenu du dossier où se trouvent les fichiers journaux de l’installation Azure AD Connect (au moins toutes les 48 heures)
-2.  Ce produit peut également créer des journaux d’événements.  Pour plus d’informations sur les journaux d’événements, consultez [cette documentation](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
+2.  Ce produit peut également créer des journaux d’activité d’événements.  Pour plus d’informations sur les journaux d’activité d’événements, consultez [cette documentation](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
 
 Les données relatives à un individu sont automatiquement supprimées de la base de données Azure AD Connect lorsqu’elles sont supprimées du système source dont elles proviennent. L’obtention de la conformité RGPD ne nécessite aucune action de la part des administrateurs.  Toutefois, elle nécessite que les données d’Azure AD Connect soient synchronisées avec votre source de données au moins tous les deux jours.
 

@@ -25,16 +25,16 @@ ms.locfileid: "56957519"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
 
-Vous pouvez afficher deux types de journaux pour Azure Event Hubs :
+Vous pouvez afficher deux types de journaux d’activité pour Azure Event Hubs :
 
-* **[Journaux d’activité](../azure-monitor/platform/activity-logs-overview.md)** : Ces journaux comportent des informations sur les opérations effectuées sur un travail. Les journaux sont toujours activés.
+* **[Journaux d’activité](../azure-monitor/platform/activity-logs-overview.md)** : Ces journaux d’activité comportent des informations sur les opérations effectuées sur un travail. Les journaux d’activité sont toujours activés.
 * **[Journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md)** : Vous pouvez configurer les journaux de diagnostic pour obtenir des informations plus détaillées sur tous les événements associés à un travail. Les journaux de diagnostic couvrent les activités qui se déroulent entre la création du travail et sa suppression, notamment les mises à jour et les activités durant l’exécution du travail.
 
-## <a name="enable-diagnostic-logs"></a>Activer la journalisation des diagnostics
+## <a name="enable-diagnostic-logs"></a>Activer les journaux de diagnostic
 
 Les journaux de diagnostic sont désactivés par défaut. Pour activer les journaux de diagnostic, effectuez les étapes suivantes :
 
-1.  Dans le [portail Azure](https://portal.azure.com), sous **Surveillance + gestion**, cliquez sur **Journaux de diagnostic**.
+1.  Dans le [portail Azure](https://portal.azure.com), sous **Supervision + gestion**, cliquez sur **Journaux de diagnostic**.
 
     ![Navigation dans le volet jusqu’aux journaux de diagnostic](./media/event-hubs-diagnostic-logs/image1.png)
 
@@ -52,7 +52,7 @@ Les journaux de diagnostic sont désactivés par défaut. Pour activer les journ
 
 6.  Enregistrez les nouveaux paramètres de diagnostic.
 
-Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux apparaissent dans la cible d’archivage configurée, dans le volet **Journaux de diagnostic**.
+Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux d’activité apparaissent dans la cible d’archivage configurée, dans le volet **Journaux de diagnostic**.
 
 Pour plus d’informations sur la configuration des diagnostics, consultez la [vue d’ensemble des journaux de diagnostic Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
@@ -65,9 +65,9 @@ Event Hubs capture les journaux de diagnostic pour deux catégories :
 
 ## <a name="diagnostic-logs-schema"></a>Schéma des journaux de diagnostic
 
-Tous les journaux sont stockés au format JSON (JavaScript Object Notation). Chaque entrée comporte des champs de type chaîne au format décrit dans les sections suivantes.
+Tous les journaux d’activité sont stockés au format JSON (JavaScript Object Notation). Chaque entrée comporte des champs de type chaîne au format décrit dans les sections suivantes.
 
-### <a name="archive-logs-schema"></a>Schéma des journaux d’archivage
+### <a name="archive-logs-schema"></a>Schéma des journaux d’activité d’archivage
 
 Les chaînes JSON du journal d’archivage incluent les éléments listés dans le tableau suivant :
 
@@ -105,7 +105,7 @@ Le code suivant est un exemple de chaîne JSON de journal d’archivage :
 }
 ```
 
-### <a name="operational-logs-schema"></a>Schéma des journaux des opérations
+### <a name="operational-logs-schema"></a>Schéma des journaux d’activité des opérations
 
 Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
 

@@ -182,7 +182,7 @@ Révoquer une licence | Administrateur de licence | Administrateur d’utilisat
 Tester ou acheter un abonnement | Administrateur de facturation | 
 
 
-## <a name="monitoring---audit-logs"></a>Surveillance - Journaux d’audit
+## <a name="monitoring---audit-logs"></a>Supervision - Journaux d’audit
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
@@ -192,7 +192,7 @@ Lire les journaux d’audit | Lecteur de rapports | Lecteur Sécurité, administ
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
-Lire les journaux de connexion | Lecteur de rapports | Lecteur Sécurité, administrateur de la sécurité
+Lire les journaux d’activité de connexion | Lecteur de rapports | Lecteur Sécurité, administrateur de la sécurité
 
 ## <a name="multi-factor-authentication"></a>Authentification multifacteur
 

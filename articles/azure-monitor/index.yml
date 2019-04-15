@@ -28,7 +28,7 @@ sections:
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
-        text: Découvrez comment collecter et analyser les métriques et journaux collectés à partir des ressources Azure.
+        text: Découvrez comment collecter et analyser les métriques et journaux d’activité collectés à partir des ressources Azure.
       - type: list
         style: icon48
         items:
@@ -38,7 +38,7 @@ sections:
             href: /azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal
           - image:
               src: /azure/azure-monitor/media/index/log-analytics.svg
-            text: Analyser les journaux
+            text: Analyser les journaux d’activité
             href: /azure/log-analytics/query-language/get-started-analytics-portal
           - image:
               src: 'https://docs.microsoft.com/azure/media/index/virtualmachine.svg'

@@ -91,9 +91,9 @@ Le runbook que vous avez créé est toujours en mode brouillon. Il doit être pu
    ![Sortie de la tâche](media/automation-first-runbook-textual-powershell/job-pane-status-blade-outputtile.png)
 
 1. Fermez la page Sortie.
-1. Cliquez sur **Tous les journaux** pour ouvrir le volet Flux de la tâche du Runbook. Seul le message *Hello World* devrait apparaître dans le flux de sortie, mais d’autres flux peuvent s’afficher pour une tâche de runbook, notamment Mode détaillé et Erreur si le runbook consigne ces informations.
+1. Cliquez sur **Tous les journaux d’activité** pour ouvrir le volet Flux de la tâche du Runbook. Seul le message *Hello World* devrait apparaître dans le flux de sortie, mais d’autres flux peuvent s’afficher pour une tâche de runbook, notamment Mode détaillé et Erreur si le runbook consigne ces informations.
 
-   ![Tous les journaux](media/automation-first-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)
+   ![Tous les journaux d’activité](media/automation-first-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)
 
 1. Fermez les page du flux et de la tâche pour revenir à la page MyFirstRunbook-PowerShell.
 1. Sous **Détails**, cliquez sur **Tâches** pour ouvrir le volet Tâches pour ce runbook. Cette page liste toutes les tâches créées par ce runbook. Vous devez voir un seul travail, car vous n’avez exécuté le travail qu’une seule fois.

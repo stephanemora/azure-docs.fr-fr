@@ -148,7 +148,7 @@ RetryAfter: 10
 
 L’instance d’**E3_Monitor** démarre et interroge les conditions météorologiques actuelles pour le lieu demandé. Si le temps est clair, elle appelle une fonction d’activité pour envoyer une alerte ; dans le cas contraire, elle définit un minuteur. Quand le minuteur expire, l’orchestration reprend.
 
-Vous pouvez voir l’activité de l’orchestration en examinant les journaux de fonction dans le portail Azure Functions.
+Vous pouvez voir l’activité de l’orchestration en examinant les journaux d’activité de fonction dans le portail Azure Functions.
 
 ```
 2018-03-01T01:14:41.649 Function started (Id=2d5fcadf-275b-4226-a174-f9f943c90cd1)

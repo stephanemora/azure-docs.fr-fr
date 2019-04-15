@@ -1,6 +1,6 @@
 ---
-title: Diffuser en continu les journaux Azure Active Directory vers SumoLogic à l’aide d’Azure Monitor (préversion) | Microsoft Docs
-description: Découvrez comment intégrer des journaux Azure Active Directory avec SumoLogic à l’aide d’Azure Monitor (préversion).
+title: Diffuser en continu les journaux d’activité Azure Active Directory vers SumoLogic à l’aide d’Azure Monitor (préversion) | Microsoft Docs
+description: Découvrez comment intégrer des journaux d’activité Azure Active Directory avec SumoLogic à l’aide d’Azure Monitor (préversion).
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -24,9 +24,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58437206"
 ---
-# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Intégrer des journaux Azure Active Directory avec SumoLogic à l’aide d’Azure Monitor (préversion).
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Intégrer des journaux d’activité Azure Active Directory avec SumoLogic à l’aide d’Azure Monitor (préversion).
 
-Cet article explique comment intégrer des journaux Azure Active Directory (Azure AD) avec SumoLogic à l’aide d’Azure Monitor. Vous commencez pas router les journaux vers un hub d’événements Azure, puis vous intégrez ce hub d’événements avec SumoLogic.
+Cet article explique comment intégrer des journaux d’activité Azure Active Directory (Azure AD) avec SumoLogic à l’aide d’Azure Monitor. Vous commencez pas router les journaux d’activité vers un hub d’événements Azure, puis vous intégrez ce hub d’événements avec SumoLogic.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -34,10 +34,10 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 * Un hub d’événements Azure contenant les journaux d’activité d’Azure AD. Découvrez comment [diffuser en continu vos journaux d’activité sur un hub d’événements](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 * Un abonnement avec l’authentification unique activée à SumoLogic.
 
-## <a name="steps-to-integrate-azure-ad-logs-with-sumologic"></a>Étapes permettant d’intégrer des journaux Azure AD avec SumoLogic 
+## <a name="steps-to-integrate-azure-ad-logs-with-sumologic"></a>Étapes permettant d’intégrer des journaux d’activité Azure AD avec SumoLogic 
 
-1. Commencez par [diffuser en continu des journaux Azure AD sur un hub d’événements Azure](quickstart-azure-monitor-stream-logs-to-event-hub.md).
-2. Configurez votre instance SumoLogic pour [collecter des journaux pour Azure Active Directory](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory).
+1. Commencez par [diffuser en continu des journaux d’activité Azure AD sur un hub d’événements Azure](quickstart-azure-monitor-stream-logs-to-event-hub.md).
+2. Configurez votre instance SumoLogic pour [collecter des journaux d’activité pour Azure Active Directory](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory).
 3. [Installez l’application Azure AD SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) pour utiliser les tableaux de bord préconfigurés qui fournissent une analyse en temps réel de votre environnement.
 
    ![tableau de bord](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)

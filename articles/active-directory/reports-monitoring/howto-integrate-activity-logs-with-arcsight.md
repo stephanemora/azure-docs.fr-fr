@@ -1,6 +1,6 @@
 ---
-title: Comment intégrer des journaux Azure Active Directory à ArcSight à l’aide d’Azure Monitor (préversion) | Microsoft Docs
-description: Découvrez comment intégrer des journaux Azure Active Directory à ArcSight à l’aide d’Azure Monitor (préversion)
+title: Comment intégrer des journaux d’activité Azure Active Directory à ArcSight à l’aide d’Azure Monitor (préversion) | Microsoft Docs
+description: Découvrez comment intégrer des journaux d’activité Azure Active Directory à ArcSight à l’aide d’Azure Monitor (préversion)
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -24,11 +24,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58438102"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor-preview"></a>Intégrer des journaux Azure Active Directory à ArcSight à l’aide d’Azure Monitor (préversion)
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor-preview"></a>Intégrer des journaux d’activité Azure Active Directory à ArcSight à l’aide d’Azure Monitor (préversion)
 
-[Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) est une solution SIEM (Security Information and Event Management) qui vous permet de détecter les menaces de sécurité dans votre plateforme et d’y remédier. Vous pouvez désormais acheminer les journaux Azure Active Directory (Azure AD) vers ArcSight avec Azure Monitor à l’aide du connecteur ArcSight pour Azure AD. Cette fonctionnalité vous permet de surveiller votre locataire et de détecter les éléments en compromettant la sécurité à l’aide d’ArcSight.  
+[Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) est une solution SIEM (Security Information and Event Management) qui vous permet de détecter les menaces de sécurité dans votre plateforme et d’y remédier. Vous pouvez désormais acheminer les journaux d’activité Azure Active Directory (Azure AD) vers ArcSight avec Azure Monitor à l’aide du connecteur ArcSight pour Azure AD. Cette fonctionnalité vous permet de surveiller votre locataire et de détecter les éléments en compromettant la sécurité à l’aide d’ArcSight.  
 
-Dans cet article, vous allez apprendre à router les journaux Azure AD vers ArcSight à l’aide d’Azure Monitor. 
+Dans cet article, vous allez apprendre à router les journaux d’activité Azure AD vers ArcSight à l’aide d’Azure Monitor. 
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -38,7 +38,7 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 Téléchargez et ouvrez le [guide de configuration d’ArcSight SmartConnector pour l’Event Hub Azure Monitor](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). Ce guide décrit les étapes à suivre pour installer et configurer ArcSight SmartConnector pour Azure Monitor. 
 
-## <a name="integrate-azure-ad-logs-with-arcsight"></a>Intégrer les journaux Azure AD à ArcSight
+## <a name="integrate-azure-ad-logs-with-arcsight"></a>Intégrer les journaux d’activité Azure AD à ArcSight
 
 1. Tout d’abord, suivez les étapes de la section **Conditions préalables** du guide de configuration. Cette section comprend les étapes suivantes :
     * Définissez les autorisations utilisateur dans Azure, afin de vous assurer qu’un utilisateur a le rôle **propriétaire** pour déployer et configurer le connecteur.
@@ -49,7 +49,7 @@ Téléchargez et ouvrez le [guide de configuration d’ArcSight SmartConnector p
 
 3. Utilisez les étapes décrites dans **Vérification du déploiement dans Azure** pour vous assurer que le connecteur est configuré et fonctionne correctement. Vérifiez les points suivants :
     * Les fonctions Azure requises sont créées dans votre abonnement Azure.
-    * Les journaux Azure AD sont diffusés en continu vers la destination correcte. 
+    * Les journaux d’activité Azure AD sont diffusés en continu vers la destination correcte. 
     * Les paramètres d’application de votre déploiement sont conservés dans les paramètres d’application d’Azure Function Apps. 
     * Un nouveau groupe de ressources pour ArcSight est créé dans Azure, avec une application Azure AD pour le connecteur ArcSight et des comptes de stockage contenant les fichiers mappés au format CEF.
 

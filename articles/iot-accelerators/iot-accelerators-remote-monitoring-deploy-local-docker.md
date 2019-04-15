@@ -83,7 +83,7 @@ docker rm <list_of_containers>
 docker rmi <list_of_images>
 ```
 
-Vous pouvez utiliser un interpréteur de commandes distinct pour afficher les journaux du conteneur. Tout d’abord, trouvez l’ID du conteneur à l’aide de la commande `docker ps`. Utilisez ensuite `docker logs {container-id} --tail 1000` pour afficher les 1000 dernières entrées pour le conteneur spécifié.
+Vous pouvez utiliser un interpréteur de commandes distinct pour afficher les journaux d’activité du conteneur. Tout d’abord, trouvez l’ID du conteneur à l’aide de la commande `docker ps`. Utilisez ensuite `docker logs {container-id} --tail 1000` pour afficher les 1000 dernières entrées pour le conteneur spécifié.
 
 ### <a name="start-the-stream-analytics-job"></a>Démarrage de la tâche Stream Analytics
 

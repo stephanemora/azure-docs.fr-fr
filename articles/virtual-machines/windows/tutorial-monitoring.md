@@ -154,7 +154,7 @@ L’écran **Gestion des mises à jour** s’ouvre. Configurez l’emplacement, 
 
 ![Activer la solution de gestion des mises à jour](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur. Une fois la solution activée, des informations sur les mises à jour manquantes sur la machine virtuelle sont envoyées aux journaux Azure Monitor. Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
+L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur. Une fois la solution activée, des informations sur les mises à jour manquantes sur la machine virtuelle sont envoyées aux journaux d’activité Azure Monitor. Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
 
 ### <a name="view-update-assessment"></a>Afficher l’évaluation des mises à jour
 
@@ -208,7 +208,7 @@ Dans le tableau de droite se trouve une répartition détaillée de chaque mise 
 * **Réussi** : la mise à jour a réussi
 * **Échec** : la mise à jour a échoué
 
-Cliquez sur **Tous les journaux** pour voir toutes les entrées de journal créées par le déploiement.
+Cliquez sur **Tous les journaux d’activité** pour voir toutes les entrées de journal d’activité créées par le déploiement.
 
 Cliquez sur la vignette **Sortie** pour voir le flux des tâches du runbook chargé de gérer le déploiement des mises à jour sur la machine virtuelle cible.
 

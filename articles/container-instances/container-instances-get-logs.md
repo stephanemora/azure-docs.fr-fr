@@ -1,6 +1,6 @@
 ---
-title: Obtenir les journaux du conteneur et les événements avec Azure Container Instances
-description: Découvrez comment déboguer les journaux du conteneur et les événements avec Azure Container Instances
+title: Obtenir les journaux d’activité du conteneur et les événements avec Azure Container Instances
+description: Découvrez comment déboguer les journaux d’activité du conteneur et les événements avec Azure Container Instances
 services: container-instances
 author: dlepow
 manager: jeconnoc
@@ -16,13 +16,13 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/22/2019
 ms.locfileid: "58369001"
 ---
-# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Récupérer les journaux du conteneur et les événements dans Azure Container Instances
+# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Récupérer les journaux d’activité du conteneur et les événements dans Azure Container Instances
 
 Lorsque vous avez un conteneur mal configuré, démarrez en affichant ses journaux avec [journaux du conteneur az][az-container-logs] et diffusez en continu sa sortie standard et son erreur standard avec [liaison du conteneur az] [az-container-attach].
 
-## <a name="view-logs"></a>Consulter les journaux
+## <a name="view-logs"></a>Afficher les journaux d’activité
 
-Pour afficher les journaux à partir de votre code d’application dans un conteneur, vous pouvez utiliser la commande [az container logs][az-container-logs].
+Pour afficher les journaux d’activité à partir de votre code d’application dans un conteneur, vous pouvez utiliser la commande [az container logs][az-container-logs].
 
 Voici la sortie du journal à partir de l’exemple de conteneur basé sur des tâches dans [Exécuter une tâche en conteneur dans ACI](container-instances-restart-policy.md), après avoir chargé une URL non valide à traiter :
 

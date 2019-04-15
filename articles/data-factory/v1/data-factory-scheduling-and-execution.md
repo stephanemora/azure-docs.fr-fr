@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 2d7fc45faf1fb77c7d9181e5a2419096dd1ad0f1
 ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55817418"
@@ -294,7 +294,7 @@ Prenons l’exemple suivant, il montre les deux activités. Activity1 et Activit
 
 Le diagramme montre que, parmi les trois tranches récentes, il y a eu un échec, ce qui a généré une tranche 9 à 10 h pour Dataset2. Data Factory effectue automatiquement le suivi de la dépendance du jeu de données. Par conséquent, il ne lance pas l’activité sur la tranche 9 à 10 h en aval.
 
-Les outils de surveillance et de gestion Data Factory vous permettent d’examiner en détail les journaux de diagnostic pour la tranche ayant échoué, et de trouver facilement la cause du problème pour le régler. Une fois le problème résolu, vous pouvez facilement lancer l’exécution de l’activité afin de générer la tranche ayant échoué. Pour plus d’informations sur la façon de lancer les réexécutions et comprendre les transitions d’état des tranches de données, consultez [Surveillance et gestion des pipelines à l’aide des panneaux du portail Azure](data-factory-monitor-manage-pipelines.md) ou [Application de surveillance et gestion](data-factory-monitor-manage-app.md).
+Les outils de supervision et de gestion Data Factory vous permettent d’examiner en détail les journaux de diagnostic pour la tranche ayant échoué, et de trouver facilement la cause du problème pour le régler. Une fois le problème résolu, vous pouvez facilement lancer l’exécution de l’activité afin de générer la tranche ayant échoué. Pour plus d’informations sur la façon de lancer les réexécutions et comprendre les transitions d’état des tranches de données, consultez [Surveillance et gestion des pipelines à l’aide des panneaux du portail Azure](data-factory-monitor-manage-pipelines.md) ou [Application de surveillance et gestion](data-factory-monitor-manage-app.md).
 
 Une fois que vous avez relancé l’exécution de la tranche de 9-10 h pour **Dataset2**, Data Factory lance l’exécution de la tranche dépendante 9 à 10 h sur un jeu de données final.
 

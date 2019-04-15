@@ -22,7 +22,7 @@ ms.locfileid: "58003605"
 Azure Active Directory B2C (Azure AD B2C) produit des journaux d’audit contenant des informations sur les activités liées aux ressources, aux jetons émis et à l’accès administrateur B2C. Cet article fournit une rapide vue d’ensemble des informations disponibles par le biais des journaux d’audit, ainsi que des instructions pour accéder à ces données pour votre locataire Azure AD B2C.
 
 > [!IMPORTANT]
-> Les journaux d’audit sont uniquement conservés pendant sept jours. Envisagez de télécharger et stocker vos journaux en utilisant l’une des méthodes indiquées ci-dessous si vous avez besoin d’une période de rétention plus longue.
+> Les journaux d’audit sont uniquement conservés pendant sept jours. Envisagez de télécharger et stocker vos journaux d’activité en utilisant l’une des méthodes indiquées ci-dessous si vous avez besoin d’une période de rétention plus longue.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Vue d’ensemble des activités disponibles dans la catégorie B2C des journaux d’audit
 La catégorie **B2C** des journaux d’audit contient les types d’activités suivants :
@@ -50,7 +50,7 @@ L’exemple ci-dessous montre les données capturées quand un utilisateur se co
 
 1. Sous **Activité**, cliquez sur **Journaux d’audit**.
 
-    ![Journaux d’audit - section Journaux](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![Journaux d’audit - section Journaux d’activité](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. Dans la liste déroulante **Catégorie**, sélectionnez **B2C**.
 3. Cliquez sur **Appliquer**.
@@ -70,7 +70,7 @@ Les journaux d’audit sont publiés dans le même pipeline que les autres activ
 Pour vous authentifier auprès de l’API de création de rapports Azure AD, vous devez tout d’abord inscrire une application. Veillez à suivre les étapes indiquées dans [Prérequis pour accéder à l’API de création de rapports Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
 ### <a name="accessing-the-api"></a>Accès à l’API
-Pour télécharger les journaux d’audit Azure AD B2C par le biais de l’API, filtrez les journaux sur la catégorie **B2C**. Pour filtrer par catégorie, utilisez le paramètre de chaîne de requête lors de l’appel du point de terminaison de l’API de création de rapport Azure AD, comme indiqué ci-dessous :
+Pour télécharger les journaux d’audit Azure AD B2C par le biais de l’API, filtrez les journaux d’activité sur la catégorie **B2C**. Pour filtrer par catégorie, utilisez le paramètre de chaîne de requête lors de l’appel du point de terminaison de l’API de création de rapport Azure AD, comme indiqué ci-dessous :
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
 

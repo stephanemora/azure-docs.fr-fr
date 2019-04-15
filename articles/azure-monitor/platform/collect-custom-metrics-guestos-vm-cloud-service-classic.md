@@ -19,7 +19,7 @@ ms.locfileid: "58482621"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Avec [l’extension Diagnostics](diagnostics-extension-overview.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux à partir du système d’exploitation invité qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric. L’extension peut envoyer des données de télémétrie à de [nombreux emplacements différents](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
+Avec [l’extension Diagnostics](diagnostics-extension-overview.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux d’activité à partir du système d’exploitation invité qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric. L’extension peut envoyer des données de télémétrie à de [nombreux emplacements différents](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
 Cet article décrit le processus permettant d’envoyer au magasin de métriques Azure Monitor les métriques de performances du système d’exploitation invité concernant les services cloud classiques Azure. À partir de la version 1.11 de l’extension Diagnostics, vous pouvez écrire des métriques directement dans le magasin de métriques Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. 
 
@@ -58,7 +58,7 @@ Attribuez à l’application créée à l’étape précédente des autorisation
 
 ## <a name="author-diagnostics-extension-configuration"></a>Créer la configuration de l’extension Diagnostics 
 
-Préparez le fichier config de l’extension Diagnostics. Ce fichier détermine quels journaux et compteurs de performances doivent être collectés par l’extension Diagnostics pour votre service cloud. Vous trouverez ci-dessous un exemple de fichier config Diagnostics :  
+Préparez le fichier config de l’extension Diagnostics. Ce fichier détermine quels journaux d’activité et compteurs de performances doivent être collectés par l’extension Diagnostics pour votre service cloud. Vous trouverez ci-dessous un exemple de fichier config Diagnostics :  
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?> 
@@ -166,7 +166,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 ```
 
 > [!NOTE] 
-> Vous devez toujours fournir un compte de stockage lors de l’installation de l’extension Diagnostics. Les journaux et les compteurs de performances spécifiés dans le fichier config de diagnostics sont écrits dans le compte de stockage spécifié.  
+> Vous devez toujours fournir un compte de stockage lors de l’installation de l’extension Diagnostics. Les journaux d’activité et les compteurs de performances spécifiés dans le fichier config de diagnostics sont écrits dans le compte de stockage spécifié.  
 
 ## <a name="plot-metrics-in-the-azure-portal"></a>Tracer des métriques dans le Portail Azure 
 

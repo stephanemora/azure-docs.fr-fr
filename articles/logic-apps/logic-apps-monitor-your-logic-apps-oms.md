@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57192460"
 ---
-# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Superviser les applications logiques avec les journaux Azure Monitor
+# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Superviser les applications logiques avec les journaux d’activité Azure Monitor
 
 Pour surveiller et obtenir des informations de débogage plus détaillées sur vos applications logiques, activez [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md) lorsque vous créez votre application logique. Journaux d’Azure Monitor fournit des diagnostics de journalisation et de surveillance pour vos applications logiques lorsque vous installez la solution Logic Apps Management dans le portail Azure. Cette solution fournit également des informations agrégées sur les exécutions de l’application logique avec certains détails spécifiques comme l’état, la durée d’exécution, l’état de la nouvelle soumission et les ID de corrélation. Cet article explique comment activer les journaux Azure Monitor afin que vous pouvez afficher les événements du runtime et les données de votre application logique s’exécute.
 

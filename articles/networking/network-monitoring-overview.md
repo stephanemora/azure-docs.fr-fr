@@ -107,7 +107,7 @@ Liens connexes :
 * [Billet de blog](https://aka.ms/trafficanalytics), [Documentation](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
 ## <a name="dns-analytics"></a>DNS Analytics
-Conçue pour les administrateurs DNS, cette solution collecte, analyse et met en corrélation des journaux DNS pour assurer la sécurité, les opérations et les insights liés aux performances.  Les fonctionnalités sont notamment les suivantes :
+Conçue pour les administrateurs DNS, cette solution collecte, analyse et met en corrélation des journaux d’activité DNS pour assurer la sécurité, les opérations et les insights liés aux performances.  Les fonctionnalités sont notamment les suivantes :
 
 * Identification des clients qui tentent de résoudre des domaines malveillants
 * Identification des enregistrements de ressources obsolètes

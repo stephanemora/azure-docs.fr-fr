@@ -168,7 +168,7 @@ Vous pouvez trouver des informations détaillées sur la sécurisation de Stocka
 
 ### <a name="monitoring-logging-and-audit"></a>Surveillance, journalisation et audit
 
-#### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
+#### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
 [Journaux d’analyse Azure](https://azure.microsoft.com/services/log-analytics/) est un service dans Azure qui vous permet de collecter et analyser les données générées par les ressources de votre cloud et les environnements locaux.
 
@@ -195,7 +195,7 @@ Le [Journal d’activité Azure](https://docs.microsoft.com/azure/monitoring-and
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) active la surveillance globale des services Azure en permettant la collecte de métriques, de journaux d’activité et de journaux de diagnostic. Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux pour la plupart des services Microsoft Azure.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) active la surveillance globale des services Azure en permettant la collecte de métriques, de journaux d’activité et de journaux de diagnostic. Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux d’activité pour la plupart des services Microsoft Azure.
 
 ## <a name="threat-model"></a>Modèle de menace
 

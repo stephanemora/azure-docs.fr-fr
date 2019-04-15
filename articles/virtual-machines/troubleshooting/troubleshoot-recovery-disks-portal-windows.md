@@ -39,7 +39,7 @@ Examinez les diagnostics de démarrage et la capture d’écran de la machine vi
 
 Dans le portail, sélectionnez votre machine virtuelle, puis accédez à la section **Prise en charge et dépannage**. Cliquez sur **Diagnostics de démarrage** pour afficher la capture d’écran. Notez les messages d’erreur ou les codes d’erreur spécifiques pour vous aider à déterminer pourquoi la machine virtuelle rencontre un problème. 
 
-![Affichage des journaux de console des diagnostics de démarrage de la machine virtuelle](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
+![Affichage des journaux d’activité de console des diagnostics de démarrage de la machine virtuelle](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
 Vous pouvez également cliquer sur **Télécharger une capture d’écran** pour télécharger une copie de la capture d’écran de la machine virtuelle.
 

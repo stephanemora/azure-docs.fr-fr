@@ -1,6 +1,6 @@
 ---
 title: Ressources prises en charge pour les alertes de métrique dans Azure Monitor
-description: Référence sur les métriques et les journaux de support pour les alertes métriques dans Azure Monitor
+description: Référence sur les métriques et les journaux d’activité de support pour les alertes métriques dans Azure Monitor
 author: snehithm
 services: monitoring
 ms.service: azure-monitor
@@ -19,7 +19,7 @@ ms.locfileid: "59490926"
 
 Azure Monitor prend désormais en charge un [nouveau type d’alerte de métrique](../../azure-monitor/platform/alerts-overview.md) qui présente d’importants avantages par rapport aux anciennes [alertes de métrique classiques](../../azure-monitor/platform/alerts-classic.overview.md). Des métriques sont disponibles pour une [longue liste de services Azure](../../azure-monitor/platform/metrics-supported.md). Les alertes plus récentes prennent en charge un sous-ensemble (croissant) des types de ressource. Cet article répertorie ce sous-ensemble.
 
-Vous pouvez également utiliser des alertes métriques plus récentes sur les données de journal courants stockées dans un espace de travail Analytique de journal extraite en tant que mesures. Pour plus d’informations, consultez [Alertes de métrique pour les journaux](../../azure-monitor/platform/alerts-metric-logs.md).
+Vous pouvez également utiliser des alertes métriques plus récentes sur les données de journal courants stockées dans un espace de travail Analytique de journal extraite en tant que mesures. Pour plus d’informations, consultez [Alertes de métrique pour les journaux d’activité](../../azure-monitor/platform/alerts-metric-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portail, PowerShell, CLI, prise en charge de REST
 À l’heure actuelle, il n’est possible de créer des alertes métriques plus récentes que sur le Portail Azure, [l’API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/) ou les [modèles Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md). La prise en charge de la configuration d’alertes plus récentes en utilisant PowerShell et Azure CLI versions 2.0 et supérieures sera bientôt disponible.

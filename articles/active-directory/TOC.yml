@@ -173,7 +173,7 @@ items:
       href: reports-monitoring/concept-risky-sign-ins.md
     - name: Événements à risque
       href: reports-monitoring/concept-risk-events.md
-    - name: Supervision des journaux avec Azure Monitor
+    - name: Supervision des journaux d’activité avec Azure Monitor
       href: reports-monitoring/concept-activity-logs-in-azure-monitor.md
     - name: Forum Aux Questions
       href: reports-monitoring/reports-faq.md

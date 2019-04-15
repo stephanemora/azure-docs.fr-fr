@@ -76,7 +76,7 @@ Si vous n’avez pas besoin de travailler avec des jetons dans votre application
 
 ### <a name="logging-and-tracing"></a>Journalisation et suivi
 
-Si vous [activez la journalisation des applications](troubleshoot-diagnostic-logs.md), les traces de l’authentification et de l’autorisation apparaîtront directement dans les fichiers journaux. Si une erreur d’authentification inattendue se produit, vous trouverez facilement tous les détails dans les journaux existants. Si vous activez le [suivi des échecs des demandes](troubleshoot-diagnostic-logs.md), vous saurez exactement quel rôle le module d’authentification et d’autorisation a pu jouer dans l’échec d’une demande. Dans les journaux de suivi, recherchez les références à un module nommé `EasyAuthModule_32/64`. 
+Si vous [activez la journalisation des applications](troubleshoot-diagnostic-logs.md), les traces de l’authentification et de l’autorisation apparaîtront directement dans les fichiers journaux. Si une erreur d’authentification inattendue se produit, vous trouverez facilement tous les détails dans les journaux d’activité existants. Si vous activez le [suivi des échecs des demandes](troubleshoot-diagnostic-logs.md), vous saurez exactement quel rôle le module d’authentification et d’autorisation a pu jouer dans l’échec d’une demande. Dans les journaux d’activité de suivi, recherchez les références à un module nommé `EasyAuthModule_32/64`. 
 
 ## <a name="identity-providers"></a>Fournisseurs d’identité
 

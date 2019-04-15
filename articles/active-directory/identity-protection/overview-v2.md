@@ -178,7 +178,7 @@ Maintenant qu'une personne malveillante a essayé d'accéder au compte de Sarah,
 
 2. Azure AD ne détecte aucun risque de connexion en temps réel, mais détecte un risque utilisateur élevé en raison de l'activité à risque des scénarios précédents.  
 
-3. Sarah est invitée à réinitialiser son mot de passe car l'administrateur informatique de Contoso a configuré la stratégie de risque utilisateur d'Identity Protection de manière à exiger un changement de mot de passe lorsqu'un utilisateur présentant un risque élevé se connecte. 
+3. Sarah est invitée à réinitialiser son mot de passe car l’administrateur informatique de Contoso a configuré la stratégie de risque utilisateur d’Identity Protection de manière à exiger un changement de mot de passe lorsqu’un utilisateur présentant un risque élevé se connecte. 
 
 4. Comme Sarah est inscrite à SSPR (réinitialisation de mot de passe en libre-service) et MFA (authentification multifacteur), elle réinitialise son mot de passe avec succès. 
 

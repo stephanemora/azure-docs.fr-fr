@@ -1,5 +1,5 @@
 ---
-title: Analyser des données de texte dans les journaux Azure Monitor | Microsoft Docs
+title: Analyser des données de texte dans les journaux d’activité Azure Monitor | Microsoft Docs
 description: Décrit différentes options pour l'analyse des données de journal dans les enregistrements Azure Monitor lorsque les données sont ingérées et lorsqu'elles sont extraites par une requête, en comparant les avantages de chacune.
 documentationcenter: ''
 author: bwren
@@ -18,7 +18,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58620857"
 ---
-# <a name="parse-text-data-in-azure-monitor-logs"></a>Analyser des données de texte dans les journaux Azure Monitor
+# <a name="parse-text-data-in-azure-monitor-logs"></a>Analyser des données de texte dans les journaux d’activité Azure Monitor
 Certaines données de journal collectées par Azure Monitor incluront plusieurs informations au sein d'une même propriété. L’analyse de ces données dans plusieurs propriétés simplifie leur utilisation dans des requêtes. Un exemple courant est le [journal personnalisé](../../log-analytics/log-analytics-data-sources-custom-logs.md) qui collecte une entrée de journal entière avec plusieurs valeurs dans une seule propriété. En créant des propriétés distinctes pour les différentes valeurs, vous pouvez faire des recherches et des agrégations sur chacune d’elles.
 
 Cet article décrit différentes options pour l'analyse des données de journal dans Azure Monitor lorsque les données sont ingérées et lorsqu'elles sont extraites par une requête, en comparant les avantages de chacune.

@@ -16,7 +16,7 @@ ms.date: 01/29/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
 ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/27/2018
 ms.locfileid: "53789464"
@@ -45,13 +45,13 @@ La surveillance avancée implique l’utilisation de l’extension **Azure Diagn
 Lorsque chaque rôle est créé, Visual Studio lui ajoute l’extension Azure Diagnostics. Cette extension des diagnostics peut collecter les types d’informations suivants :
 
 * Compteurs de performances personnalisés
-* Journaux d’application
+* Journaux d’activité d’application
 * Journaux des événements Windows
 * Source d’événement .NET
-* Journaux IIS
+* Journaux d’activité IIS
 * ETW basé sur les manifestes
 * Vidages sur incident
-* Journaux d'erreurs client
+* Journaux d’activité d’erreurs client
 
 > [!IMPORTANT]
 > Alors que toutes ces données sont regroupées dans le compte de stockage, le portail ne fournit **pas** un moyen natif pour les représenter visuellement. Il est fortement recommandé d’intégrer un autre service, comme Application Insights, dans votre application.

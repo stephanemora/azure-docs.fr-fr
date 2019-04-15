@@ -265,7 +265,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 Un problème intermittent est parfois mieux diagnostiqué par la détection d’une tendance générale observée sur plusieurs jours ou semaines.
 
-Votre client peut aider à consigner toutes les erreurs qu’il rencontre un diagnostic. Vous pouvez mettre en corrélation les entrées de journal avec des informations sur les erreurs de base consignées en interne par SQL Database lui-même.
+Votre client peut aider à consigner toutes les erreurs qu’il rencontre un diagnostic. Vous pouvez mettre en corrélation les entrées de journal d’activité avec des informations sur les erreurs de base consignées en interne par SQL Database lui-même.
 
 Enterprise Library 6 (EntLib60) offre des classes .NET gérées afin de faciliter la journalisation. Pour plus d’informations, consultez [5 - aussi simple comme une évidence : Utiliser le bloc applicatif de journalisation](https://msdn.microsoft.com/library/dn440731.aspx).
 
@@ -273,7 +273,7 @@ Enterprise Library 6 (EntLib60) offre des classes .NET gérées afin de facilite
 
 ### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnostics : Examinez les journaux d’erreur système
 
-Voici quelques instructions Transact-SQL SELECT qui permettent d’interroger les journaux d’erreur et d’autres informations.
+Voici quelques instructions Transact-SQL SELECT qui permettent d’interroger les journaux d’activité d’erreur et d’autres informations.
 
 | Interrogation de journaux | Description |
 |:--- |:--- |

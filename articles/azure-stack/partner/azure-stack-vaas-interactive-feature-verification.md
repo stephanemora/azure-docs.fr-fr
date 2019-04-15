@@ -28,7 +28,7 @@ ms.locfileid: "57766000"
 
 Vous pouvez utiliser le framework de test de vérification des fonctionnalités interactives pour demander des tests pour votre système. Quand vous demandez un test, Microsoft utilise le framework pour préparer des tests qui nécessitent des étapes interactives manuelles. Microsoft peut utiliser le framework pour chaîner plusieurs tests automatisés autonomes.
 
-Cet article décrit un scénario manuel simple. Le test vérifie le remplacement d’un disque dans Azure Stack. Le framework collecte des journaux de diagnostic à chaque étape. Vous pouvez déboguer les problèmes à mesure que vous les rencontrez. Le framework permet également le partage de journaux produits par d’autres outils ou processus, et vous permet de fournir des commentaires sur le scénario.
+Cet article décrit un scénario manuel simple. Le test vérifie le remplacement d’un disque dans Azure Stack. Le framework collecte des journaux de diagnostic à chaque étape. Vous pouvez déboguer les problèmes à mesure que vous les rencontrez. Le framework permet également le partage de journaux d’activité produits par d’autres outils ou processus, et vous permet de fournir des commentaires sur le scénario.
 
 > [!Important]  
 > Cet article fait référence aux étapes pour effectuer l’identification de disque. Il s’agit simplement d’une démonstration, car tous les résultats collectés à partir du workflow de passe de test peuvent ne pas servir pour la vérification de la nouvelle solution.

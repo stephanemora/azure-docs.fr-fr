@@ -57,7 +57,7 @@ Pour afficher les journaux des événements de votre application web :
 2. Dans le menu, sélectionnez **Console de débogage** > **CMD**.
 3. Sélectionnez le dossier **LogFiles**.
 4. Pour afficher les journaux des événements, sélectionnez l’icône en forme de crayon en regard de **eventlog.xml**.
-5. Pour télécharger les journaux, exécutez l’applet de commande PowerShell `Save-AzureWebSiteLog -Name webappname`.
+5. Pour télécharger les journaux d’activité, exécutez l’applet de commande PowerShell `Save-AzureWebSiteLog -Name webappname`.
 
 ## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Comment capturer un vidage de mémoire en mode utilisateur de mon application web ?
 

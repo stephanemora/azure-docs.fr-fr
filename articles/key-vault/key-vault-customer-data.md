@@ -14,7 +14,7 @@ ms.date: 01/07/2019
 ms.author: barclayn
 ms.openlocfilehash: 12492fad419fdc703ddabcf2288be282f2fd47be
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56111779"
@@ -23,7 +23,7 @@ ms.locfileid: "56111779"
 
 Azure Key Vault reçoit des données client lors de la création ou de la mise à jour des coffres, des clés, des secrets, des certificats et des comptes de stockage gérés. Ces données client sont directement visibles dans le portail Azure et via l’API REST. Vous pouvez modifier ou supprimer les données client via la mise à jour ou la suppression de l’objet qui les contient.
 
-Des journaux d’accès système sont générés quand un utilisateur ou une application accède à Key Vault. Les journaux d’accès détaillés sont disponibles pour les clients avec Azure Insights.
+Des journaux d’activité d’accès système sont générés quand un utilisateur ou une application accède à Key Vault. Les journaux d’activité d’accès détaillés sont disponibles pour les clients avec Azure Insights.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -36,7 +36,7 @@ Les informations suivantes identifient les données client dans Azure Key Vault 
 - Les contacts des certificats peuvent contenir des adresses e-mail, des noms ou des numéros de téléphone d’utilisateurs
 - Les émetteurs des certificats peuvent contenir des adresses e-mail, des noms, des numéros de téléphone, des informations d’identification de compte et des détails de l’organisation
 - Des étiquettes arbitraires peuvent être appliquées à des objets dans Azure Key Vault. Ces objets incluent les coffres, les clés, les secrets, les certificats et les comptes de stockage. Les étiquettes utilisées peuvent contenir des données personnelles
-- Les journaux d’accès d’Azure Key Vault contiennent les ID d’objet, les [UPN](../active-directory/hybrid/plan-connect-userprincipalname.md) et les adresses IP pour chaque appel d’API REST
+- Les journaux d’activité d’accès d’Azure Key Vault contiennent les ID d’objet, les [UPN](../active-directory/hybrid/plan-connect-userprincipalname.md) et les adresses IP pour chaque appel d’API REST
 - Les journaux de diagnostic d’Azure Key Vault peuvent contenir des ID d’objet et des adresses IP pour les appels d’API REST
 
 ## <a name="deleting-customer-data"></a>Suppression des données client
@@ -49,7 +49,7 @@ La suppression réversible vous permet de récupérer les données supprimées p
 
 Les mêmes API REST, expérience du portail et Kits de développement logiciel (SDK) que ceux utilisés pour créer des coffres, des clés, des secrets, des certificats et des comptes de stockage gérés vous permettent également de visualiser et d’exporter ces objets.
 
-La journalisation des accès d’Azure Key Vault est une fonctionnalité facultative qui peut être activée de façon à générer des journaux pour chaque appel d’API REST. Ces journaux sont transférés vers un compte de stockage de votre abonnement où vous appliquez la stratégie de conservation qui répond aux exigences de votre organisation.
+La journalisation des accès d’Azure Key Vault est une fonctionnalité facultative qui peut être activée de façon à générer des journaux d’activité pour chaque appel d’API REST. Ces journaux d’activité sont transférés vers un compte de stockage de votre abonnement où vous appliquez la stratégie de conservation qui répond aux exigences de votre organisation.
 
 Les journaux de diagnostic d’Azure Key Vault contenant des données personnelles peuvent être récupérés en effectuant une demande d’exportation dans le portail Confidentialité de l’utilisateur. Cette demande doit être effectuée par l’administrateur du locataire.
 

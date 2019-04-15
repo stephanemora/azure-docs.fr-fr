@@ -363,11 +363,11 @@ La création d’une définition de mise en production est la dernière étape d
 
 ## <a name="monitor-and-track-deployments"></a>Surveiller et suivre les déploiements
 
-1.  Sur la page récapitulative **Release-2**, sélectionnez **Journaux**. Pendant un déploiement, cette page affiche le journal en direct de l’agent. Le volet gauche indique l’état de chaque opération du déploiement pour chaque environnement.
+1.  Sur la page récapitulative **Release-2**, sélectionnez **Journaux d’activité**. Pendant un déploiement, cette page affiche le journal en direct de l’agent. Le volet gauche indique l’état de chaque opération du déploiement pour chaque environnement.
 
 2.  Choisissez une personne dans la colonne **Action** pour une approbation de prédéploiement ou de postdéploiement afin de voir qui a approuvé (ou rejeté) le déploiement ainsi que le message qu’elle a entré.
 
-3.  Lorsque le déploiement est terminé, l’intégralité du fichier journal s’affiche dans le volet droit. Choisissez une **étape** dans le volet gauche pour afficher le fichier journal d’une seule étape telle que **Initialiser le travail**. La possibilité de voir les journaux individuels facilite le suivi et le débogage de parties du déploiement global. **Enregistrez** le fichier journal d’une étape ou **téléchargez tous les journaux au format zip**.
+3.  Lorsque le déploiement est terminé, l’intégralité du fichier journal s’affiche dans le volet droit. Choisissez une **étape** dans le volet gauche pour afficher le fichier journal d’une seule étape telle que **Initialiser le travail**. La possibilité de voir les journaux d’activité individuels facilite le suivi et le débogage de parties du déploiement global. **Enregistrez** le fichier journal d’une étape ou **téléchargez tous les journaux au format zip**.
 
 4.  Ouvrez l’onglet **Résumé** pour afficher des informations générales sur la mise en production. Cette vue montre les détails de la build, les environnements où elle a été déployée, l’état du déploiement et d’autres informations sur la mise en production.
 

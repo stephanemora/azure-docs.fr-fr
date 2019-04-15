@@ -120,7 +120,7 @@ Procédez comme suit pour télécharger l’historique des commandes.
 
     ![Télécharger l’historique des commandes](media/data-box-portal-admin/download-order-history-1.png)
 
-2. Cliquez sur **Télécharger l’historique des commandes**. Dans l’historique téléchargé, vous verrez un enregistrement des journaux de suivi de l’opérateur. Si vous faites défiler jusqu’en bas de ce journal, vous pouvez voir des liens vers :
+2. Cliquez sur **Télécharger l’historique des commandes**. Dans l’historique téléchargé, vous verrez un enregistrement des journaux d’activité de suivi de l’opérateur. Si vous faites défiler jusqu’en bas de ce journal, vous pouvez voir des liens vers :
     
    - **Copier les journaux** - affiche la liste des fichiers en erreur pendant la copie des données entre la zone de données et votre compte de stockage Azure.
    - **Journaux d’audit** - contiennent des informations sur la mise sous tension et l’accès au partage sur la Data Box lorsqu’elle est hors du centre de données Azure.
@@ -173,13 +173,13 @@ Procédez comme suit pour télécharger l’historique des commandes.
        Audit Logs Path      : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700                                                                                                                     
        BOM Files Path       : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700
        ```
-     Vous pouvez ensuite accéder à votre compte de stockage, puis afficher les journaux de copie.
+     Vous pouvez ensuite accéder à votre compte de stockage, puis afficher les journaux d’activité de copie.
 
-![Journaux dans les comptes de stockage](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+![Journaux d’activité dans les comptes de stockage](media/data-box-portal-admin/logs-in-storage-acct-2.png)
 
-Vous pouvez également afficher les journaux de chaîne de responsabilité qui incluent les journaux d’audit et les fichiers de nomenclature.
+Vous pouvez également afficher les journaux d’activité de chaîne de responsabilité qui incluent les journaux d’audit et les fichiers de nomenclature.
 
-![Journaux dans les comptes de stockage](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+![Journaux d’activité dans les comptes de stockage](media/data-box-portal-admin/logs-in-storage-acct-1.png)
 
 ## <a name="view-order-status"></a>Afficher l’état de la commande
 
@@ -195,7 +195,7 @@ Vous êtes informé par courrier électronique dès que l’état de l’apparei
 |Reçu     | Votre appareil a été reçu et scanné au centre de données Azure. <br> Une fois le colis inspecté, le téléchargement de l’appareil commencera.      |
 |Copie de données     | La copie des données est en cours. Suivez la progression de la copie de votre commande sur le portail Azure. <br> Attendez que la copie des données se termine. |
 |Completed       |La commande a été terminée avec succès.<br> Vérifiez que vos données se trouvent bien dans Azure avant de supprimer les données locales des serveurs.         |
-|Completed with errors (Terminée avec des erreurs)| La copie des données a été effectuée mais des erreurs se sont produites pendant l’opération. <br> Consultez les journaux de copie en utilisant le chemin d’accès spécifié dans le portail Azure.   |
+|Completed with errors (Terminée avec des erreurs)| La copie des données a été effectuée mais des erreurs se sont produites pendant l’opération. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié dans le portail Azure.   |
 |Canceled            |La commande a été annulée. <br> Soit vous avez annulé la commande, soit une erreur s’est produite et le service a annulé la commande. Si elle ne peut pas être traitée sous 90 jours, la commande est également annulée et vous en êtes informé.     |
 |Nettoyer | Les données sur les disques de l’appareil sont effacées. Le nettoyage de l’appareil est considéré comme terminé lorsque l’historique de la commande est disponible au téléchargement dans le portail Azure.|
 

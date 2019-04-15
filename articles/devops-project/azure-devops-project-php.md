@@ -137,8 +137,8 @@ Vous devez maintenant voir une build en cours. Les modifications que vous venez 
 1. Sélectionnez **Validations**.  
         Cette vue montre les validations de code associées au déploiement spécifique. 
 
-1. Sélectionnez **Journaux**.  
-        Les journaux contiennent des informations utiles sur le processus de déploiement. Ils peuvent être affichés pendant et après les déploiements.
+1. Sélectionnez **Journaux d’activité**.  
+        Les journaux d’activité contiennent des informations utiles sur le processus de déploiement. Ils peuvent être affichés pendant et après les déploiements.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

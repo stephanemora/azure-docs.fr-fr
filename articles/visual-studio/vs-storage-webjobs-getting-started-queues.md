@@ -503,24 +503,24 @@ public class Program
 }
 ```
 
-## <a name="how-to-write-logs"></a>Écriture de journaux
-Le tableau de bord affiche des journaux à deux emplacements : la page relative aux tâches web et la page portant sur l’appel d’une tâche web spécifique.
+## <a name="how-to-write-logs"></a>Écriture de journaux d’activité
+Le tableau de bord affiche des journaux d’activité à deux emplacements : la page relative aux tâches web et la page portant sur l’appel d’une tâche web spécifique.
 
-![Journaux affichés dans la page relative aux tâches web](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Journaux d’activité affichés dans la page relative aux tâches web](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-![Journaux affichés dans la page d’appel de fonctions](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
+![Journaux d’activité affichés dans la page d’appel de fonctions](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
 La sortie des méthodes de console que vous appelez dans une fonction ou dans la méthode **Main()** s'affiche dans la page Tableau de bord de la tâche web, et non dans la page relative à l'appel d'une méthode particulière. La sortie de l’objet TextWriter que vous obtenez à partir d’un paramètre dans la signature de méthode s’affiche dans la page Tableau de bord relative à l’appel d’une méthode.
 
 La sortie de la console ne peut pas être liée à un appel de méthode particulier, car la console présente un thread unique, tandis que de nombreuses fonctions de tâche peuvent s’exécuter en même temps. C’est pourquoi le Kit de développement logiciel (SDK) fournit à chaque appel de fonction son propre objet d’enregistreur de journal unique.
 
-Pour écrire des [journaux de suivi d’application](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview), utilisez **Console.Out** (crée des journaux marqués INFO) et **Console.Error** (crée des journaux marqués ERROR). Vous pouvez aussi utiliser des éléments [Trace ou TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), qui fournissent des niveaux supplémentaires (En clair, Avertissement et Critique). Les journaux de suivi d’application s’affichent dans les fichiers de journaux d’application web, les tables Microsoft Azure, ou les objets blob Microsoft Azure, selon la configuration de votre application web Microsoft Azure. Comme pour toutes les autres sorties de console, les 100 journaux d’application les plus récents s’affichent également dans la page Tableau de bord de la tâche web, et non dans la page d’appel d’une fonction.
+Pour écrire des [journaux d’activité de suivi d’application](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview), utilisez **Console.Out** (crée des journaux d’activité marqués INFO) et **Console.Error** (crée des journaux d’activité marqués ERROR). Vous pouvez aussi utiliser des éléments [Trace ou TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), qui fournissent des niveaux supplémentaires (En clair, Avertissement et Critique). Les journaux d’activité de suivi d’application s’affichent dans les fichiers de journaux d’activité d’application web, les tables Microsoft Azure, ou les objets blob Microsoft Azure, selon la configuration de votre application web Microsoft Azure. Comme pour toutes les autres sorties de console, les 100 journaux d’activité d’application les plus récents s’affichent également dans la page Tableau de bord de la tâche web, et non dans la page d’appel d’une fonction.
 
 La sortie de console s’affiche dans le tableau de bord uniquement si le programme s’exécute dans une tâche web Microsoft Azure, et non lorsque le programme est exécuté localement ou dans un autre environnement.
 
 Vous pouvez désactiver la journalisation en définissant la chaîne de connexion du tableau de bord sur null. Pour plus d’informations, consultez la section [Définition des options de configuration](#how-to-set-configuration-options).
 
-L’exemple suivant montre plusieurs manières d’écrire des journaux :
+L’exemple suivant montre plusieurs manières d’écrire des journaux d’activité :
 
 ```csharp
 public static void WriteLog(
@@ -538,7 +538,7 @@ Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, la sort
 
 ![Lien d’appel](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
-![Journaux affichés dans la page d’appel de fonctions](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
+![Journaux d’activité affichés dans la page d’appel de fonctions](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
 Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, les 100 lignes les plus récentes de la sortie de console apparaissent lorsque vous accédez à la page de la tâche web (et non à celle de l’appel de fonction) et que vous sélectionnez **Activer/désactiver la sortie**.
 
@@ -550,9 +550,9 @@ Dans une tâche web continue, les journaux des applications apparaissent dans /
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-Dans un objet blob Azure, les journaux d’application ressemblent à ceci : 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
+Dans un objet blob Azure, les journaux d’activité d’application ressemblent à ceci : 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
 
-Dans une table Azure, les journaux **Console.Out** et **Console.Error** ressemblent à ceci :
+Dans une table Azure, les journaux d’activité **Console.Out** et **Console.Error** ressemblent à ceci :
 
 ![Journal d’informations dans la table](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 

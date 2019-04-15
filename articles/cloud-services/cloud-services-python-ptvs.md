@@ -327,8 +327,8 @@ La progression s'affiche alors dans la fenêtre Sortie, puis vous verrez la fen�
 
 Le déploiement prend plusieurs minutes. Ensuite, vos rôles web et/ou de travail sont exécutés sur Azure !
 
-### <a name="investigate-logs"></a>Examiner les journaux
-Une fois que la machine virtuelle du service cloud a démarré et installé Python, vous pouvez examiner les journaux pour y rechercher d’éventuels messages d’échec. Ces journaux sont stockés dans le dossier **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** contient au moins une erreur à partir du moment ou le script tente de détecter l’installation de Python. Il est possible que**PipInstaller.err.txt** signale l’existence d’une version obsolète de pip.
+### <a name="investigate-logs"></a>Examiner les journaux d’activité
+Une fois que la machine virtuelle du service cloud a démarré et installé Python, vous pouvez examiner les journaux d’activité pour y rechercher d’éventuels messages d’échec. Ces journaux d’activité sont stockés dans le dossier **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** contient au moins une erreur à partir du moment ou le script tente de détecter l’installation de Python. Il est possible que**PipInstaller.err.txt** signale l’existence d’une version obsolète de pip.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur l'utilisation des rôles web et de travail dans les outils Python pour Visual Studio, consultez la documentation PTVS :

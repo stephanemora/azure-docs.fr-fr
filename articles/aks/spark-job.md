@@ -11,7 +11,7 @@ ms.author: alehall
 ms.custom: mvc
 ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
 ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/31/2018
 ms.locfileid: "50414027"
@@ -249,7 +249,7 @@ Pour accéder à l’interface utilisateur Spark, ouvrez l’adresse `127.0.0.1:
 
 ![Interface utilisateur Spark](media/aks-spark-job/spark-ui.png)
 
-## <a name="get-job-results-and-logs"></a>Obtenir les journaux et les résultats du travail
+## <a name="get-job-results-and-logs"></a>Obtenir les journaux d’activité et les résultats du travail
 
 Une fois le travail terminé, le pod de pilotes a l’état « Completed ». Obtenez le nom du pod avec la commande suivante.
 
@@ -264,13 +264,13 @@ NAME                                               READY     STATUS      RESTART
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   0/1       Completed   0          1m
 ```
 
-Utilisez la commande `kubectl logs` pour obtenir des journaux à partir du pod de pilotes Spark. Remplacez le nom du pod par le nom de votre pod de pilotes.
+Utilisez la commande `kubectl logs` pour obtenir des journaux d’activité à partir du pod de pilotes Spark. Remplacez le nom du pod par le nom de votre pod de pilotes.
 
 ```bash
 kubectl logs spark-pi-2232778d0f663768ab27edc35cb73040-driver
 ```
 
-Dans ces journaux, vous pouvez voir le résultat du travail Spark, qui est la valeur de Pi.
+Dans ces journaux d’activité, vous pouvez voir le résultat du travail Spark, qui est la valeur de Pi.
 
 ```bash
 Pi is roughly 3.152155760778804

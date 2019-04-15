@@ -10,7 +10,7 @@ ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: f7e21b805c64522005dce3e7d04aa158e1c21032
 ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/08/2019
 ms.locfileid: "55892848"
@@ -73,7 +73,7 @@ Exemple de configuration d’un récepteur pour Application Insights :
         - Error
         - Critique
 
-Un canal fonctionne comme un filtre et vous permet de sélectionner les niveaux de consignation spécifiques à envoyer au récepteur cible. Par exemple, vous pouvez collecter des journaux détaillés et les envoyer vers le stockage, mais envoyer uniquement les erreurs vers le récepteur.
+Un canal fonctionne comme un filtre et vous permet de sélectionner les niveaux de consignation spécifiques à envoyer au récepteur cible. Par exemple, vous pouvez collecter des journaux d’activité détaillés et les envoyer vers le stockage, mais envoyer uniquement les erreurs vers le récepteur.
 
 Le graphique suivant illustre cette relation.
 
@@ -86,7 +86,7 @@ Le graphique suivant résume les valeurs de configuration et leur fonctionnement
 ## <a name="complete-sink-configuration-example"></a>Exemple de configuration complète de récepteur
 Voici un exemple complet de fichier de configuration publique qui
 1. envoie toutes les erreurs à Application Insights (spécifiées au niveau du nœud **DiagnosticMonitorConfiguration**)
-2. envoie également des journaux détaillés pour les journaux des applications (spécifiés au niveau du nœud **Logs**).
+2. envoie également des journaux d’activité détaillés pour les journaux des applications (spécifiés au niveau du nœud **Logs**).
 
 ```XML
 <WadCfg>
@@ -184,7 +184,7 @@ Dans la configuration précédente, les lignes ci-dessous ont les significations
 }
 ```
 
-### <a name="send-only-error-logs-to-the-application-insights-sink"></a>Envoyer uniquement les journaux d’erreurs au récepteur Application Insights
+### <a name="send-only-error-logs-to-the-application-insights-sink"></a>Envoyer uniquement les journaux d’activité d’erreurs au récepteur Application Insights
 
 ```XML
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
@@ -196,7 +196,7 @@ Dans la configuration précédente, les lignes ci-dessous ont les significations
 }
 ```
 
-### <a name="send-verbose-application-logs-to-application-insights"></a>Envoyer les journaux d’application détaillés à Application Insights
+### <a name="send-verbose-application-logs-to-application-insights"></a>Envoyer les journaux d’activité d’application détaillés à Application Insights
 
 ```XML
 <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
@@ -211,7 +211,7 @@ Dans la configuration précédente, les lignes ci-dessous ont les significations
 ## <a name="limitations"></a>Limites
 
 - **Les canaux consignent uniquement le type et non les compteurs de performances.** Si vous spécifiez un canal comprenant un élément compteur de performances, il est ignoré.
-- **Le niveau de consignation d’un canal ne peut pas dépasser le niveau de consignation de ce qui est collecté par les diagnostics Azure.** Par exemple, vous ne pouvez pas collecter les erreurs de consignation des applications dans l’élément Journaux et tenter d’envoyer des journaux détaillés vers le journal de suivi Application Insight. L'attribut *scheduledTransferLogLevelFilter* doit toujours collecter au moins autant de journaux que ceux que vous essayez d'envoyer à un récepteur.
+- **Le niveau de consignation d’un canal ne peut pas dépasser le niveau de consignation de ce qui est collecté par les diagnostics Azure.** Par exemple, vous ne pouvez pas collecter les erreurs de consignation des applications dans l’élément Journaux d’activité et tenter d’envoyer des journaux d’activité détaillés vers le journal de suivi Application Insight. L’attribut *scheduledTransferLogLevelFilter* doit toujours collecter au moins autant de journaux d’activité que ceux que vous essayez d’envoyer à un récepteur.
 - **Vous ne pouvez pas envoyer des données blob collectées par l’extension des diagnostics Azure à Application Insights.** Par exemple, rien qui soit spécifié sous le nœud *Directories*. Pour les vidages sur incident, le vidage sur incident réel est toujours envoyé au stockage Blob et seule une notification de génération du vidage sur incident est envoyée à Application Insights.
 
 ## <a name="next-steps"></a>Étapes suivantes

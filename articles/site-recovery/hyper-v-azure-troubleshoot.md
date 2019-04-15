@@ -141,11 +141,11 @@ Une capture instantanée de cohérence des applications est un instantané à un
 
 
 
-## <a name="collect-replication-logs"></a>Collecter les journaux de réplication
+## <a name="collect-replication-logs"></a>Collecter les journaux d’activité de réplication
 
 Tous les événements relatifs à la réplication Hyper-V sont consignés dans le journal Hyper-V-VMMS\Admin situé dans **Journaux des applications et des services** > **Microsoft** > **Windows**. En outre, vous pouvez activer un journal d’analyse pour le Service de gestion d’ordinateurs virtuels Hyper-V, comme suit :
 
-1. Rendez les journaux d’analyse et de débogage consultables dans l’Observateur d’événements. Pour rendre les journaux disponibles, dans l’Observateur d’événements, cliquez sur **Affichage** > **Afficher les journaux d’analyse et de débogage**. Le journal d’analyse s’affiche sous **Hyper-V-VMMS**.
+1. Rendez les journaux d’activité d’analyse et de débogage consultables dans l’Observateur d’événements. Pour rendre les journaux d’activité disponibles, dans l’Observateur d’événements, cliquez sur **Affichage** > **Afficher les journaux d’activité d’analyse et de débogage**. Le journal d’analyse s’affiche sous **Hyper-V-VMMS**.
 2. Dans le volet **Actions**, cliquez sur **Activer le journal**. 
 
     ![Activer le journal](media/hyper-v-azure-troubleshoot/enable-log.png)
@@ -158,15 +158,15 @@ Tous les événements relatifs à la réplication Hyper-V sont consignés dans l
 
 **Journal des événements** | **Détails** |
 --- | ---
-**Journaux des applications et des services/Microsoft/VirtualMachineManager/Server/Admin** (serveur VMM) | Journaux pour résoudre les problèmes de VMM.
-**Journaux des applications et des services/MicrosoftAzureRecoveryServices/Replication** (hôte Hyper-V) | Journaux pour résoudre les problèmes liés à Microsoft Azure Recovery Services Agent. 
-**Journaux des applications et des services/Microsoft/Azure Site Recovery/Provider/Operational** (hôte Hyper-V)| Journaux pour résoudre les problèmes liés à Microsoft Azure Site Recovery Service.
-**Journaux des applications et des services/Microsoft/Windows/Hyper-V-VMMS/Admin** (hôte Hyper-V) | Journaux pour résoudre les problèmes de gestion d’ordinateurs virtuels Hyper-V.
+**Journaux des applications et des services/Microsoft/VirtualMachineManager/Server/Admin** (serveur VMM) | Journaux d’activité pour résoudre les problèmes de VMM.
+**Journaux des applications et des services/MicrosoftAzureRecoveryServices/Replication** (hôte Hyper-V) | Journaux d’activité pour résoudre les problèmes liés à Microsoft Azure Recovery Services Agent. 
+**Journaux des applications et des services/Microsoft/Azure Site Recovery/Provider/Operational** (hôte Hyper-V)| Journaux d’activité pour résoudre les problèmes liés à Microsoft Azure Site Recovery Service.
+**Journaux des applications et des services/Microsoft/Windows/Hyper-V-VMMS/Admin** (hôte Hyper-V) | Journaux d’activité pour résoudre les problèmes de gestion d’ordinateurs virtuels Hyper-V.
 
 ### <a name="log-collection-for-advanced-troubleshooting"></a>Collection de journaux pour la résolution de problèmes avancée
 
 Ces outils peuvent aider à résoudre des problèmes plus complexes :
 
 -   Pour VMM, collectez les journaux de récupération de site à l’aide de l’[outil SDP (Support Diagnostics Platform)](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
--   Pour Hyper-V sans VMM, [téléchargez cet outil](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab) et exécutez-le sur l’hôte Hyper-V afin de collecter les journaux.
+-   Pour Hyper-V sans VMM, [téléchargez cet outil](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab) et exécutez-le sur l’hôte Hyper-V afin de collecter les journaux d’activité.
 

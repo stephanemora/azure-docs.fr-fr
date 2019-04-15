@@ -408,7 +408,7 @@ Dans l’exemple suivant, l’application Microsoft Authenticator installée sur
 
 Après avoir été correctement authentifié par le biais de la méthode secondaire, vous obtenez l’accès au port virtuel sur le serveur VPN. L’utilisation d’une méthode d’authentification secondaire par le biais d’une application mobile sur un appareil approuvé étant obligatoire, le processus de connexion est plus sûr qu’avec la seule combinaison d’un nom d’utilisateur et d’un mot de passe.
 
-### <a name="view-event-viewer-logs-for-successful-sign-in-events"></a>Afficher les journaux de l’Observateur d’événements pour les événements de connexion réussie
+### <a name="view-event-viewer-logs-for-successful-sign-in-events"></a>Afficher les journaux d’activité de l’Observateur d’événements pour les événements de connexion réussie
 
 Pour afficher les événements de connexion réussie dans les journaux de l’Observateur d’événements Windows interroger le journal de sécurité de Windows, sur le serveur NPS, en entrant la commande PowerShell suivante :
 
@@ -420,7 +420,7 @@ Vous pouvez également afficher le journal de sécurité ou la vue personnalisé
 
 ![Exemple de journal de serveur NPS](./media/howto-mfa-nps-extension-vpn/image45.png)
 
-Sur le serveur où vous avez installé l’extension de serveur NPS pour Azure Multi-Factor Authentication, vous pouvez rechercher les journaux d’application de l’Observateur d’événements qui sont propres à l’extension à l’emplacement *Journaux des applications et des services\Microsoft\AzureMfa*.
+Sur le serveur où vous avez installé l’extension de serveur NPS pour Azure Multi-Factor Authentication, vous pouvez rechercher les journaux d’activité d’application de l’Observateur d’événements qui sont propres à l’extension à l’emplacement *Journaux des applications et des services\Microsoft\AzureMfa*.
 
     `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
 
@@ -430,7 +430,7 @@ Sur le serveur où vous avez installé l’extension de serveur NPS pour Azure M
 
 Si la configuration ne fonctionne pas comme prévu, la première chose à faire pour résoudre les problèmes consiste à vérifier que l’utilisateur est bien configuré pour utiliser MFA. Connectez l’utilisateur au [portail Azure](https://portal.azure.com). Si l’utilisateur est invité à utiliser une authentification secondaire et qu’il peut correctement s’authentifier, vous pouvez éliminer les problèmes de configuration incorrecte de MFA.
 
-Si l’authentification MFA fonctionne pour l’utilisateur, consultez les journaux de l’Observateur d’événements pertinents. Citons notamment les journaux des événements de sécurité, des opérations de la passerelle et d’Azure Multi-Factor Authentication qui sont décrits à la section précédente.
+Si l’authentification MFA fonctionne pour l’utilisateur, consultez les journaux d’activité de l’Observateur d’événements pertinents. Citons notamment les journaux des événements de sécurité, des opérations de la passerelle et d’Azure Multi-Factor Authentication qui sont décrits à la section précédente.
 
 Voici un exemple de journal de sécurité qui affiche un événement d’échec de connexion (ID d’événement 6273) :
 
@@ -438,7 +438,7 @@ Voici un exemple de journal de sécurité qui affiche un événement d’échec 
 
 Un événement associé, à partir du journal Azure Multi-Factor Authentication, est illustré ici :
 
-![Journaux Azure Multi-Factor Authentication](./media/howto-mfa-nps-extension-vpn/image48.png)
+![Journaux d’activité Azure Multi-Factor Authentication](./media/howto-mfa-nps-extension-vpn/image48.png)
 
 Pour résoudre les problèmes de manière plus poussée, consultez les fichiers journaux au format de base de données NPS où est installé le service NPS. Les fichiers journaux sont créés dans le dossier _%SystemRoot%\System32\Logs_ sous forme de fichiers texte délimité par des virgules. Pour obtenir une description des fichiers journaux, consultez [Interpréter des fichiers journaux au format de base de données NPS](https://technet.microsoft.com/library/cc771748.aspx).
 

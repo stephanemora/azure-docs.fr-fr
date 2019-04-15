@@ -112,7 +112,7 @@ La procédure suivante montre comment importer et installer des mises à jour da
 9. Lorsque vous avez terminé, vous pouvez examiner les notifications (icône représentant une cloche dans le coin supérieur droit du portail). Les notifications doivent indiquer que le chargement est terminé.
 10. Revenez à la vignette Mise à jour dans le tableau de bord. La vignette doit indiquer qu’une mise à jour est disponible. Cliquez sur la vignette pour vérifier la mise à jour récemment ajoutée.
 11. Pour installer la mise à jour, sélectionnez le package marqué comme étant **Prêt**, cliquez dessus avec le bouton droit et sélectionnez **Mettre à jour maintenant** ou cliquez sur l’action **Mettre à jour maintenant** située en haut.
-12. Lorsque vous cliquez sur la mise à jour lors de son installation, son état s’affiche dans la zone **Update run details** (Détails sur la mise à jour en cours). À partir de cet emplacement, vous pouvez également cliquer sur **Télécharger les journaux complets** pour télécharger les fichiers journaux.
+12. Lorsque vous cliquez sur la mise à jour lors de son installation, son état s’affiche dans la zone **Update run details** (Détails sur la mise à jour en cours). À partir de cet emplacement, vous pouvez également cliquer sur **Télécharger les journaux d’activité complets** pour télécharger les fichiers journaux.
 13. Lorsque la mise à jour est terminée, la vignette Mise à jour affiche la version Azure Stack mise à jour.
 
 Après avoir installé des mises à jour sur Azure Stack, vous pouvez les supprimer manuellement du compte de stockage. Périodiquement, Azure Stack vérifie la présence de packages de mise à jour plus anciens et les supprime du stockage. Azure Stack peut prendre deux semaines pour supprimer les anciens packages.

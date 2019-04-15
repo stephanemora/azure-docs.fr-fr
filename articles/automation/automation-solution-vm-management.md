@@ -244,7 +244,7 @@ Vous ne devez pas activer toutes les planifications, car vous risqueriez de cré
 
 Automation crée deux types d’enregistrements dans l’espace de travail Log Analytics : les journaux d’activité de tâches et les flux de tâches.
 
-### <a name="job-logs"></a>Journaux de tâches
+### <a name="job-logs"></a>Journaux d’activité de tâches
 
 |Propriété | Description|
 |----------|----------|

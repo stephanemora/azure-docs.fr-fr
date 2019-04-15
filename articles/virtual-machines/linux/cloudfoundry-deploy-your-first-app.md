@@ -117,15 +117,15 @@ Pour afficher l’application hello-spring-cloud, ouvrez l’URL fournie dans vo
 
 ## <a name="view-application-logs"></a>Affichage des journaux des applications
 
-Vous pouvez utiliser l’interface CLI de Cloud Foundry pour afficher les journaux d’une application par son nom :
+Vous pouvez utiliser l’interface CLI de Cloud Foundry pour afficher les journaux d’activité d’une application par son nom :
 
 ```bash
 cf logs hello-spring-cloud
 ```
 
-Par défaut, la commande logs utilise une *fin*, qui montre les nouveaux journaux à mesure qu’ils sont écrits. Pour afficher les nouveaux journaux, actualisez l’application hello-spring-cloud dans le navigateur.
+Par défaut, la commande logs utilise une *fin*, qui montre les nouveaux journaux d’activité à mesure qu’ils sont écrits. Pour afficher les nouveaux journaux d’activité, actualisez l’application hello-spring-cloud dans le navigateur.
 
-Pour afficher les journaux déjà écrits, ajoutez le commutateur `recent` :
+Pour afficher les journaux d’activité déjà écrits, ajoutez le commutateur `recent` :
 
 ```bash
 cf logs --recent hello-spring-cloud

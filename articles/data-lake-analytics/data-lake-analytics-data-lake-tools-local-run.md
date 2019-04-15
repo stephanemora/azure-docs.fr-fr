@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 8f110a88558b4479d8fdadb2967c7dedeca60ce9
 ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43043555"
@@ -47,7 +47,7 @@ Un moteur d’exécution locale U-SQL est un **compte de calcul local** pour les
 
 ### <a name="working-directories"></a>Répertoires de travail
 
-Lorsque vous exécutez un script U-SQL, un dossier de répertoire de travail est nécessaire pour mettre en cache les résultats de la compilation et les journaux d’exécution, et pour effectuer d’autres actions. Dans Azure Data Lake Tools pour Visual Studio, le répertoire de travail est celui du projet U-SQL. Il est situé sous `<U-SQL project root path>/bin/debug>`. Le répertoire de travail est nettoyé chaque fois qu’une nouvelle exécution est déclenchée.
+Lorsque vous exécutez un script U-SQL, un dossier de répertoire de travail est nécessaire pour mettre en cache les résultats de la compilation et les journaux d’activité d’exécution, et pour effectuer d’autres actions. Dans Azure Data Lake Tools pour Visual Studio, le répertoire de travail est celui du projet U-SQL. Il est situé sous `<U-SQL project root path>/bin/debug>`. Le répertoire de travail est nettoyé chaque fois qu’une nouvelle exécution est déclenchée.
 
 ## <a name="local-runs-in-microsoft-visual-studio"></a>Exécutions locales dans Microsoft Visual Studio
 
@@ -61,7 +61,7 @@ Le compte **Local-machine** est un compte de calcul local partagé. Il comprend 
 
 ![Configurer un dossier racine de données local](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-local-data-root.png)
   
-Pour une exécution locale, vous avez besoin d’un projet U-SQL. Le répertoire de travail du projet U-SQL est utilisé pour le répertoire de travail de l’exécution locale U-SQL. Les résultats de la compilation, les journaux d’exécution et les autres fichiers liés à l’exécution du travail, sont générés et stockés dans le dossier du répertoire de travail pendant l’exécution locale. Chaque fois que vous réexécutez le script, tous les fichiers du répertoire de travail sont nettoyés et régénérés.
+Pour une exécution locale, vous avez besoin d’un projet U-SQL. Le répertoire de travail du projet U-SQL est utilisé pour le répertoire de travail de l’exécution locale U-SQL. Les résultats de la compilation, les journaux d’activité d’exécution et les autres fichiers liés à l’exécution du travail, sont générés et stockés dans le dossier du répertoire de travail pendant l’exécution locale. Chaque fois que vous réexécutez le script, tous les fichiers du répertoire de travail sont nettoyés et régénérés.
 
 ## <a name="local-runs-with-a-local-project-account"></a>Exécutions locales avec un compte Local-project
 

@@ -12,7 +12,7 @@ ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: f5e0b2b75ac111f3221108936f84e5883aebfc1a
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55476262"
@@ -23,7 +23,7 @@ Apprenez comment optimiser les performances de votre code transactionnel dans Az
 ## <a name="transactions-and-logging"></a>Transactions et journalisation
 Les transactions sont une composante importante d’un moteur de base de données relationnelle. SQL Data Warehouse utilise les transactions durant la modification des données. Ces transactions peuvent être explicites ou implicites. Les instructions uniques INSERT, UPDATE et DELETE sont toutes des exemples de transactions implicites. Les transactions explicites utilisent BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. Les transactions explicites sont généralement utilisées quand plusieurs instructions de modification doivent être liées dans une seule unité atomique. 
 
-Azure SQL Data Warehouse valide les modifications apportées à la base de données à l’aide de fichiers journaux de transactions. Chaque distribution présente son propre fichier journal. Les écritures des fichiers journaux de transactions sont automatiques. Aucune configuration n’est requise. Notez toutefois que ce processus, qui garantit l’écriture, introduit par ailleurs une surcharge dans le système. Pour réduire des effets, vous pouvez écrire du code efficace sur le plan transactionnel. Ce type de code se classe principalement en deux catégories.
+Azure SQL Data Warehouse valide les modifications apportées à la base de données à l’aide de fichiers journaux d’activité de transactions. Chaque distribution présente son propre fichier journal. Les écritures des fichiers journaux de transactions sont automatiques. Aucune configuration n’est requise. Notez toutefois que ce processus, qui garantit l’écriture, introduit par ailleurs une surcharge dans le système. Pour réduire des effets, vous pouvez écrire du code efficace sur le plan transactionnel. Ce type de code se classe principalement en deux catégories.
 
 * Utilisez autant que possible des constructions de journalisation minimale.
 * Traitez les données en les regroupant par lots définis, afin d’éviter les transactions isolées de longue durée.

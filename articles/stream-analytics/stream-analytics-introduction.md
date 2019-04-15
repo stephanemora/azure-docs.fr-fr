@@ -24,7 +24,7 @@ Azure Stream Analytics est un moteur de traitement des événements qui vous per
 Voici quelques exemples d’utilisation d’Azure Stream Analytics : 
 
 * Fusion de capteurs IoT et analyses en temps réel sur la télémétrie des appareils
-* Analyse de journaux/parcours web
+* Analyse de journaux d’activité/parcours web
 * Analyses géospatiales pour la gestion de flotte et les véhicules sans pilote
 * Surveillance à distance et maintenance prédictive de ressources stratégiques
 * Analyse en temps réel sur les données de point de vente pour le contrôle des stocks et la détection d’anomalies

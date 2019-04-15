@@ -11,7 +11,7 @@ ms.date: 02/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
 ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/06/2019
 ms.locfileid: "55769484"
@@ -20,7 +20,7 @@ ms.locfileid: "55769484"
 
 Vous devez superviser votre travail Azure Stream Analytics pour assurer la continuité de l’exécution du travail sans problème. Cet article décrit comment configurer des alertes pour les scénarios courants qui doivent être supervisés. 
 
-Les règles peuvent être configurées sur des métriques dans le portail ou [par programmation](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sur les données des journaux des opérations.
+Les règles peuvent être configurées sur des métriques dans le portail ou [par programmation](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sur les données des journaux d’activité des opérations.
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Configurer des alertes dans le portail Azure
 

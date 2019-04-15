@@ -1,6 +1,6 @@
 ---
 title: Propriétés standard dans les enregistrements de journaux Azure Monitor | Microsoft Docs
-description: Décrit les propriétés communes à plusieurs types de données dans les journaux Azure Monitor.
+description: Décrit les propriétés communes à plusieurs types de données dans les journaux d’activité Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren

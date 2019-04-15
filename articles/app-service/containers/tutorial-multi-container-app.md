@@ -171,7 +171,7 @@ Une fois l’application web créée, Cloud Shell affiche une sortie similaire �
 
 ### <a name="browse-to-the-app"></a>Accéder à l’application
 
-Accédez à l’application déployée dans (`http://<app_name>.azurewebsites.net`). Le chargement de l’application peut prendre plusieurs minutes. Si vous recevez une erreur, attendez quelques minutes supplémentaires, puis actualisez le navigateur. Si vous rencontrez des difficultés et souhaitez résoudre les problèmes, consultez les [journaux du conteneur](#find-docker-container-logs).
+Accédez à l’application déployée dans (`http://<app_name>.azurewebsites.net`). Le chargement de l’application peut prendre plusieurs minutes. Si vous recevez une erreur, attendez quelques minutes supplémentaires, puis actualisez le navigateur. Si vous rencontrez des difficultés et souhaitez résoudre les problèmes, consultez les [journaux d’activité du conteneur](#find-docker-container-logs).
 
 ![Exemple d’application à plusieurs conteneurs sur Web App pour conteneurs][1]
 
@@ -688,9 +688,9 @@ L’application exécute maintenant plusieurs conteneurs dans Web App pour conte
 
 Pour utiliser Redis, suivez la procédure dans [Connexion de WordPress à Redis](#connect-wordpress-to-redis).
 
-## <a name="find-docker-container-logs"></a>Recherche des journaux de conteneur Docker
+## <a name="find-docker-container-logs"></a>Recherche des journaux d’activité de conteneur Docker
 
-Si vous rencontrez des problèmes avec l’utilisation de plusieurs conteneurs, vous pouvez accéder aux journaux dans : `https://<app_name>.scm.azurewebsites.net/api/logs/docker`.
+Si vous rencontrez des problèmes avec l’utilisation de plusieurs conteneurs, vous pouvez accéder aux journaux d’activité dans : `https://<app_name>.scm.azurewebsites.net/api/logs/docker`.
 
 Le résultat ressemble à l’exemple suivant :
 

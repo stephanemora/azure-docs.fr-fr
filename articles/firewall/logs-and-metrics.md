@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble des journaux de Pare-feu Azure
+title: Vue d’ensemble des journaux d’activité de Pare-feu Azure
 description: Cet article offre une vue d’ensemble des journaux de diagnostic de Pare-feu Azure.
 services: firewall
 author: vhorne
@@ -14,11 +14,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/27/2019
 ms.locfileid: "56957689"
 ---
-# <a name="azure-firewall-logs"></a>Journaux de Pare-feu Azure
+# <a name="azure-firewall-logs"></a>Journaux d’activité de Pare-feu Azure
 
-Vous pouvez surveiller le service Pare-feu Azure à l’aide des journaux de pare-feu. Vous pouvez également utiliser les journaux d’activité pour auditer les opérations sur les ressources de Pare-feu Azure.
+Vous pouvez surveiller le service Pare-feu Azure à l’aide des journaux d’activité de pare-feu. Vous pouvez également utiliser les journaux d’activité pour auditer les opérations sur les ressources de Pare-feu Azure.
 
-Vous pouvez accéder à certains de ces journaux via le portail. Les journaux peuvent être envoyés au service [Journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), au stockage et aux hubs d’événements, puis analysés dans les journaux Azure Monitor ou par différents outils comme Excel et Power BI.
+Vous pouvez accéder à certains de ces journaux d’activité via le portail. Les journaux d’activité peuvent être envoyés au service [Journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), au stockage et aux hubs d’événements, puis analysés dans les journaux d’activité Azure Monitor ou par différents outils comme Excel et Power BI.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
@@ -71,19 +71,19 @@ Vous pouvez accéder à certains de ces journaux via le portail. Les journaux pe
 
    ```
 
-Pour stocker vos journaux, vous disposez de trois options :
+Pour stocker vos journaux d’activité, vous disposez de trois options :
 
-* **Compte de stockage** : les comptes de stockage conviennent parfaitement aux journaux quand ils sont stockés pour une durée plus longue et consultés quand cela est nécessaire.
+* **Compte de stockage** : les comptes de stockage conviennent parfaitement aux journaux d’activité quand ils sont stockés pour une durée plus longue et consultés quand cela est nécessaire.
 * **Hubs d’événements** : les hubs d’événements constituent une excellente solution pour l’intégration à d’autres outils SEIM (Security Information and Event Management) afin de recevoir des alertes sur vos ressources.
-* **Journaux Azure Monitor** : Les journaux Azure Monitor conviennent parfaitement pour la supervision en temps réel générale de votre application ou la recherche de tendances.
+* **Journaux Azure Monitor** : Les journaux d’activité Azure Monitor conviennent parfaitement pour la supervision en temps réel générale de votre application ou la recherche de tendances.
 
 ## <a name="activity-logs"></a>Journaux d’activité
 
    Les entrées du journal d’activité sont recueillies par défaut et vous pouvez les afficher dans le Portail Azure.
 
-   Vous pouvez utiliser les [journaux d’activité Azure](../azure-resource-manager/resource-group-audit.md) (anciennement journaux des opérations et journaux d’audit) pour afficher toutes les opérations soumises à votre abonnement Azure.
+   Vous pouvez utiliser les [journaux d’activité Azure](../azure-resource-manager/resource-group-audit.md) (anciennement journaux d’activité des opérations et journaux d’audit) pour afficher toutes les opérations soumises à votre abonnement Azure.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment surveiller les journaux de pare-feu d’Azure et les mesures, consultez [didacticiel : Surveiller les journaux de pare-feu Azure](tutorial-diagnostics.md).
+Pour savoir comment surveiller les journaux de pare-feu d’Azure et les mesures, consultez [didacticiel : Surveiller les journaux d’activité de pare-feu Azure](tutorial-diagnostics.md).

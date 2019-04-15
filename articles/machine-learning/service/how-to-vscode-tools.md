@@ -97,7 +97,7 @@ Avant de commencer à effectuer l’apprentissage et à déployer les modèles M
 
 1. Vous pouvez cliquer avec le bouton droit sur une expérience dans un espace de travail et sélectionner « Définir comme expérience active ». L’expérience « **Active** » est celle que vous utilisez actuellement, et votre dossier ouvert dans Visual Studio Code sera lié à cette expérience dans le cloud. Ce dossier doit contenir vos scripts Python locaux.
 
-   Maintenant que toutes vos expériences s’exécutent dans votre expérience, l’ensemble de vos métriques clés sont stockées dans l’historique des expériences et les modèles dont vous effectuez l’entraînement sont chargés automatiquement dans Azure Machine Learning et stockés dans vos journaux et métriques d’expérience.
+   Maintenant que toutes vos expériences s’exécutent dans votre expérience, l’ensemble de vos métriques clés sont stockées dans l’historique des expériences et les modèles dont vous effectuez l’entraînement sont chargés automatiquement dans Azure Machine Learning et stockés dans vos journaux d’activité et métriques d’expérience.
 
    [![Joindre un dossier dans VS Code](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 

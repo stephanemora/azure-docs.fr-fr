@@ -66,7 +66,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 | description           | Texte décrivant l’activité.  | Non        |
 | Type                  | Pour l’activité Spark, le type d’activité est HDinsightSpark. | Oui      |
 | linkedServiceName     | Nom du service lié HDInsight Spark sur lequel s’exécute le programme Spark. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
-| SparkJobLinkedService | Service lié de stockage Azure qui contient le fichier de travail, les dépendances et les journaux Spark.  Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. La valeur de cette propriété ne peut être qu’un service lié de Stockage Azure. | Non        |
+| SparkJobLinkedService | Service lié de stockage Azure qui contient le fichier de travail, les dépendances et les journaux d’activité Spark.  Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. La valeur de cette propriété ne peut être qu’un service lié de Stockage Azure. | Non        |
 | rootPath              | Conteneur d’objets blob Azure et dossier contenant le fichier Spark. Le nom de fichier respecte la casse. Reportez-vous à la section décrivant la structure des dossiers (section suivante) pour obtenir plus d’informations sur la structure de ce dossier. | Oui      |
 | entryFilePath         | Chemin d’accès relatif au dossier racine du code/package Spark. Le fichier d’entrée doit être un fichier Python ou un fichier .jar. | Oui      |
 | className             | Classe principale Java/Spark de l’application.      | Non        |
@@ -88,7 +88,7 @@ Créez la structure de dossiers suivante dans le stockage Blob Azure référenc�
 | ./pyFiles             | Tous les fichiers dans ce dossier sont téléchargés et placés dans le PYTHONPATH du cluster | Non        | Dossier |
 | ./files               | Tous les fichiers dans ce dossier sont téléchargés et placés dans le répertoire de travail de l’exécuteur | Non        | Dossier |
 | ./archives            | Tous les fichiers dans ce dossier ne sont pas compressés | Non        | Dossier |
-| ./logs                | Dossier qui contient les journaux à partir du cluster Spark. | Non        | Dossier |
+| ./logs                | Dossier qui contient les journaux d’activité à partir du cluster Spark. | Non        | Dossier |
 
 Voici un exemple de stockage qui contient deux fichiers de travail Spark dans le stockage Blob Azure référencé par le service lié HDInsight.
 

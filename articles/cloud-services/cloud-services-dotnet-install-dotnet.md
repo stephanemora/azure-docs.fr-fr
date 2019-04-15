@@ -205,8 +205,8 @@ Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations av
 
    ![Contenu du rôle avec tous les fichiers][2]
 
-## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>Configurer les diagnostics pour transférer les journaux de démarrage vers le stockage Blob
-Pour simplifier la résolution des problèmes d’installation, vous pouvez configurer Azure Diagnostics de façon à transférer tous les fichiers journaux générés par le script de démarrage ou le programme d’installation de .NET vers le stockage Blob Azure. Grâce à cette approche, vous pouvez afficher les journaux en téléchargeant les fichiers journaux depuis le stockage Blob au lieu d’accéder au rôle par le biais du Bureau à distance.
+## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>Configurer les diagnostics pour transférer les journaux d’activité de démarrage vers le stockage Blob
+Pour simplifier la résolution des problèmes d’installation, vous pouvez configurer Azure Diagnostics de façon à transférer tous les fichiers journaux générés par le script de démarrage ou le programme d’installation de .NET vers le stockage Blob Azure. Grâce à cette approche, vous pouvez afficher les journaux d’activité en téléchargeant les fichiers journaux depuis le stockage Blob au lieu d’accéder au rôle par le biais du Bureau à distance.
 
 
 Pour configurer les diagnostics, ouvrez le fichier diagnostics.wadcfgx et ajoutez le contenu suivant sous le nœud **Directories** : 

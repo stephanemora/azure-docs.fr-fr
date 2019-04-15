@@ -1,6 +1,6 @@
 ---
-title: Diffuser en continu les journaux Azure Active Directory vers Splunk à l’aide d’Azure Monitor (préversion) | Microsoft Docs
-description: Découvrez comment intégrer des journaux Azure Active Directory avec Splunk à l’aide d’Azure Monitor (préversion).
+title: Diffuser en continu les journaux d’activité Azure Active Directory vers Splunk à l’aide d’Azure Monitor (préversion) | Microsoft Docs
+description: Découvrez comment intégrer des journaux d’activité Azure Active Directory avec Splunk à l’aide d’Azure Monitor (préversion).
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -24,9 +24,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58438850"
 ---
-# <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor-preview"></a>Intégrer des journaux Azure AD avec Splunk à l’aide d’Azure Monitor (préversion)
+# <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor-preview"></a>Intégrer des journaux d’activité Azure AD avec Splunk à l’aide d’Azure Monitor (préversion)
 
-Cet article explique comment intégrer des journaux Azure Active Directory (Azure AD) avec Splunk à l’aide d’Azure Monitor. Vous commencez pas router les journaux vers un hub d’événements Azure, puis vous intégrez le hub d’événements avec Splunk.
+Cet article explique comment intégrer des journaux d’activité Azure Active Directory (Azure AD) avec Splunk à l’aide d’Azure Monitor. Vous commencez pas router les journaux d’activité vers un hub d’événements Azure, puis vous intégrez le hub d’événements avec Splunk.
 
 ## <a name="prerequisites"></a>Conditions préalables
 

@@ -141,8 +141,8 @@ DevOps Projects crée et configure automatiquement les étapes nécessaires au d
 1. Sélectionnez **Validations**.  
      Cette vue montre les validations de code qui sont associées à ce déploiement. Comparez les mises en production pour afficher les différences de validation entre les déploiements.
 
-1. Sélectionnez **Journaux**.  
-     Les journaux contiennent des informations utiles sur le processus de déploiement. Vous pouvez les voir à la fois pendant et après les déploiements.
+1. Sélectionnez **Journaux d’activité**.  
+     Les journaux d’activité contiennent des informations utiles sur le processus de déploiement. Vous pouvez les voir à la fois pendant et après les déploiements.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Valider les modifications apportées à Azure Repos et les déployer automatiquement dans Azure 
 

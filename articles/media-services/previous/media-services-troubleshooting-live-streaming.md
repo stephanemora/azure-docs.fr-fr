@@ -27,11 +27,11 @@ Cet article fournit des suggestions sur la résolution de certains problèmes de
 ## <a name="issues-related-to-on-premises-encoders"></a>Problèmes liés aux encodeurs locaux
 Cette section fournit des suggestions sur la façon de résoudre les problèmes liés aux encodeurs locaux qui sont configurés pour envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage live.
 
-### <a name="problem-would-like-to-see-logs"></a>Problème : Vous aimeriez voir les journaux
-* **Problème potentiel** : Impossible de trouver des journaux de l’encodeur qui pourraient aider à déboguer des problèmes.
+### <a name="problem-would-like-to-see-logs"></a>Problème : Vous aimeriez voir les journaux d’activité
+* **Problème potentiel** : Impossible de trouver des journaux d’activité de l’encodeur qui pourraient aider à déboguer des problèmes.
   
-  * **Telestream Wirecast** : Les journaux se trouvent en général sous C:\Users\{nom_utilisateur}\AppData\Roaming\Wirecast\ 
-  * **Elemental Live** : Vous pouvez trouver des liens vers les journaux sur le portail de gestion. Cliquez sur **Statistiques**, puis **Journaux**. Dans la page **Fichiers journaux**, vous trouvez une liste des journaux pour tous les éléments LiveEvent. Sélectionnez celui qui correspond à votre session active. 
+  * **Telestream Wirecast** : Les journaux d’activité se trouvent en général sous C:\Users\{nom_utilisateur}\AppData\Roaming\Wirecast\ 
+  * **Elemental Live** : Vous pouvez trouver des liens vers les journaux d’activité sur le portail de gestion. Cliquez sur **Statistiques**, puis **Journaux d’activité**. Dans la page **Fichiers journaux d’activité**, vous trouvez une liste des journaux d’activité pour tous les éléments LiveEvent. Sélectionnez celui qui correspond à votre session active. 
   * **Flash Media Live Encoder** : Vous pouvez trouver le **Répertoire des journaux...** en accédant à l’onglet **Journal d’encodage**.
 
 ### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problème : Il n’existe aucune option pour générer un flux progressif.

@@ -230,7 +230,7 @@ Les membres du rôle *Contributeur Log Analytics* peuvent effectuer les opérati
     > Pour réussir ces deux actions, cette autorisation doit être accordée au niveau du groupe de ressources ou de l’abonnement.  
 
 - Lecture des clés de compte de stockage   
-- Configuration de la collecte de journaux à partir du stockage Azure  
+- Configuration de la collecte de journaux d’activité à partir du stockage Azure  
 - Modification des paramètres d’analyse pour les ressources Azure, notamment :
   - Ajout de l’extension de machine virtuelle à des machines virtuelles
   - Configuration des diagnostics Azure sur toutes les ressources Azure
@@ -245,7 +245,7 @@ Le rôle Contributeur Log Analytics inclut les actions Azure suivantes :
 | `*/read`     | Possibilité de visualiser toutes les ressources et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources |
 | `Microsoft.Automation/automationAccounts/*` | Possibilité de créer et configurer les comptes Azure Automation, et notamment d’ajouter et modifier des runbooks |
 | `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Ajout, mise à jour et suppression d’extensions de machine virtuelle, notamment l’extension Microsoft Monitoring Agent et l’extension Agent OMS pour Linux |
-| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Visualisation de la clé du compte de stockage ; opération requise pour la configuration de Log Analytics pour la lecture des journaux à partir des comptes de stockage Azure |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Visualisation de la clé du compte de stockage ; opération requise pour la configuration de Log Analytics pour la lecture des journaux d’activité à partir des comptes de stockage Azure |
 | `Microsoft.Insights/alertRules/*` | Ajout, mise à jour et suppression de règles d’alerte |
 | `Microsoft.Insights/diagnosticSettings/*` | Ajout, mise à jour et suppression de paramètres de diagnostic sur les ressources Azure |
 | `Microsoft.OperationalInsights/*` | Ajout, mise à jour et suppression de configuration pour les espaces de travail Log Analytics |
@@ -306,7 +306,7 @@ Pour créer un rôle ayant accès aux seuls _SecurityBaseline_ et aucune autre t
     ],
 ```
 
-### <a name="custom-logs"></a>Journaux personnalisés
+### <a name="custom-logs"></a>Journaux d’activité personnalisés
  Journaux personnalisés sont créés par des sources de données telles que les journaux personnalisés et les API de collecte de données HTTP. Le moyen le plus simple d’identifier le type de journal est en vérifiant les tables répertoriées sous [journaux personnalisés dans le schéma de journal](../log-query/get-started-portal.md#understand-the-schema).
 
  Vous ne pouvez pas actuellement accorder ou refuser l’accès aux journaux personnalisés individuels, mais vous pouvez accorder ou refuser l’accès à tous les journaux personnalisés. Pour créer un rôle ayant accès à tous les journaux personnalisés, créez un rôle personnalisé à l’aide des actions suivantes :

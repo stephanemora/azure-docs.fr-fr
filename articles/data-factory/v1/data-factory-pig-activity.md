@@ -96,7 +96,7 @@ L’activité Pig de HDInsight d’un [pipeline](data-factory-create-pipelines.m
 | defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script pig |Non  |
 
 ## <a name="example"></a>Exemples
-Prenons un exemple d'analyse de journaux de jeux où vous souhaitez identifier le temps passé par les joueurs à jouer à des jeux créés par votre entreprise.
+Prenons un exemple d’analyse de journaux d’activité de jeux où vous souhaitez identifier le temps passé par les joueurs à jouer à des jeux créés par votre entreprise.
 
 L’exemple de journal de jeu suivant est un fichier séparé par des virgules (,). Il contient les champs suivants : ProfileID, SessionStart, Duration, SrcIPAddress et GameType.
 
@@ -169,7 +169,7 @@ Pour exécuter ce script pig dans un pipeline Data Factory, appliquez les étape
 7. Surveillez le pipeline à l'aide des vues de gestion et de surveillance Data Factory. Consultez l’article [Surveillance et gestion des pipelines Data Factory](data-factory-monitor-manage-pipelines.md) pour plus d'informations.
 
 ## <a name="specifying-parameters-for-a-pig-script"></a>Spécification des paramètres d’un script Pig
-Prenons l'exemple suivant : des journaux de jeux sont reçus quotidiennement dans le stockage blob Azure et conservés dans un dossier partitionné selon la date et l’heure. Vous souhaitez paramétrer le script pig et fournir dynamiquement l'emplacement du dossier d'entrée pendant l'exécution mais aussi produire la sortie partitionnée par date et par heure.
+Prenons l’exemple suivant : des journaux d’activité de jeux sont reçus quotidiennement dans le stockage blob Azure et conservés dans un dossier partitionné selon la date et l’heure. Vous souhaitez paramétrer le script pig et fournir dynamiquement l'emplacement du dossier d'entrée pendant l'exécution mais aussi produire la sortie partitionnée par date et par heure.
 
 Pour utiliser le script pig paramétré, procédez comme suit :
 

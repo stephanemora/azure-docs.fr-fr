@@ -95,7 +95,7 @@ Liste montre les suivantes vous pouvez vérifier la machine source.
 
     En cas d’échec, des informations sur le message d’erreur sont fournies par le navigateur. Par exemple, si l’authentification du proxy est incorrecte, le serveur proxy retourne 407 – Authentification du proxy requise, ainsi que les actions requises, dans le message d’erreur. 
 
-*  Dans les journaux suivants, sur la machine virtuelle source, vérifiez la présence d’erreurs liées à des échecs du chargement réseau :
+*  Dans les journaux d’activité suivants, sur la machine virtuelle source, vérifiez la présence d’erreurs liées à des échecs du chargement réseau :
 
        C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
@@ -111,7 +111,7 @@ La liste suivante répertorie les manières dont vous pouvez vérifier le serveu
 
       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
 
-   Consultez les journaux générés sur le serveur de processus dans les répertoires suivants pour en savoir plus sur les erreurs correspondantes :
+   Consultez les journaux d’activité générés sur le serveur de processus dans les répertoires suivants pour en savoir plus sur les erreurs correspondantes :
 
       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
       and
@@ -152,7 +152,7 @@ La liste suivante répertorie les manières dont vous pouvez vérifier le serveu
 
   Dans %programfiles%\Agent Microsoft Azure Recovery Services\Temp, ouvrez le dernier fichier CBEngineCurr.errlog. Dans le fichier, recherchez **443** ou la chaîne **Échec de la tentative de connexion**.
 
-  ![Capture d’écran montrant les journaux d’erreur dans le dossier Temp](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+  ![Capture d’écran montrant les journaux d’activité d’erreur dans le dossier Temp](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
   Si des problèmes apparaissent, dans la ligne de commande du serveur de processus, utilisez Telnet pour effectuer un test ping de votre adresse IP publique Azure (masquée dans l’image précédente). Vous trouverez votre adresse IP publique Azure dans le fichier CBEngineCurr.currLog via le port 443 :
 

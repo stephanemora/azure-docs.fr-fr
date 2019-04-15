@@ -15,7 +15,7 @@ ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
 ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/19/2019
 ms.locfileid: "56416647"
@@ -119,7 +119,7 @@ union withsource=sourceTable *
 | render timechart
 ```
 
-### <a name="count-all-logs-collected-over-the-last-hour-by-type"></a>Compter tous les journaux collectés pendant la dernière heure écoulée, par type
+### <a name="count-all-logs-collected-over-the-last-hour-by-type"></a>Compter tous les journaux d’activité collectés pendant la dernière heure écoulée, par type
 L’exemple suivant recherche tous les éléments signalés au cours de la dernière heure écoulée et compte les enregistrements de chaque table par **type**. Par défaut, les résultats sont affichés dans un histogramme.
 
 ```Kusto

@@ -133,7 +133,7 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4"
 
 Comme avec le type **TaskOutputKind** pour les sorties des tâches, vous pouvez utiliser le type [JobOutputKind][net_joboutputkind] pour catégoriser les fichiers conservés d’un travail. Ce paramètre vous permet d’interroger (répertorier) ultérieurement un type spécifique de sortie. Le type **JobOutputKind** inclut les catégories de sortie et d’aperçu, et prend en charge la création de catégories personnalisées.
 
-### <a name="store-task-logs"></a>Stocker les journaux de tâches
+### <a name="store-task-logs"></a>Stocker les journaux d’activité de tâches
 
 En plus de conserver un fichier dans un espace de stockage durable à l’issue d’une tâche ou d’un travail, vous pouvez avoir besoin de conserver les fichiers mis à jour pendant l’exécution d’une tâche, par exemple les fichiers journaux &mdash; ou `stdout.txt` et `stderr.txt`. À cet effet, la bibliothèque Azure Batch File Conventions fournit la méthode [TaskOutputStorage][net_taskoutputstorage].[SaveTrackedAsync][net_savetrackedasync]. Avec [SaveTrackedAsync][net_savetrackedasync], vous pouvez effectuer le suivi des mises à jour apportées à un fichier sur le nœud (à un intervalle que vous définissez) et conserver ces mises à jour dans le Stockage Azure.
 
@@ -193,14 +193,14 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Afficher les fichiers de sortie dans le portail Azure
 
-Le portail Azure affiche les fichiers de sortie de tâches et les journaux qui sont conservés dans un compte Azure Storage lié à l’aide du [standard de nommage des fichiers Batch dans File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Vous pouvez implémenter ces conventions vous-même dans le langage de votre choix ou utiliser la bibliothèque File Conventions dans vos applications .NET.
+Le portail Azure affiche les fichiers de sortie de tâches et les journaux d’activité qui sont conservés dans un compte Azure Storage lié à l’aide du [standard de nommage des fichiers Batch dans File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Vous pouvez implémenter ces conventions vous-même dans le langage de votre choix ou utiliser la bibliothèque File Conventions dans vos applications .NET.
 
 Pour activer l’affichage de vos fichiers de sortie dans le portail, vous devez respecter les exigences suivantes :
 
 1. Liez un compte Stockage Azure à votre compte Batch.
 1. Respectez les conventions d’affectation de noms prédéfinies pour les conteneurs de stockage et les fichiers lors de la conservation des sorties. Vous trouverez la définition de ces conventions dans le fichier [LISEZMOI][github_file_conventions_readme] de la bibliothèque File Conventions. Si vous utilisez la bibliothèque [Azure Batch File Conventions] [ nuget_package] pour conserver vos sorties, vos fichiers sont conservés selon le standard de nommage de File Conventions.
 
-Pour afficher les fichiers de sortie de tâches et les journaux dans le portail Azure, accédez à la tâche dont la sortie vous intéresse, puis cliquez sur **Fichiers de sortie enregistrés** ou **Journaux enregistrés**. Cette image affiche l’écran **Saved output files (Fichiers de sortie enregistrés)** pour la tâche pourvue de l’ID « 007 » :
+Pour afficher les fichiers de sortie de tâches et les journaux d’activité dans le portail Azure, accédez à la tâche dont la sortie vous intéresse, puis cliquez sur **Fichiers de sortie enregistrés** ou **Journaux d’activité enregistrés**. Cette image affiche l’écran **Saved output files (Fichiers de sortie enregistrés)** pour la tâche pourvue de l’ID « 007 » :
 
 ![Panneau des sorties des tâches dans le portail Azure][2]
 

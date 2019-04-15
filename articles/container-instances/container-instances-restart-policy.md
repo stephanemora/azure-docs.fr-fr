@@ -70,7 +70,7 @@ Exemple de sortie :
 "Terminated"
 ```
 
-Lorsque l’état de l’exemple de conteneur est *Terminé*, vous pouvez voir la sortie de sa tâche en consultant les journaux du conteneur. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du script :
+Lorsque l’état de l’exemple de conteneur est *Terminé*, vous pouvez voir la sortie de sa tâche en consultant les journaux d’activité du conteneur. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du script :
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -134,7 +134,7 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-Si vous spécifiez `NumWords=5` et `MinLength=8` pour les variables d’environnement du conteneur, les journaux du conteneur doivent afficher une sortie différente. Une fois que l’état du conteneur est *Terminé* (utilisez `az container show` pour vérifier son état), affichez ses journaux pour voir la nouvelle sortie :
+Si vous spécifiez `NumWords=5` et `MinLength=8` pour les variables d’environnement du conteneur, les journaux d’activité du conteneur doivent afficher une sortie différente. Une fois que l’état du conteneur est *Terminé* (utilisez `az container show` pour vérifier son état), affichez ses journaux d’activité pour voir la nouvelle sortie :
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
@@ -170,7 +170,7 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-Là encore, lorsque l’état du conteneur est *Terminé*, affichez les journaux du conteneur pour consulter la sortie :
+Là encore, lorsque l’état du conteneur est *Terminé*, affichez les journaux d’activité du conteneur pour consulter la sortie :
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer3

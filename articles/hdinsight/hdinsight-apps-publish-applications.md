@@ -11,7 +11,7 @@ ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: fd6d47d8300872f5bcdf36aec492289f93858504
 ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55814185"
@@ -70,7 +70,7 @@ Lorsqu’une application est installée sur un cluster (existant ou nouveau), un
 Le script d’installation doit avoir les caractéristiques suivantes :
 * Le script est idempotent. Plusieurs appels au script produisent le même résultat.
 * La version du script est correctement gérée. Utilisez un autre emplacement pour le script lorsque vous effectuez une mise à niveau ou testez des modifications. Cela permet d’éviter aux clients qui installent l’application d’être affectés par les mises à jour ou les tests. 
-* Le script a une journalisation adéquate à chaque étape. Les journaux de script sont généralement la seule façon de déboguer les problèmes d’installation des applications.
+* Le script a une journalisation adéquate à chaque étape. Les journaux d’activité de script sont généralement la seule façon de déboguer les problèmes d’installation des applications.
 * Les appels passés à des services ou ressources externes font l’objet de nouvelles tentatives afin que l’installation ne soit pas affectée par des problèmes réseau temporaires.
 * Si votre script démarre des services sur les nœuds, les services sont analysés et configurés pour démarrer automatiquement en cas de redémarrage d’un nœud.
 

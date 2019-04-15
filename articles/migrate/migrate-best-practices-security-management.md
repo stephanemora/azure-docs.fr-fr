@@ -30,7 +30,7 @@ Après la migration, la tâche la plus critique consiste à protéger les charge
 - [Configurer un logiciel anti-programme malveillant](#best-practice-protect-vms-with-antimalware) : Protégez vos machines virtuelles contre les attaques et logiciels malveillants.
 - [Sécuriser les applications web](#best-practice-secure-web-apps) : Protégez les informations sensibles dans les applications web migrées.
 - [Réviser les abonnements](#best-practice-review-subscriptions-and-resource-permissions) : Vérifiez qui peut accéder à vos abonnements et ressources Azure après la migration.
-- [Utiliser les journaux](#best-practice-review-audit-and-security-logs) : Passez en revue vos journaux d’audit et de sécurité Azure régulièrement.
+- [Utiliser les journaux](#best-practice-review-audit-and-security-logs) : Passez en revue vos journaux d’activité d’audit et de sécurité Azure régulièrement.
 - [Réviser les autres fonctionnalités de sécurité](#best-practice-evaluate-other-security-features) : Comprenez et évaluez les fonctionnalités de sécurité avancées d’Azure.
 
 ## <a name="best-practice-follow-azure-security-center-recommendations"></a>Meilleure pratique : Suivre les recommandations d’Azure Security Center
@@ -168,14 +168,14 @@ Lorsque vous migrez et exécutez vos charges de travail dans Azure, le personnel
 - [Découvrez](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) comment gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure.
 - [Apprenez-en davantage](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) sur les rôles personnalisés.
 
-## <a name="best-practice-review-audit-and-security-logs"></a>Meilleure pratique : Réviser les journaux d’audit et de sécurité
+## <a name="best-practice-review-audit-and-security-logs"></a>Meilleure pratique : Réviser les journaux d’activité d’audit et de sécurité
 
-Azure Active Directory (AD) fournit les journaux d’activité qui apparaissent dans Azure Monitor. Les journaux de bord capturent les opérations effectuées dans la location Azure, le moment où elles ont eu lieu et qui les a effectuées. 
+Azure Active Directory (AD) fournit les journaux d’activité qui apparaissent dans Azure Monitor. Les journaux d’activité de bord capturent les opérations effectuées dans la location Azure, le moment où elles ont eu lieu et qui les a effectuées. 
 
 - Les journaux d’audit présentent l’historique des tâches dans le locataire. Les journaux d’activité de connexion indiquent qui a effectué les tâches. 
 - L’accès aux rapports de sécurité dépend de votre licence Azure AD. Avec la licence Gratuit et De base , vous obtenez la liste d’utilisateurs et de connexions à risque. Dans les éditions Premium 1 et Premium 2, vous obtenez des informations sur les événements sous-jacents.
 - Vous pouvez maintenant acheminer les journaux d’activité vers un certain nombre de points de terminaison pour une rétention à long terme et l’analyse des données.
-- Prenez l’habitude d’examiner les journaux ou d’intégrer vos outils de gestion des informations et des événements de sécurité (SIEM) pour examiner automatiquement les anomalies.  Si vous n’utilisez pas Premium 1 ou 2, vous devrez effectuer un grand nombre d’analyses vous-même ou utiliser votre système SIEM.  L’analyse comprend la recherche de connexions et d’événements à risque, ainsi que d’autres modèles d’attaques d’utilisateurs.
+- Prenez l’habitude d’examiner les journaux d’activité ou d’intégrer vos outils de gestion des informations et des événements de sécurité (SIEM) pour examiner automatiquement les anomalies.  Si vous n’utilisez pas Premium 1 ou 2, vous devrez effectuer un grand nombre d’analyses vous-même ou utiliser votre système SIEM.  L’analyse comprend la recherche de connexions et d’événements à risque, ainsi que d’autres modèles d’attaques d’utilisateurs.
 
 
 ![Utilisateurs et groupes](./media/migrate-best-practices-security-management/azure-ad.png)
@@ -569,7 +569,7 @@ Vous avez peut-être déplacé vos charges de travail vers Azure pour ses immens
 Ces deux cas ont des résolutions différentes, mais, pour chacun d’eux, vous devez avoir une idée de ce qui se passe avec l’utilisation et la surveillance des performances.
 
 - Azure Monitor peut aider à faire émerger ces métriques, et fournir une réponse avec des alertes, une mise à l’échelle automatique, des hubs d’événements, des applications logiques et plus encore.
-- En plus de la supervision Azure, vous pouvez intégrer votre application SIEM tierce partie afin de superviser les journaux Azure pour les événements d’audit et de performance.
+- En plus de la supervision Azure, vous pouvez intégrer votre application SIEM tierce partie afin de superviser les journaux d’activité Azure pour les événements d’audit et de performance.
 
 
 ![Azure Monitor](./media/migrate-best-practices-security-management/monitor.png)
@@ -674,7 +674,7 @@ Comme pour tout système de production, tout type de changement peut avoir un im
 
 - Vous pouvez établir des cadres de meilleures pratiques pour la gestion des changements afin de sensibiliser les administrateurs et le personnel de support.
 - Vous pouvez utiliser Azure Automation pour vous aider dans la gestion de la configuration et le suivi des changements dans le cadre de vos flux de travail migrés.
-- Lors de la mise en application du processus de gestion des changements, vous pouvez utiliser les journaux d’audit pour lier les journaux des modifications Azure aux demandes de modification existantes (ou non). Ainsi, si vous voyez une modification apportée sans demande de modification correspondante, vous pouvez rechercher la cause du problème dans le processus.
+- Lors de la mise en application du processus de gestion des changements, vous pouvez utiliser les journaux d’audit pour lier les journaux d’activité des modifications Azure aux demandes de modification existantes (ou non). Ainsi, si vous voyez une modification apportée sans demande de modification correspondante, vous pouvez rechercher la cause du problème dans le processus.
 
 Azure possède une solution Suivi des modifications dans Azure Automation :
 

@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57193209"
 ---
-# <a name="track-b2b-messages-with-azure-monitor-logs"></a>Suivre les messages B2B avec les journaux Azure Monitor
+# <a name="track-b2b-messages-with-azure-monitor-logs"></a>Suivre les messages B2B avec les journaux d’activité Azure Monitor
 
 Après avoir configuré la communication B2B entre les partenaires commerciaux dans votre compte d’intégration, les partenaires peuvent échanger des messages avec les protocoles comme AS2, X12 et EDIFACT. Pour vérifier que ces messages sont traités correctement, vous pouvez suivre ces messages avec [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md). Par exemple, vous pouvez utiliser ces fonctionnalités de suivi basées sur le web pour suivre des messages :
 

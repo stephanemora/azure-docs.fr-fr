@@ -59,8 +59,8 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `--delta_mod_t DELTA_MOD_T` | Fenêtre de temps, en secondes, pour détecter si un fichier est actuellement en cours d’utilisation. | `3600` s (`1` heure) |
 | `--verbose` | Imprimer plus de détails. | `False` |
 | `-v VERSION`, `--version VERSION` | Version de l’outil de téléchargement de journal à utiliser. | |
-| | `1`: pour les journaux non traités (uniquement pour la compatibilité descendante). | Déconseillé |
-| | `2`: pour les journaux traités. | Default |
+| | `1`: pour les journaux d’activité non traités (uniquement pour la compatibilité descendante). | Déconseillé |
+| | `2`: pour les journaux d’activité traités. | Default |
 
 ### <a name="examples"></a>Exemples
 
@@ -69,7 +69,7 @@ Pour tester le téléchargement de toutes les données dans votre conteneur d’
 python LogDownloader.py -a your_app_id -l d:\data --dry_run
 ```
 
-Pour télécharger uniquement les journaux créés depuis le 1er janvier 2018 avec `overwrite_mode=4`, utilisez le code suivant :
+Pour télécharger uniquement les journaux d’activité créés depuis le 1er janvier 2018 avec `overwrite_mode=4`, utilisez le code suivant :
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data -s 2018-1-1 -o 4
 ```

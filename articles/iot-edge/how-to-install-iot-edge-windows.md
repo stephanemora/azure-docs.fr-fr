@@ -205,7 +205,7 @@ Vous pouvez vérifier l’état du service IoT Edge comme suit :
 Get-Service iotedge
 ```
 
-Examinez les journaux du service des 5 dernières minutes à l’aide de la commande suivante :
+Examinez les journaux d’activité du service des 5 dernières minutes à l’aide de la commande suivante :
 
 ```powershell
 

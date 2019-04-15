@@ -9,7 +9,7 @@ ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
 ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/29/2018
 ms.locfileid: "52584145"
@@ -58,7 +58,7 @@ Il est également possible d’exporter des inscriptions et des enregistrements 
 * Pour exporter les informations sur les appareils approvisionnés, utilisez [État de l’inscription - Obtenir l’état de l’inscription](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate).
 
 > [!NOTE]
-> Lorsque vous utilisez les services d’entreprise Microsoft, Microsoft génère des informations appelées journaux générés par le système. Certains journaux générés par le système du service Device Provisioning ne sont pas accessibles ou exportables par les administrateurs clients. Ces journaux, qui consignent les actions factuelles effectuées au sein du service et les données de diagnostic relatives aux appareils individuels.
+> Lorsque vous utilisez les services d’entreprise Microsoft, Microsoft génère des informations appelées journaux d’activité générés par le système. Certains journaux d’activité générés par le système du service Device Provisioning ne sont pas accessibles ou exportables par les administrateurs clients. Ces journaux d’activité, qui consignent les actions factuelles effectuées au sein du service et les données de diagnostic relatives aux appareils individuels.
 
 ## <a name="links-to-additional-documentation"></a>Liens vers la documentation complémentaire
 

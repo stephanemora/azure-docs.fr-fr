@@ -69,7 +69,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 4. Dans le panneau *Audit et détection des menaces*, sélectionnez **ACTIVÉ** sous **Audit**. Cette stratégie d’audit s’applique aux bases de données existantes et à celles qui sont nouvellement créées sur ce serveur.
 
     ![Volet de navigation][7]
-5. Pour ouvrir le panneau **Stockage des journaux d’audit**, sélectionnez **Détails du stockage**. Sélectionnez ou créez le compte de stockage Azure où les journaux sont enregistrés, puis la période de rétention (les anciens journaux seront supprimés). Cliquez ensuite sur **OK**.
+5. Pour ouvrir le panneau **Stockage des journaux d’activité d’audit**, sélectionnez **Détails du stockage**. Sélectionnez ou créez le compte de stockage Azure où les journaux d’activité sont enregistrés, puis la période de rétention (les anciens journaux d’activité seront supprimés). Cliquez ensuite sur **OK**.
 
     ![Volet de navigation][8]
 
@@ -102,7 +102,7 @@ Avant de configurer l'audit, assurez-vous que vous utilisez bien un [« Client 
 3. Ensuite, activez la fonction d’audit en cliquant sur le bouton **ACTIVÉ** .
 
     ![][3]
-4. Dans le panneau de configuration de l’audit, sélectionnez **DÉTAILS DU STOCKAGE** pour ouvrir le panneau Stockage des journaux d’audit. Sélectionnez le compte de stockage Azure pour les journaux ainsi que la période de rétention.
+4. Dans le panneau de configuration de l’audit, sélectionnez **DÉTAILS DU STOCKAGE** pour ouvrir le panneau Stockage des journaux d’activité d’audit. Sélectionnez le compte de stockage Azure pour les journaux d’activité ainsi que la période de rétention.
     >[!TIP]
     >Utilisez le même compte de stockage pour toutes les bases de données auditées afin de profiter au mieux des modèles de rapport préconfigurés.
 
@@ -120,7 +120,7 @@ Les journaux d’audit au niveau du serveur sont écrits dans des **Blobs d’aj
 
 Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
-Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’objets blob :
+Plusieurs méthodes vous permettent d’afficher des journaux d’activité d’audit d’objets blob :
 
 * Utilisez **Fusionner les fichiers d’audit** dans SQL Server Management Studio (à partir de SSMS 17) :
     1. Dans le menu SSMS, sélectionnez **Fichier** > **Ouvrir** > **Fusionner les fichiers d’audit**.
@@ -136,13 +136,13 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 * Utilisez Power BI. Vous pouvez afficher et analyser les données du journal d’audit dans Power BI. Explorez [Power BI et accédez à un modèle téléchargeable](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
 * Téléchargez les fichiers journaux à partir de votre conteneur Azure Storage Blob via le portail ou avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/).
-    * Une fois que vous avez téléchargé localement un fichier journal, vous pouvez double-cliquer sur le fichier pour ouvrir, afficher et analyser les journaux dans SSMS.
+    * Une fois que vous avez téléchargé localement un fichier journal, vous pouvez double-cliquer sur le fichier pour ouvrir, afficher et analyser les journaux d’activité dans SSMS.
     * Vous pouvez également télécharger plusieurs fichiers simultanément avec l’Explorateur de stockage Azure. Cliquez avec le bouton droit sur un sous-dossier, puis sélectionnez **Enregistrer en tant que** pour enregistrer dans un dossier local.
 
 * Autres méthodes :
    * Après avoir téléchargé plusieurs fichiers (ou un sous-dossier contenant des fichiers journaux), vous pouvez les fusionner localement en suivant les instructions relatives à l’option Fusionner les fichiers d’audit dans SSMS décrites précédemment.
 
-   * Affichez des journaux d’audit d’objets blob par programmation :
+   * Affichez des journaux d’activité d’audit d’objets blob par programmation :
 
      * Utilisez la bibliothèque C# [Lecteur des événements étendus](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/).
      * [Interrogez des fichiers d’événements étendus](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) avec PowerShell.

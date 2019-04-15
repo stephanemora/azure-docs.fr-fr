@@ -190,7 +190,7 @@ Dans le secteur des télécommunications, plusieurs pratiques ont émergé pour 
 * Mesures dérivées pour quatre catégories principales :
   * **Entité (par exemple, un abonnement)**. Informations de base sur l’abonnement ou le client qui risque de se désabonner.
   * **Activité**. Obtient toutes les informations d’utilisation possibles qui sont associées à l’entité, par exemple le nombre de connexions.
-  * **Service client**. Récupère des informations dans les journaux du service client pour indiquer si l’abonné a rencontré des problèmes ou est entré en contact avec le service client.
+  * **Service client**. Récupère des informations dans les journaux d’activité du service client pour indiquer si l’abonné a rencontré des problèmes ou est entré en contact avec le service client.
   * **Données d'entreprise et concurrentielles**. Obtient toutes les informations possibles sur le client (par exemple, les données indisponibles ou difficiles à récupérer).
 * Utilisez l'importance pour la sélection des caractéristiques. Cela implique que le modèle d’arbre de décision optimisé est toujours une approche prometteuse.  
 

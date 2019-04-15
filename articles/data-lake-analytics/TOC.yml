@@ -89,7 +89,7 @@ items:
         href: data-lake-analytics-data-lake-tools-use-vertex-execution-view.md
       - name: Exporter une base de données U-SQL
         href: data-lake-analytics-data-lake-tools-export-database.md
-      - name: Analyser les journaux des sites web
+      - name: Analyser les journaux d’activité des sites web
         href: data-lake-analytics-analyze-weblogs.md
       - name: Résoudre l’asymétrie des données
         href: data-lake-analytics-data-lake-tools-data-skew-solutions.md

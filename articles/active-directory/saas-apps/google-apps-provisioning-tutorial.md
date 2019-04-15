@@ -170,9 +170,9 @@ Cette section vous guide tout au long du processus de connexion d’Azure AD à 
 
 1. Sélectionnez **Enregistrer**.
 
-Ce processus démarre la synchronisation initiale des utilisateurs ou des groupes affectés à G Suite dans la section Utilisateurs et groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ pendant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement. Ces journaux décrivent toutes les actions effectuées par le service de provisionnement dans votre application.
+Ce processus démarre la synchronisation initiale des utilisateurs ou des groupes affectés à G Suite dans la section Utilisateurs et groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ pendant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement. Ces journaux d’activité décrivent toutes les actions effectuées par le service de provisionnement dans votre application.
 
-Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
+Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

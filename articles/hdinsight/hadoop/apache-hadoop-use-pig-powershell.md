@@ -74,7 +74,7 @@ Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une t
 
 ## <a id="troubleshooting"></a>Résolution des problèmes
 
-Si aucune information n’est retournée lorsque la tâche est terminée, affichez les journaux d’erreurs. Pour afficher les informations d’erreur pour cette tâche, ajoutez la commande suivante à la fin du fichier **pigjob.ps1** , enregistrez-le et exécutez-le à nouveau.
+Si aucune information n’est retournée lorsque la tâche est terminée, affichez les journaux d’activité d’erreurs. Pour afficher les informations d’erreur pour cette tâche, ajoutez la commande suivante à la fin du fichier **pigjob.ps1** , enregistrez-le et exécutez-le à nouveau.
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green

@@ -10,7 +10,7 @@ ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 53ab1e28c5864b403d52bf5e73f0c5c41b8f18a8
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55454740"
@@ -54,7 +54,7 @@ Le fichier de liste d’objets blob à exporter peut contenir des noms et des pr
 
 L’outil Azure Import/Export liste tous les objets blob à exporter et calcule leur répartition sur des lecteurs de la taille spécifiée, en prenant en compte les éventuelles surcharges nécessaires, puis évalue le nombre de disques requis pour contenir les objets blob et les informations sur l’utilisation des lecteurs.  
   
-Voici un exemple de sortie, les journaux d’information étant omis :  
+Voici un exemple de sortie, les journaux d’activité d’information étant omis :  
   
 ```  
 Number of unique blob paths/prefixes:   3  

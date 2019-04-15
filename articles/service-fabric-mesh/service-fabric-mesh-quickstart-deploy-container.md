@@ -87,9 +87,9 @@ Le nom de l’application utilisée pour ce démarrage rapide est `helloWorldApp
 az mesh app show --resource-group myResourceGroup --name helloWorldApp
 ```
 
-## <a name="see-the-application-logs"></a>Voir les journaux d’application
+## <a name="see-the-application-logs"></a>Voir les journaux d’activité d’application
 
-Examinez les journaux de l’application déployée en utilisant la commande `az mesh code-package-log get` :
+Examinez les journaux d’activité de l’application déployée en utilisant la commande `az mesh code-package-log get` :
 
 ```azurecli-interactive
 az mesh code-package-log get --resource-group myResourceGroup --application-name helloWorldApp --service-name helloWorldService --replica-name 0 --code-package-name helloWorldCode

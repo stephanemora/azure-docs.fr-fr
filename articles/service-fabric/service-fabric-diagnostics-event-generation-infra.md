@@ -1,6 +1,6 @@
 ---
 title: Surveillance au niveau de plateforme d’Azure Service Fabric | Microsoft Docs
-description: Découvrez les événements et journaux au niveau de la plateforme utilisés pour surveiller et diagnostiquer les clusters Azure Service Fabric.
+description: Découvrez les événements et journaux d’activité au niveau de la plateforme utilisés pour surveiller et diagnostiquer les clusters Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -37,12 +37,12 @@ Les rpports d’intégrité et les décisions d’équilibrage de charge.
 Le canal d’opération est accessible de différentes façons, y compris les journaux des événements ETW/Windows et [EventStore](service-fabric-diagnostics-eventstore.md) (disponible sur Windows dans les versions 6.2 et ultérieures pour les clusters Windows). EventStore vous permet d’accéder aux événements de votre cluster par entité (entités comprenant clusters, nœuds, applications, services, partitions, réplicas et conteneurs) et les expose via les API REST et la bibliothèque de client Service Fabric. Utilisez EventStore pour surveiller vos clusters de développement/test et pour acquérir une compréhension instantanée de l’état de vos clusters de production.
 
 * **Données et messages**  
-Les événements et les journaux critiques générés dans le chemin des messages (pour le moment, seulement le proxy inverse) et des données (modèles de services fiables).
+Les événements et les journaux d’activité critiques générés dans le chemin des messages (pour le moment, seulement le proxy inverse) et des données (modèles de services fiables).
 
 * **Données et messages – Détaillé**  
-Le canal détaillé qui contient tous les journaux non critiques provenant des données et des messages du cluster (très gros volume d’événements).
+Le canal détaillé qui contient tous les journaux d’activité non critiques provenant des données et des messages du cluster (très gros volume d’événements).
 
-En plus de ceux-ci, deux canaux EventSource structurés sont fournis, ainsi que des journaux que nous collectons à des fins de support.
+En plus de ceux-ci, deux canaux EventSource structurés sont fournis, ainsi que des journaux d’activité que nous collectons à des fins de support.
 
 * [Événements Reliable Services](service-fabric-reliable-services-diagnostics.md)  
 Les événements propres au modèle de programmation.
@@ -50,12 +50,12 @@ Les événements propres au modèle de programmation.
 * [Événements Reliable Actors](service-fabric-reliable-actors-diagnostics.md)  
 Les compteurs de performances et les événements propres au modèle de programmation.
 
-* Journaux de support  
-Les journaux système générés par Service Fabric et réservés à notre usage exclusif, à des fins de support.
+* Journaux d’activité de support  
+Les journaux d’activité système générés par Service Fabric et réservés à notre usage exclusif, à des fins de support.
 
 Ces différents canaux couvrent la majeure partie de la journalisation recommandée au niveau de la plateforme. Pour améliorer la journalisation au niveau de la plateforme, essayez de mieux comprendre le modèle d’intégrité et d’ajouter des rapports d’intégrités personnalisés, ainsi que d’ajouter des **compteurs de performances** pour pouvoir comprendre en temps réel l’impact de vos services et applications sur le cluster.
 
-Pour tirer parti de ces journaux, il est vivement recommandé de laisser l’option « Diagnostics » activée lors de la création du cluster dans le portail Azure. Si vous activez les diagnostics lorsque le cluster est déployé, Windows Azure Diagnostics est en mesure de confirmer les canaux Operational, Reliable Services et Reliable Actors, et de stocker les données, comme expliqué dans [Agréger des événements avec Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).
+Pour tirer parti de ces journaux d’activité, il est vivement recommandé de laisser l’option « Diagnostics » activée lors de la création du cluster dans le portail Azure. Si vous activez les diagnostics lorsque le cluster est déployé, Windows Azure Diagnostics est en mesure de confirmer les canaux Operational, Reliable Services et Reliable Actors, et de stocker les données, comme expliqué dans [Agréger des événements avec Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).
 
 ## <a name="azure-service-fabric-health-and-load-reporting"></a>Rapports d’intégrité et de charge Azure Service Fabric
 
@@ -77,13 +77,13 @@ Les mesures peuvent également vous renseigner sur les performances de votre ser
 
 Toute information qui peut être un indicateur de l’intégrité et des performances de votre application est appropriée pour les rapports de mesure et d’intégrité. **Un compteur de performances du processeur peut vous renseigner sur l’utilisation de votre nœud, mais il ne vous permet pas de savoir si un service particulier est intègre, car plusieurs services peuvent s’exécuter sur un seul nœud.** Cependant, des mesures telles que les demandes par seconde (RPS), les éléments traités et la latence des demandes peuvent toutes être un indicateur de l’intégrité d’un service spécifique.
 
-## <a name="service-fabric-support-logs"></a>Journaux de support Service Fabric
+## <a name="service-fabric-support-logs"></a>Journaux d’activité de support Service Fabric
 
-Si vous devez contacter le support technique Microsoft pour obtenir de l’aide sur votre cluster Azure Service Fabric, les journaux de support sont presque toujours requis. Si votre cluster est hébergé dans Azure, ces journaux sont automatiquement configurés et collectés lors de la création du cluster. Les journaux sont stockés dans un compte de stockage dédié dans le groupe de ressources de votre cluster. Le compte de stockage ne présente pas de nom fixe, mais le compte recense des conteneurs d’objets blob et des tables dont le nom commence par *fabric*. Pour plus d’informations sur la configuration de la collecte de journaux pour un cluster autonome, consultez [Créer et gérer un cluster Azure Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md) et [Paramètres de configuration pour un cluster Windows autonome](service-fabric-cluster-manifest.md). Pour les instances Service Fabric autonomes, les journaux doivent être envoyés vers un partage de fichiers local. Vous **devez** communiquer ces journaux à l’équipe de support, qui ne diffuse en aucun cas ces documents à d’autres fins.
+Si vous devez contacter le support technique Microsoft pour obtenir de l’aide sur votre cluster Azure Service Fabric, les journaux d’activité de support sont presque toujours requis. Si votre cluster est hébergé dans Azure, ces journaux d’activité sont automatiquement configurés et collectés lors de la création du cluster. Les journaux d’activité sont stockés dans un compte de stockage dédié dans le groupe de ressources de votre cluster. Le compte de stockage ne présente pas de nom fixe, mais le compte recense des conteneurs d’objets blob et des tables dont le nom commence par *fabric*. Pour plus d’informations sur la configuration de la collecte de journaux pour un cluster autonome, consultez [Créer et gérer un cluster Azure Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md) et [Paramètres de configuration pour un cluster Windows autonome](service-fabric-cluster-manifest.md). Pour les instances Service Fabric autonomes, les journaux d’activité doivent être envoyés vers un partage de fichiers local. Vous **devez** communiquer ces journaux d’activité à l’équipe de support, qui ne diffuse en aucun cas ces documents à d’autres fins.
 
 ## <a name="measuring-performance"></a>Mesure des performances
 
-Mesurer les performances de votre cluster vous permet de comprendre comment il parvient à gérer la charge et à orienter les décisions concernant la mise à l’échelle de votre cluster (en savoir plus sur la mise à l’échelle d’un cluster [sur Azure](service-fabric-cluster-scale-up-down.md) ou [local](service-fabric-cluster-windows-server-add-remove-nodes.md)). Les données de performances sont également utiles quand elles sont comparées aux actions que vous-même, ou vos applications et services, avez prises, lorsque vous analysez plus tard des journaux. 
+Mesurer les performances de votre cluster vous permet de comprendre comment il parvient à gérer la charge et à orienter les décisions concernant la mise à l’échelle de votre cluster (en savoir plus sur la mise à l’échelle d’un cluster [sur Azure](service-fabric-cluster-scale-up-down.md) ou [local](service-fabric-cluster-windows-server-add-remove-nodes.md)). Les données de performances sont également utiles quand elles sont comparées aux actions que vous-même, ou vos applications et services, avez prises, lorsque vous analysez plus tard des journaux d’activité. 
 
 Pour obtenir la liste des compteurs de performances à collecter lors de l’utilisation de Service Fabric, consultez l’article [Compteurs de performances dans Service Fabric](service-fabric-diagnostics-event-generation-perf.md)
 

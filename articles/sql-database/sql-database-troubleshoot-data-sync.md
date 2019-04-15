@@ -54,7 +54,7 @@ La synchronisation des bases de données locales associées à l’agent client 
 
 ### <a name="sync-stuck"></a> Mon groupe de synchronisation est bloqué à l’état de traitement
 
-Un groupe de synchronisation de SQL Data Sync est en cours de traitement depuis un certain temps. Il ne répond pas à la commande d’**arrêt** et aucune nouvelle entrée n’apparaît dans les journaux.
+Un groupe de synchronisation de SQL Data Sync est en cours de traitement depuis un certain temps. Il ne répond pas à la commande d’**arrêt** et aucune nouvelle entrée n’apparaît dans les journaux d’activité.
 
 L’une des conditions suivantes peut provoquer le blocage d’un groupe de synchronisation sur l’état de traitement :
 

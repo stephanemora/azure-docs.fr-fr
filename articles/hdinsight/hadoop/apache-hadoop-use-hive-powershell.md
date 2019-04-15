@@ -89,7 +89,7 @@ Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une t
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Si aucune information n’est retournée lorsque la tâche est terminée, affichez les journaux d’erreurs. Pour afficher les informations d’erreur relatives à cette tâche, ajoutez les commandes suivantes à la fin du fichier `hivejob.ps1`, enregistrez-le, puis réexécutez-le.
+Si aucune information n’est retournée lorsque la tâche est terminée, affichez les journaux d’activité d’erreurs. Pour afficher les informations d’erreur relatives à cette tâche, ajoutez les commandes suivantes à la fin du fichier `hivejob.ps1`, enregistrez-le, puis réexécutez-le.
 
 ```powershell
 # Print the output of the Hive job.

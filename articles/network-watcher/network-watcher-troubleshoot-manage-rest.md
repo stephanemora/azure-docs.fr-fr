@@ -46,7 +46,7 @@ Vous trouverez la liste des types de passerelles pris en charge sur la page [Typ
 
 ## <a name="overview"></a>Présentation
 
-Les fonctionnalités de dépannage de Network Watcher permettent de résoudre les problèmes qui surviennent avec les passerelles de réseau virtuel et les connexions. Lorsqu’une demande de résolution des problèmes liés aux ressources est effectuée, les journaux sont interrogés et inspectés. Lorsque l’inspection est terminée, les résultats sont renvoyés. L’exécution des demandes de l’API de résolution des problèmes nécessite un certain temps : vous devrez peut-être patienter plusieurs minutes avant d’obtenir un résultat. Les journaux sont stockés dans un conteneur sur un compte de stockage.
+Les fonctionnalités de dépannage de Network Watcher permettent de résoudre les problèmes qui surviennent avec les passerelles de réseau virtuel et les connexions. Lorsqu’une demande de résolution des problèmes liés aux ressources est effectuée, les journaux d’activité sont interrogés et inspectés. Lorsque l’inspection est terminée, les résultats sont renvoyés. L’exécution des demandes de l’API de résolution des problèmes nécessite un certain temps : vous devrez peut-être patienter plusieurs minutes avant d’obtenir un résultat. Les journaux d’activité sont stockés dans un conteneur sur un compte de stockage.
 
 ## <a name="log-in-with-armclient"></a>Se connecter à ARMClient
 

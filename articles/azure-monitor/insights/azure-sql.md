@@ -173,7 +173,7 @@ Une fois le nouveau rôle créé, attribuez ce rôle à chaque utilisateur ayant
 
 ## <a name="analyze-data-and-create-alerts"></a>Analyser les données et créer des alertes
 
-L’analyse de données dans Azure SQL Analytics repose sur le [langage Log Analytics](../log-query/get-started-queries.md) pour vos requêtes et génération de rapports personnalisées. Vous trouverez dans [Métriques et journaux disponibles](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available) la description des données collectées dans la ressource de base de données qui sont disponibles pour les requêtes personnalisées.
+L’analyse de données dans Azure SQL Analytics repose sur le [langage Log Analytics](../log-query/get-started-queries.md) pour vos requêtes et génération de rapports personnalisées. Vous trouverez dans [Métriques et journaux d’activité disponibles](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available) la description des données collectées dans la ressource de base de données qui sont disponibles pour les requêtes personnalisées.
 
 Dans la solution, les alertes automatisées nécessitent d’écrire une requête Log Analytics qui déclenche une alerte lorsqu’une condition est remplie. Vous trouverez ci-dessous plusieurs exemples de requêtes Log Analytics permettant de configurer des alertes dans la solution.
 

@@ -97,9 +97,9 @@ Une tactique simple consiste à tester l’existence d’un objet avant de crée
 
 De même, un script doit être capable d’exécuter avec succès par une vérification logique et s’adapter aux conditions qu’il rencontre.
 
-## <a name="failures-and-logs"></a>Échecs et journaux
+## <a name="failures-and-logs"></a>Échecs et journaux d’activité
 
-Si un script échoue après plusieurs tentatives, le travail consigne l’erreur et continue. Après la fin d’un travail (en d’autres termes, son exécution sur toutes les bases de données dans le groupe), vous pouvez vérifier la liste de tentatives ayant échoué. Les journaux fournissent des détails pour déboguer des scripts défectueux.
+Si un script échoue après plusieurs tentatives, le travail consigne l’erreur et continue. Après la fin d’un travail (en d’autres termes, son exécution sur toutes les bases de données dans le groupe), vous pouvez vérifier la liste de tentatives ayant échoué. Les journaux d’activité fournissent des détails pour déboguer des scripts défectueux.
 
 ## <a name="group-types-and-creation"></a>Types de groupe et création
 

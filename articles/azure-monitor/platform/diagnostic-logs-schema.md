@@ -27,10 +27,10 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 |---|---|---|
 | time | Obligatoire | Horodatage (heure UTC) de l’événement. |
 | ResourceId | Obligatoire | ID de la ressource qui a émis l’événement. Pour les services abonnés, cet ID prend la forme /tenants/tenant-id/providers/provider-name. |
-| tenantId | Obligatoire pour les journaux de l’abonné | ID d’abonné de l’abonné Active Directory auquel cet événement est lié. Cette propriété est utilisée uniquement pour les journaux de niveau abonné ; elle n’apparaît pas dans les journaux de niveau ressource. |
+| tenantId | Obligatoire pour les journaux d’activité de l’abonné | ID d’abonné de l’abonné Active Directory auquel cet événement est lié. Cette propriété est utilisée uniquement pour les journaux d’activité de niveau abonné ; elle n’apparaît pas dans les journaux d’activité de niveau ressource. |
 | operationName | Obligatoire | Nom de l’opération représentée par cet événement. Si l’événement représente une opération RBAC, il s’agit du nom de l’opération RBAC (par ex. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Généralement modélisée sous la forme d’une opération du Gestionnaire de ressources, même s’il ne s’agit pas d’opérations réelles documentées du Gestionnaire des ressources (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Facultatif | Version d’api associée à l’opération, si operationName a été effectuée à l’aide d’une API (par ex. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). S’il n’existe aucune API qui corresponde à cette opération, la version représente la version de cette opération si les propriétés associées à l’opération viennent à changer. |
-| category | Obligatoire | Catégorie de journal de l’événement. La catégorie est la granularité selon laquelle vous pouvez activer ou désactiver des journaux sur une ressource particulière. Les propriétés qui apparaissent dans l’objet blob de propriétés d’un événement sont les mêmes au sein d’un type de ressource et d’une catégorie de journal spécifique. Les catégories de journaux classiques sont « Audit » « opérationnel » « Exécution » et « Demande ». |
+| category | Obligatoire | Catégorie de journal de l’événement. La catégorie est la granularité selon laquelle vous pouvez activer ou désactiver des journaux d’activité sur une ressource particulière. Les propriétés qui apparaissent dans l’objet blob de propriétés d’un événement sont les mêmes au sein d’un type de ressource et d’une catégorie de journal spécifique. Les catégories de journaux classiques sont « Audit » « opérationnel » « Exécution » et « Demande ». |
 | resultType | Facultatif | État de l’événement. Les valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active et Resolved. |
 | resultSignature | Facultatif | Sous-état de l’événement. Si cette opération correspond à un appel d’API REST, il s’agit du code d’état HTTP de l’appel REST correspondant. |
 | resultDescription | Facultatif | Description textuelle statique de cette opération, par ex. « Obtenir le fichier de stockage ». |
@@ -43,7 +43,7 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 | properties | Facultatif | Toutes les propriétés étendues associées à cette catégorie particulière d’événements spécifiques. Toutes les propriétés personnalisées/uniques doivent être placées à l’intérieur de cette « Partie B » du schéma. |
 
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>Schémas spécifiques du service pour les journaux de diagnostic des ressources
-Le schéma des journaux de diagnostic des ressources varie en fonction de la ressource et de la catégorie de journal. Cette liste répertorie tous les services qui mettent des journaux de diagnostics et des liens à disposition du service et un schéma spécifique de la catégorie lorsqu’il est disponible.
+Le schéma des journaux de diagnostic des ressources varie en fonction de la ressource et de la catégorie de journal d’activité. Cette liste répertorie tous les services qui mettent des journaux de diagnostics et des liens à disposition du service et un schéma spécifique de la catégorie lorsqu’il est disponible.
 
 | de diffusion en continu | Schéma et documentation |
 | --- | --- |
@@ -85,15 +85,15 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Engine (Moteur)|Engine (Moteur)|
 |Microsoft.AnalysisServices/servers|de diffusion en continu|de diffusion en continu|
-|Microsoft.ApiManagement/service|GatewayLogs|Journaux relatifs à la passerelle ApiManagement|
-|Microsoft.Automation/automationAccounts|JobLogs|Journaux de travail|
+|Microsoft.ApiManagement/service|GatewayLogs|Journaux d’activité relatifs à la passerelle ApiManagement|
+|Microsoft.Automation/automationAccounts|JobLogs|Journaux d’activité de travail|
 |Microsoft.Automation/automationAccounts|JobStreams|Flux de travail|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|État du nœud DSC|
-|Microsoft.Batch/batchAccounts|ServiceLog|Journaux de service|
+|Microsoft.Batch/batchAccounts|ServiceLog|Journaux d’activité de service|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtient les métriques du point de terminaison, par exemple, la bande passante, la sortie, etc.|
 |Microsoft.ClassicNetwork/networksecuritygroups|Événement de flux de règle de groupe de sécurité réseau|Événement de flux de règle de groupe de sécurité réseau|
 |Microsoft.CognitiveServices/accounts|Audit|Journaux d’audit|
-|Microsoft.CognitiveServices/accounts|RequestResponse|Journaux des requêtes et des réponses|
+|Microsoft.CognitiveServices/accounts|RequestResponse|Journaux d’activité des requêtes et des réponses|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Serveur d’API Kubernetes|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Gestionnaire de contrôleur Kubernetes|
 |Microsoft.ContainerService/managedClusters|cluster-autoscaler|Autoscaler de cluster Kubernetes|
@@ -104,11 +104,11 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.DataFactory/factories|PipelineRuns|Journal d’exécutions de pipeline|
 |Microsoft.DataFactory/factories|TriggerRuns|Journal d’exécutions de déclencheur|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Journaux d’audit|
-|Microsoft.DataLakeAnalytics/accounts|Requêtes|Journaux de requête|
+|Microsoft.DataLakeAnalytics/accounts|Requêtes|Journaux d’activité de requête|
 |Microsoft.DataLakeStore/accounts|Audit|Journaux d’audit|
-|Microsoft.DataLakeStore/accounts|Demandes|Journaux de requête|
-|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Journaux MySQL Server|
-|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Journaux de serveur PostgreSQL|
+|Microsoft.DataLakeStore/accounts|Demandes|Journaux d’activité de requête|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Journaux d’activité MySQL Server|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Journaux d’activité de serveur PostgreSQL|
 |Microsoft.Devices/IotHubs|connexions|connexions|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Télémétrie d’appareil|
 |Microsoft.Devices/IotHubs|C2DCommands|Commandes C2D|
@@ -127,9 +127,9 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
-|Microsoft.EventHub/namespaces|ArchiveLogs|Journaux d’archivage|
-|Microsoft.EventHub/namespaces|OperationalLogs|Journaux des opérations|
-|Microsoft.EventHub/namespaces|AutoScaleLogs|Journaux de mise à l’échelle automatique|
+|Microsoft.EventHub/namespaces|ArchiveLogs|Journaux d’activité d’archivage|
+|Microsoft.EventHub/namespaces|OperationalLogs|Journaux d’activité des opérations|
+|Microsoft.EventHub/namespaces|AutoScaleLogs|Journaux d’activité de mise à l’échelle automatique|
 |Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Évaluations de mise à l’échelle automatique|
 |Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Actions de mise à l’échelle automatique|
 |Microsoft.IoTSpaces/Graph|Trace|Trace|
@@ -146,7 +146,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Événements d’alerte d’équilibreur de charge|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|État d’intégrité de la sonde d’équilibreur de charge|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notifications de protection DDoS|
-|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|Journaux des flux des décisions d’atténuation DDoS|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|Journaux d’activité des flux des décisions d’atténuation DDoS|
 |Microsoft.Network/publicIPAddresses|DDoSMitigationReports|Rapports des mesures d’atténuation DDoS|
 |Microsoft.Network/virtualNetworks|VMProtectionAlerts|Alertes de protection de machine virtuelle|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Journal d’accès à la passerelle d’application|
@@ -162,7 +162,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|Journaux de diagnostics IKE|
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Journaux de diagnostics PS2|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Événement de résultats d’intégrité de sondage Traffic Manager|
-|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Journaux de table de routage de Peering|
+|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Journaux d’activité de table de routage de Peering|
 |Microsoft.Network/frontdoors|FrontdoorAccessLog|Journal des accès Frontdoor|
 |Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Journal de pare-feu d’applications web Frontdoor|
 |Microsoft.PowerBIDedicated/capacities|Engine (Moteur)|Engine (Moteur)|
@@ -174,8 +174,8 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Points de récupération Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Taux de chargement de données de réplication Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Activité des données de disque protégé Azure Site Recovery|
-|Microsoft.Search/searchServices|OperationLogs|Journaux des opérations|
-|Microsoft.ServiceBus/namespaces|OperationalLogs|Journaux des opérations|
+|Microsoft.Search/searchServices|OperationLogs|Journaux d’activité des opérations|
+|Microsoft.ServiceBus/namespaces|OperationalLogs|Journaux d’activité des opérations|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.Sql/servers/databases|AutomaticTuning|Réglage automatique|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Statistiques d’exécution du magasin de données des requêtes|
@@ -200,8 +200,8 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Sql/managedInstances/databases|Errors|Errors|
 |Microsoft.StreamAnalytics/streamingjobs|Exécution|Exécution|
 |Microsoft.StreamAnalytics/streamingjobs|Création|Création|
-|microsoft.web/sites|FunctionExecutionLogs|Journaux d’exécution de la fonction|
-|microsoft.web/sites/slots|FunctionExecutionLogs|Journaux d’exécution de la fonction|
+|microsoft.web/sites|FunctionExecutionLogs|Journaux d’activité d’exécution de la fonction|
+|microsoft.web/sites/slots|FunctionExecutionLogs|Journaux d’activité d’exécution de la fonction|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

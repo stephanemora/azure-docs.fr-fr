@@ -71,7 +71,7 @@ Pour ajouter un volume au Serveur de sauvegarde, dans le volet **Gestion**, réa
 
 ## <a name="set-up-workload-aware-storage"></a>Configurer un stockage prenant en compte la charge de travail
 
-Avec un stockage prenant en compte les charges de travail, vous pouvez sélectionner les volumes qui stockent de préférence certains genres de charges de travail. Par exemple, vous pouvez définir des volumes coûteux prenant en charge un nombre élevé d’opérations d’entrée/sortie par seconde (IOPS) pour stocker uniquement les charges de travail qui nécessitent des sauvegardes de volumes importants fréquentes. Un exemple est SQL Server avec les journaux des transactions. D’autres charges de travail sauvegardées moins fréquemment, telles que les machines virtuelles, peuvent être sauvegardées sur des volumes bon marché.
+Avec un stockage prenant en compte les charges de travail, vous pouvez sélectionner les volumes qui stockent de préférence certains genres de charges de travail. Par exemple, vous pouvez définir des volumes coûteux prenant en charge un nombre élevé d’opérations d’entrée/sortie par seconde (IOPS) pour stocker uniquement les charges de travail qui nécessitent des sauvegardes de volumes importants fréquentes. Un exemple est SQL Server avec les journaux d’activité des transactions. D’autres charges de travail sauvegardées moins fréquemment, telles que les machines virtuelles, peuvent être sauvegardées sur des volumes bon marché.
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 

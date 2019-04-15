@@ -219,7 +219,7 @@ Vous pouvez désormais aller sur votre appareil IoT Edge pour consulter les inte
    <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
    -->
-1. Affichez tous les journaux système et les données des métriques. Utilisez le nom du module Stream Analytics :
+1. Affichez tous les journaux d’activité système et les données des métriques. Utilisez le nom du module Stream Analytics :
 
    ```cmd/sh
    iotedge logs -f {moduleName}  
@@ -227,7 +227,7 @@ Vous pouvez désormais aller sur votre appareil IoT Edge pour consulter les inte
 
 Vous devriez voir la température de l’ordinateur augmenter progressivement jusqu’à ce qu’elle atteigne 70 degrés pendant 30 secondes. Le module Stream Analytics déclenche alors une réinitialisation qui fait redescendre la température de l’ordinateur à 21. 
 
-   ![Réinitialiser la sortie de commande dans les journaux du module](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![Réinitialiser la sortie de commande dans les journaux d’activité du module](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources 
 

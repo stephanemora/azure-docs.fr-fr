@@ -165,7 +165,7 @@ Vérifiez que le runtime a été correctement installé et configuré.
    Get-Service iotedge
    ```
 
-2. Si vous avez besoin de résoudre les problèmes du service, récupérez les journaux de ce dernier.
+2. Si vous avez besoin de résoudre les problèmes du service, récupérez les journaux d’activité de ce dernier.
 
    ```powershell
    # Displays logs from today, newest at the bottom.

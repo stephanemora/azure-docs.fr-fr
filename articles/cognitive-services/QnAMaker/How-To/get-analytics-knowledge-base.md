@@ -1,7 +1,7 @@
 ---
 title: Analytique sur la base de connaissances
 titleSuffix: Azure Cognitive Services
-description: QnA Maker stocke tous les journaux de conversation et d’autres données de télémétrie si vous avez activé App Insights pendant la création de votre service QnA Maker. Exécutez les exemples de requêtes pour obtenir vos journaux de conversation à partir d’App Insights.
+description: QnA Maker stocke tous les journaux d’activité de conversation et d’autres données de télémétrie si vous avez activé App Insights pendant la création de votre service QnA Maker. Exécutez les exemples de requêtes pour obtenir vos journaux d’activité de conversation à partir d’App Insights.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -20,7 +20,7 @@ ms.locfileid: "56960834"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obtenir des analyses sur votre base de connaissances
 
-QnA Maker stocke tous les journaux de conversation et d’autres données de télémétrie si vous avez activé App Insights pendant la [création de votre service QnA Maker](./set-up-qnamaker-service-azure.md). Exécutez les exemples de requêtes pour obtenir vos journaux de conversation à partir d’App Insights.
+QnA Maker stocke tous les journaux d’activité de conversation et d’autres données de télémétrie si vous avez activé App Insights pendant la [création de votre service QnA Maker](./set-up-qnamaker-service-azure.md). Exécutez les exemples de requêtes pour obtenir vos journaux d’activité de conversation à partir d’App Insights.
 
 1. Accédez à votre ressource App Insights.
 

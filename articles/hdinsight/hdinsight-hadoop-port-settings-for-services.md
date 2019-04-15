@@ -11,7 +11,7 @@ ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
 ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53715458"
@@ -90,7 +90,7 @@ Exemples :
 | --- | --- | --- | --- | --- |
 | Interface utilisateur web de NameNode |Nœuds principaux |30070 |HTTPS |Interface utilisateur web pour afficher l’état |
 | Service de métadonnées NameNode |Nœuds principaux |8020 |IPC |Métadonnées du système de fichiers |
-| DataNode |Tous les nœuds de travail |30075 |HTTPS |Interface utilisateur web pour afficher l’état, les journaux, etc. |
+| DataNode |Tous les nœuds de travail |30075 |HTTPS |Interface utilisateur web pour afficher l’état, les journaux d’activité, etc. |
 | DataNode |Tous les nœuds de travail |30010 |&nbsp; |Transfert de données |
 | DataNode |Tous les nœuds de travail |30020 |IPC |Opérations sur les métadonnées |
 | NameNode secondaire |Nœuds principaux |50090 |HTTP |Point de contrôle pour les métadonnées NameNode |

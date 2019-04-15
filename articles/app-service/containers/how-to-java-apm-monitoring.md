@@ -1,6 +1,6 @@
 ---
 title: Configurer Java APM et des outils de supervision sous Linux - Azure App Service
-description: Découvrez comment envoyer des journaux et des métriques pour vos applications Java s’exécutant sur App Service Linux aux fournisseurs APM NewRelic et Dynamics
+description: Découvrez comment envoyer des journaux d’activité et des métriques pour vos applications Java s’exécutant sur App Service Linux aux fournisseurs APM NewRelic et Dynamics
 services: app-service\web
 author: rloutlaw
 manager: angerobe

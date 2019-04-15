@@ -264,7 +264,7 @@ Si des activités anormales sont détectées, vous recevez un e-mail contenant p
 
 ### <a name="auditing"></a>Audit
 
-La fonctionnalité d’audit effectue le suivi des événements de la base de données. Elle écrit ces événements dans un journal d’audit, soit dans un stockage Azure, les journaux d'activité Azure Monitor ou un hub d’événements. L’audit vous aide à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des violations potentielles de la sécurité.
+La fonctionnalité d’audit effectue le suivi des événements de la base de données. Elle écrit ces événements dans un journal d’audit, soit dans un stockage Azure, les journaux d’activité Azure Monitor ou un hub d’événements. L’audit vous aide à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des violations potentielles de la sécurité.
 
 Pour activer l’audit :
 

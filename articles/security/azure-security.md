@@ -92,9 +92,9 @@ Application Insights crée des graphiques et tableaux présentant, par exemple, 
 En cas d’incidents, d’échecs ou de problèmes de performances, vous pouvez effectuer une recherche dans les données de télémétrie pour diagnostiquer la cause en détail. Et le service vous envoie des messages électroniques si des modifications sont apportées à la disponibilité et à la performance de votre application. Application Insights devient donc un outil de sécurité précieux, car il apporte la « disponibilité » dans la triade relative à la sécurité : confidentialité, intégrité et disponibilité.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre des services de visualisation, requête, routage, alertes, mise à l’échelle automatique et automatisation pour les données de l’infrastructure Azure ([journal d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) et pour chaque ressource Azure ([journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Vous pouvez utiliser Azure Monitor pour vous alerter sur les événements liés à la sécurité qui sont générés dans les journaux Azure.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre des services de visualisation, requête, routage, alertes, mise à l’échelle automatique et automatisation pour les données de l’infrastructure Azure ([journal d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) et pour chaque ressource Azure ([journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Vous pouvez utiliser Azure Monitor pour vous alerter sur les événements liés à la sécurité qui sont générés dans les journaux d’activité Azure.
 
-### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
+### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 [Journaux d’analyse Azure](https://azure.microsoft.com/documentation/services/log-analytics/) – fournit une solution de gestion informatique sur site et de cloud infrastructure tierce (comme AWS) en plus de ressources Azure. Données d’Azure Monitor peuvent être acheminées directement dans les journaux Azure Monitor afin de voir les métriques et journaux pour l’ensemble de votre environnement au même endroit.
 
 Journaux d’Azure Monitor peuvent être un outil utile dans l’analyse de la sécurité d’investigation informatique et autres, comme l’outil vous permet de rechercher rapidement de grandes quantités d’entrées liées à la sécurité avec une approche de type requête flexible. En outre, en local [journaux pare-feu et proxy peuvent être exportés dans Azure et mis à disposition pour l’analyse à l’aide des journaux Azure Monitor.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
@@ -129,10 +129,10 @@ Les applications web App Service fournissent des fonctionnalités de diagnostic
 
 Pour la première nouvelle fonctionnalité, il s’agit des informations d’état en temps réel sur les pools d’applications, les processus Worker, les sites, les domaines d’application et les demandes en cours d’exécution. Quant à la seconde nouvelle fonctionnalité, il s’agit des événements de suivi détaillés qui effectuent le suivi d’une demande dans le processus complet des demandes/réponses.
 
-Pour activer la collecte de ces événements de suivi, IIS 7 peut être configuré pour capturer automatiquement les journaux de suivi complets, au format XML, pour toute demande spécifique basée sur le temps écoulé ou les codes de réponse d’erreur.
+Pour activer la collecte de ces événements de suivi, IIS 7 peut être configuré pour capturer automatiquement les journaux d’activité de suivi complets, au format XML, pour toute demande spécifique basée sur le temps écoulé ou les codes de réponse d’erreur.
 
 #### <a name="web-server-diagnostics"></a>Diagnostics de serveur web
-Vous pouvez activer ou désactiver les types de journaux suivants :
+Vous pouvez activer ou désactiver les types de journaux d’activité suivants :
 
 -   Messages d’erreur détaillés : informations d’erreur détaillées pour les codes d’état HTTP qui indiquent un échec (code d’état 400 ou supérieur). Il peut s'agir d'informations qui vous aident à déterminer la raison pour laquelle le serveur a renvoyé le code d'erreur.
 

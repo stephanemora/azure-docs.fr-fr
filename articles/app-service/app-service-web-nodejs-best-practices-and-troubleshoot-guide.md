@@ -110,7 +110,7 @@ La valeur par défaut est false. Si la valeur true est définie, iisnode ajoute 
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
-Ce paramètre contrôle la journalisation de stdout et stderr par iisnode. Iisnode récupère stdout/stderr à partir des processus node qu’il exécute et écrit dans le répertoire spécifié dans le paramètre « logDirectory ». Une fois ce paramètre activé, votre application écrit les fichiers journaux dans le système de fichiers. Le niveau de journalisation exécuté par l’application peut avoir des conséquences sur les performances.
+Ce paramètre contrôle la journalisation de stdout et stderr par iisnode. Iisnode récupère stdout/stderr à partir des processus node qu’il exécute et écrit dans le répertoire spécifié dans le paramètre « logDirectory ». Une fois ce paramètre activé, votre application écrit les fichiers journaux d’activité dans le système de fichiers. Le niveau de journalisation exécuté par l’application peut avoir des conséquences sur les performances.
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 

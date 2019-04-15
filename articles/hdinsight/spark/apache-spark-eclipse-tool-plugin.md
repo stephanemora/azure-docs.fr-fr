@@ -147,7 +147,7 @@ Vous pouvez lier un cluster normal en utilisant le nom d’utilisateur Ambari ma
    * Étant donné que le code d’application dans cet exemple n’exige aucun argument de ligne de commande et qu’il ne référence pas de fichiers JAR ou d’autres fichiers, vous pouvez laisser les autres zones de texte vides.
         
      ![Boîte de dialogue Spark Submission (Envoi Spark)](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
-1. L’onglet **Spark Submission** (Envoi Spark) doit commencer à afficher la progression. Vous pouvez arrêter l’application en sélectionnant le bouton rouge dans la fenêtre **Spark Submission** (Envoi Spark). Vous pouvez également afficher les journaux pour cette exécution d’application spécifique en sélectionnant l’icône en forme de globe (indiquée par la zone bleue dans l’image).
+1. L’onglet **Spark Submission** (Envoi Spark) doit commencer à afficher la progression. Vous pouvez arrêter l’application en sélectionnant le bouton rouge dans la fenêtre **Spark Submission** (Envoi Spark). Vous pouvez également afficher les journaux d’activité pour cette exécution d’application spécifique en sélectionnant l’icône en forme de globe (indiquée par la zone bleue dans l’image).
       
    ![Fenêtre Spark Submission (Envoi Spark)](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
 
@@ -174,7 +174,7 @@ Vous pouvez effectuer diverses opérations à l’aide de HDInsight Tools, y co
 
      ![Détails des étapes du travail](./media/apache-spark-eclipse-tool-plugin/Job-graph-stage-info.png)
 
-   * Sélectionnez l’onglet **Journal** pour afficher les journaux fréquemment utilisés, notamment les journaux **Driver Stderr**, **Driver Stdout** et **Directory Info**.
+   * Sélectionnez l’onglet **Journal** pour afficher les journaux d’activité fréquemment utilisés, notamment les journaux d’activité **Driver Stderr**, **Driver Stdout** et **Directory Info**.
 
      ![Détails des journaux](./media/apache-spark-eclipse-tool-plugin/Job-log-info.png)
 

@@ -31,8 +31,8 @@ Cet article inclut les sections suivantes :
 Si des erreurs se produisent pendant le processus de copie des données, le portail affiche un chemin d’accès au dossier dans lequel se trouvent les journaux de diagnostic. 
 
 Les journaux de diagnostic peuvent être :
-- Des journaux d’erreurs
-- Des journaux détaillés  
+- Des journaux d’activité d’erreurs
+- Des journaux d’activité détaillés  
 
 Pour accéder au chemin d’accès du journal de copie, accédez au compte de stockage associé à votre commande Data Box. 
 
@@ -41,13 +41,13 @@ Pour accéder au chemin d’accès du journal de copie, accédez au compte de st
 
 2.  Accédez à **Toutes les ressources** et recherchez le compte de stockage identifié à l’étape précédente. Sélectionnez le compte de stockage et cliquez dessus.
 
-    ![Journaux de copie 1](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs1.png)
+    ![Journaux d’activité de copie 1](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs1.png)
 
 3.  Accédez à **Service BLOB > Parcourir les objets blob** et recherchez l’objet blob correspondant au compte de stockage. Accédez à **diagnosticslogcontainer > waies**. 
 
-    ![Journaux de copie 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
+    ![Journaux d’activité de copie 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
 
-    Vous devez voir les journaux d’erreurs et les journaux détaillés pour la copie des données. Sélectionnez chaque fichier et cliquez dessus, puis téléchargez une copie locale.
+    Vous devez voir les journaux d’activité d’erreurs et les journaux d’activité détaillés pour la copie des données. Sélectionnez chaque fichier et cliquez dessus, puis téléchargez une copie locale.
 
 ## <a name="query-activity-logs"></a>Interroger les journaux d’activité
 
@@ -124,7 +124,7 @@ Si vous constatez que votre lecteur est vide après démontage (bien que des don
  
 Si tel est le cas, reportez-vous à la résolution des [Lecteurs montés en lecture seule](#issue-drive-getting-mounted-as-read-only).
 
-Si ce n'est pas le cas, copiez les journaux du dossier contenant l'outil de déverrouillage Data Box Disk et [contactez le support Microsoft](data-box-disk-contact-microsoft-support.md).
+Si ce n’est pas le cas, copiez les journaux d’activité du dossier contenant l’outil de déverrouillage Data Box Disk et [contactez le support Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="deployment-issues-for-windows"></a>Problèmes de déploiement pour Windows
 
@@ -154,7 +154,7 @@ Cela indique qu’il vous manque probablement la version appropriée de Windows 
 
 Vous pouvez installer [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) et réessayer l'opération.
  
-Si vous ne parvenez toujours pas à déverrouiller les volumes, copiez les journaux du dossier contenant l'outil de déverrouillage Data Box Disk et [contactez le support Microsoft](data-box-disk-contact-microsoft-support.md).
+Si vous ne parvenez toujours pas à déverrouiller les volumes, copiez les journaux d’activité du dossier contenant l’outil de déverrouillage Data Box Disk et [contactez le support Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

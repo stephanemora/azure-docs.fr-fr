@@ -128,12 +128,12 @@ Voici quelques scénarios courants de résolution des problèmes.
 * **Latence d’exécution des Bolts élevée.** Cela signifie que la méthode execute() de votre Bolt prend trop de temps. Optimisez le code ou examinez le comportement de vidage et les tailles d’écriture.
 
 ### <a name="data-lake-storage-gen1-throttling"></a>Limitation de requêtes Data Lake Storage Gen1
-Vous pouvez constater des échecs de tâche si vous atteignez les limites de la bande passante fournie par Data Lake Storage Gen1. Consultez les journaux des tâches pour les erreurs de limitation. Vous pouvez réduire le parallélisme en augmentant la taille de conteneur.    
+Vous pouvez constater des échecs de tâche si vous atteignez les limites de la bande passante fournie par Data Lake Storage Gen1. Consultez les journaux d’activité des tâches pour les erreurs de limitation. Vous pouvez réduire le parallélisme en augmentant la taille de conteneur.    
 
 Pour vérifier si une limitation est appliquée, activez la journalisation du débogage côté client :
 
 1. Dans **Ambari** > **Storm** > **Config** > **Avancé storm-worker-log4j**, remplacez **&lt;root level="info"&gt;** par **&lt;root level=”debug”&gt;**. Redémarrez tous les nœuds/le service pour que la configuration prenne effet.
-2. Surveillez les journaux de topologie Storm sur les nœuds Worker (sous /var/log/storm/worker-artifacts/&lt;NomTopologie&gt;/&lt;port&gt;/worker.log) pour les exceptions de limitation de Data Lake Storage Gen1.
+2. Surveillez les journaux d’activité de topologie Storm sur les nœuds Worker (sous /var/log/storm/worker-artifacts/&lt;NomTopologie&gt;/&lt;port&gt;/worker.log) pour les exceptions de limitation de Data Lake Storage Gen1.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour optimiser davantage les performances, consultez [ce blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).

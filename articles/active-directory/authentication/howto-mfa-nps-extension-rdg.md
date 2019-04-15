@@ -323,11 +323,11 @@ Dans l’exemple ci-dessous, l’application d’authentification sur un télép
 
 Une fois que vous vous êtes correctement authentifié à l’aide de la méthode d’authentification secondaire, vous êtes connecté à la passerelle des services Bureau à distance comme d’habitude. Toutefois, étant donné que vous êtes obligé d’utiliser une méthode d’authentification secondaire à l’aide d’une application mobile sur un appareil approuvé, le processus de connexion est plus sûr qu’il serait sinon.
 
-### <a name="view-event-viewer-logs-for-successful-logon-events"></a>Afficher les journaux de l’Observateur d’événements pour les événements de connexion réussie
+### <a name="view-event-viewer-logs-for-successful-logon-events"></a>Afficher les journaux d’activité de l’Observateur d’événements pour les événements de connexion réussie
 
-Pour afficher les événements de connexion réussie dans les journaux de l’Observateur d’événements Windows, vous pouvez émettre la commande Windows PowerShell suivante pour interroger les journaux des Services Windows Terminal et de sécurité Windows.
+Pour afficher les événements de connexion réussie dans les journaux d’activité de l’Observateur d’événements Windows, vous pouvez émettre la commande Windows PowerShell suivante pour interroger les journaux d’activité des Services Windows Terminal et de sécurité Windows.
 
-Pour interroger les événements de connexion réussie dans les journaux des opérations de la passerelle _(Observateur d’événements\Journaux des applications et des services\Microsoft\Windows\TerminalServices-Gateway\Opérationnel)_, utilisez les commandes PowerShell suivantes :
+Pour interroger les événements de connexion réussie dans les journaux d’activité des opérations de la passerelle _(Observateur d’événements\Journaux des applications et des services\Microsoft\Windows\TerminalServices-Gateway\Opérationnel)_, utilisez les commandes PowerShell suivantes :
 
 * `Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational | where {$_.ID -eq '300'} | FL`
 * Cette commande affiche les événements Windows qui indiquent que l’utilisateur a respecté les exigences de stratégies d’autorisation de ressource (RD RAP) et que l’accès lui est accordé.
@@ -339,7 +339,7 @@ Pour interroger les événements de connexion réussie dans les journaux des op�
 
 ![affichage de la stratégie d’autorisation de connexion à l’aide de PowerShell](./media/howto-mfa-nps-extension-rdg/image29.png)
 
-Vous pouvez également afficher ce journal et filtrer les ID d’événement, 300 et 200. Pour interroger les événements de connexion réussie dans les journaux de l’observateur d’événements de sécurité, utilisez la commande suivante :
+Vous pouvez également afficher ce journal et filtrer les ID d’événement, 300 et 200. Pour interroger les événements de connexion réussie dans les journaux d’activité de l’observateur d’événements de sécurité, utilisez la commande suivante :
 
 * `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
 * Cette commande peut être exécutée sur le serveur NPS central ou sur le serveur de passerelle des services Bureau à distance.
@@ -350,7 +350,7 @@ Vous pouvez également afficher le journal de sécurité ou la vue personnalisé
 
 ![Stratégie et Observateur d’événements de Services de l’accès réseau](./media/howto-mfa-nps-extension-rdg/image31.png)
 
-Sur le serveur où vous avez installé l’extension de serveur NPS pour Azure MFA, vous pouvez rechercher les journaux d’application de l’Observateur d’événements spécifiques à l’extension sur _Journaux d’applications et services\Microsoft\AzureMfa_.
+Sur le serveur où vous avez installé l’extension de serveur NPS pour Azure MFA, vous pouvez rechercher les journaux d’activité d’application de l’Observateur d’événements spécifiques à l’extension sur _Journaux d’activité d’applications et services\Microsoft\AzureMfa_.
 
 ![Journaux d’application Event Viewer AuthZ](./media/howto-mfa-nps-extension-rdg/image32.png)
 
@@ -364,7 +364,7 @@ Voici un exemple de sortie du journal de sécurité montrant un échec d’évé
 
 ![Exemple d’un événement d’ouverture de session a échoué](./media/howto-mfa-nps-extension-rdg/image33.png)
 
-Voici un événement associé aux journaux AzureMFA :
+Voici un événement associé aux journaux d’activité AzureMFA :
 
 ![Exemple de journal Azure MFA dans l’Observateur d’événements](./media/howto-mfa-nps-extension-rdg/image34.png)
 

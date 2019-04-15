@@ -59,7 +59,7 @@ Personne ou entité devant faire l’objet d’une vérification au moyen d’un
 Événement à risque déclenché lorsque le service détecte deux connexions du même utilisateur, dont au moins une effectuée depuis un emplacement inhabituel, et pour lesquelles le délai entre les connexions est inférieur au temps minimum nécessaire pour se déplacer physiquement entre ces emplacements.  
 
 ### <a name="investigation"></a>Investigation
-Processus consistant à vérifier les activités, les journaux et les autres informations pertinentes concernant un événement à risque, dans le but de déterminer la nécessité d’appliquer des mesures de correction ou d’atténuation, de comprendre si l’identité a été corrompue et de quelle manière, et d’identifier la manière dont l’identité corrompue a été exploitée.
+Processus consistant à vérifier les activités, les journaux d’activité et les autres informations pertinentes concernant un événement à risque, dans le but de déterminer la nécessité d’appliquer des mesures de correction ou d’atténuation, de comprendre si l’identité a été corrompue et de quelle manière, et d’identifier la manière dont l’identité corrompue a été exploitée.
 
 ### <a name="leaked-credentials"></a>Informations d’identification divulguées
 Événement à risque déclenché lorsque nos chercheurs découvrent que les informations d’identification de l’utilisateur actuel (nom d’utilisateur et mot de passe) sont publiées dans le web invisible.

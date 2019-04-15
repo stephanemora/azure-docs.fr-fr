@@ -109,7 +109,7 @@ Maintenance non planifiée sont les suivantes :
 
 ### <a name="vm-crashes"></a>Incidents de machine virtuelle
 
-Des problèmes au sein d’une machine virtuelle pourraient causer son redémarrage. La charge de travail ou le rôle en cours d’exécution sur la machine virtuelle pourrait déclencher une vérification des bogues au sein du système d’exploitation invité. Pour identifier la raison de l’incident, consultez les journaux des applications et du système pour les machines virtuelles Windows et les journaux de série pour les machines virtuelles Linux.
+Des problèmes au sein d’une machine virtuelle pourraient causer son redémarrage. La charge de travail ou le rôle en cours d’exécution sur la machine virtuelle pourrait déclencher une vérification des bogues au sein du système d’exploitation invité. Pour identifier la raison de l’incident, consultez les journaux des applications et du système pour les machines virtuelles Windows et les journaux d’activité de série pour les machines virtuelles Linux.
 
 ### <a name="storage-related-forced-shutdowns"></a>Arrêt forcés relatifs au stockage
 

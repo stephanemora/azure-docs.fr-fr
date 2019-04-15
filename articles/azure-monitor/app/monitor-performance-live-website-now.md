@@ -142,11 +142,11 @@ Ce problème est suivi [ici](https://github.com/Microsoft/ApplicationInsights-Ho
 
   ![Ouvrez le panneau des performances pour afficher la demande, le temps de réponse, la dépendance et d’autres données.](./media/monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
   
-### <a name="detailed-logs"></a>Journaux détaillés
+### <a name="detailed-logs"></a>Journaux d’activité détaillés
 
 * Par défaut, Status Monitor génère des journaux de diagnostic dans : `C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
 
-* Pour disposer de journaux détaillés, modifiez le fichier de configuration : `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` et ajoutez `<add key="TraceLevel" value="All" />` au `appsettings`.
+* Pour disposer de journaux d’activité détaillés, modifiez le fichier de configuration : `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` et ajoutez `<add key="TraceLevel" value="All" />` au `appsettings`.
 Redémarrez ensuite Status Monitor.
 
 ### <a name="insufficient-permissions"></a>Autorisations insuffisantes

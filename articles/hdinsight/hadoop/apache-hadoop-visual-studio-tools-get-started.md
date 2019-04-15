@@ -118,7 +118,7 @@ Après l’ouverture d’un conteneur, vous pouvez utiliser les boutons suivants
 > [!NOTE]  
 > Vous ne pouvez exécuter des requêtes Hive interactives que lorsque vous vous connectez à un cluster [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md).
 
-Vous pouvez aussi utiliser Data Lake Tools pour Visual Studio pour voir ce que contient la tâche Hive. Data Lake Tools pour Visual Studio collecte et fait apparaître les journaux Yarn de certaines tâches Hive.
+Vous pouvez aussi utiliser Data Lake Tools pour Visual Studio pour voir ce que contient la tâche Hive. Data Lake Tools pour Visual Studio collecte et fait apparaître les journaux d’activité Yarn de certaines tâches Hive.
 
 À partir de l’Explorateur de serveurs, accédez à **Azure** > **HDInsight** et sélectionnez votre cluster.  Ce sera le point de départ dans l’Explorateur de serveurs pour les sections à suivre.
 
@@ -237,9 +237,9 @@ Dans le graphique du travail, vous pouvez sélectionner **détail de l’exécut
 
 
 ### <a name="view-hive-jobs"></a>Afficher les tâches Hive
-Vous pouvez afficher les requêtes, la sortie, le journal et le journal Yarn des tâches Hive.
+Vous pouvez afficher les requêtes, la sortie, le journal d’activité et le journal Yarn des tâches Hive.
 
-Dans la version la plus récente des outils, vous pouvez consulter le contenu de vos tâches Hive en collectant et en exposant les journaux YARN. Le journal YARN peut vous aider à examiner les problèmes de performances. Pour plus d’informations sur la collection des journaux YARN par HDInsight, consultez [Accès par programme aux journaux des applications HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Dans la version la plus récente des outils, vous pouvez consulter le contenu de vos tâches Hive en collectant et en exposant les journaux d’activité YARN. Le journal YARN peut vous aider à examiner les problèmes de performances. Pour plus d’informations sur la collection des journaux d’activité YARN par HDInsight, consultez [Accès par programme aux journaux des applications HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 Pour afficher les tâches Hive :
 

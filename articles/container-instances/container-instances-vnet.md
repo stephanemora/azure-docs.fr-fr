@@ -164,7 +164,7 @@ az container create \
     --subnet aci-subnet
 ```
 
-Après le déploiement de ce deuxième conteneur, consultez dans ses journaux la sortie de la commande `wget` qu’il a exécutée :
+Après le déploiement de ce deuxième conteneur, consultez dans ses journaux d’activité la sortie de la commande `wget` qu’il a exécutée :
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name commchecker

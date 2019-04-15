@@ -179,9 +179,9 @@ Les dimensions de la ville, de la région et des pays proviennent des adresses I
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exception « méthode introuvable » lors de l’exécution dans Services cloud Azure
 Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiquement pris en charge dans les rôles Azure Cloud Services. [Installez 4.6 sur chaque rôle](../../cloud-services/cloud-services-dotnet-install-dotnet.md) avant d’exécuter votre application.
 
-## <a name="troubleshooting-logs"></a>Journaux de dépannage
+## <a name="troubleshooting-logs"></a>Journaux d’activité de dépannage
 
-Suivez ces instructions pour capturer les journaux de dépannage de votre infrastructure.
+Suivez ces instructions pour capturer les journaux d’activité de dépannage de votre infrastructure.
 
 ### <a name="net-framework"></a>.NET Framework
 

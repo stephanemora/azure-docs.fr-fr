@@ -22,7 +22,7 @@ ms.locfileid: "57541314"
 Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) pour configurer les [alertes de métriques plus récentes](../../azure-monitor/platform/alerts-metric-near-real-time.md) dans Azure Monitor. Les modèles Resource Manager vous permettent de configurer des alertes par programmation de manière cohérente et reproductible dans vos environnements. Les alertes de métrique plus récentes sont disponibles pour [cet ensemble de types de ressources](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Modèle de ressource pour créer des alertes de métrique pour le type de ressource : Espace de travail Azure Log Analytics (notamment) `Microsoft.OperationalInsights/workspaces`, nécessite des étapes supplémentaires. Pour plus d’informations, consultez l’article [Alerte de métrique pour les journaux - Modèle de ressource](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Modèle de ressource pour créer des alertes de métrique pour le type de ressource : Espace de travail Azure Log Analytics (notamment) `Microsoft.OperationalInsights/workspaces`, nécessite des étapes supplémentaires. Pour plus d’informations, consultez l’article [Alerte de métrique pour les journaux d’activité - Modèle de ressource](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 Procédure de base :
 

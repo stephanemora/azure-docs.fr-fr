@@ -10,7 +10,7 @@ ms.date: 01/31/2019
 ms.author: raynew
 ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
 ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56310155"
@@ -85,7 +85,7 @@ Il existe des situations lors desquelles une alerte n’est pas envoyée, même 
 ## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>Utilisation des journaux d’activité pour obtenir des notifications en cas de sauvegardes réussies
 
 > [!NOTE]
-> Nous sommes passés à un nouveau modèle de pompage des journaux d’activité de Sauvegarde Azure sur les coffres Recovery Services. Malheureusement, celui-ci affecte la génération des journaux d’activité dans des clouds souverains Azure. Si des utilisateurs de clouds souverains Azure ont créé/configuré des alertes à partir des journaux d’activité par le biais d’Azure Monitor, comme indiqué ici, elles ne se déclenchent pas. Le cas échéant, nous conseillons à ces utilisateurs d’utiliser des paramètres de diagnostic et l’espace de travail LA ou la [solution de création de rapports PowerBI](backup-azure-configure-reports.md) pour obtenir les informations pertinentes. En outre, dans toutes les régions publiques Azure, si un utilisateur collecte des journaux d’activité Recovery Services dans un espace de travail Log Analytics, comme mentionné [ici](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity), ces journaux n’apparaissent pas non plus.
+> Nous sommes passés à un nouveau modèle de pompage des journaux d’activité de Sauvegarde Azure sur les coffres Recovery Services. Malheureusement, celui-ci affecte la génération des journaux d’activité dans des clouds souverains Azure. Si des utilisateurs de clouds souverains Azure ont créé/configuré des alertes à partir des journaux d’activité par le biais d’Azure Monitor, comme indiqué ici, elles ne se déclenchent pas. Le cas échéant, nous conseillons à ces utilisateurs d’utiliser des paramètres de diagnostic et l’espace de travail LA ou la [solution de création de rapports PowerBI](backup-azure-configure-reports.md) pour obtenir les informations pertinentes. En outre, dans toutes les régions publiques Azure, si un utilisateur collecte des journaux d’activité Recovery Services dans un espace de travail Log Analytics, comme mentionné [ici](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity), ces journaux d’activité n’apparaissent pas non plus.
 
 Si vous souhaitez être averti lorsque les sauvegardes se sont terminées correctement, vous pouvez utiliser les alertes basées sur les [journaux d’activité](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) du coffre.
 
@@ -101,7 +101,7 @@ Appliquez les filtres de l’image suivante pour vérifier si vous recevez bien 
 
 Vous pouvez cliquer sur le segment « JSON » pour obtenir plus de détails et les afficher en les copiant-collant dans un éditeur de texte. Il doit afficher les détails du coffre, ainsi que l’élément qui a déclenché le journal d’activité (par exemple, l’élément de sauvegarde).
 
-Ensuite, cliquez sur « Ajouter une alerte de journal d’activité » afin de générer des alertes pour tous les journaux de ce type.
+Ensuite, cliquez sur « Ajouter une alerte de journal d’activité » afin de générer des alertes pour tous les journaux d’activité de ce type.
 
 ### <a name="add-activity-log-alert"></a>Ajouter une alerte de journal d’activité
 

@@ -1,5 +1,5 @@
 ---
-title: Consulter les journaux kubelet dans Azure Kubernetes Service (AKS)
+title: Consulter les journaux d’activité kubelet dans Azure Kubernetes Service (AKS)
 description: Découvrez comment afficher des informations de dépannage dans les journaux de kubelet à partir des nœuds Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
@@ -14,7 +14,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57534018"
 ---
-# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Accéder aux journaux kubelet à partir de nœuds de cluster Azure Kubernetes Service (AKS)
+# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Accéder aux journaux d’activité kubelet à partir de nœuds serveur Azure Kubernetes Service (AKS)
 
 Dans le cadre de l’utilisation d’un cluster AKS, vous devrez peut-être consulter les journaux pour résoudre un problème. Intégré au portail Azure est la possibilité d’afficher les journaux de la [AKS maître composants] [ aks-master-logs] ou [conteneurs dans un cluster AKS][azure-container-logs]. Parfois, vous devrez peut-être obtenir *kubelet* journaux à partir d’un nœud AKS pour des fins de dépannage.
 
@@ -26,11 +26,11 @@ Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d
 
 ## <a name="create-an-ssh-connection"></a>Créer une connexion SSH
 
-Commencez par créer une connexion SSH avec le nœud duquel vous avez besoin de voir les journaux de *kubelet*. Cette opération est détaillée dans le document [SSH dans les nœuds de cluster Azure Kubernetes Service (AKS)][aks-ssh].
+Commencez par créer une connexion SSH avec le nœud duquel vous avez besoin de voir les journaux d’activité de *kubelet*. Cette opération est détaillée dans le document [SSH dans les nœuds de cluster Azure Kubernetes Service (AKS)][aks-ssh].
 
-## <a name="get-kubelet-logs"></a>Obtenir des journaux kubelet
+## <a name="get-kubelet-logs"></a>Obtenir des journaux d’activité kubelet
 
-Une fois connecté au nœud, exécutez la commande suivante pour récupérer les journaux *kubelet* :
+Une fois connecté au nœud, exécutez la commande suivante pour récupérer les journaux d’activité *kubelet* :
 
 ```console
 sudo journalctl -u kubelet -o cat
@@ -64,7 +64,7 @@ I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname fr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez besoin d’informations de dépannage supplémentaires à partir du maître Kubernetes, consultez [Afficher les journaux de nœud principal Kubernetes dans AKS][aks-master-logs].
+Si vous avez besoin d’informations de dépannage supplémentaires à partir du maître Kubernetes, consultez [Afficher les journaux d’activité de nœud principal Kubernetes dans AKS][aks-master-logs].
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md

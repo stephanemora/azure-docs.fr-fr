@@ -1,6 +1,6 @@
 ---
 title: Résoudre les problèmes d’Azure IoT Edge | Microsoft Docs
-description: Cet article vous permettra d’acquérir des compétences de diagnostic standard concernant Azure IoT Edge, telles que la récupération des journaux et de l’état des composants, et de résoudre les problèmes courants
+description: Cet article vous permettra d’acquérir des compétences de diagnostic standard concernant Azure IoT Edge, telles que la récupération des journaux d’activité et de l’état des composants, et de résoudre les problèmes courants
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -22,9 +22,9 @@ Si vous rencontrez des problèmes lors de l’exécution d’Azure IoT Edge dans
 
 ## <a name="standard-diagnostic-steps"></a>Étapes de diagnostic standard 
 
-Quand vous rencontrez un problème, obtenez des informations supplémentaires sur l’état de votre appareil IoT Edge en examinant les journaux du conteneur et les messages transitant par l’appareil. Utilisez les commandes et les outils de cette section pour recueillir des informations. 
+Quand vous rencontrez un problème, obtenez des informations supplémentaires sur l’état de votre appareil IoT Edge en examinant les journaux d’activité du conteneur et les messages transitant par l’appareil. Utilisez les commandes et les outils de cette section pour recueillir des informations. 
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Vérifiez l’état du gestionnaire de sécurité IoT Edge et de ses journaux :
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Vérifiez l’état du gestionnaire de sécurité IoT Edge et de ses journaux d’activité :
 
 Sur Linux :
 - Pour voir l’état du gestionnaire de sécurité IoT Edge :
@@ -33,13 +33,13 @@ Sur Linux :
    sudo systemctl status iotedge
    ```
 
-- Pour voir les journaux du gestionnaire de sécurité IoT Edge :
+- Pour voir les journaux d’activité du gestionnaire de sécurité IoT Edge :
 
     ```bash
     sudo journalctl -u iotedge -f
     ```
 
-- Pour voir des journaux plus détaillés du gestionnaire de sécurité IoT Edge :
+- Pour voir des journaux d’activité plus détaillés du gestionnaire de sécurité IoT Edge :
 
    - Modifiez les paramètres du démon iotedge :
 
@@ -69,7 +69,7 @@ Sous Windows :
    Get-Service iotedge
    ```
 
-- Pour voir les journaux du gestionnaire de sécurité IoT Edge :
+- Pour voir les journaux d’activité du gestionnaire de sécurité IoT Edge :
 
    ```powershell
    # Displays logs from today, newest at the bottom.
@@ -99,9 +99,9 @@ Sous Windows :
    notepad C:\ProgramData\iotedge\config.yaml
    ```
 
-### <a name="check-container-logs-for-issues"></a>Vérifier si les journaux des conteneurs indiquent des problèmes
+### <a name="check-container-logs-for-issues"></a>Vérifier si les journaux d’activité des conteneurs indiquent des problèmes
 
-Une fois le démon de sécurité IoT Edge exécuté, vérifiez si les journaux des conteneurs indiquent des problèmes. Commencez par les conteneurs déployés, puis examinez les conteneurs qui composent le runtime IoT Edge : edgeAgent et edgeHub. Les journaux de l’agent IoT Edge fournissent généralement des informations sur le cycle de vie de chaque conteneur. Les journaux de hub IoT Edge fournissent des informations sur la messagerie et de routage. 
+Une fois le démon de sécurité IoT Edge exécuté, vérifiez si les journaux d’activité des conteneurs indiquent des problèmes. Commencez par les conteneurs déployés, puis examinez les conteneurs qui composent le runtime IoT Edge : edgeAgent et edgeHub. Les journaux de l’agent IoT Edge fournissent généralement des informations sur le cycle de vie de chaque conteneur. Les journaux de hub IoT Edge fournissent des informations sur la messagerie et de routage. 
 
    ```cmd
    iotedge logs <container name>
@@ -109,7 +109,7 @@ Une fois le démon de sécurité IoT Edge exécuté, vérifiez si les journaux d
 
 ### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Afficher les messages acheminés via le hub IoT Edge
 
-Vous pouvez afficher les messages acheminés via le hub IoT Edge et collecter des informations à partir des journaux détaillés à partir de conteneurs du runtime. Pour activer les journaux détaillés sur ces conteneurs, définissez `RuntimeLogLevel` dans votre fichier de configuration yaml. Pour ouvrir le fichier :
+Vous pouvez afficher les messages acheminés via le hub IoT Edge et collecter des informations à partir des journaux détaillés à partir de conteneurs du runtime. Pour activer les journaux d’activité détaillés sur ces conteneurs, définissez `RuntimeLogLevel` dans votre fichier de configuration yaml. Pour ouvrir le fichier :
 
 Sur Linux :
 
@@ -150,7 +150,7 @@ Enregistrez le fichier et redémarrez le gestionnaire de sécurité IoT Edge.
 Vous pouvez également vérifier les messages envoyés entre IoT Hub et les appareils IoT Edge. Affichez ces messages à l’aide de l’extension [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anciennement Azure IoT Toolkit) pour Visual Studio Code. Pour plus d’informations, consultez [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
 ### <a name="restart-containers"></a>Redémarrer les conteneurs
-Après avoir examiné les journaux et les messages pour obtenir plus d’informations, vous pouvez essayer de redémarrer les conteneurs :
+Après avoir examiné les journaux d’activité et les messages pour obtenir plus d’informations, vous pouvez essayer de redémarrer les conteneurs :
 
 ```
 iotedge restart <container name>
@@ -294,11 +294,11 @@ Dans le manifeste de déploiement :
       }
     },
 ```
-## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Impossible d’obtenir les journaux de démon IoT Edge sur Windows
+## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Impossible d’obtenir les journaux d’activité de démon IoT Edge sur Windows
 Si vous obtenez une EventLogException lors de l’utilisation de `Get-WinEvent` sur Windows, vérifiez les entrées de Registre.
 
 ### <a name="root-cause"></a>Cause racine
-La commande PowerShell `Get-WinEvent` repose sur la présence d’une entrée de Registre pour trouver les journaux d’après un `ProviderName` spécifique.
+La commande PowerShell `Get-WinEvent` repose sur la présence d’une entrée de Registre pour trouver les journaux d’activité d’après un `ProviderName` spécifique.
 
 ### <a name="resolution"></a>Résolution :
 Définissez une entrée de Registre pour le démon IoT Edge. Créez un fichier **iotedge.reg** avec le contenu suivant, puis importez-le dans le Registre Windows en double-cliquant dessus ou en utilisant la commande `reg import iotedge.reg` :
@@ -314,7 +314,7 @@ Windows Registry Editor Version 5.00
 
 ## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>Le module IoT Edge ne parvient pas à envoyer de message à l’edgeHub avec l’erreur 404
 
-Un module IoT Edge personnalisé ne parvient pas à envoyer de message à l’edgeHub avec l’erreur `Module not found` 404. Le démon IoT Edge imprime le message suivant dans les journaux : 
+Un module IoT Edge personnalisé ne parvient pas à envoyer de message à l’edgeHub avec l’erreur `Module not found` 404. Le démon IoT Edge imprime le message suivant dans les journaux d’activité : 
 
 ```output
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 

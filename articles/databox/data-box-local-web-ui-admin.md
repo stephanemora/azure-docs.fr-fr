@@ -19,7 +19,7 @@ ms.locfileid: "57404040"
 
 Cet article décrit certaines des tâches de gestion et de configuration qui peuvent être effectuées sur la Data Box. Vous pouvez gérer la Data Box via l’interface utilisateur du portail Azure et l’interface utilisateur web locale pour l’appareil. Cet article se concentre sur les tâches que vous pouvez effectuer à l'aide de l'interface utilisateur web locale.
 
-L’interface utilisateur web locale pour la Data Box est utilisée pour la configuration initiale de l’appareil. Vous pouvez également utiliser l’interface utilisateur web locale pour arrêter ou redémarrer la Data Box, exécuter des tests de diagnostic, mettre à jour les logiciels, afficher les journaux de copie et générer un package de journaux destiné au support Microsoft.
+L’interface utilisateur web locale pour la Data Box est utilisée pour la configuration initiale de l’appareil. Vous pouvez également utiliser l’interface utilisateur web locale pour arrêter ou redémarrer la Data Box, exécuter des tests de diagnostic, mettre à jour les logiciels, afficher les journaux d’activité de copie et générer un package de journaux d’activité destiné au support Microsoft.
 
 Cet article inclut les didacticiels suivants :
 
@@ -31,7 +31,7 @@ Cet article inclut les didacticiels suivants :
 
 ## <a name="generate-support-package"></a>Générer un package de support
 
-Si vous rencontrez des problèmes avec l’appareil, vous pouvez créer un package de support dans les journaux système. Le support Microsoft utilise ce package pour résoudre le problème. Pour générer un package de support, procédez comme suit :
+Si vous rencontrez des problèmes avec l’appareil, vous pouvez créer un package de support dans les journaux d’activité système. Le support Microsoft utilise ce package pour résoudre le problème. Pour générer un package de support, procédez comme suit :
 
 1. Dans l’interface utilisateur web locale, accédez à **Contacter le support technique**, puis cliquez sur **Générer un package de support**.
 

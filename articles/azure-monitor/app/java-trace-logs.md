@@ -1,5 +1,5 @@
 ---
-title: Exploration des journaux de traçage Java dans Application Insights | Documents Microsoft
+title: Exploration des journaux d’activité de traçage Java dans Application Insights | Documents Microsoft
 description: Recherche de suivi Log4J ou Logback dans Application Insights
 services: application-insights
 documentationcenter: java
@@ -19,8 +19,8 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/03/2019
 ms.locfileid: "58884293"
 ---
-# <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux Java dans Application Insights
-Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.
+# <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux d’activité Java dans Application Insights
+Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux d’activité de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.
 
 ## <a name="install-the-java-sdk"></a>Installer le Kit de développement logiciel (SDK) Java
 

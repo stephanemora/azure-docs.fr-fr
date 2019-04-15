@@ -45,12 +45,12 @@ Pour rechercher des messages en fonction de propriétés ou de valeurs spécifiq
 
    ![Sélectionner un espace de travail Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-1. Dans le menu de votre espace de travail, sous **Général**, sélectionnez **Journaux (vue classique)** ou **Journaux**. 
+1. Dans le menu de votre espace de travail, sous **Général**, sélectionnez **Journaux d’activité (vue classique)** ou **Journaux d’activité**. 
 
-   Cet exemple montre comment utiliser la vue Journaux classique. 
-   Si vous sélectionnez **Afficher les journaux** dans la section **Optimiser votre expérience Log Analytics**, sous **Rechercher et analyser des journaux**, vous obtenez la vue **Journaux (vue classique)**. 
+   Cet exemple montre comment utiliser la vue Journaux d’activité classique. 
+   Si vous sélectionnez **Afficher les journaux d’activité** dans la section **Optimiser votre expérience Log Analytics**, sous **Rechercher et analyser des journaux d’activité**, vous obtenez la vue **Journaux d’activité (vue classique)**. 
 
-   ![Vue Journaux classique](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-classic-logs.png)
+   ![Vue Journaux d’activité classique](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-classic-logs.png)
 
 1. Dans la zone d’édition de la requête, commencez à taper le nom du champ que vous souhaitez trouver. Lorsque vous commencez à taper, l’éditeur de requête affiche les correspondances possibles et les opérations que vous pouvez utiliser. Une fois la requête créée, sélectionnez **Exécuter** ou appuyez sur la touche Entrée.
 
@@ -84,9 +84,9 @@ Pour rechercher des messages en fonction de propriétés ou de valeurs spécifiq
 
 ## <a name="save-query"></a>Enregistrer la requête
 
-Pour enregistrer votre requête dans la vue **Journaux (vue classique)**, procédez comme suit :
+Pour enregistrer votre requête dans la vue **Journaux d’activité (vue classique)**, procédez comme suit :
 
-1. Depuis votre requête sur la page **Journaux (vue classique)**, sélectionnez **Analytics**. 
+1. Depuis votre requête sur la page **Journaux d’activité (vue classique)**, sélectionnez **Analytics**. 
 
    ![Sélectionnez « Analytics »](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-analytics.png)
 
@@ -118,9 +118,9 @@ Pour enregistrer votre requête dans la vue **Journaux (vue classique)**, procé
 
    ![Sélectionner un espace de travail Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-1. Dans le menu de votre espace de travail, sous **Général**, sélectionnez **Journaux (vue classique)** ou **Journaux**. 
+1. Dans le menu de votre espace de travail, sous **Général**, sélectionnez **Journaux d’activité (vue classique)** ou **Journaux d’activité**. 
 
-   Cet exemple montre comment utiliser la vue Journaux classique. 
+   Cet exemple montre comment utiliser la vue Journaux d’activité classique. 
 
 1. Une fois que la page de requête s’ouvre, dans la barre d’outils de la requête, sélectionnez **Recherches enregistrées**.
 

@@ -109,7 +109,7 @@ Si le disque du système d’exploitation est chiffré, déverrouillez-le. Pour 
     > [!Note]
     > La commande précédente suppose que le disque à chiffrer est identifié par la lettre F.
 
-8. S'il vous faut collecter des journaux, accédez au chemin d’accès **LETTRE DE LECTEUR:\Windows\System32\winevt\Logs**.
+8. S’il vous faut collecter des journaux d’activité, accédez au chemin d’accès **LETTRE DE LECTEUR:\Windows\System32\winevt\Logs**.
 
 9. Détachez le lecteur de la machine de récupération.
 

@@ -37,9 +37,9 @@ Pour la machine virtuelle qui utilise le disque managé, consultez [Résoudre le
 ## <a name="determine-boot-issues"></a>Identifier les problèmes de démarrage
 Examinez les diagnostics de démarrage et la capture d’écran de la machine virtuelle afin d’identifier la raison pour laquelle votre machine virtuelle ne démarre pas correctement. Comme exemple courant, citons une entrée non valide dans `/etc/fstab`, ou le disque dur virtuel en cours de suppression ou de déplacement.
 
-Dans le portail, sélectionnez votre machine virtuelle, puis accédez à la section **Prise en charge et dépannage**. Cliquez sur **Démarrer les diagnostics** pour afficher les messages de console transmis en continu à partir de votre machine virtuelle. Passez en revue les journaux de la console pour voir si vous pouvez déterminer la raison pour laquelle la machine virtuelle rencontre un problème. L’exemple suivant montre une machine virtuelle bloquée en mode de maintenance nécessitant une interaction manuelle :
+Dans le portail, sélectionnez votre machine virtuelle, puis accédez à la section **Prise en charge et dépannage**. Cliquez sur **Démarrer les diagnostics** pour afficher les messages de console transmis en continu à partir de votre machine virtuelle. Passez en revue les journaux d’activité de la console pour voir si vous pouvez déterminer la raison pour laquelle la machine virtuelle rencontre un problème. L’exemple suivant montre une machine virtuelle bloquée en mode de maintenance nécessitant une interaction manuelle :
 
-![Affichage des journaux de console des diagnostics de démarrage de la machine virtuelle](./media/troubleshoot-recovery-disks-portal-linux/boot-diagnostics-error.png)
+![Affichage des journaux d’activité de console des diagnostics de démarrage de la machine virtuelle](./media/troubleshoot-recovery-disks-portal-linux/boot-diagnostics-error.png)
 
 Vous pouvez également cliquer sur la **capture d’écran** dans la partie supérieure du journal de diagnostics de démarrage pour télécharger la capture d’écran de la machine virtuelle.
 

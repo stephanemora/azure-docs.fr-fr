@@ -55,7 +55,7 @@ Log Analytics est un store flexible qui, tout en prescrivant un schéma pour vos
     ```
   N’oubliez pas de rechercher non seulement les noms d’utilisateur explicites, mais aussi les GUID, qui peuvent permettre de remonter directement à un utilisateur particulier !
 * *ID d’appareil* : comme les ID d’utilisateur, les ID d’appareil sont parfois considérés « privés ». Utilisez la même approche que ci-dessus pour les ID d’utilisateur, pour identifier les tables où cela peut poser un problème. 
-* *Données personnalisées* : Log Analytics permet la collecte selon différentes méthodes : journaux personnalisés et champs personnalisés, [l’API du collecteur de données HTTP](../../azure-monitor/platform/data-collector-api.md) et les données personnalisées collectées dans le cadre de journaux des événements système. Tous ces éléments sont susceptibles de contenir des données privées et ils doivent être examinés pour vérifier si de telles données s’y trouvent.
+* *Données personnalisées* : Log Analytics permet la collecte selon différentes méthodes : journaux d’activité personnalisés et champs personnalisés, [l’API du collecteur de données HTTP](../../azure-monitor/platform/data-collector-api.md) et les données personnalisées collectées dans le cadre de journaux des événements système. Tous ces éléments sont susceptibles de contenir des données privées et ils doivent être examinés pour vérifier si de telles données s’y trouvent.
 * *Données capturées par les solutions* : comme le mécanisme des solutions est ouvert, nous vous recommandons d’examiner toutes les tables générées par les solutions pour vérifier leur conformité.
 
 ### <a name="application-data"></a>Données d'application

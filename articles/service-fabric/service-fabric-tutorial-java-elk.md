@@ -29,7 +29,7 @@ Ce tutoriel est la quatrième partie de la série. Il montre comment utiliser EL
 Dans ce quatrième volet, vous apprenez à :
 > [!div class="checklist"]
 > * Configurer le serveur ELK dans Azure
-> * Configurer Logstash pour recevoir des journaux d’Event Hubs
+> * Configurer Logstash pour recevoir des journaux d’activité d’Event Hubs
 > * Visualiser la plateforme et les journaux des applications dans Kibana
 
 Cette série de tutoriels vous montre comment effectuer les opérations suivantes :
@@ -45,8 +45,8 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Configurez votre application pour publier des journaux à l’emplacement spécifié dans la [deuxième partie](service-fabric-tutorial-debug-log-local-cluster.md).
-* Terminez la [troisième partie](service-fabric-tutorial-java-deploy-azure.md) et utilisez un cluster Service Fabric en cours d’exécution configuré pour envoyer des journaux à Event Hubs.
+* Configurez votre application pour publier des journaux d’activité à l’emplacement spécifié dans la [deuxième partie](service-fabric-tutorial-debug-log-local-cluster.md).
+* Terminez la [troisième partie](service-fabric-tutorial-java-deploy-azure.md) et utilisez un cluster Service Fabric en cours d’exécution configuré pour envoyer des journaux d’activité à Event Hubs.
 * La stratégie dans Event Hubs qui a l’autorisation « Écouter » et la clé primaire associée à partir de la troisième série.
 
 ## <a name="download-the-voting-sample-application"></a>Télécharger l’exemple d’application de vote
@@ -66,7 +66,7 @@ Vous pouvez utiliser un environnement ELK préconfiguré pour ce didacticiel. Si
 2. Accédez aux ressources dans le portail Azure, puis à l’onglet **Diagnostics de démarrage** dans la section **Support + Troubleshooting** (Support + Dépannage). Ensuite, cliquez sur l’onglet **Journal série**.
 
     ![Diagnostics-de-démarrage](./media/service-fabric-tutorial-java-elk/bootdiagnostics.png)
-3. Effectuer une recherche sur les journaux pour le mot de passe est requis pour accéder à l’instance Kibana. L’extrait de code se présente comme suit :
+3. Effectuer une recherche sur les journaux d’activité pour le mot de passe est requis pour accéder à l’instance Kibana. L’extrait de code se présente comme suit :
 
     ```bash
     [   25.932766] bitnami[1496]: #########################################################################

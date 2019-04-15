@@ -92,7 +92,7 @@ Azure App Service est une excellente solution pour l’hébergement de sites web
 * Exécution fiable de vos sites web sur une plateforme cloud avec corrections et mises à jour automatiques.
 * Extension automatique sur un réseau mondial de centres de données.
 * Sauvegarde et restauration après sinistre.
-* Gestion des journaux et du trafic avec des outils intégrés.
+* Gestion des journaux d’activité et du trafic avec des outils intégrés.
 * Conformité ISO, SOC2 et PCI.
 * Intégration avec Active Directory
 

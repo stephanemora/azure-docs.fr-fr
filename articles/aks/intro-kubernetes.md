@@ -39,7 +39,7 @@ Pour sécuriser vos clusters AKS, consultez [Intégrer Azure Active Directory à
 
 ### <a name="integrated-logging-and-monitoring"></a>Fonctions de journalisation et de surveillance intégrées
 
-Pour comprendre les performances de vos applications déployées et de votre cluster AKS, Azure Monitor pour l’intégrité des conteneurs collecte les métriques relatives au processeur et à la mémoire à partir des conteneurs, des nœuds et des contrôleurs. Les journaux du conteneur sont disponibles, et vous pouvez également [passer en revue les journaux du maître Kubernetes][aks-master-logs]. Ces données de monitoring sont stockées dans un espace de travail Azure Log Analytics, et sont disponibles via le portail Azure, Azure CLI ou un point de terminaison REST.
+Pour comprendre les performances de vos applications déployées et de votre cluster AKS, Azure Monitor pour l’intégrité des conteneurs collecte les métriques relatives au processeur et à la mémoire à partir des conteneurs, des nœuds et des contrôleurs. Les journaux d’activité du conteneur sont disponibles, et vous pouvez également [passer en revue les journaux d’activité du maître Kubernetes][aks-master-logs]. Ces données de monitoring sont stockées dans un espace de travail Azure Log Analytics, et sont disponibles via le portail Azure, Azure CLI ou un point de terminaison REST.
 
 Pour plus d’informations, voir [Analyser le fonctionnement des conteneurs Azure Kubernetes Service][container-health].
 

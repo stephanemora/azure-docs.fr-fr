@@ -17,12 +17,12 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58089367"
 ---
-# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C : collecte des journaux
+# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C : collecte des journaux d’activité
 
-Cet article explique comment collecter les journaux à partir d’Azure AD B2C afin que vous puissiez diagnostiquer les problèmes liés à vos stratégies personnalisées.
+Cet article explique comment collecter les journaux d’activité à partir d’Azure AD B2C afin que vous puissiez diagnostiquer les problèmes liés à vos stratégies personnalisées.
 
 >[!NOTE]
->Actuellement, les journaux d’activité détaillés décrits ici sont conçus **UNIQUEMENT** pour faciliter le développement de stratégies personnalisées. N’utilisez pas le mode de développement en production.  Les journaux recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement.  En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire.  Ces journaux détaillés ne sont collectés que si la stratégie est en **MODE DE DÉVELOPPEMENT**.
+>Actuellement, les journaux d’activité détaillés décrits ici sont conçus **UNIQUEMENT** pour faciliter le développement de stratégies personnalisées. N’utilisez pas le mode de développement en production.  Les journaux d’activité recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement.  En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire.  Ces journaux d’activité détaillés ne sont collectés que si la stratégie est en **MODE DE DÉVELOPPEMENT**.
 
 
 ## <a name="use-application-insights"></a>Utiliser Application Insights
@@ -81,20 +81,20 @@ Azure AD B2C prend en charge une fonctionnalité d’envoi de données à Applic
 
 3. Téléchargez la stratégie.
 
-### <a name="see-the-logs-in-application-insights"></a>Afficher des journaux dans Application Insights
+### <a name="see-the-logs-in-application-insights"></a>Afficher des journaux d’activité dans Application Insights
 
 >[!NOTE]
-> Il y a un court délai (moins de cinq minutes) avant que les nouveaux journaux s’affichent dans Application Insights.
+> Il y a un court délai (moins de cinq minutes) avant que les nouveaux journaux d’activité s’affichent dans Application Insights.
 
 1. Ouvrez la ressource Application Insights que vous avez créée sur le [portail Azure](https://portal.azure.com).
 1. Dans le menu **Aperçu**, cliquez sur **Analytics**.
 1. Ouvrez un nouvel onglet dans Application Insights.
-1. Voici une liste de requêtes que vous pouvez utiliser pour afficher les journaux
+1. Voici une liste de requêtes que vous pouvez utiliser pour afficher les journaux d’activité
 
 | Requête | Description |
 |---------------------|--------------------|
-traces | Consultez tous les journaux générés par Azure AD B2C |
-traces \| where timestamp > ago(1d) | Consultez tous les journaux générés par Azure AD B2C pour le dernier jour
+traces | Consultez tous les journaux d’activité générés par Azure AD B2C |
+traces \| where timestamp > ago(1d) | Consultez tous les journaux d’activité générés par Azure AD B2C pour le dernier jour
 
 Les entrées peuvent être longues.  Exporter au format CSV pour une étude plus approfondie.
 
@@ -106,7 +106,7 @@ Pour plus d’informations sur l’outil Analytics, cliquez [ici](https://docs.m
 La version de la visionneuse qui lit les événements Application Insights se trouve [ici](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication).
 
 >[!NOTE]
->Actuellement, les journaux d’activité détaillés décrits ici sont conçus **UNIQUEMENT** pour faciliter le développement de stratégies personnalisées. N’utilisez pas le mode de développement en production.  Les journaux recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement.  En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire.  Ces journaux détaillés ne sont collectés que si la stratégie est en **MODE DE DÉVELOPPEMENT**.
+>Actuellement, les journaux d’activité détaillés décrits ici sont conçus **UNIQUEMENT** pour faciliter le développement de stratégies personnalisées. N’utilisez pas le mode de développement en production.  Les journaux d’activité recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement.  En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire.  Ces journaux d’activité détaillés ne sont collectés que si la stratégie est en **MODE DE DÉVELOPPEMENT**.
 
 [Référentiel GitHub pour exemples de stratégies personnalisées non pris en charge et outils connexes](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 

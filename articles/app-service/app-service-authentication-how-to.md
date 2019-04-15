@@ -211,7 +211,7 @@ function refreshTokens() {
 }
 ```
 
-Si un utilisateur révoque les autorisations accordées à votre application, votre appel à `/.auth/me` peut échouer avec une réponse `403 Forbidden`. Pour diagnostiquer les erreurs, consultez vos journaux d’application pour obtenir des informations supplémentaires.
+Si un utilisateur révoque les autorisations accordées à votre application, votre appel à `/.auth/me` peut échouer avec une réponse `403 Forbidden`. Pour diagnostiquer les erreurs, consultez vos journaux d’activité d’application pour obtenir des informations supplémentaires.
 
 ## <a name="extend-session-token-expiration-grace-period"></a>Étendre la période de grâce d’expiration de jeton de session
 

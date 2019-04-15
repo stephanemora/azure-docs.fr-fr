@@ -62,7 +62,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 4. Cliquez sur **Créer**. Une fonction est créée dans le langage que vous avez choisi et s’exécute chaque minute.
 
-5. Vérifiez l’exécution en consultant les informations de traçage écrites dans les journaux.
+5. Vérifiez l’exécution en consultant les informations de traçage écrites dans les journaux d’activité.
 
     ![Affichage des journaux de fonction dans le portail Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 

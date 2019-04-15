@@ -24,7 +24,7 @@ Dans cet article, vous apprendrez comment :
 > [!div class="checklist"]
 > * Exécuter les diagnostics
 > * Collecter un package de support
-> * Utiliser les journaux pour résoudre les problèmes
+> * Utiliser les journaux d’activité pour résoudre les problèmes
 
 
 ## <a name="run-diagnostics"></a>Exécuter les diagnostics
@@ -46,7 +46,7 @@ Pour diagnostiquer et corriger les erreurs d’appareil, vous pouvez exécuter l
 
 ## <a name="collect-support-package"></a>Collecter un package de support
 
-Un package de journaux contient tous les journaux pertinents qui peuvent aider l’équipe du Support Microsoft à résoudre les problèmes des appareils. Vous pouvez générer un package de journaux par le biais de l’interface utilisateur web locale.
+Un package de journaux d’activité contient tous les journaux d’activité pertinents qui peuvent aider l’équipe du Support Microsoft à résoudre les problèmes des appareils. Vous pouvez générer un package de journaux par le biais de l’interface utilisateur web locale.
 
 Pour collecter un package de support, procédez comme suit. 
 
@@ -58,7 +58,7 @@ Pour collecter un package de support, procédez comme suit.
 
     ![Résolution des problèmes](media/data-box-edge-troubleshoot/collect-logs-2.png)
 
-## <a name="use-logs-to-troubleshoot"></a>Utiliser les journaux pour résoudre les problèmes
+## <a name="use-logs-to-troubleshoot"></a>Utiliser les journaux d’activité pour résoudre les problèmes
 
 Toutes les erreurs rencontrées lors des processus de chargement et d’actualisation figurent dans les fichiers d’erreurs correspondants.
 
