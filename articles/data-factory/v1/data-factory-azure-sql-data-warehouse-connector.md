@@ -71,7 +71,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété type doit être définie sur : **AzureSqlDW** |Oui |
+| type |La propriété type doit être définie sur : **AzureSqlDW** |Oui |
 | connectionString |Spécifier les informations requises pour la connexion à l’instance Azure SQL Data Warehouse pour la propriété connectionString. Seule l’authentification de base est prise en charge. |Oui |
 
 > [!IMPORTANT]
@@ -84,7 +84,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| TableName |Nom de la table ou de la vue dans la base de données Azure SQL Data Warehouse à laquelle le service lié fait référence. |Oui |
+| tableName |Nom de la table ou de la vue dans la base de données Azure SQL Data Warehouse à laquelle le service lié fait référence. |Oui |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
@@ -99,7 +99,7 @@ Lorsque la source est de type **SqlDWSource**, les propriétés suivantes sont d
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| SqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. |Non  |
+| sqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. |Non  |
 | sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
 
@@ -308,7 +308,7 @@ Data Factory crée la table dans le magasin de destination portant le même nom 
 | TinyInt | TinyInt |
 | Bit | Bit |
 | Decimal | Decimal |
-| Chiffre | Decimal |
+| Numeric | Decimal |
 | Float | Float |
 | Money | Money |
 | Real | Real |
@@ -318,10 +318,10 @@ Data Factory crée la table dans le magasin de destination portant le même nom 
 | Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| Temps | Temps |
+| Time | Time |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
-| Texte | Varchar (jusqu'à 8 000) |
+| Text | Varchar (jusqu'à 8 000) |
 | NText | NVarChar (jusqu'à 4 000) |
 | Image | VarBinary (jusqu'à 8 000) |
 | UniqueIdentifier | UniqueIdentifier |
@@ -329,7 +329,7 @@ Data Factory crée la table dans le magasin de destination portant le même nom 
 | NChar | NChar |
 | VarChar | VarChar (jusqu'à 8 000) |
 | NVarChar | NVarChar (jusqu'à 4 000) |
-| xml | Varchar (jusqu'à 8 000) |
+| Xml | Varchar (jusqu'à 8 000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -346,37 +346,37 @@ Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET
 | Type de moteur de base de données SQL Server | Type de .NET Framework |
 | --- | --- |
 | bigint |Int64 |
-| binaire |Byte[] |
-| bit |Booléen |
+| binary |Byte[] |
+| bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| DateTime |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Attribut FILESTREAM (varbinary(max)) |Byte[] |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numérique |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Objet * |
-| texte |String, Char[] |
+| sql_variant |Object * |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 Vous pouvez également mapper les colonnes du jeu de données source sur les colonnes du jeu de données récepteur dans la définition de l’activité de copie. Pour plus d’informations, consultez [Mappage de colonnes de jeux de données dans Azure Data Factory](data-factory-map-columns.md).
 
