@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 04/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491489"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564529"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -59,8 +59,8 @@ Windows Server 2008 R2 SP1 ou version ultérieure.
 
 Ces bibliothèques sont installées automatiquement avec l’extension.
 
-- [Packages redistribuables Visual C++ pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Microsoft Azure Module Active Directory pour Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Le module Microsoft Azure Active Directory pour Windows PowerShell est installé, s’il n’est pas déjà présent, via un script de configuration que vous exécutez en tant que partie du processus de configuration. Il est inutile d’installer ce module en avance s’il n’est pas déjà installé.
 
@@ -78,6 +78,12 @@ Le serveur NPS (Network Policy Server) doit pouvoir communiquer avec les URL sui
 
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
+
+En outre, la connectivité aux URL suivantes est nécessaire pour terminer le [le programme d’installation de l’adaptateur à l’aide du script PowerShell fourni](#run-the-powershell-script)
+
+- https://login.microsoftonline.com
+- https://provisioningapi.microsoftonline.com
+- https://aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
 
@@ -142,6 +148,14 @@ Vos utilisateurs doivent également suivre ces étapes pour s’inscrire avant d
 1. [Téléchargez l’extension NPS](https://aka.ms/npsmfa) à partir du Centre de téléchargement Microsoft.
 2. Copiez le fichier binaire sur le serveur NPS (Network Policy Server) que vous souhaitez configurer.
 3. Exécutez le fichier *setup.exe* et suivez les instructions d’installation. Si vous rencontrez des erreurs, vérifiez que les deux bibliothèques de la section Configuration requise ont été installées avec succès.
+
+#### <a name="upgrade-the-nps-extension"></a>Mise à niveau de l’extension NPS
+
+Lors de l’installation de la mise à niveau d’une extension de serveur NPS existante, pour éviter un redémarrage du serveur sous-jacent procédez comme suit :
+
+1. Désinstallez la version existante
+1. Exécuter le nouveau programme d’installation
+1. Redémarrez le service de serveur de stratégie réseau (IAS)
 
 ### <a name="run-the-powershell-script"></a>Exécution du script PowerShell
 
@@ -239,7 +253,7 @@ Les horodatages Valid-From (Valide à partir de) et Valid-Until (Valide jusqu’
 
 ### <a name="why-cant-i-sign-in"></a>Pourquoi je ne peux pas me connecter ?
 
-Vérifiez que votre mot de passe n’a pas expiré. L’Extension NPS ne prend pas en charge la variation des mots de passe dans le cadre du flux de travail de connexion. Contactez le service informatique de votre entreprise pour obtenir de l’aide.
+Vérifiez que votre mot de passe n’a pas expiré. L’Extension NPS ne prend pas en charge la variation des mots de passe dans le cadre du flux de travail de connexion. Pour obtenir une assistance supplémentaire, contactez le service informatique de votre organisation.
 
 -------------------------------------------------------------
 
@@ -270,7 +284,7 @@ Vérifiez que https://adnotifications.windowsazure.com est accessible depuis le 
 
 Si votre certificat d’ordinateur précédente a expiré, et un nouveau certificat a été généré, vous devez supprimer tous les certificats expirés. Avoir des certificats arrivés à expiration peuvent provoquer des problèmes avec l’Extension NPS à partir.
 
-Pour vérifier si vous disposez d’un certificat valid, vérifiez le Store de certificat du compte d’ordinateur local à l’aide de MMC et vérifiez que le certificat n’a pas atteint sa date d’expiration. Pour générer un certificat qui vient d’être valide, exécutez de nouveau les étapes sous la section «[exécuter le script PowerShell](#run-the-powershell-script)»
+Pour vérifier si vous disposez d’un certificat valid, vérifiez le Store de certificat du compte d’ordinateur local à l’aide de MMC et vérifiez que le certificat n’a pas atteint sa date d’expiration. Pour générer un certificat qui vient d’être valide, exécutez à nouveau les étapes décrites dans la section «[exécuter le script PowerShell](#run-the-powershell-script)»
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestion des protocoles TLS/SSL et des suites de chiffrement
 

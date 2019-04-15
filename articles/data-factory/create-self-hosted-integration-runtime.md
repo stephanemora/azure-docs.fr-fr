@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261035"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565517"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
@@ -190,7 +190,7 @@ La vidéo suivante est une présentation et une démonstration de 12 minutes de 
 
   ![Onglet pour la supervision](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
-- **Runtime d’intégration lié**
+- **IR lié**
 
   ![Sélections pour la recherche d’un runtime d’intégration lié](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
@@ -255,7 +255,7 @@ Si votre environnement de réseau d’entreprise utilise un serveur proxy pour a
 
 ![Spécifier le proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-Le runtime d’intégration auto-hébergé utilise le serveur proxy pour se connecter au service cloud. Sélectionnez le **lien Modifier** pendant la configuration initiale. La boîte de dialogue des paramètres de proxy s’affiche.
+Lors de la configuration, le runtime d’intégration auto-hébergé utilise le serveur proxy pour se connecter au service cloud, la source / destination (celles utilisant HTTP / protocole HTTPS). C’est Select **changer le lien** pendant l’installation initiale. La boîte de dialogue des paramètres de proxy s’affiche.
 
 ![Définir le proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 

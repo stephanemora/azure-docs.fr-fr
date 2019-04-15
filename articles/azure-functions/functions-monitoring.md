@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495683"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565961"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -99,11 +99,11 @@ Les domaines d’Application Insights suivants peuvent être utiles lorsque vous
 
 | Tab | Description |
 | ---- | ----------- |
-| **[Échecs](../azure-monitor/app/asp-net-exceptions.md)** |  Créer des graphiques et des alertes basées sur les échecs de fonction et les exceptions du serveur. Le **Nom de l’opération** est le nom de la fonction. Échecs de dépendances ne sont pas visibles à moins que vous implémentiez des données de télémétrie personnalisées pour les dépendances. |
+| **[échecs](../azure-monitor/app/asp-net-exceptions.md)** |  Créer des graphiques et des alertes basées sur les échecs de fonction et les exceptions du serveur. Le **Nom de l’opération** est le nom de la fonction. Échecs de dépendances ne sont pas visibles à moins que vous implémentiez des données de télémétrie personnalisées pour les dépendances. |
 | **[Performances](../azure-monitor/app/performance-counters.md)** | Analyser les problèmes de performances. |
 | **Serveurs** | Afficher l’utilisation des ressources et débit par serveur. Ces données peuvent être utiles pour déboguer les scénarios où les fonctions ralentissent vos ressources sous-jacentes. Les serveurs sont appelés **instances de rôle cloud**. |
-| **[Mesures](../azure-monitor/app/metrics-explorer.md)** | Créer des graphiques et des alertes qui sont basées sur les mesures. Métriques incluent le nombre d’appels de fonction, les temps d’exécution et les taux de réussite. |
-| **[Live Metrics Stream (Flux continu de mesures)](../azure-monitor/app/live-stream.md)** | Afficher les données de métriques tel qu’il a créé en temps réel. |
+| **[Métriques](../azure-monitor/app/metrics-explorer.md)** | Créer des graphiques et des alertes qui sont basées sur les mesures. Métriques incluent le nombre d’appels de fonction, les temps d’exécution et les taux de réussite. |
+| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | Afficher les données de métriques tel qu’il a créé en temps réel. |
 
 ## <a name="query-telemetry-data"></a>Interroger les données de télémétrie
 
@@ -127,7 +127,7 @@ Les tables qui sont disponibles sont affichées dans le **schéma** onglet sur l
 | Table | Description |
 | ----- | ----------- |
 | **traces** | Journaux créés par le runtime et par code de fonction. |
-| **requêtes** | Une demande pour chaque appel de fonction. |
+| **requests** | Une demande pour chaque appel de fonction. |
 | **exceptions** | Toutes les exceptions levées par le runtime. |
 | **customMetrics** | Le nombre d’appels réussies et échouées, taux de réussite et la durée. |
 | **customEvents** | Événements suivis par le runtime, par exemple : requêtes HTTP qui déclenchent une fonction. |
@@ -595,7 +595,9 @@ Le `tagOverrides` jeux de paramètres le `operation_Id` à l’ID d’invocation
 
 ## <a name="dependencies"></a>Les dépendances
 
-Les dépendances vis-à-vis de la fonction d’autres services n’apparaissent pas automatiquement. Vous pouvez écrire du code personnalisé pour afficher les dépendances. Pour obtenir des exemples, consultez l’exemple de code dans le [ C# section de données de télémétrie personnalisées](#log-custom-telemetry-in-c-functions). L’exemple de code entraîne un *cartographie d’application* dans Application Insights, qui ressemble à l’image suivante :
+Fonctions v2 collecte automatiquement les dépendances pour les demandes HTTP, ServiceBus et SQL.
+
+Vous pouvez écrire du code personnalisé pour afficher les dépendances. Pour obtenir des exemples, consultez l’exemple de code dans le [ C# section de données de télémétrie personnalisées](#log-custom-telemetry-in-c-functions). L’exemple de code entraîne un *cartographie d’application* dans Application Insights, qui ressemble à l’image suivante :
 
 ![Mise en correspondance d’applications](./media/functions-monitoring/app-map.png)
 

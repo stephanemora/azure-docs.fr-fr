@@ -1,25 +1,25 @@
 ---
 title: Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de VMware sur Azure | Microsoft Docs
 description: Cet article décrit comment exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de VMware sur Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527677"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565425"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de VMware sur Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modes d’exécution du planificateur de déploiement
-Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) dans l’un des trois modes suivants :
+Vous pouvez exécuter l’outil de ligne de commande (ASRDeploymentPlanner.exe) dans l’un des trois modes suivants :
 
 1.  [Profilage](#profile-vmware-vms)
 2.  [Génération de rapport](#generate-report)
@@ -139,7 +139,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 L’outil génère un fichier Microsoft Excel avec les macros activées (fichier XLSM) en tant que sortie du rapport, qui résume toutes les recommandations de déploiement. Le rapport est intitulé `DeploymentPlannerReport_<unique numeric identifier>.xlsm` et placé dans le répertoire spécifié.
 
 >[!NOTE]
->Le rapport nécessite que le symbole décimal soit configuré en « . » pour produire des estimations de coût sur le serveur où vous exécutez le planificateur de déploiement. Si vous avez configuré « , » comme symbole décimal sur une machine Windows, accédez à « Changer les formats de date, d’heure ou de nombre » dans le Panneau de configuration, puis accédez à « Paramètres supplémentaires » pour changer le symbole décimal en « . ».
+>La génération de rapports nécessite un PC de Windows ou d’un serveur Windows avec Excel 2013 ou version ultérieure. Le symbole décimal sur cet ordinateur doit être configuré en tant que «. » pour produire les estimations de coût. Au cas où vous avez configuré «, « en tant que symbole décimal, accédez à « Modification date, d’heure ou formats de nombres » dans le panneau de configuration et accédez à « Paramètres supplémentaires » pour modifier le symbole décimal à «. ».
 
 À l’issue du profilage, vous pouvez exécuter l’outil en mode génération de rapport. Le tableau suivant contient une liste des paramètres obligatoires et facultatifs de l’outil à exécuter en mode génération de rapport.
 

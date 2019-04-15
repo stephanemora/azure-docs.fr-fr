@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 7f5d3ff6759cebca2f592e1cd4822ee85959ecb9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361317"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565680"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurer l’adressage IP pour se connecter à des machines virtuelles Azure après un basculement
 
@@ -62,7 +62,7 @@ Pour pouvoir répliquer ses machines virtuelles vers Azure en conservant les adr
 
 1. Créer un réseau virtuel Azure dans lequel les machines virtuelles Azure sont créées après le basculement des machines locales. Il doit s’agir d’une extension du réseau local afin que les applications puissent basculer en toute transparence.
 2. Avant le basculement, dans Site Recovery, attribuer la même adresse IP dans les propriétés de la machine. Après le basculement, Site Recovery affecte cette adresse à la machine virtuelle Azure.
-3. Une fois le basculement exécuté et les machines virtuelles Azure créées avec la même adresse IP, se connecter au réseau en utilisant une [connexion de réseau virtuel à réseau virtuel](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Cette action peut être scriptée.
+3. Une fois le basculement exécuté et les machines virtuelles Azure créées avec la même adresse IP, se connecter au réseau en utilisant une [connexion de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Cette action peut être scriptée.
 4. Modifier les itinéraires, afin de refléter le fait que 192.168.1.0/24 a été déplacé vers Azure.
 
 

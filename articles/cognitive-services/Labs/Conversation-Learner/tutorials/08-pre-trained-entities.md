@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163784"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565408"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Comment ajouter des entités préentraînées
 Ce didacticiel explique comment ajouter des entités préentraînées à votre modèle Conversation Learner.
@@ -62,7 +62,7 @@ Démarrez sur la page d’accueil de l’interface utilisateur web.
 
 1. Sélectionnez **Actions** dans le volet gauche, puis **nouvelle Action**.
 2. Entrez **quelle est la date ?** pour **réponse de robot...** . Entités préformées ne peut pas être **entités requises** qu’elles sont reconnues par défaut pour tous les énoncés.
-3. Entrez **builtin-datetimev2** pour **donne le droit de cette manière**.
+3. Entrez **builtin-datetimev2** pour **entités de cette manière**.
 4. Sélectionnez **Créer**.
 
 ![](../media/T08_action_create_2.png)

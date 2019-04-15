@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 04/11/2019
 ms.author: celested
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dd3bd1f3f9f175ba7bf841b1fce45bb7938c02b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4daab0255e739e011dca3ae0a016e3a15c7213b0
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209504"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565782"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory
 Pour affecter un utilisateur ou un groupe à une application d’entreprise, vous devez disposer des autorisations nécessaires pour gérer l’application d’entreprise, et vous devez être l’administrateur général du répertoire.
@@ -31,37 +31,32 @@ Pour affecter un utilisateur ou un groupe à une application d’entreprise, vou
 
 ## <a name="assign-a-user-to-an-app---portal"></a>Affecter un utilisateur à une application - portail
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Tous les services**, entrez Azure Active Directory dans la zone de texte, puis sélectionnez **Entrée**.
-3. Sélectionnez **Applications d’entreprise**.
-
-    ![Ouverture des applications d’entreprise](./media/assign-user-or-group-access-portal/open-enterprise-apps.png)
-4. Dans le panneau **Applications d’entreprise**, sélectionnez **Toutes les applications**. Cette action répertorie les applications que vous pouvez gérer.
-5. Sur le panneau **Applications d’entreprise - Toutes les applications** , sélectionnez une application.
-6. Dans le panneau ***NomApplication*** (autrement dit, le panneau avec le nom de l’application sélectionnée dans le titre), sélectionnez **Utilisateurs et groupes**.
-
-    ![Sélection de la commande Toutes les applications](./media/assign-user-or-group-access-portal/select-app-users.png)
-7. Dans le panneau ***NomApplication*** **- Affectation d’utilisateurs et de groupes**, sélectionnez la commande **Ajouter**.
-8. Dans le panneau **Ajouter une affectation**, sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Tous les services**, entrez Azure Active Directory dans la zone de texte, puis sélectionnez **Entrée**.
+1. Sélectionnez **Applications d’entreprise**.
+1. Sur le **applications d’entreprise - toutes les applications** volet, vous voyez une liste des applications que vous pouvez gérer. Sélectionnez une application.
+1. Sur le ***appname*** volet (autrement dit, le volet avec le nom de l’application sélectionnée dans le titre), sélectionnez **Users & Groups**.
+1. Sur le ***appname*** **-groupes d’utilisateurs et** volet, sélectionnez **ajouter un utilisateur**.
+1. Sur le **ajouter une attribution** volet, sélectionnez **utilisateurs et groupes**.
 
     ![Affecter un utilisateur ou un groupe à l’application](./media/assign-user-or-group-access-portal/assign-users.png)
-9. Dans le panneau **Utilisateurs et groupes**, sélectionnez un ou plusieurs utilisateurs ou groupes dans la liste, puis sélectionnez le bouton **Sélectionner** en bas du panneau.
-10. Dans le panneau **Ajouter une affectation**, sélectionnez **Rôle**. Puis, dans le panneau **Sélectionner un rôle**, choisissez un rôle à appliquer aux utilisateurs ou groupes sélectionnés, puis cliquez sur le bouton **OK** en bas du panneau.
-11. Dans le panneau **Ajouter une affectation**, sélectionnez le bouton **Affecter** en bas du panneau. Les utilisateurs ou les groupes ont les autorisations définies par le rôle sélectionné pour cette application d’entreprise.
+1. Sur le **utilisateurs et groupes** volet, sélectionnez un ou plusieurs utilisateurs ou groupes dans la liste, puis le **sélectionnez** bouton en bas du volet.
+1. Sur le **ajouter une attribution** volet, sélectionnez **rôle**. Ensuite, dans le **sélectionner un rôle** , sélectionnez un rôle à appliquer pour les utilisateurs ou groupes sélectionnés, puis sélectionnez **OK** en bas du volet.
+1. Sur le **ajouter une attribution** volet, sélectionnez le **affecter** bouton en bas du volet. Les utilisateurs ou les groupes ont les autorisations définies par le rôle sélectionné pour cette application d’entreprise.
 
 ## <a name="allow-all-users-to-access-an-app---portal"></a>Autoriser tous les utilisateurs à accéder à une application - portail
 Pour autoriser tous les utilisateurs à accéder à une application :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Tous les services**, entrez Azure Active Directory dans la zone de texte, puis sélectionnez **Entrée**.
-3. Sélectionnez **Applications d’entreprise**.
-4. Dans le panneau **Applications d’entreprise**, sélectionnez **Toutes les applications**. Cette action répertorie les applications que vous pouvez gérer.
-5. Sur le panneau **Applications d’entreprise - Toutes les applications** , sélectionnez une application.
-6. Dans le panneau ***nom_application***, sélectionnez **Propriétés**.
-7. Dans le panneau ***nom_application* - Propriétés**, définissez le paramètre **Affectation utilisateur requise ?** sur **Non**. 
+1. Sélectionnez **Tous les services**, entrez Azure Active Directory dans la zone de texte, puis sélectionnez **Entrée**.
+1. Sélectionnez **Applications d’entreprise**.
+1. Dans le volet **Applications d’entreprise**, sélectionnez **Toutes les applications**. Cette action répertorie les applications que vous pouvez gérer.
+1. Dans le volet **Applications d’entreprise - Toutes les applications**, sélectionnez une application.
+1. Sur le ***appname*** volet, sélectionnez **propriétés**.
+1. Sur le  ***appname* -propriétés** volet, définissez le **affectation utilisateur requise ?** à **non**. 
 
 L’option **Affectation utilisateur requise ?**  :
 
-- N’a pas d’impact sur l’apparition ou non d’une application dans le volet Accès à l’application. Pour montrer l’application dans le volet d’accès, vous devez affecter un utilisateur ou un groupe approprié à l’application.
+- N’affecte pas si une application s’affiche dans le volet d’accès application ou non. Pour montrer l’application dans le volet d’accès, vous devez affecter un utilisateur ou un groupe approprié à l’application.
 - Fonctionne seulement avec les applications cloud qui sont configurées pour l’authentification unique SAML et avec les applications locales configurées avec le proxy d’application. Consultez [Authentification unique pour les applications](what-is-single-sign-on.md).
 - Nécessite que les utilisateurs donnent leur consentement à une application. Un administrateur peut accorder un consentement pour tous les utilisateurs.  Consultez [Configurer le consentement de l’utilisateur final pour une application](configure-user-consent.md).
 
@@ -73,8 +68,8 @@ L’option **Affectation utilisateur requise ?**  :
     >[!NOTE] 
     > Vous devez installer le module AzureAD (utilisez la commande `Install-Module -Name AzureAD`). Si vous y êtes invité, installez un module NuGet ou le nouveau module Azure Active Directory V2 PowerShell, tapez O et appuyez sur Entrée.
 
-2. Exécutez `Connect-AzureAD` et connectez-vous avec un compte d’utilisateur Administrateur général.
-3. Pour affecter un utilisateur et un rôle à une application, utilisez le script suivant :
+1. Exécutez `Connect-AzureAD` et connectez-vous avec un compte d’utilisateur Administrateur général.
+1. Pour affecter un utilisateur et un rôle à une application, utilisez le script suivant :
 
     ```powershell
     # Assign the values to the variables
@@ -107,7 +102,7 @@ Cet exemple affecte l’utilisateur Britta Simon à l’application [Microsoft W
     $app_name = "Workplace Analytics"
     ```
 
-2. Dans cet exemple, nous ignorons le nom exact du rôle d’application à attribuer à Britta Simon. Exécutez les commandes suivantes pour obtenir l’utilisateur ($user) et le principal du service ($sp) à l’aide de l’UPN de l’utilisateur et du nom complet du principal du service.
+1. Dans cet exemple, nous ignorons le nom exact du rôle d’application à attribuer à Britta Simon. Exécutez les commandes suivantes pour obtenir l’utilisateur ($user) et le principal du service ($sp) à l’aide de l’UPN de l’utilisateur et du nom complet du principal du service.
 
     ```powershell
     # Get the user to assign, and the service principal for the app to assign to
@@ -115,11 +110,11 @@ Cet exemple affecte l’utilisateur Britta Simon à l’application [Microsoft W
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     ```
         
-3. Exécutez la commande `$sp.AppRoles` afin d’afficher les rôles disponibles pour l’application Workplace Analytics. Dans cet exemple, vous souhaitez affecter à Britta Simon le rôle Analyst (Limited access).
+1. Exécutez la commande `$sp.AppRoles` afin d’afficher les rôles disponibles pour l’application Workplace Analytics. Dans cet exemple, vous souhaitez affecter à Britta Simon le rôle Analyst (Limited access).
     
     ![Rôle dans Workplace Analytics](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
-4. Affectez le nom de rôle à la variable `$app_role_name`.
+1. Affectez le nom de rôle à la variable `$app_role_name`.
         
     ```powershell
     # Assign the values to the variables
@@ -127,7 +122,7 @@ Cet exemple affecte l’utilisateur Britta Simon à l’application [Microsoft W
     $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
     ```
 
-5. Exécutez la commande suivante pour affecter l’utilisateur au rôle d’application :
+1. Exécutez la commande suivante pour affecter l’utilisateur au rôle d’application :
 
     ```powershell
     # Assign the user to the app role
