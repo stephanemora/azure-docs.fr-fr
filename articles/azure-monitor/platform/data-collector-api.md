@@ -1,6 +1,6 @@
 ---
 title: API Collecte de données HTTP Azure Monitor | Microsoft Docs
-description: L’API Collecte de données HTTP Azure Monitor permet d’ajouter des données POST JSON au référentiel de Log Analytics à partir de tout client pouvant appeler l’API REST. Cet article explique comment utiliser l’API, et contient des exemples montrant comment publier des données à l’aide de différents langages de programmation.
+description: L’API Collecte de données HTTP Azure Monitor permet d’ajouter des données POST JSON à un espace de travail Log Analytics à partir de tout client pouvant appeler l’API REST. Cet article explique comment utiliser l’API, et contient des exemples montrant comment publier des données à l’aide de différents langages de programmation.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -29,9 +29,9 @@ Cet article vous montre comment utiliser l’API Collecte de données HTTP pour 
 > L’API Collecteur de données HTTP Azure Monitor est en préversion publique.
 
 ## <a name="concepts"></a>Concepts
-L’API Collecte de données HTTP permet d’ajouter des données de journal à un espace de travail Log Analytics dans Azure Monitor à partir de tout client pouvant appeler une API REST.  Il peut s’agir d’un runbook dans Azure Automation qui collecte les données de gestion à partir d’Azure ou d’un autre cloud, ou il peut s’agit d’un système de gestion alternatif utilisant Azure Monitor pour consolider et analyser les données de journal.
+L’API Collecte de données HTTP permet d’ajouter des données de journal d’activité à un espace de travail Log Analytics dans Azure Monitor à partir de tout client pouvant appeler une API REST.  Il peut s’agir d’un runbook dans Azure Automation qui collecte les données de gestion à partir d’Azure ou d’un autre cloud, ou il peut s’agit d’un système de gestion alternatif utilisant Azure Monitor pour consolider et analyser les données de journal.
 
-Toutes les données de l’espace de travail Log Analysis sont stockées en tant qu’enregistrement avec un type d’enregistrement particulier.  Vous formatez vos données à transmettre à l’API Collecte de données HTTP en tant qu’enregistrements multiples dans JSON.  Lorsque vous envoyez vos données, un enregistrement individuel est créé dans le référentiel pour chaque enregistrement dans la charge utile de la requête.
+Toutes les données de l’espace de travail Log Analytics sont stockées en tant qu’enregistrement avec un type d’enregistrement particulier.  Vous formatez vos données à transmettre à l’API Collecte de données HTTP en tant qu’enregistrements multiples dans JSON.  Lorsque vous envoyez vos données, un enregistrement individuel est créé dans le référentiel pour chaque enregistrement dans la charge utile de la requête.
 
 
 ![Présentation la collecte de données HTTP](media/data-collector-api/overview.png)
@@ -179,7 +179,7 @@ Il existe certaines contraintes sur les données publiées sur l’API de collec
 * Un maximum de 30 Mo par publication sur l’API de collecte de données d’Azure Monitor. Il s’agit d’une limite de taille pour une publication unique. Si les données d’une publication unique sont supérieures à 30 Mo, vous devrez fractionner les données en segments de plus petite taille et les envoyer simultanément.
 * Maximum de 32 Ko pour les valeurs de champ. Si la valeur de champ est supérieure à 32 Ko, les données seront tronquées.
 * Le nombre maximal recommandé de champs pour un type donné est 50. Il s’agit d’une limite pratique du point de vue de la facilité d’utilisation et de l’expérience de recherche.  
-* Une table d’un espace de travail Log Analytics ne supporte pas plus 500 colonnes (appelé champ dans cet article). 
+* Une table d’un espace de travail Log Analytics ne supporte pas plus de 500 colonnes (appelé champ dans cet article). 
 * Le nombre maximal de caractères pour le nom de colonne est 500.
 
 ## <a name="return-codes"></a>Codes de retour

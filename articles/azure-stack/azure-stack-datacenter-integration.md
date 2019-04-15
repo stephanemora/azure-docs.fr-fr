@@ -159,10 +159,10 @@ Inclus dans la solution Azure Stack, l’hôte de cycle de vie du matériel est 
 
 Le tableau suivant récapitule la liste des options actuellement disponibles.
 
-| Domaine | Solution de surveillance externe |
+| Domaine | Solution de supervision externe |
 | -- | -- |
 | Logiciel Azure Stack | [Pack d’administration Azure Stack pour Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Plug-in Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Appels d’API basés sur REST | 
-| Serveurs physiques (BMC via IPMI) | Matériel OEM : pack d’administration de fournisseur Operations Manager<br>Solution fournie par le fabricant de matériel OEM<br>Plu-gins Nagios du fabricant de matériel.<br>Solution de surveillance prise en charge par le partenaire OEM (inclus) | 
+| Serveurs physiques (BMC via IPMI) | Matériel OEM : pack d’administration de fournisseur Operations Manager<br>Solution fournie par le fabricant de matériel OEM<br>Plu-gins Nagios du fabricant de matériel.<br>Solution de supervision prise en charge par le partenaire OEM (inclus) | 
 | Périphériques réseau (SNMP) | Découverte des périphériques réseau Operations Manager<br>Solution fournie par le fabricant de matériel OEM<br>Plug-in de commutateur Nagios |
 | Surveillance de l’intégrité de l’abonnement client | [Pack d’administration System Center pour Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 

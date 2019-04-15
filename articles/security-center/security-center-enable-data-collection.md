@@ -277,7 +277,7 @@ Vous pouvez installer manuellement Microsoft Monitoring Agent pour que Security 
    
    1. Accédez à **Log Analytics** et cliquez sur **Paramètres avancés**.
     
-      ![Définir l’analyse de journal][11]
+      ![Définir l’analytique des journaux d’activité][11]
 
    2. Copiez les valeurs hors **WorkspaceID** et **clé primaire**.
   

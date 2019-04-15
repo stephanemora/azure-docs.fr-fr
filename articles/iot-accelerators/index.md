@@ -53,7 +53,7 @@ Apprenez à utiliser les accélérateurs de solution IoT. Ces articles montrent 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Vue d’ensemble des accélérateurs de solution de surveillance à distance</h3>
+                        <h3>Vue d’ensemble des accélérateurs de solution de supervision à distance</h3>
                     </div>
                 </div>
             </div>

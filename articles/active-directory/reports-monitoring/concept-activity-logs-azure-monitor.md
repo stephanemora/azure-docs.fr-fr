@@ -62,7 +62,7 @@ Selon l’endroit où vous souhaitez acheminer les données du journal d’audit
 
 * Un compte de stockage Azure doté des autorisations *ListKeys* activées. Nous vous recommandons d’utiliser un compte de stockage général et pas un compte de stockage blob. Pour plus d’informations sur la tarification du stockage, utilisez la [Calculatrice de prix pour le stockage Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Un espace de noms Azure Event Hubs pour intégrer avec des solutions tierces.
-* Un espace de travail Azure Log Analytics pour l’envoi de journaux aux journaux Azure Monitor.
+* Un espace de travail Azure Log Analytics pour l’envoi de journaux d’activité aux journaux d’activité Azure Monitor.
 
 ## <a name="cost-considerations"></a>Considérations relatives au coût
 

@@ -82,7 +82,7 @@ Cette section présente une exemple de charge utile de webhook pour les alertes 
 Ces deux exemples indiquaient une charge utile fictive ne comprenant que deux colonnes et deux lignes.
 
 #### <a name="log-alert-for-azure-log-analytics"></a>Alerte de journal pour Azure Log Analytics
-Voici un exemple de charge utile pour une action standard webhook *sans utiliser d’option Json personnalisée* pour des alertes de journal basées sur une analyse des journaux.
+Voici un exemple de charge utile pour une action standard webhook *sans utiliser d’option Json personnalisée* pour des alertes de journal basées sur une analytique des journaux d’activité.
 
 ```json
 {

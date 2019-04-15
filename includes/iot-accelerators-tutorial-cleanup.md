@@ -17,7 +17,7 @@ ms.locfileid: "56653591"
 ---
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous envisagez de passer au tutoriel suivant, laissez l’accélérateur de solution Monitoring à distance déployé. Pour réduire les coûts d’exécution de l’accélérateur de solution pendant que vous ne l’utilisez pas, vous pouvez arrêter les appareils simulés dans le panneau des paramètres :
+Si vous envisagez de passer au tutoriel suivant, laissez l’accélérateur de solution de supervision à distance déployé. Pour réduire les coûts d’exécution de l’accélérateur de solution pendant que vous ne l’utilisez pas, vous pouvez arrêter les appareils simulés dans le panneau des paramètres :
 
 [![Mettre en pause la télémétrie](./media/iot-accelerators-tutorial-cleanup/togglesimulation-inline.png)](./media/iot-accelerators-tutorial-cleanup/togglesimulation-expanded.png#lightbox)
 

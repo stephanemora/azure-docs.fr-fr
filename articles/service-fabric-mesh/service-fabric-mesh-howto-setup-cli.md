@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 7b817eefc7a17966060eb7ca05e21f70f04d0878
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c716ae0a2bb30e7e8eb249a1d230097efc0d3795
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885451"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521014"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurer l’interface de ligne de commande Service Fabric Mesh
 L’interface de ligne de commande Service Fabric Mesh est nécessaire pour déployer et gérer des ressources localement et dans Azure Service Fabric Mesh. 
@@ -25,7 +25,7 @@ Les trois types d’interfaces CLI qui peuvent être utilisés sont mentionnés
 |---|---|---|
 | az mesh | Azure Service Fabric mesh | Interface CLI principale qui vous permet de déployer vos applications et de gérer des ressources dans l’environnement Azure Service Fabric Mesh. 
 | sfctl | Clusters locaux | Interface CLI Service Fabric qui permet de déployer et de tester des ressources Service Fabric sur des clusters locaux.  
-| Interface de ligne de commande Maven | Clusters locaux et Azure Service Fabric Mesh | Wrapper pour « az mesh » et « sfctl » qui permet aux développeurs Java d’utiliser une ligne de commande familière pour le développement local et Azure.  
+| Interface de ligne de commande Maven | Clusters locaux et Azure Service Fabric Mesh | Un wrapper autour de `az mesh` et `sfctl` qui permet aux développeurs Java d’utiliser l’expérience de ligne de commande familiers pour une expérience de développement local et Azure.  
 
 Pour la préversion, Azure Service Fabric Mesh CLI est écrit en tant qu’extension à Azure CLI. Vous pouvez l’installer dans Azure Cloud Shell ou dans une instance locale d’Azure CLI. 
 

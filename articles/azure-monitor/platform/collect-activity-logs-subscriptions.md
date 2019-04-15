@@ -289,13 +289,13 @@ L’action [Composer](../../logic-apps/logic-apps-workflow-actions-triggers.md#c
 Le [collecteur de données Azure Log Analytique](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) action prend l’objet à partir de l’action Compose et envoie à un espace de travail Analytique de journal.
 
 1. Cliquez sur **Nouvelle étape** > **Ajouter une action**
-2. Entrez *log analytics* comme filtre et sélectionnez l’action **Collecteur de données Azure Log Analytics - Envoyer des données**.
+2. Entrez *Log Analytics* comme filtre et sélectionnez l’action **Collecteur de données Azure Log Analytics - Envoyer des données**.
 
-   ![Ajout d’une action envoyer des données log analytics dans logic apps](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
+   ![Ajout d’une action envoyer des données Log Analytics dans logic apps](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
 
 3. Nommez votre connexion et collez l’**ID de l’espace de travail** et la **Clé de l’espace de travail** pour votre espace de travail Log Analytics.  Cliquez sur **Créer**.
 
-   ![Ajout d’une connexion log analytics dans logic apps](media/collect-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
+   ![Ajout d’une connexion Log Analytics dans logic apps](media/collect-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
 
 4. Après avoir créé la connexion, modifiez les paramètres dans le tableau suivant. 
 

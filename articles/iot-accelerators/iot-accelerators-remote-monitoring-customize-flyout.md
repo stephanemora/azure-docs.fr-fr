@@ -1,6 +1,6 @@
 ---
-title: Ajouter un menu volant à l’interface utilisateur de la solution Supervision à distance - Azure | Microsoft Docs
-description: Cet article vous montre comment ajouter un nouveau menu volant dans une page de l’interface utilisateur web de l’accélérateur de solution Supervision à distance.
+title: Ajouter un menu volant à l’interface utilisateur de la solution de supervision à distance - Azure | Microsoft Docs
+description: Cet article vous montre comment ajouter un nouveau menu volant dans une page de l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,19 +10,19 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
 ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49167424"
 ---
-# <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter un menu volant personnalisé à l’interface utilisateur web de l’accélérateur de solution Supervision à distance
+# <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter un menu volant personnalisé à l’interface utilisateur web de l’accélérateur de solution de supervision à distance
 
-Cet article vous montre comment ajouter un nouveau menu volant dans une page de l’interface utilisateur web de l’accélérateur de solution Supervision à distance. Cet article aborde les points suivants :
+Cet article vous montre comment ajouter un nouveau menu volant dans une page de l’interface utilisateur web de l’accélérateur de solution de supervision à distance. Cet article aborde les points suivants :
 
 - Comment préparer un environnement de développement local.
 - Comment ajouter un nouveau menu volant dans une page de l’interface utilisateur web.
 
-L’exemple de menu volant de cet article s’affiche dans la page avec la grille que le guide pratique [Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-grid.md) vous montre comment ajouter.
+L’exemple de menu volant de cet article s’affiche dans la page avec la grille que le guide pratique [Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-grid.md) vous montre comment ajouter.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -137,8 +137,8 @@ La commande précédente exécute l’interface utilisateur localement sur [http
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez découvert les ressources disponibles pour ajouter ou personnaliser des pages dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance.
+Dans cet article, vous avez découvert les ressources disponibles pour ajouter ou personnaliser des pages dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 
-Maintenant que vous avez défini un menu volant dans une page, l’étape suivante consiste à [Ajouter un panneau au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-panel.md).
+Maintenant que vous avez défini un menu volant dans une page, l’étape suivante consiste à [Ajouter un panneau au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-panel.md).
 
-Pour plus d’informations conceptuelles sur l’accélérateur de solution Supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Pour plus d’informations conceptuelles sur l’accélérateur de solution de supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md).

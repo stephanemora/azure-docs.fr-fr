@@ -23,12 +23,12 @@ items:
     href: quickstart-python.md
   - name: Créer une application Ruby
     href: quickstart-ruby.md
-  - name: Créer une application Docker/Go
+  - name: Exécuter un conteneur personnalisé
     href: quickstart-docker-go.md
   - name: Créer une application pour plusieurs conteneurs
     href: quickstart-multi-container.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Application avec base de données
     items:
@@ -48,7 +48,7 @@ items:
       href: tutorial-java-enterprise-postgresql-app.md
   - name: Application pour plusieurs conteneurs
     href: tutorial-multi-container-app.md
-  - name: Image Docker personnalisée
+  - name: Exécuter un conteneur depuis ACR
     href: tutorial-custom-docker-image.md
   - name: Mapper un domaine personnalisé
     href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -72,10 +72,6 @@ items:
     href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Environnement App Service
     href: ../environment/intro.md
-  - name: Guide du développeur Java
-    href: app-service-linux-java.md
-  - name: Guide Java Enterprise
-    href: app-service-java-enterprise.md
   - name: Adresses IP entrantes et sortantes
     href: ../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Authentification et autorisation
@@ -84,14 +80,26 @@ items:
     href: choose-deployment-type.md
   - name: Diagnostics
     href: ../overview-diagnostics.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Configurer l’application
     items:
-    - name: Image de Python
-      href: how-to-configure-python.md
     - name: Utiliser les paramètres de l’application
       href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Configurer ASP.NET Core
+      href: configure-language-dotnetcore.md
+    - name: Configurer Node.js
+      href: configure-language-nodejs.md
+    - name: Configurer PHP
+      href: configure-language-php.md
+    - name: Configurer Java
+      href: configure-language-java.md
+    - name: Configurer Python
+      href: how-to-configure-python.md
+    - name: Configurer Ruby
+      href: configure-language-ruby.md
+    - name: Configurer un conteneur personnalisé
+      href: configure-custom-container.md
     - name: Traiter du contenu avec le stockage
       href: how-to-serve-content-from-azure-storage.md
   - name: Déployer dans Azure
@@ -158,8 +166,6 @@ items:
       href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Activer les journaux
       href: ../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Intégrations APM Java
-      href: how-to-java-apm-monitoring.md
   - name: Gérer l’application
     items:
     - name: Sauvegarder une application
@@ -194,7 +200,7 @@ items:
     href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Exemples
     href: https://azure.microsoft.com/resources/samples/?service=app-service
-  - name: vidéos
+  - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=app-service
   - name: Livres de recettes
     items:
@@ -222,9 +228,9 @@ items:
         href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: FAQ sur la configuration et la gestion
         href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-ms.openlocfilehash: f29fa4901e2eb8e3a6bcabcc72e4dba37041186a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 250501832c3daaeee9935c2796e6da9df3483e35
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719521"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544870"

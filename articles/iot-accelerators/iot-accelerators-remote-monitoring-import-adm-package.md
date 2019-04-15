@@ -1,6 +1,6 @@
 ---
 title: Solution de surveillance à distance importer le package - Azure | Microsoft Docs
-description: Cet article décrit comment importer un package de gestion automatique des appareils dans l’accélérateur de solution Supervision à distance
+description: Cet article décrit comment importer un package de gestion automatique des appareils dans l’accélérateur de solution de supervision à distance
 author: dominicbetts
 manager: philmea
 ms.author: dobett
@@ -15,14 +15,14 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/04/2019
 ms.locfileid: "59009850"
 ---
-# <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importer un package de gestion automatique des appareils dans votre accélérateur de solution Supervision à distance
+# <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importer un package de gestion automatique des appareils dans votre accélérateur de solution de supervision à distance
 
 Une configuration de gestion automatique des appareils définit les modifications de configuration à déployer sur un groupe d’appareils. Cet article suppose qu’un développeur de votre organisation a déjà créé une configuration de gestion automatique des appareils. Pour en savoir plus sur la façon dont un développeur crée une configuration, consultez un des articles de procédure suivants sur IoT Hub :
 
 - [Configurer et surveiller des appareils IoT à grande échelle à l’aide du portail Azure](../iot-hub/iot-hub-auto-device-config.md)
 - [Configurer et surveiller des appareils IoT à grande échelle à l’aide d’Azure CLI](../iot-hub/iot-hub-auto-device-config-cli.md)
 
-Un développeur crée et teste une configuration de gestion automatique des appareils dans un environnement de développement. Quand vous êtes prêt, vous pouvez importer la configuration dans votre accélérateur de solution Supervision à distance.
+Un développeur crée et teste une configuration de gestion automatique des appareils dans un environnement de développement. Quand vous êtes prêt, vous pouvez importer la configuration dans votre accélérateur de solution de supervision à distance.
 
 ## <a name="export-a-configuration"></a>Exporter une configuration
 
@@ -41,7 +41,7 @@ Utilisez le portail Azure pour exporter la configuration de gestion automatique 
 
 1. Enregistrez le fichier JSON comme fichier local nommé **configuration.json**.
 
-Vous disposez maintenant d’un fichier qui contient la configuration de la gestion automatique des appareils. Dans la section suivante, vous importez cette configuration en tant que package dans la solution Supervision à distance.
+Vous disposez maintenant d’un fichier qui contient la configuration de la gestion automatique des appareils. Dans la section suivante, vous importez cette configuration en tant que package dans la solution de supervision à distance.
 
 ## <a name="import-a-package"></a>Importer un package
 
@@ -53,7 +53,7 @@ Suivez les étapes ci-dessous pour importer une configuration de gestion automat
 
     ![Sélectionner une configuration](media/iot-accelerators-remote-monitoring-import-adm-package/uploadpackage.png)
 
-1. Cliquez sur **Charger** pour ajouter le package à votre solution Supervision à distance :
+1. Cliquez sur **Charger** pour ajouter le package à votre solution de supervision à distance :
 
     ![Package chargé](media/iot-accelerators-remote-monitoring-import-adm-package/uploadedpackage.png)
 
@@ -61,4 +61,4 @@ Vous avez maintenant chargé une configuration de gestion automatique des appare
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez découvert comment créer un package de configuration et comment l’importer dans la solution Supervision à distance, l’étape suivante consiste à découvrir comment [gérer les appareils connectés pour la supervision à distance en bloc](iot-accelerators-remote-monitoring-bulk-configuration-update.md).
+Maintenant que vous avez découvert comment créer un package de configuration et comment l’importer dans la solution de supervision à distance, l’étape suivante consiste à découvrir comment [gérer les appareils connectés pour la supervision à distance en bloc](iot-accelerators-remote-monitoring-bulk-configuration-update.md).

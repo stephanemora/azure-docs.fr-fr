@@ -62,12 +62,12 @@ Cliquez sur le nom d’une solution pour ouvrir la page de résumé de cette der
 
 
 
-## <a name="install-a-monitoring-solution"></a>Installer une solution de monitoring
+## <a name="install-a-monitoring-solution"></a>Installer une solution de supervision
 Les solutions de monitoring de Microsoft et de ses partenaires sont disponibles sur la [Place de marché Azure](https://azuremarketplace.microsoft.com). Vous pouvez rechercher des solutions disponibles et les installer à l’aide de la procédure suivante. Lorsque vous installez une solution, vous devez sélectionner un [espace de travail Log Analytics](../platform/manage-access.md) dans lequel elles seront installées et où leurs données seront collectées.
 
 1. Dans la [liste des solutions de votre abonnement](#list-installed-monitoring-solutions), cliquez sur **Ajouter**. 
 1. À droite de **Solutions de gestion**, cliquez sur **Plus**. 
-1. Recherchez la solution de monitoring qui vous intéresse et lisez sa description.
+1. Recherchez la solution de supervision qui vous intéresse et lisez sa description.
 1. Cliquez sur **Créer** pour démarrer le processus d’installation.
 1. Lorsque le processus d’installation démarre, vous êtes invité à fournir la configuration requise qui varie selon chaque solution.
 
@@ -86,7 +86,7 @@ Les membres de la communauté peuvent soumettre des solutions de gestion aux mod
 
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Espace de travail Log Analytics et compte Automation
-Toutes les solutions de monitoring ont besoin d’un [espace de travail Log Analytics](../platform/manage-access.md) pour stocker les données qu’elles collectent et héberger leurs recherches dans les journaux, ainsi que leurs vues. Certaines solutions nécessitent également un [compte Automation](../../automation/automation-security-overview.md#automation-account-overview) destiné à contenir les runbooks et les ressources associées. L’espace de travail et le compte doivent répondre aux exigences suivantes.
+Toutes les solutions de supervision ont besoin d’un [espace de travail Log Analytics](../platform/manage-access.md) pour stocker les données qu’elles collectent et héberger leurs recherches dans les journaux, ainsi que leurs vues. Certaines solutions nécessitent également un [compte Automation](../../automation/automation-security-overview.md#automation-account-overview) destiné à contenir les runbooks et les ressources associées. L’espace de travail et le compte doivent répondre aux exigences suivantes.
 
 * Chaque installation d’une solution ne peut utiliser qu’un seul espace de travail Log Analytics et un seul compte Automation. Vous pouvez installer la solution séparément dans plusieurs espaces de travail.
 * Si une solution nécessite un compte Automation, l’espace de travail Log Analytics et le compte Automation doivent être liés l’un à l’autre. Un espace de travail Log Analytics ne peut être lié qu’à un seul compte Automation, et un compte Automation ne peut être lié qu’à un seul espace de travail Log Analytics.
@@ -105,7 +105,7 @@ Vous pouvez vérifier le lien entre un espace de travail Log Analytics et un com
 1. Accédez à la section **Ressources liées** du menu.
 1. Si le paramètre **Espace de travail** est activé, ce compte est lié à un espace de travail Log Analytics. Vous pouvez cliquer sur **Espace de travail** pour afficher les détails de l’espace de travail.
 
-## <a name="remove-a-monitoring-solution"></a>Supprimer une solution de monitoring
+## <a name="remove-a-monitoring-solution"></a>Supprimer une solution de supervision
 Pour supprimer une solution installée, recherchez cette dernière dans la [liste des solutions installées](#list-installed-monitoring-solutions). Cliquez sur le nom de la solution pour ouvrir la page de résumé correspondante, puis cliquez sur **Supprimer**.
 
 

@@ -25,7 +25,7 @@ ms.locfileid: "58121347"
 Log Analytics est une banque de données pouvant contenir des données personnelles. Application Insights stocke ses données dans une partition Log Analytics. Cet article explique où se trouvent généralement ces données dans Log Analytics et Application Insights, ainsi que les fonctionnalités disponibles pour gérer ces données.
 
 > [!NOTE]
-> Dans le cadre de cet article, les _données de journal_ font référence aux données envoyées à un espace de travail Log Analytics, tandis que les _données d’application_ font référence aux données collectées par Application Insights.
+> Dans le cadre de cet article, les _données de journal d’activité_ font référence aux données envoyées à un espace de travail Log Analytics, tandis que les _données d’application_ font référence aux données collectées par Application Insights.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 

@@ -188,6 +188,6 @@ Ce scénario est un exemple montrant comment lire les entrées dans les journaux
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Visitez [Utiliser Elasic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Utiliser Grafana](network-watcher-nsg-grafana.md) et [Utiliser Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) pour en savoir plus sur les façons de visualiser les journaux de flux NSG. Une approche Azure Function Open permettant de consommer directement les blobs et d'émettre vers les différents consommateurs Log Analytics est décrite ici : [Connecteur des journaux de flux de groupe de sécurité réseau Azure Network Watcher](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+Visitez [Utiliser Elasic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Utiliser Grafana](network-watcher-nsg-grafana.md) et [Utiliser Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) pour en savoir plus sur les façons de visualiser les journaux de flux NSG. Une approche Azure Function Open permettant de consommer directement les blobs et d’émettre vers les différents consommateurs de l’analytique des journaux d’activité est décrite ici : [Connecteur des journaux de flux de groupe de sécurité réseau Azure Network Watcher](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
 Pour en savoir plus sur les objets blob de stockage, visitez : [Liaisons de stockage Blob Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

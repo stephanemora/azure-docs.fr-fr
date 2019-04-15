@@ -36,7 +36,7 @@ Si vous utilisez l’appareil DevKit, vous pouvez trouver des ressources et des 
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>La nouvelle architecture de microservices est-elle disponible pour les trois accélérateurs de solution ?
 
-Actuellement, la solution de surveillance à distance utilise l’architecture de microservices, car elle couvre le scénario le plus large.
+Actuellement, la solution de supervision à distance utilise l’architecture de microservices, car elle couvre le scénario le plus large.
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Quels sont les avantages de la nouvelle architecture basée sur des microservices open source dans la nouvelle mise à jour ?
 
@@ -63,9 +63,9 @@ Examinez le schéma suivant pour obtenir des conseils :
 
 Si vous êtes sûr de disposer d’un abonnement Azure, validez le mappage de locataire pour votre abonnement et vérifiez que c’est le locataire correct qui est sélectionné dans la liste déroulante. Si vous avez validé que le locataire est correct, suivez le schéma précédent et validez le mappage de votre abonnement et ce locataire Azure AD.
 
-### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Où puis-je trouver des informations sur la version précédente de la solution de surveillance à distance ?
+### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Où puis-je trouver des informations sur la version précédente de la solution de supervision à distance ?
 
-La version précédente de l’accélérateur de solution de surveillance à distance était la solution préconfigurée de surveillance à distante IoT Suite. Vous trouverez la documentation archivée à l’emplacement [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+La version précédente de l’accélérateur de solution de supervision à distance était la solution préconfigurée de supervision à distante IoT Suite. Vous trouverez la documentation archivée à l’emplacement [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>Le nouvel accélérateur de solution est-il disponible dans la même zone géographique que la solution existante ?
 
@@ -90,7 +90,7 @@ Cinquante. Vous pouvez créer un [ticket de support Azure](https://portal.azure.
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Combien d’API Bing Maps gratuites puis-je configurer dans un abonnement ?
 
-Deux. Vous pouvez créer uniquement deux cartes Bing - Transactions internes - Niveau 1 pour les plans d’entreprise dans un abonnement Azure. La solution de surveillance à distance est provisionnée par défaut avec le plan Transactions internes - Niveau 1. Par conséquent, vous pouvez provisionner au plus deux solutions de surveillance à distance dans un abonnement sans modification.
+Deux. Vous pouvez créer uniquement deux cartes Bing - Transactions internes - Niveau 1 pour les plans d’entreprise dans un abonnement Azure. La solution de supervision à distance est provisionnée par défaut avec le plan Transactions internes - Niveau 1. Par conséquent, vous pouvez provisionner au plus deux solutions de surveillance à distance dans un abonnement sans modification.
 
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>Puis-je créer un accélérateur de solution si je dispose de Microsoft Azure pour DreamSpark ?
 

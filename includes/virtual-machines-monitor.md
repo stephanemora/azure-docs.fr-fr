@@ -6,7 +6,7 @@ ms.date: 01/27/2019
 ms.author: cynthn
 ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55985416"
@@ -64,7 +64,7 @@ Voici ce que vous pouvez faire avec les journaux de diagnostic :
 
 ## <a name="advanced-monitoring"></a>Surveillance avancée
 
-- [Azure Monitor](../articles/azure-monitor/overview.md) est un service qui supervise vos environnements cloud et locaux, afin de préserver leur disponibilité et leurs performances. Il offre une solution complète pour collecter, analyser et exploiter des données de télémétrie de vos environnements cloud et locaux. Il vous aide à comprendre le fonctionnement de vos applications et identifie de façon proactive les problèmes qui les affectent et les ressources dont elles dépendent. Vous pouvez installer une extension sur une [machine virtuelle Linux](../articles/virtual-machines/linux/extensions-oms.md) ou une [machine virtuelle Windows](../articles/virtual-machines/windows/extensions-oms.md) qui installe l’agent Log Analytics pour collecter des données de journal et les stocker dans un espace de travail Log Analytics.
+- [Azure Monitor](../articles/azure-monitor/overview.md) est un service qui supervise vos environnements cloud et locaux, afin de préserver leur disponibilité et leurs performances. Il offre une solution complète pour collecter, analyser et exploiter des données de télémétrie de vos environnements cloud et locaux. Il vous aide à comprendre le fonctionnement de vos applications et identifie de façon proactive les problèmes qui les affectent et les ressources dont elles dépendent. Vous pouvez installer une extension sur une [machine virtuelle Linux](../articles/virtual-machines/linux/extensions-oms.md) ou une [machine virtuelle Windows](../articles/virtual-machines/windows/extensions-oms.md) qui installe l’agent Log Analytics pour collecter des données de journal d’activité et les stocker dans un espace de travail Log Analytics.
 
     Pour les machines virtuelles Windows et Linux, la méthode recommandée pour collecter des journaux consiste à installer l’agent Log Analytics. Le moyen le plus simple pour installer l’agent de Log Analytics sur une machine virtuelle consiste à utiliser l’[extension de machine virtuelle Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). L’utilisation de l’extension simplifie le processus d’installation et configure automatiquement l’agent pour qu’il envoie des données à l’espace de travail Log Analytics que vous spécifiez. L’agent est également mis à niveau automatiquement, de façon à ce que vous disposiez des fonctionnalités et correctifs les plus récents.
 

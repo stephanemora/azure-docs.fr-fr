@@ -11,7 +11,7 @@ ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
 ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "53001994"
@@ -23,7 +23,7 @@ ms.locfileid: "53001994"
 Dans cet article, nous vous montrons comment déployer [Dynatrace](https://www.dynatrace.com/) OneAgent pour surveiller tous les nœuds d’agents de votre cluster Azure Container Service. Vous avez besoin d’un compte Dynatrace SaaS/Managé pour cette configuration. 
 
 ## <a name="dynatrace-saasmanaged"></a>Dynatrace SaaS/Managé
-Dynatrace est une solution de surveillance cloud native pour environnements de clusters et de conteneurs hautement dynamiques. Elle vous permet de mieux optimiser les déploiements de conteneurs et les allocations de mémoire à l’aide de données d’utilisation en temps réel. Elle est capable d’identifier automatiquement les problèmes d’infrastructure et d’applications en fournissant une planification automatisée, une corrélation des problèmes et une détection des causes racines.
+Dynatrace est une solution de supervision cloud native pour environnements de clusters et de conteneurs hautement dynamiques. Elle vous permet de mieux optimiser les déploiements de conteneurs et les allocations de mémoire à l’aide de données d’utilisation en temps réel. Elle est capable d’identifier automatiquement les problèmes d’infrastructure et d’applications en fournissant une planification automatisée, une corrélation des problèmes et une détection des causes racines.
 
 La figure suivante illustre l’interface utilisateur de Dynatrace :
 

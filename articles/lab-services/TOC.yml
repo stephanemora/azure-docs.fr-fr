@@ -32,7 +32,7 @@ items:
   - name: DevTest Labs
     items:
     - name: Modèles Resource Manager
-      href: https://github.com/Azure/azure-devtestlab/tree/master/Samples
+      href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates
     - name: Azure PowerShell
       href: samples-powershell.md
     - name: Azure CLI
@@ -111,6 +111,8 @@ items:
     - name: Configurer une infrastructure DevTest Labs dans votre entreprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
+      - name: Architecture de référence
+        href: devtest-lab-reference-architecture.md
       - name: Monter votre déploiement DevTest Labs
         href: devtest-lab-guidance-scale.md
       - name: Orchestrer l’implémentation de DevTest Labs
@@ -211,16 +213,14 @@ items:
         href: devtest-lab-manage-formulas.md
     - name: Gérer les artefacts
       items:
-      - name: Spécifier des artefacts obligatoires
-        href: devtest-lab-mandatory-artifacts.md
       - name: Ajouter des artefacts à une machine virtuelle
         href: add-artifact-vm.md
       - name: Créer des artefacts personnalisés
         href: devtest-lab-artifact-author.md
       - name: Ajouter un référentiel d’artefacts à un laboratoire
         href: add-artifact-repository.md
-      - name: Diagnostiquer les échecs d’artefact
-        href: devtest-lab-troubleshoot-artifact-failure.md
+      - name: Spécifier des artefacts obligatoires
+        href: devtest-lab-mandatory-artifacts.md
     - name: Gérer des réseaux virtuels
       items:
       - name: Configurer des réseaux virtuels
@@ -239,6 +239,12 @@ items:
         href: devtest-lab-integrate-ci-cd-vsts.md
     - name: Créer ou modifier des laboratoires à l’aide de modèles Resource Manager
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
+    - name: Résolution des problèmes
+      items:
+      - name: Résoudre les échecs de création de machine virtuelle et d’environnement
+        href: troubleshoot-vm-environment-creation-failures.md
+      - name: Résoudre les échecs d’artefact
+        href: devtest-lab-troubleshoot-artifact-failure.md
 - name: Informations de référence
   items:
   - name: Laboratoires de salle de classe
@@ -279,9 +285,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Questions fréquentes (FAQ)
       href: devtest-lab-faq.md
-ms.openlocfilehash: a5312fc1c99072c10337bd00569a608825df3bc8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 060a48bcab927fde8314c0e681d08e816334f0ac
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262871"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544430"

@@ -106,7 +106,7 @@ Vous trouverez ci-après un guide pas à pas sur l’utilisation des alertes de 
 
      Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
 
-Les utilisateurs peuvent également finaliser leur requête d’analyse dans [Log Analytics](../log-query/portals.md), l’envoyer (push) afin de créer une alerte à l’aide du bouton « Définir l’alerte », puis suivre les instructions à partir de l’étape 6 du didacticiel ci-dessus.
+Les utilisateurs peuvent également finaliser leur requête d’analyse dans [l’analytique des journaux d’activité](../log-query/portals.md), l’envoyer (push) afin de créer une alerte à l’aide du bouton « Définir l’alerte », puis suivre les instructions à partir de l’étape 6 du didacticiel ci-dessus.
 
  ![Log Analytics - Définir l’alerte](media/alerts-log/AlertsAnalyticsCreate.png)
 

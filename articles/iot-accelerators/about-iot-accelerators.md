@@ -34,7 +34,7 @@ Vous disposez actuellement de quatre accélérateurs de solution à déployer :
 
 ### <a name="remote-monitoring"></a>Surveillance à distance
 
-Utilisez l’[accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md) pour collecter des données de télémétrie sur des appareils distants et pour les contrôler. On peut citer par exemple des systèmes de refroidissement installés dans les locaux de vos clients ou des valves installées dans des stations de pompage distantes.
+Utilisez l’[accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md) pour collecter des données de télémétrie sur des appareils distants et pour les contrôler. On peut citer par exemple des systèmes de refroidissement installés dans les locaux de vos clients ou des valves installées dans des stations de pompage distantes.
 
 Vous pouvez utiliser le tableau de bord de surveillance à distance pour afficher les données de télémétrie de vos appareils connectés, provisionner de nouveaux appareils ou mettre à niveau le microprogramme sur vos appareils connectés :
 
@@ -91,7 +91,7 @@ Pour en savoir plus sur l’architecture de microservices, consultez [Présentat
 
 Vous pouvez déployer les accélérateurs de solution à partir du site [Accélérateurs de solution Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators#) ou à l’aide de la ligne de commande.
 
-Vous pouvez déployer l’accélérateur de solution de surveillance à distance dans les configurations suivantes :
+Vous pouvez déployer l’accélérateur de solution de supervision à distance dans les configurations suivantes :
 
 * **Standard :** Déploiement étendu de l’infrastructure pour le développement d’un déploiement de production. Azure Container Service déploie les microservices sur plusieurs machines virtuelles Azure. Kubernetes orchestre les conteneurs Docker qui hébergent les microservices individuels.
 * **De base :** Version à coût réduit pour une démonstration ou pour tester un déploiement. Tous les microservices se déploient sur une seule machine virtuelle Azure.

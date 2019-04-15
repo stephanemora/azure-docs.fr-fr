@@ -36,7 +36,7 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 * L’application de base de données par locataire SaaS Wingtip Tickets est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer une application multi-locataire SaaS qui illustre le modèle de base de données par locataire avec Azure SQL Database](saas-dbpertenant-get-started-deploy.md).
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-Pour plus d’informations sur les scénarios et les modèles SaaS, et leur incidence sur les exigences applicables à une solution de surveillance, consultez le [didacticiel Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire](saas-dbpertenant-performance-monitoring.md).
+Pour plus d’informations sur les scénarios et les modèles SaaS, et leur incidence sur les exigences applicables à une solution de supervision, consultez le [didacticiel Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-azure-monitor-logs"></a>Surveiller et gérer les performances de pool élastique et base de données avec les journaux d’Azure Monitor
 
@@ -131,7 +131,7 @@ Dans cet exercice, ouvrez l’espace de travail Analytique de journal dans le po
 
     ![Espace de travail Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-Dans l’espace de travail Log Analytics, vous pouvez explorer plus en détail les données de journal et les métriques. 
+Dans l’espace de travail Log Analytics, vous pouvez explorer plus en détail les données de journal d’activité et les métriques. 
 
 Surveillance et les alertes dans Azure Monitor journaux sont basées sur des requêtes sur les données dans l’espace de travail, contrairement aux alertes définies sur chaque ressource dans le portail Azure. En basant les alertes sur les requêtes, vous pouvez définir une seule alerte qui examine toutes les bases de données plutôt que d’en définir une par base de données. Les requêtes sont seulement limitées par les données disponibles dans l’espace de travail.
 

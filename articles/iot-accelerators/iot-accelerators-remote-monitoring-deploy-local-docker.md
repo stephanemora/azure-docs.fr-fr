@@ -1,5 +1,5 @@
 ---
-title: Déployer localement la solution de surveillance à distance - Docker - Azure | Microsoft Docs
+title: Déployer localement la solution de supervision à distance - Docker - Azure | Microsoft Docs
 description: Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local en utilisant Docker à des fins de test et de développement.
 author: avneet723
 manager: hegate
@@ -15,17 +15,17 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57993046"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Déployer localement l’accélérateur de solution de surveillance à distance - Docker
+# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Déployer localement l’accélérateur de solution de supervision à distance - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Cet article montre comment déployer l’accélérateur de solution de surveillance à distance sur votre ordinateur local à des fins de test et de développement. Vous apprendrez à déployer les microservices dans des conteneurs Docker locaux. Un déploiement de microservices local utilise les services cloud suivants : IoT Hub, Cosmos DB, Azure Stream Analytics et Azure Time Series Insights dans le cloud.
+Cet article montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local à des fins de test et de développement. Vous apprendrez à déployer les microservices dans des conteneurs Docker locaux. Un déploiement de microservices local utilise les services cloud suivants : IoT Hub, Cosmos DB, Azure Stream Analytics et Azure Time Series Insights dans le cloud.
 
-Si vous souhaitez exécuter l’accélérateur de solution de surveillance à distance dans un IDE sur votre ordinateur local, consultez [Déployer localement l’accélérateur de solution de surveillance à distance - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
+Si vous souhaitez exécuter l’accélérateur de solution de supervision à distance dans un IDE sur votre ordinateur local, consultez [Déployer localement l’accélérateur de solution de supervision à distance - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Pour déployer les services Azure utilisés par l’accélérateur de solution de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
+Pour déployer les services Azure utilisés par l’accélérateur de solution de supervision à distance, vous avez besoin d’un abonnement Azure actif.
 
 Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -106,4 +106,4 @@ Utilisez la commande `docker-compose down --rmi all` pour supprimer les images D
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-La solution de surveillance à distance étant déployée, l’étape suivante consiste à [explorer les fonctionnalités du tableau de bord des solutions](quickstart-remote-monitoring-deploy.md).
+La solution de supervision à distance étant déployée, l’étape suivante consiste à [explorer les fonctionnalités du tableau de bord des solutions](quickstart-remote-monitoring-deploy.md).

@@ -1,6 +1,6 @@
 ---
-title: Intégrer la solution Supervision à distance à Data Lake Store - Azure | Microsoft Docs
-description: Découvrez comment intégrer la solution de surveillance à distance à Azure Data Lake Store à l’aide d’une tâche Azure Stream Analytics.
+title: Intégrer la solution de supervision à distance à Data Lake Store - Azure | Microsoft Docs
+description: Découvrez comment intégrer la solution de supervision à distance à Azure Data Lake Store à l’aide d’une tâche Azure Stream Analytics.
 author: philmea
 manager: timlt
 ms.author: philmea
@@ -10,30 +10,30 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53603927"
 ---
-# <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Intégrer la solution de surveillance à distance à Azure Data Lake Store
+# <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Intégrer la solution de supervision à distance à Azure Data Lake Store
 
-La solution de surveillance à distance ne répond peut-être pas à tous vos besoins en matière d’analytique avancée. Azure Data Lake Store est idéal pour cette application, car il peut stocker des données provenant de jeux de données volumineux et variés, et s’intégrer à Azure Data Lake Analytics pour fournir un service d’analytique à la demande.
+La solution de supervision à distance ne répond peut-être pas à tous vos besoins en matière d’analytique avancée. Azure Data Lake Store est idéal pour cette application, car il peut stocker des données provenant de jeux de données volumineux et variés, et s’intégrer à Azure Data Lake Analytics pour fournir un service d’analytique à la demande.
 
-Dans cette procédure, vous allez utiliser une tâche Azure Stream Analytics pour transmettre des données du hub IoT dans votre solution de surveillance à distance à Azure Data Lake Store.
+Dans cette procédure, vous allez utiliser une tâche Azure Stream Analytics pour transmettre des données du hub IoT dans votre solution de supervision à distance à Azure Data Lake Store.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour réaliser cette procédure, vous avez besoin des éléments suivants :
 
 * [Déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md).
-  * La solution de surveillance à distance déploie le hub IoT et la tâche Azure Stream Analytics utilisés dans cet article dans votre abonnement Azure.
+  * La solution de supervision à distance déploie le hub IoT et la tâche Azure Stream Analytics utilisés dans cet article dans votre abonnement Azure.
 * [Déployer un service Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
-  * Data Lake Store doit être déployé sur la même région que votre solution de surveillance à distance.
+  * Data Lake Store doit être déployé sur la même région que votre solution de supervision à distance.
   * [Créez un dossier](../data-lake-store/data-lake-store-get-started-portal.md#createfolder) nommé « streaming » dans votre compte.
 
 ## <a name="create-a-consumer-group"></a>Créer un groupe de consommateurs
 
-Créez un groupe de consommateurs dédié dans le hub IoT de votre solution de surveillance à distance. Il sera utilisé par la tâche Stream Analytics pour le streaming des données dans Data Lake Store.
+Créez un groupe de consommateurs dédié dans le hub IoT de votre solution de supervision à distance. Il sera utilisé par la tâche Stream Analytics pour le streaming des données dans Data Lake Store.
 
 > [!NOTE]
 > Les groupes de consommateurs sont utilisés par les applications pour extraire des données de l’instance Azure IoT Hub. Vous devez créer un autre groupe de consommateurs tous les cinq consommateurs de sortie. Vous pouvez créer jusqu’à 32 groupes de consommateurs.
@@ -51,7 +51,7 @@ az iot hub consumer-group create --hub-name contoso-rm30263 --name streamanalyti
 ```
 
 > [!NOTE]
-> Utilisez les noms de groupe de ressources et de hub IoT issus de votre solution de surveillance à distance.
+> Utilisez les noms de groupe de ressources et de hub IoT issus de votre solution de supervision à distance.
 
 ## <a name="create-stream-analytics-job"></a>Créer une tâche Stream Analytics
 
@@ -73,7 +73,7 @@ Créez une tâche Azure Stream Analytics pour transmettre les données du hub Io
 
 ## <a name="configure-the-stream-analytics-job"></a>Configurer la tâche Stream Analytics
 
-1. Accédez à **Tâche Stream Analytics** dans votre groupe de ressources de solution de surveillance à distance.
+1. Accédez à **Tâche Stream Analytics** dans votre groupe de ressources de solution de supervision à distance.
 
 1. Dans la page Vue d’ensemble, cliquez sur **Entrées**.
 

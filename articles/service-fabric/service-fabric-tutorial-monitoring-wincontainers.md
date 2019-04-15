@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * configurer les journaux Azure Monitor pour votre cluster Service Fabric ;
-> * utiliser un espace de travail Log Analytics pour afficher et interroger des journaux à partir de vos conteneurs et de vos nœuds ;
+> * utiliser un espace de travail Log Analytics pour afficher et interroger des journaux d’activité à partir de vos conteneurs et de vos nœuds ;
 > * configurer l’agent Log Analytics pour collecter des mesures sur les conteneurs et les nœuds.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -190,15 +190,15 @@ Vous trouverez [ici](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%
 
 Déployez le modèle avec vos nouvelles modifications pour mettre à niveau votre cluster actuel. Vous devriez voir les ressources Log Analytics dans votre groupe de ressources une fois le processus terminé. Lorsque le cluster est prêt, déployez-y votre application en conteneur. À l’étape suivante, nous allons configurer le monitorage des conteneurs.
 
-## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Ajouter la solution de monitorage des conteneurs à un espace de travail Log Analytics
+## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Ajouter la solution de supervision de conteneurs à un espace de travail Log Analytics
 
-Pour configurer la solution Conteneur dans votre espace de travail, recherchez *Solution de monitorage des conteneurs* et créez une ressource Conteneurs (sous la catégorie Monitorage + gestion).
+Pour configurer la solution Conteneur dans votre espace de travail, recherchez *Solution de supervision de conteneurs* et créez une ressource Conteneurs (sous la catégorie Monitorage + gestion).
 
 ![Ajout de la solution Conteneurs](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-Lorsque vous êtes invité à choisir *l’espace de travail Log Analytics*, sélectionnez l’espace de travail créé dans votre groupe de ressources, puis cliquez sur **Créer**. Cette opération ajoute une *solution de monitoring de conteneurs* à votre espace de travail. De ce fait, l’agent Log Analytics déployé par le modèle commence automatiquement à collecter les journaux et les statistiques de Docker. 
+Lorsque vous êtes invité à choisir *l’espace de travail Log Analytics*, sélectionnez l’espace de travail créé dans votre groupe de ressources, puis cliquez sur **Créer**. Cette opération ajoute une *solution de supervision de conteneurs* à votre espace de travail. De ce fait, l’agent Log Analytics déployé par le modèle commence automatiquement à collecter les journaux d’activité et les statistiques de Docker. 
 
-Revenez à votre *groupe de ressources*, où vous devriez à présent voir la solution de monitorage qui vient d’être ajoutée. Si vous cliquez dessus, la page de destination devrait afficher le nombre d’images conteneurs en cours d’exécution.
+Revenez à votre *groupe de ressources*, où vous devriez à présent voir la solution de supervision qui vient d’être ajoutée. Si vous cliquez dessus, la page de destination devrait afficher le nombre d’images conteneurs en cours d’exécution.
 
 *Notez que j’ai exécuté cinq instances de mon conteneur fabrikam à partir de la [deuxième partie](service-fabric-host-app-in-a-container.md) du didacticiel*
 
@@ -237,7 +237,7 @@ Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * configurer les journaux Azure Monitor pour votre cluster Service Fabric ;
-> * utiliser un espace de travail Log Analytics pour afficher et interroger des journaux à partir de vos conteneurs et de vos nœuds ;
+> * utiliser un espace de travail Log Analytics pour afficher et interroger des journaux d’activité à partir de vos conteneurs et de vos nœuds ;
 > * configurer l’agent Log Analytics pour collecter des mesures sur les conteneurs et les nœuds.
 
 Maintenant que vous avez configuré le monitorage de votre application en conteneur, essayez les opérations suivantes :

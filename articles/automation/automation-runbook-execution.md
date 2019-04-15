@@ -215,7 +215,7 @@ Le tableau suivant décrit les différents statuts possibles pour une tâche. Po
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Affichage de l’état du travail à partir du portail Azure
 
-Vous pouvez afficher un résumé de l’état de toutes les tâches du runbook ou explorer les détails d’une tâche spécifique du runbook dans le portail Azure. Vous pouvez également configurer une intégration à votre espace de travail Log Analytics pour transférer l'état et les flux de travaux du runbook. Pour plus d’informations sur l’intégration avec les journaux d’Azure Monitor, consultez [transférer l’état du travail et flux de travail d’Automation dans les journaux d’Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
+Vous pouvez afficher un résumé de l’état de toutes les tâches du runbook ou explorer les détails d’une tâche spécifique du runbook dans le portail Azure. Vous pouvez également configurer une intégration à votre espace de travail Log Analytics pour transférer l’état et les flux de travaux du runbook. Pour plus d’informations sur l’intégration avec les journaux d’Azure Monitor, consultez [transférer l’état du travail et flux de travail d’Automation dans les journaux d’Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 ### <a name="automation-runbook-jobs-summary"></a>Résumé des tâches de Runbook Automation
 

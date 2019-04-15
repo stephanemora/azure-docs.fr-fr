@@ -83,7 +83,7 @@ Pour configurer l’intégration de Service Map, procédez comme suit :
 
 
 ## <a name="monitor-service-map"></a>Surveillance de Service Map
-Une fois l’espace de travail Log Analytics connecté, un nouveau dossier, Service Map, s’affiche dans le panneau **Analyse** de la console Operations Manager.
+Une fois l’espace de travail Log Analytics connecté, un nouveau dossier, Service Map, s’affiche dans le panneau **Supervision** de la console Operations Manager.
 
 ![Panneau Analyse d’Operations Manager](media/service-map-scom/scom-monitoring.png)
 

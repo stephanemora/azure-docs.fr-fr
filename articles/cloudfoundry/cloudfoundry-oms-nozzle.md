@@ -70,12 +70,12 @@ Vous pouvez créer l’espace de travail Log Analytics manuellement ou à l’ai
 
 Pour plus d’informations, consultez [prise en main Azure Monitor journaux](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Pour créer l’espace de travail Log Analytics par le biais du modèle de surveillance de la Place de Marché Azure :
+#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Pour créer l’espace de travail Log Analytics par le biais du modèle de supervision de la Place de Marché Azure :
 
 1. Ouvrez le portail Azure.
 1. Cliquez sur le signe « + » ou sur « Créer une ressource » dans le coin supérieur gauche.
 1. Tapez « Cloud Foundry » dans la fenêtre Rechercher et sélectionnez « Cloud Foundry Monitoring Solution ».
-1. La page d’accueil du modèle de solution de surveillance Cloud Foundry se charge. Cliquez sur « Créer » pour lancer le panneau de modèle.
+1. La page d’accueil du modèle de solution de supervision Cloud Foundry se charge. Cliquez sur « Créer » pour lancer le panneau de modèle.
 1. Entrez les paramètres requis :
     * **Abonnement**: sélectionnez un abonnement Azure pour l’espace de travail Log Analytics, généralement le même que pour le déploiement de Cloud Foundry.
     * **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez-en un pour l’espace de travail Log Analytics.
@@ -178,7 +178,7 @@ Assurez-vous que l’application OMS Nozzle est en cours d’exécution.
 
 ## <a name="view-the-data-in-the-azure-portal"></a>Afficher les données dans le portail Azure
 
-Si vous avez déployé la solution de surveillance par le biais du modèle de la Place de Marché, accédez au portail Azure et recherchez la solution. Celle-ci se trouve dans le groupe de ressources que vous avez spécifié dans le modèle. Cliquez sur la solution, accédez à la « journal analytique console », les vues préconfigurées sont répertoriés, avec les principaux indicateurs de performance clés système Cloud Foundry, les données d’application, les alertes et les mesures de contrôle d’intégrité des machines virtuelles. 
+Si vous avez déployé la solution de supervision par le biais du modèle de la Place de Marché, accédez au portail Azure et recherchez la solution. Celle-ci se trouve dans le groupe de ressources que vous avez spécifié dans le modèle. Cliquez sur la solution, accédez à la « journal analytique console », les vues préconfigurées sont répertoriés, avec les principaux indicateurs de performance clés système Cloud Foundry, les données d’application, les alertes et les mesures de contrôle d’intégrité des machines virtuelles. 
 
 Si vous avez créé l’espace de travail Log Analytics manuellement, suivez les étapes ci-dessous pour créer les vues et les alertes :
 

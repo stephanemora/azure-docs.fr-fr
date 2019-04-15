@@ -20,7 +20,7 @@ ms.locfileid: "59010411"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
 
-Dans la page Vue d’ensemble de votre service Recherche Azure, vous pouvez voir les données système relatives à l’utilisation des ressources, aux métriques des requêtes et au quota disponible pour créer des index, des indexeurs et des sources de données supplémentaires. Vous pouvez également utiliser le portail pour configurer Log Analytics ou une autre ressource utilisée pour la collecte des données persistantes. 
+Dans la page Vue d’ensemble de votre service Recherche Azure, vous pouvez voir les données système relatives à l’utilisation des ressources, aux métriques des requêtes et au quota disponible pour créer des index, des indexeurs et des sources de données supplémentaires. Vous pouvez également utiliser le portail pour configurer l’analytique des journaux d’activité ou une autre ressource utilisée pour la collecte des données persistantes. 
 
 La configuration de journaux est utile pour les autodiagnostics et la conservation de l’historique opérationnel. En interne, les journaux existent sur le back-end pendant une courte période, suffisante pour l’investigation et l’analyse si vous émettez un ticket de support. Si vous voulez contrôler les informations des journaux et y accéder, vous devez configurer l’une des solutions décrites dans cet article.
 

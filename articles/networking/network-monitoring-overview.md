@@ -28,7 +28,7 @@ Azure propose de nombreuses solutions pour analyser les ressources de votre rés
 
 ## <a name="network-performance-monitor-npm"></a>Analyseur de performances réseau (NPM)
 
-Network Performance Monitor (NPM) est une suite de fonctionnalités conçues pour surveiller l’intégrité de votre réseau ainsi que la connectivité réseau à vos applications et fournir des informations sur les performances de votre réseau. La suite NPM est basée sur le cloud et fournit une solution de surveillance de réseaux hybrides qui analyse la connectivité entre :
+Network Performance Monitor (NPM) est une suite de fonctionnalités conçues pour surveiller l’intégrité de votre réseau ainsi que la connectivité réseau à vos applications et fournir des informations sur les performances de votre réseau. La suite NPM est basée sur le cloud et fournit une solution de supervision de réseaux hybrides qui analyse la connectivité entre :
  
 * Les déploiements dans le cloud et les emplacements locaux
 * Plusieurs centres de données et des filiales

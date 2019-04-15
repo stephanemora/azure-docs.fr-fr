@@ -1,0 +1,35 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation Azure NetApp Files
+metadata:
+  title: Documentation Azure NetApp Files
+  description: 'Apprenez à configurer, accéder et gérer des volumes à l’aide du service Azure NetApp Files.'
+  author: b-juche
+  ms.author: b-juche
+  ms.service: azure-netapp-files
+  ms.topic: landing-page
+  ms.date: 04/10/2019
+abstract:
+  description: 'Découvrez comment utiliser Azure NetApp Files pour créer et gérer des comptes NetApp, des pools de capacité et des volumes, configurer la stratégie d’exportation, monter un volume pour une machine virtuelle et gérer des instantanés. <p>Pour utiliser Azure NetApp Files, vous devez participer au programme Préversion publique. Vous devez également être sur liste verte pour accéder au fournisseur de ressources Azure Microsoft.NetApp. Si vous voulez rejoindre le programme Préversion publique, consultez <a href="azure-netapp-files-register">Register for Azure NetApp Files</a> (S’inscrire à Azure NetApp Files).</p>'
+sections:
+  - title: "Démarrages rapides en\_5\_minutes"
+    items:
+      - type: paragraph
+        text: "Découvrez comment configurer Azure NetApp Files et créer un volume avec\_:"
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/azure-netapp-files/media/index/get-started.svg'
+            text: Portail Azure
+            href: /azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes
+  - title: Informations de référence
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/netapp/">API REST</a></p>'
+          - title: Azure Resource Manager
+            html: "<p><a href=\"https://docs.microsoft.com/azure/templates/microsoft.netapp/allversions\">Modèles Microsoft\_Azure\_Resource\_Manager</a></p>"

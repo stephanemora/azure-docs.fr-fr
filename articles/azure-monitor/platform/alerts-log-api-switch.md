@@ -50,7 +50,7 @@ Les conséquences du passage à l'API scheduleQueryRules sont compilées ci-dess
 > [!CAUTION]
 > Une fois qu’un utilisateur choisit pour passer à la nouvelle préférence [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), les règles ne peut pas accepter précédent ou revenir à l’utilisation des anciennes [hérité API alerte Analytique de journal](api-alerts.md).
 
-Tout client souhaitant passer volontairement à la nouvelle API [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) et bloquer l'utilisation de l'[API Alerte héritée de Log Analytics](api-alerts.md) peut le faire via un appel PUT sur l'API ci-dessous afin de modifier toutes les règles d'alerte associées à l'espace de travail Log Analytics spécifique.
+Tout client souhaitant passer volontairement à la nouvelle API [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) et bloquer l’utilisation de l’[API Alerte héritée de Log Analytics](api-alerts.md) peut le faire via un appel PUT sur l’API ci-dessous afin de modifier toutes les règles d’alerte associées à l’espace de travail Log Analytics spécifique.
 
 ```
 PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
@@ -64,14 +64,14 @@ Avec corps de la demande contenant le code JSON ci-dessous.
 }
 ```
 
-L’API est également accessible à partir d’une ligne de commande PowerShell en utilisant [ARMClient](https://github.com/projectkudu/ARMClient), outil en ligne de commande open source qui simplifie l’appel de l’API Azure Resource Manager. Comme illustré ci-dessous, dans l’exemple d’appel PUT utilisant l’outil ARMclient pour basculer toutes les règles d’alerte associées à l’espace de travail spécifique Log Analytics.
+L’API est également accessible à partir d’une ligne de commande PowerShell en utilisant [ARMClient](https://github.com/projectkudu/ARMClient), outil en ligne de commande open source qui simplifie l’appel de l’API Azure Resource Manager. Comme illustré ci-dessous, dans l’exemple d’appel PUT utilisant l’outil ARMclient pour basculer toutes les règles d’alerte associées à l’espace de travail Log Analytics spécifique.
 
 ```powershell
 $switchJSON = '{"scheduledQueryRulesEnabled": "true"}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
 
-Si le passage de toutes les règles d'alerte de l'espace de travail Log Analytics à la nouvelle API [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) aboutit, la réponse suivante est fournie.
+Si le passage de toutes les règles d’alerte de l’espace de travail Log Analytics à la nouvelle API [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) aboutit, la réponse suivante est fournie.
 
 ```json
 {
@@ -80,7 +80,7 @@ Si le passage de toutes les règles d'alerte de l'espace de travail Log Analytic
 }
 ```
 
-Les utilisateurs peuvent également vérifier l'état actuel de votre espace de travail Log Analytics et voir s'il a été basculé ou non vers [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Cette vérification peut être effectuée via un appel GET sur l'API ci-dessous.
+Les utilisateurs peuvent également vérifier l’état actuel de votre espace de travail Log Analytics et voir s’il a été basculé ou non vers [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Cette vérification peut être effectuée via un appel GET sur l'API ci-dessous.
 
 ```
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
@@ -92,7 +92,7 @@ Pour exécuter ce qui précède en utilisant la ligne de commande PowerShell ave
 armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-Si l'espace de travail Log Analytics spécifié a été basculé vers [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), le code JSON de la réponse se présentera comme suit.
+Si l’espace de travail Log Analytics spécifié a été basculé vers [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), le code JSON de la réponse se présentera comme suit.
 
 ```json
 {

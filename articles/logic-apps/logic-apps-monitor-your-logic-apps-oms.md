@@ -60,7 +60,7 @@ Avant de commencer, il vous faut un espace de travail Log Analytics. Découvrez 
 
 Si vous avez déjà activé Azure Monitor connecté lorsque vous avez créé votre application logique, ignorez cette étape. En effet, vous disposez déjà de la solution Logic Apps Management.
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « log analytics », puis sélectionnez **Log Analytics**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « Log Analytics », puis sélectionnez **Log Analytics**.
 
    ![Sélectionner « Log Analytics »](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
@@ -78,7 +78,7 @@ Si vous avez déjà activé Azure Monitor connecté lorsque vous avez créé vot
 
    Si vous ne trouvez pas la solution, choisissez **Charger plus** en bas de la liste jusqu’à ce que la solution s’affiche.
 
-1. Choisissez **Créer**, confirmez l’espace de travail Log Analytics dans lequel vous souhaitez installer la solution, puis sélectionnez à nouveau **Créer**.   
+1. Choisissez **Créer**, vérifiez l’espace de travail Log Analytics dans lequel vous souhaitez installer la solution, puis sélectionnez à nouveau **Créer**.   
 
    ![Choisir « Créer » pour « Logic Apps Management »](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 

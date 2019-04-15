@@ -54,4 +54,4 @@ Pour appeler des méthodes sur vos appareils, utilisez le **Device Explorer** pa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’article [Personnaliser l’accélérateur de la solution Monitoring à distance](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) décrit quelques méthodes permettant de personnaliser l’accélérateur de solution.
+L’article [Personnaliser l’accélérateur de la solution de supervision à distance](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) décrit quelques méthodes permettant de personnaliser l’accélérateur de solution.

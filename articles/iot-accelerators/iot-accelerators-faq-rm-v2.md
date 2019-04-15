@@ -1,6 +1,6 @@
 ---
-title: Questions fréquentes (FAQ) sur l’accélérateur de solution Supervision à distance - Azure | Microsoft Docs
-description: Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance
+title: Questions fréquentes (FAQ) sur l’accélérateur de solution de supervision à distance - Azure | Microsoft Docs
+description: Questions fréquentes (FAQ) sur l’accélérateur de solution de supervision à distance
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,16 +10,16 @@ ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53602628"
 ---
-# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance
+# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Questions fréquentes (FAQ) sur l’accélérateur de solution de supervision à distance
 
 Voir aussi le [FAQ](iot-accelerators-faq.md) général.
 
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Combien coûte le provisionnement de la nouvelle solution de surveillance à distance ?
+### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Combien coûte le provisionnement de la nouvelle solution de supervision à distance ?
 
 Le nouvel accélérateur de solution propose deux options de déploiement :
 
@@ -28,7 +28,7 @@ Le nouvel accélérateur de solution propose deux options de déploiement :
 
 ### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Comment maintenir des coûts faibles pendant le développement de ma solution ?
 
-En plus des deux déploiements différenciés, la nouvelle solution de surveillance à distance dispose d’un paramètre pour activer ou désactiver tous les appareils simulés à la demande. La désactivation de la simulation réduit les données ingérées par la solution et, par conséquent, le coût global.
+En plus des deux déploiements différenciés, la nouvelle solution de supervision à distance dispose d’un paramètre pour activer ou désactiver tous les appareils simulés à la demande. La désactivation de la simulation réduit les données ingérées par la solution et, par conséquent, le coût global.
 
 ### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Quelle est la différence entre les options de déploiement de base et standard ? Comment choisir entre les deux options de déploiement ?
 
@@ -38,9 +38,9 @@ Chaque option de déploiement répond à des besoins différents. Le déploiemen
 
 Pour plus d’informations, consultez [Upgrade map key to see devices on a dynamic map (Mettre à niveau une clé de mappage pour voir les appareils sur un mappage dynamique)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
-### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Où puis-je trouver des informations sur la version précédente de la solution de surveillance à distance ?
+### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Où puis-je trouver des informations sur la version précédente de la solution de supervision à distance ?
 
-La version précédente de l’accélérateur de solution de surveillance à distance était la solution préconfigurée de surveillance à distante IoT Suite. Vous trouverez la documentation archivée à l’emplacement [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+La version précédente de l’accélérateur de solution de supervision à distance était la solution préconfigurée de supervision à distante IoT Suite. Vous trouverez la documentation archivée à l’emplacement [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
 
 ### <a name="next-steps"></a>Étapes suivantes
 

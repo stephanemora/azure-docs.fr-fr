@@ -92,7 +92,7 @@ Les solutions de cet article utilisent les outils suivants. Nous vous recommando
 
 ## <a name="how-do-i-see-container-metrics"></a>Comment voir les métriques de conteneur ?
 
-Dans la même vue où se trouvent tous les graphes, vous pouvez voir quelques vignettes pour les performances de vos conteneurs. Vous avez besoin de l’Agent Log Analytics et de la [solution Container Monitoring](service-fabric-diagnostics-oms-containers.md) pour que ces vignettes soient renseignées.
+Dans la même vue où se trouvent tous les graphes, vous pouvez voir quelques vignettes pour les performances de vos conteneurs. Vous avez besoin de l’Agent Log Analytics et de la [solution de supervision de conteneurs](service-fabric-diagnostics-oms-containers.md) pour que ces vignettes soient renseignées.
 
 ![Métriques des conteneurs Log Analytics](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
 

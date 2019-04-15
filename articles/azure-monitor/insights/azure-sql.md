@@ -21,7 +21,7 @@ ms.locfileid: "58629976"
 
 ![Symbole Azure SQL Analytics](./media/azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics est une solution cloud avancée permettant de superviser à grande échelle les performances des bases de données SQL Azure, des pools élastiques et des bases de données Managed Instance dans plusieurs abonnements depuis un tableau de bord unique. Cette solution collecte et visualise des métriques importantes de performances Azure SQL Database avec une intelligence intégrée pour résoudre les problèmes.
+Azure SQL Analytics est une solution de supervision cloud avancée permettant de superviser à grande échelle les performances des bases de données SQL Azure, des pools élastiques et des bases de données Managed Instance dans plusieurs abonnements depuis un tableau de bord unique. Cette solution collecte et visualise des métriques importantes de performances Azure SQL Database avec une intelligence intégrée pour résoudre les problèmes.
 
 En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes de surveillance personnalisées. La solution vous aide à identifier les problèmes sur chacune des couches de votre pile applicative. Elle utilise les métriques de Diagnostic Azure, ainsi que des affichages Azure Monitor pour présenter des données sur tous les vos bases de données SQL Azure, les pools élastiques et les bases de données dans des Instances gérées dans un seul espace de travail Analytique de journal. Azure Monitor vous aide à collecter, corréler et visualiser les données structurées et non structurées.
 
@@ -32,7 +32,7 @@ Pour une présentation pratique sur l'utilisation de la solution Azure SQL Analy
 
 ## <a name="connected-sources"></a>Sources connectées
 
-Azure SQL Analytics est une solution de monitoring entièrement dans le cloud qui prend en charge le streaming de données de télémétrie de diagnostic pour les bases de données SQL Azure uniques, mises en pool et Managed Instance. Comme la solution n’utilise pas les agents pour vous connecter à Azure Monitor, la solution ne pas prendre en charge la surveillance de SQL Server est hébergé en local ou sur des machines virtuelles, reportez-vous au tableau de compatibilité ci-dessous.
+Azure SQL Analytics est une solution de supervision entièrement dans le cloud qui prend en charge le streaming de données de télémétrie de diagnostic pour les bases de données SQL Azure uniques, mises en pool et Managed Instance. Comme la solution n’utilise pas les agents pour vous connecter à Azure Monitor, la solution ne pas prendre en charge la surveillance de SQL Server est hébergé en local ou sur des machines virtuelles, reportez-vous au tableau de compatibilité ci-dessous.
 
 | Source connectée | Pris en charge | Description |
 | --- | --- | --- |

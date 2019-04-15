@@ -73,7 +73,7 @@ Pour afficher les journaux, exécutez la requête suivante dans la recherche de 
 
 ### <a name="verify-configuration"></a>Vérifier la configuration
 
-Pour vous assurer que votre compte Automation envoie des journaux à votre espace de travail Log Analytics, vérifiez que les diagnostics sont correctement configurés sur le compte Automation à l’aide de la commande PowerShell suivante :
+Pour vous assurer que votre compte Automation envoie des journaux d’activité à votre espace de travail Log Analytics, vérifiez que les diagnostics sont correctement configurés sur le compte Automation à l’aide de la commande PowerShell suivante :
 
 ```powershell-interactive
 Get-AzDiagnosticSetting -ResourceId $automationAccountId

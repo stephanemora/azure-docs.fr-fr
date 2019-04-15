@@ -36,7 +36,7 @@ Azure Monitor propose les solutions suivantes pour la surveillance de vos résea
 
 ## <a name="network-performance-monitor-npm"></a>Analyseur de performances réseau (NPM)
 
-La solution de gestion [Analyseur de performances réseau](https://docs.microsoft.com/azure/networking/network-monitoring-overview) est une solution de surveillance du réseau, qui contrôle l’intégrité, la disponibilité et l’accessibilité des réseaux.  Elle est utilisée pour contrôler la connectivité entre :
+La solution de gestion [Analyseur de performances réseau](https://docs.microsoft.com/azure/networking/network-monitoring-overview) est une solution de supervision du réseau, qui contrôle l’intégrité, la disponibilité et l’accessibilité des réseaux.  Elle est utilisée pour contrôler la connectivité entre :
 
 * le cloud public et le site local ;
 * les centres de données et les emplacements des utilisateurs (filiales) ;

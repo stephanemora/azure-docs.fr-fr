@@ -1,6 +1,6 @@
 ---
-title: Ajouter un service à l’interface utilisateur de la solution Supervision à distance - Azure | Microsoft Docs
-description: Cet article vous montre comment ajouter un nouveau service à l’interface utilisateur web de l’accélérateur de solution Supervision à distance.
+title: Ajouter un service à l’interface utilisateur de la solution de supervision à distance - Azure | Microsoft Docs
+description: Cet article vous montre comment ajouter un nouveau service à l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,21 +10,21 @@ ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
 ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2018
 ms.locfileid: "49094505"
 ---
-# <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de la solution Supervision à distance
+# <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de la solution de supervision à distance
 
-Cet article vous montre comment ajouter un nouveau service à l’interface utilisateur web de l’accélérateur de solution Supervision à distance. Cet article décrit :
+Cet article vous montre comment ajouter un nouveau service à l’interface utilisateur web de l’accélérateur de solution de supervision à distance. Cet article décrit :
 
 - Comment préparer un environnement de développement local.
 - Comment ajouter un nouveau service à l’interface utilisateur web.
 
-L’exemple de service de cet article fournit les données d’une grille que l’article pratique [Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-grid.md) vous montre comment ajouter.
+L’exemple de service de cet article fournit les données d’une grille que l’article pratique [Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-grid.md) vous montre comment ajouter.
 
-Dans une application React, un service interagit généralement avec un service back-end. Les exemples de l’accélérateur de solution Supervision à distance comptent des services qui interagissent avec le responsable du hub IoT et les microservices de configuration.
+Dans une application React, un service interagit généralement avec un service back-end. Les exemples de l’accélérateur de solution de supervision à distance comptent des services qui interagissent avec le responsable du hub IoT et les microservices de configuration.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,7 +35,7 @@ Pour effectuer les étapes de ce guide pratique, vous devez avoir installé les 
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Vous devez effectuer les étapes décrites dans le guide pratique [Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-page.md) avant de continuer.
+Vous devez effectuer les étapes décrites dans le guide pratique [Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-page.md) avant de continuer.
 
 ## <a name="add-a-service"></a>Ajouter un service
 
@@ -114,8 +114,8 @@ const epics = [
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez découvert les ressources disponibles pour ajouter ou personnaliser des services dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance.
+Dans cet article, vous avez découvert les ressources disponibles pour ajouter ou personnaliser des services dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 
-Maintenant que vous avez défini un service, l’étape suivante consiste à [Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-grid.md) qui affiche les données retournées par le service.
+Maintenant que vous avez défini un service, l’étape suivante consiste à [Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-grid.md) qui affiche les données retournées par le service.
 
-Pour plus d’informations conceptuelles sur l’accélérateur de solution Supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Pour plus d’informations conceptuelles sur l’accélérateur de solution de supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md).

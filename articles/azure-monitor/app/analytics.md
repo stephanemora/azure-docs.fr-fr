@@ -14,7 +14,7 @@ ms.date: 02/02/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
 ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56268598"
@@ -31,9 +31,9 @@ Vous pouvez également utiliser l[’interface Analytics](https://go.microsoft.c
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Relation aux journaux Azure Monitor
-L'analytique d'Application Insights repose sur [Azure Data Explorer](/azure/data-explorer), comme les journaux d'Azure Monitor, et utilise également le [langage de requête Kusto](/azure/kusto/query). Il utilise le même [portail Log Analytics](../log-query/get-started-portal.md) que les journaux d’Azure Monitor, même si ses données sont stockées dans une partition distincte.
+L'analytique d'Application Insights repose sur [Azure Data Explorer](/azure/data-explorer), comme les journaux d'Azure Monitor, et utilise également le [langage de requête Kusto](/azure/kusto/query). Il utilise le même [portail d’analytique des journaux d’activité](../log-query/get-started-portal.md) que les journaux d’activité d’Azure Monitor, même si ses données sont stockées dans une partition distincte.
 
-Vous ne pouvez pas accéder directement aux données d’un espace de travail Log Analytics à partir d’analyses Application Insights. Vous ne pouvez pas non plus accéder directement à des données d’application à partir de Log Analytics. Pour interroger les deux jeux de données ensemble, écrivez un [requête dans Log Analytics](../log-query/log-query-overview.md) et utilisez l’expression [app()](../log-query/app-expression.md) pour accéder aux données d’application.
+Vous ne pouvez pas accéder directement aux données d’un espace de travail Log Analytics à partir d’analyses Application Insights. Vous ne pouvez pas non plus accéder directement à des données d’application à partir de l’analytique des journaux d’activité. Pour interroger les deux jeux de données ensemble, écrivez une [requête dans l’analytique des journaux d’activité](../log-query/log-query-overview.md) et utilisez l’expression [app()](../log-query/app-expression.md) pour accéder aux données d’application.
 
 
 ## <a name="query-data-in-analytics"></a>Interrogation de données dans Analytics

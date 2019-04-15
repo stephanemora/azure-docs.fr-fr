@@ -50,7 +50,7 @@ Pour la journalisation de l’activité avancée :
 
 1. La **Vue d’ensemble de l’analytique des journaux d’activité** récapitule les principales données du journal d’activité :
 
-    ![Vue d’ensemble de l’analytique des journaux d’activité][3]
+    ![Vue d’ensemble de Log Analytics][3]
 
 >[!TIP]
 >Utilisez **Journaux d’activité** pour obtenir des insights rapides sur les événements de niveau abonnement.

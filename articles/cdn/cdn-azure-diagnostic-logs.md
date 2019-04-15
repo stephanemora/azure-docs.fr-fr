@@ -131,7 +131,7 @@ Pour utiliser Azure Monitor pour stocker les journaux, procédez comme suit :
 
 11. Sélectionnez **CoreAnalytics**, puis **Enregistrer**.
 
-12. Pour afficher le nouvel espace de travail Log Analytics, sélectionnez **Analytique principale** dans la page de votre point de terminaison CDN.
+12. Pour afficher le nouvel espace de travail Log Analytics, sélectionnez **Analytique principale** dans la page de votre point de terminaison CDN.
 
     ![Portail - Journaux de diagnostics](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 

@@ -206,6 +206,6 @@ Si vous rencontrez d’autres problèmes, consultez le [FAQ sur le DevKit IoT](h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez appris à connecter un appareil DevKit à votre accélérateur de solution de surveillance à distance Azure IoT et à récupérer un tweet ; nous vous suggérons à présent les étapes suivantes :
+Vous avez appris à connecter un appareil DevKit à votre accélérateur de solution de supervision à distance Azure IoT et à récupérer un tweet ; nous vous suggérons à présent les étapes suivantes :
 
 * [Vue d’ensemble des accélérateurs de solution de surveillance à distance Azure IoT](https://docs.microsoft.com/azure/iot-suite/)

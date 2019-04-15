@@ -241,9 +241,9 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 ## <a name="how-is-traffic-analytics-priced"></a>Quel est le prix de Traffic Analytics ?
 
-Traffic Analytics est mesuré. Les mesures sont basées sur le traitement des données de journal de flux par le service et sur le stockage des journaux améliorés résultants dans un espace de travail Log Analytics. 
+Traffic Analytics est mesuré. Les mesures sont basées sur le traitement des données de journal de flux par le service et sur le stockage des journaux d’activité améliorés résultants dans un espace de travail Log Analytics. 
 
-Par exemple, conformément au [plan tarifaire](https://azure.microsoft.com/pricing/details/network-watcher/), concernant la région USA Centre-Ouest, si des données de journal de flux stockées dans un compte de stockage traité par Traffic Analytics ont un volume de 10 Go et que les journaux améliorés ingérés dans l’espace de travail Log Analytics ont un volume de 1 Go, les charges applicables sont les suivantes : 10 x 2.3$ + 1 x 2.76$ = 25.76$
+Par exemple, conformément au [plan tarifaire](https://azure.microsoft.com/pricing/details/network-watcher/), concernant la région USA Centre-Ouest, si des données de journal de flux stockées dans un compte de stockage traité par Traffic Analytics ont un volume de 10 Go et que les journaux d’activité améliorés ingérés dans l’espace de travail Log Analytics ont un volume de 1 Go, les charges applicables sont les suivantes : 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>La fréquence à laquelle le trafic Analytique ne traite pas les données ?
 

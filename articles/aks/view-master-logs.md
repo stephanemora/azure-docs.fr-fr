@@ -31,8 +31,8 @@ Les journaux Azure Monitor sont activés et gérés dans le portail Azure. Pour 
 1. Sélectionnez le groupe de ressources de votre cluster AKS, par exemple *myResourceGroup*. Ne sélectionnez pas le groupe de ressources qui contient vos ressources de cluster AKS individuelles, comme *MC_myResourceGroup_myAKSCluster_eastus*.
 1. Sur le côté gauche, choisissez **Paramètres de diagnostic**.
 1. Sélectionnez votre cluster AKS, tel que *myAKSCluster*, puis choisissez **Activer les diagnostics**.
-1. Entrez un nom, par exemple *myAKSClusterLogs*, puis sélectionnez l’option pour **Envoyer vers l'espace de travail Log Analytics**.
-    * Sélectionnez *Configurer* pour configurer l'espace de travail Log Analytics, puis sélectionnez un espace de travail existant ou l’option **Créer un espace de travail**.
+1. Entrez un nom, par exemple *myAKSClusterLogs*, puis sélectionnez l’option pour **Envoyer vers l’espace de travail Log Analytics**.
+    * Sélectionnez *Configurer* pour configurer l’espace de travail Log Analytics, puis sélectionnez un espace de travail existant ou l’option **Créer un espace de travail**.
     * Si vous avez besoin de créer un espace de travail, indiquez un nom, un groupe de ressources et un emplacement.
 1. Dans la liste des journaux disponibles, sélectionnez les journaux que vous souhaitez activer. Par défaut, les journaux *kube-apiserver*, *kube-controller-manager* et *kube-scheduler* sont activés. Vous pouvez activer des journaux supplémentaires, tels que *kube-audit* et *cluster-autoscaler*. Vous pourrez réaccéder à cet emplacement et modifier les journaux collectés une fois les espaces de travail Log Analytics activés.
 1. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour activer la collecte des journaux sélectionnés.
@@ -52,7 +52,7 @@ Les journaux Azure Monitor sont activés et gérés dans le portail Azure. Pour 
 
 L’exemple de capture d’écran du portail ci-après présente la fenêtre *Paramètres de diagnostic*, ainsi que l’option de création d’un espace de travail Log Analytics :
 
-![Activer l’espace de travail Log Analytics pour les journaux Azure Monitor dans un cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
+![Activer l’espace de travail Log Analytics pour les journaux d’activité Azure Monitor dans un cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Planifier un pod test sur le cluster AKS
 
@@ -115,7 +115,7 @@ Les journaux propres à votre pod NGINX s’affichent, comme illustré dans l’
 
 Pour afficher des journaux supplémentaires, vous pouvez mettre à jour la requête en redéfinissant le nom *Catégorie* sur *kube-controller-manager* ou sur *kube-scheduler*, selon les autres journaux que vous activez. Vous pouvez ensuite utiliser des instructions *where* supplémentaires pour restreindre l’étendue de la requête aux événements qui vous intéressent.
 
-Pour plus d’informations sur l’interrogation et le filtrage des données de journal, consultez l’article [Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics][analyze-log-analytics].
+Pour plus d’informations sur l’interrogation et le filtrage des données de journal d’activité, consultez l’article [Consulter ou analyser les données collectées avec la recherche dans les journaux d’activité de l’analytique des journaux d’activité][analyze-log-analytics].
 
 ## <a name="log-event-schema"></a>Schéma d’événement de journal
 

@@ -91,7 +91,7 @@ Pour pouvoir importer des regroupements Configuration Manager, vous devez [conne
 Une fois les regroupements importés, le menu répertorie le nombre d’ordinateurs détectés avec une appartenance à un groupe et le nombre de groupes importés.  Vous pouvez cliquer sur l’un de ces liens pour retourner les enregistrements **ComputerGroup**avec ces informations.
 
 ## <a name="managing-computer-groups"></a>Gestion de groupes d’ordinateurs
-Pour afficher les groupes d’ordinateurs créés à partir d’une requête de journal ou de l’API Recherche dans les journaux, accédez à **Paramètres avancés** dans votre espace de travail Log Analytics sur le Portail Azure.  Sélectionnez **Groupes d’ordinateurs**, puis **Groupes enregistrés**.  
+Pour afficher les groupes d’ordinateurs créés à partir d’une requête de journal d’activité ou de l’API Recherche dans les journaux, accédez à **Paramètres avancés** dans votre espace de travail Log Analytics sur le Portail Azure.  Sélectionnez **Groupes d’ordinateurs**, puis **Groupes enregistrés**.  
 
 Cliquez sur le signe **x** dans la colonne **Supprimer** pour supprimer le groupe d’ordinateurs.  Cliquez sur l’icône **Afficher les membres** correspondant à un groupe pour exécuter la recherche de journal du groupe qui retourne les membres de celui-ci.  Pour modifier un groupe d’ordinateurs, vous devez le supprimer et le recréer avec les paramètres modifiés.
 

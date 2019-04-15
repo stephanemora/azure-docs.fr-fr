@@ -49,7 +49,7 @@ L’organigramme suivant illustre le processus FRU général de remplacement d�
 
 ## <a name="review-alert-information"></a>Examiner les informations sur l’alerte
 
-Le système de contrôle de l’intégrité et de surveillance d’Azure Stack surveille l’intégrité des cartes réseau et des lecteurs de données contrôlés par les espaces de stockage direct. Il ne surveille pas d’autres composants matériels. Pour tous les autres composants matériels, des alertes sont générées dans la solution de surveillance du matériel spécifique du fournisseur, qui s’exécute sur l’hôte de cycle de vie du matériel.  
+Le système de contrôle de l’intégrité et de surveillance d’Azure Stack surveille l’intégrité des cartes réseau et des lecteurs de données contrôlés par les espaces de stockage direct. Il ne surveille pas d’autres composants matériels. Pour tous les autres composants matériels, des alertes sont générées dans la solution de supervision du matériel spécifique du fournisseur, qui s’exécute sur l’hôte de cycle de vie du matériel.  
 
 ## <a name="component-replacement-process"></a>Processus de remplacement de composant
 

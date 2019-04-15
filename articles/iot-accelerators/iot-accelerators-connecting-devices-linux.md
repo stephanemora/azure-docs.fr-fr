@@ -1,6 +1,6 @@
 ---
 title: Approvisionner des appareils Linux pour la surveillance à distance en C - Azure| Microsoft Docs
-description: Explique comment connecter un appareil à l’accélérateur de solution de surveillance à distance avec une application écrite en C et exécutée sur Linux.
+description: Explique comment connecter un appareil à l’accélérateur de solution de supervision à distance avec une application écrite en C et exécutée sur Linux.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,16 +10,16 @@ ms.date: 08/31/2018
 ms.author: dobett
 ms.openlocfilehash: 91d4eda566c8b534daa10c62637db28ccb01bbb6
 ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53628321"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Connecter votre appareil à l’accélérateur de solution Surveillance à distance (Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Connecter votre appareil à l’accélérateur de solution de supervision à distance (Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Ce tutoriel vous montre comment connecter un appareil réel à l’accélérateur de solution Supervision à distance.
+Ce tutoriel vous montre comment connecter un appareil réel à l’accélérateur de solution de supervision à distance.
 
 Comme avec la plupart des applications incorporées qui s’exécutent sur des appareils limités, le code client pour l’application d’appareil est écrit en C. Dans ce didacticiel, vous générez l’application sur une machine exécutant Ubuntu (Linux).
 

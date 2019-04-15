@@ -46,7 +46,7 @@ Si vous ne souhaitez pas connecter directement un de vos contrôleurs de domaine
    > [!NOTE]
    > Ces modifications ne prennent pas effet tant que vous redémarrez le service Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Installer la solution
-   > Suivez la procédure décrite dans [Installer une solution de surveillance ](solutions.md#install-a-monitoring-solution) pour ajouter la solution **Active Directory Replication Status** (État de la réplication Active Directory) à votre espace de travail Log Analytics. Aucune configuration supplémentaire n’est requise.
+   > Suivez la procédure décrite dans [Installer une solution de supervision ](solutions.md#install-a-monitoring-solution) pour ajouter la solution **Active Directory Replication Status** (État de la réplication Active Directory) à votre espace de travail Log Analytics. Aucune configuration supplémentaire n’est requise.
 
 
 ## <a name="ad-replication-status-data-collection-details"></a>Détails de la collecte des données pour la solution État de la réplication AD
