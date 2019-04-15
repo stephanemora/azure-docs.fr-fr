@@ -11,7 +11,7 @@ ms.date: 11/06/2018
 ms.author: arindamc
 ms.openlocfilehash: 83cbb2a54ed712f8aa5084408ab852432470b73c
 ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53742471"
@@ -77,7 +77,7 @@ Un goulot d’étranglement des performances d’un cluster peut survenir au niv
 
 Si vous utilisez le service Stockage Azure et que vous souhaitez en savoir plus sur la surveillance des problèmes liés au stockage, notamment la limitation, consultez l’article [Surveiller, diagnostiquer et résoudre les problèmes liés à Stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Si la banque de stockage de votre cluster est Azure Data Lake Storage (ADLS), votre problème de limitation découle probablement des limites de bande passante. Dans ce cas, vous pouvez identifier la limitation en consultant les erreurs de limitation consignées dans les journaux des tâches. Pour ADLS, consultez la section sur la limitation relative au service approprié dans les articles suivants :
+Si la banque de stockage de votre cluster est Azure Data Lake Storage (ADLS), votre problème de limitation découle probablement des limites de bande passante. Dans ce cas, vous pouvez identifier la limitation en consultant les erreurs de limitation consignées dans les journaux d’activité des tâches. Pour ADLS, consultez la section sur la limitation relative au service approprié dans les articles suivants :
 
 * [Recommandations en matière d’optimisation des performances pour Apache Hive sur HDInsight et Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Recommandations en matière d’optimisation des performances pour MapReduce sur HDInsight et Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)

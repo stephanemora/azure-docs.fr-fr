@@ -1,5 +1,5 @@
 ---
-title: Explorer les journaux de traçage .NET dans Azure Application Insights avec ILogger
+title: Explorer les journaux d’activité de traçage .NET dans Azure Application Insights avec ILogger
 description: Exemples d’utilisation du fournisseur d’Azure Application Insights ILogger avec les applications ASP.NET Core et de la Console.
 services: application-insights
 author: cijothomas

@@ -149,12 +149,12 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 **R** : Il existe deux raisons possibles. Tout d’abord, une ressource est déjà créée pour la passerelle dans l’abonnement en cours ou dans un autre. Pour éliminer cette hypothèse, énumérez les ressources du type **Passerelles de données locales** à partir du portail. Veillez à sélectionner tous les abonnements quand vous énumérez toutes les ressources. Une fois la ressource créée, la passerelle ne s’affiche pas dans la liste des instances de passerelle quand vous utilisez le portail pour créer des ressources de passerelle. La seconde possibilité est que l’identité Azure AD de l’utilisateur qui a installé la passerelle est différente de l’utilisateur connecté au Portail Azure. Pour résoudre cette situation, connectez-vous au portail en utilisant le même compte que l’utilisateur qui a installé la passerelle.
 
 **Q** : Comment voir les requêtes qui sont envoyées à la source de données locale ? <br/>
-**R** : Vous pouvez activer le traçage de requête qui inclut les requêtes envoyées. N’oubliez pas de rétablir la valeur d’origine du traçage des requêtes une fois les problèmes résolus. Le fait de laisser activé le traçage des requêtes contribue à augmenter la taille des journaux.
+**R** : Vous pouvez activer le traçage de requête qui inclut les requêtes envoyées. N’oubliez pas de rétablir la valeur d’origine du traçage des requêtes une fois les problèmes résolus. Le fait de laisser activé le traçage des requêtes contribue à augmenter la taille des journaux d’activité.
 
 Vous pouvez également utiliser les outils de suivi des requêtes proposés par votre source de données. Par exemple, vous pouvez utiliser Extended Events ou SQL Profiler for SQL Server et Analysis Services.
 
-**Q** : Où se situent les journaux de la passerelle ? <br/>
-**R** : Voir la section Journaux plus loin dans cet article.
+**Q** : Où se situent les journaux d’activité de la passerelle ? <br/>
+**R** : Voir la section Journaux d’activité plus loin dans cet article.
 
 ### <a name="update"></a>Mise à jour avec la version la plus récente
 
@@ -168,18 +168,18 @@ Cette erreur peut apparaître si vous essayez d’installer la passerelle sur un
 
 Les fichiers journaux constituent une ressource importante lors du dépannage.
 
-#### <a name="enterprise-gateway-service-logs"></a>Journaux du service de passerelle Enterprise
+#### <a name="enterprise-gateway-service-logs"></a>Journaux d’activité du service de passerelle Enterprise
 
 `C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\<yyyyymmdd>.<Number>.log`
 
-#### <a name="configuration-logs"></a>Journaux de configuration
+#### <a name="configuration-logs"></a>Journaux d’activité de configuration
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
 
 #### <a name="event-logs"></a>Journaux d’événements
 
-Les journaux de passerelle de gestion des données et PowerBIGateway figurent sous **Journaux des applications et services**.
+Les journaux d’activité de passerelle de gestion des données et PowerBIGateway figurent sous **Journaux des applications et services**.
 
 
 ## <a name="telemetry"></a>Télémétrie

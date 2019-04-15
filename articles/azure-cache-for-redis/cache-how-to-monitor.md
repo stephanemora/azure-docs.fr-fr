@@ -133,7 +133,7 @@ Pour configurer les Règles d’alerte de votre cache, cliquez sur **Règles d�
 Pour plus d’informations sur la configuration et l’utilisation des Alertes, consultez [Vue d’ensemble des Alertes](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
 ## <a name="activity-logs"></a>Journaux d’activité
-Les journaux d’activité fournissent des insights sur les opérations qui ont été effectuées sur vos instances de cache Azure pour Redis. Ils étaient auparavant nommés « Journaux d’audit » ou « Journaux des opérations ». À l’aide des journaux d’activité, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur vos instances de cache Azure pour Redis. 
+Les journaux d’activité fournissent des insights sur les opérations qui ont été effectuées sur vos instances de cache Azure pour Redis. Ils étaient auparavant nommés « Journaux d’audit » ou « Journaux d’activité des opérations ». À l’aide des journaux d’activité, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur vos instances de cache Azure pour Redis. 
 
 > [!NOTE]
 > Les journaux d’activité n’incluent pas les opérations (GET) de lecture.

@@ -91,7 +91,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 
     ![Options de stockage](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
-6. Pour configurer l’écriture des journaux d’audit dans un compte de stockage, sélectionnez **Stockage**, puis ouvrez **Détails du stockage**. Sélectionnez le compte de stockage Azure dans lequel les journaux seront enregistrés, puis sélectionnez la période de rétention. Les anciens journaux seront supprimés. Cliquez ensuite sur **OK**.
+6. Pour configurer l’écriture des journaux d’audit dans un compte de stockage, sélectionnez **Stockage**, puis ouvrez **Détails du stockage**. Sélectionnez le compte de stockage Azure dans lequel les journaux d’activité seront enregistrés, puis sélectionnez la période de rétention. Les anciens journaux d’activité seront supprimés. Cliquez ensuite sur **OK**.
 
     ![compte de stockage](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
@@ -99,7 +99,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 
     ![Espace de travail Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
-8. Pour configurer l’écriture des journaux d’audit dans un hub d’événements, sélectionnez **Hub d’événements (préversion)**, puis ouvrez **Détails du hub d’événements**. Sélectionnez le hub d’événements dans lequel les journaux doivent être écrits, puis cliquez sur **OK**. Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
+8. Pour configurer l’écriture des journaux d’audit dans un hub d’événements, sélectionnez **Hub d’événements (préversion)**, puis ouvrez **Détails du hub d’événements**. Sélectionnez le hub d’événements dans lequel les journaux d’activité doivent être écrits, puis cliquez sur **OK**. Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
 
     ![Event Hub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
@@ -120,7 +120,7 @@ Si vous avez choisi écrire des journaux d’audit dans les journaux Azure Monit
 
     ![Afficher les journaux d’audit](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
 
-- Ensuite, cliquez sur **Ouvrir dans OMS** en haut de la page **Enregistrements d’audit** pour ouvrir la vue Journaux dans Log Analytics, où vous pouvez personnaliser la plage de temps et la requête de recherche.
+- Ensuite, cliquez sur **Ouvrir dans OMS** en haut de la page **Enregistrements d’audit** pour ouvrir la vue Journaux d’activité dans Log Analytics, où vous pouvez personnaliser la plage de temps et la requête de recherche.
 
     ![Ouvrir dans Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
@@ -132,9 +132,9 @@ Si vous avez choisi d’écrire les journaux d’audit dans un hub d’événeme
 - Pour utiliser les données des journaux d’audit à partir d’un hub d’événements, vous devez configurer un flux de données destiné à consommer les événements et à les écrire dans une cible. Pour plus d’informations, consultez la [documentation Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 - Les journaux d’audit d’Event Hub sont capturés dans le corps d’événements [Apache Avro](https://avro.apache.org/) et stockés en format JSON avec l’encodage UTF-8. Pour lire les journaux d’audit, vous pouvez utiliser les [outils Avro](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou des outils similaires qui traitent ce format.
 
-Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage Azure, plusieurs méthodes existent pour afficher les journaux :
+Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage Azure, plusieurs méthodes existent pour afficher les journaux d’activité :
 
-- Les journaux d’audit sont agrégés dans le compte choisi lors de la configuration. Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/). Dans le stockage Azure, les journaux d’audit sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs**. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
+- Les journaux d’audit sont agrégés dans le compte choisi lors de la configuration. Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/). Dans le stockage Azure, les journaux d’activité d’audit sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs**. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Utilisez le [portail Azure](https://portal.azure.com).  Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, cliquez sur **Afficher les journaux d’audit**.
 
@@ -162,13 +162,13 @@ Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage
 
 - Utilisez Power BI. Vous pouvez afficher et analyser les données du journal d’audit dans Power BI. Pour plus d’informations et pour accéder à un modèle téléchargeable, consultez [Analyze audit log data in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/) (Analyser les données des journaux d’audit dans Power BI).
 - Téléchargez les fichiers journaux à partir de votre conteneur Azure Storage Blob via le portail ou avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/).
-  - Une fois que vous avez téléchargé localement un fichier journal, double-cliquez sur le fichier pour ouvrir, afficher et analyser les journaux dans SSMS.
+  - Une fois que vous avez téléchargé localement un fichier journal, double-cliquez sur le fichier pour ouvrir, afficher et analyser les journaux d’activité dans SSMS.
   - Vous pouvez également télécharger plusieurs fichiers simultanément avec l’Explorateur de stockage Azure. Pour cela, cliquez avec le bouton droit sur un sous-dossier, puis sélectionnez **Enregistrer en tant que** pour l’enregistrer dans un dossier local.
 
 - Autres méthodes :
 
   - Après avoir téléchargé plusieurs fichiers (ou un sous-dossier contenant des fichiers journaux), vous pouvez les fusionner localement en suivant les instructions relatives à l’option Fusionner les fichiers d’audit dans SSMS, décrites précédemment.
-  - Affichez des journaux d’audit d’objets blob par programmation :
+  - Affichez des journaux d’activité d’audit d’objets blob par programmation :
 
     - [Interrogez des fichiers d’événements étendus](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) avec PowerShell.
 

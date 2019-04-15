@@ -62,7 +62,7 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
 - [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
-## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Comment télécharger les journaux YARN à partir d’un cluster ?
+## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Comment télécharger les journaux d’activité YARN à partir d’un cluster ?
 
 
 ### <a name="resolution-steps"></a>Étapes de résolution 
@@ -74,7 +74,7 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
     ```apache
     yarn top
     ```
-    Les ID sont répertoriés dans la colonne **APPLICATIONID**. Vous pouvez télécharger les journaux depuis la colonne **APPLICATIONID**.
+    Les ID sont répertoriés dans la colonne **APPLICATIONID**. Vous pouvez télécharger les journaux d’activité depuis la colonne **APPLICATIONID**.
 
     ```apache
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -89,7 +89,7 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
      application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
     ```
 
-3. Pour télécharger les journaux de conteneurs YARN pour tous les processus maîtres d’application, utilisez la commande suivante :
+3. Pour télécharger les journaux d’activité de conteneurs YARN pour tous les processus maîtres d’application, utilisez la commande suivante :
    
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
@@ -97,7 +97,7 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
 
     Cette commande crée un fichier journal nommé amlogs.txt. 
 
-4. Pour télécharger les journaux de conteneurs YARN uniquement pour les processus maîtres d’application les plus récents, utilisez la commande suivante :
+4. Pour télécharger les journaux d’activité de conteneurs YARN uniquement pour les processus maîtres d’application les plus récents, utilisez la commande suivante :
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
@@ -105,7 +105,7 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
 
     Cette commande crée un fichier journal nommé latestamlogs.txt. 
 
-4. Pour télécharger les journaux de conteneurs YARN pour les deux premiers processus maîtres d’application, utilisez la commande suivante :
+4. Pour télécharger les journaux d’activité de conteneurs YARN pour les deux premiers processus maîtres d’application, utilisez la commande suivante :
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 
@@ -113,7 +113,7 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
 
     Cette commande crée un fichier journal nommé first2amlogs.txt. 
 
-5. Pour télécharger tous les journaux de conteneurs YARN, utilisez la commande suivante :
+5. Pour télécharger tous les journaux d’activité de conteneurs YARN, utilisez la commande suivante :
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt

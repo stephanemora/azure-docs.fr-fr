@@ -338,7 +338,7 @@ Si vous utilisez des pools élastiques ou des instances gérées, vous devez aus
 
 4. Sélectionnez **OK** pour confirmer, puis **Créer**.
 
-### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Configurer des bases de données pour enregistrer des journaux de métriques et diagnostics
+### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Configurer des bases de données pour enregistrer des journaux d’activité de métriques et diagnostics
 
 Pour configurer où les bases de données enregistrent les mesures, le plus simple consiste à l’aide du portail Azure. Comme indiqué précédemment, accédez à vos ressources SQL Database sur le portail Azure, puis sélectionnez **Paramètres de diagnostic**.
 
@@ -352,7 +352,7 @@ Vous pouvez utiliser SQL Analytics comme un tableau de bord hiérarchique pour a
 
 Vous pouvez diffuser en continu les journaux de diagnostic et les métriques SQL Database dans Event Hubs à l’aide de l’option intégrée **Diffuser vers Event Hub** sur le portail. Vous pouvez également activer l’ID de règle Service Bus à l’aide d’un paramètre de diagnostic via les applets de commande PowerShell, l’interface CLI Azure ou l’API REST d’Azure Monitor.
 
-### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>Que faire des journaux de métriques et diagnostics dans Event Hubs
+### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>Que faire des journaux d’activité de métriques et diagnostics dans Event Hubs
 
 Après avoir sélectionné les données envoyées à Event Hub, vous vous rapprochez de l’activation de scénarios d’analyse avancée. Event Hubs fait office de porte d’entrée pour un pipeline d’événements. Les données recueillies dans un hub d’événements peuvent ensuite être transformées et stockées à l’aide d’un fournisseur d’analytique en temps réel ou d’un adaptateur de stockage. Event Hubs dissocie la production d’un flux d’événements de la consommation de ces événements. De cette façon, les consommateurs d’événements peuvent accéder aux événements sur leur propre calendrier. Pour plus d’informations sur Event Hubs, consultez :
 
@@ -371,9 +371,9 @@ Vous pouvez utiliser des métriques de streaming dans Event Hubs pour :
 
 Vous pouvez stocker les métriques et les journaux de diagnostics SQL Database dans Stockage Azure en utilisant l’option intégrée **Archiver dans un compte de stockage** sur le portail. Vous pouvez aussi activer le stockage à l’aide d’un paramètre de diagnostic via les applets de commande PowerShell, l’interface de ligne de commande Azure (CLI) ou l’API REST Azure Monitor.
 
-### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>Schéma des journaux de métriques et diagnostics dans le compte de stockage
+### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>Schéma des journaux d’activité de métriques et diagnostics dans le compte de stockage
 
-Après que vous avez configuré la collecte des journaux de métriques et diagnostics, lorsque les premières lignes de données sont disponibles, un conteneur de stockage est créé dans le compte de stockage que vous avez sélectionné. La structure des objets blob est la suivante :
+Après que vous avez configuré la collecte des journaux d’activité de métriques et diagnostics, lorsque les premières lignes de données sont disponibles, un conteneur de stockage est créé dans le compte de stockage que vous avez sélectionné. La structure des objets blob est la suivante :
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ databases/{database_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
@@ -397,9 +397,9 @@ Le nom d’un objet blob destiné à stocker les données d’un pool élastique
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-### <a name="download-metrics-and-logs-from-storage"></a>Télécharger les métriques et journaux du stockage
+### <a name="download-metrics-and-logs-from-storage"></a>Télécharger les métriques et journaux d’activité du stockage
 
-Découvrez comment [télécharger les journaux de métriques et de diagnostics à partir du stockage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
+Découvrez comment [télécharger les journaux d’activité de métriques et de diagnostics à partir du stockage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="data-retention-policy-and-pricing"></a>Stratégie de rétention des données et tarification
 
@@ -407,7 +407,7 @@ Si vous sélectionnez Event Hubs ou un compte de stockage, vous pouvez spécifie
 
 Si vous utilisez Azure SQL Analytics, vous pouvez superviser votre ingestion de données dans la solution en sélectionnant **Espace de travail OMS** dans le menu de navigation d’Azure SQL Analytics, puis **Utilisation** et **Coûts estimés**.
 
-## <a name="metrics-and-logs-available"></a>Métriques et journaux disponibles
+## <a name="metrics-and-logs-available"></a>Métriques et journaux d’activité disponibles
 
 Surveillance des données de télémétrie disponibles pour la base de données SQL Azure, les pools élastiques et l’instance managée est documentée ci-dessous. Données de télémétrie de surveillance collectées à l’intérieur de SQL Analytique peuvent être utilisée pour votre propre analyse personnalisée et le développement de l’application à l’aide [des requêtes de journal Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) langage.
 

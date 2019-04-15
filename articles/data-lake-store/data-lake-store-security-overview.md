@@ -83,7 +83,7 @@ Data Lake Storage Gen1 assure également le chiffrement des données stockées d
 Concernant la gestion des clés, Data Lake Storage Gen1 met à votre disposition deux modes pour gérer les clés de chiffrement principales, qui sont nécessaires pour déchiffrer les données stockées dans le Data Lake Storage Gen1. Vous pouvez soit laisser Data Lake Storage Gen1 gérer les clés de chiffrement principales, soit choisir de conserver la propriété des clés de chiffrement principales en utilisant votre compte Azure Key Vault. Vous spécifiez le mode de gestion de clés lors de la création du compte Data Lake Storage Gen1. Pour savoir comment fournir une configuration avec chiffrement, consultez [Prise en main d’Azure Data Lake Storage Gen1 à l’aide du Portail Azure](data-lake-store-get-started-portal.md).
 
 ## <a name="activity-and-diagnostic-logs"></a>Journaux d’activités et de diagnostic
-Vous pouvez utiliser les journaux d’activité ou de diagnostic selon si vous recherchez des journaux sur des activités liées à la gestion ou des activités liées aux données.
+Vous pouvez utiliser les journaux d’activité ou de diagnostic selon si vous recherchez des journaux d’activité sur des activités liées à la gestion ou des activités liées aux données.
 
 * Les activités liées à la gestion des comptes utilisent les API Azure Resource Manager et sont affichées dans le Portail Azure via les journaux d’activité.
 * Les activités liées aux données utilisent les API REST WebHDFS et sont affichées dans le portail via les journaux de diagnostic.

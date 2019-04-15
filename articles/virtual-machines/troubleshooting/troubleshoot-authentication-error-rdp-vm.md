@@ -16,7 +16,7 @@ ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
 ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52967978"
@@ -244,7 +244,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 </pre>
 
 > [!Note]
-> Obtenez la version x.x de SSH/TLS à partir des journaux du système d’exploitation invité sur les erreurs SCHANNEL.
+> Obtenez la version x.x de SSH/TLS à partir des journaux d’activité du système d’exploitation invité sur les erreurs SCHANNEL.
 
 #### <a name="fips-compliant"></a> Vérifier les connexions à algorithmes conformes à la norme FIPS
 

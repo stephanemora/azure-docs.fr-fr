@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 348c28f6a2d72048e34f117e802abf243597b458
 ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54425218"
@@ -97,7 +97,7 @@ Avant de procéder au test du runbook, vous devez vérifier plusieurs points. Pl
 1. Votre objectif étant de démarrer le runbook, cliquez sur **Démarrer**, puis sur **OK** à l’ouverture du volet Démarrer le runbook.
 2. Dans le volet Démarrer le Runbook, fournissez un nom de machine virtuelle (**VMname**). Acceptez les valeurs par défaut des autres paramètres que vous avez préconfigurés plus tôt dans le script. Cliquez sur **OK** pour démarrer la tâche du runbook.<br><br> ![Démarrer un runbook New-AwsVM](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
 3. Un volet s’ouvre pour la tâche du runbook qui vient d’être créée. Fermez ce panneau.
-4. Vous pouvez examiner la progression de la tâche et consulter les **flux** de sortie en sélectionnant la vignette **Tous les journaux** dans la page de tâche du runbook.<br><br> ![Sortie de flux](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
+4. Vous pouvez examiner la progression de la tâche et consulter les **flux** de sortie en sélectionnant la vignette **Tous les journaux d’activité** dans la page de tâche du runbook.<br><br> ![Sortie de flux](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 5. Pour vérifier que la machine virtuelle est en cours d’approvisionnement, connectez-vous à la console de gestion AWS si ce n’est pas déjà fait.<br><br> ![Machine virtuelle déployée par la console AWS](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
 ## <a name="next-steps"></a>Étapes suivantes

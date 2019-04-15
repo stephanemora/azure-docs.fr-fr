@@ -163,7 +163,7 @@ Aucun enregistrement centralisé n’est disponible pour les stratégies de poin
       > Les ressources de service n’ont pas besoin d’être sécurisées sur des réseaux virtuels pour accéder aux stratégies de point de terminaison. Toutefois, dans le cadre de meilleures pratiques de sécurité, nous recommandons de sécuriser les ressources de service sur vos réseaux approuvés, comme vos réseaux virtuels Azure, par le biais de points de terminaison de service et en local, par le biais d’un pare-feu IP.
   
     - Vérifiez que les diagnostics de service affichent le trafic sur les points de terminaison.
-    - Vérifiez si les journaux de flux de groupe de sécurité réseau affichent l’accès et si les journaux de stockage affichent l’accès, comme prévu, sur les points de terminaison de service.
+    - Vérifiez si les journaux de flux de groupe de sécurité réseau affichent l’accès et si les journaux d’activité de stockage affichent l’accès, comme prévu, sur les points de terminaison de service.
     - Contactez le support Azure.
 - L’accès est refusé aux comptes non répertoriés dans les stratégies de point de terminaison de service
   - Le filtrage des groupes de sécurité réseau ou du pare-feu peut bloquer l’accès. Vérifiez que la balise de service *Stockage Azure* est autorisée pour les régions de point de terminaison. Pour les restrictions de stratégie, consultez [Limites](#limitations).

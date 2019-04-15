@@ -40,7 +40,7 @@ Cet article décrit les étapes requises pour configurer le conteneur de journau
 
     ![Ajout de la solution Conteneurs](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. Créez la solution dans l’espace de travail qui a été créé pour le cluster. Après cette modification, l’agent se met à collecter des données Docker sur les conteneurs. Au bout de 15 minutes environ, la solution doit s’afficher avec les statistiques et journaux entrants, comme illustré ci-après.
+3. Créez la solution dans l’espace de travail qui a été créé pour le cluster. Après cette modification, l’agent se met à collecter des données Docker sur les conteneurs. Au bout de 15 minutes environ, la solution doit s’afficher avec les statistiques et journaux d’activité entrants, comme illustré ci-après.
 
     ![Tableau de bord Log Analytics de base](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
@@ -48,7 +48,7 @@ L’agent permet de collecter plusieurs journaux spécifiques aux conteneurs qui
 
 * ContainerInventory : affiche des informations sur les images, le nom et l’emplacement du conteneur
 * ContainerImageInventory : informations sur les images déployées, ID ou tailles compris
-* ContainerLog : journaux d’erreurs spécifiques, journaux de docker (stdout, etc.) et autres entrées
+* ContainerLog : journaux d’activité d’erreurs spécifiques, journaux d’activité de docker (stdout, etc.) et autres entrées
 * ContainerServiceLog : les commandes de démon docker qui ont été exécutées
 * Performances : les compteurs de performances, dont l’utilisation par le conteneur du processeur, de la mémoire, du E/S de disque, du trafic réseau et de mesures personnalisées à partir des machines hôtes
 

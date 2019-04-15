@@ -1026,7 +1026,7 @@ Utilisez la fonction [NormalizeDiacritics](../manage-apps/functions-for-customiz
 
 ## <a name="troubleshooting-tips"></a>Conseils de dépannage
 
-Cette section fournit des conseils spécifiques pour résoudre les problèmes d'approvisionnement liés à votre intégration Workday à l'aide des journaux d'audit Azure AD et des journaux de l'observateur d'événements Windows Server. Elle s'appuie sur les étapes génériques de résolution des problèmes ainsi que sur les concepts présentés dans le [Didacticiel : Création de rapports sur l'approvisionnement automatique de comptes d'utilisateur](../manage-apps/check-status-user-account-provisioning.md)
+Cette section fournit des conseils spécifiques pour résoudre les problèmes d’approvisionnement liés à votre intégration Workday à l’aide des journaux d’activité d’audit Azure AD et des journaux d’activité de l’observateur d’événements Windows Server. Elle s'appuie sur les étapes génériques de résolution des problèmes ainsi que sur les concepts présentés dans le [Didacticiel : Création de rapports sur l'approvisionnement automatique de comptes d'utilisateur](../manage-apps/check-status-user-account-provisioning.md)
 
 Cette section couvre les aspects suivants de la résolution de problèmes :
 
@@ -1047,10 +1047,10 @@ Cette section couvre les aspects suivants de la résolution de problèmes :
 
 * Cliquez sur **OK** et classez la vue des résultats par colonne **Date et heure**.
 
-### <a name="setting-up-azure-portal-audit-logs-for-service-troubleshooting"></a>Configuration des journaux d'audit du portail Azure pour résoudre les problèmes de service
+### <a name="setting-up-azure-portal-audit-logs-for-service-troubleshooting"></a>Configuration des journaux d’activité d’audit du portail Azure pour résoudre les problèmes de service
 
-* Lancez le [Portail Azure](https://portal.azure.com) et accédez à la section **Journaux d'audit** de votre application d'approvisionnement Workday.
-* Utilisez le bouton **Colonnes** de la page Journaux d'audit pour n'afficher que les colonnes suivantes (Date, Activité, Statut, Raison du statut). Cette configuration vous permet de vous concentrer uniquement sur les données à prendre en compte pour la résolution des problèmes.
+* Lancez le [Portail Azure](https://portal.azure.com) et accédez à la section **Journaux d’audit** de votre application d’approvisionnement Workday.
+* Utilisez le bouton **Colonnes** de la page Journaux d’audit pour n’afficher que les colonnes suivantes (Date, Activité, Statut, Raison du statut). Cette configuration vous permet de vous concentrer uniquement sur les données à prendre en compte pour la résolution des problèmes.
 
   ![Colonnes du journal d'audit](media/workday-inbound-tutorial/wd_audit_logs_00.png)
 
@@ -1060,7 +1060,7 @@ Cette section couvre les aspects suivants de la résolution de problèmes :
 
   ![Filtres du journal d'audit](media/workday-inbound-tutorial/wd_audit_logs_01.png)
 
-### <a name="understanding-logs-for-ad-user-account-create-operations"></a>Familiarisation avec les journaux pour les opérations de création de compte d'utilisateur AD
+### <a name="understanding-logs-for-ad-user-account-create-operations"></a>Familiarisation avec les journaux d’activité pour les opérations de création de compte d’utilisateur AD
 
 Lorsqu'un nouvel employé est détecté dans Workday (par exemple, avec l'ID employé *21023*), le service d'approvisionnement d'Azure AD tente de créer un nouveau compte d'utilisateur AD pour l'employé et crée 4 enregistrements de journal d'audit, comme illustré ci-dessous :
 
@@ -1085,7 +1085,7 @@ Lorsque vous cliquez sur l'un des enregistrements du journal d'audit, la page **
   JoiningProperty : 21023 // Value of the Workday attribute that serves as the Matching ID
   ```
 
-  Pour rechercher les enregistrements du journal de l'agent d'approvisionnement correspondant à cette opération d'importation AD, ouvrez les journaux de l'observateur d'événements Windows et utilisez l'option de menu **Rechercher...** afin de rechercher les entrées de journal contenant la valeur de l'attribut ID correspondant/Propriété de jonction (dans ce cas, *21023*).
+  Pour rechercher les enregistrements du journal de l’agent d’approvisionnement correspondant à cette opération d’importation AD, ouvrez les journaux d’activité de l’observateur d’événements Windows et utilisez l’option de menu **Rechercher...** afin de rechercher les entrées de journal contenant la valeur de l'attribut ID correspondant/Propriété de jonction (dans ce cas, *21023*).
 
   ![Rechercher](media/workday-inbound-tutorial/wd_event_viewer_02.png)
 
@@ -1118,7 +1118,7 @@ Lorsque vous cliquez sur l'un des enregistrements du journal d'audit, la page **
   TargetAnchor : 83f0156c-3222-407e-939c-56677831d525 // set to the value of the AD "objectGuid" attribute of the new user
   ```
 
-  Pour rechercher les enregistrements du journal de l'agent d'approvisionnement correspondant à cette opération d'exportation AD, ouvrez les journaux de l'observateur d'événements Windows et utilisez l'option de menu **Rechercher...** afin de rechercher les entrées de journal contenant la valeur de l'attribut ID correspondant/Propriété de jonction (dans ce cas, *21023*).  
+  Pour rechercher les enregistrements du journal de l’agent d’approvisionnement correspondant à cette opération d’exportation AD, ouvrez les journaux d’activité de l’observateur d’événements Windows et utilisez l’option de menu **Rechercher...** afin de rechercher les entrées de journal contenant la valeur de l'attribut ID correspondant/Propriété de jonction (dans ce cas, *21023*).  
 
   Recherchez un enregistrement HTTP POST correspondant à l'horodatage de l'opération d'exportation contenant *Event ID = 2*. Cet enregistrement contiendra les valeurs d'attribut envoyées par le service d'approvisionnement à l'agent d'approvisionnement.
 
@@ -1128,9 +1128,9 @@ Lorsque vous cliquez sur l'un des enregistrements du journal d'audit, la page **
 
   [![SCIM Add](media/workday-inbound-tutorial/wd_event_viewer_06.png)](media/workday-inbound-tutorial/wd_event_viewer_06.png#lightbox)
 
-### <a name="understanding-logs-for-manager-update-operations"></a>Familiarisation avec les journaux pour les opérations de mise à jour de l'attribut manager
+### <a name="understanding-logs-for-manager-update-operations"></a>Familiarisation avec les journaux d’activité pour les opérations de mise à jour de l’attribut manager
 
-L'attribut manager est un attribut de référence dans AD. Le service d'approvisionnement ne définit pas l'attribut manager dans le cadre de l'opération de création de l'utilisateur. L'attribut manager est plutôt défini dans le cadre d'une opération de *mise à jour* après la création du compte AD de l'utilisateur. Dans le prolongement de l'exemple précédent, supposons qu'un nouvel employé doté de l'ID employé « 21451 » soit activé dans Workday et que son manager (*21023*) dispose déjà d'un compte AD. Dans ce scénario, la recherche dans les journaux d'audit de l'utilisateur 21451 affiche 5 entrées.
+L'attribut manager est un attribut de référence dans AD. Le service d'approvisionnement ne définit pas l'attribut manager dans le cadre de l'opération de création de l'utilisateur. L'attribut manager est plutôt défini dans le cadre d'une opération de *mise à jour* après la création du compte AD de l'utilisateur. Dans le prolongement de l'exemple précédent, supposons qu'un nouvel employé doté de l'ID employé « 21451 » soit activé dans Workday et que son manager (*21023*) dispose déjà d'un compte AD. Dans ce scénario, la recherche dans les journaux d’audit de l’utilisateur 21451 affiche 5 entrées.
 
   [![Mise à jour Manager](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
@@ -1181,16 +1181,16 @@ Si le service d'approvisionnement ne parvient pas à se connecter à Workday ou 
 
 |#|Scénario d'erreur |Causes probables|Résolution recommandée|
 |--|---|---|---|
-|1.| Échec de l'opération d'exportation dans le journal d'audit avec le message *Erreur : OperationsError-SvcErr : Une erreur de fonctionnement s'est produite. Aucun renvoi supérieur n'a été configuré pour le service d'annuaire. Le service d'annuaire n'est donc pas en mesure d'émettre des renvois vers des objets situés en dehors de cette forêt.* | Cette erreur apparaît généralement lorsque l'unité d'organisation *Conteneur Active Directory* n'est pas correctement configurée ou en cas de problèmes liés au mappage d'expression utilisé pour *parentDistinguishedName*. | Vérifiez l'absence de fautes de frappe dans le paramètre de l'unité d'organisation *Conteneur Active Directory*. Si vous utilisez *parentDistinguishedName* dans le mappage d'attributs, assurez-vous qu'il correspond toujours à un conteneur connu du domaine AD. Consultez l'événement *Export* dans les journaux d'audit pour connaître la valeur générée. |
-|2.| Échec de l'opération d'exportation dans le journal d'audit avec le code d'erreur : *SystemForCrossDomainIdentityManagementBadResponse* et le message *Erreur : ConstraintViolation-AtrErr : Une valeur de la demande n'est pas valide. Une valeur de l'attribut se trouvait en dehors de la plage acceptable. \Détails de l'erreur : CONSTRAINT_ATT_TYPE - company*. | Bien que cette erreur soit spécifique à l'attribut *company*, vous pouvez également la rencontrer pour d'autres attributs tels que *CN*. Cette erreur apparaît en raison de la contrainte de schéma imposée par AD. Par défaut, les attributs AD tels que *company* et *CN* sont limités à 64 caractères. Si la valeur provenant de Workday comporte plus de 64 caractères, ce message d'erreur s'affiche. | Consultez l'événement *Export* dans les journaux d'audit pour connaître la valeur de l'attribut signalé dans le message d'erreur. Vous pouvez tronquer la valeur provenant de Workday à l'aide de la fonction [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) ou remplacer les mappages par un attribut AD qui ne comporte pas de contraintes de longueur similaires.  |
+|1.| Échec de l'opération d'exportation dans le journal d'audit avec le message *Erreur : OperationsError-SvcErr : Une erreur de fonctionnement s'est produite. Aucun renvoi supérieur n'a été configuré pour le service d'annuaire. Le service d'annuaire n'est donc pas en mesure d'émettre des renvois vers des objets situés en dehors de cette forêt.* | Cette erreur apparaît généralement lorsque l'unité d'organisation *Conteneur Active Directory* n'est pas correctement configurée ou en cas de problèmes liés au mappage d'expression utilisé pour *parentDistinguishedName*. | Vérifiez l'absence de fautes de frappe dans le paramètre de l'unité d'organisation *Conteneur Active Directory*. Si vous utilisez *parentDistinguishedName* dans le mappage d'attributs, assurez-vous qu'il correspond toujours à un conteneur connu du domaine AD. Consultez l’événement *Export* dans les journaux d’audit pour connaître la valeur générée. |
+|2.| Échec de l'opération d'exportation dans le journal d'audit avec le code d'erreur : *SystemForCrossDomainIdentityManagementBadResponse* et le message *Erreur : ConstraintViolation-AtrErr : Une valeur de la demande n'est pas valide. Une valeur de l'attribut se trouvait en dehors de la plage acceptable. \Détails de l'erreur : CONSTRAINT_ATT_TYPE - company*. | Bien que cette erreur soit spécifique à l'attribut *company*, vous pouvez également la rencontrer pour d'autres attributs tels que *CN*. Cette erreur apparaît en raison de la contrainte de schéma imposée par AD. Par défaut, les attributs AD tels que *company* et *CN* sont limités à 64 caractères. Si la valeur provenant de Workday comporte plus de 64 caractères, ce message d'erreur s'affiche. | Consultez l’événement *Export* dans les journaux d’audit pour connaître la valeur de l’attribut signalé dans le message d’erreur. Vous pouvez tronquer la valeur provenant de Workday à l'aide de la fonction [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) ou remplacer les mappages par un attribut AD qui ne comporte pas de contraintes de longueur similaires.  |
 
 #### <a name="ad-user-account-update-errors"></a>Erreurs liées à la mise à jour de comptes d'utilisateur AD
 
-Pendant le processus de mise à jour du compte d'utilisateur AD, le service d'approvisionnement lit les informations de Workday et d'AD, exécute les règles de mappage des attributs et détermine si des modifications doivent être appliquées. En conséquence, un événement de mise à jour est déclenché. Si l'une de ces étapes se solde par un échec, celui-ci est consigné dans les journaux d'audit. Utilisez le tableau ci-dessous pour résoudre les erreurs de mise à jour courantes.
+Pendant le processus de mise à jour du compte d'utilisateur AD, le service d'approvisionnement lit les informations de Workday et d'AD, exécute les règles de mappage des attributs et détermine si des modifications doivent être appliquées. En conséquence, un événement de mise à jour est déclenché. Si l’une de ces étapes se solde par un échec, celui-ci est consigné dans les journaux d’audit. Utilisez le tableau ci-dessous pour résoudre les erreurs de mise à jour courantes.
 
 |#|Scénario d'erreur |Causes probables|Résolution recommandée|
 |--|---|---|---|
-|1.| Échec de l'action de la règle de synchronisation dans le journal d'audit avec le message *EventName = EntrySynchronizationError and ErrorCode = EndpointUnavailable*. | Cette erreur apparaît lorsque le service d'approvisionnement n'est pas en mesure de récupérer les données de profil utilisateur dans Active Directory en raison d'une erreur de traitement rencontrée par l'agent d'approvisionnement local. | Dans les journaux de l'observateur d'événements de l'agent d'approvisionnement, recherchez les événements d'erreur révélant des problèmes liés à l'opération de lecture (appliquez le filtre suivant : Event ID #2). |
+|1.| Échec de l'action de la règle de synchronisation dans le journal d'audit avec le message *EventName = EntrySynchronizationError and ErrorCode = EndpointUnavailable*. | Cette erreur apparaît lorsque le service d'approvisionnement n'est pas en mesure de récupérer les données de profil utilisateur dans Active Directory en raison d'une erreur de traitement rencontrée par l'agent d'approvisionnement local. | Dans les journaux d’activité de l’observateur d’événements de l’agent d’approvisionnement, recherchez les événements d’erreur révélant des problèmes liés à l’opération de lecture (appliquez le filtre suivant : Event ID #2). |
 |2.| L'attribut manager d'AD n'est pas mis à jour pour certains utilisateurs d'AD. | La cause la plus probable de cette erreur est que vous utilisez des règles d'étendue et que le manager de l'utilisateur ne fait pas partie de l'étendue. Vous pouvez également rencontrer ce problème si l'attribut ID correspondant du manager (par exemple, EmployeeID) est introuvable dans le domaine AD cible ou s'il n'est pas défini sur la valeur qui convient. | Vérifiez le filtre d'étendue et ajoutez l'utilisateur manager dans l'étendue. Vérifiez le profil du manager dans AD pour vous assurer qu'il existe une valeur pour l'attribut ID correspondant. |
 
 ## <a name="managing-your-configuration"></a>Gestion de votre configuration
@@ -1384,7 +1384,7 @@ Cliquez sur le bouton « Exécuter la requête » pour importer le nouveau sch
 
 ## <a name="managing-personal-data"></a>Gestion des données personnelles
 
-La solution d'approvisionnement Workday pour Active Directory nécessite l'installation d'un agent d'approvisionnement sur un serveur Windows local. Cet agent crée dans le journal des événements Windows des journaux qui peuvent contenir des données personnelles, en fonction de vos mappages d'attributs Workday avec AD. Pour respecter les obligations de confidentialité de l'utilisateur, vous pouvez veiller à ce qu'aucune donnée ne soit conservée plus de 48 heures dans les journaux des événements en configurant une tâche planifiée Windows pour effacer le journal des événements.
+La solution d’approvisionnement Workday pour Active Directory nécessite l’installation d’un agent d’approvisionnement sur un serveur Windows local. Cet agent crée dans le journal des événements Windows des journaux d’activité qui peuvent contenir des données personnelles, en fonction de vos mappages d’attributs Workday avec AD. Pour respecter les obligations de confidentialité de l’utilisateur, vous pouvez veiller à ce qu’aucune donnée ne soit conservée plus de 48 heures dans les journaux des événements en configurant une tâche planifiée Windows pour effacer le journal des événements.
 
 Dans la classification du RGPD, le service d'approvisionnement Azure AD appartient à la catégorie **Processeur de données**. En tant que pipeline de processeur de données, le service fournit un traitement des données pour les partenaires et les clients. Le service d'approvisionnement Azure AD ne génère pas de données utilisateur et n'a aucun contrôle indépendant sur les données personnelles qui sont collectées, ni sur la façon dont elles sont utilisées. Dans le service d'approvisionnement Azure AD, l'extraction, l'agrégation et l'analyse de données, ainsi que la création de rapports contenant ces données, sont basées sur des données d'entreprise existantes.
 

@@ -20,7 +20,7 @@ ms.lasthandoff: 04/08/2019
 ms.locfileid: "59259029"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Affichage et analyse de données de journal dans Azure Monitor
-Log Analytics est la principale expérience d'utilisation de données de journal et de création de requêtes dans Azure Monitor. Ouvrez Log Analytics à partir de **Journaux** dans le menu **Azure Monitor**. Vous pouvez obtenir une introduction à ce portail et inspecter ses fonctionnalités dans la section [Prise en main de Log Analytics dans le portail Azure](get-started-portal.md).
+Log Analytics est la principale expérience d'utilisation de données de journal et de création de requêtes dans Azure Monitor. Ouvrez Log Analytics à partir de **Journaux d’activité** dans le menu **Azure Monitor**. Vous pouvez obtenir une introduction à ce portail et inspecter ses fonctionnalités dans la section [Prise en main de Log Analytics dans le portail Azure](get-started-portal.md).
 
 Log Analytics offre les fonctionnalités d'utilisation de requêtes de journal suivantes.
 
@@ -39,7 +39,7 @@ Log Analytics offre les fonctionnalités d'utilisation de requêtes de journal s
 
 ![Log Analytics](media/portals/log-analytics.png)
 
-## <a name="resource-logs"></a>Journaux de ressources
+## <a name="resource-logs"></a>Journaux d’activité de ressources
 Log Analytics s’intègre à différentes ressources Azure, comme les machines virtuelles. Cela signifie que vous pouvez ouvrir Log Analytics directement via le menu de surveillance de la ressource, sans passer par Azure Monitor (en perdant alors le contexte de la ressource). L’option **Journaux** n’a pas encore été activée pour toutes les ressources Azure, mais elle commence à apparaître dans le menu du portail pour plusieurs types de ressource.
 
 Lorsque Log Analytics est ouvert à partir d’une ressource spécifique, il est automatiquement étendu pour journaliser les enregistrements de cette ressource uniquement.   Si vous voulez écrire une requête incluant d’autres enregistrements, vous devrez l’ouvrir à partir du menu d’Azure Monitor.

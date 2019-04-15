@@ -108,7 +108,7 @@ Le graphique suivant montre la liste des rôles, ainsi que les actions prises en
 
 Les rôles RBAC personnalisés ne sont pas pris en charge par les groupes d’administration. Pour connaître le statut de cette prise en charge, consultez le [forum de commentaires des groupes d’administration](https://aka.ms/mgfeedback).
 
-## <a name="audit-management-groups-using-activity-logs"></a>Auditer des groupes d’administration avec des journaux d’activité
+## <a name="audit-management-groups-using-activity-logs"></a>Auditer les groupes d’administration à l’aide des journaux d’activité
 
 Les groupes d’administration sont pris en charge dans le [journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md). Vous pouvez rechercher dans tous les événements qui se produisent dans un groupe d’administration au même emplacement central, tout comme d’autres ressources Azure.  Par exemple, vous pouvez voir tous les changements d’attributions de rôles ou de stratégie apportés à un groupe d’administration spécifique.
 

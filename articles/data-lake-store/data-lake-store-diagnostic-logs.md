@@ -20,7 +20,7 @@ ms.lasthandoff: 04/03/2019
 ms.locfileid: "58877956"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Accès aux journaux de diagnostic d’Azure Data Lake Storage Gen1
-Découvrez comment activer la journalisation des diagnostics pour votre compte Azure Data Lake Storage Gen1 et comment afficher les journaux collectés pour votre compte.
+Découvrez comment activer la journalisation des diagnostics pour votre compte Azure Data Lake Storage Gen1 et comment afficher les journaux d’activité collectés pour votre compte.
 
 Les organisations peuvent activer la journalisation de diagnostic pour leur compte Azure Data Lake Storage Gen1 afin de collecter des pistes d’audit d’accès aux données qui fournissent des informations telles que la liste des utilisateurs qui accèdent aux données, la fréquence à laquelle les données sont consultées, la quantité de données stockée sur le compte, etc. Quand cette fonctionnalité est activée, les diagnostics et/ou les demandes sont enregistrés sur la base du meilleur effort. Les entrées de journal des demandes et des diagnostics sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service.
 
@@ -42,17 +42,17 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
    * Dans le champ **Nom**, entrez une valeur pour la configuration du journal de diagnostic.
    * Vous pouvez choisir de stocker/traiter les données de manières différentes.
      
-        * Sélectionnez l’option **Archive to a storage account (Archiver dans un compte de stockage)** pour stocker les journaux dans un compte de stockage Azure. Utilisez cette option si vous souhaitez archiver les données qui seront traitées par lots à une date ultérieure. Si vous sélectionnez cette option, vous devez fournir un compte de stockage Azure sur lequel enregistrer les journaux.
+        * Sélectionnez l’option **Archive to a storage account (Archiver dans un compte de stockage)** pour stocker les journaux d’activité dans un compte de stockage Azure. Utilisez cette option si vous souhaitez archiver les données qui seront traitées par lots à une date ultérieure. Si vous sélectionnez cette option, vous devez fournir un compte de stockage Azure sur lequel enregistrer les journaux d’activité.
         
-        * Sélectionnez l’option **Stream to an event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Vous allez probablement utiliser cette option si vous disposez d’un pipeline de traitement en aval pour analyser les journaux entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
+        * Sélectionnez l’option **Stream to an event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Vous allez probablement utiliser cette option si vous disposez d’un pipeline de traitement en aval pour analyser les journaux d’activité entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
 
         * Sélectionnez l’option **envoyer à Log Analytique** à utiliser le service Azure Monitor pour analyser les données de journal généré. Si vous sélectionnez cette option, vous devez fournir des informations détaillées concernant l’espace de travail Log Analytics que vous allez utiliser pour analyser le journal d’activité. Consultez [afficher ou analyser les données collectées avec la recherche de journaux Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) pour plus d’informations sur l’utilisation d’Azure Monitor enregistre.
      
-   * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux de demande ou les deux.
+   * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux d’activité de demande ou les deux.
    * Spécifiez le nombre de jours pendant lesquels les données doivent être conservées. La rétention ne s’applique que si vous utilisez un compte de stockage Azure pour archiver les données du journal.
    * Cliquez sur **Enregistrer**.
 
-Une fois que vous avez activé les paramètres de diagnostic, vous pouvez consulter les journaux dans l’onglet **Journaux de diagnostic** .
+Une fois que vous avez activé les paramètres de diagnostic, vous pouvez consulter les journaux d’activité dans l’onglet **Journaux de diagnostic** .
 
 ## <a name="view-diagnostic-logs-for-your-data-lake-storage-gen1-account"></a>Afficher les journaux de diagnostic de votre compte Azure Data Lake Storage Gen1
 Il existe deux manières d’afficher les données de journal de votre compte Data Lake Storage Gen1.
@@ -64,11 +64,11 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
 1. Dans le panneau **Paramètres** de votre compte Azure Data Lake Storage Gen1, cliquez sur **Journaux de diagnostic**.
    
     ![Afficher les journaux de diagnostic](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Afficher les journaux de diagnostic") 
-2. Dans le panneau **Journaux de diagnostic**, vous devez voir les journaux classés par **journaux d’audit** et **journaux de requête**.
+2. Dans le panneau **Journaux de diagnostic**, vous devez voir les journaux d’activité classés par **journaux d’activité d’audit** et **journaux d’activité de requête**.
    
-   * Les journaux de requête capturent chaque demande d’API effectuée sur le compte Azure Data Lake Storage Gen1.
-   * Les journaux d’audit sont similaires aux journaux de requête, mais ils fournissent une analyse beaucoup plus détaillée des opérations effectuées sur le compte Data Lake Storage Gen1. Par exemple, un simple appel d’API de chargement dans les journaux de demande peut entraîner plusieurs opérations « Ajouter » dans les journaux d’audit.
-3. Pour télécharger les journaux, cliquez sur le lien **Télécharger** en regard de chaque entrée de journal.
+   * Les journaux d’activité de requête capturent chaque demande d’API effectuée sur le compte Azure Data Lake Storage Gen1.
+   * Les journaux d’activité d’audit sont similaires aux journaux d’activité de requête, mais ils fournissent une analyse beaucoup plus détaillée des opérations effectuées sur le compte Data Lake Storage Gen1. Par exemple, un simple appel d’API de chargement dans les journaux d’activité de demande peut entraîner plusieurs opérations « Ajouter » dans les journaux d’audit.
+3. Pour télécharger les journaux d’activité, cliquez sur le lien **Télécharger** en regard de chaque entrée de journal d’activité.
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>À partir du compte de Stockage Azure qui contient des données de journal
 1. Ouvrez le panneau du compte de Stockage Azure associé au Data Lake Storage Gen1 pour la journalisation, puis cliquez sur Objets blob. Le panneau **Service Blob** répertorie deux conteneurs.
@@ -76,8 +76,8 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
     ![Afficher la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Afficher les journaux de diagnostic")
    
    * Le conteneur **insights-logs-audit** contient les journaux d’audit.
-   * Le conteneur **insights-logs-requests** contient les journaux de demande.
-2. Les journaux sont stockés dans ces conteneurs selon la structure suivante.
+   * Le conteneur **insights-logs-requests** contient les journaux d’activité de demande.
+2. Les journaux d’activité sont stockés dans ces conteneurs selon la structure suivante.
    
     ![Afficher la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Afficher les journaux de diagnostic")
    
@@ -86,9 +86,9 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
     De même, le chemin d’accès complet à un journal de demande peut être `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## <a name="understand-the-structure-of-the-log-data"></a>Comprendre la structure des données de journal
-Les journaux d’audit et de demande sont au format JSON. Dans cette section, nous examinons la structure JSON des journaux de demande et d’audit.
+Les journaux d’activité d’audit et de demande sont au format JSON. Dans cette section, nous examinons la structure JSON des journaux d’activité de demande et d’audit.
 
-### <a name="request-logs"></a>journaux de demande
+### <a name="request-logs"></a>journaux d’activité de demande
 Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque objet blob a un objet racine appelé **enregistrements** qui contient un tableau d’objets du journal.
 
     {

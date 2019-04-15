@@ -27,7 +27,7 @@ Une fois la journalisation du conteneur activée, exécutez la commande suivante
 az webapp log tail --name <app-name> --resource-group myResourceGroup
 ```
 
-Si vous ne voyez pas les journaux de la console, attendez 30 secondes et vérifiez à nouveau.
+Si vous ne voyez pas les journaux d’activité de la console, attendez 30 secondes et vérifiez à nouveau.
 
 > [!NOTE]
 > Vous pouvez également inspecter les fichiers journaux à partir du navigateur à `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.

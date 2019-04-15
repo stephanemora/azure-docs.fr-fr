@@ -19,7 +19,7 @@ ms.locfileid: "57997660"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Activer des abonnements et des comptes Azure avec Cloudyn
 
-L’ajout ou la mise à jour de vos informations d’identification Azure Resource Manager permet à Cloudyn de découvrir tous les comptes et abonnements au sein de votre locataire Azure. De plus, si l’extension Azure Diagnostics est activée sur vos machines virtuelles, Cloudyn peut collecter les métriques étendues telles que l’utilisation du processeur et de la mémoire. Cet article explique comment activer l’accès à l’aide des API Azure Resource Manager pour les comptes nouveaux et existants. Il indique également comment et résoudre les problèmes de compte courants.
+L’ajout ou la mise à jour de vos informations d’identification Azure Resource Manager permet à Cloudyn de découvrir tous les comptes et abonnements au sein de votre locataire Azure. De plus, si l’extension Diagnostics Azure est activée sur vos machines virtuelles, Cloudyn peut collecter les métriques étendues telles que l’utilisation du processeur et de la mémoire. Cet article explique comment activer l’accès à l’aide des API Azure Resource Manager pour les comptes nouveaux et existants. Il indique également comment et résoudre les problèmes de compte courants.
 
 Cloudyn ne peut pas accéder à la plupart des données de votre abonnement Azure quand celui-ci _n’est pas activé_. Vous devez modifier les comptes _non activés_ afin que Cloudyn puisse y accéder.
 

@@ -48,11 +48,11 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-is-query"></a>sfctl is query
 Appelle une requête en lecture seule dans l’instance de service d’infrastructure donnée.
@@ -71,11 +71,11 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

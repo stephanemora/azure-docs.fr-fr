@@ -284,7 +284,7 @@ Il existe trois façons de surveiller la progression du chiffrement du système 
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
-  Nous vous déconseillons de vous connecter à la machine virtuelle lorsque le chiffrement du système d’exploitation est en cours. Copiez les journaux uniquement lorsque les deux autres méthodes ont échoué.
+  Nous vous déconseillons de vous connecter à la machine virtuelle lorsque le chiffrement du système d’exploitation est en cours. Copiez les journaux d’activité uniquement lorsque les deux autres méthodes ont échoué.
 
 ## <a name="bkmk_preLinux"></a> Préparer un disque dur virtuel Linux préchiffré
 La préparation des disques durs virtuels préchiffrés peut varier en fonction de la distribution. Des exemples sur la préparation de [Ubuntu 16](#bkmk_Ubuntu), [openSUSE 13.2](#bkmk_openSUSE) et [CentOS 7](#bkmk_CentOS) sont disponibles. 

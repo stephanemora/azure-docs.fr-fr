@@ -23,7 +23,7 @@ ms.locfileid: "58878522"
 Découvrez comment utiliser Apache Sqoop pour importer et exporter des données entre Azure SQL Database et Azure Data Lake Storage Gen1.
 
 ## <a name="what-is-sqoop"></a>Qu'est-ce que Sqoop ?
-Les applications Big Data sont un choix naturel pour le traitement des données non structurées et semi-structurées, telles que les journaux et les fichiers. Toutefois, il peut également être nécessaire de traiter des données structurées stockées dans des bases de données relationnelles.
+Les applications Big Data sont un choix naturel pour le traitement des données non structurées et semi-structurées, telles que les journaux d’activité et les fichiers. Toutefois, il peut également être nécessaire de traiter des données structurées stockées dans des bases de données relationnelles.
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) est un outil conçu pour transférer des données entre des bases de données relationnelles et un référentiel Big Data, par exemple Azure Data Lake Storage Gen1. Vous pouvez l’utiliser pour importer des données à partir d’un système de gestion de base de données relationnelle (SGBDR), comme Azure SQL Database, dans Azure Data Lake Storage Gen1. Vous pouvez ensuite transformer et analyser les données à l’aide de charges de travail Big Data, puis exporter les données dans un SGBDR. Dans ce didacticiel, vous utilisez une base de données SQL Azure comme base de données relationnelle pour les opérations d’importation et d’exportation.
 

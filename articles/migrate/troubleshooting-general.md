@@ -284,11 +284,11 @@ Impossible de déterminer l'adéquation pour un ou plusieurs disques en raison d
 Impossible de déterminer l'adéquation pour un ou plusieurs adaptateurs réseau en raison d'une erreur interne | Essayez de créer une nouvelle évaluation pour le groupe.
 
 
-## <a name="collect-logs"></a>Collecter les journaux
+## <a name="collect-logs"></a>Collecter les journaux d’activité
 
 **Comment collecter des journaux sur la machine virtuelle du collecteur ?**
 
-La journalisation est activée par défaut. Les journaux se trouvent dans les emplacements suivants :
+La journalisation est activée par défaut. Les journaux d’activité se trouvent dans les emplacements suivants :
 
 - C:\Profiler\ProfilerEngineDB.sqlite
 - C:\Profiler\Service.log
@@ -308,7 +308,7 @@ Pour collecter le suivi d'événements pour Windows, procédez comme suit :
    - Dans Microsoft Edge/Internet Explorer, l'enregistrement devrait commencer automatiquement. Si ce n'est pas le cas, cliquez sur le bouton de lecture vert.
 4. Essayez de reproduire l'erreur.
 5. Après avoir rencontré l'erreur pendant l'enregistrement, arrêtez l'enregistrement et enregistrez une copie de l'activité enregistrée :
-   - Dans Chrome, cliquez avec le bouton droit et sélectionnez **Enregistrer comme HAR avec du contenu**. Cette opération compresse et exporte les journaux en tant que fichier .har.
+   - Dans Chrome, cliquez avec le bouton droit et sélectionnez **Enregistrer comme HAR avec du contenu**. Cette opération compresse et exporte les journaux d’activité en tant que fichier .har.
    - Dans Microsoft Edge/Internet Explorer, cliquez sur l'icône **Exporter le trafic capturé**. Cette opération compresse et exporte les journaux.
 6. Accédez à l'onglet **Console** pour vérifier la présence d'avertissements ou d'erreurs. Pour enregistrer le journal de la console :
    - Dans Chrome, cliquez avec le bouton droit n'importe où dans le journal de la console. Sélectionnez **Enregistrer sous** pour exporter et compresser le journal.

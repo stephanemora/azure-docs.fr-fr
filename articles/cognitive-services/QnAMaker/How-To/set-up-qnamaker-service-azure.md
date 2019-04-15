@@ -53,7 +53,7 @@ Cette procédure permet de déployer certaines ressources Azure. Ensemble, ces r
         > [!NOTE]
         > L’emplacement de recherche peut être différent de l’emplacement du site web.
 
-    * Choisissez si vous souhaitez activer **Application Insights** ou non. Si **Application Insights** est activé, QnA Maker collecte les données de télémétrie sur le trafic, les journaux de conversation et les erreurs.
+    * Choisissez si vous souhaitez activer **Application Insights** ou non. Si **Application Insights** est activé, QnA Maker collecte les données de télémétrie sur le trafic, les journaux d’activité de conversation et les erreurs.
     * Choisissez **l’emplacement d’Application Insights** où la ressource Application Insights sera déployée.
     * Pour les mesures d’économies de coût, vous pouvez [partager](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) certains, mais pas toutes les ressources Azure créés pour QnA Maker. 
 

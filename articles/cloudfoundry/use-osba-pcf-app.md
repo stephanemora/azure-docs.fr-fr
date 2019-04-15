@@ -149,7 +149,7 @@ routes:            spring-music-wacky-oribi.app.40.85.111.222.cf.pcfazure.com
 ```
 
 
-Une fois que votre application est déployée, vous pouvez consulter ses journaux pour voir l’URL de connexion qu’elle utilise. La commande ci-dessous affiche les journaux de l’application et utilise `grep` pour rechercher la configuration *jdbcUrl*.
+Une fois que votre application est déployée, vous pouvez consulter ses journaux d’activité pour voir l’URL de connexion qu’elle utilise. La commande ci-dessous affiche les journaux d’activité de l’application et utilise `grep` pour rechercher la configuration *jdbcUrl*.
 
 ```cmd
 cf logs spring-music --recent | grep jdbcUrl
@@ -217,7 +217,7 @@ L’application est [configurée pour utiliser Spring Cloud Connectors](https://
 
 Une fois que la copie intermédiaire de votre application a été effectuée, elle utilise *mypgsql* pour stocker les données au lieu de la base de données en mémoire.
 
-Toutes les modifications que vous apportez sont désormais persistantes après des redémarrages et des redéploiements. Vous pouvez également voir l’URL de connexion que l’application utilise en reconsultant les journaux de l’application.
+Toutes les modifications que vous apportez sont désormais persistantes après des redémarrages et des redéploiements. Vous pouvez également voir l’URL de connexion que l’application utilise en reconsultant les journaux d’activité de l’application.
 
 ```cmd
 cf logs spring-music --recent | grep jdbcUrl

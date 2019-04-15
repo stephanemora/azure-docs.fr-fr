@@ -1,5 +1,5 @@
 ---
-title: Analyser des journaux de site web avec des bibliothèques Python dans Spark - Azure
+title: Analyser des journaux d’activité de site web avec des bibliothèques Python dans Spark - Azure
 description: Ce bloc-notes montre comment analyser les données de journal à l’aide d’une bibliothèque personnalisée avec Spark sur Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -11,17 +11,17 @@ ms.date: 11/28/2017
 ms.author: hrasheed
 ms.openlocfilehash: f8b479f55ea5ee22ae2510fad6279cac0aaa9c0d
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53608798"
 ---
-# <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analyser des journaux de site web en utilisant une bibliothèque Python personnalisée avec un cluster Apache Spark sur HDInsight
+# <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analyser des journaux d’activité de site web en utilisant une bibliothèque Python personnalisée avec un cluster Apache Spark sur HDInsight
 
 Ce bloc-notes montre comment analyser les données de journal à l'aide d'une bibliothèque personnalisée avec Apache Spark sur HDInsight. La bibliothèque personnalisée que nous utilisons est une bibliothèque Python appelée **iislogparser.py**.
 
 > [!TIP]  
-> Ce didacticiel est également disponible en tant que bloc-notes Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface du bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour effectuer le didacticiel au sein d’un bloc-notes, créez un cluster Spark, lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), puis exécutez le bloc-notes **Analyse des journaux avec Spark à l’aide d’une bibliothèque personnalisée au format .ipynb** sous le dossier **PySpark**.
+> Ce didacticiel est également disponible en tant que bloc-notes Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface du bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour effectuer le didacticiel au sein d’un bloc-notes, créez un cluster Spark, lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), puis exécutez le bloc-notes **Analyse des journaux d’activité avec Spark à l’aide d’une bibliothèque personnalisée au format .ipynb** sous le dossier **PySpark**.
 >
 >
 
@@ -81,7 +81,7 @@ Une fois vos données enregistrées dans une table Apache Hive, nous allons nous
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>Analysez les données de journal à l'aide d'une bibliothèque Python personnalisée
-1. Dans la sortie ci-dessus, les premières lignes comprennent les informations d'en-tête et chaque ligne restante correspond au schéma décrit dans l'en-tête. L’analyse de tels journaux peut s’avérer complexe. Par conséquent, nous utilisons une bibliothèque Python personnalisée (**iislogparser.py**) qui facilite beaucoup l'analyse de tels journaux. Par défaut, cette bibliothèque est incluse avec votre cluster Spark sur HDInsight dans **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
+1. Dans la sortie ci-dessus, les premières lignes comprennent les informations d'en-tête et chaque ligne restante correspond au schéma décrit dans l'en-tête. L’analyse de tels journaux d’activité peut s’avérer complexe. Par conséquent, nous utilisons une bibliothèque Python personnalisée (**iislogparser.py**) qui facilite beaucoup l’analyse de tels journaux d’activité. Par défaut, cette bibliothèque est incluse avec votre cluster Spark sur HDInsight dans **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
 
     Toutefois, cette bibliothèque n'est pas dans le `PYTHONPATH`. Par conséquent, nous ne pouvons pas l'utiliser à l'aide d'une instruction d'importation telle que `import iislogparser`. Pour utiliser cette bibliothèque, nous devons la distribuer à tous les nœuds de travail. Exécutez l'extrait de code suivant.
 
@@ -163,7 +163,7 @@ Une fois vos données enregistrées dans une table Apache Hive, nous allons nous
         (u'/blogposts/sqlvideos/sqlvideos.jpg', 102.0),
         (u'/blogposts/mvcrouting/step21.jpg', 101.0),
         (u'/blogposts/mvc4/step1.png', 98.0)]
-5. Vous pouvez également présenter ces informations sous forme de diagramme. La première étape pour créer un tracé consiste à créer un tableau temporaire **AverageTime**. Le tableau regroupe les journaux par heure pour voir si des pics de latence inhabituels sont survenus à un moment donné.
+5. Vous pouvez également présenter ces informations sous forme de diagramme. La première étape pour créer un tracé consiste à créer un tableau temporaire **AverageTime**. Le tableau regroupe les journaux d’activité par heure pour voir si des pics de latence inhabituels sont survenus à un moment donné.
 
        avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
        schema = StructType([StructField('Minutes', IntegerType(), True),

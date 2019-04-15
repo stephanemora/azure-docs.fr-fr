@@ -12,7 +12,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
 ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54426791"
@@ -97,8 +97,8 @@ Le runbook que vous avez créé est toujours en mode brouillon. Il doit être pu
 1. Une page de travail est ouverte pour le travail du runbook qui a été créé. Vérifiez que **État du travail** est défini sur **Terminé**.
 1. Lorsque le Runbook prend l’état *Terminé*, cliquez sur **Sortie**. La page **Sortie** est ouverte et vous pouvez voir le message *Hello World* affiché dans le volet.
 1. Fermez la page Sortie.
-1. Cliquez sur **Tous les journaux** pour ouvrir la page Flux de la tâche du runbook. Vous devez uniquement voir le message *Hello World* dans le flux de sortie, mais d’autres flux peuvent s’afficher pour un travail de runbook, notamment Mode détaillé et Erreur si le runbook consigne ces informations.
-1. Fermez la page Tous les journaux et la page Tâche pour revenir à la page MyFirstRunbook-Graphical.
+1. Cliquez sur **Tous les journaux d’activité** pour ouvrir la page Flux de la tâche du runbook. Vous devez uniquement voir le message *Hello World* dans le flux de sortie, mais d’autres flux peuvent s’afficher pour un travail de runbook, notamment Mode détaillé et Erreur si le runbook consigne ces informations.
+1. Fermez la page Tous les journaux d’activité et la page Tâche pour revenir à la page MyFirstRunbook-Graphical.
 1. Pour afficher tous les travaux du runbook, fermez la page **Travail** et sélectionnez **Travaux** sous **RESSOURCES**. Il répertorie toutes les tâches créées par ce Runbook. Vous devez voir un seul travail, car vous n’avez exécuté le travail qu’une seule fois.
 1. Vous pouvez cliquer sur ce travail pour ouvrir le même volet du travail que vous avez consulté au démarrage du runbook. Cela vous permet de revenir en arrière et d’afficher les détails de toute tâche créée pour un Runbook donné.
 

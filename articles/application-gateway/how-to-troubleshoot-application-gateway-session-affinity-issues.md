@@ -110,13 +110,13 @@ Activation de la journalisation avec le portail Azure
 
 1. Dans le [Azure portal](https://portal.azure.com/), recherchez votre ressource, puis sur **journaux de Diagnostic**.
 
-   Pour Application Gateway, trois journaux d’audit sont disponibles : Journal d’accès, de journal de performances, de journal du pare-feu
+   Pour Application Gateway, trois journaux d’activité d’audit sont disponibles : Journal d’accès, de journal de performances, de journal du pare-feu
 
 2. Pour commencer à collecter des données, cliquez sur **activer les diagnostics**.
 
    ![troubleshoot-session-affinity-issues-5](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-5.png)
 
-3. Le panneau **Paramètres de diagnostic** contient les paramètres des journaux de diagnostic. Dans cet exemple, Log Analytics stocke les journaux. Cliquez sur **configurer** sous **Analytique de journal** pour définir votre espace de travail. Vous pouvez également utiliser des concentrateurs d’événements et un compte de stockage pour enregistrer les journaux de diagnostic.
+3. Le panneau **Paramètres de diagnostic** contient les paramètres des journaux de diagnostic. Dans cet exemple, Log Analytics stocke les journaux d’activité. Cliquez sur **configurer** sous **Analytique de journal** pour définir votre espace de travail. Vous pouvez également utiliser des concentrateurs d’événements et un compte de stockage pour enregistrer les journaux de diagnostic.
 
    ![troubleshoot-session-affinity-issues-6](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-6.png)
 

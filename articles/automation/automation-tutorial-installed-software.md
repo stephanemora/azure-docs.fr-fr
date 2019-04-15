@@ -29,7 +29,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Intégrer une machine virtuelle Azure
 > * Intégrer une machine virtuelle non-Azure
 > * Afficher les logiciels installés
-> * Rechercher les journaux d’inventaire des logiciels installés
+> * Rechercher les journaux d’activité d’inventaire des logiciels installés
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -61,7 +61,7 @@ L’espace de travail fournit un emplacement unique permettant de consulter et d
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur.
-Une fois la solution activée, des informations sur les logiciels installés et les changements apportés à la machine virtuelle sont envoyées aux journaux Azure Monitor.
+Une fois la solution activée, des informations sur les logiciels installés et les changements apportés à la machine virtuelle sont envoyées aux journaux d’activité Azure Monitor.
 Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
 
 ## <a name="onboard-a-vm"></a>Intégrer une machine virtuelle
@@ -101,9 +101,9 @@ Le filtre vous permet de faire une recherche à partir du nom du logiciel, de la
 
 Par exemple, la recherche de « Contoso » renvoie tous les logiciels dont le nom, l’éditeur ou la version contient « Contoso ».
 
-## <a name="search-inventory-logs-for-installed-software"></a>Rechercher les journaux d’inventaire des logiciels installés
+## <a name="search-inventory-logs-for-installed-software"></a>Rechercher les journaux d’activité d’inventaire des logiciels installés
 
-L’inventaire génère des données de journal qui sont envoyées aux journaux Azure Monitor. Pour rechercher les journaux en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Inventaire**.
+L’inventaire génère des données de journal d’activité qui sont envoyées aux journaux d’activité Azure Monitor. Pour rechercher les journaux d’activité en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Inventaire**.
 
 Les données d’inventaire sont stockées sous le type **ConfigurationData**.
 L’exemple de requête Log Analytics suivant retourne les résultats d’inventaire dans lesquels le serveur de publication est « Microsoft Corporation ».
@@ -115,11 +115,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux Azure Monitor, consultez [Journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux d’activité Azure Monitor, consultez [Journaux d’activité Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="single-machine-inventory"></a>Inventaire d’une machine unique
 
-Pour voir l’inventaire des logiciels d’une seule machine, vous pouvez accéder à l’inventaire à partir de la page de ressources de la machine virtuelle Azure ou utiliser les journaux Azure Monitor pour filtrer la machine correspondante.
+Pour voir l’inventaire des logiciels d’une seule machine, vous pouvez accéder à l’inventaire à partir de la page de ressources de la machine virtuelle Azure ou utiliser les journaux d’activité Azure Monitor pour filtrer la machine correspondante.
 L’exemple suivant de requête Log Analytics retourne la liste des logiciels pour une machine nommée ContosoVM.
 
 ```loganalytics
@@ -140,7 +140,7 @@ Ce didacticiel vous a appris à afficher l’inventaire des logiciels et notamme
 > * Intégrer une machine virtuelle Azure
 > * Intégrer une machine virtuelle non-Azure
 > * Afficher les logiciels installés
-> * Rechercher les journaux d’inventaire des logiciels installés
+> * Rechercher les journaux d’activité d’inventaire des logiciels installés
 
 Passez à la vue d’ensemble de la solution de suivi des modifications et d’inventaire pour en savoir plus.
 

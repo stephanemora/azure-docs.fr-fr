@@ -84,7 +84,7 @@ La tâche de résolution des problèmes effectue les vérifications suivantes :
 
    * Elle vérifie que la fonctionnalité de synchronisation du hachage de mot de passe est activée.
    
-   * Elle recherche les événements de pulsation de synchronisation du hachage de mot de passe dans les Journaux des événements de l’application Windows.
+   * Elle recherche les événements de pulsation de synchronisation de hachage de mot de passe dans les Journaux des événements de l’application Windows.
 
    * Pour chaque domaine Active Directory sous le connecteur Active Directory local :
 

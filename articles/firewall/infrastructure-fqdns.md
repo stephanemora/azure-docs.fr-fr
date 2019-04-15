@@ -9,7 +9,7 @@ ms.date: 9/24/2018
 ms.author: victorh
 ms.openlocfilehash: 1369a82829b2c80768d746ba92daf2482c1fd7f8
 ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46994137"
@@ -22,7 +22,7 @@ Les services suivants sont inclus dans le regroupement de règles intégré :
 
 - Accès Compute au référentiel d’images de la plateforme (PIR) de stockage
 - Accès de stockage de l’état des disques managés
-- Azure Diagnostics et Logging (MDS)
+- Diagnostics Azure et journalisation (MDS)
 - Azure Active Directory
 
 ## <a name="overriding"></a>Remplacement 

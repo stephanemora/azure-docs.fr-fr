@@ -48,11 +48,11 @@ Supprime la ressource de valeur secrète identifiée par le nom. Le nom de la re
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-mesh-secretvalue-list"></a>sfctl mesh secretvalue list
 Répertorie les noms de toutes les valeurs de la ressource secrète spécifiée.
@@ -69,11 +69,11 @@ Récupère des informations sur toutes les ressources de valeur secrète de la r
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-mesh-secretvalue-show"></a>sfctl mesh secretvalue show
 Récupère la valeur d'une version spécifiée d'une ressource secrète.
@@ -90,11 +90,11 @@ Récupère la valeur d'une version spécifiée d'une ressource secrète.
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

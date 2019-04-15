@@ -97,7 +97,7 @@ L’exemple suivant montre Intelligent Insights dans Azure SQL Analytics :
 
 ### <a name="set-up-with-event-hubs"></a>Configurer avec Event Hubs
 
-Pour utiliser Intelligent Insights avec Event Hubs et configurer les données du journal Intelligent Insights afin de les diffuser en continu dans Event Hubs, consultez [Diffuser en continu des journaux de diagnostic Azure à Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
+Pour utiliser Intelligent Insights avec Event Hubs et configurer les données du journal Intelligent Insights afin de les diffuser en continu dans Event Hubs, consultez [Diffuser en continu des journaux de Diagnostics Azure à Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
 
 Pour utiliser Event Hubs afin de personnaliser la supervision et les alertes, consultez [Que faire des journaux d’activité de métriques et diagnostics dans Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 

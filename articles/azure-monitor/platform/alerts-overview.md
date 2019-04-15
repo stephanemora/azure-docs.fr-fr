@@ -10,7 +10,7 @@ ms.author: robb
 ms.subservice: alerts
 ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56003310"
@@ -58,7 +58,7 @@ La **ressource cible** définit l’étendue et les signaux disponibles pour les
 
 ## <a name="what-you-can-alert-on"></a>Sur quoi portent les alertes ?
 
-Vous pouvez définir des alertes sur des métriques et des journaux, comme décrit dans les [sources de données de surveillance](../../azure-monitor/platform/data-sources-reference.md). Ces vérifications portent notamment sur les revendications suivantes :
+Vous pouvez définir des alertes sur des métriques et des journaux d’activité, comme décrit dans les [sources de données de supervision](../../azure-monitor/platform/data-sources-reference.md). Ces vérifications portent notamment sur les revendications suivantes :
 - Valeurs de métrique
 - Requêtes de recherche de journal
 - Événements du journal d'activité

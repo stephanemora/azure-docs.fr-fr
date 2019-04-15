@@ -11,7 +11,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/27/2019
 ms.locfileid: "58505665"
 ---
-### <a name="troubleshoot-azure-diagnostics"></a>Résoudre les problèmes d’Azure Diagnostics
+### <a name="troubleshoot-azure-diagnostics"></a>Résoudre les problèmes de Diagnostics Azure
 
 Si vous recevez le message d’erreur suivant, le fournisseur de ressources Microsoft.insights n’est pas enregistré :
 

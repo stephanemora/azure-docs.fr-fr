@@ -612,7 +612,7 @@ items:
             href: saas-dbpertenant-provision-and-catalog.md
           - name: Surveiller les performances de la base de données
             href: saas-dbpertenant-performance-monitoring.md
-          - name: Superviser avec les journaux Azure Monitor
+          - name: Superviser avec les journaux d’activité Azure Monitor
             href: saas-dbpertenant-log-analytics.md
           - name: Restaurer un client
             href: saas-dbpertenant-restore-single-tenant.md

@@ -17,7 +17,7 @@ ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e92c3b302ab18aaaf20d187d61a488603ce81a7
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56178020"
@@ -32,7 +32,7 @@ Dans cet article, nous passons en revue les cas spécifiques pour chaque platefo
 - **AcquireToken** : Le client peut tenter une acquisition en mode silencieux, mais il peut également effectuer des requêtes interactives nécessitant une connexion.
 
 > [!TIP]
-> Il est judicieux de journaliser toutes les erreurs et exceptions durant l’utilisation d’ADAL et d’Azure AD. Les journaux ne servent pas uniquement à comprendre l’intégrité globale de votre application. Ils sont également importants pour le débogage de problèmes plus larges. Bien que votre application puisse se récupérer de certaines erreurs, ces dernières peuvent cacher des problèmes de conception plus larges qui nécessitent des modifications de code pour être résolus. 
+> Il est judicieux de journaliser toutes les erreurs et exceptions durant l’utilisation d’ADAL et d’Azure AD. Les journaux d’activité ne servent pas uniquement à comprendre l’intégrité globale de votre application. Ils sont également importants pour le débogage de problèmes plus larges. Bien que votre application puisse se récupérer de certaines erreurs, ces dernières peuvent cacher des problèmes de conception plus larges qui nécessitent des modifications de code pour être résolus. 
 > 
 > Durant l’implémentation des conditions d’erreur traitées dans ce document, pensez à journaliser le code d’erreur et la description pour les raisons indiquées précédemment. Pour obtenir des exemples de journalisation de code, consultez [Référence d’erreurs et de journalisation](#error-and-logging-reference). 
 >

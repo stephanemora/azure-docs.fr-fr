@@ -1,6 +1,6 @@
 ---
 title: Collecter les compteurs de performances dans Azure Cloud Services | Microsoft Docs
-description: Découvrez comment découvrir, utiliser et créer des compteurs de performances dans Azure Cloud Services avec Azure Diagnostics et Application Insights.
+description: Découvrez comment découvrir, utiliser et créer des compteurs de performances dans Azure Cloud Services avec Diagnostics Azure et Application Insights.
 services: cloud-services
 documentationcenter: .net
 author: jpconnock
@@ -80,7 +80,7 @@ Ces chemins d’accès de compteurs individuels peuvent être ajoutés à l’in
 
 ## <a name="collect-a-performance-counter"></a>Collecter un compteur de performances
 
-Un compteur de performances peut être ajouté à votre service cloud pour Azure Diagnostics ou Application Insights.
+Un compteur de performances peut être ajouté à votre service cloud pour Diagnostics Azure ou Application Insights.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -105,7 +105,7 @@ Ouvrez le fichier **ApplicationInsights.config** et recherchez l’élément **A
 <!-- ... cut to save space ... -->
 ```
 
-Chaque compteur de performances est représenté en tant qu’élément `<Add>` sous `<Counters>`. L’attribut `PerformanceCounter` définit le compteur de performances à collecter. L’attribut `ReportAs` est le titre à afficher dans le portail Azure pour le compteur de performances. Tout compteur de performances que vous collectez est placé dans une catégorie nommée **Personnalisé** dans le portail. Contrairement à Azure Diagnostics, vous ne pouvez pas définir l’intervalle auquel ces compteurs de performances sont collectés et envoyés à Azure. Avec Application Insights, les compteurs de performances sont collectés et envoyés toutes les minutes. 
+Chaque compteur de performances est représenté en tant qu’élément `<Add>` sous `<Counters>`. L’attribut `PerformanceCounter` définit le compteur de performances à collecter. L’attribut `ReportAs` est le titre à afficher dans le portail Azure pour le compteur de performances. Tout compteur de performances que vous collectez est placé dans une catégorie nommée **Personnalisé** dans le portail. Contrairement à Diagnostics Azure, vous ne pouvez pas définir l’intervalle auquel ces compteurs de performances sont collectés et envoyés à Azure. Avec Application Insights, les compteurs de performances sont collectés et envoyés toutes les minutes. 
 
 Application Insights collecte automatiquement des compteurs de performances suivants :
 
@@ -123,11 +123,11 @@ Pour plus d’informations, voir [Compteurs de performances système dans Applic
 > [!IMPORTANT]
 > Alors que toutes ces données sont regroupées dans le compte de stockage, le portail ne fournit **pas** un moyen natif pour les représenter visuellement. Il est fortement recommandé d’intégrer un autre service tel qu’Application Insights dans votre application.
 
-L’extension Azure Diagnostics pour Microsoft Azure Cloud Services vous permet de que spécifier les compteurs de performances que vous souhaitez collecter. Pour configurer Azure Diagnostics, voir [Vue d’ensemble de la surveillance de service cloud](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
+L’extension Diagnostics Azure pour Cloud Services vous permet de que spécifier les compteurs de performances que vous souhaitez collecter. Pour configurer Diagnostics Azure, voir [Vue d’ensemble de la surveillance de service cloud](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 
 Les compteurs de performances à collecter sont définis dans le fichier **diagnostics.wadcfgx**. Ouvrez ce fichier (il est défini par le rôle) dans Visual Studio, puis recherchez l’élément **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Ajoutez un nouvel élément **PerformanceCounterConfiguration** en tant qu’enfant. Cet élément a deux attributs : `counterSpecifier` et `sampleRate`. L’attribut `counterSpecifier` définit l’ensemble de compteurs de performances système (indiqué dans la section précédente) à collecter. La valeur `sampleRate` indique la fréquence à laquelle cette valeur est interrogée. Dans l’ensemble, tous les compteurs de performances sont transférés vers Azure en fonction de la valeur d’attribut `PerformanceCounters` de l’élément `scheduledTransferPeriod` parent.
 
-Pour plus d’informations sur l’élément de schéma `PerformanceCounters`, voir le [schéma Azure Diagnostics](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element).
+Pour plus d’informations sur l’élément de schéma `PerformanceCounters`, voir le [schéma Diagnostics Azure](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element).
 
 La période définie par l’attribut `sampleRate` utilise le type de données de durée XML pour indiquer la fréquence à laquelle le compteur de performances est interrogé. Dans l’exemple ci-dessous, la fréquence est définie sur `PT3M`, ce qui signifie `[P]eriod[T]ime[3][M]inutes` : toutes les trois minutes.
 
@@ -237,7 +237,7 @@ Lorsque vous souhaitez utiliser le compteur, appelez la méthode `Increment` ou 
 counterServiceUsed.Increment();
 ```
 
-À présent que votre application utilise votre compteur personnalisé, vous devez configurer Azure Diagnostics ou Application Insights pour suivre le compteur.
+À présent que votre application utilise votre compteur personnalisé, vous devez configurer Diagnostics Azure ou Application Insights pour suivre le compteur.
 
 
 ### <a name="application-insights"></a>Application Insights

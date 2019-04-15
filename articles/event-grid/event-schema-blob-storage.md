@@ -9,7 +9,7 @@ ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54469730"
@@ -104,7 +104,7 @@ L’objet de données comporte les propriétés suivantes :
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
 | api | chaîne | Opération qui a déclenché l’événement. |
-| clientRequestId | chaîne | Valeur opaque générée par le client, avec une limite de caractères de 1 Ko. Lorsque vous activez la journalisation Storage Analytics, cette valeur est enregistrée dans les journaux d’analytique. |
+| clientRequestId | chaîne | Valeur opaque générée par le client, avec une limite de caractères de 1 Ko. Lorsque vous activez la journalisation Storage Analytics, cette valeur est enregistrée dans les journaux d’activité d’analytique. |
 | requestId | chaîne | Identificateur unique de la requête. À utiliser pour le dépannage de la requête. |
 | etag | chaîne | Valeur que vous pouvez utiliser pour effectuer des opérations de manière conditionnelle. |
 | contentType | chaîne | Type de contenu spécifié pour l’objet blob. |

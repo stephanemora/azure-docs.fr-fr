@@ -14,7 +14,7 @@ ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54017614"
@@ -118,7 +118,7 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 
 *  Vous pouvez sélectionner la langue/culture utilisée par une passerelle lors de l’installation manuelle.
 
-*  Lorsqu’une passerelle ne fonctionne pas comme prévu, vous pouvez choisir d’envoyer les journaux des sept derniers jours de la passerelle à Microsoft pour faciliter la résolution du problème. Si la passerelle n’est pas connectée au service cloud, vous pouvez choisir d’enregistrer et d’archiver les journaux de la passerelle.  
+*  Lorsqu’une passerelle ne fonctionne pas comme prévu, vous pouvez choisir d’envoyer les journaux d’activité des sept derniers jours de la passerelle à Microsoft pour faciliter la résolution du problème. Si la passerelle n’est pas connectée au service cloud, vous pouvez choisir d’enregistrer et d’archiver les journaux d’activité de la passerelle.  
 
 *  Améliorations de l’interface utilisateur du gestionnaire de configuration de la passerelle :
 

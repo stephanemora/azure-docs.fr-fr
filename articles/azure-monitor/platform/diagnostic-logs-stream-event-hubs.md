@@ -193,7 +193,7 @@ Une liste de tous les fournisseurs de ressources qui prennent en charge la diffu
 
 ## <a name="stream-data-from-compute-resources"></a>Diffusion de données à partir des ressources de calcul
 
-Vous pouvez également diffuser en continu des journaux de diagnostic à partir des ressources de calcul à l’aide de l’agent Windows Azure Diagnostics. [Consultez cet article](../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md) pour découvrir comment configurer cela.
+Vous pouvez également diffuser en continu des journaux de diagnostic à partir des ressources de calcul à l’aide de l’agent Diagnostics Azure pour Windows. [Consultez cet article](../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md) pour découvrir comment configurer cela.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

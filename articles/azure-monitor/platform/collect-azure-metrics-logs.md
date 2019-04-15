@@ -22,7 +22,7 @@ ms.locfileid: "59006269"
 ---
 # <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Collecter les journaux de service Azure et des métriques dans l’espace de travail Analytique de journal dans Azure Monitor
 
-Il existe quatre façons différentes de collecter des journaux et des métriques pour les services Azure :
+Il existe quatre façons différentes de collecter des journaux d’activité et des métriques pour les services Azure :
 
 1. Diagnostics Azure directement dans l’espace de travail Analytique de journal dans Azure Monitor (*Diagnostics* dans le tableau suivant)
 2. Diagnostics Azure vers le stockage Azure pour l’espace de travail Analytique de journal dans Azure Monitor (*stockage* dans le tableau suivant)
@@ -30,7 +30,7 @@ Il existe quatre façons différentes de collecter des journaux et des métrique
 4. Des scripts pour collecter puis publier des données dans l’espace de travail Analytique de journal dans Azure Monitor (vide dans le tableau suivant et pour les services qui ne sont pas répertoriés)
 
 
-| de diffusion en continu                 | Type de ressource                           | Journaux        | Mesures     | Solution |
+| de diffusion en continu                 | Type de ressource                           | Journaux d’activité        | Mesures     | Solution |
 | --- | --- | --- | --- | --- |
 | Passerelles d’application    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Application Gateway Analytics](../insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) |
 | Application Insights    |                                         | Connecteur   | Connecteur   | [Connecteur Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (version préliminaire) |
@@ -76,7 +76,7 @@ Les ressources Azure qui prennent en charge [Azure monitor](../../azure-monitor/
 >
 
 * Pour plus d’informations sur les métriques disponibles, voir [Mesures prises en charge avec Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
-* Pour plus d’informations sur les journaux disponibles, voir [Schéma et services pris en charge pour les journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-schema.md).
+* Pour plus d’informations sur les journaux d’activité disponibles, voir [Schéma et services pris en charge pour les journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Activer les diagnostics avec PowerShell
 
@@ -129,7 +129,7 @@ Pour la collecte des journaux sur certaines ressources, il est possible envoyer 
 
 Azure Monitor peut utiliser cette approche pour collecter des diagnostics à partir du stockage Azure pour les journaux et les ressources suivantes :
 
-| Ressource | Journaux |
+| Ressource | Journaux d’activité |
 | --- | --- |
 | Service Fabric |ETWEvent <br> Événement opérationnel <br> Événement Reliable Actor <br> Événement de service fiable |
 | Virtual Machines |Syslog Linux <br> Événement Windows <br> Journal IIS <br> ETWEvent Windows |

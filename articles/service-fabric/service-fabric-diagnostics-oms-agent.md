@@ -102,4 +102,4 @@ Maintenant que vous avez ajouté l’agent Log Analytics, accédez au portail Lo
 
 * Collectez les [compteurs de performances](service-fabric-diagnostics-event-generation-perf.md) dont vous avez besoin. Pour configurer l’agent Log Analytics de façon à collecter certains compteurs de performances, voir [Configurer les sources de données](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
 * Configurer les journaux Azure Monitor pour configurer [alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics
-* En guise d’alternative, vous pouvez collecter des compteurs de performances via [l’extension Azure Diagnostics et les envoyer à Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)
+* En guise d’alternative, vous pouvez collecter des compteurs de performances via [l’extension Diagnostics Azure et les envoyer à Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

@@ -1,6 +1,6 @@
 ---
-title: Exemple de script Azure PowerShell - Superviser une application web avec les journaux de serveur web | Microsoft Docs
-description: Exemple de script Azure PowerShell - Superviser une application web avec les journaux de serveur web
+title: Exemple de script Azure PowerShell - Superviser une application web avec les journaux d’activité de serveur web | Microsoft Docs
+description: Exemple de script Azure PowerShell - Superviser une application web avec les journaux d’activité de serveur web
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -23,9 +23,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56115961"
 ---
-# <a name="monitor-a-web-appwith-web-server-logs"></a>Superviser une application web avec les journaux de serveur web
+# <a name="monitor-a-web-appwith-web-server-logs"></a>Superviser une application web avec les journaux d’activité de serveur web
 
-Dans ce scénario, vous créez un groupe de ressources, un plan App Service, une application web, et vous configurez l’application web afin d’activer les journaux de serveur web. Vous téléchargez ensuite les fichiers journaux pour révision.
+Dans ce scénario, vous créez un groupe de ressources, un plan App Service, une application web, et vous configurez l’application web afin d’activer les journaux d’activité de serveur web. Vous téléchargez ensuite les fichiers journaux pour révision.
 
 Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Connect-AzAccount` pour créer une connexion avec Azure.
 

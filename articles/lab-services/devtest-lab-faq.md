@@ -242,7 +242,7 @@ Un compte Microsoft est un compte que vous utilisez pour la plupart des opérati
 
 **Dépannage**
 ## <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>Mon artefact a échoué lors de la création d’une machine virtuelle. Comment puis-je résoudre ce problème ?
-Pour savoir comment récupérer les journaux relatifs à l’échec d’un artefact, consultez [Guide pratique pour diagnostiquer les échecs d’artefacts dans DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md).
+Pour savoir comment récupérer les journaux d’activité relatifs à l’échec d’un artefact, consultez [Guide pratique pour diagnostiquer les échecs d’artefacts dans DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md).
 
 ## <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Pourquoi mon réseau virtuel existant n’est pas enregistré correctement ?
 Il se peut que votre nom de réseau virtuel contienne des points. Dans ce cas, essayez de supprimer les points ou de les remplacer par des traits d’union. Ensuite, réessayez d’enregistrer le réseau virtuel.

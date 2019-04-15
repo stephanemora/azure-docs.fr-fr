@@ -38,20 +38,20 @@ Pour Azure Monitor collecter ces journaux de Diagnostics Azure, les journaux doi
 
 | Type de journal | Type de ressource | Lieu |
 | --- | --- | --- |
-| Journaux IIS |Virtual Machines <br> Rôles web <br> Rôles de travail |wad-iis-logfiles (Stockage Blob) |
+| Journaux d’activité IIS |Virtual Machines <br> Rôles web <br> Rôles de travail |wad-iis-logfiles (Stockage Blob) |
 | syslog |Virtual Machines |LinuxSyslogVer2v0 (Stockage Table) |
 | Événements opérationnels Service Fabric |Nœuds Service Fabric |WADServiceFabricSystemEventTable |
 | Événements Reliable Actor Service Fabric |Nœuds Service Fabric |WADServiceFabricReliableActorEventTable |
 | Événements de service fiable Service Fabric |Nœuds Service Fabric |WADServiceFabricReliableServiceEventTable |
-| Journaux d'événements Windows |Nœuds Service Fabric <br> Virtual Machines <br> Rôles web <br> Rôles de travail |WADWindowsEventLogsTable (Stockage Table) |
-| Journaux de suivi des événements ETW Windows |Nœuds Service Fabric <br> Virtual Machines <br> Rôles web <br> Rôles de travail |WADETWEventTable (Stockage Table) |
+| Journaux d’événements Windows |Nœuds Service Fabric <br> Virtual Machines <br> Rôles web <br> Rôles de travail |WADWindowsEventLogsTable (Stockage Table) |
+| Journaux d’activité de suivi des événements ETW Windows |Nœuds Service Fabric <br> Virtual Machines <br> Rôles web <br> Rôles de travail |WADETWEventTable (Stockage Table) |
 
 > [!NOTE]
-> Les journaux IIS des sites Web Azure ne sont actuellement pas pris en charge.
+> Les journaux d’activité IIS des sites Web Azure ne sont actuellement pas pris en charge.
 >
 >
 
-Pour les machines virtuelles, vous pouvez installer [l’agent Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md) sur votre machine virtuelle pour activer des informations supplémentaires. Cela vous permet d’analyser les journaux IIS et les journaux des événements, mais également d'effectuer des analyses supplémentaires, notamment le suivi des modifications de configuration, l’évaluation SQL et l’évaluation de la mise à jour.
+Pour les machines virtuelles, vous pouvez installer [l’agent Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md) sur votre machine virtuelle pour activer des informations supplémentaires. Cela vous permet d’analyser les journaux d’activité IIS et les journaux des événements, mais également d’effectuer des analyses supplémentaires, notamment le suivi des modifications de configuration, l’évaluation SQL et l’évaluation de la mise à jour.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Activation des diagnostics Azure dans une machine virtuelle pour la collecte des journaux IIS et des journaux des événements
 
@@ -63,7 +63,7 @@ Utilisez la procédure suivante pour activer les diagnostics Azure dans une mach
 
    * Dans le portail Azure, accédez à la machine virtuelle, sélectionnez **Configuration facultative**, puis **Diagnostics**, et définissez **État** sur **Activé**.
 
-     Une fois cela terminé, la machine virtuelle a l’extension Azure Diagnostics installée et en cours d’exécution. Cette extension est chargée de collecter vos données de diagnostic.
+     Une fois cela terminé, la machine virtuelle a l’extension Diagnostics Azure installée et en cours d’exécution. Cette extension est chargée de collecter vos données de diagnostic.
 2. Activation de l’analyse et configuration de la journalisation des événements sur une machine virtuelle existante. Vous pouvez activer les diagnostics au niveau de la machine virtuelle. Pour activer les diagnostics et configurer la journalisation des événements par la suite, procédez comme suit :
 
    1. Sélectionnez la machine virtuelle.
@@ -75,18 +75,18 @@ Utilisez la procédure suivante pour activer les diagnostics Azure dans une mach
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Activation des diagnostics Azure dans un rôle Web pour la collecte de journaux IIS et des événements
 
-Reportez-vous à [Procédure : activer les diagnostics dans un service cloud](../../cloud-services/cloud-services-dotnet-diagnostics.md) pour connaître les étapes générales d’activation des diagnostics Windows Azure. Les instructions ci-dessous utilisent ces informations et les personnalisent pour une utilisation avec Log Analytics.
+Reportez-vous à [Procédure : activer les diagnostics dans un service cloud](../../cloud-services/cloud-services-dotnet-diagnostics.md) pour connaître les étapes générales d’activation des diagnostics Azure. Les instructions ci-dessous utilisent ces informations et les personnalisent pour une utilisation avec Log Analytics.
 
 Avec les diagnostics Azure activés :
 
-* Les journaux IIS sont stockés par défaut et les données de journal sont transférées selon l’intervalle de transfert scheduledTransferPeriod.
+* Les journaux d’activité IIS sont stockés par défaut et les données de journal d’activité sont transférées selon l’intervalle de transfert scheduledTransferPeriod.
 * Les journaux des événements Windows ne sont pas transférés par défaut.
 
 ### <a name="to-enable-diagnostics"></a>Activation des diagnostics
 
-Pour activer les journaux des événements Windows, ou pour modifier l’intervalle scheduledTransferPeriod, configurez Azure Diagnostics à l’aide du fichier de configuration XML (diagnostics.wadcfg), comme indiqué dans [Étape 4 : création de votre fichier de configuration Diagnostics et installation de l’extension](../../cloud-services/cloud-services-dotnet-diagnostics.md)
+Pour activer les journaux des événements Windows, ou pour modifier l’intervalle scheduledTransferPeriod, configurez Diagnostics Azure à l’aide du fichier de configuration XML (diagnostics.wadcfg), comme indiqué dans [Étape 4 : création de votre fichier de configuration Diagnostics et installation de l’extension](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
-L’exemple de fichier de configuration suivant collecte des journaux IIS et tous les événements des journaux de l’application et du système :
+L’exemple de fichier de configuration suivant collecte des journaux d’activité IIS et tous les événements des journaux d’activité de l’application et du système :
 
 ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -122,7 +122,7 @@ Les valeurs **AccountName** et **AccountKey** figurent dans le portail Azure, su
 
 Une fois la configuration de diagnostique mis à jour est appliquée à votre service cloud et écrit des diagnostics dans le stockage Azure, vous êtes prêt à configurer l’espace de travail Analytique de journal.
 
-## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Utiliser le portail Azure pour collecter les journaux à partir de Stockage Azure
+## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Utiliser le portail Azure pour collecter les journaux d’activité à partir de Stockage Azure
 
 Vous pouvez utiliser le portail Azure pour configurer un espace de travail Analytique de journal dans Azure Monitor pour collecter les journaux pour les services Azure suivants :
 
@@ -132,12 +132,12 @@ Vous pouvez utiliser le portail Azure pour configurer un espace de travail Analy
 
 Dans le portail Azure, accédez à votre espace de travail Log Analytics, puis effectuer les tâches suivantes :
 
-1. Cliquez sur *Journaux des comptes de stockage*.
+1. Cliquez sur *Journaux d’activité des comptes de stockage*.
 2. Cliquez sur la tâche *Ajouter*.
 3. Sélectionnez le compte de stockage contenant les journaux de diagnostic.
    * Ce compte peut être un compte de stockage classique ou un compte de stockage Azure Resource Manager
-4. Sélectionnez le Type de données pour lequel vous souhaitez collecter des journaux.
-   * Les choix sont Journaux IIS, Événements, Syslog (Linux), Journaux de suivi des événements ETW, Événements Service Fabric
+4. Sélectionnez le Type de données pour lequel vous souhaitez collecter des journaux d’activité.
+   * Les choix sont Journaux d’activité IIS, Événements, Syslog (Linux), Journaux d’activité de suivi des événements ETW, Événements Service Fabric
 5. La valeur de Source est automatiquement complétée selon le type de données, et ne peut pas être modifiée
 6. Cliquez sur OK pour enregistrer la configuration.
 

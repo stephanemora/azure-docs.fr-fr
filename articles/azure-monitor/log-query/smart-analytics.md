@@ -15,7 +15,7 @@ ms.date: 01/15/2019
 ms.author: bwren
 ms.openlocfilehash: f6617a504bbda666ce9ece018ccb0cf02635c360
 ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54355068"
@@ -185,11 +185,11 @@ Cet exemple génère la sortie suivante.
 ![Sortie de l’adhérence utilisateur](media/smart-analytics/user-stickiness.png)
 
 ## <a name="regression-analysis"></a>Analyse de régression
-Cet exemple montre comment créer un détecteur automatisé pour les interruptions de service basé exclusivement sur les journaux des traces d’une application. Le détecteur recherche les augmentations soudaines et anormales dans la quantité relative de traces d’erreur et d’avertissement dans l’application.
+Cet exemple montre comment créer un détecteur automatisé pour les interruptions de service basé exclusivement sur les journaux d’activité des traces d’une application. Le détecteur recherche les augmentations soudaines et anormales dans la quantité relative de traces d’erreur et d’avertissement dans l’application.
 
-Deux techniques sont utilisées pour évaluer l’état du service en fonction des données de journaux des traces :
+Deux techniques sont utilisées pour évaluer l’état du service en fonction des données de journaux d’activité des traces :
 
-- Utilisez [make-series](/azure/kusto/query/make-seriesoperator) pour convertir les journaux des traces textuels semi-structurés en une métrique qui représente le rapport entre les lignes de traces positives et négatives.
+- Utilisez [make-series](/azure/kusto/query/make-seriesoperator) pour convertir les journaux d’activité des traces textuels semi-structurés en une métrique qui représente le rapport entre les lignes de traces positives et négatives.
 - Utilisez [series_fit_2lines](/azure/kusto/query/series-fit-2linesfunction) et [series_fit_line](/azure/kusto/query/series-fit-linefunction) pour effectuer une détection de saut avancée grâce à une analyse de série chronologique avec une régression linéaire de deux lignes.
 
 ``` Kusto

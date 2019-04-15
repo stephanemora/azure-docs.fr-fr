@@ -18,7 +18,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56184888"
@@ -50,7 +50,7 @@ Si l’utilisateur ne peut pas se connecter avec l’authentification directe, l
 |AADSTS8002|Délai d’attente dépassé lors de la connexion à Active Directory|Vérifiez qu’Active Directory est disponible et répond aux demandes des agents.
 |AADSTS80004|Le nom d’utilisateur envoyé à l’agent n’était pas valide|Vérifiez que l’utilisateur tente de se connecter avec le nom d’utilisateur correct.
 |AADSTS80005|La validation a rencontré une WebException imprévisible|Erreur temporaire. relancez la requête. Si l’erreur se reproduit, contactez le Support Microsoft.
-|AADSTS80007|Une erreur s’est produite lors de la communication avec Active Directory|Consultez les journaux de l’agent pour plus d’informations, et vérifiez qu’Active Directory fonctionne comme prévu.
+|AADSTS80007|Une erreur s’est produite lors de la communication avec Active Directory|Consultez les journaux d’activité de l’agent pour plus d’informations, et vérifiez qu’Active Directory fonctionne comme prévu.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory (licence Premium requise)
 
@@ -114,13 +114,13 @@ Assurez-vous que le serveur sur lequel Azure AD Connect est installé peut commu
 
 Veillez à utiliser un compte d’administrateur général pour le cloud uniquement lors de l’activation de la fonctionnalité. Il existe un problème connu avec les comptes d’administrateur général compatibles MFA (Multi-Factor Authentication) ; désactivez MFA temporairement (uniquement pour effectuer l’opération) comme solution de contournement.
 
-## <a name="collecting-pass-through-authentication-agent-logs"></a>Collecte des journaux des agents d’authentification directe
+## <a name="collecting-pass-through-authentication-agent-logs"></a>Collecte des journaux d’activité des agents d’authentification directe
 
-Selon le type de problème rencontré, vous devez regarder à différents emplacements pour trouver les journaux des agents d’authentification directe.
+Selon le type de problème rencontré, vous devez regarder à différents emplacements pour trouver les journaux d’activité des agents d’authentification directe.
 
-### <a name="azure-ad-connect-logs"></a>Journaux Azure AD Connect
+### <a name="azure-ad-connect-logs"></a>Journaux d’activité Azure AD Connect
 
-Pour vérifier les erreurs liées à l’installation, consultez les journaux Azure AD Connect à l’emplacement suivant : **%ProgramData%\AADConnect\trace-\*.log**.
+Pour vérifier les erreurs liées à l’installation, consultez les journaux d’activité Azure AD Connect à l’emplacement suivant : **%ProgramData%\AADConnect\trace-\*.log**.
 
 ### <a name="authentication-agent-event-logs"></a>Journaux des événements des agents d’authentification
 
@@ -128,9 +128,9 @@ Pour les erreurs relatives à l’agent d’authentification, ouvrez l’applica
 
 Pour une analyse détaillée, activez le journal « Session » (pour accéder à cette option, cliquez avec le bouton droit de la souris sur l'application Observateur d'événements). N’exécutez pas l’agent d’authentification lorsque ce journal est activé pendant le fonctionnement normal. Utilisez-le uniquement pour la résolution des problèmes. Le contenu du journal n’est visible qu’une fois celui-ci désactivé.
 
-### <a name="detailed-trace-logs"></a>Journaux de suivi détaillés
+### <a name="detailed-trace-logs"></a>Journaux d’activité de suivi détaillés
 
-Pour résoudre les problèmes d’échec de connexion de l’utilisateur, consultez les journaux de suivi situés à l’emplacement **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Ces journaux incluent les raisons de l’échec de connexion utilisateur à l’aide de la fonctionnalité d’authentification directe. Le tableau précédent des raisons des échecs de connexion établit une correspondance entre ces erreurs et les raisons des échecs de connexion. Vous trouverez ci-dessous un exemple d’entrée de journal :
+Pour résoudre les problèmes d’échec de connexion de l’utilisateur, consultez les journaux d’activité de suivi situés à l’emplacement **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Ces journaux d’activité incluent les raisons de l’échec de connexion utilisateur à l’aide de la fonctionnalité d’authentification directe. Le tableau précédent des raisons des échecs de connexion établit une correspondance entre ces erreurs et les raisons des échecs de connexion. Vous trouverez ci-dessous un exemple d’entrée de journal :
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -138,15 +138,15 @@ Pour résoudre les problèmes d’échec de connexion de l’utilisateur, consul
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-Vous pouvez obtenir une description détaillée de l’erreur (« 1328 » dans l’exemple précédent) en ouvrant l’invite de commandes et en exécutant la commande suivante (Remarque : vous devez remplacer « 1328 » par le numéro d’erreur réel apparaissant dans vos journaux) :
+Vous pouvez obtenir une description détaillée de l’erreur (« 1328 » dans l’exemple précédent) en ouvrant l’invite de commandes et en exécutant la commande suivante (Remarque : vous devez remplacer « 1328 » par le numéro d’erreur réel apparaissant dans vos journaux d’activité) :
 
 `Net helpmsg 1328`
 
 ![Authentification directe](./media/tshoot-connect-pass-through-authentication/pta3.png)
 
-### <a name="domain-controller-logs"></a>Journaux des contrôleurs de domaine
+### <a name="domain-controller-logs"></a>Journaux d’activité des contrôleurs de domaine
 
-Si la journalisation d’audit est activée, des informations complémentaires se trouvent dans les journaux de sécurité des contrôleurs de domaine. Vous pouvez interroger les demandes de connexion envoyées par les agents d’authentification directe en utilisant la méthode suivante :
+Si la journalisation d’audit est activée, des informations complémentaires se trouvent dans les journaux d’activité de sécurité des contrôleurs de domaine. Vous pouvez interroger les demandes de connexion envoyées par les agents d’authentification directe en utilisant la méthode suivante :
 
 ```
     <QueryList>

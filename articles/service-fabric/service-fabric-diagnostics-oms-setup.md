@@ -58,9 +58,9 @@ Si vous utilisez Windows, poursuivez les étapes suivantes pour connecter des jo
 
 1. L’espace de travail a besoin d’être connecté aux données de diagnostic provenant de votre cluster. Accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. Sélectionnez **ServiceFabric\<nomEspaceTravail\>** et accédez à sa page de présentation. C’est là que vous pourrez modifier les paramètres de la solution et de l’espace de travail, et accéder à l’espace de travail Log Analytics.
 
-2. Dans le menu de navigation gauche, sous **Sources de données de l’espace de travail**, sélectionnez **Journaux de comptes de stockage**.
+2. Dans le menu de navigation gauche, sous **Sources de données de l’espace de travail**, sélectionnez **Journaux d’activité de comptes de stockage**.
 
-3. Dans la page **Journaux de comptes de stockage**, sélectionnez **Ajouter** en haut pour ajouter les journaux de votre cluster à l’espace de travail.
+3. Dans la page **Journaux d’activité de comptes de stockage**, sélectionnez **Ajouter** en haut pour ajouter les journaux d’activité de votre cluster à l’espace de travail.
 
 4. Sélectionnez **Compte de stockage** pour ajouter le compte approprié créé dans votre cluster. Si vous avez utilisé le nom par défaut, le compte de stockage est nommé **sfdg\<nomGroupeRessources\>**. Vous pouvez également le confirmer avec le modèle Azure Resource Manager utilisé pour déployer votre cluster, en vérifiant la valeur utilisée pour **applicationDiagnosticsStorageAccountName**. Si le nom n’apparaît pas, faites défiler vers le bas et sélectionnez **Charger plus**. Sélectionnez le nom du compte de stockage.
 
@@ -68,11 +68,11 @@ Si vous utilisez Windows, poursuivez les étapes suivantes pour connecter des jo
 
 6. Vérifiez que la source a automatiquement la valeur **WADServiceFabric\*EventTable**.
 
-7. Sélectionnez **OK** pour connecter votre espace de travail aux journaux de votre cluster.
+7. Sélectionnez **OK** pour connecter votre espace de travail aux journaux d’activité de votre cluster.
 
     ![Ajouter des journaux de compte de stockage dans les journaux d’Azure Monitor](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
-Le compte apparaît maintenant dans le cadre des journaux de votre compte de stockage dans les sources de données de votre espace de travail.
+Le compte apparaît maintenant dans le cadre des journaux d’activité de votre compte de stockage dans les sources de données de votre espace de travail.
 
 Vous avez ajouté la solution Service Fabric Analytics à un espace de travail Log Analytics qui est à présent connecté à la table du journal des applications et à la plateforme de votre cluster. Vous pouvez ajouter des sources supplémentaires à l’espace de travail de la même façon.
 

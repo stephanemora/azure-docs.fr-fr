@@ -51,7 +51,7 @@ cmake -Dno_logging=OFF <Path_to_cmake>
 
 ### <a name="remove-upload-to-blob-capability"></a>Supprimer la fonctionnalité de chargement d’objets blob
 
-Vous pouvez charger des grands fichiers sur Stockage Azure avec la fonctionnalité intégrée dans le SDK. Azure IoT Hub joue le rôle de répartiteur pour un compte Stockage Azure associé. Vous pouvez utiliser cette fonctionnalité pour envoyer des fichiers multimédias, des grands lots de données de télémétrie et des journaux. Vous pouvez obtenir plus d’informations dans [Chargement de fichiers avec IoT Hub](iot-hub-devguide-file-upload.md). Si votre application ne nécessite pas cette fonctionnalité, vous pouvez la supprimer avec la commande cmake suivante :
+Vous pouvez charger des grands fichiers sur Stockage Azure avec la fonctionnalité intégrée dans le SDK. Azure IoT Hub joue le rôle de répartiteur pour un compte Stockage Azure associé. Vous pouvez utiliser cette fonctionnalité pour envoyer des fichiers multimédias, des grands lots de données de télémétrie et des journaux d’activité. Vous pouvez obtenir plus d’informations dans [Chargement de fichiers avec IoT Hub](iot-hub-devguide-file-upload.md). Si votre application ne nécessite pas cette fonctionnalité, vous pouvez la supprimer avec la commande cmake suivante :
 
 ```
 cmake -Ddont_use_uploadtoblob=ON <Path_to_cmake>

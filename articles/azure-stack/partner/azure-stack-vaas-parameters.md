@@ -71,7 +71,7 @@ Chaîne de connexion des diagnostics          | Une URL de signature d’accès 
 
 ### <a name="generate-the-diagnostics-connection-string"></a>Générer la chaîne de connexion des diagnostics
 
-La chaîne de connexion des diagnostics est requise pour le stockage des journaux de diagnostics pendant l’exécution du test. Utilisez le compte Stockage Azure créé pendant la configuration (consultez [Tutorial: Set up resources for Validation as a Service](azure-stack-vaas-set-up-resources.md) (Didacticiel : Configurer des ressources pour la validation en tant que service)) pour créer une URL de signature d’accès partagé et accorder l’accès VaaS pour charger des journaux dans votre compte de stockage.
+La chaîne de connexion des diagnostics est requise pour le stockage des journaux de diagnostics pendant l’exécution du test. Utilisez le compte Stockage Azure créé pendant la configuration (consultez [Tutorial: Set up resources for Validation as a Service](azure-stack-vaas-set-up-resources.md) (Didacticiel : Configurer des ressources pour la validation en tant que service)) pour créer une URL de signature d’accès partagé et accorder l’accès VaaS pour charger des journaux d’activité dans votre compte de stockage.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 

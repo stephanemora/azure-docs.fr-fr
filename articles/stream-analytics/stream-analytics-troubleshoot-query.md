@@ -11,7 +11,7 @@ ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
 ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53161982"
@@ -36,7 +36,7 @@ Cet article décrit les problèmes courants liés au développement de requêtes
 4.  Vérifiez que les stratégies d’ordre des événements sont configurées comme prévu. Accédez à **Paramètres** et sélectionnez [**Ordre des événements**](stream-analytics-out-of-order-and-late-events.md). La stratégie n’est *pas* appliquée lorsque vous utilisez le bouton **Test** pour tester la requête. C’est une des différences entre le test en navigateur et l’exécution réelle du travail. 
 
 5. Débogage à l’aide des journaux de diagnostic et d’audit :
-    - Appliquez des filtres aux [journaux d’audit](../azure-resource-manager/resource-group-audit.md) pour identifier et déboguer les erreurs.
+    - Appliquez des filtres aux [journaux d’activité d’audit](../azure-resource-manager/resource-group-audit.md) pour identifier et déboguer les erreurs.
     - Utilisez les [journaux de diagnostic du travail](stream-analytics-job-diagnostic-logs.md) pour identifier et déboguer les erreurs.
 
 ## <a name="job-is-consuming-too-many-streaming-units"></a>Le travail consomme trop d’unités de streaming

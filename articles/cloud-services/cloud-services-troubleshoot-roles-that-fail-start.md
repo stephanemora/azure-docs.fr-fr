@@ -105,7 +105,7 @@ Pour déployer le service avec la fonction IntelliTrace activée, procédez comm
 3. Une fois l’instance démarrée, ouvrez l’ **Explorateur de serveurs**.
 4. Développez le nœud **Azure\\Cloud Services** et recherchez le déploiement.
 5. Développez le déploiement jusqu’à ce que les instances de rôle s’affichent. Cliquez avec le bouton droit sur l’une des instances.
-6. Sélectionnez **Afficher les fichiers journaux IntelliTrace**. Le **Résumé IntelliTrace** s’ouvre.
+6. Sélectionnez **Afficher les fichiers journaux d’activité IntelliTrace**. Le **Résumé IntelliTrace** s’ouvre.
 7. Recherchez la section du résumé relative aux exceptions. S’il existe des exceptions, la section s’intitule **Données d’exception**.
 8. Développez les **Données d’exception** et recherchez les erreurs **System.IO.FileNotFoundException** semblables à ce qui suit :
 

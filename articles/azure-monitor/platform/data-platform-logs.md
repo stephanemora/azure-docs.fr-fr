@@ -34,7 +34,7 @@ Journaux dans Azure Monitor contiennent différents types de données organisée
 
 Un type commun de l’entrée de journal est un événement qui est collecté sporadique. Événements sont créés par une application ou un service et incluent généralement suffisamment d’informations pour fournir un contexte complet sur leurs propres. Par exemple, un événement peut indiquer la création ou la modification d’une ressource particulière, le démarrage d’un nouvel hôte en réponse à une augmentation du trafic, ou une erreur détectée dans une application.
 
- Le format des données pouvant varier, les applications peuvent créer des journaux personnalisés et structurés de façon appropriée. Données de mesure peuvent même être stockées dans les journaux à les combiner avec d’autres données d’analyse des tendances et d’autres analyses de données.
+ Le format des données pouvant varier, les applications peuvent créer des journaux d’activité personnalisés et structurés de façon appropriée. Données de mesure peuvent même être stockées dans les journaux à les combiner avec d’autres données d’analyse des tendances et d’autres analyses de données.
 
 
 ## <a name="what-can-you-do-with-azure-monitor-logs"></a>Que pouvez-vous faire avec les journaux d’Azure Monitor ?

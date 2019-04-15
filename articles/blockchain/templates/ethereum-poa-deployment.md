@@ -79,7 +79,7 @@ Il arrive souvent qu’un membre du consortium souhaite participer à la gouvern
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-Cette solution est également fournie avec Azure Monitor pour suivre les statistiques relatives aux nœuds et au réseau. Cela offre aux développeurs d’applications une visibilité sur la blockchain sous-jacente pour suivre les statistiques de génération de blocs. Les opérateurs réseau peuvent utiliser Azure Monitor pour détecter et prévenir rapidement les interruptions réseau grâce à des statistiques sur l’infrastructure et à des journaux pouvant faire l’objet de requêtes. Pour plus d’informations, consultez [analyse Service](#service-monitoring).
+Cette solution est également fournie avec Azure Monitor pour suivre les statistiques relatives aux nœuds et au réseau. Cela offre aux développeurs d’applications une visibilité sur la blockchain sous-jacente pour suivre les statistiques de génération de blocs. Les opérateurs réseau peuvent utiliser Azure Monitor pour détecter et prévenir rapidement les interruptions réseau grâce à des statistiques sur l’infrastructure et à des journaux d’activité pouvant faire l’objet de requêtes. Pour plus d’informations, consultez [analyse Service](#service-monitoring).
 
 ### <a name="deployment-architecture"></a>Architecture de déploiement
 
@@ -99,7 +99,7 @@ Chaque déploiement d’un membre de consortium inclut :
 
 -   un Stockage Azure, pour héberger les informations réseau persistantes et coordonner les baux ;
 
--   Azure Monitor, pour l’agrégation des journaux et des statistiques de performances ;
+-   Azure Monitor, pour l’agrégation des journaux d’activité et des statistiques de performances ;
 
 -   une passerelle de réseau virtuel (facultative) pour autoriser les connexions VPN sur les réseaux virtuels privés.
 
@@ -123,7 +123,7 @@ Nous utilisons des conteneurs Docker pour des questions de fiabilité et de modu
 
 -   Un agent EthStats
 
-    -   Collecte les journaux locaux et les statistiques via RPC et les envoie (push) à Azure Monitor
+    -   Collecte les journaux d’activité locaux et les statistiques via RPC et les envoie (push) à Azure Monitor
 
 -   Une Governance DApp
 
@@ -287,7 +287,7 @@ Voici un exemple de déploiement : ![ethereum paramètres](./media/ethereum-poa
 
 #### <a name="monitoring"></a>Surveillance
 
-Le panneau surveillance vous permet de configurer une ressource de journaux Azure Monitor pour votre réseau. L’agent de supervision collecte et fournit des métriques et journaux utiles à partir de votre réseau, en offrant la possibilité de vérifier rapidement l’intégrité du réseau ou les problèmes de débogage.
+Le panneau surveillance vous permet de configurer une ressource de journaux Azure Monitor pour votre réseau. L’agent de supervision collecte et fournit des métriques et journaux d’activité utiles à partir de votre réseau, en offrant la possibilité de vérifier rapidement l’intégrité du réseau ou les problèmes de débogage.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -431,7 +431,7 @@ En sélectionnant **Statistiques réseau**, vous accédez aux statistiques du r�
 
 #### <a name="sample-kusto-queries"></a>Exemples de requêtes Kusto
 
-Derrière ces tableaux de bord se trouve un ensemble de journaux bruts que vous pouvez interroger. Vous pouvez utiliser ces journaux bruts pour personnaliser les tableaux de bord, examiner les échecs ou configurer des seuils d’alerte. Vous trouverez ci-dessous un ensemble d’exemples de requêtes que vous pouvez exécuter dans l’outil de recherche dans les journaux :
+Derrière ces tableaux de bord se trouve un ensemble de journaux d’activité bruts que vous pouvez interroger. Vous pouvez utiliser ces journaux d’activité bruts pour personnaliser les tableaux de bord, examiner les échecs ou configurer des seuils d’alerte. Vous trouverez ci-dessous un ensemble d’exemples de requêtes que vous pouvez exécuter dans l’outil de recherche dans les journaux :
 
 ##### <a name="lists-blocks-that-have-been-reported-by-more-than-one-validator-useful-to-help-find-chain-forks"></a>Répertorier les blocs qui ont été signalés par plusieurs validateurs. Utile pour trouver des branches de la chaîne.
 

@@ -20,7 +20,7 @@ ms.locfileid: "58894676"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
-Le conteneur LUIS (Language Understanding) charge votre modèle Language Understanding entraîné ou publié, également connu sous le nom d’[application LUIS](https://www.luis.ai), dans un conteneur docker et fournit l’accès aux prédictions de requête à partir des points de terminaison d’API du conteneur. Vous pouvez collecter les journaux de requêtes du conteneur et les charger sur le modèle Azure Language Understanding pour améliorer la précision de prédiction de l’application.
+Le conteneur LUIS (Language Understanding) charge votre modèle Language Understanding entraîné ou publié, également connu sous le nom d’[application LUIS](https://www.luis.ai), dans un conteneur docker et fournit l’accès aux prédictions de requête à partir des points de terminaison d’API du conteneur. Vous pouvez collecter les journaux d’activité de requêtes du conteneur et les charger sur le modèle Azure Language Understanding pour améliorer la précision de prédiction de l’application.
 
 La vidéo suivante illustre l’utilisation de ce conteneur.
 
@@ -36,7 +36,7 @@ Pour exécuter le conteneur LUIS, vous devez disposer des éléments suivants :
 |--|--|
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|Ressource LUIS (Language Understanding) et application associée |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>* Une [ressource Azure _Language Understanding_](luis-how-to-azure-subscription.md) ainsi que la clé de point de terminaison et l’URI de point de terminaison associés (utilisé en tant que point de terminaison de facturation).<br>* Une application entraînée ou publiée empaquetée en tant qu’entrée montée dans le conteneur avec son ID d’application associé.<br>* La clé de création pour télécharger le package d’application, si vous effectuez cette opération à partir de l’API.<br><br>Ces prérequis sont utilisés pour passer des arguments de ligne de commande aux variables suivantes :<br><br>**{AUTHORING_KEY}**  : cette clé sert à obtenir l’application empaquetée à partir du service LUIS dans le cloud et à charger les journaux de requêtes vers le cloud. Le format est `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**  : cet ID sert à sélectionner l’application. Le format est `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**  : cette clé sert à démarrer le conteneur. La clé de point de terminaison est disponible à deux endroits. Le premier est le portail Azure, dans la liste de clés de la ressource _Language Understanding_. Elle est également disponible dans le portail LUIS, dans la page Keys and Endpoint settings (Paramètres des clés et du point de terminaison). N’utilisez pas la clé de démarrage.<br><br>**{BILLING_ENDPOINT}**  : la valeur de point de terminaison de facturation est disponible dans la page Vue d’ensemble de Language Understanding du portail Azure. Par exemple `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>La [clé de création et la clé de point de terminaison](luis-boundaries.md#key-limits) ont différentes fonctions. Ne les utilisez pas de manière interchangeable. |
+|Ressource LUIS (Language Understanding) et application associée |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>* Une [ressource Azure _Language Understanding_](luis-how-to-azure-subscription.md) ainsi que la clé de point de terminaison et l’URI de point de terminaison associés (utilisé en tant que point de terminaison de facturation).<br>* Une application entraînée ou publiée empaquetée en tant qu’entrée montée dans le conteneur avec son ID d’application associé.<br>* La clé de création pour télécharger le package d’application, si vous effectuez cette opération à partir de l’API.<br><br>Ces prérequis sont utilisés pour passer des arguments de ligne de commande aux variables suivantes :<br><br>**{AUTHORING_KEY}**  : cette clé sert à obtenir l’application empaquetée à partir du service LUIS dans le cloud et à charger les journaux d’activité de requêtes vers le cloud. Le format est `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**  : cet ID sert à sélectionner l’application. Le format est `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**  : cette clé sert à démarrer le conteneur. La clé de point de terminaison est disponible à deux endroits. Le premier est le portail Azure, dans la liste de clés de la ressource _Language Understanding_. Elle est également disponible dans le portail LUIS, dans la page Keys and Endpoint settings (Paramètres des clés et du point de terminaison). N’utilisez pas la clé de démarrage.<br><br>**{BILLING_ENDPOINT}**  : la valeur de point de terminaison de facturation est disponible dans la page Vue d’ensemble de Language Understanding du portail Azure. Par exemple `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>La [clé de création et la clé de point de terminaison](luis-boundaries.md#key-limits) ont différentes fonctions. Ne les utilisez pas de manière interchangeable. |
 
 ### <a name="the-host-computer"></a>L’ordinateur hôte
 
@@ -80,12 +80,12 @@ Une fois que le conteneur est sur l’[ordinateur hôte](#the-host-computer), ap
 1. Déplacez le fichier de package dans le répertoire d’**entrée** requis sur l’[ordinateur hôte](#the-host-computer). Ne renommez pas, ne modifiez pas et ne décompressez pas le fichier de package LUIS.
 1. [Exécutez le conteneur](##run-the-container-with-docker-run) avec le _montage d’entrée_ et les paramètres de facturation requis. D’autres [exemples](luis-container-configuration.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
 1. [Interrogation du point de terminaison de prédiction du conteneur](#query-the-containers-prediction-endpoint). 
-1. Quand vous en avez terminé avec le conteneur, [importez les journaux du point de terminaison](#import-the-endpoint-logs-for-active-learning) à partir du montage de sortie dans le portail LUIS et [arrêtez](#stop-the-container) le conteneur.
+1. Quand vous en avez terminé avec le conteneur, [importez les journaux d’activité du point de terminaison](#import-the-endpoint-logs-for-active-learning) à partir du montage de sortie dans le portail LUIS et [arrêtez](#stop-the-container) le conteneur.
 1. Utilisez l’[apprentissage actif](luis-how-to-review-endpoint-utterances.md) du portail LUIS dans la page **Review endpoint utterances** (Passer en revue les énoncés du point de terminaison) afin d’améliorer l’application.
 
 L’application en cours d’exécution dans le conteneur ne peut pas être modifiée. Pour changer l’application dans le conteneur, vous devez changer l’application dans le service LUIS à l’aide du portail [LUIS](https://www.luis.ai) ou utiliser les [API de création](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) LUIS. Ensuite, entraînez et/ou publiez, puis téléchargez un nouveau package et réexécutez le conteneur.
 
-L’application LUIS à l’intérieur du conteneur ne peut pas être réexportée vers le service LUIS. Seuls les journaux de requêtes peuvent être chargés. 
+L’application LUIS à l’intérieur du conteneur ne peut pas être réexportée vers le service LUIS. Seuls les journaux d’activité de requêtes peuvent être chargés. 
 
 ## <a name="export-packaged-app-from-luis"></a>Exporter l’application empaquetée à partir de LUIS
 
@@ -238,7 +238,7 @@ Cette commande :
 * Charge l’application LUIS à partir du montage d’entrée qui se trouve à c:\input sur l’hôte de conteneur.
 * Alloue deux cœurs de processeur et 4 gigaoctets (Go) de mémoire.
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur
-* Enregistre les journaux LUIS et de conteneur dans le montage de sortie qui se trouve à c:\output sur l’hôte de conteneur.
+* Enregistre les journaux d’activité LUIS et de conteneur dans le montage de sortie qui se trouve à c:\output sur l’hôte de conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte. 
 
 D’autres [exemples](luis-container-configuration.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
@@ -294,7 +294,7 @@ curl -X GET \
 ```
 Le nom de version a un maximum de 10 caractères et contient uniquement des caractères autorisés dans une URL. 
 
-## <a name="import-the-endpoint-logs-for-active-learning"></a>Importer les journaux de point de terminaison pour l’apprentissage actif
+## <a name="import-the-endpoint-logs-for-active-learning"></a>Importer les journaux d’activité de point de terminaison pour l’apprentissage actif
 
 Si un montage de sortie est spécifié pour le conteneur LUIS, les fichiers journaux de requêtes d’application sont enregistrés dans le répertoire de sortie, où {INSTANCE_ID} est l’ID de conteneur. Le journal des requêtes d’application contient la requête, la réponse et les horodateurs de chaque requête de prédiction soumise au conteneur LUIS. 
 
@@ -303,7 +303,7 @@ L’emplacement suivant montre la structure de répertoires imbriqués pour les 
 /output/luis/{INSTANCE_ID}/
 ```
  
-À partir du portail LUIS, sélectionnez votre application, puis sélectionnez **Import endpoint logs** (Importer les journaux de point de terminaison) pour charger ces journaux. 
+À partir du portail LUIS, sélectionnez votre application, puis sélectionnez **Import endpoint logs** (Importer les journaux d’activité de point de terminaison) pour charger ces journaux d’activité. 
 
 ![Importer les fichiers journaux du conteneur pour l’apprentissage actif](./media/luis-container-how-to/upload-endpoint-log-files.png)
 

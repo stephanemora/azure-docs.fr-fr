@@ -98,7 +98,7 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
   - Si la connectivité à un serveur DNS est perdue pendant la migration, toutes les extensions de machines virtuelles, à l’exception de BGInfo version 1.\* doivent être supprimées de chacune des machines virtuelles avant la préparation de la migration, puis rajoutées aux machines virtuelles après la migration d’Azure Resource Manager.  **Cela concerne uniquement les machines virtuelles en cours d’exécution.**  Si les machines virtuelles sont arrêtées et libérées, il n’est pas nécessaire de supprimer les extensions de machines virtuelles.
 
   > [!NOTE]
-  > De nombreuses extensions, par exemple Azure Diagnostics et la surveillance Security Center, se réinstallent après la migration. Les supprimer n’est donc pas un problème.
+  > De nombreuses extensions, par exemple Diagnostics Azure et la surveillance Security Center, se réinstallent après la migration. Les supprimer n’est donc pas un problème.
 
   - Par ailleurs, assurez-vous que les groupes de sécurité réseau ne restreignent pas l’accès à Internet sortant. Cela peut se produire avec certaines configurations de groupes de sécurité réseau. Un accès à Internet sortant (et un DNS) est nécessaire pour migrer les extensions de machines virtuelles vers Azure Resource Manager.
   - Deux versions de l’extension BGInfo existent et sont appelées versions 1 et 2.  

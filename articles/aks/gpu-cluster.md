@@ -177,7 +177,7 @@ NAME                          READY   STATUS      RESTARTS   AGE
 samples-tf-mnist-demo-smnr6   0/1     Completed   0          3m
 ```
 
-Utilisez maintenant la commande [kubectl logs][kubectl-logs] pour afficher les journaux de pods. Les journaux de pods de l’exemple suivant confirment que l’appareil GPU détecté est le bon (`Tesla K80`). Indiquez le nom de votre propre pod :
+Utilisez maintenant la commande [kubectl logs][kubectl-logs] pour afficher les journaux d’activité de pods. Les journaux d’activité de pods de l’exemple suivant confirment que l’appareil GPU détecté est le bon (`Tesla K80`). Indiquez le nom de votre propre pod :
 
 ```
 $ kubectl logs samples-tf-mnist-demo-smnr6

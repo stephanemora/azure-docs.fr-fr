@@ -74,7 +74,7 @@ Utilisez le modèle suivant pour démarrer votre fichier de commandes :
 ]
 ```
 
-Le fichier de commandes utilise les propriétés **startPos** et **endPos** pour noter le début et la fin d’une entité. Les valeurs commencent à zéro ; elles ne doivent ni commencer ni se terminer par un espace. Les journaux de requêtes, eux, utilisent les propriétés startIndex et endIndex. 
+Le fichier de commandes utilise les propriétés **startPos** et **endPos** pour noter le début et la fin d’une entité. Les valeurs commencent à zéro ; elles ne doivent ni commencer ni se terminer par un espace. Les journaux d’activité de requêtes, eux, utilisent les propriétés startIndex et endIndex. 
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 

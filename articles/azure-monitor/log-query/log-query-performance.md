@@ -15,7 +15,7 @@ ms.date: 01/17/2019
 ms.author: bwren
 ms.openlocfilehash: 25d6b582ed4d4e24df3841f4191471296e25abd8
 ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54436330"
@@ -66,7 +66,7 @@ traces | top 10 by timestamp
 
    
 ### <a name="filter-records"></a>Filtrer les enregistrements
-Pour passer en revue uniquement les journaux qui correspondent à une condition donnée, utilisez l’opérateur *where* comme dans la requête suivante qui retourne uniquement les enregistrements dans lesquels la valeur _severityLevel_ est supérieure à 0 :
+Pour passer en revue uniquement les journaux d’activité qui correspondent à une condition donnée, utilisez l’opérateur *where* comme dans la requête suivante qui retourne uniquement les enregistrements dans lesquels la valeur _severityLevel_ est supérieure à 0 :
 
 ``` Kusto
 traces | where severityLevel > 0

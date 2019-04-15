@@ -281,7 +281,7 @@ items:
           href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Métriques Storage Analytics (classiques)
           href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Journaux Storage Analytics
+        - name: Journaux d’activité Storage Analytics
           href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gestion des événements
       href: storage-blob-event-overview.md

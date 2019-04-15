@@ -2,7 +2,7 @@
 title: Utilisation d’Azure PowerShell pour activer les diagnostics sur une machine virtuelle Windows | Microsoft Docs
 services: virtual-machines-windows
 documentationcenter: ''
-description: Utilisation de PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows
+description: Utilisation de PowerShell pour activer Diagnostics Azure sur une machine virtuelle exécutant Windows
 author: sbtron
 manager: jeconnoc
 editor: ''
@@ -16,14 +16,14 @@ ms.date: 12/15/2015
 ms.author: saurabh
 ms.openlocfilehash: 520211f3499931281d3ac86a1da1144564a8bb48
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55980752"
 ---
-# <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows
+# <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utiliser PowerShell pour activer Diagnostics Azure sur une machine virtuelle exécutant Windows
 
-Azure Diagnostics est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostics pour collecter des données de diagnostic telles que les journaux des applications ou les compteurs de performances à partir d'une machine virtuelle Azure exécutant Windows. 
+Diagnostics Azure est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l’extension de diagnostics pour collecter des données de diagnostic telles que les journaux des applications ou les compteurs de performances à partir d’une machine virtuelle Azure exécutant Windows. 
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -77,7 +77,7 @@ Pour activer l'extension de diagnostics sur une machine virtuelle existante cré
     Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
 ## <a name="sample-diagnostics-configuration"></a>Effectuer un échantillon de configuration de diagnostics
-Le code XML suivant peut être utilisé pour la configuration publique de diagnostics avec les scripts ci-dessus. Cet exemple de configuration transférera les différents compteurs de performance pour le compte de stockage de diagnostics, ainsi que les erreurs d'application, de sécurité et de canaux de système dans les journaux d'événement Windows, ainsi que toutes les erreurs dans les journaux d'infrastructure de diagnostics.
+Le code XML suivant peut être utilisé pour la configuration publique de diagnostics avec les scripts ci-dessus. Cet exemple de configuration transférera les différents compteurs de performance pour le compte de stockage de diagnostics, ainsi que les erreurs d’application, de sécurité et de canaux de système dans les journaux d’événement Windows, ainsi que toutes les erreurs dans les journaux d’activité d’infrastructure de diagnostics.
 
 La configuration doit être mise à jour pour inclure les éléments suivants :
 

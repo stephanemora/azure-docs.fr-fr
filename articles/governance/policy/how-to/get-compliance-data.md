@@ -413,11 +413,11 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## <a name="azure-monitor-logs"></a>Journaux Azure Monitor
+## <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-Si vous avez un [espace de travail Analytique de journal](../../../log-analytics/log-analytics-overview.md) avec `AzureActivity` à partir de la [solution d’Analytique de journal d’activité](../../../azure-monitor/platform/collect-activity-logs.md) liée à votre abonnement, vous pouvez également afficher les résultats de non-conformité du cycle d’évaluation à l’aide requêtes Kusto simples et `AzureActivity` table. Grâce aux informations des journaux Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
+Si vous avez un [espace de travail Analytique de journal](../../../log-analytics/log-analytics-overview.md) avec `AzureActivity` à partir de la [solution d’Analytique de journal d’activité](../../../azure-monitor/platform/collect-activity-logs.md) liée à votre abonnement, vous pouvez également afficher les résultats de non-conformité du cycle d’évaluation à l’aide requêtes Kusto simples et `AzureActivity` table. Grâce aux informations des journaux d’activité Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
 
-![Conformité aux stratégies à l'aide des journaux Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
+![Conformité aux stratégies à l’aide des journaux d’activité Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

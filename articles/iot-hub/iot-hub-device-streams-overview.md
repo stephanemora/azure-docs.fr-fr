@@ -115,7 +115,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 > Assurez-vous d’avoir installé Azure CLI version 2.0.57 ou ultérieure. Vous pouvez télécharger la dernière version [ici](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 > 
 
-## <a name="troubleshoot-via-device-streams-activity-logs"></a>Détecter un problème via les journaux d'activité des flux d'appareils
+## <a name="troubleshoot-via-device-streams-activity-logs"></a>Détecter un problème via les journaux d’activité des flux d’appareils
 
 Vous pouvez configurer les journaux Azure Monitor pour collecter le journal d’activité de flux de l’appareil dans votre IoT Hub. Ce journal peut s'avérer particulièrement utile à des fins de résolution des problèmes.
 
@@ -130,10 +130,10 @@ Suivez les étapes ci-dessous pour configurer les journaux Azure Monitor pour le
 
     ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "Activer les journaux des flux d'appareils")
 
-3. Vous pouvez maintenant accéder à vos journaux de flux d'appareils sous l'onglet *Journaux* de votre portail IoT Hub. Les journaux d'activité des flux d'appareils apparaissent dans la table `AzureDiagnostics` et ont `Category=DeviceStreams`.
+3. Vous pouvez maintenant accéder à vos journaux de flux d’appareils sous l’onglet *Journaux d’activité* de votre portail IoT Hub. Les journaux d’activité des flux d’appareils apparaissent dans la table `AzureDiagnostics` et ont `Category=DeviceStreams`.
 
     <p>
-Comme indiqué ci-dessous, l'identité de l'appareil cible ainsi que le résultat de l'opération sont également disponibles dans les journaux.
+Comme indiqué ci-dessous, l’identité de l’appareil cible ainsi que le résultat de l’opération sont également disponibles dans les journaux d’activité.
     ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-streams-log-analytics.PNG "Accéder aux journaux des flux d'appareils")
 
 

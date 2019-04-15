@@ -23,7 +23,7 @@ ms.locfileid: "58622193"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
-Avec Azure Monitor, vous pouvez visualiser, interroger, acheminer, archiver et agir sur les métriques ou les journaux provenant de vos ressources Azure.
+Avec Azure Monitor, vous pouvez visualiser, interroger, acheminer, archiver et agir sur les métriques ou les journaux d’activité provenant de vos ressources Azure.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -107,7 +107,7 @@ Les journaux d’activité fournissent des informations sur les opérations qui 
 > [!NOTE]
 > Les journaux d’activité n’incluent pas les opérations de lecture (GET) ou les opérations effectuées dans le portail Azure ou utilisant les API de gestion d’origine.
 
-Vous pouvez accéder aux journaux d’activité dans votre service de Gestion des API, ou accéder aux journaux de toutes vos ressources Azure dans Azure Monitor. 
+Vous pouvez accéder aux journaux d’activité dans votre service de Gestion des API, ou accéder aux journaux d’activité de toutes vos ressources Azure dans Azure Monitor. 
 
 ![journaux d’activité](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
 
@@ -131,7 +131,7 @@ Pour configurer les journaux de diagnostic :
 
     ![journaux de diagnostic](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Cliquez sur **Activer les diagnostics**. Vous pouvez archiver les journaux de diagnostic avec les mesures dans un compte de stockage, les transmettre en continu à un hub d’événement ou les envoyer aux journaux Azure Monitor. 
+3. Cliquez sur **Activer les diagnostics**. Vous pouvez archiver les journaux de diagnostic avec les mesures dans un compte de stockage, les transmettre en continu à un hub d’événement ou les envoyer aux journaux d’activité Azure Monitor. 
 
 Le service Gestion des API fournit actuellement des journaux de diagnostic (par lot toutes les heures) concernant chaque requête d’API. Chaque entrée a le schéma suivant :
 

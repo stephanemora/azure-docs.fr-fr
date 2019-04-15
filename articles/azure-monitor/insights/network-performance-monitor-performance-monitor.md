@@ -15,7 +15,7 @@ ms.date: 02/20/2018
 ms.author: abshamsft
 ms.openlocfilehash: de9e6d5c8c6b4dc9652ae64c9a4fd0e38d7a7b87
 ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53184761"
@@ -116,7 +116,7 @@ Dans le tableau de bord de la solution, un événement d’intégrité montre qu
 La page détaillée montre que le lien réseau **DMZ2-DMZ1** n’est pas sain. Sélectionnez **Afficher les liens de sous-réseau affectés** pour ce lien réseau. 
 
 
-La page détaillée affiche tous les liens de sous-réseau du lien réseau **DMZ2-DMZ1**. Pour les deux liens de sous-réseau, la latence a dépassé le seuil. Le lien réseau est donc considéré comme non sain. Vous pouvez également voir les tendances de latence des deux liens de sous-réseau. La commande de sélection de plage horaire dans le graphe vous permet de vous concentrer sur la plage horaire requise. Vous pouvez voir l’heure à laquelle la latence a atteint son pic. Effectuez ensuite une recherche dans les journaux correspondant à cette période pour investiguer le problème. Sélectionnez **Afficher les liens de nœud** pour consulter des détails supplémentaires. 
+La page détaillée affiche tous les liens de sous-réseau du lien réseau **DMZ2-DMZ1**. Pour les deux liens de sous-réseau, la latence a dépassé le seuil. Le lien réseau est donc considéré comme non sain. Vous pouvez également voir les tendances de latence des deux liens de sous-réseau. La commande de sélection de plage horaire dans le graphe vous permet de vous concentrer sur la plage horaire requise. Vous pouvez voir l’heure à laquelle la latence a atteint son pic. Effectuez ensuite une recherche dans les journaux d’activité correspondant à cette période pour investiguer le problème. Sélectionnez **Afficher les liens de nœud** pour consulter des détails supplémentaires. 
  
  ![Page Liens de sous-réseau](media/network-performance-monitor-performance-monitor/subnetwork-links.png) 
 

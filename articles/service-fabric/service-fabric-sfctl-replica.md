@@ -55,11 +55,11 @@ Permet d’obtenir les détails du réplica déployé sur un nœud Service Fabr
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-replica-deployed-list"></a>sfctl replica deployed-list
 Permet d’obtenir la liste des réplicas déployés sur un nœud Service Fabric.
@@ -80,11 +80,11 @@ Permet d’obtenir la liste contenant les informations sur les réplicas déploy
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 Permet d’obtenir l’intégrité d’une instance de service sans état ou d’un réplica de service avec état Service Fabric.
@@ -104,11 +104,11 @@ Permet d’obtenir l’intégrité d’un réplica Service Fabric. EventsHealth
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
 Permet d’obtenir les informations sur un réplica d’une partition Service Fabric.
@@ -127,11 +127,11 @@ La réponse inclut l’ID, le rôle, l’état, l’intégrité, le nom du nœud
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list
 Permet d’obtenir les informations sur des réplicas d’une partition de service Service Fabric.
@@ -150,11 +150,11 @@ Le point de terminaison GetReplicas retourne des informations sur la partition s
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-replica-remove"></a>sfctl replica remove
 Supprime un réplica de service exécuté sur un nœud.
@@ -175,11 +175,11 @@ Cette API simule un échec de réplica Service Fabric en supprimant un réplica
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-replica-report-health"></a>sfctl replica report-health
 Envoie un rapport d’intégrité sur le réplica Service Fabric.
@@ -207,11 +207,11 @@ Signale l’état d’intégrité du réplica Service Fabric spécifié. Le rapp
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-replica-restart"></a>sfctl replica restart
 Redémarre un réplica de service d’un service persistant exécuté sur un nœud.
@@ -231,11 +231,11 @@ Redémarre un réplica de service d’un service persistant exécuté sur un nœ
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

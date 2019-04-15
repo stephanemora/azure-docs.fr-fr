@@ -45,7 +45,7 @@ Vous pouvez utiliser une requête pour un groupe d’ordinateurs, mais elle doit
 
 Utilisez la procédure suivante pour créer un groupe d’ordinateurs à partir d’une recherche dans les journaux dans le portail Azure.
 
-1. Cliquez sur **Journaux** dans le menu **Azure Monitor** sur le Portail Azure.
+1. Cliquez sur **Journaux d’activité** dans le menu **Azure Monitor** sur le Portail Azure.
 1. Créez et exécutez une requête qui retourne les ordinateurs que vous voulez ajouter au groupe.
 1. Cliquez sur **Enregistrer** dans la partie supérieure de l’écran.
 1. Remplacez **Enregistrer sous** par **Fonction** et sélectionnez **Enregistrer cette requête comme groupe d’ordinateurs**.

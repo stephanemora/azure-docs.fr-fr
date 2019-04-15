@@ -139,8 +139,8 @@ Il y a plusieurs menus à explorer, comme un résumé des mises en production, l
 1. Sélectionnez **Validations**.   
 Cette vue montre les validations de code associées au déploiement spécifique.
 
-1. Sélectionnez **Journaux**.  
-Les journaux contiennent des informations utiles sur le processus de déploiement. Ils peuvent être affichés pendant et après les déploiements.
+1. Sélectionnez **Journaux d’activité**.  
+Les journaux d’activité contiennent des informations utiles sur le processus de déploiement. Ils peuvent être affichés pendant et après les déploiements.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

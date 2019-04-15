@@ -18,7 +18,7 @@ ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b83b08c442a7f10d6b29122fe7959bedf8f3cff0
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56177527"
@@ -107,7 +107,7 @@ Les entrées correspondantes du journal des événements apparaissent en tant qu
 
 Pour obtenir d’autres informations de base sur les problèmes rencontrés, l’étape suivante consiste à assurer un suivi réseau capturant les échanges entre l’hôte de connecteur et une délégation KDC du domaine. Pour plus d’informations, consultez le [document consacré à la résolution approfondie des problèmes](https://aka.ms/proxytshootpaper).
 
-Si l'émission de tickets semble correcte, les journaux contiennent un événement mentionnant que l’authentification a échoué en raison du renvoi d’une erreur 401 par l’application. Cet événement indique que l’application cible a rejeté votre ticket. Passez à l’étape suivante.
+Si l’émission de tickets semble correcte, les journaux d’activité contiennent un événement mentionnant que l’authentification a échoué en raison du renvoi d’une erreur 401 par l’application. Cet événement indique que l’application cible a rejeté votre ticket. Passez à l’étape suivante.
 
 ### <a name="target-application"></a>Application cible 
 Consommateur du ticket Kerberos fourni par le connecteur. À ce stade, attendez-vous à ce que le connecteur ait envoyé un ticket de service Kerberos au serveur principal. Ce ticket correspond à un en-tête figurant dans la première demande d’application.

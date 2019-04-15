@@ -12,7 +12,7 @@ ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 7bb2a68209e657b1e3ff8c3a61730d42f04a3b8a
 ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53727375"
@@ -167,7 +167,7 @@ Content-Type: application/json; charset=utf-8
 {"runtimeStatus":"Completed","input":"D:\\home\\LogFiles","output":452071,"createdTime":"2017-06-29T18:50:55Z","lastUpdatedTime":"2017-06-29T18:51:26Z"}
 ```
 
-Vous pouvez maintenant voir que l’orchestration est terminée et la durée approximative de cette opération. Vous voyez également une valeur pour le champ `output`, indiquant qu’environ 450 ko de journaux ont été chargés.
+Vous pouvez maintenant voir que l’orchestration est terminée et la durée approximative de cette opération. Vous voyez également une valeur pour le champ `output`, indiquant qu’environ 450 ko de journaux d’activité ont été chargés.
 
 ## <a name="visual-studio-sample-code"></a>Code d’exemple Visual Studio
 

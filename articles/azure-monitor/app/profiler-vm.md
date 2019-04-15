@@ -29,16 +29,16 @@ Vous pouvez également déployer Azure Application Insights Profiler sur ces ser
 * [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Déployer Profiler sur une machine virtuelle ou un groupe de machines virtuelles identiques
-Cet article vous montre comment exécuter Application Insights Profiler sur votre machine virtuelle Azure ou votre groupe de machines virtuelles identiques Azure. Profiler est installé avec l’extension Azure Diagnostics pour machines virtuelles. Configurez l’extension pour exécuter Profiler et générez le SDK Application Insights dans votre application.
+Cet article vous montre comment exécuter Application Insights Profiler sur votre machine virtuelle Azure ou votre groupe de machines virtuelles identiques Azure. Profiler est installé avec l’extension Diagnostics Azure pour machines virtuelles. Configurez l’extension pour exécuter Profiler et générez le SDK Application Insights dans votre application.
 
 1. Ajoutez le SDK Application Insights à votre [application ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) ou [application .NET](windows-services.md?toc=/azure/azure-monitor/toc.json) ordinaire.  
    Pour voir les profils de vos demandes, vous devez envoyer les données de télémétrie des demandes à Application Insights.
 
-1. Installez l’extension Azure Diagnostics sur votre machine virtuelle. Pour obtenir des exemples complets de modèles Resource Manager, consultez :  
+1. Installez l’extension Diagnostics Azure sur votre machine virtuelle. Pour obtenir des exemples complets de modèles Resource Manager, consultez :  
    * [Machine virtuelle](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
    * [Groupe de machines virtuelles identiques](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
     
-     La partie clé est ApplicationInsightsProfilerSink dans WadCfg. Pour qu’Azure Diagnostics autorise Profiler à envoyer des données à votre iKey, ajoutez un autre récepteur à cette section.
+     La partie clé est ApplicationInsightsProfilerSink dans WadCfg. Pour que Diagnostics Azure autorise Profiler à envoyer des données à votre iKey, ajoutez un autre récepteur à cette section.
     
      ```json
      "SinksConfig": {

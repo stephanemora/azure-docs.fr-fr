@@ -77,7 +77,7 @@ Il existe une limitation actuelle qui vous empêche de mélanger les application
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Lorsque votre application ne démarre pas ou que vous souhaitez vérifier la journalisation à partir de votre application, consultez les journaux Docker dans le répertoire LogFiles. Vous pouvez accéder à ce répertoire par le biais de votre site SCM ou d’un FTP.
+Lorsque votre application ne démarre pas ou que vous souhaitez vérifier la journalisation à partir de votre application, consultez les journaux d’activité Docker dans le répertoire LogFiles. Vous pouvez accéder à ce répertoire par le biais de votre site SCM ou d’un FTP.
 Pour journaliser `stdout` et `stderr` à partir de votre conteneur, vous devez activer **Journalisation de conteneur Docker** sous **Journaux de diagnostic**.
 
 ![Activation de la journalisation][2]
@@ -86,7 +86,7 @@ Le paramètre prend effet immédiatement. App Service détecte le changement de 
 
 Vous pouvez accéder au site SCM à partir d’**Outils avancés** dans le menu **Outils de développement**.
 
-![Affichage des journaux Docker avec Kudu][1]
+![Affichage des journaux d’activité Docker avec Kudu][1]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

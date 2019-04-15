@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54020810"
@@ -30,7 +30,7 @@ Le [dépôt GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory
 
 | Exemple | Description |
 |:--- |:--- |
-| [Procédure pas à pas Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Cet exemple fournit une procédure pas à pas de traitement de journaux à l’aide d’Azure Data Factory pour transformer les données des fichiers journaux en informations. <br/><br/>Dans cette procédure, le pipeline Data Factory collecte des exemples de journaux, traite et enrichit les données des journaux avec des données de référence, puis transforme les données pour évaluer l’efficacité d’une campagne marketing lancée dernièrement. |
+| [Procédure pas à pas Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Cet exemple fournit une procédure pas à pas de traitement de journaux à l’aide d’Azure Data Factory pour transformer les données des fichiers journaux en informations. <br/><br/>Dans cette procédure, le pipeline Data Factory collecte des exemples de journaux d’activité, traite et enrichit les données des journaux d’activité avec des données de référence, puis transforme les données pour évaluer l’efficacité d’une campagne marketing lancée dernièrement. |
 | [Exemples JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Cet exemple fournit des exemples JSON pour des scénarios courants. |
 | [Exemple de téléchargeur de données HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |Cet exemple montre le téléchargement des données à partir d’un point de terminaison HTTP vers Azure Blob Storage, à l’aide d’une activité .NET personnalisée. |
 | [Exemple d’activité .NET entre AppDomains](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Cet exemple vous montre comment créer une activité .NET personnalisée qui ne soit pas limitée aux versions d’assembly utilisées par le lanceur d’Azure Data Factory (par exemple, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.). |

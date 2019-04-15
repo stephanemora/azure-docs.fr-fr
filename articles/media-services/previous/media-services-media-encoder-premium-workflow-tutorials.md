@@ -592,7 +592,7 @@ Nous allons écrire un simple script Groovy Hello World dans le contexte de notr
 
     node.log("hello world");
 
-Exécutez maintenant une série de tests en local. Une fois les tests effectués, inspectez la propriété des journaux (via l’onglet Système sur le composant de script).
+Exécutez maintenant une série de tests en local. Une fois les tests effectués, inspectez la propriété des journaux d’activité (via l’onglet Système sur le composant de script).
 
 ![Sortie du journal Hello World](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output.png)
 

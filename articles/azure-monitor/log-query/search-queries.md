@@ -1,5 +1,5 @@
 ---
-title: Requêtes de recherche dans les journaux Azure Monitor | Microsoft Docs
+title: Requêtes de recherche dans les journaux d’activité Azure Monitor | Microsoft Docs
 description: Cet article fournit un didacticiel pour commencer à utiliser la recherche dans des requêtes de journal Azure Monitor.
 services: log-analytics
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 08/06/2018
 ms.author: bwren
 ms.openlocfilehash: 2df4cf994e118fef9048504daf40fabc1625c375
 ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56267681"
 ---
-# <a name="search-queries-in-azure-monitor-logs"></a>Requêtes de recherche dans les journaux Azure Monitor
+# <a name="search-queries-in-azure-monitor-logs"></a>Requêtes de recherche dans les journaux d’activité Azure Monitor
 
 > [!NOTE]
 > Vous devez suivre le didacticiel [Prise en main des requêtes de journal Azure Monitor](get-started-queries.md) pour terminer ce cours.

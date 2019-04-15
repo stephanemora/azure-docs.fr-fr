@@ -254,7 +254,7 @@ Voici un exemple complet qui crée une application logique et active la diffusio
 ## <a name="compute-resource-template"></a>Modèle de ressource de calcul
 Pour activer les diagnostics pour une ressource de calcul, par exemple un cluster Service Fabric ou une machine virtuelle, vous devez :
 
-1. Ajouter l’extension Azure Diagnostics à la définition de ressource de machine virtuelle.
+1. Ajouter l’extension Diagnostics Azure à la définition de ressource de machine virtuelle.
 2. Spécifier un compte de stockage et/ou un Event Hub comme paramètre.
 3. Ajouter le contenu de votre fichier WADCfg XML dans la propriété XMLCfg, en échappant correctement tous les caractères XML.
 

@@ -146,8 +146,8 @@ Azure DevOps Projects configure automatiquement un pipeline CI/CD dans Azure Pip
 1. Sélectionnez **Validations**.  
     Cette vue montre les validations de code qui sont associées à ce déploiement. 
 
-1. Sélectionnez **Journaux**.  
-    Les journaux contiennent des informations utiles sur le processus de déploiement. Vous pouvez les voir à la fois pendant et après les déploiements.
+1. Sélectionnez **Journaux d’activité**.  
+    Les journaux d’activité contiennent des informations utiles sur le processus de déploiement. Vous pouvez les voir à la fois pendant et après les déploiements.
 
 ## <a name="configure-azure-application-insights-monitoring"></a>Configurer la surveillance d’Azure Application Insights
 

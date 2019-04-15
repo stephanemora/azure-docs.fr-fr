@@ -16,7 +16,7 @@ ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: cf015f4857a22b755813d0be1af5a55a8b7b6535
 ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2018
 ms.locfileid: "34360470"
@@ -34,7 +34,7 @@ Le schéma logique suivant peut vous orienter vers un exemple spécifique des di
 [Exemple 4 : Ajouter une connexion hybride avec un réseau privé virtuel (VPN) d’appliance virtuelle de site à site.](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
 [Exemple 5 : Ajouter une connexion hybride avec une passerelle VPN Azure de site à site.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway)</br>
 [Exemple 6 : Ajouter une connexion hybride avec ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
-Des exemples d'ajout de connexions entre réseaux virtuels, de haute disponibilité et de chaînage de service seront ajoutés à ce document dans les prochains mois.
+ Des exemples d'ajout de connexions entre réseaux virtuels, de haute disponibilité et de chaînage de service seront ajoutés à ce document dans les prochains mois.
 
 ## <a name="microsoft-compliance-and-infrastructure-protection"></a>Conformité et protection des infrastructures Microsoft
 Microsoft propose plus de 40 certifications et attestations pour aider les entreprises à répondre aux exigences nationales, régionales et sectorielles régissant la collecte et l’utilisation des données des individus. Cette offre est la plus complète parmi tous les fournisseurs de services cloud.
@@ -129,7 +129,7 @@ Afin d’activer ces caractéristiques, suivez ces instructions sur les conditio
 * **Fonctionnalités des appliances de sécurité :** les appliances de sécurité déployées du réseau de périmètre exécutent généralement les fonctionnalités suivantes :
   * Pare-feu : application de règles de pare-feu ou de stratégies de contrôle d’accès pour les demandes entrantes.
   * Détection et prévention des menaces : détection et atténuation des attaques malveillantes d’Internet.
-  * Audit et journalisation : gestion de journaux d’audit et d’analyse détaillés.
+  * Audit et journalisation : gestion de journaux d’activité d’audit et d’analyse détaillés.
   * Proxy inversé : redirection des demandes entrantes vers les serveurs principaux correspondants. La redirection implique le mappage et la traduction des adresses de destination sur les appareils frontaux, généralement des pare-feu, vers les adresses des serveurs principaux.
   * Proxy de transfert : indication de NAT et exécution d’audits pour la communication initiée à partir du réseau virtuel vers Internet.
   * Routeur : transfert du trafic entrant et entre sous-réseaux au sein du réseau virtuel.

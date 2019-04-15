@@ -11,7 +11,7 @@ ms.date: 05/15/2017
 ms.author: raynew
 ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
 ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/04/2018
 ms.locfileid: "52880095"
@@ -44,8 +44,8 @@ Le tableau suivant résume ce que vous pouvez sauvegarder et récupérer. Pour p
 |Hyper-V<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure de l’hôte ou de l’invité Hyper-V<br /><br />Récupération complète/Sauvegarde de l’état du système|Hôte Hyper-V perdu (machines virtuelles perdues)|N|N|O<br /><br />Récupération complète, suivie d’une récupération régulière du Serveur de sauvegarde Azure|
 |SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Données d’application perdues|O|N|N|
 |SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Système d’exploitation perdu ou endommagé|N|y|O|
-|SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (base de données/journaux des transactions intacts)|N|N|O|
-|SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (base de données/journaux des transactions perdus)|N|N|O<br /><br />Récupération complète, suivie d’une récupération régulière du Serveur de sauvegarde Azure|
+|SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (base de données/journaux d’activité des transactions intacts)|N|N|O|
+|SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (base de données/journaux d’activité des transactions perdus)|N|N|O<br /><br />Récupération complète, suivie d’une récupération régulière du Serveur de sauvegarde Azure|
 
 ## <a name="how-system-state-backup-works"></a>Fonctionnement de la sauvegarde de l’état du système
 
@@ -66,7 +66,7 @@ Pour une récupération complète (incluant la sauvegarde de l’état du systè
 
 Le Serveur de sauvegarde appelle l’application Sauvegarde Windows Server, et partage le volume du réplica pour cette sauvegarde complète. Dans ce cas, il ne demande pas à l’application Sauvegarde Windows Server d’utiliser le lecteur offrant le plus d’espace libre. Au lieu de cela, il utilise le partage créé pour le travail.
 
-Une fois la sauvegarde terminée, le fichier est transféré vers l’ordinateur Serveur de sauvegarde. Les journaux sont stockés dans C:\Windows\Logs\WindowsServerBackup.
+Une fois la sauvegarde terminée, le fichier est transféré vers l’ordinateur Serveur de sauvegarde. Les journaux d’activité sont stockés dans C:\Windows\Logs\WindowsServerBackup.
 
 ## <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
 

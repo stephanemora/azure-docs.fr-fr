@@ -44,7 +44,7 @@ Pour les machines virtuelles Resource Manager, vous pouvez utiliser la fonctionn
 
     wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 
-Pour les machines virtuelles classiques, vous devez travailler en mode HORS CONNEXION et collecter les journaux manuellement.
+Pour les machines virtuelles classiques, vous devez travailler en mode HORS CONNEXION et collecter les journaux d’activité manuellement.
 
 ## <a name="cause"></a>Cause :
 

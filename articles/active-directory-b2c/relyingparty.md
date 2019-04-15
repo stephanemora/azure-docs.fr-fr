@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
 ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55176010"
@@ -135,12 +135,12 @@ L’élément **JourneyInsights** contient les attributs suivants :
 | --------- | -------- | ----------- |
 | TelemetryEngine | Oui | La valeur doit être `ApplicationInsights`. | 
 | InstrumentationKey | Oui | Chaîne qui contient la clé d’instrumentation pour l’élément application insights. |
-| DeveloperMode | Oui | Valeurs possibles : `true` ou `false`. Si `true`, Application Insights envoie la télémétrie par le biais du pipeline de traitement. Ce paramètre convient pour le développement, mais il est limité à des volumes élevés. Les journaux d’activité détaillés sont conçues pour aider au développement de stratégies personnalisées. N’utilisez pas le mode de développement en production. Les journaux recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement. En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire. Ces journaux détaillés sont recueillis uniquement quand cette valeur est `true`.|
+| DeveloperMode | Oui | Valeurs possibles : `true` ou `false`. Si `true`, Application Insights envoie la télémétrie par le biais du pipeline de traitement. Ce paramètre convient pour le développement, mais il est limité à des volumes élevés. Les journaux d’activité détaillés sont conçues pour aider au développement de stratégies personnalisées. N’utilisez pas le mode de développement en production. Les journaux d’activité recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement. En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire. Ces journaux d’activité détaillés sont recueillis uniquement quand cette valeur est `true`.|
 | ClientEnabled | Oui | Valeurs possibles : `true` ou `false`. Si `true`, envoie le script côté client Application Insights pour le suivi des affichages de page et des erreurs côté client. | 
 | ServerEnabled | Oui | Valeurs possibles : `true` ou `false`. Si `true`, envoie le JSON UserJourneyRecorder existant en tant qu’événement personnalisé à Application Insights. | 
 | TelemetryVersion | Oui | La valeur doit être `1.0.0`. | 
 
-Pour plus d’informations, consultez [Collecte de journaux](active-directory-b2c-troubleshoot-custom.md).
+Pour plus d’informations, consultez [Collecte de journaux d’activité](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="contentdefinitionparameters"></a>ContentDefinitionParameters
 

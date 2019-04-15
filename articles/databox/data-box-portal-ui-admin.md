@@ -129,7 +129,7 @@ Pour modifier les détails de modification, procédez comme suit.
 |Reçu     | Vos disques ont été livrés au centre de données Azure. La copie des données va bientôt démarrer.        |
 |Data copied (Données copiées)     |La copie des données est en cours.<br> Attendez que la copie des données se termine.         |
 |Completed       |La commande a été terminée avec succès.<br> Vérifiez que vos données se trouvent bien dans Azure avant de supprimer les données locales des serveurs.         |
-|Completed with errors (Terminée avec des erreurs)| La copie de données est terminée, mais des erreurs se sont produites. <br> Consultez les journaux de copie en utilisant le chemin d’accès spécifié sous **Vue d’ensemble**. Pour plus d’informations, voir [Télécharger les journaux de diagnostic](data-box-disk-troubleshoot.md#download-diagnostic-logs).   |
+|Completed with errors (Terminée avec des erreurs)| La copie de données est terminée, mais des erreurs se sont produites. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié sous **Vue d’ensemble**. Pour plus d’informations, voir [Télécharger les journaux de diagnostic](data-box-disk-troubleshoot.md#download-diagnostic-logs).   |
 |Canceled            |La commande a été annulée. <br> Soit vous avez annulé la commande, soit une erreur s’est produite et le service a annulé la commande.     |
 
 

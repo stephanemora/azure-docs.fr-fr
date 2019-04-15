@@ -11,7 +11,7 @@ ms.date: 12/15/2018
 ms.author: hrasheed
 ms.openlocfilehash: 03c86aa069300f88b61752ebd3223e424f6e9c96
 ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/17/2019
 ms.locfileid: "54382606"
@@ -30,7 +30,7 @@ Les interfaces utilisateur web suivantes nécessitent un tunnel SSH :
 * NameNode
 * Thread Stacks
 * Interface utilisateur Web Oozie
-* Interface HBase Master et interface de journaux
+* Interface HBase Master et interface de journaux d’activité
 
 Si vous utilisez des actions de script pour personnaliser votre cluster, tous les services ou utilitaires que vous installez et qui exposent un service web nécessitent un tunnel SSH. Par exemple, si vous installez Hue à l'aide d'une action de script, vous devez utiliser un tunnel SSH pour accéder à l'interface utilisateur Web Hue.
 

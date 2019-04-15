@@ -47,11 +47,11 @@ Permet d’obtenir des informations sur tous les réplicas d’un service. Les i
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-mesh-service-replica-show"></a>sfctl mesh service-replica show
 Permet d’obtenir le réplica donné du service d’une application.
@@ -70,11 +70,11 @@ Récupère les informations relatives au réplica du service portant le nom spé
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

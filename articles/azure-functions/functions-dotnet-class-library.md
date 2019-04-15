@@ -233,7 +233,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Journalisation
 
-Pour consigner la sortie dans vos journaux de streaming en C#, ajoutez un argument de type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Nous vous recommandons le nom `log`, comme dans l’exemple suivant :  
+Pour consigner la sortie dans vos journaux d’activité de streaming en C#, ajoutez un argument de type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Nous vous recommandons le nom `log`, comme dans l’exemple suivant :  
 
 ```csharp
 public static class SimpleExample
@@ -248,7 +248,7 @@ public static class SimpleExample
 } 
 ```
 
-Évitez d’utiliser `Console.Write` dans Azure Functions. Pour plus d’informations, consultez [Écrire des journaux dans des fonctions C#](functions-monitoring.md#write-logs-in-c-functions) dans l’article **Surveiller Azure Functions**.
+Évitez d’utiliser `Console.Write` dans Azure Functions. Pour plus d’informations, consultez [Écrire des journaux d’activité dans des fonctions C#](functions-monitoring.md#write-logs-in-c-functions) dans l’article **Surveiller Azure Functions**.
 
 ## <a name="async"></a>Async
 

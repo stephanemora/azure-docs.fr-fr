@@ -88,7 +88,7 @@ items:
     items:
     - name: Surveiller l’utilisation du processeur et de la mémoire
       href: container-instances-monitor.md
-    - name: Obtenir les journaux et les événements de conteneur
+    - name: Obtenir les journaux d’activité et les événements de conteneur
       href: container-instances-get-logs.md
     - name: Journalisation avec Azure Log Analytics
       href: container-instances-log-analytics.md

@@ -401,7 +401,7 @@ items:
         href: service-fabric-resource-governance.md
       - name: Pilotes de journalisation et de volume
         href: service-fabric-containers-volume-logging-drivers.md
-      - name: Afficher les journaux d’un conteneur
+      - name: Afficher les journaux d’activité du conteneur
         href: service-fabric-containers-view-logs.md
       - name: Services à l’intérieur des conteneurs
         href: service-fabric-services-inside-containers.md
@@ -698,15 +698,15 @@ items:
         href: service-fabric-how-to-diagnostics-log.md
       - name: Analyser avec Application Insights
         href: service-fabric-diagnostics-event-analysis-appinsights.md
-      - name: Agréger des événements avec EventFlow
+      - name: Agréger des journaux d’activité avec EventFlow
         href: service-fabric-diagnostics-event-aggregation-eventflow.md
       - name: Analyser les conteneurs
         href: service-fabric-diagnostics-oms-containers.md
     - name: Surveiller les clusters
       items:
-      - name: Configurer les journaux Azure Monitor pour collecter les événements de cluster
+      - name: Configurer les journaux d’activité Azure Monitor pour collecter les événements de cluster
         href: service-fabric-diagnostics-oms-setup.md
-      - name: Superviser votre cluster avec les journaux Azure Monitor
+      - name: Superviser votre cluster avec les journaux d’activité Azure Monitor
         href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Interroger les API EventStore
         href: service-fabric-diagnostics-eventstore-query.md

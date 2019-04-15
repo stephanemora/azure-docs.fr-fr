@@ -303,7 +303,7 @@ Pour utiliser la liaison Files, installez `Microsoft.Azure.WebJobs.Extensions` e
 
 ### <a name="executioncontext"></a>ExecutionContext
 
-WebJobs vous permet de lier à [`ExecutionContext`]. Avec cette liaison, vous pouvez accéder à [`ExecutionContext`] en tant que paramètre dans votre signature de fonction. Par exemple, le code suivant utilise l’objet de contexte pour accéder à l’ID d’appel, ce que vous pouvez utiliser pour mettre en corrélation tous les journaux produits par l’appel d’une fonction donnée.  
+WebJobs vous permet de lier à [`ExecutionContext`]. Avec cette liaison, vous pouvez accéder à [`ExecutionContext`] en tant que paramètre dans votre signature de fonction. Par exemple, le code suivant utilise l’objet de contexte pour accéder à l’ID d’appel, ce que vous pouvez utiliser pour mettre en corrélation tous les journaux d’activité produits par l’appel d’une fonction donnée.  
 
 ```cs
 public class Functions
@@ -843,7 +843,7 @@ Chaque journal créé par une instance `ILogger` présente des attributs `Catego
 |Critique    | 5. |
 |Aucun        | 6. |
 
-Vous pouvez filtrer indépendamment de chaque catégorie pour un particulier [ `LogLevel` ](/dotnet/api/microsoft.extensions.logging.loglevel). Par exemple, il se peut que vous souhaitiez afficher tous les journaux pour le traitement de déclencheurs blob, mais uniquement les niveaux `Error` et plus élevés pour tous les autres éléments.
+Vous pouvez filtrer indépendamment de chaque catégorie pour un particulier [ `LogLevel` ](/dotnet/api/microsoft.extensions.logging.loglevel). Par exemple, il se peut que vous souhaitiez afficher tous les journaux d’activité pour le traitement de déclencheurs blob, mais uniquement les niveaux `Error` et plus élevés pour tous les autres éléments.
 
 #### <a name="version-3x"></a>Version 3. *x*
 
@@ -888,7 +888,7 @@ Dans la version 2. *x* du SDK, vous utilisez la `LogCategoryFilter` classe pour 
 
 Comme avec `LogCategories` dans la version 3. *x*, le `CategoryLevels` propriété permet de spécifier les niveaux de journalisation pour les catégories spécifiques afin que vous pouvez affiner la sortie de journalisation. Si aucune correspondance n’est trouvée dans le dictionnaire `CategoryLevels`, le filtre se replie sur la valeur `Default` pour décider si le message doit être filtré ou non.
 
-L’exemple suivant crée un filtre qui filtre par défaut tous les journaux au niveau `Warning`. Le `Function` et `Host.Results` catégories sont filtrés à le `Error` niveau. L’objet `LogCategoryFilter` compare la catégorie actuelle à toutes les propriétés `CategoryLevels` enregistrées et choisit la correspondance la plus longue. Par conséquent, le `Debug` niveau inscrit pour `Host.Triggers` correspondra `Host.Triggers.Queue` ou `Host.Triggers.Blob`. Cela vous permet de contrôler des catégories plus vastes sans avoir à ajouter chacune d’entre elles.
+L’exemple suivant crée un filtre qui filtre par défaut tous les journaux d’activité au niveau `Warning`. Le `Function` et `Host.Results` catégories sont filtrés à le `Error` niveau. L’objet `LogCategoryFilter` compare la catégorie actuelle à toutes les propriétés `CategoryLevels` enregistrées et choisit la correspondance la plus longue. Par conséquent, le `Debug` niveau inscrit pour `Host.Triggers` correspondra `Host.Triggers.Queue` ou `Host.Triggers.Blob`. Cela vous permet de contrôler des catégories plus vastes sans avoir à ajouter chacune d’entre elles.
 
 ```csharp
 var filter = new LogCategoryFilter();

@@ -1,6 +1,6 @@
 ---
-title: Diffuser des données Azure Diagnostics en continu à Event Hubs
-description: Configuration de bout en bout d’Azure Diagnostics avec Event Hubs, y compris des conseils relatifs aux scénarios courants.
+title: Diffuser des données Diagnostics Azure en continu à Event Hubs
+description: Configuration de bout en bout de Diagnostics Azure avec Event Hubs, y compris des conseils relatifs aux scénarios courants.
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54478125"
 ---
-# <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Diffusion des données d’Azure Diagnostics dans le chemin réactif à l’aide d’Event Hubs
+# <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Diffusion des données de Diagnostics Azure dans le chemin réactif à l’aide d’Event Hubs
 Azure Diagnostics propose des moyens flexibles de collecter des mesures et des journaux d’activité à partir de machines virtuelles de services cloud et de transférer les résultats dans Azure Storage. Depuis mars 2016 (Kit de développement logiciel (SDK) 2.9), vous pouvez envoyer les données Diagnostics à des sources de données personnalisées et transférer des données de chemin réactif en quelques secondes à l’aide [d’Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
 
 Les types de données pris en charge sont les suivants :
@@ -27,7 +27,7 @@ Les types de données pris en charge sont les suivants :
 * Journaux d’activité d’application
 * Journaux d’activité d’infrastructure de diagnostics Azure
 
-Cet article vous montre la procédure complète de configuration de diagnostics  Azure avec Event Hubs. Des recommandations vous sont également proposées pour les scénarios courants suivants :
+Cet article vous montre la procédure complète de configuration de Diagnostics Azure avec Event Hubs. Des recommandations vous sont également proposées pour les scénarios courants suivants :
 
 * Comment personnaliser les journaux d’activité et les mesures envoyés à Event Hubs
 * Comment modifier les configurations dans chaque environnement
@@ -35,16 +35,16 @@ Cet article vous montre la procédure complète de configuration de diagnostics 
 * Comment résoudre les problèmes de connexion  
 
 ## <a name="prerequisites"></a>Prérequis
-La réception par Event Hubs de données provenant d’Azure Diagnostics est prise en charge dans Services cloud, Machines virtuelles, Virtual Machine Scale Sets et Service Fabric à partir du Kit de développement logiciel (SDK) 2.9 Azure, ainsi que dans les outils Azure correspondants pour Visual Studio.
+La réception par Event Hubs de données provenant de Diagnostics Azure est prise en charge dans Services cloud, Machines virtuelles, Virtual Machine Scale Sets et Service Fabric à partir du Kit de développement logiciel (SDK) 2.9 Azure, ainsi que dans les outils Azure correspondants pour Visual Studio.
 
-* Extension Azure Diagnostics 1.6 (ciblée par défaut par le[Kit de développement logiciel (SDK) Azure pour .NET 2.9 ou ultérieur](https://azure.microsoft.com/downloads/) )
+* Extension Diagnostics Azure 1.6 (ciblée par défaut par le[Kit de développement logiciel (SDK) Azure pour .NET 2.9 ou ultérieur](https://azure.microsoft.com/downloads/) )
 * [Visual Studio 2013 ou une version ultérieure](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-* Configurations existantes d’Azure Diagnostics dans une application à l’aide d’un fichier *.wadcfgx* et de l’une des méthodes suivantes :
+* Configurations existantes de Diagnostics Azure dans une application à l’aide d’un fichier *.wadcfgx* et de l’une des méthodes suivantes :
   * Visual Studio : [Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell : [Activer les diagnostics dans les services cloud Azure à l’aide de PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md)
 * Espace de noms Event Hubs approvisionné tel que décrit dans l’article [Prise en main d’Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
-## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Connexion d’Azure Diagnostics au récepteur Event Hubs
+## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Connexion de Diagnostics Azure au récepteur Event Hubs
 Par défaut, Azure Diagnostics transmet toujours des journaux d’activité et des mesures à un compte Stockage Azure. Une application peut également envoyer des données vers Event Hubs en ajoutant une nouvelle section **Sinks** sous l’élément **PublicConfig** / **WadCfg** du fichier *.wadcfgx*. Dans Visual Studio, le fichier *.wadcfgx* est stocké dans l’emplacement suivant : **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx** fichier.
 
 ```xml
@@ -75,7 +75,7 @@ L’URL du hub d’événements s’affiche dans le [portail Azure](https://go.m
 Le nom **Sink** peut être défini sur n’importe quelle chaîne valide tant que cette même valeur est utilisée de manière cohérente dans le fichier de configuration.
 
 > [!NOTE]
-> Des récepteurs supplémentaires, tels que *applicationInsights* , peuvent être configurés dans cette section. Azure Diagnostics permet de définir un ou plusieurs récepteurs si chaque récepteur est également déclaré dans la section **PrivateConfig** .  
+> Des récepteurs supplémentaires, tels que *applicationInsights* , peuvent être configurés dans cette section. Diagnostics Azure permet de définir un ou plusieurs récepteurs si chaque récepteur est également déclaré dans la section **PrivateConfig** .  
 >
 >
 
@@ -204,16 +204,16 @@ Dans cet exemple, le récepteur est appliqué aux journaux d’activité et filt
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Déploiement et mise à jour d’une configuration de diagnostics et d’application de services cloud
 Visual Studio offre le moyen le plus facile de déployer l’application et de configurer le récepteur Event Hubs. Pour afficher et modifier le fichier, ouvrez le fichier *.wadcfgx* dans Visual Studio, modifiez-le, puis enregistrez-le. Le chemin d’accès est **Projet de service cloud** > **rôles** > **(RoleName)** > **diagnostics.wadcfgx**.  
 
-À ce stade, toutes les opérations de déploiement et de mise à jour du déploiement effectuées dans Visual Studio et dans Visual Studio Team System, de même que l’ensemble des commandes ou scripts basés sur MSBuild et qui utilisent la cible **/t:publish** incluent le fichier *.wadcfgx* dans le processus d’empaquetage. En outre, les déploiements et les mises à jour déploient le fichier vers Azure à l’aide de l’extension de l’agent Azure Diagnostics appropriée sur vos machines virtuelles.
+À ce stade, toutes les opérations de déploiement et de mise à jour du déploiement effectuées dans Visual Studio et dans Visual Studio Team System, de même que l’ensemble des commandes ou scripts basés sur MSBuild et qui utilisent la cible **/t:publish** incluent le fichier *.wadcfgx* dans le processus d’empaquetage. En outre, les déploiements et les mises à jour déploient le fichier vers Azure à l’aide de l’extension de l’agent Diagnostics Azure appropriée sur vos machines virtuelles.
 
-Une fois l’application et la configuration d’Azure Diagnostics déployées, l’activité correspondante s’affiche dans le tableau de bord du hub d’événements. Cela vous indique que vous pouvez maintenant afficher les données de chemin réactif dans le client d’écouteur ou l’outil d’analyse de votre choix.  
+Une fois l’application et la configuration de Diagnostics Azure déployées, l’activité correspondante s’affiche dans le tableau de bord du hub d’événements. Cela vous indique que vous pouvez maintenant afficher les données de chemin réactif dans le client d’écouteur ou l’outil d’analyse de votre choix.  
 
 Dans l’illustration suivante, le tableau de bord Event Hubs indique un envoi intègre de données de diagnostic vers le hub d’événements après 23h00. Cette heure correspond au moment où l’application a été déployée avec un fichier *.wadcfgx* mis à jour et où le récepteur a été correctement configuré.
 
 ![][0]  
 
 > [!NOTE]
-> Lorsque vous effectuez des mises à jour du fichier de configuration d’Azure Diagnostics (.wadcfgx), il est recommandé de les publier dans l’ensemble de l’application et de la configuration à l’aide de la publication Visual Studio ou d’un script Windows PowerShell.  
+> Lorsque vous effectuez des mises à jour du fichier de configuration de Diagnostics Azure (.wadcfgx), il est recommandé de les publier dans l’ensemble de l’application et de la configuration à l’aide de la publication Visual Studio ou d’un script Windows PowerShell.  
 >
 >
 
@@ -321,7 +321,7 @@ namespace EventHubListener
 ## <a name="next-steps"></a>Étapes suivantes
 •    [En savoir plus sur Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
-## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Annexe : syexemple de fichier complet de configuration d’Azure Diagnostics (.wadcfgx)
+## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Annexe : Exemple de fichier complet de configuration Diagnostics Azure (.wadcfgx)
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">

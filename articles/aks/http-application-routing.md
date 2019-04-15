@@ -10,7 +10,7 @@ ms.date: 04/25/2018
 ms.author: laevenso
 ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
 ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56312276"
@@ -209,7 +209,7 @@ Répétez l’étape `kubectl delete` précédente pour toutes les ressources *a
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
-Utilisez la commande [kubectl logs][kubectl-logs] pour afficher les journaux d’application de l’application DNS externe. Les journaux doivent confirmer que des enregistrements DNS A et TXT ont bien été créés.
+Utilisez la commande [kubectl logs][kubectl-logs] pour afficher les journaux d’activité d’application de l’application DNS externe. Les journaux d’activité doivent confirmer que des enregistrements DNS A et TXT ont bien été créés.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -222,7 +222,7 @@ Ces enregistrements peuvent également être consultés sur la ressource de zone
 
 ![Obtenir les enregistrements DNS](media/http-routing/clippy.png)
 
-Utilisez la commande [kubectl logs][kubectl-logs] pour afficher les journaux d’application du contrôleur d’entrée Nginx. Les journaux doivent confirmer la création (`CREATE`) d’une ressource d’entrée et le rechargement du contrôleur. Toutes les activités HTTP sont journalisées.
+Utilisez la commande [kubectl logs][kubectl-logs] pour afficher les journaux d’activité d’application du contrôleur d’entrée Nginx. Les journaux d’activité doivent confirmer la création (`CREATE`) d’une ressource d’entrée et le rechargement du contrôleur. Toutes les activités HTTP sont journalisées.
 
 ```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system

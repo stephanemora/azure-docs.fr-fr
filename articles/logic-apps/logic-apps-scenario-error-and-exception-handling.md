@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
 ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/28/2019
 ms.locfileid: "55098661"
@@ -414,7 +414,7 @@ Voici quelques exemples des détails de notre application MVC créée à l’aid
 
 ### <a name="log-management-portal"></a>Portail de gestion des journaux
 
-Pour afficher les journaux, nous avons également créé une application web MVC. Voici quelques exemples des détails de notre application MVC créée à l’aide de l’approche décrite précédemment.
+Pour afficher les journaux d’activité, nous avons également créé une application web MVC. Voici quelques exemples des détails de notre application MVC créée à l’aide de l’approche décrite précédemment.
 
 #### <a name="sample-log-detail-view"></a>Exemple de vue détaillée de journal
 ![Vue détaillée de journal](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)

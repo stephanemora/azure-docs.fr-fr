@@ -99,7 +99,7 @@ a75caa09eb1f: Layer already exists
 v1: digest: sha256:4c3f2211569346fbe2d1006c18cbea2a4a9dcc1eb3a078608cef70d3a186ec7a size: 1792
 ```
 
-## <a name="view-the-webhook-logs"></a>Afficher les journaux du webhook
+## <a name="view-the-webhook-logs"></a>Afficher les journaux d’activité du webhook
 
 Pendant que l’image est en cours de réplication, vous pouvez voir les webhooks Azure Container Registry déclenchés.
 
@@ -107,7 +107,7 @@ Pour voir les webhooks régionaux qui ont été créés lorsque vous avez déplo
 
 ![Webhooks de registre de conteneurs dans le portail Azure][tutorial-portal-01]
 
-Sélectionnez chaque webhook pour consulter l’historique des appels et des réponses. Vous devez voir une ligne pour l’action **push** dans les journaux des deux webhooks. Ici, le journal pour le webhook qui se trouve dans la région *USA Ouest* montre l’action **push** déclenchée par le `docker push` à l’étape précédente :
+Sélectionnez chaque webhook pour consulter l’historique des appels et des réponses. Vous devez voir une ligne pour l’action **push** dans les journaux d’activité des deux webhooks. Ici, le journal pour le webhook qui se trouve dans la région *USA Ouest* montre l’action **push** déclenchée par le `docker push` à l’étape précédente :
 
 ![Journal des webhooks de registre de conteneurs dans le portail Azure (USA Ouest)][tutorial-portal-02]
 

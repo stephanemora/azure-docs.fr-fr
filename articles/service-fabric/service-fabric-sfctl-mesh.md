@@ -28,7 +28,7 @@ Permet de supprimer et de gérer les applications Service Fabric Mesh.
 |Sous-groupe|Description|
 | --- | --- |
 | [app](service-fabric-sfctl-mesh-app.md) | Obtenir et supprimer les ressources d’application. |
-| [code-package-log](service-fabric-sfctl-mesh-code-package-log.md) | Obtenir les journaux concernant le conteneur du package de code spécifié pour le réplica de service donné. |
+| [code-package-log](service-fabric-sfctl-mesh-code-package-log.md) | Obtenez les journaux d’activité concernant le conteneur du package de code spécifié pour le réplica de service donné. |
 | [deployment](service-fabric-sfctl-mesh-deployment.md) | Créer des ressources Service Fabric Mesh. |
 | [gateway](service-fabric-sfctl-mesh-gateway.md) | Récupère et supprime des ressources de la passerelle maillée. |
 | [network](service-fabric-sfctl-mesh-network.md) | Récupère et supprime des ressources du réseau maillé. |

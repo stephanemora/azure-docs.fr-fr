@@ -47,11 +47,11 @@ Supprime la ressource Secret spécifiée et toutes ses valeurs nommées.
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-mesh-secret-list"></a>sfctl mesh secret list
 Répertorie toutes les ressources secrètes.
@@ -62,11 +62,11 @@ Récupère les informations relatives à toutes les ressources secrètes d’un 
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-mesh-secret-show"></a>sfctl mesh secret show
 Récupère la ressource Secret portant le nom spécifié.
@@ -83,11 +83,11 @@ Récupère les informations relatives à la ressource Secret portant le nom spé
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

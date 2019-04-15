@@ -37,7 +37,7 @@ L’analyse, la détection, le diagnostic et la résolution des problèmes perme
 
 Pour les applications Java, [plusieurs frameworks de journalisation](https://en.wikipedia.org/wiki/Java_logging_framework) sont disponibles. Comme `java.util.logging` est l'option par défaut avec l'environnement JRE, elle est également utilisée pour les [exemples de code de GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). La suite de cette section explique comment configurer le framework `java.util.logging` .
 
-À l’aide de java.util.logging, vous pouvez rediriger vos journaux d’application vers la mémoire, des flux de sortie, des fichiers de console ou des sockets. Pour chacune de ces options, des gestionnaires par défaut sont déjà fournis dans le framework. Vous pouvez créer un fichier `app.properties` pour configurer le gestionnaire de fichiers de votre application de sorte qu’il redirige tous les journaux dans un fichier local.
+À l’aide de java.util.logging, vous pouvez rediriger vos journaux d’activité d’application vers la mémoire, des flux de sortie, des fichiers de console ou des sockets. Pour chacune de ces options, des gestionnaires par défaut sont déjà fournis dans le framework. Vous pouvez créer un fichier `app.properties` pour configurer le gestionnaire de fichiers de votre application de sorte qu’il redirige tous les journaux d’activité dans un fichier local.
 
 L’extrait de code suivant contient un exemple de configuration :
 
@@ -58,11 +58,11 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
 
 
-Cette configuration se traduit par la collecte des journaux suivant une rotation dans `/tmp/servicefabric/logs/`. Dans ce cas, le fichier journal est nommé mysfapp%u.%g.log, où :
+Cette configuration se traduit par la collecte des journaux d’activité suivant une rotation dans `/tmp/servicefabric/logs/`. Dans ce cas, le fichier journal est nommé mysfapp%u.%g.log, où :
 * **%u** est un nombre unique utilisé pour résoudre les conflits entre des processus Java simultanés.
 * **%g** est le numéro de génération permettant de différencier des journaux de rotation.
 
-Si aucun gestionnaire n’est configuré explicitement, le gestionnaire de la console est inscrit. Les journaux sont accessible sous /var/log/syslog.
+Si aucun gestionnaire n’est configuré explicitement, le gestionnaire de la console est inscrit. Les journaux d’activité sont accessible sous /var/log/syslog.
 
 Pour plus d'informations, consultez les [exemples de code de GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
@@ -72,7 +72,7 @@ Pour plus d'informations, consultez les [exemples de code de GitHub](https://git
 
 Plusieurs infrastructures sont disponibles pour le suivi des applications CoreCLR sur Linux. Pour en savoir plus, consultez [GitHub : journalisation](http:/github.com/aspnet/logging).  EventSource étant familier pour les développeurs C#, cet article utilise EventSource pour le suivi dans des exemples de CoreCLR sur Linux.
 
-La première étape consiste à inclure System.Diagnostics.Tracing afin que vous puissiez écrire vos journaux dans une mémoire, des flux de sortie ou des fichiers de console.  Pour la journalisation à l’aide d’EventSource, ajoutez le projet suivant à votre project.json :
+La première étape consiste à inclure System.Diagnostics.Tracing afin que vous puissiez écrire vos journaux d’activité dans une mémoire, des flux de sortie ou des fichiers de console.  Pour la journalisation à l’aide d’EventSource, ajoutez le projet suivant à votre project.json :
 
 ```json
     "System.Diagnostics.StackTrace": "4.0.1"
@@ -131,7 +131,7 @@ internal class ServiceEventListener : EventListener
 ```
 
 
-L’extrait de code précédent sort les journaux dans un fichier `/tmp/MyServiceLog.txt`. Ce nom de fichier doit être correctement mis à jour. Au cas où vous souhaitez rediriger les journaux vers la console, utilisez l’extrait de code suivant dans votre classe EventListener personnalisée :
+L’extrait de code précédent sort les journaux d’activité dans un fichier `/tmp/MyServiceLog.txt`. Ce nom de fichier doit être correctement mis à jour. Au cas où vous souhaitez rediriger les journaux d’activité vers la console, utilisez l’extrait de code suivant dans votre classe EventListener personnalisée :
 
 ```csharp
 public static TextWriter Out = Console.Out;

@@ -13,7 +13,7 @@ ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: a332d263526bb6507e7394c205caa1c4d1f9e3e6
 ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55873578"
@@ -23,7 +23,7 @@ ms.locfileid: "55873578"
 Le service QnA Maker prend une dépendance sur trois ressources Azure :
 1.  App Service (pour l’exécution)
 2.  Recherche Azure (pour le stockage des QnA)
-3.  App Insights (facultatif, pour le stockage des journaux de conversation et les données de télémétrie)
+3.  App Insights (facultatif, pour le stockage des journaux d’activité de conversation et les données de télémétrie)
 
 Avant de créer votre service QnA Maker, vous devez décider quel niveau des services ci-dessus vous convient. 
 

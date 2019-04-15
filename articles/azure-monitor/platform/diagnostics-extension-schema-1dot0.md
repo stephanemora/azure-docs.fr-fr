@@ -1,5 +1,5 @@
 ---
-title: Schéma de configuration Azure Diagnostics 1.0
+title: Schéma de configuration Diagnostics Azure 1.0
 description: Applicable UNIQUEMENT si vous utilisez le Kit de développement logiciel (SDK) Azure 2.4 et les versions antérieures avec Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric ou Cloud Services.
 services: azure-monitor
 author: rboucher
@@ -16,19 +16,19 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/11/2019
 ms.locfileid: "59492717"
 ---
-# <a name="azure-diagnostics-10-configuration-schema"></a>Schéma de configuration Azure Diagnostics 1.0
+# <a name="azure-diagnostics-10-configuration-schema"></a>Schéma de configuration Diagnostics Azure 1.0
 > [!NOTE]
-> Azure Diagnostics est le composant utilisé pour collecter les compteurs de performances et d’autres statistiques d’Azure Virtual Machines, de Virtual Machine Scale Sets, de Service Fabric et de Cloud Services.  Cette page vous concerne uniquement si vous utilisez l’un de ces services.
+> Diagnostics Azure est le composant utilisé pour collecter les compteurs de performances et d’autres statistiques de Machine virtuelles Azure, Virtual Machine Scale Sets, Service Fabric et Cloud Services.  Cette page vous concerne uniquement si vous utilisez l’un de ces services.
 >
 
 Azure Diagnostics est utilisé avec d’autres produits de diagnostic Microsoft comme Azure Monitor, qui inclut l’Application Insights et Analytique de journal.
 
-Le fichier de configuration Azure Diagnostics définit les valeurs qui sont utilisées pour initialiser le moniteur de diagnostics. Ce fichier est utilisé pour initialiser les paramètres de configuration de diagnostic lorsque le moniteur de diagnostic démarre.  
+Le fichier de configuration Diagnostics Azure définit les valeurs qui sont utilisées pour initialiser le moniteur de diagnostics. Ce fichier est utilisé pour initialiser les paramètres de configuration de diagnostic lorsque le moniteur de diagnostic démarre.  
 
- Par défaut, le fichier de schéma de configuration Azure Diagnostics est installé dans le répertoire `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas`. Remplacez `<version>` par la version installée du [Kit de développement logiciel (SDK) Azure](https://www.windowsazure.com/develop/downloads/).  
+ Par défaut, le fichier de schéma de configuration Diagnostics Azure est installé dans le répertoire `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas`. Remplacez `<version>` par la version installée du [Kit de développement logiciel (SDK) Azure](https://www.windowsazure.com/develop/downloads/).  
 
 > [!NOTE]
->  Le fichier de configuration de diagnostic est généralement utilisé avec les tâches de démarrage qui requièrent la collecte de données de diagnostic au début du processus de démarrage. Pour plus d’informations sur l’utilisation d’Azure Diagnostics, consultez [Collect Logging Data by Using Azure Diagnostics](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7) (Collecte de données de journalisation à l’aide d’Azure Diagnostics).  
+>  Le fichier de configuration de diagnostic est généralement utilisé avec les tâches de démarrage qui requièrent la collecte de données de diagnostic au début du processus de démarrage. Pour plus d’informations sur l’utilisation de Diagnostics Azure, consultez [Collecte de données de journalisation à l’aide de Diagnostics Azure](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7).  
 
 ## <a name="example-of-the-diagnostics-configuration-file"></a>Exemple du fichier de configuration des diagnostics  
  L’exemple suivant montre un fichier de configuration de diagnostic standard :  
@@ -107,7 +107,7 @@ Attributs :
 |**overallQuotaInMB**|unsignedInt|Facultatif| 4 000 Mo. La valeur indiquée ne doit pas dépasser ce montant |Quantité totale de stockage du système de fichiers allouée pour la journalisation de toutes les mémoires tampons.|  
 
 ## <a name="diagnosticinfrastructurelogs-element"></a>Élément DiagnosticInfrastructureLogs  
-Définit la configuration de la mémoire tampon pour les journaux générés par l’infrastructure de diagnostic sous-jacente.
+Définit la configuration de la mémoire tampon pour les journaux d’activité générés par l’infrastructure de diagnostic sous-jacente.
 
 Élément parent : Élément DiagnosticMonitorConfiguration.  
 
@@ -120,7 +120,7 @@ Attributs :
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
 
 ## <a name="logs-element"></a>Élément Logs  
- Définit la configuration de la mémoire tampon des journaux Azure de base.
+ Définit la configuration de la mémoire tampon des journaux d’activité Azure de base.
 
  Élément parent : Élément DiagnosticMonitorConfiguration.  
 
@@ -133,7 +133,7 @@ Attributs :
 |**scheduledTransferPeriod**|duration|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
 
 ## <a name="directories-element"></a>Élément Directories  
-Définit la configuration de la mémoire tampon pour les journaux basés sur des fichiers que vous pouvez définir.
+Définit la configuration de la mémoire tampon pour les journaux d’activité basés sur des fichiers que vous pouvez définir.
 
 Élément parent : Élément DiagnosticMonitorConfiguration.  
 

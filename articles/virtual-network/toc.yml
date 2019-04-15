@@ -222,7 +222,7 @@ items:
     - name: Groupes de sécurité réseau
       href: manage-network-security-group.md
       items:
-      - name: Journaux
+      - name: Journaux d’activité
         href: virtual-network-nsg-manage-log.md
     - name: Tables de routage
       href: manage-route-table.md

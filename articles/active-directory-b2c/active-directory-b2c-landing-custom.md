@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: bca20bdcf682b040a2fe0b14bf06bc6ca59528b6
 ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55172577"
@@ -34,7 +34,7 @@ Découvrez comment utiliser des fonctionnalités spécifiques d’Azure Active D
     * [Configurer des entrées d’utilisateur](active-directory-b2c-configure-signup-self-asserted-custom.md)
     * [Personnaliser l’interface utilisateur](active-directory-b2c-ui-customization-custom.md)
     * [Personnaliser le jeton](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-* Résoudre les problèmes en [collectant les journaux à l’aide d’Application Insights](active-directory-b2c-troubleshoot-custom.md).
+* Résoudre les problèmes en [collectant les journaux d’activité à l’aide d’Application Insights](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="whats-new"></a>Nouveautés
 Consultez régulièrement cette page pour en savoir plus sur les futures modifications apportées à Azure Active Directory B2C. Nous communiquerons également les mises à jour sur Tweeter via @AzureAD.

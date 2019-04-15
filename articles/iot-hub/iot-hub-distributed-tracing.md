@@ -78,7 +78,7 @@ Une fois que la journalisation est activée, IoT Hub enregistre un journal lorsq
 - Le message est traité par le hub IoT.
 - Le message est routé vers des points de terminaison personnalisés. Le routage doit être activé.
 
-Pour plus d’informations sur ces journaux et ces schémas, consultez [Traçage distribué dans les journaux de diagnostic IoT Hub](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
+Pour plus d’informations sur ces journaux d’activité et ces schémas, consultez [Traçage distribué dans les journaux de diagnostic IoT Hub](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
 ## <a name="set-up-device"></a>Configurer l’appareil
 
@@ -251,7 +251,7 @@ Pour voir toutes les traces journalisées par un hub IoT, interrogez le magasin 
 
 ### <a name="query-using-log-analytics"></a>Interroger avec Log Analytics
 
-Si vous avez configuré [Log Analytics avec des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-stream-log-store.md), exécutez une requête pour rechercher les journaux appartenant à la catégorie `DistributedTracing`. Par exemple, la requête suivante montre toutes les traces journalisées :
+Si vous avez configuré [Log Analytics avec des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-stream-log-store.md), exécutez une requête pour rechercher les journaux d’activité appartenant à la catégorie `DistributedTracing`. Par exemple, la requête suivante montre toutes les traces journalisées :
 
 ```Kusto
 // All distributed traces 
@@ -261,7 +261,7 @@ AzureDiagnostics
 | order by TimeGenerated asc  
 ```
 
-Voici des exemple de journaux tels qu’ils apparaissent dans Log Analytics :
+Voici des exemple de journaux d’activité tels qu’ils apparaissent dans Log Analytics :
 
 | TimeGenerated | OperationName | Catégorie | Niveau | CorrelationId | DurationMs | properties |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
@@ -269,11 +269,11 @@ Voici des exemple de journaux tels qu’ils apparaissent dans Log Analytics :
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informations | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
 | 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informations | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
-Pour connaître les différents types de journaux, consultez [Journaux de diagnostic Azure IoT Hub](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
+Pour connaître les différents types de journaux d’activité, consultez [Journaux de diagnostic Azure IoT Hub](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
 ### <a name="application-map"></a>Mise en correspondance d'applications
 
-Pour visualiser le flux de messages IoT, configurez l’exemple d’application Application Map. L’exemple d’application envoie les journaux de traçage distribué à [Application Map](../application-insights/app-insights-app-map.md) à l’aide d’une fonction Azure et d’un hub d’événements.
+Pour visualiser le flux de messages IoT, configurez l’exemple d’application Application Map. L’exemple d’application envoie les journaux d’activité de traçage distribué à [Application Map](../application-insights/app-insights-app-map.md) à l’aide d’une fonction Azure et d’un hub d’événements.
 
 > [!div class="button"]
 > <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obtenir l’exemple sur Github</a>

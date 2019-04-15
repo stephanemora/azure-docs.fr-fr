@@ -315,9 +315,9 @@ Oui. Vous pouvez activer le service de protection DDos sur le réseau virtuel su
 
 ## <a name="diagnostics-and-logging"></a>Diagnostics et journalisation
 
-### <a name="what-types-of-logs-are-available-with-application-gateway"></a>Quels sont les types de journaux disponibles avec Application Gateway ?
+### <a name="what-types-of-logs-are-available-with-application-gateway"></a>Quels sont les types de journaux d’activité disponibles avec Application Gateway ?
 
-Trois journaux sont disponibles pour Application Gateway. Pour plus d’informations sur ces journaux et les autres fonctionnalités de diagnostic, voir [Intégrité backend, journaux des diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
+Trois journaux d’activité sont disponibles pour Application Gateway. Pour plus d’informations sur ces journaux d’activité et les autres fonctionnalités de diagnostic, voir [Intégrité backend, journaux d’activité des diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
 
 * **ApplicationGatewayAccessLog** : le journal d’accès contient toutes les requêtes envoyées au serveur frontal de la passerelle d’application. Les données incluent l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour, les octets d’entrée et de sortie. Le journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance d’une passerelle d’application.
 * **ApplicationGatewayPerformanceLog** : le journal des performances capture des informations sur les performances par instance, notamment le nombre total de demandes traitées, le débit en octets, le nombre total de demandes présentées, le nombre de demandes ayant échoué, le nombre d’instances du serveur principal correctes et incorrectes.
@@ -329,7 +329,7 @@ Vous pouvez utiliser l’applet de commande PowerShell `Get-AzApplicationGateway
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Quelle est la stratégie de conservation sur les journaux de diagnostic ?
 
-Les journaux de diagnostic circulent vers le compte de stockage des clients, et les clients peuvent définir la stratégie de rétention en fonction de leurs préférences. Les journaux de diagnostic peuvent également être envoyés à un hub d'événements ou à des journaux Azure Monitor. Pour plus d’informations, voir [Diagnostics Application Gateway](application-gateway-diagnostics.md).
+Les journaux de diagnostic circulent vers le compte de stockage des clients, et les clients peuvent définir la stratégie de rétention en fonction de leurs préférences. Les journaux de diagnostic peuvent également être envoyés à un hub d’événements ou à des journaux d’activité Azure Monitor. Pour plus d’informations, voir [Diagnostics Application Gateway](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Comment puis-je obtenir des journaux d’audit pour Application Gateway ?
 
@@ -341,9 +341,9 @@ Oui. Application Gateway prend en charge les alertes. Les alertes sont configur�
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Comment analyser les statistiques de trafic pour Application Gateway ?
 
-Vous pouvez consulter et analyser les journaux d'accès à l'aide de nombreux outils tels que les journaux Azure Monitor, Excel ou Power BI.
+Vous pouvez consulter et analyser les journaux d’activité d’accès à l’aide de nombreux outils tels que les journaux d’activité Azure Monitor, Excel ou Power BI.
 
-Nous avons également publié un modèle Resource Manager qui installe et exécute le célèbre analyseur de journal [GoAccess](https://goaccess.io/) pour les journaux d’accès Application Gateway. GoAccess fournit des statistiques de trafic HTTP précieuses telles que les visiteurs uniques, les fichiers demandés, les hôtes, les systèmes d’exploitation, les navigateurs ou les codes d’état HTTP. Pour plus d’informations, consultez le [fichier Lisez-moi dans le dossier de modèles Resource Manager dans GitHub](https://aka.ms/appgwgoaccessreadme).
+Nous avons également publié un modèle Resource Manager qui installe et exécute le célèbre analyseur de journal d’activité [GoAccess](https://goaccess.io/) pour les journaux d’activité d’accès Application Gateway. GoAccess fournit des statistiques de trafic HTTP précieuses telles que les visiteurs uniques, les fichiers demandés, les hôtes, les systèmes d’exploitation, les navigateurs ou les codes d’état HTTP. Pour plus d’informations, consultez le [fichier Lisez-moi dans le dossier de modèles Resource Manager dans GitHub](https://aka.ms/appgwgoaccessreadme).
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>L’intégrité du back-end retourne un état inconnu, à quoi est dû cet état ?
 

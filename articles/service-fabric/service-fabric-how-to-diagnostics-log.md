@@ -175,7 +175,7 @@ Certains fournisseurs tiers utilisent l’approche décrite dans la section pré
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [la surveillance des applications dans Service Fabric](service-fabric-diagnostics-event-generation-app.md).
-- En savoir plus sur la journalisation avec [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) et les [diagnostics Windows Azure](service-fabric-diagnostics-event-aggregation-wad.md).
+- En savoir plus sur la journalisation avec [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) et [Diagnostics Azure pour Windows](service-fabric-diagnostics-event-aggregation-wad.md).
 
 
 

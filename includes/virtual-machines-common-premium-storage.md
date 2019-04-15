@@ -111,7 +111,7 @@ Voici quelques exemples de fonctionnalités prises en charge sur les machines vi
 
 * **Analyse**
 
-    Pour analyser les performances des machines virtuelles à l’aide de disques dans le stockage Premium, activez les diagnostics de machines virtuelles dans le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Contrôle des machines virtuelles Microsoft Azure avec l’extension Azure Diagnostics](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/). 
+    Pour analyser les performances des machines virtuelles à l’aide de disques dans le stockage Premium, activez les diagnostics de machines virtuelles dans le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Contrôle des machines virtuelles Azure avec l’extension Diagnostics Azure](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/). 
 
     Pour afficher les performances du disque, utilisez les outils du système d’exploitation, tels que [l’Analyseur de performances Windows](https://technet.microsoft.com/library/cc749249.aspx) pour les machines virtuelles Windows, et la commande [iostat](http://linux.die.net/man/1/iostat) pour les machines virtuelles Linux.
 

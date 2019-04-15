@@ -131,8 +131,8 @@ search *
 
 ## <a name="azurediagnostics"></a>AzureDiagnostics
 
-### <a name="count-azure-diagnostics-records-per-category"></a>Compter les enregistrements de diagnostic Azure par catégorie
-Cet exemple compte tous les enregistrements de diagnostic Azure pour chaque catégorie unique.
+### <a name="count-azure-diagnostics-records-per-category"></a>Compter les enregistrements des diagnostics Azure par catégorie
+Cet exemple compte tous les enregistrements des diagnostics Azure pour chaque catégorie unique.
 
 ```Kusto
 AzureDiagnostics 
@@ -141,7 +141,7 @@ AzureDiagnostics
 ```
 
 ### <a name="get-a-random-record-for-each-unique-category"></a>Obtenir un enregistrement aléatoire pour chaque catégorie unique
-Cet exemple obtient un seul enregistrement aléatoire de diagnostic Azure pour chaque catégorie unique.
+Cet exemple obtient un seul enregistrement aléatoire des diagnostics Azure pour chaque catégorie unique.
 
 ```Kusto
 AzureDiagnostics
@@ -150,7 +150,7 @@ AzureDiagnostics
 ```
 
 ### <a name="get-the-latest-record-per-category"></a>Obtenir le dernier enregistrement par catégorie
-Cet exemple obtient le dernier enregistrement de diagnostic Azure pour chaque catégorie unique.
+Cet exemple obtient le dernier enregistrement des diagnostics Azure pour chaque catégorie unique.
 
 ```Kusto
 AzureDiagnostics

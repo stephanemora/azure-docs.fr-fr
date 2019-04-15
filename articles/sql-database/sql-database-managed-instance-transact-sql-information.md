@@ -85,7 +85,7 @@ Les principales différences entre l’audit des bases de données dans Azure SQ
 - Avec les options de déploiement de base de données unique et de pool élastique dans Azure SQL Database, l’audit fonctionne au niveau de la base de données.
 - Dans SQL Server (en local ou sur machines virtuelles), l’audit fonctionne au niveau du serveur, mais stocke les événements dans les journaux des événements du système de fichiers/Windows.
   
-L’audit XEvent dans Managed Instance prend en charge les cibles de Stockage Blob Azure. Les journaux de fichiers et de Windows ne sont pas pris en charge.
+L’audit XEvent dans Managed Instance prend en charge les cibles de Stockage Blob Azure. Les journaux d’activité de fichiers et de Windows ne sont pas pris en charge.
 
 Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azure sont :
 
@@ -507,7 +507,7 @@ SQL Server Management Studio (SSMS) et SQL Server Data Tools (SSDT) peuvent renc
 - L’utilisation de principaux de serveur (connexions) et d’utilisateurs Azure AD (**préversion publique**) avec SSDT n’est pas prise en charge actuellement.
 - La création de scripts pour les principaux de serveur (connexions) et les utilisateurs Azure AD (**préversion publique**) n’est pas prise en charge dans SSMS.
 
-### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Les noms des bases de données sont incorrects dans plusieurs vues, journaux et messages
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Les noms des bases de données sont incorrects dans plusieurs vues, journaux d’activité et messages
 
 Plusieurs vues système, compteurs de performances, messages d’erreur, événements XEvent et entrées du journal des erreurs affichent des identificateurs de base de données GUID au lieu d’afficher les noms des bases de données. Ne prenez pas en compte ces identificateurs GUID, car ils vont être prochainement remplacés par les noms des bases de données.
 
@@ -519,15 +519,15 @@ Plusieurs vues système, compteurs de performances, messages d’erreur, événe
 
 Le profil de messagerie de base de données utilisé par l’Agent SQL doit être appelé `AzureManagedInstance_dbmail_profile`. Il n’existe aucune restriction concernant les autres noms de profil de messagerie de base de données.
 
-### <a name="error-logs-are-not-persisted"></a>Les journaux des erreurs ne sont pas persistants
+### <a name="error-logs-are-not-persisted"></a>Les journaux d’activité des erreurs ne sont pas persistants
 
-Les journaux des erreurs qui sont disponibles dans Managed Instance ne sont pas persistants et leur taille n’est pas comprise dans la limite de stockage maximale. Les journaux des erreurs peuvent être automatiquement effacés en cas de basculement.
+Les journaux d’activité des erreurs qui sont disponibles dans Managed Instance ne sont pas persistants et leur taille n’est pas comprise dans la limite de stockage maximale. Les journaux d’activité des erreurs peuvent être automatiquement effacés en cas de basculement.
 
-### <a name="error-logs-are-verbose"></a>Les journaux des erreurs contiennent des détails non pertinents
+### <a name="error-logs-are-verbose"></a>Les journaux d’activité des erreurs contiennent des détails non pertinents
 
-Une instance managée ajoute des informations détaillées dans les journaux des erreurs, dont la plupart ne sont pas pertinentes. La quantité d’informations qui s’y trouvent va être prochainement réduite.
+Une instance managée ajoute des informations détaillées dans les journaux d’activité des erreurs, dont la plupart ne sont pas pertinentes. La quantité d’informations qui s’y trouvent va être prochainement réduite.
 
-**Solution de contournement** : utilisez une procédure personnalisée pour faire en sorte que les journaux des erreurs n’affichent pas les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Solution de contournement** : utilisez une procédure personnalisée pour faire en sorte que les journaux d’activité des erreurs n’affichent pas les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>L’utilisation de la même étendue de transaction pour deux bases de données appartenant à une même instance n’est pas prise en charge
 

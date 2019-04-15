@@ -109,7 +109,7 @@ Vous pouvez lire ces événements Syslog dans un outil de surveillance tels que 
     ![Configurer les messages Syslog](media/service-fabric-diagnostics-oms-syslog/syslog-configure.png)
 5. Accédez à l’Explorateur des requêtes en cliquant sur `Logs` dans le menu de la ressource d’espace de travail pour commencer à interroger
 
-    ![Journaux de l’espace de travail](media/service-fabric-diagnostics-oms-syslog/workspace-logs.png)
+    ![Journaux d’activité de l’espace de travail](media/service-fabric-diagnostics-oms-syslog/workspace-logs.png)
 6. Vous pouvez interroger la table `Syslog` en recherchant `ServiceFabric` comme ProcessName. La requête ci-dessous est un exemple montrant comment analyser le JSON dans l’événement et afficher son contenu
 
 ```kusto

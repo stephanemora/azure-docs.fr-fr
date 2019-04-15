@@ -17,7 +17,7 @@ ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
 ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/17/2018
 ms.locfileid: "53548695"
@@ -54,7 +54,7 @@ Dans un environnement de « pool partagé » dans lequel les nœuds de calcul d�
 Vous voulez peut-être conserver une copie des fichiers journaux générés par les tâches ou peut-être les fichiers de vidage sur incident qui peuvent être générés par les applications ayant échoué. Dans ces cas, utilisez une **tâche de validation du travail** pour compresser et télécharger ces données vers un compte de [Stockage Azure][azure_storage].
 
 > [!TIP]
-> Une autre façon de conserver les journaux et les autres données de sortie des travaux et des tâches consiste à utiliser la bibliothèque de [conventions de fichier Azure Batch](batch-task-output.md) .
+> Une autre façon de conserver les journaux d’activité et les autres données de sortie des travaux et des tâches consiste à utiliser la bibliothèque de [conventions de fichier Azure Batch](batch-task-output.md) .
 > 
 > 
 

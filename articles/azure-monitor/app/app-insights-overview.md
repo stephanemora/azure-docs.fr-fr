@@ -32,7 +32,7 @@ Vous pouvez instrumenter non seulement l’application de service web, mais auss
 
 ![L’instrumentation Application Insights dans votre application envoie la télémétrie à votre ressource Application Insights.](./media/app-insights-overview/01-scheme.png)
 
-En outre, vous pouvez extraire des données de télémétrie des environnements hôtes, notamment des compteurs de performances, des diagnostics Azure ou des journaux Docker. Vous pouvez également configurer des tests web qui envoient régulièrement des demandes synthétiques à votre service web.
+En outre, vous pouvez extraire des données de télémétrie des environnements hôtes, notamment des compteurs de performances, des diagnostics Azure ou des journaux d’activité Docker. Vous pouvez également configurer des tests web qui envoient régulièrement des demandes synthétiques à votre service web.
 
 Tous ces flux de télémétrie sont intégrés dans le Portail Azure, où vous pouvez appliquer des outils puissants d’analyse et de recherche aux données brutes.
 
@@ -90,7 +90,7 @@ Lorsque vous recevez une alerte ou découvrez un problème :
 
 * Évaluez le nombre d’utilisateurs affectés.
 * Mettez en corrélation les échecs et les exceptions, les appels de dépendance et les traces.
-* Examinez le profileur, les captures instantanées, les vidages de pile et les journaux de suivi.
+* Examinez le profileur, les captures instantanées, les vidages de pile et les journaux d’activité de suivi.
 
 ### <a name="build-measure-learn"></a>Créer, mesurer, apprendre
 [Mesurez l’efficacité](../../azure-monitor/app/usage-overview.md) de chaque nouvelle fonctionnalité que vous déployez.

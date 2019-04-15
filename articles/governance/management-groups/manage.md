@@ -319,7 +319,7 @@ Utilisez la commande update pour déplacer un groupe d’administration avec Azu
 az account management-group update --name 'Contoso' --parent ContosoIT
 ```
 
-## <a name="audit-management-groups-using-activity-logs"></a>Auditer des groupes d’administration avec des journaux d’activité
+## <a name="audit-management-groups-using-activity-logs"></a>Auditer les groupes d’administration à l’aide des journaux d’activité
 
 Les groupes d’administration sont pris en charge dans le [journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md). Vous pouvez interroger tous les événements qui se produisent à un groupe d’administration dans le même emplacement central en tant que d’autres ressources Azure.  Par exemple, vous pouvez voir tous les changements d’attributions de rôles ou de stratégie apportés à un groupe d’administration spécifique.
 

@@ -123,7 +123,7 @@ La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du s
 |Facultatif| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
 |Non autorisé| `Input` | Chaîne | Les conteneurs Visage n’utilisent pas cet élément.|
-|Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux. Les journaux de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
+|Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux d’activité. Les journaux d’activité de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exemples de commandes docker run 
 

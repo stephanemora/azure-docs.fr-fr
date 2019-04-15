@@ -624,7 +624,7 @@ Si vous souhaitez reprendre une opération AzCopy, répétez la même commande. 
 Incomplete operation with same command line detected at the journal directory "/home/myaccount/Microsoft/Azure/AzCopy", do you want to resume the operation? Choose Yes to resume, choose No to overwrite the journal to start a new operation. (Yes/No)
 ```
 
-### <a name="output-verbose-logs"></a>Journaux détaillés de sortie
+### <a name="output-verbose-logs"></a>Journaux d’activité détaillés de sortie
 
 ```azcopy
 azcopy \

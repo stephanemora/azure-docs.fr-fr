@@ -10,7 +10,7 @@ ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 7cca9d9c91f35c30bbd71ae82b9f02447051078d
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55983166"
@@ -45,7 +45,7 @@ La nouvelle génération de gestion des alertes et la supervision multidimension
 Les métriques plus récentes pour les ressources Azure sont disponibles sous les formes suivantes :
 
 - **Métriques standard de la plateforme Azure Monitor**, ce qui fournit des métriques préremplies populaires à partir de divers produits et services Azure. Pour plus d’informations, consultez cet article relatif aux [Métriques prises en charge sur Azure Monitor](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported) et aux [Alertes pour les métriques prises en charge sur Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md#supported-resource-types-for-metric-alerts).
-- **Métriques personnalisées Azure Monitor**, ce qui fournit des métriques provenant de sources contrôlées par l’utilisateur, notamment l’agent de diagnostics Azure. Pour plus d’informations, consultez cet article relatif aux [métriques personnalisées dans Azure Monitor](../../azure-monitor/platform/metrics-custom-overview.md). En utilisant des métriques personnalisées, vous pouvez également publier des métriques collectées par [l’agent de diagnostics Microsoft Azure](../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md) et [l’agent InfluxData Telegraf](../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md).
+- **Métriques personnalisées Azure Monitor**, ce qui fournit des métriques provenant de sources contrôlées par l’utilisateur, notamment l’agent de diagnostics Azure. Pour plus d’informations, consultez cet article relatif aux [métriques personnalisées dans Azure Monitor](../../azure-monitor/platform/metrics-custom-overview.md). En utilisant des métriques personnalisées, vous pouvez également publier des métriques collectées par [l’agent Diagnostics Azure pour Windows](../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md) et [l’agent InfluxData Telegraf](../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md).
 
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>Mise hors service de la plateforme de supervision et de gestion des alertes classiques
 

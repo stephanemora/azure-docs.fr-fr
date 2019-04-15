@@ -143,7 +143,7 @@ Pour plus de simplicité, ce modèle ne crée aucun déclencheur planifié. Vous
 
     ![17](media/solution-template-Databricks-notebook/Databricks-tutorial-image17.png)
 
-1.  **Exécutez le pipeline**. Vous trouverez un lien vers les journaux Databricks pour obtenir des journaux Spark plus détaillés.
+1.  **Exécutez le pipeline**. Vous trouverez un lien vers les journaux d’activité Databricks pour obtenir des journaux d’activité Spark plus détaillés.
 
     ![18](media/solution-template-Databricks-notebook/Databricks-tutorial-image18.png)
 

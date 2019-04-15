@@ -162,7 +162,7 @@ Dans cet exemple, nous installons IIS sur les machines virtuelles uniquement dan
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Dans ce didacticiel, la passerelle d’application utilise un compte de stockage pour stocker des données à des fins de détection et de prévention. Vous pouvez également utiliser les journaux Azure Monitor ou Event Hub pour enregistrer des données.
+Dans ce didacticiel, la passerelle d’application utilise un compte de stockage pour stocker des données à des fins de détection et de prévention. Vous pouvez également utiliser les journaux d’activité Azure Monitor ou Event Hub pour enregistrer des données.
 
 1. Cliquez sur **Nouveau** dans le coin supérieur gauche du portail Azure.
 2. Sélectionnez **Stockage**, puis **Compte de stockage - blob, fichier, table, file d’attente**.
@@ -170,14 +170,14 @@ Dans ce didacticiel, la passerelle d’application utilise un compte de stockage
 
 ### <a name="configure-diagnostics"></a>Configuration de la collecte des diagnostics
 
-Configurez des diagnostics pour enregistrer des données dans les journaux ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog et ApplicationGatewayFirewallLog.
+Configurez des diagnostics pour enregistrer des données dans les journaux d’activité ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog et ApplicationGatewayFirewallLog.
 
 1. Dans le menu de gauche, cliquez sur **Toutes les ressources**, puis sélectionnez *myAppGateway*.
-2. Sous Surveillance, cliquez sur **Journaux de diagnostic**.
+2. Sous Supervision, cliquez sur **Journaux de diagnostic**.
 3. Cliquez sur **Ajouter les paramètres de diagnostic**.
 4. Entrez *myDiagnosticsSettings* pour le nom des paramètres de diagnostic.
 5. Sélectionnez **Archive to a storage account** (Archiver dans un compte de stockage), puis cliquez sur **Configurer** pour sélectionner le compte de stockage *myagstore1* que vous avez créé précédemment.
-6. Sélectionnez les journaux de passerelle d’application à collecter et conserver.
+6. Sélectionnez les journaux d’activité de passerelle d’application à collecter et conserver.
 7. Cliquez sur **Enregistrer**.
 
     ![Configuration de la collecte des diagnostics](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)

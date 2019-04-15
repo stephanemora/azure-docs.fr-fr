@@ -1,6 +1,6 @@
 ---
-title: Analyser les journaux des sites web à l’aide d’Azure Data Lake Analytics
-description: Apprendre à analyser les journaux des sites web à l'aide de Data Lake Analytics.
+title: Analyser les journaux d’activité des sites web à l’aide d’Azure Data Lake Analytics
+description: Apprendre à analyser les journaux d’activité des sites web à l’aide de Data Lake Analytics.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
 ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/18/2019
 ms.locfileid: "54402283"
 ---
-# <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analyser les journaux des sites web à l’aide d’Azure Data Lake Analytics
-Découvrez comment analyser les journaux des sites web à l'aide de Data Lake Analytics, en particulier pour découvrir quels points d'accès ont rencontré des erreurs lorsqu'ils ont essayé de visiter le site web.
+# <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analyser les journaux d’activité des sites web à l’aide d’Azure Data Lake Analytics
+Découvrez comment analyser les journaux d’activité des sites web à l’aide de Data Lake Analytics, en particulier pour découvrir quels points d’accès ont rencontré des erreurs lorsqu’ils ont essayé de visiter le site web.
 
 ## <a name="prerequisites"></a>Prérequis
 * **Visual Studio 2015 ou Visual Studio 2013**.
@@ -158,7 +158,7 @@ Vous pouvez ajouter des opérateurs définis par l'utilisateur à l'application.
 
     Une fois la tâche terminée, l'écran suivant s'affiche :
 
-    ![data lake analytics analyser les journaux des sites web](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
+    ![data lake analytics analyser les journaux d’activité des sites web](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
 11. Répétez les étapes 7 à 10 pour **Script1.usql**.
 
 **Pour voir la sortie du travail**

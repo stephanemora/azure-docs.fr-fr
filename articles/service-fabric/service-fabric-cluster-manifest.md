@@ -98,7 +98,7 @@ La section diagnosticsStore vous permet de configurer des paramètres pour activ
 }
 ```
 
-La section metadata est une description du diagnostic de votre cluster et peut être définie selon votre installation. Ces variables vous aident à collecter les journaux de suivi ETW les vidages sur incident ainsi que les compteurs de performance. Consultez les sections [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) (Journal de suivi) et [ETW Tracing](https://msdn.microsoft.com/library/ms751538.aspx) pour plus d’informations sur les journaux de suivi ETW. Tous les journaux, notamment les [vidages sur incident](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) et les [compteurs de performance](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) peuvent être dirigés vers le dossier connectionString sur votre ordinateur. Vous pouvez également utiliser AzureStorage pour stocker les diagnostics. Reportez-vous à l’extrait de code suivant :
+La section metadata est une description du diagnostic de votre cluster et peut être définie selon votre installation. Ces variables vous aident à collecter les journaux d’activité de suivi ETW les vidages sur incident ainsi que les compteurs de performance. Consultez les sections [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) (Journal de suivi) et [ETW Tracing](https://msdn.microsoft.com/library/ms751538.aspx) pour plus d’informations sur les journaux d’activité de suivi ETW. Tous les journaux d’activité, notamment les [vidages sur incident](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) et les [compteurs de performance](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) peuvent être dirigés vers le dossier connectionString sur votre ordinateur. Vous pouvez également utiliser AzureStorage pour stocker les diagnostics. Reportez-vous à l’extrait de code suivant :
 
 ```json
 "diagnosticsStore": {
@@ -161,7 +161,7 @@ La valeur name représente le nom convivial de ce type de nœud particulier. Pou
 * reverseProxyEndpointPort est un point de terminaison proxy inverse facultatif. Pour en savoir plus, consultez [Proxy inverse Service Fabric](service-fabric-reverseproxy.md). 
 
 ### <a name="log-settings"></a>Paramètres du journal
-La section fabricSettings vous permet de définir les répertoires racine des données et journaux Service Fabric. Vous pouvez personnaliser ces répertoires uniquement lors de la création initiale du cluster. Reportez-vous à l’extrait de code suivant de cette section :
+La section fabricSettings vous permet de définir les répertoires racine des données et journaux d’activité Service Fabric. Vous pouvez personnaliser ces répertoires uniquement lors de la création initiale du cluster. Reportez-vous à l’extrait de code suivant de cette section :
 
 ```json
 "fabricSettings": [{

@@ -39,7 +39,7 @@ Lorsque vous cliquez sur la machine virtuelle, le volet **Propriétés** se dév
 
 ![Propriétés système de l’ordinateur](./media/vminsights-maps/properties-pane-01.png)
 
-Dans la partie droite du volet, cliquez sur le **les événements du journal** icône pour basculer le focus du volet pour afficher une liste de tables dont les données collectées à partir de la machine virtuelle a envoyé à Azure Monitor et est disponible pour l’interrogation.  Lorsque vous cliquez sur l’un des types d’enregistrement répertoriés, la page **Journaux** s’affiche. Elle présente les résultats correspondant à ce type avec une requête préconfigurée filtrée selon la machine virtuelle concernée.  
+Dans la partie droite du volet, cliquez sur le **les événements du journal** icône pour basculer le focus du volet pour afficher une liste de tables dont les données collectées à partir de la machine virtuelle a envoyé à Azure Monitor et est disponible pour l’interrogation.  Lorsque vous cliquez sur l’un des types d’enregistrement répertoriés, la page **Journaux d’activité** s’affiche. Elle présente les résultats correspondant à ce type avec une requête préconfigurée filtrée selon la machine virtuelle concernée.  
 
 ![Liste de recherche dans les journaux dans le volet Propriétés](./media/vminsights-maps/properties-pane-logs-01.png)
 

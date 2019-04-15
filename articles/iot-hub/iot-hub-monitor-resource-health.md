@@ -38,7 +38,7 @@ Pour en savoir plus sur les mesures spécifiques et les événements surveillés
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
-### <a name="understand-the-logs"></a>Comprendre les journaux
+### <a name="understand-the-logs"></a>Comprendre les journaux d’activité
 
 Azure Monitor effectue le suivi des différentes opérations qui se produisent dans IoT Hub. Chaque catégorie dispose d’un schéma qui définit la façon dont les événements de cette catégorie sont signalés.
 
@@ -316,7 +316,7 @@ La catégorie de traçage distribué suit les ID de corrélation pour les messag
 
 Notez que `correlationId` est conforme à la [W3C Trace contexte](https://github.com/w3c/trace-context) proposition, où qu’il contient un `trace-id` ainsi qu’un `span-id`.
 
-##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Journaux appareil à cloud (D2C) IoT Hub
+##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Journaux d’activité appareil à cloud (D2C) IoT Hub
 
 IoT Hub enregistre ce journal en recevant un message contenant des propriétés de trace valides.
 
@@ -350,7 +350,7 @@ Ici, `durationMs` n’est pas calculé, car l’horloge IoT Hub peut ne pas êtr
 | **callerLocalTimeUtc** | Horodateur UTC | Heure de création du message telle que rapportée par l’horloge local de l’appareil |
 | **calleeLocalTimeUtc** | Horodateur UTC | Heure de réception du message sur la passerelle d’IoT Hub telle qu’elle est rapportée par l’horloge du service IoT Hub |
 
-##### <a name="iot-hub-ingress-logs"></a>Journaux d’entrée IoT Hub
+##### <a name="iot-hub-ingress-logs"></a>Journaux d’activité d’entrée IoT Hub
 
 IoT Hub enregistre ce journal lorsqu’un message contenant des propriétés de trace valides écrit dans l’Event Hub interne ou intégré.
 
@@ -382,7 +382,7 @@ Dans la `properties` section, ce journal contient des informations supplémentai
 | **isRoutingEnabled** | Chaîne | Indique si le routage des messages est activé (true) ou non (false) dans le hub IoT |
 | **parentSpanId** | Chaîne | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message D2C dans ce cas-ci |
 
-##### <a name="iot-hub-egress-logs"></a>Journaux de sortie IoT Hub
+##### <a name="iot-hub-egress-logs"></a>Journaux d’activité de sortie IoT Hub
 
 IoT Hub enregistre ce journal lorsque le [routage](iot-hub-devguide-messages-d2c.md) est activé et que le message est écrit sur un [point de terminaison](iot-hub-devguide-endpoints.md). Si le routage n’est pas activé, IoT Hub n’enregistre pas ce journal.
 
@@ -415,9 +415,9 @@ Dans la `properties` section, ce journal contient des informations supplémentai
 | **endpointType** | Chaîne | Type du point de terminaison de routage |
 | **parentSpanId** | Chaîne | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message d’entrée IoT Hub dans ce cas-ci |
 
-### <a name="read-logs-from-azure-event-hubs"></a>Lecture de journaux à partir d’Azure Event Hubs
+### <a name="read-logs-from-azure-event-hubs"></a>Lecture de journaux d’activité à partir d’Azure Event Hubs
 
-Après avoir configuré la journalisation des événements via les paramètres de diagnostic, vous pouvez créer des applications qui lisent les journaux, pour vous permettre d’agir en fonction des informations qu’ils contiennent. Cet exemple de code extrait les journaux à partir d’un concentrateur d’événements :
+Après avoir configuré la journalisation des événements via les paramètres de diagnostic, vous pouvez créer des applications qui lisent les journaux d’activité, pour vous permettre d’agir en fonction des informations qu’ils contiennent. Cet exemple de code extrait les journaux d’activité à partir d’un concentrateur d’événements :
 
 ```csharp
 class Program

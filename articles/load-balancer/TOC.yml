@@ -113,7 +113,7 @@ items:
       href: load-balancer-multiple-ip-cli.md
     - name: Utilisation de plusieurs configurations IP (PowerShell)
       href: load-balancer-multiple-ip-powershell.md
-  - name: Journaux Azure Monitor pour Azure Load Balancer
+  - name: Journaux d’activité Azure Monitor pour Azure Load Balancer
     href: load-balancer-monitor-log.md
   - name: Obtenir les métriques d’équilibreur de charge Load Balancer avec REST
     href: load-balancer-query-metrics-rest-api.md

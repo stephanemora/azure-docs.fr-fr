@@ -47,7 +47,7 @@ Log Analytics permet d’estimer facilement les coûts en fonction des modèles 
 
 Pour explorer vos données plus en détail, cliquez sur l’icône en haut à droite d’un des graphiques sur la page **Utilisation et estimation des coûts**. Vous pouvez maintenant utiliser cette requête pour obtenir de plus amples informations sur votre utilisation.  
 
-![Vue Journaux](media/manage-cost-storage/logs.png)
+![Vue Journaux d’activité](media/manage-cost-storage/logs.png)
 
 La page **Utilisation et estimation des coûts** vous permet de consulter votre volume de données pour le mois. Ce volume inclut toutes les données reçues et conservées dans votre espace de travail Log Analytics.  En haut de la page, cliquez sur **Détails d’utilisation** pour afficher le tableau de bord d’utilisation contenant des informations sur les tendances de volume de données par source, ordinateur et offre. Pour afficher et définir une limite quotidienne ou pour modifier la période de rétention, cliquez sur **Gestion du volume de données**.
  
@@ -176,7 +176,7 @@ Sur la page **Utilisation et estimation des coûts**, le graphique *Ingestion de
 
 Notez que la clause « where IsBillable = true » exclut les types de données de certaines solutions pour lesquels il n’existe aucun frais d’ingestion. 
 
-Vous pouvez explorer de façon plus précise et déterminer ainsi des tendances pour des types de données spécifiques, par exemple si vous souhaitez étudier les données de journaux IIS :
+Vous pouvez explorer de façon plus précise et déterminer ainsi des tendances pour des types de données spécifiques, par exemple si vous souhaitez étudier les données de journaux d’activité IIS :
 
 `Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
@@ -262,7 +262,7 @@ Pour explorer plus en détail la source de données d’un type de données part
 
 ### <a name="tips-for-reducing-data-volume"></a>Conseils pour réduire le volume de données
 
-Voici quelques suggestions pour réduire le volume de journaux collectés :
+Voici quelques suggestions pour réduire le volume de journaux d’activité collectés :
 
 | Source du volume de données important | Comment réduire le volume de données |
 | -------------------------- | ------------------------- |
@@ -270,7 +270,7 @@ Voici quelques suggestions pour réduire le volume de journaux collectés :
 | Compteurs de performances       | Modifiez la [configuration du compteur de performances](data-sources-performance-counters.md) de façon à : <br> - Réduire la fréquence de collecte <br> - Réduire le nombre de compteurs de performance |
 | Journaux d’événements                 | Modifiez la [configuration du journal d’événements](data-sources-windows-events.md) de façon à : <br> - Réduire le nombre de journaux des événements collectés <br> - Collecter uniquement les niveaux d’événement requis Par exemple, ne collectez pas les événements de niveau *Informations*. |
 | syslog                     | Modifiez la [configuration du syslog](data-sources-syslog.md) de façon à : <br> - Réduire le nombre d’installations collectées <br> - Collecter uniquement les niveaux d’événement requis Par exemple, ne collectez pas les événements de niveau *Informations* et *Débogage*. |
-| AzureDiagnostics           | Modifiez la collection de journaux de ressources pour : <br> - Réduire le nombre de journaux d’envoi de ressources à Log Analytics <br> - Collecter uniquement les journaux nécessaires |
+| AzureDiagnostics           | Modifiez la collection de journaux de ressources pour : <br> - Réduire le nombre de journaux d’activité d’envoi de ressources à Log Analytics <br> - Collecter uniquement les journaux d’activité nécessaires |
 | Données de solution d’ordinateurs n’ayant pas besoin de la solution | Utilisez le [ciblage de solution](../insights/solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement. |
 
 ### <a name="getting-security-and-automation-node-counts"></a>Nombre de nœuds automatisation et de sécurité mise en route 

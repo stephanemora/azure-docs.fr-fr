@@ -1,6 +1,6 @@
 ---
-title: Extension Azure Diagnostics pour Windows | Microsoft Docs
-description: Surveiller les machines virtuelles Windows Azure à l’aide de l’extension Azure Diagnostics
+title: Extension Diagnostics Azure pour Windows | Microsoft Docs
+description: Surveiller les machines virtuelles Windows Azure à l’aide de l’extension Diagnostics Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: johnkemnetz
@@ -14,26 +14,26 @@ ms.date: 04/06/2018
 ms.author: johnkem
 ms.openlocfilehash: 772c0a4b6cf57aa428f722fb90a0673f9e703627
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55982792"
 ---
-# <a name="azure-diagnostics-extension-for-windows-vms"></a>Extension Azure Diagnostics pour machines virtuelles Windows
+# <a name="azure-diagnostics-extension-for-windows-vms"></a>Extension Diagnostics Azure pour machines virtuelles Windows
 
 ## <a name="overview"></a>Vue d’ensemble
 
-L’extension de machine virtuelle Azure Diagnostics vous permet de collecter des données de surveillance, comme des compteurs de performances et des journaux d’événements, à partir de votre machine virtuelle Windows. Vous pouvez définir de façon granulaire les données à collecter et leur emplacement de destination, par exemple un compte Stockage Azure ou un hub d’événements Azure. Vous pouvez également utiliser ces données pour générer des graphiques dans le portail Azure ou créer des alertes de métrique.
+L’extension de machine virtuelle Azure Diagnostics vous permet de collecter des données de supervision, comme des compteurs de performances et des journaux d’événements, à partir de votre machine virtuelle Windows. Vous pouvez définir de façon granulaire les données à collecter et leur emplacement de destination, par exemple un compte Stockage Azure ou un hub d’événements Azure. Vous pouvez également utiliser ces données pour générer des graphiques dans le portail Azure ou créer des alertes de métrique.
 
 ## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-L’extension Azure Diagnostics peut être exécutée sur un client Windows 10, ainsi que sur Windows Server 2008 R2, 2012, 2012 R2 et 2016.
+L’extension Diagnostics Azure peut être exécutée sur un client Windows 10, ainsi que sur Windows Server 2008 R2, 2012, 2012 R2 et 2016.
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
-L’extension Azure Diagnostics nécessite que la machine virtuelle cible soit connectée à Internet. 
+L’extension Diagnostics Azure nécessite que la machine virtuelle cible soit connectée à Internet. 
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
@@ -41,11 +41,11 @@ L’extension Azure Diagnostics nécessite que la machine virtuelle cible soit c
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
-Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Le schéma JSON détaillé dans la section précédente peut être utilisé dans un modèle Azure Resource Manager pour exécuter l’extension Azure Diagnostics pendant le déploiement d’un modèle Azure Resource Manager. Pour plus d’informations, consultez [Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager](extensions-diagnostics-template.md).
+Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Le schéma JSON détaillé dans la section précédente peut être utilisé dans un modèle Azure Resource Manager pour exécuter l’extension Diagnostics Azure pendant le déploiement d’un modèle Azure Resource Manager. Pour plus d’informations, consultez [Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager](extensions-diagnostics-template.md).
 
 ## <a name="azure-cli-deployment"></a>Déploiement de l’interface de ligne de commande Azure
 
-Vous pouvez utiliser Azure CLI pour déployer l’extension Azure Diagnostics sur une machine virtuelle existante. Remplacez les paramètres protégés et leurs propriétés par un JSON valide issu du schéma d’extension ci-dessus. 
+Vous pouvez utiliser Azure CLI pour déployer l’extension Diagnostics Azure sur une machine virtuelle existante. Remplacez les paramètres protégés et leurs propriétés par un JSON valide issu du schéma d’extension ci-dessus. 
 
 ```azurecli
 az vm extension set \
@@ -59,7 +59,7 @@ az vm extension set \
 
 ## <a name="powershell-deployment"></a>Déploiement PowerShell
 
-Vous pouvez utiliser la commande `Set-AzVMDiagnosticsExtension` pour ajouter l’extension Azure Diagnostics à une machine virtuelle existante. Voir aussi [Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows](ps-extensions-diagnostics.md).
+Vous pouvez utiliser la commande `Set-AzVMDiagnosticsExtension` pour ajouter l’extension Diagnostics Azure à une machine virtuelle existante. Voir aussi [Utiliser PowerShell pour activer Diagnostics Azure sur une machine virtuelle exécutant Windows](ps-extensions-diagnostics.md).
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 

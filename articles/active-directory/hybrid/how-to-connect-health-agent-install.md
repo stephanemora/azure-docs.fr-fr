@@ -120,7 +120,7 @@ Procédure pour les serveurs Windows Server 2008 R2 :
 > Cette section s’applique uniquement aux serveurs AD FS. Il est inutile de suivre ces étapes sur les serveurs proxy d’application web.
 >
 
-Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et analyser les données, l’agent Azure AD Connect Health doit avoir les informations à disposition dans les journaux d’audit AD FS. Ces journaux ne sont pas activés par défaut. Utilisez les procédures suivantes pour activer l’audit AD FS et localiser les journaux d’audit AD FS sur vos serveurs AD FS.
+Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et analyser les données, l’agent Azure AD Connect Health doit avoir les informations à disposition dans les journaux d’activité d’audit AD FS. Ces journaux d’activité ne sont pas activés par défaut. Utilisez les procédures suivantes pour activer l’audit AD FS et localiser les journaux d’audit AD FS sur vos serveurs AD FS.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Pour activer l’audit pour AD FS sur Windows Server 2008 R2
 
@@ -169,8 +169,8 @@ Notez que le niveau d’audit « de base » est activé par défaut. En savoir p
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>Pour localiser les journaux d’audit AD FS
 
 1. Ouvrez l’ **Observateur d’événements**.
-2. Accédez à Journaux Windows et sélectionnez **Sécurité**.
-3. Sur la droite, cliquez sur **Filtrer les journaux actuels**.
+2. Accédez à Journaux d’activité Windows et sélectionnez **Sécurité**.
+3. Sur la droite, cliquez sur **Filtrer les journaux d’activité actuels**.
 4. Dans Source de l’événement, sélectionnez **Audit AD FS**.
 
     Et [remarque de FAQ](reference-connect-health-faq.md#operations-questions) rapide pour les journaux d’audit.

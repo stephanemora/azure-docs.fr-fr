@@ -25,7 +25,7 @@ ms.locfileid: "56984385"
 ---
 # <a name="what-is-azure-network-watcher"></a>Présentation d’Azure Network Watcher
 
-Azure Network Watcher offre des outils permettant d’effectuer un monitoring et des diagnostics, d’afficher les métriques et d’activer et de désactiver les journaux pour les ressources se trouvant sur un réseau virtuel Azure.
+Azure Network Watcher offre des outils permettant d’effectuer un monitoring et des diagnostics, d’afficher les métriques et d’activer et de désactiver les journaux d’activité pour les ressources se trouvant sur un réseau virtuel Azure.
 
 ## <a name="monitoring"></a>Surveillance
 
@@ -85,11 +85,11 @@ Des [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-wat
 
 Ces informations sont utiles pour planifier les futurs déploiements de ressources.
 
-## <a name="logs"></a>Journaux
+## <a name="logs"></a>Journaux d’activité
 
 ### <a name="analyze-traffic-to-or-from-a-network-security-group"></a>Analyser le trafic à destination ou en provenance d’un Groupe de sécurité réseau
 
-Les Groupes de sécurité réseau (NSG) autorisent ou refusent le trafic entrant ou sortant vers une interface réseau dans une machine virtuelle. La fonctionnalité de *journal des flux NSG* permet de consigner l’adresse IP source et de destination, le port et le protocole, et d’indiquer si le trafic a été autorisé ou refusé par un Groupe de sécurité réseau. Pour analyser les journaux, vous pouvez utiliser différents outils, par exemple, Power BI et la fonctionnalité *d’analyse de trafic*. L’analyse de trafic offre de riches visualisations des données écrites dans les journaux de flux NSG. L’illustration suivante montre certaines des informations et des visualisations présentées par l’analyse de trafic à partir de données de journal de flux NSG :
+Les Groupes de sécurité réseau (NSG) autorisent ou refusent le trafic entrant ou sortant vers une interface réseau dans une machine virtuelle. La fonctionnalité de *journal des flux NSG* permet de consigner l’adresse IP source et de destination, le port et le protocole, et d’indiquer si le trafic a été autorisé ou refusé par un Groupe de sécurité réseau. Pour analyser les journaux d’activité, vous pouvez utiliser différents outils, par exemple, Power BI et la fonctionnalité *d’analyse de trafic*. L’analyse de trafic offre de riches visualisations des données écrites dans les journaux de flux NSG. L’illustration suivante montre certaines des informations et des visualisations présentées par l’analyse de trafic à partir de données de journal de flux NSG :
 
 ![Traffic Analytics](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
@@ -97,7 +97,7 @@ Pour en savoir plus sur les journaux de flux NSG, complétez le tutoriel [Enregi
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Afficher les journaux de diagnostic de ressources réseau
 
-Il est possible d’activer la journalisation des diagnostics pour des ressources réseau Azure, par exemple, des groupes de sécurité réseau, des adresses IP publiques, des équilibreurs de charge, des passerelles de réseau virtuel et des passerelles d’application. La fonctionnalité de *journaux de diagnostic* permet d’activer et de désactiver les journaux de diagnostic de n’importe quelle ressource réseau qui en génère, au sein d’une même interface. Pour afficher les journaux de diagnostic, vous pouvez utiliser des outils comme Microsoft Power BI et les journaux Azure Monitor. Pour plus d’informations sur l’analyse des journaux de diagnostic réseau Azure, consultez [Solutions réseau Azure dans les journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Il est possible d’activer la journalisation des diagnostics pour des ressources réseau Azure, par exemple, des groupes de sécurité réseau, des adresses IP publiques, des équilibreurs de charge, des passerelles de réseau virtuel et des passerelles d’application. La fonctionnalité de *journaux de diagnostic* permet d’activer et de désactiver les journaux de diagnostic de n’importe quelle ressource réseau qui en génère, au sein d’une même interface. Pour afficher les journaux de diagnostic, vous pouvez utiliser des outils comme Microsoft Power BI et les journaux d’activité Azure Monitor. Pour plus d’informations sur l’analyse des journaux de diagnostic réseau Azure, consultez [Solutions réseau Azure dans les journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Activation automatique de Network Watcher
 Lorsque vous créez ou mettez à jour un réseau virtuel dans votre abonnement, Network Watcher sera automatiquement activé dans la région de votre réseau virtuel. L’activation automatique de Network Watcher n’a aucun impact sur vos ressources ni sur les frais associés. Pour plus d’informations, consultez [Créer une instance Network Watcher](network-watcher-create.md).

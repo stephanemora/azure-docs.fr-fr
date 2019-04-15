@@ -51,5 +51,5 @@ Le tableau suivant contient des liens vers des scripts PowerShell créés à l�
 | [Restaurer une application à partir d’une sauvegarde](./scripts/powershell-backup-restore.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Restaure une application à partir d’une sauvegarde. |
 | [Restaurer une sauvegarde dans plusieurs abonnements](./scripts/powershell-backup-restore-diff-sub.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Restaure une application web à partir d’une sauvegarde dans un autre abonnement. |
 |**Surveiller l’application**||
-| [Superviser une application avec les journaux de serveur web](./scripts/powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée une application App Service, active sa journalisation et télécharge les journaux sur votre ordinateur local. |
+| [Superviser une application avec les journaux de serveur web](./scripts/powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée une application App Service, active sa journalisation et télécharge les journaux d’activité sur votre ordinateur local. |
 | | |

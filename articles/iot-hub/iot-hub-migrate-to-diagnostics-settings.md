@@ -1,6 +1,6 @@
 ---
 title: Migrer IoT Hub Azure vers les paramètres de diagnostic | Microsoft Docs
-description: Découvrez comment mettre à jour Azure IoT Hub pour utiliser les paramètres de diagnostic Azure plutôt que la surveillance des opérations pour surveiller l’état des opérations sur votre hub IoT en temps réel.
+description: Découvrez comment mettre à jour Azure IoT Hub pour utiliser les paramètres de diagnostic Azure plutôt que la surveillance des opérations servant à superviser l’état des opérations sur votre hub IoT en temps réel.
 author: kgremban
 manager: philmea
 ms.service: iot-hub

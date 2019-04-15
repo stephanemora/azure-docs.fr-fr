@@ -84,7 +84,7 @@ DevOps Projects configure automatiquement un cluster AKS que vous pouvez explore
 1. Accédez au tableau de bord DevOps Projects.
 
 1. À droite, sélectionnez le service AKS.  
-    Un volet s’ouvre pour le cluster AKS. À partir de cette vue, vous pouvez effectuer diverses actions, comme superviser l’intégrité des conteneurs, effectuer des recherches dans les journaux et ouvrir le tableau de bord Kubernetes.
+    Un volet s’ouvre pour le cluster AKS. À partir de cette vue, vous pouvez effectuer diverses actions, comme superviser l’intégrité des conteneurs, effectuer des recherches dans les journaux d’activité et ouvrir le tableau de bord Kubernetes.
 
 1. À droite, sélectionnez **Voir le tableau de bord Kubernetes**.  
     Si vous le souhaitez, suivez ces étapes pour ouvrir le tableau de bord Kubernetes.
@@ -143,8 +143,8 @@ DevOps Projects crée et configure automatiquement les étapes nécessaires au d
 1. Sélectionnez **Validations**.  
     Cette vue montre les validations de code qui sont associées à ce déploiement. Comparez les mises en production pour afficher les différences de validation entre les déploiements.
 
-1. Sélectionnez **Journaux**.  
-    Les journaux contiennent des informations utiles sur le processus de déploiement. Vous pouvez les voir à la fois pendant et après les déploiements.
+1. Sélectionnez **Journaux d’activité**.  
+    Les journaux d’activité contiennent des informations utiles sur le processus de déploiement. Vous pouvez les voir à la fois pendant et après les déploiements.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Valider les modifications apportées à Azure Repos et les déployer automatiquement dans Azure 
 

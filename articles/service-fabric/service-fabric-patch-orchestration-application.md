@@ -160,7 +160,7 @@ Vous pouvez configurer le comportement de l’application d’orchestration des 
 |:-|-|-|
 |MaxResultsToCache    |long                              | Nombre maximal de résultats d’exécution de Windows Update à mettre en cache. <br>La valeur par défaut est 3 000, en supposant ce qui suit : <br> - Le nombre de nœuds est 20. <br> - Le nombre de mises à jour par mois effectuées sur un nœud est 5. <br> - Le nombre maximal de résultats par opération est 10. <br> - Les résultats des trois derniers mois doivent être stockés. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indique la stratégie que le service Coordinateur doit utiliser pour installer les mises à jour Windows Update sur les nœuds du cluster Service Fabric.<br>                         Les valeurs autorisées sont les suivantes : <br>                                                           <b>NodeWise</b>. Les mises à jour Windows Update sont installées de façon séquentielle, nœud après nœud. <br>                                                           <b>UpgradeDomainWise</b>. Les mises à jour Windows Update sont installées sur un domaine de mise à niveau à la fois (au maximum, tous les nœuds appartenant à un domaine de mise à niveau peuvent bénéficier de Windows Update).<br> Reportez-vous à la section [FAQ](#frequently-asked-questions) sur la façon de déterminer la stratégie la plus adaptée pour votre cluster.
-|LogsDiskQuotaInMB   |long  <br> (Par défaut : 1 024               |Taille maximale en Mo des journaux de l’application d’orchestration des correctifs qui peuvent être conservés localement sur des nœuds.
+|LogsDiskQuotaInMB   |long  <br> (Par défaut : 1 024               |Taille maximale en Mo des journaux d’activité de l’application d’orchestration des correctifs qui peuvent être conservés localement sur des nœuds.
 | WUQuery               | string<br>(Par défaut : « IsInstalled=0 »)                | Requête pour obtenir les mises à jour Windows Update. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | Booléen <br> (par défaut : false)                 | Utilisez cet indicateur pour contrôler les mises à jour qui doivent être téléchargées et installées. Les valeurs suivantes sont autorisées <br>True : installe uniquement les mises à jour du système d’exploitation Windows.<br>False : installe toutes les mises à jour disponibles sur l’ordinateur.          |
 | WUOperationTimeOutInMinutes | Int <br>(Par défaut : 90)                   | Spécifie le délai d’expiration de toute opération de Windows Update (rechercher, télécharger ou installer). Si l’opération n’est pas terminée dans le délai imparti, elle est abandonnée.       |
@@ -264,9 +264,9 @@ Pour activer le proxy inverse sur le cluster, procédez de la manière décrite 
 
 ### <a name="diagnostic-logs"></a>Journaux de diagnostic
 
-Les journaux de l’application d’orchestration des correctifs sont collectés en même temps que les journaux du runtime Service Fabric.
+Les journaux d’activité de l’application d’orchestration des correctifs sont collectés en même temps que les journaux d’activité du runtime Service Fabric.
 
-Si vous le souhaitez, vous pouvez capturer les journaux au moyen du pipeline ou de l’outil de diagnostic de votre choix. L’application d’orchestration des correctifs utilise les ID de fournisseur fixes ci-dessous pour journaliser les événements par le biais [d’eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+Si vous le souhaitez, vous pouvez capturer les journaux d’activité au moyen du pipeline ou de l’outil de diagnostic de votre choix. L’application d’orchestration des correctifs utilise les ID de fournisseur fixes ci-dessous pour journaliser les événements par le biais [d’eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9

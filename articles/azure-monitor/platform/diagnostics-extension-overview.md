@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble de l’extension Azure Diagnostics
+title: Vue d’ensemble de l’extension Diagnostics Azure
 description: Utilisation des diagnostics Azure pour le débogage, la mesure des performances, la surveillance, l’analyse du trafic dans Cloud Services, Virtual Machines et Service Fabric
 author: rboucher
 ms.service: azure-monitor
@@ -14,14 +14,14 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58078537"
 ---
-# <a name="what-is-azure-diagnostics-extension"></a>Présentation de l’extension Azure Diagnostics
-L’extension Azure Diagnostics est un agent au sein d’Azure qui permet la collecte de données de diagnostic d’une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et Worker Azure Cloud Service (classique), les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric. Les autres services Azure ont des méthodes de diagnostic différentes. Consultez [Vue d’ensemble du monitoring dans Azure](../../azure-monitor/overview.md).
+# <a name="what-is-azure-diagnostics-extension"></a>Présentation de l’extension Diagnostics Azure
+L’extension Diagnostics Azure est un agent au sein d’Azure qui permet la collecte de données de diagnostic d’une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et Worker Azure Cloud Service (classique), les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric. Les autres services Azure ont des méthodes de diagnostic différentes. Consultez [Vue d’ensemble du monitoring dans Azure](../../azure-monitor/overview.md).
 
 ## <a name="linux-agent"></a>Agent Linux
 Une [version Linux de l’extension](../../virtual-machines/extensions/diagnostics-linux.md) est disponible pour les machines virtuelles exécutant Linux. Les statistiques collectées ainsi que le comportement varient par rapport à la version Windows.
 
 ## <a name="data-you-can-collect"></a>Données que vous pouvez collecter
-L’extension Azure Diagnostics peut collecter les types de données suivants :
+L’extension Diagnostics Azure peut collecter les types de données suivants :
 
 | source de données | Description |
 | --- | --- |
@@ -33,7 +33,7 @@ L’extension Azure Diagnostics peut collecter les types de données suivants :
 | [Journaux ETW basés sur les manifestes](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Événements de suivi d’événements pour Windows générés par n’importe quel processus.(1) |
 | Vidages sur incident (journaux d’activité) |Informations sur l’état du processus si une application se bloque |
 | Journaux d’activité d’erreurs personnalisés |Journaux d’activité créés par votre application ou service |
-| Journaux d’activité d’infrastructure Azure Diagnostic |Informations sur les Diagnostics Microsoft Azure eux-mêmes |
+| Journaux d’activité d’infrastructure Azure Diagnostic |Informations sur Diagnostics Azure lui-même |
 
 (1) pour obtenir la liste des fournisseurs d’ETW, exécutez `c:\Windows\System32\logman.exe query providers` dans une fenêtre de console sur la machine à partir de laquelle vous souhaitez recueillir des informations.
 
@@ -49,13 +49,13 @@ Vous avez aussi la possibilité d’envoyer vos données vers la base de donnée
 * Génération d’alertes sur l’ensemble des compteurs de performances envoyés à Azure Monitor via les [alertes de métriques](../../azure-monitor/platform/alerts-overview.md) dans Azure Monitor
 * Traitement de l’opérateur générique des compteurs de performances comme dimension « Instance » sur votre métrique.  Par exemple, si vous avez collecté le compteur « LogicalDisk(\*)/DiskWrites/sec », vous pouvez filtrer et fractionner sur la dimension « Instance » pour tracer ou générer des alertes sur le nombre d’écritures/s de chaque disque logique sur la machine virtuelle (par exemple, C:)
 
-Pour en savoir plus sur la manière de configurer ce récepteur, consultez la [documentation relative à Azure Diagnostics Schema.](diagnostics-extension-schema-1dot3.md)
+Pour en savoir plus sur la manière de configurer ce récepteur, consultez la [documentation sur le schéma des diagnostics Azure.](diagnostics-extension-schema-1dot3.md)
 
 ## <a name="costs"></a>Coûts
 Chacune des options ci-dessus peut-être entraîner une baisse des coûts. Veillez à effectuer des recherches pour éviter d’avoir des effets inattendus.  Application Insights, concentrateur d’événements, et le stockage Azure ont des coûts distincts liés à l’ingestion et l’heure stockée. En particulier, le stockage Azure conserve toutes les données indéfiniment vous pouvez donc purger les données plus anciennes après un certain laps de temps à réduire vos coûts.    
 
 ## <a name="versioning-and-configuration-schema"></a>Contrôle de version et schéma de configuration
-Consultez [Versions et historique des schémas de configuration de l’extension Azure Diagnostics](diagnostics-extension-schema.md).
+Consultez [Versions et historique des schémas de configuration de l’extension Diagnostics Azure](diagnostics-extension-schema.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

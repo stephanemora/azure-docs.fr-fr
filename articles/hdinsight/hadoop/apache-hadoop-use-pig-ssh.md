@@ -11,7 +11,7 @@ ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: a674ee52ae5e8f8f800d4584a53c808ceae70156
 ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/15/2018
 ms.locfileid: "53435053"
@@ -51,7 +51,7 @@ Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight d
     LOGS = LOAD '/example/data/sample.log';
     ```
 
-    Cette commande charge le contenu du fichier sample.log dans les JOURNAUX. Vous pouvez afficher le contenu du fichier à l’aide de l’instruction suivante :
+    Cette commande charge le contenu du fichier sample.log dans les JOURNAUX D’ACTIVITÉ. Vous pouvez afficher le contenu du fichier à l’aide de l’instruction suivante :
 
     ```piglatin
     DUMP LOGS;

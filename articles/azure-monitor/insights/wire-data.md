@@ -189,7 +189,7 @@ Utilisez les étapes suivantes pour installer l’agent de dépendances sur chaq
 1. Installez l’agent Log Analytics en suivant les étapes décrites dans [Collecter les données à partir d’ordinateurs Windows hébergés dans votre environnement](../../azure-monitor/platform/agent-windows.md).
 2. Télécharger l’Agent de dépendances Windows en utilisant le lien dans la section précédente et exécutez-le à l’aide de la commande suivante : `InstallDependencyAgent-Windows.exe`
 3. Suivez les instructions de l’Assistant pour installer l’agent.
-4. Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux. Pour les agents Windows, le répertoire des journaux est %Programfiles%\Microsoft Dependency Agent\logs.
+4. Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Pour les agents Windows, le répertoire des journaux d’activité est %Programfiles%\Microsoft Dependency Agent\logs.
 
 #### <a name="windows-command-line"></a>Ligne de commande Windows
 
@@ -214,7 +214,7 @@ Utilisez les étapes suivantes pour installer l’agent de dépendances sur chaq
 
 1. Installez l’agent Log Analytics en suivant les étapes décrites dans [Collecter les données à partir d’ordinateurs Linux hébergés dans votre environnement](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Téléchargez l’agent de dépendances Linux en suivant le lien de la section précédente, puis installez-le en tant que racine à l’aide de la commande suivante : sh InstallDependencyAgent-Linux64.bin
-3. Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux. Sur les agents Linux, le répertoire des journaux est : /var/opt/microsoft/dependency-agent/log.
+3. Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Sur les agents Linux, le répertoire des journaux est : /var/opt/microsoft/dependency-agent/log.
 
 Pour afficher la liste des indicateurs d’installation, exécutez le programme d’installation avec l’indicateur `-help` comme suit.
 

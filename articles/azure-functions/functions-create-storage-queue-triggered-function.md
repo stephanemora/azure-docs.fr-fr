@@ -23,7 +23,7 @@ ms.locfileid: "54902684"
 
 Découvrez comment créer une fonction qui est déclenchée lorsque des messages sont envoyés à une file d’attente de stockage Azure.
 
-![Affichage du message dans les journaux.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
+![Affichez le message dans les journaux d’activité.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -93,7 +93,7 @@ Maintenant que vous disposez d’une file d’attente de stockage, vous pouvez t
 
 ## <a name="test-the-function"></a>Tester la fonction
 
-1. Dans le portail Azure, accédez à votre fonction, développez les **Journaux** en bas de la page et vérifiez que la diffusion de journaux n’est pas suspendue.
+1. Dans le portail Azure, accédez à votre fonction, développez les **Journaux d’activité** en bas de la page et vérifiez que la diffusion de journaux d’activité n’est pas suspendue.
 
 1. Dans l’Explorateur de stockage, développez votre compte de stockage, **Files d’attente**, et **myqueue-items**, puis cliquez sur **Ajouter message**.
 
@@ -101,9 +101,9 @@ Maintenant que vous disposez d’une file d’attente de stockage, vous pouvez t
 
 1. Saisissez le message « Hello World ! » dans **Texte du message** et cliquez sur **OK**.
 
-1. Attendez quelques secondes, puis retournez à vos journaux de fonction et vérifiez que le nouveau message a été lu à partir de la file d’attente.
+1. Attendez quelques secondes, puis retournez à vos journaux d’activité de fonction et vérifiez que le nouveau message a été lu à partir de la file d’attente.
 
-    ![Affichage du message dans les journaux.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
+    ![Affichez le message dans les journaux d’activité.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
 
 1. Dans l’Explorateur de stockage, cliquez sur **Actualiser** et vérifiez que le message a été traité et qu’il ne se trouve plus dans la file d’attente.
 

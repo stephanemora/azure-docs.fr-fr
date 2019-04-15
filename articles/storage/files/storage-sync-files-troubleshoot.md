@@ -18,7 +18,7 @@ ms.locfileid: "59051366"
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
-Cet article est destiné à vous aider à dépanner et à résoudre les problèmes que vous pouvez rencontrer avec le déploiement d’Azure File Sync. Nous vous y expliquons également comment collecter des journaux du système qui sont utiles pour analyser les problèmes rencontrés de manière plus approfondie. Si vous ne trouvez pas de réponse à votre question ici, vous pouvez nous joindre par le biais des méthodes suivantes (par ordre de priorité) :
+Cet article est destiné à vous aider à dépanner et à résoudre les problèmes que vous pouvez rencontrer avec le déploiement d’Azure File Sync. Nous vous y expliquons également comment collecter des journaux d’activité du système qui sont utiles pour analyser les problèmes rencontrés de manière plus approfondie. Si vous ne trouvez pas de réponse à votre question ici, vous pouvez nous joindre par le biais des méthodes suivantes (par ordre de priorité) :
 
 1. [Forum du Stockage Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)
@@ -170,7 +170,7 @@ Au sein de chaque groupe de synchronisation, vous pouvez zoomer sur ses points d
 ![Capture d’écran du portail Azure](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
 # [<a name="server"></a>Serveur](#tab/server)
-Accédez aux enregistrements de données de télémétrie du serveur, qui se trouve dans l’observateur d'événements à `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Événement 9102 correspond à une session de synchronisation terminée; Pour obtenir le dernier état de synchronisation, recherchez l’événement le plus récent avec ID 9102. SyncDirection vous indique si cette session a été chargée ou téléchargée. Si la valeur HResult est 0, la session de synchronisation a réussi. Une valeur HResult différente de zéro indique une erreur pendant la synchronisation; voir ci-dessous pour obtenir la liste d’erreurs courantes. Si le PerItemErrorCount est supérieur à 0, cela signifie que certains fichiers ou dossiers non pas synchronisés correctement. Il est possible d’avoir une valeur HResult égale à 0, mais un PerItemErrorCount supérieur à 0.
+Accédez aux enregistrements de données de télémétrie du serveur, qui se trouve dans l’observateur d’événements à `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Événement 9102 correspond à une session de synchronisation terminée; Pour obtenir le dernier état de synchronisation, recherchez l’événement le plus récent avec ID 9102. SyncDirection vous indique si cette session a été chargée ou téléchargée. Si la valeur HResult est 0, la session de synchronisation a réussi. Une valeur HResult différente de zéro indique une erreur pendant la synchronisation; voir ci-dessous pour obtenir la liste d’erreurs courantes. Si le PerItemErrorCount est supérieur à 0, cela signifie que certains fichiers ou dossiers non pas synchronisés correctement. Il est possible d’avoir une valeur HResult égale à 0, mais un PerItemErrorCount supérieur à 0.
 
 Vous trouverez ci-dessous un exemple d’un chargement réussi. Par souci de concision, uniquement certaines des valeurs contenues dans chaque événement 9102 sont répertoriées ci-dessous. 
 
@@ -883,7 +883,7 @@ Des rappels inattendus peuvent également se produire dans d’autres scénarios
 Si vous rencontrez des problèmes avec Azure File Sync sur un serveur, commencez par effectuer les étapes suivantes :
 1. Dans l’observateur d’événements, examinez les journaux d’événements de télémétrie, des opérations et de diagnostic.
     - Les problèmes de synchronisation, de hiérarchisation et de rappel sont enregistrés dans les journaux d’événements de télémétrie, de diagnostic et d’exploitation sous Applications and services\Microsoft\FileSync\Agent.
-    - Les problèmes liés à la gestion d’un serveur (par exemple, les paramètres de configuration) sont enregistrés dans ces journaux sous Applications et Services\Microsoft\FileSync\Management.
+    - Les problèmes liés à la gestion d’un serveur (par exemple, les paramètres de configuration) sont enregistrés dans ces journaux des événements opérationnels et de diagnostic sous Applications et Services\Microsoft\FileSync\Management.
 2. Vérifiez que le service Azure File Sync est en cours d’exécution sur le serveur :
     - Ouvrez le composant logiciel enfichable MMC des services et vérifiez que le service Storage Sync Agent (FileSyncSvc) est en cours d’exécution.
 3. Vérifiez que les pilotes de filtre Azure File Sync (StorageSync.sys et StorageSyncGuard.sys) sont en cours d’exécution :
@@ -902,7 +902,7 @@ Si le problème n’est toujours pas résolu, exécutez l’outil AFSDiag :
 3. Pour le niveau de trace du mode noyau d’Azure File Sync, entrez **1** (sauf indication contraire, pour créer des traces plus détaillées), puis appuyez sur Entrée.
 4. Pour le niveau de trace du mode utilisateur d’Azure File Sync, entrez **1** (sauf indication contraire, pour créer des traces plus détaillées), puis appuyez sur Entrée.
 5. Reproduisez le problème. Quand vous avez terminé, entrez **D**.
-6. Un fichier .zip contenant les journaux et les fichiers de trace est enregistré dans le répertoire de sortie que vous avez spécifié.
+6. Un fichier .zip contenant les journaux d’activité et les fichiers de trace est enregistré dans le répertoire de sortie que vous avez spécifié.
 
 ## <a name="see-also"></a>Voir aussi
 - [Superviser Azure File Sync](storage-sync-files-monitoring.md)

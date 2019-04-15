@@ -22,7 +22,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57894374"
 ---
-# <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration avec la journalisation Azure Diagnostics et le transfert des événements Windows
+# <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration avec la journalisation Diagnostics Azure et le transfert des événements Windows
 
 
 >[!IMPORTANT]
@@ -36,7 +36,7 @@ Pour plus d’informations sur l’état d’un connecteur Azure Monitor, contac
 > [!IMPORTANT]
 > Si vous êtes principalement intéressé par la collecte des journaux d’activité de machine virtuelle, la plupart des fournisseurs SIEM intègrent cette option à leur solution. L’utilisation du connecteur du fournisseur SIEM doit toujours être l’alternative privilégiée.
 
-Cet article vous aide à bien démarrer avec Azure Log Integration. Il traite principalement de l’installation du service Azure Log Integration et de son intégration à Azure Diagnostics. Le service Azure Log Integration peut alors collecter les informations du journal des événements Windows provenant du canal des événements de sécurité Windows à partir des machines virtuelles déployées dans l’infrastructure IaaS Azure. C’est l’équivalent du *transfert d’événements* que vous utilisez en local.
+Cet article vous aide à bien démarrer avec Azure Log Integration. Il traite principalement de l’installation du service Azure Log Integration et de son intégration à Diagnostics Azure. Le service Azure Log Integration peut alors collecter les informations du journal des événements Windows provenant du canal des événements de sécurité Windows à partir des machines virtuelles déployées dans l’infrastructure IaaS Azure. C’est l’équivalent du *transfert d’événements* que vous utilisez en local.
 
 > [!NOTE]
 > L’intégration de la sortie d’Azure Log Integration à un SIEM est effectuée par le SIEM lui-même. Pour plus d’informations, consultez [Intégrer Azure Log Integration à votre SIEM local](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/).
@@ -52,16 +52,16 @@ La machine physique ou virtuelle qui exécute le service d’intégration des jo
 Au minimum, l’installation d’Azure Log Integration nécessite les éléments suivants :
 
 * Un **abonnement Azure**. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/).
-* Un **compte de stockage** utilisable pour la journalisation Azure Diagnostics. Vous pouvez utiliser un compte de stockage préconfiguré ou en créer un. Plus loin dans cet article, nous décrivons la configuration du compte de stockage.
+* Un **compte de stockage** utilisable pour la journalisation Diagnostics Azure pour Windows (WAD). Vous pouvez utiliser un compte de stockage préconfiguré ou en créer un. Plus loin dans cet article, nous décrivons la configuration du compte de stockage.
 
   > [!NOTE]
-  > Selon votre scénario, un compte de stockage n’est pas forcément nécessaire. Pour le scénario Azure Diagnostics abordé dans cet article, un compte de stockage est nécessaire.
+  > Selon votre scénario, un compte de stockage n’est pas forcément nécessaire. Pour le scénario Diagnostics Azure abordé dans cet article, un compte de stockage est nécessaire.
 
 * **Deux systèmes** : 
   * Une machine qui exécute le service Azure Log Integration. Cette machine collecte toutes les informations de journal importées par la suite dans votre SIEM. Ce système :
     * Peut être local ou hébergé dans Microsoft Azure.  
     * Doit exécuter une version x64 de Windows Server 2008 R2 SP1 ou version ultérieure, et doit avoir Microsoft .NET 4.5.1 installé. Pour déterminer la version du .NET installée, consultez [Déterminer les versions du .NET Framework installées](https://msdn.microsoft.com/library/hh925568).  
-    * Doit être connecté à un compte de stockage Azure utilisé pour la journalisation Azure Diagnostics. Plus loin dans cet article, nous décrivons la confirmation de la connectivité.
+    * Doit être connecté à un compte de stockage Azure utilisé pour la journalisation Diagnostics Azure. Plus loin dans cet article, nous décrivons la confirmation de la connectivité.
   * Une machine à surveiller. Il s’agit d’une machine virtuelle s’exécutant comme une [machine virtuelle Azure](../virtual-machines/virtual-machines-windows-overview.md). Les informations de journalisation de cette machine sont envoyées à la machine du service Azure Log Integration.
 
 Pour une démonstration rapide de la création d’une machine virtuelle à l’aide du portail Azure, regardez la vidéo ci-dessous :<br /><br />
@@ -73,7 +73,7 @@ Pour une démonstration rapide de la création d’une machine virtuelle à l’
 
 Pendant le test, vous pouvez utiliser n’importe quel système qui respecte la configuration minimale requise du système d’exploitation. Pour un environnement de production, la charge peut vous obliger à planifier une montée en puissance ou une augmentation de la taille des instances.
 
-Vous pouvez exécuter plusieurs instances du service Azure Log Integration. Toutefois, vous pouvez exécuter une seule instance du service par machine physique ou virtuelle. Par ailleurs, vous pouvez équilibrer la charge des comptes de stockage Azure Diagnostics pour les diagnostics Microsoft Azure. Le nombre d’abonnements à fournir aux instances dépend de votre capacité.
+Vous pouvez exécuter plusieurs instances du service Azure Log Integration. Toutefois, vous pouvez exécuter une seule instance du service par machine physique ou virtuelle. Par ailleurs, vous pouvez équilibrer la charge des comptes de stockage Diagnostics Azure pour WAD. Le nombre d’abonnements à fournir aux instances dépend de votre capacité.
 
 > [!NOTE]
 > Actuellement, nous n’avons pas de recommandation spécifique sur l’augmentation de la taille des instances des machines Azure Log Integration (autrement dit, les machines qui exécutent le service Azure Log Integration), ou pour les abonnements ou les comptes de stockage. Les décisions de mise à l’échelle doivent être basées sur les observations de vos performances dans chacun de ces domaines.
@@ -123,7 +123,7 @@ Une fois l’installation de base effectuée, vous êtes prêt à passer aux ét
    > [!NOTE]
    > Vous ne recevez pas de confirmation quand la commande aboutit. 
 
-4. Pour pouvoir surveiller un système, vous avez besoin du nom du compte de stockage utilisé pour Azure Diagnostics. Dans le portail Azure, accédez à **Machines virtuelles**. Recherchez une machine virtuelle Windows à surveiller. Dans la section **Propriétés**, sélectionnez **Paramètres de diagnostic**.  Ensuite, sélectionnez **Agent**. Notez le nom du compte de stockage spécifié. Vous avez besoin de ce nom de compte pour une étape ultérieure.
+4. Pour pouvoir surveiller un système, vous avez besoin du nom du compte de stockage utilisé pour Diagnostics Azure. Dans le portail Azure, accédez à **Machines virtuelles**. Recherchez une machine virtuelle Windows à surveiller. Dans la section **Propriétés**, sélectionnez **Paramètres de diagnostic**.  Ensuite, sélectionnez **Agent**. Notez le nom du compte de stockage spécifié. Vous avez besoin de ce nom de compte pour une étape ultérieure.
 
    ![Capture d’écran du volet Paramètres des diagnostics Azure](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
@@ -132,12 +132,12 @@ Une fois l’installation de base effectuée, vous êtes prêt à passer aux ét
    > [!NOTE]
    > Si le monitoring n’a pas été activé à la création de la machine virtuelle, vous pouvez l’activer comme indiqué dans l’image précédente.
 
-5. Ensuite, revenez à la machine Azure Log Integration. Vérifiez que vous êtes connecté au compte de stockage à partir du système sur lequel Azure Log Integration est installé. L’ordinateur qui exécute le service Azure Log Integration doit accéder au compte de stockage pour récupérer les informations journalisées par Azure Diagnostics sur chacun des systèmes surveillés. Pour vérifier la connectivité : 
+5. Ensuite, revenez à la machine Azure Log Integration. Vérifiez que vous êtes connecté au compte de stockage à partir du système sur lequel Azure Log Integration est installé. L’ordinateur qui exécute le service Azure Log Integration doit accéder au compte de stockage pour récupérer les informations journalisées par Diagnostics Azure sur chacun des systèmes surveillés. Pour vérifier la connectivité : 
    1. [Téléchargez l’Explorateur Stockage Azure](https://storageexplorer.com/).
    2. Exécutez l’installation.
    3. Une fois l’installation terminée, sélectionnez **Suivant**. Laissez cochée la case **Lancer l’Explorateur Stockage Microsoft Azure**.  
    4. Connectez-vous à Azure.
-   5. Vérifiez que vous pouvez voir le compte de stockage que vous avez configuré pour Azure Diagnostics : 
+   5. Vérifiez que vous pouvez voir le compte de stockage que vous avez configuré pour Diagnostics Azure : 
 
    ![Capture d’écran des comptes de stockage dans l’Explorateur Stockage](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
@@ -151,9 +151,9 @@ Une fois l’installation de base effectuée, vous êtes prêt à passer aux ét
 Dans cette étape, vous configurez la machine exécutant le service Azure Log Integration pour qu’elle se connecte au compte de stockage qui contient les fichiers journaux.
 
 Pour effectuer cette étape, vous avez besoin de quelques éléments :  
-* **FriendlyNameForSource** : Nom convivial que vous pouvez appliquer au compte de stockage configuré sur la machine virtuelle pour stocker les informations d’Azure Diagnostics.
-* **StorageAccountName** : Nom du compte de stockage que vous avez spécifié quand vous avez configuré Azure Diagnostics.  
-* **StorageKey** : Clé de stockage pour le compte de stockage où les informations Azure Diagnostics sont stockées pour cette machine virtuelle.  
+* **FriendlyNameForSource** : Nom convivial que vous pouvez appliquer au compte de stockage configuré sur la machine virtuelle pour stocker les informations de Diagnostics Azure.
+* **StorageAccountName** : Nom du compte de stockage que vous avez spécifié quand vous avez configuré Diagnostics Azure.  
+* **StorageKey** : Clé de stockage pour le compte de stockage où les informations Diagnostics Azure sont stockées pour cette machine virtuelle.  
 
 Pour obtenir la clé de stockage, suivez ces étapes :
 1. Accédez au [portail Azure](https://portal.azure.com).
@@ -248,5 +248,5 @@ Pour en savoir plus sur Azure Log Integration, consultez les articles suivants :
 * [Présentation d’Azure Log Integration](security-azure-log-integration-overview.md). Cet article présente Azure Log Integration, ses principales fonctionnalités et son fonctionnement.
 * [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Ce billet de blog vous montre comment configurer Azure Log Integration pour fonctionner avec les solutions de partenaire Splunk, HP ArcSight et IBM QRadar. Il présente nos recommandations sur la configuration des composants SIEM. Contactez votre fournisseur SIEM pour plus d’informations.
 * [Questions fréquentes (FAQ) sur Azure Log Integration](security-azure-log-integration-faq.md). Ce FAQ répond aux questions courantes sur Azure Log Integration.
-* [Intégration des alertes Azure Security Center à Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). Cet article vous explique comment synchroniser les alertes Security Center et les événements de sécurité de machine virtuelle qui sont collectés par Azure Diagnostics et les journaux d’activité Azure. Vous synchronisez les journaux à l’aide de votre solution SIEM ou journaux Azure Monitor.
+* [Intégration des alertes Azure Security Center à Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). Cet article vous explique comment synchroniser les alertes Security Center et les événements de sécurité de machine virtuelle qui sont collectés par Diagnostics Azure et les journaux d’activité Azure. Vous synchronisez les journaux à l’aide de votre solution SIEM ou journaux Azure Monitor.
 * [Nouvelles fonctionnalités d’Azure Diagnostics et des journaux d’audit Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). Ce billet de blog présente les journaux d’audit Azure et d’autres fonctionnalités pour vous permettre de mieux connaître les opérations de vos ressources Azure.

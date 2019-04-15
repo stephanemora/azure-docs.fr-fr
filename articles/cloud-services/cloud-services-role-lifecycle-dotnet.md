@@ -44,7 +44,7 @@ Si votre rôle ne démarre pas ou qu’il est recyclé entre les états Initiali
 > 
 
 ## <a name="onstart-method"></a>Méthode OnStart
-La méthode **OnStart** est appelée une fois votre instance de rôle mise en ligne par Azure. Pendant l'exécution du code OnStart, l'instance de rôle est désignée comme **Occupée** et aucun trafic externe n'est dirigé vers elle via l'équilibrage de charge. Vous pouvez substituer cette méthode pour exécuter des tâches d'initialisation, telles que l'implémentation de gestionnaires d'événements et le démarrage d’ [Azure Diagnostics](cloud-services-how-to-monitor.md).
+La méthode **OnStart** est appelée une fois votre instance de rôle mise en ligne par Azure. Pendant l'exécution du code OnStart, l'instance de rôle est désignée comme **Occupée** et aucun trafic externe n'est dirigé vers elle via l'équilibrage de charge. Vous pouvez substituer cette méthode pour exécuter des tâches d'initialisation, telles que l'implémentation de gestionnaires d'événements et le démarrage de [Diagnostics Azure](cloud-services-how-to-monitor.md).
 
 Si **OnStart** retourne la valeur **true**, l’instance est initialisée correctement et Azure appelle la méthode **RoleEntryPoint.Run**. Si **OnStart** retourne la valeur **false**, le rôle prend fin immédiatement, sans exécuter de séquence d’arrêt planifié.
 

@@ -12,7 +12,7 @@ ms.date: 10/31/2018
 ms.author: delhan
 ms.openlocfilehash: 59602977c1b7f6dd0524c6535d8458d3eb1a3f26
 ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54425575"
@@ -66,7 +66,7 @@ Si vous déployez à partir d’un modèle Azure Resource Manager, accédez à 
   … 
 ```
 
-Le profil de diagnostics vous permet de sélectionner le compte de stockage dans lequel vous souhaitez placer ces journaux.
+Le profil de diagnostics vous permet de sélectionner le compte de stockage dans lequel vous souhaitez placer ces journaux d’activité.
 
 ```json
     "diagnosticsProfile": {

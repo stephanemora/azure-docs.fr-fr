@@ -614,7 +614,7 @@ La fonctionnalité de révision des accès de groupes et d’applications fait d
 **Catégorie de service :** Reporting  
 **Fonctionnalité de produit :** Monitoring et création de rapports
  
-Des journaux d’activité Azure AD (connexions et audit) sont à présent disponibles via Microsoft Graph. Nous avons exposé deux points de terminaison via Microsoft Graph pour accéder à ces journaux. Pour démarrer, consultez nos [documents](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) concernant l’accès par programmation aux API de création de rapports Azure AD. 
+Des journaux d’activité Azure AD (connexions et audit) sont à présent disponibles via Microsoft Graph. Nous avons exposé deux points de terminaison via Microsoft Graph pour accéder à ces journaux d’activité. Pour démarrer, consultez nos [documents](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) concernant l’accès par programmation aux API de création de rapports Azure AD. 
 
 ---
  
@@ -1094,7 +1094,7 @@ L’expérience de navigation pour la gestion des utilisateurs et groupes a ét�
 **Catégorie de service :** Azure Stack  
 **Fonctionnalité de produit :** Monitoring et création de rapports
 
-Les rapports du journal d’activité Azure AD sont maintenant disponibles dans Microsoft Azure géré par des instances 21Vianet (Azure China 21Vianet). Les journaux suivants sont inclus :
+Les rapports du journal d’activité Azure AD sont maintenant disponibles dans Microsoft Azure géré par des instances 21Vianet (Azure China 21Vianet). Les journaux d’activité suivants sont inclus :
 
 - **Journaux d’activité des connexions** : incluent tous les journaux des connexions associés à votre locataire.
 
@@ -1102,7 +1102,7 @@ Les rapports du journal d’activité Azure AD sont maintenant disponibles dans 
 
 - **Journaux d’audit de gestion des annuaires** : incluent tous les journaux d’audit liés à la gestion des annuaires, comme la gestion des utilisateurs, la gestion des applications, etc.
 
-Ces journaux vous permettent d’obtenir des insights sur le fonctionnement de votre environnement. Les données fournies vous permettent de :
+Ces journaux d’activité vous permettent d’obtenir des insights sur le fonctionnement de votre environnement. Les données fournies vous permettent de :
 
 - Déterminer la façon dont les applications et les services sont utilisés par vos utilisateurs.
 

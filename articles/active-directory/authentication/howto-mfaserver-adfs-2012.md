@@ -149,16 +149,16 @@ Pour sécuriser vos ressources de cloud, configurez une règle de revendication 
 
 9. Cliquez sur **Terminer**. Fermez la console de gestion AD FS.
 
-## <a name="troubleshooting-logs"></a>Journaux de résolution des problèmes
+## <a name="troubleshooting-logs"></a>Journaux d’activité de résolution des problèmes
 
 Pour vous aider à résoudre les problèmes avec l’adaptateur AD FS de serveur de l’authentification multifacteur, utilisez la procédure suivante pour activer la journalisation supplémentaire.
 
 1. Dans l’interface du serveur de l’authentification multifacteur, ouvrez la section AD FS et cochez la case **activer la journalisation**.
 2. Sur chaque serveur AD FS, utilisez **regedit.exe** pour créer la clé de Registre de valeur de chaîne `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Positive Networks\PhoneFactor\InstallPath` avec la valeur `C:\Program Files\Multi-Factor Authentication Server\` (ou un autre répertoire de votre choix).  **Notez que la barre oblique de fin est importante.**
 3. Créez le répertoire `C:\Program Files\Multi-Factor Authentication Server\Logs` (ou un autre répertoire, tel que mentionné dans l’**étape 2**).
-4. Accordez l’accès en modification au répertoire des journaux au compte de service AD FS.
+4. Accordez l’accès en modification au répertoire des journaux d’activité au compte de service AD FS.
 5. Redémarrez le service AD FS.
-6. Vérifiez que le fichier `MultiFactorAuthAdfsAdapter.log` a été créé dans le répertoire des journaux.
+6. Vérifiez que le fichier `MultiFactorAuthAdfsAdapter.log` a été créé dans le répertoire des journaux d’activité.
 
 ## <a name="related-topics"></a>Rubriques connexes
 

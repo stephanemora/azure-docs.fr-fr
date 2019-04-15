@@ -17,7 +17,7 @@ ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abed56ee64cbca8646c1aa1d24fea292aa4d8de3
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56201820"
@@ -41,7 +41,7 @@ Cela limite l’évaluation des alertes par le service. Vous verrez une bannièr
 
 ![Azure AD Connect Health pour la synchronisation](./media/how-to-connect-health-sync/banner.png)
 
-Pour modifier ceci, cliquez sur « Paramètres », puis autorisez l’agent Azure AD Connect Health à télécharger tous les journaux d’erreurs.
+Pour modifier ceci, cliquez sur « Paramètres », puis autorisez l’agent Azure AD Connect Health à télécharger tous les journaux d’activité d’erreurs.
 
 ![Azure AD Connect Health pour la synchronisation](./media/how-to-connect-health-sync/banner2.png)
 
@@ -59,7 +59,7 @@ Cette fonctionnalité fournit une tendance graphique de la latence des opératio
 Par défaut, seule la latence de l’opération « Exportation » pour le connecteur Azure AD est affichée.  Pour visualiser davantage d’opérations sur le connecteur ou pour afficher les opérations d’autres connecteurs, cliquez avec le bouton droit sur le graphique, sélectionnez Modifier le graphique ou cliquez sur le bouton « Modifier le graphique de latence » et choisissez l’opération spécifique et les connecteurs.
 
 ### <a name="sync-object-changes"></a>Synchronisation des modifications d’objet
-Cette fonctionnalité fournit une représentation graphique du nombre de modifications en cours d’évaluation et d’exportation vers Azure AD.  Aujourd’hui, il est difficile de rassembler ces informations dans les journaux de synchronisation.  Le graphique constitue non seulement un moyen plus simple d’analyser le nombre de modifications qui se produisent dans votre environnement, mais également un aperçu visuel des défaillances qui se produisent.
+Cette fonctionnalité fournit une représentation graphique du nombre de modifications en cours d’évaluation et d’exportation vers Azure AD.  Aujourd’hui, il est difficile de rassembler ces informations dans les journaux d’activité de synchronisation.  Le graphique constitue non seulement un moyen plus simple d’analyser le nombre de modifications qui se produisent dans votre environnement, mais également un aperçu visuel des défaillances qui se produisent.
 
 ![Latence de synchronisation](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 

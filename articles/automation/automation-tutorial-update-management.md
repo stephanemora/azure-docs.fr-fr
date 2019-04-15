@@ -66,7 +66,7 @@ Sous **Gestion des mises à jour**, définissez l’emplacement, l’espace de t
 
 ![Fenêtre Activer la solution de gestion des mises à jour](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-L’activation de la solution peut prendre quelques minutes. Pendant ce temps, ne fermez pas la fenêtre du navigateur. Une fois la solution activée, des informations sur les mises à jour manquantes sur la machine virtuelle sont envoyées aux journaux Azure Monitor. Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
+L’activation de la solution peut prendre quelques minutes. Pendant ce temps, ne fermez pas la fenêtre du navigateur. Une fois la solution activée, des informations sur les mises à jour manquantes sur la machine virtuelle sont envoyées aux journaux d’activité Azure Monitor. Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
 
 ## <a name="view-update-assessment"></a>Afficher l’évaluation des mises à jour
 
@@ -137,7 +137,7 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 
 * **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)
 
-* **Ordinateurs à mettre à jour** : Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
+* **Ordinateurs à mettre à jour** : Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux d’activité Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux d’activité Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
 * **Classification des mises à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Pour ce didacticiel, conservez tous les types sélectionnés.
 
@@ -190,7 +190,7 @@ La liste suivante présente les valeurs disponibles :
 * **Réussite** : la mise à jour a réussi.
 * **Échec** : la mise à jour a échoué.
 
-Pour afficher toutes les entrées de journal créées par le déploiement, sélectionnez **Tous les journaux**.
+Pour afficher toutes les entrées de journal d’activité créées par le déploiement, sélectionnez **Tous les journaux d’activité**.
 
 Cliquez sur **Sortie** pour voir le flux des tâches du runbook chargé de gérer le déploiement des mises à jour sur la machine virtuelle cible.
 

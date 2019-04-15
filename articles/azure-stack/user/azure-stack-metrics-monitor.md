@@ -32,10 +32,10 @@ Tout comme avec Azure Monitor dans Azure global, vous pouvez trouver des donnée
 | Type de données | Catégorie | Services pris en charge | Méthodes d’accès |
 |-------------------------------------------------------------|----------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | Mesures au niveau de la plateforme Azure Monitor | Mesures | [Mesures prises en charge avec Azure Monitor sur Azure Stack](azure-stack-metrics-supported.md) | API REST |
-| Mesures de SE invité Compute (calcul des performances, par exemple) | Mesures | Machines virtuelles Windows et Linux | Blob ou table de stockage :<br>Azure Diagnostics (Windows ou Linux) <br>Event Hub :<br>Diagnostics Windows Azure |
+| Mesures de SE invité Compute (calcul des performances, par exemple) | Mesures | Machines virtuelles Windows et Linux | Blob ou table de stockage :<br>Diagnostics Azure Windows ou Linux <br>Event Hub :<br>Diagnostics Azure pour Windows |
 | Métriques de stockage | Mesures | Stockage Azure | Table de stockage :<br>Storage Analytics |
 | Journal d’activité | Événements | Tous les services Azure | API REST :<br>API d’événements Azure Monitor |
-| Journaux d’activité de SE invité Compute (par exemple, IIS, ETW et journaux d’activité syslog) | Événements | Machines virtuelles Windows et Linux | Blob ou table de stockage :<br>Azure Diagnostics (Windows ou Linux) <br>Event Hub :<br>Diagnostics Windows Azure |
+| Journaux d’activité de SE invité Compute (par exemple, IIS, ETW et journaux d’activité syslog) | Événements | Machines virtuelles Windows et Linux | Blob ou table de stockage :<br>Diagnostics Azure Windows ou Linux <br>Event Hub :<br>Diagnostics Azure pour Windows |
 | Journaux d’activité de stockage | Événements | Stockage Azure | Table de stockage :<br>Storage Analytics |
 
 ## <a name="next-steps"></a>Étapes suivantes

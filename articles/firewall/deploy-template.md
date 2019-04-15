@@ -68,7 +68,7 @@ Ne supprimez pas encore le groupe de ressources et le pare-feu si vous voulez co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ensuite, vous pouvez surveiller les journaux de Pare-feu Azure :
+Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure :
 
 > [!div class="nextstepaction"]
 > [Didacticiel : Surveillez les journaux de pare-feu Azure](./tutorial-diagnostics.md)

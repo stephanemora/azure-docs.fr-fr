@@ -1,5 +1,5 @@
 ---
-title: Transférer des données de travaux Azure Automation aux journaux Azure Monitor
+title: Transférer des données de travaux Azure Automation aux journaux d’activité Azure Monitor
 description: Cet article montre comment envoyer des flux de travail runbook et l’état du travail dans les journaux Azure Azure Monitor pour fournir une gestion et obtenir des informations supplémentaires.
 services: automation
 ms.service: automation
@@ -18,7 +18,7 @@ ms.locfileid: "59496588"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Transférer l’état du travail et flux de travail d’Automation dans les journaux d’Azure Monitor
 
-Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Ce processus n’implique aucune liaison d’espace de travail et est complètement indépendant. Les journaux de travail et les flux de travail sont visibles dans le portail Azure, ou avec PowerShell, pour des travaux individuels. Cela vous permet d’effectuer des enquêtes simples. Désormais avec les journaux Azure Monitor, vous pouvez :
+Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Ce processus n’implique aucune liaison d’espace de travail et est complètement indépendant. Les journaux d’activité de travail et les flux de travail sont visibles dans le portail Azure, ou avec PowerShell, pour des travaux individuels. Cela vous permet d’effectuer des enquêtes simples. Désormais avec les journaux Azure Monitor, vous pouvez :
 
 * Obtenir des informations sur vos travaux Automation.
 * Déclencher un e-mail ou une alerte en fonction du statut de votre travail de runbook (par exemple, échec ou état suspendu).
@@ -81,14 +81,14 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 
 Dans la sortie, assurez-vous que :
 
-* Sous *Journaux*, la valeur de *Activé* est *True*.
+* Sous *Journaux d’activité*, la valeur de *Activé* est *True*.
 * La valeur de *WorkspaceId* est définie sur l’ID de ressource de votre espace de travail Log Analytics.
 
 ## <a name="azure-monitor-log-records"></a>Enregistrements de journaux Azure Monitor
 
 Diagnostic d’Azure Automation crée deux types d’enregistrements dans les journaux Azure Monitor et sont marqué comme **AzureDiagnostics**. Les requêtes suivantes utilisent le langage de requête mis à niveau dans les journaux d’Azure Monitor. Pour plus d’informations sur les requêtes courantes entre le langage de requête hérité et le nouveau langage de requête Azure Kusto visitez [hérité au nouveau aide-mémoire de langage de requête Kusto Azure](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
-### <a name="job-logs"></a>Journaux de travail
+### <a name="job-logs"></a>Journaux d’activité de travail
 
 | Propriété | Description |
 | --- | --- |
@@ -148,7 +148,7 @@ Pour créer une règle d’alerte, vous devez commencer par créer une recherche
 1. Dans la page de vue d’ensemble d’espace de travail Analytique de journal, cliquez sur **afficher les journaux**.
 2. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  Vous pouvez également regrouper par RunbookName à l’aide de : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
-   Si vous avez configuré des journaux dans votre espace de travail sur plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation. Le nom du compte Automation se trouve dans le champ Ressource de la recherche de JobLogs.
+   Si vous avez configuré des journaux d’activité dans votre espace de travail sur plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation. Le nom du compte Automation se trouve dans le champ Ressource de la recherche de JobLogs.
 3. Pour ouvrir l’écran **Créer une règle**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, voir [Alertes de journaux dans Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Rechercher tous les travaux qui ont rencontré des erreurs

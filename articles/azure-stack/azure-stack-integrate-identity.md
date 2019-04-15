@@ -326,9 +326,9 @@ Si une erreur se produit et laisse l’environnement dans un état vous empêcha
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
    ```
 
-### <a name="collecting-additional-logs"></a>Collecte de journaux supplémentaires
+### <a name="collecting-additional-logs"></a>Collecte de journaux d’activité supplémentaires
 
-Si une des applets de commande échoue, vous pouvez collecter des journaux supplémentaires à l’aide de l’applet de commande `Get-Azurestacklogs`.
+Si une des applets de commande échoue, vous pouvez collecter des journaux d’activité supplémentaires à l’aide de l’applet de commande `Get-Azurestacklogs`.
 
 1. Ouvrez une session Windows PowerShell avec élévation de privilèges et exécutez les commandes suivantes :
 

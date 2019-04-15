@@ -320,7 +320,7 @@ Vous avez configuré vos journaux de diagnostic pour qu’ils soient exportés v
 
    ![Capture d’écran montrant la descente dans la hiérarchie jusqu’au conteneur de stockage pour afficher les journaux de diagnostic.](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
 
-Cliquez sur **Télécharger** pour le télécharger et l’ouvrir. Vous voyez les journaux de l’appareil qui se connecte et se déconnecte à mesure qu’il envoie des messages au hub. Voici un exemple :
+Cliquez sur **Télécharger** pour le télécharger et l’ouvrir. Vous voyez les journaux d’activité de l’appareil qui se connecte et se déconnecte à mesure qu’il envoie des messages au hub. Voici un exemple :
 
 ``` json
 { 

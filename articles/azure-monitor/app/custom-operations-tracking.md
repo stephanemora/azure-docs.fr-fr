@@ -14,7 +14,7 @@ ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 8e082f15cff616b9dc63fbf4ad51e94d078a04f3
 ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/28/2018
 ms.locfileid: "53811288"
@@ -372,7 +372,7 @@ De même, les autres opérations de file d’attente peuvent être instrumentée
 Lors de l’instrumentation d’une suppression de message, assurez-vous de définir les identificateurs de l’opération (corrélation). Vous pouvez également utiliser l’API `Activity`. Vous n’avez alors pas besoin de définir des identificateurs d’opérations sur les éléments de télémétrie, car le Kit SDK Application Insights le fait pour vous :
 
 - Créez une nouvelle API `Activity` une fois que vous avez un élément à partir de la file d’attente.
-- Utilisez `Activity.SetParentId(message.ParentId)` pour mettre en corrélation les journaux du consommateur et du producteur.
+- Utilisez `Activity.SetParentId(message.ParentId)` pour mettre en corrélation les journaux d’activité du consommateur et du producteur.
 - Démarrez `Activity`.
 - Effectuez le suivi des opérations de retrait de file d’attente, de traitement et de suppression à l’aide des programmes d’assistance `Start/StopOperation`. Procédez à partir du même flux de contrôle asynchrone (contexte d’exécution). De cette manière, elles sont correctement mises en corrélation.
 - Arrêtez `Activity`.

@@ -17,7 +17,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5f3c1883f156562cfab59cb102fb0cf18b03803
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56186588"
@@ -41,7 +41,7 @@ Pour obtenir des informations sur la configuration de la conservation des donné
 
 ## <a name="remove-personal-data-from-connector-event-logs"></a>Supprimer des données personnelles de journaux des événements des connecteurs
 
-Pour s’assurer que les journaux du proxy d’application ne contiennent aucune donnée personnelle, vous pouvez :
+Pour s’assurer que les journaux d’activité du proxy d’application ne contiennent aucune donnée personnelle, vous pouvez :
 
 - Supprimer ou afficher les données si nécessaire, ou
 - Désactiver la journalisation
@@ -52,9 +52,9 @@ Utiliser les sections suivantes pour supprimer les données personnelles de jour
 
 ### <a name="view-or-export-specific-data"></a>Afficher ou exporter des données spécifiques
 
-Pour afficher ou exporter des données spécifiques, recherchez des entrées associées dans chaque journal des événements du connecteur. Les journaux se trouvent dans `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`. 
+Pour afficher ou exporter des données spécifiques, recherchez des entrées associées dans chaque journal des événements du connecteur. Les journaux d’activité se trouvent dans `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`. 
 
-Étant donné que les journaux sont des fichiers texte, vous pouvez utiliser [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) pour rechercher les entrées de texte associées à un utilisateur.  
+Étant donné que les journaux d’activité sont des fichiers texte, vous pouvez utiliser [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) pour rechercher les entrées de texte associées à un utilisateur.  
 
 Pour rechercher des données personnelles, recherchez UserID (ID utilisateur) dans les fichiers journaux. 
 
@@ -71,12 +71,12 @@ Pour rechercher des données personnelles consignées par une application qui ut
 Pour supprimer des données spécifiques :
 
 1. Redémarrez le service du connecteur de proxy d’application Microsoft Azure AD afin de générer un nouveau fichier journal. Le nouveau fichier journal vous permet de supprimer ou de modifier les anciens fichiers journaux. 
-2. Suivez le processus [Afficher ou exporter des données spécifiques](#view-or-export-specific-data), détaillé précédemment, pour trouver les informations à supprimer. Recherchez dans tous les journaux du connecteur.
+2. Suivez le processus [Afficher ou exporter des données spécifiques](#view-or-export-specific-data), détaillé précédemment, pour trouver les informations à supprimer. Recherchez dans tous les journaux d’activité du connecteur.
 3. Supprimez les fichiers journaux adéquats ou sélectionnez les champs contenant des données personnelles et supprimez-les. De plus, vous pouvez supprimer tous les anciens fichiers journaux si vous n’en avez plus besoin.
 
-### <a name="turn-off-connector-logs"></a>Désactiver les journaux du connecteur
+### <a name="turn-off-connector-logs"></a>Désactiver les journaux d’activité du connecteur
 
-Pour vous assurer que les journaux du connecteur ne contiennent aucune donnée personnelle, vous pouvez arrêter la génération de journaux. Pour arrêter la génération de journaux du connecteur, supprimez la ligne en surbrillance suivante de `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`. 
+Pour vous assurer que les journaux d’activité du connecteur ne contiennent aucune donnée personnelle, vous pouvez arrêter la génération de journaux d’activité. Pour arrêter la génération de journaux d’activité du connecteur, supprimez la ligne en surbrillance suivante de `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`. 
 
 ![Configuration](./media/application-proxy-remove-personal-data/01.png)
 

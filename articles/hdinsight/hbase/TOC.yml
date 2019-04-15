@@ -141,7 +141,7 @@ items:
     - name: Mettre à l’échelle un cluster HDInsight
       href: ../hdinsight-scaling-best-practices.md
       maintainContext: true
-    - name: Gérer les journaux pour un cluster HDInsight
+    - name: Gérer les journaux d’activité pour un cluster HDInsight
       href: ../hdinsight-log-management.md
       maintainContext: true
     - name: Ajouter des comptes de stockage
@@ -204,7 +204,7 @@ items:
       - name: Performances et mémoire Apache Hadoop
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Accéder aux journaux d’applications YARN Apache Hadoop sous Linux
+      - name: Accéder aux journaux d’activité d’applications YARN Apache Hadoop sous Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
       - name: Activer les dumps de tas pour les services Apache Hadoop
@@ -239,12 +239,12 @@ items:
       href: apache-hbase-replication.md
     - name: Configurer la sauvegarde et de réplication pour Apache HBase et Apache Phoenix
       href: apache-hbase-backup-replication.md
-  - name: Supervision de l’utilisation des journaux Azure Monitor
+  - name: Supervision de l’utilisation des journaux d’activité Azure Monitor
     items:
-    - name: Utiliser les journaux Azure Monitor
+    - name: Utiliser les journaux d’activité Azure Monitor
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: Utiliser des requêtes avec les journaux Azure Monitor
+    - name: Utiliser des requêtes avec les journaux d’activité Azure Monitor
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: Surveiller les performances du cluster

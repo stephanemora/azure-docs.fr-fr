@@ -11,7 +11,7 @@ ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
 ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55822134"
@@ -27,7 +27,7 @@ Cet article contient des informations de dépannage pour les diagnostics Microso
 **Monitoring Agent (processus MonAgent\*.exe)**  : supervise, collecte et transfère les données de diagnostic.  
 
 ## <a name="logartifact-paths"></a>Chemins d’accès des journaux/artefacts
-Voici les chemins d’accès de quelques journaux et artefacts importants. Nous nous référons à ces informations dans le reste du document.
+Voici les chemins d’accès de quelques journaux d’activité et artefacts importants. Nous nous référons à ces informations dans le reste du document.
 
 ### <a name="azure-cloud-services"></a>Services cloud Azure
 | Artefact | path |
@@ -85,7 +85,7 @@ Si la configuration est correctement définie, mais que vous ne voyez toujours p
 ## <a name="azure-diagnostics-isnt-starting"></a>Azure Diagnostics ne démarre pas
 Pour savoir pourquoi Azure Diagnostics ne démarre pas, voir les journaux **DiagnosticsPluginLauncher.log** et **DiagnosticsPlugin.log** dont nous avons fourni le chemin d’accès précédemment.
 
-Si ces journaux indiquent `Monitoring Agent not reporting success after launch`, cela signifie que le lancement de MonAgentHost.exe a échoué. Consultez ces journaux à l’emplacement indiqué pour `MonAgentHost log file` dans la section précédente.
+Si ces journaux d’activité indiquent `Monitoring Agent not reporting success after launch`, cela signifie que le lancement de MonAgentHost.exe a échoué. Consultez ces journaux d’activité à l’emplacement indiqué pour `MonAgentHost log file` dans la section précédente.
 
 La dernière ligne des fichiers journaux contient le code de sortie.  
 
@@ -97,8 +97,8 @@ Si le code de sortie est **négatif**, reportez-vous à la [table des codes de s
 ## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Les données de diagnostic ne sont pas consignées dans le stockage Microsoft Azure
 Tentez de déterminer si aucune des données ne s’affiche ou si certaines d’entre elles s’affichent.
 
-### <a name="diagnostics-infrastructure-logs"></a>Journaux d’infrastructure de diagnostics
-Azure Diagnostics consigne toutes les erreurs dans les journaux d’infrastructure de diagnostics. Assurez-vous que vous avez activé la [capture de journaux d’infrastructure de diagnostics dans votre configuration](#how-to-check-diagnostics-extension-configuration). Vous pouvez ensuite rechercher rapidement toutes les erreurs pertinentes qui apparaissent dans la table `DiagnosticInfrastructureLogsTable`, dans votre compte de stockage configuré.
+### <a name="diagnostics-infrastructure-logs"></a>Journaux d’activité d’infrastructure de diagnostics
+Azure Diagnostics consigne toutes les erreurs dans les journaux d’activité d’infrastructure de diagnostics. Assurez-vous que vous avez activé la [capture de journaux d’activité d’infrastructure de diagnostics dans votre configuration](#how-to-check-diagnostics-extension-configuration). Vous pouvez ensuite rechercher rapidement toutes les erreurs pertinentes qui apparaissent dans la table `DiagnosticInfrastructureLogsTable`, dans votre compte de stockage configuré.
 
 ### <a name="no-data-is-appearing"></a>Aucune donnée ne s’affiche
 Le plus souvent, quand aucune donnée d’événement ne s’affiche, le problème provient des informations du compte de stockage qui ne sont pas définies correctement.
@@ -119,7 +119,7 @@ La configuration des diagnostics contient des instructions pour un type bien pr�
 - **Compteurs de performances** : ouvrez PerfMon et vérifiez le compteur.
 
 - **Journaux des traces** :  accédez à distance à la machine virtuelle, puis ajoutez un élément TextWriterTraceListener dans le fichier de configuration de l’application.  Consultez https://msdn.microsoft.com/library/sk36c28t.aspx pour configurer l’écouteur de texte.  Vérifiez que l’élément `<trace>` a la valeur `<trace autoflush="true">`.<br />
-Si aucun journal de suivi n’a été généré, voir En savoir plus sur les journaux de suivi manquants.
+Si aucun journal de suivi n’a été généré, voir En savoir plus sur les journaux d’activité de suivi manquants.
 
 - **Traces ETW** : accédez à distance à la machine virtuelle, puis installez PerfView.  Dans PerfView, exécutez **Fichier** > **Commande utilisateur** > **Écouter etwprovder1** > **etwprovider2**, etc. Notez que la commande **Écouter** est sensible à la casse et que les espaces ne sont pas autorisés entre les listes de fournisseurs ETW séparées par des virgules. En cas d’échec de l’exécution de la commande, vous pouvez cliquer sur le bouton **Journal** dans l’angle inférieur droit de l’outil PerfView pour voir l’exécution qui était attendue et le résultat final de celle-ci.  Partons du principe que l’entrée est correcte. Une nouvelle fenêtre s’ouvre alors. En quelques secondes, vous commencer à voir les traces ETW.
 
@@ -127,11 +127,11 @@ Si aucun journal de suivi n’a été généré, voir En savoir plus sur les jou
 
 #### <a name="is-data-getting-captured-locally"></a>La capture des données intervient-elle en local ?
 À présent, vérifiez que les données sont bien capturées en local.
-Les données sont stockées localement dans les fichiers `*.tsf` dans le magasin local des données de diagnostic. Différents types de journaux sont collectés dans différents fichiers `.tsf`. Les noms sont semblables à ceux des tables dans le stockage Microsoft Azure.
+Les données sont stockées localement dans les fichiers `*.tsf` dans le magasin local des données de diagnostic. Différents types de journaux d’activité sont collectés dans différents fichiers `.tsf`. Les noms sont semblables à ceux des tables dans le stockage Microsoft Azure.
 
 Par exemple, les valeurs `Performance Counters` sont collectées dans `PerformanceCountersTable.tsf`. Les journaux des événements sont collectés dans `WindowsEventLogsTable.tsf`. Suivez les instructions indiquées dans la section [Extraction locale des journaux](#local-log-extraction) pour ouvrir les fichiers de la collecte locale, puis assurez-vous qu’ils sont bien collectés sur le disque.
 
-Si vous ne voyez pas les journaux collectés en local et si vous avez déjà vérifié que l’hôte génère des données, vous rencontrez probablement un problème de configuration. Passez au crible vos paramètres de configuration.
+Si vous ne voyez pas les journaux d’activité collectés en local et si vous avez déjà vérifié que l’hôte génère des données, vous rencontrez probablement un problème de configuration. Passez au crible vos paramètres de configuration.
 
 Analysez également la configuration qui a été générée pour MonitoringAgent MaConfig.xml. Vérifiez qu’il existe bien une section décrivant la source des journaux. Vérifiez ensuite qu’elle n’a pas disparu entre le moment de la configuration des diagnostics et celui de la configuration de l’agent de surveillance.
 
@@ -142,10 +142,10 @@ Si vous avez vérifié que les données sont bien capturées en local, mais qu�
 
 - Vérifiez que le compte de stockage fourni est bien correct. Assurez-vous qu’aucune restriction réseau n’empêche les composants d’atteindre les points de terminaison de stockage public. Pour ce faire, vous pouvez accéder à distance à la machine, puis essayer d’écrire quelque chose par vous-même dans le même compte de stockage.
 
-- Enfin, vous pouvez essayer d’étudier les échecs signalés par l’agent de surveillance. Les journaux de l’agent de surveillance se trouvent dans le fichier `maeventtable.tsf`, dans le magasin local des données de diagnostic. Pour ouvrir ce fichier, suivez les instructions figurant dans la section [Extraction locale des journaux](#local-log-extraction). Essayez ensuite de déterminer si des `errors` signalent un échec de lecture au niveau des fichiers locaux sachant que ces fichiers écrivent des données dans le stockage.
+- Enfin, vous pouvez essayer d’étudier les échecs signalés par l’agent de surveillance. Les journaux d’activité de l’agent de supervision se trouvent dans le fichier `maeventtable.tsf`, dans le magasin local des données de diagnostic. Pour ouvrir ce fichier, suivez les instructions figurant dans la section [Extraction locale des journaux](#local-log-extraction). Essayez ensuite de déterminer si des `errors` signalent un échec de lecture au niveau des fichiers locaux sachant que ces fichiers écrivent des données dans le stockage.
 
-### <a name="capturing-and-archiving-logs"></a>Capture et archivage des journaux
-Si vous envisagez de contacter le support technique, sachez que vous devrez fournir en premier les journaux générés par votre machine. Vous pouvez gagner du temps en effectuant vous-même cette procédure. Exécutez l’utilitaire `CollectGuestLogs.exe` (chemin d’accès de l’utilitaire de collecte des journaux). Il génère un fichier .zip qui regroupe dans un même dossier tous les journaux Azure pertinents.
+### <a name="capturing-and-archiving-logs"></a>Capture et archivage des journaux d’activité
+Si vous envisagez de contacter le support technique, sachez que vous devrez fournir en premier les journaux d’activité générés par votre machine. Vous pouvez gagner du temps en effectuant vous-même cette procédure. Exécutez l’utilitaire `CollectGuestLogs.exe` (chemin d’accès de l’utilitaire de collecte des journaux). Il génère un fichier .zip qui regroupe dans un même dossier tous les journaux d’activité Azure pertinents.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Les tables de données de diagnostic sont introuvables
 Les tables de stockage Azure qui contiennent les événements ETW utilisent le code suivant dans leur nom :
@@ -247,7 +247,7 @@ Le plug-in renvoie les codes de sortie suivants :
 | -112 |Erreur générale |
 
 ### <a name="local-log-extraction"></a>Extraction locale des journaux
-L’agent de surveillance collecte les journaux et artefacts en tant que fichiers `.tsf`. Le fichier `.tsf` n’est pas lisible, mais vous pouvez le convertir en fichier `.csv`, comme suit :
+L’agent de supervision collecte les journaux d’activité et artefacts en tant que fichiers `.tsf`. Le fichier `.tsf` n’est pas lisible, mais vous pouvez le convertir en fichier `.csv`, comme suit :
 
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
@@ -257,14 +257,14 @@ Un nouveau fichier appelé `<relevantLogFile>.csv` est créé et il a le même c
 >[!NOTE]
 > Vous devez exécuter cet utilitaire uniquement dans le fichier .tsf principal (par exemple, PerformanceCountersTable.tsf). Les fichiers d’accompagnement (par exemple, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002. tsf, etc.) sont traités automatiquement.
 
-### <a name="more-about-missing-trace-logs"></a>En savoir plus sur les journaux de suivi manquants
+### <a name="more-about-missing-trace-logs"></a>En savoir plus sur les journaux d’activité de suivi manquants
 
 >[!NOTE]
 > Les informations suivantes concernent principalement Azure Cloud Services, à moins que vous n’ayez configuré l’élément DiagnosticsMonitorTraceListener dans une application qui s’exécute sur votre machine virtuelle IaaS.
 
 - Vérifiez que l’élément **DiagnosticMonitorTraceListener** est configuré dans le fichier web.config ou app.config.  Il est configuré par défaut dans les projets de service cloud. Toutefois, certains clients y ajoutent des commentaires, ce qui empêche la collecte des instructions de suivi par les diagnostics.
 
-- Si aucune écriture des journaux n’intervient à partir de la méthode **OnStart** ou **Run**, assurez-vous que l’élément **DiagnosticMonitorTraceListener** figure bien dans le fichier app.config.  Par défaut, il se trouve dans le fichier web.config, mais cela s’applique uniquement au code s’exécutant dans w3wp.exe. Par conséquent, vous en avez besoin dans le fichier app.config pour capturer le suivi dans WaIISHost.exe.
+- Si aucune écriture des journaux d’activité n’intervient à partir de la méthode **OnStart** ou **Run**, assurez-vous que l’élément **DiagnosticMonitorTraceListener** figure bien dans le fichier app.config.  Par défaut, il se trouve dans le fichier web.config, mais cela s’applique uniquement au code s’exécutant dans w3wp.exe. Par conséquent, vous en avez besoin dans le fichier app.config pour capturer le suivi dans WaIISHost.exe.
 
 - Veillez à utiliser **Diagnostics.Trace.TraceXXX** plutôt que **Diagnostics.Debug.WriteXXX**. Les instructions de débogage seront supprimées de la version de mise en production.
 

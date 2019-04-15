@@ -367,7 +367,7 @@ Chacune des solutions suivantes peut résoudre ce problème :
 4. Vérifiez si un élément de votre module dépend d'un élément non inclus dans ce module.
 5. Les bacs à sable Azure utilisent .NET Framework 4.7.2, et dès lors, si un module utilise une version ultérieure, il ne fonctionnera pas. Si tel est le cas, utilisez un [Runbook Worker hybride](../automation-hybrid-runbook-worker.md)
 
-Si aucune de ces solutions ne permet de résoudre le problème, consultez les [journaux relatifs de travail](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) afin de déterminer la raison pour laquelle votre runbook échoue.
+Si aucune de ces solutions ne permet de résoudre le problème, consultez les [journaux d’activité relatifs de travail](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) afin de déterminer la raison pour laquelle votre runbook échoue.
 
 ### <a name="quota-exceeded"></a>Scénario : Le travail du Runbook a échoué, car le quota alloué a été dépassé
 

@@ -207,9 +207,9 @@ Pour configurer des alertes sans [Azure Monitor enregistre](../log-analytics/log
 
 <a name="diagnostic-event-properties"></a>
 
-## <a name="azure-diagnostics-event-settings-and-details"></a>Paramètres et détails d’événements Azure Diagnostics
+## <a name="azure-diagnostics-event-settings-and-details"></a>Paramètres et détails d’événements Diagnostics Azure
 
-Chaque événement de diagnostic comprend des détails sur votre application logique et l’événement, par exemple, l’état, l’heure de début, l’heure de fin, etc. Pour configurer par programmation la surveillance, le suivi et la journalisation, vous pouvez utiliser ces informations avec l’[API REST pour Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) et l’[API REST pour Azure Diagnostics](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
+Chaque événement de diagnostic comprend des détails sur votre application logique et l’événement, par exemple, l’état, l’heure de début, l’heure de fin, etc. Pour configurer par programmation la surveillance, le suivi et la journalisation, vous pouvez utiliser ces informations avec l’[API REST pour Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) et l’[API REST pour Diagnostics Azure](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
 Par exemple, l’événement `ActionCompleted` a les propriétés `clientTrackingId` et `trackedProperties` que vous pouvez utiliser pour le suivi et la surveillance :
 

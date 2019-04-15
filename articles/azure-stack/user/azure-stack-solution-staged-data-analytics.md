@@ -197,7 +197,7 @@ Créez une nouvelle fonction Azure Stack pour déplacer les données propres d�
 
 ### <a name="test-the-function"></a>Tester la fonction
 
-1.  Dans le portail Azure, accédez à la fonction. Développez les **journaux** en bas de la page et vérifiez que la diffusion en continu des journaux n’est pas suspendue.
+1.  Dans le portail Azure, accédez à la fonction. Développez les **journaux d’activité** en bas de la page et vérifiez que la diffusion en continu des journaux d’activité n’est pas suspendue.
 
 2.  Ouvrez l’Explorateur Stockage et connectez-vous au compte de stockage créé au début de cette section.
 
@@ -207,11 +207,11 @@ Créez une nouvelle fonction Azure Stack pour déplacer les données propres d�
 
 4.  Dans la boîte de dialogue Charger des fichiers, cliquez sur le champ Fichiers. Accédez à un fichier sur un ordinateur local, par exemple un fichier image, sélectionnez-le, puis sélectionnez **Ouvrir** et **Charger**.
 
-5.  Revenez aux journaux de fonction et vérifiez que l’objet blob a été lu.
+5.  Revenez aux journaux d’activité de fonction et vérifiez que l’objet blob a été lu.
 
     **Exemple :**
 
-    ![Affichage du message dans les journaux.](media/azure-stack-solution-staged-data-analytics/image13.png)
+    ![Affichez le message dans les journaux d’activité.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="create-an-azure-stack-storage-account"></a>Création d’un compte de stockage Azure Stack
 
@@ -253,7 +253,7 @@ Utilisez les étapes et paramètres ci-dessus pour créer un autre compte de sto
 
 ## <a name="test-the-queue-triggered-function"></a>Tester la fonction déclenchée par une file d’attente
 
-1. Dans le portail Azure Stack, accédez à la fonction. Développez les **journaux** en bas de la page et vérifiez que la diffusion en continu des journaux n’est pas suspendue.
+1. Dans le portail Azure Stack, accédez à la fonction. Développez les **journaux d’activité** en bas de la page et vérifiez que la diffusion en continu des journaux d’activité n’est pas suspendue.
 
 2. Ouvrez l’Explorateur Stockage et connectez-vous au compte de stockage créé au début de cette section.
 
@@ -263,11 +263,11 @@ Utilisez les étapes et paramètres ci-dessus pour créer un autre compte de sto
 
 4. Dans la boîte de dialogue Charger des fichiers, cliquez sur le champ Fichiers. Accédez à un fichier sur un ordinateur local, par exemple un fichier image, sélectionnez-le, puis sélectionnez **Ouvrir** et **Charger**.
 
-5. Revenez aux journaux de fonction et vérifiez que l’objet blob a été lu.
+5. Revenez aux journaux d’activité de fonction et vérifiez que l’objet blob a été lu.
 
    **Exemple :**
 
-   ![Affichage du message dans les journaux.](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![Affichez le message dans les journaux d’activité.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Données conformes stockées et accessibles en toute sécurité
 

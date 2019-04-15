@@ -11,7 +11,7 @@ ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
 ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53164906"
@@ -35,14 +35,14 @@ Cette page décrit les problèmes courants avec les connexions de sortie et comm
       - Les types de données de certains champs de l’événement ne correspondent peut-être pas aux types attendus.
       
     - Si le nombre d’erreurs d’exécution n’est pas nul, cela signifie que le travail peut recevoir les données, mais que des erreurs se produisent durant le traitement de la requête.
-      - Pour trouver les erreurs, accédez aux [journaux d’audit](../azure-resource-manager/resource-group-audit.md) et filtrez sur l’état *Échec*.
+      - Pour trouver les erreurs, accédez aux [journaux d’activité d’audit](../azure-resource-manager/resource-group-audit.md) et filtrez sur l’état *Échec*.
       
     - Si le nombre d’événements d’entrée n’est pas nul et que le nombre d’événements de sortie est nul, cela peut s’expliquer par l’une des raisons suivantes :
       - Le traitement de la requête a abouti à un nombre nul d’événements de sortie.
       - Les événements ou leurs champs peuvent être formés de manière inappropriée et n’entraîner aucune sortie après le traitement des requêtes.
       - Le travail n’a pas pu envoyer (push) de données au récepteur de sortie pour des raisons d’authentification ou de connectivité.
       
-    - Dans tous ces cas d’erreur, les messages des journaux d’opérations donnent des détails supplémentaires (notamment sur le déroulé des événements), sauf lorsque la logique de requête a filtré l’ensemble des événements. Si le traitement de plusieurs événements génère des erreurs, Stream Analytics consigne les 3 premiers messages d’erreur du même type dans un intervalle de 10 minutes dans les journaux des opérations. Il supprime ensuite toutes les autres erreurs identiques avec un message indiquant que les erreurs survenant trop rapidement sont supprimées.
+    - Dans tous ces cas d’erreur, les messages des journaux d’opérations donnent des détails supplémentaires (notamment sur le déroulé des événements), sauf lorsque la logique de requête a filtré l’ensemble des événements. Si le traitement de plusieurs événements génère des erreurs, Stream Analytics consigne les 3 premiers messages d’erreur du même type dans un intervalle de 10 minutes dans les journaux d’activité des opérations. Il supprime ensuite toutes les autres erreurs identiques avec un message indiquant que les erreurs survenant trop rapidement sont supprimées.
     
 ## <a name="job-output-is-delayed"></a>La sortie du travail est retardée
 

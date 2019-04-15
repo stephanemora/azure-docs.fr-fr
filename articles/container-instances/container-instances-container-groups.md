@@ -84,7 +84,7 @@ Avec les groupes de plusieurs conteneurs, vous pouvez répartir une seule tâche
 Exemples d’utilisation :
 
 * Un conteneur servant une application web et un conteneur extrayant le contenu le plus récent du contrôle de code source.
-* Un conteneur d’applications et un conteneur de journalisation. Le conteneur de journalisation collecte les journaux et les métriques générés par l’application principale, puis les écrit dans le stockage à long terme.
+* Un conteneur d’applications et un conteneur de journalisation. Le conteneur de journalisation collecte les journaux d’activité et les métriques générés par l’application principale, puis les écrit dans le stockage à long terme.
 * Un conteneur d’applications et un conteneur d’analyse. Le conteneur de surveillance émet régulièrement une demande à destination de l’application pour vérifier qu’elle s’exécute et répond correctement, et déclenche une alerte si ce n’est pas le cas.
 * Un conteneur frontal et un conteneur de serveur principal. Le serveur frontal sont susceptibles de servir une application web, avec le serveur principal exécutant un service pour récupérer des données. 
 

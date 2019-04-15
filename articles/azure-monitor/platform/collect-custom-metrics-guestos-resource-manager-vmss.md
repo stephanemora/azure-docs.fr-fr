@@ -21,7 +21,7 @@ ms.locfileid: "58481321"
 
 En utilisant l’[extension Windows Azure Diagnostics (WAD)](diagnostics-extension-overview.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux d’activité à partir du système d’exploitation invité (SE invité) qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Azure Service Fabric. L’extension peut envoyer des données de télémétrie vers de nombreux emplacements différents répertoriés dans l’article précédemment lié.  
 
-Cet article décrit le processus pour envoyer les métriques de performance du SE invité d’un groupe de machines virtuelles identiques Windows vers le magasin de données d’Azure Monitor. À partir de la version 1.11 de Windows Azure Diagnostics, vous pouvez écrire des métriques directement dans le magasin de métriques d’Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. En les stockant dans cet emplacement, vous avez accès aux mêmes actions que pour les métriques de la plateforme. Ces actions sont les suivantes : génération d’alertes en temps quasi réel, création de graphiques, routage, accès à partir de l’API REST et bien plus encore. Auparavant, l’extension Windows Azure Diagnostics écrivait les données dans le Stockage Azure, et non dans le magasin de données d’Azure Monitor.  
+Cet article décrit le processus pour envoyer les métriques de performance du SE invité d’un groupe de machines virtuelles identiques Windows vers le magasin de données d’Azure Monitor. À partir de la version 1.11 de Diagnostics Azure pour Windows, vous pouvez écrire des métriques directement dans le magasin de métriques d’Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. En les stockant dans cet emplacement, vous avez accès aux mêmes actions que pour les métriques de la plateforme. Ces actions sont les suivantes : génération d’alertes en temps quasi réel, création de graphiques, routage, accès à partir de l’API REST et bien plus encore. Auparavant, l’extension Diagnostics Azure pour Windows écrivait les données dans le Stockage Azure, et non dans le magasin de données d’Azure Monitor.  
 
 Si vous découvrez les modèles Resource Manager, obtenez plus d’informations sur les [déploiements de modèle](../../azure-resource-manager/resource-group-overview.md), leur structure et leur syntaxe.  
 
@@ -232,7 +232,7 @@ Enregistrez et fermez les deux fichiers.
 ## <a name="deploy-the-resource-manager-template"></a>Déployer le modèle Resource Manager 
 
 > [!NOTE]  
-> Vous devez exécuter l’extension Azure Diagnostics version 1.5 ou ultérieure **et** la valeur de la propriété **autoUpgradeMinorVersion** doit être définie sur **true** dans votre modèle Resource Manager. Azure charge alors l’extension appropriée lorsqu’il démarre la machine virtuelle. Si ces paramètres ne figurent pas dans votre modèle, modifiez-les et redéployez le modèle. 
+> Vous devez exécuter l’extension Diagnostics Azure version 1.5 ou ultérieure **et** la valeur de la propriété **autoUpgradeMinorVersion** doit être définie sur **true** dans votre modèle Resource Manager. Azure charge alors l’extension appropriée lorsqu’il démarre la machine virtuelle. Si ces paramètres ne figurent pas dans votre modèle, modifiez-les et redéployez le modèle. 
 
 
 Pour déployer le modèle Resource Manager, utilisez Azure PowerShell :  

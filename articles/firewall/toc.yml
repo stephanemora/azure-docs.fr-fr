@@ -20,7 +20,7 @@ items:
   items:
   - name: Azure PowerShell
     href: sample-powershell.md
-  - name: Journaux Azure Monitor
+  - name: Journaux d’activité Azure Monitor
     href: log-analytics-samples.md
 - name: Concepts
   items:
@@ -28,7 +28,7 @@ items:
     href: fqdn-tags.md
   - name: Noms de domaine complets d’infrastructure
     href: infrastructure-fqdns.md
-  - name: Métriques et journaux
+  - name: Métriques et journaux d’activité
     href: logs-and-metrics.md
   - name: Informations sur les menaces
     href: threat-intel.md

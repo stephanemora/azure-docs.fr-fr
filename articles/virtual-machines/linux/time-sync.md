@@ -45,7 +45,7 @@ Les interactions de la machine virtuelle avec l’hôte peuvent également influ
 Si la synchronisation de l’heure ne fonctionne pas, l’horloge de la machine virtuelle accumule les erreurs. S’il n’y a qu’une seule machine virtuelle, l’effet n’est pas forcément significatif, sauf si la charge de travail nécessite une synchronisation extrêmement précise de l’horloge. Mais dans la plupart des cas, nous possédons plusieurs machines virtuelles interconnectées qui utilisent l’heure pour suivre les transactions. L’heure doit donc être cohérente tout au long du déploiement. Lorsque l’heure est différente d’une machine virtuelle à l’autre, vous pouvez rencontrer les effets suivants :
 
 - L’authentification échoue. Les protocoles de sécurité, comme Kerberos, ou les technologies dépendantes du certificat reposent sur la précision de l’heure entre les systèmes.
-- Il est très difficile de déterminer ce qu’il peut se passer dans un système si l’heure des journaux (ou d’autres données) diffère. Un même événement peut avoir l’air de s’être produit à différents moments, rendant la corrélation difficile.
+- Il est très difficile de déterminer ce qu’il peut se passer dans un système si l’heure des journaux d’activité (ou d’autres données) diffère. Un même événement peut avoir l’air de s’être produit à différents moments, rendant la corrélation difficile.
 - Si l’horloge est désactivée, la facturation peut être calculée de manière incorrecte.
 
 

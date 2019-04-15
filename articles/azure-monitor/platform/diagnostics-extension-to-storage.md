@@ -1,6 +1,6 @@
 ---
 title: Stocker et afficher des données de diagnostic le stockage Azure
-description: Obtenir des données de diagnostics Microsoft Azure dans Azure Storage et les afficher
+description: Obtenir des données de diagnostics Azure dans Stockage Azure et les afficher
 services: azure-monitor
 author: jpconnock
 ms.service: azure-monitor
@@ -10,7 +10,7 @@ ms.author: jeconnoc
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54468520"
@@ -29,18 +29,18 @@ Spécifiez le compte de stockage que vous souhaitez utiliser dans le fichier Ser
 
 Vous pouvez modifier cette chaîne de connexion pour fournir des informations de compte pour un compte de stockage Azure.
 
-Selon le type de données de diagnostic recueillies, Diagnostics Microsoft Azure utilise le service Blob ou le service de Table. Le tableau qui suit présente les sources de données permanentes et leur format.
+Selon le type de données de diagnostic recueillies, Diagnostics Azure utilise le service Blob ou le service Table. Le tableau qui suit présente les sources de données permanentes et leur format.
 
 | Source de données | Format de stockage |
 | --- | --- |
-| Journaux Azure |Table |
-| Journaux IIS 7.0 |Blob |
-| Journaux d’infrastructure de diagnostics Azure |Table |
-| Journaux de suivi de requête ayant échoué |Blob |
+| Journaux d’activité Azure |Table |
+| Journaux d’activité IIS 7.0 |Blob |
+| Journaux d’activité d’infrastructure de diagnostics Azure |Table |
+| Journaux d’activité de suivi de requête ayant échoué |Blob |
 | Journaux d’événements Windows |Table |
 | Compteurs de performances |Table |
 | Vidages sur incident |Blob |
-| Journaux d'erreurs personnalisés |Blob |
+| Journaux d’activité d’erreurs personnalisés |Blob |
 
 ## <a name="transfer-diagnostic-data"></a>Transférer les données de diagnostic
 Pour le kit de développement logiciel 2.5 et versions ultérieures, la demande de transfert de données de diagnostic peut se produire dans le fichier de configuration. Vous pouvez transférer les données de diagnostic à des intervalles programmés, comme indiqué dans la configuration.
@@ -59,7 +59,7 @@ Les données du journal sont stockées dans le stockage Blob ou de Table avec le
 
 * **WadLogsTable** : journaux rédigés dans le code à l’aide de l’écouteur de suivi.
 * **WADDiagnosticInfrastructureLogsTable** : modifications de configuration et d’analyse de diagnostic.
-* **WADDirectoriesTable** : répertoires que le moniteur de diagnostic surveille.  Cela inclut les journaux IIS, les journaux de requêtes ayant échoué et les répertoires personnalisés IIS.  L’emplacement du fichier journal blob est spécifié dans le champ de conteneur et le nom de l’objet blob se trouve dans le champ RelativePath.  Le champ AbsolutePath indique l’emplacement et le nom du fichier tel qu’il existait sur la machine virtuelle Azure.
+* **WADDirectoriesTable** : répertoires que le moniteur de diagnostic surveille.  Cela inclut les journaux d’activité IIS, les journaux d’activité de requêtes ayant échoué et les répertoires personnalisés IIS.  L’emplacement du fichier journal blob est spécifié dans le champ de conteneur et le nom de l’objet blob se trouve dans le champ RelativePath.  Le champ AbsolutePath indique l’emplacement et le nom du fichier tel qu’il existait sur la machine virtuelle Azure.
 * **WADPerformanceCountersTable** : les compteurs de performance.
 * **WADWindowsEventLogsTable** : journaux des événements Windows.
 

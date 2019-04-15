@@ -40,7 +40,7 @@ Contrôles d’accès aux données :
 4.  Si Microsoft doit partager des données client avec des partenaires OEM, le consentement du client est obligatoire.  
 
 ### <a name="what-data-subject-requests-dsr-controls-do-customers-have"></a>De quels contrôles les clients disposent-ils sur les demandes des personnes concernées ?
-Comme mentionné précédemment, Microsoft prend en charge la suppression des données sur demande suite à une requête du client. Les clients peuvent demander à notre ingénieur du support de supprimer tous leurs journaux pour un dossier donné au moment de son choix, avant que les données ne soient effacées définitivement.  
+Comme mentionné précédemment, Microsoft prend en charge la suppression des données sur demande suite à une requête du client. Les clients peuvent demander à notre ingénieur du support de supprimer tous leurs journaux d’activité pour un dossier donné au moment de son choix, avant que les données ne soient effacées définitivement.  
 
 ### <a name="does-microsoft-notify-customers-when-the-data-is-deleted"></a>Microsoft informe les clients lorsque les données sont supprimées ?
 Pour l’action de suppression automatique des données (90 jours après la clôture du dossier), nous ne contactons pas de manière proactive les clients pour les informer de la suppression. 
@@ -50,7 +50,7 @@ Pour l’action de suppression des données sur demande, l’ingénieur du suppo
 ## <a name="diagnostic-data"></a>Données de diagnostic
 Dans le cadre du processus de support, les opérateurs Azure Stack peuvent [partager les journaux de diagnostic](azure-stack-diagnostics.md) avec les équipes de support et d’ingénierie Azure Stack pour faciliter la résolution des problèmes.
 
-Microsoft fournit un outil et un script aux clients pour collecter et charger les fichiers journaux de diagnostic demandés. Une fois collectés, les fichiers journaux sont transférés à Microsoft via une connexion HTTPS chiffrée. Comme le protocole HTTPS assure le chiffrement sur le réseau, aucun mot de passe n’est nécessaire pour le chiffrement en transit. Après leur réception, les fichiers journaux sont chiffrés et stockés jusqu’à ce qu’ils soient automatiquement supprimés 90 jours après la clôture de la demande de support.
+Microsoft fournit un outil et un script aux clients pour collecter et charger les fichiers journaux de diagnostic demandés. Une fois collectés, les fichiers journaux sont transférés à Microsoft via une connexion HTTPS chiffrée. Comme le protocole HTTPS assure le chiffrement sur le réseau, aucun mot de passe n’est nécessaire pour le chiffrement en transit. Après leur réception, les fichiers journaux d’activité sont chiffrés et stockés jusqu’à ce qu’ils soient automatiquement supprimés 90 jours après la clôture de la demande de support.
 
 ## <a name="telemetry-data"></a>Données de télémétrie
 La [télémétrie Azure Stack](azure-stack-telemetry.md) charge automatiquement les données du système sur Microsoft via Expériences des utilisateurs connectés. Les opérateurs Azure Stack peuvent personnaliser les fonctionnalités de télémétrie et les paramètres de confidentialité à tout moment.

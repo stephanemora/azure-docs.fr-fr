@@ -16,7 +16,7 @@ ms.date: 04/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 06a3469507631d032535bce62b01d964e99dc603
 ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/15/2019
 ms.locfileid: "54319399"
@@ -56,7 +56,7 @@ Le tableau suivant récapitule les problèmes corrigés dans cette version.
 |  Non. | Fonctionnalité | Problème |
 | --- | --- | --- |
 | 1 |Performances de sauvegarde|Dans les versions antérieures, les sauvegardes impliquant de nombreux fichiers prenaient un certain temps (en fonction des jours). Dans cette version, les sauvegardes complètes et incrémentielles voient une réduction significative de leur temps d’exécution. |
-| 2 |Package de prise en charge|Le disque, le processeur, la mémoire, le réseau et les statistiques de cloud sont maintenant journalisés dans les journaux de support, ce qui rend les packages de support très efficace pour résoudre les problèmes liés aux appareils.|
+| 2 |Package de prise en charge|Le disque, le processeur, la mémoire, le réseau et les statistiques de cloud sont maintenant journalisés dans les journaux d’activité de support, ce qui rend les packages de support très efficace pour résoudre les problèmes liés aux appareils.|
 | 3 |Sauvegarde |Dans les versions antérieures, de longues sauvegardes pouvaient causer un problème d'espace sur l'appareil, ce qui entraînait des échecs de sauvegarde. Ce bogue est résolu dans cette version pour vous permettre de mettre jusqu'à 5 sauvegardes en file d’attente à la fois.|
 | 4 |iSCSI | Dans les versions antérieures, la réservation locale pour les volumes hiérarchisés ou localement épinglés était de 10 % de la taille du volume approvisionné. Dans cette version, la réservation locale pour tous les volumes iSCSI (localement épinglés ou hiérarchisés) est limitée à 10 % avec un maximum de 200 Go (pour les volumes hiérarchisés d'une taille supérieure à 2 To), libérant ainsi plus d’espace sur le disque local. Nous recommandons de limiter les volumes localement épinglés dans cette version à 200 Go.|
 

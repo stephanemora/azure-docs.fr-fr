@@ -16,9 +16,9 @@ ms.lasthandoff: 02/08/2019
 ms.locfileid: "55892848"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights
-Les services cloud, les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric utilisent l’extension Azure Diagnostics pour collecter des données.  Les diagnostics Azure envoient les données dans des tables de stockage Azure.  Toutefois, vous pouvez également transmettre toutes les données ou un sous-ensemble de données vers d’autres emplacements à l’aide de l’extension Azure Diagnostics 1.5 ou version ultérieure.
+Cloud services, Machines virtuelles, Virtual Machine Scale Sets et Service Fabric utilisent tous l’extension Diagnostics Azure pour collecter des données.  Les diagnostics Azure envoient les données dans des tables de stockage Azure.  Toutefois, vous pouvez également transmettre toutes les données ou un sous-ensemble de données vers d’autres emplacements à l’aide de l’extension Diagnostics Azure version 1.5 ou ultérieure.
 
-Cet article décrit comment envoyer des données à partir de l’extension Azure Diagnostics vers Application Insights.
+Cet article décrit comment envoyer des données à partir de l’extension Diagnostics Azure vers Application Insights.
 
 ## <a name="diagnostics-configuration-explained"></a>Explication de la configuration des diagnostics
 L’extension des diagnostics Azure 1.5 a introduit des récepteurs, qui sont des emplacements supplémentaires où vous pouvez envoyer des données de diagnostic.

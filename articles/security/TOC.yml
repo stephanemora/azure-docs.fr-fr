@@ -200,7 +200,7 @@ items:
       - name: Intégrer des alertes Azure Security Center
         displayName: splunk
         href: ../security-center/security-center-export-data-to-siem.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-      - name: Intégrer des journaux à partir de Key Vault
+      - name: Intégrer des journaux d’activité à partir de Key Vault
         displayName: keyvault
         href: security-azure-log-integration-keyvault-eventhub.md
       - name: Forum Aux Questions

@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 558e9c3a3bfd43f6ceb958bc3be55d58e1eb7f91
 ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55150237"
@@ -45,8 +45,8 @@ L’élément **TrustFrameworkPolicy** contient les attributs suivants :
 | TenantId | Oui | Identificateur unique du locataire auquel appartient cette stratégie. |
 | PolicyId | Oui | Identificateur unique de la stratégie. Cet identificateur doit avoir le préfixe *B2C_1A_*. |
 | PublicPolicyUri | Oui | URI de la stratégie, qui est une combinaison de l’ID de locataire et de l’ID de stratégie. |
-| DeploymentMode | Non  | Valeurs possibles : `Production`, `Debugging` ou `Development`. `Production` est la valeur par défaut. Cette propriété permet de déboguer votre stratégie. Pour plus d’informations, voir [Collecte de journaux](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | Non  | Point de terminaison utilisé quand **DeploymentMode** est défini sur `Development`. La valeur doit être `urn:journeyrecorder:applicationinsights`. Pour plus d’informations, voir [Collecte de journaux](active-directory-b2c-troubleshoot-custom.md). |
+| DeploymentMode | Non  | Valeurs possibles : `Production`, `Debugging` ou `Development`. `Production` est la valeur par défaut. Cette propriété permet de déboguer votre stratégie. Pour plus d’informations, voir [Collecte de journaux d’activité](active-directory-b2c-troubleshoot-custom.md). |
+| UserJourneyRecorderEndpoint | Non  | Point de terminaison utilisé quand **DeploymentMode** est défini sur `Development`. La valeur doit être `urn:journeyrecorder:applicationinsights`. Pour plus d’informations, voir [Collecte de journaux d’activité](active-directory-b2c-troubleshoot-custom.md). |
 
 
 L’exemple suivant montre comment spécifier l’élément **TrustFrameworkPolicy** :

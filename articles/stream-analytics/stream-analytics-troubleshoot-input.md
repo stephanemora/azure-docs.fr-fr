@@ -38,7 +38,7 @@ Quand un travail Stream Analytics reçoit un message incorrectement formé d’u
 
 ![Vignette d’entrées Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Activez les journaux de diagnostic pour afficher les détails de l’avertissement. Pour les événements d’entrée incorrectement formés, les journaux d’exécution contiennent une entrée avec un message semblable à celui-ci : 
+Activez les journaux de diagnostic pour afficher les détails de l’avertissement. Pour les événements d’entrée incorrectement formés, les journaux d’activité d’exécution contiennent une entrée avec un message semblable à celui-ci : 
 ```
 Could not deserialize the input event(s) from resource <blob URI> as json.
 ```

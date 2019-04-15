@@ -14,7 +14,7 @@ ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56000044"
@@ -39,11 +39,11 @@ Des informations détaillées sur les différentes latences introduites dans ce 
 Les solutions de gestion et les agents utilisent différentes stratégies pour collecter des données d’une machine virtuelle, ce qui peut affecter la latence. Voici quelques exemples :
 
 - Les événements Windows, événements syslog et métriques de performances sont collectés immédiatement. Les compteurs de performances Linux sont interrogés à des intervalles de 30 secondes.
-- Les journaux IIS et les journaux personnalisés sont collectés une fois que leur timestamp change. Pour les journaux IIS, cela est influencé par le [calendrier de substitution configuré sur IIS](data-sources-iis-logs.md). 
-- La solution Active Directory Replication effectue son évaluation tous les cinq jours, tandis que la solution Active Directory Assessment effectue une évaluation hebdomadaire de votre infrastructure Active Directory. L’agent collecte ces journaux uniquement lorsque l’évaluation est effectuée.
+- Les journaux d’activité IIS et les journaux d’activité personnalisés sont collectés une fois que leur timestamp change. Pour les journaux d’activité IIS, cela est influencé par le [calendrier de substitution configuré sur IIS](data-sources-iis-logs.md). 
+- La solution Active Directory Replication effectue son évaluation tous les cinq jours, tandis que la solution Active Directory Assessment effectue une évaluation hebdomadaire de votre infrastructure Active Directory. L’agent collecte ces journaux d’activité uniquement lorsque l’évaluation est effectuée.
 
 ### <a name="agent-upload-frequency"></a>Fréquence de chargement de l’agent
-Pour vous assurer que l’agent Log Analytics est léger, l’agent met en mémoire tampon les journaux et les charge régulièrement dans Azure Monitor. La fréquence de chargement varie entre 30 secondes et 2 minutes en fonction du type de données. La plupart des données sont chargées en moins d’une minute. Les conditions du réseau peuvent affecter négativement la latence nécessaire à ces données pour atteindre le point d’ingestion Azure Monitor.
+Pour vous assurer que l’agent Log Analytics est léger, l’agent met en mémoire tampon les journaux d’activité et les charge régulièrement dans Azure Monitor. La fréquence de chargement varie entre 30 secondes et 2 minutes en fonction du type de données. La plupart des données sont chargées en moins d’une minute. Les conditions du réseau peuvent affecter négativement la latence nécessaire à ces données pour atteindre le point d’ingestion Azure Monitor.
 
 ### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Journaux d’activité Azure, journaux de diagnostic et métriques
 Les données Azure mettent un certain délai à être disponibles au point d’ingestion Log Analytics en vue de leur traitement :
@@ -63,7 +63,7 @@ Certaines solutions ne collectent pas leurs données à partir d’un agent et p
 Reportez-vous à la documentation de chaque solution afin de déterminer sa fréquence de collecte.
 
 ### <a name="pipeline-process-time"></a>Délai du processus de pipeline
-Une fois que les enregistrements de journal sont ingérés dans le pipeline Azure Monitor, ils sont écrits dans un stockage temporaire pour garantir l’isolation des locataires et pour vous assurer que les données ne sont pas perdues. Ce processus ajoute généralement 5 à 15 secondes. Certaines solutions de gestion implémentent des algorithmes plus lourds pour agréger les données et dériver des insights à mesure que les données affluent. Par exemple, Network Performance Monitor agrège les données entrantes toutes les 3 minutes, en ajoutant au final une latence de 3 minutes. Un autre processus qui ajoute une latence est le processus qui gère les journaux personnalisés. Dans certains cas, ce processus peut ajouter quelques minutes de latence aux journaux qui sont collectés à partir de fichiers par l’agent.
+Une fois que les enregistrements de journal sont ingérés dans le pipeline Azure Monitor, ils sont écrits dans un stockage temporaire pour garantir l’isolation des locataires et pour vous assurer que les données ne sont pas perdues. Ce processus ajoute généralement 5 à 15 secondes. Certaines solutions de gestion implémentent des algorithmes plus lourds pour agréger les données et dériver des insights à mesure que les données affluent. Par exemple, Network Performance Monitor agrège les données entrantes toutes les 3 minutes, en ajoutant au final une latence de 3 minutes. Un autre processus qui ajoute une latence est le processus qui gère les journaux d’activité personnalisés. Dans certains cas, ce processus peut ajouter quelques minutes de latence aux journaux d’activité qui sont collectés à partir de fichiers par l’agent.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisionnement des nouveaux types de données personnalisées
 Quand un type de données personnalisées est créé à partir d’un [journal personnalisé](data-sources-custom-logs.md) ou de l’[API Collecteur de données](data-collector-api.md), le système crée un conteneur de stockage dédié. Il s’agit d’une surcharge à usage unique qui se produit uniquement à la première apparition de ce type de données.

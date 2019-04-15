@@ -11,7 +11,7 @@ ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
 ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52996133"
@@ -100,9 +100,9 @@ Dans la vue **Pods**, vous pouvez voir des informations sur les conteneurs dans 
 
 Si vous ne voyez pas les ressources, vous devrez peut-être attendre quelques minutes que les données de surveillance se propagent.
 
-Cliquez sur **Afficher les journaux** pour afficher les journaux de votre conteneur.
+Cliquez sur **Afficher les journaux d’activité** pour afficher les journaux d’activité de votre conteneur.
 
-![Journaux Kubernetes](./media/container-service-kubernetes-ui/logs.png)
+![Journaux d’activité Kubernetes](./media/container-service-kubernetes-ui/logs.png)
 
 ### <a name="viewing-your-service"></a>Affichage de votre service
 Outre l’exécution de vos conteneurs, l’interface Kubernetes a créé un élément `Service` externe qui approvisionne un équilibrage de charge pour diriger le trafic vers les conteneurs de votre cluster.

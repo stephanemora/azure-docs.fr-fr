@@ -16,7 +16,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54015812"
@@ -279,7 +279,7 @@ Pour résoudre des problèmes, procédez comme suit :
 
     ![Application d’interface utilisateur YARN](media/data-factory-spark/yarnui-application.png)
 
-1. Sélectionnez **Journaux** pour l’une des tentatives d’exécution.
+1. Sélectionnez **Journaux d’activité** pour l’une des tentatives d’exécution.
 
     ![Page d’application](media/data-factory-spark/yarn-applications.png)
 
@@ -339,7 +339,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 | proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non  |
 | sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark lisétes dans la rubrique [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non  |
 | getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Les valeurs autorisées sont Aucun, Toujours ou Échec. La valeur par défaut est Aucun. | Non  |
-| sparkJobLinkedService | Service lié Stockage qui contient le fichier de travail, les dépendances et les journaux Spark. Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non  |
+| sparkJobLinkedService | Service lié Stockage qui contient le fichier de travail, les dépendances et les journaux d’activité Spark. Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non  |
 
 ## <a name="folder-structure"></a>Structure de dossiers
 L’activité Spark ne prend pas en charge un script en ligne, contrairement aux activités Pig et Hive. Les travaux Spark sont également plus extensibles que les travaux Pig/Hive. Pour les travaux Spark, vous pouvez fournir plusieurs dépendances, telles que des packages jar (placés dans le CLASSPATH Java), des fichiers Python (placés dans le PYTHONPATH) et tout autre fichier.
@@ -354,7 +354,7 @@ Créez la structure de dossiers suivante dans le stockage Blob référencé par 
 | ./pyFiles | Tous les fichiers dans ce dossier sont chargés et placés dans le PYTHONPATH du cluster. | Non  | Dossier |
 | ./files | Tous les fichiers dans ce dossier sont chargés et placés dans le répertoire de travail de l’exécuteur. | Non  | Dossier |
 | ./archives | Tous les fichiers dans ce dossier sont décompressés. | Non  | Dossier |
-| ./logs | Dossier dans lequel sont stockés les journaux du cluster Spark| Non  | Dossier |
+| ./logs | Dossier dans lequel sont stockés les journaux d’activité du cluster Spark| Non  | Dossier |
 
 Voici un exemple de stockage qui contient deux fichiers de travail Spark dans le stockage Blob référencé par le service lié HDInsight :
 

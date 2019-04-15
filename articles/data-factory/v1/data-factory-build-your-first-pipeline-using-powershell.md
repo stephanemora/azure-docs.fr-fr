@@ -163,7 +163,7 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
    |:--- |:--- |
    | ClusterSize |Spécifie la taille du cluster HDInsight. |
    | TimeToLive |Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
-   | linkedServiceName |Spécifie le compte de stockage utilisé pour stocker les journaux générés par HDInsight |
+   | linkedServiceName |Spécifie le compte de stockage utilisé pour stocker les journaux d’activité générés par HDInsight |
 
     Notez les points suivants :
 

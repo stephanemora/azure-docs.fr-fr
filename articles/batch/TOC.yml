@@ -114,7 +114,7 @@ items:
   - name: Solutions Monitor Batch
     href: monitoring-overview.md
     items:
-    - name: Utiliser les journaux de métriques et diagnostics
+    - name: Utiliser les journaux d’activité de métriques et diagnostics
       href: batch-diagnostics.md
     - name: Surveiller avec Application Insights
       href: monitor-application-insights.md

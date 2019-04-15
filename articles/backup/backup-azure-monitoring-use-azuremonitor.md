@@ -244,7 +244,7 @@ Appliquez les filtres de l’image suivante pour vérifier si vous recevez bien 
 
 Vous pouvez cliquer sur le segment « JSON » pour obtenir plus de détails et les afficher en les copiant-collant dans un éditeur de texte. Il doit afficher les détails du coffre et l’élément qui a déclenché l’activité de journaux, autrement dit, l’élément de sauvegarde.
 
-Ensuite, cliquez sur « Ajouter une alerte de journal d’activité » afin de générer des alertes pour tous les journaux de ce type.
+Ensuite, cliquez sur « Ajouter une alerte de journal d’activité » afin de générer des alertes pour tous les journaux d’activité de ce type.
 
 Vous pouvez cliquer sur « Ajouter alerte activité journal » ci-dessus et s’ouvre l’écran de création d’alerte qui est similaire à l’écran de création d’alerte [comme décrit ci-dessus](#create-alerts-using-log-analytics).
 
@@ -258,7 +258,7 @@ Si la notification par le biais de journaux d’activité peut être utilisée, 
 
 - **Scénarios limités :** Applicable uniquement pour les sauvegardes de machines virtuelles Azure et doivent être répétées pour chaque coffre Recovery Services.
 - **Définition de fonction :** L’activité de sauvegarde planifiée ne correspond pas à la définition la plus récente des journaux d’activité et aligne [journaux de diagnostic](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). Ce prospect à impact inattendu lorsque les données de pompage via le canal de journal d’activité sont modifiées comme indiqué ci-dessous.
-- **Problèmes avec le canal de journal d’activité :** Nous sommes passés à un nouveau modèle de pompage des journaux d’activité de Sauvegarde Azure sur les coffres Recovery Services. Malheureusement, le déplacement a affecté la génération des journaux d’activité dans des Clouds souverains Azure. Si les utilisateurs Azure souverain Cloud créé/configuré toutes les alertes à partir des journaux d’activité via Azure Monitor, ils ne seraient pas déclenchées. En outre, dans toutes les régions publiques Azure, si un utilisateur collecte des journaux d’activité Recovery Services dans un espace de travail Log Analytics, comme mentionné [ici](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), ces journaux n’apparaissent pas non plus.
+- **Problèmes avec le canal de journal d’activité :** Nous sommes passés à un nouveau modèle de pompage des journaux d’activité de Sauvegarde Azure sur les coffres Recovery Services. Malheureusement, le déplacement a affecté la génération des journaux d’activité dans des Clouds souverains Azure. Si les utilisateurs Azure souverain Cloud créé/configuré toutes les alertes à partir des journaux d’activité via Azure Monitor, ils ne seraient pas déclenchées. En outre, dans toutes les régions publiques Azure, si un utilisateur collecte des journaux d’activité Recovery Services dans un espace de travail Log Analytics, comme mentionné [ici](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), ces journaux d’activité n’apparaissent pas non plus.
 
 Par conséquent, il est vivement recommandé d’utiliser espace de travail Log Analytics pour la surveillance et génération d’alertes à l’échelle de tous les sauvegarde Azure des charges de travail protégées.
 

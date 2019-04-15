@@ -24,7 +24,7 @@ Le schéma ci-dessous illustre les différents domaines de gestion requis pour m
 
 ![Disciplines de gestion dans Azure](../monitoring/media/management-overview/management-capabilities.png)
 
-Aucun service Azure ne répond complètement aux exigences d’un domaine de gestion en particulier. Au lieu de cela, chacune est réalisée par plusieurs services fonctionnant ensemble. Certains services, comme Application Insights, fournissent une fonctionnalité de supervision ciblée pour les applications web. D'autres, comme les journaux Azure Monitor, stockent les données de gestion pour d'autres services. Cette fonctionnalité vous permet d’analyser des données de différents types collectées par différents services.
+Aucun service Azure ne répond complètement aux exigences d’un domaine de gestion en particulier. Au lieu de cela, chacune est réalisée par plusieurs services fonctionnant ensemble. Certains services, comme Application Insights, fournissent une fonctionnalité de supervision ciblée pour les applications web. D’autres, comme les journaux d’activité Azure Monitor, stockent les données de gestion pour d’autres services. Cette fonctionnalité vous permet d’analyser des données de différents types collectées par différents services.
 
 Les sections suivantes décrivent en bref les différents domaines de gestion et contiennent des liens vers du contenu détaillé sur les principaux services Azure destinés à répondre à ces besoins.
 

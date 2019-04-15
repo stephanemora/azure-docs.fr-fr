@@ -14,7 +14,7 @@ ms.date: 09/19/2017
 ms.author: mbullwin
 ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
 ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54116982"
@@ -83,7 +83,7 @@ Vous disposez de plusieurs options :
 * [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) sert généralement à surveiller les modèles d’utilisation, mais les données qu’il envoie apparaissent également sous Evénements personnalisés dans Recherche de diagnostic. Les événements sont nommés et peuvent contenir des propriétés de type chaîne et des métriques numériques sur lesquels vous pouvez [filtrer vos recherches de diagnostic](../../azure-monitor/app/diagnostic-search.md).
 * [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) vous permet d’envoyer des données plus longues telles que des informations POST.
 * [TrackException()](#exceptions) envoie des arborescences des appels de procédure. [Plus d’informations sur les exceptions](#exceptions).
-* Si vous utilisez déjà un framework de journalisation comme Log4Net ou NLog, vous pouvez [capturer ces journaux](asp-net-trace-logs.md) et les visualiser dans Recherche de diagnostic avec les données sur les demandes et les exceptions.
+* Si vous utilisez déjà un framework de journalisation comme Log4Net ou NLog, vous pouvez [capturer ces journaux d’activité](asp-net-trace-logs.md) et les visualiser dans Recherche de diagnostic avec les données sur les demandes et les exceptions.
 
 Pour afficher ces événements, ouvrez [Recherche](../../azure-monitor/app/diagnostic-search.md), ouvrez Filtre, puis choisissez Événement personnalisé, Trace ou Exception.
 

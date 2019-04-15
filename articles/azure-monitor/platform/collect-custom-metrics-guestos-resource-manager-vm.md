@@ -233,7 +233,7 @@ Enregistrez et fermez les deux fichiers.
 ## <a name="deploy-the-resource-manager-template"></a>Déployer le modèle Resource Manager
 
 > [!NOTE]
-> Vous devez exécuter la version 1.5 ou supérieure de l’extension Azure Diagnostics ET définir la propriété **autoUpgradeMinorVersion** sur « true » dans votre modèle Resource Manager. Azure charge alors l’extension appropriée lorsqu’il démarre la machine virtuelle. Si ces paramètres ne figurent pas dans votre modèle, modifiez-les et redéployez le modèle.
+> Vous devez exécuter la version 1.5 ou supérieure de l’extension Diagnostics Azure ET définir la propriété **autoUpgradeMinorVersion** sur « true » dans votre modèle Resource Manager. Azure charge alors l’extension appropriée lorsqu’il démarre la machine virtuelle. Si ces paramètres ne figurent pas dans votre modèle, modifiez-les et redéployez le modèle.
 
 
 Pour déployer le modèle Resource Manager, vous allez utiliser Azure PowerShell.

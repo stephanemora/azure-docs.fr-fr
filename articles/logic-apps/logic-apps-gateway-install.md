@@ -388,11 +388,11 @@ Pour vérifier vos inscriptions de passerelle dans le portail Azure, passez en r
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-**Q** : Où se situent les journaux de la passerelle ? <br/>
-**R** : Voir la [section **Journaux**](#logs) plus loin dans cet article.
+**Q** : Où se situent les journaux d’activité de la passerelle ? <br/>
+**R** : Voir la [section **Journaux d’activité**](#logs) plus loin dans cet article.
 
 **Q** : Comment voir les requêtes qui sont envoyées à la source de données locale ? <br/>
-**R** : Vous pouvez activer le traçage de requête qui inclut les requêtes envoyées. N’oubliez pas de rétablir la valeur d’origine du traçage des requêtes une fois les problèmes résolus. Le fait de laisser activé le traçage des requêtes contribue à augmenter la taille des journaux.
+**R** : Vous pouvez activer le traçage de requête qui inclut les requêtes envoyées. N’oubliez pas de rétablir la valeur d’origine du traçage des requêtes une fois les problèmes résolus. Le fait de laisser activé le traçage des requêtes contribue à augmenter la taille des journaux d’activité.
 
 Vous pouvez également utiliser les outils de suivi des requêtes proposés par votre source de données. Par exemple, vous pouvez utiliser Extended Events ou SQL Profiler for SQL Server et Analysis Services.
 
@@ -406,17 +406,17 @@ Cette erreur peut apparaître si vous essayez d’installer la passerelle sur un
 
 <a name="logs"></a>
 
-### <a name="logs"></a>Journaux
+### <a name="logs"></a>Journaux d’activité
 
-Pour vous aider à résoudre les problèmes, démarrez toujours par la collecte et la consultation des journaux de passerelle. Vous disposez de plusieurs méthodes pour recueillir les journaux, mais l’option la plus simple s’effectue via l’interface utilisateur du programme d’installation de la passerelle, une fois que vous avez installé la passerelle. 
+Pour vous aider à résoudre les problèmes, démarrez toujours par la collecte et la consultation des journaux d’activité de passerelle. Vous disposez de plusieurs méthodes pour recueillir les journaux d’activité, mais l’option la plus simple s’effectue via l’interface utilisateur du programme d’installation de la passerelle, une fois que vous avez installé la passerelle. 
 
 1. Sur votre ordinateur, ouvrez le programme d’installation de passerelle de données locale.
 2. Dans le menu de gauche, sélectionnez **Diagnostiques**.
-3. Sous **Journaux de passerelle**, sélectionnez **Exporter des journaux**.
+3. Sous **Journaux d’activité de passerelle**, sélectionnez **Exporter des journaux d’activité**.
 
-   ![Exporter des journaux à partir du programme d’installation de la passerelle](./media/logic-apps-gateway-install/export-logs.png)
+   ![Exporter des journaux d’activité à partir du programme d’installation de la passerelle](./media/logic-apps-gateway-install/export-logs.png)
 
-Voici les emplacements où vous trouverez divers journaux :
+Voici les emplacements où vous trouverez divers journaux d’activité :
 
 | Type de journal | Lieu | 
 |----------|----------| 
@@ -457,7 +457,7 @@ Pour une surveillance et un dépannage supplémentaires, vous pouvez activer et 
 
 ### <a name="review-slow-query-performance"></a>Examinez les performances des requêtes lentes
 
-Si vous trouvez que les requêtes s’exécutent lentement via la passerelle, vous pouvez activer la journalisation supplémentaire qui affiche les requêtes et leur durée. Ces journaux peuvent vous aider à trouver quelles requêtes s’exécutent lentement. Pour optimiser les performances des requêtes, vous devrez peut-être modifier votre source de données, par exemple en ajustant les index pour les requêtes de SQL Server.
+Si vous trouvez que les requêtes s’exécutent lentement via la passerelle, vous pouvez activer la journalisation supplémentaire qui affiche les requêtes et leur durée. Ces journaux d’activité peuvent vous aider à trouver quelles requêtes s’exécutent lentement. Pour optimiser les performances des requêtes, vous devrez peut-être modifier votre source de données, par exemple en ajustant les index pour les requêtes de SQL Server.
 
 Pour déterminer la durée d’une requête, procédez comme suit :
 
@@ -478,7 +478,7 @@ Pour déterminer la durée d’une requête, procédez comme suit :
      ```
 
      > [!IMPORTANT]
-     > Activer l’option de EmitQueryTraces peut augmenter considérablement la taille du journal en fonction de l’utilisation de la passerelle. Une fois que vous avez terminé d’examiner les journaux, veillez à réinitialiser EmitQueryTraces sur **false** là encore, au lieu de laisser ce paramètre actif sur le long terme.
+     > Activer l’option de EmitQueryTraces peut augmenter considérablement la taille du journal en fonction de l’utilisation de la passerelle. Une fois que vous avez terminé d’examiner les journaux d’activité, veillez à réinitialiser EmitQueryTraces sur **false** là encore, au lieu de laisser ce paramètre actif sur le long terme.
 
    * **Microsoft.PowerBI.DataMovement.Pipeline.Diagnostics.dll.config**
 
@@ -497,7 +497,7 @@ Pour déterminer la durée d’une requête, procédez comme suit :
        ![Activer la journalisation supplémentaire](./media/logic-apps-gateway-install/turn-on-additional-logging.png)
 
      > [!IMPORTANT]
-     > Activer l’option de TracingVerbosity peut augmenter considérablement la taille du journal en fonction de l’utilisation de la passerelle. Une fois que vous avez terminé d’examiner les journaux, vérifiez que vous désactivez bien la **Journalisation supplémentaire** dans le programme d’installation de passerelle, ou réinitialisez TracingVerbosity de nouveau sur **4** dans le fichier de configuration, au lieu de laisser ce paramètre actif sur le long terme.
+     > Activer l’option de TracingVerbosity peut augmenter considérablement la taille du journal en fonction de l’utilisation de la passerelle. Une fois que vous avez terminé d’examiner les journaux d’activité, vérifiez que vous désactivez bien la **Journalisation supplémentaire** dans le programme d’installation de passerelle, ou réinitialisez TracingVerbosity de nouveau sur **4** dans le fichier de configuration, au lieu de laisser ce paramètre actif sur le long terme.
 
 3. Pour déterminer la durée d’une requête, procédez comme suit :
 

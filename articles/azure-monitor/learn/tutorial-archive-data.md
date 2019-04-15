@@ -28,7 +28,7 @@ Ce didacticiel décrit le processus de configuration de votre environnement Azur
 
 > [!div class="checklist"]
 > * Créer un compte de stockage pour contenir les données de surveillance
-> * Y acheminer les journaux d’abonnement
+> * Y acheminer les journaux d’activité d’abonnement
 > * Y acheminer les données de ressource
 > * Y acheminer les données de machine virtuelle (système d’exploitation invité)
 > * Y afficher les données de surveillance
@@ -44,7 +44,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 Vous devez d’abord configurer un compte de stockage sur lequel archiver les données de surveillance. Pour ce faire, [procédez de la manière décrite dans cet article](../../storage/common/storage-quickstart-create-account.md).
 
-## <a name="route-subscription-logs-to-the-storage-account"></a>Router les journaux d’abonnement vers le compte de stockage
+## <a name="route-subscription-logs-to-the-storage-account"></a>Router les journaux d’activité d’abonnement vers le compte de stockage
 
 Vous êtes désormais prêt à commencer la configuration de votre environnement Azure pour router les données de surveillance vers un compte de stockage. Tout d’abord, nous configurons les données au niveau de l’abonnement (contenues dans le journal d’activité Azure) de façon à ce qu’elles soient acheminées vers le compte de stockage. Le [**Journal d’activité Azure**](../../azure-monitor/platform/activity-logs-overview.md) fournit un historique des événements au niveau de l’abonnement dans Azure. Vous pouvez le parcourir dans le portail Azure pour déterminer *qui* a créé, mis à jour ou supprimé *quelles* ressources et *quand* il l’a fait.
 
@@ -127,9 +127,9 @@ Les données de surveillance de votre ressource sont maintenant transférées da
 
    ![Paramètres des compteurs de performances](media/tutorial-archive-data/guest-perf-counters.png)
 
-7. Cliquez sur l’onglet **Journaux**, puis activez les cases à cocher des journaux de niveau **Informations** sur les journaux Application et Système.
+7. Cliquez sur l’onglet **Journaux d’activité**, puis activez les cases à cocher des journaux d’activité de niveau **Informations** sur les journaux d’activité Application et Système.
 
-   ![Paramètres des journaux](media/tutorial-archive-data/guest-logs.png)
+   ![Paramètres des journaux d’activité](media/tutorial-archive-data/guest-logs.png)
 
 8. Cliquez sur l’onglet **Agent**, puis, sous **Compte de stockage**, cliquez sur le nom du compte de stockage affiché.
 
@@ -172,7 +172,7 @@ Vous avez à présent correctement configuré les données de surveillance à ar
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-1. Revenez à la section **Exporter le journal d’activité** de l’étape précédente **Router les journaux d’abonnement vers le compte de stockage**, puis cliquez sur **Réinitialiser**.
+1. Revenez à la section **Exporter le journal d’activité** de l’étape précédente **Router les journaux d’activité d’abonnement vers le compte de stockage**, puis cliquez sur **Réinitialiser**.
 
 2. Accédez à la section **Paramètres de Diagnostic**, cliquez sur la ressource sur laquelle vous avez créé un paramètre de diagnostic à l’étape précédente **Router les données de ressource vers le compte de stockage**, recherchez le paramètre que vous avez créé, cliquez sur le bouton **Modifier le paramètre**, puis cliquez sur **Supprimer**.
 
@@ -189,7 +189,7 @@ Dans ce didacticiel, vous avez appris à configurer les données de surveillance
 
 > [!div class="checklist"]
 > * Créer un compte de stockage pour contenir les données de surveillance
-> * Y acheminer les journaux d’abonnement
+> * Y acheminer les journaux d’activité d’abonnement
 > * Y acheminer les données de ressource
 > * Y acheminer les données de machine virtuelle (système d’exploitation invité)
 > * Y afficher les données de surveillance

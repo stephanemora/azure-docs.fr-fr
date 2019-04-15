@@ -16,7 +16,7 @@ ms.date: 10/03/2016
 ms.author: crdun
 ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
 ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/08/2019
 ms.locfileid: "55960732"
@@ -309,19 +309,19 @@ Les journalisation des diagnostics est normalement désactivée dans un Azure Ap
 1. Connectez-vous au [portail Azure].
 2. Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre service mobile migré.
 3. Le panneau Paramètres s’ouvre par défaut.
-4. Sélectionnez **journaux de Diagnostic** dans le menu FONCTIONNALITÉS.
-5. Cliquez sur **ON** pour les fichiers journaux suivants : **Journal des applications (Filesystem)**, **Messages d’erreur détaillés** et **Suivi des demandes ayant échoué**
+4. Sélectionnez **journaux d’activité de Diagnostic** dans le menu FONCTIONNALITÉS.
+5. Cliquez sur **ON** pour les fichiers journaux d’activité suivants : **Journal des applications (Filesystem)**, **Messages d’erreur détaillés** et **Suivi des demandes ayant échoué**
 6. Cliquez sur **Système de fichiers** pour la journalisation du serveur web.
 7. Cliquez sur **Enregistrer**.
 
-Comment afficher les journaux :
+Comment afficher les journaux d’activité :
 
 1. Connectez-vous au [portail Azure].
 2. Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre service mobile migré.
 3. Cliquez sur le bouton **Outils**.
 4. Dans le menu OBSERVER, sélectionnez **Flux de journaux** .
 
-Les journaux sont affichés dans la fenêtre à mesure de leur génération.  Vous pouvez également télécharger les journaux pour les analyser ultérieurement à l’aide de vos informations d’identification de déploiement. Pour plus d’informations, voir la documentation [Logging].
+Les journaux d’activité sont affichés dans la fenêtre à mesure de leur génération.  Vous pouvez également télécharger les journaux d’activité pour les analyser ultérieurement à l’aide de vos informations d’identification de déploiement. Pour plus d’informations, voir la documentation [Logging].
 
 ## <a name="known-issues"></a>Problèmes connus
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>La suppression d’un clone d’application mobile migré entraîne un arrêt du site

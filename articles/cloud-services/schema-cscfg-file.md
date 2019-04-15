@@ -15,7 +15,7 @@ ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 96df87a0d49296280140e392509c0d735f904957
 ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/13/2018
 ms.locfileid: "39007020"
@@ -25,7 +25,7 @@ Le fichier de configuration de service spécifie le nombre d’instances de rôl
 
 Le modèle de service est décrit par le [Schéma de définition de services cloud (classique)](schema-csdef-file.md).
 
-Par défaut, le fichier de schéma de configuration Azure Diagnostics est installé dans le répertoire `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas`. Remplacez `<version>` par la version installée du [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/).
+Par défaut, le fichier de schéma de configuration Diagnostics Azure est installé dans le répertoire `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas`. Remplacez `<version>` par la version installée du [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/).
 
 Pour plus d’informations sur la configuration des rôles dans un service, consultez [Qu’est-ce que le modèle Cloud Service ?](cloud-services-model-and-package.md)
 

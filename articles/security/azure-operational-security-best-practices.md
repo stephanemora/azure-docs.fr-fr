@@ -16,7 +16,7 @@ ms.date: 09/20/2018
 ms.author: terrylan
 ms.openlocfilehash: e2678eb7d75921f43a1e51b6a8cefc9925a9adc1
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56104599"
@@ -62,7 +62,7 @@ Voici des bonnes pratiques pour la supervision du réseau et les outils disponib
 **Détail** : Développez une meilleure compréhension de vos modèles de trafic réseau à l’aide des [journaux de flux des groupes de sécurité réseau](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Les informations contenues dans les journaux de flux vous aident à recueillir des données sur la conformité, l’audit et la supervision de votre profil de sécurité réseau.
 
 **Bonne pratique** : Diagnostiquez les problèmes de connectivité d’un VPN.  
-**Détail** : Utilisez Network Watcher pour [diagnostiquer les problèmes les plus courants liés aux connexions et à la passerelle VPN](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Vous pouvez non seulement identifier le problème, mais également utiliser des journaux détaillés pour approfondir vos recherches.
+**Détail** : Utilisez Network Watcher pour [diagnostiquer les problèmes les plus courants liés aux connexions et à la passerelle VPN](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Vous pouvez non seulement identifier le problème, mais également utiliser des journaux d’activité détaillés pour approfondir vos recherches.
 
 ## <a name="secure-deployment-by-using-proven-devops-tools"></a>Sécuriser le déploiement à l’aide d’outils DevOps éprouvés
 Utilisez les bonnes pratiques DevOps suivantes pour garantir la productivité et l’efficacité de votre entreprise et de vos équipes.

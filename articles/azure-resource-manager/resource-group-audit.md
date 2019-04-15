@@ -31,7 +31,7 @@ Les journaux d’activité vous permettent de déterminer :
 
 Le journal d’audit contient toutes les opérations d’écriture (PUT, POST, DELETE) effectuées sur vos ressources. Il n'inclut pas les opérations de lecture (GET). Pour obtenir la liste des actions de ressource, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Vous pouvez utiliser les journaux d’audit pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation modifie une ressource.
 
-Les journaux d'activité sont conservés pendant 90 jours. Vous pouvez interroger n'importe quelle plage de dates, à condition que la date de début ne remonte pas à plus de 90 jours.
+Les journaux d’activité sont conservés pendant 90 jours. Vous pouvez interroger n'importe quelle plage de dates, à condition que la date de début ne remonte pas à plus de 90 jours.
 
 Vous pouvez récupérer des informations dans les journaux d’activité par le biais du portail, de PowerShell, de l’interface de ligne de commande Azure, de l’API REST Insights ou de [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 

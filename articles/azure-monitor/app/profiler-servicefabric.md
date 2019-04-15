@@ -28,13 +28,13 @@ Vous pouvez également déployer Application Insights Profiler sur les services 
 
 ## <a name="set-up-the-environment-deployment-definition"></a>Configurer la définition du déploiement d’environnement
 
-Application Insights Profiler est fourni avec Azure Diagnostics. Vous pouvez installer l'extension Azure Diagnostics à l'aide d'un modèle Azure Resource Manager pour votre cluster Service Fabric. Procurez-vous un [modèle qui installe Azure Diagnostics sur un cluster Service Fabric](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json).
+Application Insights Profiler est fourni avec Diagnostics Azure. Vous pouvez installer l'extension Diagnostics Azure à l'aide d'un modèle Azure Resource Manager pour votre cluster Service Fabric. Procurez-vous un [modèle qui installe Diagnostics Azure sur un cluster Service Fabric](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json).
 
 Pour configurer votre environnement, effectuez les actions suivantes :
 
 1. Pour vérifier que vous utilisez [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou version ultérieure, il suffit de confirmer que le système d’exploitation déployé est `Windows Server 2012 R2` ou version ultérieure.
 
-1. Recherchez l'extension [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dans le fichier du modèle de déploiement.
+1. Recherchez l'extension [Diagnostics Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dans le fichier du modèle de déploiement.
 
 1. Ajoutez la section `SinksConfig` suivante comme élément enfant de `WadCfg`. Remplacez la valeur de propriété `ApplicationInsightsProfiler` par votre propre clé d’instrumentation Application Insights :  
 
@@ -52,7 +52,7 @@ Pour configurer votre environnement, effectuez les actions suivantes :
       Pour plus d’informations sur l’ajout de l’extension Diagnostics à votre modèle de déploiement, consultez [Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 1. Déployez votre cluster Service Fabric à l'aide de votre modèle Azure Resource Manager.  
-  Si vos paramètres sont corrects, Application Insights Profiler sera installé et activé une fois l'extension Azure Diagnostics installée. 
+  Si vos paramètres sont corrects, Application Insights Profiler sera installé et activé une fois l'extension Diagnostics Azure installée. 
 
 1. Ajoutez Application Insights à votre application Service Fabric.  
   Pour Profiler collecter les profils pour vos demandes, votre application doit être suivi des opérations avec Application Insights. Pour les API sans état, vous pouvez consulter les instructions fournies pour [suivi des demandes pour le profilage](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Pour plus d’informations sur le suivi des opérations personnalisées dans d’autres types d’applications, reportez-vous à [suivi des opérations personnalisées avec Application Insights .NET SDK](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).

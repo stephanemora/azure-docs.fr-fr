@@ -13,7 +13,7 @@ ms.date: 01/25/2019
 ms.author: kumud
 ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56106459"
@@ -40,7 +40,7 @@ Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https:/
 
 2. **Activez la journalisation des diagnostics pour le profil Traffic Manager :**
 
-    Activez la journalisation des diagnostics pour le profil Traffic Manager à l’aide de l’ID obtenu à l’étape précédente avec [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). La commande suivante stocke les journaux détaillés du profil Traffic Manager dans un compte de stockage Azure spécifié. 
+    Activez la journalisation des diagnostics pour le profil Traffic Manager à l’aide de l’ID obtenu à l’étape précédente avec [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). La commande suivante stocke les journaux d’activité détaillés du profil Traffic Manager dans un compte de stockage Azure spécifié. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
@@ -67,7 +67,7 @@ Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https:/
 
 Tous les journaux de diagnostic disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements. Pour voir le schéma général des journaux de diagnostic, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../azure-monitor/platform/tutorial-dashboards.md).
 
-Le tableau suivant inclut le schéma des journaux propre à la ressource de profil Azure Traffic Manager.
+Le tableau suivant inclut le schéma des journaux d’activité propre à la ressource de profil Azure Traffic Manager.
 
 |||||
 |----|----|---|---|

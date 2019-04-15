@@ -49,7 +49,7 @@ Utilisez la procédure décrite dans [solutions ajouter Azure Monitor à partir 
 
 Après avoir créé une solution Azure SQL Analytics dans votre espace de travail, **configurez chacune** des ressources pour lesquelles vous souhaitez effectuer un monitoring pour diffuser en continu ses données de télémétrie de diagnostic vers la solution. Suivez les instructions détaillées de cette page :
 
-- Activez Azure Diagnostics pour votre base de données SQL Azure afin de [diffuser en continu les données de télémétrie de diagnostic vers Azure SQL Analytics](../../sql-database/sql-database-metrics-diag-logging.md).
+- Activez Diagnostics Azure pour votre base de données SQL Azure afin de [diffuser en continu les données de télémétrie de diagnostic vers Azure SQL Analytics](../../sql-database/sql-database-metrics-diag-logging.md).
 
 La page ci-dessus fournit également des instructions sur l’activation de la prise en charge de la surveillance de plusieurs abonnements Azure depuis un espace de travail Azure SQL Analytics faisant office de tableau de bord unique.
 

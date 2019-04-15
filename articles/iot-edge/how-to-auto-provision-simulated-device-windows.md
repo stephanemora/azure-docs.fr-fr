@@ -11,7 +11,7 @@ services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: aa5e5fba3758fa3983924660b9b5f714d02613c6
 ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54158599"
@@ -80,7 +80,7 @@ Vérifiez l’état du service IoT Edge.
 Get-Service iotedge
 ```
 
-Examinez les journaux du service des 5 dernières minutes.
+Examinez les journaux d’activité du service des 5 dernières minutes.
 
 ```powershell
 # Displays logs from last 5 min, newest at the bottom.

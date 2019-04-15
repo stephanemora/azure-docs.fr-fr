@@ -1,6 +1,6 @@
 ---
 title: Utilisation de PowerShell pour configurer Application Insights pour une application web Azure | Microsoft Docs
-description: Automatiser la configuration d’Azure Diagnostics pour envoyer des données vers Application Insights
+description: Automatisez la configuration de Diagnostics Azure pour envoyer des données vers Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle

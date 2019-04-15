@@ -225,6 +225,6 @@ Les enregistrements stockés dans Kafka sont stockés dans l’ordre de récepti
 
 Dans ce document, vous avez découvert comment utiliser les API de consommateur et de producteur Apache Kafka avec Kafka sur HDInsight. Consultez les articles suivants pour en savoir plus sur l’utilisation de Kafka :
 
-* [Analyser les journaux Apache Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Analyser les journaux d’activité Apache Kafka](apache-kafka-log-analytics-operations-management.md)
 * [Répliquer des données d’un cluster Kafka à un autre](apache-kafka-mirroring.md)
 * [API Apache Kafka Streams avec HDInsight](apache-kafka-streams-api.md)

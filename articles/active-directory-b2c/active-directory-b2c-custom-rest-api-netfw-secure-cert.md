@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 502b769e1a25874bfa5a9e8f082361605a52ccf6
 ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55165674"
@@ -295,7 +295,7 @@ Une fois l’extrait de code ajouté, votre contrôleur `Identity` doit se prés
 
 4. Rétablissez la valeur **valid**, puis vérifiez que la stratégie peut appeler votre API REST.
 
-Si vous avez des problèmes avec cette étape, consultez [Collecter les journaux à l’aide d’Application Insights](active-directory-b2c-troubleshoot-custom.md).
+Si vous avez des problèmes avec cette étape, consultez [Collecter les journaux d’activité à l’aide d’Application Insights](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Facultatif) Télécharger les fichiers de stratégie et le code complets
 * Une fois que vous avez [pris en main les stratégies personnalisées](active-directory-b2c-get-started-custom.md), nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée. Des [exemples de fichiers de stratégie](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-cert) sont à votre disposition pour référence.

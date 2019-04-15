@@ -98,7 +98,7 @@ Cette section explique pas à pas comment connecter Azure AD à l’API d’attr
 
 La synchronisation initiale commence pour les utilisateurs affectés à Asana dans la section **Utilisateurs**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Utilisez la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement. Les journaux d’audit décrivent toutes les actions effectuées par le service de provisionnement dans votre application Asana.
 
-Pour savoir plus en détail comment lire les journaux d’attribution Azure AD, consultez la section [Générer un état sur l’attribution automatique de comptes d’utilisateurs](../manage-apps/check-status-user-account-provisioning.md).
+Pour savoir plus en détail comment lire les journaux d’activité d’attribution Azure AD, consultez la section [Générer un état sur l’attribution automatique de comptes d’utilisateurs](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -3,7 +3,7 @@ title: Application Insights pour les services cloud Azure | Microsoft Docs
 description: Surveillance efficace de vos rôles Web et de travail avec Application Insights
 services: application-insights
 documentationcenter: ''
-keywords: WAD2AI, Azure Diagnostics
+keywords: WAD2AI, Diagnostics Azure
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
@@ -151,8 +151,8 @@ S’il n’y a pas de données, effectuez ce qui suit :
 1. Attendez quelques secondes, puis cliquez sur **Actualiser**.  
     Pour plus d’informations, consultez [Résolution des problèmes][qna].
 
-## <a name="view-azure-diagnostics-events"></a>Voir les événements Azure Diagnostics
-Les informations d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) sont disponibles dans Application Insights aux emplacements suivants :
+## <a name="view-azure-diagnostics-events"></a>Voir les événements Diagnostics Azure
+Les informations de [Diagnostics Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) sont disponibles dans Application Insights aux emplacements suivants :
 
 * Les compteurs de performances s’affichent comme mesures personnalisées. 
 * Les journaux des événements Windows s’affichent comme traces et événements personnalisés.
@@ -160,11 +160,11 @@ Les informations d’[Azure Diagnostics](https://docs.microsoft.com/azure/monito
 
 Pour voir les compteurs de performances et le nombre d’événements, ouvrez [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) et ajoutez le graphique suivant :
 
-![Données Azure Diagnostics](./media/cloudservices/23-wad.png)
+![Données Diagnostics Azure](./media/cloudservices/23-wad.png)
 
 Pour rechercher dans les différents journaux d’activité de trace envoyés par Azure Diagnostics, utilisez [Recherche](../../azure-monitor/app/diagnostic-search.md) ou une [requête Analytics](../../azure-monitor/log-query/get-started-portal.md). Par exemple, supposons qu’une exception non prise en charge a provoqué le blocage et le recyclage d’un rôle. Cette information s’affiche dans le canal Application du Journal des événements Windows. Vous pouvez utiliser Recherche pour voir l’erreur du Journal des événements Windows et obtenir la trace complète de l’exception. De cette façon, vous pouvez identifier la cause racine du problème.
 
-![Recherche d’Azure Diagnostics](./media/cloudservices/25-wad.png)
+![Recherche de Diagnostics Azure](./media/cloudservices/25-wad.png)
 
 ## <a name="more-telemetry"></a>Données de télémétrie supplémentaires
 Les sections suivantes décrivent comment obtenir davantage de données de télémétrie à partir de différents aspects de votre application.

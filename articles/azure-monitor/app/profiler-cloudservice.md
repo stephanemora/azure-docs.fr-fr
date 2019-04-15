@@ -26,7 +26,7 @@ Vous pouvez également déployer Application Insights Profiler sur les services 
 * [Applications Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Machines virtuelles Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Application Insights Profiler est installé avec l’extension Azure Diagnostics. Vous devez simplement configurer Azure Diagnostics pour installer Profiler et envoyer des profils à votre ressource Application Insights.
+Application Insights Profiler est installé avec l’extension Diagnostics Azure. Vous devez simplement configurer Diagnostics Azure pour installer Profiler et envoyer des profils à votre ressource Application Insights.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Activer Profiler pour Azure Cloud Services
 1. Veillez à utiliser [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou ultérieur. Il suffit de confirmer que les fichiers *ServiceConfiguration\*.cscfg* ont une valeur `osFamily` au moins égale à « 5 ».

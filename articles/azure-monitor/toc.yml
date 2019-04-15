@@ -70,7 +70,7 @@ items:
       href: platform/data-platform.md
     - name: Mesures
       href: platform/data-platform-metrics.md
-    - name: Journaux
+    - name: Journaux d’activité
       href: platform/data-platform-logs.md
   - name: Sources de données
     items:
@@ -255,9 +255,9 @@ items:
         href: platform/data-sources-performance-counters.md
       - name: Performances des applications Linux
         href: platform/data-sources-linux-applications.md
-      - name: Journaux IIS
+      - name: Journaux d’activité IIS
         href: platform/data-sources-iis-logs.md
-      - name: Journaux personnalisés
+      - name: Journaux d’activité personnalisés
         href: platform/data-sources-custom-logs.md
       - name: Champs personnalisés
         href: platform/custom-fields.md
@@ -435,7 +435,7 @@ items:
           href: platform/collect-activity-logs.md
         - name: Collection entre des abonnements
           href: platform/collect-activity-logs-subscriptions.md
-      - name: Métriques et journaux de service
+      - name: Métriques et journaux d’activité de service
         href: platform/collect-azure-metrics-logs.md
       - name: Données de diagnostics et de journaux du Stockage Azure
         href: platform/azure-storage-iis-table.md
@@ -469,7 +469,7 @@ items:
         href: platform/diagnostic-logs-stream-log-store.md
       - name: Diffuser en continu le journal d’activité vers Event Hubs
         href: platform/activity-logs-stream-event-hubs.md
-      - name: Journaux et métriques vers Event Hub
+      - name: Journaux d’activité et métriques vers Event Hub
         href: platform/stream-monitoring-data-event-hubs.md
       - name: Journaux de diagnostic vers Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
@@ -550,7 +550,7 @@ items:
           href: insights/container-insights-analyze.md
         - name: Désactiver l’analyse
           href: insights/container-insights-optout.md
-        - name: Afficher les journaux en temps réel d’un conteneur
+        - name: Afficher les journaux d’activité en temps réel d’un conteneur
           href: insights/container-insights-live-logs.md
         - name: Génération d’alertes
           href: insights/container-insights-alerts.md
@@ -688,7 +688,7 @@ items:
         href: platform/metrics-charts.md
       - name: Exemples de graphiques de métriques
         href: platform/metric-chart-samples.md
-    - name: Journaux
+    - name: Journaux d’activité
       items:
       - name: Requêtes dans les journaux
         href: log-query/log-query-overview.md
@@ -784,7 +784,7 @@ items:
           href: platform/alerts-classic-portal.md
         - name: Alertes de métrique avec des seuils dynamiques
           href: platform/alerts-dynamic-thresholds.md
-        - name: Configurer des alertes de métrique sur les journaux
+        - name: Configurer des alertes de métrique sur les journaux d’activité
           href: platform/alerts-metric-logs.md
         - name: Créer une alerte de mesure plus récente avec un modèle Resource Manager
           href: platform/alerts-metric-create-templates.md
@@ -996,19 +996,19 @@ items:
     items:
     - name: Surveiller
       href: /powershell/module/az.applicationinsights
-    - name: Journaux
+    - name: Journaux d’activité
       href: /powershell/module/az.operationalinsights
   - name: API REST
     items:
     - name: Surveiller
       href: /rest/api/monitor/
-    - name: Journaux
+    - name: Journaux d’activité
       href: /rest/api/loganalytics
   - name: Modèle Resource Manager
     items:
     - name: Surveiller
       href: /azure/templates/microsoft.insights/allversions
-    - name: Journaux
+    - name: Journaux d’activité
       href: /azure/templates/microsoft.operationalinsights/allversions
   - name: Mesures
     items:
@@ -1022,7 +1022,7 @@ items:
       href: platform/diagnostic-logs-schema.md
     - name: Schéma d’événement du journal d’activité
       href: platform/activity-log-schema.md
-    - name: Schéma d’extension Azure Diagnostics
+    - name: Schéma d’extension Diagnostics Azure
       href: platform/diagnostics-extension-schema.md
       items:
       - name: 1.3 et versions ultérieures

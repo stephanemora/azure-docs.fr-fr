@@ -29,6 +29,6 @@ Le tableau suivant comprend des liens vers des exemples de scripts de CLI Azure�
 |**Restaurer un serveur**||
 | [Restaurer un serveur](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui restaure un seul serveur Azure Database pour PostgreSQL à un point antérieur dans le temps. |
 |**Télécharger les journaux du serveur**||
-| [Activer et télécharger les journaux du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui active et télécharge les journaux d’un serveur Azure Database pour PostgreSQL. |
+| [Activer et télécharger les journaux du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui active et télécharge les journaux d’activité d’un serveur Azure Database pour PostgreSQL. |
 |||
 

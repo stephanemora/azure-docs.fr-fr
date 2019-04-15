@@ -16,7 +16,7 @@ ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 61719d482a4db1c737bbe38277f2ac3b2d684b63
 ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/02/2018
 ms.locfileid: "37342423"
@@ -69,7 +69,7 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 * inscrivez l’appareil.
 
 ## <a name="errors-during-the-required-network-settings"></a>Erreurs pendant la configuration des paramètres réseau requis
-| Non. | Message d’erreur | Causes possibles | Action recommandée |
+|  Non. | Message d’erreur | Causes possibles | Action recommandée |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard : cette commande ne peut être exécutée que sur le contrôleur actif. |La configuration a été effectuée sur le contrôleur passif. |Exécutez cette commande depuis le contrôleur actif. Pour plus d’informations, consultez la page [Identification d’un contrôleur actif sur votre appareil](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | 2 |Invoke-HcsSetupWizard : l’appareil n’est pas prêt. |Il existe des problèmes liés à la connectivité réseau sur DATA 0. |Vérifiez la connectivité réseau physique sur DATA 0. |
@@ -80,7 +80,7 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 | 7 |Invoke-HcsSetupWizard : il n’y a plus de points de terminaison disponibles auprès du mappeur de point de terminaison. (Exception de HRESULT : 0x800706D9) |La fonctionnalité de cluster ne fonctionne pas. |[contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) . |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Erreurs pendant la configuration des paramètres de proxy web facultatifs
-| Non. | Message d’erreur | Causes possibles | Action recommandée |
+|  Non. | Message d’erreur | Causes possibles | Action recommandée |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard : paramètre non valide (exception de HRESULT: 0 x 80070057). |L’un des paramètres fournis pour les paramètres de proxy n’est pas valide. |L’URI n’est pas fourni dans le format correct. Utilisez le format suivant: http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard : serveur RPC non disponible (exception de HRESULT : 0x800706ba). |La cause première est l’une des suivantes :<ol><li>Le cluster n’est pas disponible.</li><li>Le contrôleur passif ne peut pas communiquer avec le contrôleur actif et la commande est exécutée à partir du contrôleur passif.</li></ol> |Suivant la cause première :<ol><li>[Contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour vous assurer que le cluster est disponible.</li><li>Exécutez la commande à partir du contrôleur actif. Si vous souhaitez exécuter la commande à partir du contrôleur passif, vous devez vous assurer que le contrôleur passif peut communiquer avec le contrôleur actif. Vous devez [contacter le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) si cette connectivité est interrompue.</li></ol> |
@@ -103,7 +103,7 @@ Pour plus d’informations relatives au mot de passe Administrateur de l’appar
 
 Vous pouvez rencontrer une ou plusieurs des erreurs suivantes lorsque vous configurez les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple.
 
-| Non. | Message d’erreur | Action recommandée |
+|  Non. | Message d’erreur | Action recommandée |
 | --- | --- | --- |
 | 1 |Le mot de passe dépasse la longueur maximale. |Votre mot de passe administrateur d’appareil doit comprendre entre 8 et 15 caractères. |
 | 2 |Le mot de passe ne respecte pas la longueur requise. |Votre mot de passe administrateur d’appareil doit comprendre entre 8 et 15 caractères.|
@@ -126,7 +126,7 @@ Vous pouvez réinitialiser le mot de passe à partir du portail Azure via le ser
 ## <a name="errors-during-device-registration"></a>Erreurs pendant l'inscription d’un appareil
 Vous utilisez le service StorSimple Device Manager en cours d’exécution dans Microsoft Azure pour inscrire l’appareil. Vous pouvez rencontrer un ou plusieurs des problèmes suivants lors de l’inscription de l’appareil.
 
-| Non. | Message d’erreur | Causes possibles | Action recommandée |
+|  Non. | Message d’erreur | Causes possibles | Action recommandée |
 | --- | --- | --- | --- |
 | 1 |Erreur 350027 : Impossible d’inscrire l’appareil auprès de StorSimple Device Manager. | |Patientez quelques minutes et recommencez l’opération. Si le problème persiste, [contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md). |
 | 2 |Erreur 350013 : Une erreur s’est produite lors de l’inscription de l’appareil. Cela peut résulter d’une clé d’inscription du service incorrecte. | |Inscrivez à nouveau l’appareil avec la clé d’inscription de service appropriée. Pour plus d’informations, consultez la section [Obtenir la clé d’inscription de service.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
@@ -141,17 +141,17 @@ Vous utilisez le service StorSimple Device Manager en cours d’exécution dans 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Outils de résolution des problèmes de déploiement de StorSimple
 StorSimple comprend plusieurs outils que vous pouvez utiliser pour résoudre les problèmes de votre solution StorSimple. Il s’agit des actions suivantes :
 
-* Packages de prise en charge et journaux d’appareil.
+* Packages de prise en charge et journaux d’activité d’appareil.
 * Applets de commande conçues spécialement pour la résolution des problèmes.
 
-## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>Packages de prise en charge et journaux d’appareil disponibles pour la résolution des problèmes
-Un package de prise en charge contient tous les journaux pertinents qui peuvent aider l’équipe de support technique de Microsoft à résoudre les problèmes des appareils. Vous pouvez utiliser Windows PowerShell pour StorSimple pour générer un package de prise en charge chiffré que vous pouvez ensuite partager avec le personnel du support technique.
+## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>Packages de prise en charge et journaux d’activité d’appareil disponibles pour la résolution des problèmes
+Un package de prise en charge contient tous les journaux d’activité pertinents qui peuvent aider l’équipe de support technique de Microsoft à résoudre les problèmes des appareils. Vous pouvez utiliser Windows PowerShell pour StorSimple pour générer un package de prise en charge chiffré que vous pouvez ensuite partager avec le personnel du support technique.
 
-### <a name="to-view-the-logs-or-the-contents-of-the-support-package"></a>Pour afficher les journaux ou le contenu du package de prise en charge
+### <a name="to-view-the-logs-or-the-contents-of-the-support-package"></a>Pour afficher les journaux d’activité ou le contenu du package de prise en charge
 1. Utilisez Windows PowerShell pour StorSimple pour générer un package de support, comme décrit à la page [Création et gestion d'un package de support](storsimple-8000-create-manage-support-package.md).
 2. Téléchargez le [script de déchiffrement](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localement sur votre ordinateur client.
 3. Utilisez cette [procédure pas à pas](storsimple-8000-create-manage-support-package.md#edit-a-support-package) pour ouvrir et déchiffrer le package de prise en charge.
-4. Les journaux du package de prise en charge déchiffré sont au format etw/etvx. Vous pouvez afficher ces fichiers dans l’Observateur d’événements Windows en procédant comme suit :
+4. Les journaux d’activité du package de prise en charge déchiffré sont au format etw/etvx. Vous pouvez afficher ces fichiers dans l’Observateur d’événements Windows en procédant comme suit :
    
    1. Exécutez la commande **eventvwr** sur votre client Windows. L’Observateur d’événements démarre.
    2. Dans le volet **Actions**, cliquez sur **Ouvrir le journal enregistré** et pointez sur les fichiers journaux au format etvx/etw (le package de prise en charge). Vous pouvez maintenant consulter le fichier. Après avoir ouvert le fichier, vous pouvez cliquer dessus avec le bouton droit et l’enregistrer au format texte.
@@ -159,7 +159,7 @@ Un package de prise en charge contient tous les journaux pertinents qui peuvent 
       > [!IMPORTANT]
       > Vous pouvez également utiliser l’applet de commande **Get-WinEvent** pour ouvrir ces fichiers dans Windows PowerShell. Pour plus d’informations, consultez la page [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) dans la documentation de référence des applets de commande Windows PowerShell.
      
-5. Une fois les journaux ouverts dans l’Observateur d’événements, recherchez les journaux ci-dessous ; ceux-ci contiennent les problèmes liés à la configuration de l’appareil :
+5. Une fois les journaux d’activité ouverts dans l’Observateur d’événements, recherchez les journaux d’activité ci-dessous ; ceux-ci contiennent les problèmes liés à la configuration de l’appareil :
    
    * hcs_pfconfig/Operational Log
    * hcs_pfconfig/Config
@@ -523,7 +523,7 @@ L’erreur peut provenir des éléments suivants :
      > 
 6. Utilisez l’applet de commande Test-Connection pour vérifier que vous disposez d’une connectivité vers le réseau externe. Pour plus d’informations, consultez la section [Dépannage avec l’applet de commande Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
 7. Vérifiez les interférences avec le pare-feu. Si vous avez vérifié que les paramètres d’adresse IP virtuelle, de sous-réseau, de passerelle et DNS sont tous corrects et que vous rencontrez encore des problèmes de connectivité, il est possible que votre pare-feu bloque les communications entre votre appareil et le réseau externe. Vérifiez que les ports 80 et 443 sont disponibles pour la communication sortante sur l’appareil StorSimple. Pour plus d’informations, consultez la page [Configuration réseau requise pour votre appareil StorSimple](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
-8. Examinez les journaux. Consultez la page [Packages de support et journaux des appareils disponibles pour la résolution des problèmes](#support-packages-and-device-logs-available-for-troubleshooting).
+8. Examinez les journaux d’activité. Consultez la page [Packages de support et journaux d’activité des appareils disponibles pour la résolution des problèmes](#support-packages-and-device-logs-available-for-troubleshooting).
 9. Si les étapes précédentes ne permettent pas de résoudre le problème, [contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour obtenir une assistance.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
 ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54354448"
@@ -42,7 +42,7 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 
 ## <a name="storage"></a>Stockage
 
-Le stockage que vous provisionnez est la quantité de stockage disponible pour votre serveur Azure Database for MariaDB. Le stockage est utilisé pour les fichiers de base de données, les fichiers temporaires, les journaux des transactions et les journaux des serveurs MariaDB. La quantité totale de stockage que vous approvisionnez définit également la capacité d’E/S disponible sur votre serveur.
+Le stockage que vous provisionnez est la quantité de stockage disponible pour votre serveur Azure Database for MariaDB. Le stockage est utilisé pour les fichiers de base de données, les fichiers temporaires, les journaux d’activité des transactions et les journaux d’activité des serveurs MariaDB. La quantité totale de stockage que vous approvisionnez définit également la capacité d’E/S disponible sur votre serveur.
 
 |    | **De base** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|

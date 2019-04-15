@@ -41,7 +41,7 @@ Azure Active Directory (Azure AD) vous permet d’automatiser la création, la m
 - Possibilité de faire correspondre des identités existantes entre les systèmes source et cible
 - Des mappages d’attributs personnalisables qui définissent les données utilisateurs qui doivent circuler entre le système source et le système cible
 - Alertes par courrier électronique pour les erreurs d’approvisionnement
-- Création de rapports et journaux d’activité pour faciliter la surveillance et la résolution des problèmes
+- Création de rapports et journaux d’activité pour faciliter la supervision et la résolution des problèmes
 
 ## <a name="why-use-automated-provisioning"></a>Pourquoi utiliser l’approvisionnement automatique ?
 

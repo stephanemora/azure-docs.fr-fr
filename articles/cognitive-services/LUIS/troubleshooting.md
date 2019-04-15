@@ -196,7 +196,7 @@ Pour en savoir plus, consultez [Comment corriger les erreurs de dépassement de 
 ## <a name="app-management"></a>Gestion des applications
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Comment faire pour télécharger un journal d’énoncés d’utilisateurs ?
-Par défaut, votre application LUIS journalise les énoncés des utilisateurs. Pour télécharger un journal des énoncés que les utilisateurs envoient à votre application LUIS, accédez à **Mes applications** et sélectionnez l'application. Dans la barre d’outils contextuelle, sélectionnez **Exporter les journaux du point de terminaison**. Un journal est mis en forme comme un fichier de valeurs séparées par des virgules (CSV).
+Par défaut, votre application LUIS journalise les énoncés des utilisateurs. Pour télécharger un journal des énoncés que les utilisateurs envoient à votre application LUIS, accédez à **Mes applications** et sélectionnez l'application. Dans la barre d’outils contextuelle, sélectionnez **Exporter les journaux d’activité du point de terminaison**. Un journal est mis en forme comme un fichier de valeurs séparées par des virgules (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Comment puis-je désactiver la journalisation des énoncés ?
 Vous pouvez désactiver la journalisation des énoncés des utilisateurs en définissant `log=false` dans l’URL de point de terminaison que votre application cliente utilise pour la interroger LUIS. Toutefois, la désactivation de la journalisation désactive la capacité de votre application LUIS à suggérer des énoncés ou à améliorer les performances sur la base d’un [apprentissage actif](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Si vous définissez `log=false` en raison de problèmes de confidentialité des données, vous ne pouvez pas télécharger un enregistrement de ces énoncés d’utilisateurs à partir de LUIS ou utiliser ces énoncés pour améliorer votre application.
@@ -211,8 +211,8 @@ Si vous utilisez votre journal à des fins d’analyse prédictive, ne capturez 
 ### <a name="can-i-delete-data-from-luis"></a>Puis-je supprimer des données de LUIS ?
 
 * Vous pouvez toujours supprimer des exemples d’énoncés utilisés pour l’apprentissage de LUIS. Si vous supprimez un exemple d’énoncé de votre application LUIS, il est supprimé du service web LUIS et n’est plus disponible pour l’exportation.
-* Vous pouvez supprimer des énoncés de la liste des énoncés d’utilisateurs que LUIS suggère dans la page **Review endpoint utterances** (Examiner les énoncés du point de terminaison). La suppression d’énoncés de cette liste a pour effet d’empêcher leur suggestion, mais pas de les supprimer des journaux.
-* Si vous supprimez un compte, toutes les applications sont supprimées, ainsi que leurs exemples d’énoncés et journaux. Les données sont conservées sur les serveurs pendant 60 jours avant leur suppression définitive.
+* Vous pouvez supprimer des énoncés de la liste des énoncés d’utilisateurs que LUIS suggère dans la page **Review endpoint utterances** (Examiner les énoncés du point de terminaison). La suppression d’énoncés de cette liste a pour effet d’empêcher leur suggestion, mais pas de les supprimer des journaux d’activité.
+* Si vous supprimez un compte, toutes les applications sont supprimées, ainsi que leurs exemples d’énoncés et journaux d’activité. Les données sont conservées sur les serveurs pendant 60 jours avant leur suppression définitive.
 
 ### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Comment Microsoft gère-t-il les données que j’envoie à LUIS ?
 
@@ -244,7 +244,7 @@ Passer le même énoncé à LUIS à partir du [point de terminaison LUIS](luis-g
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Résoudre le problème dans Azure Bot Service
 
-Si vous utilisez Azure Bot Service et que le problème est que le **test dans la discussion Web** retourne `Sorry, my bot code is having an issue`, consultez vos journaux :
+Si vous utilisez Azure Bot Service et que le problème est que le **test dans la discussion Web** retourne `Sorry, my bot code is having an issue`, consultez vos journaux d’activité :
 
 1. Dans le portail Azure, pour votre bot, sélectionnez **Build** dans la section **Gestion du bot**.
 1. Ouvrez l’éditeur de code en ligne. 

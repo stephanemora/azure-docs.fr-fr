@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 02/17/2017
 ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
 ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/08/2019
 ms.locfileid: "55891077"
@@ -201,7 +201,7 @@ Puisque vous utilisez le mode de cluster YARN, auquel cas le pilote Spark est p
 
     17/02/01 23:22:16 INFO Client: Application report for application_1485916338528_0015 (state: RUNNING)
 
-Si vous ne souhaitez pas savoir ce qui est arrivé, il vous suffira de récupérer le journal du pilote Spark, qui comporte davantage d’informations. Dans ce cas, vous devez accéder à l’interface utilisateur YARN et y rechercher les journaux YARN appropriés. L’interface utilisateur YARN est accessible à cet URL : 
+Si vous ne souhaitez pas savoir ce qui est arrivé, il vous suffira de récupérer le journal du pilote Spark, qui comporte davantage d’informations. Dans ce cas, vous devez accéder à l’interface utilisateur YARN et y rechercher les journaux d’activité YARN appropriés. L’interface utilisateur YARN est accessible à cet URL : 
 
     https://yourclustername.azurehdinsight.net/yarnui
    
@@ -211,11 +211,11 @@ Vous pouvez découvrir le nombre de ressources allouées pour cette application 
 
 ![Planificateur YARN](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
 
-Peut-être voulez-vous vérifier l’absence de défaillances dans les journaux de conteneurs et de pilotes. Pour les journaux de pilotes, vous pouvez cliquer sur l’ID d’application dans l’interface utilisateur YARN, puis sur le bouton dédié aux journaux. Les journaux des pilotes sont écrits en stderr.
+Peut-être voulez-vous vérifier l’absence de défaillances dans les journaux d’activité de conteneurs et de pilotes. Pour les journaux d’activité de pilotes, vous pouvez cliquer sur l’ID d’application dans l’interface utilisateur YARN, puis sur le bouton dédié aux journaux d’activité. Les journaux d’activité des pilotes sont écrits en stderr.
 
 ![Interface utilisateur YARN 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
 
-Par exemple, vous pouvez identifier certaines des erreurs ci-dessous dans les journaux de pilotes. Le cas échéant, elles indiquent que vous avez alloué un nombre trop important d’exécuteurs.
+Par exemple, vous pouvez identifier certaines des erreurs ci-dessous dans les journaux d’activité de pilotes. Le cas échéant, elles indiquent que vous avez alloué un nombre trop important d’exécuteurs.
 
     17/02/01 07:26:06 ERROR ApplicationMaster: User class threw exception: java.lang.IllegalStateException: Insufficient training data. Please adjust hyperparameters or increase dataset.
     java.lang.IllegalStateException: Insufficient training data. Please adjust hyperparameters or increase dataset.
@@ -228,7 +228,7 @@ Par exemple, vous pouvez identifier certaines des erreurs ci-dessous dans les jo
         at java.lang.reflect.Method.invoke(Method.java:498)
         at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:627)
 
-Parfois, le problème survient dans les exécuteurs, non dans les pilotes. Dans ce cas, vous devez examiner les journaux de conteneurs. Vous pouvez toujours obtenir les journaux des conteneurs, puis récupérer le conteneur défaillant. Par exemple, vous pouvez rencontrer cette défaillance lors de l’exécution de Caffe.
+Parfois, le problème survient dans les exécuteurs, non dans les pilotes. Dans ce cas, vous devez examiner les journaux d’activité de conteneurs. Vous pouvez toujours obtenir les journaux d’activité des conteneurs, puis récupérer le conteneur défaillant. Par exemple, vous pouvez rencontrer cette défaillance lors de l’exécution de Caffe.
 
     17/02/01 07:12:05 WARN YarnAllocator: Container marked as failed: container_1485916338528_0008_05_000005 on host: 10.0.0.14. Exit status: 134. Diagnostics: Exception from container-launch.
     Container id: container_1485916338528_0008_05_000005

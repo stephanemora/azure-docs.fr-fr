@@ -93,8 +93,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ADHybridHealthService/configuration/action | Met à jour la configuration du client. |
 > | Action | Microsoft.ADHybridHealthService/configuration/read | Lit la configuration du client. |
 > | Action | Microsoft.ADHybridHealthService/configuration/write | Crée une configuration de client. |
-> | Action | Microsoft.ADHybridHealthService/logs/contents/read | Obtient le contenu des journaux d’installation et d’enregistrement de l’agent, qui sont stockés dans le blob. |
-> | Action | Microsoft.ADHybridHealthService/logs/read | Obtient les journaux d’installation et d’enregistrement de l’agent pour le locataire. |
+> | Action | Microsoft.ADHybridHealthService/logs/contents/read | Obtient le contenu des journaux d’activité d’installation et d’enregistrement de l’agent, qui sont stockés dans le blob. |
+> | Action | Microsoft.ADHybridHealthService/logs/read | Obtient les journaux d’activité d’installation et d’enregistrement de l’agent pour le locataire. |
 > | Action | Microsoft.ADHybridHealthService/operations/read | Obtient la liste des opérations prises en charge par le système. |
 > | Action | Microsoft.ADHybridHealthService/register/action | Enregistre le fournisseur de ressources du service de contrôle d’intégrité ADHybrid et permet la création de la ressource du service de contrôle d’intégrité ADHybrid. |
 > | Action | Microsoft.ADHybridHealthService/reports/availabledeployments/read | Obtient la liste des régions disponibles, utilisées par DevOps pour prendre en charge les incidents clients. |
@@ -1181,8 +1181,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Compute/images/write | Créer ou mettre à jour une image |
 > | Action | Microsoft.Compute/locations/capsOperations/read | Obtient l’état d’une opération de plafonnement asynchrone |
 > | Action | Microsoft.Compute/locations/diskOperations/read | Obtient l’état d’une opération de disque asynchrone |
-> | Action | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | Créer des journaux pour afficher le nombre total de requêtes par intervalle de temps pour participer aux diagnostics de limitation |
-> | Action | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Créer des journaux pour afficher des agrégats de requêtes limitées regroupées par ResourceName, OperationName ou selon la stratégie de limitation appliquée. |
+> | Action | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | Créer des journaux d’activité pour afficher le nombre total de requêtes par intervalle de temps pour participer aux diagnostics de limitation |
+> | Action | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Créer des journaux d’activité pour afficher des agrégats de requêtes limitées regroupées par ResourceName, OperationName ou selon la stratégie de limitation appliquée. |
 > | Action | Microsoft.Compute/locations/operations/read | Afficher l’état d’une opération asynchrone |
 > | Action | Microsoft.Compute/locations/publishers/artifacttypes/offers/read | Obtient les propriétés d’une offre d’image de plateforme |
 > | Action | Microsoft.Compute/locations/publishers/artifacttypes/offers/skus/read | Obtient les propriétés d’une référence (SKU) d’image de plateforme |
@@ -1316,7 +1316,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.ContainerInstance/containerGroups/containers/exec/action | Exécuter dans un conteneur spécifique. |
-> | Action | Microsoft.ContainerInstance/containerGroups/containers/logs/read | Obtient les journaux pour un conteneur spécifique. |
+> | Action | Microsoft.ContainerInstance/containerGroups/containers/logs/read | Obtient les journaux d’activité pour un conteneur spécifique. |
 > | Action | Microsoft.ContainerInstance/containerGroups/delete | Supprime le groupe de conteneurs spécifique. |
 > | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour le groupe de conteneurs. |
 > | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour le groupe de conteneurs. |
@@ -1344,7 +1344,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ContainerRegistry/register/action | Inscrit l’abonnement pour le fournisseur de ressources du registre de conteneurs et active la création de registres de conteneurs. |
 > | Action | Microsoft.ContainerRegistry/registries/artifacts/delete | Supprimer l’artefact dans un Registre de conteneurs. |
 > | Action | Microsoft.ContainerRegistry/registries/builds/cancel/action | Annule une build existante. |
-> | Action | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | Obtient un lien pour télécharger les journaux de build. |
+> | Action | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | Obtient un lien pour télécharger les journaux d’activité de build. |
 > | Action | Microsoft.ContainerRegistry/registries/builds/read | Obtient les propriétés de la build spécifiée ou affiche toutes les builds pour le registre de conteneurs spécifié. |
 > | Action | Microsoft.ContainerRegistry/registries/builds/write | Met à jour une build pour un registre de conteneurs avec les paramètres spécifiés. |
 > | Action | Microsoft.ContainerRegistry/registries/buildTasks/delete | Supprime une tâche de génération d’un registre de conteneurs. |
@@ -1526,7 +1526,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.CustomerInsights/hubs/profiles/write | Écrire un profil Azure Customer Insights |
 > | Action | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
-> | Action | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/logDefinitions/read | Obtenir les journaux disponibles pour la ressource |
+> | Action | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/logDefinitions/read | Obtenir les journaux d’activité disponibles pour la ressource |
 > | Action | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/metricDefinitions/read | Afficher les mesures disponibles pour la ressource |
 > | Action | Microsoft.CustomerInsights/hubs/read | Afficher un concentrateur Azure Customer Insights |
 > | Action | Microsoft.CustomerInsights/hubs/relationshiplinks/delete | Supprime des liens de relation Azure Customer Insights |
@@ -1692,7 +1692,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.DataFactory/datafactories/linkedServices/read | Affiche tous les services liés. |
 > | Action | Microsoft.DataFactory/datafactories/linkedServices/write | Crée ou met à jour tous les services liés. |
 > | Action | Microsoft.DataFactory/datafactories/read | Affiche la fabrique de données. |
-> | Action | Microsoft.DataFactory/datafactories/runs/loginfo/read | Affiche un URI SAS vers un conteneur blob comportant les journaux. |
+> | Action | Microsoft.DataFactory/datafactories/runs/loginfo/read | Affiche un URI SAS vers un conteneur blob comportant les journaux d’activité. |
 > | Action | Microsoft.DataFactory/datafactories/tables/delete | Supprime tous les jeux de données. |
 > | Action | Microsoft.DataFactory/datafactories/tables/read | Affiche tous les jeux de données. |
 > | Action | Microsoft.DataFactory/datafactories/tables/write | Crée ou met à jour tous les jeux de données. |
@@ -1883,7 +1883,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.DBforMariaDB/servers/firewallRules/write | Crée une règle de pare-feu avec les paramètres spécifiés ou met à jour une règle existante. |
 > | Action | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
-> | Action | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux disponibles pour les serveurs MariaDB |
+> | Action | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux d’activité disponibles pour les serveurs MariaDB |
 > | Action | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/metricDefinitions/read | Renvoie les types de mesures disponibles pour les bases de données |
 > | Action | Microsoft.DBforMariaDB/servers/read | Retourner la liste des serveurs ou obtenir les propriétés pour le serveur spécifié. |
 > | Action | Microsoft.DBforMariaDB/servers/recoverableServers/read | Retourne les informations du serveur MariaDB récupérables |
@@ -1910,7 +1910,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.DBforMySQL/servers/firewallRules/write | Crée une règle de pare-feu avec les paramètres spécifiés ou met à jour une règle existante. |
 > | Action | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
-> | Action | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux disponibles pour les serveurs MySQL |
+> | Action | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux d’activité disponibles pour les serveurs MySQL |
 > | Action | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/metricDefinitions/read | Renvoie les types de mesures disponibles pour les bases de données |
 > | Action | Microsoft.DBforMySQL/servers/queryTexts/action | Retourner les textes pour obtenir la liste de requêtes |
 > | Action | Microsoft.DBforMySQL/servers/read | Retourner la liste des serveurs ou obtenir les propriétés pour le serveur spécifié. |
@@ -1942,7 +1942,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.DBforPostgreSQL/servers/firewallRules/write | Crée une règle de pare-feu avec les paramètres spécifiés ou met à jour une règle existante. |
 > | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
-> | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux disponibles pour les serveurs Postgres |
+> | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux d’activité disponibles pour les serveurs Postgres |
 > | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/metricDefinitions/read | Renvoie les types de mesures disponibles pour les bases de données |
 > | Action | Microsoft.DBforPostgreSQL/servers/queryTexts/action | Retourner le texte d’une requête |
 > | Action | Microsoft.DBforPostgreSQL/servers/queryTexts/read | Retourner les textes pour obtenir la liste de requêtes |
@@ -2328,7 +2328,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.EventHub/namespaces/operationresults/read | Obtient l’état de l’opération d’espace de noms |
 > | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
 > | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
-> | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/logDefinitions/read | Obtenir la liste des descriptions des ressources des journaux Namespace. |
+> | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/logDefinitions/read | Obtenir la liste des descriptions des ressources des journaux d’activité Namespace |
 > | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Obtenir la liste des descriptions des mesures de ressource Namespace. |
 > | Action | Microsoft.EventHub/namespaces/read | Obtenir la liste des descriptions des ressources Namespace. |
 > | Action | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | Supprime l’espace de noms ACS |
@@ -2450,7 +2450,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Insights/Components/CurrentBillingFeatures/Write | Écrit les fonctionnalités de facturation actuelles pour le composant Application Insights |
 > | Action | Microsoft.Insights/Components/DefaultWorkItemConfig/Read | Lit une configuration d’intégration ALM Application Insights par défaut |
 > | Action | Microsoft.Insights/Components/Delete | Supprime une configuration du composant Application Insights |
-> | Action | Microsoft.Insights/Components/Events/Read | Obtenir les journaux d’Application Insights en utilisant un format de requête OData |
+> | Action | Microsoft.Insights/Components/Events/Read | Obtenir les journaux d’activité d’Application Insights en utilisant un format de requête OData |
 > | Action | Microsoft.Insights/Components/ExportConfiguration/Action | Action de paramètres d’exportation Application Insights |
 > | Action | Microsoft.Insights/Components/ExportConfiguration/Delete | Supprime les paramètres d’exportation Application Insights |
 > | Action | Microsoft.Insights/Components/ExportConfiguration/Read | Lit les paramètres d’exportation Application Insights |
@@ -2476,7 +2476,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Insights/Components/ProactiveDetectionConfigs/Write | Écrit une configuration de détection proactive Application Insights |
 > | Action | Microsoft.Insights/Components/providers/Microsoft.Insights/MetricDefinitions/Read | Lire les définitions des mesures |
 > | Action | Microsoft.Insights/Components/Purge/Action | Vider des données d’Application Insights |
-> | Action | Microsoft.Insights/Components/Query/Read | Exécuter des requêtes sur les journaux d’Application Insights |
+> | Action | Microsoft.Insights/Components/Query/Read | Exécuter des requêtes sur les journaux d’activité d’Application Insights |
 > | Action | Microsoft.Insights/Components/QuotaStatus/Read | Lit l’état de quota du composant Application Insights |
 > | Action | Microsoft.Insights/Components/Read | Lit une configuration du composant Application Insights |
 > | Action | Microsoft.Insights/Components/SyntheticMonitorLocations/Read | Lit les emplacements de test web Application Insights |
@@ -2597,7 +2597,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Insights/Logs/OutboundConnection/Read | Lire les données de la table OutboundConnection |
 > | Action | Microsoft.Insights/Logs/Perf/Read | Lire les données de la table Perf |
 > | Action | Microsoft.Insights/Logs/ProtectionStatus/Read | Lire les données de la table ProtectionStatus |
-> | Action | Microsoft.Insights/Logs/Read | Lire les données de tous vos journaux |
+> | Action | Microsoft.Insights/Logs/Read | Lire les données de tous vos journaux d’activité |
 > | Action | Microsoft.Insights/Logs/ReservedAzureCommonFields/Read | Lire les données de la table ReservedAzureCommonFields |
 > | Action | Microsoft.Insights/Logs/ReservedCommonFields/Read | Lire les données de la table ReservedCommonFields |
 > | Action | Microsoft.Insights/Logs/SCCMAssessmentRecommendation/Read | Lire les données de la table SCCMAssessmentRecommendation |
@@ -2963,7 +2963,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | Lire les données de la table OutboundConnection |
 > | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Lire les données de la table Perf |
 > | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | Lire les données de la table ProtectionStatus |
-> | Action | Microsoft.LogAnalytics/logs/read | Lire les données de tous vos journaux |
+> | Action | Microsoft.LogAnalytics/logs/read | Lire les données de tous vos journaux d’activité |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | Lire les données de la table ReservedAzureCommonFields |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | Lire les données de la table ReservedCommonFields |
 > | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | Lire les données de la table SCCMAssessmentRecommendation |
@@ -4636,7 +4636,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ServiceBus/namespaces/operationresults/read | Obtient l’état de l’opération d’espace de noms |
 > | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
 > | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
-> | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/logDefinitions/read | Obtenir la liste des descriptions des ressources des journaux Namespace. |
+> | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/logDefinitions/read | Obtenir la liste des descriptions des ressources des journaux d’activité Namespace |
 > | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Obtenir la liste des descriptions des mesures de ressource Namespace. |
 > | Action | Microsoft.ServiceBus/namespaces/queues/authorizationRules/action | Met à jour la file d’attente. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. Règles d’autorisation. Utilisez un appel PUT pour mettre à jour la règle d’autorisation. |
 > | Action | Microsoft.ServiceBus/namespaces/queues/authorizationRules/delete | Opération de suppression des règles d’autorisation de file d’attente. |
@@ -4818,7 +4818,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Sql/managedInstances/databases/delete | Supprime une base de données managée existante |
 > | Action | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
-> | Action | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux disponibles pour les bases de données d’une instance gérée |
+> | Action | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux d’activité disponibles pour les bases de données d’une instance gérée |
 > | Action | Microsoft.Sql/managedInstances/databases/read | Obtient une base de données managée existante |
 > | Action | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Affiche les étiquettes de sensibilité d’une base de données spécifiée |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/read | Obtenir un schéma de base de données managés. |
@@ -4855,7 +4855,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Sql/managedInstances/metrics/read | Obtient les métriques de l’instance gérée |
 > | Action | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
-> | Action | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux disponibles pour les instances gérées |
+> | Action | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux d’activité disponibles pour les instances gérées |
 > | Action | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/metricDefinitions/read | Retourne les types de métriques disponibles pour les instances gérées |
 > | Action | Microsoft.Sql/managedInstances/read | Retourne la liste des instances gérées ou obtient les propriétés de l’instance gérée spécifiée. |
 > | Action | Microsoft.Sql/managedInstances/recoverableDatabases/read | Retourne une liste de bases de données managées récupérables |
@@ -4940,7 +4940,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Sql/servers/databases/pause/action | Suspend la base de données de l’entrepôt de données Azure SQL |
 > | Action | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
-> | Action | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux disponibles pour les bases de données |
+> | Action | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux d’activité disponibles pour les bases de données |
 > | Action | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/metricDefinitions/read | Renvoie les types de mesures disponibles pour les bases de données |
 > | Action | Microsoft.Sql/servers/databases/queryStore/queryTexts/read | Retourne la collection de textes de requêtes qui correspondent aux paramètres spécifiés. |
 > | Action | Microsoft.Sql/servers/databases/queryStore/read | Retourne les valeurs actuelles des paramètres du magasin des requêtes pour la base de données. |
@@ -4976,7 +4976,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Sql/servers/databases/syncGroups/cancelSync/action | Annule la synchronisation du groupe de synchronisation |
 > | Action | Microsoft.Sql/servers/databases/syncGroups/delete | Supprime un groupe de synchronisation existant. |
 > | Action | Microsoft.Sql/servers/databases/syncGroups/hubSchemas/read | Retourne la liste des schémas de base de données du hub de synchronisation |
-> | Action | Microsoft.Sql/servers/databases/syncGroups/logs/read | Retourne la liste des journaux du groupe de synchronisation |
+> | Action | Microsoft.Sql/servers/databases/syncGroups/logs/read | Retourne la liste des journaux d’activité du groupe de synchronisation |
 > | Action | Microsoft.Sql/servers/databases/syncGroups/read | Retourne la liste des groupes de synchronisation ou obtient les propriétés du groupe de synchronisation spécifié. |
 > | Action | Microsoft.Sql/servers/databases/syncGroups/refreshHubSchema/action | Actualise le schéma de base de données du hub de synchronisation |
 > | Action | Microsoft.Sql/servers/databases/syncGroups/refreshHubSchemaOperationResults/read | Récupère le résultat de l’opération d’actualisation du schéma du hub de synchronisation |
@@ -5304,7 +5304,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.StorSimple/managers/devices/networkSettings/write | Crée ou met à jour les paramètres réseau. |
 > | Action | Microsoft.StorSimple/managers/devices/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/publicEncryptionKey/action | Répertorie les clés de chiffrement publiques d’un gestionnaire d’appareils. |
-> | Action | Microsoft.StorSimple/managers/devices/publishSupportPackage/action | Publier le package de support pour un appareil existant. Un package de support StorSimple est un mécanisme facile à utiliser qui collecte tous les journaux appropriés afin d’aider le support Microsoft à résoudre tout problème lié à votre appareil StorSimple. |
+> | Action | Microsoft.StorSimple/managers/devices/publishSupportPackage/action | Publier le package de support pour un appareil existant. Un package de support StorSimple est un mécanisme facile à utiliser qui collecte tous les journaux d’activité appropriés afin d’aider le support Microsoft à résoudre tout problème lié à votre appareil StorSimple. |
 > | Action | Microsoft.StorSimple/managers/devices/read | Répertorie ou récupère les appareils. |
 > | Action | Microsoft.StorSimple/managers/devices/scanForUpdates/action | Recherche des mises à jour sur un appareil. |
 > | Action | Microsoft.StorSimple/managers/devices/securitySettings/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
@@ -5399,7 +5399,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.StreamAnalytics/streamingjobs/outputs/Write | Écrit une sortie de tâche Stream Analytics. |
 > | Action | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/read | Lit le paramètre de diagnostic. |
 > | Action | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/write | Écrit un paramètre de diagnostic. |
-> | Action | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/logDefinitions/read | Récupère les journaux disponibles pour les tâches de diffusion de contenu. |
+> | Action | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/logDefinitions/read | Récupère les journaux d’activité disponibles pour les tâches de diffusion de contenu. |
 > | Action | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/metricDefinitions/read | Récupère les mesures disponibles pour les tâches de diffusion de contenu. |
 > | Action | Microsoft.StreamAnalytics/streamingjobs/Read | Lit une tâche Stream Analytics. |
 > | Action | Microsoft.StreamAnalytics/streamingjobs/Start/action | Démarre une tâche Stream Analytics. |
@@ -5611,8 +5611,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Web/sites/config/Read | Récupère les paramètres de configuration des applications web. |
 > | Action | microsoft.web/sites/config/snapshots/read | Obtient les captures instantanées de la configuration Web Apps. |
 > | Action | Microsoft.Web/sites/config/Write | Met à jour les paramètres de configuration d’application web. |
-> | Action | Microsoft.Web/sites/containerlogs/action | Obtenir des journaux compressés de conteneur pour une application web |
-> | Action | microsoft.web/sites/containerlogs/download/action | Télécharger les journaux de conteneur Web Apps. |
+> | Action | Microsoft.Web/sites/containerlogs/action | Obtenir des journaux d’activité compressés de conteneur pour une application web |
+> | Action | microsoft.web/sites/containerlogs/download/action | Télécharger les journaux d’activité de conteneur Web Apps. |
 > | Action | microsoft.web/sites/continuouswebjobs/delete | Supprime des tâches web continues Web Apps. |
 > | Action | microsoft.web/sites/continuouswebjobs/read | Récupère des tâches web continues Web Apps. |
 > | Action | microsoft.web/sites/continuouswebjobs/start/action | Démarre des tâches web continues Web Apps. |
@@ -5739,8 +5739,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Web/sites/slots/config/list/Action | Répertorie les paramètres sensibles de sécurité de l’emplacement d’application web, tels que les informations d’identification de publication, les paramètres d’application et les chaînes de connexion. |
 > | Action | Microsoft.Web/sites/slots/config/Read | Récupère les paramètres de configuration de l’emplacement d’application web. |
 > | Action | Microsoft.Web/sites/slots/config/Write | Met à jour les paramètres de configuration de l’emplacement d’application web. |
-> | Action | microsoft.web/sites/slots/containerlogs/action | Obtient des journaux compressés de conteneur pour un emplacement Web Apps. |
-> | Action | microsoft.web/sites/slots/containerlogs/download/action | Télécharger les journaux de conteneur des emplacements Web Apps. |
+> | Action | microsoft.web/sites/slots/containerlogs/action | Obtient des journaux d’activité compressés de conteneur pour un emplacement Web Apps. |
+> | Action | microsoft.web/sites/slots/containerlogs/download/action | Télécharger les journaux d’activité de conteneur des emplacements Web Apps. |
 > | Action | microsoft.web/sites/slots/continuouswebjobs/delete | Supprime des tâches web continues dans les emplacements Web Apps. |
 > | Action | microsoft.web/sites/slots/continuouswebjobs/read | Récupère des tâches web continues dans les emplacements Web Apps. |
 > | Action | microsoft.web/sites/slots/continuouswebjobs/start/action | Démarre des tâches web continues dans les emplacements Web Apps. |

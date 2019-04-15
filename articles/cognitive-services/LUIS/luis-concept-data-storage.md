@@ -40,7 +40,7 @@ Supprimer des exemples d’énoncés utilisés pour l’apprentissage de [LUIS](
 
 ### <a name="delete-utterances-in-review-from-active-learning"></a>Supprimer des énoncés dans la révision d’apprentissage actif
 
-Vous pouvez supprimer des énoncés de la liste des énoncés d’utilisateurs que LUIS suggère dans la page **[Réviser les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md)**. La suppression d’énoncés de cette liste a pour effet d’empêcher leur suggestion, mais pas de les supprimer des journaux.
+Vous pouvez supprimer des énoncés de la liste des énoncés d’utilisateurs que LUIS suggère dans la page **[Réviser les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md)**. La suppression d’énoncés de cette liste a pour effet d’empêcher leur suggestion, mais pas de les supprimer des journaux d’activité.
 
 Si vous ne souhaitez pas énoncés d’apprentissage actif, vous pouvez [désactiver apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). La désactivation d’apprentissage actif désactive également la journalisation.
 
@@ -51,7 +51,7 @@ Si vous ne souhaitez pas énoncés d’apprentissage actif, vous pouvez [désact
 <a name="accounts"></a>
 
 ## <a name="delete-an-account"></a>Supprimer un compte
-Si vous supprimez un compte, toutes les applications sont supprimées, ainsi que leurs exemples d’énoncés et journaux. Les données sont conservées pendant 60 jours avant que le compte et les données ne soient définitivement supprimés.
+Si vous supprimez un compte, toutes les applications sont supprimées, ainsi que leurs exemples d’énoncés et journaux d’activité. Les données sont conservées pendant 60 jours avant que le compte et les données ne soient définitivement supprimés.
 
 La suppression d’un compte est possible à partir de la page **Paramètres**. Sélectionnez le nom de votre compte en haut à droite dans la barre de navigation supérieure pour accéder à la page **Paramètres**.
 

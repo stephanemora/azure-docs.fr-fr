@@ -228,7 +228,7 @@ R.  Une fois la copie des données vers Azure terminée, les données des disque
 ## <a name="audit-report"></a>Rapport d’audit
 
 ### <a name="how-does-azure-data-box-service-help-support-customers-chain-of-custody-procedure"></a>Comment le service Azure Data Box peut-il m’aider à prendre en charge la chaîne de responsabilité des clients ?
-R.  En mode natif, le service Azure Data Box fournit des rapports que vous pouvez utiliser pour documenter votre chaîne de responsabilité. Les journaux d’audit et de copie sont disponibles dans votre compte de stockage dans Azure, et vous pouvez [télécharger l’historique des commandes](data-box-portal-admin.md#download-order-history) dans le portail Azure, une fois la commande terminée.
+R.  En mode natif, le service Azure Data Box fournit des rapports que vous pouvez utiliser pour documenter votre chaîne de responsabilité. Les journaux d’activité d’audit et de copie sont disponibles dans votre compte de stockage dans Azure, et vous pouvez [télécharger l’historique des commandes](data-box-portal-admin.md#download-order-history) dans le portail Azure, une fois la commande terminée.
 
 
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Quels sont les types de rapports disponibles pour prendre en charge la chaîne de responsabilité ?
@@ -240,8 +240,8 @@ R.  Les rapports suivants sont disponibles pour prendre en charge la chaîne de 
 - Création de rapports sur les fichiers qui n’ont pas pu être téléchargés vers le compte Stockage Azure.
 - Nettoyage de l’appareil Data Box (conformément aux normes NIST 800 88R1), une fois les données copiées sur votre compte Stockage Azure.
 
-### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>Les journaux de suivi du transporteur (UPS) sont-ils disponibles ? 
-R.  Les journaux de suivi du transporteur sont consignés dans l’historique des commandes Data Box. Ce rapport est à votre disposition une fois que l’appareil a été retourné au centre de données Azure et que les données stockées sur les disques de l’appareil ont été nettoyées. Pour vos besoins immédiats, vous pouvez également accéder directement au site Web du transporteur et y saisir le numéro de suivi de la commande pour obtenir les informations de suivi.
+### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>Les journaux d’activité de suivi du transporteur (UPS) sont-ils disponibles ? 
+R.  Les journaux d’activité de suivi du transporteur sont consignés dans l’historique des commandes Data Box. Ce rapport est à votre disposition une fois que l’appareil a été retourné au centre de données Azure et que les données stockées sur les disques de l’appareil ont été nettoyées. Pour vos besoins immédiats, vous pouvez également accéder directement au site Web du transporteur et y saisir le numéro de suivi de la commande pour obtenir les informations de suivi.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Puis-je apporter la Data Box au centre de données Azure ? 
 R.   Non. Actuellement, le centre de données Azure n’accepte pas la remise des Data Box des clients ou de transporteurs autres que UPS.

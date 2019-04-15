@@ -17,7 +17,7 @@ ms.date: 03/30/2018
 ms.author: roiyz
 ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
 ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/06/2018
 ms.locfileid: "51036989"
@@ -302,7 +302,7 @@ La sortie de l’exemple suivant indique que la propriété *autoUpgradeMinorVer
 
 #### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Identification du moment d’exécution d’une mise à jour de type autoUpgradeMinorVersion
 
-Pour déterminer le moment où une extension a fait l’objet d’une mise à jour, consultez les journaux de l’agent sur la machine virtuelle à l’emplacement */var/log/waagent.log*.
+Pour déterminer le moment où une extension a fait l’objet d’une mise à jour, consultez les journaux d’activité de l’agent sur la machine virtuelle à l’emplacement */var/log/waagent.log*.
 
 Dans l’exemple ci-dessous, *Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9025* était installé sur la machine virtuelle. Un correctif logiciel est disponible pour *Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027* :
 
@@ -337,11 +337,11 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 1. Pour consulter le journal de l’agent Linux, examinez l’activité au moment où votre extension a été provisionnée dans */var/log/waagent.log*
 
-2. Pour plus de détails, vérifiez les journaux d’extension proprement dits, à l’emplacement */var/log/azure/<extensionName>*
+2. Pour plus de détails, vérifiez les journaux d’activité d’extension proprement dits, à l’emplacement */var/log/azure/<extensionName>*
 
 3. Consultez les sections de résolution des problèmes dans la documentation de l’extension concernée pour vous renseigner sur les codes d’erreur, les problèmes connus, etc.
 
-3. Examinez les journaux système. Vérifiez si d’autres opérations sont susceptibles d’avoir interféré avec l’extension, par exemple une longue installation d’une autre application nécessitant un accès exclusif au gestionnaire de package.
+3. Examinez les journaux d’activité système. Vérifiez si d’autres opérations sont susceptibles d’avoir interféré avec l’extension, par exemple une longue installation d’une autre application nécessitant un accès exclusif au gestionnaire de package.
 
 ### <a name="common-reasons-for-extension-failures"></a>Motifs courants des échecs d’extension
 

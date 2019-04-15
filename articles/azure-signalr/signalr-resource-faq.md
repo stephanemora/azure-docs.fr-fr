@@ -35,7 +35,7 @@ Découvrez-en plus sur l’[API REST](./signalr-quickstart-rest-api.md).
 Si vous avez des serveurs d’applications, ce message d’erreur signifie qu’aucun serveur d’applications n’est connecté à votre instance SignalR Service.
 
 Les causes possibles sont les suivantes :
-- Aucun serveur d’applications n’est connecté à SignalR Service. Consultez les journaux des serveurs d’applications à la recherche d’éventuelles erreurs de connexion. Ce cas est rare dans le paramètre de haute disponibilité avec plusieurs serveurs d’applications.
+- Aucun serveur d’applications n’est connecté à SignalR Service. Consultez les journaux d’activité des serveurs d’applications à la recherche d’éventuelles erreurs de connexion. Ce cas est rare dans le paramètre de haute disponibilité avec plusieurs serveurs d’applications.
 - Les instances de SignalR Service présentent des problèmes de connectivité. Ce problème est temporaire et fait l’objet d’une récupération automatique.
 S’il persiste pendant plus d’une heure, [ouvrez un problème sur GitHub](https://github.com/Azure/azure-signalr/issues/new) ou [créez une demande de support dans Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 

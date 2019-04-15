@@ -63,11 +63,11 @@ Avec [intégration d’Application Insights](#enable-application-insights-integr
 
 1. Sélectionnez **Actualiser** périodiquement, jusqu'à ce que la liste d’appels de fonction s’affiche.
 
-   Il peut prendre jusqu'à cinq minutes pour la liste s’affiche alors que le client de télémétrie regroupe les données pour la transmission au serveur. (Le délai ne s’applique pas à la [Live Metrics Stream](../azure-monitor/app/live-stream.md). Le service se connecte à l’hôte Functions lorsque vous chargez la page, de sorte que les journaux sont transmis directement sur la page.)
+   Il peut prendre jusqu'à cinq minutes pour la liste s’affiche alors que le client de télémétrie regroupe les données pour la transmission au serveur. (Le délai ne s’applique pas à la [Live Metrics Stream](../azure-monitor/app/live-stream.md). Le service se connecte à l’hôte Functions lorsque vous chargez la page, de sorte que les journaux d’activité sont transmis directement sur la page.)
 
    ![Liste d’appels](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
-1. Pour afficher les journaux liés à un appel de fonction spécifique, sélectionnez le lien de la colonne **Date** correspondant à cet appel.
+1. Pour afficher les journaux d’activité liés à un appel de fonction spécifique, sélectionnez le lien de la colonne **Date** correspondant à cet appel.
 
    ![Lien des détails d’appel](media/functions-monitoring/invocation-details-link-ai.png)
 
@@ -213,9 +213,9 @@ Le runtime v2.x utilise la [hiérarchie des filtres de journalisation .NET Core]
 
 Cet exemple montre comment configurer les règles suivantes :
 
-* Pour les journaux ayant la catégorie `Host.Results` ou `Function`, envoyer uniquement `Error` niveau et versions ultérieures à Application Insights. Les journaux pour les niveaux `Warning` et inférieurs sont ignorés.
-* En ce qui concerne les journaux de la catégorie `Host.Aggregator`, envoyer tous les journaux à Application Insights. Le niveau du journal `Trace` est identique à ce que certains enregistreurs d’événements appellent `Verbose`, mais utilisez `Trace` dans le fichier [host.json].
-* Pour tous les autres journaux, envoyer uniquement les niveaux `Information` et supérieurs à Application Insights.
+* Pour les journaux ayant la catégorie `Host.Results` ou `Function`, envoyer uniquement `Error` niveau et versions ultérieures à Application Insights. Les journaux d’activité pour les niveaux `Warning` et inférieurs sont ignorés.
+* En ce qui concerne les journaux d’activité de la catégorie `Host.Aggregator`, envoyer tous les journaux d’activité à Application Insights. Le niveau du journal `Trace` est identique à ce que certains enregistreurs d’événements appellent `Verbose`, mais utilisez `Trace` dans le fichier [host.json].
+* Pour tous les autres journaux d’activité, envoyer uniquement les niveaux `Information` et supérieurs à Application Insights.
 
 La valeur de catégorie dans [host.json] contrôle la journalisation de toutes les catégories qui commencent par la même valeur. `Host` dans [host.json] journalisation pour les contrôles `Host.General`, `Host.Executor`, `Host.Results`, et ainsi de suite.
 
@@ -254,13 +254,13 @@ Si [host.json] inclut plusieurs catégories qui commencent par la même chaîne,
 }
 ```
 
-Pour supprimer tous les journaux relatifs à une catégorie, vous pouvez utiliser le niveau de journal `None`. Aucun journal n’est écrites avec cette catégorie, il n’existe aucun niveau de journal au-dessus de lui.
+Pour supprimer tous les journaux d’activité relatifs à une catégorie, vous pouvez utiliser le niveau de journal `None`. Aucun journal n’est écrites avec cette catégorie, il n’existe aucun niveau de journal au-dessus de lui.
 
-Les sections suivantes décrivent les principales catégories de journaux générées par le runtime. 
+Les sections suivantes décrivent les principales catégories de journaux d’activité générées par le runtime. 
 
 ### <a name="category-hostresults"></a>Catégorie Host.Results
 
-Ces journaux apparaissent sous la dénomination « requests » dans Application Insights. Ils indiquent la réussite ou l’échec d’une fonction.
+Ces journaux d’activité apparaissent sous la dénomination « requests » dans Application Insights. Ils indiquent la réussite ou l’échec d’une fonction.
 
 ![Graphique de demandes](media/functions-monitoring/requests-chart.png)
 
@@ -268,9 +268,9 @@ Tous ces journaux sont écrits au `Information` niveau. Si vous filtrez à `Warn
 
 ### <a name="category-hostaggregator"></a>Catégorie Host.Aggregator
 
-Ces journaux fournissent des nombres et des moyennes d’appels de fonction sur une période de temps [configurable](#configure-the-aggregator). La période par défaut est 30 secondes ou 1 000 résultats, selon la première de ces éventualités. 
+Ces journaux d’activité fournissent des nombres et des moyennes d’appels de fonction sur une période de temps [configurable](#configure-the-aggregator). La période par défaut est 30 secondes ou 1 000 résultats, selon la première de ces éventualités. 
 
-Les journaux sont disponibles dans la table **customMetrics** dans Application Insights. Le nombre d’exécutions, taux de réussite et la durée sont des exemples.
+Les journaux d’activité sont disponibles dans la table **customMetrics** dans Application Insights. Le nombre d’exécutions, taux de réussite et la durée sont des exemples.
 
 ![Requête portant sur customMetrics](media/functions-monitoring/custom-metrics-query.png)
 
@@ -278,11 +278,11 @@ Tous ces journaux sont écrits au `Information` niveau. Si vous filtrez à `Warn
 
 ### <a name="other-categories"></a>Autres catégories
 
-Tous les journaux des catégories autres que celles déjà mentionnées apparaissent dans la table **traces** dans Application Insights.
+Tous les journaux d’activité des catégories autres que celles déjà mentionnées apparaissent dans la table **traces** dans Application Insights.
 
 ![Requête portant sur traces](media/functions-monitoring/analytics-traces.png)
 
-Tous les journaux avec les catégories qui commencent par `Host` sont écrits par le runtime Functions. Le « Function started » et les journaux « Function completed » ont la catégorie `Host.Executor`. Pour les exécutions réussies, ces journaux sont `Information` niveau. Exceptions sont journalisées au `Error` niveau. En outre, le runtime crée des journaux de niveau `Warning`, par exemple, les messages de file d’attente envoyés à la file d’attente de messages incohérents.
+Tous les journaux avec les catégories qui commencent par `Host` sont écrits par le runtime Functions. Le « Function started » et les journaux « Function completed » ont la catégorie `Host.Executor`. Pour les exécutions réussies, ces journaux sont `Information` niveau. Exceptions sont journalisées au `Error` niveau. En outre, le runtime crée des journaux d’activité de niveau `Warning`, par exemple, les messages de file d’attente envoyés à la file d’attente de messages incohérents.
 
 Journaux écrits par votre code de fonction ont la catégorie `Function` et peut être n’importe quel niveau de journal.
 
@@ -334,9 +334,9 @@ Application Insights a un [échantillonnage](../azure-monitor/app/sampling.md) f
 > [!NOTE]
 > [L’échantillonnage](../azure-monitor/app/sampling.md) est activé par défaut. Si vous semblez être des données manquantes, vous devrez peut-être ajuster les paramètres d’échantillonnage pour s’ajuster à votre scénario d’analyse spécifique.
 
-## <a name="write-logs-in-c-functions"></a>Écrire des journaux dans des fonctions C#
+## <a name="write-logs-in-c-functions"></a>Écrire des journaux d’activité dans des fonctions C#
 
-Vous pouvez écrire des journaux dans votre code de fonction qui apparaissent sous forme de traces dans Application Insights.
+Vous pouvez écrire des journaux d’activité dans votre code de fonction qui apparaissent sous forme de traces dans Application Insights.
 
 ### <a name="ilogger"></a>ILogger
 
@@ -391,9 +391,9 @@ logger.LogMetric("TestMetric", 1234);
 
 Ce code est une alternative à l’appel `TrackMetric` à l’aide de l’API Application Insights pour .NET.
 
-## <a name="write-logs-in-javascript-functions"></a>Écrire des journaux dans les fonctions JavaScript
+## <a name="write-logs-in-javascript-functions"></a>Écrire des journaux d’activité dans les fonctions JavaScript
 
-Dans les fonctions Node.js, utilisez `context.log` pour écrire des journaux. Journalisation structurée n’est pas activée.
+Dans les fonctions Node.js, utilisez `context.log` pour écrire des journaux d’activité. Journalisation structurée n’est pas activée.
 
 ```
 context.log('JavaScript HTTP trigger function processed a request.' + context.invocationId);
@@ -605,11 +605,11 @@ Vous pouvez écrire du code personnalisé pour afficher les dépendances. Pour o
 
 Pour signaler un problème avec l’intégration d’Application Insights dans Azure Functions, ou pour faire une suggestion ou une demande, [créez un problème dans GitHub](https://github.com/Azure/Azure-Functions/issues/new).
 
-## <a name="streaming-logs"></a>Journaux en continu
+## <a name="streaming-logs"></a>Journaux d’activité en continu
 
 Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi réel. Vous pouvez afficher un flux de fichiers journaux générés par vos fonctions dans le portail Azure ou dans une session de ligne de commande sur votre ordinateur local.
 
-Cela équivaut à la sortie vue lorsque vous déboguez vos fonctions au cours de [développement local](functions-develop-local.md). Pour plus d’informations, consultez [Diffusion en continu des journaux](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
+Cela équivaut à la sortie vue lorsque vous déboguez vos fonctions au cours de [développement local](functions-develop-local.md). Pour plus d’informations, consultez [Diffusion en continu des journaux d’activité](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
 > [!NOTE]
 > Diffusion en continu des journaux prennent en charge qu’une seule instance de l’hôte Functions. Lorsque votre fonction est mis à l’échelle à plusieurs instances, les données à partir d’autres instances ne sont pas affichées dans le flux du journal. Le [Live Metrics Stream](../azure-monitor/app/live-stream.md) dans Application Insights pris en charge plusieurs instances. Également dans quasiment en temps réel, analytique de diffusion en continu est également basés sur [données échantillonnées](#configure-sampling).

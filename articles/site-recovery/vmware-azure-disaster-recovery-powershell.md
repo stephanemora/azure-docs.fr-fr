@@ -319,7 +319,7 @@ Errors           : {}
 À cette étape, les comptes de stockage à utiliser pour la réplication sont créés. Ces comptes de stockage sont utilisés ultérieurement pour répliquer les machines virtuelles. Assurez-vous que les comptes de stockage sont créés dans la même région Azure que le coffre. Vous pouvez ignorer cette étape si vous envisagez d’utiliser un compte de stockage existant pour la réplication.
 
 > [!NOTE]
-> Lors de la réplication de machines virtuelles locales vers un compte de stockage Premium, vous devez spécifier un compte de stockage standard supplémentaire (compte de stockage de journal). Le compte de stockage de journal conserve des journaux de réplication en tant que stockage intermédiaire jusqu’à ce que les journaux puissent être appliqués à la cible de stockage Premium.
+> Lors de la réplication de machines virtuelles locales vers un compte de stockage Premium, vous devez spécifier un compte de stockage standard supplémentaire (compte de stockage de journal). Le compte de stockage de journal  conserve des journaux d’activité de réplication en tant que stockage intermédiaire jusqu’à ce que les journaux d’activité puissent être appliqués à la cible de stockage Premium.
 >
 
 ```azurepowershell

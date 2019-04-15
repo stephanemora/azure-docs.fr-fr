@@ -65,7 +65,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Azure Database pour PostgreSQL
 * Azure DevOps : les organisations Azure DevOps ayant acheté des extensions non-Microsoft doivent [annuler leurs achats](https://go.microsoft.com/fwlink/?linkid=871160) avant de pouvoir déplacer le compte entre des abonnements.
 * Azure Maps
-* Journaux Azure Monitor
+* Journaux d’activité Azure Monitor
 * Azure Relay
 * Azure Stack - Inscriptions
 * Batch

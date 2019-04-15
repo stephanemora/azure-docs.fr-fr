@@ -96,7 +96,7 @@ Get-AzLog -MaxEvents 1000
 > 
 
 ## <a name="retrieve-alerts-history"></a>Récupérer l'historique des alertes
-Pour afficher tous les événements d'alerte, vous pouvez interroger les journaux Azure Resource Manager en utilisant les exemples suivants.
+Pour afficher tous les événements d’alerte, vous pouvez interroger les journaux d’activité Azure Resource Manager en utilisant les exemples suivants.
 
 ```powershell
 Get-AzLog -Caller "Microsoft.Insights/alertRules" -DetailedOutput -StartTime 2015-03-01
@@ -330,7 +330,7 @@ Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/res
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Configuration des journaux de diagnostic
-De nombreux services Azure fournissent des journaux et données de télémétrie supplémentaires qui peuvent être : 
+De nombreux services Azure fournissent des journaux d’activité et données de télémétrie supplémentaires qui peuvent être : 
  - configurés pour enregistrer les données dans votre compte de stockage Azure ;
  - envoyés à Event Hubs ;
  - envoyés à l’espace de travail Log Analytics. 

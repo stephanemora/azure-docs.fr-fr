@@ -13,7 +13,7 @@ ms.date: 10/28/2018
 ms.author: glenga
 ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53608577"
@@ -123,7 +123,7 @@ Vous devez ajouter le package NuGet qui contient la bibliothèque SqlClient. Cet
 
 1. 15 secondes après le démarrage, la fonction s’exécute. Regardez la sortie afin de noter le nombre de lignes mises à jour dans la table **SalesOrderHeader**.
 
-    ![Consultez les journaux des fonctions.](./media/functions-scenario-database-table-cleanup/function-execution-results-log.png)
+    ![Consultez les journaux d’activité des fonctions.](./media/functions-scenario-database-table-cleanup/function-execution-results-log.png)
 
     À la première exécution, vous devez mettre à jour 32 lignes de données. Les exécutions suivantes ne mettent à jour aucune ligne de données, sauf si vous apportez aux données de la table SalesOrderHeader des modifications qui entraînent la sélection de lignes supplémentaires par l’instruction `UPDATE`.
 

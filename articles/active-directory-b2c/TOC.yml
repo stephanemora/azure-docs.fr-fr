@@ -99,7 +99,7 @@ items:
     href: active-directory-b2c-reference-mfa.md
   - name: Identity Experience Framework (Infrastructure d’expérience d’identité)
     items:
-    - name: Collecter les journaux à l’aide d’Application Insights
+    - name: Collecter les journaux d’activité à l’aide d’Application Insights
       href: active-directory-b2c-troubleshoot-custom.md
     - name: Configurer ROPC
       href: ropc-custom.md

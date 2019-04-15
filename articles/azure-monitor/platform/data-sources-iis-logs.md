@@ -1,6 +1,6 @@
 ---
-title: Journaux IIS dans Azure Monitor | Microsoft Docs
-description: Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor.  Cet article décrit comment configurer la collecte des journaux IIS et des détails des enregistrements qu'ils créent dans Azure Monitor.
+title: Journaux d’activité IIS dans Azure Monitor | Microsoft Docs
+description: Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor.  Cet article décrit comment configurer la collecte des journaux d’activité IIS et des détails des enregistrements qu’ils créent dans Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -20,17 +20,17 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/02/2019
 ms.locfileid: "58850612"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Collecter des journaux IIS dans Azure Monitor
+# <a name="collect-iis-logs-in-azure-monitor"></a>Collecter des journaux d’activité IIS dans Azure Monitor
 Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor et stockés en tant que [données de journal](data-platform.md).
 
-![Journaux IIS](media/data-sources-iis-logs/overview.png)
+![Journaux d’activité IIS](media/data-sources-iis-logs/overview.png)
 
-## <a name="configuring-iis-logs"></a>Configuration de journaux IIS
+## <a name="configuring-iis-logs"></a>Configuration de journaux d’activité IIS
 Azure Monitor regroupe des entrées des fichiers journaux créés par IIS. Vous devez donc [configurer IIS pour la journalisation](https://technet.microsoft.com/library/hh831775.aspx).
 
-Azure Monitor prend en charge uniquement les fichiers journaux IIS stockés au format W3C, et ne prend pas en charge les champs personnalisés ou IIS Advanced Logging. Il ne collecte pas les journaux au format natif NCSA ou IIS.
+Azure Monitor prend en charge uniquement les fichiers journaux IIS stockés au format W3C, et ne prend pas en charge les champs personnalisés ou IIS Advanced Logging. Il ne collecte pas les journaux d’activité au format natif NCSA ou IIS.
 
-Configurez les journaux IIS dans Azure Monitor à partir du [menu des paramètres avancés](agent-data-sources.md#configuring-data-sources).  Aucune configuration n’est requise autre que la sélection de l’option **Collecter les fichiers journaux IIS au format W3C**.
+Configurez les journaux d’activité IIS dans Azure Monitor à partir du [menu des paramètres avancés](agent-data-sources.md#configuring-data-sources).  Aucune configuration n’est requise autre que la sélection de l’option **Collecter les fichiers journaux IIS au format W3C**.
 
 
 ## <a name="data-collection"></a>Collecte des données
@@ -64,7 +64,7 @@ Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriét
 | TimeGenerated |Date et heure de consignation de l'entrée. |
 | TimeTaken |Délai de traitement de la requête en millisecondes. |
 
-## <a name="log-queries-with-iis-logs"></a>Enregistrer des requêtes avec les journaux IIS
+## <a name="log-queries-with-iis-logs"></a>Enregistrer des requêtes avec les journaux d’activité IIS
 Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extraient des enregistrements de journaux IIS.
 
 | Requête | Description |

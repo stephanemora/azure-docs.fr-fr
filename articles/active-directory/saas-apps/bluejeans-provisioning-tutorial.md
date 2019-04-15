@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d8fedb372fb245b7bc35cb440bd758336ab2a68
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057623"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258757"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Didacticiel : Configurer BlueJeans pour le provisionnement automatique d’utilisateurs
 
@@ -142,7 +142,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et suivre les liens vers les rapports d’activité d’attribution d’utilisateurs, qui décrivent toutes les actions effectuées par le service d’attribution d’utilisateurs Azure AD dans BlueJeans.
 
-Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
+Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 

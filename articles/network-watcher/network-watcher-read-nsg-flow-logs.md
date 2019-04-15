@@ -24,7 +24,7 @@ ms.locfileid: "59050581"
 
 Découvrez comment lire les entrées de journaux de flux de groupe de sécurité réseau avec PowerShell.
 
-Les journaux de flux de groupe de sécurité réseau sont stockés dans un compte de stockage dans de [objets blob de bloc](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Les objets blob de blocs sont composés de blocs plus petits. Chaque journal est un objet blob de blocs séparé généré toutes les heures. Les nouveaux journaux sont créés toutes les heures, les journaux sont mis à jour avec les nouvelles entrées toutes les quelques minutes avec les dernières données. Dans cet article vous allez apprendre à lire une partie des journaux de flux.
+Les journaux de flux de groupe de sécurité réseau sont stockés dans un compte de stockage dans de [objets blob de bloc](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Les objets blob de blocs sont composés de blocs plus petits. Chaque journal est un objet blob de blocs séparé généré toutes les heures. Les nouveaux journaux d’activité sont créés toutes les heures, les journaux d’activité sont mis à jour avec les nouvelles entrées toutes les quelques minutes avec les dernières données. Dans cet article vous allez apprendre à lire une partie des journaux de flux.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

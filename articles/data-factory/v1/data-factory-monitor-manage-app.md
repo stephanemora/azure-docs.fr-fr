@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54025417"
@@ -255,7 +255,7 @@ Actuellement, trois vues système sont prises en charge. Sélectionnez une opti
 
 Quand vous sélectionnez l’option **Fenêtres d’activité récentes**, toutes les fenêtres d’activité récentes s’affichent dans l’ordre décroissant en fonction de **l’heure de la dernière tentative**.
 
-Vous pouvez utiliser la vue **Fenêtres d’activité ayant échoué** pour afficher toutes les fenêtres d’activité de la liste qui ont échoué. Dans la liste, sélectionnez une fenêtre d’activité ayant échoué pour afficher les détails la concernant dans la fenêtre **Propriétés** ou dans **l’Explorateur de fenêtres d’activité**. Vous pouvez également télécharger tous les journaux d’une fenêtre d’activité ayant échoué.
+Vous pouvez utiliser la vue **Fenêtres d’activité ayant échoué** pour afficher toutes les fenêtres d’activité de la liste qui ont échoué. Dans la liste, sélectionnez une fenêtre d’activité ayant échoué pour afficher les détails la concernant dans la fenêtre **Propriétés** ou dans **l’Explorateur de fenêtres d’activité**. Vous pouvez également télécharger tous les journaux d’activité d’une fenêtre d’activité ayant échoué.
 
 ## <a name="sort-and-filter-activity-windows"></a>Trier et filtrer les fenêtres d’activité
 Pour filtrer les fenêtres d’activité, modifiez les paramètres **d’heure de début** et **d’heure de fin** dans la barre de commandes. Après avoir modifié les heures de début et de fin, cliquez sur le bouton en regard de l’heure de fin pour actualiser la liste des fenêtres d’activité.

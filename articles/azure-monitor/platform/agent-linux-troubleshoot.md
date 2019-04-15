@@ -214,7 +214,7 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
 * Le nombre de messages transmis par seconde est trop élevé pour être géré avec la configuration de base de l’agent Log Analytics pour Linux.
 
 ### <a name="resolution"></a>Résolution :
-* Vérifiez que la configuration de l’espace de travail Log Analytics pour Syslog possède toutes les fonctionnalités nécessaires et les niveaux du journal corrects. Consultez [Configurer la collecte Syslog dans le portail Azure](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal).
+* Vérifiez que la configuration de l’espace de travail Log Analytics pour Syslog possède toutes les fonctionnalités nécessaires et les niveaux corrects du journal d’activité. Consultez [Configurer la collecte Syslog dans le portail Azure](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal).
 * Vérifiez que les démons de messagerie Syslog natifs (`rsyslog`, `syslog-ng`) peuvent recevoir les messages transférés
 * Vérifiez les paramètres de pare-feu sur le serveur Syslog pour vous assurer que les messages ne sont pas bloqués.
 * Simulez un message Syslog pour Log Analytics à l’aide de la commande `logger`.

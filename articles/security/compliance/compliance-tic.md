@@ -10,7 +10,7 @@ ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
 ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/18/2019
 ms.locfileid: "56341712"
@@ -116,7 +116,7 @@ Azure Network Watcher offre plusieurs outils pour l’audit de la conformité au
 
 ##### <a name="capture-network-security-group-flow-logs"></a>Capturer les journaux de flux de groupe de sécurité réseau 
 
-Utilisez Network Watcher pour capturer les journaux de flux réseau qui indiquent les métadonnées entourant le trafic IP. Les journaux de flux réseau contiennent les adresses sources et de destination des cibles, ainsi que d’autres données. Vous pouvez utiliser ces données avec les journaux de la passerelle de réseau virtuel, des périphériques de périmètre locaux ou le TIC pour surveiller tous les itinéraires de trafic locaux. 
+Utilisez Network Watcher pour capturer les journaux de flux réseau qui indiquent les métadonnées entourant le trafic IP. Les journaux de flux réseau contiennent les adresses sources et de destination des cibles, ainsi que d’autres données. Vous pouvez utiliser ces données avec les journaux d’activité de la passerelle de réseau virtuel, des périphériques de périmètre locaux ou le TIC pour surveiller tous les itinéraires de trafic locaux. 
 
 ## <a name="azure-platform-as-a-service-offerings"></a>Offres Azure PaaS
 
@@ -223,7 +223,7 @@ Les exemples de stratégies suivants peuvent être utiles pour des scénarios de
 
 ### <a name="network-watcher-traffic-analytics"></a>Analyse du trafic par Network Watcher
 
-L’[analyse du trafic](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) par Network Watcher utilise des données de journal de flux et d’autres journaux pour fournir une vue d’ensemble du trafic réseau. Ces données sont utiles pour l’audit de conformité TIC et pour identifier des points problématiques. Vous pouvez utiliser le tableau de bord de haut niveau pour filtrer rapidement les machines virtuelles qui communiquent avec Internet et obtenir une liste ciblée pour le routage TIC.
+L’[analyse du trafic](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) par Network Watcher utilise des données de journal de flux et d’autres journaux d’activité pour fournir une vue d’ensemble du trafic réseau. Ces données sont utiles pour l’audit de conformité TIC et pour identifier des points problématiques. Vous pouvez utiliser le tableau de bord de haut niveau pour filtrer rapidement les machines virtuelles qui communiquent avec Internet et obtenir une liste ciblée pour le routage TIC.
 
 ![Traffic Analytics](media/tic-traffic-analytics-1.png)
 

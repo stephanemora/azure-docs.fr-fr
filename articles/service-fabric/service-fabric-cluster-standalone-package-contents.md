@@ -36,7 +36,7 @@ Dans le package autonome Service Fabric [téléchargé](https://go.microsoft.com
 | EULA_ENU.txt |Les termes du contrat de licence pour l’utilisation du package Windows Server autonome Microsoft Azure Service Fabric. Vous pouvez [télécharger une copie du CLUF](https://go.microsoft.com/fwlink/?LinkID=733084) maintenant. |
 | Readme.txt |Un lien vers les notes de publication et des instructions d’installation de base. Il s’agit d’une partie des instructions figurant dans ce document. |
 | ThirdPartyNotice.rtf |Informations sur le logiciel tiers du package. |
-| Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe, qui est exécuté à la demande pour collecter et envoyer les journaux de suivi à Microsoft à des fins de support. |
+| Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe, qui est exécuté à la demande pour collecter et envoyer les journaux d’activité de suivi à Microsoft à des fins de support. |
 | Tools\ServiceFabricUpdateService.zip |Un outil utilisé pour activer la mise à niveau automatique pour les clusters qui n’ont pas accès à Internet. Pour plus d’informations, cliquez [ici](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Modèles** 

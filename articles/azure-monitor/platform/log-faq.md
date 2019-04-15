@@ -153,7 +153,7 @@ Lorsque vous créez l’alerte d’arrêt de la collecte de données, définisse
 Spécifiez un [groupe d’actions](../../azure-monitor/platform/action-groups.md) existant ou créez-en un nouveau afin que l’alerte de journal corresponde aux critères, vous êtes informé si vous disposez d’une pulsation manquante pendant plus de 15 minutes.
 
 ## <a name="configuration"></a>Configuration
-### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Puis-je modifier le nom du conteneur Blob ou Table utilisé pour lire sur Azure Diagnostics (WAD) ?
+### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Puis-je modifier le nom du conteneur Blob ou Table utilisé pour lire sur Diagnostics Azure (WAD) ?
 
 R. Non, il n’est pas possible pour le moment de lire des tables ou des conteneurs arbitraires dans le stockage Azure.
 

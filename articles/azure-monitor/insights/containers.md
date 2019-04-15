@@ -28,7 +28,7 @@ Cet article explique comment configurer et utiliser la solution Container Monito
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-La solution montre les conteneurs qui sont actuellement exécutés, l’image conteneur qu’ils exécutent et où ils s’exécutent. Vous pouvez afficher des informations d’audit détaillées montrant les commandes utilisées avec les conteneurs. Vous pouvez résoudre des problèmes de conteneurs en consultant des journaux centralisés et en y effectuant des recherches sans devoir afficher à distance les hôtes Docker ou Windows. Vous pouvez rechercher des conteneurs bruyants et consommant des ressources excessives sur un ordinateur hôte. Et vous pouvez consulter des informations centralisées sur le processeur, la mémoire, le stockage ainsi que l’utilisation et les performances du réseau. Sur les ordinateurs exécutant Windows, vous pouvez centraliser et comparer les journaux des conteneurs Windows Server, Hyper-V et Docker. La solution prend en charge les orchestrateurs de conteneur suivants :
+La solution montre les conteneurs qui sont actuellement exécutés, l’image conteneur qu’ils exécutent et où ils s’exécutent. Vous pouvez afficher des informations d’audit détaillées montrant les commandes utilisées avec les conteneurs. Vous pouvez résoudre des problèmes de conteneurs en consultant des journaux d’activité centralisés et en y effectuant des recherches sans devoir afficher à distance les hôtes Docker ou Windows. Vous pouvez rechercher des conteneurs bruyants et consommant des ressources excessives sur un ordinateur hôte. Et vous pouvez consulter des informations centralisées sur le processeur, la mémoire, le stockage ainsi que l’utilisation et les performances du réseau. Sur les ordinateurs exécutant Windows, vous pouvez centraliser et comparer les journaux d’activité des conteneurs Windows Server, Hyper-V et Docker. La solution prend en charge les orchestrateurs de conteneur suivants :
 
 - Docker Swarm
 - DC/OS
@@ -625,7 +625,7 @@ Lorsque vous résolvez une erreur spécifique, il peut être utile de voir l’e
 
 
 ### <a name="to-query-logs-for-container-data"></a>Interroger des journaux pour les données de conteneur
-* Choisissez une image qui a échoué récemment et recherchez-la dans les journaux des erreurs. Commencez par rechercher un nom de conteneur exécutant cette image avec une recherche **ContainerInventory**. Par exemple, recherchez `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+* Choisissez une image qui a échoué récemment et recherchez-la dans les journaux d’activité des erreurs. Commencez par rechercher un nom de conteneur exécutant cette image avec une recherche **ContainerInventory**. Par exemple, recherchez `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Recherche de conteneurs Ubuntu](./media/containers/search-ubuntu.png)
 
   Développez des lignes dans les résultats pour afficher les détails pour ce conteneur.

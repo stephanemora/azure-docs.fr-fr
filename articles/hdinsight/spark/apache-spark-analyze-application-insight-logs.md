@@ -1,6 +1,6 @@
 ---
-title: Analyser les journaux d’Application Insights avec Spark - Azure HDInsight
-description: Découvrez comment exporter des journaux d’Application Insight pour le stockage d’objets blob, puis comment analyser les journaux avec Spark sur HDInsight.
+title: Analyser les journaux d’activité d’Application Insights avec Spark - Azure HDInsight
+description: Découvrez comment exporter des journaux d’activité d’Application Insight pour le stockage d’objets blob, puis comment analyser les journaux d’activité avec Spark sur HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.openlocfilehash: 806e5b6f764797d2e038cc7ed58ec1d04f678e2b
 ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54120374"
 ---
-# <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analyser les journaux de télémétrie Application Insights avec Apache Spark sur HDInsight
+# <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analyser les journaux d’activité de télémétrie Application Insights avec Apache Spark sur HDInsight
 
 Apprenez à utiliser [Apache Spark](https://spark.apache.org/) sur HDInsight pour analyser les données de télémétrie Application Insight.
 
@@ -201,7 +201,7 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
     Cette requête renvoie les informations de ville pour les 20 premiers enregistrements pour lesquelles la valeur context.location.city n’est pas nulle.
 
    > [!NOTE]  
-   > La structure du contexte est présente dans toutes les données de télémétrie consignées par Application Insights. Il se peut que l’élément city ne figure pas dans vos journaux. Utilisez le schéma pour identifier d’autres éléments que vous pouvez interroger et qui peuvent contenir des données pour vos journaux.
+   > La structure du contexte est présente dans toutes les données de télémétrie consignées par Application Insights. Il se peut que l’élément city ne figure pas dans vos journaux d’activité. Utilisez le schéma pour identifier d’autres éléments que vous pouvez interroger et qui peuvent contenir des données pour vos journaux d’activité.
 
     Cette requête renvoie des informations semblables au texte suivant :
 
@@ -238,7 +238,7 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
-5. Une nouvelle cellule est créée sous la première. Entrez le texte suivant dans la nouvelle cellule. Remplacez `STORAGEACCOUNT` et `CONTAINER` respectivement par le nom du compte de stockage Azure et le nom du conteneur d’objets blob dans lequel figurent les journaux d’Application Insights.
+5. Une nouvelle cellule est créée sous la première. Entrez le texte suivant dans la nouvelle cellule. Remplacez `STORAGEACCOUNT` et `CONTAINER` respectivement par le nom du compte de stockage Azure et le nom du conteneur d’objets blob dans lequel figurent les journaux d’activité d’Application Insights.
 
    ```scala
    %%bash
@@ -344,7 +344,7 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
     Cette requête renvoie les informations de ville pour les 20 premiers enregistrements pour lesquelles la valeur context.location.city n’est pas nulle.
 
    > [!NOTE]  
-   > La structure du contexte est présente dans toutes les données de télémétrie consignées par Application Insights. Il se peut que l’élément city ne figure pas dans vos journaux. Utilisez le schéma pour identifier d’autres éléments que vous pouvez interroger et qui peuvent contenir des données pour vos journaux.
+   > La structure du contexte est présente dans toutes les données de télémétrie consignées par Application Insights. Il se peut que l’élément city ne figure pas dans vos journaux d’activité. Utilisez le schéma pour identifier d’autres éléments que vous pouvez interroger et qui peuvent contenir des données pour vos journaux d’activité.
    >
    >
 

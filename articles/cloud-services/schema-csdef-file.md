@@ -23,7 +23,7 @@ ms.locfileid: "58918499"
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Schéma de définition Microsoft Azure Cloud Services (fichier .csdef)
 Le fichier de définition de service définit le modèle de service d’une application. Le fichier contient les définitions des rôles disponibles pour un service cloud, spécifie les points de terminaison de service et établit les paramètres de configuration du service. Les valeurs des paramètres de configuration sont définies dans le fichier de configuration de service, comme indiqué dans le [schéma de configuration de services cloud (classique)](/previous-versions/azure/reference/ee758710(v=azure.100)).
 
-Par défaut, le fichier de schéma de configuration Azure Diagnostics est installé dans le répertoire `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas`. Remplacez `<version>` par la version installée du [Kit de développement logiciel (SDK) Azure](https://www.windowsazure.com/develop/downloads/).
+Par défaut, le fichier de schéma de configuration Diagnostics Azure est installé dans le répertoire `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas`. Remplacez `<version>` par la version installée du [Kit de développement logiciel (SDK) Azure](https://www.windowsazure.com/develop/downloads/).
 
 L’extension par défaut du fichier de définition de service est .csdef.
 

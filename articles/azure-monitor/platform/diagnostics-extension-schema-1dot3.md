@@ -1,5 +1,5 @@
 ---
-title: Schéma de configuration de l’extension Microsoft Azure Diagnostics 1.3 et versions ultérieures
+title: Schéma de configuration de l’extension Diagnostics Azure version 1.3 et ultérieure
 description: Schéma version 1.3 et versions ultérieures pour les diagnostics Azure fournis avec le kit Microsoft Azure SDK 2.4 et versions ultérieures.
 services: azure-monitor
 author: rboucher
@@ -16,9 +16,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/11/2019
 ms.locfileid: "59497081"
 ---
-# <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Schéma de configuration de Microsoft Azure Diagnostics 1.3 et versions ultérieures
+# <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Schéma de configuration de Diagnostics Azure version 1.3 et ultérieure
 > [!NOTE]
-> L’Extension Microsoft Azure Diagnostics est le composant utilisé pour collecter les compteurs de performances et d’autres statistiques à partir de :
+> L’Extension Diagnostics Azure est le composant utilisé pour collecter les compteurs de performances et d’autres statistiques à partir de :
 > - Machines virtuelles Azure
 > - Virtual Machine Scale Sets
 > - Service Fabric
@@ -41,7 +41,7 @@ Téléchargez la définition de schéma de fichier de configuration publique en 
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
-Pour plus d’informations sur l’utilisation d’Azure Diagnostics, voir [Extension Microsoft Azure Diagnostics](diagnostics-extension-overview.md).  
+Pour plus d’informations sur l’utilisation de Diagnostics Azure, consultez [Extension Diagnostics Azure](diagnostics-extension-overview.md).  
 
 ## <a name="example-of-the-diagnostics-configuration-file"></a>Exemple du fichier de configuration des diagnostics  
  L’exemple suivant montre un fichier de configuration de diagnostic standard :  
@@ -449,8 +449,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attributs|Description|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | Quantité maximale d’espace disque local pouvant être utilisé par les différents types de données de diagnostic collectés par Azure Diagnostics. Le paramètre par défaut est 4 096 Mo.<br />
-|**useProxyServer** | Configurez Azure Diagnostics pour utiliser les paramètres de serveur proxy tels que définis dans les paramètres d’Internet Explorer.|
+| **overallQuotaInMB** | Quantité maximale d’espace disque local pouvant être utilisé par les différents types de données de diagnostic collectés par Diagnostics Azure. Le paramètre par défaut est 4 096 Mo.<br />
+|**useProxyServer** | Configurez Diagnostics Azure pour utiliser les paramètres de serveur proxy tels que définis dans les paramètres d’Internet Explorer.|
 |**sinks** | Ajouté à la version 1.5. facultatif. Pointe vers un emplacement de récepteur pour envoyer également des données de diagnostic à tous les éléments enfants qui prennent en charge les récepteurs. Des exemples de récepteur comme Application Insights ou Event Hubs.|  
 
 
@@ -459,7 +459,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**CrashDumps**|Consultez la description sur cette page.|  
-|**DiagnosticInfrastructureLogs**|Permet la collecte des journaux générés par Azure Diagnostics. Les journaux d’infrastructure de diagnostic sont utiles pour le dépannage du système de diagnostic lui-même. Les attributs facultatifs sont les suivants :<br /><br /> - **scheduledTransferLogLevelFilter** - Configure le niveau de gravité minimal des journaux collectés.<br /><br /> - **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**DiagnosticInfrastructureLogs**|Permet la collecte des journaux d’activité générés par Azure Diagnostics. Les journaux d’activité d’infrastructure de diagnostic sont utiles pour le dépannage du système de diagnostic lui-même. Les attributs facultatifs sont les suivants :<br /><br /> - **scheduledTransferLogLevelFilter** - Configure le niveau de gravité minimal des journaux collectés.<br /><br /> - **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**Répertoires**|Consultez la description sur cette page.|  
 |**EtwProviders**|Consultez la description sur cette page.|  
 |**Mesures**|Consultez la description sur cette page.|  
@@ -477,7 +477,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Attributs|Description|  
 |----------------|-----------------|  
 |**containerName**|facultatif. Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les vidages sur incident.|  
-|**crashDumpType**|facultatif.  Configure Azure Diagnostics pour collecter les mini-vidages sur incident ou les vidages sur incident complets.|  
+|**crashDumpType**|facultatif.  Configure Diagnostics Azure pour collecter les mini-vidages sur incident ou les vidages sur incident complets.|  
 |**directoryQuotaPercentage**|facultatif.  Configure le pourcentage de **overallQuotaInMB** à réserver pour les vidages sur incident sur la machine virtuelle.|  
 
 |Éléments enfants|Description|  
@@ -487,14 +487,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="directories-element"></a>Élément Directories
  *Arborescence : Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
 
- Permet la collecte du contenu d’un répertoire, des journaux de demandes d’accès ayant échouées IIS et/ou des journaux IIS.  
+ Permet la collecte du contenu d’un répertoire, des journaux d’activité de demandes d’accès ayant échouées IIS et/ou des journaux d’activité IIS.  
 
  Attribut **scheduledTransferPeriod** facultatif. Voir l’explication précédente.  
 
 |Éléments enfants|Description|  
 |--------------------|-----------------|  
-|**IISLogs**|Incluez cet élément dans la configuration pour permettre la collecte des journaux IIS :<br /><br /> **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les vidages sur incident.|   
-|**FailedRequestLogs**|Incluez cet élément dans la configuration pour permettre la collecte des journaux concernant les demandes ayant échoué sur une application ou un site IIS. Vous devez également activer les options de suivi sous **system.WebServer** dans **Web.config**.|  
+|**IISLogs**|Incluez cet élément dans la configuration pour permettre la collecte des journaux d’activité IIS :<br /><br /> **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les vidages sur incident.|   
+|**FailedRequestLogs**|Incluez cet élément dans la configuration pour permettre la collecte des journaux d’activité concernant les demandes ayant échoué sur une application ou un site IIS. Vous devez également activer les options de suivi sous **system.WebServer** dans **Web.config**.|  
 |**Sources de données**|Liste de répertoires à analyser.|
 
 
@@ -564,7 +564,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Permet de générer une table de compteur de performance optimisée pour les requêtes rapides. Chaque compteur de performance défini dans l’élement **PerformanceCounters** est stocké dans la table Metrics et dans la table Performance Counter.  
 
- L’attribut **resourceId** est requis.  ID de ressource de la machine virtuelle ou du groupe de machines virtuelles identiques sur lesquels vous déployez les diagnostics Microsoft Azure. Obtenez le **resourceID** à partir du [portail Azure](https://portal.azure.com). Sélectionnez **Parcourir** -> **Groupe de ressources** -> **<>\>**. Cliquez sur la vignette **Propriétés** et copiez la valeur à partir du champ **ID**.  
+ L’attribut **resourceId** est requis.  ID de ressource de la machine virtuelle ou du groupe de machines virtuelles identiques sur lesquels vous déployez Diagnostics Azure. Obtenez le **resourceID** à partir du [portail Azure](https://portal.azure.com). Sélectionnez **Parcourir** -> **Groupe de ressources** -> **<>\>**. Cliquez sur la vignette **Propriétés** et copiez la valeur à partir du champ **ID**.  
 
 |Éléments enfants|Description|  
 |--------------------|-----------------|  
@@ -608,12 +608,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Présent dans la version 1.0 et 1.1. Absent dans la version 1.2. Rajouté dans la version 1.3.  
 
- Définit la configuration de la mémoire tampon des journaux Azure de base.  
+ Définit la configuration de la mémoire tampon des journaux d’activité Azure de base.  
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
-|**scheduledTransferLogLevelFilter**|**string**|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut qui transfère tous les journaux est **Undefined**. Les autres valeurs possibles sont, du plus informatif au moins informatif : **Détaillé**, **Informations**, **Avertissement**, **Erreur**, **Critique**.|  
+|**scheduledTransferLogLevelFilter**|**string**|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut qui transfère tous les journaux d’activité est **Undefined**. Les autres valeurs possibles sont, du plus informatif au moins informatif : **Détaillé**, **Informations**, **Avertissement**, **Erreur**, **Critique**.|  
 |**scheduledTransferPeriod**|**duration**|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
 |**sinks** |**string**| Ajouté à la version 1.5. facultatif. Pointe vers un emplacement de récepteur permettant d’envoyer également des données de diagnostic. Par exemple, Application Insights ou Event Hubs.|  
 
@@ -671,7 +671,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attributs|Type|Description|  
 |----------------|----------|-----------------|  
-|**logLevel**|**string**|Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut qui transfère tous les journaux est **Undefined**. Les autres valeurs possibles sont, du plus informatif au moins informatif : **Détaillé**, **Informations**, **Avertissement**, **Erreur**, **Critique**.|  
+|**logLevel**|**string**|Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut qui transfère tous les journaux d’activité est **Undefined**. Les autres valeurs possibles sont, du plus informatif au moins informatif : **Détaillé**, **Informations**, **Avertissement**, **Erreur**, **Critique**.|  
 |**Nom**|**string**|Nom unique du canal auquel faire référence|  
 
 

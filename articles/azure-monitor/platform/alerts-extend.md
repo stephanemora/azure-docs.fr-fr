@@ -10,7 +10,7 @@ ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: efd2fc9d164564126b7b641ef35bbb10c4834f49
 ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/28/2019
 ms.locfileid: "55099326"
@@ -20,7 +20,7 @@ ms.locfileid: "55099326"
 > [!NOTE]
 > Microsoft a déjà effectué la procédure décrite dans cet article pour les versions publiques d’Azure. Cela étant, elle continue de s'appliquer aux versions du gouvernement américains.  
 
-Jusqu'à récemment, Azure Log Analytics incluait sa propre fonctionnalité d’alerte, pour vous indiquer de manière proactive les conditions en fonction des données Log Analytics. Vous gériez les règles d’alerte dans le portail Microsoft Operations Management Suite. La nouvelle expérience d’alertes intègre désormais les alertes entre les différents services dans Microsoft Azure. Elle est disponible sous forme d’**alertes** sous Azure Monitor dans le portail Azure, prend en charge les alertes des journaux d’activité, des métriques et des journaux sur Log Analytics ainsi qu’Azure Application Insights.
+Jusqu'à récemment, Azure Log Analytics incluait sa propre fonctionnalité d’alerte, pour vous indiquer de manière proactive les conditions en fonction des données Log Analytics. Vous gériez les règles d’alerte dans le portail Microsoft Operations Management Suite. La nouvelle expérience d’alertes intègre désormais les alertes entre les différents services dans Microsoft Azure. Elle est disponible sous forme d’**alertes** sous Azure Monitor dans le portail Azure, prend en charge les alertes des journaux d’activité, des métriques et des journaux d’activité sur Log Analytics ainsi qu’Azure Application Insights.
 
 Les clients du cloud Azure Government qui utilisent le portail OMS peuvent [volontairement étendre leurs règles d’alerte à Azure](alerts-extend-tool.md) depuis le **1er février 2019**. À compter du **1er mars 2019**, Microsoft étendra automatiquement à Azure toutes les règles d’alerte existantes dans le portail OMS - Azure Government, sans temps d’arrêt ni interruption de vos tâches de supervision. Tout espace de travail créé le **1er mars 2019** ou après cette date dans le portail OMS du cloud Azure Government sera automatiquement étendu à Azure.
 

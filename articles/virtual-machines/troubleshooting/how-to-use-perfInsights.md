@@ -16,7 +16,7 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
 ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/21/2018
 ms.locfileid: "52275733"
@@ -100,7 +100,7 @@ Lorsque vous exécutez une analyse avancée des performances, vous sélectionnez
 
 ## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>Quelles informations sont collectées par PerfInsights ?
 
-Les informations portant sur la configuration de la machine virtuelle Windows, des disques ou des pools de stockage, les compteurs de performances, les journaux et les différentes traces sont recueillies. Cela varie selon le scénario de performances que vous utilisez. Le tableau suivant fournit les détails :
+Les informations portant sur la configuration de la machine virtuelle Windows, des disques ou des pools de stockage, les compteurs de performances, les journaux d’activité et les différentes traces sont recueillies. Cela varie selon le scénario de performances que vous utilisez. Le tableau suivant fournit les détails :
 
 |Données collectées                              |  |  | Scénarios de performances |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|

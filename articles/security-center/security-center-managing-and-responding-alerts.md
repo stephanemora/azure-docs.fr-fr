@@ -16,7 +16,7 @@ ms.date: 11/22/2018
 ms.author: rkarlin
 ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56112918"
@@ -94,7 +94,7 @@ Dans ce cas, les alertes qui ont été déclenchées concernent une activité su
 
 ![Suggestions sur la façon de traiter les alertes de sécurité dans le centre de sécurité Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 
-Vous trouverez plus d’informations sur l’événement dans le champ **Description**. Ces informations permettent d’en savoir plus sur ce qui a déclenché l’alerte de sécurité, sur la ressource cible, sur l’adresse IP source (le cas échéant) et sur la manière de remédier au problème.  Dans certains cas, l’adresse IP source est vide (non disponible), car certains journaux d’événements Windows de la sécurité n’incluent pas l’adresse IP.
+Vous trouverez plus d’informations sur l’événement dans le champ **Description**. Ces informations permettent d’en savoir plus sur ce qui a déclenché l’alerte de sécurité, sur la ressource cible, sur l’adresse IP source (le cas échéant) et sur la manière de remédier au problème.  Dans certains cas, l’adresse IP source est vide (non disponible), car certains journaux d’activité d’événements Windows de la sécurité n’incluent pas l’adresse IP.
 
 La correction suggérée par Security Center dépend de l’alerte de sécurité. Dans certains cas, vous pouvez être amené à utiliser d’autres fonctionnalités Azure pour appliquer la correction recommandée. Par exemple, pour cette attaque, la correction consiste à mettre sur liste noire l’adresse IP à l’origine de l’attaque à l’aide d’une règle de [liste de contrôle d’accès (ACL) réseau](../virtual-network/virtual-networks-acl.md) ou de [groupe de sécurité réseau](../virtual-network/security-overview.md#security-rules). Pour plus d’informations sur les différents types d’alertes, consultez l’article [Security Alerts by Type in Azure Security Center](security-center-alerts-type.md)(Alertes de sécurité par type dans Azure Security Center).
 

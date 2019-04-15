@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble des alertes classiques dans Microsoft Azure et Azure Monitor
-description: Les alertes classiques sont désormais déconseillées. Les alertes vous permettent d’analyser des mesures de ressources, événements ou journaux Azure, puis d’envoyer des alertes quand une condition spécifiée est remplie.
+description: Les alertes classiques sont désormais déconseillées. Les alertes vous permettent d’analyser des mesures de ressources, événements ou journaux d’activité Azure, puis d’envoyer des alertes quand une condition spécifiée est remplie.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
@@ -39,7 +39,7 @@ La nouvelle expérience utilisateur pour les alertes présente les avantages sui
 -   **Consolidation des alertes intelligentes** et **définition d’état d’alerte** : les alertes plus récentes incluent une fonctionnalité de regroupement automatique qui montre des alertes similaires ensemble pour réduire la surcharge de l’interface utilisateur. 
 
 Les alertes de métrique plus récentes présentent les avantages suivants par rapport aux alertes de métrique classiques :
--   **Latence améliorée** : les dernières alertes métriques peuvent être exécutées toutes les minutes. Les alertes métriques les plus anciennes s’exécutent toujours à une fréquence de 5 minutes. Pour les alertes plus récentes, le délai entre le moment où le problème survient et la notification ou l’action a été raccourci (de 3 à 5 minutes). Pour les alertes plus anciennes, comptez 5 à 15 minutes, en fonction du type.  Le délai des alertes de journal est généralement de 10 à 15 minutes en raison du temps nécessaire pour ingérer les journaux, mais les méthodes de traitement plus récentes permettent de réduire cette durée. 
+-   **Latence améliorée** : les dernières alertes métriques peuvent être exécutées toutes les minutes. Les alertes métriques les plus anciennes s’exécutent toujours à une fréquence de 5 minutes. Pour les alertes plus récentes, le délai entre le moment où le problème survient et la notification ou l’action a été raccourci (de 3 à 5 minutes). Pour les alertes plus anciennes, comptez 5 à 15 minutes, en fonction du type.  Le délai des alertes de journal est généralement de 10 à 15 minutes en raison du temps nécessaire pour ingérer les journaux d’activité, mais les méthodes de traitement plus récentes permettent de réduire cette durée. 
 -   **Prise en charge des métriques multidimensionnelles** : vous pouvez définir des alertes sur des métriques dimensionnelles, ce qui vous permet d’analyser un segment intéressant de la métrique.
 -   **Contrôle renforcé des conditions des métriques** : vous pouvez définir des règles d’alerte plus riches. Les alertes plus récentes prennent en charge la surveillance des valeurs maximales, minimales, moyennes et totales des métriques.
 -   **Monitoring combiné de plusieurs métriques** : vous pouvez surveiller plusieurs métriques (actuellement jusqu’à deux) avec une seule règle. Une alerte est déclenchée si les deux métriques violent leurs seuils respectifs durant la période spécifiée.

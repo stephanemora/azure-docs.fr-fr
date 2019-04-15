@@ -33,10 +33,10 @@ Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) constit
 
 ### <a name="advantages"></a>Avantages
 - Intégration approfondie à Azure. Visualisations peuvent être épinglées aux tableaux de bord à partir de plusieurs pages Azure, y compris Metrics Explorer et Analytique de journal Application Insights.
-- Prend en charge les métriques et les journaux.
+- Prend en charge les métriques et les journaux d’activité.
 - Combiner des données provenant de plusieurs sources, y compris la sortie de [Explorateur de mesures](platform/metrics-charts.md), [enregistrer des requêtes](log-query/log-query-overview.md), et [mappe](app/app-map.md) et la disponibilité dans Application Insights.
 - Possibilité de définir des tableaux de bord personnels ou partagés. Intégré à [l’authentification basée sur les rôles (RBAC)](../role-based-access-control/overview.md) Azure.
-- Actualisation automatique. L’actualisation des métriques a lieu selon un intervalle de temps de cinq minutes au minimum. Les journaux sont actualisés chaque minute.
+- Actualisation automatique. L’actualisation des métriques a lieu selon un intervalle de temps de cinq minutes au minimum. Les journaux d’activité sont actualisés chaque minute.
 - Les tableaux de bord de métriques sont paramétrés avec un horodatage et des paramètres personnalisés.
 - Options de disposition flexibles.
 - Mode plein écran.
@@ -63,7 +63,7 @@ Les [affichages dans Azure Monitor](platform/view-designer.md) vous permettent d
 - Interactif ; prend en charge l’exploration sur plusieurs niveaux (d’un affichage à l’autre)
 
 ### <a name="limitations"></a>Limites
-- Prend en charge les journaux, mais pas les métriques.
+- Prend en charge les journaux d’activité, mais pas les métriques.
 - Aucun affichage personnel. Disponible pour tous les utilisateurs ayant accès à l’espace de travail.
 - Aucune actualisation automatique.
 - Options de disposition limitées.
@@ -77,7 +77,7 @@ Les [classeurs](../azure-monitor/app/usage-workbooks.md) sont des documents inte
 ![Classeur](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>Avantages
-- Prend en charge les métriques et les journaux.
+- Prend en charge les métriques et les journaux d’activité.
 - Prend en charge des paramètres qui permettent de créer des rapports interactifs où la sélection d’un élément dans une table met dynamiquement à jour les visualisations et graphiques associés.
 - Flux de type document.
 - Possibilité de définir des classeurs personnels ou partagés.
@@ -103,7 +103,7 @@ Les [classeurs](../azure-monitor/app/usage-workbooks.md) sont des documents inte
 
 
 ### <a name="limitations"></a>Limites
-- Prend en charge les journaux, mais pas les métriques.
+- Prend en charge les journaux d’activité, mais pas les métriques.
 - Aucune intégration à Azure. Ne peut pas gérer les tableaux de bord et les modèles par le biais d’Azure Resource Manager.
 - Les résultats des requêtes doivent être importés dans le modèle Power BI à configurer. L’actualisation et la taille des résultats sont soumises à des limites.
 - L’actualisation des données est limitée à huit exécutions par jour.

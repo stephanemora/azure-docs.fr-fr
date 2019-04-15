@@ -25,7 +25,7 @@ ms.locfileid: "58662803"
 Si vous rencontrez un problème en interagissant avec votre cluster de développement Azure Service Fabric local, examinez les suggestions suivantes de résolution.
 
 ## <a name="cluster-setup-failures"></a>Échecs de configuration du cluster
-### <a name="cannot-clean-up-service-fabric-logs"></a>Impossible de nettoyer les journaux de Service Fabric
+### <a name="cannot-clean-up-service-fabric-logs"></a>Impossible de nettoyer les journaux d’activité de Service Fabric
 #### <a name="problem"></a>Problème
 Lors de l’exécution du script DevClusterSetup, le message d’erreur suivant s’affiche :
 

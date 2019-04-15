@@ -146,7 +146,7 @@ Pour en savoir plus sur la création d’une tâche planifiée sur Windows, cons
 
 ---
 
-Pour vérifier que la tâche planifiée ou le travail Cron s’exécute correctement, créez des fichiers de test dans votre répertoire `myfolder`. Attendez cinq minutes pour laisser le temps aux nouveaux fichiers de se charger dans votre compte de stockage. Accédez à votre répertoire des journaux pour afficher les journaux de sortie de la tâche planifiée ou du travail Cron.
+Pour vérifier que la tâche planifiée ou le travail Cron s’exécute correctement, créez des fichiers de test dans votre répertoire `myfolder`. Attendez cinq minutes pour laisser le temps aux nouveaux fichiers de se charger dans votre compte de stockage. Accédez à votre répertoire des journaux d’activité pour afficher les journaux d’activité de sortie de la tâche planifiée ou du travail Cron.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

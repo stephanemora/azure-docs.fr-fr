@@ -123,9 +123,9 @@ Oui. Si vous sélectionnez un espace de travail existant, vérifiez qu’il a é
 
 Oui, votre compte Stockage Azure peut être dans un abonnement spécifique et votre espace de travail Log Analytics dans un autre abonnement.
 
-## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Puis-je stocker les journaux bruts dans un autre abonnement ?
+## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Puis-je stocker les journaux d’activité bruts dans un autre abonnement ?
 
-Non. Vous pouvez stocker des journaux bruts dans n’importe quel compte de stockage dans lequel un NSG est activé pour les journaux de flux. Toutefois, le compte de stockage et les journaux bruts doivent se trouver dans le même abonnement et la même région.
+Non. Vous pouvez stocker des journaux d’activité bruts dans n’importe quel compte de stockage dans lequel un NSG est activé pour les journaux de flux. Toutefois, le compte de stockage et les journaux d’activité bruts doivent se trouver dans le même abonnement et la même région.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Que faire si je ne peux pas configurer un NSG pour l’analytique du trafic en raison d’une erreur « Introuvable » ?
 

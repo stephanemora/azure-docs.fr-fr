@@ -1,6 +1,6 @@
 ---
 title: Unifier plusieurs ressources Application Insights Azure Monitor | Microsoft Docs
-description: Cet article explique en détail comment utiliser une fonction dans les journaux Azure Monitor pour interroger plusieurs ressources Application Insights et visualiser ces données.
+description: Cet article explique en détail comment utiliser une fonction dans les journaux d’activité Azure Monitor pour interroger plusieurs ressources Application Insights et visualiser ces données.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -14,7 +14,7 @@ ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
 ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/20/2019
 ms.locfileid: "56429514"
@@ -72,7 +72,7 @@ Quand vous arrêtez le connecteur et que vous devez effectuer des requêtes sur 
 >[!NOTE]
 >Les [requêtes inter-ressources](../log-query/cross-workspace-query.md) des alertes de journal sont prises en charge par la nouvelle [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Par défaut, Azure Monitor utilise l'[API Alerte Log Analytics héritée](../platform/api-alerts.md) pour créer de nouvelles règles d'alerte de journal à partir du portail Azure, sauf si vous basculez depuis l'[API Alertes de journal héritée](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Après le basculement, la nouvelle API devient la valeur par défaut des nouvelles règles d'alerte du portail Azure et vous permet de créer des règles d'alertes de journal pour les requêtes inter-ressources. Vous pouvez créer règles d'alertes de journal pour les [requêtes inter-ressources](../log-query/cross-workspace-query.md) sans basculer en utilisant le [modèle ARM de l'API schededuRuRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template). Mais cette règle d'alerte est gérable via l'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) et non à partir du portail Azure.
 
-Par exemple, si le connecteur a cessé de fonctionner le 01-11-2018, quand vous interrogez les journaux pour des ressources Application Insights et des données d’applications dans l’espace de travail, votre requête sera construite comme dans l’exemple suivant :
+Par exemple, si le connecteur a cessé de fonctionner le 01-11-2018, quand vous interrogez les journaux d’activité pour des ressources Application Insights et des données d’applications dans l’espace de travail, votre requête sera construite comme dans l’exemple suivant :
 
 ```
 applicationsScoping //this brings data from Application Insights resources 

@@ -356,7 +356,7 @@ Si vous activez l’exception **Services Microsoft approuvés**, les services su
 |Hubs d'événements Azure|Microsoft.EventHub|Archivage des données avec Event Hubs Capture. [En savoir plus](/azure/event-hubs/event-hubs-capture-overview)|
 |Azure HDInsight|Microsoft.HDInsight|Configurer le contenu initial du système de fichiers par défaut pour un nouveau cluster HDInsight. [Plus d’informations](https://azure.microsoft.com/en-us/blog/enhance-hdinsight-security-with-service-endpoints/)|
 |Azure Monitor|Microsoft.Insights|Autorisation de l’écriture de données de supervision dans un compte de stockage sécurisé. [En savoir plus](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
-|Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux du trafic réseau. [Plus d’informations](/azure/network-watcher/network-watcher-packet-capture-overview)|
+|Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux d’activité du trafic réseau. [Plus d’informations](/azure/network-watcher/network-watcher-packet-capture-overview)|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configurez la récupération d’urgence en activant la réplication pour les machines virtuelles Azure IaaS. Cela est nécessaire si vous utilisez un compte de stockage de cache avec pare-feu activé, un compte de stockage source ou un compte de stockage cible.  [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)|
 |Azure SQL Data Warehouse|Microsoft.Sql|Permet d’importer et d’exporter des scénarios à l’aide de PolyBase. [Plus d’informations](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)|
 

@@ -141,7 +141,7 @@ Pour plus d’informations, consultez les documents suivants :
 * [Le service Journaux IIS cesse d’écrire dans le service cloud](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Comment activer la journalisation des diagnostics Microsoft Azure pour les Services cloud ?
-Vous pouvez activer la journalisation des diagnostics Microsoft Azure par le biais des options suivantes :
+Vous pouvez activer la journalisation Diagnostics Azure pour Windows (WAD) par le biais des options suivantes :
 1. [Activer à partir de Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [Activer via le code .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Activer par le biais de PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
@@ -240,15 +240,15 @@ Le nombre de cœurs que vous pouvez utiliser est limité dans votre abonnement A
 
 La mise à l’échelle automatique en fonction des métriques de la mémoire pour un service cloud n’est pas prise en charge. 
 
-Pour contourner ce problème, vous pouvez utiliser Application Insights. La mise à l’échelle automatique prend en charge Application Insights en tant que source de métriques et peut mettre à l’échelle le nombre d’instances de rôle en fonction d’une métrique invitée telle que « Mémoire ».  Vous devez configurer Application Insights dans votre fichier de package de projet de service cloud (*.cspkg) et activer l’extension Azure Diagnostics sur le service pour implémenter cette fonction.
+Pour contourner ce problème, vous pouvez utiliser Application Insights. La mise à l’échelle automatique prend en charge Application Insights en tant que source de métriques et peut mettre à l’échelle le nombre d’instances de rôle en fonction d’une métrique invitée telle que « Mémoire ».  Vous devez configurer Application Insights dans votre fichier de package de projet de service cloud (*.cspkg) et activer l’extension Diagnostics Azure sur le service pour implémenter cette fonction.
 
 Pour plus d’informations sur la façon d’utiliser une métrique personnalisée par le biais d’Application Insights afin de configurer la mise à l’échelle automatique sur les services cloud, consultez [Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure](../azure-monitor/platform/autoscale-custom-metric.md).
 
-Pour plus d’informations sur la façon d’intégrer Azure Diagnostics à Application Insights pour les services cloud, consultez [Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Pour plus d’informations sur la façon d’intégrer Diagnostics Azure à Application Insights pour les services cloud, consultez [Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 Pour plus d’informations sur la façon d’activer Application Insights pour les services cloud, consultez [Application Insights pour Services cloud Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices).
 
-Pour plus d’informations sur la façon d’activer la journalisation Azure Diagnostics pour les services cloud, consultez [Configurer les diagnostics pour les services cloud et les machines virtuelles Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them).
+Pour plus d’informations sur la façon d’activer la journalisation Diagnostics Azure pour les services cloud, consultez [Configurer les diagnostics pour les services cloud et les machines virtuelles Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them).
 
 ## <a name="generic"></a>Générique
 

@@ -15,7 +15,7 @@ ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
 ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54117654"
@@ -56,7 +56,7 @@ Comme les données de télémétrie arrivent dans Application Insights à parti
 
 Quand une analyse est déclenchée, le service effectue une analyse des clusters pour chaque demande ayant échoué, dans le but d’identifier un modèle de valeurs caractérisant les échecs. Dans l’exemple ci-dessus, l’analyse a découvert que la plupart des échecs sont liés à un code de résultat, un nom de demande, un hôte de l’URL serveur et une instance de rôle spécifiques. En revanche, l’analyse a découvert que la propriété du système d’exploitation client est distribuée sur plusieurs valeurs et qu’elle n’est donc pas répertoriée.
 
-Quand votre service est instrumenté avec cette télémétrie, l’analyseur recherche une exception et un échec de dépendance en lien avec les demandes dans le cluster qu’il a identifié, ainsi qu’un exemple de journaux de suivi associés à ces demandes.
+Quand votre service est instrumenté avec cette télémétrie, l’analyseur recherche une exception et un échec de dépendance en lien avec les demandes dans le cluster qu’il a identifié, ainsi qu’un exemple de journaux d’activité de suivi associés à ces demandes.
 
 L’analyse obtenue vous est envoyée sous forme d’alerte, sauf si vous n’avez pas configuré cette option.
 

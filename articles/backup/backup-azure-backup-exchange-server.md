@@ -10,7 +10,7 @@ ms.date: 01/31/2019
 ms.author: kasinh
 ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
 ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55298311"
@@ -75,7 +75,7 @@ Pour installer l’agent de protection DPM sur le serveur Exchange, procédez co
 9. Sélectionnez la base de données pour **Sauvegarde de copie**, puis cliquez sur **Suivant**.
 
    > [!NOTE]
-   > Si vous ne sélectionnez pas « Sauvegarde complète » pour au moins une copie DAG d’une base de données, les journaux ne seront pas tronqués.
+   > Si vous ne sélectionnez pas « Sauvegarde complète » pour au moins une copie DAG d’une base de données, les journaux d’activité ne seront pas tronqués.
    >
    >
 10. Configurez les objectifs de **Sauvegarde à court terme**, puis cliquez sur **Suivant**.

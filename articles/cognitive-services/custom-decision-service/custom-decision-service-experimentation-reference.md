@@ -12,7 +12,7 @@ ms.date: 05/10/2018
 ms.author: marossi
 ms.openlocfilehash: b5f8c853218a1db53f4dd23e7254b35990a7132b
 ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55870263"
@@ -26,7 +26,7 @@ Le service Décision personnalisée génère une stratégie, via une association
 * Elle expose les utilisateurs à une stratégie expérimentale non testée.
 * Elle ne permet pas d’évaluer plusieurs stratégies cible.
 
-Vous pouvez également opter pour une évaluation sans stratégie. Si vous avez des journaux provenant d’un système en ligne existant qui applique une stratégie de journalisation, une évaluation sans stratégie vous permet d’estimer les récompenses attendues pour les nouvelles stratégies cible.
+Vous pouvez également opter pour une évaluation sans stratégie. Si vous avez des journaux d’activité provenant d’un système en ligne existant qui applique une stratégie de journalisation, une évaluation sans stratégie vous permet d’estimer les récompenses attendues pour les nouvelles stratégies cible.
 
 À l’aide du fichier journal, l’expérimentation s’efforce de trouver la stratégie qui va générer le plus de récompenses. Les stratégies cibles sont paramétrées par des arguments [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki). Dans le mode par défaut, le script teste une variété d’arguments Vowpal Wabbit en les ajoutant à `--base_command`. Le script effectue les actions suivantes :
 

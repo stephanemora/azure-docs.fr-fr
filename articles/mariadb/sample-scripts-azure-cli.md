@@ -29,5 +29,5 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI pou
 |**Restaurer un serveur**||
 | [Restaurer un serveur](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui restaure un serveur Azure Database for MariaDB à un point antérieur dans le temps. |
 |**Manipuler les journaux du serveur**||
-| [Activer et télécharger les journaux du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui active et télécharge les journaux de serveur pour un serveur Azure Database for MariaDB. |
+| [Activer et télécharger les journaux du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui active et télécharge les journaux d’activité de serveur pour un serveur Azure Database for MariaDB. |
 |||

@@ -12,5 +12,5 @@ ms.lasthandoff: 04/05/2019
 ms.locfileid: "59055642"
 ---
 > [!IMPORTANT]
-> L’ID d’appareil étant potentiellement visible dans les journaux collectés à des fins de support technique et de dépannage, assurez-vous de ne pas utiliser d’informations sensibles en attribuant un nom à votre appareil.
+> L’ID d’appareil étant potentiellement visible dans les journaux d’activité collectés à des fins de support technique et de dépannage, assurez-vous de ne pas utiliser d’informations sensibles en attribuant un nom à votre appareil.
 >

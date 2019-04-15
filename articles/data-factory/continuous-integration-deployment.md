@@ -163,7 +163,7 @@ Il existe deux moyens de gérer les secrets :
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Accorder des autorisations à l’agent Azure Pipelines
-La tâche Azure Key Vault peut échouer à l’heure d’exécution fIntegration avec une erreur accès refusé. Téléchargez les journaux de la version, puis recherchez le fichier `.ps1` avec la commande pour accorder des autorisations à l’agent Azure Pipelines. Vous pouvez exécuter la commande directement, ou vous pouvez copier l’ID du principal à partir du fichier et ajouter manuellement la stratégie d’accès dans le portail Azure. (*Get* et *List* sont les autorisations minimales requises).
+La tâche Azure Key Vault peut échouer à l’heure d’exécution fIntegration avec une erreur accès refusé. Téléchargez les journaux d’activité de la version, puis recherchez le fichier `.ps1` avec la commande pour accorder des autorisations à l’agent Azure Pipelines. Vous pouvez exécuter la commande directement, ou vous pouvez copier l’ID du principal à partir du fichier et ajouter manuellement la stratégie d’accès dans le portail Azure. (*Get* et *List* sont les autorisations minimales requises).
 
 ### <a name="update-active-triggers"></a>Mettre à jour les déclencheurs actifs
 Le déploiement peut échouer si vous tentez de mettre à jour les déclencheurs actifs. Pour mettre à jour les déclencheurs actifs, vous devez les arrêter manuellement et les démarrer après le déploiement. Vous pouvez ajouter une tâche Azure Powershell à cet effet, comme indiqué dans l’exemple suivant :

@@ -224,7 +224,7 @@ Dans l’élément `ServiceManifestImport` , vous pouvez spécifier un ou plusie
 ```
 
 ## <a name="set-up-logging"></a>Configurez la journalisation
-Pour les exécutables invités, il est utile de pouvoir consulter les journaux de la console afin de déterminer si les scripts de l’application et de configuration affichent une erreur.
+Pour les exécutables invités, il est utile de pouvoir consulter les journaux d’activité de la console afin de déterminer si les scripts de l’application et de configuration affichent une erreur.
 La redirection de la console peut être configurée dans le fichier `ServiceManifest.xml` à l’aide de l’élément `ConsoleRedirection`.
 
 > [!WARNING]

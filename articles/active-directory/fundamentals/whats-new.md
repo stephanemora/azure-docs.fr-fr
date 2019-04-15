@@ -466,7 +466,7 @@ Ce correctif empêche donc des mises à jour directes de l’attribut ImmutableI
 
 - **Rétablissement de correspondance entre l’utilisateur local et un utilisateur existant dans Azure AD** Par exemple, un utilisateur recréé dans AD DS génère un doublon dans le compte Azure AD au lieu qu’une correspondance soit rétablie avec un compte Azure AD existant (objet orphelin). Solution : Utilisez Azure AD Connect Health dans le portail Microsoft Azure pour remapper l’ancre source/l’ImmutableID. Pour plus d’informations, voir [Scénario d’objet orphelin](/azure/active-directory/hybrid/how-to-connect-health-diagnose-sync-errors#orphaned-object-scenario).
 
-### <a name="breaking-change-updates-to-the-audit-and-sign-in-logs-schema-through-azure-monitor"></a>Modification critique : Mises à jour du schéma des journaux de connexion et d’audit via Azure Monitor
+### <a name="breaking-change-updates-to-the-audit-and-sign-in-logs-schema-through-azure-monitor"></a>Modification critique : Mises à jour du schéma des journaux d’activité de connexion et d’audit via Azure Monitor
 
 **Type :** Fonctionnalité modifiée  
 **Catégorie de service :** Reporting  
@@ -645,13 +645,13 @@ Pour plus d’informations sur les applications, consultez [Intégration des app
 
 ## <a name="october-2018"></a>Octobre 2018
 
-### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Les journaux Azure AD fonctionnent maintenant avec Azure Log Analytics (préversion publique)
+### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Les journaux d’activité Azure AD fonctionnent maintenant avec Azure Log Analytics (préversion publique)
 
 **Type :** Nouvelle fonctionnalité  
 **Catégorie de service :** Reporting  
 **Fonctionnalité de produit :** Monitoring et création de rapports
 
-Nous sommes heureux d’annoncer que vous pouvez maintenant transférer vos journaux Azure AD vers Azure Log Analytics ! Grâce à cette fonctionnalité très demandée, vous pouvez encore mieux accéder aux analyses de votre activité, de vos opérations et de votre sécurité, et elle vous aide à surveiller votre infrastructure. Pour plus d’informations, consultez le blog [Journaux d’activité Azure Active Directory dans Azure Log Analytics désormais disponible](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843).
+Nous sommes heureux d’annoncer que vous pouvez maintenant transférer vos journaux d’activité Azure AD vers Azure Log Analytics ! Grâce à cette fonctionnalité très demandée, vous pouvez encore mieux accéder aux analyses de votre activité, de vos opérations et de votre sécurité, et elle vous aide à surveiller votre infrastructure. Pour plus d’informations, consultez le blog [Journaux d’activité Azure Active Directory dans Azure Log Analytics désormais disponible](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843).
 
 ---
 
@@ -762,7 +762,7 @@ Pour plus d’informations, consultez l’article [Qu’est-ce que le portail My
 
 ---
 
-### <a name="new-troubleshooting-and-support-tab-on-the-sign-ins-logs-page-of-the-azure-portal"></a>Nouvel onglet Résolution des problèmes et support sur la page des journaux de connexions du Portail Azure
+### <a name="new-troubleshooting-and-support-tab-on-the-sign-ins-logs-page-of-the-azure-portal"></a>Nouvel onglet Résolution des problèmes et support sur la page des journaux d’activité de connexions du Portail Azure
 
 **Type :** Nouvelle fonctionnalité  
 **Catégorie de service :** Reporting  

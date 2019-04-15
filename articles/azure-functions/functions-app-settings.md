@@ -35,7 +35,7 @@ Clé d’instrumentation d’Application Insights si vous utilisez Application�
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-Chaîne de connexion du compte de stockage facultatif pour stocker des journaux et les afficher dans l’onglet **Surveiller** du portail. Le compte de stockage doit être à usage général. Il prend en charge les objets blob, les files d’attente et les tables. Consultez les sections [Compte de stockage](functions-infrastructure-as-code.md#storage-account) et [Conditions requises pour le compte de stockage](functions-create-function-app-portal.md#storage-account-requirements).
+Chaîne de connexion du compte de stockage facultatif pour stocker des journaux d’activité et les afficher dans l’onglet **Surveiller** du portail. Le compte de stockage doit être à usage général. Il prend en charge les objets blob, les files d’attente et les tables. Consultez les sections [Compte de stockage](functions-infrastructure-as-code.md#storage-account) et [Conditions requises pour le compte de stockage](functions-create-function-app-portal.md#storage-account-requirements).
 
 |Clé|Exemple de valeur|
 |---|------------|

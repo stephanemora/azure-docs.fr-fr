@@ -11,7 +11,7 @@ ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
 ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52998139"
@@ -27,7 +27,7 @@ Dans cet article, nous montrons comment déployer la pile ELK (Elasticsearch, Lo
 
 
 ## <a name="elk-elasticsearch-logstash-kibana"></a>ELK (Elasticsearch, Logstash, Kibana)
-La pile ELK est une combinaison d’Elasticsearch, de Logstash et de Kibana qui fournit une pile de bout en bout pouvant être utilisée pour surveiller et analyser les journaux de votre cluster.
+La pile ELK est une combinaison d’Elasticsearch, de Logstash et de Kibana qui fournit une pile de bout en bout pouvant être utilisée pour surveiller et analyser les journaux d’activité de votre cluster.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Configurer la pile ELK sur un cluster DC/OS
 Accéder à votre interface utilisateur DC/OS via [http://localhost:80/](http://localhost:80/), puis rendez-vous dans **Univers**. Recherchez et installez Elasticsearch, Logstash et Kibana dans l’univers du contrôleur de domaine/système d’exploitationDC/OS et dans cet ordre spécifique. Vous pouvez en savoir plus sur la configuration en cliquant sur le lien **Advanced Installation (Installation avancée)**.
@@ -62,7 +62,7 @@ Pour accéder au tableau de bord Kibana, qui est déployé sur le port 5601, vou
 
 * Pour le transfert et la configuration du journal système et d’application, consultez [Log Management in DC/OS with ELK](https://docs.mesosphere.com/1.8/administration/logging/elk/) (Gestion de journaux dans DC/OS avec ELK).
 
-* Pour filtrer les journaux, consultez [Filtering Logs with ELK](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/) (Filtrage des journaux avec ELK). 
+* Pour filtrer les journaux d’activité, consultez [Filtering Logs with ELK](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/) (Filtrage des journaux d’activité avec ELK). 
 
  
 

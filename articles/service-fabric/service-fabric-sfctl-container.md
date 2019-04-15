@@ -29,7 +29,7 @@ Exécutez des commandes relatives à un conteneur sur un nœud de cluster.
 |Commande|Description|
 | --- | --- |
 | invoke-api | Appelle l’API de conteneur sur un conteneur déployé sur un nœud Service Fabric pour le package de code donné. |
-| logs | Permet d’obtenir les journaux du conteneur déployé sur un nœud Service Fabric pour le package de code donné. |
+| journaux d’activité | Permet d’obtenir les journaux d’activité du conteneur déployé sur un nœud Service Fabric pour le package de code donné. |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl container invoke-api
 Appelle l’API de conteneur sur un conteneur déployé sur un nœud Service Fabric pour le package de code donné.
@@ -53,14 +53,14 @@ Appelle l’API de conteneur sur un conteneur déployé sur un nœud Service Fab
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
-## <a name="sfctl-container-logs"></a>journaux de conteneur sfctl
-Permet d’obtenir les journaux du conteneur déployé sur un nœud Service Fabric pour le package de code donné.
+## <a name="sfctl-container-logs"></a>journaux d’activité de conteneur sfctl
+Permet d’obtenir les journaux d’activité du conteneur déployé sur un nœud Service Fabric pour le package de code donné.
 
 ### <a name="arguments"></a>Arguments
 
@@ -71,18 +71,18 @@ Permet d’obtenir les journaux du conteneur déployé sur un nœud Service Fabr
 | --code-package-name        [Requis] | Nom de package de code spécifié dans un manifeste de service inscrit dans le cadre d’un type d’application dans un cluster Service Fabric. |
 | --node-name [Requis] | Nom du nœud. |
 | --service-manifest-name [Requis] | Nom d’un manifeste de service inscrit dans le cadre d’un type d’application dans un cluster Service Fabric. |
-| --tail | Nombre de lignes à afficher à partir de la fin des journaux. La valeur par défaut est 100. « all » pour afficher les journaux complets. |
+| --tail | Nombre de lignes à afficher à partir de la fin des journaux d’activité. La valeur par défaut est 100. « all » pour afficher les journaux d’activité complets. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

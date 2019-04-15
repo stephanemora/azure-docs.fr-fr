@@ -146,8 +146,8 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
     Vous pouvez également effectuer les actions suivantes dans l’onglet **Diagnostics** :
 
    * Utilisez la section **Tester la connexion** à une source de données locale à l’aide de la passerelle.
-   * Cliquez sur **Afficher les journaux** pour consulter le journal de la passerelle de gestion des données dans une fenêtre de l’Observateur d’événements.
-   * Cliquez sur **Envoyer des journaux** pour charger un fichier zip contenant les journaux des sept derniers jours et l’envoyer à Microsoft pour faciliter le dépannage en cas de problèmes.
+   * Cliquez sur **Afficher les journaux d’activité** pour consulter le journal d’activité de la passerelle de gestion des données dans une fenêtre de l’Observateur d’événements.
+   * Cliquez sur **Envoyer des journaux d’activité** pour charger un fichier zip contenant les journaux d’activité des sept derniers jours et l’envoyer à Microsoft pour faciliter le dépannage en cas de problèmes.
 10. Sous l’onglet **Diagnostics**, dans la section **Tester la connexion**, sélectionnez **SqlServer** pour le type de magasin de données, entrez le nom du serveur de base de données et le nom de la base de données, spécifiez le type d’authentification, entrez un nom d’utilisateur et un mot de passe, puis cliquez sur **Tester** pour tester si la passerelle peut se connecter à la base de données.
 11. Basculez vers le navigateur web, puis, dans le **portail Azure**, cliquez sur **OK** dans la page **Configurer**, puis dans la page **Nouvelle passerelle de données**.
 12. Vous devez voir **adftutorialgateway** sous **Passerelles de données** dans l’arborescence de gauche.  Si vous cliquez dessus, vous devez voir le code JSON associé.

@@ -62,7 +62,7 @@ Vous pouvez continuer à utiliser Visual Studio pour générer vos solutions .NE
 
 Après avoir modifié votre solution avec les recommandations de l’analyseur de portabilité .NET ou à partir d’une analyse manuelle, vous devez la tester avec HDInsight. Le test de la solution sur un cluster HDInsight sous Linux peut révéler des problèmes subtils qui doivent être corrigés. Nous vous recommandons d’activer la fonction de journalisation supplémentaire dans votre application lors de son test.
 
-Pour plus d’informations sur l’accès aux journaux, consultez les documents suivants :
+Pour plus d’informations sur l’accès aux journaux d’activité, consultez les documents suivants :
 
 * [Accéder aux journaux des applications Apache Hadoop YARN dans la version Linux de HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 

@@ -49,14 +49,14 @@ Storage Analytics enregistre des informations détaillées sur les demandes ayan
 
   Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
 
-## <a name="how-logs-are-stored"></a>Mode de stockage des journaux
+## <a name="how-logs-are-stored"></a>Mode de stockage des journaux d’activité
 
 Tous les journaux sont stockés dans des objets BLOB de blocs dans un conteneur nommé `$logs`, qui est automatiquement créé lorsque Storage Analytique est activé pour un compte de stockage. Le `$logs` conteneur se trouve dans l’espace de noms d’objets blob du compte de stockage, par exemple : `http://<accountname>.blob.core.windows.net/$logs`. Ce conteneur ne peut pas être supprimé une fois Storage Analytics activé, mais son contenu peut l'être. Si vous utilisez votre outil de consultation du stockage pour accéder directement au conteneur, vous verrez tous les objets BLOB contenant vos données de journalisation.
 
 > [!NOTE]
 >  Le `$logs` conteneur n’est pas affiché lors d’une opération de liste de conteneurs, tels que l’opération de conteneurs de la liste. Vous devez y accéder directement. Par exemple, vous pouvez utiliser l’opération répertorier des objets BLOB pour accéder aux objets BLOB dans le `$logs` conteneur.
 
-À mesure que des demandes sont enregistrées, Storage Analytics télécharge les résultats intermédiaires en tant que blocs. Périodiquement, Storage Analytics valide ces blocs et les rend accessibles sous forme d'objets blob. Il peut prendre jusqu'à une heure pour les données de journal s’affichent dans les objets BLOB dans le **$logs** conteneur étant donné que la fréquence à laquelle le service de stockage vide les enregistreurs de journal. Il peut exister des enregistrements en double pour les journaux créés dans la même heure. Vous pouvez déterminer si un enregistrement est un doublon en vérifiant les nombres **RequestId** et **Operation**.
+À mesure que des demandes sont enregistrées, Storage Analytics télécharge les résultats intermédiaires en tant que blocs. Périodiquement, Storage Analytics valide ces blocs et les rend accessibles sous forme d'objets blob. Il peut prendre jusqu'à une heure pour les données de journal s’affichent dans les objets BLOB dans le **$logs** conteneur étant donné que la fréquence à laquelle le service de stockage vide les enregistreurs de journal. Il peut exister des enregistrements en double pour les journaux d’activité créés dans la même heure. Vous pouvez déterminer si un enregistrement est un doublon en vérifiant les nombres **RequestId** et **Operation**.
 
 Si vous avez un volume élevé de données de journal avec plusieurs fichiers pour chaque heure, vous pouvez utiliser les métadonnées d’objets blob pour déterminer les données que le journal contient en examinant les champs de métadonnées d’objet blob. Ceci est également utile car il peut parfois y avoir un délai tandis que les données sont écrites dans les fichiers journaux : les métadonnées de blob donne une indication plus précise du contenu blob que le nom d’objet blob.
 

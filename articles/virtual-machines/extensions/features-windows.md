@@ -331,7 +331,7 @@ AutoUpgradeMinorVersion     : True
 
 #### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Vérification si une mise à jour de type autoUpgradeMinorVersion a été effectuée
 
-Pour déterminer le moment où une extension a fait l’objet d’une mise à jour, consultez les journaux d’agent sur la machine virtuelle à l’emplacement *C:\WindowsAzure\Logs\WaAppAgent.log*.
+Pour déterminer le moment où une extension a fait l’objet d’une mise à jour, consultez les journaux d’activité d’agent sur la machine virtuelle à l’emplacement *C:\WindowsAzure\Logs\WaAppAgent.log*.
 
 Dans l’exemple ci-après, la machine virtuelle était équipée de la version *Microsoft.Compute.CustomScriptExtension 1.8*. Un correctif logiciel est ensuite devenu disponible sous la forme de la version *1.9* :
 
@@ -356,7 +356,7 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 3. Consultez les sections de résolution des problèmes dans la documentation de l’extension concernée pour vous renseigner sur les codes d’erreur, les problèmes connus, etc.
 
-4. Examinez les journaux système. Vérifiez si d’autres opérations sont susceptibles d’avoir interféré avec l’extension, par exemple une longue installation d’une autre application nécessitant un accès exclusif au gestionnaire de package.
+4. Examinez les journaux d’activité système. Vérifiez si d’autres opérations sont susceptibles d’avoir interféré avec l’extension, par exemple une longue installation d’une autre application nécessitant un accès exclusif au gestionnaire de package.
 
 ### <a name="common-reasons-for-extension-failures"></a>Motifs courants des échecs d’extension
 

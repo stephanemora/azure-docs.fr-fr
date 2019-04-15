@@ -70,7 +70,7 @@ Pour créer le profil Traffic Manager USA Est, il y a plusieurs étapes à suiv
 
 1. Créer un profil avec **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)** applet de commande
 
-    Utilisez la cmdlet suivante pour créer le profil. Veillez à modifier `appIdLuis` et `subscriptionKeyLuis`. La clé d’abonnement correspond à la clé LUIS USA Est. Si le chemin d’accès n’est pas correct, y compris la clé de point de terminaison et l’ID de l’application LUIS, l’interrogation de Traffic Manager a le statut `degraded`, car Traffic Manager ne parvient pas à demander le point de terminaison LUIS. Vérifiez que la valeur de `q` est `traffic-manager-east` afin de pouvoir la voir dans les journaux du point de terminaison LUIS.
+    Utilisez la cmdlet suivante pour créer le profil. Veillez à modifier `appIdLuis` et `subscriptionKeyLuis`. La clé d’abonnement correspond à la clé LUIS USA Est. Si le chemin d’accès n’est pas correct, y compris la clé de point de terminaison et l’ID de l’application LUIS, l’interrogation de Traffic Manager a le statut `degraded`, car Traffic Manager ne parvient pas à demander le point de terminaison LUIS. Vérifiez que la valeur de `q` est `traffic-manager-east` afin de pouvoir la voir dans les journaux d’activité du point de terminaison LUIS.
 
     ```powerShell
     $eastprofile = New-AzTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
@@ -138,7 +138,7 @@ Pour créer le profil Traffic Manager USA Ouest, suivez les mêmes étapes : cr�
 
 1. Créer un profil avec **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** applet de commande
 
-    Utilisez la cmdlet suivante pour créer le profil. Veillez à modifier `appIdLuis` et `subscriptionKeyLuis`. La clé d’abonnement correspond à la clé LUIS USA Est. Si le chemin d’accès n’est pas correct, y compris la clé de point de terminaison et l’ID de l’application LUIS, l’interrogation de Traffic Manager a le statut `degraded`, car Traffic Manager ne parvient pas à demander le point de terminaison LUIS. Vérifiez que la valeur de `q` est `traffic-manager-west` afin de pouvoir la voir dans les journaux du point de terminaison LUIS.
+    Utilisez la cmdlet suivante pour créer le profil. Veillez à modifier `appIdLuis` et `subscriptionKeyLuis`. La clé d’abonnement correspond à la clé LUIS USA Est. Si le chemin d’accès n’est pas correct, y compris la clé de point de terminaison et l’ID de l’application LUIS, l’interrogation de Traffic Manager a le statut `degraded`, car Traffic Manager ne parvient pas à demander le point de terminaison LUIS. Vérifiez que la valeur de `q` est `traffic-manager-west` afin de pouvoir la voir dans les journaux d’activité du point de terminaison LUIS.
 
     ```powerShell
     $westprofile = New-AzTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
@@ -330,7 +330,7 @@ Traffic Manager interroge le chemin de chaque point de terminaison pour vérifie
 ![Capture d’écran de la Vue d’ensemble du profil Azure Traffic Manager indiquant un état de monitoring En ligne](./media/traffic-manager/profile-status-online.png)
 
 ### <a name="validate-traffic-manager-polling-works"></a>Valider le fonctionnement de l’interrogation de Traffic Manager
-Il existe un autre moyen de valider le fonctionnement de l’interrogation de Traffic Manager : les journaux du point de terminaison LUIS. Sur la page de la liste des applications du site web [LUIS][LUIS], exportez le journal du point de terminaison de l’application. Traffic Manager interroge souvent les deux points de terminaison, ce qui fait qu’il y a des entrées dans les journaux même s’ils n’ont été en ligne que quelques minutes. N’oubliez pas de rechercher les entrées pour lesquelles la requête commence par `traffic-manager-`.
+Il existe un autre moyen de valider le fonctionnement de l’interrogation de Traffic Manager : les journaux d’activité du point de terminaison LUIS. Sur la page de la liste des applications du site web [LUIS][LUIS], exportez le journal du point de terminaison de l’application. Traffic Manager interroge souvent les deux points de terminaison, ce qui fait qu’il y a des entrées dans les journaux d’activité même s’ils n’ont été en ligne que quelques minutes. N’oubliez pas de rechercher les entrées pour lesquelles la requête commence par `traffic-manager-`.
 
 ```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}

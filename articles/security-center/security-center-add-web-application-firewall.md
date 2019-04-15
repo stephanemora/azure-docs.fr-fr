@@ -16,7 +16,7 @@ ms.date: 12/13/2018
 ms.author: rkarlin
 ms.openlocfilehash: 63852ccab842f11f30bcbe695206fedf72931911
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56105041"
@@ -66,7 +66,7 @@ Security Center recommande de provisionner un WAF pour vous défendre contre les
 >
 >
 
-Les journaux du pare-feu d’applications web sont maintenant entièrement intégrés. Le Centre de sécurité peut commencer automatiquement à collecter et à analyser les journaux afin de vous informer des alertes de sécurité les plus importantes.
+Les journaux d’activité du pare-feu d’applications web sont maintenant entièrement intégrés. Le Centre de sécurité peut commencer automatiquement à collecter et à analyser les journaux d’activité afin de vous informer des alertes de sécurité les plus importantes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a montré comment implémenter la recommandation du Centre de sécurité « Add a web application » (Ajouter une application web). Pour en savoir plus sur la configuration d'un pare-feu d'applications web, consultez les rubriques suivantes :

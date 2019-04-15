@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743576"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254364"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Création et gestion d’un package de prise en charge pour la gamme StorSimple 8000
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Un package de support StorSimple est un mécanisme facile à utiliser qui collecte tous les journaux appropriés afin d’aider le support Microsoft à résoudre tout problème lié à votre appareil StorSimple. Les fichiers journaux collectés sont chiffrés et compressés.
+Un package de support StorSimple est un mécanisme facile à utiliser qui collecte tous les journaux d’activité appropriés afin d’aider le support Microsoft à résoudre tout problème lié à votre appareil StorSimple. Les fichiers journaux d’activité collectés sont chiffrés et compressés.
 
 Ce didacticiel inclut des instructions détaillées pour créer et gérer le package de prise en charge de votre appareil de la gamme StorSimple 8000. Si vous travaillez avec un tableau virtuel StorSimple, accédez à [Générer un package de journaux](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
@@ -93,7 +93,7 @@ Pour modifier un package de support avant de le télécharger sur le site de sup
 #### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Pour modifier un package de support dans Windows PowerShell pour StorSimple
 
 1. Générez un package de support, comme décrit dans la section [Création d’un package de support dans Windows PowerShell pour StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
-2. [Téléchargez le script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localement sur votre ordinateur client.
+2. [Téléchargez le script](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localement sur votre ordinateur client.
 3. Importez le module Windows PowerShell. Spécifiez le chemin d’accès au dossier local dans lequel vous avez téléchargé le script. Pour importer le module, entrez :
    
     `Import-module <Path to the folder that contains the Windows PowerShell script>`
@@ -145,9 +145,9 @@ L’exemple suivant illustre comment déchiffrer, modifier et re-chiffrer un pac
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez-en davantage sur les [informations collectées dans le package de prise en charge](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs).
-* Découvrez comment [utiliser les packages de support et les journaux de l’appareil pour dépanner votre déploiement](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Découvrez comment [utiliser les packages de support et les journaux d’activité de l’appareil pour dépanner votre déploiement](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Découvrez comment [utiliser le service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
 

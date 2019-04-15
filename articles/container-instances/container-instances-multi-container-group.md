@@ -179,9 +179,9 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## <a name="view-container-logs"></a>Afficher les journaux d’un conteneur
+## <a name="view-container-logs"></a>Afficher les journaux d’activité du conteneur
 
-Consultez la sortie du journal d’un conteneur à l’aide de la commande [az container logs][az-container-logs]. L’argument `--container-name` spécifie le conteneur à partir duquel extraire les journaux. Dans cet exemple, le `aci-tutorial-app` conteneur est spécifié.
+Consultez la sortie du journal d’un conteneur à l’aide de la commande [az container logs][az-container-logs]. L’argument `--container-name` spécifie le conteneur à partir duquel extraire les journaux d’activité. Dans cet exemple, le `aci-tutorial-app` conteneur est spécifié.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app

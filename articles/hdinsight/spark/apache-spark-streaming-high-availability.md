@@ -11,7 +11,7 @@ ms.custom: hdinsightactive
 ms.date: 01/26/2018
 ms.openlocfilehash: 1d9a7caa7ab70ef1f0da41e1ec3f30780f93536a
 ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/20/2018
 ms.locfileid: "53649719"
@@ -98,7 +98,7 @@ Pour résumer, grâce aux points de contrôle, au journal WAL et à des récepte
 
 ### <a name="typical-concerns-for-high-availability"></a>Difficultés classiques concernant la haute disponibilité
 
-* Il est plus difficile de surveiller des travaux de streaming que le traitement par lots. Les travaux Spark Streaming sont généralement longs, et YARN n’effectue l’agrégation des journaux que lorsqu’un travail est terminé.  Les points de contrôle Spark sont perdus pendant les mises à niveau d’application ou de Spark, et vous devrez effacer le répertoire de points de contrôle durant une mise à niveau.
+* Il est plus difficile de surveiller des travaux de streaming que le traitement par lots. Les travaux Spark Streaming sont généralement longs, et YARN n’effectue l’agrégation des journaux d’activité que lorsqu’un travail est terminé.  Les points de contrôle Spark sont perdus pendant les mises à niveau d’application ou de Spark, et vous devrez effacer le répertoire de points de contrôle durant une mise à niveau.
 
 * Configurez votre mode de cluster YARN pour exécuter les pilotes même en cas d’échec d’un client. Pour configurer le redémarrage automatique des pilotes :
 

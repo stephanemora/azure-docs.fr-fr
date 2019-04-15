@@ -16,7 +16,7 @@ ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: 424453e70e5b62e408f408cd5ae8169cddb14dd7
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56109926"
@@ -56,7 +56,7 @@ Nous vous recommandons de lire l’article [Azure Database Security Best Practic
 |<br>Azure Security Center| <ul><li>[Surveillance des données](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-databases), avec Azure Security Center comme solution de surveillance de la sécurité centralisée pour SQL et d’autres services Azure.</li></ul>|       
 
 ## <a name="conclusion"></a>Conclusion
-Azure Database est une plateforme robuste de base de données, avec un éventail complet de fonctionnalités de sécurité qui répondent à nombreuses exigences en matière de conformité réglementaire et organisationnelles. Vous pouvez facilement protéger les données en contrôlant l’accès physique à vos données et à l’aide de diverses options de sécurité des données au niveau des fichiers, des colonnes ou des lignes avec le chiffrement transparent des données, le chiffrement au niveau des cellules ou de la sécurité au niveau des lignes. Always Encrypted active également des opérations sur les données chiffrées, ce qui simplifie le processus des mises à jour d’application. À son tour, l’accès aux journaux d’audit de l’activité SQL Database vous offre les informations dont vous avez besoin, ce qui vous permet de savoir quand et comment les utilisateurs ont accédé aux données.
+Azure Database est une plateforme robuste de base de données, avec un éventail complet de fonctionnalités de sécurité qui répondent à nombreuses exigences en matière de conformité réglementaire et organisationnelles. Vous pouvez facilement protéger les données en contrôlant l’accès physique à vos données et à l’aide de diverses options de sécurité des données au niveau des fichiers, des colonnes ou des lignes avec le chiffrement transparent des données, le chiffrement au niveau des cellules ou de la sécurité au niveau des lignes. Always Encrypted active également des opérations sur les données chiffrées, ce qui simplifie le processus des mises à jour d’application. À son tour, l’accès aux journaux d’activité d’audit de l’activité SQL Database vous offre les informations dont vous avez besoin, ce qui vous permet de savoir quand et comment les utilisateurs ont accédé aux données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Quelques étapes simples suffisent pour améliorer la protection d’une base de données contre les utilisateurs malveillants ou tout accès non autorisé. Ce didacticiel vous apprend à effectuer les opérations suivantes :

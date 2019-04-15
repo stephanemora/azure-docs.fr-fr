@@ -70,7 +70,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Alors que Kafka sur HDInsight utilise des disques gérés par Azure pour stocker les données Kafka, le cluster utilise également le stockage Azure pour stocker des informations telles que les journaux. Utilisez [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) pour créer un compte de stockage.
+Alors que Kafka sur HDInsight utilise des disques gérés par Azure pour stocker les données Kafka, le cluster utilise également le stockage Azure pour stocker des informations telles que les journaux d’activité. Utilisez [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) pour créer un compte de stockage.
 
 ```powershell
 $storageName = Read-Host -Prompt "Enter the storage account name"

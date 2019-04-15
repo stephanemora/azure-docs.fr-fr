@@ -38,7 +38,7 @@ L’API principale est uniforme sur toutes les plateformes, à l’exception de 
 | [`TrackMetric`](#trackmetric) |Mesures de performances telles que la longueur des files d’attente non liées à des événements spécifiques. |
 | [`TrackException`](#trackexception) |Exceptions de journal pour des diagnostics. Effectuez un suivi lorsqu’ils se produisent par rapport à d’autres événements et examinez les arborescences des appels de procédure. |
 | [`TrackRequest`](#trackrequest) |Notez la fréquence et la durée des requêtes du serveur pour l’analyse des performances. |
-| [`TrackTrace`](#tracktrace) |Messages du journal de diagnostic Vous pouvez également capturer des journaux tiers. |
+| [`TrackTrace`](#tracktrace) |Messages du journal de diagnostic Vous pouvez également capturer des journaux d’activité tiers. |
 | [`TrackDependency`](#trackdependency) |La journalisation de la durée et de la fréquence des appels vers les composants externes dont dépend votre application. |
 
 Vous pouvez [associer des propriétés et des mesures](#properties) à la plupart de ces appels de télémétrie.
@@ -547,9 +547,9 @@ exceptions
 
 Utilisez TrackTrace pour diagnostiquer des problèmes en envoyant une « piste de navigation » à Application Insights. Vous pouvez envoyer des blocs de données de diagnostic et les examiner dans la [Recherche de diagnostic](../../azure-monitor/app/diagnostic-search.md).
 
-Dans .NET, les [Adaptateurs de journaux](../../azure-monitor/app/asp-net-trace-logs.md) utilisent cette API pour envoyer des journaux tiers au portail.
+Dans .NET, les [Adaptateurs de journaux d’activité](../../azure-monitor/app/asp-net-trace-logs.md) utilisent cette API pour envoyer des journaux d’activité tiers au portail.
 
-En Java, pour les [Enregistreurs d’événements standard, comme Log4J ou Logback](../../azure-monitor/app/java-trace-logs.md), utilisez les appenders Application Insights Log4j ou Logback afin d’envoyer des journaux tiers au portail.
+En Java, pour les [Enregistreurs d’événements standard, comme Log4J ou Logback](../../azure-monitor/app/java-trace-logs.md), utilisez les appenders Application Insights Log4j ou Logback afin d’envoyer des journaux d’activité tiers au portail.
 
 *C#*
 

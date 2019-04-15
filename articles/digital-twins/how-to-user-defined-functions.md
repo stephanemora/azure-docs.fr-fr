@@ -11,7 +11,7 @@ ms.author: alinast
 ms.custom: seodec18
 ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
 ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/08/2019
 ms.locfileid: "54076244"
@@ -152,7 +152,7 @@ var executionContext = new UdfExecutionContext
 };
 ```
 
-Dans l’exemple suivant, nous journalisons un message si la lecture des données de télémétrie de capteur dépasse un seuil prédéfini. Si vos paramètres de diagnostic sont activés sur l’instance Azure Digital Twins, les journaux issus des fonctions définies par l’utilisateur sont également transférés :
+Dans l’exemple suivant, nous journalisons un message si la lecture des données de télémétrie de capteur dépasse un seuil prédéfini. Si vos paramètres de diagnostic sont activés sur l’instance Azure Digital Twins, les journaux d’activité issus des fonctions définies par l’utilisateur sont également transférés :
 
 ```JavaScript
 function process(telemetry, executionContext) {

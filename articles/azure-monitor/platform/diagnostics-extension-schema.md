@@ -1,5 +1,5 @@
 ---
-title: Historique des versions des schémas de configuration de l’extension Azure Diagnostics
+title: Historique des versions des schémas de configuration de l’extension Diagnostics Azure
 description: Cet article est pertinent concernant la collecte de compteurs de performances dans Azure Virtual Machines, VM Scale Sets, Service Fabric et Cloud Services.
 services: azure-monitor
 author: rboucher
@@ -16,11 +16,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59526336"
 ---
-# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versions et historique des schémas de configuration de l’extension Azure Diagnostics
-Cette page est un index des versions de schémas d’extension Azure Diagnostics fournies avec le kit Microsoft Azure SDK.  
+# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versions et historique des schémas de configuration de l’extension Diagnostics Azure
+Cette page est un index des versions de schémas d’extension Diagnostics Azure fournies avec le kit SDK Microsoft Azure.  
 
 > [!NOTE]
-> L’Extension Microsoft Azure Diagnostics est le composant utilisé pour collecter les compteurs de performances et d’autres statistiques à partir de :
+> L’Extension Diagnostics Azure est le composant utilisé pour collecter les compteurs de performances et d’autres statistiques à partir de :
 > - Machines virtuelles Azure
 > - Virtual Machine Scale Sets
 > - Service Fabric
@@ -49,12 +49,12 @@ L’extension Azure Diagnostics est utilisée avec d’autres produits de diagno
 |2.96              |1.11                           |"|
 
 
- La version d’Azure Diagnostics 1.0 était fournie initialement avec un modèle de plug-in, ce qui signifie que lorsque vous installiez le Kit de développement logiciel (SDK) Azure, vous receviez avec celui-ci la version d’Azure Diagnostics.  
+ La version de Diagnostics Azure 1.0 était fournie initialement avec un modèle de plug-in, ce qui signifie que lorsque vous installiez le Kit de développement logiciel (SDK) Azure, vous receviez avec celui-ci la version de Diagnostics Azure.  
 
- À compter de la version 2.5 du kit SDK (version 1.2 d’Azure Diagnostics), Azure Diagnostics est passé à un modèle d’extension. Les outils permettant d’utiliser les nouvelles fonctionnalités sont disponibles uniquement dans les Kits de développement logiciel (SDK) Azure plus récents, mais tout service utilisant Azure Diagnostics sélectionne la dernière version directement dans Azure. Par exemple, toute personne utilisant encore le kit SDK 2.5 chargerait la version la plus récente indiquée dans le tableau précédent, qu’elle utilise ou non les fonctionnalités plus récentes.  
+ À compter de la version 2.5 du kit SDK (version 1.2 de Diagnostics), Diagnostics Azure est passé à un modèle d’extension. Les outils permettant d’utiliser les nouvelles fonctionnalités sont disponibles uniquement dans les kits SDK Azure plus récents, mais tout service utilisant Diagnostics Azure sélectionne la dernière version directement dans Azure. Par exemple, toute personne utilisant encore le kit SDK 2.5 chargerait la version la plus récente indiquée dans le tableau précédent, qu’elle utilise ou non les fonctionnalités plus récentes.  
 
 ## <a name="schemas-index"></a>Index des schémas  
-Les différentes versions d’Azure Diagnostics utilisent des schémas de configuration différents.
+Les différentes versions de Diagnostics Azure utilisent des schémas de configuration différents.
 
 [Schéma de configuration des diagnostics 1.0](diagnostics-extension-schema-1dot0.md)  
 

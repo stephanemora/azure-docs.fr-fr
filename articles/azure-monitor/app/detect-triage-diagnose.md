@@ -103,7 +103,7 @@ L’e-mail indique également qu’une exception particulière s’est produite 
 
 Marcella interroge le responsable de l’équipe qui gère la base de données sur cet e-mail. Elle apprend qu’ils ont publié un correctif il y a moins d’une demi-heure. Il se peut donc qu’une modification mineure du schéma se soit produite...
 
-Par conséquent, le problème est en cours de résolution, même avant l’examen des journaux et dans les 15 minutes suivant son apparition. Toutefois, Marcela clique sur le lien pour ouvrir Application Insights. Il s’ouvre directement sur une demande ayant échoué, et elle peut voir l’appel de base de données ayant échoué dans la liste d’appels de dépendance associée.
+Par conséquent, le problème est en cours de résolution, même avant l’examen des journaux d’activité et dans les 15 minutes suivant son apparition. Toutefois, Marcela clique sur le lien pour ouvrir Application Insights. Il s’ouvre directement sur une demande ayant échoué, et elle peut voir l’appel de base de données ayant échoué dans la liste d’appels de dépendance associée.
 
 ![Suivi des demandes ayant échoué](./media/detect-triage-diagnose/23.png)
 

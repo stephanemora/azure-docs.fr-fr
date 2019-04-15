@@ -17,7 +17,7 @@ ms.date: 07/11/2017
 ms.author: manayar
 ms.openlocfilehash: deddcc8623803f9d003f3fafcef5252ebd34b813
 ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/15/2018
 ms.locfileid: "53438331"
@@ -26,7 +26,7 @@ ms.locfileid: "53438331"
 
 Dans Azure, il existe deux types de mesures collectées sur les machines virtuelles et les groupes identiques : certaines proviennent de la machine virtuelle hôte et d’autres de la machine virtuelles invitée. En général, si vous utilisez des mesures de processeur, de disque et de réseau standard, les mesures d’hôte sont probablement bien adaptées. Si, en revanche, vous avez besoin d’un éventail plus large de mesures, alors les mesures invitées conviennent probablement mieux. Examinons les différences entre les deux :
 
-Les mesures d’hôte sont plus simples et plus fiables. Elles ne nécessitent aucune configuration supplémentaire, car elles sont collectées par la machine virtuelle hôte, tandis que les métriques invitées nécessitent d’installer [l’extension Microsoft Azure Diagnostics](../virtual-machines/windows/extensions-diagnostics-template.md) ou [l’extension Linux Azure Diagnostics](../virtual-machines/linux/diagnostic-extension.md) sur la machine virtuelle invitée. L’utilisation des mesures invitées à la place des mesures hôtes est courante, car les premières sont plus variées que les dernières. Les mesures de consommation de la mémoire, notamment, ne sont disponibles que via les mesures invitées. Les mesures hôtes prises en charge sont répertoriées [ici](../azure-monitor/platform/metrics-supported.md), et les mesures invitées couramment utilisées [ici](../azure-monitor/platform/autoscale-common-metrics.md). Cet article explique comment modifier le [modèle de groupe identique viable minimal](./virtual-machine-scale-sets-mvss-start.md) pour qu’il utilise des règles de mise à l’échelle automatique en fonction des mesures invitées des groupes identiques Linux.
+Les mesures d’hôte sont plus simples et plus fiables. Elles ne nécessitent aucune configuration supplémentaire, car elles sont collectées par la machine virtuelle hôte, tandis que les métriques invitées nécessitent d’installer l’[extension Diagnostics Azure pour Windows](../virtual-machines/windows/extensions-diagnostics-template.md) ou l’[extension Diagnostics Azure pour Linux](../virtual-machines/linux/diagnostic-extension.md) sur la machine virtuelle invitée. L’utilisation des mesures invitées à la place des mesures hôtes est courante, car les premières sont plus variées que les dernières. Les mesures de consommation de la mémoire, notamment, ne sont disponibles que via les mesures invitées. Les mesures hôtes prises en charge sont répertoriées [ici](../azure-monitor/platform/metrics-supported.md), et les mesures invitées couramment utilisées [ici](../azure-monitor/platform/autoscale-common-metrics.md). Cet article explique comment modifier le [modèle de groupe identique viable minimal](./virtual-machine-scale-sets-mvss-start.md) pour qu’il utilise des règles de mise à l’échelle automatique en fonction des mesures invitées des groupes identiques Linux.
 
 ## <a name="change-the-template-definition"></a>Modifier la définition du modèle
 

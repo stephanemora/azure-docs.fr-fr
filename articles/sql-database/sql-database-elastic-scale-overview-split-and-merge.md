@@ -212,7 +212,7 @@ Le service de fractionnement et de fusion fournit la table **RequestStatus** dan
 
 ### <a name="azure-diagnostics"></a>Diagnostics Azure
 
-Le service de fusion et de fractionnement utilise l’Azure Diagnostics basé sur Azure SDK 2.5 pour la surveillance et les diagnostics. Vous contrôlez la configuration des diagnostics comme expliqué ici : [Activation des diagnostics dans Azure Cloud Services et les machines virtuelles Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). Le package de téléchargement comprend deux configurations de diagnostic : un pour le rôle Web et un pour le rôle de travail. Elle inclut les définitions permettant d’enregistrer les compteurs de performances, les journaux d’activité IIS, les journaux des événements Windows et les journaux des événements de l’application de fractionnement et de fusion.
+Le service de fusion et de fractionnement utilise Diagnostics Azure basé sur Azure SDK 2.5 pour la surveillance et les diagnostics. Vous contrôlez la configuration des diagnostics comme expliqué ici : [Activation des diagnostics dans Azure Cloud Services et les machines virtuelles Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). Le package de téléchargement comprend deux configurations de diagnostic : un pour le rôle Web et un pour le rôle de travail. Elle inclut les définitions permettant d’enregistrer les compteurs de performances, les journaux d’activité IIS, les journaux des événements Windows et les journaux des événements de l’application de fractionnement et de fusion.
 
 ## <a name="deploy-diagnostics"></a>Déployer des diagnostics
 

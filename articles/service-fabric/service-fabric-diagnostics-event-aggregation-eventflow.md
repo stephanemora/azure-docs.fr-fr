@@ -31,7 +31,7 @@ Les fichiers binaires EventFlow sont disponibles sous la forme d’un ensemble d
 
 ![Packages NuGet EventFlow dans l’interface utilisateur du gestionnaire de package NuGet Visual Studio](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-Une liste de différents packages s’affiche, étiquetés avec « Entrées » et « Sorties ». EventFlow prend en charge différents fournisseurs de journalisation et analyseurs. Le service qui héberge EventFlow doit inclure les packages appropriés en fonction de la source et de la destination des journaux d’application. Outre le package ServiceFabric principal, au moins un package Entrée et un package Sortie doivent également être configurés. Par exemple, vous pouvez ajouter les packages suivants pour envoyer des événements EventSource à Application Insights :
+Une liste de différents packages s’affiche, étiquetés avec « Entrées » et « Sorties ». EventFlow prend en charge différents fournisseurs de journalisation et analyseurs. Le service qui héberge EventFlow doit inclure les packages appropriés en fonction de la source et de la destination des journaux d’activité d’application. Outre le package ServiceFabric principal, au moins un package Entrée et un package Sortie doivent également être configurés. Par exemple, vous pouvez ajouter les packages suivants pour envoyer des événements EventSource à Application Insights :
 
 * `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` (pour capturer les données à partir de la classe EventSource du service et d’EventSources standard tels que *Microsoft-ServiceFabric-Services* et *Microsoft-ServiceFabric-Actors*)
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (nous allons envoyer les journaux à une ressource Azure Application Insights)
@@ -43,7 +43,7 @@ Une liste de différents packages s’affiche, étiquetés avec « Entrées »
 Une fois tous les packages installés, l’étape suivante consiste à configurer et à activer EventFlow dans le service.
 
 ## <a name="configure-and-enable-log-collection"></a>Configurer et activer la collecte de journaux
-Le pipeline EventFlow chargé d’envoyer les journaux est créé à partir d’une spécification stockée dans un fichier de configuration. Le package `Microsoft.Diagnostics.EventFlow.ServiceFabric` installe un fichier de configuration EventFlow de démarrage dans le dossier de solution `PackageRoot\Config`, nommé `eventFlowConfig.json`. Ce fichier de configuration doit être modifié pour capturer les données à partir de la classe `EventSource` du service par défaut et toutes les autres entrées que vous voulez configurer, puis envoyer les données à l’emplacement approprié.
+Le pipeline EventFlow chargé d’envoyer les journaux d’activité est créé à partir d’une spécification stockée dans un fichier de configuration. Le package `Microsoft.Diagnostics.EventFlow.ServiceFabric` installe un fichier de configuration EventFlow de démarrage dans le dossier de solution `PackageRoot\Config`, nommé `eventFlowConfig.json`. Ce fichier de configuration doit être modifié pour capturer les données à partir de la classe `EventSource` du service par défaut et toutes les autres entrées que vous voulez configurer, puis envoyer les données à l’emplacement approprié.
 
 >[!NOTE]
 >Si votre fichier de projet est au format Visual Studio 2017, le fichier `eventFlowConfig.json` n’est pas ajouté automatiquement. Pour corriger cela, créez le fichier dans le dossier `Config` et définissez l’action de génération `Copy if newer`. 
@@ -152,7 +152,7 @@ servicefabric:/<section-name>/<setting-name>
 
 ## <a name="verification"></a>Vérification
 
-Démarrez votre service et observez la fenêtre de sortie Débogage de Visual Studio. Une fois le service démarré, vous devez commencer à voir des preuves qu’il envoie des enregistrements à la sortie que vous avez configurée. Accédez à votre plateforme d’analyse et de visualisation des événements et vérifiez que les journaux ont commencé à s’afficher (cela peut prendre quelques minutes).
+Démarrez votre service et observez la fenêtre de sortie Débogage de Visual Studio. Une fois le service démarré, vous devez commencer à voir des preuves qu’il envoie des enregistrements à la sortie que vous avez configurée. Accédez à votre plateforme d’analyse et de visualisation des événements et vérifiez que les journaux d’activité ont commencé à s’afficher (cela peut prendre quelques minutes).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

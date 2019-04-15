@@ -1,5 +1,5 @@
 ---
-title: Alertes en cas de problèmes dans Azure Cloud Services à l’aide de l’intégration Azure Diagnostics avec Azure Application Insights | Microsoft Docs
+title: Alertes en cas de problèmes dans Azure Cloud Services à l’aide de l’intégration Diagnostics Azure avec Azure Application Insights | Microsoft Docs
 description: Surveillez les problèmes tels que les échecs de démarrage, les incidents et les boucles de recyclage des rôles dans Azure Cloud Services avec Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.reviewer: harelbr
 ms.author: mbullwin
 ms.openlocfilehash: 219ba632d7688f1a428378309828b689698d2fe5
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54019472"
 ---
-# <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alertes en cas de problèmes dans Azure Cloud Services à l’aide de l’intégration Azure Diagnostics avec Azure Application Insights
+# <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alertes en cas de problèmes dans Azure Cloud Services à l’aide de l’intégration Diagnostics Azure avec Azure Application Insights
 
 Dans cet article, nous allons voir comment configurer les règles d’alerte qui surveillent les problèmes tels que les échecs de démarrage, les incidents et les boucles de recyclage des rôles dans Azure Cloud Services (rôles web et de travail).
 
-La méthode décrite dans cet article est basée sur l’[intégration Azure Diagnostics avec Application Insights](https://azure.microsoft.com/blog/azure-diagnostics-integration-with-application-insights/)et la fonctionnalité [Alertes de journal pour Application Insights](https://azure.microsoft.com/blog/log-alerts-for-application-insights-preview/) publiée récemment.
+La méthode décrite dans cet article est basée sur l’[intégration Diagnostics Azure avec Application Insights](https://azure.microsoft.com/blog/azure-diagnostics-integration-with-application-insights/)et la fonctionnalité [Alertes de journal pour Application Insights](https://azure.microsoft.com/blog/log-alerts-for-application-insights-preview/) publiée récemment.
 
 ## <a name="define-a-base-query"></a>Définir une requête de base
 

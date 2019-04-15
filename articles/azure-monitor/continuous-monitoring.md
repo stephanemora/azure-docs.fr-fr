@@ -14,7 +14,7 @@ ms.date: 10/12/2018
 ms.author: bwren
 ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55994012"
@@ -70,7 +70,7 @@ L’intégration continue / le déploiement continu vous donne la possibilité d
 ## <a name="create-actionable-alerts-with-actions"></a>Créer des alertes actionnables avec des actions
 Un aspect essentiel de la supervision est la notification des administrateurs à un stade précoce des problèmes actuels et prédits. 
 
-- Créez des [alertes dans Azure Monitor](../azure-monitor/platform/alerts-overview.md) en fonction des journaux et des métriques pour identifier les états d’échec prédictibles. Votre objectif doit être de rendre toutes les alertes actionnables, ce qui implique qu’elles représentent des conditions critiques réelles et qu’elles cherchent à réduire les faux positifs. Utilisez des [seuils dynamiques](platform/alerts-dynamic-thresholds.md) pour calculer automatiquement les bases de référence sur les données de métriques plutôt que de définir vos propres seuils statiques. 
+- Créez des [alertes dans Azure Monitor](../azure-monitor/platform/alerts-overview.md) en fonction des journaux d’activité et des métriques pour identifier les états d’échec prédictibles. Votre objectif doit être de rendre toutes les alertes actionnables, ce qui implique qu’elles représentent des conditions critiques réelles et qu’elles cherchent à réduire les faux positifs. Utilisez des [seuils dynamiques](platform/alerts-dynamic-thresholds.md) pour calculer automatiquement les bases de référence sur les données de métriques plutôt que de définir vos propres seuils statiques. 
 - Définissez des actions pour que les alertes utilisent le moyen le plus efficace d’informer vos administrateurs. Les [actions disponibles pour les notifications](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) sont les SMS, e-mails, notifications Push ou appels vocaux.
 - Utilisez des actions plus élaborées pour vous [connecter à votre outil ITSM](platform/itsmc-overview.md) ou à d’autres systèmes de gestion d’alertes au moyen de [webhooks](platform/activity-log-alerts-webhook.md).
 - Corrigez les situations identifiées dans les alertes, aussi bien avec les [runbooks Azure Automation](../automation/automation-webhooks.md) qu’avec [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) qui peut être lancé à partir d’une alerte avec des webhooks. 
@@ -79,11 +79,11 @@ Un aspect essentiel de la supervision est la notification des administrateurs à
 ## <a name="prepare-dashboards-and-workbooks"></a>Préparer des tableaux de bord et des classeurs
 Le fait de veiller à ce que votre développement et vos opérations aient accès à la même télémétrie et aux mêmes outils leur permet d’afficher des modèles dans tout votre environnement, et de réduire les temps de détection moyen (MTTD) et temps de restauration moyen (MTTR).
 
-- Préparez des [tableaux de bord personnalisés](../azure-monitor/learn/tutorial-app-dashboards.md) en fonction des journaux et métriques communs des différents rôles de votre organisation. Les tableaux de bord peuvent combiner des données provenant de toutes les ressources Azure.
+- Préparez des [tableaux de bord personnalisés](../azure-monitor/learn/tutorial-app-dashboards.md) en fonction des journaux d’activité et métriques communs des différents rôles de votre organisation. Les tableaux de bord peuvent combiner des données provenant de toutes les ressources Azure.
 - Préparez des [classeurs](../azure-monitor/app/usage-workbooks.md) pour garantir le partage des connaissances entre le développement et les opérations. Ils peuvent être organisés sous forme de rapports dynamiques contenant des graphiques de métrique et des requêtes de journal, ou même sous forme de guides de résolution des problèmes, conçus par des développeurs aidant le support technique ou les opérations à régler des problèmes de base.
 
 ## <a name="continuously-optimize"></a>Optimiser en continu
- La supervision est un des aspects fondamentaux de la philosophie très répandue Construire-Mesurer-Apprendre ; elle recommande le suivi en continu des KPI et des métriques de comportement d’utilisateur, pour ensuite s’efforcer de les optimiser par la planification d’itérations. Azure Monitor vous permet de collecter des journaux et des métriques en rapport avec votre activité, et d’ajouter de nouveaux points de données dans le déploiement suivant, en fonction des besoins.
+ La supervision est un des aspects fondamentaux de la philosophie très répandue Construire-Mesurer-Apprendre ; elle recommande le suivi en continu des KPI et des métriques de comportement d’utilisateur, pour ensuite s’efforcer de les optimiser par la planification d’itérations. Azure Monitor vous permet de collecter des journaux d’activité et des métriques en rapport avec votre activité, et d’ajouter de nouveaux points de données dans le déploiement suivant, en fonction des besoins.
 
 - Utilisez les outils dans Application Insights pour [suivre le comportement et l’engagement des utilisateurs finaux](../azure-monitor/learn/tutorial-users.md).
 - Utilisez [Analyse d’impact](../azure-monitor/app/usage-impact.md) pour vous aider à classer par ordre de priorité les zones sur lesquelles se concentrer pour mener à d’importants KPI.

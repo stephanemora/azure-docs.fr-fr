@@ -154,7 +154,7 @@ Une cause possible de ce problème est que votre proxy ou votre pare-feu réseau
 
 #### <a name="resolution"></a>Résolution :
 
-Les journaux sont stockés localement sur chaque Worker hybride à l’emplacement C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Vous pouvez vérifier s’il existe des événements d’avertissement ou d’erreur dans les journaux des évènements **Journaux des applications et des services\Microsoft-SMA\Operations** et **Journaux des applications et des services\Operations Manager** qui indiqueraient une connectivité ou tout autre problème affectant l’intégration du rôle à Azure Automation ou un problème dans le cadre d’un fonctionnement normal.
+Les journaux d’activité sont stockés localement sur chaque Worker hybride à l’emplacement C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Vous pouvez vérifier s’il existe des événements d’avertissement ou d’erreur dans les journaux des évènements **Journaux des applications et des services\Microsoft-SMA\Operations** et **Journaux des applications et des services\Operations Manager** qui indiqueraient une connectivité ou tout autre problème affectant l’intégration du rôle à Azure Automation ou un problème dans le cadre d’un fonctionnement normal.
 
 La [sortie et les messages de runbooks](../automation-runbook-output-and-messages.md) sont envoyés à Azure Automation à partir de Workers hybrides tout comme les tâches de runbook qui sont exécutées dans le cloud. Vous pouvez également activer les flux Détaillé et Progression comme vous le feriez pour d’autres runbooks.
 

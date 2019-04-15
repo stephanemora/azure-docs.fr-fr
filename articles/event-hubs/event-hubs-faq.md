@@ -12,7 +12,7 @@ ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56162643"
@@ -191,7 +191,7 @@ Pour obtenir la liste des exceptions Event Hubs potentielles, consultez la page 
 
 ### <a name="diagnostic-logs"></a>Journaux de diagnostic
 
-Event Hubs prend en charge deux types de [journaux de diagnostics](event-hubs-diagnostic-logs.md) (journaux d’erreurs Capture et journaux des opérations), qui sont tous deux représentés en json et peuvent être activés via le portail Azure.
+Event Hubs prend en charge deux types de [journaux de diagnostics](event-hubs-diagnostic-logs.md) (journaux d’activité d’erreurs Capture et journaux d’activité des opérations), qui sont tous deux représentés en json et peuvent être activés via le portail Azure.
 
 ### <a name="support-and-sla"></a>Prise en charge et contrats SLA
 

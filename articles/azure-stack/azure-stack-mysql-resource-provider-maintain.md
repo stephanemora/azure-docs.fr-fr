@@ -167,16 +167,16 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 ### <a name="known-issues"></a>Problèmes connus
 
 **Problème :**<br>
-Les journaux de la rotation des secrets ne sont pas automatiquement collectés en cas d’échec de l’exécution du script de la rotation des secrets.
+Les journaux d’activité de la rotation des secrets ne sont pas automatiquement collectés en cas d’échec de l’exécution du script de la rotation des secrets.
 
 **Solution de contournement :**<br>
-Utilisez le cmdlet Get-AzsDBAdapterLogs pour collecter tous les journaux du fournisseur de ressources, notamment AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, enregistré sous C:\Logs.
+Utilisez le cmdlet Get-AzsDBAdapterLogs pour collecter tous les journaux d’activité du fournisseur de ressources, notamment AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, enregistré sous C:\Logs.
 
 ## <a name="collect-diagnostic-logs"></a>Collecter des journaux de diagnostic
 
-S’il s’avère nécessaire de collecter des journaux à partir de la machine virtuelle verrouillée, un point de terminaison PowerShell JEA (Just Enough Administration) DBAdapterDiagnostics est fourni à cette fin. Ce point de terminaison propose les commandes suivantes :
+S’il s’avère nécessaire de collecter des journaux d’activité à partir de la machine virtuelle verrouillée, un point de terminaison PowerShell JEA (Just Enough Administration) DBAdapterDiagnostics est fourni à cette fin. Ce point de terminaison propose les commandes suivantes :
 
-- **Get-AzsDBAdapterLog**. Cette commande crée un package zip des journaux de diagnostic du fournisseur de ressources et enregistre le fichier sur le lecteur de l’utilisateur de la session. Vous pouvez exécuter cette commande sans aucun paramètre : les quatre dernières heures de journaux seront collectées.
+- **Get-AzsDBAdapterLog**. Cette commande crée un package zip des journaux de diagnostic du fournisseur de ressources et enregistre le fichier sur le lecteur de l’utilisateur de la session. Vous pouvez exécuter cette commande sans aucun paramètre : les quatre dernières heures de journaux d’activité seront collectées.
 
 - **Remove-AzsDBAdapterLog**. Cette commande nettoie les packages de journaux existants sur la machine virtuelle du fournisseur de ressources.
 

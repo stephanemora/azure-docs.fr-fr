@@ -1,6 +1,6 @@
 ---
-title: 'Script Azure CLI : Télécharger des journaux de serveurs dans Azure Database pour MySQL'
-description: Cet exemple de script Azure CLI montre comment activer et télécharger les journaux de serveur pour un seul serveur Azure Database pour MySQL.
+title: 'Script Azure CLI : Télécharger des journaux d’activité de serveurs dans Azure Database pour MySQL'
+description: Cet exemple de script Azure CLI montre comment activer et télécharger les journaux d’activité de serveur pour un seul serveur Azure Database pour MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -15,8 +15,8 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 12/17/2018
 ms.locfileid: "53544496"
 ---
-# <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Activer et télécharger les journaux de requête serveur lents d’un serveur Azure Database pour MySQL à l’aide d’Azure CLI
-Cet exemple de script CLI montre comment activer et télécharger les journaux de serveur lents d’un seul serveur Azure Database pour MySQL.
+# <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Activer et télécharger les journaux d’activité de requête serveur lents d’un serveur Azure Database pour MySQL à l’aide d’Azure CLI
+Cet exemple de script CLI montre comment activer et télécharger les journaux d’activité de serveur lents d’un seul serveur Azure Database pour MySQL.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 

@@ -89,7 +89,7 @@ Ces tâches courantes peuvent être accomplies à l’aide des extensions :
     L’extension de configuration d’état souhaité (DSC) PowerShell vous permet de configurer DSC sur une machine virtuelle pour gérer les environnements et les configurations.
 
 - **Collecte des données de diagnostic**  
-    L’extension des diagnostics Microsoft Azure vous permet de configurer la machine virtuelle de sorte qu’elle collecte des données de diagnostics utilisées pour surperviser l’intégrité de votre application.
+    L’extension Diagnostics Azure vous permet de configurer la machine virtuelle de sorte qu’elle collecte des données de diagnostics utilisées pour superviser l’intégrité de votre application.
 
 ### <a name="related-resources"></a>Ressources associées
 

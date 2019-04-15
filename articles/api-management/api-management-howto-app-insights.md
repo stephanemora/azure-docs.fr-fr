@@ -15,7 +15,7 @@ ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
 ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/14/2019
 ms.locfileid: "54262759"
@@ -89,7 +89,7 @@ Pour pouvoir utiliser Azure Application Insights, il faut commencer par créer u
 > Il est possible de spécifier des enregistreurs d'événements à différents niveaux : pour une unique API ou pour toutes les API.
 >  
 > Si vous spécifiez les deux :
-> + S’ils sont différents, les deux seront utilisés (journaux de multiplexage).
+> + S’ils sont différents, les deux seront utilisés (journaux d’activité de multiplexage).
 > + Si ce sont les mêmes avec des paramètres différents, celui de l’API unique (niveau de détail supérieur) aura la priorité sur celui de l’ensemble des API.
 
 ## <a name="what-data-is-added-to-azure-application-insights"></a>Données ajoutées à Azure Application Insights

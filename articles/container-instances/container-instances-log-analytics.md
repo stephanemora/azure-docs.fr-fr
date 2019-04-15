@@ -1,6 +1,6 @@
 ---
-title: Journalisation des instances de conteneur avec les journaux Azure Monitor
-description: Découvrez comment envoyer la sortie de conteneur (STDOUT et STDERR) à des journaux Azure Monitor.
+title: Journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
+description: Découvrez comment envoyer la sortie de conteneur (STDOUT et STDERR) à des journaux d’activité Azure Monitor.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -14,11 +14,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/26/2019
 ms.locfileid: "56879702"
 ---
-# <a name="container-instance-logging-with-azure-monitor-logs"></a>Journalisation des instances de conteneur avec les journaux Azure Monitor
+# <a name="container-instance-logging-with-azure-monitor-logs"></a>Journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
 
-Les espaces de travail Log Analytics fournissent un emplacement centralisé pour le stockage et l’interrogation des données de journaux, non seulement à partir de ressources Azure, mais également de ressources locales et dans d’autres clouds. Azure Container Instances inclut une prise en charge de l’envoi de données vers des journaux Azure Monitor.
+Les espaces de travail Log Analytics fournissent un emplacement centralisé pour le stockage et l’interrogation des données de journaux, non seulement à partir de ressources Azure, mais également de ressources locales et dans d’autres clouds. Azure Container Instances inclut une prise en charge de l’envoi de données vers des journaux d’activité Azure Monitor.
 
-Pour envoyer des données d’instance de conteneur à des journaux Azure Monitor, vous devez créer un groupe de conteneurs à l’aide de l’interface de ligne de commande Azure (ou Cloud Shell) et d’un fichier YAML. Les sections suivantes décrivent la création d’un groupe de conteneurs dans lequel la journalisation et l’interrogation des journaux sont activées.
+Pour envoyer des données d’instance de conteneur à des journaux d’activité Azure Monitor, vous devez créer un groupe de conteneurs à l’aide de l’interface de ligne de commande Azure (ou Cloud Shell) et d’un fichier YAML. Les sections suivantes décrivent la création d’un groupe de conteneurs dans lequel la journalisation et l’interrogation des journaux d’activité sont activées.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -98,7 +98,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Vous devriez recevoir une réponse à partir des détails du déploiement de conteneur Azure peu de temps après l’émission de la commande.
 
-## <a name="view-logs-in-azure-monitor-logs"></a>Voir les journaux Azure Monitor
+## <a name="view-logs-in-azure-monitor-logs"></a>Voir les journaux d’activité Azure Monitor
 
 Une fois que vous avez déployé le groupe de conteneurs, l’affichage dans le portail Azure des premières entrées de journal peut prendre plusieurs minutes (jusqu’à 10). Pour afficher les journaux d’activité du groupe de conteneurs, ouvrez votre espace de travail Log Analytics, puis :
 
@@ -109,9 +109,9 @@ Vous devez voir plusieurs résultats affichés par la requête `search *`. Si vo
 
 ![Résultats de recherche dans les journaux dans le portail Azure][log-search-01]
 
-## <a name="query-container-logs"></a>Interroger les journaux d’un conteneur
+## <a name="query-container-logs"></a>Interroger les journaux d’activité d’un conteneur
 
-Les journaux Azure Monitor incluent un [langage de requête][query_lang] étendu pour extraire des informations de milliers de lignes de sortie de journal.
+Les journaux d’activité Azure Monitor incluent un [langage de requête][query_lang] étendu pour extraire des informations de milliers de lignes de sortie de journal d’activité.
 
 L’agent de journalisation d’Azure Container Instances envoie des entrées vers la table `ContainerInstanceLog_CL` dans votre espace de travail Log Analytics. La structure de base d’une requête est la table source (`ContainerInstanceLog_CL`) suivie d’une série d’opérateurs séparés par une barre verticale (`|`). Vous pouvez chaîner plusieurs opérateurs pour affiner les résultats et effectuer des fonctions avancées.
 
@@ -132,9 +132,9 @@ ContainerInstanceLog_CL
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
+### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-Pour plus d’informations sur l’interrogation des journaux et la configuration d’alertes dans les journaux Azure Monitor, consultez :
+Pour plus d’informations sur l’interrogation des journaux d’activité et la configuration d’alertes dans les journaux d’activité Azure Monitor, consultez :
 
 * [Présentation des recherches dans les journaux Azure Monitor](../log-analytics/log-analytics-log-search.md)
 * [Alertes unifiées dans Azure Monitor](../azure-monitor/platform/alerts-overview.md)

@@ -28,7 +28,7 @@ ms.locfileid: "58878126"
 > [!Note]  
 > Kubernetes sur Azure Stack est en préversion. Le scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion.
 
-L’article suivant traite de la résolution des problèmes rencontrés avec votre cluster Kubernetes. Vous pouvez consulter l’alerte de déploiement et examiner l’état de votre déploiement par le biais des éléments requis pour ce déploiement. Vous devrez peut-être collecter les journaux de déploiement à partir du système Azure Stack ou des machines virtuelles Linux qui hébergent Kubernetes. Vous pouvez également être amené à travailler avec votre administrateur Azure Stack pour récupérer des journaux à partir d’un point de terminaison d’administration.
+L’article suivant traite de la résolution des problèmes rencontrés avec votre cluster Kubernetes. Vous pouvez consulter l’alerte de déploiement et examiner l’état de votre déploiement par le biais des éléments requis pour ce déploiement. Vous devrez peut-être collecter les journaux d’activité de déploiement à partir du système Azure Stack ou des machines virtuelles Linux qui hébergent Kubernetes. Vous pouvez également être amené à travailler avec votre administrateur Azure Stack pour récupérer des journaux d’activité à partir d’un point de terminaison d’administration.
 
 ## <a name="overview-of-kubernetes-deployment"></a>Vue d’ensemble du déploiement Kubernetes
 
@@ -83,7 +83,7 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
 
 ## <a name="steps-for-troubleshooting"></a>Étapes pour la résolution de problème
 
-Vous pouvez collecter des journaux sur les machines virtuelles qui prennent en charge votre cluster Kubernetes. Vous pouvez également consulter le journal de déploiement. Vous aurez peut-être besoin de contacter votre administrateur Azure Stack pour vérifier la version d’Azure Stack à utiliser et obtenir à partir d’Azure Stack les journaux liés à votre déploiement.
+Vous pouvez collecter des journaux d’activité sur les machines virtuelles qui prennent en charge votre cluster Kubernetes. Vous pouvez également consulter le journal de déploiement. Vous aurez peut-être besoin de contacter votre administrateur Azure Stack pour vérifier la version d’Azure Stack à utiliser et obtenir à partir d’Azure Stack les journaux d’activité liés à votre déploiement.
 
 1. Examinez l’[état du déploiement](#review-deployment-status) et récupérez les journaux à partir du nœud principal de votre cluster Kubernetes.
 2. Assurez-vous que vous utilisez la version la plus récente d’Azure Stack. Si vous ne savez pas quelle version vous utilisez, contactez votre administrateur Azure Stack.
@@ -94,7 +94,7 @@ Vous pouvez collecter des journaux sur les machines virtuelles qui prennent en c
 4.  Si la machine virtuelle est **OK**, passez à l’évaluation du DVM. Si le DVM affiche un message d’erreur :
 
     - La clé publique peut être non valide. Examinez la clé que vous avez créée.  
-    - Vous devez contacter votre administrateur Azure Stack pour récupérer les journaux Azure Stack en utilisant les points de terminaison privilégiés. Pour plus d’informations, voir [Outils de diagnostics Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
+    - Vous devez contacter votre administrateur Azure Stack pour récupérer les journaux d’activité Azure Stack en utilisant les points de terminaison privilégiés. Pour plus d’informations, voir [Outils de diagnostics Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
 5. Si vous avez une question concernant votre déploiement, vous pouvez la poster ou regarder si quelqu’un y a déjà répondu sur le [Forum Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="review-deployment-status"></a>Examiner l’état du déploiement

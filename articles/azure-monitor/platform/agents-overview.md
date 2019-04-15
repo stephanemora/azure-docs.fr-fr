@@ -23,14 +23,14 @@ ms.locfileid: "58371925"
 # <a name="overview-of-the-azure-monitoring-agents"></a>Vue d’ensemble des agents de surveillance Azure 
 Microsoft Azure offre plusieurs moyens de collecter différents types de données de machines virtuelles exécutant Microsoft Windows et Linux hébergées sur Azure, dans votre centre de données ou chez d’autres fournisseurs de cloud. Les trois types d’agents suivants sont disponibles pour surveiller une machine virtuelle :
 
-* Extensions Azure Diagnostics
+* Extensions Diagnostics Azure
 * Agent Log Analytics pour Linux et Windows
 * Agent de dépendances
 
 Cet article décrit les différences entre eux afin que vous puissiez déterminer lequel prendra en charge la gestion de votre service informatique ou les exigences générales de surveillance.  
 
 ## <a name="azure-diagnostic-extension"></a>Extension Azure Diagnostics
-L’[extension Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-overview.md) (couramment appelée extension Windows Azure Diagnostics (WAD) ou Linux Azure Diagnostics (LAD)), qui a été fournie pour Azure Cloud Services depuis qu’il a été mis à la disposition générale en 2010, est un agent qui fournit une collection simple de données de diagnostic à partir d’une ressource de calcul Azure comme une machine virtuelle, et la conserve dans un élément de stockage Azure. Une fois dans le stockage, vous pouvez choisir de l’afficher avec l’un des outils disponibles, tels que [Explorateur de serveurs dans Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) et [Explorateur Stockage Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+L’[extension Diagnostics Azure](../../azure-monitor/platform/diagnostics-extension-overview.md) (couramment appelée extension Diagnostics Azure pour Windows (WAD) ou Diagnostics Azure pour Linux (LAD)), qui a été fournie pour Azure Cloud Services depuis qu’il a été mis à la disposition générale en 2010, est un agent qui fournit une collection simple de données de diagnostic à partir d’une ressource de calcul Azure comme une machine virtuelle, et la conserve dans un élément de stockage Azure. Une fois dans le stockage, vous pouvez choisir de l’afficher avec l’un des outils disponibles, tels que [Explorateur de serveurs dans Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) et [Explorateur Stockage Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Vous pouvez choisir de collecter :
 
@@ -41,7 +41,7 @@ Vous pouvez choisir de collecter :
 * Collecter les événements de journaux de syslog  
 * Vidages sur incident 
 
-L’agent Azure Diagnostics doit être utilisé lorsque vous souhaitez effectuer les opérations suivantes :
+L’agent Diagnostics Azure doit être utilisé lorsque vous souhaitez effectuer les opérations suivantes :
 
 * Archiver des journaux d’activité et des mesures dans le stockage Azure
 * Intégrer des données de surveillance dans des outils tiers. Ces outils utilisent une variété de méthodes incluant l'interrogation du compte de stockage, transféré vers [Event Hubs](../../event-hubs/event-hubs-about.md), ou l'interrogation avec [Azure Monitoring REST API](../../azure-monitor/platform/rest-api-walkthrough.md).

@@ -66,7 +66,7 @@ Le trafic réseau entrant vers votre adresse IP publique de pare-feu est traduit
 
 ### <a name="azure-monitor-logging"></a>Journalisation d’Azure Monitor
 
-Tous les événements sont intégrés à Azure Monitor, ce qui vous permet d’archiver les journaux dans un compte de stockage, de transmettre en continu des événements à votre hub d’événements ou de les envoyer à des journaux Azure Monitor.
+Tous les événements sont intégrés à Azure Monitor, ce qui vous permet d’archiver les journaux d’activité dans un compte de stockage, de transmettre en continu des événements à votre hub d’événements ou de les envoyer à des journaux d’activité Azure Monitor.
 
 ## <a name="known-issues"></a>Problèmes connus
 

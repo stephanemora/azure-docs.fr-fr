@@ -1,5 +1,5 @@
 ---
-title: Collecter des journaux personnalisés dans Azure Monitor | Microsoft Docs
+title: Collecter des journaux d’activité personnalisés dans Azure Monitor | Microsoft Docs
 description: Azure Monitor peut collecter des événements dans des fichiers texte sur des ordinateurs Windows et Linux.  Cet article décrit comment définir un nouveau journal personnalisé et les détails des enregistrements qu’il crée dans Azure Monitor.
 services: log-analytics
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
 ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56234790"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Journaux personnalisés dans Azure Monitor
-La source de données Journaux personnalisés d’Azure Monitor vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
+# <a name="custom-logs-in-azure-monitor"></a>Journaux d’activité personnalisés dans Azure Monitor
+La source de données Journaux d’activité personnalisés d’Azure Monitor vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
 
 ![Collecte de journaux personnalisés](media/data-sources-custom-logs/overview.png)
 
@@ -39,13 +39,13 @@ Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 >
   
 >[!NOTE]
-> Si votre application crée un fichier journal tous les jours ou qu’elle atteint une taille spécifique, l’agent Log Analytics pour Linux ne découvre pas ces fichiers tant qu’il n’a pas été redémarré. Ceci est dû au fait que l’agent énumère et supervise uniquement les modèles avec les journaux spécifiés au démarrage ; par conséquent, vous devez en tenir compte en automatisant le redémarrage de l’agent.  Cette limitation n’existe pas dans le cas de l’agent Log Analytics pour Windows.  
+> Si votre application crée un fichier journal tous les jours ou qu’elle atteint une taille spécifique, l’agent Log Analytics pour Linux ne découvre pas ces fichiers tant qu’il n’a pas été redémarré. Ceci est dû au fait que l’agent énumère et supervise uniquement les modèles avec les journaux d’activité spécifiés au démarrage ; par conséquent, vous devez en tenir compte en automatisant le redémarrage de l’agent.  Cette limitation n’existe pas dans le cas de l’agent Log Analytics pour Windows.  
 >
 
 >[!NOTE]
 > Chaque espace de travail Log Analytics prend en charge les limites suivantes :
 > 
-> * Seuls 500 journaux personnalisés peuvent être créés.
+> * Seuls 500 journaux d’activité personnalisés peuvent être créés.
 > * Une table ne prend en charge que jusqu'à 500 colonnes. 
 > * Le nombre maximal de caractères pour le nom de colonne est 500. 
 >
@@ -57,7 +57,7 @@ Utilisez la procédure suivante pour définir un fichier journal personnalisé. 
 L’Assistant Journal personnalisé s’exécute dans le portail Azure et vous permet de définir un nouveau journal personnalisé de collecte.
 
 1. Dans le portail Azure, sélectionnez l’**espace de travail Log Analytics** > votre espace de travail > **Paramètres avancés**.
-2. Cliquez sur **Données** > **Journaux personnalisés**.
+2. Cliquez sur **Données** > **Journaux d’activité personnalisés**.
 3. Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents.  Pour les agents Linux, un fichier de configuration est envoyé au collecteur de données Fluentd.  Si vous souhaitez modifier ce fichier manuellement sur chaque agent Linux, décochez la case *Appliquer la configuration ci-dessous à mes machines Linux*.
 4. Cliquez sur **Ajouter+** pour ouvrir l’Assistant Journal personnalisé.
 
@@ -81,7 +81,7 @@ Vous devez définir un ou plusieurs chemins indiquant à l’agent où trouver l
 Par exemple, une application peut créer un fichier journal chaque jour avec la date dans le nom, comme dans log20100316.txt. Par exemple, ce modèle peut être *log\*.txt* et s’appliquer à un fichier journal conforme à la convention de dénomination de l’application.
 
 >[!NOTE]
-> Si votre application crée un fichier journal tous les jours ou qu’elle atteint une taille spécifique, l’agent Log Analytics pour Linux ne découvre pas ces fichiers tant qu’il n’a pas été redémarré. Ceci est dû au fait que l’agent énumère et supervise uniquement les modèles avec les journaux spécifiés au démarrage ; par conséquent, vous devez en tenir compte en automatisant le redémarrage de l’agent.  Cette limitation n’existe pas dans le cas de l’agent Log Analytics pour Windows.  
+> Si votre application crée un fichier journal tous les jours ou qu’elle atteint une taille spécifique, l’agent Log Analytics pour Linux ne découvre pas ces fichiers tant qu’il n’a pas été redémarré. Ceci est dû au fait que l’agent énumère et supervise uniquement les modèles avec les journaux d’activité spécifiés au démarrage ; par conséquent, vous devez en tenir compte en automatisant le redémarrage de l’agent.  Cette limitation n’existe pas dans le cas de l’agent Log Analytics pour Windows.  
 >
 
 Le tableau suivant fournit des exemples de modèles valides pour différents fichiers journaux.
@@ -104,8 +104,8 @@ Le nom que vous spécifiez sera utilisé pour le type de journal, comme indiqué
 2. Si vous le souhaitez, renseignez le champ **Description**.
 3. Cliquez sur **Suivant** pour enregistrer la définition du journal personnalisé.
 
-### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Étape 5. Vérifier que les journaux personnalisés sont collectés
-Il faut parfois une heure pour que les données initiales d’un nouveau journal personnalisé apparaissent dans Azure Monitor.  La collecte des entrées commence par les journaux situés à l’emplacement spécifié, à partir du moment où vous avez défini le journal personnalisé.  Log Analytics ne conserve pas les entrées que vous avez téléchargées lors de la création du journal personnalisé, mais celles figurant dans les fichiers journaux qu’il trouve.
+### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Étape 5. Vérifier que les journaux d’activité personnalisés sont collectés
+Il faut parfois une heure pour que les données initiales d’un nouveau journal personnalisé apparaissent dans Azure Monitor.  La collecte des entrées commence par les journaux d’activité situés à l’emplacement spécifié, à partir du moment où vous avez défini le journal personnalisé.  Log Analytics ne conserve pas les entrées que vous avez téléchargées lors de la création du journal personnalisé, mais celles figurant dans les fichiers journaux qu’il trouve.
 
 Lorsque Azure Monitor commence la collecte du journal personnalisé, ses enregistrements sont accessibles par le biais d’une requête de journal.  Utilisez le nom que vous avez donné au journal personnalisé, comme le **Type** dans votre requête.
 
@@ -119,7 +119,7 @@ L’entrée de journal est stockée dans une propriété unique appelée **RawDa
 ## <a name="removing-a-custom-log"></a>Suppression d’un journal personnalisé
 Pour supprimer un journal personnalisé que vous avez défini précédemment, procédez comme suit dans le portail Azure.
 
-1. Dans le menu **Données** des **Paramètres avancés** de votre espace de travail, sélectionnez **Journaux personnalisés** pour répertorier tous vos journaux personnalisés.
+1. Dans le menu **Données** des **Paramètres avancés** de votre espace de travail, sélectionnez **Journaux d’activité personnalisés** pour répertorier tous vos journaux d’activité personnalisés.
 2. Cliquez sur **Supprimer** en regard du journal personnalisé à supprimer.
 
 
@@ -154,7 +154,7 @@ Nous fournissons un des fichiers journaux et nous voyons les événements qu’i
 ![Télécharger et analyser un exemple de journal](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>Ajouter des chemins de collecte de journaux
-Les fichiers journaux se situeront dans *C:\MyApp\Logs*.  Un fichier sera créé chaque jour avec un nom comprenant la date au format *appAAAAMMJJ.log*.  Le format adapté à ce fichier journal est *C:\MyApp\Logs\\\\*.log*.
+Les fichiers journaux se situeront dans *C:\MyApp\Logs*.  Un fichier sera créé chaque jour avec un nom comprenant la date au format *appAAAAMMJJ.log*.  Le format adapté à ce journal d’activité est *C:\MyApp\Logs\\\\*.log*.
 
 ![Chemin de collecte de journaux](media/data-sources-custom-logs/collection-path.png)
 
@@ -163,7 +163,7 @@ Nous utilisons le nom *MyApp_CL* et complétons le champ **Description**.
 
 ![Nom du journal](media/data-sources-custom-logs/log-name.png)
 
-### <a name="validate-that-the-custom-logs-are-being-collected"></a>Vérifier que les journaux personnalisés sont collectés
+### <a name="validate-that-the-custom-logs-are-being-collected"></a>Vérifier que les journaux d’activité personnalisés sont collectés
 Nous utilisons une requête *Type=MyApp_CL* pour retourner tous les enregistrements du journal collecté.
 
 ![Requête de journal sans aucun champ personnalisé](media/data-sources-custom-logs/query-01.png)
@@ -173,14 +173,14 @@ Nous utilisons Champs personnalisés pour définir les champs *EventTime*, *Code
 
 ![Requête de journal avec des champs personnalisés](media/data-sources-custom-logs/query-02.png)
 
-## <a name="alternatives-to-custom-logs"></a>Alternatives aux journaux personnalisés
-Les journaux personnalisés sont très utiles lorsque vos données sont conformes aux critères énumérés, mais dans certains cas, une autre stratégie peut être nécessaire :
+## <a name="alternatives-to-custom-logs"></a>Alternatives aux journaux d’activité personnalisés
+Les journaux d’activité personnalisés sont très utiles lorsque vos données sont conformes aux critères énumérés, mais dans certains cas, une autre stratégie peut être nécessaire :
 
 - Les données ne correspondent pas à la structure requise, par exemple un autre format est requis pour l'horodatage.
 - Le fichier journal n'est pas conforme à certaines exigences (codage du fichier, structure de dossiers non prise en charge, etc.).
 - Les données doivent être prétraitées ou filtrées avant d'être collectées. 
 
-Lorsque vos données ne peuvent pas être collectées à l'aide des journaux personnalisés, vous pouvez avoir recours aux stratégies alternatives suivantes :
+Lorsque vos données ne peuvent pas être collectées à l’aide des journaux d’activité personnalisés, vous pouvez avoir recours aux stratégies alternatives suivantes :
 
 - Utilisez un script personnalisé ou une autre méthode pour écrire les données dans [Événements Windows](data-sources-windows-events.md) ou [Syslog](data-sources-syslog.md). Elles seront alors collectées par Azure Monitor. 
 - Envoyez directement les données à Azure Monitor à l'aide de l'[API Collecteur de données HTTP](data-collector-api.md). Un exemple illustrant l'utilisation de runbooks dans Azure Automation est disponible dans [Collecter des données dans Azure Monitor avec un runbook Azure Automation](runbook-datacollect.md).

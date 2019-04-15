@@ -44,7 +44,7 @@ Le flux de travail machine learning suit généralement cette séquence :
 
 L’espace de travail est la ressource de niveau supérieur du service Azure Machine Learning. Il fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez lorsque vous utilisez le service Azure Machine Learning.
 
-L’espace de travail conserve une liste de cibles de calcul que vous pouvez utiliser pour entraîner votre modèle. Il conserve également un historique des exécutions d’entraînement, y compris les journaux, métriques, sorties et instantanés de vos scripts. Vous utilisez ces informations pour déterminer quelle exécution d’entraînement produit le meilleur modèle.
+L’espace de travail conserve une liste de cibles de calcul que vous pouvez utiliser pour entraîner votre modèle. Il conserve également un historique des exécutions d’entraînement, y compris les journaux d’activité, métriques, sorties et instantanés de vos scripts. Vous utilisez ces informations pour déterminer quelle exécution d’entraînement produit le meilleur modèle.
 
 Vous inscrivez les modèles dans l’espace de travail. Vous utilisez un modèle inscrit et des scripts de scoring pour créer une image. Vous pouvez alors déployer l’image dans Azure Container Instances, Azure Kubernetes Service ou dans un tableau FPGA, comme point de terminaison HTTP basé sur REST. Vous pouvez également déployer l’image en tant que module sur un appareil Azure IoT Edge.
 

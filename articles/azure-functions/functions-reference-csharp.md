@@ -244,7 +244,7 @@ public static void Run(ICollector<string> myQueue, ILogger log)
 
 ## <a name="logging"></a>Journalisation
 
-Pour consigner la sortie dans vos journaux de streaming en C#, ajoutez un argument de type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Nous vous recommandons de le nommer `log`. Évitez d’utiliser `Console.Write` dans Azure Functions.
+Pour consigner la sortie dans vos journaux d’activité de streaming en C#, ajoutez un argument de type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Nous vous recommandons de le nommer `log`. Évitez d’utiliser `Console.Write` dans Azure Functions.
 
 ```csharp
 public static void Run(string myBlob, ILogger log)
@@ -254,7 +254,7 @@ public static void Run(string myBlob, ILogger log)
 ```
 
 > [!NOTE]
-> Pour plus d’informations sur un framework de journalisation plus récent que vous pouvez utiliser à la place de `TraceWriter`, consultez [Écrire des journaux dans des fonctions C#](functions-monitoring.md#write-logs-in-c-functions) dans l’article **Surveiller l’exécution des fonctions Azure**.
+> Pour plus d’informations sur un framework de journalisation plus récent que vous pouvez utiliser à la place de `TraceWriter`, consultez [Écrire des journaux d’activité dans des fonctions C#](functions-monitoring.md#write-logs-in-c-functions) dans l’article **Surveiller l’exécution des fonctions Azure**.
 
 ## <a name="async"></a>Async
 
@@ -411,7 +411,7 @@ Pour les fonctions 1.x, utilisez un *project.json* de fichiers à la place. Voic
 
 ### <a name="using-a-functionproj-file"></a>À l’aide d’un fichier function.proj
 
-1. Ouvrez la fonction sur le Portail Azure. L’onglet journaux affiche la sortie d’installation du package.
+1. Ouvrez la fonction sur le Portail Azure. L’onglet journaux d’activité affiche la sortie d’installation du package.
 2. Pour charger un *function.proj* de fichiers, utilisez une des méthodes décrites dans le [comment mettre à jour les fichiers function app](functions-reference.md#fileupdate) dans la rubrique de référence du développeur Azure Functions.
 3. Après le *function.proj* fichier est chargé, une sortie similaire à l’exemple suivant dans votre fonction de diffusion en continu le journal :
 

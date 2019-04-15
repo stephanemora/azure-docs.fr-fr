@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - Analyse des performances avec l’extension Microsoft Azure Diagnostics | Microsoft Docs
-description: Utilisez Microsoft Azure Diagnostics pour collecter les compteurs de performances de vos clusters Azure Service Fabric.
+title: Azure Service Fabric - Analyse des performances avec l’extension Diagnostics Azure pour Windows | Microsoft Docs
+description: Utilisez Diagnostics Azure pour Windows pour collecter les compteurs de performances de vos clusters Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -21,12 +21,12 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/05/2019
 ms.locfileid: "59049453"
 ---
-# <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Analyse des performances avec l’extension Microsoft Azure Diagnostics
+# <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Analyse des performances avec l’extension Diagnostics Azure pour Windows
 
-Ce document explique comment configurer la collecte des compteurs de performances via Microsoft Azure Diagnostics pour les clusters Windows. Pour les clusters Linux, configurez l’[agent Log Analytics](service-fabric-diagnostics-oms-agent.md) afin de collecter les compteurs de performances de vos nœuds. 
+Ce document explique comment configurer la collecte des compteurs de performances via Diagnostics Azure pour Windows (WAD) pour les clusters Windows. Pour les clusters Linux, configurez l’[agent Log Analytics](service-fabric-diagnostics-oms-agent.md) afin de collecter les compteurs de performances de vos nœuds. 
 
  > [!NOTE]
-> Pour cette procédure, l’extension Microsoft Azure Diagnostics doit être déployée sur votre cluster. S’il n’est pas configuré, consultez [Agrégation et collecte d’événements à l’aide des diagnostics Windows Azure](service-fabric-diagnostics-event-aggregation-wad.md).  
+> Pour cette procédure, l’extension Microsoft Azure Diagnostics doit être déployée sur votre cluster. S’il n’est pas configuré, consultez [Agrégation et collecte d’événements à l’aide de Diagnostics Azure pour Windows](service-fabric-diagnostics-event-aggregation-wad.md).  
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

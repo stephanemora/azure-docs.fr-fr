@@ -10,7 +10,7 @@ ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: fa3293346fee6f6666db01dab5587dd760df84b2
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54471004"
@@ -63,19 +63,19 @@ Pour voir toutes les options disponibles, essayez les opérations suivantes.
 az monitor activity-log list -h
 ```
 
-Voici un exemple permettant de répertorier les journaux par groupe de ressources
+Voici un exemple permettant de répertorier les journaux d’activité par groupe de ressources
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Exemple pour répertorier les journaux par appelant
+Exemple pour répertorier les journaux d’activité par appelant
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Exemple pour répertorier les journaux par appelant, sur un type de ressource, dans une plage de dates
+Exemple pour répertorier les journaux d’activité par appelant, sur un type de ressource, dans une plage de dates
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \

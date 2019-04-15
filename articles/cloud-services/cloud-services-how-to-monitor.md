@@ -23,7 +23,7 @@ ms.locfileid: "53789464"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduction à la surveillance des services cloud
 
-Vous pouvez surveiller les principales mesures de performances pour n’importe quel service cloud. Chaque rôle de service cloud collecte un nombre minimal de données : utilisation du processeur, utilisation du réseau et utilisation du disque. Si le service cloud a l’extension `Microsoft.Azure.Diagnostics` appliquée à un rôle, ce rôle peut collecter des points de données supplémentaires. Cet article vous fournit une présentation d’Azure Diagnostics pour Cloud Services.
+Vous pouvez surveiller les principales mesures de performances pour n’importe quel service cloud. Chaque rôle de service cloud collecte un nombre minimal de données : utilisation du processeur, utilisation du réseau et utilisation du disque. Si le service cloud a l’extension `Microsoft.Azure.Diagnostics` appliquée à un rôle, ce rôle peut collecter des points de données supplémentaires. Cet article vous fournit une présentation de Diagnostics Azure pour Cloud Services.
 
 Avec la surveillance de base, les données des compteurs de performances des instances de rôle sont échantillonnées et collectées toutes les 3 minutes. Ces données de surveillance de base ne sont pas stockées dans votre compte de stockage et ne représentent aucun coût supplémentaire associé.
 
@@ -40,9 +40,9 @@ La surveillance de base ne nécessite pas de compte de stockage.
 
 ## <a name="advanced-monitoring"></a>Surveillance avancée
 
-La surveillance avancée implique l’utilisation de l’extension **Azure Diagnostics** (et éventuellement le SDK d’Application Insights) sur le rôle que vous souhaitez analyser. L’extension Diagnostics utilise un fichier de configuration (par rôle) nommé **diagnostics.wadcfgx** pour configurer les mesures de diagnostic analysées. L’extension Azure diagnostics collecte et stocke des données dans un compte de stockage Azure. Ces paramètres sont configurés dans les fichiers **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) et [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Cela signifie qu’il y a un coût supplémentaire associé à la surveillance avancée.
+La surveillance avancée implique l’utilisation de l’extension **Diagnostics Azure** (et éventuellement le SDK d’Application Insights) sur le rôle que vous souhaitez analyser. L’extension Diagnostics utilise un fichier de configuration (par rôle) nommé **diagnostics.wadcfgx** pour configurer les mesures de diagnostic analysées. L’extension Azure diagnostics collecte et stocke des données dans un compte de stockage Azure. Ces paramètres sont configurés dans les fichiers **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) et [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Cela signifie qu’il y a un coût supplémentaire associé à la surveillance avancée.
 
-Lorsque chaque rôle est créé, Visual Studio lui ajoute l’extension Azure Diagnostics. Cette extension des diagnostics peut collecter les types d’informations suivants :
+Lorsque chaque rôle est créé, Visual Studio lui ajoute l’extension Diagnostics Azure. Cette extension des diagnostics peut collecter les types d’informations suivants :
 
 * Compteurs de performances personnalisés
 * Journaux d’activité d’application
@@ -95,7 +95,7 @@ Vous disposez probablement de deux fichiers **.cscfg**, un nommé **ServiceConfi
 
 Lorsque vous publiez le service cloud à partir de Visual Studio, vous disposez de la possibilité d’envoyer les données de diagnostic à Application Insights. Vous pouvez créer la ressource Azure Application Insights à ce moment-là ou envoyer les données à une ressource Azure existante. La disponibilité, les performances, les échecs et l’utilisation de votre service cloud peuvent être surveillés par Application Insights. Vous pouvez ajouter des graphiques personnalisés à Application Insights afin d’afficher les données qui vous intéressent le plus. Les données d’instance de rôle peuvent être collectées à l’aide du SDK d’Application Insights dans votre projet de service cloud. Pour plus d’informations sur l’intégration d’Application Insights, consultez [Application Insights avec Cloud Services](../azure-monitor/app/cloudservices.md).
 
-Notez que, si vous pouvez utiliser Application Insights pour afficher les compteurs de performances (et les autres paramètres) que vous avez spécifiés via l’extension de diagnostics Microsoft Azure, vous n’obtenez une expérience plus riche qu’en intégrant le Kit de développement logiciel (SDK) Application Insights dans vos rôles web et de travail.
+Notez que, si vous pouvez utiliser Application Insights pour afficher les compteurs de performances (et les autres paramètres) que vous avez spécifiés via l’extension Diagnostics Azure pour Windows, vous n’obtenez une expérience plus riche qu’en intégrant le kit SDK Application Insights dans vos rôles web et de travail.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

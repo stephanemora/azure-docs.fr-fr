@@ -23,7 +23,7 @@ ms.locfileid: "54901460"
 
 Apprenez à créer une fonction déclenchée lorsque des fichiers sont chargés dans ou mis à jour dans le stockage Blob Azure.
 
-![Affichage du message dans les journaux.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
+![Affichez le message dans les journaux d’activité.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -92,7 +92,7 @@ Une fois que vous avez un conteneur d’objets blob, vous pouvez tester la fonct
 
 ## <a name="test-the-function"></a>Tester la fonction
 
-1. Dans le portail Azure, accédez à votre fonction, développez les **Journaux** en bas de la page et vérifiez que la diffusion de journaux n’est pas suspendue.
+1. Dans le portail Azure, accédez à votre fonction, développez les **Journaux d’activité** en bas de la page et vérifiez que la diffusion de journaux d’activité n’est pas suspendue.
 
 1. Dans l’explorateur Stockage, développez votre compte de stockage, **Conteneurs d’objets Blob** et **samples-workitems**. Cliquez sur **Charger**, puis sur **Charger des fichiers...**.
 
@@ -100,9 +100,9 @@ Une fois que vous avez un conteneur d’objets blob, vous pouvez tester la fonct
 
 1. Dans la boîte de dialogue **Charger des fichiers**, cliquez sur le champ **Fichiers**. Accédez à un fichier sur votre ordinateur local, par exemple un fichier image, sélectionnez-le, puis cliquez sur **Ouvrir** et sur **Charger**.
 
-1. Revenez à vos journaux de fonction et vérifiez que l’objet blob a été lu.
+1. Revenez à vos journaux d’activité de fonction et vérifiez que l’objet blob a été lu.
 
-   ![Affichage du message dans les journaux.](./media/functions-create-storage-blob-triggered-function/functions-blob-storage-trigger-view-logs.png)
+   ![Affichez le message dans les journaux d’activité.](./media/functions-create-storage-blob-triggered-function/functions-blob-storage-trigger-view-logs.png)
 
     >[!NOTE]
     > Lorsque votre Function App s’exécute dans le plan de consommation par défaut, il peut s’écouler un délai de plusieurs minutes entre l’ajout ou la mise à jour de l’objet blob et le déclenchement de la fonction. Si vous exigez une faible latence pour vos fonctions déclenchées par des objets Blob, exécutez plutôt votre Function App dans un plan App Service.

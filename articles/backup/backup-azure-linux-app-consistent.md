@@ -11,7 +11,7 @@ ms.date: 1/12/2018
 ms.author: anuragm
 ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
 ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/18/2018
 ms.locfileid: "53581843"
@@ -72,12 +72,12 @@ Les pré-scripts appellent les API natives de l’application, qui suspendent le
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Veillez à ajouter un enregistrement approprié lors de l’écriture de votre pré-script et post-script et passez en revue vos journaux de script pour résoudre les problèmes de script. Si vous rencontrez toujours des problèmes pour exécuter des scripts, reportez-vous au tableau suivant pour plus d’informations.
+Veillez à ajouter un enregistrement approprié lors de l’écriture de votre pré-script et post-script et passez en revue vos journaux d’activité de script pour résoudre les problèmes de script. Si vous rencontrez toujours des problèmes pour exécuter des scripts, reportez-vous au tableau suivant pour plus d’informations.
 
 | Error | Message d’erreur | Action recommandée |
 | ------------------------ | -------------- | ------------------ |
-| Pre-ScriptExecutionFailed |Le pré-script a renvoyé une erreur ; la sauvegarde peut ne pas être cohérente avec les applications.   | Examinez les journaux d’erreur de votre script pour résoudre le problème.|  
-|   Post-ScriptExecutionFailed |    Le post-script a renvoyé une erreur qui peut affecter l’état de l’application. |    Examinez les journaux d’erreur de votre script pour résoudre le problème et vérifiez l’état de l’application. |
+| Pre-ScriptExecutionFailed |Le pré-script a renvoyé une erreur ; la sauvegarde peut ne pas être cohérente avec les applications.   | Examinez les journaux d’activité d’erreur de votre script pour résoudre le problème.|  
+|   Post-ScriptExecutionFailed |    Le post-script a renvoyé une erreur qui peut affecter l’état de l’application. |    Examinez les journaux d’activité d’erreur de votre script pour résoudre le problème et vérifiez l’état de l’application. |
 | Pre-ScriptNotFound |  Le pré-script est introuvable à l’emplacement spécifié dans le fichier de configuration **VMSnapshotScriptPluginConfig.json**. |   Assurez-vous que ce pré-script est présent au niveau du chemin d’accès spécifié dans le fichier de configuration pour garantir la sauvegarde cohérente des applications.|
 | Post-ScriptNotFound | Le post-script est introuvable à l’emplacement spécifié dans le fichier de configuration **VMSnapshotScriptPluginConfig.json**. |   Assurez-vous que ce post-script est présent au niveau du chemin d’accès spécifié dans le fichier de configuration pour garantir la sauvegarde cohérente des applications.|
 | IncorrectPluginhostFile | Le fichier **Pluginhost** fourni avec l’extension VmSnapshotLinux est endommagé. Le pré-script et le post-script ne peuvent donc pas être exécutés et la sauvegarde ne sera pas cohérente avec les applications. | Désinstallez l’extension **VmSnapshotLinux**, et elle sera automatiquement réinstallée avec la sauvegarde suivante pour résoudre le problème. |

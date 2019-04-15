@@ -382,7 +382,7 @@ La configuration minimale est la suivante :
 | Oracle Home, saptrace, ... | Disque de système d’exploitation | | Inutile |
 
 
-La sélection des disques pour l’hébergement des journaux de phase de restauration par progression en ligne doit être motivée par les exigences d’IOPS. Il est possible de stocker tous les sapdata1...n (espaces disque logiques) sur un même disque monté tant que la taille, les IOPS et le débit répondent aux exigences. 
+La sélection des disques pour l’hébergement des journaux d’activité de phase de restauration par progression en ligne doit être motivée par les exigences d’IOPS. Il est possible de stocker tous les sapdata1...n (espaces disque logiques) sur un même disque monté tant que la taille, les IOPS et le débit répondent aux exigences. 
 
 La configuration des performances est la suivante :
 
@@ -405,7 +405,7 @@ Si plus d’IOPS sont nécessaires, nous recommandons d’utiliser des pools de 
 
 
 #### <a name="write-accelerator"></a>Accélérateur des écritures
-Pour des machines virtuelles Azure de la série M, la latence d’écriture dans les journaux de phase de restauration par progression en ligne peut être réduite considérablement par rapport à Stockage Premium Azure. Activez l’Accélérateur d’écriture Azure pour les disques (VHD) basés sur le Stockage Azure Premium qui sont utilisés pour les fichiers journaux de phase de restauration par progression en ligne. Pour plus d’informations, consultez [Accélérateur d’écriture](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+Pour des machines virtuelles Azure de la série M, la latence d’écriture dans les journaux d’activité de phase de restauration par progression en ligne peut être réduite considérablement par rapport à Stockage Premium Azure. Activez l’Accélérateur d’écriture Azure pour les disques (VHD) basés sur le Stockage Azure Premium qui sont utilisés pour les fichiers journaux de phase de restauration par progression en ligne. Pour plus d’informations, consultez [Accélérateur d’écriture](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
 ### <a name="backuprestore"></a>Sauvegarde/restauration
@@ -473,7 +473,7 @@ Configuration minimale :
 
 *Agrégation par bandes : Volume LVM agrégé par bandes ou MDADM à l’aide de RAID0
 
-La sélection de disque pour l’hébergement des journaux de phase de restauration par progression en ligne d’Oracle doit être motivée par les exigences d’IOPS. Il est possible de stocker tous les sapdata1...n (espaces disque logiques) sur un même disque monté tant que le volume, les IOPS et le débit répondent aux exigences. 
+La sélection de disque pour l’hébergement des journaux d’activité de phase de restauration par progression en ligne d’Oracle doit être motivée par les exigences d’IOPS. Il est possible de stocker tous les sapdata1...n (espaces disque logiques) sur un même disque monté tant que le volume, les IOPS et le débit répondent aux exigences. 
 
 Configuration des performances :
 
@@ -499,7 +499,7 @@ Si vous avez besoin de plus d’IOPS, nous recommandons d’utiliser LVM (Logica
 
 
 #### <a name="write-accelerator"></a>Accélérateur des écritures
-Pour des machines virtuelles Azure de la série M, quand vous utilisez l’Accélérateur d’écriture Azure, la latence d’écriture dans les journaux de phase de restauration par progression en ligne peut être réduite considérablement par rapport aux performances de Stockage Premium Azure. Activez l’Accélérateur d’écriture Azure pour les disques (VHD) basés sur le Stockage Azure Premium qui sont utilisés pour les fichiers journaux de phase de restauration par progression en ligne. Pour plus d’informations, consultez [Accélérateur d’écriture](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+Pour des machines virtuelles Azure de la série M, quand vous utilisez l’Accélérateur d’écriture Azure, la latence d’écriture dans les journaux d’activité de phase de restauration par progression en ligne peut être réduite considérablement par rapport aux performances de Stockage Premium Azure. Activez l’Accélérateur d’écriture Azure pour les disques (VHD) basés sur le Stockage Azure Premium qui sont utilisés pour les fichiers journaux de phase de restauration par progression en ligne. Pour plus d’informations, consultez [Accélérateur d’écriture](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
 ### <a name="backuprestore"></a>Sauvegarde/restauration

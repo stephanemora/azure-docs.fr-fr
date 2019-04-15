@@ -45,7 +45,7 @@ Voici les sujets qui sont abordés dans cet article :
   Nous parlerons du chiffrement de service de stockage (SSE), qui est maintenant activé automatiquement pour les comptes de stockage nouveaux et existants. Nous verrons aussi comment utiliser Azure Disk Encryption et explorerons les différences fondamentales entre Disk Encryption, SSE et le chiffrement côté client, ainsi que des cas d’utilisation. Nous nous pencherons brièvement sur la conformité aux normes FIPS des ordinateurs de l’administration américaine.
 * Audit de l’accès d’Azure Storage à l’aide de [Storage Analytics](#storage-analytics)
 
-  Cette section explique comment rechercher des informations dans les journaux d’analyse du stockage pour une demande donnée. Nous examinerons des données de journal d’analyse de stockage réelles et verrons comment déterminer si une demande est formulée avec la clé de compte de stockage, une signature d’accès partagé ou de façon anonyme, et si elle a abouti ou échoué.
+  Cette section explique comment rechercher des informations dans les journaux d’activité d’analyse du stockage pour une demande donnée. Nous examinerons des données de journal d’analyse de stockage réelles et verrons comment déterminer si une demande est formulée avec la clé de compte de stockage, une signature d’accès partagé ou de façon anonyme, et si elle a abouti ou échoué.
 * [Activation de clients basés sur le navigateur à l’aide de CORS](#cross-origin-resource-sharing-cors)
 
   Cette section explique comment autoriser le partage des ressources cross-origin (CORS). Nous évoquerons l’accès intra-domaines, ainsi que sa gestion à l’aide des fonctionnalités CORS intégrées au stockage Azure.
@@ -372,16 +372,16 @@ Si Azure Disk Encryption est activé pour les disques dans une machine virtuelle
 ### <a name="using-storage-analytics-to-monitor-authorization-type"></a>Utilisation de Storage Analytics pour surveiller le type d’autorisation
 Pour chaque compte de stockage, vous pouvez activer Azure Storage Analytics pour effectuer la journalisation et stocker les données de métriques. Il s’agit d’un excellent outil à utiliser quand vous voulez vérifier les métriques de performances d’un compte de stockage, ou que vous devez résoudre des problèmes liés à un compte de stockage car vos performances ne sont pas satisfaisantes.
 
-Les journaux d’analyse du stockage vous permettent de voir un autre élément de données : la méthode d’authentification utilisée par un utilisateur lors de l’accès au stockage. Par exemple, avec Blob Storage, vous pouvez voir s’il a utilisé une signature d’accès partagé ou les clés de compte de stockage, ou si l’objet blob qui a fait l’objet d’un accès est public.
+Les journaux d’activité d’analyse du stockage vous permettent de voir un autre élément de données : la méthode d’authentification utilisée par un utilisateur lors de l’accès au stockage. Par exemple, avec Blob Storage, vous pouvez voir s’il a utilisé une signature d’accès partagé ou les clés de compte de stockage, ou si l’objet blob qui a fait l’objet d’un accès est public.
 
-Cela peut être utile si vous surveillez étroitement l’accès au stockage. Par exemple, dans Blob Storage, vous pouvez définir tous les conteneurs comme privés et implémenter l’utilisation d’un service SAP dans toutes vos applications. Vous pouvez alors vérifier régulièrement les journaux pour voir si vos objets blob font l’objet d’un accès à l’aide de clés de compte de stockage, ce qui peut indiquer une violation de la sécurité, ou si les objets blob sont publics alors qu’ils ne devraient pas l’être.
+Cela peut être utile si vous surveillez étroitement l’accès au stockage. Par exemple, dans Blob Storage, vous pouvez définir tous les conteneurs comme privés et implémenter l’utilisation d’un service SAP dans toutes vos applications. Vous pouvez alors vérifier régulièrement les journaux d’activité pour voir si vos objets blob font l’objet d’un accès à l’aide de clés de compte de stockage, ce qui peut indiquer une violation de la sécurité, ou si les objets blob sont publics alors qu’ils ne devraient pas l’être.
 
-#### <a name="what-do-the-logs-look-like"></a>Comment se présentent les journaux ?
+#### <a name="what-do-the-logs-look-like"></a>Comment se présentent les journaux d’activité ?
 Une fois que vous avez activé les métriques de compte de stockage et la journalisation par le biais du Portail Azure, les données d’analyse commencent à s’accumuler rapidement. La journalisation et les métriques de chaque service sont distinctes : la journalisation est écrite uniquement en cas d’activité dans ce compte de stockage, tandis que les métriques sont consignées chaque minute, chaque heure ou chaque jour, en fonction de leur configuration.
 
-Les journaux sont stockés dans des objets blob de blocs se trouvant dans un conteneur nommé $logs dans le compte de stockage. Ce conteneur est automatiquement créé quand Storage Analytics est activé. Une fois ce conteneur créé, vous ne pouvez pas le supprimer, même si vous pouvez en supprimer le contenu.
+Les journaux d’activité sont stockés dans des objets blob de blocs se trouvant dans un conteneur nommé $logs dans le compte de stockage. Ce conteneur est automatiquement créé quand Storage Analytics est activé. Une fois ce conteneur créé, vous ne pouvez pas le supprimer, même si vous pouvez en supprimer le contenu.
 
-Sous le conteneur $logs se trouve un dossier correspondant à chaque service, puis des sous-dossiers pour l’année/le mois/le jour/l’heure. Sous les heures, les journaux sont numérotés. La structure des répertoires se présente ainsi :
+Sous le conteneur $logs se trouve un dossier correspondant à chaque service, puis des sous-dossiers pour l’année/le mois/le jour/l’heure. Sous les heures, les journaux d’activité sont numérotés. La structure des répertoires se présente ainsi :
 
 ![Affichage des fichiers journaux](./media/storage-security-guide/image1.png)
 
@@ -389,10 +389,10 @@ Chaque requête à Azure Storage est consignée. Voici un instantané d’un fic
 
 ![Instantané d’un fichier journal](./media/storage-security-guide/image2.png)
 
-Vous voyez que vous pouvez utiliser les journaux pour suivre des appels de tous types à un compte de stockage.
+Vous voyez que vous pouvez utiliser les journaux d’activité pour suivre des appels de tous types à un compte de stockage.
 
 #### <a name="what-are-all-of-those-fields-for"></a>À quoi servent tous ces champs ?
-Un article répertorié dans les ressources ci-dessous fournit la liste des nombreux champs présents dans les journaux et indique ce pour quoi ils sont utilisés. Voici la liste de ces champs, dans l’ordre :
+Un article répertorié dans les ressources ci-dessous fournit la liste des nombreux champs présents dans les journaux d’activité et indique ce pour quoi ils sont utilisés. Voici la liste de ces champs, dans l’ordre :
 
 ![Instantané des champs d’un fichier journal](./media/storage-security-guide/image3.png)
 
@@ -413,7 +413,7 @@ Trois cas nous intéressent.
 
    1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
 
-Vous pouvez utiliser Microsoft Message Analyzer pour afficher et analyser ces journaux. Il inclue des fonctions de recherche et de filtre. Par exemple, vous voulez peut-être rechercher les instances de GetBlob pour voir si l’utilisation répond à vos attentes, par exemple, pour vérifier que personne n’accède à votre compte de stockage de façon inappropriée.
+Vous pouvez utiliser Microsoft Message Analyzer pour afficher et analyser ces journaux d’activité. Il inclue des fonctions de recherche et de filtre. Par exemple, vous voulez peut-être rechercher les instances de GetBlob pour voir si l’utilisation répond à vos attentes, par exemple, pour vérifier que personne n’accède à votre compte de stockage de façon inappropriée.
 
 #### <a name="resources"></a>Ressources
 * [Analyse du stockage](../storage-analytics.md)

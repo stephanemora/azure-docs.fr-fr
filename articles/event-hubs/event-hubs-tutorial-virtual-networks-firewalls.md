@@ -34,7 +34,7 @@ Dans ce tutoriel, vous allez découvrir comment :
 >
 > Les intégrations internes ne sont pas prises en charge quand les réseaux virtuels sont activés.
 > Scénarios Azure courants qui ne fonctionnent pas avec les réseaux virtuels -
-> * Azure Diagnostics et journalisation
+> * Diagnostics Azure et journalisation
 > * Azure Stream Analytics
 > * Intégration Event Grid
 > * Web Apps et Functions doivent être sur un réseau virtuel.

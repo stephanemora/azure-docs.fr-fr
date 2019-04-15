@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae47cba8f8e9a7cdf914c0b3ea5dfb9fa6c259a9
 ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54432895"
@@ -71,7 +71,7 @@ Voici le processus de base pour la conversion d'un Runbook Orchestrator et son i
 1. Exporter un ou plusieurs Runbooks depuis Orchestrator.
 2. Obtenir des modules d'intégration pour toutes les activités dans le Runbook.
 3. Convertir les Runbooks Orchestrator dans le fichier exporté.
-4. Passer en revue les informations des journaux pour valider la conversion et déterminer les tâches manuelles requises.
+4. Passer en revue les informations des journaux d’activité pour valider la conversion et déterminer les tâches manuelles requises.
 5. Importer les Runbooks convertis dans Azure Automation.
 6. Créer tous les éléments requis dans Azure Automation.
 7. Modifier le Runbook dans Azure Automation pour modifier toutes les activités requises.

@@ -127,20 +127,20 @@ Ces paramètres suppriment le dossier utilisé par Application Insights Profiler
 
 ### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>Comment savoir si Application Insights Profiler est en cours d’exécution ?
 
-Profiler s’exécute comme une tâche web continue dans l’application web. Vous pouvez ouvrir la ressource de l’application web dans le [portail Azure](https://portal.azure.com). Dans le volet **WebJobs**, vérifiez l’état de **ApplicationInsightsProfiler**. S’il n’est pas en cours d’exécution, ouvrez les **Journaux** pour en savoir plus.
+Profiler s’exécute comme une tâche web continue dans l’application web. Vous pouvez ouvrir la ressource de l’application web dans le [portail Azure](https://portal.azure.com). Dans le volet **WebJobs**, vérifiez l’état de **ApplicationInsightsProfiler**. S’il n’est pas en cours d’exécution, ouvrez les **Journaux d’activité** pour en savoir plus.
 
-## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Résoudre les problèmes de Profiler et d’Azure Diagnostics
+## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Résoudre les problèmes de Profiler et de Diagnostics Azure
 
 >**Le bogue dans le profileur fourni avec le Diagnostics Windows AZURE pour les Services Cloud a été résolu.** La dernière version de WAD (1.12.2.0) pour les Services Cloud fonctionne avec toutes les versions récentes du SDK d’application Insights. Hôtes de Service cloud met à niveau WAD automatiquement, mais il n’est pas immédiate. Pour forcer une mise à niveau, vous pouvez redéployer votre service ou redémarrer le nœud.
 
-Pour voir si Profiler est correctement configuré par Azure Diagnostics, effectuez les trois actions suivantes : 
-1. Premièrement, vérifiez si le contenu de la configuration Azure Diagnostics qui est déployé est celui que vous attendez. 
+Pour voir si Profiler est correctement configuré par Diagnostics Azure, effectuez les trois actions suivantes : 
+1. Premièrement, vérifiez si le contenu de la configuration Diagnostics Azure qui est déployé est celui que vous attendez. 
 
-1. Deuxièmement, vérifiez qu’Azure Diagnostics passe l’iKey appropriée sur la ligne de commande de Profiler. 
+1. Deuxièmement, vérifiez que Diagnostics Azure passe l’iKey appropriée sur la ligne de commande de Profiler. 
 
 1. Troisièmement, consultez le fichier journal de Profiler pour voir s’il s’est exécuté et a retourné une erreur. 
 
-Pour vérifier les paramètres qui ont été utilisés pour configurer Azure Diagnostics :
+Pour vérifier les paramètres qui ont été utilisés pour configurer Diagnostics Azure :
 
 1. Connectez-vous à la machine virtuelle (VM) et ouvrez le fichier journal à cet emplacement. (Le lecteur peut être c: ou d: et la version du plug-in peut être différents).
 
@@ -152,7 +152,7 @@ Pour vérifier les paramètres qui ont été utilisés pour configurer Azure Dia
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
-1. Dans ce fichier, vous pouvez rechercher la chaîne **WadCfg** pour voir les paramètres qui ont été passés à la machine virtuelle pour configurer Azure Diagnostics. Vous pouvez vérifier si l’iKey utilisée par le récepteur de Profiler est correcte.
+1. Dans ce fichier, vous pouvez rechercher la chaîne **WadCfg** pour voir les paramètres qui ont été passés à la machine virtuelle pour configurer Diagnostics Azure. Vous pouvez vérifier si l’iKey utilisée par le récepteur de Profiler est correcte.
 
 1. Vérifiez la ligne de commande qui permet de démarrer Profiler. Les arguments qui sont utilisés pour lancer Profiler sont dans le fichier suivant. (Le lecteur peut être c: ou d:)
 

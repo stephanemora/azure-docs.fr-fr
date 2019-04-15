@@ -120,7 +120,7 @@ Vous pouvez également diffuser en continu des traces directement à partir d’
 <!-- -->
 > [!WARNING]
 > Les traces de diffusion en continu sont destinées aux scénarios de développement/test et ne doivent pas être utilisées dans des environnements de production, en raison de l’impact sur les applications exécutées.
-> Dans un scénario de production, vous devez utiliser le transfert d’événements à l’aide d’Azure Diagnostics.
+> Dans un scénario de production, vous devez utiliser le transfert d’événements à l’aide de Diagnostics Azure.
 > 
 > 
 

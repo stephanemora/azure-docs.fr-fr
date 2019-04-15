@@ -51,7 +51,7 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-Une fois que l’état de ces deux conteneurs est *Terminé* (utilisez [az container show][az-container-show] pour vérifier l’état), affichez leurs journaux avec [az container logs][az-container-logs] pour consulter leur contenu.
+Une fois que l’état de ces deux conteneurs est *Terminé* (utilisez [az container show][az-container-show] pour vérifier l’état), affichez leurs journaux d’activité avec [az container logs][az-container-logs] pour consulter leur contenu.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -152,7 +152,7 @@ Pour voir un exemple, démarrer le [aci-wordcount] [ aci-wordcount] conteneur av
 
 ![Page du portail montrant le bouton d’activation et les zones de texte des variables d’environnement][portal-env-vars-01]
 
-Pour afficher les journaux du conteneur, sous **Paramètres**, sélectionnez **Conteneurs**, puis **Journaux**. Comme pour la sortie des sections CLI et PowerShell précédentes, vous voyez que le comportement du script a été modifié par les variables d’environnement. Seuls cinq mots sont affichés, chacun avec une longueur minimale de huit caractères.
+Pour afficher les journaux d’activité du conteneur, sous **Paramètres**, sélectionnez **Conteneurs**, puis **Journaux d’activité**. Comme pour la sortie des sections CLI et PowerShell précédentes, vous voyez que le comportement du script a été modifié par les variables d’environnement. Seuls cinq mots sont affichés, chacun avec une longueur minimale de huit caractères.
 
 ![Sortie du journal du conteneur dans le portail][portal-env-vars-02]
 
