@@ -58,7 +58,7 @@ Pour les utilisateurs qui doivent stocker de grandes quantités de données d’
 - Sauvegardes de fichiers, d'ordinateurs, de bases de données et d'appareils
 - Images et textes pour applications Web
 - Données de configuration pour applications cloud
-- Big Data tels que journaux et autres jeux de données volumineux
+- Big Data tels que journaux d’activité et autres jeux de données volumineux
 
 Chaque objet blob est organisé dans un conteneur. Les conteneurs fournissent également un moyen utile d'affecter des stratégies de sécurité à des groupes d'objets. Un compte de stockage peut contenir un nombre quelconque de conteneurs, et un conteneur peut contenir un nombre quelconque d'objets blob, jusqu'à la limite du compte de stockage.
 

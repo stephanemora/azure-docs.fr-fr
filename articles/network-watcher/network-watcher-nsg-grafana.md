@@ -29,7 +29,7 @@ Les [journaux de flux des groupes de sécurité réseau (NSG)](network-watcher-n
 > [!Warning]  
 > Les étapes suivantes fonctionnent avec les journaux de flux version 1. Pour plus d’informations, consultez [Présentation de la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md). Les instructions suivantes ne fonctionnent pas avec la version 2 des fichiers journaux, sans modification.
 
-Un réseau peut comprendre plusieurs groupes de sécurité réseau pour lesquels la journalisation du flux est activée. Une telle quantité de données de journalisation est difficile à analyser et empêche la bonne compréhension des journaux. Cet article fournit une solution pour gérer de manière centralisée les journaux de flux des groupes de sécurité réseau à l’aide de Grafana, un outil de création de graphes open source, à l’aide d’ElasticSearch, qui est un moteur de recherche et d’analytique distribué, et à l’aide de Logstash, qui est un pipeline open source de traitement des données côté serveur.  
+Un réseau peut comprendre plusieurs groupes de sécurité réseau pour lesquels la journalisation du flux est activée. Une telle quantité de données de journalisation est difficile à analyser et empêche la bonne compréhension des journaux d’activité. Cet article fournit une solution pour gérer de manière centralisée les journaux de flux des groupes de sécurité réseau à l’aide de Grafana, un outil de création de graphes open source, à l’aide d’ElasticSearch, qui est un moteur de recherche et d’analytique distribué, et à l’aide de Logstash, qui est un pipeline open source de traitement des données côté serveur.  
 
 ## <a name="scenario"></a>Scénario
 
@@ -41,7 +41,7 @@ Les journaux de flux des groupes de sécurité réseau peuvent être activés av
 
 ### <a name="enable-network-security-group-flow-logging"></a>Activer les journaux des flux de groupe de sécurité réseau
 
-Pour ce scénario, la journalisation des flux de groupe de sécurité réseau doit être activée sur au moins un groupe de sécurité réseau dans votre compte. Pour obtenir des instructions sur l’activation des journaux des flux de groupe de sécurité réseau, consultez l’article suivant [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md) (Introduction à la journalisation des flux pour les groupes de sécurité réseau).
+Pour ce scénario, la journalisation des flux de groupe de sécurité réseau doit être activée sur au moins un groupe de sécurité réseau dans votre compte. Pour obtenir des instructions sur l’activation des journaux d’activité des flux de groupe de sécurité réseau, consultez l’article suivant [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md) (Introduction à la journalisation des flux pour les groupes de sécurité réseau).
 
 ### <a name="setup-considerations"></a>Considérations relatives à la configuration
 
@@ -139,7 +139,7 @@ Logstash vous permet d’aplatir les journaux de flux au format JSON à un nivea
    ```
 
 Le fichier de configuration Logstash fourni comporte trois parties : l’entrée, le filtre et la sortie.
-La section d’entrée désigne la source d’entrée des journaux que Logstash va traiter. Dans ce cas, nous allons utiliser un plug-in d’entrée « azureblob » (installé dans les étapes suivantes) qui nous permettra d’accéder aux fichiers JSON de journalisation du flux des groupes de sécurité réseau qui sont stockés dans le stockage Blob. 
+La section d’entrée désigne la source d’entrée des journaux d’activité que Logstash va traiter. Dans ce cas, nous allons utiliser un plug-in d’entrée « azureblob » (installé dans les étapes suivantes) qui nous permettra d’accéder aux fichiers JSON de journalisation du flux des groupes de sécurité réseau qui sont stockés dans le stockage Blob. 
 
 La section de filtre aplatit ensuite chaque fichier journal du flux pour que chaque tuple de flux et les propriétés qui lui sont associées deviennent un événement Logstash à part entière.
 

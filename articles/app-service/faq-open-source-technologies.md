@@ -50,7 +50,7 @@ Pour activer la journalisation PHP :
     ```
 12. Dans le portail Azure, dans le menu de l’application web, redémarrez votre application web.
 
-Pour plus d’informations, consultez [Activer les journaux d’erreurs WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
+Pour plus d’informations, consultez [Activer les journaux d’activité d’erreurs WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
 ## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>Comment journaliser les erreurs d’application Python dans des applications hébergées dans App Service ?
 [!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
@@ -87,9 +87,9 @@ Pour modifier la version de l’application Node.js, vous pouvez utiliser l’un
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Le message « Erreur lors de l’établissement d’une connexion à la base de données » s’affiche dans mon application WordPress qui est hébergée dans App Service. Comment puis-je résoudre ce problème ?
 
-Si cette erreur s’affiche dans votre application Azure WordPress, exécutez les étapes détaillées dans [Activer les journaux d’erreurs WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/) pour activer php_errors.log et debug.log.
+Si cette erreur s’affiche dans votre application Azure WordPress, exécutez les étapes détaillées dans [Activer les journaux d’activité d’erreurs WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/) pour activer php_errors.log et debug.log.
 
-Lorsque les journaux sont activés, reproduisez l’erreur, puis vérifiez les journaux pour voir si le nombre de connexions disponible est épuisé :
+Lorsque les journaux d’activité sont activés, reproduisez l’erreur, puis vérifiez les journaux d’activité pour voir si le nombre de connexions disponible est épuisé :
 ```
 [09-Oct-2015 00:03:13 UTC] PHP Warning: mysqli_real_connect(): (HY000/1226): User ‘abcdefghijk79' has exceeded the ‘max_user_connections’ resource (current value: 4) in D:\home\site\wwwroot\wp-includes\wp-db.php on line 1454
 ```
@@ -99,7 +99,7 @@ Si cette erreur s’affiche dans vos fichiers debug.log ou php_errors.log, votre
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Comment déboguer une application Node.js hébergée dans App Service ?
 
 1.  Accédez à votre [console Kudu](https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole).
-2.  Accédez à votre dossier de journaux d’application (D:\home\LogFiles\Application).
+2.  Accédez à votre dossier de journaux d’activité d’application (D:\home\LogFiles\Application).
 3.  Vérifiez le contenu du fichier logging_errors.txt.
 
 ## <a name="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app"></a>Comment installer des modules Python natifs dans une application web App Service ou une application API ?
@@ -135,7 +135,7 @@ Pour les déploiements **Paramètres de l’application** dans le portail :
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Comment résoudre les erreurs de connexion du pilote JDBC ?
 
-Le message suivant peut s’afficher dans vos journaux Tomcat :
+Le message suivant peut s’afficher dans vos journaux d’activité Tomcat :
 
 ```
 The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak,the JDBC Driver has been forcibly unregistered

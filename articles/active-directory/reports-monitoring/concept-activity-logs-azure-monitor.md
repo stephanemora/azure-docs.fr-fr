@@ -26,12 +26,12 @@ ms.locfileid: "58436300"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Journaux d’activité Azure Active Directory dans Azure Monitor (préversion)
 
-Vous pouvez maintenant acheminer les journaux d’activité Azure Active Directory (Azure AD) vers plusieurs points de terminaison pour une rétention à long terme et l’analyse des données. La préversion publique des journaux Azure AD dans Azure Monitor vous permet de :
+Vous pouvez maintenant acheminer les journaux d’activité Azure Active Directory (Azure AD) vers plusieurs points de terminaison pour une rétention à long terme et l’analyse des données. La préversion publique des journaux d’activité Azure AD dans Azure Monitor vous permet de :
 
 * Archiver les journaux d’activité Azure AD vers un compte de stockage Azure afin conserver les données pendant longtemps.
 * Diffuser les journaux d’activité Azure AD vers un Event Hub Azure pour analyser des données à l’aide des outils populaires de Security Information and Event Management (SIEM), comme Splunk et QRadar.
-* Intégrer vos journaux d’activité Azure AD à vos propres solutions de journaux personnalisés en les diffusant en continu vers un Event Hub.
-* Envoyer vos journaux d’activité Azure AD aux journaux Azure Monitor pour permettre les visualisations enrichies, la supervision et les alertes sur les données connectées.
+* Intégrer vos journaux d’activité Azure AD à vos propres solutions de journaux d’activité personnalisés en les diffusant en continu vers un Event Hub.
+* Envoyer vos journaux d’activité Azure AD aux journaux d’activité Azure Monitor pour permettre les visualisations enrichies, la supervision et les alertes sur les données connectées.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
@@ -39,7 +39,7 @@ Vous pouvez maintenant acheminer les journaux d’activité Azure Active Directo
 
 ## <a name="supported-reports"></a>Rapports pris en charge
 
-Vous pouvez acheminer les journaux d’audit Azure AD et authentifier des journaux vers votre compte de stockage Azure, un Event Hub, des journaux Azure Monitor ou une solution personnalisée à l’aide de cette fonctionnalité. 
+Vous pouvez acheminer les journaux d’audit Azure AD et authentifier des journaux d’activité vers votre compte de stockage Azure, un Event Hub, des journaux d’activité Azure Monitor ou une solution personnalisée à l’aide de cette fonctionnalité. 
 
 * **Journaux d’audit**: Le [rapport d’activité des journaux d’audit](concept-audit-logs.md) vous permet de consulter l’historique de toutes les tâches effectuées dans votre locataire.
 * **Journaux de connexion** : Le [rapport d’activité de connexion](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches consignées dans les journaux d’audit.
@@ -53,10 +53,10 @@ Vous pouvez acheminer les journaux d’audit Azure AD et authentifier des journa
 Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’en avez pas, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/free/).
-* Une [licence](https://azure.microsoft.com/pricing/details/active-directory/) Azure AD Free, Basic, Premium 1 ou Premium 2 permet d’accéder aux journaux Azure AD dans le portail Azure. 
+* Une [licence](https://azure.microsoft.com/pricing/details/active-directory/) Azure AD Free, Basic, Premium 1 ou Premium 2 permet d’accéder aux journaux d’audit Azure AD dans le portail Azure. 
 * Un locataire Azure AD.
 * Utilisateur considéré comme **administrateur général** ou **administrateur de la sécurité** pour un locataire Azure AD.
-* Une [licence](https://azure.microsoft.com/pricing/details/active-directory/) Azure AD Premium 1 ou Premium 2 permet d’accéder aux journaux de connexion Azure AD dans le portail Azure. 
+* Une [licence](https://azure.microsoft.com/pricing/details/active-directory/) Azure AD Premium 1 ou Premium 2 permet d’accéder aux journaux d’activité de connexion Azure AD dans le portail Azure. 
 
 Selon l’endroit où vous souhaitez acheminer les données du journal d’audit, vous devez disposer de l’un des éléments suivants :
 
@@ -96,27 +96,27 @@ Le tableau suivant contient les coûts approximatifs pour un Event Hub de base d
 | Audit | 1 000 | 0.1 | 52 | 104 Ko | 1 | 8640 | 10,80 $ |
 | Connexions | 1 000 | 178 | 53400 | 106,8&nbsp;MO | 418 | 3 611 520 | 11,06 $ |  
 
-### <a name="azure-monitor-logs-cost-considerations"></a>Considérations relatives au coût des journaux Azure Monitor
+### <a name="azure-monitor-logs-cost-considerations"></a>Considérations relatives au coût des journaux d’activité Azure Monitor
 
-Pour connaître les coûts liés à la gestion des journaux Azure Monitor, consultez [Gérer les coûts en contrôlant le volume et la rétention dans les journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Pour connaître les coûts liés à la gestion des journaux d’activité Azure Monitor, consultez [Gérer les coûts en contrôlant le volume et la rétention dans les journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-Cette section répond aux questions fréquemment posées et traitent des problèmes rencontrés avec les journaux Azure Active Directory dans Azure Monitor.
+Cette section répond aux questions fréquemment posées et traitent des problèmes rencontrés avec les journaux d’activité Azure Active Directory dans Azure Monitor.
 
-**Q : Quels sont les journaux inclus ?**
+**Q : Quels sont les journaux d’activité inclus ?**
 
-**R** : Les journaux d’audit et d’activité de connexion sont disponibles pour le routage via cette fonctionnalité. Néanmoins, les événements d’audit associés à B2C ne sont pas inclus à l’heure actuelle. Consultez le [Schéma des journaux d’audit](reference-azure-monitor-audit-log-schema.md) et le [Schéma des journaux de connexion](reference-azure-monitor-sign-ins-log-schema.md) pour savoir quels types de journaux et quelles fonctionnalités de ces journaux sont actuellement pris en charge. 
-
------
-
-**Q : Combien de temps après une action les journaux correspondants s’affichent-ils dans mon Event Hub ?**
-
-**R** : Les journaux apparaissent normalement dans votre Event Hub dans les deux à cinq minutes après que l’action est effectuée. Pour plus d’informations sur Event Hubs, consultez la section [Qu’est-ce qu’Event Hubs ?](../../event-hubs/event-hubs-about.md).
+**R** : Les journaux d’audit et d’activité de connexion sont disponibles pour le routage via cette fonctionnalité. Néanmoins, les événements d’audit associés à B2C ne sont pas inclus à l’heure actuelle. Consultez le [Schéma des journaux d’audit](reference-azure-monitor-audit-log-schema.md) et le [Schéma des journaux d’activité de connexion](reference-azure-monitor-sign-ins-log-schema.md) pour savoir quels types de journaux d’activité et quelles fonctionnalités de ces journaux d’activité sont actuellement pris en charge. 
 
 -----
 
-**Q : Combien de temps après une action les journaux correspondants s’affichent-ils dans mon compte de stockage ?**
+**Q : Combien de temps après une action les journaux d’activité correspondants s’affichent-ils dans mon Event Hub ?**
+
+**R** : Les journaux d’activité apparaissent normalement dans votre Event Hub dans les deux à cinq minutes après que l’action est effectuée. Pour plus d’informations sur Event Hubs, consultez la section [Qu’est-ce qu’Event Hubs ?](../../event-hubs/event-hubs-about.md).
+
+-----
+
+**Q : Combien de temps après une action les journaux d’activité correspondants s’affichent-ils dans mon compte de stockage ?**
 
 **R** : Pour les comptes de stockage Azure, la latence est d’environ 5 à 15 minutes après l’exécution de l’action.
 
@@ -124,13 +124,13 @@ Cette section répond aux questions fréquemment posées et traitent des problè
 
 **Q : Que se passe-t-il si un administrateur modifie la période de rétention d’un paramètre de diagnostic ?**
 
-**R** : La nouvelle stratégie de rétention sera appliquée aux journaux collectés après la modification. Les journaux collectés avant le changement de stratégie ne seront pas affectés.
+**R** : La nouvelle stratégie de rétention sera appliquée aux journaux d’activité collectés après la modification. Les journaux d’activité collectés avant le changement de stratégie ne seront pas affectés.
 
 -----
 
 **Q : Combien me coûtera le stockage de mes données ?**
 
-**R** : Les coûts du stockage dépendent de la taille de vos journaux, ainsi que de la période de rétention que vous choisissez. Pour obtenir la liste de l’estimation des coûts pour les clients, qui dépendent du volume de journaux générés, consultez la section [Taille de stockage des journaux d’activité](#storage-size-for-activity-logs).
+**R** : Les coûts du stockage dépendent de la taille de vos journaux d’activité, ainsi que de la période de rétention que vous choisissez. Pour obtenir la liste de l’estimation des coûts pour les clients, qui dépendent du volume de journaux d’activité générés, consultez la section [Taille de stockage des journaux d’activité](#storage-size-for-activity-logs).
 
 -----
 
@@ -144,7 +144,7 @@ Cette section répond aux questions fréquemment posées et traitent des problè
 
 **R** : Il existe deux méthodes pour le faire :
 
-- Utilisez Azure Monitor avec Event Hubs pour diffuser les journaux dans votre système SIEM. Tout d’abord, [diffusez les journaux vers un Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md), puis [configurez votre outil SIEM](tutorial-azure-monitor-stream-logs-to-event-hub.md#access-data-from-your-event-hub) auprès du Event Hub configuré. 
+- Utilisez Azure Monitor avec Event Hubs pour diffuser les journaux d’activité dans votre système SIEM. Tout d’abord, [diffusez les journaux d’activité vers un Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md), puis [configurez votre outil SIEM](tutorial-azure-monitor-stream-logs-to-event-hub.md#access-data-from-your-event-hub) auprès du Event Hub configuré. 
 
 - Utilisez l’[API Graph de création de rapports](concept-reporting-api.md) pour accéder aux données, puis les intégrer à votre système SIEM avec vos propres scripts.
 
@@ -170,7 +170,7 @@ Cette section répond aux questions fréquemment posées et traitent des problè
 
 **Q : Puis-je accéder aux données d’un Event Hub sans avoir recours à un outil SIEM externe ?** 
 
-**R** : Oui. Vous pouvez utiliser l’[API Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) pour accéder aux journaux à partir de votre application personnalisée. 
+**R** : Oui. Vous pouvez utiliser l’[API Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) pour accéder aux journaux d’activité à partir de votre application personnalisée. 
 
 -----
 

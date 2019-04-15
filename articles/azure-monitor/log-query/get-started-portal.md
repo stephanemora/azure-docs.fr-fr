@@ -31,7 +31,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser l’Analytique de journal 
 
 
 ## <a name="meet-log-analytics"></a>Répondre aux Analytique de journal
-Analytique de journal est un outil web utilisé pour écrire et exécuter des requêtes de journal Azure Monitor. Pour l'ouvrir, sélectionnez **Journaux** dans le menu Azure Monitor. Une nouvelle requête vide s’affiche.
+Analytique de journal est un outil web utilisé pour écrire et exécuter des requêtes de journal Azure Monitor. Pour l’ouvrir, sélectionnez **Journaux d’activité** dans le menu Azure Monitor. Une nouvelle requête vide s’affiche.
 
 ![page d'accueil](media/get-started-portal/homepage.png)
 

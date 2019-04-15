@@ -98,14 +98,14 @@ Si vous souhaitez exécuter l’agent local à partir d’un autre ordinateur, p
 
 ### <a name="agent-install"></a> L’installation, la désinstallation ou la réparation de l’agent client échoue.
 
-- **Cause**. Cet échec peut avoir de nombreuses causes. Pour déterminer la cause spécifique de cet échec, consultez les journaux.
+- **Cause**. Cet échec peut avoir de nombreuses causes. Pour déterminer la cause spécifique de cet échec, consultez les journaux d’activité.
 
-- **Résolution**. Pour rechercher la cause spécifique de l’échec rencontré, générez et consultez les journaux Windows Installer. Vous pouvez activer la journalisation à partir d’une invite de commandes. Par exemple, si le fichier d'installation est `SQLDataSyncAgent-2.0-x86-ENU.msi`, générez et examinez les fichiers journaux à l'aide des lignes de commande suivantes :
+- **Résolution**. Pour rechercher la cause spécifique de l’échec rencontré, générez et consultez les journaux d’activité Windows Installer. Vous pouvez activer la journalisation à partir d’une invite de commandes. Par exemple, si le fichier d'installation est `SQLDataSyncAgent-2.0-x86-ENU.msi`, générez et examinez les fichiers journaux à l'aide des lignes de commande suivantes :
 
   - Pour les installations : `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
   - Pour les désinstallations : `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
-    Vous pouvez également activer la journalisation pour toutes les installations effectuées par Windows Installer. L’article de la Base de connaissances Microsoft [Guide pratique pour activer la journalisation de Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) fournit une solution en un clic pour activer la journalisation pour Windows Installer. Il indique également l’emplacement des journaux.
+    Vous pouvez également activer la journalisation pour toutes les installations effectuées par Windows Installer. L’article de la Base de connaissances Microsoft [Guide pratique pour activer la journalisation de Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) fournit une solution en un clic pour activer la journalisation pour Windows Installer. Il indique également l’emplacement des journaux d’activité.
 
 ### <a name="agent-uninstall"></a> Mon agent client ne fonctionne pas après l’annulation de la désinstallation.
 

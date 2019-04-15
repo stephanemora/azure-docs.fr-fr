@@ -1,6 +1,6 @@
 ---
-title: Gérer les journaux des flux de groupe de sécurité réseau avec Azure Network Watcher - PowerShell | Microsoft Docs
-description: Cette page explique comment gérer les journaux des flux de groupe de sécurité réseau dans Azure Network Watcher avec PowerShell
+title: Gérer les journaux d’activité des flux de groupe de sécurité réseau avec Azure Network Watcher - PowerShell | Microsoft Docs
+description: Cette page explique comment gérer les journaux d’activité des flux de groupe de sécurité réseau dans Azure Network Watcher avec PowerShell
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -21,7 +21,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57857978"
 ---
-# <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configuration des journaux des flux de groupe de sécurité réseau avec PowerShell
+# <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configuration des journaux d’activité des flux de groupe de sécurité réseau avec PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portail Azure](network-watcher-nsg-flow-logging-portal.md)
@@ -29,7 +29,7 @@ ms.locfileid: "57857978"
 > - [Interface de ligne de commande Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
-Les journaux des flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau. Ces flux de journaux sont écrits au format json et affichent les flux entrants et sortants en fonction de la règle, la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), ainsi que l’autorisation ou le refus du trafic.
+Les journaux de flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet d’afficher des informations sur le trafic IP entrant et sortant d’un groupe de sécurité réseau. Ces journaux de flux sont écrits au format json et affichent les flux entrants et sortants en fonction de règles, de la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), et de l’autorisation ou du refus du trafic.
 
 ## <a name="register-insights-provider"></a>Inscription du fournisseur Insights
 
@@ -95,6 +95,6 @@ Pour plus d’informations sur la structure du journal, consultez [Network Secur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [visualiser vos journaux de flux de groupe de sécurité réseau avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+Découvrez comment [visualiser vos journaux d’activité des flux de groupe de sécurité réseau avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 Découvrez comment [visualiser vos journaux de flux de groupe de sécurité réseau avec des outils open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md).

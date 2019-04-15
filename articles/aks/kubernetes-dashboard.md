@@ -80,7 +80,7 @@ Sélectionnez l’adresse du point de terminaison pour ouvrir une fenêtre de na
 
 ## <a name="view-pod-information"></a>Afficher les informations de pod
 
-Le tableau de bord Kubernetes peut fournir des métriques de surveillance de base et des informations de dépannage telles que des journaux.
+Le tableau de bord Kubernetes peut fournir des métriques de supervision de base et des informations de dépannage telles que des journaux d’activité.
 
 Pour plus d’informations sur vos pods d’application, sélectionnez **Pods** dans le menu de gauche. Une liste des pods disponibles s’affiche. Choisissez votre pod *nginx* pour afficher des informations, par exemple la consommation des ressources :
 

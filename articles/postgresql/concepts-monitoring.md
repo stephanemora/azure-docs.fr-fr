@@ -28,7 +28,7 @@ Les métriques suivantes sont disponibles pour Azure Database pour PostgreSQL :
 |memory_percent|Pourcentage de mémoire|Pourcentage|Pourcentage de mémoire en cours d’utilisation.|
 |io_consumption_percent|Pourcentage d’E/S|Pourcentage|Pourcentage d’E/S en cours d’utilisation.|
 |storage_percent|Pourcentage de stockage|Pourcentage|Pourcentage de stockage utilisé par rapport à la limite maximale du serveur.|
-|storage_used|Stockage utilisé|Octets|Quantité de stockage en cours d’utilisation. Le stockage utilisé par le service peut inclure les fichiers de base de données, les journaux des transactions et les journaux du serveur.|
+|storage_used|Stockage utilisé|Octets|Quantité de stockage en cours d’utilisation. Le stockage utilisé par le service peut inclure les fichiers de base de données, les journaux d’activité des transactions et les journaux d’activité du serveur.|
 |storage_limit|Limite de stockage|Octets|Stockage maximal pour ce serveur.|
 |serverlog_storage_percent|Pourcentage de stockage du journal du serveur|Pourcentage|Pourcentage de stockage du journal du serveur utilisé par rapport au stockage du journal du serveur maximal défini pour le serveur.|
 |serverlog_storage_usage|Stockage du journal du serveur utilisé|Octets|Quantité de stockage du journal du serveur en cours d’utilisation.|
@@ -39,8 +39,8 @@ Les métriques suivantes sont disponibles pour Azure Database pour PostgreSQL :
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
 |backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée.|
 
-## <a name="server-logs"></a>Journaux des serveurs
-Vous pouvez activer la journalisation sur votre serveur. Ces journaux sont également disponibles via les journaux de Diagnostic Azure dans [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md), Event Hubs et compte de stockage. Pour en savoir plus sur la journalisation, consultez la page [journaux serveur](concepts-server-logs.md).
+## <a name="server-logs"></a>Journaux d’activité du serveur
+Vous pouvez activer la journalisation sur votre serveur. Ces journaux sont également disponibles via les journaux de Diagnostic Azure dans [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md), Event Hubs et compte de stockage. Pour en savoir plus sur la journalisation, consultez la page [journaux d’activité serveur](concepts-server-logs.md).
 
 ## <a name="query-store"></a>Magasin de requêtes
 [Magasin des requêtes](concepts-query-store.md) est une fonctionnalité en préversion publique qui effectue le suivi des performances des requêtes au fil du temps, y compris les statistiques d’exécution des requêtes et les événements d’attente. Cette fonctionnalité conserve les informations sur les performances d’exécution des requêtes dans une base de données système nommée **azure_sys** sous le schéma query_store. Vous pouvez contrôler la collecte et le stockage des données au moyen de différents boutons de configuration.

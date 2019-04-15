@@ -17,7 +17,7 @@ ms.date: 03/23/2018
 ms.author: roiyz
 ms.openlocfilehash: a4fb31721da679b21fa311340269cf07f93cd903
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55981262"
@@ -36,7 +36,7 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
 
 1. Réinitialisez la configuration du Bureau à distance.
 2. Vérifiez les règles de groupe de sécurité réseau / de point de terminaison de services cloud.
-3. Examinez les journaux de console de la machine virtuelle.
+3. Examinez les journaux d’activité de console de la machine virtuelle.
 4. Réinitialisez la carte d’interface réseau pour la machine virtuelle.
 5. Vérifiez l’intégrité des ressources de la machine virtuelle.
 6. Réinitialisez le mot de passe de votre machine virtuelle.
@@ -69,9 +69,9 @@ Après chaque étape de résolution des problèmes, essayez de nouveau de vous c
     ![Réinitialiser la configuration RDP dans le portail Azure](./media/troubleshoot-rdp-connection/reset-rdp.png)
 2. **Vérifiez les règles du groupe de sécurité réseau**. Utilisez la [vérification des flux IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) pour savoir si une règle d’un groupe de sécurité réseau bloque le trafic depuis ou vers une machine virtuelle. Vous pouvez également vérifier les règles de groupe de sécurité effectives pour vous assurer que la règle « Allow » entrante du groupe de sécurité réseau existe pour le port RDP (par défaut, 3389). Pour en savoir plus, consultez [Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
-3. **Passez en revue les diagnostics de démarrage de la machine virtuelle**. Cette étape de dépannage passe en revue les journaux de la console de la machine virtuelle afin de déterminer si celle-ci signale un problème. Les diagnostics de démarrage ne sont pas activés sur toutes les machines virtuelles et cette étape de dépannage peut être facultative.
+3. **Passez en revue les diagnostics de démarrage de la machine virtuelle**. Cette étape de dépannage passe en revue les journaux d’activité de la console de la machine virtuelle afin de déterminer si celle-ci signale un problème. Les diagnostics de démarrage ne sont pas activés sur toutes les machines virtuelles et cette étape de dépannage peut être facultative.
    
-    Les étapes de dépannage spécifiques ne sont pas abordées dans cet article, mais elles peuvent indiquer un problème plus large affectant la connectivité RDP. Pour plus d’informations sur l’examen des journaux de la console et pour obtenir une capture d’écran de la machine virtuelle, consultez [Diagnostics de démarrage pour les machines virtuelles](boot-diagnostics.md).
+    Les étapes de dépannage spécifiques ne sont pas abordées dans cet article, mais elles peuvent indiquer un problème plus large affectant la connectivité RDP. Pour plus d’informations sur l’examen des journaux d’activité de la console et pour obtenir une capture d’écran de la machine virtuelle, consultez [Diagnostics de démarrage pour les machines virtuelles](boot-diagnostics.md).
 
 4. **Réinitialisez la carte d’interface réseau pour la machine virtuelle**. Pour en savoir plus, consultez la page [How to reset NIC for Azure Windows VM](../windows/reset-network-interface.md) (Réinitialiser une carte d’interface réseau pour une machine virtuelle Windows Azure).
 5. **Vérifiez l’intégrité des ressources de la machine virtuelle**. Cette étape de dépannage vérifie qu’il n’existe aucun problème connu sur la plateforme Azure susceptible d’avoir un impact sur la connectivité à la machine virtuelle.
@@ -209,9 +209,9 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
    ![Vérifier les points de terminaison de Services cloud dans le portail Azure](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
    Si vous ne disposez pas d’un point de terminaison autorisant le trafic RDP, [créez un point de terminaison de Services cloud](../windows/classic/setup-endpoints.md). Autorisez TCP sur le port privé 3389.
-3. **Passez en revue les diagnostics de démarrage de la machine virtuelle**. Cette étape de dépannage passe en revue les journaux de la console de la machine virtuelle afin de déterminer si celle-ci signale un problème. Les diagnostics de démarrage ne sont pas activés sur toutes les machines virtuelles et cette étape de dépannage peut être facultative.
+3. **Passez en revue les diagnostics de démarrage de la machine virtuelle**. Cette étape de dépannage passe en revue les journaux d’activité de la console de la machine virtuelle afin de déterminer si celle-ci signale un problème. Les diagnostics de démarrage ne sont pas activés sur toutes les machines virtuelles et cette étape de dépannage peut être facultative.
    
-    Les étapes de dépannage spécifiques ne sont pas abordées dans cet article, mais elles peuvent indiquer un problème plus large affectant la connectivité RDP. Pour plus d’informations sur l’examen des journaux de la console et pour obtenir une capture d’écran de la machine virtuelle, consultez [Diagnostics de démarrage pour les machines virtuelles](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
+    Les étapes de dépannage spécifiques ne sont pas abordées dans cet article, mais elles peuvent indiquer un problème plus large affectant la connectivité RDP. Pour plus d’informations sur l’examen des journaux d’activité de la console et pour obtenir une capture d’écran de la machine virtuelle, consultez [Diagnostics de démarrage pour les machines virtuelles](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
 4. **Vérifiez l’intégrité des ressources de la machine virtuelle**. Cette étape de dépannage vérifie qu’il n’existe aucun problème connu sur la plateforme Azure susceptible d’avoir un impact sur la connectivité à la machine virtuelle.
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Intégrité des ressources**. Une machine virtuelle saine est indiquée comme étant **Disponible** :

@@ -180,7 +180,7 @@ Lorsque votre application est en cours d’exécution dans Azure, vous devez êt
 
     >**Démarrer** : suivez le [didacticiel d’Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
--   **Azure Monitor** : service qui vous permet de visualiser, interroger, acheminer, archiver et traiter les métriques et les journaux qui sont générés par votre infrastructure et vos ressources Azure. Monitor fournit les vues de données que vous voyez dans le portail Azure et constitue une source unique pour la surveillance des ressources Azure.
+-   **Azure Monitor** : service qui vous permet de visualiser, interroger, acheminer, archiver et traiter les métriques et les journaux d’activité qui sont générés par votre infrastructure et vos ressources Azure. Monitor fournit les vues de données que vous voyez dans le portail Azure et constitue une source unique pour la surveillance des ressources Azure.
  
     >**Démarrer** : [Prise en main d’Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
 

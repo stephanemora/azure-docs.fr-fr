@@ -15,7 +15,7 @@ ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: d96d75f4f2623476f7af4e6eea930c1f2c503e3a
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51226911"
@@ -40,7 +40,7 @@ Vous ne pouvez pas vous connecter à la machine virtuelle, et vous recevez un me
     sudo su
     ```
 
-4.  Exécutez **fdisk -l** ou consultez les journaux système pour trouver le disque joint. Recherchez le nom du lecteur à monter. Sur la machine virtuelle temporaire, cherchez dans le fichier journal correspondant.
+4.  Exécutez **fdisk -l** ou consultez les journaux d’activité système pour trouver le disque joint. Recherchez le nom du lecteur à monter. Sur la machine virtuelle temporaire, cherchez dans le fichier journal correspondant.
 
     ```bash
     grep SCSI /var/log/kern.log (ubuntu)

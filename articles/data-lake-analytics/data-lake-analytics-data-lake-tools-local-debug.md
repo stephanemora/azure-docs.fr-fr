@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 9e73fc4db1404842e6d3878d88d8f02511587bc9
 ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43044975"
@@ -50,6 +50,6 @@ Vous pouvez déboguer des assemblys C# sans les envoyer ou les inscrire sur le s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour un exemple de requête plus complexe, voir [Analyse de journaux de sites web à l’aide d’Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- Pour un exemple de requête plus complexe, voir [Analyse de journaux d’activité de sites web à l’aide d’Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - Pour afficher les détails d’un travail, voir [Utilisation de l’Explorateur de travaux et de la Vue des travaux pour les travaux Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
 - Pour utiliser la vue d’exécution du vertex, voir [Utilisation de la vue d’exécution du vertex dans Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

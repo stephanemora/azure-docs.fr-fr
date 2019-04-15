@@ -148,7 +148,7 @@ Quand vous avez terminé, quittez (`exit`) la session SSH, puis quittez (`exit`)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez besoin de données de dépannage supplémentaires, vous pouvez [afficher les journaux kubelet][view-kubelet-logs] ou [afficher les journaux de nœud principal Kubernetes][view-master-logs].
+Si vous avez besoin de données de dépannage supplémentaires, vous pouvez [afficher les journaux d’activité kubelet][view-kubelet-logs] ou [afficher les journaux d’activité de nœud principal Kubernetes][view-master-logs].
 
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

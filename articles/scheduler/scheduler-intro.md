@@ -32,7 +32,7 @@ Voici quelques scénarios où Scheduler peut vous aider :
 
 * **Exécuter des actions d’application récurrentes** : par exemple, collecter périodiquement des données de Twitter dans un flux.
 
-* **Effectuer une maintenance quotidienne** : par exemple, nettoyer quotidiennement les journaux, faire des sauvegardes et effectuer d’autres tâches de maintenance. 
+* **Effectuer une maintenance quotidienne** : par exemple, nettoyer quotidiennement les journaux d’activité, faire des sauvegardes et effectuer d’autres tâches de maintenance. 
 
   Par exemple, en tant qu’administrateur, vous pouvez être amené à sauvegarder votre base de données à 1 h 00 tous les jours, pendant les neuf prochains mois.
 
