@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489809"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571152"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Authentification des appareils à l’aide de certificats d’autorité de certification X.509
 
@@ -62,13 +62,15 @@ Le processus de chargement implique le chargement d’un fichier contenant votre
 
 La preuve de possession nécessite une vérification par chiffrement et un processus de réponse entre vous et IoT Hub.  Comme le contenu du certificat numérique est public et peut donc faire l’objet d’écoutes clandestines, IoT Hub souhaite s’assurer que vous possédez réellement le certificat d’autorité de certification.  Pour cela, il vous invite de façon aléatoire à vous connecter avec la clé privée correspondant au certificat d’autorité de certification.  Si vous avez gardé secrète et protégé la clé privée comme conseillé précédemment, vous êtes alors la seule personne à pouvoir effectuer cette étape. Dans cette méthode, la capacité à garder secrètes les clés privées est la base de la confiance.  Après la signature de vérification, effectuez cette étape en chargeant un fichier contenant les résultats.
 
-Découvrez comment [enregistrer votre certificat d’autorité de certification](iot-hub-security-x509-get-started.md#registercerts).
+Découvrez ici comment [enregistrer votre certificat d’autorité de certification](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Guide pratique pour créer un appareil sur IoT Hub
 
 Afin d’éviter l’emprunt d’identité de l’appareil, IoT Hub vous oblige à l’informer des appareils que vous utiliserez.  Pour cela, vous créez une entrée dans le registre des appareils d’IoT Hub.  Ce processus est automatique si vous utilisez le service IoT Hub [Device Provisioning](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/). 
 
-Découvrez ici comment [créer manuellement un appareil dans IoT Hub](iot-hub-security-x509-get-started.md#createdevice).
+Découvrez ici comment [créer manuellement un appareil dans IoT Hub](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub).
+
+Créer un appareil X.509 pour votre IoT Hub
 
 ## <a name="authenticating-devices-signed-with-x509-ca-certificates"></a>Authentification d’appareils signés avec des certificats d’autorité de certification X.509
 
@@ -76,7 +78,7 @@ Lorsque les appareils sont enregistrés à l’aide d’un certificat d’autori
 
 La connexion réussie d’un appareil à IoT Hub termine le processus d’authentification et constitue un bon indicateur d’une configuration correcte.
 
-Découvrez ici comment [effectuer cette étape de connexion de l’appareil](iot-hub-security-x509-get-started.md#authenticatedevice).
+Découvrez ici comment [effectuer cette étape de connexion de l’appareil](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

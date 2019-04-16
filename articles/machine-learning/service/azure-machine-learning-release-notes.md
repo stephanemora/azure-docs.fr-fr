@@ -10,18 +10,25 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528133"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579153"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
 Dans cet article, découvrez les versions du service Azure Machine Learning.  Pour obtenir une description complète de chaque Kit de développement logiciel (SDK), consultez la documentation de référence de :
 + [**Kit de développement logiciel (SDK) principal pour Python**](https://aka.ms/aml-sdk) d’Azure Machine Learning
 + [**Kit de développement logiciel (SDK) de préparation de données**](https://aka.ms/data-prep-sdk) Azure Machine Learning
+
+## <a name="2019-04-15"></a>2019-04-15
+
+### <a name="azure-portal"></a>Portail Azure
+  + Vous pouvez désormais soumettre à nouveau un Script existant exécuté sur un cluster de calcul à distance existant. 
+  + Vous pouvez maintenant exécuter un pipeline publié avec les nouveaux paramètres sous l’onglet de Pipelines. 
+  + Détails de l’exécution prend désormais en charge une nouvelle visionneuse de fichier d’instantané. Vous pouvez afficher un instantané du répertoire lorsque vous avez envoyé une exécution spécifique. Vous pouvez également télécharger le bloc-notes a été soumis pour démarrer l’exécution.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -49,6 +56,7 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
   + Détection du type de colonne maintenant prend en charge les colonnes de type Long.
   + Correction d’un bogue dans lequel certaines valeurs de date ont été affichées tant qu’horodatages au lieu d’objets datetime de Python.
   + Correction d’un bogue dans lequel certains nombres de type ont été affichés comme doubles au lieu d’entiers.
+
   
 ## <a name="2019-03-25"></a>2019-03-25
 

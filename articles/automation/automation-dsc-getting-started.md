@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767037"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579272"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Prise en main d’Azure Automation State Configuration
 
@@ -27,7 +27,7 @@ Cet article fournit des instructions détaillées sur l’utilisation d’Azure 
 Pour exécuter les exemples de cet article, vous devez disposer des éléments suivants :
 
 - Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Authentifier des Runbooks avec un compte d’identification Azure](automation-sec-configure-azure-runas-account.md).
-- Une machine virtuelle Azure Resource Manager (non classique) exécutant Windows Server 2008 R2 ou version ultérieure. Pour obtenir des instructions sur la création d’une machine virtuelle, consultez [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Un gestionnaire de ressources Azure VM (non classique) exécutant un [pris en charge du système d’exploitation](automation-dsc-overview.md#operating-system-requirements). Pour obtenir des instructions sur la création d’une machine virtuelle, consultez [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>Création d’une configuration DSC
 
@@ -149,9 +149,9 @@ Azure Automation State Configuration vous permet de gérer vos machines virtuell
 1. Sur la page **Machine virtuelle**, cliquez sur **+ Connecter**.
 
    > [!IMPORTANT]
-   > Il doit s’agir d’une machine virtuelle Azure Resource Manager exécutant Windows Server 2008 R2 ou version ultérieure.
+   > Cela doit être un Azure Resource Manager VM en cours d’exécution un [pris en charge du système d’exploitation](automation-dsc-overview.md#operating-system-requirements).
 
-1. Sur la page **Inscription**, sélectionnez le nom de la configuration de nœud que vous souhaitez appliquer à la machine virtuelle dans la zone **Nom de la configuration de nœuds**. Vous n’êtes pas obligé de fournir un nom à ce stade. Vous pouvez modifier la configuration de nœud assignée une fois l’intégration du nœud effectuée.
+2. Sur la page **Inscription**, sélectionnez le nom de la configuration de nœud que vous souhaitez appliquer à la machine virtuelle dans la zone **Nom de la configuration de nœuds**. Vous n’êtes pas obligé de fournir un nom à ce stade. Vous pouvez modifier la configuration de nœud assignée une fois l’intégration du nœud effectuée.
    Cochez la case **Redémarrer le nœud si nécessaire**, puis cliquez sur **OK**.
 
    ![Capture d’écran du panneau Inscription](./media/automation-dsc-getting-started/RegisterVM.png)

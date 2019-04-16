@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493057"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577965"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -50,15 +50,14 @@ Dans l’interface du portail Azure, nous avons amélioré la méthode d’affic
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** dans le volet gauche.
 3. Recherchez **Azure Active Directory** dans la liste des services, puis sélectionnez-le.
-4. Sélectionnez **Utilisateurs et groupes**.
-5. Sélectionnez **Journaux d’audit** dans le menu **Utilisateurs et groupes**. Vous affichez ainsi tous les événements d’audit qui ont concerné tous les utilisateurs de votre annuaire. Vous pouvez filtrer cette vue pour voir tous les événements associés aux mots de passe.
-6. Pour filtrer cette vue et afficher uniquement les événements associés à la réinitialisation de mot de passe, sélectionnez le bouton **Filtrer** en haut du volet.
-7. Dans le menu **Filtrer**, sélectionnez la liste déroulante **Catégorie** et changez pour le type de catégorie **Gestion des mots de passe en libre-service**.
-8. Si vous le souhaitez, vous pouvez affiner le filtre de la liste en choisissant l’**Activité** spécifique qui vous intéresse.
+4. Sélectionnez **utilisateurs** à partir de la section gérer.
+5. Sélectionnez **journaux d’Audit** à partir de la **utilisateurs** panneau. Vous affichez ainsi tous les événements d’audit qui ont concerné tous les utilisateurs de votre annuaire. Vous pouvez filtrer cette vue pour voir tous les événements associés aux mots de passe.
+6. À partir de la **filtre** menu en haut du volet, sélectionnez le **Service** déroulante liste et remplacez-le par le **gestion de mot de passe libre-service** du type de service.
+7. Si vous le souhaitez, vous pouvez affiner le filtre de la liste en choisissant l’**Activité** spécifique qui vous intéresse.
 
 ### <a name="converged-registration-preview"></a>Inscription convergée (préversion)
 
-Si vous participez à la préversion publique de l’inscription convergée, les informations sur l’activité des utilisateurs dans les journaux d’audit se trouvent sous la catégorie **Méthodes d’authentification**.
+Si vous participez à la version préliminaire publique de l’inscription convergence, informations sur l’activité des utilisateurs dans les journaux d’audit seront trouve sous le service **méthodes d’authentification**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Description des colonnes du rapport dans le portail Azure
 
@@ -176,16 +175,16 @@ La liste suivante explique cette activité en détail :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comment mener à bien un déploiement réussi de SSPR ?](howto-sspr-deployment.md)
+* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](howto-sspr-deployment.md)
 * [Réinitialisez ou modifiez votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md).
-* [Vous avez une question de licence ?](concept-sspr-licensing.md)
-* [Données utilisées par SSPR et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
-* [Méthodes d’authentification sont disponibles pour les utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
-* [Quelles sont les options de stratégie avec SSPR ?](concept-sspr-policy.md)
-* [Qu’est l’écriture différée de mot de passe et Pourquoi m’y intéresser ?](howto-sspr-writeback.md)
-* [Quelles sont toutes les options dans SSPR et que signifient-elles ?](concept-sspr-howitworks.md)
-* [Je pense que quelque chose est interrompue. Comment résoudre les problèmes SSPR ?](active-directory-passwords-troubleshoot.md)
-* [J’ai une question qui a été pas trouvée de réponse ailleurs](active-directory-passwords-faq.md)
+* [Vous avez une question relative à la licence ?](concept-sspr-licensing.md)
+* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
+* [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
+* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)
+* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](howto-sspr-writeback.md)
+* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
+* [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
+* [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Exemple de journaux d’audit d’activité SSPR dans Azure AD"

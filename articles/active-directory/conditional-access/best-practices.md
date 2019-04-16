@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 11d4d319fa31dd2493810dc7293d415554f79d94
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261522"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571118"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques l’accès conditionnel dans Azure Active Directory
 
@@ -109,7 +109,7 @@ Azure Active Directory applique les deux stratégies et l’utilisateur n’obti
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>L’accès conditionnel fonctionne-t-il avec Exchange ActiveSync ?
 
-Oui, vous pouvez utiliser Exchange ActiveSync dans une stratégie d’accès conditionnel.
+Oui, vous pouvez utiliser Exchange ActiveSync dans une stratégie d’accès conditionnel avec certains [limitations](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Comment devez-vous configurer l’accès conditionnel avec les applications Office 365 ?
 
@@ -130,7 +130,7 @@ L’infrastructure d’accès conditionnel vous offre une souplesse de configura
 Dans votre environnement, vous devez éviter les configurations suivantes :
 
 
-**Pour tous les utilisateurs, toutes les applications cloud :**
+**Pour tous les utilisateurs, toutes les applications cloud :**
 
 - **Bloquer l’accès** : cette configuration bloque toute votre organisation, ce qui n’est pas une bonne idée.
 
@@ -140,7 +140,7 @@ Dans votre environnement, vous devez éviter les configurations suivantes :
 
 - **Exiger la stratégie de protection des applications** - ce bloc de stratégie accès est également susceptible de bloquer l’accès pour tous les utilisateurs de votre organisation si vous n’avez pas une stratégie Intune. Si vous êtes un administrateur sans une application cliente qui a une stratégie de protection d’application Intune, cette stratégie bloque le retour dans des portails tels que Intune et Azure.
 
-**Pour tous les utilisateurs, toutes les applications cloud, toutes les plateformes d’appareils :**
+**Pour tous les utilisateurs, toutes les applications cloud, toutes les plates-formes d’appareils :**
 
 - **Bloquer l’accès** : cette configuration bloque toute votre organisation, ce qui n’est pas une bonne idée.
 

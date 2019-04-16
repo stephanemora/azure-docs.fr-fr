@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: tulasim
-ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958046"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579408"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obtenir une réponse de la base de connaissances avec les API de GenerateAnswer et les métadonnées
 
@@ -74,7 +74,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?i
 |En-tête|Content-Type|string|type de média du corps envoyé à l’API. Valeur par défaut est : ''|
 |En-tête|Authorization|string|clé de votre point de terminaison (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corps de publication|Objet JSON|JSON|La question avec des paramètres|
-|Paramètre de chaîne de requête (facultatif)|`isTest`|booléenne|Si défini sur true, renvoie les résultats à partir de `testkb` index de recherche au lieu de l’index publié.|
+
 
 Le corps JSON a plusieurs paramètres :
 
@@ -83,6 +83,7 @@ Le corps JSON a plusieurs paramètres :
 |`question`|required|string|Une question de l’utilisateur à envoyer à votre base de connaissances.|
 |`top`|facultatif|integer|nombre de résultats classés à inclure dans la sortie. La valeur par défaut est 1.|
 |`userId`|facultatif|string|ID unique d’identification de l’utilisateur. Cet ID est enregistré dans les journaux d’activité de conversations.|
+|`isTest`|facultatif|booléenne|Si défini sur true, renvoie les résultats à partir de `testkb` index de recherche au lieu de l’index publié.|
 |`strictFilters`|facultatif|string|si elle est spécifiée, cette chaîne indique à QnA Maker de retourner uniquement les réponses qui contiennent les métadonnées spécifiées.|
 
 Un exemple de corps JSON ressemble à :
@@ -91,6 +92,7 @@ Un exemple de corps JSON ressemble à :
 {
     "question": "qna maker and luis",
     "top": 6,
+    "isTest": true,
     "strictFilters": [
     {
         "name": "category",

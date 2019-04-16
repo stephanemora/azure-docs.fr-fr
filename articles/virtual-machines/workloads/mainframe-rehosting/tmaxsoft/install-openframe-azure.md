@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 6b109f347ee7a917b57acfc56ab4418755295bc5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896376"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578473"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Installer TmaxSoft OpenFrame sur Azure
 
@@ -945,7 +945,7 @@ ProSort est un utilitaire permettant de tri des données dans les transactions p
      export PATH
      ```
 
-6. Pour exécuter le profil de l’interpréteur de commandes, à l’invite de commandes, tapez : ` . .bash_profile`
+6. Pour exécuter le profil de l’interpréteur de commandes, à l’invite de commandes, tapez : `. .bash_profile`
 
 7. Créer le fichier de configuration. Par exemple : 
 
@@ -1055,7 +1055,7 @@ OFCOBOL est le compilateur OpenFrame qui interprète les programmes COBOL du mac
      0 NonFatalErrors 
      0 FatalError
      ```
-10. Utilisez le `ofcob --version ` de commandes et passez en revue le numéro de version pour vérifier l’installation. Par exemple : 
+10. Utilisez le `ofcob --version` de commandes et passez en revue le numéro de version pour vérifier l’installation. Par exemple : 
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1342,7 +1342,7 @@ Avant d’installer JEUS, installez le package Apache Ant, qui fournit les bibli
      [oframe7\@ofdemo setup]\$ vi domain-config-template.properties
      ```
 
-7. Modification `jeus.password=jeusadmin nodename=Tmaxsoft` à `jeus.password=tmax1234 nodename=ofdemo`
+7. Remplacez `jeus.password=jeusadmin nodename=Tmaxsoft` par `jeus.password=tmax1234 nodename=ofdemo` :
 
 8. Exécuter le `ant install` commande pour générer JEUS.
 9.  Mettre à jour le .bash\_fichier de profil avec les variables JEUS comme indiqué :
@@ -1476,6 +1476,6 @@ L’installation des composants OpenFrame se termine.
 
 Si vous envisagez une migration mainframe, notre écosystème de partenaires en expansion est disponible pour vous aider. Pour obtenir des conseils détaillés sur le choix d’une solution de partenaire, consultez [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx).
 
--   [Bien démarrer avec Azure](https://docs.microsoft.com/azure/)
--   [Documentation de Host Integration Server (HIS)](https://docs.microsoft.com/host-integration-server/)
+-   [Prise en main d’Azure](https://docs.microsoft.com/azure/)
+-   [Documentation Host Integration Server (HIS)](https://docs.microsoft.com/host-integration-server/)
 -   [Guide de Lift-and-Shift de centre de données virtuel Azure](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)

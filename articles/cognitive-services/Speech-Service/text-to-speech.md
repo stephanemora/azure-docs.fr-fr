@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549503"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578779"
 ---
 # <a name="what-is-text-to-speech"></a>Quelle est la synthèse vocale ?
 
@@ -53,10 +53,7 @@ Ce tableau répertorie les principales fonctionnalités pour la synthèse vocale
 | Créer et gérer des tests de police de voix. | Non  | Oui\* |
 | Gérer les abonnements. | Non  | Oui\* |
 
-\* *Ces services sont disponibles à l’aide du point de terminaison cris.ai. Consultez [Swagger référence](https://westus.cris.ai/swagger/ui/index).*
-
-> [!NOTE]
-> Les points de terminaison vocaux personnalisés implémentent la limitation qui limite les requêtes à 25 par 5 secondes. Lorsque la limitation se produit, vous serez averti par les en-têtes de message.
+\* *Ces services sont disponibles à l’aide du point de terminaison cris.ai. Consultez [Swagger référence](https://westus.cris.ai/swagger/ui/index). Ces formations de vocaux personnalisés et les API de gestion implémentent la limitation que les demandes de limites à 25 par 5 secondes, tandis que la synthèse vocale API lui-même implémente la limitation qui permet de 200 demandes par seconde étant le plus élevé. Lorsque la limitation se produit, vous serez averti par les en-têtes de message.*
 
 ## <a name="get-started-with-text-to-speech"></a>Bien démarrer avec le texte par synthèse vocale
 

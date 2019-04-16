@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b45cd84322279d7f81cc3f047f72a75a6d898bc6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452689"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578745"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Référence de configuration Azure Blockchain Workbench
 
- Les applications Azure Blockchain Workbench désignent des workflows multiniveaux définis par des métadonnées de configuration et un code de contrat intelligent. Les métadonnées de configuration définissent les workflows généraux et le modèle d’interaction de l’application blockchain. Les contrats intelligents définissent la logique métier de l’application blockchain. Workbench utilise la configuration et le code de contrat intelligent pour générer des expériences utilisateur d’application blockchain.
+Les applications Azure Blockchain Workbench désignent des workflows multiniveaux définis par des métadonnées de configuration et un code de contrat intelligent. Les métadonnées de configuration définissent les workflows généraux et le modèle d’interaction de l’application blockchain. Les contrats intelligents définissent la logique métier de l’application blockchain. Workbench utilise la configuration et le code de contrat intelligent pour générer des expériences utilisateur d’application blockchain.
 
 Les métadonnées de configuration spécifient les informations suivantes pour chaque application blockchain :
 

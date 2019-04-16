@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3b403eb80bae01efe730b69b7e6a5ddaea81355a
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447648"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579357"
 ---
 # <a name="why-use-batch-transcription"></a>Pourquoi utiliser la transcription Batch ?
 
 La transcription Batch est idéale pour transcrire une grande quantité de données audio stockées dans des objets blob Azure, par exemple. Avec l’API REST dédiée, vous pouvez pointer vers des fichiers audio à l’aide d’un URI de signature d’accès partagé (SAS) et recevoir les transcriptions de manière asynchrone.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 ### <a name="subscription-key"></a>Clé d'abonnement
 
@@ -88,6 +88,16 @@ Les paramètres de configuration sont fournis au format JSON :
 | `PunctuationMode` | Spécifie comment traiter la ponctuation dans les résultats de la reconnaissance. Les valeurs acceptées sont `none` qui désactive la ponctuation, `dictated` qui implique une ponctuation explicite, `automatic` qui permet au décodeur de gérer la ponctuation, ou `dictatedandautomatic` qui implique des marques de ponctuation dictées ou automatiques. | Facultatif |
  | `AddWordLevelTimestamps` | Spécifie si les timestamps au niveau des mots doivent être ajoutés à la sortie. Les valeurs acceptées sont `true`, qui permet des timestamps au niveau des mots, et `false` (la valeur par défaut) pour les désactiver. | Facultatif |
 
+### <a name="storage"></a>Stockage
+
+Batch prend en charge de la transcription [stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) pour la lecture audio et transcriptions d’écriture vers le stockage.
+
+## <a name="webhooks"></a>Webhooks 
+
+Interrogeant le statut de transcription ne peut pas être la plus performante, ou fournir la meilleure expérience utilisateur. Pour effectuer une interrogation pour l’état, vous pouvez inscrire des rappels, qui informe le client quand longue transcription tâches sont terminées.
+
+Pour plus d’informations, consultez [Webhooks](webhooks.md).
+
 ## <a name="sample-code"></a>Exemple de code
 
 L’exemple complet est disponible dans le [référentiel d’exemples GitHub](https://aka.ms/csspeech/samples) à l’intérieur du sous-répertoire `samples/batch`.
@@ -108,10 +118,6 @@ L’exemple de code actuel ne spécifie pas de modèle personnalisé. Le service
 
 > [!NOTE]
 > Dans le cas des transcriptions de base, vous n’avez pas besoin de déclarer l’ID des modèles de base. Si vous spécifiez uniquement un ID de modèle de langage (et pas un ID de modèle acoustique), un modèle acoustique correspondant est automatiquement sélectionné. Si vous spécifiez uniquement un ID de modèle acoustique (et pas un ID de modèle de langage), un modèle de langage correspondant est automatiquement sélectionné.
-
-### <a name="supported-storage"></a>Stockage pris en charge
-
-Actuellement, seul le stockage d’objets blob est pris en charge.
 
 ## <a name="download-the-sample"></a>Télécharger l’exemple
 

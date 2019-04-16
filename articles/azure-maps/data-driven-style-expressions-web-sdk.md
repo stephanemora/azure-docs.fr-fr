@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 0f63ed7d00f1ae3e30cdac76606559a4e9f49f04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288095"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579493"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressions de Style piloté par les données (Kit de développement Web)
 
@@ -207,7 +207,7 @@ Le pseudo-code suivant définit la structure de la `case` expression.
 ]
 ```
 
-**Exemples**
+**Exemple**
 
 L’exemple suivant parcourt différentes conditions booléennes jusqu'à ce qu’il en trouve une qui prend la valeur `true`et puis les retourne cette valeur associée. Si aucune condition boolean a la valeur `true`, une valeur de secours s’affichera. 
 
@@ -296,7 +296,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Un `coalesce` expression étapes via un ensemble d’expressions jusqu'à ce que la première valeur non null est obtenue et retourne cette valeur. 
 
-Le pseudo-code suivant définit la structure de la ` coalesce` expression. 
+Le pseudo-code suivant définit la structure de la `coalesce` expression. 
 
 ```javascript
 [
@@ -307,7 +307,7 @@ Le pseudo-code suivant définit la structure de la ` coalesce` expression.
 ]
 ```
 
-**Exemples**
+**Exemple**
 
 L’exemple suivant utilise un `coalesce` expression pour définir la `textField` option d’une couche de symbole. Si le `title` propriété est manquante dans la fonctionnalité ou l’ensemble de `null`, l’expression tente alors de recherche de la `subtitle` propriété, si son manquant ou `null`, il sera puis se rabattront sur une chaîne vide. 
 
@@ -375,7 +375,7 @@ Expressions de couleur rendent plus faciles à créer et manipuler les valeurs d
 | `['rgba', number, number, number, number]` | color | Crée une valeur de couleur à partir de *rouge*, *verte*, *bleu* composants doivent être comprise entre `0` et `255`et un composant alpha dans une plage de `0` et `1`. Si n’importe quel composant est hors limites, l’expression est une erreur. |
 | `['to-rgba']` | \[number, number, number, number\] | Retourne un tableau de quatre éléments contenant la couleur d’entrée *rouge*, *verte*, *bleu*, et *alpha* composants, dans cet ordre. |
 
-**Exemples**
+**Exemple**
 
 L’exemple suivant crée et la valeur de couleur RVB qui a un *rouge* valeur `255`, et *verte* et *bleu* les valeurs sont calculées en multipliant `2.5` par la valeur de la `temperature` propriété. En tant que les changements de température la couleur change différentes nuances de *rouge*.
 
@@ -403,7 +403,7 @@ Expressions d’opérateur de chaîne effectuer des opérations de conversion de
 | `['downcase', string]` | string | Convertit la chaîne spécifiée en minuscules. |
 | `['upcase', string]` | string | Convertit la chaîne spécifiée en majuscules. |
 
-**Exemples**
+**Exemple**
 
 L’exemple suivant convertit le `temperature` propriété du point de fonctionnalité dans une chaîne et ensuite les concatène « ° F » à la fin de celle-ci.
 
@@ -461,7 +461,7 @@ Le pseudo-code suivant définit la structure de la `interpolate` expression.
 ]
 ```
 
-**Exemples**
+**Exemple**
 
 L’exemple suivant utilise un `linear interpolate` expression pour définir le `color` basée sur les propriétés d’une couche à bulles sur la `temperature` propriété de la fonctionnalité de point. Si le `temperature` valeur est inférieure à 60, « bleu » est retournée, si entre 60 et inférieur à 70, jaune s’affichera, si entre 70 et inférieur à 80, « orange » sera retourné, si 80 ou supérieur, « rouge » est renvoyé.
 
@@ -510,7 +510,7 @@ Le pseudo-code suivant définit la structure de la `step` expression.
 
 Les expressions d’étape retournent la valeur de sortie de l’arrêt juste avant la valeur d’entrée, ou la première valeur d’entrée si l’entrée est inférieure à la première étape. 
 
-**Exemples**
+**Exemple**
 
 L’exemple suivant utilise un `step` expression pour définir le `color` basée sur les propriétés d’une couche à bulles sur la `temperature` propriété de la fonctionnalité de point. Si le `temperature` valeur est inférieure à 60, « bleu » est retournée, si entre 60 et inférieur à 70, « jaune » est retournée, si entre 70 et inférieur à 80, « orange » sera retourné, si 80 ou supérieur, « rouge » est renvoyé.
 
@@ -548,7 +548,7 @@ Une expression de densité de carte thermique récupère la valeur de densité d
 > [!TIP]
 > La couleur à l’index 0 dans une expression d’interpolation ou la couleur par défaut d’une couleur de l’étape, définit la couleur de la zone où il n’existe aucune donnée et peut être utilisé pour définir une couleur d’arrière-plan. La plupart des utilisateurs préfèrent définir cette valeur sur une couleur noire transparente ou semi-transparente. 
 
-**Exemples**
+**Exemple**
 
 Cet exemple utilise une expression d’interpolation chemise pour créer un dégradé de couleurs pour le rendu de la carte thermique. 
 
@@ -592,7 +592,7 @@ Une expression de progression ligne récupère la progression le long d’un tra
 > [!NOTE]
 > Le `strokeGradient` nécessite l’option de la couche de lignes de la `lineMetrics` option de la source de données à définir `true`.
 
-**Exemples**
+**Exemple**
 
 L’exemple suivant utilise le `['line-progress']` expression pour appliquer un dégradé de couleur au trait d’une ligne.
 
@@ -640,7 +640,7 @@ Le pseudo-code suivant définit la structure de l’expression de format de cham
 ]
 ```
 
-**Exemples**
+**Exemple**
 
 L’exemple suivant met en forme le champ de texte en ajoutant une police en gras et en augmentant la taille de police de la `title` propriété de la fonctionnalité. Cet exemple ajoute également le `subtitle` propriété de la fonctionnalité sur un saut de ligne, avec une mise à l’échelle vers le bas de la taille de police.
 
@@ -697,7 +697,7 @@ Le pseudo-code suivant définit la structure de l’expression de format de cham
 ]
 ```
 
-**Exemples**
+**Exemple**
 
 L’exemple suivant utilise un `number-format` expression pour modifier la `revenue` propriété de la fonctionnalité de point est rendu dans le `textField` option d’un symbole de couche s’afficher une valeur en dollars américains.
 
@@ -725,7 +725,7 @@ Cette couche s’affiche à la fonctionnalité de point, comme illustré dans l�
 
 Un `zoom` expression est utilisée pour récupérer le niveau de zoom actuel de la carte au moment du rendu et est définie comme `['zoom']`. Cette expression retourne un nombre entre la plage de niveau de zoom minimale et maximale de la carte. À l’aide de cette expression autorise les styles à modifier dynamiquement que le niveau de zoom de la carte est modifié. Le `zoom` expression peut uniquement être utilisée avec `interpolate` et `step` expressions.
 
-**Exemples**
+**Exemple**
 
 Par défaut, les rayons des points de données restitués dans la couche de carte thermique ont un rayon de pixel fixe pour tous les niveaux de zoom. Comme la carte est agrandi ou réduite l’ensemble des agrégats de données et la couche de carte thermique est différente. Un `zoom` expression peut être utilisée pour mettre à l’échelle le rayon pour chaque niveau de zoom de telle sorte que chaque point de données couvre la même zone physique de la carte. Cela rendra la couche de carte thermique rechercher plus statique et cohérente. Chaque niveau de zoom de la carte a deux fois en tant que nombre de pixels verticalement et horizontalement en tant que le niveau de zoom précédent. Mise à l’échelle le rayon de sorte qu’elle double avec chaque niveau de zoom créera une carte thermique qui ont l’air cohérente sur tous les niveaux de zoom. Cela est possible à l’aide de la `zoom` expression avec un `base 2 exponential interpolation` expression comme indiqué ci-dessous. 
 
@@ -756,7 +756,7 @@ Expressions de liaison de variable de stocker les résultats d’un calcul dans 
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'let',<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom1 : chaîne,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1 : tout,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2 : chaîne,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2 : tout,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Stocke une ou plusieurs valeurs en tant que variables pour une utilisation par le `var` dans l’expression enfant qui retourne le résultat. |
 | `['var', name: string]` | any | Fait référence à une variable qui a été créée à l’aide de la `let` expression. |
 
-**Exemples**
+**Exemple**
 
 Cet exemple utilise une expression qui calcule le chiffre d’affaires par rapport à des taux de température, puis utilise un `case` expression à évaluer les différentes opérations booléennes sur cette valeur. Le `let` expression est utilisée pour stocker le chiffre d’affaires par rapport à des taux de température afin qu’il ne doit être calculée une fois et le `var` expression fait référence à cette variable aussi souvent que nécessaire sans avoir à recalculer.
 
@@ -789,16 +789,16 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 Consultez les articles suivants pour d’autres exemples de code qui implémentent des expressions :
 
 > [!div class="nextstepaction"] 
-> [Ajouter un calque de symboles](map-add-pin.md)
+> [Ajouter une couche de symboles](map-add-pin.md)
 
 > [!div class="nextstepaction"] 
-> [Ajouter un calque de bulles](map-add-bubble-layer.md)
+> [Ajouter une couche de bulles](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"] 
 > [Ajouter des formes](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
-> [Ajouter un calque de carte thermique](map-add-heat-map-layer.md)
+> [Ajouter une couche de carte thermique](map-add-heat-map-layer.md)
 
 En savoir plus sur les options de couche qui prennent en charge des expressions :
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8e5c281a8a8b6c0b48f18bf247b451bf61a7e9dc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263041"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579212"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemples de requêtes SQL pour Azure Cosmos DB
 
@@ -484,12 +484,12 @@ Vous pouvez également utiliser des références de propriété dans les requêt
 
 Le tableau suivant répertorie les résultats des comparaisons d'égalité dans l’API SQL entre deux types JSON.
 
-| **Op** | **Undefined** | **Null** | **Booléen** | **Number** | **Chaîne** | **Object** | **Tableau** |
+| **Opérateur** | **Undefined** | **Null** | **Booléen** | **Nombre** | **Chaîne** | **Object** | **Tableau** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Null** | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Booléen** | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined |
+| **Nombre** | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined |
 | **Chaîne** | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined |
 | **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined |
 | **Tableau** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** |
@@ -502,7 +502,7 @@ Si le résultat de l’expression scalaire est `Undefined`, l’élément n’es
 
 Les opérateurs logiques interviennent sur des valeurs booléennes. Les tableaux suivants indiquent les tables de vérité logiques de ces opérateurs :
 
-**OU opérateur**
+**Opérateur OR**
 
 | Ou | True | False | Undefined |
 | --- | --- | --- | --- |
@@ -510,7 +510,7 @@ Les opérateurs logiques interviennent sur des valeurs booléennes. Les tableaux
 | False |True |False |Undefined |
 | Undefined |True |Undefined |Undefined |
 
-**ET l’opérateur**
+**Opérateur OR**
 
 | AND | True | False | Undefined |
 | --- | --- | --- | --- |
@@ -518,7 +518,7 @@ Les opérateurs logiques interviennent sur des valeurs booléennes. Les tableaux
 | False |False |False |False |
 | Undefined |Undefined |False |Undefined |
 
-**PAS d’opérateur**
+**Opérateur NOT**
 
 | NOT |  |
 | --- | --- |
@@ -1238,7 +1238,7 @@ Le résultat est le suivant :
 
 Les fonctions de vérification de type vous permettent de vérifier le type d’une expression au sein d’une requête SQL. Vous pouvez utiliser les fonctions de vérification de type pour déterminer les types de propriétés au sein des éléments à la volée, lorsqu’ils sont variable ou inconnu. Voici un tableau des fonctions de la vérification des types intégrés pris en charge :
 
-| **Usage** | **Description** |
+| **Utilisation** | **Description** |
 |-----------|------------|
 | [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Retourne une valeur booléenne indiquant si la valeur est du type tableau. |
 | [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Retourne une valeur booléenne indiquant si la valeur est du type booléen. |
@@ -1714,7 +1714,7 @@ L’exemple suivant montre des jointures, exprimées via LINQ `SelectMany`.
 
 Le client .NET itère automatiquement toutes les pages des résultats de requête dans le `foreach` bloque, comme indiqué dans l’exemple précédent. Les options de requête introduite dans le [API REST](#RestAPI) section sont également disponibles dans le SDK .NET, à l’aide de la `FeedOptions` et `FeedResponse` classes dans le `CreateDocumentQuery` (méthode). Vous pouvez contrôler le nombre de pages à l’aide de le `MaxItemCount` paramètre.
 
-Vous pouvez également contrôler explicitement la pagination en créant `IDocumentQueryable` à l’aide de l’objet `IQueryable`, puis en lisant les valeurs ` ResponseContinuationToken` et en les retransférant en tant que `RequestContinuationToken` dans `FeedOptions`. Vous pouvez définir `EnableScanInQuery` pour autoriser les analyses lorsque la requête n’est pas prise en charge par la stratégie d’indexation configurée. Pour les conteneurs partitionnés, vous pouvez utiliser `PartitionKey` pour exécuter la requête sur une partition unique, même si Azure Cosmos DB peut extraire automatiquement cet élément à partir du texte de requête. Vous pouvez utiliser `EnableCrossPartitionQuery` pour exécuter des requêtes sur plusieurs partitions.
+Vous pouvez également contrôler explicitement la pagination en créant `IDocumentQueryable` à l’aide de la `IQueryable` objet, puis en lisant le `ResponseContinuationToken` valeurs et en les passant sauvegarder en tant que `RequestContinuationToken` dans `FeedOptions`. Vous pouvez définir `EnableScanInQuery` pour autoriser les analyses lorsque la requête n’est pas prise en charge par la stratégie d’indexation configurée. Pour les conteneurs partitionnés, vous pouvez utiliser `PartitionKey` pour exécuter la requête sur une partition unique, même si Azure Cosmos DB peut extraire automatiquement cet élément à partir du texte de requête. Vous pouvez utiliser `EnableCrossPartitionQuery` pour exécuter des requêtes sur plusieurs partitions.
 
 Pour plus d’exemples .NET avec des requêtes, consultez la [exemples Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet) dans GitHub.
 
@@ -1915,7 +1915,7 @@ La syntaxe est `input.Select(x => f(x))`, où `f` est une expression scalaire.
 
 **Sélectionnez un opérateur, exemple 1 :**
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.Select(family => family.parents[0].familyName);
@@ -1930,7 +1930,7 @@ La syntaxe est `input.Select(x => f(x))`, où `f` est une expression scalaire.
   
 **Sélectionnez un opérateur, exemple 2 :** 
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.Select(family => family.children[0].grade + c); // c is an int variable
@@ -1945,7 +1945,7 @@ La syntaxe est `input.Select(x => f(x))`, où `f` est une expression scalaire.
   
 **Opérateur de sélection exemple 3 :**
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
     input.Select(family => new
@@ -1967,7 +1967,7 @@ La syntaxe est `input.Select(x => f(x))`, où `f` est une expression scalaire.
 
 La syntaxe est `input.SelectMany(x => f(x))`, où `f` est une expression scalaire qui retourne un type de conteneur.
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.SelectMany(family => family.children);
@@ -1986,7 +1986,7 @@ La syntaxe est `input.Where(x => f(x))`, où `f` est une expression scalaire qui
 
 **Où opérateur, exemple 1 :**
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.Where(family=> family.parents[0].familyName == "Wakefield");
@@ -2002,7 +2002,7 @@ La syntaxe est `input.Where(x => f(x))`, où `f` est une expression scalaire qui
   
 **Où opérateur, exemple 2 :**
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.Where(
@@ -2029,7 +2029,7 @@ La syntaxe est `input(.|.SelectMany())(.Select()|.Where())*`. Une requête conca
 
 **Concaténation, exemple 1 :**
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.Select(family=>family.parents[0])
@@ -2046,7 +2046,7 @@ La syntaxe est `input(.|.SelectMany())(.Select()|.Where())*`. Une requête conca
 
 **Concaténation, exemple 2 :**
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.Where(family => family.children[0].grade > 3)
@@ -2063,7 +2063,7 @@ La syntaxe est `input(.|.SelectMany())(.Select()|.Where())*`. Une requête conca
 
 **Concaténation, exemple 3 :**
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.Select(family => new { grade=family.children[0].grade}).
@@ -2080,7 +2080,7 @@ La syntaxe est `input(.|.SelectMany())(.Select()|.Where())*`. Une requête conca
 
 **Concaténation, exemple 4 :**
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.SelectMany(family => family.parents)
@@ -2103,7 +2103,7 @@ Une requête imbriquée applique la requête interne à chaque élément du cont
 
 **Imbrication, exemple 1 :**
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.SelectMany(family=>
@@ -2120,7 +2120,7 @@ Une requête imbriquée applique la requête interne à chaque élément du cont
 
 **Imbrication, exemple 2 :**
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.SelectMany(family =>
@@ -2138,7 +2138,7 @@ Une requête imbriquée applique la requête interne à chaque élément du cont
 
 **Imbrication, exemple 3 :**
 
-- **Expression lambda LINQ**
+- **Expression Lambda LINQ**
   
   ```csharp
       input.SelectMany(family => family.children.Where(
@@ -2156,20 +2156,20 @@ Une requête imbriquée applique la requête interne à chaque élément du cont
 
 ## <a id="References"></a>Références
 
-- [Spécification de Cosmos DB SQL Azure](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+- [Spécification SQL Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [Spécification de JavaScript](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 - Graefe, Goetz. [Techniques d’évaluation pour les grandes bases de données de requête](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, aucun. 2 (1993).
-- Graefe, G. « Le framework Cascades pour l’optimisation des requêtes ». *IEEE Data Eng. À la hausse.* 18, aucun. 3 (1995).
+- Graefe, G. « Le framework Cascades pour l’optimisation des requêtes ». *Données de l’IEEE ENG À la hausse.* 18, aucun. 3 (1995).
 - Lu, Ooi, Tan. « Traitement des requêtes dans les systèmes de base de données relationnelle parallèle. » *IEEE Computer Society Press* (1994).
 - Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar et Andrew Tomkins. « Pig Latin : Un non-So-Foreign Language for Data Processing. » *SIGMOD* (2008).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Présentation d’Azure Cosmos DB][introduction]
-- [Exemples de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Niveaux de cohérence Azure Cosmos DB][consistency-levels]
 
 [1]: ./media/how-to-sql-query/sql-query1.png

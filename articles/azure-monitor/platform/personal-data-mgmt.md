@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121347"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577896"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guide pour les données personnelles stockées dans Log Analytics et Application Insights
 
@@ -86,6 +86,9 @@ Comme mentionné plus haut dans la section [Stratégie de gestion des données p
 ### <a name="view-and-export"></a>Afficher et exporter
 
 Pour les requêtes d’affichage et d’exportation des données, vous devez utiliser l’[API de requête Log Analytics](https://dev.loganalytics.io/) ou l’[API de requête Application Insights](https://dev.applicationinsights.io/quickstart). L’implémentation de la logique pour convertir la forme des données selon un format approprié pour vos utilisateurs dépend de vous. [Azure Functions](https://azure.microsoft.com/services/functions/) est l’endroit idéal pour héberger cette logique.
+
+> [!IMPORTANT]
+>  Bien que la grande majorité des opérations de purge peut suivre beaucoup plus rapidement que le contrat SLA, **formel contrat SLA pour la réalisation d’opérations de purge est définie sur 30 jours** en raison de leur impact importante sur la plateforme de données utilisée. Il s’agit d’un processus automatisé ; Il n’existe aucun moyen pour demander qu’une opération d’être gérées plus rapidement.
 
 ### <a name="delete"></a>Supprimer
 

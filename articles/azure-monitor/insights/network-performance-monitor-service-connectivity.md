@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501962"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571169"
 ---
 # <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 
@@ -68,7 +68,7 @@ Commencez par créer des tests pour surveiller la connectivité réseau vers les
 5. Dans le champ **Cible**, entrez l’adresse IP, le nom de domaine complet sur lesquels porte la surveillance de la connectivité réseau.
 6. Dans le champ **Numéro de port**, entrez le numéro de port du service cible. 
 7. Dans le champ **Fréquence de test**, entrez la fréquence à laquelle exécuter le test. 
-8. Sélectionnez les nœuds à partir desquels vous souhaitez surveiller la connectivité réseau du service. 
+8. Sélectionnez les nœuds à partir desquels vous souhaitez surveiller la connectivité réseau du service. Assurez-vous que le nombre d’agents ajoutés par test est inférieure à 150. N’importe quel agent peut tester maximale de 150 points de terminaison/agents.
 
     >[!NOTE]
     > Pour les nœuds de serveur Windows, la fonctionnalité utilise des requêtes TCP pour effectuer les mesures de réseau. Pour les nœuds de client Windows, la fonctionnalité utilise des requêtes ICMP pour effectuer les mesures de réseau. Dans certains cas, l’application cible bloque les demandes ICMP entrantes lorsque les nœuds sont basés sur le client Windows. La solution ne peut pas effectuer de mesures sur un réseau. Nous vous recommandons d’utiliser des nœuds de serveur Windows dans ce cas. 

@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ab280b4647c0e8eb7083797ec00965cbaec6f8e
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502337"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578587"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Activation du Proxy d’application Azure AD : Historique de publication des versions
 Cet article répertorie les versions et les fonctionnalités de Proxy d’Application Azure Active Directory (Azure AD) qui ont été publiées. L’équipe Azure AD met régulièrement à jour le Proxy d’Application avec les nouvelles fonctionnalités. Connecteurs de Proxy d’application sont automatiquement mis à jour lorsqu’une nouvelle version est publiée.
@@ -31,7 +31,7 @@ Voici une liste de ressources associées :
 Ressource |  Détails
 --------- | --------- |
 Comment activer le Proxy d’Application | Conditions préalables pour l’activation du Proxy d’Application et l’installation et l’inscription d’un connecteur sont décrites dans ce [didacticiel](application-proxy-add-on-premises-application.md).
-Présentation des connecteurs de proxy d’application Azure AD | Apprenez-en davantage sur [gestion du connecteur](application-proxy-connectors.md) et comment les connecteurs mise à niveau automatique.
+Présentation des connecteurs de proxy d’application Azure AD | Apprenez-en davantage sur [gestion du connecteur](application-proxy-connectors.md) et comment les connecteurs [mise à niveau automatique](application-proxy-connectors.md#automatic-updates).
 Télécharger le connecteur de Proxy d’Application Azure AD |  [Télécharger la dernière version connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
 
 ## <a name="156120"></a>1.5.612.0

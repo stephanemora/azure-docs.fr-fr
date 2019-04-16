@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: e9d11f7426a70d058daa75466b977e47e6e33ee8
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505768"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579340"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Mesures de stockage Azure dans Azure Monitor
 
@@ -393,7 +393,7 @@ Stockage Azure prend en charge les dimensions suivantes pour les mesures dans Az
 | Nom de la dimension | Description |
 | ------------------- | ----------------- |
 | BlobType | Type d’objet blob pour les mesures d’objet Blob uniquement. Les valeurs prises en charge sont **BlockBlob** et **PageBlob**. Append Blob est inclus dans BlockBlob. |
-| ResponseType | Type de réponse de transaction. Les valeurs disponibles incluent : <br/><br/> <li>ServerOtherError : toutes les autres erreurs côté serveur sauf celles décrites </li> <li> ServerBusyError : requête authentifiée qui a renvoyé un code d’état HTTP 503. </li> <li> ServerTimeoutError : requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Le délai d’expiration s’est produit en raison d’une erreur serveur. </li> <li> AuthorizationError : requête authentifiée qui a échoué en raison d’un accès aux données non autorisé ou d’un échec d’autorisation. </li> <li> NetworkError : requête authentifiée qui a échoué en raison d’erreurs réseau. Se produit généralement lorsqu’un client ferme une connexion avant la fin du délai d’expiration. </li> <li>    ClientThrottlingError : erreur de limitation côté client. </li> <li> ClientTimeoutError : requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Si le délai d’expiration réseau du client ou le délai d’expiration de la requête est défini sur une valeur inférieure à ce qui est attendu par le service de stockage, il s’agit d’un délai d’expiration attendu. Sinon, il est signalé comme une erreur ServerTimeoutError. </li> <li> ClientOtherError : toutes les autres erreurs côté client sauf celles décrites. </li> <li> Réussite : Demande réussie. </li> <li> SuccessWithThrottling : Demande réussie lorsqu’un client SMB obtient limité au cours de la première tentative, mais réussit après plusieurs tentatives.|
+| ResponseType | Type de réponse de transaction. Les valeurs disponibles incluent : <br/><br/> <li>ServerOtherError : toutes les autres erreurs côté serveur sauf celles décrites </li> <li> ServerBusyError : requête authentifiée qui a renvoyé un code d’état HTTP 503. </li> <li> ServerTimeoutError : requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Le délai d’expiration s’est produit en raison d’une erreur serveur. </li> <li> AuthorizationError : requête authentifiée qui a échoué en raison d’un accès aux données non autorisé ou d’un échec d’autorisation. </li> <li> NetworkError : requête authentifiée qui a échoué en raison d’erreurs réseau. Se produit généralement lorsqu’un client ferme une connexion avant la fin du délai d’expiration. </li> <li>    ClientThrottlingError : erreur de limitation côté client. </li> <li> ClientTimeoutError : requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Si le délai d’expiration réseau du client ou le délai d’expiration de la requête est défini sur une valeur inférieure à ce qui est attendu par le service de stockage, il s’agit d’un délai d’expiration attendu. Sinon, il est signalé comme une erreur ServerTimeoutError. </li> <li> ClientOtherError : toutes les autres erreurs côté client sauf celles décrites. </li> <li> Réussite : Demande réussie.|
 | GeoType | Transaction du cluster principal ou secondaire. Les valeurs disponibles incluent Principal et Secondaire. S’applique au stockage Géo-redondant avec accès en lecture (RA-GRS) lors de la lecture d’objets à partir du locataire secondaire. |
 | ApiName | Nom de l’opération. Par exemple :  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Pour tous les noms d’opérations, voir [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Authentication | Type d’authentification utilisé dans les transactions. Les valeurs disponibles incluent : <br/> <li>AccountKey : la transaction est authentifiée avec la clé du compte de stockage.</li> <li>SAS : la transaction est authentifiée avec des signatures d’accès partagé.</li> <li>OAuth : la transaction est authentifiée avec des jetons d’accès OAuth.</li> <li>Anonymous : la transaction est demandée anonymement. Elle n’inclut pas les demandes préalables.</li> <li>AnonymousPreflight : la transaction est une requête préalable.</li> |
@@ -406,15 +406,15 @@ Les anciennes mesures sont disponibles en parallèle avec les mesures gérées d
 
 ## <a name="faq"></a>Forum Aux Questions
 
-**Nouvelles mesures prend-elle en charge le compte de stockage classique ?**
+**Les nouvelles métriques prennent-elles en charge le compte de stockage classique ?**
 
 Non, les nouvelles métriques d’Azure Monitor ne prennent en charge que les comptes de stockage Azure Resource Manager. Si vous souhaitez utiliser des métriques sur les comptes de stockage, vous devez migrer vers le compte de stockage Azure Resource Manager. Voir [Migrer vers Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
-**Stockage Azure prend en charge les métriques pour Managed Disks ou de disques non gérés ?**
+**Le stockage Azure prend-il en charge les métriques de disques managés ou de disques non managés ?**
 
 Non, le Calcul Azure prend en charge les métriques sur les disques. Consultez l’[article](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) pour plus de détails.
 
-**Comment mapper et migrer des métriques classiques avec de nouvelles mesures ?**
+**Comment mapper et migrer des métriques classiques avec de nouvelles métriques ?**
 
 Vous pouvez trouver le mappage détaillé entre les métriques classiques et de nouvelles métriques dans [Migration des métriques de Stockage Azure](./storage-metrics-migration.md).
 

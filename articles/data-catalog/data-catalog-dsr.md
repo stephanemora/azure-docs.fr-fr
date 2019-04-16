@@ -4,21 +4,19 @@ description: Cet article répertorie les spécifications des sources de données
 services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.date: 04/15/2019
+ms.openlocfilehash: d859fc92c4adbcd224d49601678804445a313ef7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410185"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579391"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Sources de données prises en charge dans Azure Data Catalog
 
 Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un outil d’inscription par simple clic, ou en entrant manuellement les informations directement dans le portail web Azure Data Catalog. Le tableau ci-dessous récapitule toutes les sources de données actuellement prises en charge par le catalogue, ainsi que les fonctionnalités de publication disponibles pour chacune d’elles. Sont également répertoriés les outils de données externes que chaque source de données peut initier à partir du portail. Le deuxième tableau contient une spécification plus technique de chaque propriété de connexion de source de données.
-
 
 ## <a name="list-of-supported-data-sources"></a>Liste des sources de données prises en charge
 
@@ -32,7 +30,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
        <td><b>Remarques</b></td>
     </tr>
     <tr>
-      <td>Répertoire Azure Data Lake Store</td>
+      <td>Répertoire Azure Data Lake Store (génération 1 uniquement)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -40,7 +38,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td></td>
     </tr>
     <tr>
-      <td>Fichier Azure Data Lake Store</td>
+      <td>Fichier Azure Data Lake Store (génération 1 uniquement)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

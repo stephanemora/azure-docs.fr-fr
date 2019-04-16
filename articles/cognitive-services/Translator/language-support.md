@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267904"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577588"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -23,7 +23,9 @@ L’API de traduction de texte Translator Text prend en charge les langues ci-ap
 
 [En savoir plus sur le fonctionnement de la traduction automatique](https://www.microsoft.com/translator/mt.aspx)
 
-**V2 API de Translator**
+## <a name="translation"></a>Traduction
+
+**API Translator V2**
 
 > [!NOTE]
 > La V2 a été dépréciée le 30 avril 2018 et sera supprimée le 30 avril 2019.
@@ -113,10 +115,10 @@ La méthode Transliterate prend en charge les langues ci-après. Dans la colonne
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabe | `ar` | Arabe `Arab` | <--> | Latin `Latn` |
 |Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
-| Chinois (simplifié) | `zh-Hans` | Chinois simplifié `Hans`| <--> | Latin `Latn` |
-| Chinois (simplifié) | `zh-Hans` | Chinois simplifié `Hans`| <--> | Chinois traditionnel `Hant`|
-| Chinois (traditionnel) | `zh-Hant` | Chinois traditionnel `Hant`| <--> | Latin `Latn` |
-| Chinois (traditionnel) | `zh-Hant` | Chinois traditionnel `Hant`| <--> | Chinois simplifié `Hans` |
+| Chinois (simplifié) | `zh-Hans` | Chinois (simplifié) `Hans`| <--> | Latin `Latn` |
+| Chinois (simplifié) | `zh-Hans` | Chinois (simplifié) `Hans`| <--> | Chinois (traditionnel) `Hant`|
+| Chinois (traditionnel) | `zh-Hant` | Chinois (traditionnel) `Hant`| <--> | Latin `Latn` |
+| Chinois (traditionnel) | `zh-Hant` | Chinois (traditionnel) `Hant`| <--> | Chinois (simplifié) `Hans` |
 | Goudjrati | `gu`  | Goudjrati `Gujr` | --> | Latin `Latn` |
 | Hébreu | `he` | Hébreu `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Dévanâgarî `Deva` | <--> | Latin `Latn` |
@@ -191,83 +193,14 @@ Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à 
 
 ## <a name="detect"></a>Detect
 
-La méthode Detect prend en charge les langues suivantes. Detect peut identifier des langues que Microsoft Translator ne peut pas traduire.
+L’API Translator Text détecte toutes les langues disponibles pour la traduction et translittération.
 
-| Langage    |
-|:----------- |
-| Afrikaans |
-| Albanais |
-| Arabe |
-| Basque |
-| Biélorusse |
-| Bulgare |
-| Catalan |
-| Chinois |
-| Chinois (simplifié) |
-| Chinois (traditionnel) |
-| Croate |
-| Tchèque |
-| Danois |
-| Néerlandais |
-| Anglais |
-| Espéranto |
-| Estonien |
-| Finnois |
-| Anglais |
-| Galicien |
-| Allemand |
-| Grec |
-| Créole haïtien |
-| Hébreu |
-| Hindi |
-| Hongrois |
-| Islandais |
-| Indonésien |
-| Irlandais |
-| Italien |
-| Japonais |
-| Coréen |
-| Kurde (arabe) |
-| Kurde (latin) |
-| Latin |
-| Letton |
-| Lituanien |
-| Macédonien |
-| Malais |
-| Maltais |
-| Norvégien |
-| Norvégien (nynorsk) |
-| Pachto |
-| Persan |
-| Polonais |
-| Portugais |
-| Roumain |
-| Russe |
-| Serbe (cyrillique) |
-| Serbe (latin) |
-| Slovaque |
-| Slovène |
-| Somali |
-| Espagnol |
-| Swahili |
-| Suédois |
-| Tagalog |
-| Télougou |
-| Thaï |
-| Turc |
-| Ukrainien |
-| Ourdou |
-| Ouzbek (cyrillique) |
-| Ouzbek (latin) |
-| Vietnamien |
-| Gallois |
-| Yiddish |
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Accéder par programme à la liste de langues de l'API de traduction de texte Translator Text
 
 Vous pouvez utiliser la méthode Languages pour récupérer la liste des langues prises en charge pour l'API de traduction de texte Translator Text v3.0. Vous pouvez visualiser la liste par fonctionnalité, par code de langue, ainsi que par le nom de langue en anglais ou dans toute autre langue prise en charge. Cette liste est automatiquement mise à jour par le service Microsoft Translator lorsque de nouvelles langues deviennent disponibles.
 
-[Afficher la documentation de référence d’opération langues](reference/v3-0-languages.md)
+[Visualiser la documentation de référence sur l’opération Languages](reference/v3-0-languages.md)
 
 ## <a name="customization"></a>Personnalisation
 
@@ -294,6 +227,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou à parti
 | Hindi      | `hi`          |
 | Hongrois      | `hu`          |
 | Islandais | `is` |
+| Indonésien|   `id`    |
 | Italien      | `it`          |
 | Japonais      | `ja`          |
 | Coréen      | `ko`          |
@@ -319,4 +253,4 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou à parti
 
 Si vous souhaitez examiner rapidement les langues, le site web Microsoft Translator vous présente toutes les langues prises en charge par les API Traduction de texte Translator Text et Microsoft Speech. Cette liste ne comporte pas d’informations propres aux développeurs, comme les codes de langue.
 
-[Consultez la liste des langues](https://www.microsoft.com/translator/languages.aspx)
+[Voir la liste des langues](https://www.microsoft.com/translator/languages.aspx)

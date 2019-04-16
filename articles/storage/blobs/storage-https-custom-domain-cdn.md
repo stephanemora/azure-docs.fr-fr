@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: 1166f98dcd39362ef5e28be12ff9e2f561ab5b1f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 90ddb58f3499180e17df559a98ac8a46b53fb824
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238210"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579010"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Utiliser Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS
 
@@ -67,4 +67,4 @@ Sur la [page de tarification Azure CDN](https://azure.microsoft.com/pricing/deta
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Configurer un nom de domaine personnalisé pour un point de terminaison de stockage Blob](storage-custom-domain-name.md)
-* [Hébergement de sites web statiques dans le stockage Azure (préversion)](storage-blob-static-website.md)
+* [Hébergement de sites web statiques dans le service Stockage Azure](storage-blob-static-website.md)
