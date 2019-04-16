@@ -902,7 +902,7 @@ Consultez les articles suivants pour prendre en main la résolution des problèm
 * [Activer la journalisation des diagnostics pour les applications web dans Azure App Service]
 * [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]
 
-Les applications Node.js ont accès à un large éventail d’outils de journaux de diagnostic. En interne, le Kit de développement logiciel (SDK) Node.js dans Azure Mobile Apps utilise [Winston] pour la journalisation des diagnostics. La journalisation est activée automatiquement lorsque vous activez le mode de débogage ou définissez le paramètre d’application `MS_DebugMode` sur true dans le [portail Azure]. Les journaux générés s’affichent dans les journaux de diagnostic sur le [portail Azure].
+Les applications Node.js ont accès à un large éventail d’outils de journaux de diagnostic. En interne, le Kit de développement logiciel (SDK) Node.js dans Azure Mobile Apps utilise [Winston] pour la journalisation des diagnostics. La journalisation est activée automatiquement lorsque vous activez le mode de débogage ou définissez le paramètre d’application `MS_DebugMode` sur true dans le [portail Azure]. Les journaux d’activité générés s’affichent dans les journaux de diagnostic sur le [portail Azure].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Utiliser l’outil Tables faciles dans le portail Azure
 
@@ -934,7 +934,7 @@ Lorsque vous sélectionnez **API faciles** dans vos paramètres de site principa
 
 ![Utilisation de l’outil Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-Dans le portail, vous pouvez modifier les autorisations d’accès pour une action HTTP, modifier le fichier de script d’API dans l’éditeur App Service ou afficher les journaux de diffusion en continu.
+Dans le portail, vous pouvez modifier les autorisations d’accès pour une action HTTP, modifier le fichier de script d’API dans l’éditeur App Service ou afficher les journaux d’activité de diffusion en continu.
 
 ### <a name="online-editor"></a>Modifier le code dans l’éditeur App Service
 

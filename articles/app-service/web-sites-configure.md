@@ -118,13 +118,13 @@ Pour activer les journaux de diagnostic, procédez comme suit :
 1. Dans le panneau de votre application, cliquez sur **Tous les paramètres**.
 2. Cliquez sur **Journaux de diagnostic**. 
 
-Options liées à l'écriture des journaux de diagnostic à partir d'une application web qui prend en charge la journalisation : 
+Options liées à l’écriture des journaux de diagnostic à partir d’une application web qui prend en charge la journalisation : 
 
-* **Journalisation des applications**. Enregistre des journaux d’application dans le système de fichiers. La journalisation s’étend sur une période de 12 heures. 
+* **Journalisation des applications**. Enregistre des journaux d’activité d’application dans le système de fichiers. La journalisation s’étend sur une période de 12 heures. 
 
 **Niveau**. Lorsque la journalisation des applications est activée, cette option indique la quantité d’informations qui sera enregistrée (Erreur, Avertissement, Information ou Détaillé).
 
-**Journalisation du serveur Web**. Les journaux sont enregistrés au format de fichier journal étendu W3C. 
+**Journalisation du serveur Web**. Les journaux d’activité sont enregistrés au format de fichier journal étendu W3C. 
 
 **Messages d’erreur détaillés**. Enregistre des messages d’erreur détaillés dans des fichiers .htm. Les fichiers sont enregistrés sous /LogFiles/DetailedErrors. 
 

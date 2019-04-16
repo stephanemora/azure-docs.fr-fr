@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: f1b993cf45d987cb51f64359b331f3862d054774
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549897"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577793"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -84,7 +84,7 @@ Exécutez les commandes suivantes sur toutes les **machines virtuelles cibles iS
 
 Exécutez les commandes suivantes sur toutes les **machines virtuelles cibles iSCSI** pour créer les disques iSCSI des clusters utilisés par vos systèmes SAP. Dans l’exemple suivant, des appareils SBD sont créés pour plusieurs clusters. Il vous montre comment utiliser un serveur cible iSCSI pour plusieurs clusters. Les appareils SBD sont placés sur le disque de système d’exploitation. Assurez-vous d’avoir suffisamment d’espace.
 
-**` nfs`** est utilisé pour identifier le cluster NFS, **ascsnw1** est utilisé pour identifier le cluster ASCS de **NW1**, **dbnw1** est utilisé pour identifier le cluster de base de données de **NW1** , **nfs-0** et **nfs-1** sont les noms d’hôtes des nœuds du cluster NFS, **nw1-xscs-0** et **nw1-xscs-1**sont les noms d’hôte de le **NW1** nœuds, de cluster ASCS et **nw1-db-0** et **nw1-db-1** sont les noms d’hôte de la base de données des nœuds de cluster. Remplacez-les par les noms d’hôte de vos nœuds de cluster, et par le SID de votre système SAP.
+**`nfs`** est utilisé pour identifier le cluster NFS, **ascsnw1** est utilisé pour identifier le cluster ASCS de **NW1**, **dbnw1** est utilisé pour identifier le cluster de base de données de **NW1** , **nfs-0** et **nfs-1** sont les noms d’hôtes des nœuds du cluster NFS, **nw1-xscs-0** et **nw1-xscs-1**sont les noms d’hôte de le **NW1** nœuds, de cluster ASCS et **nw1-db-0** et **nw1-db-1** sont les noms d’hôte de la base de données des nœuds de cluster. Remplacez-les par les noms d’hôte de vos nœuds de cluster, et par le SID de votre système SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Créer le ` softdog` fichier de configuration
+   Créer le `softdog` fichier de configuration
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>

@@ -110,7 +110,7 @@ Le runbook que vous avez créé est toujours en mode brouillon. Vous devez le pu
    ![Résumé des tâches](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
 
 1. Fermez le volet Sortie.
-1. Cliquez sur **Tous les journaux** pour ouvrir le volet Flux de la tâche du Runbook. Vous devez voir *Hello World* dans la sortie stream, mais cette vue peut afficher les autres flux pour un travail de runbook telles que le mode détaillé et erreur si le runbook consigne ces.
+1. Cliquez sur **Tous les journaux d’activité** pour ouvrir le volet Flux de la tâche du Runbook. Vous devez voir *Hello World* dans la sortie stream, mais cette vue peut afficher les autres flux pour un travail de runbook telles que le mode détaillé et erreur si le runbook consigne ces.
 
    ![Résumé des tâches](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 

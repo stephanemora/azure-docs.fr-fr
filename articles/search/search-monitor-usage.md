@@ -22,7 +22,7 @@ ms.locfileid: "59010411"
 
 Dans la page Vue d’ensemble de votre service Recherche Azure, vous pouvez voir les données système relatives à l’utilisation des ressources, aux métriques des requêtes et au quota disponible pour créer des index, des indexeurs et des sources de données supplémentaires. Vous pouvez également utiliser le portail pour configurer l’analytique des journaux d’activité ou une autre ressource utilisée pour la collecte des données persistantes. 
 
-La configuration de journaux est utile pour les autodiagnostics et la conservation de l’historique opérationnel. En interne, les journaux existent sur le back-end pendant une courte période, suffisante pour l’investigation et l’analyse si vous émettez un ticket de support. Si vous voulez contrôler les informations des journaux et y accéder, vous devez configurer l’une des solutions décrites dans cet article.
+La configuration de journaux d’activité est utile pour les autodiagnostics et la conservation de l’historique opérationnel. En interne, les journaux d’activité existent sur le back-end pendant une courte période, suffisante pour l’investigation et l’analyse si vous émettez un ticket de support. Si vous voulez contrôler les informations des journaux et y accéder, vous devez configurer l’une des solutions décrites dans cet article.
 
 Dans cet article, découvrez vos options de supervision, comment activer la journalisation et le stockage des journaux, et comment voir le contenu des journaux.
 
@@ -56,14 +56,14 @@ Pour les tâches intégrées au service, comme la création d’un index ou la s
 
 La Recherche Azure ne stocke pas de données qui ne figurent pas dans les objets qu’elle gère, ce qui signifie que les données de journal doivent être stockées en externe. Vous pouvez configurer n’importe laquelle des ressources ci-dessous si vous voulez conserver les données de journal. 
 
-Le tableau suivant compare les options de stockage des journaux et d’ajout d’une supervision des opérations de service et des charges de travail de requêtes par le biais d’Application Insights.
+Le tableau suivant compare les options de stockage des journaux d’activité et d’ajout d’une supervision des opérations de service et des charges de travail de requêtes par le biais d’Application Insights.
 
 | Ressource | Utilisé pour |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous, en corrélation avec les événements utilisateur dans votre application. Il s’agit de la seule solution qui prend en compte les signaux ou les actions utilisateur, en mappant les événements à partir d’une recherche lancée par l’utilisateur, par opposition aux requêtes de filtre soumises par le code d’application. Pour utiliser cette approche, copiez-collez le code d’instrumentation dans vos fichiers sources pour router les informations de requête de route vers Application Insights. Pour plus d’informations, consultez [Analytique du trafic des recherches](search-traffic-analytics.md). |
-| [Journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous. Les événements sont enregistrés dans un espace de travail Analytique de journal. Vous pouvez exécuter des requêtes sur un espace de travail pour retourner des informations détaillées du journal. Pour plus d’informations, consultez [prise en main les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous. Les événements sont enregistrés dans un espace de travail Analytique de journal. Vous pouvez exécuter des requêtes sur un espace de travail pour retourner des informations détaillées du journal. Pour plus d’informations, consultez [prise en main les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Stockage d'objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous. Les événements sont journalisés dans un conteneur d’objets blob et stockés dans des fichiers JSON. Utilisez un éditeur JSON pour afficher le contenu des fichiers.|
-| [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Événements et métriques des requêtes journalisés, basés sur les schémas présentés dans cet article. Choisissez cette option comme autre service de collecte de données pour les journaux très volumineux. |
+| [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Événements et métriques des requêtes journalisés, basés sur les schémas présentés dans cet article. Choisissez cette option comme autre service de collecte de données pour les journaux d’activité très volumineux. |
 
 Journaux d’Azure Monitor et le stockage d’objets Blob sont disponibles comme un service gratuit partagé afin que vous pouvez l’essayer sans frais pendant la durée de vie de votre abonnement Azure. L’inscription à Application Insights et son utilisation sont gratuits tant que la taille de données d’application n’excède pas certaines limites. (Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/monitor/).)
 
@@ -71,7 +71,7 @@ La section suivante vous guide tout au long des étapes d’activation et d’ut
 
 ## <a name="enable-logging"></a>Activation de la journalisation
 
-La journalisation pour l’indexation et les charges de travail de requêtes est désactivée par défaut et dépend des solutions de module complémentaire pour l’infrastructure de journalisation et le stockage externe à long terme. En soi, les seules données persistantes dans la Recherche Azure sont les objets qu’elle crée et gère. Les journaux doivent donc être stockés ailleurs.
+La journalisation pour l’indexation et les charges de travail de requêtes est désactivée par défaut et dépend des solutions de module complémentaire pour l’infrastructure de journalisation et le stockage externe à long terme. En soi, les seules données persistantes dans la Recherche Azure sont les objets qu’elle crée et gère. Les journaux d’activité doivent donc être stockés ailleurs.
 
 Dans cette section, vous allez apprendre à utiliser le Stockage Blob pour stocker des événements journalisés et des données de métriques.
 
@@ -81,7 +81,7 @@ Dans cette section, vous allez apprendre à utiliser le Stockage Blob pour stock
 
    ![Activer la supervision](./media/search-monitor-usage/enable-monitoring.png "Activer la supervision")
 
-3. Choisissez les données à exporter : Journaux, Métriques ou les deux. Vous pouvez copier dans un compte de stockage, envoyer à un concentrateur d’événements ou exportez-le vers les journaux Azure Monitor.
+3. Choisissez les données à exporter : Journaux d’activité, Métriques ou les deux. Vous pouvez copier dans un compte de stockage, envoyer à un concentrateur d’événements ou exportez-le vers les journaux Azure Monitor.
 
    Pour l’archivage dans le Stockage Blob, seul le compte de stockage doit exister. Les conteneurs et les objets blob sont créés lors de l’exportation des données de journal.
 
@@ -93,7 +93,7 @@ Dans cette section, vous allez apprendre à utiliser le Stockage Blob pour stock
 
 La journalisation est activée une fois que vous enregistrez le profil. Les conteneurs sont créés uniquement quand il existe une activité à journaliser ou à mesurer. Quand les données sont copiées dans un compte de stockage, les données sont au format JSON et sont placées dans deux conteneurs :
 
-* journaux-Insights-operationlogs : pour les journaux de trafic de recherche
+* journaux d’activité-Insights-operationlogs : pour les journaux d’activité de trafic de recherche
 * mesures-Insights-pt1m : pour les mesures
 
 **Une heure est nécessaire pour que les conteneurs s’affichent dans le Stockage Blob. Il y a un seul objet blob par heure et par conteneur.**
@@ -107,7 +107,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ```
 
 ## <a name="log-schema"></a>Schéma du journal
-Les objets blob contenant vos journaux du trafic de votre service de recherche sont structurés comme décrit dans cette section. Chaque objet blob a un objet racine appelé **records** contenant un tableau d’objets de journal. Chaque objet blob contient des enregistrements de toutes les opérations qui ont eu lieu au cours de la même heure.
+Les objets blob contenant vos journaux d’activité du trafic de votre service de recherche sont structurés comme décrit dans cette section. Chaque objet blob a un objet racine appelé **records** contenant un tableau d’objets de journal. Chaque objet blob contient des enregistrements de toutes les opérations qui ont eu lieu au cours de la même heure.
 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |

@@ -887,7 +887,7 @@ L'ajout d'entité ou de suffixe d'entité à vos entités stockées pousse gén�
 ![Entité d’employé][26]
 
 #### <a name="solution"></a>Solution
-La structure d'entité alternative suivante permet d'éviter une zone sensible dans n'importe quelle partition particulière tandis que l'application journalise les événements :  
+La structure d’entité alternative suivante permet d’éviter une zone sensible dans n’importe quelle partition particulière tandis que l’application journalise les événements :  
 
 ![Entité d’employé avec RowKey combinant l’année, le mois, le jour, l’heure et l’ID d’événement][27]
 

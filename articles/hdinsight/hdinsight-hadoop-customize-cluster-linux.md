@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: fe0fec082ace997a3bd66ca7c7575ce8dce3be1a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885568"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545329"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personnaliser des clusters Azure HDInsight à l’aide des actions de script
 
@@ -37,7 +37,7 @@ Si vous créez un cluster HDInsight, une personne ayant au minimum un accès Con
 
 Obtenez plus d’informations sur le fonctionnement de la gestion des accès :
 
-* [Prise en main de la gestion des accès dans le portail Azure](../role-based-access-control/overview.md)
+* [Bien démarrer avec la gestion des accès dans le portail Azure](../role-based-access-control/overview.md)
 * [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="understand-script-actions"></a>Comprendre les actions de script
@@ -152,7 +152,6 @@ HDInsight propose des scripts pour installer les composants suivants sur des clu
 | Installer Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Consultez [Installer et utiliser Presto sur des clusters HDInsight Hadoop](hdinsight-hadoop-install-presto.md). |
 | Installer Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Consultez [Installer Apache Giraph sur des clusters HDInsight Hadoop](hdinsight-hadoop-giraph-install-linux.md). |
 | Précharger les bibliothèques Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Consultez [Ajouter des bibliothèques Apache Hive personnalisées lors de la création de votre cluster HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
-| Installer ou mettre à jour Mono | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. Consultez [Installer ou mettre à jour Mono sur HDInsight](hdinsight-hadoop-install-mono.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Utiliser une action de script lors de la création d’un cluster
 
@@ -212,7 +211,7 @@ Obtenez plus d’informations sur le déploiement d’un modèle :
 
 * [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
-* [Déployer des ressources avec des modèles Resource Manager et l’interface CLI Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
+* [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Utiliser une action de script lors de la création d’un cluster à partir d’Azure PowerShell
 
@@ -369,7 +368,7 @@ Pour obtenir un exemple d’utilisation du SDK .NET afin d’appliquer des scrip
 | `Remove-AzHDInsightPersistedScriptAction` |Abaisser une action de script persistante en action ad hoc. |
 
 > [!IMPORTANT]  
-> `Remove-AzHDInsightPersistedScriptAction` n’annulez les actions effectuées par un script. Cette applet de commande supprime uniquement l’indicateur persistant.
+> `Remove-AzHDInsightPersistedScriptAction` n’annule pas les actions effectuées par un script. Cette applet de commande supprime uniquement l’indicateur persistant.
 
 L’exemple de script suivant illustre l’utilisation des applets de commande pour promouvoir, puis abaisser un script.
 
@@ -387,7 +386,7 @@ L’exemple de script suivant illustre l’utilisation des applets de commande p
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` |Abaisser une action de script persistante en action ad hoc. |
 
 > [!IMPORTANT]  
-> `azure hdinsight script-action persisted delete` n’annulez les actions effectuées par un script. Cette applet de commande supprime uniquement l’indicateur persistant.
+> `azure hdinsight script-action persisted delete` n’annule pas les actions effectuées par un script. Cette applet de commande supprime uniquement l’indicateur persistant.
 
 ### <a name="the-hdinsight-net-sdk"></a>Le kit de développement logiciel (SDK) HDInsight .NET
 
@@ -457,11 +456,11 @@ Si la création du cluster échoue en raison d’une erreur de script, les journ
 
     Sous ce répertoire, les journaux sont organisés séparément pour le **nœud principal**, le **nœud worker** et le **nœud zookeeper**. Regardez les exemples suivants :
 
-    * **Nœud principal**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+    * **Nœud principal** : `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
 
-    * **Nœud Worker**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+    * **Nœud worker** : `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 
-    * **Nœud zookeeper**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+    * **Nœud zookeeper** : `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Toutes les valeurs **stdout** et **stderr** de l’hôte correspondant sont chargées vers le compte de stockage. Il existe un fichier **output-\*.txt** et un fichier **errors-\*.txt** pour chaque action de script. Le fichier **output-*.txt** contient des informations sur l’URI du script exécuté sur l’ordinateur hôte. Le texte suivant constitue un exemple de ces informations :
 
@@ -518,7 +517,7 @@ Deux exceptions :
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Développer des scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Installer et utiliser Apache Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+* [Installer et utiliser Apache Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Ajouter un stockage supplémentaire à un cluster HDInsight](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Procédure de création d’un cluster"

@@ -1,6 +1,6 @@
 ---
-title: Exploration des journaux .NET dans Application Insights
-description: Effectuez une recherche dans les journaux générés avec Trace, NLog ou Log4Net.
+title: Exploration des journaux d’activité .NET dans Application Insights
+description: Effectuez une recherche dans les journaux d’activité générés avec Trace, NLog ou Log4Net.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -19,9 +19,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57552144"
 ---
-# <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Exploration des journaux .NET/.NET Core dans Application Insights
+# <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Exploration des journaux d’activité .NET/.NET Core dans Application Insights
 
-Si vous utilisez ILogger, NLog, log4Net ou System.Diagnostics.Trace pour le suivi de diagnostic dans votre application ASP.NET/ASP.NET Core, les journaux peuvent être envoyés à [Azure Application Insights][start], où vous pouvez les explorer et les rechercher. Les journaux sont fusionnés avec la télémétrie provenant de votre application, afin que vous puissiez identifier les traces associées au traitement des demandes de l’utilisateur et les mettre en corrélation avec d’autres événements et des rapports d’exception.
+Si vous utilisez ILogger, NLog, log4Net ou System.Diagnostics.Trace pour le suivi de diagnostic dans votre application ASP.NET/ASP.NET Core, les journaux d’activité peuvent être envoyés à [Azure Application Insights][start], où vous pouvez les explorer et les rechercher. Les journaux d’activité sont fusionnés avec la télémétrie provenant de votre application, afin que vous puissiez identifier les traces associées au traitement des demandes de l’utilisateur et les mettre en corrélation avec d’autres événements et des rapports d’exception.
 
 > [!NOTE]
 > Avez-vous besoin du module de collecte de journaux ? Il s’agit d’un adaptateur très utile pour les enregistreurs d’événements tiers. Cependant, si vous n’utilisez pas déjà NLog, log4Net ou System.Diagnostics.Trace, vous pouvez appeler [Application Insights TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) directement.
@@ -43,7 +43,7 @@ Installez votre infrastructure de journalisation choisie dans votre projet. Ceci
    </configuration>
 ```
 
-## <a name="configure-application-insights-to-collect-logs"></a>Configuration d’Application Insights pour la collecte des journaux
+## <a name="configure-application-insights-to-collect-logs"></a>Configuration d’Application Insights pour la collecte des journaux d’activité
 Si vous ne l’avez pas encore fait, **[ajoutez Application Insights à votre projet](../../azure-monitor/app/asp-net.md)**. Une option permettant d’inclure le collecteur de journaux doit s’afficher.
 
 Ou **configurez Application Insights** en cliquant avec le bouton droit dans l’Explorateur de solutions. Sélectionnez l’option **Configurer la collecte des traces**.
@@ -156,7 +156,7 @@ Par ailleurs, vous pouvez ajouter un niveau de gravité à votre message. Comme 
 
 Cela vous permettrait, dans [Recherche][diagnostic], de filtrer facilement tous les messages d’un niveau de gravité particulier portant sur une certaine base de données.
 
-## <a name="explore-your-logs"></a>Exploration de vos journaux
+## <a name="explore-your-logs"></a>Exploration de vos journaux d’activité
 Exécutez votre application en mode débogage ou déployez-la en direct.
 
 Dans le panneau Vue d’ensemble de votre application du [portail Application Insights][portal], choisissez [Rechercher][diagnostic].

@@ -26,14 +26,14 @@ Cet article a pour but d’aider les utilisateurs qui connaissent Splunk, à app
 
 ## <a name="structure-and-concepts"></a>Structure et concepts
 
-Le tableau suivant compare les concepts et les structures de données de Splunk et des journaux Azure Monitor.
+Le tableau suivant compare les concepts et les structures de données de Splunk et des journaux d’activité Azure Monitor.
 
  | Concept  | Splunk | Azure Monitor |  Commentaire
  | --- | --- | --- | ---
  | Unité de déploiement  | cluster |  cluster |  Azure Monitor autorise les requêtes entre clusters arbitraires. Ce n’est pas le cas de Splunk. |
  | Caches de données |  compartiments  |  Stratégies de rétention et mise en cache |  Contrôle la période et le niveau de mise en cache des données. Ce paramètre a un impact direct sur les performances des requêtes et le coût du déploiement. |
  | Partition logique des données  |  index  |  database  |  Permet une séparation logique des données. Les deux implémentations autorisent les unions et les jointures entre ces partitions. |
- | Métadonnées d’événement structurées | S.O. | table |  Splunk n’a pas le concept exposé au langage de recherche de métadonnées d’événement. Les journaux Azure Monitor disposent du concept de table comportant des colonnes. Chaque instance d’événement est mappée à une ligne. |
+ | Métadonnées d’événement structurées | S.O. | table |  Splunk n’a pas le concept exposé au langage de recherche de métadonnées d’événement. Les journaux d’activité Azure Monitor disposent du concept de table comportant des colonnes. Chaque instance d’événement est mappée à une ligne. |
  | Enregistrement de données | événement | ligne |  Changement de terminologie uniquement. |
  | Attribut d’enregistrement de données | field |  colonne |  Dans Azure Monitor, elle est prédéfinie dans le cadre de la structure de la table. Dans Splunk, chaque événement possède son propre ensemble de champs. |
  | Types | type de données |  type de données |  Les types de données Azure Monitor sont plus explicites, car ils sont définis sur les colonnes. Les deux ont la possibilité d’utiliser dynamiquement des types de données et un ensemble de types de données à peu près équivalent, notamment la prise en charge JSON. |

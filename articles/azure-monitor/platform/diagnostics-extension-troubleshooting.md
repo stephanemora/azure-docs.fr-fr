@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes d’extension Azure Diagnostics
+title: Résolution des problèmes de l’extension Diagnostics Azure
 description: Résolution des problèmes lors de l'utilisation des diagnostics Azure dans Azure Virtual Machines, Service Fabric ou Cloud Services.
 services: azure-monitor
 author: rboucher
@@ -17,10 +17,10 @@ ms.lasthandoff: 02/07/2019
 ms.locfileid: "55822134"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
-Cet article contient des informations de dépannage pour les diagnostics Microsoft Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](diagnostics-extension-overview.md).
+Cet article contient des informations de dépannage pour Diagnostics Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](diagnostics-extension-overview.md).
 
 ## <a name="logical-components"></a>Composants logiques
-**Lanceur du plug-in Diagnostics (DiagnosticsPluginLauncher.exe)**  : Lance l’extension Azure Diagnostics. Sert de point d’entrée de processus.
+**Lanceur du plug-in Diagnostics (DiagnosticsPluginLauncher.exe)**  : Lance l’extension Diagnostics Azure. Sert de point d’entrée de processus.
 
 **Plug-in Diagnostics (DiagnosticsPlugin.exe)**  : configure, exécute et gère la durée de vie de l’agent de supervision. Il s’agit du principal processus exécuté par le lanceur.
 
@@ -53,7 +53,7 @@ Voici les chemins d’accès de quelques journaux d’activité et artefacts imp
 | **Fichier journal MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Les données métriques ne s’affichent pas dans le portail Azure
-Azure Diagnostics fournit des données métriques qu’il est possible d’afficher dans le portail Azure. Si vous rencontrez des problèmes liés à l’affichage de ces données dans le portail, consultez la table WADMetrics\* dans le compte de stockage d’Azure Diagnostics pour voir si les enregistrements de métriques correspondants sont bien présents.
+Diagnostics Azure fournit des données métriques qu’il est possible d’afficher dans le portail Azure. Si vous rencontrez des problèmes liés à l’affichage de ces données dans le portail, consultez la table WADMetrics\* dans le compte de stockage de Diagnostics Azure pour voir si les enregistrements de métriques correspondants sont bien présents.
 
 Ici, la valeur **PartitionKey** de la table correspond à l’ID de ressource, à la machine virtuelle ou à un groupe de machines virtuelles identiques. La valeur **RowKey** correspond au nom de la métrique (également appelé nom du compteur de performances).
 
@@ -82,8 +82,8 @@ S’il n’existe aucune donnée pour cette métrique en particulier, vérifiez 
 Si la configuration est correctement définie, mais que vous ne voyez toujours pas les données métriques, reportez-vous aux indications suivantes. Elles vous aideront à résoudre les problèmes rencontrés.
 
 
-## <a name="azure-diagnostics-isnt-starting"></a>Azure Diagnostics ne démarre pas
-Pour savoir pourquoi Azure Diagnostics ne démarre pas, voir les journaux **DiagnosticsPluginLauncher.log** et **DiagnosticsPlugin.log** dont nous avons fourni le chemin d’accès précédemment.
+## <a name="azure-diagnostics-isnt-starting"></a>Diagnostics Azure ne démarre pas
+Pour savoir pourquoi Diagnostics Azure ne démarre pas, voir les journaux **DiagnosticsPluginLauncher.log** et **DiagnosticsPlugin.log** dont nous avons fourni le chemin d’accès précédemment.
 
 Si ces journaux d’activité indiquent `Monitoring Agent not reporting success after launch`, cela signifie que le lancement de MonAgentHost.exe a échoué. Consultez ces journaux d’activité à l’emplacement indiqué pour `MonAgentHost log file` dans la section précédente.
 
@@ -105,7 +105,7 @@ Le plus souvent, quand aucune donnée d’événement ne s’affiche, le problè
 
 Solution : corrigez la configuration du plug-in Diagnostics et réinstallez-le.
 
-Si le compte de stockage est configuré correctement, accédez à distance à la machine, puis vérifiez que les fichiers DiagnosticsPlugin.exe et MonAgentCore.exe sont bien en cours d’exécution. Dans le cas contraire, suivez les étapes décrites dans la section Azure Diagnostics ne démarre pas.
+Si le compte de stockage est configuré correctement, accédez à distance à la machine, puis vérifiez que les fichiers DiagnosticsPlugin.exe et MonAgentCore.exe sont bien en cours d’exécution. Dans le cas contraire, suivez les étapes décrites dans la section Diagnostics Azure ne démarre pas.
 
 Si ces processus sont en cours d’exécution, reportez-vous à la section [La capture des données intervient-elle en local ?](#is-data-getting-captured-locally), puis suivez les instructions fournies.
 
@@ -211,9 +211,9 @@ Ce code génère les quatre tables :
 ## <a name="references"></a>Références
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Comment vérifier la configuration de l’extension Diagnostics
-Pour vérifier la configuration de l’extension, le plus simple est d’accéder à [Azure Resource Explorer](http://resources.azure.com), puis à la machine virtuelle ou au service cloud sur lesquels se trouve l’extension Azure Diagnostics (IaaSDiagnostics/PaaDiagnostics).
+Pour vérifier la configuration de l’extension, le plus simple est d’accéder à [Azure Resource Explorer](http://resources.azure.com), puis à la machine virtuelle ou au service cloud sur lesquels se trouve l’extension Diagnostics Azure (IaaSDiagnostics/PaaDiagnostics).
 
-Vous pouvez également activer le Bureau à distance sur la machine, puis regarder le fichier de configuration Azure Diagnostics qui est décrit dans la section des chemins d’accès des artefacts de journaux.
+Vous pouvez également activer le Bureau à distance sur la machine, puis regarder le fichier de configuration Diagnostics Azure qui est décrit dans la section des chemins d’accès des artefacts de journaux.
 
 Dans les deux cas, recherchez **Microsoft.Azure.Diagnostics**, puis le champ **xmlCfg** ou **WadCfg**.
 
@@ -221,7 +221,7 @@ Dans le cas de la machine virtuelle, si le champ **WadCfg** est présent, cela s
 
 Pour le rôle de service cloud, si vous sélectionnez la configuration à partir du disque, les données sont encodées en Base64. Vous devrez donc [les décoder](https://www.bing.com/search?q=base64+decoder) pour afficher le code XML qui a été chargé par Diagnostics.
 
-### <a name="azure-diagnostics-plugin-exit-codes"></a>Codes de sortie du plug-in Azure Diagnostics
+### <a name="azure-diagnostics-plugin-exit-codes"></a>Codes de sortie du plug-in Diagnostics Azure
 Le plug-in renvoie les codes de sortie suivants :
 
 | Code de sortie | Description |
@@ -275,9 +275,9 @@ Voici la liste des problèmes connus avec les atténuations des risques :
 
 **1. Dépendance vis-à-vis de .NET 4.5**
 
-Concernant le runtime, nous constatons que l’extension Microsoft Azure Diagnostics est étroitement liée à .NET 4.5 Framework ou une version ultérieure. Au moment de la rédaction de cet article, la version 4.5 ou ultérieure de .NET est installée sur toutes les machines configurées pour Azure Cloud Services, ainsi que sur toutes les images officielles basées sur des machines virtuelles Azure.
+L’extension Diagnostics Azure pour Windows a une dépendance de runtime avec le framework .NET 4.5 ou ultérieur. Au moment de la rédaction de cet article, la version 4.5 ou ultérieure de .NET est installée sur toutes les machines configurées pour Azure Cloud Services, ainsi que sur toutes les images officielles basées sur des machines virtuelles Azure.
 
-Toutefois, rien n’empêche une situation dans laquelle vous essayez d’exécuter l’extension Microsoft Azure Diagnostics sur un ordinateur qui n’est pas équipé de la version 4.5 ou ultérieure de .NET. C’est le cas lorsque vous créez votre machine à partir d’une ancienne image ou d’un ancien instantané ou lorsque vous apportez votre propre disque personnalisé.
+Toutefois, rien n’empêche une situation dans laquelle vous essayez d’exécuter l’extension Diagnostics Azure pour Windows sur un ordinateur qui n’est pas équipé de la version 4.5 ou ultérieure de .NET. C’est le cas lorsque vous créez votre machine à partir d’une ancienne image ou d’un ancien instantané ou lorsque vous apportez votre propre disque personnalisé.
 
 Cela se manifeste généralement par le code de sortie **255** lorsque vous exécutez **DiagnosticsPluginLauncher.exe**. Un échec se produit en raison de l’exception non prise en charge suivante :
 ```

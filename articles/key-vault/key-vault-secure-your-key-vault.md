@@ -123,7 +123,7 @@ Nous devons autoriser les opérations suivantes pour nos rôles :
 - Développer et déployer l’application pour accéder par programmation aux clés et aux secrets
 
 **Auditeurs**
-- Examiner les journaux Key Vault pour confirmer l’utilisation correcte des clés et des secrets et la conformité aux normes en matière de sécurité des données
+- Examiner les journaux d’activité Key Vault pour confirmer l’utilisation correcte des clés et des secrets et la conformité aux normes en matière de sécurité des données
 
 Le tableau suivant récapitule les autorisations d’accès pour nos rôles et notre application. 
 
@@ -131,10 +131,10 @@ Le tableau suivant récapitule les autorisations d’accès pour nos rôles et n
 | --- | --- | --- |
 | Équipe de sécurité | Contributeur Key Vault | Clés : sauvegarder, créer, supprimer, obtenir, importer, énumérer, restaurer<br>Secrets : toutes les opérations |
 | Développeurs et&nbsp;opérateurs | Autorisation de déploiement Key Vault<br><br> **Remarque**: Cette autorisation permet aux machines virtuelles déployées de récupérer les secrets d’un coffre de clés. | Aucun |
-| Auditeurs | Aucun | Clés : énumération<br>Secrets : énumération<br><br> **Remarque**: Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux. |
+| Auditeurs | Aucun | Clés : énumération<br>Secrets : énumération<br><br> **Remarque**: Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. |
 | Application | Aucun | Clés : énumération<br>Secrets : obtention |
 
-Une fois les autorisations Key Vault définies, vous devez accorder aux trois rôles d’équipe l’accès à d’autres ressources. Pour déployer des machines virtuelles (ou la fonctionnalité Web Apps d’Azure App Service), les développeurs et opérateurs ont besoin d’un accès `Contributor` à ces types de ressources. Les auditeurs ont besoin d’un accès en lecture au compte de stockage où les journaux Key Vault sont stockés.
+Une fois les autorisations Key Vault définies, vous devez accorder aux trois rôles d’équipe l’accès à d’autres ressources. Pour déployer des machines virtuelles (ou la fonctionnalité Web Apps d’Azure App Service), les développeurs et opérateurs ont besoin d’un accès `Contributor` à ces types de ressources. Les auditeurs ont besoin d’un accès en lecture au compte de stockage où les journaux d’activité Key Vault sont stockés.
 
 Pour plus d’informations sur le déploiement des certificats, clés d’accès et secrets par programmation, consultez ces ressources :
 - Découvrez comment [déployer des certificats sur des machines virtuelles à partir d’un coffre de clés géré par un client](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) (billet de blog).
@@ -145,7 +145,7 @@ Vous pouvez accorder la plupart des autorisations d’accès à l’aide du port
 Les extraits PowerShell présentés dans cette section sont générés avec les hypothèses suivantes :
 - L’administrateur Azure AD a créé des groupes de sécurité pour représenter les trois rôles : Contoso Security Team, Contoso App DevOps et Contoso App Auditors. L’administrateur a ajouté des utilisateurs à leurs groupes respectifs.
 - Toutes les ressources se trouvent dans le groupe de ressources **ContosoAppRG**.
-- Les journaux Key Vault sont stockés dans le compte de stockage **contosologstorage**. 
+- Les journaux d’activité Key Vault sont stockés dans le compte de stockage **contosologstorage**. 
 - Le coffre de clés **ContosoKeyVault** et le compte de stockage **contosologstorage** sont dans le même emplacement Azure.
 
 L’administrateur d’abonnement attribue les rôles `key vault Contributor` et `User Access Administrator` à l’équipe de sécurité. Ces rôles permettent à l’équipe de sécurité de gérer l’accès à d’autres ressources et coffres de clés dans le groupe de ressources **ContosoAppRG**.

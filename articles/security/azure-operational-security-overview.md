@@ -111,9 +111,9 @@ Le [journal d’activité Azure](https://docs.microsoft.com/azure/monitoring-and
 
 ### <a name="azure-diagnostic-logs"></a>Journaux de diagnostic Azure
 
-Les [journaux de diagnostic Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sont générés par une ressource et fournissent des informations complètes et fréquentes sur le fonctionnement de cette ressource. Le contenu de ces journaux varie en fonction du type de ressource.
+Les [journaux de diagnostic Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sont générés par une ressource et fournissent des informations complètes et fréquentes sur le fonctionnement de cette ressource. Le contenu de ces journaux d’activité varie en fonction du type de ressource.
 
-Les journaux système des événements Windows sont une catégorie de journaux de diagnostic pour les machines virtuelles. Les journaux d’objet blob, de table et de file d’attente sont des catégories de journaux de diagnostic pour les comptes de stockage.
+Les journaux d’activité système des événements Windows sont une catégorie de journaux de diagnostic pour les machines virtuelles. Les journaux d’activité d’objet blob, de table et de file d’attente sont des catégories de journaux de diagnostic pour les comptes de stockage.
 
 Les journaux de diagnostic sont différents du [journal d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Le journal d’activité fournit des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement. Les journaux de diagnostic fournissent des informations détaillées sur les opérations effectuées par votre ressource.
 
@@ -144,10 +144,10 @@ Network Watcher propose actuellement les fonctionnalités suivantes :
 - [Vérification des flux IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) : détermine si un paquet est autorisé ou refusé en fonction des paramètres de flux (adresse IP de destination, adresse IP source, port de destination, port source et protocole) des paquets à 5 tuples. Si un groupe de sécurité refuse le paquet, la règle et le groupe qui ont refusé ce paquet sont renvoyés.
 - [Tronçon suivant](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) : détermine le tronçon suivant des paquets routés dans la structure de réseau Azure pour diagnostiquer les itinéraires définis par l'utilisateur mais mal configurés.
 - [Affichage des groupes de sécurité](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) : Obtient les règles de sécurité effectives et appliquées à une machine virtuelle.
-- [Journaux de flux NSG des groupes de sécurité réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) : vous permettent de capturer les journaux relatifs au trafic autorisé ou refusé par les règles de sécurité du groupe. Le flux est défini par des informations à 5 tuples : adresse IP source, adresse IP de destination, port source, port de destination et protocole.
+- [Journaux de flux NSG des groupes de sécurité réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) : vous permettent de capturer les journaux d’activité relatifs au trafic autorisé ou refusé par les règles de sécurité du groupe. Le flux est défini par des informations à 5 tuples : adresse IP source, adresse IP de destination, port source, port de destination et protocole.
 - [Résolution des problèmes de passerelle de réseau virtuel et de connexion](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) : permet de résoudre les problèmes des connexions et des passerelles de réseau virtuel.
 - [Limites d’abonnement réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : vous permet d’afficher l’utilisation des ressources réseau par rapport aux limites.
-- [Journaux de diagnostic](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : fournit un volet permettant d'activer ou de désactiver les journaux de diagnostic des ressources réseau d'un groupe de ressources.
+- [Journaux de diagnostic](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : fournit un volet permettant d’activer ou de désactiver les journaux de diagnostic des ressources réseau d’un groupe de ressources.
 
 Pour plus d’informations, consultez [Créer une instance d’Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 

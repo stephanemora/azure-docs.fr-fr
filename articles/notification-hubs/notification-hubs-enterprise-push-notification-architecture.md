@@ -270,7 +270,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 
     ![][5]
 
-4. Les messages ont été envoyés aux rubriques Service Bus qui ont été analysées par les abonnements Service Bus dans votre tâche Web. Lors de la réception d’un message, une notification a été créée et envoyée à l’application mobile. Vous pouvez consulter les journaux WebJob pour confirmer le traitement quand vous accédez au lien Journaux dans le [portail Azure] pour votre tâche Web :
+4. Les messages ont été envoyés aux rubriques Service Bus qui ont été analysées par les abonnements Service Bus dans votre tâche Web. Lors de la réception d’un message, une notification a été créée et envoyée à l’application mobile. Vous pouvez consulter les journaux d’activité WebJob pour confirmer le traitement quand vous accédez au lien Journaux d’activité dans le [portail Azure] pour votre tâche Web :
 
     ![][6]
 

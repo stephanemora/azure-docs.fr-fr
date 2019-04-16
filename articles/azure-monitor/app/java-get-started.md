@@ -466,7 +466,7 @@ Vous envoyez des données de télémétrie depuis votre serveur web. Vous pouvez
 * [Configurez les tests web][availability] pour vous assurer que votre application est bien active.
 
 ## <a name="capture-log-traces"></a>Capture le suivi des journaux
-Vous pouvez utiliser Application Insights pour traiter les journaux Log4J, Logback ou autres frameworks de journalisation. Vous pouvez mettre en corrélation les journaux avec les demandes HTTP et autres informations de télémétrie. [Découvrez comment][javalogs].
+Vous pouvez utiliser Application Insights pour traiter les journaux d’activité Log4J, Logback ou autres frameworks de journalisation. Vous pouvez mettre en corrélation les journaux d’activité avec les demandes HTTP et autres informations de télémétrie. [Découvrez comment][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>Envoyer votre propre télémétrie
 Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous pouvez utiliser l'API pour envoyer votre propre télémétrie.
