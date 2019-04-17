@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7a65a6b49544783ed3f40194e2338540819536b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 340ff99aae9acff49ffdeaa43463521debb16a07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400957"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282812"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Présentation d’Azure Data Box Gateway
 
@@ -29,6 +29,8 @@ Data Box Gateway peut servir à transférer des données vers le cloud, par exem
 - **Ingestion continue des données** : ingérez continuellement des données dans l’appareil à copier dans le cloud, quelle que soit la taille des données. À mesure que les données sont écrites sur le dispositif de passerelle, celui-ci charge les données vers Stockage Azure.  
 
 - **Transfert en bloc initial suivi de transfert incrémentiel** : utilisez Data Box pour le transfert en bloc dans un mode hors connexion (amorçage initial), et Data Box Gateway pour les transferts incrémentiels (flux en cours) par le biais du réseau.
+
+Pour plus d’informations, consultez [Cas d’usage Azure Data Box Gateway](data-box-gateway-use-cases.md).
 
 ## <a name="benefits"></a>Avantages
 
@@ -89,7 +91,7 @@ Il n’est pas nécessaire que l’appareil physique Data Box Gateway, la ressou
 
 - **Disponibilité des ressources** : pour cette version, la ressource Data Box Gateway est disponible dans les régions suivantes qui prennent en charge le cloud public :
     - **États-Unis** : USA Est
-    - **Union européenne** - Europe de l’Ouest
+    - **Union européenne** : Europe de l’Ouest
     - **Asie-Pacifique** : Asie Sud-Est
 
     Le déploiement de Data Box Gateway est également possible dans Azure Government Cloud. Pour plus d’informations, consultez [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).

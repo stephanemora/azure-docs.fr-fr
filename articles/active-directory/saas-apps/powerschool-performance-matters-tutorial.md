@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Powerschool Performance Matters | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Powerschool Performance Matters | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Powerschool Performance Matters.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 7286f507c8374c56ecedf84c3775be57f8aa4872
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: b62ac8229d121738c23a4520bc1c1952603e2a12
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58074758"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-powerschool-performance-matters"></a>Didacticiel : Intégration d’Azure Active Directory à Powerschool Performance Matters
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Powerschool Performance Matters à Azure AD, vous devez ajouter Powerschool Performance Matters, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Powerschool Performance Matters à partir de la galerie, procédez comme suit :**
+**Pour ajouter Powerschool Performance Matters à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -197,7 +197,7 @@ Lorsque vous cliquez sur la vignette Powerschool Performance Matters dans le vol
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

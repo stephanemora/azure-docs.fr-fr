@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2348b4293b8726c406b1f06b2f88c37dfb00e80c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447746"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359984"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Démarrage rapide : Utilisez SQL Server Management Studio pour se connecter et interroger une base de données Azure SQL
 
@@ -30,10 +30,10 @@ Dans ce guide de démarrage rapide, vous allez utiliser [SQL Server Management S
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
-  | Créer| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
-  || [INTERFACE DE LIGNE DE COMMANDE](scripts/sql-database-create-and-configure-database-cli.md) | [INTERFACE DE LIGNE DE COMMANDE](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  | Créer| [Portail](sql-database-single-database-get-started.md) | [Portail](sql-database-managed-instance-get-started.md) |
+  || [Interface de ligne de commande](scripts/sql-database-create-and-configure-database-cli.md) | [Interface de ligne de commande](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configuration | [Règle de pare-feu IP au niveau du serveur](sql-database-server-level-firewall-rule.md)| [Connectivité à partir d’une machine virtuelle](sql-database-managed-instance-configure-vm.md)|
+  | Configuration | [Règle de pare-feu IP au niveau du serveur](sql-database-server-level-firewall-rule.md)| [Connectivité à partir d’une machine virtuelle](sql-database-managed-instance-configure-vm.md)|
   |||[Connectivité à partir d’une machine locale](sql-database-managed-instance-configure-p2s.md)
   |Charger des données|Adventure Works chargé dans le cadre du guide de démarrage rapide|[Restaurer Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Restaurer ou importer Adventure Works à partir du fichier [BACPAC](sql-database-import.md) disponible sur [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
@@ -44,7 +44,7 @@ Dans ce guide de démarrage rapide, vous allez utiliser [SQL Server Management S
 
 ## <a name="install-the-latest-ssms"></a>Installer la dernière version de SSMS
 
-Avant de commencer, assurez-vous d'avoir installé la dernière version de [SSMS][ssms-install-latest-84g]. 
+Avant de commencer, assurez-vous d'avoir installé la dernière version de [SSMS][ssms-install-latest-84g].
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
@@ -58,7 +58,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 ## <a name="connect-to-your-database"></a>Connectez-vous à votre base de données
 
-Dans SMSS, connectez-vous à votre serveur Azure SQL Database. 
+Dans SMSS, connectez-vous à votre serveur Azure SQL Database.
 
 > [!IMPORTANT]
 > Un serveur Azure SQL Database écoute sur le port 1433. Pour vous connecter à un serveur SQL Database derrière un pare-feu d’entreprise, le port de ce dernier doit être ouvert.
@@ -68,11 +68,11 @@ Dans SMSS, connectez-vous à votre serveur Azure SQL Database.
 
 2. Entrez les informations suivantes :
 
-   | Paramètre      | Valeur suggérée    | Description | 
-   | ------------ | ------------------ | ----------- | 
+   | Paramètre      | Valeur suggérée    | Description |
+   | ------------ | ------------------ | ----------- |
    | **Type de serveur** | Moteur de base de données | Valeur requise |
    | **Nom du serveur** | Nom complet du serveur | Similaire à ce qui suit : **mynewserver20170313.database.windows.net**. |
-   | **Authentification** | l’authentification SQL Server | Ce tutoriel utilise l’authentification SQL. |
+   | **Authentication** | l’authentification SQL Server | Ce tutoriel utilise l’authentification SQL. |
    | **Connexion** | ID utilisateur du compte d'administrateur de serveur | ID utilisateur du compte d'administrateur de serveur utilisé pour créer le serveur. |
    | **Mot de passe** | Mot de passe du compte d'administrateur de serveur | Mot de passe du compte d'administrateur de serveur utilisé pour créer le serveur. |
    ||||
@@ -83,7 +83,7 @@ Dans SMSS, connectez-vous à votre serveur Azure SQL Database.
 
    ![connexion à la base de données sur le serveur](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Sélectionnez **Connecter**. La fenêtre Explorateur d’objets s’ouvre. 
+4. Sélectionnez **Connecter**. La fenêtre Explorateur d’objets s’ouvre.
 
 5. Pour afficher les objets de la base de données, développez **Bases de données**, puis **mySampleDatabase**.
 
@@ -140,15 +140,14 @@ Exécutez ce code Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174
 1. Remplacez la requête précédente par celle-ci.
 
    ```sql
-   SELECT * FROM [SalesLT].[Product] 
-   WHERE Name='myNewProduct' 
+   SELECT * FROM [SalesLT].[Product]
+   WHERE Name='myNewProduct'
    ```
-   
-2. Sélectionnez **Exécuter**. Le résultat suivant s’affiche. 
+
+2. Sélectionnez **Exécuter**. Le résultat suivant s’affiche.
 
    ![result](./media/sql-database-connect-query-ssms/result.png)
 
- 
 ## <a name="update-data"></a>Mettre à jour des données
 
 Exécutez ce code Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) pour modifier votre nouveau produit.
@@ -188,8 +187,6 @@ Exécutez ce code Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189
 - Pour vous connecter et exécuter des requêtes avec Python, consultez la page [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
 - Pour vous connecter et exécuter des requêtes avec Ruby, consultez la page [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
 
-
 <!-- Article link references. -->
 
 [ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
-

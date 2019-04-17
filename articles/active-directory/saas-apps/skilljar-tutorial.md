@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 917203409f9fb1880c69c5cddeed57dda4b976ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea7982290cdcd51ba09ca97aa3f23086222516df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58138285"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skilljar"></a>Didacticiel : Intégration d’Azure Active Directory avec Skilljar
 
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l'intégration de Skilljar avec Azure AD, vous devez ajouter Skilljar à partir de la galerie à votre liste d'applications SaaS gérées.
 
-**Pour ajouter Skilljar à partir de la galerie, procédez comme suit :**
+**Pour ajouter Skilljar à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Skilljar, effectuez l
 
     ![Informations d’authentification unique dans Domaine et URL Skilljar](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.skilljar.com/`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<companyname>.skilljar.com/`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<companyname>.skilljar.com/`
 
@@ -197,7 +197,7 @@ Le fait de cliquer sur la vignette Skilljar dans le panneau d’accès doit vous
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

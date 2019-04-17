@@ -12,27 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351658"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607073"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Utilisation des rubriques et abonnements Service Bus avec Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Cet article explique comment utiliser les rubriques et les abonnements Service Bus. Ces exemples sont écrits en Python et utilisent le [package du Kit de développement logiciel (SDK) Azure Python][Azure Python package]. Les scénarios couverts incluent la **création de rubriques et d’abonnements**, la **création de filtres d’abonnement**, **l’envoi de messages à une rubrique**, la **réception de messages en provenance d’un abonnement** et enfin la **suppression de rubriques et d’abonnements**. Pour plus d’informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
+Cet article explique comment utiliser les rubriques et les abonnements Service Bus. Ces exemples sont écrits en Python et utilisent le [package du Kit de développement logiciel (SDK) Azure Python][Azure Python package]. Parmi les scénarios présentés :
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Création de rubriques et d’abonnements 
+- Création de filtres d’abonnement 
+- Envoi de messages à une rubrique 
+- Réception de messages à partir d’un abonnement
+- Suppression de rubriques et d’abonnements
 
-> [!NOTE] 
-> Si vous devez installer Python ou le [package Azure Python][Azure Python package], consultez le [Guide d’installation de Python](../python-how-to-install.md).
+## <a name="prerequisites"></a>Conditions préalables
+1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Suivez les étapes de la [Guide de démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à la rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un Service Bus **espace de noms** et obtenir le **chaîne de connexion**.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > Vous allez créer un **rubrique** et un **abonnement** à la rubrique à l’aide de **Python** dans ce démarrage rapide. 
+3. Installer [package Azure Python][Azure Python package]. Consultez le [Guide d’Installation de Python](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Création d'une rubrique
 

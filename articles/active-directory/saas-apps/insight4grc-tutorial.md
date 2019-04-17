@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Insight4GRC | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Insight4GRC | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Insight4GRC.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 360dbd6605953f77a2874b2daf8db2d4e93307c1
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1ad101d209415acdceb0091dba5fbedeb8b0aa4b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189612"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280517"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Tutoriel : Intégration d'Azure Active Directory à Insight4GRC
+# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Didacticiel : Intégration d'Azure Active Directory à Insight4GRC
 
 Dans ce tutoriel, vous allez apprendre à intégrer Insight4GRC à Azure Active Directory (Azure AD).
 L’intégration de Insight4GRC à Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Insight4GRC dans Azure AD, vous devez ajouter Insight4GRC depuis la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Insight4GRC à partir de la galerie, procédez comme suit :**
+**Pour ajouter Insight4GRC à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -193,7 +193,7 @@ Quand vous cliquez sur la vignette Insight4GRC dans le volet d’accès, vous de
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

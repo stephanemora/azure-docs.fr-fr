@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7339c975bf979907bd1f9bbb46546b58ef7ae6e5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085063"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282353"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutoriel : Importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager
 
@@ -53,13 +53,13 @@ Un fichier BACPAC est partagé sur un [compte de Stockage Azure](https://armtuto
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
-Modèles de démarrage rapide Azure est un référentiel pour les modèles Resource Manager. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer un SQL Server Azure avec la détection des menaces](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/).
+Le modèle utilisé dans ce tutoriel est stocké dans un [compte de Stockage Azure](https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json). 
 
 1. À partir de Visual Studio Code, sélectionnez **Fichier**>**Ouvrir un fichier**.
 2. Collez l’URL suivante dans **Nom de fichier** :
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json
+    https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json
     ```
 3. Sélectionnez **Ouvrir** pour ouvrir le fichier.
 
@@ -175,4 +175,4 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 Dans ce didacticiel, vous avez déployé un SQL Server, une SQL Database, et avez importé un fichier BACPAC. Le fichier BACPAC est stocké dans un compte de stockage Azure. Toute personne en possession de l'URL peut y accéder. Pour savoir comment sécuriser le fichier BACPAC (artefact), consultez
 
 > [!div class="nextstepaction"]
-> [Sécuriser des artefacts](./resource-manager-tutorial-secure-artifacts.md)
+> [Sécuriser les artefacts](./resource-manager-tutorial-secure-artifacts.md)

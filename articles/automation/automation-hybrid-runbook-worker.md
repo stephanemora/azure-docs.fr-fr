@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 55dff6cf073612e3e5473da3a5f1bf722b2ccdbd
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545839"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608552"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride
 
@@ -27,6 +27,9 @@ L’image suivante illustre cette fonctionnalité :
 Chaque Runbook Worker hybride est membre d'un groupe de Runbooks Workers hybrides que vous spécifiez lorsque vous installez l'agent. Un groupe peut inclure un seul agent, mais vous pouvez installer plusieurs agents dans un groupe pour une haute disponibilité.
 
 Lorsque vous démarrez un Runbook sur un Runbook Worker hybride, vous spécifiez le groupe sur lequel il s’exécute. Chaque worker du groupe interroge Azure Automation pour voir si des travaux sont disponibles. Si un travail est disponible, le premier worker qui le reçoit s’en occupe. Le temps de traitement de la file d’attente des travaux varie selon la charge et le profil matériel du Worker hybride. Vous ne pouvez pas spécifier un worker en particulier. Les Runbook Workers hybrides ne partagent pas la plupart des limites propres aux bacs à sable Azure. Ils n’ont pas les mêmes limites d’espace disque, de mémoire ou de sockets réseau. Les Runbook Workers hybrides ne sont pas limités par les ressources sur le Runbook Worker hybride lui-même. En outre, les Runbook Workers hybrides ne partagent pas la limite de 180 minutes pour la [répartition de charge équilibrée](automation-runbook-execution.md#fair-share) des bacs à sable Azure. Pour en savoir plus sur les limites de service des bacs à sable Azure et des Runbook Workers hybrides, consultez la page sur les [limites](../azure-subscription-service-limits.md#automation-limits) du travail.
+
+> [!NOTE]
+> Workers hybrides ne sont pas pris en charge dans Azure en Chine.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Installer un Runbook Worker hybride
 

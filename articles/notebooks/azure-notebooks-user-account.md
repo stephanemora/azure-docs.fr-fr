@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: b8e5c5b14ecdbc63daf200b7d11e755822cd063b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257006"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608008"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Votre compte d’utilisateur pour Azure Notebooks
 
@@ -41,6 +41,9 @@ Les comptes Microsoft permettent de se connecter à de nombreux produits et serv
 En cas de doute, sélectionnez la commande de **création** dans l’invite du compte. Vous pouvez créer un compte Microsoft à l’aide d’une adresse e-mail quelconque, peu importe le fournisseur.
 
 ![Commande de création d’un compte Microsoft](media/accounts/create-new-microsoft-account.png)
+
+> [!Note]
+> Si vous tentez de créer un nouveau compte avec une adresse de messagerie qui a déjà un compte associé, vous pouvez voir le message, « vous ne pouvez pas inscrire ici avec un travail ou adresse e-mail scolaire. Utiliser une adresse e-mail personnelle comme Gmail ou Yahoo!, ou obtenez un nouvel e-mail Outlook. » Dans ce cas, essayez de vous connecter avec l’adresse de messagerie professionnelle sans créer un nouveau compte.
 
 Par défaut, l’accès à Azure Notebooks est bloqué pour les comptes enfant. Si vous tentez de vous connecter avec un compte enfant, l’erreur suivante s’affiche :
 
@@ -71,4 +74,4 @@ Pour donner votre consentement en tant qu’administrateur, utilisez la [page de
 ## <a name="next-steps"></a>Étapes suivantes  
 
 > [!div class="nextstepaction"]
-> [Modifier votre profil et un ID utilisateur](azure-notebooks-user-profile.md)
+> [Modifier votre profil et votre identifiant utilisateur](azure-notebooks-user-profile.md)

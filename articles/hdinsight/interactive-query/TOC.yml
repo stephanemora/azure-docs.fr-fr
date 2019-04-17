@@ -248,9 +248,6 @@ items:
     - name: Mise à jour corrective du système d’exploitation pour le cluster HDInsight
       href: ../hdinsight-os-patching.md
       maintainContext: true
-    - name: Migrer des charges de travail Hive vers HDInsight 4.0
-      href: apache-hive-migrate-workloads.md
-      maintainContext: true
   - name: Résolution des problèmes
     href: ../hdinsight-troubleshoot-guide.md
     items:
@@ -360,31 +357,28 @@ items:
 - name: Ressources
   items:
   - name: Notes de publication
+    href: ../hdinsight-release-notes.md
     items:
-    - name: Notes de publication actuelles
-      href: ../hdinsight-release-notes.md
-      maintainContext: true
     - name: Notes de publication archivées
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-  - name: Changements d’accès de la configuration de cluster
-    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
+    maintainContext: true
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Obtenir de l'aide sur le forum
     href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight
   - name: Parcours d’apprentissage
     href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
-  - name: Programme professionnel de Microsoft pour les données volumineuses (Big Data)
+  - name: Programme professionnel de Microsoft pour le Big Data
     href: https://academy.microsoft.com/en-us/professional-program/big-data/
   - name: Calculatrice de prix
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 2f9952a95da9a47448d54ba5b48be033fb5707cc
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 9aac9dcaa0e7a853b3cedf88a7666f789dbf558f
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615721"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579068"

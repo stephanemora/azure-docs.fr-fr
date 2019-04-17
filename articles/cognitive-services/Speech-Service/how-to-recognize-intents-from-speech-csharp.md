@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Effectuer une reconnaissance des intentions vocales à l’aide du kit de développement logiciel (SDK) Speech pour C#'
+title: 'Didacticiel : Effectuer une reconnaissance des intentions vocales à l’aide du kit de développement logiciel (SDK) Speech pour C#'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous apprenez à reconnaître des intentions vocales avec le kit SDK Speech pour C#.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855722"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280534"
 ---
-# <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutoriel : Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour C#
+# <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Didacticiel : Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour C#
 
 [!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
@@ -131,19 +131,21 @@ Ensuite, créez un module de reconnaissance de l’intention à l’aide de `new
 
 À présent, importez le modèle à partir de l’appli LUIS avec `LanguageUnderstandingModel.FromAppId()`, et ajoutez les intentions LUIS à reconnaître par le biais de la méthode `AddIntent()` du module de reconnaissance. Ces deux étapes améliorent la précision de la reconnaissance vocale en indiquant les mots que l’utilisateur est susceptible d’utiliser dans ses requêtes. Il n’est pas nécessaire d’ajouter toutes les intentions de l’appli si vous n’avez pas besoin de toutes les identifier dans votre application.
 
-L’ajout d’intentions nécessite trois arguments : le modèle LUIS (qui vient d’être créé et qui est nommé `model`), le nom de l’intention et un ID d’intention. La différence entre l’ID et le nom s’établit comme suit.
+L’ajout d’intentions nécessite trois arguments : le modèle LUIS (qui a été créé et qui est nommé `model`), le nom de l’intention et un ID d’intention. La différence entre l’ID et le nom s’établit comme suit.
 
-|Argument `AddIntent()`|Objectif|
+|`AddIntent()` argument|Objectif|
 |--------|-------|
 |intentName |Nom de l’intention, tel que défini dans l’appli LUIS. Doit correspondre exactement au nom d’intention LUIS.|
 |intentID    |ID assigné à une intention reconnue par le kit SDK Speech. Il peut être ce que vous voulez ; il n’est pas nécessaire qu’il corresponde au nom de l’intention, tel que défini dans l’appli LUIS. Par exemple, si plusieurs intentions sont gérées par le même code, vous pouvez utiliser le même ID pour celles-ci.|
 
-L’appli domotique Home Automation LUIS dispose de deux modes : l’un pour mettre un appareil sous tension, l’autre pour le mettre hors tension. Les lignes ci-dessous ajoutent ces intentions au module de reconnaissance de l’intention ; remplacez les trois lignes `AddIntent` dans la méthode `RecognizeIntentAsync()` par ce code.
+L’application LUIS Home Automation a deux intentions : une pour mettre un appareil sous tension, l’autre pour le mettre hors tension. Les lignes ci-dessous ajoutent ces intentions au module de reconnaissance de l’intention ; remplacez les trois lignes `AddIntent` dans la méthode `RecognizeIntentAsync()` par ce code.
 
 ```csharp
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
+
+Au lieu d’ajouter des intentions individuelles, vous pouvez aussi utiliser la méthode `AddAllIntents` pour ajouter toutes les intentions d’un modèle au module de reconnaissance.
 
 ## <a name="start-recognition"></a>Démarrer la reconnaissance
 
@@ -186,4 +188,4 @@ Retrouvez le code de cet article dans le dossier samples/csharp/sharedcontent/co
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Comment effectuer une reconnaissance vocale](how-to-recognize-speech-csharp.md)
+> [Comment effectuer la reconnaissance vocale](how-to-recognize-speech-csharp.md)

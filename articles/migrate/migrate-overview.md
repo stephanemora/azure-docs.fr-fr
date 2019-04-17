@@ -4,15 +4,15 @@ description: Fournit une vue d’ensemble du service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894967"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275440"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -32,7 +32,7 @@ Azure Migrate vous aide à :
 - Vous pouvez seulement évaluer les machines virtuelles VMware locales pour la migration vers les machines virtuelles Azure. Les machines virtuelles VMware doivent être gérées par vCenter Server (version 5.5, 6.0, 6.5 ou 6.7).
 - Le support d’Hyper-V est actuellement en préversion avec le support de production. Si vous souhaitez l’essayer, veuillez vous inscrire [ici](https://aka.ms/migratefuture).
 - Pour l’évaluation des serveurs physiques, vous pouvez utiliser nos [outils partenaires](https://azure.microsoft.com/migration/partners/).
-- Vous pouvez détecter jusqu’à 1500 machines virtuelles par détection et jusqu’à 1500 machines virtuelles par projet. En outre, vous pouvez évaluer jusqu’à 1500 machines virtuelles par évaluation.
+- Vous pouvez découvrir jusqu’à 1 500 machines virtuelles par découverte et par projet. Une préversion permet de découvrir jusqu’à 10 000 machines virtuelles VMware dans un même projet à l’aide d’une seule appliance. Pour l’essayer, [inscrivez-vous ici](https://aka.ms/migratefuture).
 - Si vous voulez découvrir un environnement plus grand, vous pouvez séparer la découverte et créer plusieurs projets. [Plus d’informations](how-to-scale-assessment.md) Azure Migrate prend en charge jusqu’à 20 projets par abonnement.
 - Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
 -  Vous ne pouvez créer un projet Azure Migrate que dans les zones géographiques suivantes. Toutefois, cela ne restreint pas votre capacité à créer des évaluations pour d’autres emplacements Azure cibles.

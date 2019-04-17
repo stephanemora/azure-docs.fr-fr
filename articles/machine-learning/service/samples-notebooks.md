@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b597d6efa87aa2811ce42f3315698acfa17426b2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451788"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548586"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Utiliser des notebooks Jupyter pour explorer Azure Machine Learning service
 
@@ -49,51 +49,7 @@ Utilisez ces étapes pour créer une instance locale de serveur de notebooks Jup
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-Les instructions de démarrage rapide permettent d’installer les packages nécessaires pour exécuter les notebooks de démarrage rapide et de tutoriel.  D’autres exemples de notebooks peuvent nécessiter l’installation de composants supplémentaires.  Pour plus d’informations sur ces composants, consultez [Installer le Kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
-
-<a name="automated-ml-setup"></a>
-
-## <a name="automated-machine-learning-setup"></a>Configuration de Machine Learning automatisé 
-
-_Les étapes suivantes s’appliquent uniquement aux notebooks du dossier **how-to-use-azureml/automated-machine-learning**._
-
-Vous pouvez utiliser l’une des options ci-dessus, ou bien installer l’environnement et créer un espace de travail simultanément, en suivant les instructions ci-dessous. 
-
-1. Installez [Mini-conda](https://conda.io/miniconda.html). Choisissez la version 3.7 ou ultérieure. Suivez les invites pour procéder à l’installation. 
-   >[!NOTE]
-   >Vous pouvez utiliser une installation existante de conda, du moment que sa version est égale ou supérieure à 4.4.10. Pour afficher la version, utilisez `conda -V`. Vous pouvez mettre à jour une version de conda avec la commande `conda update conda`. Il n’est pas nécessaire d’installer mini-conda.
-
-1. Téléchargez les exemples de notebooks [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
-) sous la forme d’un fichier zip, puis extrayez le contenu dans un répertoire local. Les notebooks du machine learning automatisé se trouvent dans le dossier `how-to-use-azureml/automated-machine-learning`.
-
-1. Configurez un nouvel environnement Conda. 
-   1. Ouvrez une invite Conda sur votre ordinateur local.
-   
-   1. Accédez aux fichiers que vous avez extraits sur votre ordinateur local.
-   
-   1. Ouvrez le dossier **automated-machine-learning**.
-   
-   1. Exécutez `automl_setup.cmd` dans l’invite Conda pour Windows, ou le fichier `.sh` pour votre système d’exploitation. L’exécution dure environ 10 minutes.
-
-      Le script d’installation :
-      + Crée un nouvel environnement Conda
-      + Installe les packages nécessaires
-      + Configure le widget
-      + Démarre un notebook Jupyter
-      
-   >[!NOTE]
-   > Le script prend le nom de l’environnement Conda comme paramètre facultatif. Par défaut, le nom de l’environnement Conda est `azure_automl`. La commande exacte varie selon le système d’exploitation. C’est utile si vous créez un nouvel environnement ou si vous faites une mise à niveau vers une nouvelle version. Par exemple, vous pouvez utiliser « automl_setup.cmd azure_automl_sandbox » pour créer un environnement nommé azure_automl_sandbox. 
-      
-1. Une fois l’exécution du script terminée, vous voyez la page d’accueil Jupyter Notebook dans votre navigateur.
-
-1. Accédez à l’emplacement où vous avez enregistré les notebooks. 
-
-1. Ouvrez le dossier automated-machine-learning, puis ouvrez le notebook **configuration.ipynb**. 
-
-1. Exécutez les cellules du notebook pour inscrire le fournisseur de ressources Machine Learning Services et créer un espace de travail.
-
-Vous êtes maintenant prêt à exécuter les notebooks enregistrés sur votre ordinateur local.
-
+Les instructions de démarrage rapide permettent d’installer les packages nécessaires pour exécuter les notebooks de démarrage rapide et de tutoriel.  D’autres exemples de notebooks peuvent nécessiter l’installation de composants supplémentaires.  Pour plus d’informations sur ces composants, consultez [Installer le kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

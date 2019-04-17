@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Neota Logic Studio | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Neota Logic Studio | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Neota Logic Studio.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 960880b458e18498d2285a096d8393ab92dd796d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 926deea2f9754febb76e8ccc81933a792f3a9dbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900843"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283169"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Didacticiel : Intégration d’Azure Active Directory à Neota Logic Studio
 
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD avec Neota Logic Studio, e
 
     ![Informations d’authentification unique pour Domaine et URL Neota Logic Studio](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<sub domain>.neotalogic.com/a/<sub application>`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<sub domain>.neotalogic.com/a/<sub application>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<sub domain>.neotalogic.com/wb`
 
@@ -147,7 +147,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -192,7 +192,7 @@ Quand vous cliquez sur la vignette Neota Logic Studio dans le volet d’accès, 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

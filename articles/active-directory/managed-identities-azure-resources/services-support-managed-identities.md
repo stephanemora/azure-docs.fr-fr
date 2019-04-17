@@ -4,18 +4,18 @@ description: Liste des services qui prennent en charge les identités managées 
 services: active-directory
 author: MarkusVi
 ms.author: priyamo
-ms.date: 11/28/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d524f5f58e7381dd89f36c5d2821e6911ed9ec15
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 79c3f8ae183c78b19f7f520f8154bf9484a1f795
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045455"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607991"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -39,7 +39,7 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des mach
 
 - [Portail Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
-- [Azure CLI](qs-configure-cli-windows-vm.md)
+- [interface de ligne de commande Azure](qs-configure-cli-windows-vm.md)
 - [Modèles Microsoft Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
@@ -54,7 +54,7 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des grou
 
 - [Portail Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
-- [Azure CLI](qs-configure-cli-windows-vm.md)
+- [interface de ligne de commande Azure](qs-configure-cli-windows-vm.md)
 - [Modèles Microsoft Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
@@ -68,9 +68,9 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des grou
 Reportez-vous à la liste suivante pour configurer l'identité managée d'Azure App Service (dans les régions où il est disponible) :
 
 - [Portail Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
-- [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Interface de ligne de commande Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Modèle Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Modèle Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
@@ -94,9 +94,9 @@ Type d'identité managée |Toutes mises à la disposition générale<br>Régions
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Functions (dans les régions où il est disponible) :
 
 - [Portail Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
-- [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Interface de ligne de commande Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Modèle Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Modèle Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps
 
@@ -108,7 +108,7 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Logic Apps (dans les régions où il est disponible) :
 
 - [Portail Azure](/azure/logic-apps/create-managed-service-identity#azure-portal)
-- [Modèle Azure Resource Manager](/azure/app-service/overview-managed-identity)
+- [Modèle Azure Resource Manager](/azure/app-service/overview-managed-identity)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
@@ -122,7 +122,7 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 - [Portail Azure](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
-- [Kit SDK ](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+- [Kit SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### <a name="azure-api-management"></a>Gestion des API Azure
 
@@ -133,7 +133,7 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service de gestion des API Azure (dans les régions où il est disponible) :
 
-- [Modèle Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Modèle Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -144,8 +144,8 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Container Instances (dans les régions où il est disponible) :
 
-- [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)
-- [Modèle Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [Interface de ligne de commande Azure](~/articles/container-instances/container-instances-managed-identity.md)
+- [Modèle Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Services Azure qui prennent en charge l’authentification Azure AD
@@ -213,7 +213,7 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 | Azure Germany |   | Non disponible |
 | Azure China 21Vianet |  | Non disponible |
 
-### <a name="azure-storage"></a>Stockage Azure
+### <a name="azure-storage-blobs-and-queues"></a>Files d’attente et objets BLOB azure Storage
 
 | Cloud | ID de ressource | Statut |
 |--------|------------|--------|

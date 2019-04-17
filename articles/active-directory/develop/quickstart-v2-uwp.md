@@ -17,12 +17,12 @@ ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6de55cb9f1f89c9c3cd809294890f63134a26d8
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793167"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360122"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Démarrage rapide : Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
@@ -71,7 +71,7 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Étape 2 : Télécharger votre projet Visual Studio
 
- - [Télécharger le projet Visual Studio 2017](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
+ - [Télécharger le projet Visual Studio 2017](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
 
@@ -86,9 +86,9 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 
 > [!div renderon="docs"]
 > Où :
-> - `Enter_the_Application_Id_here` - est l’ID de l’application pour l’application que vous avez inscrite.
-> - `Enter_the_Tenant_Info_Here` - correspond à l’une des options ci-dessous :
->   - Si votre application prend en charge **Mon organisation uniquement**, remplacez cette valeur avec l’**ID de locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
+> - `Enter_the_Application_Id_here` - correspond à l’ID de l’application que vous avez inscrite.
+> - `Enter_the_Tenant_Info_Here` - correspond à l’une des options ci-dessous :
+>   - Si votre application prend en charge **Mon organisation uniquement**, remplacez cette valeur par l’**ID de locataire** ou le **nom du locataire** (par exemple, contoso.onmicrosoft.com)
 >   - Si votre application prend en charge **Comptes dans un annuaire organisationnel**, remplacez cette valeur par `organizations`
 >   - Si votre application prend en charge **tous les utilisateurs de compte Microsoft**, remplacez cette valeur par `common`
 >
@@ -167,4 +167,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 Essayez le didacticiel de bureau Windows pour apprendre à créer, étape par étape, des applications et des fonctionnalités, y compris une explication complète de ce démarrage rapide.
 
 > [!div class="nextstepaction"]
-> [Didacticiel UWP : Appeler l’API Graph](tutorial-v2-windows-uwp.md)
+> [Tutoriel UWP - Appeler l’API Graph](tutorial-v2-windows-uwp.md)
