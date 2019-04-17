@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 8debca0b473807c3ef6d49dcd29d528b266a1e31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8944e4533448f5787f5c85c12e4ab2747eb96e4e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900792"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278086"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Tutoriel : Intégration de Azure Active Directory à Mercer BenefitsCentral (MBC)
+# <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Didacticiel : Intégration de Azure Active Directory à Mercer BenefitsCentral (MBC)
 
 Dans ce didacticiel, vous allez apprendre à intégrer Mercer BenefitsCentral (MBC) à Azure Active Directory (Azure AD).
 L’intégration de Mercer BenefitsCentral (MBC) à Azure AD vous offre les avantages suivants :
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Mercer BenefitsCentral (MBC) dans Azure AD, vous devez ajouter Mercer BenefitsCentral (MBC) depuis la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Mercer BenefitsCentral (MBC) à partir de la galerie, procédez comme suit :**
+**Pour ajouter Mercer BenefitsCentral (MBC) à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD auprès de Mercer BenefitsC
 
     ![Informations d’authentification unique dans Domaine et URL Mercer BenefitsCentral (MBC)](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `stg.mercerhrs.com/saml2.0`
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `stg.mercerhrs.com/saml2.0`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
@@ -147,7 +147,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -192,7 +192,7 @@ Le fait de cliquer sur la vignette Mercer BenefitsCentral (MBC) dans le volet d�
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

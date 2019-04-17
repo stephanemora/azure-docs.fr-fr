@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: hrasheed
-ms.openlocfilehash: c3d12224c0eaeafe0559cafdfa0d7c292ded9cee
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: fb15a6389577e8d132b9c5a895a9995a9f7da208
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564489"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607357"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Exécuter des tâches Apache Sqoop avec Azure PowerShell pour Apache Hadoop dans HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Découvrez comment utiliser Azure PowerShell pour exécuter des tâches Apache Sqoop dans HDInsight Azure pour importer et exporter des données entre un cluster HDInsight et une base de données SQL Azure ou la base de données SQL Server. Cet exemple exporte des données à partir de `/tutorials/usesqoop/data/sample.log` dans le compte de stockage par défaut, puis les importations pour une table appelée `log4jlogs` dans une base de données SQL Server.
+Découvrez comment utiliser Azure PowerShell pour exécuter des tâches Apache Sqoop dans HDInsight Azure pour importer et exporter des données entre un cluster HDInsight et une base de données SQL Azure ou la base de données SQL Server. Cet exemple exporte des données à partir de `/tutorials/usesqoop/data/sample.log` dans le compte de stockage par défaut, puis les importations pour une table appelée `log4jlogs` dans une base de données SQL Server. Cet article est la suite de [Use Apache Sqoop avec Hadoop dans HDInsight](./hdinsight-use-sqoop.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -27,7 +27,8 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 * Une station de travail avec Azure PowerShell [AZ Module](https://docs.microsoft.com/powershell/azure/overview) installé.
 
-* Un cluster HDInsight, Azure SQL Server et la base de données tel que défini à partir de [créer un cluster et la base de données SQL](./hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* Saisie semi-automatique de [configurer d’environnement de test](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) de [Use Apache Sqoop avec Hadoop dans HDInsight](./hdinsight-use-sqoop.md).
+
 
 ## <a name="run-apache-sqoop-by-using-powershell"></a>Exécuter Apache Sqoop avec PowerShell
 Le script PowerShell suivant prétraite le fichier source, puis l’exporte vers une base de données SQL Azure à la table `log4jlogs`. Remplacez `CLUSTERNAME`, `CLUSTERPASSWORD`, et `SQLPASSWORD` avec les valeurs que vous avez utilisé par les conditions préalables.

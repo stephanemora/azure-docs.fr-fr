@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 04/08/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 02ceb6cbcbf824f8bf830c66bc9899c20f6ed822
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 650b868762299725927623134039e87bbee9f4c2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484039"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277508"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Vérifier vos modèles pour Azure Stack avec l’outil de validation des modèles
 
@@ -33,16 +33,15 @@ Vous pouvez utiliser l’outil de validation des modèles pour vérifier si vos 
 
 Pour valider un modèle, vous devez d’abord générer un fichier des fonctionnalités du cloud, puis exécuter l’outil de validation. Vous utilisez les modules PowerShell suivants à partir des outils Azure Stack :
 
-- Dans le dossier **CloudCapabilities** :<br>         `AzureRM.CloudCapabilities.psm1` crée un fichier JSON des fonctionnalités du cloud représentant les services et versions présentes dans un cloud Azure Stack.
-- Dans le dossier **TemplateValidator** :<br>
-`AzureRM.TemplateValidator.psm1` utilise un fichier JSON des fonctionnalités du cloud pour tester des modèles en vue d’un déploiement dans Azure Stack.
+- Dans le dossier **CloudCapabilities** : `AzureRM.CloudCapabilities.psm1` crée un fichier JSON des fonctionnalités du cloud représentant les services et versions présentes dans un cloud Azure Stack.
+- Dans le dossier **TemplateValidator** : `AzureRM.TemplateValidator.psm1` utilise un fichier JSON des fonctionnalités du cloud pour tester des modèles en vue d’un déploiement dans Azure Stack.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Générer le fichier des fonctionnalités du cloud
 
 Avant d’utiliser le validateur de modèle, exécutez le module PowerShell **AzureRM.CloudCapabilities** pour générer un fichier JSON.
 
 >[!NOTE]
->Si vous mettez à jour votre système intégré ou que vous ajoutez de nouveaux services ou de nouvelles extensions virtuelles, vous devez exécuter à nouveau ce module.
+> Si vous mettez à jour votre système intégré ou que vous ajoutez de nouveaux services ou de nouvelles extensions virtuelles, vous devez exécuter à nouveau ce module.
 
 1. Vérifiez que vous disposez d’une connectivité à Azure Stack. Cette procédure peut être effectuée à partir de l’hôte du kit de développement Azure Stack, ou vous pouvez utiliser un [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) pour vous connecter à partir de votre station de travail.
 2. Importez le module PowerShell **AzureRM.CloudCapabilities** :
@@ -51,7 +50,7 @@ Avant d’utiliser le validateur de modèle, exécutez le module PowerShell **Az
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Utilisez l’applet de commande `Get-CloudCapabilities` pour récupérer des versions de service et créer un fichier JSON de fonctionnalités cloud. Si vous ne spécifiez pas **-OutputPath**, le fichier AzureCloudCapabilities.Json est créé dans le répertoire actif. Utilisez votre emplacement réel :
+3. Utilisez l’applet de commande `Get-CloudCapabilities` pour récupérer des versions de service et créer un fichier JSON de fonctionnalités cloud. Si vous ne spécifiez pas **-OutputPath**, le fichier AzureCloudCapabilities.Json est créé dans le répertoire actif. Utilisez votre emplacement Azure réel :
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -76,7 +75,7 @@ Utilisez cette procédure pour valider des modèles à l’aide du module PowerS
     -Verbose
     ```
 
-Les avertissements ou erreurs de validation de modèle sont journalisés sur la console PowerShell, ainsi que dans un fichier HTML situé dans le répertoire source. La capture d’écran suivante présente un exemple de rapport de validation :
+Les avertissements ou erreurs de validation de modèle sont affichés dans la console PowerShell et consignés dans un fichier HTML situé dans le répertoire source. La capture d’écran suivante montre un exemple de rapport de validation :
 
 ![Rapport de validation de modèle](./media/azure-stack-validate-templates/image1.png)
 
@@ -86,13 +85,13 @@ Le validateur de modèle prend en charge les paramètres suivants.
 
 | Paramètre | Description | Obligatoire |
 | ----- | -----| ----- |
-| TemplatePath | Spécifie le chemin pour rechercher des modèles Azure Resource Manager de manière récursive | OUI | 
+| TemplatePath | Spécifie le chemin pour rechercher des modèles Azure Resource Manager de manière récursive. | OUI |
 | TemplatePattern | Spécifie le nom des fichiers de modèle à faire correspondre | Non  |
-| CapabilitiesPath | Spécifie le chemin du fichier JSON des fonctionnalités du cloud | OUI | 
-| IncludeComputeCapabilities | Inclut l’évaluation de ressources IaaS telles que des tailles de machine virtuelle et des extensions de machine virtuelle | Non  |
-| IncludeStorageCapabilities | Inclut l’évaluation de ressources de stockage comme des types de références (SKU) | Non  |
-| Rapport | Spécifie le nom du rapport HTML généré | Non  |
-| Détaillé | Journalise les erreurs et les avertissements dans la console | Non |
+| CapabilitiesPath | Spécifie le chemin du fichier JSON des fonctionnalités du cloud. | OUI |
+| IncludeComputeCapabilities | Inclut l’évaluation de ressources IaaS telles que des tailles de machine virtuelle et des extensions de machine virtuelle. | Non  |
+| IncludeStorageCapabilities | Inclut l’évaluation de ressources de stockage, par exemple des types de références (SKU). | Non  |
+| Rapport | Spécifie le nom du rapport HTML généré. | Non  |
+| Détaillé | Journalise les erreurs et les avertissements dans la console. | Non |
 
 ### <a name="examples"></a>Exemples
 

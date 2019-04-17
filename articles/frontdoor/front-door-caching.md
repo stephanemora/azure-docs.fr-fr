@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 97c02726c7e359195c6bf4ea793404562f2acccf
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: e022a7661997d231e291a4d09611bb6e95bee262
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001930"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528313"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Mise en cache avec Azure Front Door Service
 Le document suivant explique comment spécifier le comportement d’une porte d’entrée à l’aide de règles de routage ayant la mise en cache activée.
@@ -26,7 +26,7 @@ Azure Front Door Service permet de distribuer des fichiers volumineux sans aucun
 
 </br>Dès lors qu’un bloc parvient à l’environnement de porte d’entrée, il est mis en cache et immédiatement remis à l’utilisateur. La porte d’entrée se prépare ensuite à récupérer le bloc suivant en parallèle. Cette prérécupération est l’assurance que le contenu a un bloc d’avance sur l’utilisateur, ce qui réduit la latence. Ce processus se poursuit jusqu'à ce que le fichier entier soit téléchargé (si nécessaire), que toutes les plages d’octets soient disponibles (si nécessaire), ou que le client mette fin à la connexion.
 
-</br>Pour plus d’informations sur la demande de plage d’octets, consultez [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+</br>Pour plus d’informations sur la demande de plage d’octets, consultez [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
 La porte d’entrée met en cache les blocs à mesure qu’elle les récupère, ce qui évite d’avoir à mettre l’intégralité du fichier dans le cache Front Door. Les demandes suivantes concernant le fichier ou les plages d’octets sont traitées à partir du cache. Si certains blocs ne sont pas mis en cache, ils sont demandés au backend via une prérécupération. Cette optimisation repose sur la capacité du backend à prendre en charge les demandes de plage d’octets. À défaut, cette optimisation n’est pas efficace.
 
 ## <a name="file-compression"></a>Compression de fichiers
@@ -100,9 +100,9 @@ Les vidages du cache dans la porte d’entrée ne respectent pas la casse. Par a
 
 ## <a name="cache-expiration"></a>Expiration du cache
 L’ordre suivant des en-têtes sert à déterminer la durée de stockage d’un élément dans le cache :</br>
-1. Cache-Control: s-maxage=<seconds>
-2. Cache-Control: maxage=<seconds>
-3. Expires: <http-date>
+1. Cache-Control : s-maxage =\<secondes >
+2. Cache-Control : maxage =\<secondes >
+3. Date d’expiration : \<http-date >
 
 Les en-têtes de réponse Cache-Control qui indiquent que la réponse n’est pas mise en cache comme Cache-Control: private, Cache-Control: no cache et Cache-Control: no-store sont honorés. Cependant, s’il existe plusieurs demandes en cours au niveau d’un point de présence pour la même URL, il se peut qu’elles partagent la réponse.
 

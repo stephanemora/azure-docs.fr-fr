@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309638"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470336"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutoriel de baking Project Acoustics Unity
 Ce tutoriel décrit le baking acoustique avec Project Acoustics dans Unity.
@@ -137,7 +137,7 @@ Le nom de la scène sert à connecter la scène aux fichiers stockant les positi
 
 1. Le bouton d’onglet **Probes**, qui sert à afficher cette page.
 2. Une brève description de ce que vous devez faire à l’aide de cette page.
-3. Utilisez ces cases à cocher pour choisir une résolution de simulation grossière ou fine. La simulation grossière est plus rapide, mais a certains inconvénients. Pour plus d’informations, consultez [Choix d’une résolution grossière ou fine](#Coarse-vs-Fine-Resolution) ci-dessous.
+3. Utilisez ces cases à cocher pour choisir une résolution de simulation grossière ou fine. La simulation grossière est plus rapide, mais a certains inconvénients. Pour plus d’informations, consultez [Résolution de bake](bake-resolution.md) ci-dessous.
 4. Choisissez l’emplacement où les fichiers de données acoustiques doivent être placés à l’aide de ce champ. Cliquez sur le bouton « ... » pour utiliser un sélecteur de dossier. La valeur par défaut est **Assets/AcousticsData**. Un sous-dossier **Editor** sera également créé sous cet emplacement. Pour plus d’informations sur les fichiers de données, consultez [Fichiers de données](#Data-Files) ci-dessous.
 5. Les fichiers de données pour cette scène seront nommés en utilisant le préfixe fourni ici. La valeur par défaut est « Acoustics_[nom_scène] ».
 6. Une fois que les sondes ont été calculées, les contrôles ci-dessus sont désactivés. Cliquez sur le bouton **Clear** pour effacer les calculs et activer les contrôles afin que vous puissiez recalculer à l’aide de nouveaux paramètres.
@@ -145,21 +145,7 @@ Le nom de la scène sert à connecter la scène aux fichiers stockant les positi
 
 Dans cette version de Project Acoustics, les sondes ne peuvent pas être placées manuellement. Elles doivent être placées à l’aide du processus automatisé fourni sous l’onglet **Probes**.
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Choix d’une résolution grossière ou fine
-
-La seule différence entre les paramètres de résolution grossière et fine est la fréquence à laquelle la simulation est effectuée. La résolution fine utilise une fréquence deux fois plus élevée que la résolution grossière.
-Bien que cela puisse sembler simple, cela a plusieurs implications sur la simulation acoustique :
-
-* La longueur d’onde pour la résolution grossière est deux fois plus longue que pour la résolution fine. Par conséquent, les voxels sont deux fois plus grands.
-* La durée nécessaire à la simulation est directement liée à la taille des voxels. Ainsi, un baking avec une résolution grossière est environ 16 fois plus rapide qu’avec une résolution fine.
-* Les ouvertures (par exemple les portes ou les fenêtres) plus petites que la taille de voxel ne peuvent pas être simulées. Le paramètre de résolution grossière peut entraîner la non-simulation de certaines de ces petites ouvertures. Par conséquent, le son ne les traversera pas au moment de l’exécution. Vous pouvez vérifier si cela se produit en affichant les voxels.
-* La fréquence de simulation inférieure provoque moins de diffraction autour des angles et des bords.
-* Les sources sonores ne peuvent pas se trouver à l’intérieur de voxels « remplis », à savoir des voxels qui contiennent de la géométrie. Dans ce cas de figure, aucun son n’est généré. Il est plus difficile de placer les sources sonores afin qu’elles ne se trouvent pas à l’intérieur des voxels plus grands obtenus avec une résolution grossière que dans le cas où le paramètre de résolution fine est utilisé.
-* Les plus grands voxels empiéteront plus sur les ouvertures, comme indiqué ci-dessous. La première image a été créée avec une résolution grossière, tandis que la deuxième est la même ouverture avec la résolution fine. Comme indiqué par les marquages rouges, il y a beaucoup moins d’intrusion dans l’ouverture avec une valeur fine. La ligne bleue est la porte telle que définie par la géométrie, tandis que la ligne rouge est l’ouverture acoustique effective définie par la taille de voxel. L’impact de cet empiètement dans une situation donnée dépend entièrement de l’alignement des voxels avec la géométrie de l’ouverture, qui est déterminé par la taille et les emplacements de vos objets dans la scène.
-
-![Capture d’écran des voxels grossiers dans l’embrasure de la porte](media/coarse-voxel-doorway.png)
-
-![Capture d’écran des voxels fins dans l’embrasure de la porte](media/fine-voxel-doorway.png)
+Pour plus d’informations sur les différences entre la résolution grossière et la résolution fine, consultez [Résolution de bake](bake-resolution.md).
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Effectuer un bake de votre scène avec Azure Batch
 Vous pouvez effectuer un bake de votre scène avec un cluster de calcul dans le cloud en utilisant le service Azure Batch. Le plug-in Project Acoustics Unity se connecte directement à Azure Batch pour instancier, gérer et supprimer un cluster Azure Batch pour chaque bake. Sous l’onglet **Bake**, entrez vos informations d’identification Azure, sélectionnez un type de machine et une taille de cluster, puis cliquez sur **Bake**.

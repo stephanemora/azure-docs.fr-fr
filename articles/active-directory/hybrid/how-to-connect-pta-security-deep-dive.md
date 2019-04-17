@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096858"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617209"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Immersion dans la sécurité de l’authentification directe Azure Active Directory
 
@@ -136,7 +136,7 @@ L’authentification directe traite une demande de connexion de l’utilisateur 
 4. L’utilisateur entre son nom d’utilisateur dans la page **Connexion utilisateur**, puis sélectionne le bouton **Suivant**.
 5. L’utilisateur entre son mot de passe dans la page **Connexion utilisateur**, puis sélectionne le bouton **Se connecter**.
 6. Le nom d’utilisateur et le mot de passe sont envoyés à Azure AD STS dans une requête POST HTTPS.
-7. Azure AD STS récupère les clés publiques de tous les agents d’authentification inscrits sur votre locataire à partir de la base de données Azure SQL et les utilise pour chiffrer le mot de passe. 
+7. Azure AD STS récupère les clés publiques de tous les agents d’authentification inscrits sur votre locataire à partir de la base de données Azure SQL et les utilise pour chiffrer le mot de passe.
     - Azure AD STS produit « N » valeurs de mot de passe chiffré pour « N » agents d’authentification inscrits sur votre locataire.
 8. Azure AD STS place la demande de validation de mot de passe (qui inclut le nom d’utilisateur et les valeurs de mot de passe chiffré) dans la file d’attente Service Bus propre à votre locataire.
 9. Étant donné que les agents d’authentification initialisés sont connectés en permanence à la file d’attente Service Bus, l’un des agents d’authentification disponibles récupère la demande de validation de mot de passe.
@@ -145,6 +145,9 @@ L’authentification directe traite une demande de connexion de l’utilisateur 
     - Cette API est la même que celle utilisée par les services de fédération Active Directory (AD FS) pour connecter les utilisateurs dans un scénario de connexion fédérée.
     - Cette API sur le processus de résolution standard de Windows Server pour localiser le contrôleur de domaine.
 12. L’agent d’authentification reçoit le résultat depuis Active Directory, tel que réussite, nom d’utilisateur ou mot de passe incorrect, ou mot de passe expiré.
+
+   > [!NOTE]
+   > Si l’Agent d’authentification échoue pendant le processus de connexion, la demande de connexion entière est supprimée. Il n’existe aucune remise de demandes de connexion à partir d’un Agent d’authentification à un autre Agent d’authentification local. Ces agents communiquent uniquement avec le cloud et non avec eux.
 13. L’agent d’authentification retransmet le résultat à Azure AD STS via un canal HTTPS mutuellement authentifié sortant sur le port 443. L’authentification mutuelle utilise le certificat précédemment émis pour l’agent d’authentification lors de l’inscription.
 14. Azure AD STS vérifie que ce résultat est mis en corrélation avec la demande de connexion spécifique sur votre locataire.
 15. Azure AD STS poursuit avec la procédure de connexion configurée. Par exemple, si la validation du mot de passe aboutit, l’utilisateur peut devoir s’authentifier via Multi-Factor Authentication ou être redirigé vers l’application.
@@ -181,7 +184,7 @@ Pour renouveler la relation d’approbation d’un agent d’authentification av
 
 ## <a name="auto-update-of-the-authentication-agents"></a>Mise à jour automatique des agents d’authentification
 
-L’application de mise à jour met automatiquement à jour l’agent d’authentification lors de la sortie d’une nouvelle version. L’application ne traite pas les demandes de validation de mot de passe de votre locataire. 
+L’application de mise à jour automatiquement des mises à jour l’Agent d’authentification lors de la publication d’une nouvelle version (avec des correctifs de bogues ou des améliorations des performances). L’application de mise à jour ne gère pas les demandes de validation de mot de passe pour votre client.
 
 Azure AD héberge la nouvelle version du logiciel en tant que **package Windows Installer (MSI)** signé. Le package MSI est signé à l’aide de [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) avec l’algorithme de chiffrement SHA256. 
 
@@ -203,7 +206,7 @@ Pour mettre à jour automatiquement un agent d’authentification :
     - Redémarre le service Agent d’authentification
 
 >[!NOTE]
->Si vous avez inscrit plusieurs agents d’authentification sur votre locataire, Azure AD ne renouvelle pas leurs certificats ou ne les met pas à jour en même temps. Azure AD effectue ces procédures progressivement pour s’assurer de la haute disponibilité des demandes de connexion.
+>Si vous avez inscrit plusieurs agents d’authentification sur votre locataire, Azure AD ne renouvelle pas leurs certificats ou ne les met pas à jour en même temps. Au lieu de cela, Azure AD peut donc à la fois pour assurer la haute disponibilité des demandes de connexion.
 >
 
 

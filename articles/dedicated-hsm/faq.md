@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
-ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540820"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608859"
 ---
 # <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
@@ -155,6 +155,10 @@ Oui. Chaque appliance HSM est entièrement dédiée à un client unique et perso
 
 Microsoft ne dispose d’aucun contrôle administratif ou cryptographique sur le module HSM. Microsoft dispose d’un accès de niveau superviseur via la connexion de port série pour récupérer des données de télémétrie de base comme la température et l’intégrité de composant. Microsoft peut ainsi adresser des notifications proactives en cas de problèmes d’intégrité. Les clients peuvent choisir de désactiver ce compte.
 
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>Q : Quel est le compte « tenantadmin » Microsoft utilise, je suis habitué à l’utilisateur administrateur est « admin » sur les modules HSM SafeNet ?
+
+Les modules HSM est livré avec un utilisateur par défaut de l’administrateur avec son mot de passe par défaut habituelle. Microsoft ne voulait pas avoir des mots de passe par défaut en cours d’utilisation pendant que n’importe quel appareil est dans un pool en attente d’être approvisionné par les clients. Cela ne répondent pas aux nos exigences de sécurité strict. Pour cette raison, nous définissons un mot de passe fort qui est ignoré au moment de l’approvisionnement. En outre, lors de la configuration, nous créer un nouvel utilisateur dans le rôle d’administrateur appelé « tenantadmin ». Cet utilisateur a le mot de passe par défaut et les clients remplacer cette valeur en tant que la première action lors de la première connexion à l’appareil qui vient d’être approvisionné. Ce processus permet de garantir des niveaux élevés de sécurité et conserve notre promesse d’un contrôle exclusif pour nos clients. Il convient de noter que l’utilisateur « tenantadmin » peut être utilisé pour réinitialiser le mot de passe utilisateur admin si un client souhaite utiliser ce compte. 
+
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>Q : Microsoft, ou toute personne travaillant chez Microsoft, peut-il accéder aux clés de mon HSM dédié ?
 
 Non. Microsoft n’a pas accès aux clés stockées dans le module HSM dédié alloué par le client.
@@ -181,7 +185,7 @@ Oui. Vous pouvez envoyer des journaux d’activité de l’appliance HSM vers un
 
 ## <a name="high-availability"></a>Haute disponibilité
 
-### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>Q : Puis-je configurer la haute disponibilité dans une même région ou dans plusieurs régions ?
+### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>Q : Est-il possible de configurer la haute disponibilité dans la même région ou dans plusieurs régions ?
 
 Oui. La haute disponibilité s’installe et se configure dans le logiciel client HSM fourni par Gemalto. Modules de sécurité matériels à partir du même réseau virtuel ou d’autres réseaux virtuels dans la même région ou dans différentes régions ou sur site HSM connecté à un réseau virtuel à l’aide de site à site ou VPN de point à point peut être ajouté à la même configuration de haute disponibilité. Il convient de noter que cette opération synchronise uniquement matériel de clé et les éléments de configuration non spécifiques tels que les rôles.
 
@@ -201,7 +205,7 @@ Non.
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>Q : Quel est le contrat SLA du service HSM dédié ?
 
-Il n’existe aucun garantir des temps d’activité spécifiques fournie pour le service HSM dédié. Cependant, comme Microsoft garantit un accès de niveau réseau à l’appareil, ce sont les contrats SLA de gestion réseau Azure standard qui s’appliquent.
+Il n’existe aucune garantie de temps d’activité spécifique fourni pour le service HSM dédié. Cependant, comme Microsoft garantit un accès de niveau réseau à l’appareil, ce sont les contrats SLA de gestion réseau Azure standard qui s’appliquent.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>Q : Comment les modules HSM utilisés dans le service HSM dédié Azure sont-ils protégés ?
 
@@ -217,9 +221,9 @@ Il est vivement recommandé d’utiliser une unité de sauvegarde HSM locale pou
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>Q : Comment bénéficier du support pour un HSM dédié ?
 
-Prise en charge est fournie par Microsoft et Gemalto.  Si vous avez un problème avec le matériel ou accès réseau, à déclencher une demande de support auprès de Microsoft et si vous rencontrez un problème avec le développement d’application, de logiciels et de configuration de HSM, veuillez rasie une prise en charge de requête avec Gemalto. Si vous rencontrez un problème d’indéterminé, déclencher un withg de demande de support technique Microsoft et puis Gemalto peut être engagé comme requis. 
+Prise en charge est fournie par Microsoft et Gemalto.  Si vous rencontrez un problème avec le matériel ou l’accès réseau, génère une demande de support avec Microsoft et si vous rencontrez un problème avec la configuration de module de sécurité matériel, logiciel et le développement d’applications, ouvrez une demande de support avec Gemalto. Si vous rencontrez un problème d’indéterminé, déclencher une demande de support avec Microsoft et puis Gemalto peut être engagé comme requis. 
 
-### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>Q : Comment obtenir le client logiciel, la documentation et accès à des conseils d’intégration pour le module de HSM SafeNet Luna 7 ?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>Q : Comment obtenir le client logiciel, la documentation et accès à des conseils d’intégration pour le module de HSM SafeNet Luna 7 ?
 
 Après avoir inscrit pour le service, un ID de client Gemalto sera fournie pour l’inscription dans le portail de support client Gemalto. Cela active l’accès à tous les logiciels et documentation ainsi que l’activation des demandes de support directement avec Gemalto.
 

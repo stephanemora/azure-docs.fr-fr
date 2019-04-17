@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d639727e5b002dfc0e961eaaad867e83867b59e0
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 120be3ef7299391e611dc393e70af697c1daf2ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851581"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobicontrol"></a>Didacticiel : Intégration d’Azure Active Directory à MobiControl
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec MobiControl, effectue
 
     ![Informations d’authentification unique dans Domaine et URL MobiControl](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.corp.soti.net/mobicontrol`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<SUBDOMAIN>.corp.soti.net/mobicontrol`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.mobicontrolcloud.com/mobicontrol`
 
@@ -182,7 +182,7 @@ Quand vous cliquez sur la vignette MobiControl dans le volet d’accès, vous de
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

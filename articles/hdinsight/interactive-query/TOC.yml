@@ -58,7 +58,7 @@ items:
       - name: Utilisation d'Azure PowerShell
         href: ../hadoop/apache-hadoop-use-hive-powershell.md
         maintainContext: true
-      - name: Utilisation du Kit de développement logiciel (SDK) .NET
+      - name: Utiliser le kit SDK pour .NET
         href: ../hadoop/apache-hadoop-use-hive-dotnet-sdk.md
         maintainContext: true
       - name: Utiliser les outils HDInsight pour Visual Studio
@@ -155,21 +155,9 @@ items:
       maintainContext: true
   - name: gérer
     items:
-    - name: Créer des clusters
+    - name: Créer des clusters HDInsight
       href: ../hdinsight-hadoop-provision-linux-clusters.md
       items:
-      - name: Utilisation d'Azure PowerShell
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-        maintainContext: true
-      - name: Utiliser cURL et l’API REST Azure
-        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-        maintainContext: true
-      - name: Utiliser le kit de développement logiciel (SDK) .NET
-        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        maintainContext: true
-      - name: Utiliser Azure Classic CLI
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-        maintainContext: true
       - name: Utilisation du portail Azure
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
@@ -177,16 +165,39 @@ items:
         displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
+      - name: Utiliser le kit SDK pour .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
+      - name: Utiliser le kit SDK pour Python
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster
+      - name: Utiliser le kit SDK pour Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
+      - name: Utilisation d'Azure PowerShell
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: Utiliser cURL et l’API REST Azure
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+        maintainContext: true
+      - name: Utiliser Azure Classic CLI
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+        maintainContext: true
+      - name: Créer des clusters à la demande
+        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+        maintainContext: true
       maintainContext: true
     - name: Créer des clusters à la demande
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: Gérer des clusters Apache Hadoop
+    - name: Gérer des clusters HDInsight
       href: ../hdinsight-administer-use-portal-linux.md
       items:
-      - name: Utilisation du Kit de développement logiciel (SDK) .NET
-        href: ../hdinsight-administer-use-dotnet-sdk.md
-        maintainContext: true
+      - name: Utiliser le kit SDK pour .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
+      - name: Utiliser le kit SDK pour Python
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+      - name: Utiliser le kit SDK pour Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+      - name: Utiliser le kit SDK pour Go (préversion)
+        href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
       - name: Utilisation d'Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
@@ -236,6 +247,9 @@ items:
       maintainContext: true
     - name: Mise à jour corrective du système d’exploitation pour le cluster HDInsight
       href: ../hdinsight-os-patching.md
+      maintainContext: true
+    - name: Migrer des charges de travail Hive vers HDInsight 4.0
+      href: apache-hive-migrate-workloads.md
       maintainContext: true
   - name: Résolution des problèmes
     href: ../hdinsight-troubleshoot-guide.md
@@ -326,13 +340,13 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/az.hdinsight
-  - name: Kit de développement logiciel (SDK) .NET
+  - name: Kit SDK pour .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Kit de développement logiciel (SDK) Python
+  - name: Kit SDK pour Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Kit de développement logiciel (SDK) Java
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Kit de développement logiciel (SDK) Go
+  - name: Kit SDK pour Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+  - name: Kit SDK pour Go
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
@@ -346,12 +360,15 @@ items:
 - name: Ressources
   items:
   - name: Notes de publication
-    href: ../hdinsight-release-notes.md
     items:
+    - name: Notes de publication actuelles
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Notes de publication archivées
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-    maintainContext: true
+  - name: Changements d’accès de la configuration de cluster
+    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Obtenir de l'aide sur le forum
@@ -365,9 +382,9 @@ items:
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 4ff59bd9aeb59ad3dd835edaff3d1e5048f2e58e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2f9952a95da9a47448d54ba5b48be033fb5707cc
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444119"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615721"

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Nimblex | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Nimblex | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Nimblex.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 3cf646deb90bc086263b7bc3047a9da34865e798
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136632"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275626"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutoriel : Intégration d’Azure Active Directory à Nimblex
+# <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Didacticiel : Intégration d’Azure Active Directory à Nimblex
 
 Dans ce tutoriel, vous découvrez comment intégrer Nimblex à Azure Active Directory (Azure AD).
 L’intégration de Nimblex à Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Nimblex à Azure AD, vous devez ajouter Nimblex à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Nimblex à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Nimblex à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,9 +107,9 @@ Pour configurer l’authentification unique Azure AD avec Nimblex, effectuez les
 
     ![Informations d’authentification unique dans Domaine et URL Nimblex](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<YOUR APPLICATION PATH>/Login.aspx`.
+    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<YOUR APPLICATION PATH>/Login.aspx`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<YOUR APPLICATION PATH>/`
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<YOUR APPLICATION PATH>/`
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<path-to-application>/SamlReply.aspx`
 
@@ -224,7 +224,7 @@ Le fait de cliquer sur la vignette Nimblex dans le panneau d’accès doit vous 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

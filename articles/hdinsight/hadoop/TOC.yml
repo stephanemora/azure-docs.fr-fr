@@ -491,28 +491,31 @@ items:
 - name: Ressources
   items:
   - name: Notes de publication
-    href: ../hdinsight-release-notes.md
     items:
+    - name: Notes de publication actuelles
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Notes de publication archivées
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-    maintainContext: true
+  - name: Changements d’accès de la configuration de cluster
+    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Obtenir de l'aide sur le forum
     href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
   - name: Parcours d’apprentissage
     href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
-  - name: Programme professionnel de Microsoft pour le Big Data
+  - name: Programme professionnel de Microsoft pour les données volumineuses (Big Data)
     href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
   - name: Calculatrice de prix
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 3a83ed5b9f3a1015c93f14ccb4be5bd2852b146a
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 5c414ef4d9726f44ea3642a93035364dec304fa0
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578878"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616881"

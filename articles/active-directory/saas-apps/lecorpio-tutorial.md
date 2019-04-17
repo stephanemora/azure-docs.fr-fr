@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Lecorpio | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Lecorpio | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Lecorpio.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8eaa3abdaecd3c4a8d5b8ba3932f6bc1e561baf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0dec40027441432845d44828eb61e6b9e0ff081
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858904"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281520"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Tutoriel : Intégration d’Azure Active Directory à Lecorpio
+# <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Didacticiel : Intégration d’Azure Active Directory à Lecorpio
 
 Dans ce didacticiel, vous allez apprendre à intégrer Lecorpio à Azure Active Directory (Azure AD).
 L’intégration de Lecorpio à Azure AD offre les avantages suivants :
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD auprès de Lecorpio, effect
 
     ![Informations d’authentification unique relatives au domaine et aux URL Lecorpio](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<instance name>.lecorpio.com/<customer name>`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<instance name>.lecorpio.com/<customer name>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<instance name>.lecorpio.com/<customer name>`
 
@@ -148,7 +148,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -193,7 +193,7 @@ Le fait de cliquer sur la vignette Lecorpio dans le volet d’accès doit vous c
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

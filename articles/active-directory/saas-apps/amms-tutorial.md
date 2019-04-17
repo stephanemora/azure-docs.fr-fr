@@ -1,33 +1,35 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Mercell | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Mercell.
+title: 'Didacticiel : Intégration d’Azure Active Directory à AMMS | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AMMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: bb94c288-2ed4-4683-acde-62474292df29
+ms.assetid: 107653a2-bd5c-4916-9fd2-1c15a9e24dc1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 2411a036cd56d88e261317ae523d8186b85b5a15
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e91f51de53b920d1a130c3983489a08b7f1f6cfd
 ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274550"
+ms.locfileid: "59283830"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Didacticiel : Intégration d’Azure Active Directory à Mercell
+# <a name="tutorial-azure-active-directory-integration-with-amms"></a>Didacticiel : Intégration d’Azure Active Directory à AMMS
 
-Dans ce didacticiel, vous allez apprendre à intégrer Mercell à Azure Active Directory (Azure AD).
-L’intégration de Mercell à Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez apprendre à intégrer AMMS à Azure Active Directory (Azure AD).
+L’intégration d’AMMS à Azure AD vous offre les avantages suivants :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Mercell.
-* Vous pouvez permettre à vos utilisateurs d’être automatiquement connectés à Mercell (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Dans Azure AD, vous pouvez contrôler qui a accès à AMMS.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à AMMS (par le biais de l’authentification unique) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,24 +37,22 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à Mercell, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD à AMMS, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement Mercell pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
+* Un abonnement AMMS pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Mercell prend en charge l’authentification unique initiée par le **fournisseur d’identité**
+* AMMS prend en charge l’authentification unique initiée par le **fournisseur de services**
 
-* Mercell prend en charge l’attribution d’utilisateurs **Juste-à-temps**
+## <a name="adding-amms-from-the-gallery"></a>Ajout d’AMMS depuis la galerie
 
-## <a name="adding-mercell-from-the-gallery"></a>Ajout de Mercell depuis la galerie
+Pour configurer l’intégration d’AMMS à Azure AD, vous devez ajouter AMMS, depuis la galerie, à votre liste d’applications SaaS managées.
 
-Pour configurer l’intégration de Mercell à Azure AD, vous devez ajouter Mercell depuis la galerie à votre liste d’applications SaaS gérées.
-
-**Pour ajouter Mercell à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter AMMS à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -66,31 +66,31 @@ Pour configurer l’intégration de Mercell à Azure AD, vous devez ajouter Merc
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Mercell**, sélectionnez **Mercell** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **AMMS**, sélectionnez **AMMS** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![Mercell dans la liste des résultats](common/search-new-app.png)
+    ![AMMS dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès de Mercell, à l’aide d’un utilisateur de test nommé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Mercell associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès d’AMMS avec un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur AMMS associé doit être établie.
 
-Pour configurer et tester l’authentification unique Azure AD avec Mercell, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD auprès d’AMMS, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique de Mercell](#configure-mercell-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+2. **[Configurer l’authentification unique AMMS](#configure-amms-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Mercell](#create-mercell-test-user)** pour avoir dans Mercell un équivalent de Britta Simon lié à la représentation Azure AD associée.
+5. **[Créer un utilisateur de test AMMS](#create-amms-test-user)** pour avoir dans AMMS un équivalent de Britta Simon lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-Pour configurer l’authentification unique Azure AD auprès de Mercell, effectuez les étapes suivantes :
+Pour configurer l’authentification unique Azure AD auprès d’AMMS, effectuez les étapes suivantes :
 
-1. Dans la page d’intégration de l’application [Mercell](https://portal.azure.com/) sur le **portail Azure**, sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **AMMS**, cliquez sur **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -104,17 +104,22 @@ Pour configurer l’authentification unique Azure AD auprès de Mercell, effectu
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Mercell](common/idp-identifier.png)
+    ![Informations d’authentification unique dans Domaine et URL AMMS](common/sp-identifier.png)
 
-    Dans la zone de texte **Identificateur**, tapez une URL :  `https://my.mercell.com/`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<SUBDOMAIN>.microwestcloud.com/amms/pages/login.aspx`
+
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `<SUBDOMAIN>.microwestcloud.com/amms`
+
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique AMMS](mailto:techsupport@microwestsoftware.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
-### <a name="configure-mercell-single-sign-on"></a>Configurer l’authentification unique de Mercell
+### <a name="configure-amms-single-sign-on"></a>Configurer l’authentification unique AMMS
 
-Pour configurer l’authentification unique côté **Mercell**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** à [l’équipe du support technique de Mercell](mailto:webmaster@mercell.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **AMMS**, vous devez envoyerl’**URL des métadonnées de fédération de l’application** à [l’équipe du support technique AMMS](mailto:techsupport@microwestsoftware.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -134,8 +139,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -143,15 +147,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Mercell.
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à AMMS.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **Mercell**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **AMMS**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Mercell**.
+2. Dans la liste des applications, sélectionnez **AMMS**.
 
-    ![Lien Mercell dans la liste des applications](common/all-applications.png)
+    ![Lien AMMS dans la liste des applications](common/all-applications.png)
 
 3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
@@ -167,24 +171,21 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-mercell-test-user"></a>Créer l’utilisateur de test Mercell
+### <a name="create-amms-test-user"></a>Créer un utilisateur de test AMMS
 
-Dans cette section, un utilisateur nommé Britta Simon est créé dans Mercell. Mercell prend en charge l’attribution d’utilisateurs juste-à-temps, une option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si l’utilisateur souhaité n’existe pas déjà dans Mercell, il est créé après l’authentification.
-
->[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support Mercell](mailto:webmaster@mercell.com).
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans AMMS. Collaborez avec l’ [équipe du support technique AMMS](mailto:techsupport@microwestsoftware.com) pour ajouter des utilisateurs dans la plateforme AMMS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Mercell dans le volet d’accès doit vous connecter automatiquement à l’application Mercell pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Le fait de cliquer sur la vignette AMMS dans le panneau d’accès doit vous connecter automatiquement à l’application Ariba pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

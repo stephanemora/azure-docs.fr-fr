@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8e7eee40bed29117d2873393395a852e4b738533
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793479"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425931"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Didacticiel : Ajouter un appareil réel à votre application Azure IoT Central
 
@@ -41,6 +41,8 @@ Avant de commencer, le générateur doit suivre au minimum le premier des trois 
 * [Définir un nouveau type d’appareil](tutorial-define-device-type.md) (obligatoire)
 * [Configurer des règles et des actions pour votre appareil](tutorial-configure-rules.md) (facultatif)
 * [Personnaliser la vue de l’opérateur](tutorial-customize-operator.md) (facultatif)
+
+Installez [Node.js](https://nodejs.org/) version 8.0.0 ou ultérieure sur votre machine de développement. Vous pouvez exécuter `node --version` sur la ligne de commande pour vérifier la version. Node.js est disponible pour un large éventail de systèmes d’exploitation.
 
 ## <a name="add-a-real-device"></a>Ajouter un appareil réel
 
@@ -92,37 +94,27 @@ Les articles listés dans la section [Étapes suivantes](#next-steps) fournissen
 
 La procédure ci-après vous indique comment préparer l’exemple [Node.js](https://nodejs.org/) :
 
-1. Installez [Node.js](https://nodejs.org/) 4.0.x ou une version ultérieure sur votre machine. Node.js est disponible pour un large éventail de systèmes d’exploitation.
-
-1. Sur votre machine, créez un dossier nommé `connectedairconditioner`.
-
-1. Dans votre environnement de ligne de commande, accédez au dossier `connectedairconditioner` que vous venez de créer.
-
-1. Installez le générateur de clé DPS en exécutant la commande suivante :
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-   Vous pouvez trouver plus d’informations sur l’outil en ligne de commande [ici](https://www.npmjs.com/package/dps-keygen).
+### <a name="get-the-device-connection-information"></a>Obtenir les informations de connexion de l’appareil
 
 1. La chaîne de connexion pour une instance d’appareil dans votre application est générée à partir des informations sur l’appareil fournies par l’IoT Central.
 
-   Revenez au portail de l’IoT Central. Sur l’écran Appareil de votre climatiseur connecté réel, choisissez **Connecter**.
+   Sur l’écran Appareil de votre climatiseur connecté réel, choisissez **Connecter**.
 
    ![Page Appareil affichant le lien d’accès aux informations de connexion](media/tutorial-add-device/connectionlink.png)
 
-1. Dans la page de connexion de l’appareil, copiez et collez l’ID d’étendue, l’ID de l’appareil et la clé primaire dans un éditeur de texte, puis enregistrez. Vous utiliserez ces valeurs à l’étape suivante.
+1. Dans la page Connexion de l’appareil, notez les valeurs des champs **ID de l’étendue**, **ID de l’appareil** et **Clé primaire**. Vous utiliserez ces valeurs à l’étape suivante.
 
    ![Informations de connexion](media/tutorial-add-device/device-connect.png)
 
-1. Revenez à l’environnement de ligne de commande et générez votre chaîne de connexion en exécutant :
+### <a name="generate-the-connection-string"></a>Générer la chaîne de connexion
 
-    ```cmd/sh
-    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
-    ```
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-   Copiez le résultat et enregistrez-le dans un nouveau fichier (par exemple, connection.txt).
+### <a name="prepare-the-nodejs-project"></a>Préparer le projet Node.js
+
+1. Créez un dossier nommé `connectedairconditioner` sur votre ordinateur de développement.
+
+1. Dans votre environnement de ligne de commande, accédez au dossier `connectedairconditioner` que vous venez de créer.
 
 1. Pour initialiser votre projet Node.js, exécutez la commande ci-après en acceptant toutes les valeurs par défaut :
 
@@ -309,7 +301,7 @@ Pour configurer votre code client pour la connexion à votre application Azure I
     var connectionString = '{your device connection string}';
     ```
 
-1. Remplacez `{your device connection string}` par la chaîne de connexion de votre appareil réel. Vous avez enregistré la chaîne de connexion précédemment dans un éditeur de texte.
+1. Remplacez `{your device connection string}` par la chaîne de connexion de votre appareil réel. Vous avez copié la chaîne de connexion que vous avez générée au cours d’une étape antérieure.
 
 1. Enregistrez les modifications apportées au fichier **ConnectedAirConditioner.js**.
 
@@ -366,8 +358,8 @@ En tant qu’opérateur, vous pouvez apprendre à :
 
 En tant que développeur d’appareils, vous pouvez apprendre à :
 
-* [Préparer et connecter un appareil DevKit (C)](howto-connect-devkit.md)
+* [Préparer et connecter un appareil DevKit (C)](howto-connect-devkit.md)
 * [Préparer et connecter un Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
 * [Préparer et connecter un Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
-* [Préparer et connecter un appareil Windows 10 IoT Core (C#)](howto-connect-windowsiotcore.md)
+* [Préparer et connecter un appareil Windows 10 IoT Standard (C#)](howto-connect-windowsiotcore.md)
 * [Connecter un client Node.js générique à votre application Azure IoT Central](howto-connect-nodejs.md)

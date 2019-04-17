@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77dadeda8bb270689530a34c3e36d33e439ea9e5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3b00afa3d1001ee7c48997e41fd6042763bcc9aa
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180383"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616592"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Questions fréquentes (FAQ)
 
@@ -37,7 +37,7 @@ L’authentification directe est une fonctionnalité gratuite. Il est inutile de
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L’authentification directe est-elle disponible dans le [cloud Microsoft Azure Allemagne](https://www.microsoft.de/cloud-deutschland) et le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) ?
 
- Non. L’authentification directe est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
+Non. L’authentification directe est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[L’accès conditionnel](../active-directory-conditional-access-azure-portal.md) fonctionne-t-il avec l’authentification directe ?
 
@@ -49,7 +49,11 @@ Oui, l’authentification directe prend en charge le nom d’utilisateur `Altern
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La synchronisation du hachage de mot de passe agit-elle comme solution de secours pour l’authentification directe ?
 
- Non. L’authentification directe _ne bascule pas_ automatiquement vers la synchronisation de hachage de mot de passe. Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+Non. L’authentification directe _ne bascule pas_ automatiquement vers la synchronisation de hachage de mot de passe. Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>Que se passe-t-il lorsque je bascule à partir de la synchronisation de hachage de mot de passe pour l’authentification directe ?
+
+Lorsque vous utilisez Azure AD Connect pour basculer la méthode de connexion à partir de la synchronisation de hachage de mot de passe pour l’authentification directe, l’authentification directe est la principale méthode de connexion pour vos utilisateurs dans des domaines gérés. Veuillez noter que les hachages de mot de passe de tous les utilisateurs qui ont été précédemment synchronisés par la synchronisation de hachage de mot de passe restent stockées sur Azure AD.
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Puis-je installer un connecteur de [proxy d’application Azure AD](../manage-apps/application-proxy.md) sur le même serveur qu’un agent d’authentification directe ?
 
@@ -157,7 +161,7 @@ La désinstallation d’un agent d’authentification directe à partir d’un s
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>J’ai un ancien locataire qui a été configuré à l’origine avec AD FS.  Bien que nous ayons récemment migré vers PTA, nos modifications de nom d’utilisateur principal (UPN) ne se synchronisent pas avec Azure AD.  Pourquoi la synchronisation n’a-t-elle pas lieu ?
 
-R : Il peut arriver que les modifications de noms UPN locaux ne se synchronisent pas dans les circonstances suivantes :
+R : Il peut arriver que les modifications de noms UPN locaux ne se synchronisent pas dans les circonstances suivantes :
 
 - Votre client Azure AD a été créé avant le 15 juin 2015.
 - Vous étiez à l’origine fédéré avec votre client Azure AD par le biais d’AD FS pour l’authentification.

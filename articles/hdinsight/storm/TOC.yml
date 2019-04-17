@@ -281,16 +281,18 @@ items:
     href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
   - name: Parcours d’apprentissage
     href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
-  - name: Programme professionnel de Microsoft pour le Big Data
+  - name: Programme professionnel de Microsoft pour les données volumineuses (Big Data)
     href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
   - name: Calculatrice de prix
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: c3cb2f274c2d2cbd76cffb31cf0421093eea232f
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+  - name: Changements d’accès de la configuration de cluster
+    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
+ms.openlocfilehash: 760f7c94a101d7c4a8374d3a0b256da3af35bd8b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578371"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607504"

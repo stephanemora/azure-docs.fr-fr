@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c78a54d5002972339994d9590c0a3e23b5c69bd9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806310"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607792"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Tarification des offres de machine virtuelle
 ==================================
@@ -149,7 +149,7 @@ Le tableau suivant présente les différentes régions que vous pouvez spécifie
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lituanie            | EUR               |
 | LU         | Luxembourg           | EUR               |
-| MK         | Macédoine, ancienne république yougoslave de       | MKD               |
+| MK         | Macédoine du Nord      | MKD               |
 | MY         | Malaisie             | MYR               |
 | MT         | Malte                | EUR               |
 | MX         | Mexique               | MXN               |

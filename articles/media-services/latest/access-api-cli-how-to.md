@@ -10,25 +10,25 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 1b872c5c2ff0f581300a843650d7434c7c526c84
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545617"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617833"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Accéder à l’API Azure Media Services avec Azure CLI
  
-Vous devez utiliser l’authentification de principal de service Azure AD pour vous connecter à l’API Azure Media Services. Votre application doit demander un jeton Azure AD avec les paramètres suivants :
+Pour utiliser l’authentification de principal du service Azure AD pour se connecter à l’API Azure Media Services, votre application doit demander un jeton Azure AD qui possède les paramètres suivants :
 
 * Point de terminaison de locataire Azure AD
 * URI de ressource Media Services
 * URI de ressource pour REST Media Services
 * Valeurs de l’application Azure AD : ID client et clé secrète client
 
-Pour plus d’informations, consultez [développement avec Media Services v3 API](media-services-apis-overview.md).
+Pour une explication détaillée, consultez [l’accès à Media Services v3 API](media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
 Cet article vous montre comment utiliser Azure CLI pour créer une application et un principal de service Azure AD afin d’obtenir les valeurs nécessaires pour accéder aux ressources Azure Media Services.
 

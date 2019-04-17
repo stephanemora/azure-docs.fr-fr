@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6d3cb99a55ae5eb8276391f22675a88e8b3d072
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660117"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276437"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 
@@ -38,7 +38,7 @@ Azure Stack inclut un réseau d’infrastructure publique utilisant des adresses
 La liste suivante décrit les exigences de certificat nécessaires pour déployer Azure Stack : 
 - Les certificats doivent être émis par une autorité de certification interne ou une autorité de certification publique. Si vous utilisez une autorité de certification publique, elle doit être incluse dans l’image du système d’exploitation de base dans le cadre du projet Microsoft Trusted Root Authority Program. La liste complète est disponible ici : https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
 - Votre infrastructure Azure Stack doit avoir accès au réseau de l’emplacement de la liste de révocation des certificats (CRL) de l’autorité de certification publiée dans le certificat. Cette CRL doit être un point de terminaison http
-- Lors de la rotation des certificats, les certificats doivent être émis à partir de la même autorité de certification interne utilisée pour signer des certificats fournie au déploiement ou de toute autorité de certification publique ci-dessus
+- Lors de la rotation des certificats dans les builds antérieures à 1903, les certificats doivent être émis à partir de la même autorité de certification interne utilisée pour signer des certificats fournie au déploiement ou de toute autorité de certification publique ci-dessus. Pour la build 1903 et versions ultérieures, les certificats peuvent être émis par toute entreprise ou autorité de certification publique.
 - L’utilisation des certificats auto-signés n’est pas prise en charge
 - Pour le déploiement et la rotation, vous pouvez utiliser un certificat unique couvrant tous les espaces de noms dans les champs Nom de l’objet et Autre nom de l’objet du certificat OU vous pouvez utiliser des certificats individuels pour chaque espace de noms ci-dessous que les services Azure Stack que vous envisagez d’utiliser nécessitent. Les deux approches requièrent l’utilisation de caractères génériques pour les points de terminaison où ils sont requis, comme **KeyVault** et **KeyVaultInternal**. 
 - Le chiffrement PFX du certificat doit être 3DES. 

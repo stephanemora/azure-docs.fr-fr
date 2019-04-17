@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Nomadesk | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Nomadesk | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Nomadesk.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: af8bc6617b08df9cfac1fc4109beb5e0e59026eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1a60c4110d69aec7a384a869ce4a2841741e920
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903353"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275244"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Tutoriel : Intégration d’Azure Active Directory à Nomadesk
+# <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Didacticiel : Intégration d’Azure Active Directory à Nomadesk
 
 Dans ce didacticiel, vous allez apprendre à intégrer Nomadesk à Azure Active Directory (Azure AD).
 L’intégration de Nomadesk dans Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Nomadesk à Azure AD, vous devez ajouter Nomadesk, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Nomadesk à partir de la galerie, procédez comme suit :**
+**Pour ajouter Nomadesk à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Nomadesk, procédez c
 
     ![Informations d’authentification unique dans Domaine et URL Nomadesk](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://mynomadesk.com/logon/saml/<TENANTID>`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://mynomadesk.com/logon/saml/<TENANTID>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://secure.nomadesk.com/saml/<instancename>`
 
@@ -149,7 +149,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -197,7 +197,7 @@ Lorsque vous cliquez sur la vignette Nomadesk dans le volet d’accès, vous dev
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

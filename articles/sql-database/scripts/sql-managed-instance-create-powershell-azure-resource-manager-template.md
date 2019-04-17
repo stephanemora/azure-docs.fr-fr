@@ -9,15 +9,15 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop-msft
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 9d157d3f4dbc7a88a356cdd754326cbff1080ac1
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: dfd81735b7dfd95a38caf3934fe9057adbcde5a7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846465"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357041"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Utiliser PowerShell avec un modèle Azure Resource Manager pour créer une instance managée dans Azure SQL Database
 
@@ -41,9 +41,9 @@ Les éléments que vous ne pouvez pas modifier ultérieurement sont le nom de l�
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet exemple suppose que vous avez [créé un environnement réseau valide](../sql-database-managed-instance-create-vnet-subnet.md) ou [modifié un réseau virtuel existant](../sql-database-managed-instance-configure-vnet-subnet.md) pour votre instance gérée. L’exemple utilise les applets de commande [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) et [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork). Vérifiez que vous avez installé les modules PowerShell suivants :
+Cet exemple suppose que vous avez [créé un environnement réseau valide](../sql-database-managed-instance-create-vnet-subnet.md) ou [modifié un réseau virtuel existant](../sql-database-managed-instance-configure-vnet-subnet.md) pour votre instance gérée. L’exemple utilise les applets de commande [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) et [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork). Vous devez donc vérifier que vous avez installé les modules PowerShell suivants :
 
-```
+```powershell
 Install-Module Az.Network
 Install-Module Az.Resources
 ```
@@ -52,7 +52,7 @@ Install-Module Az.Resources
 
 Le contenu suivant doit être placé dans un fichier utilisé comme modèle pour créer l’instance :
 
-```
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.1",

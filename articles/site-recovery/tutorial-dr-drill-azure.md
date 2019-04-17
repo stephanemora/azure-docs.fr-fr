@@ -6,27 +6,22 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e85226d15b818dda65600760b3950fab9dd7aaf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b93fb92c9170f3e0fb7bd6ee754dde5df729e299
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312323"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358183"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Effectuer un exercice de récupération d'urgence vers Azure
 
-Dans cet article, nous vous montrons comment effectuer un exercice de récupération d’urgence pour une machine locale vers Azure, à l’aide d’un test de basculement. Un exercice valide votre stratégie de réplication sans perte de données.
+Cet article explique comment exécuter une simulation de reprise d’activité pour une machine locale sur Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md). Un exercice valide votre stratégie de réplication sans perte de données.
 
-Il s’agit du quatrième tutoriel dans une série qui vous montre comment configurer la récupération d’urgence sur Azure pour des machines virtuelles VMware ou des machines virtuelles Hyper-V locales.
 
-Ce tutoriel suppose que vous avez effectué les trois premiers tutoriels :
-- Dans le [premier didacticiel](tutorial-prepare-azure.md), nous avons configuré les composants Azure nécessaires pour la récupération d’urgence de VMware.
-- Dans le [deuxième didacticiel](vmware-azure-tutorial-prepare-on-premises.md), nous avons préparé des composants locaux pour la récupération d’urgence et nous avons passé en revue les conditions préalables.
-- Dans le [troisième didacticiel](vmware-azure-tutorial.md), nous avons configuré et activé la réplication pour notre machine virtuelle VMware locale.
-- Les tutoriels sont conçus pour vous montrer le chemin de **déploiement le plus simple pour un scénario**. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Si vous souhaitez en savoir plus sur les étapes de basculement de test, lisez le [guide de procédure](site-recovery-test-failover-to-azure.md).
+Il s’agit du quatrième tutoriel d’une série qui montre comment configurer la reprise d’activité sur Azure pour des machines locales.
 
 Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 
@@ -35,7 +30,17 @@ Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 > * Préparer la connexion à la machine virtuelle Azure après le basculement
 > * Exécuter un test de basculement pour une seule machine
 
+> [!NOTE]
+> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Pour en savoir plus sur les étapes de la simulation de reprise d’activité, vous pouvez [consulter cet article](site-recovery-test-failover-to-azure.md).
 
+## <a name="before-you-start"></a>Avant de commencer
+
+Effectuez les tutoriels précédents :
+
+1. Vérifiez que vous avez [configuré Azure](tutorial-prepare-azure.md) pour permettre la reprise d’activité locale des machines virtuelles VMware, des machines virtuelles Hyper-V et des machines physiques sur Azure.
+2. Préparez votre environnement [VMware](vmware-azure-tutorial-prepare-on-premises.md) ou [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) local à la reprise d’activité. Si vous configurez la reprise d’activité pour les serveurs physiques, consultez la [matrice de prise en charge](vmware-physical-secondary-support-matrix.md).
+3. Configurez la reprise d’activité pour les [machines virtuelles VMware](vmware-azure-tutorial.md), les [machines virtuelles Hyper-V](hyper-v-azure-tutorial.md) ou les [machines physiques](physical-azure-disaster-recovery.md).
+ 
 
 ## <a name="verify-vm-properties"></a>Vérifier les propriétés de la machine virtuelle
 
@@ -76,14 +81,13 @@ Exécutez un test de basculement, en procédant comme suit :
 
 Dans certains scénarios, le basculement nécessite un traitement supplémentaire qui dure environ huit à dix minutes. Vous constaterez peut-être des délais de basculement plus longs pour les machines VMware Linux, les machines virtuelles VMware pour lesquelles le service DHCP n’est pas activé et les machines virtuelles VMware qui ne disposent pas des pilotes de démarrage suivants : storvsc, vmbus, storflt, intelide, atapi.
 
-## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement
+## <a name="connect-after-failover"></a>Se connecter après le basculement
 
-Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de RDP/SSH après le basculement, respectez les exigences récapitulées dans le tableau [ici](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
-
-Suivez les étapes décrites [ici](site-recovery-failover-to-azure-troubleshoot.md) pour résoudre les problèmes de connectivité après le basculement.
+Si vous souhaitez vous connecter aux machines virtuelles Azure via RDP/SSH après un basculement, [préparez la connexion](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover). Si vous rencontrez des problèmes de connectivité après le basculement, suivez le guide de [résolution des problèmes](site-recovery-failover-to-azure-troubleshoot.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Exécuter un basculement et une restauration pour des machines virtuelles VMware locales](vmware-azure-tutorial-failover-failback.md).
-> [Exécuter un basculement et une restauration pour des machines virtuelles VMware locales](hyper-v-azure-failover-failback-tutorial.md).
+> [Exécutez un basculement et une restauration automatique pour les machines virtuelles VMware](vmware-azure-tutorial-failover-failback.md).
+> [Exécutez un basculement et une restauration automatique pour les machines virtuelles Hyper-V](hyper-v-azure-failover-failback-tutorial.md).
+> [Exécuter un basculement et une restauration automatique pour les machines physiques](physical-to-azure-failover-failback.md)

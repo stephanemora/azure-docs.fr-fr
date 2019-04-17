@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311552"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492751"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutoriel de baking Project Acoustics Unreal
 Ce document décrit le processus de soumission d’un baking acoustique à l’aide de l’extension de l’éditeur Unreal.
@@ -40,6 +40,8 @@ L’onglet Objects est le premier onglet qui s’affiche quand vous ouvrez le mo
 
 Sélectionnez un ou plusieurs objets dans le World Outliner, ou utilisez la section **Bulk Selection** pour sélectionner tous les objets d’une catégorie spécifique. Une fois que les objets sont sélectionnés, utilisez la section **Tagging** pour appliquer l’étiquette de votre choix aux objets sélectionnés.
 
+Si un objet n’a pas l’étiquette **AcousticsGeometry** ou **AcousticsNavigation**, il est ignoré dans la simulation. Seuls les maillages statiques, les maillages de navigation et les paysages sont pris en charge. Si vous étiquetez autre chose, il est ignoré.
+
 ### <a name="for-reference-the-objects-tab-parts"></a>Pour référence : Les composants de l’onglet Objects
 
 ![Capture d’écran de l’onglet Acoustics Objects dans Unreal](media/unreal-objects-tab-details.png)
@@ -63,9 +65,23 @@ N’incluez pas d’éléments qui ne doivent pas affecter l’acoustique, comme
 
 La transformation d’un objet au moment du calcul de sonde (via l’onglet Probes, ci-dessous) est fixe dans les résultats du baking. Le déplacement de tout objet marqué dans la scène exigera de réeffectuer le calcul de la sonde et le baking de la scène.
 
-## <a name="create-or-tag-a-navigation-mesh"></a>Créer ou étiqueter un maillage de navigation
+### <a name="create-or-tag-a-navigation-mesh"></a>Créer ou étiqueter un maillage de navigation
 
-Un maillage de navigation sert à placer des points de sonde pour la simulation. Vous pouvez utiliser l’élément [Nav Mesh Bounds Volume](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html) de Unreal ou spécifier votre propre maillage de navigation. Vous devez étiqueter au moins un objet avec **Acoustics Navigation**.
+Un maillage de navigation sert à placer des points de sonde pour la simulation. Vous pouvez utiliser l’élément [Nav Mesh Bounds Volume](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html) de Unreal ou spécifier votre propre maillage de navigation. Vous devez étiqueter au moins un objet avec **Acoustics Navigation**. Si vous utilisez le maillage de navigation d’Unreal, vérifiez que vous l’avez généré au préalable.
+
+### <a name="acoustics-volumes"></a>Volumes Acoustics ###
+
+Vous pouvez personnaliser vos zones de navigation de manière plus avancée avec les **volumes Acoustics**. Les **volumes Acoustics** sont des acteurs que vous pouvez ajouter à votre scène. Ils vous permettent de sélectionner des zones à inclure et à ignorer dans le maillage de navigation. L’acteur expose une propriété qui peut avoir les valeurs "Include" et "Exclude". Les volumes « Include » permettent de garantir que seules les zones du maillage de navigation qu’ils contiennent sont prises en compte. Les volumes « Exclude » marquent ces zones comme étant à ignorer. Les volumes « Exclude » sont toujours appliqués après les volumes « Include ». Veillez à étiqueter les **volumes Acoustics** en tant que **navigation Acoustics** selon le processus habituel sous l’onglet Objects. Ces acteurs ne sont ***pas*** automatiquement étiquetés.
+
+![Capture d’écran des propriétés de volume Acoustics dans Unreal](media/unreal-acoustics-volume-properties.png)
+
+Les volumes "Exclude" sont principalement destinés à fournir un contrôle précis des emplacement où il est préférable d’éviter de placer des sondes pour limiter l’utilisation des ressources.
+
+![Capture d’écran de volume Acoustics Exclude dans Unreal](media/unreal-acoustics-volume-exclude.png)
+
+Les volumes « Include » permettent de créer des sections manuelles d’une scène, par exemple si vous souhaitez diviser votre scène en plusieurs zones acoustiques. Par exemple, si vous avez une grande scène, plusieurs kilomètres carrés et deux zones d’intérêt pour lesquelles vous souhaitez créer un bake acoustique. Vous pouvez dessiner deux gros volumes « Include » dans la scène et générer des fichiers ACE pour chacun d’eux, l’un après l’autre. Ensuite, dans le jeu, vous pouvez utiliser des volumes de déclenchement combinés à des appels de blueprint pour charger le fichier ACE approprié au moment où le joueur approche de chaque vignette.
+
+Les **volumes Acoustics** limitent uniquement la navigation, ***pas*** la géométrie. Chaque sonde d’un **volume Acoustics** "Include" extrait toujours l’ensemble de la géométrie nécessaire hors du volume au moment d’effectuer les simulations d’ondes. Ainsi, il ne doit y avoir aucune discontinuité dans l’occlusion ou tout autre signal acoustique provenant du fait que le joueur passe d’une section à une autre.
 
 ## <a name="select-acoustic-materials"></a>Sélectionner des matériaux acoustiques
 
@@ -87,6 +103,7 @@ La durée de réverbération d’une matière donnée dans une pièce est invers
 4. Montre la matière acoustique à laquelle la matière de la scène a été affectée. Cliquez sur une liste déroulante pour réaffecter une matière de la scène à une autre matière acoustique.
 5. Montre le coefficient d’absorption acoustique de la matière sélectionnée dans la colonne précédente. Une valeur nulle signifie que la matière est parfaitement réfléchissante (aucune absorption), alors que la valeur 1 signifie qu’elle est parfaitement absorbante (aucune réflexion). La modification de cette valeur met à jour le matériel acoustique (étape 4) en **Custom**.
 
+Si vous apportez des changements aux matériaux de votre scène, vous devez changer d’onglet dans le plug-in Project Acoustics pour que ces changements soient répercutés sous l’onglet **Materials**.
 
 ## <a name="calculate-and-review-listener-probe-locations"></a>Calculer et passer en revue les emplacements des sondes d’auditeur
 
@@ -98,7 +115,7 @@ Après avoir affecté les matières, basculez vers l’onglet **Probes**.
 
 1. Le bouton d’onglet **Probes**, qui sert à afficher cette page.
 2. Une brève description de ce que vous devez faire à l’aide de cette page.
-3. Utilisez ceci pour choisir une résolution de simulation grossière ou fine. La simulation grossière est plus rapide, mais a certains inconvénients. Pour plus d’informations, consultez [Résolution grossière ou fine](#Coarse-vs-Fine-Resolution) ci-dessous.
+3. Utilisez ceci pour choisir une résolution de simulation grossière ou fine. La simulation grossière est plus rapide, mais a certains inconvénients. Pour plus d’informations, consultez [Résolution de bake](bake-resolution.md) ci-dessous.
 4. Choisissez l’emplacement où les fichiers de données acoustiques doivent être placés à l’aide de ce champ. Cliquez sur le bouton « ... » pour utiliser un sélecteur de dossier. Pour plus d’informations sur les fichiers de données, consultez [Fichiers de données](#Data-Files) ci-dessous.
 5. Les fichiers de données pour cette scène seront nommés en utilisant le préfixe fourni ici. La valeur par défaut est « [nom_niveau]_AcousticsData ».
 6. Cliquez sur le bouton **Calculate** pour voxeliser la scène et calculer les emplacements des points de sonde. Cette opération est effectuée localement sur votre ordinateur, et doit être effectuée avant de lancer un baking. Une fois que les sondes ont été calculées, les contrôles ci-dessus sont désactivés, et ce bouton a alors le libellé **Clear**. Cliquez sur le bouton **Clear** pour effacer les calculs et activer les contrôles afin que vous puissiez recalculer à l’aide de nouveaux paramètres.
@@ -145,23 +162,9 @@ Les points de sonde sont synonymes d’emplacements possibles du joueur (auditeu
 
 Il est important de vérifier que des points de sonde existent partout où le joueur est censé se déplacer dans la scène. Les points de sonde sont placés sur le maillage de navigation par le moteur Project Acoustics et ils ne peuvent pas être déplacés ni modifiés : vérifiez donc que le maillage de navigation couvre tous les emplacements possibles du joueur en examinant les points de sonde.
 
-![Capture d’écran de l’aperçu des sondes Acoustics dans l’éditeur Unreal](media/unreal-probes-preview.png)
+![Capture d’écran de l’aperçu des sondes Acoustics dans Unreal](media/unreal-probes-preview.png)
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Résolution grossière ou fine
-
-La seule différence entre les paramètres de résolution grossière et fine est la fréquence à laquelle la simulation est effectuée. La résolution fine utilise une fréquence deux fois plus élevée que la résolution grossière.
-Bien que cela puisse sembler simple, cela a plusieurs implications sur la simulation acoustique :
-
-* La longueur d’onde pour la résolution grossière est deux fois plus longue que pour la résolution fine. Par conséquent, les voxels sont deux fois plus grands.
-* La durée nécessaire à la simulation est directement liée à la taille des voxels. Ainsi, un baking avec une résolution grossière est environ 16 fois plus rapide qu’avec une résolution fine.
-* Les ouvertures (par exemple les portes ou les fenêtres) plus petites que la taille de voxel ne peuvent pas être simulées. Le paramètre de résolution grossière peut entraîner la non-simulation de certaines de ces petites ouvertures. Par conséquent, le son ne les traversera pas au moment de l’exécution. Vous pouvez vérifier si cela se produit en affichant les voxels.
-* La fréquence de simulation inférieure provoque moins de diffraction autour des angles et des bords.
-* Les sources sonores ne peuvent pas se trouver à l’intérieur de voxels « remplis », à savoir des voxels qui contiennent de la géométrie. Dans ce cas de figure, aucun son n’est généré. Il est plus difficile de placer les sources sonores afin qu’elles ne se trouvent pas à l’intérieur des voxels plus grands obtenus avec une résolution grossière que dans le cas où un paramètre de résolution fine est utilisé.
-* Les plus grands voxels empiéteront plus sur les ouvertures, comme indiqué ci-dessous. La première image a été créée avec une résolution grossière, tandis que la deuxième est la même ouverture avec la résolution fine. Comme indiqué par les marquages rouges, il y a beaucoup moins d’intrusion dans l’ouverture avec une valeur fine. La ligne bleue est la porte telle que définie par la géométrie, tandis que la ligne rouge est l’ouverture acoustique effective définie par la taille de voxel. L’impact de cet empiètement dans une situation donnée dépend entièrement de l’alignement des voxels avec la géométrie de l’ouverture, qui est déterminé par la taille et les emplacements de vos objets dans la scène.
-
-![Capture d’écran de voxels grossiers remplissant l’embrasure d’une porte dans Unreal](media/unreal-coarse-bake.png)
-
-![Capture d’écran de voxels fins remplissant l’embrasure d’une porte dans Unreal](media/unreal-fine-bake.png)
+Pour plus d’informations sur les différences entre la résolution grossière et la résolution fine, consultez [Résolution de bake](bake-resolution.md).
 
 ## <a name="bake-your-level-using-azure-batch"></a>Effectuer un bake de votre niveau avec Azure Batch
 

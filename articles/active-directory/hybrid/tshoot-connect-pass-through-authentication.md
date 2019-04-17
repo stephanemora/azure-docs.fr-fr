@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184888"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616206"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
@@ -72,11 +72,14 @@ Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’adm
 | 80010 | L’Agent d’authentification ne peut pas déchiffrer le mot de passe. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel. 
 | 80011 | L’Agent d’authentification n’a pas pu récupérer la clé de déchiffrement. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel.
 
+>[!IMPORTANT]
+>Agents d’authentification directe authentifier les utilisateurs Azure AD en validant leurs noms d’utilisateur et les mots de passe par rapport à Active Directory en appelant le [API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Par conséquent, si vous avez défini le paramètre « D’ouverture de session pour » dans Active Directory pour limiter l’accès d’ouverture de session de station de travail, vous devez ajouter des serveurs hébergeant les Agents d’authentification directe à la liste des « D’ouverture de session pour » serveurs ainsi. Dans le cas bloque vos utilisateurs de se connecter à Azure AD.
+
 ## <a name="authentication-agent-installation-issues"></a>Problèmes d’installation de l’agent d’authentification
 
 ### <a name="an-unexpected-error-occurred"></a>Une erreur inattendue s’est produite
 
-[Collectez les journaux de l’agent](#collecting-pass-through-authentication-agent-logs) à partir du serveur et contactez le Support Microsoft pour lui faire part de votre problème.
+[Collectez les journaux d’activité de l’agent](#collecting-pass-through-authentication-agent-logs) à partir du serveur et contactez le Support Microsoft pour lui faire part de votre problème.
 
 ## <a name="authentication-agent-registration-issues"></a>Problèmes d’inscription de l’agent d’authentification
 
@@ -90,7 +93,7 @@ Veillez à utiliser un compte d’administrateur général cloud pour toutes les
 
 ### <a name="an-unexpected-error-occurred"></a>Une erreur inattendue s’est produite
 
-[Collectez les journaux de l’agent](#collecting-pass-through-authentication-agent-logs) à partir du serveur et contactez le Support Microsoft pour lui faire part de votre problème.
+[Collectez les journaux d’activité de l’agent](#collecting-pass-through-authentication-agent-logs) à partir du serveur et contactez le Support Microsoft pour lui faire part de votre problème.
 
 ## <a name="authentication-agent-uninstallation-issues"></a>Problèmes de désinstallation de l’agent d’authentification
 

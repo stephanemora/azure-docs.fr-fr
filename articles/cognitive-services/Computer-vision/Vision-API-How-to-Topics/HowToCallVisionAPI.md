@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 4d9ec05b2495ec54657405c00e7dd42ee10911b1
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350910"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563368"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exemple : Appeler l’API Vision par ordinateur
 
@@ -167,13 +167,13 @@ Voici un exemple :
 
 Champ | Type | Contenu
 ------|------|------|
-Balises  | objet | Objet de premier niveau pour le tableau d’étiquettes
-tags[].Name | chaîne    | Mot clé d’un classifieur d’étiquettes
-tags[].Score    | number    | Score de confiance, compris entre 0 et 1.
-description  | objet   | Objet de premier niveau pour une description.
-description.tags[] |    chaîne  | Liste d’étiquettes.  Si le score de confiance est insuffisant pour pouvoir générer une légende, les étiquettes peuvent être les seules informations disponibles pour l’appelant.
-description.captions[].text | chaîne    | Expression décrivant l’image.
-description.captions[].confidence   | number    | Score de confiance de l’expression.
+Balises  | `object` | Objet de premier niveau pour le tableau d’étiquettes
+tags[].Name | `string`  | Mot clé d’un classifieur d’étiquettes
+tags[].Score    | `number`  | Score de confiance, compris entre 0 et 1.
+description  | `object` | Objet de premier niveau pour une description.
+description.tags[] |    `string`    | Liste d’étiquettes.  Si le score de confiance est insuffisant pour pouvoir générer une légende, les étiquettes peuvent être les seules informations disponibles pour l’appelant.
+description.captions[].text | `string`  | Expression décrivant l’image.
+description.captions[].confidence   | `number`  | Score de confiance de l’expression.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Récupérer et comprendre la sortie JSON des modèles spécifiques au domaine
 
@@ -229,10 +229,10 @@ Le champ « categories » est une liste d’une ou plusieurs catégories parmi l
 
 Champ   | Type  | Contenu
 ------|------|------|
-Catégories | objet | Objet de premier niveau
-categories[].name    | chaîne   | Nom issu de la taxonomie des 86 catégories
-categories[].score  | number    | Score de confiance, compris entre 0 et 1
-categories[].detail  | objet      | Objet de détail facultatif
+Catégories | `object`   | Objet de premier niveau
+categories[].name    | `string` | Nom issu de la taxonomie des 86 catégories
+categories[].score  | `number`  | Score de confiance, compris entre 0 et 1
+categories[].detail  | `object?`      | Objet de détail facultatif
 
 Notez que si plusieurs catégories correspondent (par exemple, le classifieur de 86 catégories retourne un score pour people_ et people_young avec le modèle celebrities), les détails s’appliquent au niveau de correspondance le plus général (people_ dans cet exemple).
 

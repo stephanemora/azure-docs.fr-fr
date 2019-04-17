@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662368"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617765"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure Files de NetApp pour les applications SAP
 
@@ -166,14 +166,11 @@ Lorsque vous envisagez de fichiers NetApp de Azure pour le SAP Netweaver sur une
 
 - Le pool de capacité minimale est 4 TIO. La taille de pool de capacité doit être par multiples de 4 TIO.
 - Le volume minimal est de 100 Go
-- Azure Files NetApp et toutes les machines virtuelles, où les volumes de fichiers NetApp de Azure seront montés doit être dans le même réseau virtuel Azure. [Homologation de réseaux virtuels](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) n’est pas encore pris en charge par Azure Files de NetApp.
+- Azure Files NetApp et toutes les machines virtuelles, où les volumes de fichiers NetApp de Azure seront montés, doit être dans le même réseau virtuel Azure ou dans [homologuer des réseaux virtuels](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) dans la même région. Accès NetApp fichiers Azure via l’homologation de réseaux dans la même région est maintenant pris en charge. Accès NetApp Azure via l’homologation globale n’est pas encore pris en charge.
 - Le réseau virtuel sélectionné doit avoir un sous-réseau, délégué à Azure Files de NetApp.
 - Les fichiers NetApp Azure prend actuellement en charge uniquement NFSv3 
 - Azure Files NetApp offre [Exporter stratégie](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): vous pouvez contrôler les clients autorisés, le type d’accès (lecture et écriture, lecture seule, etc..). 
 - La fonctionnalité fichiers de NetApp Azure n’est pas encore zone prenant en charge. Actuellement la fonctionnalité fichiers de NetApp Azure n’est pas déployée dans toutes les zones de disponibilité dans une région Azure. N’oubliez pas de l’impact potentiel sur les temps de latence dans certaines régions Azure. 
-
-   > [!NOTE]
-   > N’oubliez pas que les fichiers NetApp Azure ne prend en charge encore de homologation de réseaux virtuels. Déployez les machines virtuelles et les volumes de fichiers NetApp de Azure dans le même réseau virtuel.
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Déployer manuellement des machines virtuelles Linux via le portail Azure
 
@@ -574,6 +571,8 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 9. **[1]** Créer les ressources de cluster SAP
 
+Si vous utilisez l’architecture de serveur 1 de file d’attente (ENSA1), définissez les ressources comme suit :
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
@@ -599,6 +598,35 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo crm node online <b>anftstsapcl1</b>
    sudo crm configure property maintenance-mode="false"
    </code></pre>
+
+   SAP a introduit la prise en charge pour le serveur de file d’attente 2, y compris la réplication, à compter de SAP NW 7.52. À compter de ABAP plateforme 1809, serveur de file d’attente 2 est installé par défaut. Consultez SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) pour la prise en charge du serveur 2 de file d’attente.
+Si vous utilisez l’architecture de serveur 2 de file d’attente ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), définissez les ressources comme suit :
+
+   <pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
+   
+   sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>QAS</b>_ERS add rsc_sap_<b>QAS</b>_ERS<b>01</b>
+   
+   sudo crm configure colocation col_sap_<b>QAS</b>_no_both -5000: g-<b>QAS</b>_ERS g-<b>QAS</b>_ASCS
+   sudo crm configure order ord_sap_<b>QAS</b>_first_start_ascs Optional: rsc_sap_<b>QAS</b>_ASCS<b>00</b>:start rsc_sap_<b>QAS</b>_ERS<b>01</b>:stop symmetrical=false
+   
+   sudo crm node online <b>anftstsapcl1</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+   Si vous êtes la mise à niveau à partir d’une version antérieure et le basculement vers le serveur de file d’attente 2, consultez la note sap [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Vérifiez que l’état du cluster est OK et que toutes les ressources sont démarrées. Le nœud sur lequel les ressources s’exécutent n’a aucune importance.
 
@@ -1051,7 +1079,7 @@ Les tests suivants sont une copie du cas de test de la [meilleures guides pratiq
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   Créer un verrou d’empilement, par exemple, en modifiant un utilisateur dans la transaction su01. Exécutez les commandes suivantes en tant que < sapsid\>adm sur le nœud où s’exécute l’instance ASCS. Les commandes arrêteront l’instance ASCS et la redémarreront. Le verrou d’empilement est censé être perdu dans ce test.
+   Créer un verrou d’empilement, par exemple, en modifiant un utilisateur dans la transaction su01. Exécutez les commandes suivantes en tant que < sapsid\>adm sur le nœud où s’exécute l’instance ASCS. Les commandes arrêteront l’instance ASCS et la redémarreront. Si vous utilisez l’architecture de serveur 1 de file d’attente, le verrou de la file d’attente est censé être perdu dans ce test. Si vous utilisez l’architecture de serveur 2 de file d’attente, la file d’attente est conservée. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1066,7 +1094,7 @@ Les tests suivants sont une copie du cas de test de la [meilleures guides pratiq
    <pre><code>anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   Le verrou d’empilement de la transaction su01 ne sera pas perdu et le serveur principal devrait être réinitialisé. État des ressources après le test :
+   Le verrou de la file d’attente de transaction su01 doit être perdu, si vous utilisez l’architecture de réplication 1 serveur de file d’attente et le back-end doit avoir été réinitialisé. État des ressources après le test :
 
    <pre><code>
     Resource Group: g-QAS_ASCS

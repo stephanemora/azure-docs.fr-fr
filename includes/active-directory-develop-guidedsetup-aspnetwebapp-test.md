@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919215"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528539"
 ---
 ## <a name="test-your-code"></a>Test de votre code
 
@@ -45,10 +45,10 @@ Une fois que vous avez accédé à la vue de contrôleur, vous devez voir un tab
 
 |Propriété |Valeur |Description |
 |---|---|---|
-|**Nom** |Nom complet de l’utilisateur | Prénom et nom de l’utilisateur
+|**Name** |Nom complet de l’utilisateur | Prénom et nom de l’utilisateur
 |**Nom d’utilisateur** |utilisateur<span>@domain.com</span> | Nom d’utilisateur employé pour identifier l’utilisateur.
 |**Objet** |Objet |Chaîne qui identifie de manière unique l’utilisateur sur le web.|
-|**ID client** |Guid | **GUID** qui représente de manière unique l’organisation Azure AD de l’utilisateur.|
+|**Tenant ID** |Guid | **GUID** qui représente de manière unique l’organisation Azure AD de l’utilisateur.|
 
 En outre, vous devez voir un tableau avec toutes les revendications qui se trouvent dans la requête d’authentification. Pour plus d’informations, consultez la [liste des revendications qui se trouvent dans un jeton d’ID AD Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -96,5 +96,3 @@ Vous pouvez limiter les connexions aux comptes d’utilisateurs d’une organisa
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Option 3 : Utiliser une méthode personnalisée pour valider les émetteurs
 
 Vous pouvez implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre **IssuerValidator**. Pour plus d’informations sur l’utilisation de ce paramètre, lisez cette rubrique concernant la [classe TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
-
-[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

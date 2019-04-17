@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d82c1909a28de694925a12e9b801361cad1f36d2
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494696"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608773"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Découverte de domaine d’accueil pour les pages de connexion Azure Active Directory
 
@@ -49,7 +49,7 @@ Un autre avantage de ce travail est l’amélioration des erreurs de messagerie.
     ![faute de frappe de mot de passe avec le bon nom d’utilisateur](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> Cette fonctionnalité peut avoir un impact sur les domaines fédérés ancien domaine au niveau de la découverte d’accueil pour forcer la fédération de partie de confiance. Pour les mises à jour sur la prise en charge du domaine fédéré lorsque sera ajouté, consultez [découverte du domaine d’accueil lors de la connexion pour les services Microsoft 365](https://blogs.azure.net/updates/Admin/Blogs/29/Posts/3170). En attendant, certaines organisations ont formé leurs employés de se connecter avec un nom d’utilisateur qui n’existe pas dans Azure Active Directory mais qui contient le nom de domaine approprié, étant donné que les noms de domaine achemine les utilisateurs actuellement au point de terminaison de domaine de leur organisation. Le nouveau comportement de connexion ne permet pas cela. L’utilisateur est prévenu pour corriger le nom d’utilisateur, et ils ne sont pas autorisés à se connecter avec un nom d’utilisateur qui n’existe pas dans Azure Active Directory.
+> Cette fonctionnalité peut avoir un impact sur les domaines fédérés ancien domaine au niveau de la découverte d’accueil pour forcer la fédération de partie de confiance. Pour les mises à jour sur la prise en charge du domaine fédéré lorsque sera ajouté, consultez [découverte du domaine d’accueil lors de la connexion pour les services Microsoft 365](https://azure.microsoft.com/en-us/updates/signin-hrd/). En attendant, certaines organisations ont formé leurs employés de se connecter avec un nom d’utilisateur qui n’existe pas dans Azure Active Directory mais qui contient le nom de domaine approprié, étant donné que les noms de domaine achemine les utilisateurs actuellement au point de terminaison de domaine de leur organisation. Le nouveau comportement de connexion ne permet pas cela. L’utilisateur est prévenu pour corriger le nom d’utilisateur, et ils ne sont pas autorisés à se connecter avec un nom d’utilisateur qui n’existe pas dans Azure Active Directory.
 >
 > Si vous ou votre organisation avez pratiques qui dépendent de l’ancien comportement, il est important que les administrateurs d’entreprise pour mettre à jour de la documentation de l’authentification et l’authentification par employé et pour l’apprentissage aux employés d’utiliser leur nom d’utilisateur Azure Active Directory pour vous connecter.
   

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 40e372b779d06656b111ad3d7de435b99c401dc3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669501"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278698"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à l’échelle un cluster Service Fabric dans Azure
 
@@ -39,14 +39,17 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Superviser un cluster](service-fabric-tutorial-monitor-cluster.md)
 > * Mettre à l’échelle un cluster
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Supprimer un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Suppression d'un cluster](service-fabric-tutorial-delete-cluster.md)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installez le [module Azure PowerShell 4.1 ou version ultérieure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
+* Installez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
 * Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) sécurisé sur Azure
 
 ## <a name="important-considerations-and-guidelines"></a>Considérations importantes et recommandations
@@ -72,7 +75,7 @@ Pour plus d’informations, consultez [Instructions concernant la capacité du c
 
 ## <a name="export-the-template-for-the-resource-group"></a>Exporter le modèle pour le groupe de ressources
 
-Après avoir créé un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) sécurisé et configuré votre groupe de ressources, exportez le modèle Resource Manager pour le groupe de ressources. L’exportation du modèle vous permet d’automatiser les déploiements ultérieurs du cluster et de ses ressources, car le modèle contient l’infrastructure complète.  Pour plus d’informations sur l’exportation de modèles, consultez [Gérer des groupes de ressources Azure Resource Manager à l’aide du portail Azure](/azure/azure-resource-manager/manage-resource-groups-portal).
+Après avoir créé un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) sécurisé et configuré votre groupe de ressources, exportez le modèle Resource Manager pour le groupe de ressources. L’exportation du modèle vous permet d’automatiser les futurs déploiements du cluster et de ses ressources, car le modèle contient l’infrastructure complète.  Pour plus d’informations sur l’exportation de modèles, consultez [Gérer des groupes de ressources Azure Resource Manager à l’aide du portail Azure](/azure/azure-resource-manager/manage-resource-groups-portal).
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez au groupe de ressources contenant le cluster (**sfclustertutorialgroup**, si vous suivez ce tutoriel). 
 
@@ -98,7 +101,7 @@ Si vous effectuez un scale in et supprimez des nœuds à partir d’un type de n
 Enregistrez les modifications apportées aux fichiers *template.json* et *parameters.json*.  Pour déployer le modèle mis à jour, exécutez la commande suivante :
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 Ou la commande Azure CLI suivante :
 ```azure-cli
@@ -804,7 +807,7 @@ Dans le fichier *parameters.json*, ajoutez les nouveaux paramètres et valeurs s
 Enregistrez les modifications apportées aux fichiers *template.json* et *parameters.json*.  Pour déployer le modèle mis à jour, exécutez la commande suivante :
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 Ou la commande Azure CLI suivante :
 ```azure-cli
@@ -812,19 +815,19 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 ```
 
 ## <a name="remove-a-node-type-from-the-cluster"></a>Supprimer un type de nœud du cluster
-Après avoir créé un cluster Service Fabric, vous pouvez faire évoluer un cluster horizontalement en supprimant un type de nœud (groupe de machines virtuelles identiques) et tous ses nœuds. Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster. Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
+Après avoir créé un cluster Service Fabric, vous pouvez rendre scalable un cluster horizontalement en supprimant un type de nœud (groupe de machines virtuelles identiques) et tous ses nœuds. Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster. Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
 
 > [!WARNING]
-> Nous vous recommandons de ne pas utiliser fréquemment la cmdlet Remove-AzureRmServiceFabricNodeType pour supprimer un type de nœud d’un cluster de production. Il s’agit d’une commande dangereuse, car elle supprime le groupe de machines virtuelles identiques derrière le type de nœud. 
+> Nous vous recommandons de ne pas utiliser fréquemment Remove-AzServiceFabricNodeType pour supprimer un type de nœud d’un cluster de production. Il s’agit d’une commande dangereuse, car elle supprime le groupe de machines virtuelles identiques derrière le type de nœud. 
 
-Exécutez la cmdlet [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) pour supprimer le type de nœud.  Le type de nœud doit être de [niveau de durabilité][durability] Silver ou Gold. L’applet de commande supprime le groupe identique associé au type de nœud et son exécution prend un certain temps.  Exécutez ensuite l’applet de commande [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) sur chacun des nœuds à supprimer. Elle efface l’état du nœud et supprime les nœuds du cluster. S’il existe des services sur le nœuds, ils sont tout d’abord déplacés vers un autre nœud. Si le Gestionnaire du cluster ne trouve pas de nœud pour le réplica/service, l’opération est retardée/bloquée.
+Pour supprimer le type de nœud, exécutez l’applet de commande [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  Le type de nœud doit être de [niveau de durabilité][durability] Silver ou Gold. L’applet de commande supprime le groupe identique associé au type de nœud et son exécution prend un certain temps.  Exécutez ensuite l’applet de commande [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) sur chacun des nœuds à supprimer. Elle efface l’état du nœud et supprime les nœuds du cluster. S’il existe des services sur le nœuds, ils sont tout d’abord déplacés vers un autre nœud. Si le Gestionnaire du cluster ne trouve pas de nœud pour le réplica/service, l’opération est retardée/bloquée.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
 $nodetype = "nt4vm"
 $clustername = "mysfcluster123"
 
-Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
 
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -861,7 +864,7 @@ La référence SKU des machines virtuelles pour les trois types de nœuds est d�
 Enregistrez les modifications apportées aux fichiers *template.json* et *parameters.json*.  Pour déployer le modèle mis à jour, exécutez la commande suivante :
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 Ou la commande Azure CLI suivante :
 ```azure-cli
@@ -874,6 +877,18 @@ Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Ajouter et supprimer des nœuds (scale out et scale in)
+> * Ajouter et supprimer des types de nœuds (scale out et scale in)
+> * Augmenter les ressources de nœud (scale up)
+
+Maintenant, passez au didacticiel suivant pour savoir comment mettre à niveau le runtime d’un cluster.
+> [!div class="nextstepaction"]
+> [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
+
+[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
+et scale-in))
 > * Ajouter et supprimer des types de nœuds (scale out et scale in)
 > * Augmenter les ressources de nœud (scale up)
 

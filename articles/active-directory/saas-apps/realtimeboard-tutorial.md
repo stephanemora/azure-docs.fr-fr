@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2cbef7616a913230a4dd6c440192ac692357044d
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: fb7302497d4331a9e39c8a3c50393646b663f7d8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850599"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Didacticiel : Intégration d'Azure Active Directory à RealtimeBoard
 
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de RealtimeBoard à Azure AD, vous devez ajouter RealtimeBoard à votre liste d’applications SaaS gérées, depuis la galerie.
 
-**Pour ajouter RealtimeBoard à partir de la galerie, procédez comme suit :**
+**Pour ajouter RealtimeBoard à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -195,7 +195,7 @@ Le fait de cliquer sur la vignette RealtimeBoard dans le panneau d’accès doit
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.date: 04/15/2019
+ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895786"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616269"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitations dans Azure Database for MariaDB
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données.
@@ -28,10 +28,12 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 |Usage général| 8| 1250|
 |Usage général| 16| 2 500|
 |Usage général| 32| 5 000|
+|Usage général| 64| 10000|
 |Mémoire optimisée| 2| 600|
 |Mémoire optimisée| 4| 1250|
 |Mémoire optimisée| 8| 2 500|
 |Mémoire optimisée| 16| 5 000|
+|Mémoire optimisée| 32| 10000|
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
 > ERREUR 1040 (08004) : Trop de connexions

@@ -2,7 +2,7 @@
 title: Points de contrôle et réexécution dans Fonctions durables - Azure
 description: Découvrez comment fonctionnent la création de points de contrôle et la réexécution dans l’extension Fonctions durables pour Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9edcc313a9e88b657337ba631218388f70d4b41f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b1fd31a758501620129fdbbc532b8defcf927045
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086749"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607345"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Points de contrôle et réexécution dans Fonctions durables (Azure Functions)
 

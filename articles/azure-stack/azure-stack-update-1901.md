@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: cd07ff5beddf65c9788c9ba94802ba2d37172923
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649405"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360704"
 ---
 # <a name="azure-stack-1901-update"></a>Mise à jour 1901 d’Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : Systèmes intégrés Azure Stack*
 
 Cet article décrit le contenu de la mise à jour 1901. La mise à jour inclut des améliorations, des corrections de bogues et de nouvelles fonctionnalités pour cette version d’Azure Stack. Cet article décrit également les problèmes connus dans cette version, et contient un lien permettant de télécharger la mise à jour. Les problèmes connus sont divisés en problèmes directement liés au processus de mise à jour et problèmes propres à la build (après installation).
 
@@ -223,7 +223,7 @@ Pour plus d’informations sur ces vulnérabilités, cliquez sur les liens préc
 
 ## <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour
 
-- Lors de l’exécution de la commande [Test-AzureStack](azure-stack-diagnostic-test.md), si le test **AzsInfraRoleSummary** ou **AzsPortalApiSummary** échoue, vous êtes invité à exécuter la commande **Test-AzureStack** avec l’indicateur `-Repair`.  Si vous exécutez cette commande, elle échoue et le message d’erreur suivant s’affiche : `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
+- Lors de l’exécution de la commande [Test-AzureStack](azure-stack-diagnostic-test.md), si le test **AzsInfraRoleSummary** ou **AzsPortalApiSummary** échoue, vous êtes invité à exécuter la commande **Test-AzureStack** avec l’indicateur `-Repair`.  Si vous exécutez cette commande, elle échoue et le message d’erreur suivant s’affiche :  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
 
 - Quand vous exécutez la commande [Test-AzureStack](azure-stack-diagnostic-test.md), un message d’avertissement du contrôleur de gestion de la carte de base (BMC) s’affiche. Vous pouvez ignorer cet avertissement sans problème.
 
@@ -315,6 +315,10 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>syslog
+
+- La configuration syslog n’est pas conservée lors d’un cycle de mise à jour et, par conséquent, le client perd sa configuration et les messages syslog ne sont plus transférés. Ce problème s’applique à toutes les versions d’Azure Stack depuis la disponibilité générale du client syslog (1809). Pour contourner ce problème, reconfigurez le client syslog après avoir appliqué une mise à jour Azure Stack.
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour
 

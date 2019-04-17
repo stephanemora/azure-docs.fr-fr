@@ -11,12 +11,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 25b72b6770e088a2999f1e70f3dc3559587cd0e2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58807aa5a540de6eaa9a337caa0c34fee9408296
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774811"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361447"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Développement en équipe avec les espaces Azure Dev Spaces
 
@@ -58,7 +58,7 @@ _Sans_ Dev Spaces, Scott disposerait d’autres moyens de développer et de test
 ### <a name="set-up-your-baseline"></a>Configurer votre base de référence
 Tout d’abord, nous allons devoir déployer une base de référence de nos services. Ce déploiement va représenter la « dernière configuration valide connue ». Vous pourrez donc comparer facilement le comportement de votre code local à celui de la version archivée. Nous allons ensuite créer un espace enfant basé sur cette base de référence, afin de tester les modifications apportées à *mywebapi* dans le contexte d’une application plus grande.
 
-1. Clonez l’[exemple d’application Dev Spaces](https://github.com/Azure/dev-spaces) : `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
+1. Clonez l’[exemple d’application Dev Spaces](https://github.com/Azure/dev-spaces) : `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. Extrayez la branche distante *azds_updates* : `git checkout -b azds_updates origin/azds_updates`
 1. Fermez toutes les sessions F5/de débogage des deux services, en conservant les projets ouverts dans leur fenêtre Visual Studio.
 1. Basculez vers la fenêtre Visual Studio qui contient le projet _mywebapi_.
