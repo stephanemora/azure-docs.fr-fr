@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4617e878f2af446608ede4e0aed644848564a074
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548778"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609073"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -357,3 +357,25 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 ```
 
 Une fois que votre contrôleur est réinstallé, redéployez vos PODS sera supprimé.
+
+## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Autorisations RBAC incorrectes pour l’appel d’API et contrôleur d’espaces de développement
+
+### <a name="reason"></a>Motif
+L’utilisateur l’accès au contrôleur d’espaces de développement Azure doit avoir accès en lecture de l’administrateur *kubeconfig* sur le cluster AKS. Par exemple, cette autorisation est disponible dans le [rôle d’administrateur intégré Azure Kubernetes Service Cluster](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). L’utilisateur l’accès au contrôleur d’espaces de développement Azure doit également avoir le *contributeur* ou *propriétaire* rôle RBAC pour le contrôleur.
+
+### <a name="try"></a>Essai
+Plus de détails sur la mise à jour des autorisations d’un utilisateur pour un cluster AKS [ici](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+
+Mettre à jour le rôle RBAC de l’utilisateur pour le contrôleur :
+
+1. Connectez-vous au portail Azure sur https://portal.azure.com.
+1. Accédez au groupe de ressources qui contient le contrôleur, qui est généralement le même que votre cluster AKS.
+1. Activer la *afficher les types masqués* case à cocher.
+1. Cliquez sur le contrôleur.
+1. Ouvrez le *contrôle d’accès (IAM)* volet.
+1. Cliquez sur le *attributions de rôles* onglet.
+1. Cliquez sur *ajouter* puis *ajouter une attribution de rôle*.
+    * Pour *rôle* sélectionnez *contributeur* ou *propriétaire*.
+    * Pour *attribuer l’accès à* sélectionnez *utilisateur, groupe ou principal du service Azure AD*.
+    * Pour *sélectionnez* recherche pour l’utilisateur que vous souhaitez accorder des autorisations.
+1. Cliquez sur *Enregistrer*.
