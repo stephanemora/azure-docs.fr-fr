@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à iQualify LMS | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à iQualify LMS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iQualify LMS.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: a0d2ab4a28465e733a1441df1daec8a3f2936e79
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 95c24f74e9af4443db994a6655a82108de18efdd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188122"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280143"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Didacticiel : Intégration d’Azure Active Directory à iQualify LMS
 
@@ -280,7 +280,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -1,29 +1,28 @@
 ---
-title: Référence de schéma du langage de définition de workflow - Azure Logic Apps | Microsoft Docs
-description: Écrivez des définitions de flux de travail personnalisées pour Azure Logic Apps avec le langage de définition de flux de travail
+title: Référence de schéma pour le langage de définition de flux de travail - Azure Logic Apps
+description: Guide de référence pour le schéma de langage de définition de flux de travail dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620834"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616796"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence de schéma du langage de définition de workflow dans Azure Logic Apps
 
-Quand vous créez un flux de travail d’application logique avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md), la définition sous-jacente de votre flux de travail décrit la logique réelle qui s’exécute pour votre application logique. Cette description suit une structure définie et validée par le schéma de langage de définition de workflow, qui utilise [JSON (JavaScript Objet Notation)](https://www.json.org/).
+Lorsque vous créez une application logique dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), votre application logique a une définition de flux de travail sous-jacent qui décrit la logique réelle qui s’exécute dans votre application logique. Cette définition de flux de travail utilise [JSON](https://www.json.org/) et suit une structure qui est validée par le schéma de langage de définition de flux de travail. Cette référence fournit une vue d’ensemble sur cette structure et la façon dont le schéma définit les éléments dans votre définition de flux de travail.
 
 ## <a name="workflow-definition-structure"></a>Structure d’une définition de flux de travail
 
-Une définition de flux de travail présente au moins un déclencheur qui instancie votre application logique, ainsi qu’une ou plusieurs actions exécutées par votre application logique.
+Toujours une définition de workflow inclut un déclencheur pour l’instanciation de votre application logique, ainsi qu’une ou plusieurs actions qui s’exécutent après le déclencheur est activé.
 
 Voici la structure de haut niveau d’une définition de flux de travail :
 
@@ -43,7 +42,7 @@ Voici la structure de haut niveau d’une définition de flux de travail :
 | Définition | Oui | Élément de départ de votre définition de flux de travail |
 | $schema | Uniquement en cas de référence externe à une définition de flux de travail | Emplacement du fichier de schéma JSON qui décrit la version du langage de définition de flux de travail, que vous pouvez trouver ici : <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | contentVersion | Non  | Numéro de version de votre définition de flux de travail (1.0.0.0 par défaut). Pour identifier et vérifier plus facilement la définition correcte lors du déploiement d’un flux de travail, spécifiez une valeur à utiliser. |
-| parameters | Non  | Définitions d’un ou plusieurs paramètres qui transmettent des données à votre flux de travail <p><p>Nombre maximal de paramètres : 50 |
+| Paramètres | Non  | Définitions d’un ou plusieurs paramètres qui transmettent des données à votre flux de travail <p><p>Nombre maximal de paramètres : 50 |
 | Déclencheurs | Non  | Définitions d’un ou plusieurs déclencheurs qui instancient votre flux de travail. Vous pouvez définir plus d’un déclencheur, mais uniquement avec le langage de définition de flux de travail (vous ne pouvez pas le faire visuellement via le Concepteur Logic Apps). <p><p>Nombre maximal de déclencheurs : 10 |
 | actions | Non  | Définitions d’une ou plusieurs actions à exécuter lors de l’exécution du flux de travail <p><p>Nombre maximal d'actions : 250 |
 | outputs | Non  | Définitions des sorties renvoyées lors de l’exécution d’un flux de travail <p><p>Nombre maximal de sorties : 10 |
@@ -51,7 +50,7 @@ Voici la structure de haut niveau d’une définition de flux de travail :
 
 ## <a name="parameters"></a>parameters
 
-Dans la section `parameters`, définissez tous les paramètres de flux de travail que votre application logique utilise au moment du déploiement pour accepter les entrées. Les déclarations et les valeurs des paramètres sont requises lors du déploiement. Pour pouvoir utiliser ces paramètres dans d’autres sections du flux de travail, vous devez au préalable déclarer tous les paramètres dans ces sections. 
+Dans la `parameters` section, définissez tous les paramètres de flux de travail que votre définition de workflow utilise au moment du déploiement pour accepter des entrées. Les déclarations et les valeurs des paramètres sont requises lors du déploiement. Pour pouvoir utiliser ces paramètres dans d’autres sections du flux de travail, vous devez au préalable déclarer tous les paramètres dans ces sections. 
 
 Voici la structure générale d’une définition de paramètre :
 
@@ -75,7 +74,7 @@ Voici la structure générale d’une définition de paramètre :
 | Type | Oui | int, float, string, securestring, bool, array, objet JSON, secureobject <p><p>**Remarque**: pour tous les mots de passe, les clés et les secrets, utilisez les types `securestring` et `secureobject` car l'opération `GET` ne renvoie pas ces types. Pour plus d’informations sur la sécurisation des paramètres, consultez [sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Type du paramètre |
 | defaultValue | Oui | Identique à `type` | Valeur par défaut du paramètre quand aucune valeur n’est spécifiée lors de l’instanciation du flux de travail |
 | allowedValues | Non  | Identique à `type` | Tableau regroupant les valeurs que le paramètre peut accepter |
-| metadata | Non  | Objet JSON | Toutes les autres détails du paramètre, tels que le nom ou une description lisible pour votre application logique, ou les données au moment du design utilisées par Visual Studio ou d’autres outils |
+| metadata | Non  | Objet JSON | Les autres détails de paramètre, par exemple, le nom ou une description lisible pour votre application logique ou flux ou les données au moment du design utilisées par Visual Studio ou d’autres outils |
 ||||
 
 ## <a name="triggers-and-actions"></a>Déclencheurs et actions
@@ -107,7 +106,7 @@ Voici la structure générale d’une définition de sortie :
 | value | Oui | Identique à `type` | Valeur renvoyée pour la sortie |
 |||||
 
-Pour obtenir la sortie d’une exécution de flux de travail, examinez l’historique et les détails des exécutions de l’application logique dans le portail Azure ou utilisez l’[API REST de flux de travail](https://docs.microsoft.com/rest/api/logic/workflows). Vous pouvez également transmettre la sortie à des systèmes externes, par exemple Power BI, afin de créer des tableaux de bord.
+Pour obtenir la sortie à partir d’un exécution de workflow, passez en revue l’historique des exécutions de votre application logique et les détails dans le portail Azure ou utilisez le [API REST de Workflow](https://docs.microsoft.com/rest/api/logic/workflows). Vous pouvez également transmettre la sortie à des systèmes externes, par exemple Power BI, afin de créer des tableaux de bord.
 
 <a name="expressions"></a>
 
@@ -216,7 +215,7 @@ Dans les [expressions](#expressions) et les [fonctions](#functions), les opérat
 
 ## <a name="functions"></a>Fonctions
 
-Certaines expressions obtiennent leurs valeurs à partir d’actions runtime qui peuvent ne pas encore exister au début de l’exécution de l’application logique. Pour référencer ou utiliser ces valeurs dans des expressions, vous pouvez faire appel à des [*fonctions*](../logic-apps/workflow-definition-language-functions-reference.md) fournies par le Langage de définition de workflow.
+Certaines expressions obtiennent leurs valeurs à partir d’actions runtime qui n’existent pas encore lorsque votre définition de workflow commence à s’exécuter. Pour référencer ou utiliser ces valeurs dans des expressions, vous pouvez faire appel à des [*fonctions*](../logic-apps/workflow-definition-language-functions-reference.md) fournies par le Langage de définition de workflow.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

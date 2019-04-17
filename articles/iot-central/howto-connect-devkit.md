@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3055bf4be024065bcd8db9cf523de93a5ab6b22b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905934"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617816"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -250,4 +250,4 @@ Paramètres de bascule
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à connecter un appareil DevKit à votre application Azure IoT Central, l’étape suivante suggérée consiste à [préparer et connecter un Raspberry Pi](howto-connect-raspberry-pi-python.md).
+Maintenant que vous avez appris à connecter un Raspberry Pi à votre application Azure IoT Central, l’étape suivante suggérée consiste à apprendre comment [définir un modèle d’appareil personnalisé](howto-set-up-template.md) pour votre propre appareil IoT.

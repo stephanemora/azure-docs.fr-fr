@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 53a0645c42255d5f741d31c411ca70e1e009febc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 6faa585f1ad38eb981e0bbffffef603c4aab0bc8
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661579"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360295"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Didacticiel : Utiliser Azure CLI pour configurer le routage des messages IoT Hub
 
@@ -30,7 +30,7 @@ Si vous souhaitez voir le script terminé, téléchargez les [exemples Azure IoT
 
 ## <a name="use-the-azure-cli-to-create-your-resources"></a>Utiliser Azure CLI pour créer vos ressources
 
-Plusieurs noms de ressources doivent être globalement uniques, comme le nom du hub IoT et le nom du compte de stockage. Pour faciliter le nommage, une valeur alphanumérique aléatoire appelée *randomValue* est ajoutée à ces noms de ressources. La valeur randomValue est générée une fois au début du script, puis elle est ajoutée aux noms de ressources tout au long du script en fonction des besoins. Si vous ne souhaitez pas que cette valeur soit aléatoire, vous pouvez la définir sur une chaîne vide ou sur une valeur spécifique. 
+Plusieurs noms de ressources doivent être globalement uniques, comme le nom du hub IoT et le nom du compte de stockage. Pour faciliter le nommage, une valeur alphanumérique aléatoire appelée *randomValue* est ajoutée à ces noms de ressources. La valeur randomValue est générée une fois au début du script, puis ajoutée aux noms de ressources tout au long du script en fonction des besoins. Si vous ne souhaitez pas que cette valeur soit aléatoire, vous pouvez la définir sur une chaîne vide ou sur une valeur spécifique. 
 
 > [!IMPORTANT]
 > Les variables définies dans le script initial étant également utilisées par le script de routage, vous devez exécuter le script entier dans la même session Cloud Shell. Si vous ouvrez une nouvelle session pour exécuter le script de configuration du routage, plusieurs variables n’auront pas de valeurs définies.
@@ -147,7 +147,7 @@ Maintenant que vous avez configuré les ressources de base, vous pouvez configur
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Pour créer un point de terminaison de routage, utilisez [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint.md?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Pour créer la route des messages pour le point de terminaison, utilisez [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
+Pour créer un point de terminaison de routage, utilisez [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Pour créer la route des messages pour le point de terminaison, utilisez [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
 
 ### <a name="route-to-a-storage-account"></a>Router vers un compte de stockage
 

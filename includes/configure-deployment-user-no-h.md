@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 4f061dc66829c49fba6722215dc36ed2ce6464ee
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: cd7fc7487a41979f37c9a55baeb0b8e172e808c4
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919226"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59587033"
 ---
 Dans Azure Cloud Shell, configurez des informations d’identification de déploiement avec la commande [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Cet utilisateur de déploiement est requis pour les déploiements FTP et Git en local sur une application web. Le nom d’utilisateur et le mot de passe sont tous les deux au niveau du compte. _Ils sont différents des informations d’identification de votre abonnement Azure._
 
@@ -23,7 +23,7 @@ Dans l’exemple suivant, remplacez *\<username>* et *\<password>*, parenthèses
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-Vous obtenez une sortie JSON, avec le mot de passe indiqué comme étant `null`. Si vous obtenez une erreur `'Conflict'. Details: 409`, modifiez le nom d’utilisateur. Si vous obtenez une erreur ` 'Bad Request'. Details: 400`, utilisez un mot de passe plus fort. Le nom d’utilisateur de déploiement ne doit pas contenir le symbole « @ » pour les opérations push Git locales.
+Vous obtenez une sortie JSON, avec le mot de passe indiqué comme étant `null`. Si vous obtenez une erreur `'Conflict'. Details: 409`, modifiez le nom d’utilisateur. Si vous obtenez une erreur `'Bad Request'. Details: 400`, utilisez un mot de passe plus fort. Le nom d’utilisateur de déploiement ne doit pas contenir le symbole « @ » pour les opérations push Git locales.
 
 Vous ne configurez cet utilisateur de déploiement qu’une seule fois. Vous pouvez l’utiliser pour tous vos déploiements Azure.
 

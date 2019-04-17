@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 91a0e1fd66861f8747c6c6da21f2c54ed40bd200
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492801"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426611"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -38,9 +38,9 @@ Lorsque vous essayez de sauvegarder, le fait de sélectionner un compte de stock
 Oui. Toutefois, vous devrez [arrêter la protection](backup-azure-files.md#stop-protecting-an-azure-file-share) du coffre connecté, [annuler l’enregistrement](troubleshoot-azure-files.md#configuring-backup) de ce compte de stockage, puis le protéger à partir d’un autre coffre.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Dans quelles zones géographiques puis-je sauvegarder des partages de fichiers Azure ? <br/>
-La sauvegarde pour les partages de fichiers Azure est actuellement en préversion et disponible uniquement dans les zones géographiques suivantes : 
-- Australie Est (AE) 
-- Sud-Est de l’Australie (ASE) 
+La sauvegarde pour les partages de fichiers Azure est actuellement en préversion et disponible uniquement dans les zones géographiques suivantes :
+- Australie Est (AE)
+- Sud-Est de l’Australie (ASE)
 - Brésil Sud (BRS)
 - Centre du Canada (CNC)
 - Est du Canada (CE)
@@ -50,17 +50,17 @@ La sauvegarde pour les partages de fichiers Azure est actuellement en préversio
 - USA Est 2 (EUS2)
 - Japon Est (JPE)
 - Japon Ouest (JPW)
-- Inde Centre (INC) 
+- Inde Centre (INC)
 - Sud de l’Inde (INS)
 - Corée Centre (KRC)
 - Corée du Sud (KRS)
-- USA Centre Nord (NCUS) 
-- Europe Nord (NE) 
-- USA Centre Sud (SCUS) 
+- USA Centre Nord (NCUS)
+- Europe Nord (NE)
+- USA Centre Sud (SCUS)
 - Asie Sud-Est (SEA)
-- Sud du Royaume-Uni (UKS) 
-- Ouest du Royaume-Uni (UKW) 
-- Europe Ouest (WE) 
+- Sud du Royaume-Uni (UKS)
+- Ouest du Royaume-Uni (UKW)
+- Europe Ouest (WE)
 - USA Ouest (WUS)
 - USA Centre-Ouest (WCUS)
 - USA Ouest 2 (WUS 2)
@@ -82,7 +82,7 @@ Non. Tous les partages de fichiers dans un compte de stockage peuvent uniquement
 À tout moment, vous pouvez disposer de 200 instantanés pour un partage de fichiers. La limite inclut des instantanés pris par Azure Backup, comme défini dans votre stratégie. Si vos sauvegardes échouent une fois la limite atteinte, supprimez des points de restauration à la demande pour réussir les prochaines sauvegardes.
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Après avoir activé les réseaux virtuels sur mon compte de stockage, la sauvegarde des partages de fichiers du compte commence à échouer. Pourquoi ?
-La sauvegarde de partages de fichiers Azure ne prend pas en charge les comptes de stockage ayant activé les réseaux virtuels. Désactivez les réseaux virtuels dans les comptes de stockage afin de réussir les sauvegardes. 
+La sauvegarde de partages de fichiers Azure ne prend pas en charge les comptes de stockage ayant activé les réseaux virtuels. Désactivez les réseaux virtuels dans les comptes de stockage afin de réussir les sauvegardes.
 
 ## <a name="restore"></a>Restore
 
@@ -91,6 +91,10 @@ Lorsqu’un partage de fichiers Azure est supprimé, la liste des sauvegardes qu
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>Puis-je effectuer une restauration à partir de sauvegardes après avoir arrêté la protection sur un partage de fichiers Azure ? <br/>
 Oui. Si vous avez choisi l’option **Conserver les données de sauvegarde** lors de l’arrêt de la protection, vous pouvez restaurer à partir de tous les points de restauration existants.
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Que se passe-t-il si j’annule un travail de restauration en cours ?
+Si un travail de restauration en cours est annulé, le processus de restauration s’arrête et tous les fichiers restaurés avant l’annulation restent dans la destination configurée (emplacement d’origine ou autre) sans aucun restauration. 
+
 
 ## <a name="manage-backup"></a>Gérer la sauvegarde
 
@@ -108,6 +112,6 @@ Lorsqu’une nouvelle stratégie est appliquée sur les partages de fichiers, le
 
 ## <a name="see-also"></a>Voir aussi
 Cette information concerne uniquement la sauvegarde des fichiers Azure, pour en savoir plus sur les autres zones de Azure Backup, consultez certaines de ces autres FAQ relatives à la sauvegarde :
--  [FAQ du coffre Recovery Services](backup-azure-backup-faq.md)
--  [FAQ sur la sauvegarde de la machine virtuelle Azure](backup-azure-vm-backup-faq.md)
--  [FAQ sur l’Agent Azure Backup](backup-azure-file-folder-backup-faq.md)
+-  [FAQ sur le coffre Recovery Services](backup-azure-backup-faq.md)
+-  [FAQ sur la sauvegarde des machines virtuelles Azure](backup-azure-vm-backup-faq.md)
+-  [Forum aux questions sur l’agent Azure Backup](backup-azure-file-folder-backup-faq.md)

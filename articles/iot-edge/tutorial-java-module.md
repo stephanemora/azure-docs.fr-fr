@@ -1,24 +1,24 @@
 ---
-title: Tutoriel pour créer un module Java personnalisé - Azure IoT Edge | Microsoft Docs
+title: Tutoriel du module Java personnalisé - Azure IoT Edge | Microsoft Docs
 description: Ce tutoriel explique comment créer un module IoT Edge avec un code Java et le déployer sur un appareil Edge.
 services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9a541f42670b3ccf83331e3e2e9069289bb9b4b3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: f654f33fe03b29a3aa93386d49e8f5a43cffc9c8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224071"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493040"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutoriel : Développer un module Java IoT Edge et le déployer sur votre appareil simulé
 
-Vous pouvez utiliser des modules Azure IoT Edge pour déployer un code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’un module IoT Edge qui filtre des données de capteur. Vous utiliserez l’appareil IoT Edge simulé que vous avez créé dans les tutoriels Déployer Azure IoT Edge sur un appareil simulé sous [Windows](quickstart.md) ou [Linux](quickstart-linux.md). Ce tutoriel vous montre comment effectuer les opérations suivantes :    
+Vous pouvez utiliser des modules Azure IoT Edge pour déployer un code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’un module IoT Edge qui filtre des données de capteur. Vous allez utiliser l’appareil IoT Edge simulé que vous avez créé dans le guide de démarrage rapide Déployer Azure IoT Edge sur un appareil simulé dans [Linux](quickstart-linux.md). Ce tutoriel vous montre comment effectuer les opérations suivantes :    
 
 > [!div class="checklist"]
 > * Utilisez Visual Studio Code pour créer un module Java IoT Edge basé sur le package de modèle maven Azure IoT Edge et le kit de développement logiciel d’appareil Java Azure IoT.
@@ -36,8 +36,8 @@ Le module IoT Edge que vous créez dans ce didacticiel filtre les données de te
 
 Un appareil Azure IoT Edge :
 
-* Vous pouvez configurer un appareil IoT Edge en suivant les étapes décrites dans les guides de démarrage rapide pour [Linux](quickstart-linux.md) ou [Windows](quickstart.md).
-* Pour les appareils IoT Edge sur Windows, la version 1.0.5 ne prend pas en charge les modules Java. Pour plus d’informations, consultez les [notes de publication de la version 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Pour obtenir des instructions sur la façon d’installer une version spécifique, consultez [Mettre à jour le runtime et le démon de sécurité IoT Edge](how-to-update-iot-edge.md).
+* Vous pouvez utiliser votre machine virtuelle Azure en tant qu’appareil IoT Edge. Pour cela, suivez les étapes décrites dans le guide de démarrage rapide pour [Linux](quickstart-linux.md). 
+* Les modules Java pour IoT Edge ne prennent pas en charge les conteneurs Windows. 
 
 Ressources cloud :
 
@@ -50,7 +50,7 @@ Ressources de développement :
 * [Outils Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) pour Visual Studio Code. 
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks), et [définissez la variable d’environnement`JAVA_HOME` ](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)pour pointer vers votre installation JDK.
 * [Maven](https://maven.apache.org/)
-* [Docker CE](https://docs.docker.com/install/)
+* [Docker CE](https://docs.docker.com/install/)
    * Si vous développez sur un appareil Windows, assurez-vous que Docker est [configuré pour utiliser des conteneurs Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 
 
@@ -146,8 +146,9 @@ Le fichier d’environnement stocke les informations d’identification de votre
 7. Remplacez la méthode d’exécution de **MessageCallbackMqtt** par le code suivant. Cette méthode est appelée chaque fois que le module reçoit un message MQTT d’IoT Edge Hub. Il filtre les messages qui signalent des températures situées sous le seuil de température défini via le double de module.
 
     ```java
+    protected static class MessageCallbackMqtt implements MessageCallback {
         private int counter = 0;
-       @Override
+        @Override
         public IotHubMessageResult execute(Message msg, Object context) {
             this.counter += 1;
  
@@ -173,6 +174,7 @@ Le fichier d’environnement stocke les informations d’identification de votre
             }
             return IotHubMessageResult.COMPLETE;
         }
+    }
     ```
 
 8. Ajoutez les deux classes internes statiques suivantes dans la classe **App**. Ces classes mettent à jour la variable tempThreshold quand la propriété souhaitée du jumeau de module change. Tous les modules ont leur propre module jumeau, ce qui vous permet de configurer le code exécuté à l’intérieur d’un module directement à partir du cloud.
@@ -218,9 +220,9 @@ Le fichier d’environnement stocke les informations d’identification de votre
 
 11. Enregistrez le fichier App.java.
 
-12. Dans l’Explorateur VS Code, ouvrez le fichier **deployment.template.json** dans votre espace de travail de solution IoT Edge. Ce fichier indique à l’agent IoT Edge quels modules déployer, dans cet exemple, **tempSensor** et **JavaModule**, puis indique au hub IoT Edge comment router les messages entre eux. L’extension Visual Studio Code renseigne automatiquement la plupart des informations dont vous avez besoin dans le modèle de déploiement, mais vérifiez que tout est correct pour votre solution : 
+12. Dans l’Explorateur VS Code, ouvrez le fichier **deployment.template.json** dans votre espace de travail de solution IoT Edge. Ce fichier indique à l’agent IoT Edge quels sont les modules à déployer, et au hub IoT Edge comment router les messages entre eux. Dans le cas présent, les deux modules sont **tempSensor** et **JavaModule**. L’extension Visual Studio Code renseigne automatiquement la plupart des informations dont vous avez besoin dans le modèle de déploiement, mais vérifiez que tout est correct pour votre solution : 
 
-   1. La plateforme par défaut d’IoT Edge est définie sur **amd64** dans la barre d’état Visual Studio Code, ce qui signifie que votre **JavaModule** est défini sur la version amd64 Linux de l’image. Dans la barre d’état, remplacez la plateforme par défaut **amd64** par la plateforme **arm32v7** ou **windows-amd64**, si cela correspond à l’architecture de votre appareil IoT Edge. 
+   1. La plateforme par défaut d’IoT Edge est définie sur **amd64** dans la barre d’état Visual Studio Code, ce qui signifie que votre **JavaModule** est défini sur la version amd64 Linux de l’image. Dans la barre d’état, remplacez la plateforme par défaut **amd64** par la plateforme **arm32v7**, si cela correspond à l’architecture de votre appareil IoT Edge. 
 
       ![Mettre à jour la plateforme de l’image du module](./media/tutorial-java-module/image-platform.png)
 
@@ -264,8 +266,9 @@ Vous pouvez afficher l’adresse complète de l’image conteneur avec la balise
 >[!TIP]
 >Si vous recevez une erreur pendant la création et l’envoi (push) de votre module, effectuez les vérifications suivantes :
 >* Vous êtes-vous connecté à Docker dans Visual Studio Code à l’aide des informations d’identification de votre registre de conteneurs ? Ces informations d’identification sont différentes de celles que vous utilisez pour vous connecter au portail Azure.
->* Votre référentiel de conteneurs est-il correct ? Ouvrez **modules** > **cmodule** > **module.json** et recherchez le champ **repository**. Le référentiel d’images doit se présenter ainsi : **\<nom_registre\>.azurecr.io/javamodule**. 
->* Les conteneurs que vous créez sont-ils du même type que ceux exécutés sur votre machine de développement ? Visual Studio Code crée par défaut des conteneurs Linux amd64. Si votre machine de développement exécute des conteneurs Windows ou des conteneurs Linux arm32v7, mettez à jour la plateforme sur la barre d’état bleue au bas de la fenêtre Visual Studio Code pour qu’elle corresponde à votre plateforme de conteneurs.
+>* Votre référentiel de conteneurs est-il correct ? Ouvrez **modules** > **JavaModule** > **module.json**, puis recherchez le champ **repository**. Le référentiel d’images doit se présenter ainsi : **\<nom_registre\>.azurecr.io/javamodule**. 
+>* Les conteneurs que vous créez sont-ils du même type que ceux exécutés sur votre machine de développement ? Visual Studio Code crée par défaut des conteneurs Linux amd64. Si votre machine de développement exécute des conteneurs Linux arm32v7, mettez à jour la plateforme sur la barre d’état bleue au bas de la fenêtre Visual Studio Code pour qu’elle corresponde à votre plateforme de conteneurs.
+>* Les modules Java pour IoT Edge ne prennent pas en charge les conteneurs Windows.
 
 ## <a name="deploy-and-run-the-solution"></a>Déployer et exécuter la solution
 
@@ -303,7 +306,7 @@ Vous pouvez afficher les messages dès leur arrivée à votre hub IoT à l’aid
 2. Pour analyser le message D2C pour un appareil spécifique, cliquez avec le bouton droit sur l’appareil dans la liste, puis sélectionnez **Démarrer l’analyse des messages D2C**.
 3. Pour arrêter la surveillance des données, exécutez la commande **Azure IoT Hub: Stop monitoring D2C message** (Azure IoT Hub : Arrêter de surveiller les messages D2C) dans la palette de commandes. 
 4. Pour afficher ou mettre à jour le jumeau de module, cliquez avec le bouton droit sur le module dans la liste, puis sélectionnez **Modifier le jumeau de module**. Pour mettre à jour le jumeau de module, enregistrez le fichier JSON du jumeau, cliquez avec le bouton droit sur la zone de l’éditeur et sélectionnez **Mettre à jour le jumeau de module**.
-5. Pour afficher les journaux Docker, installez [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) pour VS Code. Vous pouvez trouver localement vos modules en cours d’exécution dans l’Explorateur Docker. Dans le menu contextuel, cliquez sur **Afficher les journaux** pour les afficher dans un terminal intégré.
+5. Pour afficher les journaux d’activité Docker, installez [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) pour VS Code. Vous pouvez trouver localement vos modules en cours d’exécution dans l’Explorateur Docker. Dans le menu contextuel, cliquez sur **Afficher les journaux d’activité** pour les afficher dans un terminal intégré.
  
 ## <a name="clean-up-resources"></a>Supprimer des ressources 
 

@@ -2,7 +2,7 @@
 title: Les modèles de fonctions durables et concepts techniques dans Azure Functions
 description: Découvrez comment l’extension fonctions durables dans Azure Functions vous offre les avantages de l’exécution du code avec état dans le cloud.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: aa9563266f6b43e3bc2f21fbc0b340c86c5895ae
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892753"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608729"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Les modèles de fonctions durables et concepts techniques (Azure Functions)
 
@@ -60,7 +60,7 @@ public static async Task<object> Run(DurableOrchestrationContext context)
 > [!NOTE]
 > Il existe des différences subtiles entre l’écriture d’une fonction durable précompilée C# et l’écriture d’une fonction durable précompilée le C# script qui est indiqué dans l’exemple. Dans un C# précompilé (fonction), paramètres durables doivent être décorées avec attributs respectifs. Par exemple, le `[OrchestrationTrigger]` d’attribut pour le `DurableOrchestrationContext` paramètre. Dans un C# précompilé fonction durable, si les paramètres ne sont pas décorées correctement, le runtime ne peut pas injecter les variables dans la fonction, et une erreur se produit. Pour plus d’exemples, consultez le [azure-fonctions-durable-extension des exemples sur GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -113,7 +113,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -199,7 +199,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 // An HTTP-triggered function starts a new orchestrator function instance.
@@ -333,7 +333,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -437,6 +437,6 @@ Pour en savoir plus sur les fonctions durables, consultez [fonctions durables fo
 Pour commencer :
 
 > [!div class="nextstepaction"]
-> [Créer votre première fonction durable](durable-functions-create-first-csharp.md)
+> [Créer une première fonction durable](durable-functions-create-first-csharp.md)
 
 [DurableOrchestrationContext]: https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 92fc63ed45b6f1ea377138744d19137645c916e7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57882724"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524767"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Génération d'une application Windows Store de diffusion en continu lisse  
 
@@ -60,41 +60,42 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
 3. Modification du fichier code-behind
 4. Compilation et test de l’application
 
-**Pour créer un projet Windows Store**
+### <a name="to-create-a-windows-store-project"></a>Pour créer un projet Windows Store
 
 1. Exécutez Visual Studio ; les versions 2012 à 2015 sont prises en charge.
-2. Dans le menu **FICHIER**, cliquez sur **Nouveau**, puis sur **Projet**.
-3. Dans la boîte de dialogue Nouveau projet, entrez ou sélectionnez les valeurs suivantes :
+1. Dans le menu **FICHIER**, cliquez sur **Nouveau**, puis sur **Projet**.
+1. Dans la boîte de dialogue Nouveau projet, entrez ou sélectionnez les valeurs suivantes :
 
-| Nom | Valeur |
-| --- | --- |
-| Groupe de modèles |Installed/Templates/Visual C#/Windows Store |
-| Modèle |Application vide (XAML) |
-| Nom |SSPlayer |
-| Lieu |C:\SSTutorials |
-| Nom de la solution |SSPlayer |
-| Créer un répertoire pour la solution |(sélectionné) |
+    | Nom | Valeur |
+    | --- | --- |
+    | Groupe de modèles |Installed/Templates/Visual C#/Windows Store |
+    | Modèle |Application vide (XAML) |
+    | Nom |SSPlayer |
+    | Lieu |C:\SSTutorials |
+    | Nom de la solution |SSPlayer |
+    | Créer un répertoire pour la solution |(sélectionné) |
 
 1. Cliquez sur **OK**.
 
-**Pour ajouter une référence au Kit de développement logiciel (SDK) du client de diffusion en continu lisse**
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Pour ajouter une référence au SDK de Client de diffusion en continu lisse
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SSPlayer**, puis cliquez sur **Ajouter une référence**.
-2. Tapez ou sélectionnez les valeurs suivantes :
+1. Tapez ou sélectionnez les valeurs suivantes :
 
-| Nom | Valeur |
-| --- | --- |
-| Groupe de référence |Windows/Extensions |
-| Référence |Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++ |
+    | Nom | Valeur |
+    | --- | --- |
+    | Groupe de référence |Windows/Extensions |
+    | Référence |Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++ |
 
 1. Cliquez sur **OK**. 
 
 Après l'ajout des références, vous devez sélectionner la plateforme ciblée (x64 ou x86). L'ajout de références ne fonctionne pas pour les configurations de plateforme CPU.  Dans l'Explorateur de solutions, un symbole d'avertissement jaune s'affiche pour indiquer les références ajoutées.
 
-**Pour concevoir l'interface utilisateur du lecteur**
+### <a name="to-design-the-player-user-interface"></a>Pour concevoir l’interface utilisateur du lecteur
 
 1. Dans l'Explorateur de solutions, double-cliquez sur **MainPage.xaml** pour l'ouvrir en mode Création.
 2. Recherchez les balises **&lt;Grid&gt;** et **&lt;/Grid&gt;** du fichier XAML et collez le code suivant entre elles :
+
    ```xml
          <Grid.RowDefinitions>
 
@@ -146,7 +147,7 @@ Le contrôle MediaElement ne prend pas en charge le contenu de diffusion en cont
 
 Dans le fichier XAML, certains gestionnaires d'événements sont associés aux contrôles.  Vous devez définir les gestionnaires d'événements en question.
 
-**Pour modifier le fichier code-behind**
+### <a name="to-modify-the-code-behind-file"></a>Pour modifier le fichier code-behind
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Au début du fichier, ajoutez l'instruction using suivante :
@@ -210,7 +211,7 @@ Le fichier code-behind terminé doit ressembler à ceci :
 
 ![Codeview dans Visual Studio d'une application Windows Store de diffusion en continu lisse][CodeViewPic]
 
-**Pour compiler et tester l'application**
+### <a name="to-compile-and-test-the-application"></a>Pour compiler et tester l’application
 
 1. Dans le menu **Build**, cliquez sur **Gestionnaire de configuration**.
 2. Modifiez l'option **Plateforme de la solution active** en fonction de votre plateforme de développement.
@@ -238,7 +239,7 @@ Cette leçon aborde les procédures suivantes :
 5. Ajout du code lié à la barre de curseur
 6. Compilation et test de l’application
 
-**Pour enregistrer le gestionnaire de flux d'octets de diffusion en continu lisse et transmettre le paramètre PropertySet**
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Pour inscrire le Gestionnaire de flux d’octets de diffusion en continu lisse et transmettre le paramètre propertyset
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Au début du fichier, ajoutez l'instruction using suivante :
@@ -283,7 +284,7 @@ Cette leçon aborde les procédures suivantes :
    ```
 6. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
-**Pour ajouter le gestionnaire d'événements au niveau d'AdaptiveSourceManager**
+### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Pour ajouter le Gestionnaire d’événements au niveau de manager source adaptative
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Dans la classe **MainPage** , ajoutez le membre de données suivant :
@@ -311,7 +312,7 @@ Cette leçon aborde les procédures suivantes :
    ```
 5. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
-**Pour ajouter des gestionnaires d'événements au niveau de la source adaptative**
+### <a name="to-add-adaptive-source-level-event-handlers"></a>Pour ajouter des gestionnaires d’événements au niveau source adaptative
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Dans la classe **MainPage** , ajoutez le membre de données suivant :
@@ -362,7 +363,7 @@ Cette leçon aborde les procédures suivantes :
 
 Les mêmes événements sont également disponibles sur AdaptiveSourceManager, qui permet de gérer des fonctionnalités communes à tous les éléments multimédias de l'application. Chaque AdaptiveSource inclut ses propres événements et tous les événements AdaptiveSource sont affichés en cascade dans AdaptiveSourceManager.
 
-**Pour ajouter les gestionnaires d'événements MediaElement**
+### <a name="to-add-media-element-event-handlers"></a>Pour ajouter des gestionnaires d’événements MediaElement
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. À la fin de la classe **MainPage** , ajoutez les gestionnaires d'événements suivants :
@@ -398,7 +399,7 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
    ```
 4. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
-**Pour ajouter le code lié à la barre de curseur**
+### <a name="to-add-slider-bar-related-code"></a>Pour ajouter la barre du curseur de code connexes
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Au début du fichier, ajoutez l'instruction using suivante :
@@ -531,7 +532,7 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
    ```
 8. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
-**Pour compiler et tester l'application**
+### <a name="to-compile-and-test-the-application"></a>Pour compiler et tester l’application
 
 1. Appuyez sur **F6** pour compiler le projet. 
 2. Appuyez sur **F5** pour exécuter l'application.
@@ -548,7 +549,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 2. Modification du fichier code-behind
 3. Compilation et test de l’application
 
-**Pour modifier le fichier XAML**
+### <a name="to-modify-the-xaml-file"></a>Pour modifier le fichier XAML
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Concepteur de vues**.
 2. Recherchez &lt;Grid.RowDefinitions&gt; et modifiez les paramètres RowDefinitions pour qu'ils ressemblent à ceci :
@@ -591,7 +592,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
    ```
 4. Appuyez sur **Ctrl+S** pour enregistrer les modifications.
 
-**Pour modifier le fichier code-behind**
+### <a name="to-modify-the-code-behind-file"></a>Pour modifier le fichier code-behind
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Dans l'espace de noms SSPlayer, ajoutez une nouvelle classe :
@@ -807,7 +808,8 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
             changeStreams(selectedStreams);
         }
    ```
-   **Pour compiler et tester l'application**
+
+### <a name="to-compile-and-test-the-application"></a>Pour compiler et tester l’application
 
 1. Appuyez sur **F6** pour compiler le projet. 
 2. Appuyez sur **F5** pour exécuter l'application.
@@ -817,14 +819,15 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 
 Vous avez terminé la leçon 3.  Dans cette leçon, vous avez ajouté la fonctionnalité permettant de choisir des flux.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>Leçon 4 : Sélection des pistes de diffusion en continu lisse
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Leçon 4 : Sélectionner des pistes de diffusion en continu lisse
+
 Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers vidéo encodés comportant des niveaux de qualité (débit) et des résolutions différents. Cette leçon vous expliquera comment permettre aux utilisateurs de sélectionner des pistes. Cette leçon aborde les procédures suivantes :
 
 1. Modification du fichier XAML
 2. Modification du fichier code-behind
 3. Compilation et test de l’application
 
-**Pour modifier le fichier XAML**
+### <a name="to-modify-the-xaml-file"></a>Pour modifier le fichier XAML
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Concepteur de vues**.
 2. Recherchez la balise &lt;Grid&gt; nommée **gridStreamAndBitrateSelection**, puis ajoutez le code suivant à la fin de la balise :
@@ -846,7 +849,7 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
    ```
 3. Appuyez sur **Ctrl+S** pour enregistrer les modifications.
 
-**Pour modifier le fichier code-behind**
+### <a name="to-modify-the-code-behind-file"></a>Pour modifier le fichier code-behind
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Dans l'espace de noms SSPlayer, ajoutez une nouvelle classe :
@@ -1009,7 +1012,8 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
             changeStreams(selectedStreams);
          }
    ```
-   **Pour compiler et tester l'application**
+   
+### <a name="to-compile-and-test-the-application"></a>Pour compiler et tester l’application
 
 1. Appuyez sur **F6** pour compiler le projet. 
 2. Appuyez sur **F5** pour exécuter l'application.
@@ -1020,6 +1024,7 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
 Vous avez terminé la leçon 4.  Dans cette leçon, vous avez ajouté la fonctionnalité permettant de choisir des pistes.
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires

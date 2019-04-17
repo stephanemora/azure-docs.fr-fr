@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d66b23878176b0b508d3fa0c4973d36b5731de82
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 88cee825f132054eb1228e8930f82199c7f1812f
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269841"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-useall"></a>Didacticiel : Intégration d’Azure Active Directory à Useall
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD auprès de Useall, effectu
 
     ![Informations d’authentification unique dans Domaine et URL Useall](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<SUBDOMAIN>.useall.com.br/tenant/useall`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.useall.com.br/tenant/useall`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/saml2`
 
@@ -183,9 +183,9 @@ Le fait de cliquer sur la vignette Useall dans le volet d’accès doit vous con
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [ Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

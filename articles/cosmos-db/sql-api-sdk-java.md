@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 298f4d8cb62ce1d71ed8922483115606f8876d79
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648554"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617130"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 * Ajout de la prise en charge de la modification de flux.
 * Ajout de la prise en charge des informations relatives aux quotas de collections via RequestOptions.setPopulateQuotaInfo.
 * Ajout de la prise en charge de l’enregistrement de script de procédure stockée via RequestOptions.setScriptLoggingEnabled.
-* Correction d’un bogue dans lequel la requête en mode DirectHttps peut se bloquer lorsqu’elle rencontre des échecs de limitation.
+* Correction d’un bogue dans lequel la requête en mode DirectHttps peut cesser de répondre lorsqu’il rencontre des échecs de limitation.
 * Correction d’un bogue dans le mode de cohérence de session.
 * Correction d’un bogue susceptible d’entraîner l’exception NullReferenceException dans HttpContext lorsque le taux de demandes est élevé.
 * Amélioration des performances du mode DirectHttps.

@@ -84,21 +84,9 @@ items:
       maintainContext: true
   - name: gérer
     items:
-    - name: Créer des clusters Linux
+    - name: Créer des clusters HDInsight
       href: ../hdinsight-hadoop-provision-linux-clusters.md
       items:
-      - name: Utilisation d'Azure PowerShell
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-        maintainContext: true
-      - name: Utiliser cURL et l’API REST Azure
-        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-        maintainContext: true
-      - name: Utiliser le kit de développement logiciel (SDK) .NET
-        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        maintainContext: true
-      - name: Utiliser Azure Classic CLI
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-        maintainContext: true
       - name: Utilisation du portail Azure
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
@@ -106,13 +94,36 @@ items:
         displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
+      - name: Utiliser le kit SDK pour .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
+      - name: Utiliser le kit SDK pour Python
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster
+      - name: Utiliser le kit SDK pour Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
+      - name: Utilisation d'Azure PowerShell
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: Utiliser cURL et l’API REST Azure
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+        maintainContext: true
+      - name: Utiliser Azure Classic CLI
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+        maintainContext: true
+      - name: Créer des clusters à la demande
+        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+        maintainContext: true
       maintainContext: true
-    - name: Gérer des clusters Apache Hadoop
+    - name: Gérer des clusters HDInsight
       href: ../hdinsight-administer-use-portal-linux.md
       items:
-      - name: Utilisation du Kit de développement logiciel (SDK) .NET
-        href: ../hdinsight-administer-use-dotnet-sdk.md
-        maintainContext: true
+      - name: Utiliser le kit SDK pour .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
+      - name: Utiliser le kit SDK pour Python
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+      - name: Utiliser le kit SDK pour Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight
+      - name: Utiliser le kit SDK pour Go (préversion)
+        href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
       - name: Utilisation d'Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
@@ -151,7 +162,7 @@ items:
       - name: Exécuter à l’aide de cURL
         href: ../hdinsight-hadoop-use-sqoop-curl.md
         maintainContext: true
-      - name: Exécuter à l’aide du kit de développement logiciel (SDK) .NET
+      - name: Exécuter à l’aide du kit SDK pour .NET
         href: ../hdinsight-hadoop-use-sqoop-dotnet-sdk.md
         maintainContext: true
       - name: Exécuter à l’aide d’Azure PowerShell
@@ -235,13 +246,13 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/az.hdinsight
-  - name: Kit de développement logiciel (SDK) .NET
+  - name: Kit SDK pour .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Kit de développement logiciel (SDK) Python
+  - name: Kit SDK pour Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Kit de développement logiciel (SDK) Java
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Kit de développement logiciel (SDK) Go
+  - name: Kit SDK pour Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+  - name: Kit SDK pour Go
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
@@ -267,19 +278,19 @@ items:
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Obtenir de l'aide sur le forum
-    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
   - name: Parcours d’apprentissage
     href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
-  - name: Programme professionnel de Microsoft pour les données volumineuses (Big Data)
-    href: https://academy.microsoft.com/en-us/professional-program/big-data/
+  - name: Programme professionnel de Microsoft pour le Big Data
+    href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
   - name: Calculatrice de prix
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 1719490323df6609fe400344f9c9af441d3e6625
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: c3cb2f274c2d2cbd76cffb31cf0421093eea232f
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545473"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578371"

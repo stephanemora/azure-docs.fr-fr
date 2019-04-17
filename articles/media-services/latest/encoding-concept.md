@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 532701eb2c5e92e5443f69c464b561d6fa242598
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243617"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617629"
 ---
 # <a name="encoding-with-media-services"></a>Encodage avec Media Services
 
@@ -54,19 +54,38 @@ Actuellement, Media Services prend en charge les préréglages d’encodage int�
 
 Les préréglages suivants sont actuellement pris en charge :
 
-- **EncoderNamedPreset.AdaptiveStreaming** (recommandé). Pour plus d’informations, consultez [Génération automatique d’une échelle de débit binaire](autogen-bitrate-ladder.md).
 - **EncoderNamedPreset.AACGoodQualityAudio** - produit un fichier MP4 unique contenant seulement le contenu audio stéréo encodé à 192 Kbits/s.
+- **EncoderNamedPreset.AdaptiveStreaming** (recommandé). Pour plus d’informations, consultez [Génération automatique d’une échelle de débit binaire](autogen-bitrate-ladder.md).
+- **EncoderNamedPreset.ContentAwareEncodingExperimental** -expose une présélection expérimentale pour l’encodage de contenu prenant en charge. Compte tenu de tout contenu d’entrée, le service tente de déterminer automatiquement le nombre optimal de couches, vitesse de transmission appropriée et les paramètres de résolution pour la remise par diffusion en continu adaptative. Les algorithmes sous-jacent continuera à évoluer au fil du temps. La sortie contiendra des fichiers MP4 avec vidéo et audio entrelacées. Pour plus d’informations, consultez [expérimental présélection d’encodage de contenu prenant en charge](cae-experimental.md).
 - **EncoderNamedPreset.H264MultipleBitrate1080** produit un ensemble de 8 fichiers MP4 alignés sur GOP, de 6 000 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 1 080p et descend à 360p.
 - **EncoderNamedPreset.H264MultipleBitrate720p** produit un ensemble de 6 fichiers MP4 alignés sur GOP, de 3 400 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 720p et descend à 360p.
-- **EncoderNamedPreset.H264MultipleBitrateSD** produit un ensemble de 5 fichiers MP4 alignés sur GOP, de 1 600 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 480p et descend à 360p.<br/><br/>Pour plus d’informations, consultez [Chargement, encodage et streaming de fichiers](stream-files-tutorial-with-api.md).
+- **EncoderNamedPreset.H264MultipleBitrateSD** produit un ensemble de 5 fichiers MP4 alignés sur GOP, de 1 600 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 480p et descend à 360p.
+- **EncoderNamedPreset.H264SingleBitrate1080p** -génère un fichier MP4, où la vidéo est encodée avec le codec H.264 à 6750 Kbits/s et une hauteur de l’image de 1080 pixels, et l’audio stéréo est codé avec le codec AAC-LC à 64 Kbits/s.
+- **EncoderNamedPreset.H264SingleBitrate720p** -génère un fichier MP4, où la vidéo est encodée avec le codec H.264 à 4500 Kbits/s et une hauteur d’image de 720 pixels, et l’audio stéréo est codé avec le codec AAC-LC à 64 Kbits/s.
+- **EncoderNamedPreset.H264SingleBitrateSD** -génère un fichier MP4, où la vidéo est encodée avec le codec H.264 à 2 200 kbit/s et une hauteur de l’image de 480 pixels, et l’audio stéréo est codé avec le codec AAC-LC à 64 Kbits/s.
+
+Pour afficher la liste de paramètres prédéfinis plus récente, consultez [préréglages intégrés à utiliser pour l’encodage de vidéos](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+
+Pour voir comment sont utilisées les présélections, consultez [chargement, de codage et diffusion en continu de fichiers](stream-files-tutorial-with-api.md).
 
 ### <a name="standardencoderpreset-preset"></a>Préréglage StandardEncoderPreset
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) décrit les paramètres utilisés lors de l’encodage de vidéo en entrée avec l’encodeur standard. Utilisez ce préréglage lors de la personnalisation des préréglages de transformation. 
 
-#### <a name="custom-presets"></a>Préréglages personnalisés
+#### <a name="considerations"></a>Considérations
 
-Media Services prend entièrement en charge la personnalisation de toutes les valeurs dans les présélections afin de répondre à vos exigences et vos besoins spécifiques de codage. Vous utilisez le préréglage **StandardEncoderPreset** lors de la personnalisation des préréglages de transformation. Pour obtenir des explications détaillées et un exemple, consultez [Guide pratique pour personnaliser les préréglages de l’encodeur](customize-encoder-presets-how-to.md).
+Lorsque vous créez des paramètres prédéfinis personnalisés, les considérations suivantes s’appliquent :
+
+- Toutes les valeurs de hauteur et la largeur du contenu de AVC doivent être un multiple de 4.
+- Dans Azure Media Services v3, tous les débits binaires de codage sont en bits par seconde. Cela diffère des présélections avec nos API v2, utiliser des kilobits par seconde en tant que l’unité. Par exemple, si la vitesse de transmission dans v2 a été spécifié en tant que 128 (kilobits par seconde), dans v3 il serait défini à 128000 (bits/seconde).
+
+#### <a name="examples"></a>Exemples
+
+Media Services prend entièrement en charge la personnalisation de toutes les valeurs dans les présélections afin de répondre à vos exigences et vos besoins spécifiques de codage. Pour obtenir des exemples qui montrent comment personnaliser des présélections d’encodeur, consultez :
+
+- [Personnaliser des présélections avec .NET](customize-encoder-presets-how-to.md)
+- [Personnaliser des présélections avec CLI](custom-preset-cli-howto.md)
+- [Personnaliser des présélections avec REST](custom-preset-rest-howto.md)
 
 ## <a name="scaling-encoding-in-v3"></a>Mise à l’échelle de l’encodage dans v3
 

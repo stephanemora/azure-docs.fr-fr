@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001368"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608603"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 
@@ -73,7 +73,7 @@ La base de données secondaire peut être basculée en base de données primaire
     ![Basculement](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Cliquez sur **Oui** pour commencer le basculement.
 
-La commande fait immédiatement basculer la base de données secondaire vers le rôle primaire.
+La commande fait immédiatement basculer la base de données secondaire vers le rôle primaire. Ce processus doit normalement se terminer dans les 30 secondes ou moins.
 
 Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Si la base de données primaire comporte plusieurs bases de données secondaires, la commande reconfigure automatiquement les autres bases de données secondaires pour qu’elles se connectent à la nouvelle base de données primaire. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales.
 

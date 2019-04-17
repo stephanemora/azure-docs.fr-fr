@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101004"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617799"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -111,7 +111,15 @@ Si vous envisagez de déployer l’authentification directe dans un environnemen
 >[!IMPORTANT]
 >Dans les environnements de production, nous vous recommandons l’utilisation d’au moins 3 agents d’authentification s’exécutant sur votre locataire. Il existe une limite système de 40 agents d’authentification par client. En tant que bonne pratique, traitez tous les serveurs exécutant des agents d’authentification comme des systèmes de niveau 0 (voir [référence](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
-Pour télécharger l’agent d’authentification, effectuez les étapes suivantes :
+L’installation de plusieurs Agents d’authentification directe garantit la haute disponibilité, mais non déterministe équilibrage de charge entre les Agents d’authentification. Pour déterminer combien d’Agents d’authentification vous avez besoin pour votre client, tenez compte des pics et la charge moyenne des demandes de connexion que vous souhaitez voir sur votre client. À titre de référence, un seul agent d’authentification peut gérer entre 300 et 400 authentifications par seconde sur un serveur doté d’un CPU à 4 cœurs et de 16 Go de RAM.
+
+Pour estimer le trafic réseau, suivez les instructions de dimensionnement suivantes :
+- Chaque requête a une taille de charge utile de (0,5 K + 1 K * num_of_agents) octets. Ceci concerne les données d’Azure AD vers l’agent d’authentification. Ici, « num_of_agents » indique le nombre d’agents d’authentification inscrit sur votre abonné.
+- Chaque réponse a une taille de charge utile de 1 kilooctet. Ceci concerne les données de l’agent d’authentification vers Azure AD.
+
+Pour la plupart des clients, trois Agents d’authentification au total sont suffisants pour la haute disponibilité et de capacité. Vous devriez installer des agents d’authentification près de vos contrôleurs de domaine pour améliorer la latence de connexion.
+
+Pour commencer, suivez ces instructions pour télécharger le logiciel de l’Agent d’authentification :
 
 1. Pour télécharger la dernière version de l’agent d’authentification (version 1.5.193.0 ou ultérieure), connectez-vous au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) avec les droits d’administrateur général de votre locataire.
 2. Sélectionnez **Active Directory** dans le volet de gauche.
@@ -141,6 +149,13 @@ La deuxième solution consiste à créer et à exécuter un script de déploieme
 3. Accédez à **C:\Program Files\Microsoft Azure AD Connect Authentication Agent** et exécutez le script suivant en utilisant l’objet `$cred` que vous venez de créer :
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+
+>[!IMPORTANT]
+>Si un Agent d’authentification est installé sur un ordinateur virtuel, vous ne pouvez pas cloner la Machine virtuelle pour le programme d’installation d’un autre Agent d’authentification. Cette méthode est **non pris en charge**.
+
+## <a name="step-5-configure-smart-lockout-capability"></a>Étape 5 : Configurer la fonctionnalité de verrouillage intelligent
+
+Verrouillage intelligent permet de verrouiller les mauvais acteurs qui essaient de deviner les mots de passe des utilisateurs ou à l’aide de méthodes de force brute pour obtenir dans. En configurant les paramètres de verrouillage intelligent dans Azure AD et / ou des paramètres de verrouillage appropriée dans Active Directory local, les attaques peuvent être filtrés avant qu’ils atteignent l’Active Directory. Lecture [cet article](../authentication/howto-password-smart-lockout.md) pour en savoir plus sur la façon de configurer les paramètres de verrouillage intelligent sur votre locataire pour protéger vos comptes d’utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Migrer à partir d’AD FS vers l’authentification directe](https://aka.ms/adfstoptadp) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.

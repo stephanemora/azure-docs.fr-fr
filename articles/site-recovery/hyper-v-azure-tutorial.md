@@ -5,21 +5,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2201a8017f82517f287cc0b73346a90eaa2408a4
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: da643a4d7a1dc74385b3854c1952af5ba93bd241
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877718"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358100"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
-Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
-
-Ce didacticiel vous montre comment configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure. Le didacticiel s’applique aux machines virtuelles Hyper-V qui ne sont pas gérées par System Center Virtual Machine Manager (VMM). Ce tutoriel vous montre comment effectuer les opérations suivantes :
+c
 
 > [!div class="checklist"]
 > * Sélectionner la source et la cible de réplication.
@@ -27,77 +25,85 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence de m
 > * Créer une stratégie de réplication.
 > * Activer la réplication pour une machine virtuelle.
 
+> [!NOTE]
+> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Pour obtenir des instructions détaillées, consultez l’article de la section Procédures dans la table des matières de Site Recovery.
+
+## <a name="before-you-begin"></a>Avant de commencer
 Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que vous avez déjà effectué les tâches des didacticiels précédents :
 
 1. [Préparer Azure](tutorial-prepare-azure.md)
 2. [Préparer un Hyper-V local](tutorial-prepare-on-premises-hyper-v.md)
 
-Avant de commencer, [examinez l’architecture](concepts-hyper-v-to-azure-architecture.md) de ce scénario de récupération d’urgence.
+
 
 ## <a name="select-a-replication-goal"></a>Sélectionner un objectif de réplication
 
-
-1. Dans **Tous les services** > **Coffres Recovery Services**, sélectionnez le coffre que nous avons préparé dans le didacticiel précédent, **ContosoVMVault**.
+1. Dans **Archivages de Recovery Services**, sélectionnez l’archivage. Nous avons préparé le coffre-fort **ContosoVMVault** au cours du tutoriel précédent.
 2. Dans **Prise en main**, cliquez sur **Site Recovery**. Cliquez ensuite sur **Préparer l’infrastructure**
-3. Dans **Objectif de protection** > **Où se trouvent vos machines**, sélectionnez **Local**.
-4. Dans **Où voulez-vous répliquer vos machines**, sélectionnez **Dans Azure**.
-5. Dans **Utilisez-vous System Center VMM pour gérer vos hôtes Hyper-V**, sélectionnez **Non**. Cliquez ensuite sur **OK**.
+3. Dans **Objectif de protection** > **Où se trouvent vos machines ?**, sélectionnez **Local**.
+4. Dans **Où voulez-vous répliquer vos machines ?**, sélectionnez **Dans Azure**.
+5. Dans **Vos machines sont-elles virtualisées ?**, sélectionnez **Oui, avec Hyper-V**.
+6. Dans **Utilisez-vous System Center VMM pour gérer vos hôtes Hyper-V**, sélectionnez **Non**. Cliquez ensuite sur **OK**.
 
     ![Objectif de réplication](./media/hyper-v-azure-tutorial/replication-goal.png)
 
 ## <a name="confirm-deployment-planning"></a>Confirmer la planification d’un déploiement
 
-Lorsque vous planifiez un déploiement à grande échelle, vous devriez vous assurer de procéder à la [planification du déploiement pour la réplication Hyper-V](hyper-v-deployment-planner-overview.md). Dans le cadre de ce tutoriel, dans **Avez-vous effectué la planification du déploiement ?**, sélectionnez **Je le ferai plus tard** dans la liste déroulante.
+1. Dans **Planification du déploiement**, si vous planifiez un déploiement de grande envergure, téléchargez l’outil Planificateur de déploiement pour Hyper-V à partir du lien figurant dans la page. [En savoir plus](hyper-v-deployment-planner-overview.md) sur la planification du déploiement Hyper-V.
+2. Pour ce tutoriel, nous n’avons pas besoin de l’outil Planificateur de déploiement. Dans **Avez-vous effectué la planification du déploiement ?**, sélectionnez **Je le ferai plus tard**. Cliquez ensuite sur **OK**.
 
-![Planification de déploiement](./media/hyper-v-azure-tutorial/deployment-planning.png)
+    ![Planification de déploiement](./media/hyper-v-azure-tutorial/deployment-planning.png)
 
 ## <a name="set-up-the-source-environment"></a>Configurer l’environnement source
 
-Pour configurer l’environnement source, vous créez un site Hyper-V et ajoutez des hôtes Hyper-V sur le site. Puis vous téléchargez et installez le fournisseur Azure Site Recovery et l’agent Azure Recovery Services sur chaque hôte et inscrivez le site Hyper-V dans le coffre. 
+Pour configurer l’environnement source, créez un site Hyper-V et ajoutez des hôtes Hyper-V contenant les machines virtuelles à répliquer sur le site. Puis vous téléchargez et installez le fournisseur Azure Site Recovery et l’agent Azure Recovery Services sur chaque hôte et inscrivez le site Hyper-V dans le coffre. 
 
-1. Dans **Préparer l’infrastructure**, cliquez sur **Source**.
-2. Cliquez sur **+Site Hyper-V** et spécifiez le nom du site créé dans le didacticiel précédent, **ContosoHyperVSite**.
+1. Sous **Préparer l’infrastructure**, cliquez sur **Source**.
+2. Dans **Préparer la source**, cliquez sur **+Site Hyper-V**.
+3. Dans **Créer un site Hyper-V**, spécifiez le nom du site. Nous utilisons **ContosoHyperVSite**.
 
     ![Site Hyper-V](./media/hyper-v-azure-tutorial/hyperv-site.png)
 
-3. Après la création du site, cliquez sur **+Serveur Hyper-V**.
+3. Une fois le site créé, dans **Préparer la source** > **Étape 1 : Sélectionner le site Hyper-V**, sélectionnez le site que vous avez créé.
+4. Cliquez sur **+Serveur Hyper-V**.
 
     ![Serveur Hyper-V](./media/hyper-v-azure-tutorial/hyperv-server.png)
 
-4. Téléchargez le fichier de configuration du fournisseur.
-6. Téléchargez la clé d’inscription du coffre. Vous en aurez besoin lorsque vous exécuterez le programme d’installation du fournisseur. Une fois générée, la clé reste valide pendant 5 jours.
+4. Téléchargez le programme d’installation du fournisseur Microsoft Azure Site Recovery.
+6. Téléchargez la clé d’inscription du coffre. Vous devez avoir cette clé pour installer le fournisseur. Une fois générée, la clé reste valide pendant 5 jours.
 
     ![Télécharger le fournisseur](./media/hyper-v-azure-tutorial/download.png)
     
 
 ### <a name="install-the-provider"></a>Installer le fournisseur
 
-Exécutez le fichier de configuration de fournisseur (AzureSiteRecoveryProvider.exe) sur chaque hôte Hyper-V ajouté au site **ContosoHyperVSite**. Le programme d’installation installe le fournisseur Azure Site Recovery et l’agent Recovery Services sur chaque hôte Hyper-V.
+Installez le fichier de configuration téléchargé (AzureSiteRecoveryProvider.exe) sur chaque hôte Hyper-V à ajouter au site Hyper-V. Le programme d’installation installe le fournisseur Azure Site Recovery et l’agent Recovery Services sur chaque hôte Hyper-V.
 
-1. Dans l’Assistant Installation du fournisseur Azure Site Recovery > **Microsoft Update**, choisissez d’utiliser Microsoft Update pour rechercher les mises à jour du fournisseur.
-2. Dans **Installation**, acceptez l’emplacement d’installation par défaut pour le fournisseur et l’agent, et cliquez sur **Installer**.
-3. Après l’installation, dans l’Assistant Inscription de Microsoft Azure Site Recovery > **Paramètres de coffre**, cliquez sur **Parcourir** et, dans **Fichier de clé**, sélectionnez le fichier de clé de coffre que vous avez téléchargé. 
-4. Spécifiez l’abonnement Azure Site Recovery, le nom du coffre (**ContosoVMVault**) et le site Hyper-V (**ContosoHyperVSite**) auquel appartient le serveur Hyper-V.
-5. Dans **Paramètres de proxy**, sélectionnez **Se connecter directement à Azure Site Recovery sans proxy**.
-6. Dans **Inscription**, une fois que le serveur est inscrit dans le coffre, cliquez sur **Terminer**.
+1. Exécutez le fichier de configuration.
+2. Dans l’Assistant Installation du fournisseur Azure Site Recovery > **Microsoft Update**, choisissez d’utiliser Microsoft Update pour rechercher les mises à jour du fournisseur.
+3. Dans **Installation**, acceptez l’emplacement d’installation par défaut pour le fournisseur et l’agent, et cliquez sur **Installer**.
+4. Après l’installation, dans l’Assistant Inscription de Microsoft Azure Site Recovery > **Paramètres de coffre**, cliquez sur **Parcourir** et, dans **Fichier de clé**, sélectionnez le fichier de clé de coffre que vous avez téléchargé. 
+5. Spécifiez l’abonnement Azure Site Recovery, le nom du coffre (**ContosoVMVault**) et le site Hyper-V (**ContosoHyperVSite**) auquel appartient le serveur Hyper-V.
+6. Dans **Paramètres de proxy**, sélectionnez **Se connecter directement à Azure Site Recovery sans proxy**.
+7. Dans **Inscription**, une fois que le serveur est inscrit dans le coffre, cliquez sur **Terminer**.
 
 Les métadonnées du serveur Hyper-V sont récupérées par Azure Site Recovery et le serveur s’affiche dans **Infrastructure Site Recovery** > **Hôtes Hyper-V**. Ce processus peut prendre jusqu’à 30 minutes.        
 
-Si vous utilisez un serveur Hyper-V, suivez les étapes ci-dessous une fois que vous téléchargez les informations d’identification du fournisseur et du coffre comme indiqué [ici](#set-up-the-source-environment)
+#### <a name="install-on-hyper-v-core-server"></a>Installer sur un serveur Hyper-V (installation minimale)
 
-1. Extrayez les fichiers du dossier AzureSiteRecoveryProvider.exe en exécutant la commande suivante :
+Si vous exécutez un serveur Hyper-V (installation minimale), téléchargez le fichier d’installation et procédez comme suit :
+
+1. Extrayez les fichiers d’AzureSiteRecoveryProvider.exe dans un répertoire local en exécutant
 
     `AzureSiteRecoveryProvider.exe /x:. /q`
  
-    Cela permet d’extraire les fichiers dans le répertoire local.
- 
-2.  Exécuter `.\setupdr.exe /i`
+2.  Exécutez « .\setupdr.exe /i ». Les résultats sont journalisés dans %Programdata%\ASRLogs\DRASetupWizard.log.
 
-    Les résultats sont consignés dans %Programdata%\ASRLogs\DRASetupWizard.log
+3.  Inscrivez le serveur avec cette commande :
 
-3.  Inscrivez le serveur à l’aide de la commande suivante :
-
-`cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"`
+    ```
+    cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
+    ```
  
 
 ## <a name="set-up-the-target-environment"></a>Configurer l’environnement cible
@@ -113,17 +119,14 @@ Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comp
 
 ## <a name="set-up-a-replication-policy"></a>Configurer une stratégie de réplication
 
-> [!NOTE]
-> Concernant Hyper-V pour les stratégies de réplication Azure, l’option de fréquence de copie de 15 minutes passe à 5 minutes, et des paramètres de fréquence de copie de 30 secondes. Les stratégies de réplication utilisant une fréquence de copie de 15 minutes utiliseront automatiquement une fréquence de copie de 5 minutes. Les options de fréquence de copie de 5 minutes et de 30 secondes offrent de meilleures performances de réplication et de meilleurs objectifs de point de récupération par rapport à une fréquence de copie de 15 minutes, avec un impact minimal sur le volume de transfert de données et l’utilisation de la bande passante.
-
 1. Cliquez sur **Préparer l’infrastructure** > **Paramètres de réplication** > **+Créer et associer**.
-2. Dans **Créer et associer une stratégie**, indiquez le nom de la stratégie, **ContosoReplicationPolicy**.
-3. Laissez les paramètres par défaut et cliquez sur **OK**.
-    - **Fréquence de copie** indique que les données delta (après la réplication initiale) sont répliquées toutes les cinq minutes.
-    - **Rétention des points de récupération** indique que la fenêtre de rétention de chaque point de récupération est de deux heures.
+2. Dans **Créer et associer une stratégie**, indiquez le nom de la stratégie. Nous utilisons **ContosoReplicationPolicy**.
+3. Pour ce tutoriel, nous allons laisser les paramètres par défaut.
+    - **Fréquence de copie** indique la fréquence de réplication des données delta (après la réplication initiale), toutes les cinq minutes par défaut.
+    - **Rétention des points de récupération** indique que les points de récupération vont être conservés pendant deux heures.
     - **Fréquence des instantanés de cohérence des applications** indique que les points de récupération contenant des instantanés de cohérence des applications sont créés toutes les heures.
     - **Heure de début de la réplication initiale** indique que la réplication initiale démarre immédiatement.
-4. Après avoir créé la stratégie, cliquez sur **OK**. Quand vous créez une stratégie, elle est automatiquement associée au site Hyper-V spécifié (**ContosoHyperVSite**)
+4. Après avoir créé la stratégie, cliquez sur **OK**. Quand vous créez une stratégie, elle est automatiquement associée au site Hyper-V spécifié (dans notre tutoriel, il s’agit de **ContosoHyperVSite**).
 
     ![Stratégie de réplication](./media/hyper-v-azure-tutorial/replication-policy.png)
 
@@ -134,10 +137,11 @@ Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comp
 1. Dans **Répliquer l’application**, cliquez sur **Source**. 
 2. Dans **Source**, sélectionnez le site **ContosoHyperVSite**. Cliquez ensuite sur **OK**.
 3. Dans **Cible**, vérifiez qu’Azure est la cible, et vérifiez l’abonnement du coffre et le modèle de déploiement **Resource Manager**.
-4. Sélectionnez le compte de stockage **contosovmsacct1910171607** créé dans le didacticiel précédent pour les données répliquées et le réseau **ContosoASRnet** où trouver les machines virtuelles Azure après le basculement.
+4. Si vous utilisez les paramètres du tutoriel, sélectionnez le compte de stockage **contosovmsacct1910171607** créé dans le tutoriel précédent pour les données répliquées, et le réseau **ContosoASRnet** où trouver les machines virtuelles Azure après le basculement.
 5. Dans **Machines virtuelles** > **Sélectionner**, sélectionnez les machines virtuelles à répliquer. Cliquez ensuite sur **OK**.
 
    Vous pouvez suivre la progression de l’action **Activer la protection** dans **Travaux** > **Travaux Site Recovery**. Lorsque le travail de **finalisation de la protection** est terminé, la réplication initiale est également terminée et la machine virtuelle est prête à être basculée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Exécuter une simulation de récupération d'urgence](tutorial-dr-drill-azure.md)
+> [!div class="nextstepaction"]
+> [Exécuter une simulation de récupération d'urgence](tutorial-dr-drill-azure.md)

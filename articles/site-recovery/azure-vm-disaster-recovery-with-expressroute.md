@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272765"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618082"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Intégrer Azure ExpressRoute à la reprise d’activité pour des machines virtuelles Azure
 
@@ -93,7 +93,7 @@ Les déploiements d’entreprise classiques ont des charges de travail répartie
 - **Réseau virtuel hub**. Il existe un réseau virtuel hub **Réseau virtuel hub source** : 10.10.10.0/24.
   - Ce réseau virtuel hub agit comme opérateur de contrôle.
   - Toutes les communications entre les sous-réseaux passent par ce hub.
-    - ****Sous-réseaux du réseau virtuel hub**. Le réseau virtuel hub a deux sous-réseaux :
+    - **Sous-réseaux du réseau virtuel Hub**. Le réseau virtuel hub a deux sous-réseaux :
     - **Sous-réseau de l’appliance virtuelle réseau** : 10.10.10.0/25. Ce sous-réseau contient une appliance virtuelle réseau (10.10.10.10).
     - **Sous-réseau de passerelle** : 10.10.10.128/25. Ce sous-réseau contient une passerelle ExpressRoute connectée à une connexion ExpressRoute qui route le trafic vers le site local via un domaine de routage d’appairage privé.
 - Le centre de données local a une connexion de circuit ExpressRoute via un réseau de périphérie partenaire à Hong Kong.
@@ -104,7 +104,7 @@ Les déploiements d’entreprise classiques ont des charges de travail répartie
 
 #### <a name="spoke-to-hub"></a>Spoke à hub
 
-**Direction** | **Paramètre** | **État**
+**Direction** | **Paramètre** | **State**
 --- | --- | ---
 Spoke à hub | Autoriser l’adresse du réseau virtuel | activé
 Spoke à hub | Autoriser le trafic transféré | activé
@@ -115,7 +115,7 @@ Spoke à hub | Utiliser des passerelles à distance | activé
 
 #### <a name="hub-to-spoke"></a>Hub à spoke
 
-**Direction** | **Paramètre** | **État**
+**Direction** | **Paramètre** | **State**
 --- | --- | ---
 Hub à spoke | Autoriser l’adresse du réseau virtuel | activé
 Hub à spoke | Autoriser le trafic transféré | activé

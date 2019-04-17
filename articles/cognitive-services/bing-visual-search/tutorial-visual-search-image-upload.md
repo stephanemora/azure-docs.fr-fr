@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: 919690dcef69bd6c142a692e992bfff45b995605
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0963c61027358c2c8e971533052631de28994b57
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858568"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491081"
 ---
-# <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>Tutoriel : chargement d’images vers l’API Recherche visuelle Bing
+# <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Didacticiel : Charger des images vers l’API Recherche visuelle Bing
 
-L’API Recherche visuelle Bing vous permet de rechercher sur le web des images similaires à celles que vous chargez. Utilisez ce tutoriel pour créer une application web qui peut envoyer une image à l’API et afficher les aperçus que cette dernière retourne dans la page web. Notez que cette application n’est pas conforme à toutes les [conditions d’utilisation et d’affichage de Bing](./use-and-display-requirements.md) concernant l’utilisation de l’API.
+L’API Recherche visuelle Bing vous permet de rechercher sur le web des images similaires à celles que vous chargez. Utilisez ce tutoriel pour créer une application web qui peut envoyer une image à l’API et afficher les aperçus que cette dernière retourne dans la page web. Notez que cette application n’est pas conforme à toutes les [conditions d’utilisation et d’affichage de Bing](../bing-web-search/use-display-requirements.md) concernant l’utilisation de l’API.
 
-Le code source complet de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html) avec une gestion des erreurs et des annotations supplémentaires.
+Vous trouverez le code source complet de cet exemple avec une gestion des erreurs et des annotations supplémentaires sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html).
 
 L’application du didacticiel illustre les actions suivantes :
 
@@ -30,13 +30,13 @@ L’application du didacticiel illustre les actions suivantes :
 > * Afficher les résultats de la recherche d’images dans une application web
 > * Explorer les différents aperçus fournis par l’API
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-structure-the-webpage"></a>Créer et structurer une page Web
 
-Créer une page HTML qui envoie une image à Bing et reçoit en retour des informations puis les affiche. Dans votre éditeur ou environnement de développement intégré favori, créez un fichier nommé `uploaddemo.html`. Ajoutez la structure HTML de base suivante au fichier.
+Créez une page HTML qui envoie une image à l’API Recherche visuelle Bing, reçoit des insights et les affiche. Dans votre éditeur ou votre IDE favori, créez un fichier nommé « uploaddemo.html ». Ajoutez la structure HTML de base suivante au fichier :
 
 ```html
 <!DOCTYPE html>
@@ -47,18 +47,18 @@ Créer une page HTML qui envoie une image à Bing et reçoit en retour des infor
 
     <body>
     </body>
-</html>      
+</html>
 ```
 
-Divisez la page en créant une section pour la requête où l’utilisateur fournit toutes les informations nécessaires pour effectuer la requête, puis une section pour la réponse, dans laquelle sont affichées les informations. Ajoutez les balises `<div>` suivantes à `<body>`. La balise `<hr>` sépare visuellement la section pour la requête de la section pour la réponse.
+Divisez la page en créant une section pour la requête où l’utilisateur fournit toutes les informations nécessaires pour la requête, puis une section pour la réponse, où les insights sont affichés. Ajoutez les balises `<div>` suivantes à `<body>`. La balise `<hr>` sépare visuellement la section pour la requête de la section pour la réponse :
 
 ```html
 <div id="requestSection"></div>
-<hr />      
+<hr />
 <div id="responseSection"></div>
 ```
 
-Ajoutez une balise `<script>` pour la balise `<head>` qui contiendra le code JavaScript pour l’application.
+Ajoutez une balise `<script>` à la balise `<head>` qui contiendra le code JavaScript pour l’application :
 
 ```html
 <script>
@@ -67,12 +67,11 @@ Ajoutez une balise `<script>` pour la balise `<head>` qui contiendra le code Jav
 
 ## <a name="get-the-upload-file"></a>Obtenir le fichier de chargement
 
-Pour permettre à l’utilisateur de sélectionner l’image à charger, la démonstration utilise la balise `<input>` avec l’attribut de type défini sur `file`. L’interface utilisateur doit clairement indiquer que la démonstration utilise Bing pour obtenir les résultats de recherche. 
+Pour permettre à l’utilisateur de sélectionner l’image à charger, la démonstration utilise la balise `<input>` avec l’attribut de type défini sur `file`. L’interface utilisateur doit clairement indiquer que la démonstration utilise Bing pour obtenir les résultats de recherche.
 
-Ajoutez l’élément `<div>` suivant à l’élément div requestSection. L’entrée du fichier accepte un seul fichier de n’importe quel type d’image (par exemple, .jpg, .gif, .png). L’événement `onchange` spécifie le gestionnaire appelé lorsqu’un utilisateur sélectionne un fichier.
+Ajoutez l’élément `<div>` suivant à `requestSection` `<div>`. L’entrée du fichier accepte un seul fichier de n’importe quel type d’image (par exemple, .jpg, .gif, .png). L’événement `onchange` spécifie le gestionnaire appelé lorsqu’un utilisateur sélectionne un fichier.
 
-La balise `<output>` sert à afficher une miniature de l’image sélectionnée.
-
+La balise `<output>` est utilisée pour afficher une miniature de l’image sélectionnée :
 
 ```html
 <div>
@@ -84,9 +83,9 @@ La balise `<output>` sert à afficher une miniature de l’image sélectionnée.
 </div>
 ```
 
-## <a name="create-a-file-handler"></a>Créer un descripteur de fichier 
+## <a name="create-a-file-handler"></a>Créer un descripteur de fichier
 
-Créez une fonction descripteur qui peut lire dans l’image que vous souhaitez charger. Pendant l’itération sur les fichiers dans l’objet `FileList`, le gestionnaire doit s’assurer que le fichier sélectionné est un fichier image, et que sa taille fait au maximum 1 Mo. Si l’image est plus grande, vous devez réduire sa taille avant de le charger. Le gestionnaire affiche enfin une miniature de l’image.
+Créez une fonction descripteur qui peut lire dans l’image que vous souhaitez charger. Pendant l’itération sur les fichiers dans l’objet `FileList`, le gestionnaire doit s’assurer que le fichier sélectionné est un fichier image, et que sa taille fait au maximum 1 Mo. Si l’image est plus grande, vous devez réduire sa taille avant de la charger. Enfin, le gestionnaire affiche une miniature de l’image :
 
 ```javascript
 function handleFileSelect(selector) {
@@ -136,7 +135,7 @@ function handleFileSelect(selector) {
 
 ## <a name="add-and-store-a-subscription-key"></a>Utiliser et stocker une clé d’abonnement
 
-L’application a besoin d’une clé d’abonnement pour appeler l’API Recherche visuelle Bing. Pour ce didacticiel, vous devez la fournir dans l’interface utilisateur. Ajoutez la balise `<input>` suivante (avec l’attribut de type défini sur texte) à `<body>`, juste en dessous de la balise `<output>` du fichier.
+L’application a besoin d’une clé d’abonnement pour appeler l’API Recherche visuelle Bing. Pour ce didacticiel, vous devez la fournir dans l’interface utilisateur. Ajoutez la balise `<input>` suivante (avec l’attribut « type » défini sur « text ») à `<body>`, juste en dessous de la balise `<output>` du fichier :
 
 ```html
     <div>
@@ -146,9 +145,9 @@ L’application a besoin d’une clé d’abonnement pour appeler l’API Recher
     </div>
 ```
 
-En disposant de l’image et de la clé d’abonnement, vous pouvez effectuer l’appel à Recherche visuelle Bing pour obtenir des informations sur l’image. Dans ce didacticiel, l’appel utilisera le marché par défaut (`en-us`) et la valeur de recherche sécurisée (`moderate`).
+En disposant de l’image et de la clé d’abonnement, vous pouvez effectuer l’appel à Recherche visuelle Bing pour obtenir des informations sur l’image. Dans ce tutoriel, l’appel utilise le marché par défaut (`en-us`) et la valeur de recherche sécurisée (`moderate`).
 
-Cette application présente une option pour modifier ces valeurs. Ajoutez l’élément `<div>` suivant sous l’élément div de la clé d’abonnement. L’application utilise une balise `<select>` pour fournir une liste déroulante des valeurs de marché et de recherche sécurisée. Les deux listes affichent la valeur par défaut.
+Cette application présente une option pour modifier ces valeurs. Ajoutez l’élément `<div>` suivant sous l’élément `<div>` de la clé d’abonnement. L’application utilise une balise `<select>` pour fournir une liste déroulante des valeurs de marché et de recherche sécurisée. Les deux listes affichent la valeur par défaut.
 
 ```html
 <div>
@@ -210,9 +209,9 @@ Cette application présente une option pour modifier ces valeurs. Ajoutez l’é
 </div>
 ```
 
-## <a name="add-search-options-to-the-webpage"></a>Ajouter des options de recherche à la page web 
+## <a name="add-search-options-to-the-webpage"></a>Ajouter des options de recherche à la page web
 
-L’application masque les listes dans un élément div réductible contrôlé par le lien Options de requête. Lorsque vous cliquez sur le lien Options de requête, l’élément div se développe et vous permet d’afficher et de modifier les options de la requête. Si vous cliquez de nouveau sur le lien Options de requête, l’élément div est réduit et masqué. L’image suivante montre le gestionnaire onclick du lien Options de requête. Le gestionnaire contrôle si l’élément div est développé ou réduit. Ajoutez ce gestionnaire à la section `<script>`. Le gestionnaire est utilisé par tous les éléments div réductibles de la démonstration.
+L’application masque les listes dans un élément `<div>` réductible contrôlé par le lien Options de requête. Quand vous cliquez sur le lien Options de requête, l’élément `<div>` se développe : vous pouvez alors afficher et modifier les options de la requête. Si vous recliquez sur le lien Options de requête, l’élément `<div>` est réduit et masqué. L’extrait de code suivant montre le gestionnaire `onclick` du lien Options de requête. Le gestionnaire contrôle si l’élément `<div>` est développé ou réduit. Ajoutez ce gestionnaire à la section `<script>`. Le gestionnaire est utilisé par toutes les sections `<div>` réductibles de la démonstration.
 
 ```javascript
 // Contains the toggle state of divs.
@@ -234,26 +233,26 @@ function expandCollapse(divToToggle) {
 }
 ```
 
-## <a name="call-the-onclick-handler"></a>Appeler le gestionnaire onclick
+## <a name="call-the-onclick-handler"></a>Appeler le gestionnaire `onclick`
 
-Ajoutez le bouton `"Get insights"` suivant sous l’élément div des options, dans le corps. Il vous permet de lancer l’appel. Lorsque l’utilisateur clique sur le bouton, le curseur se transforme en curseur d’attente en rotation et le gestionnaire onclick est appelé.
+Ajoutez le bouton `"Get insights"` suivant sous l’élément `<div>` des options dans le corps. Il vous permet de lancer l’appel. Quand l’utilisateur clique sur le bouton, le curseur se transforme en curseur d’attente en rotation et le gestionnaire `onclick` est appelé.
 
 ```html
 <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
 ```
 
-Ajoutez le gestionnaire onclick du bouton `handleQuery()` à la balise `<script>`. 
+Ajoutez le gestionnaire `onclick` du bouton, `handleQuery()`, à la balise `<script>`.
 
 ## <a name="handle-the-query"></a>Gérer la requête
 
-Le gestionnaire `handleQuery()` s’assure que la clé d’abonnement est présente, qu’elle contient 32 caractères, et qu’une image a été sélectionnée. Il efface également toutes les informations d’une requête précédente. Par la suite, il appelle la fonction `sendRequest()` pour effectuer l’appel.
+Le gestionnaire `handleQuery()` vérifie que la clé d’abonnement est présente, qu’elle contient 32 caractères, et qu’une image est sélectionnée. Il efface également toutes les informations d’une requête précédente. Par la suite, il appelle la fonction `sendRequest()` pour effectuer l’appel.
 
 ```javascript
 function handleQuery() {
     var subscriptionKey = document.getElementById('key').value;
 
     // Make sure user provided a subscription key and image.
-    // For this demo, the user provides the key but typically you'd 
+    // For this demo, the user provides the key but typically you'd
     // get it from secured storage.
     if (subscriptionKey.length !== 32) {
         alert("Subscription key length is not valid. Enter a valid key.");
@@ -285,7 +284,7 @@ function handleQuery() {
 
 ## <a name="send-the-search-request"></a>Envoyer la requête de recherche
 
-La fonction `sendRequest()` met en forme l’URL du point de terminaison, définit l’en-tête Ocp-Apim-Subscription-Key sur la clé d’abonnement, ajoute le fichier binaire de l’image à charger, spécifie le gestionnaire de réponse et effectue l’appel. 
+La fonction `sendRequest()` met en forme l’URL du point de terminaison, définit l’en-tête `Ocp-Apim-Subscription-Key` sur la clé d’abonnement, ajoute le fichier binaire de l’image à charger, spécifie le gestionnaire de réponse et effectue l’appel :
 
 ```javascript
 function sendRequest(file, key) {
@@ -307,7 +306,7 @@ function sendRequest(file, key) {
 
 ## <a name="get-and-handle-the-api-response"></a>Obtenir et gérer la réponse de l’API
 
-La fonction `handleResponse()` gère la réponse de l’appel à Recherche visuelle Bing. Si l’appel réussit, elle analyse la réponse JSON dans les balises individuelles qui contiennent les informations. Ensuite, elle ajoute les résultats de recherche à la page. L’application crée ensuite un élément div réductible pour chaque balise afin de gérer la quantité de données affichée. Ajoutez ce gestionnaire à la section `<script>`.
+La fonction `handleResponse()` gère la réponse de l’appel à Recherche visuelle Bing. Si l’appel réussit, elle analyse la réponse JSON dans les balises individuelles qui contiennent les informations. Ensuite, elle ajoute les résultats de recherche à la page. L’application crée ensuite un élément `<div>` réductible pour chaque balise afin de gérer la quantité de données affichée. Ajoutez ce gestionnaire à la section `<script>`.
 
 ```javascript
 function handleResponse() {
@@ -323,7 +322,7 @@ function handleResponse() {
     document.getElementById('responseSection').appendChild(h4);
     buildTagSections(tags);
 
-    document.body.style.cursor = 'default'; // reset the wait curor set by query insights button
+    document.body.style.cursor = 'default'; // reset the wait cursor set by query insights button
 }
 ```
 
@@ -337,7 +336,7 @@ function parseResponse(json) {
 
     for (var i =0; i < json.tags.length; i++) {
         var tag = json.tags[i];
-        
+
         if (tag.displayName === '') {
             dict['Default'] = JSON.stringify(tag);
         }
@@ -352,7 +351,7 @@ function parseResponse(json) {
 
 ### <a name="build-a-tag-section"></a>Créer une section de balise
 
-La fonction `buildTagSections()` effectue une itération dans les balises JSON analysées et appelle la fonction `buildDiv()` pour générer un élément div pour chaque balise. Chaque balise est affichée sous forme de lien. Lorsque l’utilisateur clique sur le lien, la balise se développe pour afficher les informations qui lui sont associées. Cliquer à nouveau sur le lien entraîne la réduction de la section.
+La fonction `buildTagSections()` effectue une itération dans les balises JSON analysées et appelle la fonction `buildDiv()` pour générer un élément `<div>` pour chaque balise. Chaque balise est affichée sous forme de lien. Lorsque l’utilisateur clique sur le lien, la balise se développe pour afficher les informations qui lui sont associées. Le fait de recliquer sur le lien entraîne la réduction de la section.
 
 ```javascript
 function buildTagSections(tags) {
@@ -391,11 +390,11 @@ function buildDiv(tags, tag) {
 
 ## <a name="display-the-search-results-in-the-webpage"></a>Afficher les résultats de la recherche dans la page web
 
-La fonction `buildDiv()` appelle la fonction addDivContent pour générer le contenu de l’élément div. réductible de chaque balise.
+La fonction `buildDiv()` appelle la fonction `addDivContent` pour générer le contenu de l’élément `<div>` réductible de chaque balise.
 
 Le contenu d’une balise inclut l’élément JSON de la réponse pour la balise. Initialement, seuls les 100 premiers caractères du JSON sont affichés, mais vous pouvez cliquer sur la chaîne JSON pour afficher l’intégralité du JSON. Si vous cliquez à nouveau, la chaîne JSON est réduite à 100 caractères.
 
-Ensuite, ajoutez les types d’actions trouvés dans la balise. Pour chaque type d’action, appelez les fonctions appropriées pour ajouter les informations correspondantes.
+Ensuite, ajoutez les types d’actions trouvés dans la balise. Pour chaque type d’action, appelez les fonctions appropriées pour ajouter ses insights :
 
 ```javascript
 function addDivContent(div, tag, json) {
@@ -472,21 +471,21 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>Afficher les informations concernant différentes actions
 
-Les fonctions suivantes affichent des informations pour différentes actions. Elles fournissent une image interactive ou un lien interactif qui vous renvoie à une page Web avec plus d’informations sur l’image. Cette page est hébergée soit par Bing.com, soit sur le site Web d’origine de l’image. Toutes les données des aperçus ne s’affichent pas dans cette application. Pour voir tous les champs disponibles pour une information, consultez la [Référence Recherche visuelle Bing](https://aka.ms/bingvisualsearchreferencedoc).
+Les fonctions suivantes affichent des informations pour différentes actions. Elles fournissent une image interactive ou un lien interactif qui vous renvoie à une page Web avec plus d’informations sur l’image. Cette page est hébergée soit par Bing.com, soit sur le site Web d’origine de l’image. Toutes les données des aperçus ne s’affichent pas dans cette application. Pour voir tous les champs disponibles pour un insight, consultez les informations de référence sur [Images - Recherche visuelle](https://aka.ms/bingvisualsearchreferencedoc).
 
 > [!NOTE]
-> Une quantité minimale d’informations d’aperçu doit être affichée sur la page. Consultez les [Conditions d’utilisation et d’affichage Bing](./use-and-display-requirements.md) pour plus d’informations.
+> Une quantité minimale d’informations d’aperçu doit être affichée sur la page. Pour plus d’informations , consultez [Conditions d’utilisation et d’affichage de l’API Recherche Bing](../bing-web-search/use-display-requirements.md).
 
 ### <a name="relatedimages-insights"></a>Insights RelatedImages
 
-La fonction `addRelatedImages()` crée un titre pour chacun des sites Web qui hébergent l’image connexe en procédant à des itérations dans la liste des actions `RelatedImages` et en ajoutant une balise `<img>` au `<div>` extérieur de chaque site.
+La fonction `addRelatedImages()` crée un titre pour chacun des sites web qui hébergent l’image associée en procédant à des itérations dans la liste des actions `RelatedImages` et en ajoutant une balise `<img>` à l’élément `<div>` extérieur pour chacun :
 
 ```javascript
     function addRelatedImages(div, images) {
         var length = (images.length > 10) ? 10 : images.length;
 
-        // Set the title to the website that hosts the image. The title displays 
-        // when the user hovers over the image. 
+        // Set the title to the website that hosts the image. The title displays
+        // when the user hovers over the image.
 
         // Make the image clickable. If the user clicks the image, they're taken
         // to the image in Bing.com.
@@ -510,7 +509,7 @@ La fonction `addRelatedImages()` crée un titre pour chacun des sites Web qui h�
 
 ### <a name="pagesincluding-insights"></a>Insights PagesIncluding
 
-La fonction `addPagesIncluding()` crée un lien pour chacun des sites Web qui hébergent l’image chargée en procédant à des itérations dans la liste des actions `PagesIncluding` et en ajoutant une balise `<img>` au `<div>` extérieur de chaque site.
+La fonction `addPagesIncluding()` crée un lien pour chacun des sites web qui hébergent l’image chargée en procédant à des itérations dans la liste des actions `PagesIncluding` et en ajoutant une balise `<img>` à l’élément `<div>` extérieur pour chacun :
 
 ```javascript
 
@@ -534,7 +533,7 @@ La fonction `addPagesIncluding()` crée un lien pour chacun des sites Web qui h�
 
 ### <a name="relatedsearches-insights"></a>Insights RelatedSearches
 
-La fonction `addRelatedSearches()` crée un lien pour le site Web qui héberge l’image en itérant sur la liste des actions `RelatedSearches` et en ajoutant une balise `<img>` au `<div>` extérieur de chaque site.
+La fonction `addRelatedSearches()` crée un lien pour le site web qui héberge l’image en procédant à des itérations dans la liste des actions `RelatedSearches` et en ajoutant une balise `<img>` à l’élément `<div>` extérieur pour chacune :
 
 ```javascript
 
@@ -567,11 +566,11 @@ La fonction `addRelatedSearches()` crée un lien pour le site Web qui héberge l
 
 ### <a name="recipes-insights"></a>Insights Recipes
 
-La fonction `addRecipes()` crée un lien pour chacune des recettes en procédant à des itérations dans la liste des actions `Recipes` et en ajoutant une balise `<img>` au `<div>` extérieur de chaque site.
+La fonction `addRecipes()` crée un lien pour chacune des recettes en procédant à des itérations dans la liste des actions `Recipes` et en ajoutant une balise `<img>` à l’élément `<div>` extérieur pour chacune :
 
 ```javascript
     // Display links to the first 10 recipes. Include the recipe's rating,
-    // if available. 
+    // if available.
     // TODO: Add 'more' link in case the user wants to see all of them.
     function addRecipes(div, recipes) {
         var length = (recipes.length > 10) ? 10 : recipes.length;
@@ -599,7 +598,7 @@ La fonction `addRecipes()` crée un lien pour chacune des recettes en procédant
 
 ### <a name="shopping-insights"></a>Insights Shopping
 
-La fonction `addShopping()` crée un lien pour tout résultat d’achat renvoyé en procédant à des itérations dans la liste des actions `RelatedImages` et en ajoutant une balise `<img>` au `<div>` extérieur de chaque site.
+La fonction `addShopping()` crée un lien pour tout résultat d’achat renvoyé en procédant à des itérations dans la liste des actions `RelatedImages` et en ajoutant une balise `<img>` à l’élément `<div>` extérieur pour chacun :
 
 ```javascript
     // Display links for the first 10 shopping offers.
@@ -628,11 +627,11 @@ La fonction `addShopping()` crée un lien pour tout résultat d’achat renvoyé
 
 ### <a name="products-insights"></a>Insights Products
 
-La fonction `addProducts()` crée un lien pour chaque résultat de produit retourné en effectuant des itérations dans la liste des actions `Products` et en ajoutant une balise `<img>` au `<div>` extérieur de chacun.
+La fonction `addProducts()` crée un lien pour chaque résultat de produit retourné en effectuant des itérations dans la liste des actions `Products` et en ajoutant une balise `<img>` à l’élément `<div>` extérieur pour chacun :
 
 ```javascript
 
-    // Display the first 10 related products. Display a clickable image of the 
+    // Display the first 10 related products. Display a clickable image of the
     // product that takes the user to Bing.com search results for the product.
     // If there are any offers associated with the product, provide links to the offers.
     // TODO: Add 'more' link in case the user wants to see all of them.
@@ -692,7 +691,7 @@ La fonction `addProducts()` crée un lien pour chaque résultat de produit retou
 
 ### <a name="textresult-insights"></a>Insights TextResult
 
-La fonction `addTextResult()` affichera n’importe quel texte reconnu dans l’image.
+La fonction `addTextResult()` affichera le texte reconnu dans l’image :
 
 ```javascript
 
@@ -703,7 +702,7 @@ La fonction `addTextResult()` affichera n’importe quel texte reconnu dans l’
     }
 ```
 
-La fonction `addEntity()` affiche un lien qui redirige l’utilisateur vers Bing.com où il peut obtenir plus d’informations sur le type d’entité dans l’image, si ce dernier a été détecté.
+La fonction `addEntity()` affiche un lien qui redirige l’utilisateur vers Bing.com où il peut obtenir plus d’informations sur le type d’entité dans l’image, si une entité a été détectée :
 
 ```javascript
     // If the image is of a person, the tag might include an entity
@@ -719,7 +718,7 @@ La fonction `addEntity()` affiche un lien qui redirige l’utilisateur vers Bing
     }
 ```
 
-La fonction `addImageWithWebSearchUrl()` affichera une image interactive à la balise div, qui redirige l’utilisateur vers les résultats de recherche sur Bing.com. 
+La fonction `addImageWithWebSearchUrl()` affiche une image interactive pour l’élément `<div>`, qui redirige l’utilisateur vers les résultats de recherche sur Bing.com :
 
 ```javascript
     function addImageWithWebSearchUrl(div, image, action) {
@@ -738,11 +737,11 @@ La fonction `addImageWithWebSearchUrl()` affichera une image interactive à la b
 
 ## <a name="add-a-css-style"></a>Ajouter un style CSS
 
-Ajoutez la section `<style>` suivante à la `<head>` balise pour organiser la disposition de la page Web.
+Ajoutez la section `<style>` suivante à la balise `<head>` pour organiser la disposition de la page web :
 
 ```html
         <style>
-            
+
             .thumb {
                 height: 75px;
                 border: 1px solid #000;
@@ -773,4 +772,5 @@ Ajoutez la section `<style>` suivante à la `<head>` balise pour organiser la di
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : résultats et jeton ImageInsightsToken du kit SDK Recherche visuelle Bing](./tutorial-visual-search-insights-token.md).
+>[!div class="nextstepaction"]
+> [Didacticiel : Résultats et jeton ImageInsightsToken du kit SDK Recherche visuelle Bing](./tutorial-visual-search-insights-token.md)

@@ -12,24 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 486e891ae055bdd6b6c30aeff63744acb3b0ef04
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: c2862c3521c05ba81f7a567f7951d22a9ab95c44
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734536"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609419"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Utilisation des rubriques et abonnements Service Bus avec Ruby
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Cet article décrit l’utilisation des rubriques et des abonnements Service Bus depuis les applications Ruby. Les scénarios couverts incluent la **création de rubriques et d’abonnements, la création de filtres d’abonnement, l’envoi de messages** à une rubrique, **la réception de messages en provenance d’un abonnement** et enfin **la suppression de rubriques et d’abonnements**. Pour plus d’informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
+Cet article décrit l’utilisation des rubriques et des abonnements Service Bus depuis les applications Ruby. Parmi les scénarios présentés :
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Création de rubriques et d’abonnements 
+- Création de filtres d’abonnement 
+- Envoi de messages à une rubrique 
+- Réception de messages à partir d’un abonnement
+- Suppression de rubriques et d’abonnements
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+## <a name="prerequisites"></a>Conditions préalables
+1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrivez-vous pour ouvrir un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Suivez les étapes de la [Guide de démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à la rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un Service Bus **espace de noms** et obtenir le **chaîne de connexion**. 
+
+    > [!NOTE]
+    > Vous allez créer un **rubrique** et un **abonnement** à la rubrique à l’aide de **Ruby** dans ce démarrage rapide. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 

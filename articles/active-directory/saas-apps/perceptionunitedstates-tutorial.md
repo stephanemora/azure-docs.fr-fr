@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 31528c30ac8b795a661539349c2bee31edb6973c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850992"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277015"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutoriel : Intégration d’Azure Active Directory à Perception United States (Non-UltiPro)
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Perception United States (Non-UltiPro) à Azure AD, vous devez ajouter Perception United States (Non-UltiPro) à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Perception United States (Non-UltiPro) à partir de la galerie, procédez comme suit :**
+**Pour ajouter Perception United States (Non-UltiPro) à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique d’Azure AD avec Perception United
 
     ![Informations d’authentification Domaine et URL Perception United States (Non-UltiPro)](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://perception.kanjoya.com/sp`
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://perception.kanjoya.com/sp`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
@@ -229,7 +229,7 @@ Quand vous cliquez sur la vignette Perception United States (Non-UltiPro) dans l
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
