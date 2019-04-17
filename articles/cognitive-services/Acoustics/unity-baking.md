@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494780"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470336"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutoriel de baking Project Acoustics Unity
 Ce tutoriel décrit le baking acoustique avec Project Acoustics dans Unity.
@@ -201,7 +201,7 @@ Installez et configurez Docker sur le PC qui traitera la simulation-
 ### <a name="run-local-bake"></a>Exécuter un baking local
 1. Cliquez sur le bouton « Prepare Local Bake » de l’onglet **Bake**, et sélectionnez un dossier où les fichiers d’entrée et les scripts d’exécution doivent être enregistrés. Vous pouvez ensuite exécuter le baking sur n’importe quel ordinateur, à condition qu'il respecte la configuration matérielle minimale requise et que Docker y soit installé en y copiant le dossier.
 2. Lancez la simulation à l'aide du script « runlocalbake.bat ». Ce script extraira l’image Project Acoustics Docker avec l'ensemble d'outils nécessaires au traitement de la simulation et démarrera la simulation. 
-3. Au terme de la simulation, copiez le fichier .ace qui en résulte dans votre projet Unity. Pour veiller à ce qu'Unity l'identifie comme un fichier binaire, ajoutez « .bytes » à l’extension de fichier (par exemple, « Scene1.ace.bytes »). Les journaux d’activité détaillés de la simulation sont stockés dans le fichier « AcousticsLog.txt ». En cas de problème, partagez ce fichier afin de faciliter le diagnostic.
+3. Au terme de la simulation, copiez le fichier .ace qui en résulte dans votre projet Unity. Pour veiller à ce qu'Unity l'identifie comme un fichier binaire, ajoutez « .bytes » à l’extension de fichier (par exemple, « Scene1.ace.bytes »). Les journaux détaillés de la simulation sont stockés dans le fichier « AcousticsLog.txt ». En cas de problème, partagez ce fichier afin de faciliter le diagnostic.
 
 ## <a name="Data-Files"></a> Fichiers de données ajoutés par le processus de bake
 
