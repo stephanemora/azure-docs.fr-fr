@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0aa9c42a25b9bb0e740145ffd9b842814574176b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: bf4c49bc988500d0f8b226dd6d735f966080ae09
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878041"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047192"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Démarrage rapide : Diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle - Azure PowerShell
 
@@ -30,22 +30,26 @@ Dans ce guide de démarrage rapide, vous déployez une machine virtuelle, puis v
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module AzureRM PowerShell version 5.4.1 ou version ultérieure pour les besoins de ce démarrage rapide. Pour trouver la version installée, exécutez `Get-Module -ListAvailable AzureRM`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell localement, vous devez exécuter le module Azure PowerShell `Az` pour les besoins de ce guide de démarrage rapide. Pour trouver la version installée, exécutez `Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+
+
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Avant de pouvoir créer une machine virtuelle, vous devez créer un groupe de ressources pour qu’il contienne la machine virtuelle. Créez un groupe de ressources avec [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
+Avant de pouvoir créer une machine virtuelle, vous devez créer un groupe de ressources pour qu’il contienne la machine virtuelle. Créez un groupe de ressources avec [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Créez la machine virtuelle avec [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Lors de l’exécution de cette étape, vous êtes invité à saisir vos informations d’identification. Les valeurs que vous saisissez sont configurées comme le nom d’utilisateur et le mot de passe pour la machine virtuelle.
+Créez la machine virtuelle avec [New-AzVM](/powershell/module/az.compute/new-azvm). Lors de l’exécution de cette étape, vous êtes invité à saisir vos informations d’identification. Les valeurs que vous saisissez sont configurées comme le nom d’utilisateur et le mot de passe pour la machine virtuelle.
 
 ```azurepowershell-interactive
-$vM = New-AzureRmVm `
+$vM = New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVm" `
     -Location "East US"
@@ -57,33 +61,33 @@ La création de la machine virtuelle ne nécessite que quelques minutes. Ne pour
 
 Pour tester une communication réseau avec Network Watcher, commencez par activer un observateur réseau dans la région de la machine virtuelle que vous souhaitez tester, puis utilisez la fonctionnalité de vérification de flux IP de Network Watcher pour tester la communication.
 
-### <a name="enable-network-watcher"></a>Activer l’observateur réseau
+### <a name="enable-network-watcher"></a>Activer Network Watcher
 
-Si vous avez déjà un observateur réseau activé dans la région USA Est, utilisez [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) pour le récupérer. L’exemple suivant récupère un observateur réseau existant nommé *NetworkWatcher_eastus* se trouvant dans le groupe de ressources *NetworkWatcherRG* :
+Si vous avez déjà un observateur réseau activé dans la région USA Est, utilisez [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) pour le récupérer. L’exemple suivant récupère un observateur réseau existant nommé *NetworkWatcher_eastus* se trouvant dans le groupe de ressources *NetworkWatcherRG* :
 
 ```azurepowershell-interactive
-$networkWatcher = Get-AzureRmNetworkWatcher `
+$networkWatcher = Get-AzNetworkWatcher `
   -Name NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Si vous n’avez pas encore d’observateur réseau activé dans la région USA Est, utilisez [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) pour créer un observateur réseau dans cette région :
+Si vous n’avez pas encore d’observateur réseau activé dans la région USA Est, utilisez [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) pour créer un observateur réseau dans cette région :
 
 ```azurepowershell-interactive
-$networkWatcher = New-AzureRmNetworkWatcher `
+$networkWatcher = New-AzNetworkWatcher `
   -Name "NetworkWatcher_eastus" `
   -ResourceGroupName "NetworkWatcherRG" `
   -Location "East US"
 ```
 
-### <a name="use-ip-flow-verify"></a>Utilisez la vérification des flux IP
+### <a name="use-ip-flow-verify"></a>Utiliser la vérification des flux IP
 
-Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic réseau à destination et en provenance de la machine virtuelle, par défaut. Vous pouvez ultérieurement remplacer des valeurs de Azure par défaut, autoriser ou refuser d’autres types de trafic. Pour tester si le trafic est autorisé ou refusé vers différentes destinations et à partir d’une adresse IP source, utilisez la commande [Test-AzureRmNetworkWatcherIPFlow](/powershell/module/azurerm.network/test-azurermnetworkwatcheripflow).
+Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic réseau à destination et en provenance de la machine virtuelle, par défaut. Vous pourrez ultérieurement remplacer des valeurs Azure par défaut, en autorisant ou en refusant d’autres types de trafic. Pour tester si le trafic est autorisé ou refusé vers différentes destinations et à partir d’une adresse IP source, utilisez la commande [Test-AzNetworkWatcherIPFlow](/powershell/module/az.network/test-aznetworkwatcheripflow).
 
 Testez la communication sortante de la machine virtuelle vers l’une des adresses IP pour www.bing.com :
 
 ```azurepowershell-interactive
-Test-AzureRmNetworkWatcherIPFlow `
+Test-AzNetworkWatcherIPFlow `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $vM.Id `
   -Direction Outbound `
@@ -99,7 +103,7 @@ Après quelques secondes, le résultat retourné vous informe que l’accès est
 Testez la communication sortante de la machine virtuelle vers l’adresse 172.31.0.100 :
 
 ```azurepowershell-interactive
-Test-AzureRmNetworkWatcherIPFlow `
+Test-AzNetworkWatcherIPFlow `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $vM.Id `
   -Direction Outbound `
@@ -115,7 +119,7 @@ Le résultat retourné vous informe que l’accès est refusé par une règle de
 Testez la communication entrante vers la machine virtuelle à partir de l’adresse 172.31.0.100 :
 
 ```azurepowershell-interactive
-Test-AzureRmNetworkWatcherIPFlow `
+Test-AzNetworkWatcherIPFlow `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $vM.Id `
   -Direction Inbound `
@@ -130,10 +134,10 @@ Le résultat retourné vous informe que l’accès est refusé par une règle de
 
 ## <a name="view-details-of-a-security-rule"></a>Voir les détails d’une règle de sécurité
 
-Pour déterminer la raison pour laquelle les règles de l’étape [Tester la communication réseau](#test-network-communication) autorisent ou empêchent la communication, examinez les règles de sécurité efficaces pour l’interface réseau avec la commande [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) :
+Pour déterminer la raison pour laquelle les règles de l’étape [Tester la communication réseau](#test-network-communication) autorisent ou empêchent la communication, examinez les règles de sécurité en vigueur pour l’interface réseau avec la commande [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup) :
 
 ```azurepowershell-interactive
-Get-AzureRmEffectiveNetworkSecurityGroup `
+Get-AzEffectiveNetworkSecurityGroup `
   -NetworkInterfaceName myVm `
   -ResourceGroupName myResourceGroup
 ```
@@ -173,9 +177,9 @@ La sortie renvoyée contient le texte suivant pour la règle **AllowInternetOutb
   },
 ```
 
-Vous pouvez voir dans la sortie que **DestinationAddressPrefix** est **Internet**. Pourtant, 13.107.21.200, l’adresse que vous avez testée sous [Utiliser la vérification de flux IP](#use-ip-flow-verify), n’est pas clairement liée à **Internet**. Plusieurs préfixes d’adresse sont répertoriés sous **ExpandedDestinationAddressPrefix**. L’n des préfixes de la liste est **12.0.0.0/6**, ce qui englobe la plage d’adresses IP 12.0.0.1-15.255.255.254. Étant donné que l’adresse 13.107.21.200 est comprise dans cette plage d’adresses, la règle **AllowInternetOutBound** autorise le trafic sortant. En outre, il n’y a aucune règle de **priorité** supérieure (numéro inférieur) indiquée dans la sortie retournée par `Get-AzureRmEffectiveNetworkSecurityGroup`, qui remplace cette règle. Pour refuser les communications sortantes vers 13.107.21.200, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui empêche la sortie du port 80 vers l’adresse IP.
+Vous pouvez voir dans la sortie que **DestinationAddressPrefix** est **Internet**. Pourtant, 13.107.21.200, l’adresse que vous avez testée sous [Utiliser la vérification de flux IP](#use-ip-flow-verify), n’est pas clairement liée à **Internet**. Plusieurs préfixes d’adresse sont répertoriés sous **ExpandedDestinationAddressPrefix**. L’n des préfixes de la liste est **12.0.0.0/6**, ce qui englobe la plage d’adresses IP 12.0.0.1-15.255.255.254. Étant donné que l’adresse 13.107.21.200 est comprise dans cette plage d’adresses, la règle **AllowInternetOutBound** autorise le trafic sortant. En outre, il n’y a aucune règle de **priorité** supérieure (numéro inférieur) indiquée dans la sortie retournée par `Get-AzEffectiveNetworkSecurityGroup`, qui remplace cette règle. Pour refuser les communications sortantes vers 13.107.21.200, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui empêche la sortie du port 80 vers l’adresse IP.
 
-Lorsque vous avez exécuté la commande `Test-AzureRmNetworkWatcherIPFlow` pour tester la communication sortante vers l’adresse 172.131.0.100 dans [Utiliser la vérification des flux IP](#use-ip-flow-verify), la sortie vous a informé que la règle **DefaultOutboundDenyAll** a refusé la communication. La règle **DefaultOutboundDenyAll** équivaut à la règle **DenyAllOutBound** répertoriée dans la sortie suivante de la commande `Get-AzureRmEffectiveNetworkSecurityGroup` :
+Lorsque vous avez exécuté la commande `Test-AzNetworkWatcherIPFlow` pour tester la communication sortante vers l’adresse 172.131.0.100 dans [Utiliser la vérification des flux IP](#use-ip-flow-verify), la sortie vous a informé que la règle **DefaultOutboundDenyAll** a refusé la communication. La règle **DefaultOutboundDenyAll** équivaut à la règle **DenyAllOutBound** répertoriée dans la sortie suivante de la commande `Get-AzEffectiveNetworkSecurityGroup` :
 
 ```powershell
 {
@@ -201,9 +205,9 @@ Lorsque vous avez exécuté la commande `Test-AzureRmNetworkWatcherIPFlow` pour 
 }
 ```
 
-La règle répertorie **0.0.0.0/0** comme **DestinationAddressPrefix**. La règle refuse les communications sortantes vers l’adresse 172.131.0.100, car l’adresse ne se trouve pas dans le même **DestinationAddressPrefix** que toutes les autres règles de trafic sortant dans la sortie de la commande `Get-AzureRmEffectiveNetworkSecurityGroup`. Pour autoriser les communications sortantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic sortant vers le port 80 à l’adresse 172.131.0.100.
+La règle répertorie **0.0.0.0/0** comme **DestinationAddressPrefix**. La règle refuse les communications sortantes vers l’adresse 172.131.0.100, car l’adresse ne se trouve pas dans le même **DestinationAddressPrefix** que toutes les autres règles de trafic sortant dans la sortie de la commande `Get-AzEffectiveNetworkSecurityGroup`. Pour autoriser les communications sortantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic sortant vers le port 80 à l’adresse 172.131.0.100.
 
-Lorsque vous avez exécuté la commande `Test-AzureRmNetworkWatcherIPFlow` pour tester la communication entrante à partir l’adresse 172.131.0.100 dans [Utiliser la vérification des flux IP](#use-ip-flow-verify), la sortie vous a informé que la règle **DefaultInboundDenyAll** a refusé la communication. La règle **DefaultInboundDenyAll** équivaut à la règle **DenyAllInBound** répertoriée dans la sortie suivante de la commande `Get-AzureRmEffectiveNetworkSecurityGroup` :
+Lorsque vous avez exécuté la commande `Test-AzNetworkWatcherIPFlow` pour tester la communication entrante à partir l’adresse 172.131.0.100 dans [Utiliser la vérification des flux IP](#use-ip-flow-verify), la sortie vous a informé que la règle **DefaultInboundDenyAll** a refusé la communication. La règle **DefaultInboundDenyAll** équivaut à la règle **DenyAllInBound** répertoriée dans la sortie suivante de la commande `Get-AzEffectiveNetworkSecurityGroup` :
 
 ```powershell
 {
@@ -229,16 +233,16 @@ Lorsque vous avez exécuté la commande `Test-AzureRmNetworkWatcherIPFlow` pour 
 },
 ```
 
-La règle **DenyAllInBound** est appliquée, car comme indiqué dans la sortie, aucune règle de priorité plus élevée n’est présente dans la sortie de la commande `Get-AzureRmEffectiveNetworkSecurityGroup` afin d’autoriser le port 80 entrant de l’adresse 172.131.0.100 vers la machine virtuelle. Pour autoriser les communications entrantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, afin d’autoriser le trafic entrant vers le port 80 à partir de l’adresse 172.131.0.100.
+La règle **DenyAllInBound** est appliquée, car comme indiqué dans la sortie, aucune règle de priorité plus élevée n’est présente dans la sortie de la commande `Get-AzEffectiveNetworkSecurityGroup` afin d’autoriser le port 80 entrant de l’adresse 172.131.0.100 vers la machine virtuelle. Pour autoriser les communications entrantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, afin d’autoriser le trafic entrant vers le port 80 à partir de l’adresse 172.131.0.100.
 
 Les vérifications de ce guide de démarrage rapide ont permis de tester la configuration Azure. Si les vérifications effectuées retournent les résultats attendus alors que vous rencontrez toujours des problèmes réseau, vérifiez qu’il n’y a aucun pare-feu entre votre machine virtuelle et le point de terminaison avec lequel vous communiquez, et que le système d’exploitation dans votre machine virtuelle n’a pas de pare-feu qui autorise ou refuse les communications.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour le supprimer et toutes les ressources qu’il contient :
+Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour le supprimer ainsi que toutes les ressources qu’il contient :
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

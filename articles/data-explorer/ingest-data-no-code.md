@@ -1,19 +1,18 @@
 ---
 title: 'Didacticiel : Ingérer les données des journaux de diagnostic et d’activité dans Azure Data Explorer sans une seule ligne de code'
 description: Dans ce tutoriel, vous allez apprendre à ingérer des données dans Azure Data Explorer sans une seule ligne de code et découvrir comment interroger ces données.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 3/14/2019
-ms.openlocfilehash: 5d6b595b442b645f57454e317e6535645f643598
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 04/07/2019
+ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756839"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262905"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Didacticiel : Ingérer des données dans Azure Data Explorer sans une seule ligne de code
 
@@ -210,12 +209,12 @@ Pour mapper les données des journaux d’activité à la table, utilisez la req
 
 #### <a name="activity-log-data-update-policy"></a>Stratégie de mise à jour des données des journaux d’activité
 
-1. Créez une [fonction](/azure/kusto/management/functions) qui développe la collection des enregistrements de journaux d’activité pour que chaque valeur de la collection reçoive une ligne distincte. Utilisez l’opérateur [`mvexpand`](/azure/kusto/query/mvexpandoperator) :
+1. Créez une [fonction](/azure/kusto/management/functions) qui développe la collection des enregistrements de journaux d’activité pour que chaque valeur de la collection reçoive une ligne distincte. Utilisez l’opérateur [`mv-expand`](/azure/kusto/query/mvexpandoperator) :
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
         ActivityLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
@@ -239,11 +238,11 @@ Pour mapper les données des journaux d’activité à la table, utilisez la req
 
 #### <a name="diagnostic-log-data-update-policy"></a>Stratégie de mise à jour des données des journaux de diagnostic
 
-1. Créez une [fonction](/azure/kusto/management/functions) qui développe la collection des enregistrements de journaux de diagnostic pour que chaque valeur de la collection reçoive une ligne distincte. Utilisez l’opérateur [`mvexpand`](/azure/kusto/query/mvexpandoperator) :
+1. Créez une [fonction](/azure/kusto/management/functions) qui développe la collection des enregistrements de journaux de diagnostic pour que chaque valeur de la collection reçoive une ligne distincte. Utilisez l’opérateur [`mv-expand`](/azure/kusto/query/mvexpandoperator) :
      ```kusto
     .create function DiagnosticLogRecordsExpand() {
         DiagnosticLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
@@ -269,7 +268,7 @@ Les journaux de diagnostic Azure permettent d’exporter des métriques vers un 
 
 1. Créez un hub d’événements à l’aide d’un modèle Azure Resource Manager dans le portail Azure. Pour suivre le reste des étapes de l’article, cliquez avec le bouton droit sur le bouton **Déployer sur Azure**, puis sélectionnez **Ouvrir dans une nouvelle fenêtre**. Le bouton **Déployer sur Azure** vous permet d’accéder au Portail Azure.
 
-    [![Bouton Déployer sur Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![DBouton Déployer sur Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Créez un espace de noms Event Hubs ainsi qu’un hub d’événements pour les journaux de diagnostic.
 
@@ -369,7 +368,7 @@ Vous devez maintenant créer les connexions de données pour vos journaux de dia
     |---|---|---|
     | **Nom de la connexion de données** | *DiagnosticsLogsConnection* | Nom de la connexion que vous souhaitez créer dans l’Explorateur de données Azure.|
     | **Espace de noms du hub d’événements** | *AzureMonitoringData* | Nom choisi précédemment qui identifie votre espace de noms. |
-    | **Hub d’événements** | *diagnosticlogsdata* | Hub d’événements que vous avez créé. |
+    | **Event Hub** | *diagnosticlogsdata* | Hub d’événements que vous avez créé. |
     | **Groupe de consommateurs** | *adxpipeline* | Groupe de consommateurs défini dans le hub d’événements que vous avez créé. |
     | | |
 
@@ -398,7 +397,7 @@ Répétez les étapes décrites dans la section « Créer la connexion de donn�
     |---|---|---|
     | **Nom de la connexion de données** | *ActivityLogsConnection* | Nom de la connexion que vous souhaitez créer dans l’Explorateur de données Azure.|
     | **Espace de noms du hub d’événements** | *AzureMonitoringData* | Nom choisi précédemment qui identifie votre espace de noms. |
-    | **Hub d’événements** | *insights-operational-logs* | Hub d’événements que vous avez créé. |
+    | **Event Hub** | *insights-operational-logs* | Hub d’événements que vous avez créé. |
     | **Groupe de consommateurs** | *$Default* | Groupe de consommateurs par défaut. Si nécessaire, vous pouvez créer un autre groupe de consommateurs. |
     | | |
 
@@ -461,4 +460,4 @@ Résultats de la requête :
 Consultez l’article suivant pour apprendre à écrire de nombreuses autres requêtes sur les données extraites à partir d’Azure Data Explorer :
 
 > [!div class="nextstepaction"]
-> [Écrire des requêtes pour l’Explorateur de données Azure](write-queries.md)
+> [Rédiger des requêtes pour l’Explorateur de données Azure](write-queries.md)

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fc6acb211e30af460106acd1c19b61db52f09269
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ce882ecee25f9570082a978b72a76ca903bfc12f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311880"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279378"
 ---
-# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutoriel : Créer plusieurs instances de ressources grâce à des modèles Resource Manager
+# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Didacticiel : Créer plusieurs instances de ressources grâce à des modèles Resource Manager
 
 Découvrez comment procéder à une itération dans votre modèle Azure Resource Manager pour créer plusieurs instances d’une ressource Azure. Dans ce tutoriel, vous modifiez un modèle pour créer trois instances de compte de stockage.
 
@@ -126,14 +126,14 @@ Reportez-vous à la section [Déployer le modèle](./resource-manager-quickstart
 
 Pour répertorier tous les trois comptes de stockage, omettez le paramètre --name :
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -155,7 +155,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à créer plusieurs instances de compte de stockage. Dans le tutoriel suivant, vous allez apprendre à déplacer une ressource d’un groupe de ressources vers un autre.
+Dans ce tutoriel, vous avez appris à créer plusieurs instances de compte de stockage.  Dans le tutoriel suivant, vous développez un modèle disposant de plusieurs ressources et types de ressources. Certaines ressources comportent des ressources dépendantes.
 
 > [!div class="nextstepaction"]
-> [Déplacer des ressources](./resource-manager-tutorial-move-resources.md)
+> [Créer des ressources dépendantes](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

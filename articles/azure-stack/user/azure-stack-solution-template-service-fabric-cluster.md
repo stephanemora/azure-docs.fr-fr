@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0a24228f1437fbb23c11070b3e99cea60489c071
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482262"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264982"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Déployer un cluster Service Fabric dans Azure Stack
 
@@ -44,9 +44,9 @@ Le déploiement du cluster Service Fabric requiert les éléments suivants :
 
 1. **Certificat client d’administration** Il s’agit du certificat, éventuellement auto-signé, que le client utilisera pour s’authentifier auprès du cluster Service Fabric. Consultez les [exigences](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) relatives à la création de ce certificat client.
 
-1. **Les éléments ci-après doivent être disponibles dans la Place de marché Azure Stack :**
+1. **Les éléments suivants doivent être disponibles dans la Place de marché Azure Stack :**
     - **Windows Server 2016** : le modèle utilise l’image Windows Server 2016 pour créer le cluster.  
-    - **Extension de script client** : extension de machine virtuelle de Microsoft.  
+    - **Extension de script personnalisé** - Extension de machine virtuelle de Microsoft.  
     - **PowerShell Desired Stage Configuration** : extension de machine virtuelle de Microsoft.
 
 
