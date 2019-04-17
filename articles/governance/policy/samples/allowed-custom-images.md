@@ -1,19 +1,18 @@
 ---
 title: Exemple - Images de machine virtuelle approuvées
 description: Pour cet exemple de définition de stratégie, seules les images personnalisées approuvées doivent être déployées dans votre environnement.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 1fc7b9f49b806c4b740f4f85330dc9e37f0f61f2
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8def11c2d92af618054d0353fa2687d2e88e1134
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805616"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266713"
 ---
 # <a name="sample---approved-virtual-machine-images"></a>Exemple - Images de machines virtuelles approuvées
 
@@ -23,7 +22,7 @@ Vous pouvez déployer cette exemple de stratégie à l’aide des éléments sui
 
 - [Portail Azure](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
-- [Interface de ligne de commande Azure](#azure-cli)
+- [Azure CLI](#azure-cli)
 - [API REST](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]

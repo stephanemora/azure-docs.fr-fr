@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec ExcelityGlobal | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec ExcelityGlobal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ExcelityGlobal.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: b962f0e7d571828fb3a1180b3d77a3368ef6c665
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852625"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Didacticiel : Intégration d’Azure Active Directory avec ExcelityGlobal
 
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’ExcelityGlobal à Azure AD, vous devez ajouter ExcelityGlobal disponible dans la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter ExcelityGlobal à partir de la galerie, procédez comme suit :**
+**Pour ajouter ExcelityGlobal à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,15 +106,15 @@ Pour configurer l’authentification unique Azure AD avec ExcelityGlobal, procé
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
 
-    **Pour l’environnement de production** : `https://ess.excelityglobal.com`
+    **Pour l’environnement de production** : `https://ess.excelityglobal.com`
 
-    **Pour l’environnement Sandbox** : `https://s6.excelityglobal.com`
+    **Pour l’environnement de bac à sable (sandbox)**  : `https://s6.excelityglobal.com`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :
 
-    **Pour l’environnement de production** : `https://ess.excelityglobal.com/ACS`
+    **Pour l’environnement de production** : `https://ess.excelityglobal.com/ACS`
 
-    **Pour l’environnement Sandbox** : `https://s6.excelityglobal.com/ACS`
+    **Pour l’environnement de bac à sable (sandbox)**  : `https://s6.excelityglobal.com/ACS`
 
 5. Votre application ExcelityGlobal s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application ExcelityGlobal s’attend à ce que **nameidentifier** soit mappé avec **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
  
@@ -160,7 +160,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -205,7 +205,7 @@ Quand vous cliquez sur la vignette ExcelityGlobal dans le volet d’accès, vous
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

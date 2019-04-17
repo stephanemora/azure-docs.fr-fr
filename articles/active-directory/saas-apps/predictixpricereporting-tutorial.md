@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d6b1303cfdc28cf568796e03c23ff69320ab83dc
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: aa96bcbc7c75f1a4dcd28a5dbe7479f99aabe908
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576997"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263828"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutoriel : Intégration d’Azure Active Directory à Predictix Price Reporting
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Predictix Price Reporting avec Azure AD, vous devez ajouter Predictix Price Reporting à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Predictix Price Reporting à partir de la galerie, procédez comme suit :**
+**Pour ajouter Predictix Price Reporting à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec Predictix Price Repor
 
     ![Informations d’authentification unique dans Domaine et URL Predictix Price Reporting](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname-pricing>.predictix.com/sso/request`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<companyname-pricing>.predictix.com/sso/request`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
 
@@ -198,7 +198,7 @@ Quand vous cliquez sur la vignette Predictix Price Reporting dans le volet d’a
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

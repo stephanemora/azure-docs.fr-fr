@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399994"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278477"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Didacticiel : Installer Azure Data Box Edge
 
@@ -90,7 +90,9 @@ L’appareil doit être installé sur un rack standard de 19 pouces. Effectuez l
 
 - Avant de commencer, lisez les instructions du livret relatif à la sécurité, l’environnement et les réglementations. Ce livret a été fourni avec l’appareil.
 - Commencez par installer les rails dans l’espace alloué le plus proche de la partie inférieure du châssis.
-- Pour l’installation avec outils, vous devez fournir huit vis : n°10-32, n°12-24, n°M5 ou n°M6. Le diamètre des têtes de vis doit être inférieur à 10 mm (0,4 po).
+- Pour la configuration de montage des rails avec outils :
+    -  Vous devez fournir huit vis : n° 10-32, n° 12-24, n° M5 ou n° M6. Le diamètre des têtes de vis doit être inférieur à 10 mm (0,4 po).
+    -  Vous avez besoin d’un tournevis à tête plate.
 
 ### <a name="identify-the-rail-kit-contents"></a>Identifier le contenu du kit de rails
 
@@ -102,6 +104,9 @@ Identifiez les éléments d’installation de l’assemblage du kit de rails :
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Installer et retirer les rails sans outil (racks à trous ronds ou carrés)
 
+> [!TIP]
+> Cette option ne propose aucun outil, car l’installation et le retrait des rails dans les trous carrés ou ronds non filetés des racks ne nécessitent pas d’outils.
+
 1. Placez les extrémités des rails gauche et droit portant la mention **FRONT** vers l’intérieur et orientez chaque extrémité pour qu’elle vienne s’encastrer dans les trous de la partie avant des brides verticales du rack.
 2. Alignez chaque extrémité pour qu’elle s’encastre dans les trous inférieurs et supérieurs des unités souhaitées.
 3. Engagez l’arrière du rail jusqu’à son enclenchement complet dans la collerette verticale du rack et jusqu’à l’enclenchement du loquet. Répétez ces étapes pour positionner et enclencher l’extrémité avant sur la bride verticale du rack.
@@ -110,6 +115,9 @@ Identifiez les éléments d’installation de l’assemblage du kit de rails :
 ![Installer et retirer les rails sans outil](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Installer et retirer les rails avec outils (racks à trous filetés)
+
+> [!TIP]
+> Cette option est équipée d’outils,car l’installation et le retrait des rails dans les trous ronds filetés des racks nécessitent un outil (_un tournevis à tête plate_).
 
 1. Retirez les broches des supports de fixation avant et arrière à l’aide d’un tournevis plat.
 2. Tirez et faites pivoter les sous-ensembles de loquets des rails afin de les retirer des supports de fixation.

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: ef34985e7897aa751275231a28c6031d6c9747b0
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 06872eefd0d500a22214109ad5055dd236b5a6ac
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369960"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606835"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Exécuter des tâches conteneurisées avec des stratégies de redémarrage
 
@@ -93,98 +93,9 @@ Sortie :
 
 Cet exemple montre la sortie du script envoyé à STDOUT. Toutefois, il est possible que vos tâches en conteneur écrivent leur sortie dans un stockage persistant, en vue d’une récupération ultérieure. Par exemple, vers un [partage de fichiers Azure](container-instances-mounting-azure-files-volume.md).
 
-## <a name="manually-stop-and-start-a-container-group"></a>Arrêter et démarrer un groupe de conteneurs manuellement
-
-Quelle que soit la stratégie de redémarrage configurée pour un [groupe de conteneurs](container-instances-container-groups.md), vous souhaiterez peut-être arrêter ou démarrer manuellement un groupe de conteneurs.
-
-* **Arrêter** - Vous pouvez arrêter manuellement un groupe de conteneurs en cours d’exécution à tout moment - par exemple, en utilisant la commande [az container stop][az-container-stop]. Pour certaines charges de travail de conteneur, vous pouvez vouloir arrêter un groupe de conteneurs après une période définie afin de réduire les coûts. 
-
-  L’arrêt d’un groupe de conteneurs se termine et recycle les conteneurs du groupe, mais ne préserve pas l’état du conteneur. 
-
-* **Démarrer** - Quand un groupe de conteneurs est arrêté - soit parce que les conteneurs s’arrêtent d’eux-mêmes, soit parce que vous avez arrêté manuellement le groupe - vous pouvez utiliser l’[API de démarrage de conteneur](/rest/api/container-instances/containergroups/start) ou le portail Azure pour démarrer manuellement les conteneurs dans le groupe. Si l’image d’un conteneur est mise à jour, une nouvelle image est extraite. 
-
-  Le démarrage d’un groupe de conteneurs commence un nouveau déploiement avec la même configuration de conteneur. Cette action peut vous aider à réutiliser rapidement une configuration de groupe de conteneurs connue qui fonctionne comme prévu. Vous n’avez pas besoin de créer un nouveau groupe de conteneurs pour exécuter la même charge de travail.
-
-* **Redémarrer** - Vous pouvez redémarrer un groupe de conteneurs en cours d’exécution - par exemple, en utilisant la commande [az container restart][az-container-restart]. Cette action redémarre tous les conteneurs du groupe de conteneurs. Si l’image d’un conteneur est mise à jour, une nouvelle image est extraite. 
-
-  Le redémarrage d’un groupe de conteneurs est utile lorsque vous souhaitez résoudre un problème de déploiement. Par exemple, si une limitation temporaire des ressources empêche le bon fonctionnement de vos conteneurs, le redémarrage du groupe peut résoudre le problème.
-
-Après que vous avez démarré ou redémarré manuellement un groupe de conteneurs, le groupe de conteneurs fonctionne conformément à la stratégie de redémarrage configurée.
-
-## <a name="configure-containers-at-runtime"></a>Configurer des conteneurs au moment de l’exécution
-
-Lorsque vous créez une instance de conteneur, vous pouvez définir ses **variables d’environnement**, et spécifier la **ligne de commande** personnalisée à exécuter une fois le conteneur démarré. Vous pouvez utiliser ces paramètres dans vos programmes de traitement par lots en vue d’appliquer à chacun des conteneurs une configuration spécifique aux tâches.
-
-## <a name="environment-variables"></a>Variables d’environnement
-
-Définissez des variables d’environnement dans votre conteneur pour permettre la configuration dynamique de l’application ou du script exécutés par le conteneur. Cela revient à définir l’argument de ligne de commande `--env` sur `docker run`.
-
-Par exemple, vous pouvez modifier le comportement du script dans l’exemple de conteneur en spécifiant les variables d’environnement suivantes lorsque vous créez l’instance de conteneur :
-
-*NumWords* : Nombre de mots envoyés à STDOUT.
-
-*MinLength* : Nombre minimal de caractères dans un mot pour que celui-ci soit comptabilisé. Cela vous permet d’ignorer les mots communs tels que « de » et « le ».
-
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer2 \
-    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
-    --restart-policy OnFailure \
-    --environment-variables NumWords=5 MinLength=8
-```
-
-Si vous spécifiez `NumWords=5` et `MinLength=8` pour les variables d’environnement du conteneur, les journaux d’activité du conteneur doivent afficher une sortie différente. Une fois que l’état du conteneur est *Terminé* (utilisez `az container show` pour vérifier son état), affichez ses journaux d’activité pour voir la nouvelle sortie :
-
-```azurecli-interactive
-az container logs --resource-group myResourceGroup --name mycontainer2
-```
-
-Sortie :
-
-```bash
-[('CLAUDIUS', 120),
- ('POLONIUS', 113),
- ('GERTRUDE', 82),
- ('ROSENCRANTZ', 69),
- ('GUILDENSTERN', 54)]
-```
-
-
-
-## <a name="command-line-override"></a>Remplacement de la ligne de commande
-
-Spécifiez une ligne de commande lorsque vous créez une instance de conteneur pour remplacer la ligne de commande intégrée à l’image de conteneur. Cela revient à définir l’argument de ligne de commande `--entrypoint` sur `docker run`.
-
-Vous pouvez demander à l’exemple de conteneur d’analyser du texte autre que celui *d’Hamlet* en spécifiant une autre ligne de commande. Le script Python exécuté par le conteneur (*wordcount.py*) accepte une URL comme argument, et traite le contenu de cette page au lieu de celui défini par défaut.
-
-Par exemple, pour déterminer les 3 mots à cinq lettres les plus utilisés dans *Roméo et Juliette* :
-
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer3 \
-    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
-    --restart-policy OnFailure \
-    --environment-variables NumWords=3 MinLength=5 \
-    --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
-```
-
-Là encore, lorsque l’état du conteneur est *Terminé*, affichez les journaux d’activité du conteneur pour consulter la sortie :
-
-```azurecli-interactive
-az container logs --resource-group myResourceGroup --name mycontainer3
-```
-
-Sortie :
-
-```bash
-[('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-### <a name="persist-task-output"></a>Conserver les sorties des tâches
+Les scénarios basés sur des tâches, comme un jeu de données volumineux avec plusieurs conteneurs, de traitement par lots peuvent tirer parti de personnalisé [variables d’environnement](container-instances-environment-variables.md) ou [lignes de commande](container-instances-start-command.md) lors de l’exécution.
 
 Pour plus d’informations sur la conservation de la sortie de vos conteneurs qui s’exécutent jusqu’à achèvement, consultez [Montage d’un partage de fichiers Azure avec Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
@@ -194,7 +105,5 @@ Pour plus d’informations sur la conservation de la sortie de vos conteneurs qu
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
-[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

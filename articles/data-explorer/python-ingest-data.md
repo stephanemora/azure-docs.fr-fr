@@ -1,19 +1,18 @@
 ---
 title: 'Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure'
 description: Dans ce guide de démarrage rapide, vous allez apprendre à ingérer (charger) des données dans l’Explorateur de données Azure en utilisant Python.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 309e391412a0e2c698173f02eb9fd00d576ead09
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: fdeae2c6b598feee0abc57c80ea32f2108504330
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757704"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046459"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure
 

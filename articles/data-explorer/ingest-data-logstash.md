@@ -1,19 +1,18 @@
 ---
 title: 'Démarrage rapide : Ingérer des données depuis Logstash vers Azure Data Explorer'
 description: Dans ce guide de démarrage rapide, vous découvrez comment ingérer (charger) des données dans Azure Data Explorer depuis Logstash.
-services: data-explorer
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/14/2019
-ms.openlocfilehash: a5b4917e0d73378b908739a8fc8c0744c70dd1e9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/14/2019
+ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754664"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046408"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Démarrage rapide : Ingérer des données depuis Logstash vers Azure Data Explorer
 
@@ -109,7 +108,7 @@ output {
 
 | Nom du paramètre | Description |
 | --- | --- |
-| **path** | Le plug-in Logstash écrit des événements dans des fichiers temporaires avant de les envoyer à Azure Data Explorer. Ce paramètre inclut un chemin indiquant l’emplacement auquel les fichiers doivent être écrits, ainsi qu’une expression temporelle de rotation de fichiers qui déclenche un chargement vers le service Azure Data Explorer.|
+| **chemin d’accès** | Le plug-in Logstash écrit des événements dans des fichiers temporaires avant de les envoyer à Azure Data Explorer. Ce paramètre inclut un chemin indiquant l’emplacement auquel les fichiers doivent être écrits, ainsi qu’une expression temporelle de rotation de fichiers qui déclenche un chargement vers le service Azure Data Explorer.|
 | **ingest_url** | Point de terminaison Kusto pour la communication liée à l’ingestion.|
 | **app_id**, **app_key** et **app_tenant**| Informations d’identification nécessaires pour la connexion à Azure Data Explorer. Veillez à utiliser une application dotée de privilèges d’ingestion. |
 | **database**| Nom de la base de données où placer des événements. |
@@ -148,4 +147,4 @@ Exécutez la commande suivante dans votre base de données pour nettoyer la tabl
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Écrire des requêtes](write-queries.md)
+> [Rédiger des requêtes](write-queries.md)

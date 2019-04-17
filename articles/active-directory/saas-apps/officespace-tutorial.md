@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 42ef2d9bbdf825eb0a872e9fe6fa66b34faa2cad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6547a640f6e56865d44b6848cf37078161faa538
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180566"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Didacticiel : Intégration d'Azure Active Directory à OfficeSpace Software
 
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’OfficeSpace Software à Azure AD, vous devez ajouter OfficeSpace Software, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter OfficeSpace Software à partir de la galerie, procédez comme suit :**
+**Pour ajouter OfficeSpace Software à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec OfficeSpace Software, 
 
     ![Informations d’authentification unique dans Domaine et URL OfficeSpace Software](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<company name>.officespacesoftware.com/users/sign_in/saml`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<company name>.officespacesoftware.com/users/sign_in/saml`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `<company name>.officespacesoftware.com`
 
@@ -253,7 +253,7 @@ Quand vous cliquez sur la vignette OfficeSpace Software dans le volet d’accès
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

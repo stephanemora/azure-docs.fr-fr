@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73bb37607af681fcd505706ae99b308024be2c2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab329574ef425e8133ac746c185050efcc8bc15a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887423"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261443"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Tutoriel : Intégration d’Azure Active Directory à NetSuite
+# <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Didacticiel : Intégration d’Azure Active Directory à NetSuite
 
 Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) à NetSuite.
 L’intégration de NetSuite à Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de NetSuite à Azure AD, vous devez ajouter NetSuite à votre liste d’applications SaaS managées, à partir de la galerie.
 
-**Pour ajouter NetSuite à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter NetSuite à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -173,19 +173,19 @@ Pour configurer l’authentification unique Azure AD avec NetSuite, effectuez le
 
 1. Ouvrez un nouvel onglet dans votre navigateur et connectez-vous à votre site d’entreprise NetSuite en tant qu’administrateur.
 
-2. Dans la barre d’outils en haut de la page, cliquez sur  **Configuration**, puis accédez à  **Entreprise**  et cliquez sur  **Activer des fonctionnalités**.
+2. Dans la barre d’outils en haut de la page, cliquez sur **Setup** (Configuration), puis accédez à **Company** (Entreprise) et cliquez sur **Enable Features** (Activer des fonctionnalités).
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-3. Dans la barre d’outils située au milieu de la page, cliquez sur  **SuiteCloud**.
+3. Dans la barre d’outils située au milieu de la page, cliquez sur **SuiteCloud**.
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-4. Dans la section  **Manage Authentication**  (Gérer l’authentification), sélectionnez  **SAML SINGLE SIGN-ON**  (Authentification unique SAML) pour activer l’option du même nom dans NetSuite.
+4. Dans la section **Manage Authentication** (Gérer l’authentification), sélectionnez **SAML SINGLE SIGN-ON** (Authentification unique SAML) pour activer l’option du même nom dans NetSuite.
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-5. Dans la barre d’outils située en haut de la page, cliquez sur  **Setup** (Configuration).
+5. Dans la barre d’outils située en haut de la page, cliquez sur **Setup** (Configuration).
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-setup.png)
 
@@ -279,7 +279,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -330,5 +330,5 @@ Le fait de cliquer sur la vignette NetSuite dans le panneau d’accès doit vous
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configurer l’approvisionnement de l’utilisateur](NetSuite-provisioning-tutorial.md)
+- [Configurer l’approvisionnement des utilisateurs](NetSuite-provisioning-tutorial.md)
 

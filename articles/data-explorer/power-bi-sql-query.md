@@ -1,19 +1,18 @@
 ---
-title: 'Démarrage rapide : Visualiser des données avec une requête SQL dans Power BI'
+title: 'Démarrage rapide : Visualiser des données Azure Data Explorer avec une requête SQL dans Power BI'
 description: 'Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser une des trois options de visualisation des données dans Power BI : une requête SQL sur un cluster Azure Data Explorer.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a3a688adaae8fe66c336617cdd0a4807f16ec68
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756355"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045505"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Démarrage rapide : Visualiser des données à l’aide du connecteur Azure Data Explorer pour Power BI
 
@@ -53,7 +52,7 @@ Vous utilisez généralement le langage de requête natif avec Azure Data Explor
     |---|---|---|
     | Serveur | *help.kusto.windows.net* | URL pour le cluster help (sans *https://*). Pour les autres clusters, l’URL est de la forme *\<NomCluster\>.\<Région\>.kusto.windows.net*. |
     | Base de données | *Exemples* | Exemple de base de données hébergée sur le cluster auquel vous vous connectez. |
-    | Mode de connectivité des données | *Importationation* | Détermine si Power BI importe les données ou s’il se connecte directement à la source de données. Vous pouvez utiliser l’une ou l’autre des options avec ce connecteur. |
+    | Mode de connectivité des données | *Importer* | Détermine si Power BI importe les données ou s’il se connecte directement à la source de données. Vous pouvez utiliser l’une ou l’autre des options avec ce connecteur. |
     | Délai d’expiration de la commande | Laisser vide | Durée pendant laquelle la requête s’exécute avant de lever une erreur d’expiration. |
     | Instruction SQL | Copiez la requête sous ce tableau | Instruction SQL qu’Azure Data Explorer traduit pour vous en requête native. |
     | Autres options | Laissez les valeurs par défaut | Les options ne s’appliquent pas aux clusters Azure Data Explorer. |
@@ -86,4 +85,4 @@ Si vous n’avez plus besoin du rapport que vous avez créé pour ce guide de d�
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Visualiser des données avec une requête importée dans Power BI](power-bi-connector.md)
+> [Démarrage rapide : Visualiser des données avec une requête importée dans Power BI](power-bi-connector.md)

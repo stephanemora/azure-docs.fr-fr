@@ -1,20 +1,18 @@
 ---
 title: 'Démarrage rapide : Ingérer des objets blob Azure dans Azure Data Explorer'
 description: Dans ce guide de démarrage rapide, vous allez apprendre à envoyer des données de compte de stockage à Azure Data Explorer en utilisant un abonnement Event Grid.
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/30/2019
-Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
-ms.openlocfilehash: 8efe8b95b09fa8b4de16c08345699cee88e11285
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/30/2019
+ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756433"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051850"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Démarrage rapide : Ingérer des objets blob dans Azure Data Explorer en s’abonnant à des notifications Event Grid
 
@@ -45,8 +43,8 @@ Dans ce guide de démarrage rapide, vous allez apprendre à définir un abonneme
     | Type de rubrique | *Compte de stockage* | Type de rubrique Event Grid. |
     | Ressource de rubrique | *gridteststorage* | nom de votre compte de stockage. |
     | S’abonner à tous les types d’événements | *clear* | Ne pas être notifié de tous les événements. |
-    | Types d’événements définis | *Objet blob créé* | De quels événements spécifiques être notifié. |
-    | Type de point de terminaison | *Event Hubs* | Type de point de terminaison auquel vous envoyez les événements. |
+    | Types d’événements définis | *BlobCreated* | De quels événements spécifiques être notifié. |
+    | Type de point de terminaison | *Hubs d'événements* | Type de point de terminaison auquel vous envoyez les événements. |
     | Point de terminaison | *test-hub* | Hub d’événements que vous avez créé. |
     | | |
 
@@ -199,4 +197,4 @@ Si vous ne prévoyez pas de réutiliser votre grille d’événement, effacez **
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
+> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)

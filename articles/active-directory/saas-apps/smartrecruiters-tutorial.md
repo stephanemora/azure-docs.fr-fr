@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à SmartRecruiters | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à SmartRecruiters | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SmartRecruiters.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 6cf24dd5bd43670efbc41b89ca62ec061dc0dbc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79223a7f5c1f16eaf09de8efd05e0ec096ac73ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177600"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279446"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Tutoriel : Intégration d’Azure Active Directory à SmartRecruiters
+# <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Didacticiel : Intégration d’Azure Active Directory à SmartRecruiters
 
 Dans ce didacticiel, vous apprenez à intégrer SmartRecruiters à Azure Active Directory (Azure AD).
 L’intégration de SmartRecruiters à Azure AD vous offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de SmartRecruiters à Azure AD, vous devez ajouter SmartRecruiters à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter SmartRecruiters à partir de la galerie, procédez comme suit :**
+**Pour ajouter SmartRecruiters à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -221,7 +221,7 @@ Quand vous cliquez sur la vignette SmartRecruiters dans le volet d’accès, vou
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Intacct | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Intacct | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Intacct.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cd10adbc509812a360ae59fdac3f16bd2af0324c
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 31bc5622c6c6c3dd00bc59b5d8f3aa349055d125
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188150"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279242"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Tutoriel : Intégration d’Azure Active Directory à Intacct
+# <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Didacticiel : Intégration d’Azure Active Directory à Intacct
 
 Dans ce didacticiel, vous allez apprendre à intégrer Intacct à Azure Active Directory (Azure AD).
 L’intégration d’Intacct à Azure AD vous offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’Intacct avec Azure AD, vous devez ajouter Intacct à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Intacct à partir de la galerie, procédez comme suit :**
+**Pour ajouter Intacct à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -211,7 +211,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Pour configurer les utilisateurs Azure AD afin qu’ils puissent se connecter à Intacct, ils doivent être approvisionnés dans Intacct. Pour Intacct, l’approvisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour provisionner des comptes d’utilisateur, effectuez les étapes suivantes :**
 
 1. Connectez-vous à votre locataire **Intacct**.
 
@@ -244,7 +244,7 @@ Quand vous cliquez sur la vignette Intacct dans le volet d’accès, vous devez 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

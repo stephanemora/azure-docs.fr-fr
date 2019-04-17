@@ -1,5 +1,5 @@
 ---
-title: Créer un index en C# - Recherche Azure
+title: 'Démarrage rapide : Créer un index dans une application console C# - Recherche Azure'
 description: Découvrez comment créer un index de recherche en texte intégral en C# à l’aide du kit SDK .NET Recherche Azure.
 author: heidisteen
 manager: cgronlun
@@ -9,15 +9,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/22/2019
-ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.date: 04/08/2019
+ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370582"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269042"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Démarrage rapide : 1 - Créer un index Recherche Azure en C#
+> [!div class="op_single_selector"]
+> * [C#](search-create-index-dotnet.md)
+> * [Portail](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [postman](search-fiddler.md)
+>*
 
 Cet article vous explique comment créer [un index Recherche Azure](search-what-is-an-index.md) à l’aide de C# et du [SDK .NET](https://aka.ms/search-sdk). Il s’agit de la première leçon d’un exercice en 3 parties pour créer, charger et interroger un index. La création d’index s’effectue en exécutant ces tâches :
 
@@ -28,35 +34,43 @@ Cet article vous explique comment créer [un index Recherche Azure](search-what-
 
 ## <a name="prerequisites"></a>Prérequis
 
+Les services, outils et données qui suivent sont utilisés dans ce guide de démarrage rapide. 
+
 [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce démarrage rapide.
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), n’importe quelle édition. L’exemple de code et les instructions ont été testés dans l’édition Communauté gratuite.
 
-Obtenez le point de terminaison d’URL et la clé API d’administration de votre service de recherche. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
+[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) fournit l’exemple de solution, une application console .NET Core en C#, située dans le dépôt d’exemples Azure sur GitHub. Téléchargez puis extrayez la solution. Par défaut, les solutions sont en lecture seule. Cliquez avec le bouton droit sur la solution, puis supprimez l’attribut de lecture seule afin de pouvoir modifier les fichiers. Les données sont incluses dans la solution.
 
-  1. Dans le portail Azure, dans la page **Vue d’ensemble** de votre service de recherche, obtenez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
+## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
-  2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
+Les appels au service nécessitent un point de terminaison d’URL et une clé d’accès pour chaque requête. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
 
-  ![Obtenir une clé d’accès et un point de terminaison HTTP](media/search-fiddler/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
+1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis, dans la page **Vue d’ensemble** de votre service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
+
+2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
+
+![Obtenir une clé d’accès et un point de terminaison HTTP](media/search-fiddler/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
-## <a name="1---open-the-project"></a>1 - Ouvrir le projet
+## <a name="1---configure-and-build"></a>1 - Configurer et générer
 
-Téléchargez l’exemple de code [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) à partir de GitHub. 
+1. Ouvrez le fichier **DotNetHowTo.sln** dans Visual Studio.
 
-Dans appsettings.json, remplacez le contenu par défaut par l’exemple ci-dessous, puis indiquez le nom du service et la clé API d’administration de votre service. Pour le nom du service, vous avez simplement besoin du nom lui-même. Par exemple, si votre URL est https://mydemo.search.windows.net, ajoutez `mydemo` au fichier JSON.
+1. Dans appsettings.json, remplacez le contenu par défaut par l’exemple ci-dessous, puis indiquez le nom du service et la clé API d’administration de votre service. 
 
 
-```json
-{
-    "SearchServiceName": "Put your search service name here",
-    "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-}
-```
+   ```json
+   {
+       "SearchServiceName": "Put your search service name here (not the full URL)",
+       "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+    }
+   ```
 
-Une fois que ces valeurs sont définies, vous pouvez générer (F5) la solution pour exécuter l’application de console. Les étapes restantes de cet exercice et celles qui suivent explorent le fonctionnement de ce code. 
+  Pour le nom du service, vous avez simplement besoin du nom lui-même. Par exemple, si votre URL est https://mydemo.search.windows.net, ajoutez `mydemo` au fichier JSON.
+
+1. Appuyez sur F5 pour générer la solution et exécuter l’application console. Les étapes restantes de cet exercice et celles qui suivent explorent le fonctionnement de ce code. 
 
 Vous pouvez également consulter [Guide pratique pour utiliser la Recherche Azure à partir d’une application .NET](search-howto-dotnet-sdk.md) pour voir plus en détail les comportements du SDK. 
 
@@ -64,7 +78,7 @@ Vous pouvez également consulter [Guide pratique pour utiliser la Recherche Azur
 
 ## <a name="2---create-a-client"></a>2 - Créer un client
 
-Pour commencer à utiliser le SDK .NET de la Recherche Azure, créez une instance de la classe `SearchServiceClient`. Cette classe dispose de plusieurs constructeurs. Celle que vous cherchez utilise le nom de votre service de recherche et un objet `SearchCredentials` en tant paramètres. `SearchCredentials` encapsule votre clé API.
+Pour commencer à utiliser le SDK .NET de la Recherche Azure, créez une instance de la classe `SearchServiceClient`. Cette classe dispose de plusieurs constructeurs. Celle que vous cherchez utilise le nom de votre service de recherche et un objet `SearchCredentials` en tant paramètres. `SearchCredentials` wrappe votre clé API.
 
 Le code suivant se trouve dans le fichier Program.cs. Il crée un `SearchServiceClient` à l’aide de valeurs pour le nom du service de recherche et la clé API stockées dans le fichier config de l’application (appsettings.json).
 
@@ -205,4 +219,4 @@ Dans ce guide de démarrage rapide, vous avez créé un index Recherche Azure vi
 Le prochain guide de démarrage rapide de cette série explique comment charger l’index avec du contenu à rechercher.
 
 > [!div class="nextstepaction"]
-> [Charger des données dans un index Recherche Azure à l’aide de C#](search-import-data-dotnet.md)
+> [Charger des données dans un index Recherche Azure avec C#](search-import-data-dotnet.md)

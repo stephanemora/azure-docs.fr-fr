@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 57bde67ac2259b3847f59f95eaefba9c6fddf13e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316199"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470013"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutoriel de conception Project Acoustics Unreal/Wwise
 Ce tutoriel décrit la configuration et le workflow de la conception pour Project Acoustics dans Unreal et Wwise.
@@ -62,11 +62,18 @@ N’oubliez pas que la configuration requise acteur-mixeur interchange le routag
 ![Capture d’écran de l’éditeur Wwise montrant des instructions de conception des voix pour Project Acoustics](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>Configurer les courbes d’atténuation de distance
-Vérifiez que les courbes d’atténuation utilisées par les acteurs-mixeurs avec Project Acoustics ont un envoi auxiliaire défini par l’utilisateur défini sur « output bus volume ». Wwise le fait par défaut pour les courbes d’atténuation nouvellement créées. Si vous migrez un projet existant, vérifiez les paramètres de vos courbes. 
+Vérifiez que les courbes d’atténuation utilisées par les acteurs-mixeurs avec Project Acoustics ont un envoi auxiliaire défini par l’utilisateur défini sur « output bus volume ». Wwise le fait par défaut pour les courbes d’atténuation nouvellement créées. Si vous migrez un projet existant, vérifiez les paramètres de vos courbes.
 
 Par défaut, la simulation Project Acoustics a un rayon de 45 mètres autour de l’emplacement du joueur. Nous recommandons généralement de définir votre courbe d’atténuation à -200 dB autour de cette distance. Cette distance n’est pas une contrainte figée. Pour certains sons, comme des armes, vous pouvez souhaiter un rayon plus grand. Dans ce cas, l’inconvénient est que seule la géométrie située dans les 45 m de l’emplacement du joueur est prise en compte. Si le joueur est dans une pièce et que la source d’un son est en dehors de la salle à une distance de 100 m, il sera bloqué correctement. Si la source est dans une pièce et que le joueur est dehors à une distance de 100m, il ne sera pas bloqué correctement.
 
 ![Capture d’écran des courbes d’atténuation Wwise](media/atten-curve.png)
+
+### <a name="post-mixer-equalization"></a>Égalisation postmixage ###
+ Vous pouvez également ajouter un égaliseur postmixage. Vous pouvez considérer le bus Project Acoustics comme un bus de réverbération classique (en mode de réverbération par défaut), et lui appliquer un filtre pour effectuer l’égalisation. Vous pouvez en voir un échantillon dans l’exemple de projet Wwise Project Acoustics.
+
+![Capture d’écran de l’égaliseur postmixage Wwise](media/wwise-post-mixer-eq.png)
+
+Par exemple, un filtre passe-haut peut contribuer à gérer les basses des enregistrements en champ proche qui génèrent une réverbération puissante et irréaliste. Vous pouvez également affiner le contrôle postbake en modifiant l’égaliseur via les RTPC, ce qui vous permet de changer la couleur de la réverbération en cours de jeu.
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>Définir les propriétés de Project Acoustics à l’échelle de la scène
 
@@ -80,7 +87,7 @@ L’acteur Acoustics Space expose de nombreux contrôles qui modifient le compor
 * **Cache Scale :** contrôle la taille du cache utilisé pour les requêtes acoustiques. Un cache plus petit utilise moins de RAM, mais peut augmenter l’utilisation du processeur pour chaque requête.
 * **Acoustics Enabled :** Un contrôle de débogage qui permet une bascule A/B rapide de la simulation Project Acoustics. Ce contrôle est ignoré dans les configurations livrées. Le contrôle est pratique pour détecter si un bogue audio particulier provient des calculs acoustiques ou d’un autre problème dans le projet Wwise.
 * **Update Distances :** Utilisez cette option si vous voulez utiliser les informations acoustiques avec baking préalable pour les requêtes de distance. Ces requêtes sont similaires aux raycastings, mais elles ont été précalculées et consomment donc beaucoup moins de CPU. Les réflexions discrètes sur la surface la plus proche de l’auditeur sont un exemple d’utilisation. Pour tirer pleinement parti de ceci, vous devez utiliser du code ou des blueprints pour interroger les distances.
-* **Draw Stats :** Alors que `stat Acoustics` de l’UE peut fournir des informations sur le processeur, cet affichage d’état montre la carte actuellement chargée, l’utilisation de la RAM et d’autres informations d’état dans le coin supérieur gauche de l’écran.
+* **Draw Stats :** Alors que le `stat Acoustics` de l’UE peut fournir des informations sur le CPU, cet affichage d’état montre le fichier ACE chargé, l’utilisation de la RAM et d’autres informations d’état dans le coin supérieur gauche de l’écran.
 * **Draw Voxels :** Voxels de superposition proches de l’auditeur montrant la grille de voxels utilisée lors de l’interpolation à l’exécution. Si un émetteur est à l’intérieur d’un voxel lors de l’exécution, les requêtes acoustiques échouent.
 * **Draw Probes :** Afficher toutes les sondes pour cette scène. Leurs couleurs diffèrent selon l’état de leur chargement.
 * **Draw Distances :** Si Update Distances est activé, cette commande affiche une zone sur la surface la plus proche de l’auditeur dans des directions quantifiées autour de celui-ci.
@@ -96,6 +103,7 @@ Ces contrôles de conception sont limités à un composant audio individuel dans
 * **Outdoorness Adjustment :** Contrôle l’extériorité de la réverbération. Les valeurs plus proches de 0 sont plus à l’intérieur, les valeurs plus proches de 1 sont plus extérieures. Cet ajustement est additif : une valeur définie sur -1 applique un facteur « intérieur », une valeur définie sur + 1 applique un facteur « extérieur ».
 * **Transmission Db :** Rendre un son « à travers le mur » supplémentaire avec ce niveau sonore combiné avec la ligne de vue en fonction de l’atténuation de la distance.
 * **Wet Ratio Distance Warp :** Ajuste les caractéristiques de la réverbération sur la source comme si elle était plus proche/lointaine, sans affecter le chemin direct.
+* **Play on Start :** Activez ou désactivez cette option pour spécifier si le son doit être lu automatiquement au début de la scène. Option activée par défaut.
 * **Show Acoustic Parameters :** Afficher les informations de débogage directement en haut du composant dans le jeu. (uniquement pour les configurations non livrées)
 
 ## <a name="blueprint-functionality"></a>Fonctionnalités des blueprints

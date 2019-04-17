@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dc5fc653b23e6c716df29cc283a89d8c0cba7c2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7d2920e84e0e1e61627afe1fe029e047e13ed02
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903499"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276409"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutoriel : Intégration d’Azure Active Directory à LCVista
+# <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Didacticiel : Intégration d’Azure Active Directory à LCVista
 
 Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) dans LCVista.
 L’intégration de LCVista dans Azure AD offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l'intégration de LCVista avec Azure AD, vous devez ajouter LCVista disponible dans la galerie, à votre liste d'applications SaaS gérées.
 
-**Pour ajouter LCVista à partir de la galerie, procédez comme suit :**
+**Pour ajouter LCVista à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec LCVista, procédez co
 
     ![Informations d’authentification unique dans Domaine et URL LCVista](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.lcvista.com/rainier/login`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<subdomain>.lcvista.com/rainier/login`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<subdomain>.lcvista.com`
 
@@ -213,7 +213,7 @@ Le fait de cliquer sur la vignette LCVista dans le panneau d’accès doit vous 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

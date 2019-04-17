@@ -1,191 +1,190 @@
 ---
-title: Exemple de mappage de contrôle - plan ISO 27001 Shared Services-
-description: Mappage de contrôle de l’exemple de solution blueprint ISO 27001 Shared Services pour Azure Policy et RBAC.
-services: blueprints
+title: Exemple - Blueprint Services partagés ISO 27001 - Mappage des contrôles
+description: Mappage des contrôles de l’exemple de blueprint Services partagés ISO 27001 à Azure Policy et RBAC.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 3ce755b62ce2ba0328852b551225ffa828a6c1bf
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 93a26311216ca5682c02a319f989b3d342a33ce1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804681"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256479"
 ---
-# <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mappage de contrôle de l’exemple de solution blueprint ISO 27001 Shared Services
+# <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint Services partagés ISO 27001
 
-L’article suivant décrit en détail comment Azure plans ISO 27001 Shared Services blueprint exemples de mappages pour les contrôles ISO 27001. Pour plus d’informations sur les contrôles, consultez [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
+L’article suivant décrit en détail le mappage de l’exemple de blueprint Services partagés ISO 27001 pour Azure Blueprints aux contrôles ISO 27001. Pour plus d’informations sur les contrôles, consultez [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 
-Les mappages suivants sont à la **ISO 27001 : 2013** contrôles. Utilisez le volet de navigation de droite pour accéder directement à un mappage de contrôle spécifique. De nombreux contrôles mappés sont implémentées avec un [Azure Policy](../../../policy/overview.md) initiative. Pour vérifier l’initiative terminée, ouvrez **stratégie** dans le portail Azure et sélectionnez le **définitions** page. Ensuite, recherchez et sélectionnez le  **[Préversion] d’Audit de ISO 27001 : 2013 contrôle et déployer des Extensions de machine virtuelle spécifique pour prendre en charge les exigences d’audit** initiative de stratégie intégrée.
+Les mappages suivants ciblent les contrôles **ISO 27001:2013**. Utilisez le volet de navigation de droite pour accéder directement au mappage d’un contrôle spécifique. De nombreux contrôles mappés sont implémentés avec une initiative [Azure Policy](../../../policy/overview.md). Pour examiner l’initiative complète, ouvrez **Stratégie** dans le portail Azure et sélectionnez la page **Définitions**. Ensuite, recherchez et sélectionnez l’initiative de stratégie intégrée **[Préversion] Auditer les contrôles ISO 27001:2013 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit**.
 
-## <a name="a612-segregation-of-duties"></a>A.6.1.2 une répartition des tâches
+## <a name="a612-segregation-of-duties"></a>A.6.1.2 Séparation des tâches
 
-Avoir qu’un seul propriétaire d’abonnement Azure n’autorise pas pour la redondance d’administration. À l’inverse, avoir trop de propriétaires d’abonnement Azure peut augmenter le risque d’une violation via un compte de propriétaire compromis. Cette solution blueprint vous permet de maintenir un nombre approprié de propriétaires d’abonnement Azure, affectez deux [Azure Policy](../../../policy/overview.md) définitions qu’auditer le nombre de propriétaires d’abonnements Azure. La gestion des autorisations de propriétaire d’abonnement peuvent vous aider à implémenter une séparation appropriée des tâches.
+Le fait d’avoir un seul propriétaire d’abonnement Azure ne permet pas d’assurer la redondance administrative. À l’inverse, un nombre trop élevé de propriétaires d’abonnement Azure peut augmenter le risque d’une violation par le biais d’un compte de propriétaire compromis. Ce blueprint vous permet de maintenir un nombre approprié de propriétaires d’abonnement Azure en affectant deux définitions [Azure Policy](../../../policy/overview.md) qui auditent le nombre de propriétaires pour les abonnements Azure. La gestion des autorisations des propriétaires d’abonnement peut vous aider à implémenter une séparation appropriée des tâches.
 
-- [Préversion]: Audit minimum number of owners for subscription
-- [Préversion]: Audit maximum number of owners for a subscription
+- [VERSION PRÉLIMINAIRE]: Audit minimum number of owners for subscription
+- [VERSION PRÉLIMINAIRE]: Audit maximum number of owners for a subscription
 
-## <a name="a912-access-to-networks-and-network-services"></a>A.9.1.2 l’accès aux réseaux et services réseau
+## <a name="a912-access-to-networks-and-network-services"></a>A.9.1.2 Accès aux réseaux et aux services réseau
 
-Azure implémente [contrôle d’accès en fonction du rôle](../../../../role-based-access-control/overview.md) (RBAC) pour gérer les utilisateurs ayant accès aux ressources Azure. Cette solution blueprint vous permet de contrôler l’accès aux ressources Azure, affectez sept [Azure Policy](../../../policy/overview.md) définitions. Ces stratégies auditer l’utilisation des types de ressources et les configurations qui peuvent autoriser plus permissives l’accès aux ressources.
-Ressources de présentation qui vont à l’encontre de ces scénarios permettent de vous aider à profiter des actions correctives pour garantir l’accès des ressources Azure est limité à des utilisateurs autorisés.
+Azure implémente le [contrôle d’accès en fonction du rôle](../../../../role-based-access-control/overview.md) (RBAC) pour gérer qui a accès aux ressources Azure. Ce blueprint vous permet de contrôler l’accès aux ressources Azure en affectant sept définitions [Azure Policy](../../../policy/overview.md). Ces stratégies vérifient l’utilisation des types de ressources et des configurations susceptibles d’accorder un accès plus permissif aux ressources.
+Le fait de savoir quelles ressources enfreignent ces stratégies peut vous aider à prendre des actions correctives visant à limiter l’accès aux ressources Azure aux utilisateurs autorisés.
 
-- [Préversion]: Deploy VM extension to audit Linux VM accounts with no passwords
-- [Préversion]: Deploy VM extension to audit Linux VM allowing remote connections from accounts with no
-  Mots de passes
-- [Préversion]: Audit Linux VM accounts with no passwords
-- [Préversion]: Audit Linux VM allowing remote connections from accounts with no passwords
+- [VERSION PRÉLIMINAIRE]: Deploy VM extension to audit Linux VM accounts with no passwords
+- [VERSION PRÉLIMINAIRE]: Deploy VM extension to audit Linux VM allowing remote connections from accounts with no
+  mots de passes
+- [VERSION PRÉLIMINAIRE]: Audit Linux VM accounts with no passwords
+- [VERSION PRÉLIMINAIRE]: Audit Linux VM allowing remote connections from accounts with no passwords
 - Auditer l'utilisation des comptes de stockage classiques
 - Auditer l'utilisation des machines virtuelles classiques
-- Auditer les machines virtuelles qui n'utilisent pas de disques managés
+- Auditer les machines virtuelles qui n’utilisent pas de disques managés
 
-## <a name="a922-user-access-provisioning"></a>Attribution de l’accès utilisateur A.9.2.2
+## <a name="a922-user-access-provisioning"></a>A.9.2.2 Distribution des accès aux utilisateurs
 
-Azure implémente [contrôle d’accès en fonction du rôle](../../../../role-based-access-control/overview.md) (RBAC) pour gérer les utilisateurs ayant accès aux ressources Azure. Cette solution blueprint affecte trois [Azure Policy](../../../policy/overview.md) définitions pour auditer les utilisent de [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) l’authentification pour les serveurs SQL et [Service Fabric](../../../../service-fabric/service-fabric-overview.md). L’authentification à l’aide d’Azure Active Directory permet de gestion des autorisations simplifiée et la gestion centralisée des identités des utilisateurs de base de données et des autres services Microsoft. Cette solution blueprint affecte également une définition de stratégie de Azure pour auditer l’utilisation de règles RBAC personnalisées. Comprendre où les règles RBAC personnalisées sont implémentent peut vous aider à vérifier la nécessité et l’implémentation appropriée, comme les règles RBAC personnalisées sont sujettes.
+Azure implémente le [contrôle d’accès en fonction du rôle](../../../../role-based-access-control/overview.md) (RBAC) pour gérer qui a accès aux ressources Azure. Ce blueprint affecte trois définitions [Azure Policy](../../../policy/overview.md) afin de vérifier l’utilisation de l’authentification [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) pour les serveurs SQL et [Service Fabric](../../../../service-fabric/service-fabric-overview.md). L’utilisation de l’authentification Azure Active Directory permet une gestion simplifiée des autorisations et une gestion centralisée des identités des utilisateurs de bases de données et d’autres services Microsoft. Ce blueprint affecte également une définition Azure Policy pour vérifier l’utilisation des règles RBAC personnalisées. Ces dernières étant sujettes aux erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée.
 
 - Auditer le provisionnement d'un administrateur Azure Active Directory pour un serveur SQL
 - Auditer l'utilisation d'Azure Active Directory pour l'authentification client dans Service Fabric
 - Auditer l’utilisation de règles personnalisées RBAC
 
-## <a name="a923-management-of-privileged-access-rights"></a>Gestion de A.9.2.3 de privilège des droits d’accès
+## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 Gestion des droits d’accès à privilèges
 
-Cette solution blueprint vous permet de limiter et contrôler les droits d’accès privilégié en assignant quatre [Azure Policy](../../../policy/overview.md) définitions pour auditer les comptes externes avec le propriétaire et/ou écrire les autorisations et les comptes dont le propriétaire et/ou des autorisations en écriture que n’avez pas activé l’authentification multifacteur.
+Ce blueprint vous permet de limiter et de contrôler les droits d’accès privilégié en affectant quatre définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire et/ou en écriture et les comptes avec des autorisations de propriétaire et/ou en écriture pour lesquels l’authentification multifacteur n’est pas activée.
 
-- [Préversion]: Audit accounts with owner permissions who are not MFA enabled on a subscription
-- [Préversion]: Audit accounts with write permissions who are not MFA enabled on a subscription
-- [Préversion]: Audit external accounts with owner permissions on a subscription
-- [Préversion]: Audit external accounts with write permissions on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit accounts with owner permissions who are not MFA enabled on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit accounts with write permissions who are not MFA enabled on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit external accounts with owner permissions on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit external accounts with write permissions on a subscription
 
-## <a name="a924-management-of-secret-authentication-information-of-users"></a>Gestion de A.9.2.4 secret d’informations d’authentification des utilisateurs
+## <a name="a924-management-of-secret-authentication-information-of-users"></a>A.9.2.4 Gestion des informations secrètes d’authentification des utilisateurs
 
-Cette solution blueprint affecte trois [Azure Policy](../../../policy/overview.md) définitions au contrôle des comptes qui n’ont pas l’authentification multifacteur est activée. L’authentification multifacteur permet de sécuriser les comptes même si une partie des informations d’authentification est compromise. En surveillant les comptes sans l’authentification multifacteur est activée, vous pouvez identifier les comptes qui peuvent être plus susceptibles d’être compromis. Cette solution blueprint affecte également les deux définitions de stratégie Azure qui auditent Linux VM autorisations de fichier de mot de passe pour être averti si elles sont définies incorrectement. Cette configuration vous permet d’entreprendre une action corrective pour garantir des authentificateurs ne sont pas compromises.
+Ce blueprint affecte trois définitions [Azure Policy](../../../policy/overview.md) afin d’auditer les comptes pour lesquels l’authentification multifacteur n’est pas activée. L’authentification multifacteur permet de sécuriser les comptes même si un élément des informations d’authentification est compromis. En supervisant les comptes pour lesquels l’authentification multifacteur n’est pas activée, vous pouvez identifier ceux qui sont plus susceptibles d’être compromis. Ce blueprint affecte également deux définitions Azure Policy qui vérifient les autorisations associées aux fichiers de mot de passe des machines virtuelles Linux et qui émettent une alerte si elles sont définies incorrectement. Cette configuration vous permet de prendre une action corrective pour vérifier que les authentificateurs ne sont pas compromis.
 
-- [Préversion]: Audit accounts with owner permissions who are not MFA enabled on a subscription
-- [Préversion]: Audit accounts with read permissions who are not MFA enabled on a subscription
-- [Préversion]: Audit accounts with write permissions who are not MFA enabled on a subscription
-- [Préversion]: Deploy VM extension to audit Linux VM passwd file permissions
-- [Préversion]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- [VERSION PRÉLIMINAIRE]: Audit accounts with owner permissions who are not MFA enabled on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit accounts with read permissions who are not MFA enabled on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit accounts with write permissions who are not MFA enabled on a subscription
+- [VERSION PRÉLIMINAIRE]: Deploy VM extension to audit Linux VM passwd file permissions
+- [VERSION PRÉLIMINAIRE]: Audit Linux VM /etc/passwd file permissions are set to 0644
 
-## <a name="a925-review-of-user-access-rights"></a>Révision A.9.2.5 de droits d’accès utilisateur
+## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revue des droits d’accès utilisateurs
 
-Azure implémente [contrôle d’accès en fonction du rôle](../../../../role-based-access-control/overview.md) (RBAC) vous aide à vous gérez qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez vérifier qui a accès aux ressources Azure et leurs autorisations. Cette solution blueprint attribue quatre [Azure Policy](../../../policy/overview.md) définitions au contrôle des comptes qui doivent être prioritaires pour la révision, y compris les comptes d’amortissement et externe avec des autorisations élevées.
+Azure implémente le [contrôle d’accès en fonction du rôle](../../../../role-based-access-control/overview.md) (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte quatre définitions [Azure Policy](../../../policy/overview.md) qui permettent de déterminer les comptes devant en priorité faire l’objet d’une revue, notamment les comptes dépréciés et les comptes externes avec des autorisations élevées.
 
-- [Préversion]: Audit deprecated accounts on a subscription
-- [Préversion]: Audit deprecated accounts with owner permissions on a subscription
-- [Préversion]: Audit external accounts with owner permissions on a subscription
-- [Préversion]: Audit external accounts with write permissions on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit deprecated accounts on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit deprecated accounts with owner permissions on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit external accounts with owner permissions on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit external accounts with write permissions on a subscription
 
-## <a name="a926-removal-or-adjustment-of-access-rights"></a>Suppression de A.9.2.6 ou ajustement de droits d’accès
+## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 Suppression ou adaptation des droits d’accès
 
-Azure implémente [contrôle d’accès en fonction du rôle](../../../../role-based-access-control/overview.md) (RBAC) vous aide à vous gérez qui a accès aux ressources dans Azure. À l’aide de [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) et RBAC, vous pouvez mettre à jour des rôles d’utilisateur afin de refléter les modifications organisationnelles. Si nécessaire, comptes peuvent être bloqués de la connexion (ou supprimés), qui supprime immédiatement les droits d’accès aux ressources Azure. Cette solution blueprint assigne deux [Azure Policy](../../../policy/overview.md) définitions de compte d’amortissement doit être prises en compte pour la suppression de l’audit.
+Azure implémente le [contrôle d’accès en fonction du rôle](../../../../role-based-access-control/overview.md) (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. Grâce à [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) et à RBAC, vous pouvez mettre à jour les rôles d’utilisateur pour refléter les changements organisationnels. Si nécessaire, vous pouvez empêcher des comptes de se connecter (ou les supprimer). Dans ce cas, les droits d’accès aux ressources Azure sont immédiatement supprimés. Ce blueprint affecte deux définitions [Azure Policy](../../../policy/overview.md) pour auditer le compte déprécié dont la suppression doit être envisagée.
 
-- [Préversion]: Audit deprecated accounts on a subscription
-- [Préversion]: Audit deprecated accounts with owner permissions on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit deprecated accounts on a subscription
+- [VERSION PRÉLIMINAIRE]: Audit deprecated accounts with owner permissions on a subscription
 
-## <a name="a943-password-management-system"></a>Système de gestion de mot de passe A.9.4.3
+## <a name="a943-password-management-system"></a>A.9.4.3 Système de gestion des mots de passe
 
-Cette solution blueprint vous permet d’appliquer des mots de passe forts, affectez 10 [Azure Policy](../../../policy/overview.md) définitions qui auditent les machines virtuelles Windows qui n’appliquent pas minimal et autres exigences de mot de passe. La reconnaissance des machines virtuelles en violation de la stratégie de force de mot de passe vous permet d’utiliser des actions correctives pour vérifier que les mots de passe pour tous les comptes d’utilisateur de machine virtuelle sont conformes avec la stratégie.
+Ce blueprint vous aide à appliquer des mots de passe forts en affectant 10 définitions [Azure Policy](../../../policy/overview.md) qui détectent les machines virtuelles Windows ne mettant pas en œuvre une force minimale ni d’autres exigences relatives aux mots de passe. Le fait d’avoir connaissance des machines virtuelles qui enfreignent la stratégie de force des mots de passe peut vous aider à prendre des actions correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie.
 
-- [Préversion]: Deploy VM extension to audit Windows VM enforces password complexity requirements
-- [Préversion]: Deploy VM extension to audit Windows VM maximum password age 70 days
-- [Préversion]: Deploy VM extension to audit Windows VM minimum password age 1 day
-- [Préversion]: Deploy VM extension to audit Windows VM passwords must be at least 14 characters
-- [Préversion]: Deploy VM extension to audit Windows VM should not allow previous 24 passwords
-- [Préversion]: Audit Windows VM enforces password complexity requirements
-- [Préversion]: Audit Windows VM maximum password age 70 days
-- [Préversion]: Audit Windows VM minimum password age 1 day
-- [Préversion]: Audit Windows VM passwords must be at least 14 characters
-- [Préversion]: Audit Windows VM should not allow previous 24 passwords
+- [VERSION PRÉLIMINAIRE]: Deploy VM extension to audit Windows VM enforces password complexity requirements
+- [VERSION PRÉLIMINAIRE]: Deploy VM extension to audit Windows VM maximum password age 70 days
+- [VERSION PRÉLIMINAIRE]: Deploy VM extension to audit Windows VM minimum password age 1 day
+- [VERSION PRÉLIMINAIRE]: Deploy VM extension to audit Windows VM passwords must be at least 14 characters
+- [VERSION PRÉLIMINAIRE]: Deploy VM extension to audit Windows VM should not allow previous 24 passwords
+- [VERSION PRÉLIMINAIRE]: Audit Windows VM enforces password complexity requirements
+- [VERSION PRÉLIMINAIRE]: Audit Windows VM maximum password age 70 days
+- [VERSION PRÉLIMINAIRE]: Audit Windows VM minimum password age 1 day
+- [VERSION PRÉLIMINAIRE]: Audit Windows VM passwords must be at least 14 characters
+- [VERSION PRÉLIMINAIRE]: Audit Windows VM should not allow previous 24 passwords
 
-## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>Stratégie A.10.1.1 sur l’utilisation de contrôles de chiffrement
+## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Stratégie sur l’utilisation des contrôles de chiffrement
 
-Cette solution blueprint vous permet d’appliquer votre stratégie sur l’utilisation de contrôles de la manière dont le chiffrement en affectant 13 [Azure Policy](../../../policy/overview.md) définitions qui appliquent des contrôles de la manière dont le chiffrement spécifiques et d’audit d’utilisent des paramètres de chiffrement faible.
-Comprendre où vos ressources Azure peuvent avoir des configurations non optimales de chiffrement peut vous aider à prendre des mesures correctives afin de ressources sont configurés conformément à votre stratégie de sécurité des informations. Plus précisément, les stratégies affectées par cette solution blueprint exigent le chiffrement pour les comptes de stockage d’objets blob et les comptes de stockage data lake ; exiger le chiffrement transparent des données sur les bases de données SQL ; audit du manque de chiffrement sur les comptes de stockage, les bases de données SQL, les disques de machine virtuelle et les variables de compte automation ; audit des connexions sécurisées pour les comptes de stockage, applications de fonction, application Web, applications API et le Cache Redis ; auditer le chiffrement de mot de passe faible machine virtuelle ; et d’audit de communication de Service Fabric non chiffrée.
+Ce blueprint vous aide à appliquer votre stratégie sur l’utilisation des contrôles de chiffrement en affectant 13 définitions [Azure Policy](../../../policy/overview.md) qui mettent en œuvre des contrôles de chiffrement spécifiques et détectent l’utilisation de paramètres de chiffrement faibles.
+Le fait de savoir où vos ressources Azure peuvent avoir des configurations de chiffrement non optimales peut vous aider à prendre des mesures correctives visant à vérifier que les ressources sont configurées conformément à votre stratégie de sécurité des informations. Plus précisément, les stratégies affectées par ce blueprint exigent le chiffrement des comptes de stockage d’objets blob et des comptes Data Lake Storage ; exigent le chiffrement transparent des données dans les bases de données SQL ; vérifient le chiffrement sur les comptes de stockage, bases de données SQL, disques de machine virtuelle et variables de compte Automation ; vérifient les connexions non sécurisées aux comptes de stockage, aux applications de fonction, aux applications web, aux applications API et au Cache Redis ; vérifient si le chiffrement par mot de passe des machines virtuelles est faible ; et vérifient les communication Service Fabric non chiffrées.
 
-- [Préversion]: Audit HTTPS only access for a Function App
-- [Préversion]: Audit HTTPS only access for a Web Application
-- [Préversion]: Audit HTTPS only access for an API App
-- [Préversion]: Audit missing blob encryption for storage accounts
-- [Préversion]: Deploy VM extension to audit Windows VM should not store passwords using reversible
+- [VERSION PRÉLIMINAIRE]: Audit HTTPS only access for a Function App
+- [VERSION PRÉLIMINAIRE]: Audit HTTPS only access for a Web Application
+- [VERSION PRÉLIMINAIRE]: Audit HTTPS only access for an API App
+- [VERSION PRÉLIMINAIRE]: Audit missing blob encryption for storage accounts
+- [VERSION PRÉLIMINAIRE]: Deploy VM extension to audit Windows VM should not store passwords using reversible
   le chiffrementn
-- [Préversion]: Audit Windows VM should not store passwords using reversible encryption
-- [Préversion]: Monitor unencrypted SQL database in Azure Security Center
-- [Préversion]: Monitor unencrypted VM Disks in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Audit Windows VM should not store passwords using reversible encryption
+- [VERSION PRÉLIMINAIRE]: Monitor unencrypted SQL database in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor unencrypted VM Disks in Azure Security Center
 - Auditer l'activation du chiffrement des variables du compte Automation
 - Auditer l'activation des connexions sécurisées uniquement à votre cache Redis
 - Auditer le transfert sécurisé vers les comptes de stockage
 - Auditer l'affectation à la propriété ClusterProtectionLevel de la valeur EncryptAndSign dans Service Fabric
 - Auditer l’état du chiffrement transparent des données
 
-## <a name="a1241-event-logging"></a>Journalisation des événements A.12.4.1
+## <a name="a1241-event-logging"></a>A.12.4.1 Journalisation des événements
 
-Cette solution blueprint vous permet de vérifier les événements de système sont enregistrés en affectant des sept [Azure Policy](../../../policy/overview.md) définitions de paramètres d’audit log sur les ressources Azure. Stratégie attribuée vérifie également si les machines virtuelles ne sont pas envoyer des journaux à un espace de travail analytique de journal spécifié.
+Ce blueprint vous aide à vérifier que les événements système sont consignés en affectant sept définitions [Azure Policy](../../../policy/overview.md) qui vérifient les paramètres de journal d’audit sur les ressources Azure. Une stratégie affectée vérifie également si les machines virtuelles n’envoient pas de journaux à un espace de travail Log Analytics spécifié.
 
-- [Préversion] : Déploiement de l’Agent de dépendance d’audit - VM Image (système d’exploitation) non listées
-- [Préversion] : Déploiement de l’Agent de dépendance dans le VMSS - Image de machine virtuelle (OS) retirée de la liste de l’audit
-- [Préversion] : Déploiement de l’Agent d’Analytique du journal d’audit - VM Image (système d’exploitation) non listées
-- [Préversion] : Déploiement de l’Agent d’Analytique de journal d’audit dans le VMSS - Image de machine virtuelle (OS) non répertorié
-- [Préversion]: Monitor unaudited SQL database in Azure Security Center
+- [Préversion] : Vérifier le déploiement de Dependency Agent - Image de machine virtuelle (système d’exploitation) non listée
+- [Préversion] : Vérifier le déploiement de Dependency Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- [Préversion] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
+- [Préversion] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- [VERSION PRÉLIMINAIRE]: Monitor unaudited SQL database in Azure Security Center
 - Auditer le paramètre de diagnostic
 - Auditer les paramètres d'audit au niveau du serveur SQL
 
-## <a name="a121-management-of-technical-vulnerabilities"></a>Gestion de A.12.1 de vulnérabilités techniques
+## <a name="a121-management-of-technical-vulnerabilities"></a>A.12.6.1 Gestion des vulnérabilités techniques
 
-Cette solution blueprint vous permet de gérer les vulnérabilités du système d’information en affectant des cinq [Azure Policy](../../../policy/overview.md) définitions qui surveillent les mises à jour système, des vulnérabilités du système d’exploitation, des vulnérabilités SQL et machine virtuelle manquants vulnérabilités. Ces informations fournissent des informations en temps réel sur l’état de sécurité de vos ressources déployées et peuvent vous aider à hiérarchiser les actions de mise à jour.
+Ce blueprint vous permet de gérer les vulnérabilités du système d’informations en affectant cinq définitions [Azure Policy](../../../policy/overview.md) qui supervisent les mises à jour système manquantes ainsi que les vulnérabilités en rapport avec le système d’exploitation, SQL et les machines virtuelles. Ces insights fournissent des informations en temps réel sur l’état de la sécurité de vos ressources déployées et peuvent vous aider à classer par ordre de priorité les actions de correction.
 
-- [Préversion]: Monitor missing Endpoint Protection in Azure Security Center
-- [Préversion]: Monitor missing system updates in Azure Security Center
-- [Préversion]: Monitor OS vulnerabilities in Azure Security Center
-- [Préversion]: Monitor SQL vulnerability assessment results in Azure Security Center
-- [Préversion]: Monitor VM Vulnerabilities in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor missing Endpoint Protection in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor missing system updates in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor OS vulnerabilities in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor SQL vulnerability assessment results in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor VM Vulnerabilities in Azure Security Center
 
-## <a name="a1262-restrictions-on-software-installation"></a>Restrictions de A.12.6.2 sur l’installation du logiciel
+## <a name="a1262-restrictions-on-software-installation"></a>A.12.6.2 Restrictions liées à l’installation de logiciels
 
-Contrôles d’application adaptative est la solution à partir d’Azure Security Center vous permet de contrôler les applications pouvant s’exécuter sur vos machines virtuelles situées dans Azure. Cette solution blueprint affecte une définition de stratégie de Azure qui surveille les modifications apportées à l’ensemble des applications autorisées. Restrictions sur l’installation du logiciel peuvent vous aider à réduire le risque d’introduction de vulnérabilités logicielles.
+La solution Contrôles d’application adaptatifs proposée par Azure Security Center vous permet de contrôler les applications pouvant s’exécuter sur vos machines virtuelles situées dans Azure. Ce blueprint affecte une définition Azure Policy qui supervise les changements apportés à l’ensemble des applications autorisées. La mise en place de restrictions au niveau de l’installation des logiciels peut vous aider à réduire le risque d’introduction de vulnérabilités logicielles.
 
-- [Préversion]: Monitor possible app Whitelisting in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor possible app Whitelisting in Azure Security Center
 
-## <a name="a1311-network-controls"></a>Contrôles de réseau A.13.1.1
+## <a name="a1311-network-controls"></a>A.13.1.1 Contrôle des réseaux
 
-Cette solution blueprint permet de gérer et contrôler les réseaux en assignant un [Azure Policy](../../../policy/overview.md) définition qui surveille les groupes de sécurité réseau avec des règles strictes. Des règles trop permissives peuvent autoriser l’accès réseau involontaires et doivent être examinées.
+Ce blueprint vous aide à gérer et à contrôler les réseaux en affectant une définition [Azure Policy](../../../policy/overview.md) qui supervise les groupes de sécurité réseau associés à des règles permissives. Les règles trop permissives sont susceptibles d’autoriser des accès réseau involontaires et doivent être passées en revue.
 
-- [Préversion]: Monitor permissive network access in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor permissive network access in Azure Security Center
 
-## <a name="a1321-information-transfer-policies-and-procedures"></a>Procédures et stratégies de transfert des informations A.13.2.1
+## <a name="a1321-information-transfer-policies-and-procedures"></a>A.13.2.1 Politiques et procédures de transfert de l’information
 
-Le plan vous permet de garantir le transfert des informations avec les services Azure est sécurisé, affectez deux [Azure Policy](../../../policy/overview.md) définitions pour auditer les connexions sécurisées pour les comptes de stockage et le Cache Redis.
+Le blueprint vous aide à sécuriser le transfert des informations avec les services Azure en affectant deux définitions [Azure Policy](../../../policy/overview.md) qui auditent les connexions non sécurisées aux comptes de stockage et au cache Redis.
 
 - Auditer l'activation des connexions sécurisées uniquement à votre cache Redis
 - Auditer le transfert sécurisé vers les comptes de stockage
 
-## <a name="a1413-protecting-application-services-transactions"></a>Transactions des services d’application de protection A.14.1.3
+## <a name="a1413-protecting-application-services-transactions"></a>A.14.1.3 Protection des transactions liées aux services d’application
 
-Cette solution blueprint vous permet de protéger les ressources du système d’informations, affectez trois [Azure Policy](../../../policy/overview.md) définitions qui surveille les points de terminaison non protégés, les applications et les comptes de stockage. Points de terminaison et les applications qui ne sont pas protégées par un pare-feu et les comptes de stockage avec un accès illimité peuvent autoriser l’accès involontaire aux informations contenues dans le système d’information.
+Ce blueprint vous aide à protéger les ressources du système d’information en affectant trois définitions [Azure Policy](../../../policy/overview.md) qui supervisent les points de terminaison, applications et comptes de stockage non protégés. Les points de terminaison et les applications qui ne sont pas protégés par un pare-feu, de même que les comptes de stockage avec un accès illimité, peuvent permettre un accès involontaire aux informations contenues dans le système d’information.
 
-- [Préversion]: Monitor unprotected network endpoints in Azure Security Center
-- [Préversion]: Monitor unprotected web application in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor unprotected network endpoints in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor unprotected web application in Azure Security Center
 - Auditer l'accès réseau non restreint aux comptes de stockage
 
-## <a name="a1613-reporting-information-security-weaknesses"></a>Failles de sécurité informations A.16.1.3 Reporting
+## <a name="a1613-reporting-information-security-weaknesses"></a>A.16.1.3 Signalement des failles liées à la sécurité de l’information
 
-Cette solution blueprint vous permet d’assurer la prise de conscience des vulnérabilités du système, affectez cinq [Azure Policy](../../../policy/overview.md) définitions qui surveille les vulnérabilités, l’état de correctif et les alertes de logiciels malveillants dans Azure Security Center. Azure Security Center fournit des fonctionnalités de création de rapports qui vous permettent de disposer des informations en temps réel de l’état de la sécurité des ressources Azure déployées.
+Ce blueprint vous permet de vous tenir informé des vulnérabilités du système en affectant cinq définitions [Azure Policy](../../../policy/overview.md) qui supervisent les vulnérabilités, l’état des correctifs et les alertes déclenchées par des logiciels malveillants dans Azure Security Center. Azure Security Center fournit des fonctionnalités de création de rapports qui vous permettent d’obtenir des insights en temps réel sur l’état de la sécurité des ressources Azure déployées.
 
-- [Préversion]: Monitor missing Endpoint Protection in Azure Security Center
-- [Préversion]: Monitor missing system updates in Azure Security Center
-- [Préversion]: Monitor OS vulnerabilities in Azure Security Center
-- [Préversion]: Monitor SQL vulnerability assessment results in Azure Security Center
-- [Préversion]: Monitor VM Vulnerabilities in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor missing Endpoint Protection in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor missing system updates in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor OS vulnerabilities in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor SQL vulnerability assessment results in Azure Security Center
+- [VERSION PRÉLIMINAIRE]: Monitor VM Vulnerabilities in Azure Security Center
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez passé en revue le mappage de contrôle de la solution blueprint ISO 27001 Shared Services, consultez les articles suivants pour en savoir plus sur l’architecture et le déploiement de cet exemple :
+Vous venez de passer en revue le mappage des contrôles du blueprint Services partagés ISO 27001. Consultez à présent les articles suivants pour découvrir l’architecture et le déploiement de cet exemple :
 
 > [!div class="nextstepaction"]
-> [Plan de ISO 27001 Shared Services - vue d’ensemble](./index.md)
-> [ISO 27001 Shared Services blueprint - déployer des étapes](./deploy.md)
+> [Blueprint Services partagés ISO 27001 - Vue d’ensemble](./index.md)
+> [Blueprint Services partagés ISO 27001 - Étapes de déploiement](./deploy.md)
 
 Autres articles sur les blueprints et la manière de les utiliser :
 

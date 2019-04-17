@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : reconnaissance vocale, Java (Windows, Linux) - Services Speech'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous allez apprendre à créer une application Java simple qui capture et transcrit les paroles d’un utilisateur à partir du microphone de votre ordinateur.
+description: Dans ce guide de démarrage rapide, vous allez découvrir comment créer une application Java simple qui capture et transcrit les paroles d’un utilisateur à partir du microphone de votre ordinateur.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447580"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009397"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Démarrage rapide : reconnaissance vocale à l’aide du SDK Speech pour Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Dans cet article, vous créez une application console Java au moyen du [kit SDK Speech](speech-sdk.md). Vous transcrivez la reconnaissance vocale en temps réel à partir du microphone de votre PC. L’application est générée avec le package Maven du SDK Speech et l’IDE Eclipse Java (v4.8) sur Windows 64 bits ou Ubuntu Linux 64 bits 16.04 / 18.04. Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
+Dans cet article, vous créez une application console Java au moyen du [kit SDK Speech](speech-sdk.md). Vous transcrivez la reconnaissance vocale en temps réel à partir du microphone de votre PC. L’application est générée avec le package Maven du SDK Speech et l’IDE Eclipse Java (v4.8) sur Windows 64 bits, Ubuntu Linux 64 bits 16.04 / 18.04, ou macOS 10.13 ou ultérieur. Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
 
 > [!NOTE]
 > Pour le kit SDK Speech et l’appareil Roobo, consultez le [kit SDK Speech Devices](speech-devices-sdk.md).
@@ -30,7 +30,7 @@ Dans cet article, vous créez une application console Java au moyen du [kit SDK 
 
 Ce démarrage rapide nécessite :
 
-* Système d’exploitation : Windows (64 bits) ou Ubuntu Linux 16.04/18.04 (64 bits)
+* Système d’exploitation : Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits), ou macOS 10.13 ou ultérieur
 * [IDE Eclipse Java](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
@@ -43,7 +43,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 Si vous exécutez Windows (64 bits), vérifiez que vous avez installé Microsoft Visual C++ Redistributable pour votre plateforme.
-* [Télécharger Redistributable Visual C++ pour Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+* [Télécharger Microsoft Visual C++ Redistributable pour Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 
 ## <a name="create-and-configure-project"></a>Créer et configurer un projet
@@ -84,6 +84,6 @@ Des exemples supplémentaires, qui montrent notamment comment lire une entrée o
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Démarrage rapide : traduire une entrée vocale, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [Démarrage rapide : Traduire une entrée vocale, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
 - [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
 - [Personnaliser les modèles de langage](how-to-customize-language-model.md)

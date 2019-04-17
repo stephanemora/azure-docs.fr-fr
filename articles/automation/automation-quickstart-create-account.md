@@ -4,17 +4,17 @@ description: Apprendre à créer un compte Azure Automation et exécuter un runb
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 01/15/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 5fd29c47f87dc65d67961224d1e2c103871d4b06
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592449"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009510"
 ---
 # <a name="create-an-azure-automation-account"></a>Créer un compte Azure Automation
 
@@ -61,14 +61,10 @@ Exécutez l’un des runbooks de didacticiel.
 
 1. Lorsque **l’état du travail** passe à **En cours d’exécution**, cliquez sur **Sortie** ou **Tous les journaux** pour afficher la sortie du travail de runbook. Pour ce runbook de didacticiel, la sortie est une liste de vos ressources Azure.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-
-Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le compte Automation et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources pour le compte Automation, puis cliquez sur **Supprimer**.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez déployé un compte Automation, démarré un travail de runbook et affiché les résultats du travail. Pour en savoir plus sur Azure Automation, continuez en faisant le démarrage rapide pour créer votre premier runbook.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide de Automation - Créer un runbook](./automation-quickstart-create-runbook.md)
+> [Démarrage rapide Automation - Créer un runbook](./automation-quickstart-create-runbook.md)
 

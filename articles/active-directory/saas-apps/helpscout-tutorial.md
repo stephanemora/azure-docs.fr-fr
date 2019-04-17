@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Help Scout | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Help Scout | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Help Scout.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3253c26f99c470a256b937844138d8875219cbd1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 35f9a8949f5b51f88b9297890fc5562e7b8dd591
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878038"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273377"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutoriel : Intégration d’Azure Active Directory à Help Scout
+# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Didacticiel : Intégration d’Azure Active Directory à Help Scout
 
 Dans ce didacticiel, vous allez apprendre à intégrer Help Scout à Azure Active Directory (Azure AD).
 L’intégration de Help Scout à Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Help Scout à Azure AD, vous devez ajouter Help Scout à partir de la galerie à votre liste d’applications SaaS managées.
 
-**Pour ajouter Help Scout à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Help Scout à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,18 +106,18 @@ Pour configurer l’authentification unique Azure AD avec Help Scout, effectuez 
 
     ![Informations d’authentification unique dans Domaine et URL Help Scout](common/idp-intiated.png)
 
-    a. **Identificateur** correspond à **Audience URI (Service Provider Entity ID)** (URI d’audience (ID d’entité de fournisseur de services)) Help Scout, qui commence par `urn:`
+    a. **Identificateur** correspond à **Audience URI (Service Provider Entity ID)** (URI d’audience (ID d’entité de fournisseur de services)) dans Help Scout, qui commence par `urn:`
 
-    b. **URL de réponse** correspond à **Post-back URL (Assertion Consumer Service URL)** (URL de publication (URL Assertion Consumer Service)) Help Scout, qui commence par `https://` 
+    b. **URL de réponse** correspond à **Post-back URL (Assertion Consumer Service URL)** (URL de publication (URL Assertion Consumer Service)) dans Help Scout, qui commence par `https://` 
 
     > [!NOTE]
-    > Les valeurs de ces URL servent uniquement à des fins de démonstration. Vous devez les remplacer par l’URL de réponse et l’identificateur réels. Vous obtenez ces valeurs à partir de l’onglet **Authentification unique** sous la section Authentification, qui est décrite plus loin dans le didacticiel.
+    > Les valeurs de ces URL servent uniquement à des fins de démonstration. Vous devez mettre à jour ces valeurs avec l’URL de réponse et l’identificateur réels. Vous obtenez ces valeurs à partir de l’onglet **Authentification unique** sous la section Authentification, qui est décrite plus loin dans le didacticiel.
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Help Scout](common/metadata-upload-additional-signon.png)
 
-    Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://secure.helpscout.net/members/login/`
+    Dans la zone de texte **URL d’authentification**, tapez une URL comme : `https://secure.helpscout.net/members/login/`
 
 6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -157,7 +157,7 @@ Pour configurer l’authentification unique Azure AD avec Help Scout, effectuez 
 
     ![Configurer l'authentification unique](./media/helpscout-tutorial/settings4.png)
 
-    a. Dans la zone de texte  **URL d’authentification unique** , collez la valeur de l’ **URL de connexion** que vous avez copiée dans le portail Azure.
+    a. Dans la zone de texte **Single Sign-on URL** (URL d’authentification unique), collez la valeur de l’**URL de connexion** que vous avez copiée dans le portail Azure.
 
     b. Cliquez sur **Charger le certificat** pour charger le **certificat (en base64)** téléchargé à partir du portail Azure.
 
@@ -185,7 +185,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

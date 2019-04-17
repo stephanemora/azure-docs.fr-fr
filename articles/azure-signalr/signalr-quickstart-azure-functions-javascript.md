@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535612"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264197"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Démarrage rapide : Créer une salle de conversation avec Azure Functions et SignalR Service à l’aide de JavaScript
 
@@ -50,7 +50,7 @@ Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compt
 
     ![Créer un service SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. Dans votre éditeur de code, ouvrez le dossier *chat/src/javascript* dans le référentiel cloné.
+1. Dans votre éditeur de code, ouvrez le dossier *src/chat/javascript* situé dans le référentiel cloné.
 
 1. Renommez *local.settings.sample.json* en *local.settings.json*.
 
@@ -61,7 +61,7 @@ Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compt
     - **negotiate** : utilise la liaison d’entrée *SignalRConnectionInfo* pour générer et retourner des informations de connexion valides.
     - **messages** : reçoit un message de conversation dans le corps de la demande et utilise la liaison de sortie *SignalR* pour diffuser le message à toutes les applications clientes connectées.
 
-1. Dans le terminal, vérifiez que vous vous trouvez dans le dossier *chat/src/javascript*. Utilisez Azure Functions Core Tools pour installer les extensions requises pour exécuter l’application.
+1. Dans le terminal, vérifiez que vous vous trouvez dans le dossier *src/chat/javascript*. Utilisez Azure Functions Core Tools pour installer les extensions requises pour exécuter l’application.
 
     ```bash
     func extensions install

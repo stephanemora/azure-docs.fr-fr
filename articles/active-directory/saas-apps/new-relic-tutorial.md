@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a9141c0840ff5d962adceb0d0481102cff868d4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d50c4366128edb5b4bc76408eb1085817af1ce3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897348"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271898"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Didacticiel : Intégration d’Azure Active Directory à New Relic
 
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de New Relic à Azure AD, vous devez ajouter New Relic à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter New Relic à partir de la galerie, procédez comme suit :**
+**Pour ajouter New Relic à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec New Relic, procédez 
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login`. Veillez à spécifier votre propre ID de compte New Relic.
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `rpm.newrelic.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL : `rpm.newrelic.com`
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -235,7 +235,7 @@ Le fait de cliquer sur la vignette New Relic dans le panneau d’accès doit vou
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

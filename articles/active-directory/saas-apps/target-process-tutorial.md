@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: e76e2b9b4778229fc70e90f1ff3af5f19251d424
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ffb5da8abd9673d4922aeb4854b3dfa80349f284
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360910"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268328"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Tutoriel : Intégration d'Azure Active Directory à TargetProcess
 
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de TargetProcess avec Azure AD, vous devez ajouter TargetProcess à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter TargetProcess à partir de la galerie, procédez comme suit :**
+**Pour ajouter TargetProcess à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,7 +106,7 @@ Pour configurer l'authentification unique Azure AD avec TargetProcess, procéde
 
     ![Informations d'authentification unique dans Domaine et URL TargetProcess](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.tpondemand.com/`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<subdomain>.tpondemand.com/`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<subdomain>.tpondemand.com/`
 
@@ -135,7 +135,7 @@ Pour configurer l'authentification unique Azure AD avec TargetProcess, procéde
 
 2. Après l'ajout de l'extension au navigateur, cliquez sur **Setup TargetProcess** (Configurer TargetProcess) pour être orienté vers l'application TargetProcess. Fournissez ensuite les informations d'identification de l'administrateur pour vous connecter à TargetProcess. Cette extension de navigateur configure automatiquement l’application pour vous et automatise les étapes 3 à 7.
 
-    **Si vous souhaitez configurer l'application manuellement, procédez comme suit :**
+    **Pour configurer l’application manuellement, effectuez les étapes suivantes :**
 
 3. Connectez-vous à votre application TargetProcess en tant qu’administrateur.
 
@@ -231,7 +231,7 @@ Le fait de cliquer sur la vignette TargetProcess du panneau d'accès doit vous c
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

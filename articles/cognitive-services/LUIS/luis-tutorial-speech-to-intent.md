@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 04/08/2018
 ms.author: diberry
-ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076749"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273836"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Intégrer le service Speech à votre Language Understanding
 Le [service de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS. Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS. Le projet utilise le package [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) Speech, déjà inclus comme référence. 
@@ -24,7 +24,7 @@ Le [service de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive
 Pour cet article, vous devez disposer d’un compte [LUIS][LUIS] gratuit afin d’importer l’application.
 
 ## <a name="create-luis-endpoint-key"></a>Créer une clé de point de terminaison LUIS
-Dans le portail Azure, [créer](luis-how-to-azure-subscription.md) une clé **Language Understanding** (LUIS). 
+Dans le portail Azure, [créez](luis-how-to-azure-subscription.md) une clé **Cognitive Service** (LUIS) pour votre application LUIS.  
 
 ## <a name="import-human-resources-luis-app"></a>Importer l’application Ressources humaines LUIS
 Les intentions et les énoncés de cet article proviennent de l’application Ressources humaines LUIS, disponible dans le dépôt GitHub [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Téléchargez le fichier [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), enregistrez-le avec l’extension `.json`, puis [importez-le](luis-how-to-start-new-app.md#import-new-app) dans LUIS. 
@@ -66,7 +66,7 @@ Cet article utilise l’appareil audio de votre ordinateur. Il peut s’agir d�
 
 Le Kit de développement logiciel (SDK) Speech est déjà inclus comme référence. 
 
-[![Capture d’écran de Visual Studio 2017 affichant le package NuGet Microsoft.CognitiveServices.Speech](./media/luis-tutorial-speech-to-intent/nuget-package.png "Capture d’écran de Visual Studio 2017 affichant le package NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![SCapture d’écran de Visual Studio 2017 affichant le package NuGet Microsoft.CognitiveServices.Speech](./media/luis-tutorial-speech-to-intent/nuget-package.png "Capture d’écran de Visual Studio 2017 affichant le package NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modifier le code C#
 Ouvrez le fichier `Program.cs` et modifiez les variables suivantes :
@@ -98,6 +98,6 @@ Rappelez-vous de supprimer le répertoire quand vous en avez terminé avec l’e
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Intégrer LUIS à un robot](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [Intégrer LUIS à un bot](luis-csharp-tutorial-build-bot-framework-sample.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

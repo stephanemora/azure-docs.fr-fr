@@ -1,19 +1,18 @@
 ---
 title: Exemple - Appliquer la balise et sa valeur par défaut
 description: Cet exemple de définition de stratégie ajoute le nom et la valeur d’une étiquette spécifiée, si cette étiquette n’est pas fournie.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 36947eae2c134761f61459dac37b324c03bd85dd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804019"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266645"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Exemple - Appliquer la balise et sa valeur par défaut
 
@@ -23,7 +22,7 @@ Vous pouvez déployer cette exemple de stratégie à l’aide des éléments sui
 
 - [Portail Azure](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
-- [Interface de ligne de commande Azure](#azure-cli)
+- [Azure CLI](#azure-cli)
 - [API REST](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]

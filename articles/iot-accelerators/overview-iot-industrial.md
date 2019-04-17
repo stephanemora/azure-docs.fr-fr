@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1dee51354ba9210e52459dcf7a96695bc3736648
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759730"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256377"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>Définition de l’IoT industriel (IIoT)
 
@@ -28,7 +28,7 @@ Réduisez le processus fastidieux d’accès aux machines de l’usine avec la g
 ![Vue d’ensemble de l’IoT industriel](media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
-> Pour plus d’informations sur les services de l’IoT industriel Azure, consultez le [dépôt](https://github.com/Azure/azure-iiot-services) GitHub.
+> Pour plus d’informations sur les services d’IoT industriel Azure, consultez [ce dépôt](https://github.com/Azure/azure-iiot-services) GitHub.
 Si vous n’êtes pas familiarisé avec le fonctionnement des modules Azure IoT Edge, commencez par lire les articles suivants :
 - [À propos d’Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Modules Azure IoT Edge](../iot-edge/iot-edge-modules.md)

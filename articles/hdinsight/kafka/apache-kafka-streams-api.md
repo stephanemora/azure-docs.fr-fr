@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser l’API de flux Apache Kafka - Azure HDInsight '
+title: 'Didacticiel : Utiliser l’API de flux Apache Kafka - Azure HDInsight '
 description: Découvrez comment utiliser l’API de flux Apache Kafka avec Kafka sur HDInsight. Cette API vous permet d’effectuer un traitement de flux entre des rubriques dans Kafka.
 services: hdinsight
 ms.service: hdinsight
@@ -8,29 +8,28 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 11/06/2018
-ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/02/2019
+ms.openlocfilehash: 1e02eaeae4757a9a41ec59be81c3d9510d035232
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112787"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273819"
 ---
-# <a name="tutorial-apache-kafka-streams-api"></a>Tutoriel : API de flux Apache Kafka
+# <a name="tutorial-apache-kafka-streams-api"></a>Didacticiel : API de flux Apache Kafka
 
 Découvrez comment créer une application qui utilise l’API Apache Kafka Streams et comment l’exécuter avec Kafka sur HDInsight. 
 
 L’application utilisée dans ce didacticiel est un comptage de diffusion en continu. Elle lit les données texte à partir d’une rubrique Kafka, extrait des mots spécifiques, puis stocke le mot et le nombre associé dans une autre rubrique Kafka.
 
 > [!NOTE]  
-> Le traitement des flux Kafka est souvent effectué à l’aide d’Apache Spark ou d’Apache Storm. Kafka version 0.10.0 (dans HDInsight 3.5 et 3.6) a introduit l’API de flux Kafka. Cette API permet de transformer des flux de données entre des rubriques d’entrée et de sortie. Dans certains cas, cela peut être une alternative à la création d’une solution de streaming Spark ou Storm. 
+> Le traitement des flux Kafka est souvent effectué à l’aide d’Apache Spark ou d’Apache Storm. Kafka version 1.1.0 (dans HDInsight 3.5 et 3.6) a introduit l’API de flux Kafka. Cette API permet de transformer des flux de données entre des rubriques d’entrée et de sortie. Dans certains cas, cela peut être une alternative à la création d’une solution de streaming Spark ou Storm. 
 >
 > Pour plus d’informations sur les flux Kafka, consultez la documentation [d’introduction aux flux](https://kafka.apache.org/10/documentation/streams/) sur le site Apache.org.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Configuration de l'environnement de développement
 > * Comprendre le code
 > * Générer et déployer l’application
 > * Configurer les rubriques Kafka
@@ -42,15 +41,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 * Effectuez les étapes présentées dans le document [API de producteur et de consommateur Apache Kafka](apache-kafka-producer-consumer-api.md). Les étapes de ce document utilisent l’exemple d’application et les rubriques créés dans ce didacticiel.
 
-## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
+* [Kit de développeur Java (JDK) version 8](https://aka.ms/azure-jdks) ou un équivalent, tel qu’OpenJDK.
 
-Les composants suivants doivent être installés dans votre environnement de développement :
+* [Apache Maven](https://maven.apache.org/download.cgi) correctement [installé](https://maven.apache.org/install.html) en fonction d’Apache.  Maven est un système de génération de projet pour les projets Java.
 
-* [Java JDK 8](https://aka.ms/azure-jdks), ou un équivalent, par exemple, OpenJDK.
-
-* [Apache Maven](https://maven.apache.org/)
-
-* Un client SSH et la commande `scp`. Pour plus d’informations, consultez le document [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Comprendre le code
 
@@ -135,65 +130,73 @@ public class Stream
 }
 ```
 
-
 ## <a name="build-and-deploy-the-example"></a>Générer et déployer l’exemple
 
 Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, procédez comme suit :
 
-1. Téléchargez les exemples à partir de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Définissez votre répertoire actif en fonction de l’emplacement du répertoire `hdinsight-kafka-java-get-started-master\Streaming`, puis utilisez la commande suivante pour créer un package jar :
 
-2. Accédez à l’emplacement du répertoire `Streaming` et utilisez la commande suivante pour créer un package jar :
-
-    ```bash
+    ```cmd
     mvn clean package
     ```
 
     Cette commande crée le package dans `target/kafka-streaming-1.0-SNAPSHOT.jar`.
 
-3. Utilisez la commande suivante pour copier le fichier `kafka-streaming-1.0-SNAPSHOT.jar` dans votre cluster HDInsight :
-   
-    ```bash
+2. Remplacez `sshuser` par l’utilisateur SSH de votre cluster, puis remplacez `clustername` par le nom de votre cluster. Utilisez la commande suivante pour copier le fichier `kafka-streaming-1.0-SNAPSHOT.jar` dans votre cluster HDInsight. Si vous y êtes invité, entrez le mot de passe du compte d’utilisateur SSH.
+
+    ```cmd
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
     ```
-   
-    Remplacez `sshuser` par l’utilisateur SSH de votre cluster, puis remplacez `clustername` par le nom de votre cluster. Si vous y êtes invité, entrez le mot de passe du compte d’utilisateur SSH. Pour en savoir plus sur l’utilisation de `scp` avec HDInsight, voir [Utiliser SSH avec Hadoop - Azure HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-apache-kafka-topics"></a>Créer des rubriques Apache Kafka
 
-1. Pour ouvrir une connexion SSH au cluster, utilisez la commande suivante :
+1. Remplacez `sshuser` par l’utilisateur SSH de votre cluster, puis remplacez `CLUSTERNAME` par le nom de votre cluster. Ouvrez une connexion SSH au cluster en entrant la commande suivante. Si vous y êtes invité, entrez le mot de passe du compte d’utilisateur SSH.
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Remplacez `sshuser` par l’utilisateur SSH de votre cluster, puis remplacez `clustername` par le nom de votre cluster. Si vous y êtes invité, entrez le mot de passe du compte d’utilisateur SSH. Pour en savoir plus sur l’utilisation de `scp` avec HDInsight, voir [Utiliser SSH avec Hadoop - Azure HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-2. Pour enregistrer le nom de cluster dans une variable et installer un utilitaire d’analyse JSON (`jq`), utilisez les commandes suivantes. Lorsque vous y êtes invité, entrez le nom du cluster Kafka :
+2. Installez [jq](https://stedolan.github.io/jq/), un processeur JSON en ligne de commande. À partir de la connexion SSH ouverte, entrez la commande suivante pour installer `jq` :
 
     ```bash
     sudo apt -y install jq
-    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Pour obtenir les hôtes de répartition Kafka et les hôtes Apache ZooKeeper, utilisez les commandes suivantes. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster. Vous êtes invité à entrer le mot de passe deux fois.
+3. Définissez les variables d’environnement. Remplacez `PASSWORD` et `CLUSTERNAME` par le mot de passe de connexion du cluster et le nom du cluster respectivement, puis entrez la commande :
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
     ```
 
-4. Pour créer les rubriques utilisées par l’opération de diffusion en continu, utilisez les commandes suivantes :
+4. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, la stocke dans une variable, puis affiche le nom avec la casse correcte et le nom que vous avez fourni précédemment. Entrez la commande suivante :
+
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
+  	| jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+5. Pour obtenir les hôtes de répartition Kafka et les hôtes Apache ZooKeeper, utilisez les commandes suivantes. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster. Vous êtes invité à entrer le mot de passe deux fois.
+
+    ```bash
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`;
+    export KAFKABROKERS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`;
+    ```
+
+6. Pour créer les rubriques utilisées par l’opération de diffusion en continu, utilisez les commandes suivantes :
 
     > [!NOTE]  
     > Vous recevrez peut-être un message d’erreur indiquant que la rubrique `test` existe déjà. Ce n’est pas grave : cette rubrique a peut-être été créée dans le didacticiel dédié aux API de producteur et de consommateur.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
@@ -251,7 +254,16 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
     > [!NOTE]  
     > Le paramètre `--from-beginning` configure le lancement du consommateur au début des enregistrements stockés dans la rubrique. Le nombre est incrémenté chaque fois qu’un mot est rencontré. Par conséquent, la rubrique contient plusieurs entrées pour chaque mot, affichant un nombre croissant.
 
-7. Utilisez __Ctrl + C__ pour quitter le producteur. Continuez à utiliser __Ctrl + C__ pour quitter l’application et le consommateur.
+4. Utilisez __Ctrl + C__ pour quitter le producteur. Continuez à utiliser __Ctrl + C__ pour quitter l’application et le consommateur.
+
+5. Pour supprimer les rubriques utilisées par l’opération de streaming, utilisez les commandes suivantes :
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic test --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcounts --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

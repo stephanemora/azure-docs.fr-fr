@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Silverback | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Silverback | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Silverback.
 services: active-directory
 documentationCenter: na
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a104da9ecb28d2109e82056995ef7a8048eafe2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838746"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268634"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutoriel : Intégration d’Azure Active Directory à Silverback
+# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Didacticiel : Intégration d’Azure Active Directory à Silverback
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer Silverback à Azure Active Directory (Azure AD).
 L’intégration de Silverback dans Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Silverback.
-* Vous pouvez autoriser vos utilisateurs à être automatiquement connecté à Silverback (Single Sign-On) avec leur compte Azure AD.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Silverback (par le biais de l’authentification unique) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Silverback, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* SilverBack l’authentification unique est activée
+* Un abonnement Silverback pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Prend en charge de SilverBack **SP** initiée par l’authentification unique
+* Silverback prend en charge l’authentification unique lancée par le **fournisseur de services**
 
 ## <a name="adding-silverback-from-the-gallery"></a>Ajout de Silverback à partir de la galerie
 
 Pour configurer l’intégration de Silverback à Azure AD, vous devez ajouter Silverback, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-**Pour ajouter Silverback à partir de la galerie, procédez comme suit :**
+**Pour ajouter Silverback à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -71,25 +71,25 @@ Pour configurer l’intégration de Silverback à Azure AD, vous devez ajouter 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous configurer et tester Azure AD-authentification unique avec Silverback basé sur un utilisateur de test appelé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Silverback doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès de Silverback avec un utilisateur de test nommé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Silverback associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec Silverback, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer Silverback Single Sign-On](#configure-silverback-single-sign-on)**  : pour configurer les paramètres de l’authentification unique côté application.
+2. **[Configurer l’authentification unique Silverback](#configure-silverback-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer utilisateur de test Silverback](#create-silverback-test-user)**  - pour avoir un équivalent de Britta Simon dans Silverback lié à la représentation Azure AD de l’utilisateur.
+5. **[Créer un utilisateur de test Silverback](#create-silverback-test-user)** pour avoir un équivalent de Britta Simon dans Silverback, lié à la représentation Azure AD de l’utilisateur.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-Pour configurer Azure AD-authentification unique avec Silverback, procédez comme suit :
+Pour configurer l’authentification unique Azure AD auprès de Silverback, effectuez les étapes suivantes :
 
-1. Dans le [Azure portal](https://portal.azure.com/), dans le **Silverback** page d’intégration d’application, sélectionnez **Single sign-on**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Silverback**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -105,9 +105,9 @@ Pour configurer Azure AD-authentification unique avec Silverback, procédez comm
 
     ![Informations d’authentification unique dans Domaine et URL Silverback](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<YOURSILVERBACKURL>.com/ssp`.
+    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<YOURSILVERBACKURL>.com/ssp`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `<YOURSILVERBACKURL>.com`
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<YOURSILVERBACKURL>.com`
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
@@ -118,9 +118,9 @@ Pour configurer Azure AD-authentification unique avec Silverback, procédez comm
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
-### <a name="configure-silverback-single-sign-on"></a>Configurer Silverback Single Sign-On
+### <a name="configure-silverback-single-sign-on"></a>Configurer l’authentification unique Silverback
 
-1. Dans un autre navigateur web, connectez-vous à votre serveur Silverback en tant qu’administrateur.
+1. Ouvrez une autre fenêtre web, puis connectez-vous à votre serveur Silverback en tant qu’administrateur.
 
 2. Accédez à **Administrateur** > **Fournisseur d’authentification**.
 
@@ -175,7 +175,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Silverback.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, sélectionnez **toutes les applications**, puis sélectionnez **Silverback**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Silverback**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -197,11 +197,11 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-silverback-test-user"></a>Créer utilisateur de test Silverback
+### <a name="create-silverback-test-user"></a>Créer un utilisateur de test Silverback
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Silverback, vous devez les approvisionner dans Silverback. Dans Silverback, l’approvisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à votre serveur Silverback en tant qu’administrateur.
 
@@ -232,11 +232,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Silverback, vous dev
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Silverback dans le volet d’accès, vous devez être automatiquement connecté à la Silverback pour lequel vous configurez l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Lorsque vous cliquez sur la vignette Silverback dans le volet d’accès, vous devez être connecté automatiquement à l’application Silverback pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

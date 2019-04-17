@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e50a4f10b7706e474941842b14e1f45364d13a7
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: bd1ed30d56e8d23057e560b1180c35e0a29542b6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226485"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274941"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-intime"></a>Tutoriel : Intégration d’Azure Active Directory avec InTime
+# <a name="tutorial-azure-active-directory-integration-with-intime"></a>Didacticiel : Intégration d’Azure Active Directory avec InTime
 
 Dans ce didacticiel, vous allez apprendre à intégrer InTime dans Azure Active Directory (Azure AD).
 L’intégration d’InTime dans Azure AD vous offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’InTime avec Azure AD, vous devez ajouter InTime disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter InTime à partir de la galerie, procédez comme suit :**
+**Pour ajouter InTime à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec InTime, effectuez les
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL : `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://auth.intimesoft.com/auth/realms/master`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL : `https://auth.intimesoft.com/auth/realms/master`
 
 5. Votre application InTime s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application InTime s’attend à ce que **nameidentifier** soit mappé avec **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
 
@@ -194,7 +194,7 @@ Quand vous cliquez sur la vignette InTime dans le volet d’accès, vous devez �
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

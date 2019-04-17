@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 89a45bb9c291a426c08a403f1fa588f9831798a3
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 22f56fb44737bab30b113e3afe6b8ba21518330d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849455"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262327"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redvector"></a>Didacticiel : Intégration d’Azure AD à RedVector
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de RedVector avec Azure AD, vous devez ajouter RedVector, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter RedVector à partir de la galerie, procédez comme suit :**
+**Pour ajouter RedVector à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec RedVector, effectuez l
 
     ![Informations d’authentification unique dans Domaine et URL RedVector](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://sso2.redvector.com/adfs/<Companyname>`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://sso2.redvector.com/adfs/<Companyname>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<Companyname>.redvector.com/saml2`
 
@@ -192,7 +192,7 @@ Quand vous cliquez sur la vignette RedVector dans le volet d’accès, vous deve
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

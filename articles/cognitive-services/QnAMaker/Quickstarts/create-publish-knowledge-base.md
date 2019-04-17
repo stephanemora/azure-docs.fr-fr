@@ -1,25 +1,25 @@
 ---
 title: Créer, entraîner et publier avec une base de connaissances - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. La base de connaissances QnA Maker dans cet exemple est créée à partir d’une simple page web de FAQ afin de répondre aux questions sur la récupération de clé BitLocker.
+description: Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. La base de connaissances QnA Maker de cet exemple est créée à partir d’une simple page web de Questions fréquentes (FAQ) pour répondre à des questions sur la récupération de clé BitLocker.
 author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 04/05/2019
 ms.author: diberry
-ms.openlocfilehash: 3f7b24af3d48075150ae7c192ccf421b928a7aa3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf6b0cd99254d5b034687598c588ce5ef13dbd53
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113697"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272850"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Créer, entraîner et publier votre base de connaissances QnA Maker
 
-Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. La base de connaissances QnA Maker dans cet exemple est créée à partir d’une simple page web de FAQ afin de répondre aux questions sur la récupération de clé BitLocker.
+Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. La base de connaissances QnA Maker de cet exemple est créée à partir d’une simple page web de Questions fréquentes (FAQ) pour répondre à des questions sur la récupération de clé BitLocker.
 
 ## <a name="prerequisite"></a>Configuration requise
 
@@ -28,49 +28,80 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 
 ## <a name="create-a-qna-maker-knowledge-base"></a>Créer une base de connaissances QnA Maker
 
-1. Connectez-vous à QnAMaker.ai avec vos informations d’identification Azure.
+1. Connectez-vous au portail [QnAMaker.ai](https://QnAMaker.ai) avec vos informations d’identification Azure.
 
-2. Sur le site web QnA Maker, sélectionnez **Create a knowledge base** (Créer une base de connaissances).
+1. Sur le portail QnA Maker, sélectionnez **Create a knowledge base**.
 
    ![Créer une base de connaissances](../media/qna-maker-create-kb.png)
 
-3. Dans la page **Create** (Créer), à l’étape 1, sélectionnez **Create a QnA service** (Créer un service QnA). Vous êtes dirigé vers le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) pour configurer un service QnA Maker dans votre abonnement. Si le délai d’attente du portail Azure est atteint, sélectionnez **Réessayer** sur le site. Une fois connecté, votre tableau de bord Azure apparaît.
+1. Dans la page **Create** (Créer), à l’étape 1, sélectionnez **Create a QnA service** (Créer un service QnA). Vous êtes dirigé vers le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) pour configurer un service QnA Maker dans votre abonnement. Si le délai d’attente du portail Azure est atteint, sélectionnez **Réessayer** sur le site. Une fois connecté, votre tableau de bord Azure apparaît.
 
-4. Après avoir créé un service QnA Maker dans Azure, revenez à qnamaker.ai/create. Sélectionnez votre service QnA dans les listes déroulantes à l’étape 2. Si vous avez créé un service QnA, n’oubliez pas d’actualiser la page.
+1. Après avoir créé un service QnA Maker dans Azure, revenez à qnamaker.ai/create. Sélectionnez votre service QnA dans les listes déroulantes à l’étape 2. Si vous avez créé un service QnA, n’oubliez pas d’actualiser la page.
 
-   ![Sélectionner une base de connaissances de service QnA](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
+   ![Sélectionner une base de connaissances du service QnA](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-5. À l’étape 3, nommez votre base de connaissances **Mon exemple de base de connaissances QnA**.
+1. À l’étape 3, nommez votre base de connaissances **My Sample QnA KB**.
 
-6. Pour ajouter du contenu à votre base de connaissances, sélectionnez trois types de sources de données. À l’étape 4, sous **Populate your KB** (Remplissez votre base de connaissances), ajoutez l’URL de [FAQ sur la récupération BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) dans la zone **URL**.
+1. Pour ajouter du contenu à votre base de connaissances, sélectionnez trois types de sources de données. À l’étape 4, sous **Populate your KB** (Remplissez votre base de connaissances), ajoutez l’URL de [FAQ sur la récupération BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) dans la zone **URL**.
 
-   ![Sélectionner une base de connaissances de service QnA](../media/qnamaker-quickstart-kb/add-datasources.png)
+   ![Sélectionner une base de connaissances du service QnA](../media/qnamaker-quickstart-kb/add-datasources.png)
 
-7. À l’étape 5, sélectionnez **Create your KB** (Créer votre base de connaissances).
+1. À l’étape 5, sélectionnez **Create your KB** (Créer votre base de connaissances).
 
-8. Pendant la création de la base de connaissances, une fenêtre contextuelle s’affiche. Le processus d’extraction prend quelques minutes pour lire la page HTML et identifier les questions et réponses.
+1. Pendant la création de la base de connaissances, une fenêtre contextuelle s’affiche. Le processus d’extraction prend quelques minutes pour lire la page HTML et identifier les questions et réponses.
 
-9. Une fois la base de connaissances créée, la page **Knowledge base** (Base de connaissances) s’ouvre. Vous pouvez modifier le contenu de la base de connaissances dans cette page.
+1. Une fois la base de connaissances créée, la page **Knowledge base** s’ouvre. Vous pouvez modifier le contenu de la base de connaissances dans cette page.
 
-10. Dans le coin supérieur droit, sélectionnez **Add QnA pair** (Ajouter une paire QnA) pour ajouter une nouvelle ligne dans la section **Editorial** de la base de connaissances. Sous **Question**, entrez **Salut.** Sous **Answer**, entrez **Bonjour. Posez-moi des questions sur bitlocker.**
+## <a name="edit-the-knowledge-base"></a>Modifier la base de connaissances
+
+1. Dans le portail QnA Maker, dans la section **Edit**, sélectionnez **Add QnA pair** pour ajouter une nouvelle ligne à la base de connaissances. Sous **Question**, entrez **Salut.** Sous **Answer**, entrez **Bonjour. Posez-moi des questions sur BitLocker.**
 
     ![Ajouter une paire QnA](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
-11. Dans le coin supérieur droit, sélectionnez **Save and train** (Enregistrer et entraîner) pour enregistrer vos modifications et entraîner le modèle QnA Maker. Les modifications ne sont conservées que si elles sont enregistrées.
+1. Dans le coin supérieur droit, sélectionnez **Save and train** (Enregistrer et entraîner) pour enregistrer vos modifications et entraîner le modèle QnA Maker. Les modifications ne sont conservées que si elles sont enregistrées.
 
-12. Dans le coin supérieur droit, sélectionnez **Test** pour vérifier que les modifications apportées ont pris effet. Tapez `hi there` dans la zone, puis sélectionnez Entrée. Vous devriez voir la réponse que vous avez créée.
+## <a name="test-the-knowledge-base"></a>Tester la base de connaissances
 
-13. Sélectionnez **Inspect** pour examiner la réponse plus en détail. La fenêtre de test sert à tester vos modifications de la base de connaissances avant leur publication.
+1. Dans le portail QnA Maker, en haut à droite, sélectionnez **Test** pour vérifier que les modifications apportées ont pris effet. Tapez `hi there` dans la zone, puis sélectionnez Entrée. Vous devriez voir la réponse que vous avez créée.
+
+1. Sélectionnez **Inspect** pour examiner la réponse plus en détail. La fenêtre de test est utilisée pour tester vos modifications de la base de connaissances avant leur publication.
 
     ![Panneau de test](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
-14. Sélectionnez **Test** à nouveau pour fermer la fenêtre contextuelle **Test**.
+1. Sélectionnez **Test** à nouveau pour fermer la fenêtre contextuelle **Test**.
 
-15. Dans le menu en regard de **Edit** (Modifier), sélectionnez **Publish** (Publier). Ensuite, pour confirmer, sélectionnez **Publish** dans la page.
+## <a name="publish-the-knowledge-base"></a>Publier la base de connaissances
 
-16. Le service QnA Maker est désormais correctement publié. Vous pouvez utiliser le point de terminaison dans votre code d’application ou de bot.
+Quand vous publiez une base de connaissances, ses contenus de questions/réponses se déplacent de l’index de test vers un index de production dans Recherche Azure.
+
+![Publier un index de test de production](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
+
+1. Dans le portail QnA Maker, dans le menu à côté de **Edit**, sélectionnez **Publish**. Ensuite, pour confirmer, sélectionnez **Publish** dans la page.
+
+1. Le service QnA Maker est désormais correctement publié. Vous pouvez utiliser le point de terminaison dans votre code d’application ou de bot.
 
     ![Publish](../media/qnamaker-quickstart-kb/publish-sucess.png)
+
+## <a name="create-a-bot"></a>Créer un bot
+
+La création d’un bot est toujours disponible après la publication, dans la page **Publish**. 
+
+* Vous pouvez créer plusieurs bots rapidement, tous pointant vers la même base de connaissances pour différentes régions ou différents plans tarifaires pour les bots individuels. 
+* Si vous ne voulez qu’un seul bot pour la base de connaissances, utilisez le lien **Afficher tous vos bots sur le portail Azure** pour voir la liste de vos bots actuel. 
+* Quand vous apportez des modifications à la base de connaissances et que vous republiez, aucune autre action n’est nécessaire avec le bot. Il est déjà configuré pour fonctionner avec la base de connaissances et il fonctionnera avec toutes les modifications futures de la base de connaissances. Chaque fois que vous publiez une base de connaissances, tous les bots qui y sont connectés sont automatiquement mis à jour.
+
+1. Dans le portail QnA Maker, dans la page **Publish**, sélectionnez **Create bot**. Ce bouton apparaît seulement une fois que la base de connaissances est publiée.
+
+    ![Dans le portail QnA Maker, accédez à la page Publish et publiez votre base de connaissances. Sélectionnez Create Bot.](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
+
+1. Un nouvel onglet de navigateur s’ouvre pour le portail Azure, avec la page de création d’Azure Bot Service. Configurez le service bot Azure. Pour plus d’informations sur ces paramètres de configuration, consultez le tutoriel [Créer un bot QnA avec Azure Bot Service v4](../tutorials/create-qna-bot.md).
+    
+    * Ne modifiez pas les paramètres suivants dans le portail Azure lors de la création du bot. Ils sont préremplis pour votre base de connaissances existante : 
+        * Clé d’authentification QnA
+        * Plan App Service/Emplacement
+        * Stockage Azure
+    * Le bot et QnA Maker peuvent partager le _plan_ du service Web App, mais ils ne peuvent pas partager l’application web. Cela signifie que le **nom de l’application** doit être différent du nom de l’application que vous avez utilisé quand vous avez créé le service QnA Maker. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

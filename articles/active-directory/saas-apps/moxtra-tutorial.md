@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Moxtra | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Moxtra | Microsoft Docs"
 description: Découvrez comment configurer l'authentification unique entre Azure Active Directory et Moxtra.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 7b1fe34c390eecb77ff608a334eae2a8b2e9ae50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 21f7cdaf3dbd3e01040081c786cd7a03f6ba3e3c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840390"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Didacticiel : Intégration d'Azure Active Directory à Moxtra
 
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l'intégration de Moxtra à Azure AD, vous devez ajouter Moxtra à votre liste d'applications SaaS gérées à partir de la galerie.
 
-**Pour ajouter Moxtra à partir de la galerie, procédez comme suit :**
+**Pour ajouter Moxtra à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -202,7 +202,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -239,7 +239,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 L'objectif de cette section est de créer un utilisateur appelé Britta Simon dans Moxtra.
 
-**Pour créer un utilisateur appelé Britta Simon dans Moxtra, procédez comme suit :**
+**Pour créer un utilisateur appelé Britta Simon dans Moxtra, effectuez les étapes suivantes :**
 
 1. Connectez-vous à votre site d’entreprise Moxtra en tant qu’administrateur.
 
@@ -271,7 +271,7 @@ Le fait de cliquer sur la vignette Moxtra dans le panneau d’accès doit vous c
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

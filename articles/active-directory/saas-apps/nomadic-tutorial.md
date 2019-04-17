@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b8a63d24626a1d7af3659281b613f8186a62a5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91ba5de6a6e0a18d494a449acfdea330234bcc9b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897637"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258808"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>Tutoriel : Intégration d’Azure Active Directory à Nomadic
+# <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>Didacticiel : Intégration d’Azure Active Directory à Nomadic
 
 Dans ce didacticiel, vous découvrez comment intégrer Nomadic à Azure Active Directory (Azure AD).
 L’intégration de Nomadic à Azure AD vous procure les avantages suivants :
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Nomadic dans Azure AD, vous devez ajouter Nomadic depuis la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Nomadic à partir de la galerie, procédez comme suit :**
+**Pour ajouter Nomadic à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD avec Nomadic, procédez com
 
     ![Informations d’authentification unique dans Nomadic Domain and URLs (Domaine et URL Nomadic)](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<company name>.nomadic.fm/signin`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<company name>.nomadic.fm/signin`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
     
@@ -152,7 +152,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -197,7 +197,7 @@ Le fait de cliquer sur la mosaïque Nomadic dans le panneau d’accès doit vous
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

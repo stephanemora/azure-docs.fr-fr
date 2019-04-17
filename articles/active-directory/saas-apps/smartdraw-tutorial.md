@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec SmartDraw | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec SmartDraw | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SmartDraw.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 910e485586eb8c43399f6f0b6791ab654003a19d
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 7d811cd69185e77f50749fc48974dee684fb7cfa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58003750"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Didacticiel : Intégration d’Azure Active Directory avec SmartDraw
 
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de SmartDraw à Azure AD, vous devez ajouter SmartDraw à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter SmartDraw à partir de la galerie, procédez comme suit :**
+**Pour ajouter SmartDraw à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -248,7 +248,7 @@ Quand vous cliquez sur la vignette SmartDraw dans le volet d’accès, vous deve
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à OrgChart Now | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à OrgChart Now | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et OrgChart Now.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d34b40195a5f8effb794f3fbefc7949740509e27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835660"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Didacticiel : Intégration d’Azure Active Directory à OrgChart Now
 
@@ -28,30 +28,30 @@ Dans ce didacticiel, vous allez apprendre à intégrer OrgChart Now dans Azure A
 L’intégration d’OrgChart Now dans Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à OrgChart Now.
-* Vous pouvez autoriser vos utilisateurs à être automatiquement connecté à OrgChart Now (Single Sign-On) avec leur compte Azure AD.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à OrgChart Now (par le biais de l’authentification unique) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD dans OrgChart Now, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement OrgChart Now l’authentification unique est activée
+* Un abonnement OrgChart Now pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* OrgChart Now prend en charge **SP** et **IDP** initiée par l’authentification unique
+* OrgChart Now prend en charge l’authentification unique lancée par **le fournisseur de services** et le **fournisseur d’identité**
 
 ## <a name="adding-orgchart-now-from-the-gallery"></a>Ajout d’OrgChart Now à partir de la galerie
 
 Pour configurer l’intégration d’OrgChart Now dans Azure AD, vous devez ajouter OrgChart Now à partir de la galerie dans votre liste d’applications SaaS gérées.
 
-**Pour ajouter OrgChart Now à partir de la galerie, procédez comme suit :**
+**Pour ajouter OrgChart Now à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -71,25 +71,25 @@ Pour configurer l’intégration d’OrgChart Now dans Azure AD, vous devez ajou
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester sur l’authentification unique de l’Azure AD avec OrgChart Now sur un utilisateur de test appelé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur dans OrgChart Now doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès d’OrgChart Now avec un utilisateur de test qui s’appelle **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur OrgChart Now associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec OrgChart Now, vous devez suivre les étapes ci-dessous :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer OrgChart maintenant Single Sign-On](#configure-orgchart-now-single-sign-on)**  : pour configurer les paramètres de l’authentification unique côté application.
+2. **[Configurer l’authentification unique OrgChart Now](#configure-orgchart-now-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer utilisateur de test OrgChart Now](#create-orgchart-now-test-user)**  - pour avoir un équivalent de Britta Simon dans OrgChart Now, lié à la représentation Azure AD de l’utilisateur.
+5. **[Créer un utilisateur de test OrgChart Now](#create-orgchart-now-test-user)** pour avoir un équivalent de Britta Simon dans OrgChart Now, lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-Pour configurer Azure AD-authentification unique avec OrgChart Now, procédez comme suit :
+Pour configurer l’authentification unique Azure AD auprès d’OrgChart Now, effectuez les étapes suivantes :
 
-1. Dans le [Azure portal](https://portal.azure.com/), dans le **OrgChart Now** page d’intégration d’application, sélectionnez **Single sign-on**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **OrgChart Now**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -114,13 +114,13 @@ Pour configurer Azure AD-authentification unique avec OrgChart Now, procédez co
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
 
     > [!NOTE]
-    > `<YourEntityID>` est le **Azure AD identificateur** copiés à partir de la **configurer OrgChart Now** section, décrite plus loin dans le didacticiel.
+    > `<YourEntityID>` est l’**identificateur Azure AD** copié à partir de la section **Configurer OrgChart Now**, décrite plus loin dans le tutoriel.
 
 6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-7. Sur le **configurer OrgChart Now** section, copiez l’URL appropriées en fonction de vos besoins.
+7. Dans la section **Configurer OrgChart Now**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -130,9 +130,9 @@ Pour configurer Azure AD-authentification unique avec OrgChart Now, procédez co
 
     c. URL de déconnexion
 
-### <a name="configure-orgchart-now-single-sign-on"></a>Configurer OrgChart Now Single Sign-On
+### <a name="configure-orgchart-now-single-sign-on"></a>Configurer l’authentification unique OrgChart Now
 
-Pour configurer l’authentification unique sur **OrgChart Now** , vous devez envoyer le **XML des métadonnées de fédération** et appropriées URL copiées à partir du portail Azure pour [équipe de support technique d’OrgChart Now ](mailto:ocnsupport@officeworksoftware.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **OrgChart Now**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique OrgChart Now](mailto:ocnsupport@officeworksoftware.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -163,7 +163,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à OrgChart Now.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, sélectionnez **toutes les applications**, puis sélectionnez **OrgChart Now**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **OrgChart Now**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -185,7 +185,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-orgchart-now-test-user"></a>Créer utilisateur de test OrgChart Now
+### <a name="create-orgchart-now-test-user"></a>Créer un utilisateur de test OrgChart Now
 
 Pour permettre aux utilisateurs Azure AD de se connecter à OrgChart Now, vous devez les approvisionner dans OrgChart Now. 
 
@@ -219,9 +219,9 @@ Pour permettre aux utilisateurs Azure AD de se connecter à OrgChart Now, vous d
 
     ![Gestion d’OrgChart Now](./media/orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
 
-    * Dans le **ID utilisateur** zone de texte, entrez l’ID d’utilisateur comme **brittasimon\@contoso.com**.
+    * Dans la zone de texte **ID utilisateur**, entrez l’ID d’utilisateur, par exemple **brittasimon\@contoso.com**.
 
-    * Dans **adresse de messagerie** texte, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
+    * Dans la zone de texte **Adresse e-mail**, tapez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     * Cliquez sur **Add**.
 
@@ -229,11 +229,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à OrgChart Now, vous d
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette OrgChart Now dans le volet d’accès, vous devez être automatiquement connecté à la OrgChart Now pour lequel vous configurez l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette OrgChart Now dans le volet d’accès, vous devez être connecté automatiquement à l’application OrgChart Now pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

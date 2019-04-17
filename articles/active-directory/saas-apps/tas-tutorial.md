@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à TAS | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à TAS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TAS.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 5dcae137db04b604d7b0450c3bec18fc23b36991
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 11ba7cd9be59f13081bdc5a543c52ca5f9d66e09
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58229068"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272493"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tas"></a>Tutoriel : Intégration d’Azure Active Directory à TAS
+# <a name="tutorial-azure-active-directory-integration-with-tas"></a>Didacticiel : Intégration d’Azure Active Directory à TAS
 
 Dans ce tutoriel, vous allez apprendre à intégrer TAS à Azure Active Directory (Azure AD).
 L’intégration de TAS à Azure AD vous offre les avantages suivants :
@@ -226,7 +226,7 @@ Le fait de cliquer sur la vignette TAS dans le volet d’accès doit vous connec
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

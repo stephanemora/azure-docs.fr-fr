@@ -1,19 +1,18 @@
 ---
-title: 'Démarrage rapide : Visualiser des données avec une requête importée dans Power BI'
+title: 'Démarrage rapide : Visualiser des données Azure Data Explorer avec une requête importée dans Power BI '
 description: 'Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser une des trois options de visualisation des données dans Power BI : l’importation d’une requête depuis Azure Data Explorer.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3251ae9f39ea38eac6887df3072257e1e8e88306
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756111"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050579"
 ---
 # <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Démarrage rapide : Visualiser des données avec une requête importée dans Power BI
 
@@ -84,4 +83,4 @@ Si vous n’avez plus besoin du rapport que vous avez créé pour ce guide de d�
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Visualiser des données avec une requête importée dans Power BI](power-bi-sql-query.md)
+> [Démarrage rapide : Visualiser des données avec une requête importée dans Power BI](power-bi-sql-query.md)

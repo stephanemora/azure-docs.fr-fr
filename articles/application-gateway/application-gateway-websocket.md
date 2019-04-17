@@ -1,18 +1,18 @@
 ---
 title: Prise en charge de WebSocket pour la passerelle Application Gateway | Microsoft Docs
 description: Cette page fournit une vue d’ensemble de la prise en charge de WebSocket pour la passerelle Application Gateway.
-author: amsriva
+author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
-ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168117"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606903"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Vue d’ensemble de la prise en charge de WebSocket dans Application Gateway
 
@@ -32,7 +32,7 @@ Pour établir une connexion WebSocket, une négociation basée sur HTTP spécifi
 
 ### <a name="listener-configuration-element"></a>Élément de configuration d’écouteur
 
-Un écouteur HTTP permet de prendre en charge le trafic WebSocket. Voici un extrait d’un élément HttpListeners provenant d’un exemple de fichier de modèle. Vous auriez besoin d’écouteurs HTTP et HTTPS pour prendre en charge WebSocket et sécuriser le trafic WebSocket. De même, vous pouvez utiliser le [portail](application-gateway-create-gateway-portal.md) ou [PowerShell](application-gateway-create-gateway-arm.md) afin de créer une passerelle Application Gateway avec des écouteurs sur le port 80/443 pour prendre en charge le trafic WebSocket.
+Un écouteur HTTP permet de prendre en charge le trafic WebSocket. Voici un extrait d’un élément HttpListeners provenant d’un exemple de fichier de modèle. Vous auriez besoin d’écouteurs HTTP et HTTPS pour prendre en charge WebSocket et sécuriser le trafic WebSocket. De même que vous pouvez utiliser le portail ou Azure PowerShell pour créer une passerelle d’application avec des écouteurs sur le port 80/443 pour prendre en charge le trafic WebSocket.
 
 ```json
 "httpListeners": [
@@ -123,5 +123,4 @@ Autre raison : la sonde d’intégrité principale d’Application Gateway ne pr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir découvert la prise en charge de WebSocket, consultez [Créer une passerelle Application Gateway](application-gateway-create-gateway.md) pour commencer à utiliser une application web compatible avec WebSocket.
-
+Après avoir découvert la prise en charge de WebSocket, consultez [Créer une passerelle Application Gateway](quick-create-powershell.md) pour commencer à utiliser une application web compatible avec WebSocket.

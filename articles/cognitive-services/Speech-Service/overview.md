@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 04/03/2019
 ms.author: erhopf
-ms.openlocfilehash: b536c55b0f7c29bc463781d9fda0348ef994c5ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662222"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010190"
 ---
 # <a name="what-are-the-speech-services"></a>Qu’est-ce que Speech Services ?
 
@@ -28,18 +28,19 @@ Ces fonctionnalités constituent les services Speech Azure. Pour en savoir plus 
 
 | de diffusion en continu | Fonctionnalité | Description | Kit SDK  | REST |
 |---------|---------|-------------|-----|------|
-| [Reconnaissance vocale](speech-to-text.md) | Reconnaissance vocale | La reconnaissance vocale transcrit en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser ou afficher. Utilisez la reconnaissance vocale avec [LUIS (Language Understanding Intelligent Service)](https://docs.microsoft.com/azure/cognitive-services/luis/) pour déduire les intentions de l’utilisateur à partir des transcriptions et agir sur des commandes vocales. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Transcription par lot](batch-transcription.md) | La transcription par lot permet de transcrire une reconnaissance vocale asynchrone de gros volumes de données. Il s’agit d’un service basé sur REST qui utilise le même point de terminaison que la personnalisation et la gestion des modèles. | Non  | [Oui](https://westus.cris.ai/swagger/ui/index) |
-| | [Personnalisation](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non  | [Oui](https://westus.cris.ai/swagger/ui/index) |
-| [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine. Faites votre choix parmi les voix standard et les voix neuronales (voir [Prise en charge linguistique](language-support.md)). | Non  | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Personnalisation](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non  | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Non  |
+| [Reconnaissance vocale](speech-to-text.md) | Reconnaissance vocale | La reconnaissance vocale transcrit en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser ou afficher. Utilisez la reconnaissance vocale avec [LUIS (Language Understanding Intelligent Service)](https://docs.microsoft.com/azure/cognitive-services/luis/) pour déduire les intentions de l’utilisateur à partir des transcriptions et agir sur des commandes vocales. | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Transcription par lot](batch-transcription.md) | La transcription par lot permet de transcrire une reconnaissance vocale asynchrone de gros volumes de données. Il s’agit d’un service basé sur REST qui utilise le même point de terminaison que la personnalisation et la gestion des modèles. | Non  | [OUI](https://westus.cris.ai/swagger/ui/index) |
+| | [Personnalisation](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non  | [OUI](https://westus.cris.ai/swagger/ui/index) |
+| [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine. Faites votre choix parmi les voix standard et les voix neuronales (voir [Prise en charge linguistique](language-support.md)). | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Personnalisation](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non  | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Non  |
 
 ## <a name="news-and-updates"></a>Nouveautés et mises à jour
 
 Découvrez les nouveautés introduites dans les services Speech Azure.
 
-* Mars 2019 - Un nouveau point de terminaison de synthèse vocale (TTS), qui retourne la liste complète des voix disponibles dans chaque région, est désormais disponible. De plus, de nouvelles régions sont désormais prises en charge pour la synthèse vocale. Pour plus d’informations, consultez [Informations de référence sur l’API de synthèse vocale (REST)](rest-text-to-speech.md).
+* Avril 2019 - Publication du SDK Speech 1.4.0 avec prise en charge de la synthèse vocale (bêta) pour C++, C# et Java sur Windows et Linux. En outre, le SDK prend désormais en charge les formats audio MP3 et Opus/Ogg pour C++ et C# sur Linux. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md). 
+* Mars 2019 - Un nouveau point de terminaison de synthèse vocale (TTS), qui retourne la liste complète des voix disponibles dans une région spécifique, est désormais disponible. De plus, de nouvelles régions sont désormais prises en charge pour la synthèse vocale. Pour plus d’informations, consultez [Informations de référence sur l’API de synthèse vocale (REST)](rest-text-to-speech.md).
 * Février 2019 : publication du Kit de développement logiciel (SDK) Speech 1.3.0 avec prise en charge de [Unity (bêta)](quickstart-csharp-unity.md). Ajout de la prise en charge de la classe `AudioInput` qui vous permet de choisir la source de diffusion en continu pour l’audio. Pour la liste complète des améliorations et problèmes connus, voir les [Notes de publication](releasenotes.md).
 * Décembre 2018 : publication du Kit de développement logiciel (SDK) Speech 1.2.0 avec prise en charge de [Python](quickstart-python.md) et [Node.js](quickstart-js-node.md), ainsi que d’Ubuntu 18.04 LTS. Pour plus d’informations, voir les [Notes de publication](releasenotes.md).
 
@@ -47,22 +48,22 @@ Découvrez les nouveautés introduites dans les services Speech Azure.
 
 Nous proposons des démarrages rapides pour la plupart des langages de programmation populaires, conçus pour que votre code soit opérationnel en moins de 10 minutes. Ce tableau répertorie les démarrages rapides les plus populaires pour chaque fonctionnalité. Utilisez le volet de navigation de gauche pour explorer les langages et plateformes supplémentaires.
 
-| Reconnaissance vocale (SDK) | Traduction (SDK) | Synthèse vocale (REST) |
-|-------------------|-------------------|-----------------------|
-| [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) |
-| [Javascript (navigateur)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) |
-| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) |
+| Reconnaissance vocale (SDK) | Traduction (SDK) | Synthèse vocale (REST) | Synthèse vocale (SDK) |
+|-------------------|-------------------|-----------------------|-----------------------|
+| [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) |
+| [JavaScript (navigateur)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
+| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) |
 | [Java (Windows, Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
 Une fois que vous avez eu l’occasion d’utiliser les Services Speech, essayez notre didacticiel qui vous apprend à reconnaître les intentions du discours à l’aide du Kit de développement logiciel (SDK) Speech et de LUIS.
 
-* [Tutoriel : Effectuer une reconnaissance des intentions du discours à l’aide du Kit de développement logiciel (SDK) Speech et de LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Didacticiel : Effectuer une reconnaissance des intentions d’un discours avec le SDK Speech et LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 
 ## <a name="get-sample-code"></a>Obtenir un exemple de code
 
 Un exemple de code est disponible sur GitHub pour chacun des services Speech Azure. Ces exemples couvrent des scénarios courants tels que la lecture du signal audio d’un fichier ou d’un flux, la reconnaissance continue et ponctuelle, et l’utilisation de modèles personnalisés. Pour voir les exemples SDK et REST, suivez ces liens :
 
-* [Exemples de reconnaissance vocale et de traduction vocale (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Exemples de reconnaissance vocale, de synthèse vocale et de traduction vocale (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Exemples de transcription par lot (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Exemples de synthèse vocale (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
@@ -80,10 +81,10 @@ Les services Speech Azure fonctionnent bien avec les modèles intégrés. Cepend
 ## <a name="reference-docs"></a>Documents de référence
 
 * [Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk-reference.md)
-* [SDK Speech Devices](speech-devices-sdk.md)
+* [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md)
 * [API REST : Reconnaissance vocale](rest-speech-to-text.md)
 * [API REST : Synthèse vocale](rest-text-to-speech.md)
-* [API REST : Transcription et personnalisation par lot](https://westus.cris.ai/swagger/ui/index)
+* [API REST : Transcription par lot et personnalisation](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

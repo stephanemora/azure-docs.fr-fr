@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: bf291f22f523756c868128cbe5595fa56cf7d109
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: a98ec0d460e050f8158ffee1262dd85f0cd07d9a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361674"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Didacticiel : Intégration d’Azure Active Directory à Peakon
 
@@ -220,7 +220,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Pour se connecter à Peakon, les utilisateurs Azure AD doivent être provisionnés dans Peakon.  
 Dans le cas de Peakon, le provisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à votre site d’entreprise Peakon en tant qu’administrateur.
 
@@ -250,7 +250,7 @@ Quand vous cliquez sur la vignette Peakon dans le volet d’accès, vous devez �
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

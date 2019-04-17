@@ -6,14 +6,14 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: c18597fde157e0308138348432d63d56446931b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012561"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278823"
 ---
-# <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutoriel : Authentification d'Azure SignalR Service auprès d'Azure Functions
+# <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Didacticiel : Authentification d'Azure SignalR Service auprès d'Azure Functions
 
 Didacticiel étape par étape permettant de créer une salle de conversation avec l’authentification et la messagerie privée à l’aide d’Azure Functions, de l’authentification App Service et du service SignalR.
 
@@ -348,7 +348,7 @@ Jusqu’ici, l’application de conversation fonctionne de façon anonyme. Dans 
 
 Lors de l’envoi d’un message, l’application peut décider de l’envoyer à tous les clients connectés ou uniquement aux clients qui ont été authentifiés conformément à un utilisateur donné.
 
-1. Dans VS Code, ouvrez **SignalRInfo/function.json**.
+1. Dans VS Code, ouvrez **negotiate/function.json**.
 
 1. Insérez une [expression de liaison](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) dans la propriété *userId* de la liaison *SignalRConnectionInfo* : `{headers.x-ms-client-principal-name}`. Elle définit la valeur du nom d’utilisateur de l’utilisateur authentifié. L’attribut devrait maintenant ressembler à ceci.
 

@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à iLMS | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à iLMS | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iLMS.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef88a2860603a9450db27b744413ac0a886e81e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a9bcb465f76e09675333e6e608249cba11f722e3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863268"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274653"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Tutoriel : Intégration d'Azure Active Directory à iLMS
+# <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Didacticiel : Intégration d'Azure Active Directory à iLMS
 
 Dans ce didacticiel, vous allez apprendre à intégrer iLMS dans Azure Active Directory (Azure AD).
 L’intégration d’iLMS dans Azure AD offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’iLMS avec Azure AD, vous devez ajouter iLMS à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter iLMS à partir de la galerie, procédez comme suit :**
+**Pour ajouter iLMS à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,13 +107,13 @@ Pour configurer l’authentification unique Azure AD auprès d’iLMS, effectuez
 
     a. Dans la zone de texte **Identificateur**, collez la valeur de **Identifier** (Identificateur) que vous copiez à partir de la section **Service Provider** (Fournisseur de services) des paramètres SAML dans le portail d’administration iLMS.
 
-    b. Dans la zone de texte **URL de réponse**, collez la valeur de **Endpoint (URL)** (Point de terminaison (URL)) que vous copiez à partir de la section **Service Provider** (Fournisseur de services) des paramètres SAML dans le portail d’administration iLMS, avec le modèle suivant `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    b. Dans la zone de texte **URL de réponse**, collez la valeur**Point de terminaison (URL)** que vous copiez à partir de la section **Fournisseur de services** des paramètres SAML dans le portail d’administration iLMS, avec le modèle suivant : `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     ![Informations d’authentification unique relatives au domaine et aux URL iLMS](common/metadata-upload-additional-signon.png)
 
-    Dans la zone de texte **URL de connexion**, collez la valeur de **Endpoint (URL)** (Point de terminaison (URL)) que vous copiez à partir de la section **Service Provider** (Fournisseur de services) des paramètres SAML dans le portail d’administration iLMS en tant que `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    Dans la zone de texte **URL de connexion**, collez la valeur **Point de terminaison (URL)** que vous copiez à partir de la section **Fournisseur de services** des paramètres SAML dans le portail d’administration iLMS en tant que : `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
 6. Pour permettre le provisionnement JIT, votre application iLMS attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
@@ -296,7 +296,7 @@ Le fait de cliquer sur la vignette iLMS dans le volet d’accès doit vous conne
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

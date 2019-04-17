@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 98406df3746bb0ca2fc658697ee25b1f11b54c0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eeaff4769dba5b6e6951665d09cd12d13f22af07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084587"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273706"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutoriel : Développer un module C IoT Edge et le déployer sur votre appareil simulé
 
@@ -36,8 +36,10 @@ Le module IoT Edge que vous créez dans ce tutoriel filtre les données de temp�
 
 Un appareil Azure IoT Edge :
 
-* Vous pouvez utiliser votre ordinateur de développement ou une machine virtuelle comme un appareil Edge, en suivant les étapes décrites dans le Guide de démarrage rapide pour [Linux](quickstart-linux.md) ou pour les [Appareils Windows](quickstart.md). 
-* Les modules C pour Azure IoT Edge ne prennent pas en charge les conteneurs Windows. Si votre appareil IoT Edge est une machine Windows, vérifiez qu’il est configuré pour utiliser des conteneurs Linux. Pour plus d’informations sur les différences dans l’installation des conteneurs Windows et Linux, consultez [Installer le runtime IoT Edge sur Windows](how-to-install-iot-edge-windows.md).
+* Vous pouvez utiliser une machine virtuelle Azure en tant qu’appareil IoT Edge. Pour cela, suivez les étapes du guide de démarrage rapide pour les appareils [Linux](quickstart-linux.md) ou [Windows](quickstart.md). 
+
+   >[!TIP]
+   >Ce tutoriel utilise Visual Studio Code pour développer un module C à l’aide de conteneurs Linux. Si vous souhaitez développer en C pour des conteneurs Windows, vous devez utiliser Visual Studio 2017. Pour plus d’informations, consultez [Utiliser Visual Studio 2017 pour développer et déboguer des modules pour Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
 Ressources cloud :
 
@@ -100,7 +102,7 @@ Créez un modèle de solution C que vous pouvez personnaliser avec votre propre 
  
    ![Fourniture du référentiel d’images Docker](./media/tutorial-c-module/repository.png)
 
-La fenêtre VS Code charge l’espace de travail de votre solution IoT Edge. L’espace de travail de la solution contient cinq composants de niveau supérieur. Le dossier **modules** contient le code C de votre module, ainsi que les fichiers Docker pour la création de votre module comme image conteneur. Le fichier **\.env** stocke les informations d’identification de votre registre de conteneurs. Le fichier **deployment.template.json** contient les informations utilisées par le runtime IoT Edge pour déployer des modules sur un appareil. Conteneurs de fichiers **deployment.debug.template.json** de la version debug des modules. Dans le cadre de ce didacticiel, vous ne modifierez pas le dossier **\.vscode** ni le fichier **\.gitignore**.
+La fenêtre VS Code charge l’espace de travail de votre solution IoT Edge avec cinq composants de niveau supérieur. Le dossier **modules** contient le code C de votre module ainsi que les fichiers Dockerfile pour la génération de votre module en tant qu’image conteneur. Le fichier **\.env** stocke les informations d’identification de votre registre de conteneurs. Le fichier **deployment.template.json** contient les informations utilisées par le runtime IoT Edge pour déployer des modules sur un appareil. Conteneurs de fichiers **deployment.debug.template.json** de la version debug des modules. Dans le cadre de ce didacticiel, vous ne modifierez pas le dossier **\.vscode** ni le fichier **\.gitignore**.
 
 Si vous n’avez pas spécifié de registre de conteneurs lors de la création de votre solution, mais accepté la valeur localhost:5000 par défaut, vous n’aurez pas de fichier \.env.
 
@@ -118,7 +120,7 @@ Le fichier d’environnement stocke les informations d’identification de votre
 
 ### <a name="update-the-module-with-custom-code"></a>Mettre à jour le module avec du code personnalisé
 
-Ajoutez à votre module C du code lui permettant de lire les données du capteur, de vérifier si la température de la machine signalée a dépassé un seuil acceptable et de transmettre ces informations à l’IoT Hub.
+Ajoutez du code à votre module C pour lui permettre de vérifier si la température de machine signalée a dépassé un seuil acceptable. Si la température est trop élevée, le module ajoute un paramètre d’alerte au message avant d’envoyer les données à IoT Hub. 
 
 1. Dans ce scénario, les données du capteur sont fournies au format JSON. Pour filtrer les messages au format JSON, importez une bibliothèque JSON pour C. Ce didacticiel utilise Parson.
 
@@ -319,9 +321,9 @@ Ajoutez à votre module C du code lui permettant de lire les données du capteur
 
 ## <a name="build-and-push-your-solution"></a>Générer et envoyer (push) votre solution
 
-Dans la section précédente, vous avez créé une solution IoT Edge et ajouté du code à CModule qui permettra de filtrer les messages selon lesquels la température de la machine signalée se situe dans les limites acceptables. Vous devez maintenant générer la solution comme image de conteneur et l’envoyer à votre registre de conteneurs.
+Dans la section précédente, vous avez créé une solution IoT Edge et ajouté du code à CModule pour filtrer les messages quand la température de machine signalée se situe dans les limites acceptables. Vous devez maintenant générer la solution comme image de conteneur et l’envoyer à votre registre de conteneurs.
 
-1. Ouvrez le terminal intégré VS Code en sélectionnant **Affichage** > **Terminal intégré**.
+1. Ouvrez le terminal intégré VS Code en sélectionnant **Affichage** > **Terminal**.
 
 1. Connectez-vous à Docker en entrant la commande suivante dans le terminal intégré Visual Studio Code. Vous devez vous connecter avec vos informations d’identification Azure Container Registry pour être en mesure d’envoyer votre image de module au registre.
      

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
-ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116688"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008900"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Didacticiel : Implémenter un processus de mise à jour de microprogramme d’appareil
 
@@ -100,7 +100,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>Démarrer la mise à jour du microprogramme
 
-Vous devez créer une [configuration de gestion automatique des appareils](iot-hub-auto-device-config.md#create-a-configuration) dans l’application back-end pour commencer le processus de mise à jour du microprogramme sur tous les appareils comportant un **devicetype** de refroidissement. Dans cette section, vous allez apprendre à :
+Vous devez créer une [configuration de gestion automatique des appareils](iot-hub-automatic-device-management.md#create-a-configuration) dans l’application back-end pour commencer le processus de mise à jour du microprogramme sur tous les appareils comportant un **devicetype** de refroidissement. Dans cette section, vous allez apprendre à :
 
 * Créer une configuration à partir d’une application back-end.
 * Surveiller la tâche jusqu'à son achèvement.
@@ -116,7 +116,7 @@ L’application back-end crée la configuration suivante :
 La configuration inclut les sections suivantes :
 
 * `content` spécifie les propriétés souhaitées du microprogramme envoyées aux appareils sélectionnés.
-* `metrics` spécifie les requêtes qui vont exécuter le rapport d’état de la mise à jour du microprogramme.
+* `metrics` spécifie les requêtes à exécuter pour signaler l’état de la mise à jour du microprogramme.
 * `targetCondition` sélectionne les appareils qui vont recevoir la mise à jour du microprogramme.
 * `priorty` définit la priorité relative de cette configuration sur d’autres configurations.
 

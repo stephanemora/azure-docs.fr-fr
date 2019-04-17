@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077154"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051168"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -169,7 +169,7 @@ En plus de créer, gérer et supprimer des ressources sur le portail Azure, vous
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell est un ensemble de modules fournissant des applets de commande pour gérer Azure. Vous pouvez utiliser les applets de commande pour créer, gérer et supprimer des services Azure. Les applets de commande vous permettent de réaliser des déploiements cohérents et reproductibles sans avoir à intervenir. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+Azure PowerShell est un ensemble de modules fournissant des applets de commande pour gérer Azure. Vous pouvez utiliser les applets de commande pour créer, gérer et supprimer des services Azure. Les applets de commande vous permettent de réaliser des déploiements cohérents et reproductibles sans avoir à intervenir. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/install-Az-ps).
 
 #### <a name="azure-command-line-interface"></a>Interface de ligne de commande Azure
 
@@ -473,7 +473,7 @@ Vous pouvez connecter le réseau local à un réseau virtuel Azure par le biais 
 Le réseau virtuel Azure étant connecté à votre réseau local, les réseaux virtuels entre locaux ne doivent utiliser qu’une partie de l’espace d’adressage utilisé par votre organisation. De la même façon que les différents locaux de l’entreprise se voient affecter un sous-réseau IP spécifique, Azure devient un emplacement supplémentaire lorsque vous étendez votre réseau.
 Il existe plusieurs options pour déployer un réseau virtuel.
 
-- [Portal](../..//virtual-network/quick-create-portal.md)
+- [Portail](../..//virtual-network/quick-create-portal.md)
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 

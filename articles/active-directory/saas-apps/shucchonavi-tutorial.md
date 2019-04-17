@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Shuccho Navi | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Shuccho Navi | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Shuccho Navi.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: e4fcc261a2952224870d5f1a0db4b9ddb666034e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 9d3c2c646cc713b4590a85def9813ca102198229
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850341"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Didacticiel : Intégration d’Azure Active Directory à Shuccho Navi
 
@@ -28,24 +28,24 @@ Dans ce tutoriel, vous allez apprendre à intégrer Shuccho Navi à Azure Active
 L’intégration de Shuccho Navi à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Shuccho Navi.
-* Vous pouvez autoriser vos utilisateurs à être automatiquement connecté à Shuccho Navi (Single Sign-On) avec leur compte Azure AD.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Shuccho Navi (par le biais de l’authentification unique) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Shuccho Navi, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement Shuccho Navi l’authentification unique est activée
+* Abonnement Shuccho Navi pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Prend en charge de Shuccho Navi **SP** initiée par l’authentification unique
+* Shuccho Navi prend en charge l’authentification unique lancée par le **fournisseur de services**
 
 ## <a name="adding-shuccho-navi-from-the-gallery"></a>Ajout de Shuccho Navi depuis la galerie
 
@@ -71,23 +71,23 @@ Pour configurer l’intégration de Shuccho Navi à Azure AD, vous devez ajouter
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester Azure AD-authentification unique avec Shuccho Navi sur un utilisateur de test appelé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Shuccho Navi doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Shuccho Navi à l’aide d’un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Shuccho Navi associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec Shuccho Navi, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer Shuccho Navi Single Sign-On](#configure-shuccho-navi-single-sign-on)**  : pour configurer les paramètres de l’authentification unique côté application.
+2. **[Configurer l’authentification unique Shuccho Navi](#configure-shuccho-navi-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer utilisateur de test Shuccho Navi](#create-shuccho-navi-test-user)**  - pour avoir un équivalent de Britta Simon dans Shuccho Navi lié à la représentation Azure AD de l’utilisateur.
+5. **[Créer un utilisateur de test Shuccho Navi](#create-shuccho-navi-test-user)** pour avoir un équivalent de Britta Simon dans Shuccho Navi lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-Pour configurer Azure AD-authentification unique avec Shuccho Navi, procédez comme suit :
+Pour configurer l’authentification unique Azure AD avec Shuccho Navi, effectuez les étapes suivantes :
 
 1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Shuccho Navi**, sélectionnez **Authentification unique**.
 
@@ -103,18 +103,18 @@ Pour configurer Azure AD-authentification unique avec Shuccho Navi, procédez co
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![Shuccho Navi domaine et URL des informations d’authentification unique](common/sp-signonurl.png)
+    ![Informations d’authentification unique dans Domaine et URL Shuccho Navi](common/sp-signonurl.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://naviauth.nta.co.jp/saml/login?ENTP_CD=<Your company code>`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contact [équipe de support technique de Navi Shuccho](mailto:sys_ntabtm@nta.co.jp) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir la valeur, contactez l’[équipe du support technique Shuccho Navi](mailto:sys_ntabtm@nta.co.jp). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-6. Sur le **configurer Shuccho Navi** section, copiez l’URL appropriées en fonction de vos besoins.
+6. Dans la section **Configurer Shuccho Navi**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -124,9 +124,9 @@ Pour configurer Azure AD-authentification unique avec Shuccho Navi, procédez co
 
     c. URL de déconnexion
 
-### <a name="configure-shuccho-navi-single-sign-on"></a>Configurer Shuccho Navi Single Sign-On
+### <a name="configure-shuccho-navi-single-sign-on"></a>Configurer l’authentification unique Shuccho Navi
 
-Pour configurer l’authentification unique sur **Shuccho Navi** , vous devez envoyer le **Metadata XML** et appropriées URL copiées à partir du portail Azure pour [équipe de support technique Shuccho Navi](mailto:sys_ntabtm@nta.co.jp). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Shuccho Navi**, vous devez envoyer le fichier **XML des métadonnées** téléchargé et les URL copiées correspondantes du portail Azure à l’[équipe du support technique Shuccho Navi](mailto:sys_ntabtm@nta.co.jp). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -146,7 +146,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le **nom d’utilisateur** type de champ **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -157,13 +157,13 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Shuccho Navi.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, sélectionnez **toutes les applications**, puis sélectionnez **Shuccho Navi**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Shuccho Navi**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
 2. Dans la liste des applications, sélectionnez **Shuccho Navi**.
 
-    ![Le lien Shuccho Navi dans la liste des Applications](common/all-applications.png)
+    ![Lien Shuccho Navi dans la liste des applications](common/all-applications.png)
 
 3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
@@ -179,7 +179,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-shuccho-navi-test-user"></a>Créer utilisateur de test Shuccho Navi
+### <a name="create-shuccho-navi-test-user"></a>Créer un utilisateur de test Shuccho Navi
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Shuccho Navi. Contactez  [l’équipe du support technique Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) pour ajouter les utilisateurs dans la plateforme Shuccho Navi. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
@@ -187,11 +187,11 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans S
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Shuccho Navi dans le volet d’accès, vous devez être automatiquement connecté à la Shuccho Navi pour lequel vous configurez l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Le fait de cliquer sur la vignette Shuccho Navi dans le panneau d’accès doit vous connecter automatiquement à l’application Shuccho Navi pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

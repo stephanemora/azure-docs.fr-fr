@@ -1,7 +1,6 @@
 ---
 title: Créer une stratégie pour des ressources non conformes avec Azure PowerShell
 description: Utilisez Azure PowerShell pour créer une affectation de stratégie Azure afin d’identifier les ressources non conformes.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/11/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7f743ee99516200c1fb046460c261605e7b3b4e0
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f07a760153c4ec15cec5c5bc1348e23152c59cb8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801201"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258332"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide d’Azure PowerShell
 
@@ -111,7 +110,7 @@ Remove-AzPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<
 
 Dans ce démarrage rapide, vous avez affecté une définition de stratégie pour identifier les ressources non conformes de votre environnement Azure.
 
-Pour en savoir plus sur l’affectation de stratégies pour vérifier que les nouvelles ressources sont conformes, suivez le didacticiel :
+Pour en savoir plus sur l’affectation de stratégies visant à vérifier que les nouvelles ressources sont conformes, suivez le tutoriel :
 
 > [!div class="nextstepaction"]
 > [Création et gestion des stratégies](./tutorials/create-and-manage.md)

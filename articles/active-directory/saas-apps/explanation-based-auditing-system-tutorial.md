@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Explanation-Based Auditing System | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Explanation-Based Auditing System | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Explanation-Based Auditing System.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b9019263bae2ca0bc0f266619fe660ed20a81bea
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 01d39cfd5b87f9547659c79f3b748c7b23a87c77
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897263"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278494"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-explanation-based-auditing-system"></a>Tutoriel : Intégration d’Azure Active Directory à Explanation-Based Auditing System
+# <a name="tutorial-azure-active-directory-integration-with-explanation-based-auditing-system"></a>Didacticiel : Intégration d’Azure Active Directory à Explanation-Based Auditing System
 
 Dans ce tutoriel, vous allez apprendre à intégrer Explanation-Based Auditing System à Azure Active Directory (Azure AD).
 L’intégration de Explanation-Based Auditing System à Azure AD vous offre les avantages suivants :
@@ -134,7 +134,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -179,7 +179,7 @@ Quand vous cliquez sur la vignette Explanation-Based Auditing System dans le vol
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

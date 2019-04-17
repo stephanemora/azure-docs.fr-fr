@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Springer Link | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Springer Link | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Springer Link.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2acdb960df2ebd265d078f37840f7a4c37015044
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00154ac3c94a1f43872aff3be29ddd108a4173f0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001237"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Didacticiel : Intégration d’Azure Active Directory à Springer Link
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Springer Link avec Azure AD, vous devez ajouter Springer Link à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Springer Link à partir de la galerie, procédez comme suit :**
+**Pour ajouter Springer Link à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec Springer Link, procé
 
     ![Informations d’authentification unique dans Domaine et URL Springer Link](common/idp-relay.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://fsso.springer.com`
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://fsso.springer.com`
 
     b. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
@@ -120,7 +120,7 @@ Pour configurer l’authentification unique Azure AD avec Springer Link, procé
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
 
     > [!NOTE]
-    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. `<entityID>` est l’identificateur Azure AD copié à partir de la section **Configurer Springer Link**, plus loin dans le didacticiel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. `<entityID>` est l’identificateur Azure AD copié à partir de la section **Configurer Springer Link**, décrite plus loin dans le tutoriel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur l’icône Copier pour copier l’**URL des métadonnées de fédération d’application** et enregistrez-la sur votre ordinateur.
 
@@ -203,7 +203,7 @@ Lorsque vous cliquez sur la vignette Springer Link dans le volet d’accès, vou
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

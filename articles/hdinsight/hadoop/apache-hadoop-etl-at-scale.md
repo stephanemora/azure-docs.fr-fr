@@ -58,7 +58,7 @@ Les fichiers de données sources sont généralement chargés dans un emplacemen
 
 [Stockage Azure](https://azure.microsoft.com/services/storage/blobs/) a des [objectifs de scalabilité spécifiques](../../storage/common/storage-scalability-targets.md).  Pour la plupart des nœuds d’analytique, Stockage Azure propose une meilleure mise à l’échelle avec de nombreux petits fichiers.  Stockage Azure garantit des performances identiques, quel que soit le nombre de fichiers ou la taille des fichiers (tant que vous êtes dans les limites que vous avez définies).  Cela signifie que vous pouvez stocker des téraoctets de données et que vous obtenez toujours des performances cohérentes, que vous utilisiez un sous-ensemble des données ou toutes les données.
 
-Stockage Azure a plusieurs types d’objets blob.  Un *blob d’ajout* est idéal pour le stockage de fichiers journaux web ou de données de capteur.  
+Stockage Azure a plusieurs types d’objets blob.  Un *blob d’ajout* est idéal pour le stockage de fichiers journaux d’activité web ou de données de capteur.  
 
 Plusieurs blobs peuvent être répartis sur plusieurs serveurs afin d’offrir un accès horizontal. Toutefois, un blob donné ne peut être servi que par un seul serveur. Si les blobs peuvent être regroupés de manière logique dans des conteneurs, ce regroupement n’a aucune incidence sur le partitionnement.
 

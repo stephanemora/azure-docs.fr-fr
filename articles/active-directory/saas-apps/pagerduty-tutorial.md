@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Pagerduty | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Pagerduty | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PagerDuty.
 services: active-directory
 documentationCenter: na
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5470c13f75d010634f97e87dc1a870a100187973
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: ded5854c5e669ab1982641169f13a9cb400d5d6d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835065"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Didacticiel : Intégration d’Azure Active Directory à Pagerduty
 
 Dans ce didacticiel, vous allez apprendre à intégrer PagerDuty avec Azure Active Directory (Azure AD).
 L’intégration de PagerDuty avec Azure AD offre les avantages suivants :
 
-* Vous pouvez contrôler dans Azure AD qui a accès à PagerDuty.
-* Vous pouvez autoriser vos utilisateurs à être automatiquement connecté à PagerDuty (authentification unique) avec leur compte Azure AD.
+* Dans Azure AD, vous pouvez contrôler qui a accès à PagerDuty.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à PagerDuty (par le biais de l’authentification unique) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec PagerDuty, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement PagerDuty l’authentification unique est activée
+* Abonnement PagerDuty pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* PagerDuty prend en charge **SP** initiée par l’authentification unique
+* PagerDuty prend en charge l’authentification unique lancée par le **fournisseur de services**
 
 ## <a name="adding-pagerduty-from-the-gallery"></a>Ajout de PagerDuty à partir de la galerie
 
@@ -65,31 +65,31 @@ Pour configurer l’intégration de PagerDuty à Azure AD, vous devez ajouter Pa
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **PagerDuty**, sélectionnez **PagerDuty** dans le volet de résultats puis cliquez sur **ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **PagerDuty**, sélectionnez **PagerDuty** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![PagerDuty dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous configurer et tester Azure AD-authentification unique avec PagerDuty basé sur un utilisateur de test appelé **Britta Simon**.
-Pour l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur PagerDuty associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec PagerDuty à l’aide d’un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur PagerDuty associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec PagerDuty, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer PagerDuty Single Sign-On](#configure-pagerduty-single-sign-on)**  : pour configurer les paramètres de l’authentification unique côté application.
+2. **[Configurer l’authentification unique PagerDuty](#configure-pagerduty-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer utilisateur de test PagerDuty](#create-pagerduty-test-user)**  - pour avoir un équivalent de Britta Simon dans PagerDuty lié à la représentation Azure AD de l’utilisateur.
+5. **[Créer un utilisateur de test PagerDuty](#create-pagerduty-test-user)** pour avoir un équivalent de Britta Simon dans PagerDuty lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-Pour configurer Azure AD-authentification unique avec PagerDuty, procédez comme suit :
+Pour configurer l’authentification unique Azure AD avec PagerDuty, effectuez les étapes suivantes :
 
-1. Dans le [Azure portal](https://portal.azure.com/), dans le **PagerDuty** page d’intégration d’application, sélectionnez **Single sign-on**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **PagerDuty**, cliquez sur **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Pour configurer Azure AD-authentification unique avec PagerDuty, procédez comme
 
     ![Informations d’authentification unique dans Domaine et URL PagerDuty](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenant-name>.pagerduty.com`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<tenant-name>.pagerduty.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<tenant-name>.pagerduty.com`
 
@@ -116,7 +116,7 @@ Pour configurer Azure AD-authentification unique avec PagerDuty, procédez comme
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Sur le **configurer PagerDuty** section, copiez l’URL appropriées en fonction de vos besoins.
+6. Dans la section **Configurer PagerDuty**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -126,7 +126,7 @@ Pour configurer Azure AD-authentification unique avec PagerDuty, procédez comme
 
     c. URL de déconnexion
 
-### <a name="configure-pagerduty-single-sign-on"></a>Configurer l’authentification unique de PagerDuty
+### <a name="configure-pagerduty-single-sign-on"></a>Configurer l’authentification unique PagerDuty
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Pagerduty en tant qu’administrateur.
 
@@ -183,7 +183,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à PagerDuty.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, sélectionnez **toutes les applications**, puis sélectionnez **PagerDuty**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **PagerDuty**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -205,7 +205,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-pagerduty-test-user"></a>Créer utilisateur de test PagerDuty
+### <a name="create-pagerduty-test-user"></a>Créer un utilisateur de test PagerDuty
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Pagerduty, vous devez les approvisionner dans Pagerduty.  
 Dans le cas de Pagerduty, l’approvisionnement est une tâche manuelle.
@@ -213,7 +213,7 @@ Dans le cas de Pagerduty, l’approvisionnement est une tâche manuelle.
 >[!NOTE]
 >Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par Pagerduty, pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à votre locataire **Pagerduty** .
 
@@ -229,7 +229,7 @@ Dans le cas de Pagerduty, l’approvisionnement est une tâche manuelle.
 
     a. Tapez le **prénom et le nom** d’un utilisateur, par exemple **Britta Simon**. 
    
-    b. Entrez **E-mail** comme adresse de l’utilisateur **brittasimon\@contoso.com**.
+    b. Entrez l’adresse **E-mail** de l’utilisateur, par exemple **brittasimon\@contoso.com**.
    
     c. Cliquez sur **Add**, puis sur **Send Invites**.
    
@@ -240,11 +240,11 @@ Dans le cas de Pagerduty, l’approvisionnement est une tâche manuelle.
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette PagerDuty dans le volet d’accès, vous devez être automatiquement connecté à PagerDuty pour lequel vous configurez l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette PagerDuty dans le volet d’accès, vous devez être connecté automatiquement à l’application PagerDuty pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

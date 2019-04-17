@@ -5,21 +5,21 @@ services: container-registry
 author: stevelas
 ms.service: container-registry
 ms.topic: overview
-ms.date: 03/29/2019
+ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 39f643bd66e2a96b0b9b93989d2941a9c30ea7fc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894011"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270521"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Présentation des registres de conteneurs Docker privés dans Azure
 
 Azure Container Registry est un service de [registre Docker](https://docs.docker.com/registry/) géré basé sur le Registre open source Docker 2.0. Créez et gérez des registres de conteneur Azure pour stocker et gérer vos images de [conteneur Docker](https://www.docker.com/what-docker) privées.
 
-Utilisez les registres de conteneur dans Azure avec vos pipelines de développement et de déploiement de conteneur existants. Utilisez la build Azure Container Registry (ACR Build) pour créer des images de conteneur dans Azure. Créez des builds à la demande ou des builds entièrement automatisées avec validation du code source et déclencheurs de build pour la mise à jour des images de base.
+Utilisez des registres de conteneur dans Azure avec vos pipelines de développement et de déploiement existants, ou utilisez [ACR Tasks](#azure-container-registry-tasks) pour créer des images conteneur dans Azure. Créez des builds à la demande ou des builds entièrement automatisées avec validation du code source et déclencheurs de build pour la mise à jour des images de base.
 
 Pour en savoir plus Docker et les conteneurs, consultez [l’aperçu de Docker](https://docs.docker.com/engine/docker-overview/).
 
@@ -32,15 +32,17 @@ Extrayez des images à partir d’un registre de conteneur Azure pour différent
 
 Les développeurs peuvent également effectuer un push vers un registre de conteneur dans le cadre d’un flux de travail de développement de conteneur. Par exemple, ciblez un registre de conteneur à partir d’un outil de développement et d’intégration continu comme [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) ou [Jenkins](https://jenkins.io/).
 
-Configurez ACR Tasks pour automatiquement recréer les images d’application au moment de la mise à jour de leurs images de base. Utilisez ACR Tasks pour automatiser les builds d’image lorsque votre équipe valide le code dans un référentiel Git.
+Configurez ACR Tasks pour recréer automatiquement des images d’application lorsque leurs images de base sont mises à jour, ou automatisez la génération d’images lorsque votre équipe valide le code dans un dépôt Git. Créez des tâches à plusieurs étapes pour automatiser la création, le test et la correction de plusieurs images conteneur en parallèle dans le cloud.
+
+Azure fournit des outils, notamment l’interface de ligne de commande Azure, le portail Azure et la prise en charge des API, qui permettent de gérer vos registres de conteneurs Azure. Si vous le souhaitez, vous pouvez installer l’[extension Docker pour Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) et l’extension [Compte Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) pour utiliser vos registres de conteneurs Azure. Dans Visual Studio Code, vous pouvez tirer (pull) et envoyer (push) des images vers un registre de conteneurs Azure, et exécuter ACR Tasks.
 
 ## <a name="key-concepts"></a>Concepts clés
 
-* **Registre** : créez au moins un registre de conteneur dans votre abonnement Azure. Les registres sont disponibles dans trois références SKU : [De base, Standard et Premium](container-registry-skus.md), chacune prenant en charge l’intégration de Webhook, l’authentification de registres avec Azure Active Directory et la fonctionnalité de suppression. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements. Utilisez la fonctionnalité [géoréplication](container-registry-geo-replication.md) des registres Premium pour les scénarios avancés de réplication et de distribution d’image conteneur. Un nom de Registre complet se présente sous la forme `myregistry.azurecr.io`.
+* **Registre** : créez au moins un registre de conteneur dans votre abonnement Azure. Les registres sont disponibles dans trois références SKU : [De base, Standard et Premium](container-registry-skus.md), chacune prenant en charge l’intégration webhook, l’authentification de registres auprès d’Azure Active Directory et la fonctionnalité de suppression. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements. Utilisez la fonctionnalité [géoréplication](container-registry-geo-replication.md) des registres Premium pour les scénarios avancés de réplication et de distribution d’image conteneur. Un nom de Registre complet se présente sous la forme `myregistry.azurecr.io`.
 
-  Vous [contrôlez l’accès](container-registry-authentication.md) à un registre de conteneurs à l’aide d’une identité Azure, d’un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) pris en charge par Azure Active Directory ou d’un compte d’administration fourni. Connectez-vous au registre à l’aide de l’interface de ligne de commande Azure ou de la commande standard `docker login`.
+  Vous [contrôlez l’accès](container-registry-authentication.md) à un registre de conteneurs à l’aide d’une identité Azure, d’un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) pris en charge par Azure Active Directory ou d’un compte d’administration fourni. Connectez-vous au registre à l’aide d’Azure CLI ou de la commande standard `docker login`.
 
-* **Référentiel** : un registre contient un ou plusieurs référentiels qui stockent des groupes d’images conteneur. Azure Container Registry prend en charge les espaces de noms de référentiel à plusieurs niveaux. Dans le cas des espaces de noms à plusieurs niveaux, vous pouvez regrouper des collections d’images liées à une application spécifique, ou une collection d’applications à des équipes opérationnelles ou de développement précises. Par exemple : 
+* **Référentiel** - Un registre contient un ou plusieurs référentiels, qui sont des groupes virtuels d’images conteneur portant le même nom, mais dont les étiquettes ou le code de hachage sont différents. Azure Container Registry prend en charge les espaces de noms de référentiel à plusieurs niveaux. Dans le cas des espaces de noms à plusieurs niveaux, vous pouvez regrouper des collections d’images liées à une application spécifique, ou une collection d’applications à des équipes opérationnelles ou de développement précises. Par exemple : 
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` représente une image de l’entreprise.
   * `myregistry.azurecr.io/warrantydept/dotnet-build` représente une image utilisée pour créer des applications .NET, partagées par le service de garantie.

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 2851383ed992b314af541b24e7753b1e6b12b28d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7380cf6727817d99edbedf5552c8bea42f177074
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898667"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261681"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutoriel : Intégration d'Azure Active Directory à N2F - Note de frais
+# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Didacticiel : Intégration d'Azure Active Directory à N2F - Note de frais
 
 Dans le cadre de ce didacticiel, vous allez apprendre à intégrer N2F - Note de frais à Azure Active Directory (Azure AD).
 L’intégration de N2F - Note de frais à Azure AD vous offre les avantages suivants :
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de N2F - Note de frais à Azure AD, vous devez ajouter N2F - Note de frais à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter N2F - Note de frais à partir de la galerie, procédez comme suit :**
+**Pour ajouter N2F - Note de frais à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -172,7 +172,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -209,7 +209,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Pour permettre aux utilisateurs Azure AD de se connecter à N2F - Note de frais, vous devez les approvisionner dans N2F - Note de frais. Dans le cas de N2F - Note de frais, l’approvisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous au site d’entreprise N2F - Note de frais en tant qu’administrateur.
 
@@ -250,7 +250,7 @@ Quand vous cliquez sur la vignette N2F - Note de frais dans le volet d’accès,
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

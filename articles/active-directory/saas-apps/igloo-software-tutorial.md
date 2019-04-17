@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Igloo Software | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Igloo Software | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Igloo Software.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
-ms.openlocfilehash: d5c814fbf180ddd1cd3b447533a89cc577151d6c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 60ec322758a3c3b83e7b24cfba37daaec02fc4c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093784"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270827"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Tutoriel : Intégration d’Azure Active Directory avec Igloo Software
+# <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Igloo Software
 
 Dans ce didacticiel, vous allez apprendre à intégrer Igloo Software à Azure Active Directory (Azure AD).
 L’intégration d’Igloo Software à Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’Igloo Software à Azure AD, vous devez ajouter Igloo Software à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Igloo Software à partir de la galerie, procédez comme suit :**
+**Pour ajouter Igloo Software à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,9 +106,9 @@ Pour configurer l’authentification unique Azure AD avec Igloo Software, effect
 
     ![Informations d’authentification unique dans Domaine et URL Igloo Software](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.igloocommmunities.com`.
+    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<company name>.igloocommmunities.com`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<company name>.igloocommmunities.com/saml.digest`
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company name>.igloocommmunities.com/saml.digest`
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<company name>.igloocommmunities.com/saml.digest`
 
@@ -248,7 +248,7 @@ Quand vous cliquez sur la vignette Igloo Software dans le volet d’accès, vous
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

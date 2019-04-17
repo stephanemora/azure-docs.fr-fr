@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3c416254acf63dc479326cf00e3113c1425c4008
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2e6916cc96f9d9778cc829e39f82ef7204e137bc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360790"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269467"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-synergi"></a>Didacticiel : Intégration d’Azure Active Directory avec Synergi
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Synergi avec Azure AD, vous devez ajouter Synergi, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Synergi depuis la galerie, procédez comme suit :**
+**Pour ajouter Synergi à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -193,7 +193,7 @@ Le fait de cliquer sur la vignette Synergi dans le panneau d’accès doit vous 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

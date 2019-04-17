@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 19949b555a5be21c06c3acfbbd5fb9be08dc9f23
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766938"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608892"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Prise en main des rubriques Service Bus
 
@@ -27,24 +27,20 @@ ms.locfileid: "57766938"
 
 Ce didacticiel couvre les étapes suivantes :
 
-1. Créer un espace de noms Service Bus à l’aide du Portail Azure.
-2. Créer une rubrique Service Bus à l’aide du Portail Azure.
-3. Créer un abonnement Service Bus vers cette rubrique à l’aide du Portail Azure.
-4. Écrivez une application de console .NET Core pour envoyer un ensemble de messages à la rubrique.
-5. Écrivez une application de console .NET Core pour recevoir ces messages de l’abonnement.
+1. Écrivez une application de console .NET Core pour envoyer un ensemble de messages à la rubrique.
+2. Écrivez une application de console .NET Core pour recevoir ces messages de l’abonnement.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur.
-2. [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
-2. Un abonnement Azure.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
-
+1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrivez-vous pour ouvrir un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Suivez les étapes de la [Guide de démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à la rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
+    1. Créer un Service Bus **espace de noms**.
+    2. Obtenir le **chaîne de connexion**.
+    3. Créer un **rubrique** dans l’espace de noms.
+    4. Créer **un seul abonnement** à la rubrique dans l’espace de noms.
+3. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur.
+4. [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
+ 
 ## <a name="send-messages-to-the-topic"></a>Envoyez des messages à la rubrique
 
 Pour envoyer des messages à la rubrique, écrivez une application de console C# à l’aide de Visual Studio.
@@ -204,7 +200,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)**.
 
 ## <a name="receive-messages-from-the-subscription"></a>Réception des messages de l’abonnement
 
-Pour recevoir les messages que vous venez d’envoyer, créez une autre application de console .NET Core et installez le package NuGet **Microsoft.Azure.ServiceBus**, identique à l’application d’expéditeur précédente.
+Pour recevoir les messages que vous avez envoyé, créez une autre application de console .NET Core et installez le **Microsoft.Azure.ServiceBus** package NuGet, identique à l’application d’expéditeur précédente.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Écrire du code pour recevoir des messages de l’abonnement
 

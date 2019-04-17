@@ -361,7 +361,7 @@ Le solution prend en charge Event Grid, un service unique permettant de gérer l
 ### <a name="azure-alerts"></a>Alertes Azure
 - [Alertes](/azure/azure-monitor/platform/alerts-metric) constituent une méthode de surveillance des services Azure et vous permettent de configurer des conditions sur les données. Elles fournissent également des notifications quand une condition d’alerte correspond aux données de surveillance.
 
-### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
+### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 [Journaux d’analyse Azure](/azure/operations-management-suite/operations-management-suite-overview) est une collection de services de gestion.
 
 -   L’espace de travail est activé pour Security Center

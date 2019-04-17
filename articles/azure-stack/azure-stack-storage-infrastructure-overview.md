@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4a8287d7ca4da380ad7c2b1e039ab3058ca07a96
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 416d75b254d0fbe14a0b39e5ae77d09a48e548f6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760271"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271286"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Gérer l’infrastructure de stockage pour Azure Stack
 
@@ -32,7 +32,7 @@ Cet article décrit l’intégrité et l’état opérationnel des ressources de
 
 ### <a name="drives"></a>Lecteurs
 
-Azure Stack alimenté par les capacités de stockage définies par logiciel de Windows Server, avec une combinaison d’espaces de stockage direct (S2D) et Clustering de basculement Windows Server, pour un service de stockage performant, scalable et résilient.
+Alimenté par le logiciel Windows Server, Azure Stack définit des capacités de stockage à l’aide d’une combinaison d’espaces de stockage direct (S2D), et Clustering de basculement Windows Server, pour un service de stockage performant, scalable et résilient.
 
 Les partenaires système intégrés Azure Stack offrent de nombreuses variations de la solution, notamment un large éventail en matière de souplesse du stockage. Actuellement, vous pouvez sélectionner une combinaison de trois types de lecteurs : NVMe (mémoire expresse non volatile), SATA/SAS SSD (disque sans pièce mobile), HDD (disque dur).
 

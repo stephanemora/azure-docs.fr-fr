@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: c9f43eb1623ec784bd960fb182dffec48e7b0833
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 138913414a8e45084d498a0c7b2e864bc443197f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481244"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59362060"
 ---
 # <a name="azure-stack-1811-update"></a>Mise à jour 1811 d’Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : Systèmes intégrés Azure Stack*
 
 Cet article décrit le contenu de la mise à jour 1811. La mise à jour inclut des améliorations, des corrections de bogues et de nouvelles fonctionnalités pour cette version d’Azure Stack. Cet article décrit également les problèmes connus dans cette version, et contient un lien permettant de télécharger la mise à jour. Les problèmes connus sont divisés en problèmes directement liés au processus de mise à jour et problèmes propres à la build (après installation).
 
@@ -391,6 +391,9 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
+### <a name="syslog"></a>syslog
+
+- La configuration syslog n’est pas conservée lors d’un cycle de mise à jour et, par conséquent, le client perd sa configuration et les messages syslog ne sont plus transférés. Ce problème s’applique à toutes les versions d’Azure Stack depuis la disponibilité générale du client syslog (1809). Pour contourner ce problème, reconfigurez le client syslog après avoir appliqué une mise à jour Azure Stack.
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour
 

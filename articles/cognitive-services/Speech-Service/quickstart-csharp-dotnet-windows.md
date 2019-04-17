@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: a3990bfac9199fadeff0573d7547d7e5bc551ece
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838610"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008745"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Démarrage rapide : reconnaissance vocale à l’aide du SDK Speech pour le .NET Framework (Windows)
 
@@ -25,7 +25,7 @@ Utilisez ce guide pour créer une application de console de reconnaissance vocal
 
 Pour une démonstration rapide (sans créer vous-même le projet Visual Studio comme indiqué ci-dessous) :
 
-Obtenez la dernière version du [kit de développement logiciel Cognitive Services Speech](https://github.com/Azure-Samples/cognitive-services-speech-sdk) sur Github.
+Obtenez les derniers [exemples de SDK Speech de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-speech-sdk) sur GitHub.
 
 ## <a name="prerequisites"></a>Prérequis
 

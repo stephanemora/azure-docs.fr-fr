@@ -1,23 +1,23 @@
 ---
-title: Didacticiel pour l’indexation de bases de données SQL Azure dans le portail Azure | Microsoft Docs
-description: Dans ce tutoriel, vous allez vous connecter à une base de données SQL Azure, extraire des données interrogeables et les charger dans un index Recherche Azure.
+title: 'Didacticiel : Indexer les données de bases de données Azure SQL dans un exemple de code C# - Recherche Azure'
+description: Exemple de code C# montrant comment se connecter à Azure SQL Database, extraire des données pouvant faire l’objet de recherches et charger ces données dans un index Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201396"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270459"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Didacticiel : Analyser une base de données SQL Azure à l’aide d’indexeurs Recherche Azure
+# <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutoriel en C# : Analyser une base de données SQL Azure à l’aide d’indexeurs Recherche Azure
 
 Découvrez comment configurer un indexeur pour extraire des données pouvant faire l’objet d’une recherche à partir d’un exemple de base de données SQL Azure. [Les indexeurs](search-indexer-overview.md) sont un composant de Recherche Azure qui analyse les sources de données externes tout en alimentant un [index de recherche](search-what-is-an-index.md) avec le contenu. De tous les indexeurs, l’indexeur correspondant à Azure SQL Database est le plus couramment utilisé. 
 
@@ -37,35 +37,39 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
+Voici les services, outils et données utilisés dans ce Guide de démarrage rapide. 
+
 [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
 
-* Une base de données [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) fournissant la source de données externe utilisée par un indexeur. L’exemple de solution fournit un fichier de données SQL pour créer la table.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) stocke la source de données externes utilisée par un indexeur. L’exemple de solution fournit un fichier de données SQL pour créer la table. Les étapes de création du service et de la base de données sont fournies dans ce tutoriel.
 
-* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), toute édition. L’exemple de code et les instructions ont été testés dans l’édition Communauté gratuite.
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), quelle que soit l’édition, peut être utilisé pour exécuter l’exemple de solution. L’exemple de code et les instructions ont été testés dans l’édition Communauté gratuite.
+
+[Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) fournit l’exemple de solution situé dans le dépôt GitHub des exemples Azure. Téléchargez et extrayez la solution. Par défaut, les solutions sont en lecture seule. Cliquez avec le bouton droit sur la solution et désélectionnez l’attribut de lecture seule pour pouvoir modifier les fichiers.
 
 > [!Note]
 > Si vous utilisez le service Recherche Azure gratuit, vous êtes limité à trois index, trois indexeurs et trois sources de données. Ce didacticiel crée une occurrence de chaque élément. Assurez-vous de disposer de l’espace suffisant sur votre service pour accepter les nouvelles ressources.
 
-### <a name="download-the-solution"></a>Télécharger la solution
+## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
-La solution d’indexeur utilisée dans ce didacticiel est issue d’une collection d’exemples Recherche Azure fournie dans un téléchargement maître unique. La solution utilisée pour ce didacticiel est *DotNetHowToIndexers*.
+Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur chaque demande. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
 
-1. Accédez à [**Azure-Samples/search-dotnet-getting-started**](https://github.com/Azure-Samples/search-dotnet-getting-started) dans le référentiel GitHub d’exemples Azure.
+1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** de Search Service, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
-2. Cliquez sur **Cloner ou télécharger** > **Télécharger le ZIP**. Par défaut, le fichier est placé dans le dossier Téléchargements.
+1.. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-3. Dans l’**Explorateur de fichiers** > **Téléchargements**, cliquez avec le bouton droit sur le fichier et choisissez **Extraire tout**.
+![Obtenir une clé d’accès et un point de terminaison HTTP](media/search-fiddler/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
 
-4. Désactivez les autorisations en lecture seule. Cliquez avec le bouton droit sur le nom de dossier > **Propriétés** > **Général**, puis désactivez l’attribut **Lecture seule** pour le dossier actif, les sous-dossiers et les fichiers.
+Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
-5. Dans **Visual Studio 2017**, ouvrez la solution *DotNetHowToIndexers.sln*.
-
-6. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur la solution parente du nœud supérieur > **Restaurer les packages Nuget**.
-
-### <a name="set-up-connections"></a>Configurer les connexions
+## <a name="set-up-connections"></a>Configurer les connexions
 Les informations de connexion aux services requis sont spécifiées dans le fichier **appsettings.json** de la solution. 
 
-Dans l’Explorateur de solutions, ouvrez **appsettings.json** afin de pouvoir alimenter chaque paramètre en suivant les instructions de ce didacticiel.  
+1. Dans Visual Studio, ouvrez le fichier **DotNetHowToIndexers.sln**.
+
+1. Dans l’Explorateur de solutions, ouvrez **appsettings.json** pour pouvoir renseigner chaque paramètre.  
+
+Vous pouvez renseigner les deux premières entrées, à l’aide de l’URL et des clés d’administration de votre service Recherche Azure. Dans la mesure où le point de terminaison est `https://mydemo.search.windows.net`, le nom du service à fournir est `mydemo`.
 
 ```json
 {
@@ -75,48 +79,17 @@ Dans l’Explorateur de solutions, ouvrez **appsettings.json** afin de pouvoir a
 }
 ```
 
-### <a name="get-the-search-service-name-and-admin-api-key"></a>Obtenir le nom du service de recherche et la clé d’API d’administrateur
-
-Vous trouverez la clé et le point de terminaison du service de recherche dans le portail. Une clé donne accès aux opérations de service. Les clés d’administration permettent l’accès en écriture requis pour créer et supprimer des objets, tels que des index et des indexeurs, dans votre service.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) et passez en revue les [services de recherche de votre abonnement](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
-
-2. Ouvrez la page de service.
-
-3. En haut, recherchez le nom du service dans la page principale. Dans la capture d’écran suivante, il s’agit de *azs-tutorial*.
-
-   ![Nom du service](./media/search-indexer-tutorial/service-name.png)
-
-4. Copiez et collez-le en tant que première entrée dans **appsettings.json** dans Visual Studio.
-
-   > [!Note]
-   > Un nom de service fait partie du point de terminaison qui inclut search.windows.net. Si cela vous intéresse, vous pouvez afficher l’URL complète dans **Essentials** sur la page de présentation. L’URL ressemble à ceci : https://your-service-name.search.windows.net
-
-5. Sur la gauche, dans **Paramètres** > **Clés**, copiez une des clés d’administration et collez-la comme deuxième entrée dans i**appsettings.json**. Les clés sont des chaînes alphanumériques générées pour votre service pendant l’approvisionnement et requises pour disposer d’un accès autorisé aux opérations de service. 
-
-   Après avoir ajouté les deux paramètres, votre fichier doit ressembler à l’exemple suivant :
-
-   ```json
-   {
-    "SearchServiceName": "azs-tutorial",
-    "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
-    . . .
-   }
-   ```
+La dernière entrée nécessite une base de données existante. Vous allez la créer au cours de la prochaine étape.
 
 ## <a name="prepare-sample-data"></a>Préparer l’exemple de données
 
-Au cours de cette étape, créez une source de données externe qu’un indexeur peut analyser. Le fichier de données de ce didacticiel est *hotels.sql*, fourni dans le dossier de solutions \DotNetHowToIndexers. 
-
-### <a name="azure-sql-database"></a>Azure SQL Database
-
-Vous pouvez utiliser le portail Azure et le fichier *hotels.sql* à partir de l’exemple pour créer le jeu de données dans la base de données SQL Azure. Recherche Azure utilise des ensembles de lignes aplatis, tel que celui généré à partir d’une vue ou d’une requête. Le fichier SQL de l’exemple de solution crée et remplit une table unique.
+Au cours de cette étape, créez une source de données externe qu’un indexeur peut analyser. Vous pouvez utiliser le portail Azure et le fichier *hotels.sql* à partir de l’exemple pour créer le jeu de données dans la base de données SQL Azure. Recherche Azure utilise des ensembles de lignes aplatis, tel que celui généré à partir d’une vue ou d’une requête. Le fichier SQL de l’exemple de solution crée et remplit une table unique.
 
 L’exercice suivant suppose l’absence de serveur ou de base de données existante et vous invite à créer les deux lors de l’étape 2. Éventuellement, si vous disposez d’une ressource, vous pouvez y ajouter la table hôtels, en commençant à l’étape 4.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/). 
 
-2. Cliquez sur **Créer une ressource** > **Base de données SQL** pour créer une base de données, un serveur et un groupe de ressources. Vous pouvez utiliser les valeurs par défaut et le niveau de tarification le moins élevé. Un des avantages lié à la création d’un serveur est de pouvoir spécifier un nom d’utilisateur administrateur et le mot de passe nécessaire pour la création et le chargement des tables lors d’une étape ultérieure.
+2. Recherchez ou créez une **base de données Azure SQL** pour créer une base de données, un serveur et un groupe de ressources. Vous pouvez utiliser les valeurs par défaut et le niveau de tarification le moins élevé. Un des avantages lié à la création d’un serveur est de pouvoir spécifier un nom d’utilisateur administrateur et le mot de passe nécessaire pour la création et le chargement des tables lors d’une étape ultérieure.
 
    ![Nouvelle page de base de données](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 
@@ -143,7 +116,7 @@ L’exercice suivant suppose l’absence de serveur ou de base de données exist
     ```sql
     SELECT HotelId, HotelName, Tags FROM Hotels
     ```
-    Le prototype de requête `SELECT * FROM Hotels` ne fonctionne pas dans l’éditeur de requête. L’exemple de données inclut les coordonnées géographiques du champ Emplacement qui n’est pas géré dans l’éditeur pour l’instant. Pour obtenir la liste des autres colonnes de la requête, vous pouvez exécuter l’instruction suivante : `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    Le prototype de requête `SELECT * FROM Hotels` ne fonctionne pas dans l’éditeur de requête. L’exemple de données inclut les coordonnées géographiques du champ Emplacement qui n’est pas géré dans l’éditeur pour l’instant. Pour obtenir la liste des autres colonnes à interroger, vous pouvez exécuter l’instruction suivante : `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. Maintenant que vous avez un jeu de données externe, copiez la chaîne de connexion ADO.NET pour la base de données. Sur la page Base de données SQL de votre base de données, accédez à **Paramètres** > **Chaînes de connexion**, puis copiez la chaîne de connexion ADO.NET.
  
@@ -156,13 +129,13 @@ L’exercice suivant suppose l’absence de serveur ou de base de données exist
 
     ```json
     {
-      "SearchServiceName": "azs-tutorial",
-      "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
+      "SearchServiceName": "<placeholder-Azure-Search-service-name>",
+      "SearchServiceAdminApiKey": "<placeholder-admin-key-for-Azure-Search>",
       "AzureSqlConnectionString": "Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security  Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
     }
     ```
 
-## <a name="understand-index-and-indexer-code"></a>Comprendre le code de l’index et de l’indexeur
+## <a name="understand-the-code"></a>Comprendre le code
 
 Votre code est maintenant prêt à créer et à exécuter. Avant cela, prenez une minute pour étudier les définitions d’index et d’indexeur de cet exemple. Le code qui convient se trouve dans deux fichiers :
 

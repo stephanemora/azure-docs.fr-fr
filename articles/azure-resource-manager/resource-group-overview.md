@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 04/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409837"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269286"
 ---
 # <a name="azure-resource-manager-overview"></a>Présentation d’Azure Resource Manager
 
@@ -53,7 +53,7 @@ Resource Manager offre plusieurs avantages :
 
 ## <a name="understand-management-scope"></a>Comprendre l’étendue de la gestion
 
-Azure fournit quatre niveaux d’étendue de la gestion : groupes d’administration, abonnements, groupes de ressources et ressources. Les [groupes d’administration](../governance/management-groups/index.md) sont en préversion. L’image suivante représente un exemple de ces couches.
+Azure fournit quatre niveaux d’étendue de gestion : [Groupes d’administration](../governance/management-groups/index.md), Abonnements, [Groupes de ressource](#resource-groups) et Ressources. L’image suivante représente un exemple de ces couches.
 
 ![Étendue](./media/resource-group-overview/scope-levels.png)
 
@@ -84,6 +84,8 @@ Lorsque vous définissez votre groupe de ressources, vous devez prendre en compt
 * Une ressource peut interagir avec celles d’autres groupes de ressources. Cette interaction est courante quand les deux ressources sont liées, mais qu’elles ne partagent pas le même cycle de vie (par exemple, des applications web connectées à une base de données).
 
 Lorsque vous créez un groupe de ressources, vous devez indiquer un emplacement pour ce groupe. Vous vous demandez peut-être « Pourquoi un groupe de ressources a-t-il besoin un emplacement ? Et, si les ressources peuvent avoir des emplacements différents de celui du groupe de ressources, pourquoi l’emplacement du groupe de ressources a-t-il une importance ? ». Le groupe de ressources stocke des métadonnées sur les ressources. Quand vous spécifiez un emplacement pour le groupe de ressources, vous indiquez donc où stocker ces métadonnées. Pour des raisons de conformité, vous devrez peut-être vous assurer que vos données sont stockées dans une région particulière.
+
+Si la région du groupe de ressources est temporairement indisponible, vous ne pourrez pas mettre à jour les ressources du groupe, car les métadonnées ne seront pas disponibles. Les ressources des autres régions continueront de fonctionner comme prévu, mais vous ne pourrez pas les mettre à jour. Pour réduire les risques, placez votre groupe de ressources et vos ressources dans la même région.
 
 ## <a name="resource-providers"></a>Fournisseurs de ressources
 
@@ -164,7 +166,7 @@ Pour finir, le modèle devient partie intégrante du code source de votre applic
 Une fois votre modèle défini, vous êtes prêt à déployer vos ressources dans Azure. Pour déployer les ressources, consultez les articles suivants :
 
 * [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](resource-group-template-deploy.md)
-* [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](resource-group-template-deploy-cli.md)
+* [Déployer des ressources à l’aide de modèles Resource Manager et dAzure CLI](resource-group-template-deploy-cli.md)
 * [Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure](resource-group-template-deploy-portal.md)
 * [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](resource-group-template-deploy-rest.md)
 
@@ -181,4 +183,4 @@ Deployment Manager est actuellement en préversion privée.
 Dans cet article, vous avez appris à utiliser Azure Resource Manager pour les tâches de déploiement, de gestion et de contrôle d’accès des ressources sur Azure. Passez à l’article suivant pour apprendre à créer votre premier modèle Azure Resource Manager.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)
+> [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)

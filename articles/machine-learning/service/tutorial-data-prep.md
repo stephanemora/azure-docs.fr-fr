@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d85f1ddcfe264e027a0f9d6c5f291d0005cad67c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cd0b41966a392f6e56a5f0dfb97c00fc713d17d7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665013"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266271"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Didacticiel : Préparer les données pour la modélisation de régression
 
@@ -58,7 +58,7 @@ Après avoir terminé les étapes ci-dessous, exécutez le notebook **tutorials/
 
 Utilisez ces étapes pour créer une instance locale de serveur de notebooks Jupyter sur votre ordinateur.  Après avoir terminé les étapes, exécutez le notebook **tutorials/regression-part1-data-prep.ipynb**.
 
-1. Suivez les étapes d’installation dans le [[Guide de démarrage rapide Python d’Azure Machine Learning](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) pour créer un environnement Miniconda.  Vous pouvez ignorer la section **Créer un espace de travail** si vous le souhaitez, mais vous en aurez besoin pour faire la [partie 2](tutorial-auto-train-models.md) de cette série de tutoriels.
+1. Effectuez les étapes d’installation décrites dans le [[Guide de démarrage rapide Python d’Azure Machine Learning](quickstart-run-local-notebook.md)](setup-create-workspace.md#python) pour créer un environnement Miniconda.  Vous pouvez ignorer la section **Créer un espace de travail** si vous le souhaitez, mais vous en aurez besoin pour faire la [partie 2](tutorial-auto-train-models.md) de cette série de tutoriels.
 1. Installez le SDK de préparation des données dans votre environnement à l’aide de `pip install azureml-dataprep`.
 1. Clonez le [référentiel GitHub](https://aka.ms/aml-notebooks).
 
@@ -157,7 +157,8 @@ green_df.head(5)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped>
+.dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -685,7 +686,8 @@ time_split_df.head(5)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped>
+.dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -879,7 +881,8 @@ transformed_features_df.head(5)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped>
+.dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;

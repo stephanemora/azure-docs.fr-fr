@@ -37,7 +37,7 @@ Maintenant, vous pouvez interroger non seulement plusieurs espaces de travail Lo
 Pour référencer un autre espace de travail dans votre requête, utilisez l’identificateur [*workspace*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression). Pour une application Application Insights, utilisez l’identificateur [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression).  
 
 ### <a name="identifying-workspace-resources"></a>Identification des ressources d’espace de travail
-Les exemples suivants illustrent des requêtes exécutées sur des espaces de travail Log Analytics dans le but de retourner les décomptes synthétiques des journaux à partir de la table Update d’un espace de travail nommé *contosoretail-it*. 
+Les exemples suivants illustrent des requêtes exécutées sur des espaces de travail Log Analytics dans le but de retourner les décomptes synthétiques des journaux d’activité à partir de la table Update d’un espace de travail nommé *contosoretail-it*. 
 
 Il est possible d’identifier un espace de travail de plusieurs manières :
 

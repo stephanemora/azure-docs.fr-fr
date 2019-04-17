@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f65ad80425f12304624f242871a605d4417ca533
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 66d0d791e4f32fc0828d400db7b59d836d221aee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361827"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261800"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Didacticiel : Intégration d’Azure Active Directory dans TextMagic
 
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de TextMagic avec Azure AD, vous devez ajouter TextMagic à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter TextMagic à partir de la galerie, procédez comme suit :**
+**Pour ajouter TextMagic à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -239,7 +239,7 @@ Quand vous cliquez sur la vignette TextMagic dans le volet d’accès, vous deve
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

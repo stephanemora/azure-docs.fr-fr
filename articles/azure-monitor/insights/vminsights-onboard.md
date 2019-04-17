@@ -599,7 +599,7 @@ Le tableau suivant répertorie les paramètres pris en charge par le programme d
 
 Par exemple, pour exécuter le programme d’installation avec le paramètre `/?`, tapez **InstallDependencyAgent-Windows.exe /?**.
 
-Par défaut, les fichiers Dependency Agent pour Windows sont installés dans le répertoire *C:\Program Files\Microsoft Dependency Agent*. Si le démarrage de l’agent de dépendances échoue une fois l’installation terminée, recherchez des informations détaillées sur l’erreur dans les journaux. Le répertoire des journaux est *%Programfiles%\Microsoft Dependency Agent\logs*.
+Par défaut, les fichiers Dependency Agent pour Windows sont installés dans le répertoire *C:\Program Files\Microsoft Dependency Agent*. Si le démarrage de l’agent de dépendances échoue une fois l’installation terminée, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Le répertoire des journaux d’activité est *%Programfiles%\Microsoft Dependency Agent\logs*.
 
 ### <a name="install-the-dependency-agent-on-linux"></a>Installer l’agent de dépendances sous Linux
 Dependency Agent est installé sur les ordinateurs Linux avec *InstallDependencyAgent-Linux64.bin*, script shell comportant un fichier binaire à extraction automatique. Vous pouvez exécuter le fichier à l’aide de `sh` ou ajouter des autorisations d’exécution au fichier lui-même.
@@ -618,7 +618,7 @@ Par exemple, pour exécuter le programme d’installation avec le paramètre `-h
 
 Installez Dependency Agent pour Linux en tant que racine en exécutant la commande suivante, `sh InstallDependencyAgent-Linux64.bin`.
 
-Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux. Sur les agents Linux, le répertoire des journaux est */var/opt/microsoft/dependency-agent/log*.
+Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Sur les agents Linux, le répertoire des journaux est */var/opt/microsoft/dependency-agent/log*.
 
 Les fichiers de l’agent de dépendances sont placés dans les répertoires suivants :
 

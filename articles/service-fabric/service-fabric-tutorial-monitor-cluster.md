@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 62ab98d2279380df33657967c55bf7fb4d36da43
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662446"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045643"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Didacticiel : Superviser un cluster Service Fabric dans Azure
 
@@ -40,14 +40,17 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * Superviser un cluster
 > * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Supprimer un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Suppression d'un cluster](service-fabric-tutorial-delete-cluster.md)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installez le [module Azure PowerShell 4.1 ou version ultérieure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
+* Installez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
 * Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) sécurisé 
 * Configurer la [collecte des diagnostics](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) pour le cluster
 * Activer le [service EventStore](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) dans le cluster
@@ -72,7 +75,7 @@ L’image ci-dessus montre la page d’accueil de la solution Service Fabric Ana
  Si vous avez activé des diagnostics lors de la création du cluster, vous pouvez voir les événements pour le 
 
 * [Événements de cluster Service Fabric](service-fabric-diagnostics-event-generation-operational.md)
-* [Événements du modèle de programmation Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+* [Événements du modèle de programmation Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Événements du modèle de programmation Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
@@ -491,7 +494,7 @@ Dans ce tutoriel, vous avez appris à :
 
 Maintenant, passez au tutoriel suivant pour savoir comment mettre à l’échelle un cluster.
 > [!div class="nextstepaction"]
-> [Mise à l'échelle d'un cluster](service-fabric-tutorial-scale-cluster.md)
+> [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 [template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json

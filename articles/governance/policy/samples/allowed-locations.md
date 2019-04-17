@@ -1,19 +1,18 @@
 ---
 title: Exemple - Emplacements autorisés
 description: Cet exemple de définition de stratégie exige que toutes les ressources soient déployées sur les emplacements approuvés.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 0dc93b171fb610d901d2f13f3521b87aa91b1fd6
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 2823cee863941926fffe332295328d6ecfb54001
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804715"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264724"
 ---
 # <a name="sample---allowed-region-locations"></a>Exemple - Emplacements régionaux autorisés
 
@@ -23,7 +22,7 @@ Vous pouvez déployer cette exemple de stratégie à l’aide des éléments sui
 
 - [Portail Azure](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
-- [Interface de ligne de commande Azure](#azure-cli)
+- [Azure CLI](#azure-cli)
 - [API REST](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]

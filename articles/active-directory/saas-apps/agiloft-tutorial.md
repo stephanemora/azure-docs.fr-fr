@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Agiloft | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Agiloft | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Agiloft.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97419dac33688d24159b35f00f1e9bffbd587497
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2aed12b085557eda4210be9c067f5cdad4cd2d1b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886386"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261766"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutoriel : Intégration d’Azure Active Directory à Agiloft
+# <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Didacticiel : Intégration d’Azure Active Directory à Agiloft
 
 Dans ce didacticiel, vous allez apprendre à intégrer Agiloft dans Azure Active Directory (Azure AD).
 L’intégration d’Agiloft dans Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’Agiloft à Azure AD, vous devez ajouter Agiloft, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-**Pour ajouter Agiloft à partir de la galerie, procédez comme suit :**
+**Pour ajouter Agiloft à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -167,13 +167,13 @@ Pour configurer l’authentification unique Azure AD avec Agiloft, effectuez les
 
     ![Configuration d’Agiloft](./media/agiloft-tutorial/setup4.png)
 
-    a. Dans la zone de texte  **IdP Entity Id / Issuer** (Identificateur d’entité du fournisseur d’identité/émetteur), collez la valeur d’ **Identificateur Azure AD** que vous avez copiée dans le portail Azure.
+    a. Dans la zone de texte **ID d’entité du fournisseur d’identité/Émetteur**, collez l’**identificateur Azure AD** que vous avez copié depuis le portail Azure.
 
-    b. Dans la zone de texte  **IdP Login URL** (URL de connexion IdP), collez la valeur d’ **URL de connexion** que vous avez copiée dans le portail Azure.
+    b. Dans la zone de texte **URL de connexion du fournisseur d’identité**, collez la valeur **URL de connexion** que vous avez copiée depuis le portail Azure.
 
-    c. Dans la zone de texte  **IdP Logout URL** (URL de déconnexion IdP), collez la valeur d’ **URL de déconnexion** que vous avez copiée dans le portail Azure.
+    c. Dans la zone de texte **URL de déconnexion du fournisseur d’identité**, collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    d. Ouvrez dans le Bloc-notes votre **certificat codé en base 64** téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte du  **contenu du certificat X.509 proposé par le fournisseur d’identité** .
+    d. Ouvrez dans le Bloc-notes votre **certificat codé en base 64** téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte du **contenu du certificat X.509 proposé par le fournisseur d’identité**.
 
     e. Cliquez sur **Terminer**.
 
@@ -195,7 +195,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 5ef143fe2021a9f705bf61b579e8251b2946b042
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668090"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050004"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Didacticiel : Déployer un cluster Service Fabric exécutant Windows sur un réseau virtuel Azure
 
@@ -48,7 +48,10 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Superviser un cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Supprimer un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Suppression d'un cluster](service-fabric-tutorial-delete-cluster.md)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -56,7 +59,7 @@ Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installez le [Kit de développement logiciel (SDK) Service Fabric et le module PowerShell](service-fabric-get-started.md).
-* Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* Installez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 * Passez en revue les concepts clés des [clusters Azure](service-fabric-azure-clusters-overview.md).
 * [Planifiez et préparez](service-fabric-cluster-azure-deployment-preparation.md) un déploiement de cluster de production.
 
@@ -151,7 +154,7 @@ Par défaut, le [programme antivirus Windows Defender](/windows/security/threat-
 
 Le fichier de paramètres [azuredeploy.parameters.json][parameters] déclare de nombreuses valeurs servant à déployer le cluster et les ressources associées. Voici les paramètres à modifier pour votre déploiement :
 
-**Paramètre** | **Exemple de valeur** | **Remarques** 
+**Paramètre** | **Exemple de valeur** | **Notes** 
 |---|---|---|
 |adminUsername|vmadmin| Nom d’utilisateur administrateur pour les machines virtuelles de cluster. [Conditions requises pour les noms d’utilisateur de la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| Mot de passe d’administrateur pour les machines virtuelles de cluster. [Conditions requises pour les mots de passe de la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
@@ -611,7 +614,7 @@ Dans cet article, le modèle déploie un cluster qui utilise l’empreinte numé
 
 ### <a name="create-a-cluster-by-using-an-existing-certificate"></a>Créer un cluster à l’aide d’un certificat existant
 
-Le script suivant utilise la cmdlet [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) et un modèle pour déployer un nouveau cluster dans Azure. L’applet de commande crée un coffre de clés dans Azure et charge votre certificat.
+Le script suivant utilise l’applet de commande [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) et un modèle pour déployer un nouveau cluster dans Azure. L’applet de commande crée un coffre de clés dans Azure et charge votre certificat.
 
 ```powershell
 # Variables.
@@ -626,22 +629,22 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
 ### <a name="create-a-cluster-by-using-a-new-self-signed-certificate"></a>Créer un cluster à l’aide d’un nouveau certificat auto-signé
 
-Le script suivant utilise la cmdlet [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) et un modèle pour déployer un nouveau cluster dans Azure. L’applet de commande crée un coffre de clés dans Azure, ajoute un nouveau certificat auto-signé dans le coffre de clés, puis télécharge le fichier de certificat localement.
+Le script suivant utilise l’applet de commande [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) et un modèle pour déployer un nouveau cluster dans Azure. L’applet de commande crée un coffre de clés dans Azure, ajoute un nouveau certificat auto-signé dans le coffre de clés, puis télécharge le fichier de certificat localement.
 
 ```powershell
 # Variables.
@@ -657,15 +660,15 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateSubjectName $subname
 

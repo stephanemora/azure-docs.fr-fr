@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b3ec0616a7f022a104a20589f3281262b2717e35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014121"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050975"
 ---
-# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Front Door
+# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Didacticiel : Configurer HTTPS sur un domaine personnalisé Front Door
 
 Ce didacticiel montre comment activer le protocole HTTPS pour un domaine personnalisé associé à votre porte d’entrée sous la section d’hôtes frontend. En utilisant le protocole HTTPS sur votre domaine personnalisé (par exemple, https :\//www.contoso.com), vous vous assurez que vos données sensibles sont remises en toute sécurité via le chiffrement TLS/SSL lors de l’envoi sur Internet. Lorsque votre navigateur web est connecté à un site web par le biais de HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Ce processus assure la sécurité et protège également vos applications web contre les attaques.
 
@@ -40,6 +40,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > - Utiliser votre propre certificat, autrement dit un certificat SSL personnalisé
 > - Valider le domaine
 > - Désactiver le protocole HTTPS sur votre domaine personnalisé
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -86,11 +89,11 @@ Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTT
 
 Inscrivez le principal du service pour Azure Front Door Service en tant qu’application dans Azure Active Directory par le biais de PowerShell.
 
-1. Si nécessaire, installez [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) dans PowerShell sur votre ordinateur local.
+1. Si nécessaire, installez [Azure PowerShell](/powershell/azure/install-az-ps) dans PowerShell sur votre ordinateur local.
 
 2. Dans PowerShell, exécutez la commande suivante :
 
-     `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
+     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
 #### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Octroyer à Azure Front Door Service l’accès à votre coffre de clés
  
@@ -238,23 +241,23 @@ Le tableau suivant présente le déroulement de l’opération qui s’exécute 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-1. *Qui est le fournisseur de certificats et quel est le type de certificat utilisé ?*
+1. *Qui est le fournisseur de certificats et quel est le type de certificat utilisé ?*
 
     Un certificat dédié/unique, fourni par Digicert, est utilisé pour votre domaine personnalisé. 
 
-2. *Utilisez-vous TLS/SSL SNI ou un protocole IP ?*
+2. *Utilisez-vous le protocole TLS/SSL SNI ou basé sur IP ?*
 
     Azure Front Door Service utilise TLS/SSL SNI.
 
-3. *Que se passe-t-il si je ne reçois pas l’e-mail de vérification de domaine de DigiCert ?*
+3. *Que se passe-t-il si je ne reçois pas l’e-mail de vérification de domaine de DigiCert ?*
 
     Si une entrée CNAME pour votre domaine personnalisé pointe directement vers le nom d’hôte de votre point de terminaison (et si vous n’utilisez pas le nom de sous-domaine afdverify), vous ne recevrez pas de courrier électronique de vérification du domaine. La validation se fait automatiquement. Autrement, si vous n’avez pas d’entrée CNAME et si vous n’avez pas reçu d’e-mail dans les 24 heures, contactez le support Microsoft.
 
-4. *Un certificat SAN est-il moins sécurisé qu’un certificat dédié ?*
+4. *Un certificat SAN est-il moins sécurisé qu’un certificat dédié ?*
     
     Un certificat SAN suit les mêmes normes de sécurité et de chiffrement qu’un certificat dédié. Tous les certificats SSL émis utilisent la norme SHA-256 pour une sécurité améliorée du serveur.
 
-5. *Ai-je besoin d’un enregistrement CAA (Certificate Authority Authorization) auprès de mon fournisseur DNS ?*
+5. *Ai-je besoin d’un enregistrement CAA (Certificate Authority Authorization) avec mon fournisseur DNS ?*
 
     Non, un enregistrement CAA n’est pas requis. Toutefois, si vous en avez un, il doit inclure DigiCert en tant qu’autorité de certification valide.
 

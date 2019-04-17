@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.openlocfilehash: 6bb170a5f3353288ab9c393e01b7a0902361913b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 1194407122123797c2564c96ac452b9582b017a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287007"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264945"
 ---
 # <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Démarrage rapide : 3 - Interroger un index Recherche Azure en C#
 
@@ -34,7 +34,7 @@ Obtenez une clé de requête utilisée pour l’accès en lecture seule aux docu
 ## <a name="create-a-client"></a>Créer un client
 Créez une instance de la classe `SearchIndexClient` afin de lui donner une clé de requête pour l’accès en lecture seule (par opposition aux droits d’accès en écriture conférés via le `SearchServiceClient` utilisé dans la leçon précédente).
 
-Cette classe dispose de plusieurs constructeurs. Celui qui vous intéresse prend le nom du service de recherche, le nom de l’index et un objet [`SearchCredentials`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) comme paramètres. `SearchCredentials` encapsule votre clé API.
+Cette classe dispose de plusieurs constructeurs. Celui qui vous intéresse prend le nom du service de recherche, le nom de l’index et un objet [`SearchCredentials`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) comme paramètres. `SearchCredentials` wrappe votre clé API.
 
 Le code ci-dessous crée un `SearchIndexClient` pour l’index « hotels » à l’aide de valeurs pour le nom du service de recherche et la clé API stockées dans le fichier config de l’application (`appsettings.json` dans le cas de l’[exemple d’application](https://aka.ms/search-dotnet-howto)) :
 

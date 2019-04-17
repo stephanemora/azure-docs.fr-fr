@@ -5,26 +5,31 @@ services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: e6e70da1f939547cdb589ae7bcb6ed1f6148f22e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9971b16da42cdf1de0464857291c74a947535735
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733763"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59286995"
 ---
-Vous pouvez désormais utiliser des requêtes dans l’Explorateur de données pour récupérer et filtrer vos données.
+Vous pouvez utiliser des requêtes dans l’Explorateur de données pour récupérer et filtrer vos données.
 
-1. Notez que, par défaut, la requête est définie sur `SELECT * FROM c`. Cette requête par défaut récupère et affiche tous les documents de la collection. 
+1. Dans l’Explorateur de données, au-dessus de l’onglet **Documents**, examinez la requête par défaut `SELECT * FROM c`. Cette requête par défaut récupère et affiche tous les documents de la collection, classés par ID. 
+   
+   ![La requête par défaut dans l’Explorateur de données est « SELECT * FROM c »](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-query.png)
+   
+1. Pour modifier la requête, sélectionnez **Modifier le filtre**, remplacez la requête par défaut par `ORDER BY c._ts DESC`, puis sélectionnez **Appliquer le filtre**.
+   
+   ![Modifier la requête par défaut en ajoutant ORDER BY c._ts DESC et en cliquant sur Appliquer un filtre](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png)
 
-    ![La requête par défaut dans l’Explorateur de données est « SELECT * FROM c »](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-query.png)
+   Cette requête modifiée affiche les documents dans l’ordre décroissant en fonction de leur horodatage. Votre deuxième document s’affiche désormais en tête de liste. 
+   
+   ![Requête remplacée par ORDER BY c._ts DESC et sélection de l’option Appliquer le filtre](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png)
 
-2. Restez sur l’onglet **Documents** et modifiez la requête en cliquant sur le bouton **Modifier le filtre**, en ajoutant `ORDER BY c._ts DESC` dans la zone de prédicat de requête, puis en cliquant sur **Appliquer un filtre**.
+Si vous êtes à l’aise avec la syntaxe SQL, vous pouvez saisir n’importe quelle [requête SQL](../articles/cosmos-db/sql-api-sql-query.md) prise en charge dans la zone du prédicat de requête. Vous pouvez également utiliser l’Explorateur de données pour créer des procédures stockées, des fonctions définies par l’utilisateur et des déclencheurs pour la logique métier côté serveur. 
 
-    ![Modifier la requête par défaut en ajoutant ORDER BY c._ts DESC et en cliquant sur Appliquer un filtre](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png)
+L’Explorateur de données permet d’accéder facilement à toutes les fonctionnalités intégrées d’accès aux données par programmation qui sont disponibles dans les API, à partir du portail Azure. Vous pouvez également utiliser le portail pour mettre à l’échelle le débit, pour obtenir des clés et des chaînes de connexion, ainsi que pour passer en revue les métriques et les contrats SLA de votre compte Azure Cosmos DB. 
 
-Cette requête modifiée répertorie les documents dans l’ordre décroissant en fonction de leur horodatage. Votre deuxième document apparaît désormais en tête de liste. Si vous êtes à l’aise avec la syntaxe SQL, vous pouvez saisir n’importe quelle [requête SQL](../articles/cosmos-db/sql-api-sql-query.md) compatible dans cette zone. 
-
-L’exercice portant sur l’Explorateur de données est désormais terminé. Avant de démarrer l’exercice portant sur le code, notez que vous pouvez également utiliser l’Explorateur de données pour créer des procédures stockées, des fonctions définies par l’utilisateur et des déclencheurs afin d’exécuter la logique métier côté serveur ainsi que la mise à l’échelle du débit. L’Explorateur de données affiche tous les accès aux données par programmation intégrés disponibles dans l’API, mais permet d’accéder facilement à vos données dans le portail Azure.

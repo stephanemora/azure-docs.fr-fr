@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à OneTrust Privacy Management Software | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à OneTrust Privacy Management Software | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et OneTrust Privacy Management Software.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: f65bb7506b112828a49f9410f4790932f0abbfbc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 490ef95e061da4a008bf50ef664aaa379d5b3062
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177532"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258825"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Tutoriel : Intégration d’Azure Active Directory à OneTrust Privacy Management Software
+# <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Didacticiel : Intégration d’Azure Active Directory à OneTrust Privacy Management Software
 
 Dans ce didacticiel, vous allez apprendre à intégrer OneTrust Privacy Management Software à Azure Active Directory (Azure AD).
 L’intégration de OneTrust Privacy Management Software à Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de OneTrust Privacy Management Software à Azure AD, vous devez ajouter OneTrust Privacy Management Software, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter OneTrust Privacy Management Software à partir de la galerie, procédez comme suit :**
+**Pour ajouter OneTrust Privacy Management Software à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec OneTrust Privacy Manag
 
     ![Informations d’authentification unique dans Domaine et URL OneTrust Privacy Management Software](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://www.onetrust.com/saml2`
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://www.onetrust.com/saml2`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<subdomain>.onetrust.com/auth/consumerservice`
 
@@ -204,7 +204,7 @@ Quand vous cliquez sur la vignette OneTrust Privacy Management Software dans le 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

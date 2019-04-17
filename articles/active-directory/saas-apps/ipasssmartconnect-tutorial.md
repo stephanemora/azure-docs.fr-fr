@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à iPass SmartConnect | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à iPass SmartConnect | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iPass SmartConnect.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: b5b39a436ae356cf2543f03db3d6a84d1daa936a
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189493"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264860"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Tutoriel : Intégration d’Azure Active Directory à iPass SmartConnect
+# <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Didacticiel : Intégration d’Azure Active Directory à iPass SmartConnect
 
 Dans ce tutoriel, vous allez apprendre à intégrer iPass SmartConnect à Azure Active Directory (Azure AD).
 L’intégration de iPass SmartConnect à Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de iPass SmartConnect à Azure AD, vous devez ajouter iPass SmartConnect, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter iPass SmartConnect à partir de la galerie, procédez comme suit :**
+**Pour ajouter iPass SmartConnect à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -221,7 +221,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans i
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-**Pour tester l’application dans le flux initié par SP, procédez comme suit :**
+**Pour tester l’application dans le flux lancé par le fournisseur de services, effectuez les étapes suivantes :**
 
 a. Téléchargez le client iPass SmartConnect Windows [ici](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
 
@@ -239,7 +239,7 @@ d. Entrez le nom d’utilisateur Azure et le domaine. Cliquez sur **Continuer**.
 
 e. Une fois l’authentification effectuée, l’activation du client démarre. Le client est activé.
 
-**Pour tester l’application dans le flux initié par IdP, procédez comme suit :**
+**Pour tester l’application dans le flux lancé par le fournisseur d’identité, effectuez les étapes suivantes :**
 
 a. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
@@ -257,7 +257,7 @@ f. Le client est activé.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

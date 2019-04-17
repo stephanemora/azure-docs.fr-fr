@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6df4809bde395ce3bdceb1336813c73d60e45808
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5e4887c3b736c13977d50cb395a9ac7661815d0d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57851282"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356595"
 ---
 # <a name="use-powershell-to-monitor-and-scale-an-elastic-pool-in-azure-sql-database"></a>Utiliser PowerShell pour surveiller et mettre à l’échelle un pool élastique dans Azure SQL Database
 
@@ -35,7 +35,7 @@ Si vous choisissez d’installer et d’utiliser PowerShell en local, vous avez 
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
-Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
+Utilisez la commande suivante pour supprimer le groupe de ressources et toutes les ressources associées.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

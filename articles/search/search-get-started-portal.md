@@ -1,23 +1,29 @@
 ---
-title: Didacticiel de démarrage rapide pour l’indexation et la création de requêtes à l’aide du Portail Azure - Recherche Azure
-description: Découvrez comment créer et interroger votre premier index dans la Recherche Azure à l’aide d’exemples de données prédéfinis et de l’Assistant Importation de données dans le portail Azure.
+title: 'Démarrage rapide : Créer, charger et interroger un index dans le portail Azure - Recherche Azure'
+description: Générez et interrogez votre premier index dans la Recherche Azure à l’aide d’exemples de données prédéfinis et de l’Assistant Importation de données dans le portail Azure.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137825"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282659"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Démarrage rapide : Utiliser les outils du portail intégrés pour l’importation, l’indexation et la création de requêtes dans Recherche Azure
+> [!div class="op_single_selector"]
+> * [Portail](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 Pour vous familiariser rapidement avec les concepts de Recherche Azure, essayez les outils intégrés dans le Portail Azure. Les assistants et éditeurs n’offrent pas de parité complète avec l’environnement .NET et les API REST, mais vous pouvez suivre cette présentation sans code pour écrire des requêtes intéressantes sur des exemples de données en seulement quelques minutes.
 
@@ -222,7 +228,7 @@ La mise en surbrillance des correspondances fait référence au formatage du tex
 
 ### <a name="fuzzy-search"></a> Essayer la recherche partielle
 
-Dans une recherche classique, aucune correspondance n’est renvoyée pour les termes de requête mal orthographiés, comme *samamish* pour le plateau Samammish dans la région de Seattle. L’exemple suivant ne retourne aucun résultat.
+Par défaut, dans une recherche classique, aucune correspondance n’est retournée pour les termes de requête mal orthographiés, par exemple *samamish* dans le cas du plateau Sammamish de la région de Seattle. L’exemple suivant ne retourne aucun résultat.
 
 #### <a name="example-misspelled-term-unhandled-searchsamamish"></a>Exemple (terme mal orthographié, non pris en charge) : `search=samamish`
 
@@ -266,6 +272,6 @@ Si ce didacticiel constitue votre première utilisation du service Recherche Azu
 
 Pour en savoir plus sur Recherche Azure, utilisez les outils de programmation :
 
-* [Création d’un index à l’aide du Kit de développement logiciel .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Création d’un index à l’aide de l’API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Création d’un index à l’aide de Postman ou Fiddler et des API REST Recherche Azure](search-fiddler.md)
+* [Créer un index à l’aide du kit SDK .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+* [Créer un index à l’aide des API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
+* [Créer un index à l’aide de Postman ou Fiddler et des API REST du service Recherche Azure](search-fiddler.md)

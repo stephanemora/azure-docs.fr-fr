@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Oneteam | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Oneteam | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Oneteam.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: e2b2a7ce4e057b97ef8c714c7af25b173e881706
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f12a4973f2c3427d9d44de625f9e987e836d4b7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183575"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272612"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Didacticiel : Intégration d’Azure Active Directory à Oneteam
 
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Oneteam à Azure AD, vous devez ajouter Oneteam à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Oneteam à partir de la galerie, procédez comme suit :**
+**Pour ajouter Oneteam à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -204,7 +204,7 @@ Le fait de cliquer sur la vignette Oneteam dans le volet d’accès doit vous co
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

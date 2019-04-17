@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895066b2ce21e75095d544de47b817866cd1a8ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ad55656ba91c2f344024700344550849a36ed9b6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855850"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263993"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Tutoriel : Intégration d’Azure Active Directory à Jobbadmin
+# <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Didacticiel : Intégration d’Azure Active Directory à Jobbadmin
 
 Dans ce didacticiel, vous allez apprendre à intégrer Jobbadmin à Azure Active Directory (Azure AD).
 L’intégration de Jobbadmin à Azure AD vous offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Jobbadmin à Azure AD, vous devez ajouter Jobbadmin à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Jobbadmin à partir de la galerie, procédez comme suit :**
+**Pour ajouter Jobbadmin à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD auprès de Jobbadmin, effec
 
     ![Informations d’authentification unique relatives au domaine et aux URL Jobbadmin](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<instancename>.jobnorge.no`
 
@@ -195,7 +195,7 @@ Le fait de cliquer sur la vignette Jobbadmin dans le volet d’accès doit vous 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs, des microservices et Java sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Java, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 26f82427ff06608de39381b4ecc45d318212a8a0
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c1c039ba8696baff11abed3930998983647f4356
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419011"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425744"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Démarrage rapide : Développer avec Java sur Kubernetes en utilisant Azure Dev Spaces
 
@@ -31,7 +31,7 @@ Dans ce guide, vous allez apprendre à :
 
 - Un abonnement Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 - [Visual Studio Code installé](https://code.visualstudio.com/download).
--  Les extensions [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) et [Débogueur Java pour Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) pour Visual Studio Code installées.
+- Les extensions [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) et [Débogueur Java pour Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) pour Visual Studio Code installées.
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 - [Maven installé et configuré](https://maven.apache.org).
 
@@ -199,7 +199,7 @@ Enregistrez le fichier . Cliquez sur *Déboguer*, puis sur *Redémarrer le débo
 
 Ouvrez votre service dans un navigateur et notez que votre message mis à jour est affiché.
 
-Au lieu de regénérer et de redéployer une nouvelle image de conteneur chaque fois que des modifications de code sont effectuées, Azure Dev Spaces recompile le code de façon incrémentielle dans le conteneur existant afin d’accélérer la boucle de modification/débogage.
+Au lieu de regénérer et de redéployer une nouvelle image conteneur chaque fois que des modifications de code sont effectuées, Azure Dev Spaces recompile le code de façon incrémentielle dans le conteneur existant afin d’accélérer la boucle de modification/débogage.
 
 ## <a name="clean-up-your-azure-resources"></a>Nettoyer vos ressources Azure
 

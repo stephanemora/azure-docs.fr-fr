@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: a35e65237a3f4278e9154daddff328887d9f36ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4f5fbbb9d06f9fcb8858625b57957fc18c5c1f1f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997378"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046904"
 ---
-# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutoriel : Diagnostiquer un problème de communication existant entre des réseaux à l’aide du portail Azure
+# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Didacticiel : Diagnostiquer un problème de communication existant entre des réseaux à l’aide du portail Azure
 
 Une passerelle de réseau virtuel connecte un réseau virtuel Azure à un réseau local ou à un autre réseau virtuel. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -33,10 +33,13 @@ Une passerelle de réseau virtuel connecte un réseau virtuel Azure à un résea
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser la fonctionnalité de diagnostics VPN, vous devez disposer d’une passerelle VPN existante en cours d’exécution. Si ce n’est pas le cas, vous pouvez en déployer une à l’aide d’un [script PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Vous pouvez exécuter le script PowerShell à partir :
-- **Une installation PowerShell locale**. Ce script exige la version 5.7.0 ou une version ultérieure du module AzureRM PowerShell. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+- **Une installation PowerShell locale**. Le script nécessite le module `Az` Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 - **Azure Cloud Shell**. [Azure Cloud Shell](https://shell.azure.com/powershell), qui dispose de la dernière version de PowerShell installée et configurée, vous connecte à Azure.
 
 La création d’une passerelle VPN par le script prend environ une heure. Pour les étapes restantes, il est supposé que la passerelle que vous diagnostiquez est celle qui est déployée par ce script. Si vous préférez diagnostiquer votre passerelle existante, les résultats varient.
@@ -112,4 +115,4 @@ Si vous avez créé une passerelle VPN à l’aide du script de la section [Pré
 Dans ce didacticiel, vous avez découvert comment diagnostiquer un problème lié à une passerelle de réseau virtuel. Vous souhaiterez peut-être enregistrer la communication réseau vers et depuis une machine virtuelle afin de pouvoir rechercher des anomalies dans le journal. Passez au didacticiel suivant pour savoir comment procéder.
 
 > [!div class="nextstepaction"]
-> [Consigner le trafic réseau vers et à partir d’une machine virtuelle](network-watcher-nsg-flow-logging-portal.md)
+> [Journaliser le trafic réseau depuis et vers une machine virtuelle](network-watcher-nsg-flow-logging-portal.md)

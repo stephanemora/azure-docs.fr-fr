@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 77dda80e538c8b742a96e7b7f81abe8650ee6b5d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903996"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257295"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Intégrer une solution de surveillance externe à Azure Stack
 
@@ -30,7 +30,7 @@ Pour une surveillance externe de l’infrastructure Azure Stack, vous devez surv
 - Les ordinateurs physiques peuvent rendre disponibles des informations relatives à l’intégrité et aux alertes par le biais des contrôleurs de gestion de la carte de base (BMC).
 - Les périphériques réseau physiques peuvent mettre à disposition les informations relatives à l’intégrité et aux alertes par le biais du protocole SNMP.
 
-Chaque solution Azure Stack est fournie avec un hôte de cycle de vie du matériel. Cet hôte exécute le logiciel de surveillance du fournisseur de matériel OEM (Original Equipment Manufacturer) pour les serveurs physiques et les périphériques réseau. Le cas échéant, vous pouvez contourner ces solutions de surveillance en intégrant directement les solutions de surveillance existantes dans votre centre de données.
+Chaque solution Azure Stack est fournie avec un hôte de cycle de vie du matériel. Cet hôte exécute le logiciel de surveillance du fournisseur de matériel OEM (Original Equipment Manufacturer) pour les serveurs physiques et les périphériques réseau. Vérifiez auprès de votre fournisseur OEM si ses solutions de surveillance peuvent intégrer directement les solutions de surveillance existantes dans votre centre de données.
 
 > [!IMPORTANT]
 > La solution de surveillance externe que vous utilisez doit être sans agent. Vous ne pouvez pas installer d’agents tiers à l’intérieur des composants de Azure Stack.
@@ -40,7 +40,7 @@ Le diagramme suivant montre le flux de trafic entre un système intégré Azure 
 ![Schéma montrant le trafic entre Azure Stack, la surveillance et la solution de création de tickets.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> L’intégration de surveillance externe directement à des serveurs physiques et des appareils réseau est interdite et bloquée activement par des listes de contrôle d’accès (ACL). 
+> L’intégration de surveillance externe directement à des serveurs physiques est interdite et bloquée activement par des listes de contrôle d’accès (ACL).  L’intégration de surveillance externe directement aux périphériques réseau physiques étant prise en charge, demandez à votre fournisseur OEM comment activer cette fonctionnalité.
 
 Cet article explique comment intégrer Azure Stack à des solutions de surveillance externes, telles que System Center Operations Manager et Nagios. Il traite également de l’utilisation des alertes par programmation en ayant recours à PowerShell ou à des appels d’API REST.
 

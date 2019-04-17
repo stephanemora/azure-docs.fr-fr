@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b5ec6ad9f11a1cfaa331c0a0eb64f4b36af0f0be
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848328"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Didacticiel : Intégration d’Azure Active Directory à QuickHelp
 
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de QuickHelp à Azure AD, vous devez ajouter QuickHelp à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter QuickHelp à partir de la galerie, procédez comme suit :**
+**Pour ajouter QuickHelp à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,9 +107,9 @@ Pour configurer l’authentification unique Azure AD avec QuickHelp, effectuez 
 
     ![Informations d’authentification unique dans Domaine et URL QuickHelp](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://quickhelp.com/<ROUTEURL>`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://quickhelp.com/<ROUTEURL>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://auth.quickhelp.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL : `https://auth.quickhelp.com`
 
     > [!NOTE]
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’administrateur QuickHelp de votre organisation ou votre BrainStorm Client Success Manager pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -220,7 +220,7 @@ Quand vous cliquez sur la vignette QuickHelp dans le volet d’accès, vous deve
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Citrix Netscaler | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Citrix Netscaler | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Citrix Netscaler.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: ca5fec00d264bb50c75338d36ec793946f495bff
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58229065"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Didacticiel : Intégration d’Azure Active Directory à Citrix Netscaler
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Citrix Netscaler, effe
 
     ![Informations d’authentification unique dans Domaine et URL Citrix Netscaler](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<<Your FQDN>>`
 
@@ -383,7 +383,7 @@ Le fait de cliquer sur la vignette Citrix Netscaler dans le panneau d’accès d
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

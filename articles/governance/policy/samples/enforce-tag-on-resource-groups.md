@@ -1,19 +1,18 @@
 ---
 title: Exemple - Forcer l’application d’une balise et de sa valeur sur les groupes de ressources
 description: Cet exemple de définition de stratégie exige une étiquette et une valeur sur un groupe de ressources.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: 792a5b0caa35cc69774dbfe9f3d33d532853e31f
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a7a76fbde74ab80f8aa0f5e67e6445504c3aafa5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805158"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276658"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exemple - Forcer l’application d’une balise et de sa valeur sur les groupes de ressources
 
@@ -23,7 +22,7 @@ Vous pouvez déployer cette exemple de stratégie à l’aide des éléments sui
 
 - [Portail Azure](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
-- [Interface de ligne de commande Azure](#azure-cli)
+- [Azure CLI](#azure-cli)
 - [API REST](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]

@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: e3a75acb6d591a9fdf1e632369cc2e9ae6b6099d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447836"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359433"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Exemples Azure CLI pour Azure SQL Database
 
@@ -35,11 +35,11 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI po
 
 | |  |
 |---|---|
-|**Créer une base de données unique et un pool élastique**||
-| [Créer une base de données unique et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI crée une base de données SQL Azure et configure une règle de pare-feu au niveau du serveur. |
+|**Créer une seule base de données et un pool élastique**||
+| [Créer une seule base de données et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI crée une base de données SQL Azure et configure une règle de pare-feu au niveau du serveur. |
 | [Créer des pools élastiques et déplacer les bases de données mises en pool](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI crée des pools élastiques SQL, déplace des bases de données SQL Azure mises en pool et modifie les tailles de calcul.|
-|**Mettre à l’échelle une base de données unique et un pool élastique**||
-| [Mettre à l’échelle une base de données unique](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI met à l’échelle une base de données Azure SQL vers une autre taille de calcul après avoir déterminé la taille de la base de données. |
+|**Rendre scalable une seule base de données et un pool élastique**||
+| [Rendre scalable une seule base de données](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI met à l’échelle une base de données Azure SQL vers une autre taille de calcul après avoir déterminé la taille de la base de données. |
 | [Mettre à l’échelle un pool élastique](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI met à l’échelle un pool élastique SQL à une taille de calcul différente.  |
 |||
 
@@ -51,7 +51,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI po
 
 | |  |
 |---|---|
-| [Créer une instance gérée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/) | Ce script CLI montre comment créer une instance managée. |
+| [Créer une option Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/) | Ce script CLI montre comment créer une instance managée. |
 | [Mettre à jour une instance managée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/) | Ce script CLI montre comment mettre à jour une instance managée. |
 | [Déplacer une base de données vers une autre instance managée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Ce script CLI montre comment restaurer une sauvegarde de base de données d’une instance vers une autre. |
 |||

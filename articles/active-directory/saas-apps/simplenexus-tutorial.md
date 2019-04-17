@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à SimpleNexus | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à SimpleNexus | Microsoft Docs'
 description: Découvrez comment configurer une authentification unique entre Azure Active Directory et SimpleNexus.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: b3e372906625710a9b08d54048f0bfc1fbce1e49
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 44959410b68439dd6a132c41d2a51dcdafdec846
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133193"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257669"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Didacticiel : Intégration d’Azure AD à SimpleNexus
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de SimpleNexus à Azure AD, vous devez ajouter SimpleNexus à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter SimpleNexus à partir de la galerie, procédez comme suit :**
+**Pour ajouter SimpleNexus à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD auprès de SimpleNexus, pro
 
     ![Informations d’authentification unique dans Domaine et URL SimpleNexus](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://simplenexus.com/<companyname>_login`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://simplenexus.com/<companyname>_login`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://simplenexus.com/<companyname>`
 
@@ -196,7 +196,7 @@ Lorsque vous cliquez sur la vignette SimpleNexus dans le volet d’accès, vous 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 09eed87dce65325a5b3466346b073a0d786bfb89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861449"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469146"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en C#
 
@@ -29,7 +29,7 @@ Alors que cette application est écrite en C#, l’API est un service web RESTf
 * N’importe quelle édition de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Le framework [Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.
     * Pour installer le package NuGet dans Visual Studio :
-        1. Cliquez avec le bouton droit sur le Gestionnaire de solution
+        1. Cliquez avec le bouton droit sur l’Explorateur de solutions
         2. Cliquez sur **Gérer les packages NuGet...**
         3. Recherchez **newtonsoft.json** et installez le package
 
@@ -174,7 +174,7 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer une application web monopage](../tutorial-bing-entities-search-single-page-app.md)
+> [Application web à page unique](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Qu’est-ce que l’API Recherche d’entités Bing ?](../overview.md )
 * [Informations de référence sur l’API Recherche d’entités Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 41337859feeff9cf9de507629eea4bc27b302a40
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 93fd14d1148ce29731087cba5cd20f5ff1bcd4a2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449795"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268974"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iris-intranet"></a>Didacticiel : Intégration d’Azure Active Directory à Iris Intranet
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Iris Intranet, effectu
 
     ![Informations d’authentification unique dans Domaine et URL Iris Intranet](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.irisintranet.com`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<SUBDOMAIN>.irisintranet.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.irisintranet.com`
 
@@ -184,7 +184,7 @@ Le fait de cliquer sur la vignette Iris Intranet dans le volet d’accès doit v
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

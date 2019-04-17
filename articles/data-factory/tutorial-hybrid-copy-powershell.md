@@ -3,7 +3,7 @@ title: Copier des données depuis SQL Server vers le stockage Blob à l’aide d
 description: Découvrez comment copier les données d’un magasin de données local dans le cloud Azure en utilisant le runtime d’intégration auto-hébergé d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 8131806aa741c3f2c347599f857f45ade392d90e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.author: abnarain
+ms.openlocfilehash: adec7b90d5c38ed85f4b6f9ada8a530eff3846b9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451635"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272510"
 ---
-# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutoriel : Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure
+# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Didacticiel : Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure
 Dans ce tutoriel, vous allez utiliser Azure PowerShell pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale dans un stockage Blob Azure. Vous allez créer et utiliser un runtime d’intégration auto-hébergé, qui déplace les données entre les banques de données locales et cloud. 
 
 > [!NOTE]
@@ -365,7 +365,7 @@ Dans cette étape, vous liez votre instance SQL Server locale à la fabrique de 
     > [!IMPORTANT]
     > Sélectionnez la section en fonction de l’authentification utilisée pour établir la connexion à SQL Server.
 
-    **Utilisation de l’authentification SQL :**
+    **Utilisation de l’authentification SQL :**
 
     ```json
     {
@@ -386,7 +386,7 @@ Dans cette étape, vous liez votre instance SQL Server locale à la fabrique de 
     }
    ```    
 
-    **Utilisation de l’authentification Windows :**
+    **Utilisation de l’authentification Windows :**
 
     ```json
     {
@@ -679,4 +679,4 @@ Pour obtenir la liste des magasins de données pris en charge par Data Factory, 
 Passez au tutoriel suivant pour découvrir comment copier des données en bloc d’une source vers une destination :
 
 > [!div class="nextstepaction"]
->[Copier des données en bloc](tutorial-bulk-copy.md)
+>[Copier les données en vrac](tutorial-bulk-copy.md)

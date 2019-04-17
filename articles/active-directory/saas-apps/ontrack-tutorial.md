@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: b93d3d272d570ccffb5ce06d7ed4527c20500698
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 570200a3befbe6205025a2410c4083d38dd11eb9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181263"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262922"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutoriel : Intégration d'Azure Active Directory à OnTrack
+# <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Didacticiel : Intégration d'Azure Active Directory à OnTrack
 
 Ce didacticiel vous montre comment intégrer OnTrack à Azure Active Directory (Azure AD).
 L’intégration d’OnTrack à Azure AD vous offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’OnTrack à Azure AD, vous devez ajouter OnTrack, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-**Pour ajouter OnTrack à partir de la galerie, suivez ces étapes :**
+**Pour ajouter OnTrack à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,15 +107,15 @@ Pour configurer l’authentification unique Azure AD avec OnTrack, suivez ces �
 
     a. Dans la zone de texte **Identificateur** :
 
-    Pour l’environnement de test, tapez l’URL : `https://staging.insigniagroup.com/sso`
+    Pour l’environnement de test, tapez l’URL suivante : `https://staging.insigniagroup.com/sso`
 
-    Pour l’environnement de production, tapez l’URL : `https://oeaccessories.com/sso`
+    Pour l’environnement de production, tapez l’URL suivante : `https://oeaccessories.com/sso`
 
     b. Dans la zone de texte **URL de réponse** :
 
-    Pour l’environnement de test, tapez l’URL : `https://indie.staging.insigniagroup.com/sso/autonation.aspx`
+    Pour l’environnement de test, tapez l’URL suivante : `https://indie.staging.insigniagroup.com/sso/autonation.aspx`
 
-    Pour l’environnement de production, tapez l’URL : `https://igaccessories.com/sso/autonation.aspx`
+    Pour l’environnement de production, tapez l’URL suivante : `https://igaccessories.com/sso/autonation.aspx`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique OnTrack](mailto:CustomerService@insigniagroup.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -233,7 +233,7 @@ Quand vous cliquez sur la vignette OnTrack dans le volet d’accès, vous devez 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

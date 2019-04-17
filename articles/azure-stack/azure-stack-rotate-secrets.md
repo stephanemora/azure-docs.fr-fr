@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 22656c66bf5caa275a32ddcaae323fc0ab2b1600
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917558"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271728"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Faire pivoter les clés secrètes dans Azure Stack
 
@@ -63,13 +63,13 @@ Azure Stack prend en charge la rotation des secrets avec des certificats externe
 
 |Autorité de certification de certificats installée|Autorité de certification vers laquelle effectuer la rotation|Pris en charge|Versions d’Azure Stack prises en charge|
 |-----|-----|-----|-----|
-|De : Autorité de certification de certificats autosignés|Vers : Autorité de certification d’entreprise|Non pris en charge||
+|De : Autorité de certification de certificats autosignés|Vers : Autorité de certification d’entreprise|Pris en charge|1903 et version ultérieure|
 |De : Autorité de certification de certificats autosignés|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
 |De : Autorité de certification de certificats autosignés|Vers : Autorité de certification publique<sup>*</sup>|Pris en charge|1803 et ultérieure|
-|De : Autorité de certification d’entreprise|Vers : Autorité de certification d’entreprise|Pris en charge à condition que les clients utilisent la MÊME autorité de certification d’entreprise que celle utilisée au moment du déploiement|1803 et ultérieure|
+|De : Autorité de certification d’entreprise|Vers : Autorité de certification d’entreprise| Pris en charge. Versions 1803 à 1903 : prise en charge à condition que les clients utilisent la MÊME autorité de certification d’entreprise que celle utilisée au moment du déploiement|1803 et ultérieure|
 |De : Autorité de certification d’entreprise|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
 |De : Autorité de certification d’entreprise|Vers : Autorité de certification publique<sup>*</sup>|Pris en charge|1803 et ultérieure|
-|De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification d’entreprise|Non pris en charge|1803 et ultérieure|
+|De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification d’entreprise|Pris en charge|1903 et version ultérieure|
 |De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
 |De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification publique<sup>*</sup>|Pris en charge|1803 et ultérieure|
 
@@ -300,11 +300,11 @@ L’applet de commande **Start-SecretRotation** effectue la rotation des secrets
 
 | Paramètre | Type | Obligatoire | Position | Default | Description |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | Chaîne  | False  | named  | Aucun  | Le chemin d’accès au partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets externes. Le répertoire de fin doit être **\Certificates**. |
-| CertificatePassword | SecureString | False  | named  | Aucun  | Le mot de passe pour tous les certificats fournis dans le -PfXFilesPath. Valeur requise si PfxFilesPath est fourni lors de la rotation des secrets externes. |
-| Interne | Chaîne | False | named | Aucun | L’indicateur interne doit être utilisé chaque fois qu’un opérateur Azure Stack souhaite effectuer la rotation des secrets d’infrastructure internes. |
-| PathAccessCredential | PSCredential | False  | named  | Aucun  | Les informations d’identification PowerShell du partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets externes.  |
-| ReRun | SwitchParameter | False  | named  | Aucun  | ReRun doit être utilisé à chaque nouvelle tentative de rotation des secrets après un échec. |
+| `PfxFilesPath` | Chaîne  | False  | named  | Aucun  | Le chemin d’accès au partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets externes. Le répertoire de fin doit être **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | named  | Aucun  | Le mot de passe pour tous les certificats fournis dans le -PfXFilesPath. Valeur requise si PfxFilesPath est fourni lors de la rotation des secrets externes. |
+| `Internal` | Chaîne | False | named | Aucun | L’indicateur interne doit être utilisé chaque fois qu’un opérateur Azure Stack souhaite effectuer la rotation des secrets d’infrastructure internes. |
+| `PathAccessCredential` | PSCredential | False  | named  | Aucun  | Les informations d’identification PowerShell du partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets externes.  |
+| `ReRun` | SwitchParameter | False  | named  | Aucun  | ReRun doit être utilisé à chaque nouvelle tentative de rotation des secrets après un échec. |
 
 ### <a name="examples"></a>Exemples
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: f3effc900b79ddb7beac6a3aaf2eee0a264f7b4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280857"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608169"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Démarrage rapide : Se connecter et définir un identifiant utilisateur
 
@@ -33,6 +33,9 @@ Bien que vous puissiez toujours afficher Azure Notebooks sans vous connecter, vo
 1. Quand vous y êtes invité, entrez l’adresse e-mail d’un compte Microsoft, ou d’un compte professionnel ou scolaire, puis sélectionnez **Suivant**. Les types de comptes sont décrits dans [Votre compte d’utilisateur pour Azure Notebooks](azure-notebooks-user-account.md). Si vous n’avez pas de compte Microsoft ou si vous voulez en créer un à utiliser spécifiquement avec Azure Notebooks, sélectionnez **Créer** :
 
     ![Commande Créer un compte Microsoft dans l’invite de connexion](media/accounts/create-new-microsoft-account.png)
+
+    > [!Tip]
+    > Si vous tentez de créer un nouveau compte avec une adresse de messagerie qui a déjà un compte associé, vous pouvez voir le message, « vous ne pouvez pas inscrire ici avec un travail ou adresse e-mail scolaire. Utiliser une adresse e-mail personnelle comme Gmail ou Yahoo!, ou obtenez un nouvel e-mail Outlook. » Dans ce cas, essayez de vous connecter avec l’adresse de messagerie professionnelle sans créer un nouveau compte.
 
 1. Entrez votre mot de passe lorsque vous y êtes invité.
 

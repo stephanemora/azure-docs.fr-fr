@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 505bb292a6b8a81f5fa11a03bc150a7f43129956
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 28d52a6eb5018aac8ebeb48b0a2a60a1dd9e1a43
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852795"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260253"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Didacticiel : Intégration d’Azure Active Directory à Montage Online
 
@@ -106,15 +106,15 @@ Pour configurer l’authentification unique Azure AD avec Montage Online, effect
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
 
-    Pour l’environnement de production : `https://<subdomain>.montageonline.co.nz/`
+    Pour l’environnement de production : `https://<subdomain>.montageonline.co.nz/`
 
-    Pour l’environnement de test : `https://build-<subdomain>.montageonline.co.nz/`
+    Pour l’environnement de test : `https://build-<subdomain>.montageonline.co.nz/`
 
     b. Dans la zone de texte **Identificateur**, tapez une URL :
 
-    Pour l’environnement de production : `MOL_Azure`
+    Pour l’environnement de production : `MOL_Azure`
 
-    Pour l’environnement de test : `MOL_Azure_Build`
+    Pour l’environnement de test : `MOL_Azure_Build`
 
     > [!NOTE] 
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Montage Online](https://www.montage.co.nz/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -155,7 +155,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -200,7 +200,7 @@ Le fait de cliquer sur la vignette Montage Online dans le panneau d’accès doi
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -16,18 +16,21 @@ ms.workload: media
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 774ddfa435cb23a8bf5d179fb0f7a0baf9dfca75
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755895"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044404"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Commencer à développer avec l’API Media Services v3 avec des SDK/outils
 
 En tant que développeur, vous pouvez utiliser [l’API REST](https://aka.ms/ams-v3-rest-ref) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST afin de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. L’API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) s’appuie sur la spécification OpenAPI (anciennement appelée Swagger).
 
 Cette rubrique fournit des liens vers les SDK, les outils et la documentation. Il fournit également des informations utiles pour différents environnements de développement.
+
+> [!NOTE]
+> Les kits SDK Azure Media Services v3 ne sont pas garantis thread-safe. Lorsque vous développez une application multithread, vous devez ajouter votre propre logique de synchronisation de thread pour protéger le client, ou utiliser un objet AzureMediaServicesClient différent pour chaque thread. Vous devez également faire attention aux problèmes liés au multithreading provoqués par les objets facultatifs qui sont fournis au client par votre code (comme une instance HttpClient dans .NET, par exemple).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -81,4 +84,4 @@ AMSE est un projet Open Source, son support est assuré par la Communauté (les 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d'ensemble](media-services-overview.md)
+[Vue d’ensemble](media-services-overview.md)

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399867"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257448"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Didacticiel : Créer un pool d’hôtes avec la Place de marché Azure
 
@@ -117,9 +117,12 @@ Voici les clients actuellement pris en charge :
 - [Client Bureau à distance pour Windows 7 et Windows 10](connect-windows-7-and-10.md)
 - [Client web Windows Virtual Desktop](connect-web.md)
 
+>[!IMPORTANT]
+>Pour contribuer à sécuriser votre environnement Windows Virtual Desktop dans Azure, nous vous recommandons de ne pas ouvrir le port entrant 3389 sur vos machines virtuelles. Windows Virtual Desktop ne nécessite pas l’ouverture du port entrant 3389 pour permettre aux utilisateurs d’accéder aux machines virtuelles du pool hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser un [accès à la machine virtuelle juste-à-temps](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez créé un pool d’hôtes et affecté des utilisateurs pour accéder à son bureau, vous pouvez également remplir votre pool d’hôtes avec des applications RemoteApp. Pour en savoir plus sur la façon de gérer des applications dans Windows Virtual Desktop, consultez le tutoriel Gérer les groupes d’applications.
 
 > [!div class="nextstepaction"]
-> [Gérer les groupes d’applications](./manage-app-groups.md)
+> [Tutoriel Gérer les groupes d’applications](./manage-app-groups.md)

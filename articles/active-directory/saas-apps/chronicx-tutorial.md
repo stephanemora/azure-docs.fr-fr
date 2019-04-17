@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 689a8d289c6dfa58e70db63373178dec4e109c72
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 499cbcada19728a0d0eba1831460ea38245b7f5c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877579"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267410"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Tutoriel : Intégration d’Azure Active Directory à ChronicX®
+# <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Didacticiel : Intégration d’Azure Active Directory à ChronicX®
 
 Dans ce didacticiel, vous allez apprendre à intégrer ChronicX® à Azure Active Directory (Azure AD).
 L’intégration de ChronicX® dans Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de ChronicX® à Azure AD, vous devez ajouter ChronicX® à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter ChronicX® à partir de la galerie, procédez comme suit :**
+**Pour ajouter ChronicX® à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,9 +106,9 @@ Pour configurer l’authentification unique Azure AD auprès de ChronicX®, effe
 
     ![Informations d’authentification unique dans Domaine et URL ChronicX®](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.chronicx.com/ups/processlogonSSO.jsp`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<subdomain>.chronicx.com/ups/processlogonSSO.jsp`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `ups.chronicx.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL : `ups.chronicx.com`
 
     > [!NOTE]
     >La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe du support technique de ChronicX®](https://www.casebank.com/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -149,7 +149,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -197,7 +197,7 @@ Le fait de cliquer sur la vignette ChronicX® dans le volet d’accès doit vous
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

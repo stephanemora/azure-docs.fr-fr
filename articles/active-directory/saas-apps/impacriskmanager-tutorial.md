@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à IMPAC Risk Manager | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à IMPAC Risk Manager | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et IMPAC Risk Manager.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c84241abc69b5bd070d893ba57fb60b90d4d6d28
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 73a19fa97a898e2c51912a18f46751e855ee0303
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295587"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272085"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutoriel : Intégration d’Azure Active Directory à IMPAC Risk Manager
+# <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Didacticiel : Intégration d’Azure Active Directory à IMPAC Risk Manager
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer IMPAC Risk Manager à Azure Active Directory (Azure AD).
 L’intégration d’IMPAC Risk Manager à Azure AD vous offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’IMPAC Risk Manager à Azure AD, vous devez ajouter IMPAC Risk Manager à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter IMPAC Risk Manager à partir de la galerie, procédez comme suit :**
+**Pour ajouter IMPAC Risk Manager à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -217,7 +217,7 @@ Le fait de cliquer sur la vignette IMPAC Risk Manager dans le panneau d’accès
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

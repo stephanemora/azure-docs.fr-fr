@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 640eb8800f9593aef510d99713595bdd0c844263
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52683427"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009665"
 ---
-# <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutoriel : Gérer en bloc vos appareils connectés
+# <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Didacticiel : Gérer vos appareils connectés en bloc
 
 Dans ce tutoriel, vous utilisez l’accélérateur de solution de supervision à distance pour gérer en bloc la configuration de vos appareils connectés.
 
@@ -145,13 +145,13 @@ Utilisez votre compte de stockage Azure pour héberger votre nouveau fichier de 
 
 1. VS Code vérifie et charge le code sur votre appareil DevKit IoT.
 
-1. Une fois le chargement terminé, l’appareil DevKit IoT redémarre. Quand le redémarrage est terminé, l’écran du DevKit IoT affiche **FW version: 1.0.0**, et indique qu’il vérifie l’existence de nouveaux microprogrammes :
+1. Une fois le chargement terminé, l’appareil DevKit IoT redémarre. Une fois le redémarrage effectué, l’écran d’IoT DevKit affiche **FW version : 1.0.0**, et indique qu’il recherche un nouveau microprogramme :
 
     ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Créer une configuration d’appareil
 
-Une configuration d’appareil spécifie l’état souhaité de vos appareils. En général, un développeur [crée la configuration](../iot-hub/iot-hub-auto-device-config.md#create-a-configuration) sur la page **Configuration de l’appareil IoT** dans le portail Azure. Une configuration d’appareil est un document JSON qui spécifie l’état souhaité de vos appareils et un ensemble de métriques.
+Une configuration d’appareil spécifie l’état souhaité de vos appareils. En général, un développeur [crée la configuration](../iot-hub/iot-hub-automatic-device-management.md#create-a-configuration) sur la page **Configuration de l’appareil IoT** dans le portail Azure. Une configuration d’appareil est un document JSON qui spécifie l’état souhaité de vos appareils et un ensemble de métriques.
 
 Enregistrez la configuration suivante sous la forme d’un fichier appelé **firmware-update.json** sur votre ordinateur local. Remplacez les espaces réservés `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM` et `YOURPACKAGESIZE` par les valeurs que vous avez notées précédemment :
 
@@ -228,7 +228,7 @@ Dans cette section, vous créez et exécutez un déploiement qui applique la con
 
     |Option|Valeur|
     |---|---|
-    |NOM|Déployer la mise à jour du microprogramme|
+    |Nom|Déployer la mise à jour du microprogramme|
     |Type de package|Configuration de l’appareil|
     |Type de configuration|Microprogramme|
     |Package|firmware-update.json|

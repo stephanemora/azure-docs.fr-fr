@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à HackerOne | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à HackerOne | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HackerOne.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a782831f0f017423faef7610f984b2ea87e445
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6faf023d36ea40e3694161ee0cfc8aac7c5652fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898463"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277933"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutoriel : Intégration d'Azure Active Directory à HackerOne
+# <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Didacticiel : Intégration d'Azure Active Directory à HackerOne
 
 Dans ce didacticiel, vous allez apprendre à intégrer HackerOne à Azure Active Directory (Azure AD).
 L’intégration de HackerOne à Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de HackerOne à Azure AD, vous devez ajouter HackerOne à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter HackerOne à partir de la galerie, procédez comme suit :**
+**Pour ajouter HackerOne à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,9 +106,9 @@ Pour configurer l’authentification unique Azure AD avec HackerOne, procédez 
 
     ![Informations d’authentification unique dans Domaine et URL HackerOne](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://hackerone.com/<company name>/authentication`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://hackerone.com/<company name>/authentication`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://hackerone.com/users/saml/metadata`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL : `https://hackerone.com/users/saml/metadata`
 
     > [!NOTE]
     > La valeur de cette URL d’authentification n’est pas réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Contactez [l’équipe de support client HackerOne](mailto:support@hackerone.com) pour obtenir cette valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -145,9 +145,9 @@ Pour configurer l’authentification unique Azure AD avec HackerOne, procédez 
 
     a. Dans la zone de texte **Email Domain** , entrez un domaine enregistré.
 
-    b. Dans les zones de texte   **URL d’authentification unique**, collez la valeur de l’ **URL de connexion**  que vous avez copiée à partir du portail Azure.
+    b. Dans les zones de texte **Single Sign On URL** (URL d’authentification unique), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
-    c. Ouvrez le **Fichier de certificat** téléchargé à partir du portail Azure dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat X509** .
+    c. Ouvrez le **Fichier de certificat** téléchargé à partir du portail Azure dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat X509**.
 
     d. Cliquez sur **Enregistrer**.
 
@@ -177,7 +177,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

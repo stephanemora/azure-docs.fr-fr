@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 21dcf522f00f1991ecb2a92d6dc0925baadbdcc6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 845fc32d527158258304a92c6855017c9d8c0492
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081268"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049555"
 ---
-# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutoriel : Mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements
+# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Didacticiel : Mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements
 
 Microsoft Azure Service Bus est un service de messagerie cloud multi-locataire qui envoie des informations entre les applications et les services. Le fonctionnement asynchrone vous offre un service de messagerie répartie flexible, avec messagerie premier entré, premier sorti (FIFO) et fonctionnalités de publication/abonnement. 
 
@@ -36,6 +36,9 @@ Un exemple de ce scénario est une mise à jour d’assortiment d’inventaire p
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][] avant de commencer.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
@@ -54,20 +57,20 @@ Pour vous connecter à Azure, exécutez les commandes ci-après. Ces étapes ne 
 1. Installez le module Service Bus PowerShell :
 
    ```azurepowershell-interactive
-   Install-Module AzureRM.ServiceBus
+   Install-Module Az.ServiceBus
    ```
 
 2. Exécutez la commande ci-après pour vous connecter à Azure :
 
    ```azurepowershell-interactive
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 
 4. Définissez le contexte de l’abonnement actuel, ou consultez l’abonnement actif :
 
    ```azurepowershell-interactive
-   Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
-   Get-AzureRmContext
+   Select-AzSubscription -SubscriptionName "MyAzureSubName" 
+   Get-AzContext
    ```
 
 ## <a name="provision-resources"></a>Provisionner les ressources
@@ -76,19 +79,19 @@ Une fois connecté à Azure, utilisez les commandes ci-après pour approvisionne
 
 ```azurepowershell-interactive
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location westus2
+New-AzResourceGroup –Name my-resourcegroup –Location westus2
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
+New-AzServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
 
 # Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
+New-AzServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
 
 # Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-Après l’exécution de la cmdlet `Get-AzureRmServiceBusKey`, copiez et collez la chaîne de connexion et le nom de la file d’attente que vous avez sélectionnée vers un emplacement temporaire, tel que le bloc-notes. Vous en aurez besoin à l’étape suivante.
+Après l’exécution de la cmdlet `Get-AzServiceBusKey`, copiez et collez la chaîne de connexion et le nom de la file d’attente que vous avez sélectionnée vers un emplacement temporaire, tel que le bloc-notes. Vous en aurez besoin à l’étape suivante.
 
 ## <a name="send-and-receive-messages"></a>Envoyer et recevoir des messages
 
@@ -109,7 +112,7 @@ Pour exécuter le code, procédez comme suit :
 4. Si vous ne l’avez pas déjà fait, obtenez la chaîne de connexion à l’aide de l’applet de commande PowerShell suivante. Veillez à remplacer `my-resourcegroup` et `namespace-name` avec vos valeurs spécifiques : 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 5. À l’invite de commande PowerShell, tapez la commande suivante :
 
@@ -131,7 +134,7 @@ Pour exécuter le code, procédez comme suit :
 Exécutez la commande suivante pour supprimer le groupe de ressources, l’espace de noms et toutes les ressources associées :
 
 ```powershell-interactive
-Remove-AzureRmResourceGroup -Name my-resourcegroup
+Remove-AzResourceGroup -Name my-resourcegroup
 ```
 
 ## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
@@ -140,7 +143,7 @@ Cette section contient plus de détails sur ce que fait l’exemple de code.
 
 ### <a name="get-connection-string-and-queue"></a>Obtention de la chaîne de connexion et de la file d’attente
 
-Les noms de chaîne de connexion et de file d’attente sont passés à la méthode `Main()` en tant qu’arguments de ligne de commande. `Main()` déclare deux variables de chaîne pour contenir les valeurs suivantes :
+Les noms de chaîne de connexion et de file d’attente sont passés à la méthode `Main()` en tant qu’arguments de ligne de commande. `Main()` déclare deux variables de chaîne pour contenir les valeurs suivantes :
 
 ```csharp
 static void Main(string[] args)
@@ -286,4 +289,4 @@ Passez au prochain tutoriel pour en savoir plus sur les fonctionnalités de publ
 > [Mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Installation et configuration d’Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps
+[Installer et configurer Azure PowerShell]: /powershell/azure/install-Az-ps

@@ -1,25 +1,24 @@
 ---
 title: 'Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer à l’aide de PowerShell'
 description: Apprendre à créer un cluster et une base de données Azure Data Explorer à l’aide de PowerShell
-services: data-explorer
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 86fbf5801e9ff1c8bd9dead8be14aeeea1b58a29
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 84b0cbfd7e8ec6709b79328220aac7c9ae904bdb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472478"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047158"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Créer un cluster et une base de données Azure Data Explorer à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
-> * [INTERFACE DE LIGNE DE COMMANDE](create-cluster-database-cli.md)
+> * [Portail](create-cluster-database-portal.md)
+> * [Interface de ligne de commande](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
@@ -118,4 +117,4 @@ Vous disposez maintenant d’un cluster et d’une base de données.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Commandes Az.Kusto supplémentaires](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto)
-* [Démarrage rapide : Ingérer des données avec le SDK .NET Standard dans Azure Data Explorer (préversion)](net-standard-ingest-data.md)
+* [Démarrage rapide : Ingérer des données à l’aide du kit SDK .NET Standard Azure Data Explorer (préversion)](net-standard-ingest-data.md)

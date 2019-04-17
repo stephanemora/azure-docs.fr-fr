@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: dd60897d19ef4de7369b2b127c88e778363a387f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852264"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273462"
 ---
 # <a name="quickstart-change-model-using-c"></a>Démarrage rapide : Modifier un modèle à l’aide de C#
 
@@ -37,13 +37,13 @@ ms.locfileid: "57852264"
 
 ## <a name="create-quickstart-code"></a>Créer un code de démarrage rapide 
 
-Dans Visual Studio, créez une application **Console de bureau Windows classique** à l’aide de .NET Framework. 
+Dans Visual Studio, créez une application **Console de bureau Windows classique** à l’aide de .NET Framework. Nommez le projet `ConsoleApp1`.
 
 ![Type de projet Visual Studio](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### <a name="add-the-systemweb-dependency"></a>Ajouter la dépendance System.Web
 
-Le projet Visual Studio a besoin d’une référence **System.Web**. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Références**, puis sélectionnez **Ajouter une référence**.
+Le projet Visual Studio a besoin d’une référence **System.Web**. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Références**, puis sélectionnez **Ajouter une référence** dans la section Assemblys.
 
 ![Ajouter une référence System.web](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
@@ -64,7 +64,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace ConsoleApp1
 {
     class Program
     {
@@ -75,7 +75,7 @@ namespace ConsoleApp3
 }
 ```
 
-Ajoutez les dépendances.
+Mettez à jour les dépendances qui sont :
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -115,7 +115,7 @@ Pour gérer les arguments de ligne de commande, ajoutez le code principal. Ajout
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Copier le fichier utterances.json dans le répertoire de sortie
 
-Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `utterances.json` et sélectionnez **Propriétés**. Dans la fenêtre Propriétés, marquez l’élément **Action de génération** de `Content` et l’élément **Copier dans le répertoire de sortie** de `Copy Always`.  
+Dans l’Explorateur de solutions, ajoutez `utterances.json` en cliquant avec le bouton droit sur le nom du projet, en sélectionnant **Ajouter**, puis en sélectionnant **Élément existant**. Sélectionnez le fichier `utterances.json`. Ceci ajoute le fichier au projet. Il doit ensuite être ajouté à la direction de la sortie. Cliquez avec le bouton droit sur `utterances.json` et sélectionnez **Propriétés**. Dans la fenêtre Propriétés, marquez l’élément **Action de génération** de `Content` et l’élément **Copier dans le répertoire de sortie** de `Copy Always`.  
 
 ![Marquer le fichier JSON en tant que contenu](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
@@ -128,7 +128,7 @@ Générez le code dans Visual Studio.
 Exécutez l’application à partir d’une ligne de commande dans le répertoire /bin/Debug du projet. 
 
 ```console
-ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
+ConsoleApp1.exe --add utterances.json --train --status
 ```
 
 Cette ligne de commande affiche les résultats de l’appel de l’API d’ajout d’énoncés. 
@@ -140,4 +140,4 @@ Une fois le démarrage rapide terminé, supprimez tous les fichiers créés pour
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 
-> [Créer une application LUIS par programme](luis-tutorial-node-import-utterances-csv.md) 
+> [Créer une application LUIS par programmation](luis-tutorial-node-import-utterances-csv.md) 

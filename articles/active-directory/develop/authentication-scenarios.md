@@ -1,6 +1,6 @@
 ---
-title: Authentification dans Azure Active Directory
-description: Obtenez des informations sur l’authentification dans Azure Active Directory (Azure AD), l’API du modèle d’application, l’approvisionnement et les scénarios d’authentification courants pris en charge par Azure AD.
+title: Authentification sur la plateforme d’identités Microsoft | Azure
+description: Obtenez des informations concernant l’authentification sur la plateforme d’identités Microsoft, sur le modèle d’application, sur l’API, sur le provisionnement et sur les scénarios d’authentification courants qui sont pris en charge par la plateforme d’identités Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295706"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266300"
 ---
 # <a name="what-is-authentication"></a>Qu’est-ce que l’authentification ?
 
@@ -31,24 +31,24 @@ L’*authentification* correspond à l’action de demander des informations d�
 
 L’*autorisation* correspond à l’action d’accorder à un principal de sécurité authentifié le droit de faire quelque chose. Elle détermine les données auxquelles vous pouvez accéder et ce que vous pouvez en faire. On abrège parfois l’autorisation de cette manière : AuthZ.
 
-Azure Active Directory (Azure AD) simplifie l’authentification pour les développeurs d’application en fournissant l’identité en tant que service, avec la prise en charge des protocoles standard tels que OAuth 2.0 et OpenID Connect, ainsi que des bibliothèques Open Source pour différentes plateformes afin de vous permettre de commencer à coder rapidement.
+La plateforme d’identités Microsoft simplifie l’authentification pour les développeurs d’application en fournissant l’identité en tant que service, avec la prise en charge des protocoles standard tels que OAuth 2.0 et OpenID Connect, ainsi que des bibliothèques Open Source pour différentes plateformes, afin de vous permettre de commencer à coder rapidement.
 
-Il existe deux cas d’utilisation principaux dans le modèle de programmation Azure AD :
+Dans le modèle de programmation de la plateforme d’identités Microsoft, il existe deux cas d’usage principaux :
 
 * Pendant un flux d’octroi d’autorisation OAuth 2.0 : lorsque le propriétaire des ressources accorde l’autorisation à l’application cliente, permettant au client d’accéder aux ressources du propriétaire.
 * Pendant l’accès aux ressources par le client : de la manière implémentée par le serveur de ressources, en utilisant les valeurs de revendication présentes dans le jeton d’accès pour prendre des décisions sur le contrôle d’accès.
 
-## <a name="authentication-basics-in-azure-active-directory"></a>Principes de base de l’authentification dans Azure Active Directory
+## <a name="authentication-basics-in-microsoft-identity-platform"></a>Principes fondamentaux de l’authentification sur la plateforme d’identités Microsoft
 
 Prenons un scénario très élémentaire, dans lequel une identité est requise : un utilisateur doit s’authentifier auprès d’une application web dans un navigateur web. Le diagramme qui suit illustre ce scénario :
 
-![Vue d’ensemble de l’authentification des applications web](./media/authentication-scenarios/basics_of_auth_in_aad.png)
+![Vue d’ensemble de l’authentification des applications web](./media/authentication-scenarios/auth-basics-microsoft-identity-platform.svg)
 
 Voici ce que vous devez savoir sur les divers composants du diagramme :
 
-* Azure AD est le fournisseur d'identité. Le fournisseur d’identité est responsable de la vérification de l’identité des utilisateurs et applications de l’annuaire d’une organisation et de l’émission des jetons de sécurité après que ces utilisateurs et applications sont correctement authentifiés.
-* Une application qui souhaite externaliser l’authentification pour la confier à Azure AD doit être inscrite dans Azure AD. Azure AD enregistre et identifie de façon unique l’application dans le répertoire.
-* Les développeurs peuvent utiliser les bibliothèques d’authentification open source d’Azure AD pour simplifier l’authentification en gérant les détails du protocole pour vous. Pour plus d’informations, consultez les articles sur les [bibliothèques d’authentification v2.0](reference-v2-libraries.md) et les [bibliothèques d’authentification v1.0](active-directory-authentication-libraries.md) Azure AD.
+* La plateforme d’identités Microsoft est un fournisseur d’identité. Le fournisseur d’identité est responsable de la vérification de l’identité des utilisateurs et applications de l’annuaire d’une organisation et de l’émission des jetons de sécurité après que ces utilisateurs et applications sont correctement authentifiés.
+* Une application qui souhaite externaliser l’authentification pour la confier à la plateforme d’identités Microsoft doit être inscrite dans Azure Active Directory (Azure AD). Azure AD enregistre et identifie de façon unique l’application dans le répertoire.
+* Les développeurs peuvent utiliser les bibliothèques d’authentification open source de la plateforme d’identités Microsoft qui simplifie l’authentification en gérant les détails du protocole à votre place. Pour plus d’informations, consultez les articles sur les [bibliothèques d’authentification v2.0](reference-v2-libraries.md) et les [bibliothèques d’authentification v1.0](active-directory-authentication-libraries.md) de la plateforme d’identités Microsoft.
 * Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi. Des guides de démarrage rapide, des didacticiels et des exemples de code dans plusieurs langages et infrastructures sont disponibles afin d’illustrer le comportement de l’application.
   * Pour générer une application rapidement et ajouter des fonctionnalités telles que l’obtention de jetons, l’actualisation de jetons, la connexion d’un utilisateur et l’affichage des informations utilisateur (entre autres), consultez les **guides de démarrage rapide** de la documentation.
   * Pour obtenir des procédures détaillées, basées sur des scénarios et appliquées aux principales tâches de développement de l’authentification, telles que l’obtention de jetons d’accès et leur utilisation dans les appels à l’API Microsoft Graph ou à d’autres API, l’implémentation de la connexion Microsoft avec une application web traditionnelle basée sur navigateur à l’aide d’OpenID Connect, et bien d’autres, consultez les **didacticiels** de la documentation.
@@ -60,28 +60,28 @@ Dans le scénario ci-dessus, vous pouvez classer les applications en fonction de
 * Les applications qui ont besoin d’accéder aux ressources de façon sécurisée
 * Les applications qui jouent elles-mêmes le rôle de ressource
 
-Maintenant que vous avez une vue d’ensemble des principes fondamentaux, poursuivez votre lecture pour comprendre le modèle d’application et l’API relatifs à l’identité et le fonctionnement de l’approvisionnement dans Azure AD. Vous trouverez également des liens pour obtenir des informations détaillées sur les scénarios courants pris en charge par Azure AD.
+Maintenant que vous avez une vue d’ensemble des principes fondamentaux, poursuivez votre lecture pour comprendre l’API et le modèle d’application relatifs à l’identité et le fonctionnement du provisionnement dans la plateforme d’identités Microsoft. Vous trouverez également des liens pour obtenir des informations détaillées sur les scénarios courants pris en charge par la plateforme d’identités Microsoft.
 
 ## <a name="application-model"></a>Modèle d'application
 
-Azure AD représente les applications selon un modèle spécifique conçu pour remplir deux fonctions principales :
+La plateforme d’identités Microsoft représente les applications selon un modèle spécifique conçu pour remplir deux fonctions principales :
 
-* **Identifier l’application conformément aux protocoles d’authentification pris en charge** : énumération de tous les identificateurs, des URL, des secrets et des informations connexes nécessaires au moment de l’authentification. Dans ce cas, Azure AD effectue les opérations suivantes :
+* **Identifier l’application conformément aux protocoles d’authentification pris en charge** : énumération de tous les identificateurs, des URL, des secrets et des informations connexes nécessaires au moment de l’authentification. Dans ce cas, la plateforme d’identités Microsoft :
 
     * Il contient toutes les données nécessaires lors de l’authentification au moment de l’exécution.
     * Il contient toutes les données permettant de déterminer les ressources susceptibles d’être requises par une application pour obtenir l’accès, et indique s’il faut donner suite à une requête donnée et auquel cas, dans quelles circonstances.
     * Il fournit l’infrastructure pour implémenter l’approvisionnement de l’application au sein du locataire du développeur et de n’importe quel autre locataire Azure AD.
 
-* **Gérer le consentement de l’utilisateur au moment de la demande de jeton et faciliter l’approvisionnement dynamique des applications entre les locataires**. Dans ce cas Azure AD effectue les opérations suivantes :
+* **Gérer le consentement de l’utilisateur au moment de la demande de jeton et faciliter le provisionnement dynamique des applications entre les locataires**. Dans ce cas, la plateforme d’identités Microsoft :
 
     * Il permet aux utilisateurs et administrateurs d’accorder ou de refuser dynamiquement le consentement lorsque l’application souhaite accéder aux ressources en leur nom.
     * Il permet aux administrateurs d’avoir la décision finale sur les applications qu’ils sont autorisées à fonctionner, les utilisateurs qui peuvent utiliser des applications spécifiques et la manière dont les ressources de répertoire sont consultées.
 
-Dans Azure AD, un **objet d’application** décrit une application en tant qu’entité abstraite. Les développeurs travaillent avec des applications. Au moment du déploiement, Azure AD utilise un objet d’application donné en tant que plan pour créer un **principal de service**. Ce dernier représente une instance concrète d’une application dans un répertoire ou un locataire. C’est le principal de service qui définit les actions réelles d’une application dans un répertoire cible spécifique, les utilisateurs qui peuvent s’en servir, les ressources auxquelles elle a accès, etc. Azure AD crée un principal de service à partir d’un objet d’application via le **consentement**.
+Dans la plateforme d’identités Microsoft, un **objet d’application** décrit une application comme une entité abstraite. Les développeurs travaillent avec des applications. Au moment du déploiement, la plateforme d’identités Microsoft utilise un objet d’application donné en tant que blueprint pour créer un **principal de service**. Ce dernier représente une instance concrète d’une application dans un répertoire ou un locataire. C’est le principal de service qui définit les actions réelles d’une application dans un répertoire cible spécifique, les utilisateurs qui peuvent s’en servir, les ressources auxquelles elle a accès, etc. La plateforme d’identités Microsoft crée un principal de service à partir d’un objet d’application via le **consentement**.
 
-Le diagramme suivant illustre un flux d’approvisionnement Azure AD simplifié piloté par consentement.  Dans celui-ci, se trouvent deux locataires (A et B), le locataire A possédant l’application, et le locataire B instanciant l’application via un principal de service.  
+Le diagramme suivant illustre un flux de provisionnement simplifié piloté par consentement dans la plateforme d’identités Microsoft.  Dans celui-ci, se trouvent deux locataires (A et B), le locataire A possédant l’application, et le locataire B instanciant l’application via un principal de service.  
 
-![Flux d’approvisionnement simplifié piloté par consentement](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
+![Flux d’approvisionnement simplifié piloté par consentement](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
 Dans ce flux d’approvisionnement :
 
@@ -90,15 +90,15 @@ Dans ce flux d’approvisionnement :
 | 1 | Un utilisateur issu du locataire B tente de se connecter avec l’application |
 | 2 | Les informations d’identification de l’utilisateur sont acquises et vérifiées |
 | 3 | L’utilisateur est invité à donner son consentement pour que l’application accède au locataire B |
-| 4 | Azure AD utilise l’objet d’application dans A en tant que blueprint pour créer un principal de service dans le locataire B |
+| 4 | La plateforme d’identités Microsoft utilise l’objet d’application dans A en tant que blueprint pour créer un principal de service dans le locataire B |
 | 5. | L’utilisateur reçoit le jeton demandé |
 |   |   |
 
-Vous pouvez répéter ce processus autant de fois que vous le souhaitez pour les autres locataires (C, D, etc.). Le locataire A conserve le blueprint pour l’application (objet d’application). Les utilisateurs et les administrateurs de tous les autres locataires où l’application a obtenu le consentement gardent le contrôle sur les actions de l’application grâce à l’objet du principal de service correspondant dans chaque locataire. Pour en savoir plus, consultez l’article sur les [objets d’application et de principal de service dans Azure AD)](app-objects-and-service-principals.md).
+Vous pouvez répéter ce processus autant de fois que vous le souhaitez pour les autres locataires (C, D, etc.). Le locataire A conserve le blueprint pour l’application (objet d’application). Les utilisateurs et les administrateurs de tous les autres locataires où l’application a obtenu le consentement gardent le contrôle sur les actions de l’application grâce à l’objet du principal de service correspondant dans chaque locataire. Pour plus d’informations, consultez [Objets d’application et de principal de service dans la plateforme d’identités Microsoft](app-objects-and-service-principals.md).
 
-## <a name="claims-in-azure-ad-security-tokens"></a>Revendications dans les jetons de sécurité Azure AD
+## <a name="claims-in-microsoft-identity-platform-security-tokens"></a>Revendications dans les jetons de sécurité de la plateforme d’identités Microsoft
 
-Les jetons de sécurité (jetons d’accès et d’ID) émis par Azure AD contiennent des revendications, ou assertions d’informations, sur le sujet qui a été authentifié. Les applications peuvent utiliser des revendications pour diverses tâches, notamment pour les actions suivantes :
+Les jetons de sécurité (jetons d’accès et d’ID) émis par la plateforme d’identités Microsoft contiennent des revendications (ou assertions) d’informations, sur le sujet qui a été authentifié. Les applications peuvent utiliser des revendications pour diverses tâches, notamment pour les actions suivantes :
 
 * Valider le jeton
 * Identifier le locataire du répertoire du sujet
@@ -107,7 +107,7 @@ Les jetons de sécurité (jetons d’accès et d’ID) émis par Azure AD conti
 
 Les revendications présentes dans un jeton de sécurité dépendent du type de jeton, du type d’informations d’identification utilisées pour authentifier l’utilisateur et de la configuration de l’application.
 
-Une brève description de chaque type de revendication émise par Azure AD est fournie dans le tableau ci-dessous. Pour obtenir des informations plus détaillées, consultez la documentation sur les [jetons d’accès](access-tokens.md) et les [jetons d’ID](id-tokens.md) émis par Azure AD.
+Le tableau ci-dessous fournit une brève description de chaque type de revendication émis par la plateforme d’identités Microsoft. Pour obtenir des informations plus détaillées, consultez la documentation sur les [jetons d’accès](access-tokens.md) et les [jetons d’ID](id-tokens.md) émis par la plateforme d’identités Microsoft.
 
 | Revendication | Description |
 | --- | --- |
@@ -134,4 +134,4 @@ Une brève description de chaque type de revendication émise par Azure AD est 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [types d’applications et scénarios pris en charge dans Azure Active Directory](app-types.md)
+* En savoir plus sur les [types d’applications et scénarios pris en charge par la plateforme d’identités Microsoft](app-types.md)

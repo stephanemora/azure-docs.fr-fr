@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: fbc662aa9706b8668ec1328d09d927035f70c808
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f24caa8e82d8e3f9a7109945d55fad97564bdb76
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872208"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359339"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Utiliser PowerShell pour configurer la géoréplication active pour une base de données unique dans Azure SQL Database
 
@@ -35,7 +35,7 @@ Si vous choisissez d’installer et d’utiliser PowerShell en local, vous avez 
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
-Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
+Utilisez la commande suivante pour supprimer le groupe de ressources et toutes les ressources associées.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $primaryresourcegroupname

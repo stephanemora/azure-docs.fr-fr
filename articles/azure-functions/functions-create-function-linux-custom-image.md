@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 92811110ef44676de487bca1ad2022cb63315c75
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418055"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470064"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Créer une fonction sur Linux avec une image personnalisée
 
@@ -65,9 +65,9 @@ Lorsque vous incluez l’option `--docker`, un fichier Docker est généré pour
 
 Lorsque vous y êtes invités, choisissez un worker runtime parmi les langages suivants :
 
-* `dotnet` : crée un projet de bibliothèque de classes .NET (.csproj).
-* `node` : créer un projet JavaScript.
-* `python` : crée un projet Python.
+* `dotnet`: crée un projet de bibliothèque de classes .NET (.csproj).
+* `node`: crée un projet JavaScript.
+* `python`: crée un projet Python.
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
@@ -255,6 +255,16 @@ AzureWebJobsStorage=$storageConnectionString
 Vous pouvez désormais tester vos fonctions qui s’exécutent sur Linux dans Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+## <a name="enable-application-insights"></a>Activer Application Insights
+
+Il est recommandé de superviser l’exécution de vos fonctions en intégrant votre application de fonction à Azure Application Insights. Lorsque vous créez une application de fonction dans le portail Azure, cette intégration est faite pour vous par défaut. Toutefois, quand vous créez votre application de fonction à l’aide de l’interface Azure CLI, l’intégration à votre application de fonction dans Azure n’est pas effectuée.
+
+Pour activer Application Insights pour votre application de fonction :
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 
 ## <a name="enable-continuous-deployment"></a>Activer le déploiement continu
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 23c74c0b1d4c311cd57a02cbac9498f3acb16992
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6c9b257ab88b3564253b0f48d953094f84a1d71d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578116"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051437"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application ASP.NET Core avec Azure App Configuration
 
@@ -87,7 +87,7 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
 
     Cette commande doit être exécutée dans le même répertoire que le fichier *.csproj*.
 
-        dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>"
+        dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
     Secret Manager est utilisé uniquement pour tester l’application web localement. Une fois que l’application est déployée, par exemple sur [Azure App Service](https://azure.microsoft.com/services/app-service/web), vous utilisez un paramètre d’application, par exemple **Chaînes de connexion** dans App Service. Vous utilisez ce paramètre au lieu de stocker la chaîne de connexion avec Secret Manager.
 

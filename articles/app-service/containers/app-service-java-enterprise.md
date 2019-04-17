@@ -113,11 +113,11 @@ Vous pouvez configurer WildFly de façon à utiliser un magasin de sessions exte
 
 Par défaut, les sockets web sont activés sur App Service. Pour bien démarrer avec WebSockets dans votre application, reportez-vous à [ce démarrage rapide](https://github.com/wildfly/quickstart/tree/master/websocket-hello).
 
-## <a name="logs-and-troubleshooting"></a>Journaux et résolution des problèmes
+## <a name="logs-and-troubleshooting"></a>Journaux d’activité et résolution des problèmes
 
 App Service fournit des outils pour vous aider à résoudre les problèmes rencontrés avec votre application.
 
--   Activez la journalisation en cliquant sur **Journaux de diagnostic** dans le volet de navigation gauche. Cliquez sur **Système de fichiers** pour définir votre quota de stockage et la période de conservation, et enregistrez vos modifications. Vous pouvez trouver ces journaux sous `/home/LogFiles/`.
+-   Activez la journalisation en cliquant sur **Journaux de diagnostic** dans le volet de navigation gauche. Cliquez sur **Système de fichiers** pour définir votre quota de stockage et la période de conservation, et enregistrez vos modifications. Vous pouvez trouver ces journaux d’activité sous `/home/LogFiles/`.
 -   [Utilisez SSH pour vous connecter à l’instance d’application](app-service-linux-ssh-support.md) et afficher les journaux des applications en cours d’exécution.
 -   Journaux de diagnostic de la vérification le **journaux de Diagnostic** panneau du portail ou à l’aide de la commande CLI Azure :
 `az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

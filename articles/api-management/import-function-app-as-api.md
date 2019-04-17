@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: e86bd797774448d8e4821ff02d358d420a099442
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810777"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046051"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importer une application de fonction Azure en tant qu’API dans Gestion des API Azure
 
@@ -69,7 +69,7 @@ Suivez les étapes ci-dessous pour créer une nouvelle API à partir d’une app
     ![Ajouter à partir d’une application de fonction](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > Vous pouvez importer uniquement des fonctions qui utilisent un déclencheur HTTP et dont le paramètre de niveau d’autorisation est défini sur *Anonyme* ou *Fonction*.
+    > Vous pouvez importer uniquement des fonctions qui utilisent un déclencheur HTTP et dont le paramètre de niveau d’autorisation est défini sur *Anonyme* ou *Fonction*. À ce stade, les applications de fonction Linux ne sont pas prises en charge.
 
 7. Passez à la vue **Complète** et affectez **Produit** à votre nouvelle API. Si nécessaire, modifiez les autres champs préremplis.
 
@@ -111,11 +111,14 @@ Suivez les étapes ci-dessous pour ajouter une application de fonction Azure à 
 
     ![Ajouter à partir d’une application de fonction](./media/import-function-app-as-api/append-04.png)
 
-## <a name="function-app-import-keys"></a> Clé d’hôte d’application de fonction Azure générée
+## <a name="authorization"></a> Autorisation
 
 L’importation d’une application de fonction Azure génère automatiquement :
-* une clé d’hôte au sein de l’application de fonction portant le nom apim-{*nom de votre instance de service Gestion des API Azure*},
-* une valeur nommée au sein de l’instance de service Gestion des API Azure portant le nom {*nom de votre instance d’application de fonction Azure*}-key, qui contient la clé d’hôte créée.
+
+* Une clé d’hôte au sein de l’application de fonction portant le nom apim-{*nom de votre instance de service Gestion des API Azure*}.
+* Une valeur nommée au sein de l’instance de Gestion des API Azure portant le nom {*nom de votre instance d’Azure Function App*}-key, qui contient la clé d’hôte créée.
+
+Pour les API créées après le 4 avril 2019, la clé d’hôte est passée dans les requêtes HTTP de la Gestion des API vers l’application de fonction dans un en-tête. Les API plus anciennes transmettent la clé d’hôte sous la forme d’[un paramètre de requête](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Vous pouvez changer ce comportement par le biais de l’[appel à l’API REST](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract) `PATCH Backend` sur l’entité *Backend* associée à l’application de fonction.
 
 > [!WARNING]
 > En cas de suppression ou de modification de la clé d’hôte Azure Function App ou de la valeur nommée de Gestion des API Azure, la communication entre les services sera interrompue. Les valeurs ne se synchronisent pas automatiquement.
@@ -181,4 +184,4 @@ Vous pouvez également appeler des opérations à partir du portail des dévelop
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
+> [Transformer et protéger une API publiée](transform-api.md)

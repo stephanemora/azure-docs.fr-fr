@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b2f89d3fbb427cc3e14be231d4ffae879e641f2c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554875"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261171"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>Démarrage rapide : Créer une salle de conversation avec Azure Functions et le service SignalR en utilisant Java
 
@@ -58,18 +58,18 @@ Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compt
 
     ![Créer un service SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. Dans votre éditeur de code, ouvrez le dossier *chat/src/java* dans le référentiel cloné.
+1. Dans votre éditeur de code, ouvrez le dossier *src/chat/java* dans le référentiel cloné.
 
 1. Renommez *local.settings.sample.json* en *local.settings.json*.
 
 1. Dans le fichier **local.settings.json**, collez la chaîne de connexion dans la valeur du paramètre **AzureSignalRConnectionString**. Enregistrez le fichier .
 
-1. Le fichier principal contenant les fonctions se trouve dans *src/main/java/com/function/Functions.java* :
+1. Le fichier principal contenant les fonctions se trouve dans *src/chat/java/src/main/java/com/function/Functions.java* :
 
     - **negotiate** : utilise la liaison d’entrée *SignalRConnectionInfo* pour générer et retourner des informations de connexion valides.
     - **sendMessage** : reçoit un message de conversation dans le corps de la demande et utilise la liaison de sortie *SignalR* pour diffuser le message à toutes les applications clientes connectées.
 
-1. Dans le terminal, vérifiez que vous vous trouvez dans le dossier *chat/src/java*. Créez l’application de fonction.
+1. Dans le terminal, vérifiez que vous vous trouvez dans le dossier *src/chat/java*. Créez l’application de fonction.
 
     ```bash
     mvn clean package

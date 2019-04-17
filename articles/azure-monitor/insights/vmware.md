@@ -1,6 +1,6 @@
 ---
 title: Solution analyse VMware dans Azure Monitor | Microsoft Docs
-description: Découvrez comment la solution Analyse VMware peut vous aider à gérer les journaux et à surveiller les hôtes ESXi.
+description: Découvrez comment la solution de supervision VMware peut vous aider à gérer les journaux d’activité et à surveiller les hôtes ESXi.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -25,7 +25,7 @@ ms.locfileid: "58883273"
 ![Symbole VMware](./media/vmware/vmware-symbol.png)
 
 > [!NOTE]
-> La solution VMware Monitoring est désormais dépréciée.  Les clients qui ont déjà installé la solution VMware Monitoring peuvent continuer de l’utiliser, mais ils ne peuvent pas l’ajouter à de nouveaux espaces de travail.
+> La solution de supervision VMware est désormais dépréciée.  Les clients qui ont déjà installé la solution VMware Monitoring peuvent continuer de l’utiliser, mais ils ne peuvent pas l’ajouter à de nouveaux espaces de travail.
 
 La solution analyse VMware dans Azure Monitor est une solution qui vous permet de créer une approche de surveillance pour des journaux VMware volumineux et de la journalisation centralisée. Cet article décrit comment dépanner, capturer et gérer les hôtes ESXi dans un emplacement unique à l’aide de la solution. La solution vous permet de consulter des données détaillées pour tous vos hôtes ESXi dans un emplacement unique. Vous pouvez voir le nombre, l’état et les tendances des principaux événements des hôtes de machine virtuelle et ESXi, fournis via les journaux d’hôte ESXi. Vous pouvez résoudre des problèmes en consultant des journaux d’hôte ESXi centralisés et en y effectuant des recherches. Et vous pouvez créer des alertes basées sur des requêtes de recherche de journal.
 
@@ -75,10 +75,10 @@ Créez une machine virtuelle de système d’exploitation Linux pour recevoir to
 
     ![Type](./media/vmware/type.png)  
 
-    Si vos résultats de recherche de vue de journal sont similaires à l’image ci-dessus, vous êtes prêt à utiliser le tableau de bord de la solution VMware Monitoring.  
+    Si vos résultats de recherche de vue de journal d’activité sont similaires à l’image ci-dessus, vous êtes prêt à utiliser le tableau de bord de la solution de supervision VMware.  
 
 ## <a name="vmware-data-collection-details"></a>Détails sur la collecte de données Linux
-La solution VMware Monitoring collecte diverses mesures de performances et données de journaux à partir des hôtes ESXi à l’aide des agents Log Analytics pour Linux que vous avez activés.
+La solution de supervision VMware collecte diverses mesures de performances et données de journaux à partir des hôtes ESXi à l’aide des agents Log Analytics pour Linux que vous avez activés.
 
 Le tableau suivant présente les méthodes de collecte des données et d’autres informations sur le mode de collecte.
 
@@ -86,7 +86,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |Toutes les 3 minutes. |
 
-Le tableau suivant affiche des exemples de champs de données collectés par la solution Analyse VMware :
+Le tableau suivant affiche des exemples de champs de données collectés par la solution de supervision VMware :
 
 | Nom du champ | Description |
 | --- | --- |
@@ -109,7 +109,7 @@ Le tableau suivant affiche des exemples de champs de données collectés par la 
 | DataCenter_s |centre de données VMware |
 | StorageLatency_s |latence de stockage (ms) |
 
-## <a name="vmware-monitoring-solution-overview"></a>Présentation de la solution Analyse VMware
+## <a name="vmware-monitoring-solution-overview"></a>Présentation de la solution de supervision VMware
 La vignette VMware s’affiche dans votre espace de travail Log Analytics. Elle fournit une vue d’ensemble des erreurs. Lorsque vous cliquez sur la vignette, vous accédez à l’affichage du tableau de bord.
 
 ![vignette](./media/vmware/tile.png)
@@ -132,7 +132,7 @@ Cliquez sur n’importe quel panneau pour ouvrir le volet de recherche de Log An
 À ce stade, vous pouvez modifier la requête de journal pour l’adapter à un élément spécifique. Pour plus d’informations sur la création de requêtes de journal, consultez [trouver des données à l’aide de requêtes de journal dans Azure Monitor](../log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Rechercher des événements de l’hôte ESXi
-Un seul hôte ESXi génère plusieurs journaux basés sur leurs processus. La solution Analyse VMware les centralise et résume les nombres d’événements. Cette vue centralisée vous permet de comprendre quel hôte ESXi a un volume élevé d’événements ainsi que les événements qui se produisent le plus fréquemment dans votre environnement.
+Un seul hôte ESXi génère plusieurs journaux basés sur leurs processus. La solution de supervision VMware les centralise et résume les nombres d’événements. Cette vue centralisée vous permet de comprendre quel hôte ESXi a un volume élevé d’événements ainsi que les événements qui se produisent le plus fréquemment dans votre environnement.
 
 ![événement](./media/vmware/events.png)
 

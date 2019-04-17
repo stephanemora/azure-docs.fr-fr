@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 59dc9f82251e7a406e6fe1339fdb55b4880cd74d
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 34fe5d85829d909989513214406ba96ea5be0aa8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649184"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271099"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Didacticiel : Intégration d’Azure Active Directory à Pega Systems
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Pega Systems à Azure AD, vous devez ajouter Pega Systems à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Pega Systems à partir de la galerie, procédez comme suit :**
+**Pour ajouter Pega Systems à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -115,7 +115,7 @@ Pour configurer l’authentification unique Azure AD avec Pega Systems, effectue
 
     a. Dans la zone de texte **URL de connexion**, tapez la valeur de l’URL de connexion.
 
-    b. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
+    b. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse, l’URL de connexion et l’URL d’état de relais exacts. Vous pouvez trouver les valeurs de l’identificateur et de l’URL de réponse dans l’application Pega (la procédure est expliquée plus loin dans ce didacticiel). Pour connaître la valeur de l’état du relais, contactez [l’équipe de support technique de Pega Systems](https://www.pega.com/contact-us). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -275,7 +275,7 @@ Quand vous cliquez sur la vignette Pega Systems dans le volet d’accès, vous d
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

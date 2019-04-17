@@ -1,7 +1,6 @@
 ---
 title: Exemples de requêtes avancées
 description: Utilisez Azure Resource Graph pour exécuter certaines requêtes avancées, notamment la fonctionnalité VMSS, en listant toutes les étiquettes utilisées et en mettant en correspondance les machines virtuelles avec des expressions régulières.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842615"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256819"
 ---
 # <a name="advanced-resource-graph-queries"></a>Requêtes Resource Graph avancées
 
@@ -76,14 +75,14 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 Cette requête recherche les machines virtuelles qui correspondent à une [expression régulière](/dotnet/standard/base-types/regular-expression-language-quick-reference) (connue sous le nom _regex_).
 La valeur **correspond à regex \@** nous permet de définir l’expression régulière de correspondance, c’est-à-dire `^Contoso(.*)[0-9]+$`. Cette définition d’expression régulière est expliquée comme suit :
 
-- `^` : doit correspondance au début au commencement de la chaîne.
-- `Contoso` : chaîne sensible à la casse.
-- `(.*)` : correspondance de sous-expression :
-  - `.` : correspond à n'importe quel caractère unique (sauf une nouvelle ligne).
-  - `*` : correspond à l’élément précédent zéro fois ou plusieurs fois.
-- `[0-9]` : correspondance de groupe de caractères pour les nombres de 0 à 9.
-- `+` : correspond à l’élément précédent une fois ou plusieurs fois.
-- `$` : la correspondance avec l’élément précédent doit se produire à la fin de la chaîne.
+- `^` - doit correspondance au début de la chaîne.
+- `Contoso` - chaîne sensible à la casse.
+- `(.*)` - correspondance de sous-expression :
+  - `.` - correspond à n’importe quel caractère unique (sauf une nouvelle ligne).
+  - `*` - correspond à l’élément précédent zéro fois ou plusieurs fois.
+- `[0-9]` - correspondance de groupe de caractères pour les nombres de 0 à 9.
+- `+` - correspond à l’élément précédent une fois ou plusieurs fois.
+- `$` - une correspondance à l’élément précédent doit se produire à la fin de la chaîne.
 
 Après la mise en correspondance par nom, la requête projette le nom et effectue le tri par nom croissant.
 

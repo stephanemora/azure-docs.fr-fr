@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/03/2019
-ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.lastreviewed: 04/05/2019
+ms.openlocfilehash: 93221b8cd30993c4bdfdc84b5d14ac432fa661d3
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862078"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471280"
 ---
 # <a name="azure-stack-1902-update"></a>Mise à jour 1902 d’Azure Stack
 
@@ -65,6 +65,8 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
     Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
+  Si le paramètre `AzsControlPlane` est inclus lors de l’exécution de **Test-AzureStack**, l’erreur suivante apparaît dans la sortie **Test-AzureStack** : **FAIL Azure Stack Control Plane Websites Summary**. Vous pouvez ignorer sans problème cette erreur spécifique.
+
 - Lorsqu’Azure Stack est géré par System Center Operations Manager (SCOM), veillez à mettre à jour le [Pack d’administration pour Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) vers la version 1.0.3.11 avant d’appliquer la version 1902.
 
 - Le format de package pour la mise à jour d’Azure Stack est passé de **.bin/.exe/.xml** à **.zip/.xml** depuis la version 1902. Les clients avec des unités d’échelle Azure Stack connectées verront le message **Mise à jour disponible** dans le portail. Les clients qui ne sont pas connectés peuvent désormais simplement télécharger et importer le fichier .zip qui contient le fichier .xml correspondant.
@@ -78,7 +80,7 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 - La build 1902 introduit une nouvelle interface utilisateur sur le portail Administrateur Azure Stack pour la création de plans, d’offres, de quotas et de plans complémentaires. Pour plus d’informations, y compris des captures d’écran, consultez [Créer des plans, des offres et des quotas](azure-stack-create-plan.md).
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Améliorations de la fiabilité de l’extension de capacité pendant l’ajout de nœuds lors du passage de l’état de l’unité d’échelle de « Développement du stockage » à l’état d’exécution.
+- Améliorations de la fiabilité de l’extension de capacité pendant une opération d’ajout de nœuds lors du passage de l’état de l’unité d’échelle de « Développement du stockage » à « Exécution ».
 
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
@@ -95,16 +97,14 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
   ```  
   
 - Afin d’améliorer la fiabilité et la disponibilité globales des principaux services d’infrastructure pendant le processus de mise à jour, le fournisseur de ressources de mise à jour natif, en tant que partie prenante du plan d’action de mise à jour, détecte et appelle des corrections globales automatiques si nécessaire. Le flux de travail de correction globale « Réparer » inclut les opérations suivantes :
-    - Rechercher les machines virtuelles de l’infrastructure dont l’état n’est pas optimal et tenter de les réparer si nécessaire 
-    - Rechercher les problèmes de service SQL dans le cadre du plan de contrôle et tenter d’y remédier si nécessaire
-    - Vérifier l’état du service d’équilibrage de charge logicielle (SLB) dans le contrôleur de réseau (NC) et tenter de le réparer si nécessaire
-    - Vérifier l’état du service de contrôleur de réseau (NC) et tenter de le réparer si nécessaire
-    - Vérifier l’état des nœuds de la structure du service de console de récupération d’urgence (ERCS) et les réparer si nécessaire
-    - Vérifier l’état des nœuds de la structure du service XRP et les réparer si nécessaire
-    - Vérifier l’état des nœuds de la structure du service de stockage cohérent Azure (ACS) et les réparer si nécessaire
 
-<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Améliorations de la fiabilité de l’extension de capacité pendant l’ajout de nœuds lors du passage de l’état de l’unité d’échelle de « Développement du stockage » à l’état d’exécution.    
+  - Rechercher les machines virtuelles de l’infrastructure dont l’état n’est pas optimal et tenter de les réparer si nécessaire.
+  - Rechercher les problèmes de service SQL dans le cadre du plan de contrôle et tenter d’y remédier si nécessaire.
+  - Vérifier l’état du service d’équilibrage de charge logicielle (SLB) dans le contrôleur de réseau (NC) et tenter de le réparer si nécessaire.
+  - Vérifier l’état du service de contrôleur de réseau (NC) et tenter de le réparer si nécessaire
+  - Vérifier l’état des nœuds de la structure du service de console de récupération d’urgence (ERCS) et les réparer si nécessaire.
+  - Vérifier l’état du rôle d’infrastructure et le réparer si nécessaire.
+  - Vérifier l’état des nœuds de la structure du service de stockage cohérent Azure (ACS) et les réparer si nécessaire.
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -198,6 +198,14 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 <!-- 1663805 - IS ASDK --> 
 - Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack. Pour contourner ce problème, utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
 
+<!-- Daniel 3/28 -->
+- Dans le portail de l’utilisateur, lorsque vous accédez à un objet blob au sein d’un compte de stockage et essayez d’ouvrir la rubrique **Stratégie d'accès** dans l’arborescence de navigation, la fenêtre suivante ne s’ouvre pas. Pour contourner ce problème, les applets de commande PowerShell suivantes permettent de créer, récupérer, définir et supprimer des stratégies d’accès, respectivement :
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
+
 <!-- ### Health and monitoring -->
 
 ### <a name="compute"></a>Calcul
@@ -257,6 +265,10 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>syslog 
+
+- La configuration syslog n’est pas conservée lors d’un cycle de mise à jour et, par conséquent, le client perd sa configuration et les messages syslog ne sont plus transférés. Ce problème s’applique à toutes les versions d’Azure Stack depuis la disponibilité générale du client syslog (1809). Pour contourner ce problème, reconfigurez le client syslog après avoir appliqué une mise à jour Azure Stack.
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour
 

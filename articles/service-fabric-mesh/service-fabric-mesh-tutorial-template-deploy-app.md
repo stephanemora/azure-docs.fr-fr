@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8a910f35bf25f889150ea3e89f4fa653f3a9ac14
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336318"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527334"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Didacticiel : Déployer une application sur Service Fabric Mesh à l’aide d’un modèle
 
@@ -351,8 +351,8 @@ Dans le fichier de paramètres, mettez à jour les valeurs de paramètre suivant
 |registryPassword|Mot de passe que vous avez obtenu à l’étape [Récupérer les informations d’identification pour le registre](#retrieve-credentials-for-the-registry). Ce paramètre dans le modèle est une chaîne sécurisée ; il ne s’affiche pas dans l’état du déploiement ou les commandes `az mesh service show`.|
 |registryUserName|Nom d’utilisateur que vous avez obtenu à l’étape [Récupérer les informations d’identification pour le registre](#retrieve-credentials-for-the-registry).|
 |registryServer|Nom de serveur de registre que vous avez obtenu à l’étape [Récupérer les informations d’identification pour le registre](#retrieve-credentials-for-the-registry).|
-|frontEndImage|Image conteneur pour le service frontal.  Par exemple, « <myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709 ».|
-|serviceImage|Image conteneur pour le service backend.  Par exemple, « <myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709 ».|
+|frontEndImage|Image conteneur pour le service frontal.  Par exemple : `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|Image conteneur pour le service backend.  Par exemple : `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 Pour déployer l’application, exécutez la commande suivante :
 

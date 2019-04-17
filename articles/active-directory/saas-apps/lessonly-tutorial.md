@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Lessonly.com | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Lessonly.com | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Lessonly.com.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ced28f5bc3ca947bb4754b7de716b37062f9859a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec1fce18913d6763514abb80ceba471bf73d59ad
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898565"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Didacticiel : Intégration d’Azure Active Directory à Lessonly.com
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Lessonly.com à Azure AD, vous devez ajouter Lessonly.com à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter Lessonly.com à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Lessonly.com à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD auprès de Lessonly.com, ef
 
     ![Informations d’authentification unique relatives au domaine et aux URL Lessonly.com](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.lessonly.com/signin`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<companyname>.lessonly.com/signin`
 
     > [!NOTE]
     > Lors du référencement d’un nom générique, la partie **nomentreprise** doit être remplacée par un nom réel.
@@ -183,7 +183,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -233,7 +233,7 @@ Le fait de cliquer sur la vignette Lessonly.com dans le volet d’accès doit vo
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

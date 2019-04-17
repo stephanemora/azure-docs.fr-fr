@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e43c607c2dc67054bde7689d50e495a59e6b659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540854"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270801"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -132,14 +132,14 @@ Pour créer l’interface utilisateur, ajoutez le code à *index.html* :
 1. Ajoutez des références aux fichiers CSS et JavaScript de contrôle web Azure Maps :
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
 1. Ajoutez une référence au module Azure Maps Services. Le module est une bibliothèque JavaScript qui encapsule les services REST Azure Maps et facilite leur utilisation en JavaScript. Le module est utile pour faire tourner la fonctionnalité de recherche.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
 
 1. Ajoutez des références à *index.js* et *index.css* :
@@ -454,7 +454,7 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
         //Wait until the map resources are ready.
         map.events.add('ready', function() {
 
-        //Add your post-map load functionality.
+            //Add your post-map load functionality.
 
         });
     }
@@ -516,7 +516,7 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
     window.onload = initialize;
     ```
 
-1. Dans l’écouteur d’événements `load` de la carte, ajoutez un contrôle de zoom et un marqueur HTML pour afficher le centre d’une zone de recherche.
+1. Dans l’écouteur d’événements `ready` de la carte, ajoutez un contrôle de zoom et un marqueur HTML pour afficher le centre d’une zone de recherche.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -533,7 +533,7 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
     map.markers.add(centerMarker);
     ```
 
-1. Dans l’écouteur d’événements `load` de la carte, ajoutez une source de données. Formulez ensuite un appel pour charger et analyser le jeu de données. Activez le regroupement sur la source de données. Le regroupement sur la source de données a pour effet de rassembler les points qui se chevauchent. Les groupes se séparent en point individuels dès que l’utilisateur effectue un zoom avant. L’expérience utilisateur gagne ainsi en fluidité et les performances s’en trouvent améliorées.
+1. Dans l’écouteur d’événements `ready` de la carte, ajoutez une source de données. Formulez ensuite un appel pour charger et analyser le jeu de données. Activez le regroupement sur la source de données. Le regroupement sur la source de données a pour effet de rassembler les points qui se chevauchent. Les groupes se séparent en point individuels dès que l’utilisateur effectue un zoom avant. L’expérience utilisateur gagne ainsi en fluidité et les performances s’en trouvent améliorées.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -548,7 +548,7 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
     loadStoreData();
     ```
 
-1. Après avoir chargé le jeu de données dans l’écouteur d’événements `load` de la carte, définissez un ensemble de couches pour restituer les données. Une couche de bulles est utilisée pour restituer les points de données regroupés. Une couche de symboles est utilisée pour restituer le nombre de points présents dans chaque groupe au-dessus de la couche de bulles. Une deuxième couche de symboles restitue une icône personnalisée pour chaque emplacement sur la carte.
+1. Après avoir chargé le jeu de données dans l’écouteur d’événements `ready` de la carte, définissez un ensemble de couches pour restituer les données. Une couche de bulles est utilisée pour restituer les points de données regroupés. Une couche de symboles est utilisée pour restituer le nombre de points présents dans chaque groupe au-dessus de la couche de bulles. Une deuxième couche de symboles restitue une icône personnalisée pour chaque emplacement sur la carte.
 
    Ajoutez des événements `mouseover` et `mouseout` aux couches de bulles et d’icônes pour modifier le curseur de la souris quand l’utilisateur pointe sur un groupe ou une icône de la carte. Ajoutez un événement `click` à la couche de bulles du groupe. Cet événement `click` effectue un zoom avant de deux niveaux sur la carte et centre celle-ci sur le groupe que l’utilisateur sélectionne. Ajoutez un événement `click` à la couche d’icônes. Cet événement `click` affiche une fenêtre indépendante qui affiche les détails d’un café quand un utilisateur sélectionne une icône d’emplacement individuel. Ajoutez un événement à la carte pour surveiller à quel moment la carte cesse de se déplacer. Quand cet événement se déclenche, mettez à jour les éléments dans le volet de liste.  
 
@@ -970,3 +970,6 @@ Pour bénéficier de davantage d’exemples de code et d’une expérience de co
 
 > [!div class="nextstepaction"]
 > [Comment utiliser le contrôle de carte](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Utiliser des expressions de style basées sur les données](data-driven-style-expressions-web-sdk.md)

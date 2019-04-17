@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 49f3f50cd33d2b3fea1e784fcfc70044c568ba31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842411"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426305"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Bien démarrer avec l’utilisation d’Azure Dev Spaces conjointement à Java
 
@@ -26,15 +26,10 @@ Dans ce guide, vous allez apprendre à :
 - Développer et tester votre code de façon productive dans un environnement d’équipe.
 
 > [!Note]
-> **Si vous êtes bloqué**, consultez la section [Résolution des problèmes](troubleshooting.md) ou postez un commentaire sur cette page.
-
-Vous voici prêt à créer un espace de développement Kubernetes dans Azure.
+> **Si vous êtes bloqué**, consultez la section [Résolution des problèmes](troubleshooting.md).
 
 ## <a name="install-the-azure-cli"></a>Installer l’interface de ligne de commande Microsoft Azure
 Azure Dev Spaces requiert une configuration d’ordinateur local minimale. La majeure partie de la configuration de votre espace de développement est stockée dans le cloud et peut être partagée avec d’autres utilisateurs. Commencez par télécharger et exécuter [l’interface de ligne de commande Azure (Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-> [!IMPORTANT]
-> Si vous avez déjà installé Azure CLI, vérifiez que vous utilisez la version 2.0.43 ou une version ultérieure.
 
 ### <a name="sign-in-to-azure-cli"></a>Connectez-vous à Azure CLI
 Connectez-vous à Azure. Saisissez la commande suivante dans une fenêtre de terminal :
@@ -113,7 +108,7 @@ Pour l’heure, vous disposez d’une application web de base qui peut s’exéc
     ```
 
 La commande `azds prep` d’Azure CLI génère des ressources Docker et Kubernetes avec les paramètres par défaut :
-* `./Dockerfile` décrit l’image du conteneur de l’application et la façon dont le code source est généré et s’exécute dans le conteneur.
+* `./Dockerfile` décrit l’image conteneur de l’application, ainsi que la façon dont le code source est généré et s’exécute dans le conteneur.
 * Un [graphique Helm](https://docs.helm.sh) sous `./charts/webfrontend` décrit la façon dont le conteneur est déployé dans Kubernetes.
 
 Pour l’instant, il n’est pas nécessaire de comprendre l’ensemble du contenu de ces fichiers. Il est cependant important de noter que **les mêmes ressources de configuration en tant que code Kubernetes et Docker peuvent être utilisées du développement jusqu’à la production, ce qui assure une meilleure cohérence dans les différents environnements.**
@@ -153,7 +148,7 @@ Ouvrez cette URL dans une fenêtre de navigateur. Vous devriez alors voir l’ap
 > Azure Dev Spaces vous permet non seulement d’obtenir un code s’exécutant dans Kubernetes, mais également de visualiser rapidement et de façon itérative la prise en compte des modifications de votre code dans un environnement Kubernetes dans le cloud.
 
 1. Dans la fenêtre de terminal, appuyez sur `Ctrl+C` (pour arrêter `azds up`).
-1. Ouvrez le fichier de code nommé `src/main/java/com/ms/sample/webfrontend/Application.java`, puis modifiez le message d’accueil : `return "Hello from webfrontend in Azure!";`
+1. Ouvrez le fichier de code nommé `src/main/java/com/ms/sample/webfrontend/Application.java`, puis modifiez le message d’accueil : `return "Hello from webfrontend in Azure!";`
 1. Enregistrez le fichier .
 1. Exécutez `azds up` dans la fenêtre de terminal.
 

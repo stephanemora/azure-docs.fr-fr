@@ -47,7 +47,7 @@ Avant de commencer, passez en revue les exigences suivantes.
 * Azure Monitor prend uniquement en charge System Center Operations Manager 2016 ou version ultérieure, Operations Manager 2012 SP1 UR6 ou version ultérieure et Operations Manager 2012 R2 UR2 ou version ultérieure. La prise en charge du proxy a été ajoutée dans Operations Manager 2012 SP1 UR7 et Operations Manager 2012 R2 UR3.
 * L’intégration de System Center Operations Manager 2016 dans le cloud US Government nécessite un pack d’administration Advisor mis à jour inclus avec le correctif cumulatif 2 ou version ultérieure. System Center Operations Manager 2012 R2 nécessite un pack d’administration Advisor mis à jour inclus avec le correctif cumulatif 3 ou version ultérieure.
 * Tous les agents Operations Manager doivent répondre aux exigences en matière de prise en charge. Vérifiez que chaque agent est au niveau minimum de mise à jour ; sinon, la communication de l’agent Windows échouera, entraînant des erreurs dans le journal des événements Operations Manager.
-* Un espace de travail Log Analytics. Pour plus d'informations, consultez [Présentation de l'espace de travail Log Analytics](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
+* Un espace de travail Log Analytics. Pour plus d’informations, consultez [Présentation de l’espace de travail Log Analytics](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
 * Vous vous authentifiez sur Azure avec un compte qui est membre du [rôle Collaborateur Log Analytics](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]
@@ -115,7 +115,7 @@ Après avoir effectué les étapes suivantes pour intégrer avec Azure Monitor, 
    >[!NOTE]
    >Le nom d’Operations Management Suite a été retiré. 
    
-1. Une fois authentifié, vous êtes invité à sélectionner votre espace de travail Log Analytics ainsi que votre tenant et votre abonnement Azure sur la page **Assistant Intégration d’Operations Management Suite : sélectionner un espace de travail**. Si vous avez plusieurs espaces de travail, sélectionnez celui que vous souhaitez inscrire auprès du groupe d’administration d’Operations Manager dans la liste déroulante, puis cliquez sur **Suivant**.
+1. Une fois authentifié, vous êtes invité à sélectionner votre espace de travail Log Analytics ainsi que votre tenant et votre abonnement Azure sur la page **Assistant Intégration d’Operations Management Suite : Sélectionner la page Espace de travail**. Vous êtes invité à sélectionner votre locataire Azure, votre abonnement et l’espace de travail Log Analytics. Si vous avez plusieurs espaces de travail, sélectionnez celui que vous souhaitez inscrire auprès du groupe d’administration d’Operations Manager dans la liste déroulante, puis cliquez sur **Suivant**.
    
    > [!NOTE]
    > Operations Manager prend uniquement en charge un espace de travail Log Analytics à la fois. La connexion et les ordinateurs qui ont été inscrits auprès d’Azure Monitor avec l’espace de travail précédent sont supprimés à partir d’Azure Monitor.

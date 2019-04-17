@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à AuditBoard | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à AuditBoard | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AuditBoard.
 services: active-directory
 documentationCenter: na
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce100c4e8aa33a9180f5657756b11d6c6e34920
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5a54fb179b9baac9e72e003b1f9b0c6697ae74b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838865"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258791"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Tutoriel : Intégration d’Azure Active Directory à AuditBoard
+# <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Didacticiel : Intégration d’Azure Active Directory à AuditBoard
 
 Ce tutoriel vous apprend à intégrer AuditBoard à Azure Active Directory (Azure AD).
 L’intégration d’AuditBoard à Azure AD vous offre les avantages suivants :
@@ -38,7 +38,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour configurer l’intégration d’Azure AD à AuditBoard, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
 * Abonnement AuditBoard pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -67,7 +67,7 @@ Pour configurer l’intégration d’AuditBoard à Azure AD, vous devez ajouter
 
 4. Dans la zone de recherche, tapez **AuditBoard**, sélectionnez **AuditBoard** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![AuditBoard dans la liste des résultats](common/search-new-app.png)
+    ![AuditBoard dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -79,8 +79,8 @@ Pour configurer et tester l’authentification unique Azure AD avec AuditBoard,
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique AuditBoard](#configure-auditboard-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Créer un utilisateur de test AuditBoard](#create-auditboard-test-user)** pour disposer, dans AuditBoard, d’un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
-5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test AuditBoard](#create-auditboard-test-user)** pour disposer, dans AuditBoard, d’un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -111,14 +111,14 @@ Pour configurer l’authentification unique Azure AD avec AuditBoard, effectuez
 
     c. Cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes si vous souhaitez configurer l’application en mode **Initié par le fournisseur de services** :
 
-    d. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.auditboardapp.com/`.
+    d. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<SUBDOMAIN>.auditboardapp.com/`
 
     ![Informations d’authentification unique dans Domaine et URL AuditBoard](common/metadata-upload-additional-signon.png)
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique AuditBoard](mailto:support@auditboard.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
@@ -126,7 +126,7 @@ Pour configurer l’authentification unique Azure AD avec AuditBoard, effectuez
 
 Pour configurer l’authentification unique côté **AuditBoard**, vous devez envoyer **l’URL des métadonnées de fédération d’application** à [l’équipe de support technique AuditBoard](mailto:support@auditboard.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
@@ -144,8 +144,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon\@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -181,7 +180,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 Dans cette section, vous créez un utilisateur appelé Britta Simon dans AuditBoard. Collaborez avec [l’équipe de support technique AuditBoard](mailto:support@auditboard.com) pour ajouter des utilisateurs dans la plateforme AuditBoard. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -194,4 +193,3 @@ Le fait de cliquer sur la vignette AuditBoard dans le panneau d’accès doit vo
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

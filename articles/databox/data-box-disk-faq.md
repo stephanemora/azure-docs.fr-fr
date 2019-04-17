@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892328"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258774"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Qu’est-ce qu’Azure Data Box Disk ?
 
@@ -54,7 +54,7 @@ R. Pour 5 disques de 8 To chacun (7 To de capacité utilisable), la capacité ut
 R.  Pour voir où les disques Data Box Disk sont actuellement disponibles, accédez à [Disponibilité dans la région](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Dans quelles régions puis-je stocker des données avec des disques Data Box ?
-R. La solution Data Box Disk est prise en charge dans toutes les régions des États-Unis, du Canada, d’Australie, de l’Europe de l’Ouest et de l’Europe du Nord. Seules les régions du cloud public Azure sont prises en charge. Azure Government et les autres clouds souverains ne sont pas pris en charge.
+R. La solution Data Box Disk est prise en charge dans toutes les régions des États-Unis, du Canada, de l’Australie, de l’Europe Ouest, de l’Europe Nord, de la Corée et du Japon. Seules les régions du cloud public Azure sont prises en charge. Azure Government et les autres clouds souverains ne sont pas pris en charge.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. Qui dois-je contacter si je rencontre des problèmes avec des disques Data Box ?
 R. Si vous rencontrez des problèmes avec Data Box Disk, veuillez [contacter le Support Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -132,8 +132,8 @@ L’ensemble d’outils est disponible pour Windows et Linux. Vous pouvez télé
 - [Télécharger l’ensemble d’outils Data Box Disk pour Windows](https://aka.ms/databoxdisktoolswin) 
 - [Télécharger l’ensemble d’outils Data Box Disk pour Linux](https://aka.ms/databoxdisktoolslinux)
  
-  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>Q. Puis-je utiliser Data Box Disk pour transférer des données vers Azure Files, puis utiliser les données avec Azure File Sync ? 
-  R. Les fichiers Azure sont pris en charge avec Data Box Disk, mais ne fonctionnent pas correctement avec Azure File Sync. Les métadonnées ne sont pas conservées si les données des fichiers sont utilisées avec Azure File Sync.
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>Q. Puis-je utiliser Data Box Disk pour transférer des données vers Azure Files, puis utiliser les données avec Azure File Sync ? 
+R. Les fichiers Azure sont pris en charge avec Data Box Disk, mais ne fonctionnent pas correctement avec Azure File Sync. Les métadonnées ne sont pas conservées si les données des fichiers sont utilisées avec Azure File Sync.
 
 
 ## <a name="verify-and-upload"></a>Vérification et chargement
@@ -166,7 +166,7 @@ R. Vous pouvez cloner votre commande précédente. Ainsi, vous créez une comman
 R. Oui. Vos données a été chargées sur Azure mais, si vous ne voyez aucun disque managé avec les groupes de ressources spécifiés, il est probable que les données n’étaient pas valides. Si les objets blob de pages, les objets blob de blocs, les fichiers Azure et les disques managés n’étaient pas valides, ils iraient dans les dossiers suivants :
  - Les objets blob de pages iraient dans un conteneur d’objets blob de blocs dont le nom commence par *databoxdisk-invalid-pb-*.
  - Les fichiers Azure iraient dans un conteneur d’objets blob de blocs dont le nom commence par *databoxdisk-invalid-af-*.
- - Les fichiers managés iraient dans un conteneur d’objets blob de blocs dont le nom commence par *databoxdisk-invalid-md-*.
+ - Les disques managés iraient dans un conteneur d’objets blob de blocs dont le nom commence par *databoxdisk-invalid-md-*.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

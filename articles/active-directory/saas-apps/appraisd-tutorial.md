@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Appraisd | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Appraisd | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Appraisd.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd7d1e3511bf74650ddc9dca1cf77c2b7c297c96
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861500"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260899"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Tutoriel : Intégration d’Azure Active Directory à Appraisd
+# <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Didacticiel : Intégration d’Azure Active Directory à Appraisd
 
 Dans ce tutoriel, vous allez apprendre à intégrer Appraisd à Azure Active Directory (Azure AD).
 L’intégration d’Appraisd à Azure AD vous offre les avantages suivants :
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Appraisd, effectuez l
 
     b. Dans la zone de texte **État de relais**, tapez une URL : `<TENANTCODE>`
 
-    c. Si vous souhaitez configurer l’application en mode démarré par le **fournisseur de services**, dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://app.appraisd.com/saml/<TENANTCODE>`
+    c. Pour configurer l’application en mode lancé par le **fournisseur de services**, dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://app.appraisd.com/saml/<TENANTCODE>`
 
     > [!NOTE]
     > Vous obtenez les valeurs d’URL de connexion et d’état de relais réelles dans la page de configuration de l’authentification unique pour Appraisd, comme expliqué plus loin dans le tutoriel.
@@ -161,7 +161,7 @@ Pour configurer l’authentification unique Azure AD avec Appraisd, effectuez l
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à Appraisd en tant qu’administrateur de la sécurité.
 
-2. Dans le coin supérieur droit de la page, cliquez sur l’icône **Paramètres**, puis accédez à  **Configuration**.
+2. Dans le coin supérieur droit de la page, cliquez sur l’icône **Paramètres**, puis accédez à **Configuration**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
@@ -173,9 +173,9 @@ Pour configurer l’authentification unique Azure AD avec Appraisd, effectuez l
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
-    a. Copiez la valeur **Default Relay State** (État de relais par défaut) et collez-la dans la zone de texte  **État de relais** dans  **Configuration SAML de base** dans le portail Azure.
+    a. Copiez la valeur **Default Relay State** (État de relais par défaut) et collez-la dans la zone de texte **État de relais** dans **Configuration SAML de base** sur le portail Azure.
 
-    b. Copiez la valeur **Service-initiated login URL** (URL de connexion lancée par le service) et collez-la dans la zone de texte  **État de relais** dans  **Configuration SAML de base** dans le portail Azure.
+    b. Copiez la valeur **Service-initiated login URL** (URL de connexion démarrée par le service) et collez-la dans la zone de texte **État de relais** dans **Configuration SAML de base** sur le portail Azure.
 
 5. Faites défiler la même page vers le bas jusqu’à **Identifying users** (Identification des utilisateurs), puis effectuez les étapes suivantes :
 
@@ -185,7 +185,7 @@ Pour configurer l’authentification unique Azure AD avec Appraisd, effectuez l
 
     b. Dans la zone de texte **Identity Provider Issuer URL** (URL de l’émetteur du fournisseur d’identité), collez l’**Identificateur Azure AD** que vous avez copié sur le portail Azure, puis cliquez sur **Save** (Enregistrer).
 
-    c. Dans le Bloc-notes, ouvrez le certificat codé en base 64 téléchargé à partir du portail Azure, copiez son contenu, puis collez-le dans la zone  **X.509 Certificate** (Certificat X.509) et cliquez sur **Save** (Enregistrer).
+    c. Dans le Bloc-notes, ouvrez le certificat codé en base 64 téléchargé dans le portail Azure, copiez son contenu, puis collez-le dans la zone **Certificat X.509** et cliquez sur **enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -205,7 +205,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -242,15 +242,15 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 Pour se connecter à Appraisd, les utilisateurs Azure AD doivent être attribués dans Appraisd. Dans Appraisd, le provisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à Appraisd en tant qu’administrateur de la sécurité.
 
-2. Dans le coin supérieur droit de la page, cliquez sur l’icône **Paramètres**, puis accédez à  **Administration centre** (Centre d’administration).
+2. Dans le coin supérieur droit de la page, cliquez sur l’icône **Paramètres**, puis accédez à **Administration centre** (Centre d’administration).
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
-3. Dans la barre d’outils en haut de la page, cliquez sur  **People** (Personnes), puis accédez à  **Add a new user** (Ajouter un nouvel utilisateur).
+3. Dans la barre d’outils en haut de la page, cliquez sur **People** (Personnes), puis accédez à **Add a new user** (Ajouter un nouvel utilisateur).
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 

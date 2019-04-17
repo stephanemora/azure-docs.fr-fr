@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: da06b8772cbf4f9f805952e19cff03791a86e4c7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4f7edd13c07d24d5d5a12fb9973083db44f0211f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437957"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Didacticiel : Intégration d'Azure Active Directory au Portail du financement
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration du Portail du financement à Azure AD, vous devez ajouter le Portail du financement depuis la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter le Portail du financement à partir de la galerie, procédez comme suit :**
+**Pour ajouter le Portail du financement à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec The Funding Portal, ef
 
     ![Informations d’authentification unique Domaine et URL The Funding Portal](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.regenteducation.net/`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<subdomain>.regenteducation.net/`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<subdomain>.regenteducation.net`
 
@@ -222,7 +222,7 @@ Le fait de cliquer sur la vignette The Funding Portal dans le volet d’accès d
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

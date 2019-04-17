@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Intralinks | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Intralinks | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Intralinks.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a1f5e35ea853d90dd34c33d63d3e7d4788fe63
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f72d00878e510a420b6974a7564ebc01fc09dcc3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258800"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Didacticiel : Intégration d'Azure Active Directory à Intralinks
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer son intégration à Azure AD, vous devez ajouter Intralinks à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter Intralinks à partir de la galerie, procédez comme suit :**
+**Pour ajouter Intralinks à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -191,7 +191,7 @@ Le fait de cliquer sur la vignette Intralinks dans le volet d’accès doit vous
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

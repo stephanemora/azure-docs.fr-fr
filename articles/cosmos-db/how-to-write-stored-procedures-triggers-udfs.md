@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339310"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268406"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Pour appeler une procédure stockée, un déclencheur, une fonction définie par
 
 Les procédures stockées sont écrites à l’aide de JavaScript ; elles peuvent créer, mettre à jour, lire, interroger et supprimer des éléments à l’intérieur d’un conteneur Azure Cosmos. Les procédures stockées sont enregistrées par collection, et elles peuvent s’appliquer à tout document ou pièce jointe figurant dans cette collection.
 
-**Exemple**
+**Exemples**
 
 Voici une simple procédure stockée qui renvoie une réponse « Hello World ».
 
@@ -279,7 +279,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-Un élément important à noter est l’exécution transactionnelle des déclencheurs dans Azure Cosmos DB. Ce post-déclencheur s’exécute dans le cadre de la même transaction que celle utilisée par l’élément Azure Cosmos DB créé. Par conséquent, si vous recevez une exception pendant l’exécution du post-déclencheur (par exemple, si vous ne pouvez pas mettre à jour l’élément de métadonnées), la transaction entière échoue et est annulée. L’élément Azure Cosmos DB est ainsi créé et une exception est renvoyée.
+Un élément important à noter est l’exécution transactionnelle des déclencheurs dans Azure Cosmos DB. Le post-déclencheur s’exécute dans le cadre de la même transaction pour l’élément sous-jacent lui-même. Une exception pendant l’exécution du post-déclencheur fait échouer toute la transaction. Tout ce qui est déjà validé est annulé et une exception est retournée.
 
 Pour des exemples d’inscription et d’appel d’un prédéclencheur, consultez les articles dédiés aux [prédéclencheurs](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) et aux [post-déclencheurs](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 
@@ -320,8 +320,8 @@ Découvrez plus de concepts et comment écrire et utiliser des procédures stock
 
 * [Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [How to write stored procedures and triggers in Azure Cosmos DB by using the JavaScript query API](how-to-write-javascript-query-api.md) (Comment écrire des procédures stockées et des déclencheurs à l’aide de l’API de requête JavaScript dans Azure Cosmos DB)
+* [Comment écrire des procédures stockées et des déclencheurs à l’aide de l’API de requête JavaScript dans Azure Cosmos DB](how-to-write-javascript-query-api.md)
 
-* [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions](stored-procedures-triggers-udfs.md) (Utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur Azure Cosmos DB)
+* [Utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 
-* [Working with JavaScript language-integrated query API with Azure Cosmos DB](javascript-query-api.md) (Utiliser l’API de requête avec langage intégré JavaScript dans Azure Cosmos DB)
+* [Utiliser l’API de requête avec langage intégré JavaScript dans Azure Cosmos DB](javascript-query-api.md)

@@ -131,7 +131,7 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
 - **Nom** : entrez un nom unique pour identifier le déploiement de mises à jour.
 - **Système d’exploitation** : sélectionnez **Windows** ou **Linux**.
 - **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)
-- **Machines à mettre à jour** : sélectionnez Recherche enregistrée, Groupe importé ou Machines pour choisir les machines que vous souhaitez mettre à jour. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
+- **Machines à mettre à jour** : sélectionnez Recherche enregistrée, Groupe importé ou Machines pour choisir les machines que vous souhaitez mettre à jour. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux d’activité Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux d’activité Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
   ![Volet Nouveau déploiement de mises à jour](./media/manage-update-multi/update-select-computers.png)
 
@@ -188,7 +188,7 @@ Le volet **Résultats des mises à jour** affiche un récapitulatif du nombre to
 - **Réussi** : la mise à jour a réussi.
 - **Échec** : la mise à jour a échoué.
 
-Pour afficher toutes les entrées de journal créées par le déploiement, sélectionnez **Tous les journaux**.
+Pour afficher toutes les entrées de journal créées par le déploiement, sélectionnez **Tous les journaux d’activité**.
 
 Pour voir le flux des tâches du runbook qui gère le déploiement des mises à jour sur la machine virtuelle cible, sélectionnez la vignette Sortie.
 
@@ -196,5 +196,5 @@ Pour afficher les informations détaillées sur les erreurs du déploiement, sé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur la gestion des mises à jour, y compris les journaux, la sortie et les erreurs, consultez [Solution de gestion de mises à jour dans Azure](../operations-management-suite/oms-solution-update-management.md).
+- Pour en savoir plus sur la gestion des mises à jour, y compris les journaux d’activité, la sortie et les erreurs, consultez [Solution de gestion de mises à jour dans Azure](../operations-management-suite/oms-solution-update-management.md).
 

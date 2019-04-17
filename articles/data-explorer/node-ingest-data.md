@@ -1,19 +1,18 @@
 ---
 title: "Démarrage rapide : Ingérer des données à l'aide de la bibliothèque Node d'Azure Data Explorer"
 description: Dans ce démarrage rapide, vous apprendrez comment ingérer (charger) des données dans l’Explorateur de données Azure à l’aide de Node.js.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: 0a23c171d99d46eb29dd589867ce70ca2739ff29
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d530ed3710a3406e5cd8115d615e91d5056a5f8c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756446"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047651"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Démarrage rapide : Ingérer des données à l'aide de la bibliothèque Node d'Azure Data Explorer
 
@@ -168,4 +167,4 @@ Si vous envisagez de suivre nos autres tutoriels et guides de démarrage rapide,
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Écrire des requêtes](write-queries.md)
+> [Rédiger des requêtes](write-queries.md)

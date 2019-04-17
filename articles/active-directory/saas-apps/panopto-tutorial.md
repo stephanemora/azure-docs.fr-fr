@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Panopto | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Panopto | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Panopto.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c2cd2437297945fa75ff9f5f3d5184b9cc982f0
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 23830d6ae2ba020a77402d3e2b7acc2f50f75733
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189323"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268757"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Tutoriel : Intégration d’Azure Active Directory à Panopto
+# <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Didacticiel : Intégration d’Azure Active Directory à Panopto
 
 Dans ce didacticiel, vous allez apprendre à intégrer Panopto à Azure Active Directory (Azure AD).
 L’intégration de Panopto à Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Panopto à Azure AD, vous devez ajouter Panopto à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter Panopto à partir de la galerie, procédez comme suit :**
+**Pour ajouter Panopto à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -223,7 +223,7 @@ Le fait de cliquer sur la vignette Panopto dans le volet d’accès doit vous co
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

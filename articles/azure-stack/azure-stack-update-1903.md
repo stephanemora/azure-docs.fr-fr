@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/10/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 2a2e289423eda53d610b2346193f6ee8a30b9c48
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.lastreviewed: 04/10/2019
+ms.openlocfilehash: f07f81562c604913e633a8d93fa9c7db28a7bf55
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917683"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471475"
 ---
 # <a name="azure-stack-1903-update"></a>Mise à jour 1903 d’Azure Stack
 
@@ -64,6 +64,12 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 
 - Améliorations apportées à la détection et à la correction des conditions d’espace disque faible.
 
+### <a name="secret-management"></a>Gestion des secrets
+
+- Azure Stack prend désormais en charge la rotation du certificat racine utilisé par des certificats pour la rotation des secrets externe. Pour plus d’informations, [consultez cet article](azure-stack-rotate-secrets.md).
+
+- Les performances de la build 1903 ont été améliorées pour la rotation des secrets afin de réduire le temps nécessaire à l’exécution de cette rotation.
+
 ## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
@@ -91,7 +97,8 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 
 - Quand vous exécutez la commande [Test-AzureStack](azure-stack-diagnostic-test.md), un message d’avertissement du contrôleur de gestion de la carte de base (BMC) s’affiche. Vous pouvez ignorer cet avertissement sans problème.
 
-- <!-- 2468613 - IS --> Pendant l’installation de cette mise à jour, il se peut que des alertes intitulées `Error – Template for FaultType UserAccounts.New is missing.` s’affichent. Vous pouvez les ignorer. Elles disparaîtront automatiquement une fois l’installation de cette mise à jour terminée.
+<!-- 2468613 - IS -->
+- Pendant l’installation de cette mise à jour, des alertes avec le titre **Erreur - Le modèle de FaultType UserAccounts.New est manquant.** peuvent s’afficher. Vous pouvez ignorer ces alertes de manière sécurisée. Elles disparaîtront automatiquement une fois l’installation de cette mise à jour terminée.
 
 ## <a name="post-update-steps"></a>Étapes après la mise à jour
 
@@ -118,10 +125,15 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 - La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
 
 <!-- 1663805 - IS ASDK --> 
-- Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack. Pour contourner ce problème, utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
+- Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack. Pour contourner ce problème, utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 <!-- Daniel 3/28 -->
-- Dans le portail de l’utilisateur, lorsque vous accédez à un objet blob au sein d’un compte de stockage et essayez d’ouvrir la rubrique **Stratégie d'accès** dans l’arborescence de navigation, la fenêtre suivante ne s’ouvre pas.
+- Dans le portail de l’utilisateur, lorsque vous accédez à un objet blob au sein d’un compte de stockage et essayez d’ouvrir la rubrique **Stratégie d'accès** dans l’arborescence de navigation, la fenêtre suivante ne s’ouvre pas. Pour contourner ce problème, les applets de commande PowerShell suivantes permettent de créer, récupérer, définir et supprimer des stratégies d’accès, respectivement :
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
 
 <!-- Daniel 3/28 -->
 - Dans le portail de l’utilisateur, lorsque vous essayez d’uploader un objet blob à l’aide de l’option **OAuth (préversion)**, la tâche échoue avec un message d’erreur. Pour contourner ce problème, uploadez l’objet blob à l’aide de l’option **SAS**.
@@ -151,14 +163,16 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
 - Une machine virtuelle 18.04 Ubuntu créée avec une autorisation SSH activée ne vous permet pas d’utiliser les clés SSH pour vous connecter. Pour contourner ce problème, utilisez un accès à la machine virtuelle pour l’extension Linux afin d’implémenter des clés SSH après l’approvisionnement, ou utilisez une authentification par mot de passe.
 
-- Si vous n’avez pas un hôte de cycle de vie du matériel (HLH) : Avant la build 1902, vous deviez définir la stratégie de groupe *Configuration de l’ordinateur\Paramètres Windows\Paramètres de sécurité\Stratégies Locales\Options de sécurité* sur **Envoyer LM et NTLM – utiliser la sécurité de session NTLMv2 si négociée**. Depuis la build 1902, vous devez la laisser en tant que **Non définie** ou la définir sur **Envoyer une réponse NTLMv2 uniquement** (qui est une valeur par défaut). Sinon, vous ne pourrez pas établir de session PowerShell à distance et vous recevrez un message d’erreur *L’accès est refusé* :
+- Azure Stack prend désormais en charge les agents Windows Azure Linux dont la version est supérieure à 2.2.20. Cette prise en charge faisait partie des correctifs 1901 et 1902 et permet aux clients de maintenir la cohérence des images Linux entre Azure et Azure Stack.
 
-   ```PowerShell
+- Si vous n’avez pas un hôte de cycle de vie du matériel (HLH) : avant la build 1902, vous deviez définir la stratégie de groupe **Configuration de l’ordinateur\Paramètres Windows\Paramètres de sécurité\Stratégies Locales\Options de sécurité** sur **Envoyer LM et NTLM – utiliser la sécurité de session NTLMv2 si négociée**. Depuis la build 1902, vous devez la laisser en tant que **Non définie** ou la définir sur **Envoyer une réponse NTLMv2 uniquement** (qui est la valeur par défaut). Sinon, vous ne pourrez pas établir de session PowerShell à distance et vous verrez un message d’erreur **L’accès est refusé** :
+
+   ```powershell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
    At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   + $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
    +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
@@ -169,7 +183,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 <!-- 3239127 - IS, ASDK -->
 - Dans le portail Azure Stack, lorsque vous modifiez une adresse IP statique pour une configuration IP liée à une carte réseau connectée à une instance de machine virtuelle, le message d’avertissement suivant s’affiche : 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`.
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`
 
     Vous pouvez ignorer ce message. L’adresse IP changera même si l’instance de machine virtuelle ne redémarre pas.
 
@@ -194,12 +208,15 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 <!-- 2352906 - IS ASDK --> 
 - Avant de créer votre première fonction Azure dans l’abonnement, vous devez inscrire le fournisseur de ressources de stockage.
 
-
 <!-- ### Usage -->
 
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>syslog
+
+- La configuration syslog n’est pas conservée lors d’un cycle de mise à jour et, par conséquent, le client perd sa configuration et les messages syslog ne sont plus transférés. Ce problème s’applique à toutes les versions d’Azure Stack depuis la disponibilité générale du client syslog (1809). Pour contourner ce problème, reconfigurez le client syslog après avoir appliqué une mise à jour Azure Stack.
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour
 

@@ -29,7 +29,7 @@ Ce document fournit des conseils sur les stratégies à adopter par une organisa
 
  1. Les organisations peuvent accroître leur résilience afin de réduire le risque de verrouillage **avant une interruption** en implémentant des stratégies d'atténuation ou des plans d'urgence.
  2. Les organisations peuvent continuer à accéder aux applications et ressources de leur choix **lors d'une interruption** grâce à la mise en place de stratégies d'atténuation ou de plans d'urgence.
- 3. Les organisations doivent veiller à préserver les informations, comme les journaux, **après une interruption** et avant d'appliquer les plans d'urgence qu'elles ont implémentés.
+ 3. Les organisations doivent veiller à préserver les informations, comme les journaux d’activité, **après une interruption** et avant d’appliquer les plans d’urgence qu’elles ont implémentés.
  4. Les organisations qui n'ont implémenté aucune stratégie de prévention ou aucun plan de substitution peuvent mettre en œuvre des **options d'urgence** pour faire face à l'interruption.
 
 ## <a name="key-guidance"></a>Orientations clés

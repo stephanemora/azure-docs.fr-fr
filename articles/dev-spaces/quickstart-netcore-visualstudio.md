@@ -13,12 +13,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, 
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 0ae2b264e689270743bc8e4aa5024a4b99eb6626
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 9afca253bd188556ad6a3f6e081fb2eccc4c81cb
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418837"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361261"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Démarrage rapide : Développer avec .NET Core sur Kubernetes avec Azure Dev Spaces (Visual Studio 2017)
 
@@ -115,7 +115,7 @@ Si Visual Studio 2017 est toujours connecté à votre espace de développement, 
 
 Ouvrez votre service dans un navigateur ; notez qu’aucun message n’est affiché. Revenez à Visual Studio 2017 et notez que la ligne 20 est mise en surbrillance. Le point d’arrêt que vous avez défini a suspendu le service à la ligne 20. Pour reprendre le service, appuyez sur *F5* ou cliquez sur *Déboguer*, puis sur *Continuer*. Revenez à votre navigateur et notez que le message est maintenant affiché.
 
-Quand vous exécutez votre service dans Kubernetes avec un débogueur attaché, vous avez un accès complet aux informations de débogage, comme la pile des appels, les variables locales et les informations sur les exceptions.
+Quand vous exécutez votre service dans Kubernetes avec un débogueur attaché, vous avez un accès total aux informations de débogage, comme la pile des appels, les variables locales et les informations sur les exceptions.
 
 Supprimez le point d’arrêt en plaçant votre curseur sur la ligne 20 dans `Controllers/HomeController.cs` et en appuyant sur *F9*.
 

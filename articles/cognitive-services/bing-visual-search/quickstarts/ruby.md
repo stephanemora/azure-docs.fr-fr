@@ -8,18 +8,18 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/27/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 6b7685f837cabf7ec659311c54f8c168981e4777
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8c350b5c2d945ed48566f549ab85844fc14625dc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544714"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049284"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide de l’API REST Recherche visuelle Bing et de Ruby
 
-Ce démarrage rapide utilise le langage de programmation Ruby pour appeler la recherche visuelle Bing et afficher les résultats. Une requête Post charge une image sur le point de terminaison d’API. Les résultats incluent des URL et des informations descriptives à propos des images similaires à l’image chargée.
+Ce démarrage rapide utilise le langage de programmation Ruby pour appeler la recherche visuelle Bing et afficher les résultats. Une requête POST charge une image sur le point de terminaison d’API. Les résultats incluent des URL et des informations descriptives à propos des images similaires à l’image chargée.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,7 +32,7 @@ Pour exécuter ce démarrage rapide :
 
 ## <a name="project-and-required-modules"></a>Projet et modules requis
 
-Créez un projet Ruby dans votre éditeur ou IDE. Importez `net/http`, `uri` et `json` pour gérer le texte JSON de résultats. La bibliothèque `base64` est utilisée pour encoder la chaîne de nom de fichier. 
+Créez un projet Ruby dans votre éditeur ou IDE. Importez `net/http`, `uri` et `json` pour gérer le texte JSON de résultats. La bibliothèque `base64` est utilisée pour encoder la chaîne du nom de fichier : 
 
 ```
 require 'net/https'
@@ -44,7 +44,7 @@ require 'base64'
 
 ## <a name="define-variables"></a>Définir des variables
 
-Le code suivant affecte les variables obligatoires. Vérifiez que le point de terminaison est correct et remplacez la valeur `accessKey` par une clé d’abonnement de votre compte Azure.  Le `batchNumber` est un guid requis pour les limites de début et de fin de données Post.  La variable `fileName` identifie le fichier d’image d’une requête Post.  Le bloc `if` teste la présence d’une clé d’abonnement valide.
+Le code suivant affecte les variables obligatoires. Vérifiez que le point de terminaison est correct et remplacez la valeur `accessKey` par une clé d’abonnement de votre compte Azure.  `batchNumber` est un GUID nécessaire pour les limites de début et de fin des données POST.  La variable `fileName` identifie le fichier image pour la requête POST.  Le bloc `if` teste la présence d’une clé d’abonnement valide.
 
 ```
 accessKey = "ACCESS-KEY"
@@ -61,9 +61,9 @@ end
 
 ```
 
-## <a name="form-data-for-post-request"></a>Données de formulaire de requête Post
+## <a name="form-data-for-post-request"></a>Données de formulaire pour une requête POST
 
-Les données d’image à Post sont entourées de limites de début et de fin.  Les fonctions suivantes définissent les limites.
+Les données d’image à envoyer avec POST sont entourées de limites de début et de fin. Les fonctions suivantes définissent les limites :
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -74,10 +74,9 @@ end
 def BuildFormDataEnd(batNum)
     return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
 end
-
 ```
 
-Construisez ensuite l’URI de point de terminaison et un tableau destiné à contenir le corps Post.  Utilisez la fonction précédente pour charger la limite de début dans le tableau. Lire le fichier image dans le tableau. Ensuite, lisez la limite de fin dans le tableau. 
+Construisez ensuite l’URI du point de terminaison et un tableau destiné à contenir le corps de la requête POST.  Utilisez la fonction précédente pour charger la limite de début dans le tableau. Lire le fichier image dans le tableau. Ensuite, lisez la limite de fin dans le tableau :
 
 ```
 uri = URI(uri + path)
@@ -91,12 +90,11 @@ post_body << BuildFormDataStart(batchNumber, fileName)
 post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
 post_body << BuildFormDataEnd(batchNumber)
-
 ```
 
 ## <a name="create-the-http-request"></a>Créer la requête HTTP
 
-Définissez l’en-tête `Ocp-Apim-Subscription-Key`.  Créez la requête.  Ensuite, assignez l’en-tête et le type de contenu.  Joignez le corps Post créé précédemment à la requête.
+Définissez l’en-tête `Ocp-Apim-Subscription-Key`.  Créez la requête. Ensuite, assignez l’en-tête et le type de contenu. Joignez le corps de POST créé précédemment à la requête :
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -110,7 +108,7 @@ request.body = post_body.join
 
 ## <a name="request-and-response"></a>Requête et réponse
 
-Ruby envoie la requête et reçoit la réponse avec la ligne de code suivante.
+Ruby envoie la requête et reçoit la réponse avec la ligne de code suivante :
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -121,7 +119,7 @@ end
 
 ## <a name="print-the-results"></a>Imprimer les résultats
 
-Imprimez les en-têtes de la réponse. Ensuite, utilisez la bibliothèque JSON pour mettre en forme le résultat.
+Affichez les en-têtes de la réponse et utilisez la bibliothèque JSON pour mettre en forme la sortie :
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -138,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="results"></a>Résultats
 
-Le code JSON suivant est un segment du résultat.
+Le code JSON suivant est un segment du résultat :
 
 ```
 Relevant Headers:
@@ -286,5 +284,5 @@ JSON Response:
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Vue d’ensemble de la recherche visuelle Bing](../overview.md)
-> [Créer une application web de recherche personnalisée](../tutorial-bing-visual-search-single-page-app.md)
+> [Vue d’ensemble de Recherche visuelle Bing](../overview.md)
+> [Créer une application web monopage Recherche visuelle](../tutorial-bing-visual-search-single-page-app.md)

@@ -1,7 +1,7 @@
 ---
 title: Créer, publier et répondre dans QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Ce tutoriel basé sur le portail vous aide à créer et publier par programmation une base de connaissances, puis à répondre à une question à partir de la base de connaissances.
+description: Créez une base de connaissances avec des questions et réponses à partir d’un forum aux questions web public. Enregistrez, entraînez et publiez la base de connaissances. Une fois la base de connaissances publiée, envoyez une question et recevez une réponse avec une commande CURL. Ensuite, créez un bot et testez-le avec la même question.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884123"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266937"
 ---
-# <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Didacticiel : Créer une base de connaissances puis répondre à une question via le portail QnA Maker
+# <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Didacticiel : Dans le portail QnA Maker, créer une base de connaissances
 
-Ce tutoriel vous aide à créer et publier une base de connaissances, puis à répondre à une question à partir de la base de connaissances.
+Créez une base de connaissances avec des questions et réponses à partir d’un forum aux questions web public. Enregistrez, entraînez et publiez la base de connaissances. Une fois la base de connaissances publiée, envoyez une question et recevez une réponse avec une commande Curl. Ensuite, créez un bot et testez-le avec la même question. 
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes : 
 
@@ -29,6 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Réviser, enregistrer et former la base de connaissances
 > * Publier la base de connaissances
 > * Utiliser Curl pour interroger la base de connaissances
+> * Créer un bot
 > 
 > [!NOTE]
 > La version programmatique de ce didacticiel est disponible avec une solution complète dans le dépôt GitHub [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
@@ -51,7 +52,7 @@ Ce tutoriel nécessite un [service QnA Maker](../How-To/set-up-qnamaker-service-
 
     |Paramètre|Objectif|
     |--|--|
-    |ID Microsoft Azure Active Directory|Votre _ID Microsoft Azure Directory_ est associé au compte que vous utilisez pour vous connecter aux portails Azure et QnA Maker. |
+    |ID Microsoft Azure Active Directory|Votre _ID Microsoft Azure Directory_ est associé au compte que vous utilisez pour vous connecter au portail Azure et au portail QnA Maker. |
     |Nom de l’abonnement Azure|Le compte de facturation dans lequel vous avez créé la ressource QnA Maker.|
     |Azure QnA Service|Votre ressource QnA Maker existante.|
 
@@ -99,7 +100,9 @@ Une fois la base de connaissances publiée, le point de terminaison s’affiche
 
 ![Publier des paramètres de point de terminaison de la page](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
-## <a name="use-curl-to-query-for-an-faq-answer"></a>Utilisez curl pour demander une réponse du FAQ
+Ne fermez pas cette page **Publish** : vous allez l’utiliser pour créer un bot ultérieurement dans ce tutoriel. 
+
+## <a name="use-curl-to-query-for-an-faq-answer"></a>Utilisez Curl pour demander une réponse du forum aux questions
 
 1. Sélectionnez l’onglet **Curl**. 
 
@@ -109,7 +112,7 @@ Une fois la base de connaissances publiée, le point de terminaison s’affiche
 
 1. Remplacez `<Your question>` par `How large can my KB be?`. Cette question se rapproche de la question, `How large a knowledge base can I create?`, mais ce ne sont pas exactement les mêmes. QnA Maker applique un traitement en langage naturel pour déterminer si deux questions sont les mêmes.     
 
-1. Exécutez la commande CURL et recevez la réponse JSON, notamment le score et les réponses. 
+1. Exécutez la commande Curl et recevez la réponse JSON comprenant le score et la réponse. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -133,11 +136,11 @@ Une fois la base de connaissances publiée, le point de terminaison s’affiche
 
     QnA Maker est relativement confiant avec un score de 42,81 %.  
 
-## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Utilisez curl pour demander une réponse d’échanges de conversation
+## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Utilisez curl pour demander une réponse d’échange de conversation (chit-chat)
 
-1. Dans le terminal prenant en charge Curl, remplacez `How large can my KB be?` avec un bot d’instruction de fin de conversation à partir de l’utilisateur, tel que `Thank you`.   
+1. Dans le terminal prenant en charge Curl, remplacez `How large can my KB be?` par une instruction de fin de conversation de bot provenant de l’utilisateur, comme `Thank you`.   
 
-1. Exécutez la commande CURL et recevez la réponse JSON, notamment le score et les réponses. 
+1. Exécutez la commande Curl et recevez la réponse JSON comprenant le score et la réponse. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -173,13 +176,13 @@ Une fois la base de connaissances publiée, le point de terminaison s’affiche
 
     Étant donné que la question de `Thank you` correspond exactement à une question d’échanges de conversation, QnA Maker est totalement confiant avec un score de 100. QnA Maker a également retourné toutes les questions associées, ainsi que la propriété de métadonnées contenant les informations de la balise de métadonnées d’échanges de conversation.  
 
-## <a name="use-curl-to-query-for-the-default-answer"></a>Utilisez curl pour interroger la réponse par défaut
+## <a name="use-curl-to-query-for-the-default-answer"></a>Utiliser Curl pour demander la réponse par défaut
 
 Toutes les questions pour lesquelles QnA Maker n’est pas confiant reçoivent une réponse par défaut. Cette réponse peut être configurée dans le portail Azure. 
 
 1. Dans le terminal prenant en charge de Curl, remplacez `Thank you` par `x`. 
 
-1. Exécutez la commande CURL et recevez la réponse JSON, notamment le score et les réponses. 
+1. Exécutez la commande Curl et recevez la réponse JSON comprenant le score et la réponse. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -197,15 +200,25 @@ Toutes les questions pour lesquelles QnA Maker n’est pas confiant reçoivent u
     }
     ```
     
-    QnA Maker a retourné un score de 0, ce qui signifie qu’il ne possède aucun niveau de confiance, mais la réponse par défaut a également été retournée. 
+    QnA Maker a retourné un score de `0`, ce qui signifie « pas de confiance », mais il a aussi retourné la réponse par défaut. 
+
+## <a name="create-a-knowledge-base-bot"></a>Créer un bot de base de connaissances
+
+Pour plus d’informations, consultez [Créer un bot conversationnel avec cette base de connaissances](create-qna-bot.md).
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Quand vous avez terminé avec le bot de base de connaissances, supprimez le groupe de ressources `my-tutorial-rg` pour supprimer toutes les ressources Azure créées dans le processus relatif au bot.
+
+Quand vous avez terminé avec la base de connaissances, dans le portail QnA Maker, sélectionnez **My knowledge bases**, sélectionnez la base de connaissances **My Tutorial kb**, puis sélectionnez l’icône de suppression à l’extrême droite de cette ligne.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [Sources de données prises en charge](../Concepts/data-sources-supported.md) pour plus d’informations sur les formats de fichiers de pris en charge. 
+Pour plus d’informations sur les formats de fichiers pris en charge, consultez [Sources de données prises en charge](../Concepts/data-sources-supported.md). 
 
 En savoir plus sur les [personnalités](../Concepts/best-practices.md#chit-chat) d’échanges de conversation.
 
 Pour plus d’informations sur la réponse par défaut, consultez [Aucune correspondance trouvée](../Concepts/confidence-score.md#no-match-found). 
 
 > [!div class="nextstepaction"]
-> [Concepts liés aux bases de connaissances](../Concepts/knowledge-base.md)
+> [Créer un chat bot avec cette base de connaissances](create-qna-bot.md)

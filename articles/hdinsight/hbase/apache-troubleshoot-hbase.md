@@ -266,13 +266,13 @@ Le renommage atomique échoue.
 
 ### <a name="detailed-description"></a>Description détaillée
 
-Pendant le processus de démarrage, HMaster exécute de nombreuses étapes d’initialisation. Cela inclut le déplacement des données à partir du dossier de travail (.tmp) vers le dossier de données. HMaster examine également le dossier de journaux WAL (write-ahead log) pour voir s’il existe des serveurs régionaux ne répondant pas, etc. 
+Pendant le processus de démarrage, HMaster exécute de nombreuses étapes d’initialisation. Cela inclut le déplacement des données à partir du dossier de travail (.tmp) vers le dossier de données. HMaster examine également le dossier de journaux d’activité WAL (write-ahead log) pour voir s’il existe des serveurs régionaux ne répondant pas, etc. 
 
 Lors du démarrage, HMaster exécute une commande `list` de base sur ces dossiers. S’il rencontre un fichier inattendu dans l’un de ces dossiers, il envoie une exception et ne démarre pas.  
 
 ### <a name="probable-cause"></a>Cause probable
 
-Dans les journaux des serveurs régionaux, essayez d’identifier la chronologie de création des fichiers et de déterminer si un blocage de processus s’est produit autour de l’heure de création du fichier. (Contactez le support HBase si vous avez besoin d’aide.) Cela nous permet de vous fournir des mécanismes plus robustes afin de vous éviter ce bogue et de garantir un arrêt approprié des processus.
+Dans les journaux d’activité des serveurs régionaux, essayez d’identifier la chronologie de création des fichiers et de déterminer si un blocage de processus s’est produit autour de l’heure de création du fichier. (Contactez le support HBase si vous avez besoin d’aide.) Cela nous permet de vous fournir des mécanismes plus robustes afin de vous éviter ce bogue et de garantir un arrêt approprié des processus.
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
@@ -288,7 +288,7 @@ Aucune adresse de serveur n’est répertoriée dans la table *hbase: meta* au n
 
 ### <a name="detailed-description"></a>Description détaillée
 
-Un message indiquant que la table *hbase: meta* n’est pas en ligne peut s’afficher sur votre cluster Linux. L’exécution de la commande `hbck` peut renvoyer l’erreur suivante : « hbase: meta table replicaId 0 is not found on any region » (replicaId 0 introuvable dans toutes les régions de la table hbase: meta). Le problème peut provenir de l’échec de l’initialisation de HMaster après le redémarrage de HBase. Dans les journaux HMaster, vous pouvez voir le message : « Aucune adresse de serveur n’est listée dans hbase : meta pour la région hbase : \<nom de région\> de sauvegarde ».  
+Un message indiquant que la table *hbase: meta* n’est pas en ligne peut s’afficher sur votre cluster Linux. L’exécution de la commande `hbck` peut renvoyer l’erreur suivante : « hbase: meta table replicaId 0 is not found on any region » (replicaId 0 introuvable dans toutes les régions de la table hbase: meta). Le problème peut provenir de l’échec de l’initialisation de HMaster après le redémarrage de HBase. Dans les journaux d’activité HMaster, vous pouvez voir le message : « Aucune adresse de serveur n’est listée dans hbase : meta pour la région hbase : \<nom de région\> de sauvegarde ».  
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
@@ -367,7 +367,7 @@ Voici ce qui se passe en arrière-plan :
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-   En raison de cet arrêt brutal, le port associé au processus ne peut pas être libéré même si le processus du serveur régional est arrêté. Cela peut entraîner l’exception AddressBindException au démarrage du serveur régional, comme indiqué dans les journaux suivants. Cet élément apparaît dans le journal region-server.log du répertoire /var/log/hbase des nœuds de travail où le démarrage des serveurs régionaux échoue. 
+   En raison de cet arrêt brutal, le port associé au processus ne peut pas être libéré même si le processus du serveur régional est arrêté. Cela peut entraîner l’exception AddressBindException au démarrage du serveur régional, comme indiqué dans les journaux d’activité suivants. Cet élément apparaît dans le journal region-server.log du répertoire /var/log/hbase des nœuds de travail où le démarrage des serveurs régionaux échoue. 
 
    ```apache
 

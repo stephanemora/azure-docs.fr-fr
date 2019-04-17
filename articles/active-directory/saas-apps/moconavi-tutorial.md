@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5b2321713660cb3bd16d95a386b68a5864e32c40
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a96364d486ed6c0db2762256798ac56afa69a78
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886539"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268449"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutoriel : Intégration d’Azure Active Directory à moconavi
+# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Didacticiel : Intégration d’Azure Active Directory à moconavi
 
 Dans ce didacticiel, vous allez apprendre à intégrer moconavi à Azure Active Directory (Azure AD).
 L’intégration de moconavi à Azure AD offre les avantages suivants :
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de moconavi à Azure AD, vous devez ajouter moconavi à votre liste d’applications SaaS gérées à partir de la galerie.
 
-**Pour ajouter moconavi à partir de la galerie, suivez les étapes ci-dessous :**
+**Pour ajouter moconavi à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -104,9 +104,9 @@ Pour configurer l’authentification unique Azure AD avec moconavi, suivez les �
 
     ![Informations d’authentification unique dans Domaine et URL moconavi](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<yourserverurl>/moconavi-saml2/saml/login`.
+    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<yourserverurl>/moconavi-saml2/saml/login`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<yourserverurl>/moconavi-saml2`
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<yourserverurl>/moconavi-saml2`
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<yourserverurl>/moconavi-saml2/saml/SSO`
 
@@ -149,7 +149,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -220,7 +220,7 @@ Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans mo
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

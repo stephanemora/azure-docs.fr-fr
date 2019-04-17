@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 30733a971c758fc62adf56132c88914b60c98ae5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4836cdec546b7da7351d18d5217e4f87d749aa79
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168168"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274992"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Tutoriel : Intégration d’Azure Active Directory à Skyhigh Networks
+# <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Didacticiel : Intégration d’Azure Active Directory à Skyhigh Networks
 
 Dans ce tutoriel, vous allez apprendre à intégrer Skyhigh Networks à Azure Active Directory (Azure AD).
 L’intégration de Skyhigh Networks à Azure AD vous offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Skyhigh Networks à Azure AD, vous devez ajouter Skyhigh Networks à votre liste d’applications SaaS gérées à partir de la galerie.
 
-**Pour ajouter Skyhigh Networks à partir de la galerie, procédez comme suit :**
+**Pour ajouter Skyhigh Networks à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -199,7 +199,7 @@ Quand vous cliquez sur la vignette Skyhigh Networks dans le volet d’accès, vo
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

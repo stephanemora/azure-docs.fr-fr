@@ -1,25 +1,24 @@
 ---
 title: 'Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer avec Azure CLI'
 description: Découvrir comment créer un cluster et une base de données Azure Data Explorer à l’aide de l’interface de ligne de commande Azure
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 3/25/2019
-ms.openlocfilehash: 852eb32611f526c6fae4898d2bc85cac0859498f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 03/25/2019
+ms.openlocfilehash: b1cc7d2966572da23a64e4555a0e94b440efa005
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758420"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043970"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Créer un cluster et une base de données Azure Data Explorer avec Azure CLI
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
-> * [INTERFACE DE LIGNE DE COMMANDE](create-cluster-database-cli.md)
+> * [Portail](create-cluster-database-portal.md)
+> * [Interface de ligne de commande](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
@@ -111,4 +110,4 @@ Vous disposez maintenant d’un cluster et d’une base de données.
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python d’Azure Data Explorer](python-ingest-data.md)
+> [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure](python-ingest-data.md)

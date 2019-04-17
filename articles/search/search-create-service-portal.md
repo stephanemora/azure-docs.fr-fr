@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8d3bc70b467cabfc5d45c51b79b43d2942d558ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885725"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264027"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Création d'un service Azure Search dans le portail
 
@@ -22,7 +22,7 @@ La Recherche Azure est une ressource autonome utilisée pour ajouter une expéri
 
 Dans cet article, découvrez comment créer une ressource de Recherche Azure dans le [portail Microsoft Azure](https://portal.azure.com/).
 
-[![GIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![AGIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Vous préférez PowerShell ? Utilisez le [modèle de service](https://azure.microsoft.com/resources/templates/101-azure-search-create/) Azure Resource Manager. Pour obtenir de l’aide et bien démarrer, consultez [Gérer votre service Recherche Azure avec PowerShell](search-manage-powershell.md).
 
@@ -71,7 +71,7 @@ Si vous ne combinez pas des ressources dans un même groupe, ou si les groupes d
 
 En sa qualité de service Azure, Recherche Azure peut être hébergé dans les centres de données du monde entier. [Les prix peuvent varier](https://azure.microsoft.com/pricing/details/search/) selon la zone géographique.
 
-Si vous envisagez d’utiliser Recherche cognitive, choisissez une [région où la fonctionnalité est disponible](cognitive-search-quickstart-blob.md#supported-regions).
+Si vous indexez du contenu situé dans un service Azure (stockage Azure, Azure Cosmos DB, Azure SQL Database), créez votre service de Région Azure dans la même région que vos données pour éviter les frais liés à la bande passante. Il n’y a aucuns frais liés aux données sortantes lorsque les services se trouvent dans la même région.
 
 ## <a name="select-a-pricing-tier-sku"></a>Sélectionner un niveau de tarification (SKU)
 
@@ -143,4 +143,4 @@ Il n’est pas nécessaire de disposer d’un second service pour la haute dispo
 Après avoir approvisionné un service Recherche Azure, vous pouvez rester dans le portail et créer votre premier index.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : importer des données, indexer et exécuter des requêtes dans le portail](search-get-started-portal.md)
+> [Didacticiel : Importer des données, indexer et exécuter des requêtes dans le portail](search-get-started-portal.md)

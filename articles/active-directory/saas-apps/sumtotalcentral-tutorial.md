@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 71347970ed3cb4f6a653b64ade5b949db457f299
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: d68c8a63dd3adaee0c04f5438f91da68f3903aea
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361317"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262259"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>Didacticiel : Intégration d’Azure Active Directory à SumTotalCentral
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de SumTotalCentral à Azure AD, vous devez ajouter SumTotalCentral, depuis la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter SumTotalCentral à partir de la galerie, procédez comme suit :**
+**Pour ajouter SumTotalCentral à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec SumTotalCentral, effec
 
     ![Informations d’authentification unique : domaine et URL SumTotalCentral](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.sumtotalsystems.com/sites/default`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<subdomain>.sumtotalsystems.com/sites/default`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une valeur : `SumTotalFederationGateway`
 
@@ -193,7 +193,7 @@ Quand vous cliquez sur la vignette SumTotalCentral dans le volet d’accès, vou
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

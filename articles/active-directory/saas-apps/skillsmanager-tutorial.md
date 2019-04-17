@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 44f309b828a851a45e34a89473a2599d6c8566c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b599eaf36eed69cd693e0dc4e20ef2123e42e60b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168671"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Didacticiel : Intégration d'Azure Active Directory à Skills Manager
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Skills Manager à Azure AD, vous devez ajouter Skills Manager à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter Skills Manager à partir de la galerie, procédez comme suit :**
+**Pour ajouter Skills Manager à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -193,7 +193,7 @@ Le fait de cliquer sur la vignette Skills Manager dans le panneau d’accès doi
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

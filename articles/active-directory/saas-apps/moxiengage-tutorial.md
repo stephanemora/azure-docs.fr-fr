@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory dans Moxi Engage | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory dans Moxi Engage | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Moxi Engage.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5fa2796ccaccd6d840ed0ca814d124e433b26049
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 655f8555f9e7fb04d69f35048b7fdec0fb1cebce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857791"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275576"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Didacticiel : Intégration d’Azure Active Directory dans Moxi Engage
 
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Moxi Engage dans Azure AD, vous devez ajouter Moxi Engage à partir de la galerie dans votre liste d’applications SaaS gérées.
 
-**Pour ajouter Moxi Engage à partir de la galerie, procédez comme suit :**
+**Pour ajouter Moxi Engage à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -190,7 +190,7 @@ Lorsque vous cliquez sur la vignette Moxi Engage dans le volet d’accès, vous 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

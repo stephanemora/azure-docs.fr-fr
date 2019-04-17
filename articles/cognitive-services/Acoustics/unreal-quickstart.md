@@ -10,19 +10,19 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1575c4f4a1c96a84823f76e8e98e76de3c2ace86
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313020"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492403"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Démarrage rapide de Project Acoustics Unreal/Wwise
 Dans ce guide de démarrage rapide, vous expérimentez des contrôles de conception de Project Acoustics en utilisant l’exemple de contenu fourni pour le moteur Unreal et Wwise.
 
 Configuration logicielle requise :
-* [Unreal Engine 4.21](https://www.unrealengine.com/)
-* [Wwise 2018.1.6](https://www.audiokinetic.com/products/wwise/)
+* [Unreal Engine](https://www.unrealengine.com/) 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
 
 ## <a name="download-the-sample-package"></a>Télécharger l’exemple de package
 Téléchargez l’[exemple de package Project Acoustics Unreal + Wwise](https://www.microsoft.com/download/details.aspx?id=58090). L’exemple de package contient un projet Unreal Engine, le projet Wwise pour ce projet Unreal et le plug-in Project Acoustics Wwise.
@@ -50,7 +50,7 @@ Le plug-in Project Acoustics Unreal nécessite l’exposition d’un comportemen
 
     ![Capture d’écran de l’Explorateur Windows montrant le script permettant de corriger le projet Wwise](media/patch-wwise-script.png)
 
-* Si le SDK DirectX n’est pas installé sur votre machine, vous devez mettre en commentaire la ligne contenant DXSDK_DIR dans `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Si le kit SDK DirectX n’est pas installé sur votre machine, vous devez décommenter la ligne contenant DXSDK_DIR dans `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
     ![Capture d’écran de l’éditeur de code montrant DXSDK avec des commentaires](media/directx-sdk-comment.png)
 

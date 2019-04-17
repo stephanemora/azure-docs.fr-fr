@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Namely | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Namely | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Namely.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 6e3b66f4cb93f0917a3c29b0f337e29dd6c94448
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7298c8a9220332f1361e673b5000c2df37a88865
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844815"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259556"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-namely"></a>Tutoriel : Intégration d'Azure Active Directory à Namely
+# <a name="tutorial-azure-active-directory-integration-with-namely"></a>Didacticiel : Intégration d'Azure Active Directory à Namely
 
 Dans ce didacticiel, vous allez apprendre à intégrer Namely avec Azure Active Directory (Azure AD).
 L’intégration de Namely à Azure AD vous offre les avantages suivants :
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Namely avec Azure AD, vous devez ajouter Namely disponible à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Namely à partir de la galerie, procédez comme suit :**
+**Pour ajouter Namely à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD avec Namely, procédez com
 
     ![Informations d’authentification unique dans Domaine et URL Namely](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.namely.com`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<subdomain>.namely.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<subdomain>.namely.com/saml/metadata`
 
@@ -171,7 +171,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -208,7 +208,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Namely.
 
-**Pour créer un utilisateur appelé Britta Simon dans Namely, procédez comme suit :**
+**Pour créer un utilisateur appelé Britta Simon dans Namely, effectuez les étapes suivantes :**
 
 1. Connectez-vous à votre site d’entreprise Namely en tant qu’administrateur.
 
@@ -242,7 +242,7 @@ Lorsque vous cliquez sur la vignette Namely dans le volet d’accès, vous devez
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

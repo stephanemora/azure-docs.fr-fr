@@ -9,18 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 023f5ed43453d7fb20dec5d91651230aa8fb4370
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571301"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268759"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
-Azure Maps est une collection de services géospatiaux qui s’appuient sur les données cartographiques les plus récentes pour fournir un contexte géographique précis à vos applications web et mobiles. Azure Maps se compose d’API REST pour le rendu de **cartes** dans plusieurs styles et l’imagerie satellite, la **recherche** d’adresses, de sites et de points d’intérêt dans le monde entier ; le **routage** point à point, multipoint, à optimisation multipoint, par isochrones, de véhicules commerciaux, influencé par le trafic et matriciel ; l’affichage d’excellents flux de trafic et incidents ; l’établissement de l’adresse de l’utilisateur via la **géolocalisation** ; et la conversion d’adresses en **fuseaux horaires**, ainsi que la récupération de l’heure à un endroit. De plus, Azure Maps offre des services pour le **geofencing**, le stockage de **données** cartographiques (hébergement d’informations de localisation dans Azure) et des **opérations spatiales** fournissant une géolocalisation intelligente via une analytique géospatiale. Les services Azure Maps sont disponibles directement en tant qu’API REST ou via nos solides **kit SDK web** et **kit Android SDK**. Ces outils permettent aux développeurs de développer et mettre à l’échelle rapidement des solutions intégrant des informations de localisation dans des solutions Azure à partir du cloud Azure. Ouvrez gratuitement votre [compte Azure Maps](https://azure.microsoft.com/services/azure-maps/) dès aujourd'hui et commencez à développer !
+Azure Maps est une collection de services géospatiaux qui s’appuient sur les données cartographiques les plus récentes pour fournir un contexte géographique précis à vos applications web et mobiles. Azure Maps se compose de plusieurs API REST : une API pour le rendu des **cartes** dans plusieurs styles, y compris l’imagerie satellite ; une API pour la **recherche** d’adresses, de sites et de points d’intérêt dans le monde entier ; une API pour le **routage** point à point, multipoint, à optimisation multipoint, par isochrones, de véhicules commerciaux, influencé par le trafic et matriciel ; une API pour l’affichage du trafic et des incidents ; une API pour obtenir la localisation de l’utilisateur via la **géolocalisation** ; une API pour la conversion d’adresses en **fuseaux horaires** et une API pour récupérer l’heure d’un lieu. De plus, Azure Maps offre des services pour le **geofencing**, le stockage de **données** cartographiques (hébergement d’informations de localisation dans Azure) et des **opérations spatiales** fournissant une géolocalisation intelligente via une analytique géospatiale. Les services Azure Maps sont disponibles directement en tant qu’API REST ou via nos solides **kit SDK web** et **kit Android SDK**. Ces outils permettent aux développeurs de développer et mettre à l’échelle rapidement des solutions intégrant des informations de localisation dans des solutions Azure à partir du cloud Azure. Ouvrez gratuitement votre [compte Azure Maps](https://azure.microsoft.com/services/azure-maps/) dès aujourd'hui et commencez à développer !
 
 La vidéo suivante explique Azure Maps plus en détail :
+
+<br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
@@ -95,7 +97,7 @@ Pour plus d’informations sur ce service, consultez la page [Azure Maps Timezon
 Traffic Service est une suite de services web permettant aux développeurs de créer des applications web et mobiles pour lesquelles des informations sur le trafic sont nécessaires. Ce service fournit deux types de données :
 
 * flux de trafic : vitesses et durées de déplacement observées en temps réel pour toutes les routes clés du réseau ;
-* incidents de trafic : image précise des embouteillages et des incidents sur le réseau routier.
+* incidents de trafic : vue actualisée des embouteillages et des incidents sur le réseau routier.
 
 ![Trafic Azure Maps](media/about-azure-maps/Introduction_Traffic.png)
 
@@ -121,7 +123,7 @@ Azure Maps utilise un schéma d’authentification basé sur une clé. Votre com
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-L’API Azure Maps est actuellement disponible partout à l’exception des pays suivants :
+L’API Azure Maps est disponible partout, à l’exception des pays suivants :
 
 * Argentine
 * Chine
@@ -130,7 +132,7 @@ L’API Azure Maps est actuellement disponible partout à l’exception des pays
 * Pakistan
 * Corée du Sud
 
-Vérifiez que l’emplacement de votre adresse IP actuelle ne se trouve pas dans un pays non pris en charge dans la liste ci-dessus.
+Vérifiez que votre adresse IP actuelle ne correspond pas à l’un des pays non pris en charge cités plus haut.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -139,7 +141,7 @@ Pour plus d’informations sur les nouvelles fonctionnalités d’Azure Maps :
 > [!div class="nextstepaction"]
 > [Route Matrix, Isochrones, IP lookup, et bien d’autres](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
 
-Testez un exemple d’application qui présente le service :
+Essayez un exemple d’application qui présente Azure Maps :
 
 > [!div class="nextstepaction"]
-> [Lancer une carte de recherche interactive de démonstration](quick-demo-map-app.md)
+> [Démarrage rapide : Créer une application web](quick-demo-map-app.md)

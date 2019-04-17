@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Skills Base | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Skills Base | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Skills Base.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: afe54bf8d6a90f6ecaff26611f3081ca1209d248
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 060e071a5c54baa607733cd4fe7342fd981cf827
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58166030"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257805"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutoriel : Intégration d'Azure Active Directory à Skills Base
+# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Didacticiel : Intégration d'Azure Active Directory à Skills Base
 
 L’objectif de ce tutoriel est de vous apprendre à intégrer Skills Base à Azure Active Directory (Azure AD).
 L’intégration de Skills Base à Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Skills Base à Azure AD, vous devez ajouter Skills Base à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter Skills Base à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Skills Base à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -214,7 +214,7 @@ Quand vous cliquez sur la vignette Skills Base dans le volet d’accès, vous de
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Spacio | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Spacio | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Spacio.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 008dbe1f226553ac407698e5b117c4d000524787
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 295fc80c0b6d9a4554dc08d24d9167bea627144f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133023"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273615"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Didacticiel : Intégration d’Azure Active Directory à Spacio
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Spacio avec Azure AD, vous devez ajouter Spacio, à partir de la galerie, à votre liste d’applications SaaS managées.
 
-**Pour ajouter Spacio à partir de la galerie, procédez comme suit :**
+**Pour ajouter Spacio à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec Spacio, procédez com
 
     ![Informations d’authentification unique pour Domaine et URL Spacio](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://sso.spac.io/<brokerageID>`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://sso.spac.io/<brokerageID>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://sso.spac.io/<brokerageID>`
 
@@ -183,7 +183,7 @@ Lorsque vous cliquez sur la mosaïque Spacio dans le volet d’accès, vous deve
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

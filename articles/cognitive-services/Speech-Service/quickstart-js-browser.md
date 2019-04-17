@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a418966ce72876d58d39b939ecb7dd5a05e41b9b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57841172"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008977"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en JavaScript dans un navigateur avec le kit SDK Speech
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer un site web en utilisant la liaison JavaScript du SDK Speech de Cognitive Services en vue de transcrire de la parole en texte.
-L’application est basée sur le SDK Speech de Microsoft Cognitive Services ([télécharger la version 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
+L’application est basée sur le SDK Speech pour JavaScript ([Télécharger la version 1.4.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Clé d’abonnement pour le service Speech. Consultez [Essayer les services Speech gratuitement](get-started.md).
 * Un PC ou un Mac avec un micro qui fonctionne
 * Un éditeur de texte
-* La version actuelle de Chrome ou de Microsoft Edge
+* Une version actuelle de Chrome, Microsoft Edge ou Safari.
 * Si vous le souhaitez, un serveur web qui prend en charge les scripts PHP d’hébergement.
 
 ## <a name="create-a-new-website-folder"></a>Créer un dossier de site web
@@ -52,7 +52,7 @@ Créez un fichier nommé `index.html` dans le dossier, puis ouvrez-le dans un é
    ```html
    <html>
    <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
+      <title>Speech SDK JavaScript Quickstart</title>
    </head>
    <body>
     <!-- UI code goes here -->
@@ -99,6 +99,10 @@ De cette façon, votre clé d’abonnement ne quitte jamais le serveur et vous p
 
 Pour lancer l’application, double-cliquez sur le fichier index.html ou ouvrez-le dans votre navigateur web de votre choix. Celui-ci présente une interface graphique simple, dans laquelle vous pouvez entrer votre clé d’abonnement et votre [région](regions.md), puis déclencher la reconnaissance vocale à l’aide du microphone.
 
+> [!NOTE]
+> Cette méthode ne fonctionne pas sur le navigateur Safari.
+> Sur Safari, l’exemple de page web doit être hébergé sur un serveur web ; Safari n’autorise pas les sites web chargés depuis un fichier local à utiliser le microphone.
+
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Générer et exécuter l’exemple via un serveur web
 
 Pour lancer l’application, ouvrez le navigateur web de votre choix, accédez à l’URL publique où est hébergé le dossier, entrez votre [région](regions.md), puis déclenchez la reconnaissance à l’aide du microphone. Vous obtiendrez un jeton de votre source de jeton, si cette option est configurée.
@@ -106,4 +110,4 @@ Pour lancer l’application, ouvrez le navigateur web de votre choix, accédez �
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Explorer des exemples Java sur GitHub](https://aka.ms/csspeech/samples)
+> [Explorer des exemples JavaScript sur GitHub](https://aka.ms/csspeech/samples)

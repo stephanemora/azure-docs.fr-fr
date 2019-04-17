@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: cda08d44cba9e59af853b1705f538ec199ec4d3a
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435110"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630487"
 ---
 Dans le premier scénario, vous ajoutez un nouveau type de données de télémétrie au type d’appareil **Chiller** (Refroidisseur) existant de Contoso.
 
@@ -21,7 +21,7 @@ Dans le deuxième scénario, Contoso souhaite tester un nouvel appareil d’écl
 
 *Propriétés*
 
-| NOM                     | Valeurs                      |
+| Nom                     | Valeurs                      |
 | ------------------------ | --------------------------- |
 | Couleur                    | White, Red, Blue (Blanc, Rouge, Bleu)            |
 | Brightness (Luminosité)               | 0 à 100                    |
@@ -31,7 +31,7 @@ Dans le deuxième scénario, Contoso souhaite tester un nouvel appareil d’écl
 
 Le tableau suivant présente les données que l’appareil d’éclairage communique au cloud sous la forme d’un flux de données :
 
-| NOM   | Valeurs      |
+| Nom   | Valeurs      |
 | ------ | ----------- |
 | Statut | « on » (allumé), « off » (éteint) |
 | Température | Degrés F |
@@ -44,7 +44,7 @@ Le tableau suivant présente les données que l’appareil d’éclairage commun
 
 Le tableau suivant indique les actions prises en charge par le nouvel appareil :
 
-| NOM        |
+| Nom        |
 | ----------- |
 | Switch on (Allumer)   |
 | Switch off (Éteindre)  |
@@ -53,7 +53,7 @@ Le tableau suivant indique les actions prises en charge par le nouvel appareil :
 
 Le tableau suivant présente l’état initial de l’appareil :
 
-| NOM                     | Valeurs |
+| Nom                     | Valeurs |
 | ------------------------ | -------|
 | Initial color (Couleur initiale)            | Blanc  |
 | Initial brightness (Luminosité initiale)       | 75     |
@@ -67,7 +67,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer les procédures de ce guide, vous avez besoin des éléments suivants :
 
@@ -98,13 +98,11 @@ Téléchargez et décompressez le [microservice de simulation d’appareil](http
 
 Ouvrez le dossier **remote-monitoring-services-dotnet-master\storage-adapter** dans Visual Studio Code. Cliquez sur les boutons **Restaurer** pour corriger les éventuelles dépendances non résolues.
 
-Ouvrez le fichier **.vscode/launch.json** et assignez la chaîne de connexion de la base de données Cosmos DB à la variable d’environnement **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING**.
-
-<!-- Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** configuration setting.-->
+Ouvrez le **storage-adapter/WebService/appsettings.ini** de fichiers et d’affecter votre chaîne de connexion Cosmos DB à le **documentDBConnectionString** variable.
 
 Pour exécuter le microservice localement, cliquez sur **Déboguer > Démarrer le débogage**.
 
-La fenêtre **Terminal** dans Visual Studio Code affiche la sortie du microservice en cours d’exécution, y compris une URL pour la vérification d’intégrité du service web : [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Quand vous accédez à cette adresse, vous devez voir l’état « OK: Alive and well ».
+La fenêtre **Terminal** dans Visual Studio Code affiche la sortie du microservice en cours d’exécution, y compris une URL pour la vérification d’intégrité du service web : [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Lorsque vous accédez à cette adresse, l’état doit être « OK : Alive and well ».
 
 Laissez le microservice d’adaptateur de stockage s’exécuter dans cette instance de Visual Studio Code pendant que vous effectuez les étapes suivantes.
 
@@ -417,11 +415,7 @@ Dans cette section, vous testez les types d’appareils que vous avez créés lo
 
 Ouvrez le dossier **device-simulation-dotnet-master** que vous avez téléchargé à partir de GitHub dans une nouvelle instance de Visual Studio Code. Cliquez sur les boutons **Restaurer** pour corriger les éventuelles dépendances non résolues.
 
-Ouvrez le fichier **.vscode/launch.json** et assignez la chaîne de connexion du hub IoT à la variable d’environnement **PCS_IOTHUB_CONNSTRING**. Dans le même fichier, ajoutez la variable d’environnement **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** et assignez la chaîne de connexion pour votre base de données Cosmos DB.
-
-Ouvrez le fichier **WebService/Properties/launchSettings.json** et assignez la chaîne de connexion du hub IoT à la variable d’environnement **PCS_IOTHUB_CONNSTRING**.
-
-Ouvrez le fichier **WebService/appsettings.ini** et modifiez les paramètres comme suit :
+Ouvrez le **WebService/appsettings.ini** de fichiers et d’affecter votre chaîne de connexion Cosmos DB à le **documentdb_connstring** variable et également modifier les paramètres comme suit :
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

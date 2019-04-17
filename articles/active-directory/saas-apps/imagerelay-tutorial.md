@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63fbab5fffbcc30d0242d223fd8a6b5796c2aeae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d2d41af8fa04b03ab8d18277d377f3700575cd1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901897"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259801"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Tutoriel : Intégration d’Azure Active Directory à Image Relay
+# <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Didacticiel : Intégration d’Azure Active Directory à Image Relay
 
 Dans ce didacticiel, vous allez apprendre à intégrer Image Relay avec Azure Active Directory (Azure AD).
 L’intégration d’Image Relay à Azure AD vous offre les avantages suivants :
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’Image Relay avec Azure AD, vous devez ajouter Image Relay à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Image Relay à partir de la galerie, procédez comme suit :**
+**Pour ajouter Image Relay à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD auprès d’Image Relay, ef
 
     ![Informations d’authentification unique relatives au domaine et aux URL Image Relay](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.imagerelay.com/`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<companyname>.imagerelay.com/`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<companyname>.imagerelay.com/sso/metadata`
 
@@ -198,7 +198,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -235,7 +235,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Image Relay.
 
-**Pour créer un utilisateur appelé Britta Simon dans Image Relay, procédez comme suit :**
+**Pour créer un utilisateur appelé Britta Simon dans Image Relay, effectuez les étapes suivantes :**
 
 1. Connectez-vous à votre site d’entreprise Image Relay tant qu’administrateur.
 
@@ -257,7 +257,7 @@ Le fait de cliquer sur la vignette Image Relay dans le volet d’accès doit vou
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

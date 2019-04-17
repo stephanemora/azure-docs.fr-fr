@@ -1,276 +1,255 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Vidyard | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Vidyard | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Vidyard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: bed7df23-6e13-4e7c-b4cc-53ed4804664d
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/22/2018
+ms.topic: tutorial
+ms.date: 03/28/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d25520f88869025f7e262d81295ee64f8e12d21
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 94e5893caa4dc19702f45e9b42727aab4f884bcd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163592"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273853"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Tutoriel : Intégration d’Azure AD à Vidyard
+# <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Didacticiel : Intégration d’Azure AD à Vidyard
 
 Dans ce didacticiel, vous allez apprendre à intégrer Vidyard à Azure Active Directory (Azure AD).
-
 L’intégration de Vidyard à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Vidyard.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Vidyard (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à Vidyard.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Vidyard (authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Vidyard, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement pour lequel l’authentification unique Vidyard est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
+* Abonnement Vidyard avec l’authentification unique activée
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de Vidyard depuis la galerie
-1. Configuration et test de l’authentification unique Azure AD
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+
+* Vidyard prend en charge l’authentification unique (SSO) lancée par le **fournisseur de services** et le **fournisseur d’identité**
+
+* Vidyard prend en charge le provisionnement d’utilisateurs **Juste-à-temps**
 
 ## <a name="adding-vidyard-from-the-gallery"></a>Ajout de Vidyard depuis la galerie
+
 Pour configurer l’intégration de Vidyard avec Azure AD, vous devez ajouter Vidyard à votre liste d’applications SaaS gérées depuis la galerie.
 
-**Pour ajouter Vidyard depuis la galerie, procédez comme suit :**
+**Pour ajouter Vidyard à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise][2]
-    
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-    ![Bouton Nouvelle application][3]
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-1. Dans la zone de recherche, tapez **Vidyard**, sélectionnez **Vidyard** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
-    ![Vidyard dans la liste des résultats](./media/vidyard-tutorial/tutorial_vidyard_addfromgallery.png)
+4. Dans la zone de recherche, tapez **Vidyard**, sélectionnez **Vidyard** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+
+     ![Vidyard dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Vidyard avec un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Vidyard équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Vidyard associé doit être établie.
+Dans cette section, vous configurez et testez l’authentification unique Azure AD avec Vidyard à l’aide d’un utilisateur de test, **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Vidyard associé doit être établie.
 
 Pour configurer et tester l'authentification unique Azure AD avec Vidyard, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur de test Vidyard](#create-a-vidyard-test-user)** pour avoir un équivalent de Britta Simon dans Vidyard lié à la représentation Azure AD associée.
-1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+2. **[Configurer l’authentification unique Vidyard](#configure-vidyard-single-sign-on)**  : pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Vidyard](#create-vidyard-test-user)**  : pour avoir un équivalent de Britta Simon dans Vidyard lié à la représentation Azure AD associée.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Vidyard.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l'authentification unique Azure AD avec Vidyard, procédez comme suit :**
+Pour configurer l’authentification unique Azure AD avec Vidyard, effectuez les étapes suivantes :
 
-1. Dans le Portail Azure, sur la page d’intégration de l’application **Vidyard**, cliquez sur **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Vidyard**, sélectionnez **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Boîte de dialogue Authentification unique](./media/vidyard-tutorial/tutorial_vidyard_samlbase.png)
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-1. Dans la section **Domaines et URL Vidyard**, suivez les étapes ci-dessous pour configurer l’application en mode initié par **IDP** :
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-    ![Informations d’authentification unique dans Domain et URL Vidyard](./media/vidyard-tutorial/tutorial_vidyard_url2.png)
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
+
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
+
+    ![Informations d’authentification unique dans Domain et URL Vidyard](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://secure.vidyard.com/sso/saml/<unique id>/metadata`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://secure.vidyard.com/sso/saml/<unique id>/consume`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://secure.vidyard.com/sso/saml/<unique id>/consume`
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
+5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domain et URL Vidyard](./media/vidyard-tutorial/tutorial_vidyard_url1.png)
+    ![Informations d’authentification unique dans Domain et URL Vidyard](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://secure.vidyard.com/sso/saml/<unique id>/login`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Vous mettrez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. La procédure est expliquée plus loin dans le didacticiel
+    > Il ne s’agit pas de valeurs réelles. Vous mettrez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. La procédure est expliquée plus loin dans le didacticiel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/vidyard-tutorial/tutorial_vidyard_certificate.png) 
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Cliquez sur le bouton **Enregistrer** .
+7. Dans la section **Configurer Vidyard**, copiez la ou les URL appropriées en fonction de vos besoins.
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/vidyard-tutorial/tutorial_general_400.png)
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-1. Dans la section **Configuration de Vidyard**, cliquez sur **Configurer Vidyard** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+    a. URL de connexion
 
-    ![Configuration de Vidyard](./media/vidyard-tutorial/tutorial_vidyard_configure.png)
+    b. Identificateur Azure AD
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Vidyard Software en tant qu’administrateur.
+    c. URL de déconnexion
 
-1. Dans le tableau de bord Vidyard, sélectionnez **Groupe** > **Sécurité**
+### <a name="configure-vidyard-single-sign-on"></a>Configurer l’authentification unique Vidyard
+
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Vidyard Software comme administrateur.
+
+2. Dans le tableau de bord Vidyard, sélectionnez **Groupe** > **Sécurité**
 
     ![Configuration de Vidyard](./media/vidyard-tutorial/configure1.png)
 
-1. Cliquez sur l’onglet **Nouveau profil**.
+3. Cliquez sur l’onglet **Nouveau profil**.
 
     ![Configuration de Vidyard](./media/vidyard-tutorial/configure2.png)
 
-1. Dans la section **Configuration de SAML**, procédez comme suit :
+4. Dans la section **Configuration de SAML**, procédez comme suit :
 
     ![Configuration de Vidyard](./media/vidyard-tutorial/configure3.png)
 
     a. Entrez le nom du profil général dans la zone de texte **Nom du profil**.
 
-    b. Copiez la valeur **SSO User Login Page** (Page de connexion utilisateur SSO), collez-la dans la zone de texte **URL de connexion** dans la section **Domaine et URL Vidyard** dans le portail Azure.
+    b. Copiez la valeur **SSO User Login Page** (Page de connexion utilisateur SSO), collez-la dans la zone de texte **URL de connexion** dans la section **Configuration SAML de base** dans le portail Azure.
 
-    c. Copiez la valeur **ACS URL** (URL ACS), collez-la dans la zone de texte **URL de réponse** dans la section **Domaine et URL Vidyard** dans le portail Azure.
+    c. Copiez la valeur **URL ACS** et collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** du portail Azure.
 
-    d. Copiez la valeur **Issuer/Metadata URL** (URL de l’émetteur/métadonnées), collez-la dans la zone de texte **Identificateur** dans la section **Domaine et URL Vidyard** dans le portail Azure.
+    d. Copiez la valeur **URL des métadonnées/de l’émetteur** et collez-la dans la zone de texte **Identificateur** de la section **Configuration SAML de base** du portail Azure.
 
     e. Dans le Bloc-notes, ouvrez le fichier de certificat que vous avez téléchargé sur le portail Azure, copiez son contenu, puis collez-le dans la zone de texte **Certificat X.509**.
 
-    f. Dans la zone de texte **URL du point de terminaison SAML**, collez la valeur de **l’URL du service d’authentification unique SAML** que vous avez copiée sur le portail Azure.
+    f. Dans la zone de texte **URL de point de terminaison SAML**, collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
     g. Cliquez sur **Confirmer**.
 
-1. Dans l’onglet Authentification unique, sélectionnez **Attribuer** en regard d’un profil existant
+5. Dans l’onglet Authentification unique, sélectionnez **Attribuer** en regard d’un profil existant
 
     ![Configuration de Vidyard](./media/vidyard-tutorial/configure4.png)
 
     > [!NOTE]
     > Une fois le profil SSO créé, attribuez-le aux groupes auxquels les utilisateurs devront accéder via Azure. Si un utilisateur n’existe pas dans le groupe auquel il est attribué, Vidyard créer automatiquement un compte d’utilisateur et attribue le rôle en temps réel.
 
-1. Sélectionnez le groupe de votre organisation, qui est visible dans **Groups Available to Assign** (Groupes disponibles pour l’attribution).
+6. Sélectionnez le groupe de votre organisation, qui est visible dans **Groups Available to Assign** (Groupes disponibles pour l’attribution).
 
     ![Configuration de Vidyard](./media/vidyard-tutorial/configure5.png)
 
-1. Vous pouvez voir les groupes attribués sous **Groups Currently Assigned** (Groupes actuellement attribués). Sélectionnez un rôle pour le groupe de votre organisation et cliquez sur **Confirmer**.
+7. Vous pouvez voir les groupes attribués sous **Groups Currently Assigned** (Groupes actuellement attribués). Sélectionnez un rôle pour le groupe de votre organisation et cliquez sur **Confirmer**.
 
     ![Configuration de Vidyard](./media/vidyard-tutorial/configure6.png)
 
     > [!NOTE]
     > Pour plus d’informations, consultez [ce document](https://knowledge.vidyard.com/saml-single-sign-on-authentication/saml-based-single-sign-on-sso-in-vidyard).
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Bouton Azure Active Directory](./media/vidyard-tutorial/create_aaduser_01.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/vidyard-tutorial/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
 
-    ![Bouton Ajouter](./media/vidyard-tutorial/create_aaduser_03.png)
-
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/vidyard-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
- 
-### <a name="create-a-vidyard-test-user"></a>Création d’un utilisateur de test Vidyard
-
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Vidyard. Vidyard prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Vidyard s’il n’existe pas déjà.
->[!Note]
->Si vous devez créer un utilisateur manuellement, contactez  [l’équipe du support technique de Vidyard](mailto:support@vidyard.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Vidyard.
 
-![Attribuer le rôle utilisateur][200] 
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **Vidyard**.
 
-**Pour affecter Britta Simon à Vidyard, procédez comme suit :**
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+2. Dans la liste des applications, sélectionnez **Vidyard**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Lien Vidyard dans la liste des applications](common/all-applications.png)
 
-1. Dans la liste des applications, sélectionnez **Vidyard**.
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
-    ![Lien Vidyard dans la liste des applications](./media/vidyard-tutorial/tutorial_vidyard_app.png)  
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Lien « Utilisateurs et groupes »][202]
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-    ![Volet Ajouter une attribution][203]
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+### <a name="create-vidyard-test-user"></a>Créer un utilisateur de test Vidyard
 
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+Dans cette section, un utilisateur appelé Britta Simon est créé dans Vidyard. Vidyard prend en charge le provisionnement d’utilisateurs juste-à-temps, activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Vidyard, un nouveau est créé après l’authentification.
+
+>[!Note]
+>Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support Vidyard](mailto:support@vidyard.com).
+
+### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la mosaïque Vidyard dans le volet d’accès, vous devez être connecté automatiquement à votre application Vidyard.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quand vous cliquez sur la vignette Vidyard dans le panneau d’accès, vous devez être automatiquement connecté à l’application Vidyard pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/vidyard-tutorial/tutorial_general_01.png
-[2]: ./media/vidyard-tutorial/tutorial_general_02.png
-[3]: ./media/vidyard-tutorial/tutorial_general_03.png
-[4]: ./media/vidyard-tutorial/tutorial_general_04.png
-
-[100]: ./media/vidyard-tutorial/tutorial_general_100.png
-
-[200]: ./media/vidyard-tutorial/tutorial_general_200.png
-[201]: ./media/vidyard-tutorial/tutorial_general_201.png
-[202]: ./media/vidyard-tutorial/tutorial_general_202.png
-[203]: ./media/vidyard-tutorial/tutorial_general_203.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
