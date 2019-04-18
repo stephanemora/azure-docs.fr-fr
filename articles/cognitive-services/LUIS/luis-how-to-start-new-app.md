@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: daffbe3f3158bb232f7db7ac90d766661e937643
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891427"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679642"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Créer une application LUIS dans le portail LUIS
 Il existe deux façons de créer une application LUIS. Vous pouvez créer une application LUIS dans le portail [LUIS](https://www.luis.ai) ou par le biais des [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de création LUIS.
@@ -67,10 +67,19 @@ Erreurs possibles sont :
 
 * Une application portant ce nom existe déjà. Importer à nouveau l’application, puis définissez le **nom facultatif** vers un nouveau nom. 
 
-## <a name="export-app"></a>Exporter l’application
+## <a name="export-app-for-backup"></a>Exporter l’application pour la sauvegarde
 
-1. Sur la page **Mes applications**, sélectionnez **Import new app** (Importer une nouvelle application).
-1. Dans la boîte de dialogue **Import new app** (Importer une nouvelle application), sélectionnez le fichier JSON définissant l’application LUIS.
+1. Sur **mes applications** page, sélectionnez **exporter**.
+1. Sélectionnez **exporter au format JSON**. Votre navigateur télécharge la version active de l’application.
+1. Ajoutez ce fichier à votre système de sauvegarde pour archiver le modèle.
+
+## <a name="export-app-for-containers"></a>Exporter app pour conteneurs
+
+1. Sur **mes applications** page, sélectionnez **exporter**.
+1. Sélectionnez **exporter en tant que conteneur** puis sélectionnez quel emplacement publié (production ou phase) que vous voulez exporter.
+1. Utiliser ce fichier avec votre [conteneur de LUIS](luis-container-howto.md). 
+
+    Si vous êtes intéressé par exportation un formé, mais ne pas encore publié de modèle à utiliser avec le conteneur de LUIS, accédez à la **Versions** page et d’exportation à partir de là. 
 
 ## <a name="delete-app"></a>Supprimer l’application
 

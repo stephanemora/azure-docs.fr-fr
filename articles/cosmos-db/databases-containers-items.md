@@ -4,15 +4,15 @@ description: Cet article explique comment créer et utiliser des bases de donné
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f3bec1b279c07e62e246ebfa933b3942e38406de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762893"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678792"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Utiliser des bases de données, des conteneurs et des éléments
 
@@ -61,7 +61,7 @@ Vous pouvez définir [durée de vie (TTL)](time-to-live.md) sur les éléments s
 
 À l’aide de [de flux de modification](change-feed.md), vous pouvez vous abonner dans le journal des opérations qui est géré pour chacune des partitions logiques de votre conteneur. Le flux de modification fournit le journal de toutes les mises à jour appliquées au conteneur ainsi que les images des éléments avant et après mise à jour. Consultez [comment créer des applications réactives à l’aide de flux de modification](serverless-computing-database.md). Vous pouvez également configurer la durée de rétention pour le flux de modification à l’aide de la stratégie sur le conteneur de flux de modification. 
 
-Vous pouvez inscrire [les procédures stockées, déclencheurs, fonctions définies par l’utilisateur (UDF)](stored-procedures-triggers-udfs.md) et [fusion procédures](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure) avec votre conteneur Azure Cosmos. 
+Vous pouvez inscrire [les procédures stockées, déclencheurs, fonctions définies par l’utilisateur (UDF)](stored-procedures-triggers-udfs.md) et [fusion procédures](how-to-manage-conflicts.md) avec votre conteneur Azure Cosmos. 
 
 Vous pouvez spécifier un [contrainte de clé unique](unique-keys.md) sur votre conteneur Azure Cosmos. En créant une stratégie de clé unique, vous garantissez l’unicité d’une ou de plusieurs valeurs par clé de partition logique. Une fois qu’un conteneur a été créé avec une stratégie de clé unique, il empêche la création de tout nouvel élément ou de tout élément mis à jour avec des valeurs dupliquant des valeurs spécifiées par la contrainte de clé unique. Pour plus d’informations, consultez [Contraintes de clés uniques](unique-keys.md).
 
@@ -117,7 +117,7 @@ Chaque élément Azure Cosmos comprend des propriétés définies par le systèm
 |_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non  | Non  | Non  | Non  |
 |_ts | Générée par le système | L’horodatage de la dernière mise à jour de l’élément | Oui | Non  | Non  | Non  | Non  |
 |_self | Générée par le système | URI adressable de l’élément | Oui | Non  | Non  | Non  | Non  |
-|id | Vous pouvez soit utiliser | Nom unique défini par l’utilisateur au sein d’une partition logique. Si l’utilisateur ne spécifie pas d’ID, le système en génère un automatiquement. | Oui | OUI | OUI | OUI | Oui |
+|id | Vous pouvez soit utiliser | Nom unique défini par l’utilisateur au sein d’une partition logique. Si l’utilisateur ne spécifie pas l’ID, le système génère automatiquement un. | Oui | OUI | OUI | OUI | Oui |
 |Propriétés arbitraires définies par l’utilisateur | Défini par l’utilisateur | Propriétés définies par l’utilisateur représentées sous forme d’API native (JSON, BSON, CQL, etc.) | Oui | OUI | OUI | OUI | Oui |
 
 ### <a name="operations-on-items"></a>Actions possibles sur les éléments

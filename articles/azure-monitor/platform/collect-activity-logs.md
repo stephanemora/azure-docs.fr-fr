@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: magoedte
 ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505632"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter et analyser les journaux d’activité Azure dans l’espace de travail Analytique de journal dans Azure Monitor
@@ -54,7 +54,7 @@ Contrairement à la plupart des autres solutions Azure Monitor, les données ne 
 | --- | --- | --- |
 | [Agents Windows](agent-windows.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
 | [Agents Linux](../learn/quick-collect-linux-computer.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
-| [Groupe d’administration Microsoft System Center Operations Manager](om-agents.md) | Non  | La solution ne collecte pas d’informations à partir des agents qui communiquent avec un groupe d’administration Operations Manager. |
+| [Groupe d’administration de Microsoft System Center Operations Manager](om-agents.md) | Non  | La solution ne collecte pas d’informations à partir des agents qui communiquent avec un groupe d’administration Operations Manager. |
 | [Compte Azure Storage](collect-azure-metrics-logs.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
 ## <a name="prerequisites"></a>Conditions préalables

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 8664b431239f7b288deccedeadff0806ab600bcd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: d5dc65dc225d11a996d9b9d3c329151a17321fb6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232511"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678239"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>Démarrage rapide : Créer un hub d’événements à l’aide d’un modèle Azure Resource Manager
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
@@ -29,7 +29,7 @@ Dans ce démarrage rapide, vous créez un Event Hub à l’aide d’un modèle A
 > [!NOTE]
 > Pour le modèle complet, consultez [Modèle d’Event Hub et de groupe de consommateurs][Event Hub and consumer group template] sur GitHub. Ce modèle créé un groupe de consommateurs en plus d’un espace de noms Event Hub ainsi qu’un Event Hub. Pour rechercher les derniers modèles, recherchez Event Hubs dans la galerie de [modèles de démarrage rapide Azure][Azure Quickstart Templates].
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -176,14 +176,21 @@ az group create --name <YourResourceGroupName> --location eastus
 az group deployment create --name <Specify a name for the deployment> --resource-group <YourResourceGroupName> --template-file MyEventHub.json --parameters @MyEventHub-Parameters.json
 ```
 
-Félicitations ! Vous avez utilisé le modèle Azure Resource Manager pour créer un espace de noms Event Hubs, ainsi qu’un hub d’événements dans cet espace de noms.
+Félicitations ! Vous avez utilisé le modèle Azure Resource Manager pour créer un espace de noms Event Hubs, ainsi qu’un hub d’événements dans cet espace de noms.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez créé un espace de noms Event Hubs et utilisé des exemple d’application pour envoyer et recevoir des événements depuis votre Event Hub. Pour obtenir des instructions pas à pas sur l’envoi à ou la réception d’événements à partir d’un Event Hub, consultez les didacticiels suivants : 
+Dans cet article, vous avez créé un espace de noms Event Hubs et utilisé des exemple d’application pour envoyer et recevoir des événements depuis votre Event Hub. Pour obtenir des instructions pas à pas (ou) envoyer des événements à recevoir des événements à partir d’un concentrateur d’événements, consultez le **envoyer et recevoir des événements** didacticiels : 
 
-- **Envoyer des événements à un hub d’événements** : [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-- **Recevoir des événements d’un hub d’événements** : [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.JS](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C (envoi uniquement)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (reecive uniquement)](event-hubs-storm-getstarted-receive.md)
+
 
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png

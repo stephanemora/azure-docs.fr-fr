@@ -11,13 +11,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 9fac8291799216b4ca4527b482aefee169f7fc59
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/16/2019
+ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361279"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680368"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
@@ -88,6 +88,9 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
     ![Volet de navigation][3]
 
 5. **Nouveau** : Vous disposez désormais de plusieurs options pour configurer l’emplacement d’écriture des journaux d’audit. Vous pouvez écrire des journaux à un compte de stockage Azure, à un espace de travail Analytique de journal pour la consommation par les journaux d’Azure Monitor ou à un concentrateur d’événements pour la consommation à l’aide du hub d’événements. Vous pouvez associer ces options comme vous le souhaitez. Les journaux d’audit seront écrits dans chacun des emplacements choisis.
+
+   > [!WARNING]
+   > Activation de l’audit pour l’Analytique de journal est des frais selon les taux d’ingestion. Notez que le coût associé à l’aide de ce [option](https://azure.microsoft.com/en-us/pricing/details/monitor/), ou envisagez de stocker l’audit consigne dans un compte de stockage Azure.
 
     ![Options de stockage](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -231,7 +234,7 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 
 - [Créer ou mettre à jour de la base de données (Set-AzSqlDatabaseAuditing) de stratégie d’audit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
 - [Créer ou mettre à jour de la stratégie d’audit de serveur (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
-- [Obtenir stratégie d’audit de base de données (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Obtenir une stratégie d’audit de base de données (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
 - [Pour obtenir le serveur de stratégie d’audit (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Pour obtenir un exemple de script, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
@@ -240,10 +243,10 @@ Pour obtenir un exemple de script, consultez [Configurer l’audit et la détect
 
 **API REST** :
 
-- [Créer ou mettre à jour de la stratégie d’audit de base de données](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Créer ou mettre à jour de la stratégie d’audit du serveur](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Obtenir la stratégie d’audit de base de données](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [Pour obtenir le serveur de stratégie d’audit](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Create or Update Database Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [Create or Update Server Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Get Database Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+- [Get Server Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage supplémentaire :
 
@@ -256,9 +259,9 @@ Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage 
 
 Vous pouvez gérer l’audit de base de données SQL Azure à l’aide de modèles [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), comme indiqué dans ces exemples :
 
-- [Déployer un serveur de SQL Azure avec l’audit est activé pour écrire des journaux d’audit dans le compte de stockage d’objets Blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Déployer un serveur de SQL Azure avec l’audit est activé pour écrire des journaux d’audit dans le journal Analytique](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
-- [Déployer un serveur de SQL Azure avec l’audit est activé pour écrire des journaux d’audit dans Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+- [Déployer un serveur Azure SQL Server avec l’audit activé pour écrire des journaux d’audit dans le compte de stockage blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 > [!NOTE]
 > Les exemples liés se trouvent sur un dépôt public externe et sont fournis « en tant qu’est », sans garantie et ne sont pas pris en charge sous n’importe quel programme/service de prise en charge de Microsoft.

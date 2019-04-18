@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 701b08cafd2e6d38a68252ea5919c8f4cd7de9b4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203625"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505799"
 ---
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 
@@ -51,12 +51,13 @@ Cette section explique comment installer et configurer le pipeline d’authentif
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>Configurer le pipeline d’authentification
+
 Les étapes suivantes permettent de créer une classe de démarrage d’intergiciel OWIN pour configurer l’authentification OpenID Connect. Cette classe sera exécutée automatiquement au démarrage de votre processus IIS.
 
 > [!TIP]
 > Si votre projet n’a pas de fichier `Startup.cs` dans le dossier racine :
 > 1. Cliquez avec le bouton droit sur le dossier racine du projet : > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Nommez-le `Startup.cs`.
+> 2. Nommez-le `Startup.cs`
 >
 >> Assurez-vous que la classe sélectionnée est une classe de démarrage OWIN et non une classe C# standard. Pour le savoir, vérifiez que `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` s’affiche au-dessus de l’espace de noms.
 
@@ -113,10 +114,10 @@ Les étapes suivantes permettent de créer une classe de démarrage d’intergic
                     ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
-                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
+                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
                     TokenValidationParameters = new TokenValidationParameters()
                     {
-                        ValidateIssuer = false
+                        ValidateIssuer = false // This is a simplification
                     },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
@@ -140,6 +141,9 @@ Les étapes suivantes permettent de créer une classe de démarrage d’intergic
         }
     }
     ```
+
+> [!NOTE]
+> Le paramètre `ValidateIssuer = false` est une simplification destinée aux seules fins de ce guide de démarrage rapide. Dans les applications réelles, vous devez valider l’émetteur. Consultez les exemples pour savoir comment procéder.
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Informations complémentaires

@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
 ms.openlocfilehash: f17dc61f47dadf4c808467b2158cd9ef034e1ce9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277117"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Activer Azure Disk Encryption pour les machines virtuelles IaaS Windows
@@ -51,7 +51,7 @@ Utilisez le [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-
 
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
     ```
-- **Chiffrer une machine virtuelle à l’aide de la KEK :** 
+- **Chiffrer une machine virtuelle en cours d’exécution avec la clé KEK :** 
 
      ```azurepowershell
      $KVRGname = 'MyKeyVaultResourceGroup';
@@ -91,7 +91,7 @@ Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az-vm-en
     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
     ```
 
-- **Chiffrer une machine virtuelle à l’aide de la KEK :**
+- **Chiffrer une machine virtuelle en cours d’exécution avec la clé KEK :**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
@@ -131,7 +131,7 @@ Le tableau suivant répertorie les paramètres du modèle Resource Manager pour 
 | Paramètre | Description |
 | --- | --- |
 | vmName | Nom de la machine virtuelle d’exécution de l’opération de chiffrement. |
-| keyVaultName | Nom du coffre de clés dans lequel la clé BitLocker doit être téléchargée. Vous pouvez l’obtenir à l’aide de l’applet de commande `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou la commande CLI Azure `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
+| keyVaultName | Nom du coffre de clés dans lequel la clé BitLocker doit être téléchargée. Vous pouvez l’obtenir avec la cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou la commande Azure CLI `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nom du groupe de ressources qui contient le coffre de clés|
 |  keyEncryptionKeyURL | URL de la clé de chiffrement à clé utilisée pour chiffrer la clé BitLocker générée. Ce paramètre est facultatif si vous sélectionnez **nokek** dans la liste déroulante UseExistingKek. Si vous sélectionnez **kek** dans la liste déroulante UseExistingKek, vous devez entrer la valeur _keyEncryptionKeyURL_. |
 | volumeType | Type de volume sur lequel l’opération de chiffrement est effectuée. Les valeurs valides sont _Système d’exploitation_, _Données_ et _Tous_. 
@@ -193,12 +193,12 @@ Utilisez le [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/se
 
 Utilisez l’[activation de chiffrage az vmss](/cli/azure/vmss/encryption#az-vmss-encryption-enable) pour activer le chiffrement sur un groupe de machines virtuelles identiques Windows. Si vous définissez la stratégie de mise à niveau du groupe identique sur mode manuel, démarrez le chiffrement avec [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). Le groupe de ressources, machines virtuelles identiques et coffre de clés doivent déjà créées comme composants requis.
 
--  **Chiffrer un jeu de mise à l’échelle de machine virtuelle en cours d’exécution**
+-  **Chiffrer un groupe de machines virtuelles identiques en cours d’exécution**
     ```azurecli-interactive
      az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" 
     ```
 
--  **Chiffrer une échelle de machine virtuelle en cours d’exécution définie à l’aide de la KEK à encapsuler la clé**
+-  **Chiffrer un groupe de machines virtuelles identiques en cours d’exécution avec la KEK pour inclure la clé dans un wrapper**
     ```azurecli-interactive
      az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
 
@@ -222,7 +222,7 @@ Utilisez l’[activation de chiffrage az vmss](/cli/azure/vmss/encryption#az-vms
 
 Pour chiffrer ou déchiffrer les groupe de machines virtuelles identiques Windows, utilisez les modèles Azure Resource Manager et les instructions ci-dessous :
 
-- [Activer le chiffrement sur un jeu de mise à l’échelle de machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+- [Activer le chiffrement sur un groupe de machines virtuelles identiques Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 - [Désactiver le chiffrement sur un jeu de mise à l’échelle de machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
      1. Cliquez sur **Déployer dans Azure**.
@@ -305,7 +305,7 @@ Vous pouvez [ajouter un nouveau disque à une machine virtuelle Windows avec Pow
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "All"
      ```
 
-- **Chiffrer une machine virtuelle à l’aide de la KEK :**
+- **Chiffrer une machine virtuelle en cours d’exécution avec la clé KEK :**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "All"
@@ -324,7 +324,7 @@ Vous pouvez désactiver le chiffrement avec Azure PowerShell, Azure CLI ou un mo
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
      ```
-- **Désactiver le chiffrement avec un modèle Resource Manager :** 
+- **Désactiver le chiffrement avec un modèle Resource Manager :** 
 
     1. Cliquez sur **Déployer sur Azure** dans le modèle [Désactiver le chiffrement de disque sur une machine virtuelle Windows en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad).
     2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement, la machine virtuelle, le type de volume, les conditions juridiques et le contrat.

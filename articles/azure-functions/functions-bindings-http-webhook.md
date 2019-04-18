@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490408"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP d’Azure Functions
@@ -331,10 +331,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ### <a name="trigger---java-examples"></a>Déclencheur : exemples Java
 
-* [Paramètre en lecture à partir de la chaîne de requête](#read-parameter-from-the-query-string-java)
-* [Corps de la lecture à partir d’une demande POST](#read-body-from-a-post-request-java)
-* [Paramètre en lecture à partir d’un itinéraire](#read-parameter-from-a-route-java)
-* [Corps POJO de lecture à partir d’une demande POST](#read-pojo-body-from-a-post-request-java)
+* [Lire un paramètre de la chaîne de requête](#read-parameter-from-the-query-string-java)
+* [Lire le corps d’une demande POST](#read-body-from-a-post-request-java)
+* [Lire un paramètre d’une route](#read-parameter-from-a-route-java)
+* [Lire le corps POJO d’une demande POST](#read-pojo-body-from-a-post-request-java)
 
 Les exemples suivants montrent une liaison du déclencheur HTTP dans un fichier *function.json* et les [fonctions Java](functions-reference-java.md) respectives qui utilisent la liaison. 
 
@@ -559,13 +559,13 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
-| **Type** | n/a| Obligatoire : doit être défini sur `httpTrigger`. |
+| **type** | n/a| Obligatoire : doit être défini sur `httpTrigger`. |
 | **direction** | n/a| Obligatoire : doit être défini sur `in`. |
-| **Nom** | n/a| Obligatoire : nom de variable utilisé dans le code de la fonction pour la requête ou le corps de la requête. |
-| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Détermine, le cas échéant, les clés qui doivent être présentes dans la requête pour appeler la fonction. Le niveau d’autorisation peut être l’une des valeurs suivantes : <ul><li><code>anonymous</code>&mdash;Aucune clé API n’est nécessaire.</li><li><code>function</code>&mdash;Une clé API spécifique à la fonction est nécessaire. Il s’agit de la valeur par défaut si aucune valeur n’est fournie.</li><li><code>admin</code>&mdash;La clé principale est requise.</li></ul> Pour plus d’informations, consultez la section sur les [clés d’autorisation](#authorization-keys). |
-| **Méthodes** |**Méthodes** | Tableau des méthodes HTTP auxquelles la fonction répond. À défaut de spécification, la fonction répond à toutes les méthodes HTTP. Consultez [Personnaliser le point de terminaison HTTP](#customize-the-http-endpoint). |
-| **itinéraire** | **Routage** | Définit le modèle de routage, en contrôlant les URL de requête auxquelles votre fonction répond. La valeur par défaut est `<functionname>`. Pour plus d’informations, consultez [Personnaliser le point de terminaison HTTP](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** | _Prise en charge uniquement pour la version 1.x de Common language runtime._<br/><br/>Configure le déclencheur HTTP pour qu’il agisse en tant que récepteur de [Webhook](https://en.wikipedia.org/wiki/Webhook) pour le fournisseur spécifié. Ne définissez pas la propriété `methods` si vous définissez cette propriété. Le type de webhook peut être l’une des valeurs suivantes :<ul><li><code>genericJson</code>&mdash;Un point de terminaison webhook à usage général sans logique pour un fournisseur spécifique. Ce paramètre limite les requêtes à celles utilisant HTTP POST et le type de contenu `application/json`.</li><li><code>github</code>&mdash;La fonction répond à [webhooks GitHub](https://developer.github.com/webhooks/). N’utilisez pas la propriété _authLevel_ avec des webhooks GitHub. Pour plus d’informations, consultez la section sur les webhooks GitHub plus loin dans cet article.</li><li><code>slack</code>&mdash;La fonction répond à [Slack webhooks](https://api.slack.com/outgoing-webhooks). N’utilisez pas la propriété _authLevel_ avec des webhooks Slack. Pour plus d’informations, consultez la section sur les webhooks Slack plus loin dans cet article.</li></ul>|
+| **name** | n/a| Obligatoire : nom de variable utilisé dans le code de la fonction pour la requête ou le corps de la requête. |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Détermine, le cas échéant, les clés qui doivent être présentes dans la requête pour appeler la fonction. Le niveau d’autorisation peut être l’une des valeurs suivantes : <ul><li><code>anonymous</code>&mdash;Aucune clé API n’est obligatoire.</li><li><code>function</code>&mdash;Une clé API spécifique à la fonction est obligatoire. Il s’agit de la valeur par défaut si aucune valeur n’est fournie.</li><li><code>admin</code>&mdash;La clé principale est obligatoire.</li></ul> Pour plus d’informations, consultez la section sur les [clés d’autorisation](#authorization-keys). |
+| **methods** |**Méthodes** | Tableau des méthodes HTTP auxquelles la fonction répond. À défaut de spécification, la fonction répond à toutes les méthodes HTTP. Consultez [Personnaliser le point de terminaison HTTP](#customize-the-http-endpoint). |
+| **route** | **Itinéraire** | Définit le modèle de routage, en contrôlant les URL de requête auxquelles votre fonction répond. La valeur par défaut est `<functionname>`. Pour plus d’informations, consultez [Personnaliser le point de terminaison HTTP](#customize-the-http-endpoint). |
+| **webHookType** | **WebHookType** | _Prise en charge uniquement pour le runtime version 1.x._<br/><br/>Configure le déclencheur HTTP pour qu’il agisse en tant que récepteur de [Webhook](https://en.wikipedia.org/wiki/Webhook) pour le fournisseur spécifié. Ne définissez pas la propriété `methods` si vous définissez cette propriété. Le type de webhook peut être l’une des valeurs suivantes :<ul><li><code>genericJson</code>&mdash;Point de terminaison webhook à usage général sans logique pour un fournisseur spécifique. Ce paramètre limite les requêtes à celles utilisant HTTP POST et le type de contenu `application/json`.</li><li><code>github</code>&mdash;La fonction répond aux [Webhooks GitHub](https://developer.github.com/webhooks/). N’utilisez pas la propriété _authLevel_ avec des webhooks GitHub. Pour plus d’informations, consultez la section sur les webhooks GitHub plus loin dans cet article.</li><li><code>slack</code>&mdash;La fonction répond aux [Webhooks Slack](https://api.slack.com/outgoing-webhooks). N’utilisez pas la propriété _authLevel_ avec des webhooks Slack. Pour plus d’informations, consultez la section sur les webhooks Slack plus loin dans cet article.</li></ul>|
 
 ## <a name="trigger---usage"></a>Déclencheur - utilisation
 
@@ -802,9 +802,9 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 |Propriété  |Description  |
 |---------|---------|
-| **Type** |Cette propriété doit être définie sur `http`. |
+| **type** |Cette propriété doit être définie sur `http`. |
 | **direction** | Cette propriété doit être définie sur `out`. |
-|**Nom** | Nom de variable utilisé dans le code de fonction pour la réponse, ou `$return` pour utiliser la valeur renvoyée. |
+|**name** | Nom de variable utilisé dans le code de fonction pour la réponse, ou `$return` pour utiliser la valeur renvoyée. |
 
 ## <a name="output---usage"></a>Sortie - utilisation
 
@@ -814,4 +814,4 @@ Par obtenir des exemples de réponse, consultez [l’exemple de déclencheur](#t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[En savoir plus sur les liaisons et les déclencheurs Azure functions](functions-triggers-bindings.md)
+[En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

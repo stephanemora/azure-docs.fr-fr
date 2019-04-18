@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361876"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Contrôle d’accès, rôles et ressources dans Application Insights
@@ -85,7 +85,7 @@ Le cas échéant, le lien est établi vers la documentation de référence offic
 | --- | --- |
 | [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Peut tout modifier, y compris l’accès utilisateur. |
 | [Contributeur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Peut tout modifier, y compris l’ensemble des ressources. |
-| [collaborateur de composants Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Peut modifier les ressources, les tests web et les alertes Application Insights. |
+| [Contributeur de composants Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Peut modifier les ressources, les tests web et les alertes Application Insights. |
 | [Lecteur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Peut afficher les éléments, mais ne peut rien modifier. |
 | [Débogueur de capture instantanée d’Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Autorise l’utilisateur à utiliser les fonctionnalités du débogueur de capture instantanée d’Application Insights. Remarquez que ce rôle n’est pas inclus dans les rôles de propriétaire et de contributeur. |
 | Contributeur de gestion des mises en production de déploiement Azure Service | Rôle de contributeur pour le déploiement de services via le déploiement Azure Service. |
@@ -94,9 +94,9 @@ Le cas échéant, le lien est établi vers la documentation de référence offic
 | [Contributeur Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Peut lire toutes les données de surveillance et modifier les paramètres de surveillance. La modification des paramètres de supervision inclut l’ajout de l’extension de machine virtuelle aux machines virtuelles, la lecture des clés de comptes de stockage permettant de configurer la collection de journaux d’activité du stockage Azure, la création et la configuration de comptes Automation, l’ajout de solutions et la configuration de diagnostics Azure sur toutes les ressources Azure.  |
 | [Lecteur Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Peut afficher et rechercher toutes les données de surveillance, ainsi qu’afficher les paramètres de surveillance, notamment la configuration des diagnostics Azure sur toutes les ressources Azure. |
 | masterreader | Permet à un utilisateur d’afficher tous les éléments, mais sans apporter de modifications. |
-| [Contributeur d’analyse](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Peut lire toutes les données de surveillance et mettre à jour les paramètres de surveillance. |
+| [Contributeur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Peut lire toutes les données de surveillance et mettre à jour les paramètres de surveillance. |
 | [Publication des métriques de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Permet de publier les métriques relatives aux ressources Azure. |
-| [Lecteur d’analyse](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Peut lire toutes les données de surveillance. |
+| [Lecteur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Peut lire toutes les données de surveillance. |
 | Contributeur de stratégie de ressource (préversion) | Utilisateurs renvoyés de EA, avec des droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire une ressource/hiérarchie.  |
 | [Administrateur de l'accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) | Permet à un utilisateur de gérer l’accès d’autres utilisateurs à des ressources Azure.|
 | [Contributeur de site web](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#website-contributor) | Vous permet de gérer des sites web (pas des plans web), mais pas d’y accéder.|
@@ -115,7 +115,7 @@ Si l’utilisateur n’est pas dans le répertoire, vous pouvez inviter toute pe
 
 ## <a name="related-content"></a>Contenu connexe
 
-* [Contrôle d’accès dans Azure en fonction du rôle](../../role-based-access-control/role-assignments-portal.md)
+* [Contrôle d’accès en fonction du rôle dans Azure](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Requête PowerShell permettant de déterminer l’appartenance au rôle
 

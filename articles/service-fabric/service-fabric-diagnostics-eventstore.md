@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b8e1958947ced5ea2d0bd8b34667210bf935072d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 36d01a9e6e55ae54377ba3f983f779dbc692c49a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662905"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681520"
 ---
 # <a name="eventstore-service-overview"></a>Vue d’ensemble du service EventStore
 
@@ -72,7 +72,7 @@ Dans le [fabricSettings.json de votre cluster](service-fabric-cluster-fabric-set
 
 ### <a name="azure-cluster"></a>Cluster Azure
 
-Dans le modèle Azure Resource Manager de votre cluster, vous pouvez activer le service EventStore en effectuant une [mise à niveau de la configuration du cluster](service-fabric-cluster-config-upgrade-azure.md) et en ajoutant le code suivant. La section `upgradeDescription` configure la mise à niveau de configuration pour déclencher un redémarrage sur les nœuds. Vous pouvez supprimer la section dans une autre mise à jour.
+Dans le modèle d’Azure Resource Manager de votre cluster, vous pouvez activer le service EventStore en effectuant un [mise à niveau de la configuration de cluster](service-fabric-cluster-config-upgrade-azure.md) et ajoutant le code suivant, vous pouvez utiliser le paramètre PlacementConstraints pour placer les réplicas de la EventStore service sur un NodeType spécifique, par exemple, un NodeType dédié pour les services système. La section `upgradeDescription` configure la mise à niveau de configuration pour déclencher un redémarrage sur les nœuds. Vous pouvez supprimer la section dans une autre mise à jour.
 
 ```json
     "fabricSettings": [
@@ -89,6 +89,10 @@ Dans le modèle Azure Resource Manager de votre cluster, vous pouvez activer le 
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
+              }
+              {
+                "name": "PlacementConstraints",
+                "value": "(NodeType==<node_type_name_here>)"
               }
             ]
           }

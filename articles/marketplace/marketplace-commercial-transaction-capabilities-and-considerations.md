@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731087"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678902"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Considérations et fonctionnalités relatives aux transactions commerciales ‎dans la Place de marché Azure
 
@@ -44,7 +44,7 @@ En plus des options de publication Liste et Essai, les éditeurs disposent de l�
 
 ## <a name="transact-general-overview"></a>Présentation générale des offres Transaction
 
-Quand vous choisissez l’option de publication Transaction, Microsoft permet la vente et le déploiement de logiciels tiers dans l’abonnement Azure du client. Pour choisir le modèle de facturation et le type d’offre appropriés dans la Place de marché Azure, l’éditeur doit prendre en compte la facturation des frais d’infrastructure Azure et de ses propres frais de licence logicielle. 
+Lorsque vous utilisez l’option de publication de la transaction, Microsoft permet la vente des logiciels tiers et le déploiement de certains types d’offre pour l’abonnement du client Azure. Pour choisir le modèle de facturation et le type d’offre appropriés dans la Place de marché Azure, l’éditeur doit prendre en compte la facturation des frais d’infrastructure Azure et de ses propres frais de licence logicielle.
 
 L’option de publication Transaction sur la Place de marché Azure est actuellement disponible pour ces types d’offres : Machines virtuelles, Applications Azure ou Applications SaaS.
 
@@ -58,7 +58,7 @@ Pour les offres Machines virtuelles et Applications Azure, les frais d’utilisa
 
 **Pour les offres Applications SaaS**
 
-Pour les offres Applications SaaS, l’éditeur doit regrouper les frais d’utilisation de l’infrastructure Azure et les frais de licence logicielle dans le même élément de coût.  Ils font facturés au client selon un tarif mensuel fixe. L’utilisation de l’infrastructure Azure est présentée et facturée directement au partenaire.  Les frais réels d’utilisation de l’infrastructure ne sont pas visibles par le client.  Les éditeurs choisissent généralement d’inclure les frais d’utilisation de l’infrastructure Azure dans leurs tarifs de licence logicielle.  Les frais de licence logicielle ne sont pas comptabilisés ni basés sur la consommation.
+Pour les offres Applications SaaS, l’éditeur doit regrouper les frais d’utilisation de l’infrastructure Azure et les frais de licence logicielle dans le même élément de coût.  Il est représenté comme un tarif fixe pour le client. L’utilisation de l’infrastructure Azure est présentée et facturée directement au partenaire.  Les frais réels d’utilisation de l’infrastructure ne sont pas visibles par le client.  Les éditeurs choisissent généralement d’inclure les frais d’utilisation de l’infrastructure Azure dans leurs tarifs de licence logicielle.  Les frais de licence logicielle ne sont pas comptabilisés ni basés sur la consommation.
 
 ## <a name="transact-billing-models"></a>Modèles de facturation des offres Transaction
 

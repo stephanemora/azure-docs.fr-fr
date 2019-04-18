@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.author: jingwang
-ms.openlocfilehash: d0ecf6a48735ec2ba1623f97d4760d230a6e6fbf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 749b5690f5814bb2f63f9f4451bba85990166acd
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266299"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683866"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
-> * [version 1](v1/data-factory-azure-sql-connector.md)
+> * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Version actuelle](connector-azure-sql-database.md)
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers ou à partir d’Azure SQL Database. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -65,7 +65,7 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
 
 - [Authentification SQL](#sql-authentication)
 - [Authentification par jeton d’application Azure AD : Principal du service](#service-principal-authentication)
-- [Authentification par jeton d’application Azure AD : Identités gérées pour les ressources Azure](#managed-identity)
+- [Authentification par jeton d’application Azure AD : Identités managées pour les ressources Azure](#managed-identity)
 
 >[!TIP]
 >Si vous rencontrez une erreur avec le code d’erreur « UserErrorFailedToConnectToSqlServer » et un message tel que « La limite de session pour la base de données est XXX et a été atteinte. », ajoutez `Pooling=false` à votre chaîne de connexion, puis réessayez.
@@ -132,21 +132,21 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
     - Clé de l'application
     - ID client
 
-1. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur Azure SQL sur le portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD doit être un utilisateur Azure AD ou un groupe Azure AD, mais il ne doit pas s’agir d’un principal de service. Vous devez effectuer cette étape pour qu’à l’étape suivante vous puissiez utiliser une identité Azure AD pour créer un utilisateur de base de données autonome pour le principal de service.
+2. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur Azure SQL sur le portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD doit être un utilisateur Azure AD ou un groupe Azure AD, mais il ne doit pas s’agir d’un principal de service. Vous devez effectuer cette étape pour qu’à l’étape suivante vous puissiez utiliser une identité Azure AD pour créer un utilisateur de base de données autonome pour le principal de service.
 
-1. **[Créez des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** pour le principal de service. Connectez-vous à la base de données vers ou à partir de laquelle vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant : 
+3. **[Créez des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** pour le principal de service. Connectez-vous à la base de données vers ou à partir de laquelle vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant : 
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Accordez les autorisations requises par le principal de service** comme vous le feriez d’habitude pour des utilisateurs SQL ou autres. Exécutez le code suivant :
+4. **Accordez les autorisations requises par le principal de service** comme vous le feriez d’habitude pour des utilisateurs SQL ou autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-1. Dans Azure Data Factory, **configurez un service lié Azure SQL Database.**
+5. Dans Azure Data Factory, **configurez un service lié Azure SQL Database.**
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Exemple de service lié qui utilise l’authentification du principal de service
@@ -182,33 +182,23 @@ Une fabrique de données peut être associée à une [identité managée pour le
 
 Pour utiliser l’authentification d’identité gérée, procédez comme suit :
 
-1. **Créez un groupe dans Azure AD.** Vérifiez l’identité gérée à un membre du groupe.
-    
-   1. Rechercher l’identité de géré de fabrique de données à partir du portail Azure. Accédez aux **Propriétés** de votre fabrique de données. Copiez l’ID de l’identité du service.
-    
-   1. Installez le module [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Connectez-vous à l’aide de la commande `Connect-AzureAD`. Exécutez les commandes suivantes pour créer un groupe et ajouter l’identité gérée en tant que membre.
-      ```powershell
-      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-      ```
-    
 1. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur Azure SQL sur le portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Si vous accordez au groupe avec l’identité gérée un rôle d’administrateur, ignorez les étapes 3 et 4. L’administrateur aura un accès complet à la base de données.
 
-1. **[Créez des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** pour le groupe Azure AD. Connectez-vous à la base de données vers ou à partir de laquelle vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant : 
+2. **[Créer des utilisateurs de base de données de relation contenant-contenu](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  pour l’identité gérée de fabrique de données. Connectez-vous à la base de données vers ou à partir de laquelle vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant : 
     
     ```sql
-    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Accordez les autorisations requises par le groupe Azure AD** comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Par exemple, exécutez le code suivant :
+3. **Accorder des autorisations requises de l’identité gérée de fabrique de données** comme vous le feriez normalement pour les utilisateurs SQL et d’autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your AAD group name];
+    EXEC sp_addrolemember [role name], [your Data Factory name];
     ```
 
-1. Dans Azure Data Factory, **configurez un service lié Azure SQL Database.**
+4. Dans Azure Data Factory, **configurez un service lié Azure SQL Database.**
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -277,7 +267,7 @@ Pour copier des données d’Azure SQL Database, affectez la valeur **SqlSource*
 ### <a name="points-to-note"></a>Points à noter
 
 - Si **sqlReaderQuery** est spécifié pour **SqlSource**, l’activité de copie exécute cette requête sur la source Azure SQL Database pour obtenir les données. Vous pouvez aussi spécifier une procédure stockée. Spécifiez **sqlReaderStoredProcedureName** et **storedProcedureParameters** si la procédure stockée accepte des paramètres.
-- Si vous ne spécifiez pas **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, les colonnes définies dans la section **structure** du JSON de jeu de données sont utilisées pour créer une requête. `select column1, column2 from mytable` s’exécute sur la base de données SQL Azure. Si la définition du jeu de données n’a pas de **structure**, toutes les colonnes de la table sont sélectionnées.
+- Si vous ne spécifiez pas **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, les colonnes définies dans la section **structure** du JSON de jeu de données sont utilisées pour créer une requête. `select column1, column2 from mytable` est exécuté sur Azure SQL Database. Si la définition du jeu de données n’a pas de **structure**, toutes les colonnes de la table sont sélectionnées.
 
 #### <a name="sql-query-example"></a>Exemple de requête SQL
 

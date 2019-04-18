@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279769"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Statistiques de table dans Azure SQL Data Warehouse
@@ -78,7 +78,7 @@ Voici certaines recommandations pour la mise à jour des statistiques :
 |||
 |-|-|
 | **Fréquence des mises à jour des statistiques**  | Classique : Quotidien </br> Après le chargement ou la transformation de données |
-| **échantillonnage** |  Moins de 1 milliard de lignes, utilisez l’échantillonnage par défaut (20 pour cent). </br> Avec plus de 1 milliard de lignes, utilisez l’échantillonnage de 2 %. |
+| **Échantillonnage** |  Moins de 1 milliard de lignes, utilisez l’échantillonnage par défaut (20 pour cent). </br> Avec plus de 1 milliard de lignes, utilisez l’échantillonnage de 2 %. |
 
 L’une des premières questions que vous devez vous poser quand vous dépannez une requête est la suivante : **« Les statistiques sont-elles à jour ? »**
 

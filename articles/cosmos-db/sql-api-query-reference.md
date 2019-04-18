@@ -9,10 +9,10 @@ ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283645"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Référence sur le langage SQL pour Azure Cosmos DB 
@@ -108,7 +108,7 @@ SELECT <select_specification>
   
 **Remarques**  
   
-La syntaxe `SELECT *` est valide uniquement si la clause FROM a déclaré exactement un alias. `SELECT *` Fournit une projection d’identité, qui peut être utile si aucune projection n’est nécessaire. SELECT * est valide uniquement si la clause FROM est spécifiée et n’a introduit qu’une seule source d’entrée.  
+La syntaxe `SELECT *` est valide uniquement si la clause FROM a déclaré exactement un alias. `SELECT *` fournit une projection d’identité, ce qui peut être utile si aucune projection n’est nécessaire. SELECT * est valide uniquement si la clause FROM est spécifiée et n’a introduit qu’une seule source d’entrée.  
   
 `SELECT <select_list>` et `SELECT *` sont ce qu’on appelle du « sucre syntaxique » et que vous pouvez également les exprimer à l’aide d’instructions SELECT simples, comme indiqué ci-dessous.  
   
@@ -226,7 +226,7 @@ L’évaluation de la jointure dépend de l’étendue du contexte des jeux qui 
   
 ### <a name="examples-of-joins"></a>Exemples de jointures  
   
-Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Laissez chaque source définir `input_alias1, input_alias2, …, input_aliasN`. La close FROM renvoie un ensemble de N-tuples (un tuple avec N valeurs). Les valeurs de chaque tuple sont produites par l’itération de tous les alias du conteneur sur leurs ensembles respectifs.  
   
@@ -238,7 +238,7 @@ Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ..
   
     {1, 2} pour `input_alias1 = A,`  
   
-    {3} Pour `input_alias1 = B,`  
+    {3} pour `input_alias1 = B,`  
   
     {4, 5} pour `input_alias1 = C,`  
   
@@ -256,7 +256,7 @@ Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ..
   
     {1, 2} pour `input_alias1 = A,`  
   
-    {3} Pour `input_alias1 = B,`  
+    {3} pour `input_alias1 = B,`  
   
     {4, 5} pour `input_alias1 = C,`  
   
@@ -264,7 +264,7 @@ Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ..
   
     {100, 200} pour `input_alias2 = 1,`  
   
-    {300} Pour `input_alias2 = 3,`  
+    {300} pour `input_alias2 = 3,`  
   
 - La clause FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` engendre les tuples suivants :  
   
@@ -285,7 +285,7 @@ Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ..
   
     {1, 2} pour `input_alias1 = A,`  
   
-    {3} Pour `input_alias1 = B,`  
+    {3} pour `input_alias1 = B,`  
   
     {4, 5} pour `input_alias1 = C,`  
   
@@ -293,7 +293,7 @@ Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ..
   
     {100, 200} pour `input_alias2 = A,`  
   
-    {300} Pour `input_alias2 = C,`  
+    {300} pour `input_alias2 = C,`  
   
 - La clause FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` engendre les tuples suivants :  
   
@@ -473,33 +473,33 @@ ORDER BY <sort_specification>
   
 |**Catégorie**|**Détails**|  
 |-|-|  
-|**opérations arithmétiques**|L’opérateur attend des entrées de type nombre. La sortie est également un nombre. Si une des entrées est **Undefined** ou d’un type autre qu’un nombre, le résultat est **Undefined**.|  
-|**Au niveau du bit**|L’opérateur attend des entrées de type nombre entier 32 bits signé. La sortie est également un nombre entier signé 32 bits.<br /><br /> Toute valeur non entière est arrondie. Les valeurs positives sont arrondies vers le bas, et les valeurs négatives vers le haut.<br /><br /> Toute valeur qui se trouve en dehors de la plage d’entiers 32 bits sera convertie, en prenant les derniers 32 bits de ses deux notations de complément.<br /><br /> Si une des entrées est **Undefined** ou d’un type autre qu’un nombre, le résultat est **Undefined**.<br /><br /> **Remarque :** le comportement ci-dessus est compatible avec le comportement de l’opérateur de niveau de bit de JavaScript.|  
-|**Logique**|L’opérateur attend des entrées de type booléen. La sortie est également une valeur booléenne.<br />Si une des entrées est **Undefined** ou d’un type autre qu’un booléen, le résultat est **Undefined**.|  
-|**Comparaison**|L’opérateur attend que des entrées du même type et n’étant pas Undefined. La sortie est une valeur booléenne.<br /><br /> Si une des entrées est **Undefined** ou que les entrées ont des types différents, le résultat est **Undefined**.<br /><br /> Consultez le tableau **Classement des valeurs pour comparaison** pour plus de détails sur le classement des valeurs.|  
+|**Opérateurs arithmétiques**|L’opérateur attend des entrées de type nombre. La sortie est également un nombre. Si une des entrées est **Undefined** ou d’un type autre qu’un nombre, le résultat est **Undefined**.|  
+|**Opérateurs au niveau du bit**|L’opérateur attend des entrées de type nombre entier 32 bits signé. La sortie est également un nombre entier signé 32 bits.<br /><br /> Toute valeur non entière est arrondie. Les valeurs positives sont arrondies vers le bas, et les valeurs négatives vers le haut.<br /><br /> Toute valeur qui se trouve en dehors de la plage d’entiers 32 bits sera convertie, en prenant les derniers 32 bits de ses deux notations de complément.<br /><br /> Si une des entrées est **Undefined** ou d’un type autre qu’un nombre, le résultat est **Undefined**.<br /><br /> **Remarque :** le comportement ci-dessus est compatible avec le comportement de l’opérateur de niveau de bit de JavaScript.|  
+|**Opérateurs logiques**|L’opérateur attend des entrées de type booléen. La sortie est également une valeur booléenne.<br />Si une des entrées est **Undefined** ou d’un type autre qu’un booléen, le résultat est **Undefined**.|  
+|**Opérateurs de comparaison**|L’opérateur attend que des entrées du même type et n’étant pas Undefined. La sortie est une valeur booléenne.<br /><br /> Si une des entrées est **Undefined** ou que les entrées ont des types différents, le résultat est **Undefined**.<br /><br /> Consultez le tableau **Classement des valeurs pour comparaison** pour plus de détails sur le classement des valeurs.|  
 |**string**|L’opérateur attend des entrées de type chaîne. La sortie est également une chaîne.<br />Si une des entrées est **Undefined** ou d’un type autre qu’une chaîne, le résultat est **Undefined**.|  
   
  **Opérateurs unaires :**  
   
-|**Nom**|**Operator**|**Détails**|  
+|**Nom**|**Opérateur**|**Détails**|  
 |-|-|-|  
-|**opérations arithmétiques**|+<br /><br /> -|Retourne la valeur de nombre.<br /><br /> Négation au niveau du bit. Retourne une valeur numérique avec négation.|  
-|**Au niveau du bit**|~|Complément d’une valeur. Retourne un complément d’une valeur numérique.|  
+|**Opérateurs arithmétiques**|+<br /><br /> -|Retourne la valeur de nombre.<br /><br /> Négation au niveau du bit. Retourne une valeur numérique avec négation.|  
+|**Opérateurs au niveau du bit**|~|Complément d’une valeur. Retourne un complément d’une valeur numérique.|  
 |**Opérateurs logiques**|**NOT**|Négation. Retourne une valeur booléenne avec négation.|  
   
  **Opérateurs binaires :**  
   
-|**Nom**|**Operator**|**Détails**|  
+|**Nom**|**Opérateur**|**Détails**|  
 |-|-|-|  
-|**opérations arithmétiques**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addition.<br /><br /> Soustraction.<br /><br /> Multiplication.<br /><br /> Division.<br /><br /> Modulation.|  
-|**Au niveau du bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Opérateur OR au niveau du bit.<br /><br /> Opérateur AND au niveau du bit.<br /><br /> XOR au niveau du bit.<br /><br /> Décalage vers la gauche.<br /><br /> Décalage vers la droite.<br /><br /> Décalage vers la droite avec remplissage de zéros.|  
-|**Logique**|**AND**<br /><br /> **Ou**|Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.<br /><br /> Disjonction logique. Retourne **true** si un des arguments est **true**, retourne **false** dans le cas contraire.|  
-|**Comparaison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Égal à. Retourne **true** si les arguments sont égaux, **false** dans le cas contraire.<br /><br /> Non égal à. Retourne **true** si les arguments ne sont pas égaux, **false** dans le cas contraire.<br /><br /> Supérieur à. Retourne **true** si le premier argument est supérieur au second, **false** dans le cas contraire.<br /><br /> Supérieur ou égal à. Retourne **true** si le premier argument est supérieur ou égal au second, **false** dans le cas contraire.<br /><br /> Inférieur à. Retourne **true** si le premier argument est inférieur au second, **false** dans le cas contraire.<br /><br /> Inférieur ou égal à. Retourne **true** si le premier argument est inférieur ou égal au second, **false** dans le cas contraire.<br /><br /> Coalesce. Retourne le deuxième argument si le premier argument est une valeur **Undefined**.|  
+|**Opérateurs arithmétiques**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addition.<br /><br /> Soustraction.<br /><br /> Multiplication.<br /><br /> Division.<br /><br /> Modulation.|  
+|**Opérateurs au niveau du bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Opérateur OR au niveau du bit.<br /><br /> Opérateur AND au niveau du bit.<br /><br /> XOR au niveau du bit.<br /><br /> Décalage vers la gauche.<br /><br /> Décalage vers la droite.<br /><br /> Décalage vers la droite avec remplissage de zéros.|  
+|**Opérateurs logiques**|**AND**<br /><br /> **OR**|Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.<br /><br /> Disjonction logique. Retourne **true** si un des arguments est **true**, retourne **false** dans le cas contraire.|  
+|**Opérateurs de comparaison**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Égal à. Retourne **true** si les arguments sont égaux, **false** dans le cas contraire.<br /><br /> Non égal à. Retourne **true** si les arguments ne sont pas égaux, **false** dans le cas contraire.<br /><br /> Supérieur à. Retourne **true** si le premier argument est supérieur au second, **false** dans le cas contraire.<br /><br /> Supérieur ou égal à. Retourne **true** si le premier argument est supérieur ou égal au second, **false** dans le cas contraire.<br /><br /> Inférieur à. Retourne **true** si le premier argument est inférieur au second, **false** dans le cas contraire.<br /><br /> Inférieur ou égal à. Retourne **true** si le premier argument est inférieur ou égal au second, **false** dans le cas contraire.<br /><br /> Coalesce. Retourne le deuxième argument si le premier argument est une valeur **Undefined**.|  
 |**Chaîne**|**&#124;&#124;**|Concaténation. Renvoie une concaténation de deux arguments.|  
   
  **Opérateurs ternaires :**  
 
-|**Nom**|**Operator**|**Détails**| 
+|**Nom**|**Opérateur**|**Détails**| 
 |-|-|-|  
 |Opérateur ternaire|?|Retourne le deuxième argument si le premier argument prend la valeur **true**, ou le troisième argument dans le cas contraire.|  
 
@@ -510,7 +510,7 @@ ORDER BY <sort_specification>
 |-|-|  
 |**Undefined**|Non comparables.|  
 |**Null**|Valeur unique : **null**|  
-|**Number**|Nombre réel naturel.<br /><br /> La valeur d’infini négatif est inférieure à toute autre valeur numérique.<br /><br /> La valeur d’infini positif est supérieure à toute autre valeur numérique. La valeur **NaN** n’est pas comparable. La comparaison avec **NaN** entraîne une valeur **Undefined**.|  
+|**Nombre**|Nombre réel naturel.<br /><br /> La valeur d’infini négatif est inférieure à toute autre valeur numérique.<br /><br /> La valeur d’infini positif est supérieure à toute autre valeur numérique. La valeur **NaN** n’est pas comparable. La comparaison avec **NaN** entraîne une valeur **Undefined**.|  
 |**Chaîne**|Ordre lexicographique.|  
 |**Tableau**|Aucun ordre, mais équitable.|  
 |**Object**|Aucun ordre, mais équitable.|  
@@ -521,7 +521,7 @@ ORDER BY <sort_specification>
   
  Cela signifie qu’une requête telle que : SELECT * FROM ROOT r WHERE r.Age = 21 retourne uniquement les documents dont la propriété Age est égale au nombre 21. Les documents dont la propriété Age est égale à la chaîne "21" ou à la chaîne "0021" ne correspondent pas, car l’expression "21" = 21 produit le résultat Undefined. Cela permet une meilleure utilisation des index, car la recherche d’une valeur spécifique (comme le nombre 21) est plus rapide que la recherche d’un nombre indéfini de correspondances potentielles (le nombre 21 ou des chaînes de type "21", "021", "21.0"...). Cela est différent de la manière dont JavaScript évalue les opérateurs sur les valeurs de types différents.  
   
- **Comparaison et égalité d’objets et tableaux**  
+ **Comparaison et égalité pour les objets et tableaux**  
   
  La comparaison des valeurs de tableau ou d’objet à l’aide des opérateurs de plage (>, > =, <, < =) entraînera un résultat Undefined, car il n’existe pas d’ordre défini sur les valeurs d’objet ou de tableau. Toutefois, l’utilisation d’opérateurs d’égalité/inégalité (=, ! =, <>) est prise en charge et les valeurs seront comparées structurellement.  
   
@@ -539,7 +539,7 @@ ORDER BY <sort_specification>
 |**Undefined**|Valeur unique : **Undefined**|  
 |**Null**|Valeur unique : **null**|  
 |**Booléen**|Valeurs : **false**, **true**.|  
-|**Number**|Un nombre à virgule flottante double précision répondant à la norme IEEE 754.|  
+|**Nombre**|Un nombre à virgule flottante double précision répondant à la norme IEEE 754.|  
 |**Chaîne**|Une séquence de zéro ou plusieurs caractères Unicode. Les chaînes doivent figurer entre guillemets simples ou doubles.|  
 |**Tableau**|Une séquence de zéro ou plusieurs éléments. Chaque élément peut être une valeur de tout type de données scalaires, à l’exception de Undefined.|  
 |**Object**|Un jeu non ordonné de zéro ou plusieurs paires nom/valeur. Le nom est une chaîne Unicode, la valeur peut être de n’importe quel type de données scalaire, sauf **Undefined**.|  
@@ -618,7 +618,7 @@ ORDER BY <sort_specification>
   
   Les séquences d’échappement suivantes sont autorisées :  
   
-|**Séquence d’échappement**|**Description**|**Caractère Unicode**|  
+|**Séquence d’échappement**|**Description**|**Caractères Unicode**|  
 |-|-|-|  
 |\\'|apostrophe (')|U+0027|  
 |\\"|guillemet (")|U+0022|  
@@ -642,7 +642,7 @@ ORDER BY <sort_specification>
   
 - L’expression de chemin d’accès de document représente toute expression qui identifie un chemin d’accès constant dans les documents du conteneur de base de données référencé.  
   
-  **Expression de chemin d’accès de document**  
+  **Expression de chemin d’accès à un document**  
   
   Les expressions de chemin d’accès à un document sont des expressions qu’un chemin d’accès de propriété ou indexeur de tableau évalue sur un document provenant des documents du conteneur de base de données. Ce chemin d’accès peut être utilisé pour identifier l’emplacement des valeurs référencées dans un filtre directement dans les documents du conteneur de base de données.  
   
@@ -691,10 +691,10 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
 |[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[CEILING](#bk_ceiling)|  
-|[COS](#bk_cos)|[COT](#bk_cot)|[DEGRÉS](#bk_degrees)|  
-|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[JOURNAL](#bk_log)|  
+|[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
+|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANS](#bk_radians)|[ARRONDIR](#bk_round)|[SIN](#bk_sin)|  
+|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[SIN](#bk_sin)|  
 |[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
@@ -1104,7 +1104,7 @@ LOG (<numeric_expression> [, <base>])
   
   Renvoie une expression numérique.  
   
-  **Remarques**  
+  **Notes**  
   
   Par défaut, LOG() renvoie le logarithme naturel. Vous pouvez modifier la base du logarithme avec une autre valeur en utilisant le paramètre de base facultatif.  
   
@@ -1842,14 +1842,14 @@ SELECT
   
 ||||  
 |-|-|-|  
-|[CONCAT](#bk_concat)|[CONTIENT](#bk_contains)|[ENDSWITH](#bk_endswith)|  
-|[INDEX_OF](#bk_index_of)|[GAUCHE](#bk_left)|[LONGUEUR](#bk_length)|  
-|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REMPLACEZ](#bk_replace)|  
-|[RÉPLIQUER](#bk_replicate)|[INVERSE](#bk_reverse)|[OUI](#bk_right)|  
+|[CONCAT](#bk_concat)|[CONTAINS](#bk_contains)|[ENDSWITH](#bk_endswith)|  
+|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTH](#bk_length)|  
+|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
+|[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
 |[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
 |[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
-|[LA FONCTION TRIM](#bk_trim)|[UPPER](#bk_upper)||
+|[TRIM](#bk_trim)|[UPPER](#bk_upper)||
   
 ####  <a name="bk_concat"></a> CONCAT  
  Retourne une chaîne qui est le résultat de la concaténation d’au moins deux valeurs de chaîne.  
@@ -3297,4 +3297,4 @@ SELECT ST_ISVALIDDETAILED({
 
 - [Syntaxe SQL et requête SQL pour Cosmos DB](how-to-sql-query.md)
 
-- [Documentation COSMOS DB](https://docs.microsoft.com/azure/cosmos-db/)  
+- [Documentation Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

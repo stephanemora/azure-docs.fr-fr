@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
 ms.openlocfilehash: 05164985c7851ed828e22f4eeafde64a1940ebc0
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357598"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
@@ -62,7 +62,7 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>eDTU de pool élastique, stockage et limites de base de données mise en pool
 
-| | **De base** | **standard** | **Premium** |
+| | **De base** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | Taille de stockage maximale par base de données  | 2 Go | 1 To | 1 To |
 | Taille de stockage maximale par pool | 156 Go | 4 To | 4 To |

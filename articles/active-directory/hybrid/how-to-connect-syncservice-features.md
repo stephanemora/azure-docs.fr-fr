@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82b2b75d5505ddda91232bf1055bd70a68d333d0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58792397"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680279"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Fonctionnalités de service de synchronisation d’Azure AD Connect
 
@@ -96,7 +96,7 @@ Historiquement, les mises à jour de l’attribut UserPrincipalName à l’aide 
 
 Pour plus d’informations, voir [Les noms d’utilisateur dans Office 365, Azure ou Intune ne correspondent pas à l’UPN local ou à l’ID de connexion secondaire](https://support.microsoft.com/kb/2523192).
 
-L’activation de cette fonctionnalité permet au moteur de synchronisation de mettre à jour l’attribut userPrincipalName quand il est modifié en local et que vous utilisez la synchronisation de hachage de mot de passe. Si vous utilisez la fédération, cette fonctionnalité n’est pas prise en charge.
+L’activation de cette fonctionnalité permet au moteur de synchronisation mettre à jour userPrincipalName lorsqu’il est modifié en local et que vous utilisez le mot de passe hachage synchronisation ou l’authentification directe. Si vous utilisez la fédération, cette fonctionnalité n’est pas prise en charge.
 
 Cette fonctionnalité est activée par défaut pour les répertoires Azure AD nouvellement créés. Vous pouvez voir si cette fonctionnalité est activée en exécutant :  
 

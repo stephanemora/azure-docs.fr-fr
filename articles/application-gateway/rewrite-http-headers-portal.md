@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 16f59ecaf934813890cd25e89896182378f376ed
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 9d52114f5d01beca53ed48ee2114dc98cc20f3a2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549065"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682422"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Réécrire les en-têtes de demande et de réponse HTTP avec Azure Application Gateway - portail Azure
 
@@ -26,7 +26,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Vous devez disposer d’un environnement v2 passerelle d’Application étant donné que la capacité de réécriture de l’en-tête dans la référence (SKU) n’est pas pris en charge pour la référence SKU v1. Si vous n’avez pas la référence (SKU) v2, créez un [référence (SKU) de passerelle d’Application v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) avant de commencer.
+Vous devez disposer d’un environnement v2 passerelle d’Application étant donné que la capacité de réécriture de l’en-tête dans la référence (SKU) n’est pas pris en charge pour la référence SKU v1. Si vous n’avez pas la référence (SKU) v2, créez un [référence (SKU) de passerelle d’Application v2](<https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) avant de commencer.
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>Ce qui est nécessaire de réécrire un en-tête
 

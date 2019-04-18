@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882748"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522302"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Démarrage rapide : Définir et récupérer un secret à partir d’Azure Key Vault à l’aide d’une application web Node 
 
@@ -38,7 +38,7 @@ Avant de procéder, assurez-vous d’être familiarisé avec les [concepts de ba
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Node.js](https://nodejs.org/en/)
+* [Node.JS](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 ou ultérieure. Ce démarrage rapide nécessite que vous exécutiez l’interface Azure CLI localement. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest).
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -150,7 +150,7 @@ Accédez à votre application web nouvellement créée. Vous devriez voir qu’e
     ```
     http://<app name>.azurewebsites.net
     ```
-La commande précédente crée également une application prenant en charge Git qui vous permet de la déployer vers Azure à partir de votre référentiel Git local. Le référentiel Git local est configuré avec cette URL : https://<username>@<nom_app>.scm.azurewebsites.net/<nom_app>.git.
+La commande précédente crée également une application prenant en charge Git qui vous permet de la déployer vers Azure à partir de votre référentiel Git local. Le référentiel Git local est configuré avec cette URL : `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`.
 
 Une fois que vous avez terminé la commande précédente, vous pouvez ajouter Azure à distance à votre référentiel Git local. Remplacez `<url>` par l’URL du référentiel Git.
 
@@ -194,7 +194,7 @@ Exécutez la commande suivante pour déployer l’application sur Azure :
 git push azure master
 ```
 
-Lorsque c’est fait et que vous accédez à https://<nom_app>.azurewebsites.net, vous pouvez voir la valeur du secret. Assurez-vous d’avoir remplacé le nom <YourKeyVaultName> par le nom de votre coffre.
+Ensuite, quand vous accédez à `https://<app_name>.azurewebsites.net`, vous pouvez voir la valeur du secret. Assurez-vous d’avoir remplacé le nom `<YourKeyVaultName>` par le nom de votre coffre.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

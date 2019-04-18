@@ -15,10 +15,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357425"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
@@ -60,7 +60,7 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
         ![Bouton Propriétés d’un conteneur d’objets blob](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     1. Copiez l’URL du conteneur en cliquant sur l’icône Copier, puis enregistrez-la (par exemple, dans le Bloc-notes) pour l’utiliser ultérieurement. Le format d’URL de conteneur doit être `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. Copiez l’URL du conteneur en cliquant sur l’icône Copier, puis enregistrez-la (par exemple, dans le Bloc-notes) pour l’utiliser ultérieurement. L’URL du conteneur doit être au format `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
         ![URL du conteneur d’objets blob à copier](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
@@ -141,8 +141,8 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
 1. <a id="createspec"></a>Après avoir configuré le conteneur d’objets blob comme cible pour les journaux d’audit, créez une spécification d’audit du serveur ou une spécification d’audit de la base de données comme vous le feriez pour SQL Server :
 
-   - [Créer le repère de T-SQL Server audit specification](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Créer le repère de T-SQL de base de données d’audit specification](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 1. Activez l’audit du serveur que vous avez créé à l’étape 6 :
 
@@ -154,8 +154,8 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
 Pour toute information supplémentaire :
 
-- [Audit des différences entre les bases de données uniques, pool élastique, s et des instances gérées dans la base de données SQL Azure et les bases de données SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
-- [CRÉATION D’AUDIT DE SERVEUR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
+- [Audit des différences entre les bases de données uniques, pools élastiques et instances gérées dans Azure SQL Database et les bases de données dans SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 ## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurer l’audit pour votre serveur dans les journaux d’Event Hub ou Azure Monitor
@@ -187,8 +187,8 @@ Journaux d’audit à partir d’une instance gérée peuvent être envoyés à 
 
 9. Créez une spécification d’audit du serveur ou une spécification d’audit de la base de données comme vous le feriez pour SQL Server :
 
-   - [Créer le repère de T-SQL Server audit specification](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Créer le repère de T-SQL de base de données d’audit specification](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 10. Activer l’audit du serveur créé à l’étape 8 :
  
@@ -237,7 +237,7 @@ Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockag
 - Une nouvelle syntaxe `TO EXTERNAL MONITOR` est fournie pour activer les cibles de journaux même Hub et Azure Monitor.
 - La syntaxe `TO FILE` **n’est pas prise en charge**, car SQL Database ne peut pas accéder aux partages de fichiers Windows.
 - L’option d’arrêt n’est **pas prise en charge**.
-- `queue_delay` 0 est **ne pas pris en charge**.
+- La valeur 0 du paramètre `queue_delay` n’est **pas prise en charge**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

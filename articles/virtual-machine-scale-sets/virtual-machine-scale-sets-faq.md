@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541025"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683951"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -29,13 +29,13 @@ Obtenez des réponses aux questions fréquemment posées sur les groupes de mach
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>Questions les plus fréquemment posées sur les groupes identiques
 
-**Q.** Combien de machines virtuelles peut-il y avoir dans un groupe identique ?
+### <a name="how-many-vms-can-i-have-in-a-scale-set"></a>Combien de machines virtuelles peut-il y avoir dans un groupe identique ?
 
-**A.** Un groupe identique peut contenir de 0 à 1 000 machines virtuelles basées sur des images de plateforme, ou de 0 à 600 machines virtuelles basées sur des images personnalisées.
+Un groupe identique peut contenir de 0 à 1 000 machines virtuelles basées sur des images de plateforme, ou de 0 à 600 machines virtuelles basées sur des images personnalisées.
 
-**Q.** Les disques de données sont-ils pris en charge dans les groupes identiques ?
+### <a name="are-data-disks-supported-within-scale-sets"></a>Les disques de données sont-ils pris en charge dans les groupes identiques ?
 
-**A.** Oui. Un groupe identique peut définir une configuration de disques de données attachés qui s’appliquera à toutes les machines virtuelles du groupe. Pour plus d’informations, consultez [Groupes identiques Azure et disques de données attachés](virtual-machine-scale-sets-attached-disks.md). Il existe d’autres options pour stocker les données :
+Oui. Un groupe identique peut définir une configuration de disques de données attachés qui s’appliquera à toutes les machines virtuelles du groupe. Pour plus d’informations, consultez [Groupes identiques Azure et disques de données attachés](virtual-machine-scale-sets-attached-disks.md). Il existe d’autres options pour stocker les données :
 
 * Fichiers Azure (lecteurs SMB partagés)
 * Système d’exploitation de lecteur
@@ -43,33 +43,33 @@ Obtenez des réponses aux questions fréquemment posées sur les groupes de mach
 * Service de données Azure (par exemple, tables Azure, objets blob Azure)
 * Service de données externe (par exemple, base de données distante)
 
-**Q.** Quelles sont les régions Azure qui prennent en charge les groupes identiques ?
+### <a name="which-azure-regions-support-scale-sets"></a>Quelles sont les régions Azure qui prennent en charge les groupes identiques ?
 
-**A.** Toutes les régions prennent en charge les groupes identiques.
+Toutes les régions prennent en charge les groupes identiques.
 
-**Q.** Comment créer un groupe identique à l’aide d’une image personnalisée ?
+### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>Comment créer un groupe identique à l’aide d’une image personnalisée ?
 
-**A.** Créez et capturez une image de machine virtuelle, puis utilisez-la comme source de votre groupe identique. Pour un tutoriel sur la création et l’utilisation d’une image de machine virtuelle personnalisée, vous pouvez utiliser [Azure CLI](tutorial-use-custom-image-cli.md) ou [Azure PowerShell](tutorial-use-custom-image-powershell.md).
+Créez et capturez une image de machine virtuelle, puis utilisez-la comme source de votre groupe identique. Pour un tutoriel sur la création et l’utilisation d’une image de machine virtuelle personnalisée, vous pouvez utiliser [Azure CLI](tutorial-use-custom-image-cli.md) ou [Azure PowerShell](tutorial-use-custom-image-powershell.md).
 
-**Q.** Si je réduis ma capacité de groupe identique de 20 à 15, quelles sont les machines virtuelles qui seront supprimées ?
+### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Si je réduis ma capacité de groupe identique de 20 à 15, quelles sont les machines virtuelles qui seront supprimées ?
 
-**A.** Les ordinateurs virtuels sont supprimés du jeu de mise à l’échelle uniformément entre les domaines de mise à jour et les domaines d’erreur pour optimiser la disponibilité. Les machines virtuelles avec les ID les plus élevés sont supprimées en premier.
+Les ordinateurs virtuels sont supprimés du jeu de mise à l’échelle uniformément entre les domaines de mise à jour et les domaines d’erreur pour optimiser la disponibilité. Les machines virtuelles avec les ID les plus élevés sont supprimées en premier.
 
-**Q.** Que se passe-t-il si j’augmente ensuite la capacité de 15 à 18 ?
+### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>Que se passe-t-il si j’augmente ensuite la capacité de 15 à 18 ?
 
-**A.** Si vous augmentez la capacité à 18, 3 machines virtuelles sont créées. À chaque fois, l’ID d’instance de la machine virtuelle est incrémenté avec la valeur la plus élevée précédente (par exemple, 20, 21, 22). Les machines virtuelles sont réparties sur les domaines d’erreur et les domaines de mise à jour.
+Si vous augmentez la capacité à 18, 3 machines virtuelles sont créées. À chaque fois, l’ID d’instance de la machine virtuelle est incrémenté avec la valeur la plus élevée précédente (par exemple, 20, 21, 22). Les machines virtuelles sont réparties sur les domaines d’erreur et les domaines de mise à jour.
 
-**Q.** Lorsque j’utilise plusieurs extensions dans un groupe identique, puis-je appliquer une séquence d’exécution ?
+### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Lorsque j’utilise plusieurs extensions dans un groupe identique, puis-je appliquer une séquence d’exécution ?
 
-**A.** Oui, vous pouvez appliquer une [séquence d'exécution](virtual-machine-scale-sets-extension-sequencing.md) au groupe identique.
+Oui, vous pouvez appliquer une [séquence d'exécution](virtual-machine-scale-sets-extension-sequencing.md) au groupe identique.
 
-**Q.** Les groupes identiques fonctionnent-ils avec des ensembles haute disponibilité Azure ?
+### <a name="do-scale-sets-work-with-azure-availability-sets"></a>Les groupes identiques fonctionnent-ils avec des ensembles haute disponibilité Azure ?
 
-**A.** Un groupe identique régional (non zonal) utilise des *groupes de placement*, qui servent de groupe à haute disponibilité implicite avec cinq domaines d’erreur et cinq domaines de mise à jour. Les groupes identiques de plus de 100 machines virtuelles sont répartis entre plusieurs groupes de placement. Pour plus d’informations sur les groupes de placement, voir [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md) (Utilisation de grands groupes de machines virtuelles identiques). Un groupe de machines virtuelles à haute disponibilité peut figurer dans le même réseau virtuel qu’un groupe identique de machines virtuelles. Une configuration courante consiste à placer les machines virtuelles du nœud de contrôle qui nécessitent souvent une configuration unique dans un groupe à haute disponibilité, et les nœuds de données dans le groupe identique.
+Un groupe identique régional (non zonal) utilise des *groupes de placement*, qui servent de groupe à haute disponibilité implicite avec cinq domaines d’erreur et cinq domaines de mise à jour. Les groupes identiques de plus de 100 machines virtuelles sont répartis entre plusieurs groupes de placement. Pour plus d’informations sur les groupes de placement, voir [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md) (Utilisation de grands groupes de machines virtuelles identiques). Un groupe de machines virtuelles à haute disponibilité peut figurer dans le même réseau virtuel qu’un groupe identique de machines virtuelles. Une configuration courante consiste à placer les machines virtuelles du nœud de contrôle qui nécessitent souvent une configuration unique dans un groupe à haute disponibilité, et les nœuds de données dans le groupe identique.
 
-**Q.** Les groupes identiques fonctionnent-ils avec des zones de disponibilité Azure ?
+### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Les groupes identiques fonctionnent-ils avec des zones de disponibilité Azure ?
 
-**A.** Oui. Pour plus d’informations, consultez le [document relatif aux zones des groupes identiques](./virtual-machine-scale-sets-use-availability-zones.md).
+Oui. Pour plus d’informations, consultez le [document relatif aux zones des groupes identiques](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale

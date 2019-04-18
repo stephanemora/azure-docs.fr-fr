@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6aed38c8c670c751ee51de95e6622685caea1ce
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500921"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identité Microsoft et le flux des informations d’identification client OAuth 2.0
@@ -49,7 +49,7 @@ Le flux d’informations d’identification client complet est similaire à l’
 Une application reçoit généralement l’autorisation directe d’accéder à une ressource de deux manières :
 
 * [Via une liste de contrôle d’accès (ACL) sur la ressource](#access-control-lists)
-* [Via l’attribution de l'autorisation d'application dans Azure AD](#application-permissions)
+* [Via l’attribution de l’autorisation d’application dans Azure AD](#application-permissions)
 
 Ces deux méthodes sont les plus courantes dans Azure AD et sont recommandées pour les clients et les ressources qui exécutent le flux des informations d’identification du client. Une ressource peut également choisir d’autoriser ses clients d’autres manières. Chaque serveur de ressources peut choisir la méthode la plus logique pour son application.
 

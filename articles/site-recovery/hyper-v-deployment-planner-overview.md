@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360272"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>À propos du planificateur de déploiement Azure Site Recovery pour la récupération d’urgence de Hyper-V sur Azure
@@ -30,7 +30,7 @@ L’outil fournit les informations suivantes :
 
 * Évaluation de l’éligibilité de la machine virtuelle en fonction du nombre de disques, de la taille du disque, des E/S par seconde, de l’activité et de quelques caractéristiques de machine virtuelle.
 
-**Besoin de bande passante réseau et évaluation d’objectif de point de récupération**
+**Besoin de bande passante réseau et évaluation de RPO**
 
 * La bande passante réseau estimée requise pour la réplication différentielle
 * Débit pouvant être obtenu par Azure Site Recovery dans le scénario « local vers Azure »
@@ -84,7 +84,7 @@ L’outil comprend trois phases principales pour Hyper-V : obtention de la list
 
 | Configuration requise du serveur | Description |
 |---|---|
-|Obtention de la liste de machines virtuelles, profilage et mesure du débit |<ul><li>Système d’exploitation : Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuration de l’ordinateur : 8 processeurs virtuels, 16 Go de RAM, disque dur de 300 Go</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ redistribuable pour Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accès Internet à Azure à partir de ce serveur</li><li>Compte Azure Storage</li><li>Accès administrateur sur le serveur</li><li>Au minimum 100 Go d’espace disque disponible (en supposant que 1 000 machines virtuelles avec une moyenne de trois disques chacune, profilage pour 30 jours)</li><li>La machine virtuelle sur laquelle vous exécutez l’outil de planification du déploiement Azure Site Recovery doit être ajoutée à la liste des hôtes approuvés de tous les serveurs Hyper-V.</li><li>Tous les serveurs Hyper-V à profiler doivent être ajoutées à la liste des hôtes approuvés de la machine virtuelle client sur laquelle l’outil est exécuté. [En savoir plus sur l’ajout de serveurs à la liste des hôtes approuvés](#steps-to-add-servers-into-trustedhosts-list). </li><li> L’outil doit être exécuté avec des privilèges d’administrateur à partir de PowerShell ou de la console de ligne de commande sur le client</ul></ul>|
+|Obtention de la liste de machines virtuelles, profilage et mesure du débit |<ul><li>Système d’exploitation : Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuration de l’ordinateur : 8 processeurs virtuels, 16 Go de RAM, disque dur de 300 Go</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable pour Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accès Internet à Azure à partir de ce serveur</li><li>Compte Azure Storage</li><li>Accès administrateur sur le serveur</li><li>Au minimum 100 Go d’espace disque disponible (en supposant que 1 000 machines virtuelles avec une moyenne de trois disques chacune, profilage pour 30 jours)</li><li>La machine virtuelle sur laquelle vous exécutez l’outil de planification du déploiement Azure Site Recovery doit être ajoutée à la liste des hôtes approuvés de tous les serveurs Hyper-V.</li><li>Tous les serveurs Hyper-V à profiler doivent être ajoutées à la liste des hôtes approuvés de la machine virtuelle client sur laquelle l’outil est exécuté. [En savoir plus sur l’ajout de serveurs à la liste des hôtes approuvés](#steps-to-add-servers-into-trustedhosts-list). </li><li> L’outil doit être exécuté avec des privilèges d’administrateur à partir de PowerShell ou de la console de ligne de commande sur le client</ul></ul>|
 | Génération de rapport | Un PC Windows ou serveur Windows Server doté de Microsoft Excel 2013 ou version ultérieure |
 | Autorisations utilisateur | Compte Administrateur pour accéder au cluster Hyper-V/ à l’hôte Hyper-V au moment de l’obtention de la liste de machines virtuelles virtuels et du profilage.<br>Tous les hôtes à profiler doivent disposer d’un compte Administrateur de domaine avec les mêmes informations d’identification, à savoir le nom d’utilisateur et le mot de passe
  |

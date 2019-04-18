@@ -29,10 +29,10 @@ ms.author:
 - btalb
 - prachank
 ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426441"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP réglage des performances pour les machines virtuelles Azure
@@ -140,7 +140,7 @@ Latence du réseau est régie par la vitesse de la lumière sur un réseau de fi
 
 | | | | |
 |-|-|-|-|
-|**Routage**|**Distance**|**Heure à sens unique**|**RTT**|
+|**Itinéraire**|**Distance**|**Heure à sens unique**|**RTT**|
 |New York à San Francisco|4,148 km|21 ms|42 ms|
 |New York à Londres|5,585 km|28 ms|56 ms|
 |New York à Sydney|15,993 km|80 ms|160 ms|

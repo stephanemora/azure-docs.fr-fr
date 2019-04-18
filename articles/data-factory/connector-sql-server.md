@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283407"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [version 1](v1/data-factory-sqlserver-connector.md)
+> * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Version actuelle](connector-sql-server.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers et depuis une base de données SQL Server. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -85,7 +85,7 @@ Les propriétés suivantes sont prises en charge pour le service lié SQL Server
 }
 ```
 
-**Exemple 2 : utilisation de l’authentification SQL avec mot de passe dans Azure Key Vault**
+**Exemple 2 : utilisation de l'authentification SQL avec mot de passe dans Azure Key Vault**
 
 ```json
 {
@@ -114,7 +114,7 @@ Les propriétés suivantes sont prises en charge pour le service lié SQL Server
 }
 ```
 
-**Exemple 3 : utilisation de l’authentification Windows**
+**Exemple 3 : utilisation de l’authentification Windows**
 
 ```json
 {
@@ -151,7 +151,7 @@ Pour copier des données vers/depuis une base de données SQL Server, affectez l
 | Type | La propriété type du jeu de données doit être définie sur : **SqlServerTable** | Oui |
 | TableName |Nom de la table ou de la vue dans l’instance de base de données SQL Server à laquelle le service lié fait référence. | Non pour Source, Oui pour Récepteur |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -190,7 +190,7 @@ Pour copier des données à partir de SQL Server, définissez **SqlSource** comm
 - Si **sqlReaderQuery** est spécifié comme SqlSource, l’activité de copie exécute cette requête sur la source SQL Server pour obtenir les données. Vous pouvez également spécifier une procédure stockée en indiquant **sqlReaderStoredProcedureName** et **storedProcedureParameters** (si la procédure stockée accepte des paramètres).
 - Si vous ne spécifiez pas « sqlReaderQuery » ou « sqlReaderStoredProcedureName », les colonnes définies dans la section « Structure » du jeu de données JSON sont utilisées pour créer une requête (`select column1, column2 from mytable`) à exécuter sur SQL Server. Si la définition du jeu de données ne possède pas de « structure », toutes les colonnes de la table sont sélectionnées.
 
-**Exemple : utilisation de requête SQL**
+**Exemple : utilisation d’une requête SQL**
 
 ```json
 "activities":[
@@ -258,7 +258,7 @@ Pour copier des données à partir de SQL Server, définissez **SqlSource** comm
 ]
 ```
 
-**La définition de procédure stockée :**
+**Définition de la procédure stockée :**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters

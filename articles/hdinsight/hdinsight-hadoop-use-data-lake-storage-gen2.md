@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 186a9bafe70ab9644666868f11d5ddd865a66b8d
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 7e21d4c6705213cb57f058c062fff0ff4957a52a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802539"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681860"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight
 
@@ -38,7 +38,7 @@ Créez une identité managée affectée à l’utilisateur, si vous n’en avez 
 
 ### <a name="create-a-data-lake-storage-gen2-account"></a>Créer un compte Data Lake Storage Gen2
 
-Créez un compte de stockage Azure Data Lake Storage Gen2. Assurez-vous que le **espace de noms hiérarchique** est activée. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte de stockage Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+Créez un compte de stockage Azure Data Lake Storage Gen2. Assurez-vous que le **espace de noms hiérarchique** est activée. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte de stockage Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 ![Capture d’écran montrant la création du compte de stockage dans le portail Azure](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
@@ -139,6 +139,5 @@ Pour définir des autorisations pour les utilisateurs pour interroger des donné
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utiliser Azure Data Lake Storage Gen2 Preview avec des clusters Azure HDInsight](../storage/blobs/data-lake-storage-use-hdi-cluster.md)
 * [Azure HDInsight integration with Data Lake Storage Gen2 preview - ACL and security update](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
 * [Présentation d’Azure Data Lake Storage Gen2 (préversion)](../storage/blobs/data-lake-storage-introduction.md)

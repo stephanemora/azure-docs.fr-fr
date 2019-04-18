@@ -19,10 +19,10 @@ ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87103b1052b5d9168928193eacc78a935e68067f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501244"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorisations et consentement dans le point de terminaison Microsoft identity platform
@@ -39,7 +39,7 @@ Les applications qui s’intègrent à la plateforme d’identité Microsoft sui
 La plateforme d’identité Microsoft implémente le protocole d’autorisation [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 est une méthode par le biais de laquelle une application tierce peut accéder aux ressources hébergées sur le web au nom d’un utilisateur. Les ressources hébergées sur le web qui s’intègrent à la plateforme d’identité Microsoft présentent un identificateur de ressource, également appelé *URI d’ID d’application*. Voici, par exemple, quelques-unes des ressources hébergées sur le Web de Microsoft :
 
 * Microsoft Graph : `https://graph.microsoft.com`
-* API de messagerie Office 365 : `https://outlook.office.com`
+* API de messagerie Office 365 : `https://outlook.office.com`
 * Azure AD Graph : `https://graph.windows.net`
 
 > [!NOTE]
@@ -55,9 +55,9 @@ En définissant ces types d’autorisations, la ressource dispose d’un contrô
 
 Dans OAuth 2.0, ces types d’autorisations sont appelés des *étendues*. Elles aussi souvent appelées *autorisations*. Une autorisation est représentée dans la plateforme d’identité Microsoft sous forme de valeur de chaîne. Toujours dans l’exemple Microsoft Graph, la valeur de chaîne pour chaque autorisation est la suivante :
 
-* Lire le calendrier d’un utilisateur à l’aide `Calendars.Read`
-* Écrire dans le calendrier d’un utilisateur à l’aide de `Calendars.ReadWrite`
-* Envoyer du courrier en tant que l’utilisateur en utilisant `Mail.Send`
+* Lire le calendrier d’un utilisateur en utilisant `Calendars.Read`
+* Écrire dans le calendrier d’un utilisateur en utilisant `Calendars.ReadWrite`
+* Envoi de messages en tant qu’utilisateur en utilisant `Mail.Send`
 
 Une application demande généralement ces autorisations en spécifiant les étendues dans les demandes à la plateforme Microsoft identity autorisent le point de terminaison. Toutefois, certaines autorisations doté de privilèges élevés peuvent uniquement être accordées via le consentement de l’administrateur et demandé/accordées à l’aide du [point de terminaison de consentement administrateur](v2-permissions-and-consent.md#admin-restricted-permissions). Lisez la suite pour en savoir plus.
 
@@ -140,9 +140,9 @@ En outre, les applications doivent utiliser le point de terminaison de consentem
 
 Certaines autorisations à privilège élevé de l’écosystème Microsoft peuvent être définies sur *restreintes aux administrateurs*. Ces types d’autorisations peuvent être illustrés par ces exemples :
 
-* Lire les profils complets de tous les utilisateurs à l’aide `User.Read.All`
+* Lire les profils complets de tous les utilisateurs à l’aide de `User.Read.All`
 * Écrire des données dans le répertoire d’une organisation à l’aide de `Directory.ReadWrite.All`
-* Lire tous les groupes dans le répertoire d’une organisation à l’aide `Groups.Read.All`
+* Lire tous les groupes dans le répertoire d’une organisation à l’aide de `Groups.Read.All`
 
 Si un utilisateur consommateur peut accorder à une application l’accès à ce type de données, les utilisateurs d’organisation sont limités lorsqu’il s’agit d’octroyer l’accès au même jeu de données d’entreprise sensibles. Si votre application demande l’accès à un de ces autorisations à partir d’un utilisateur d’organisation, l’utilisateur reçoit un message d’erreur indiquant qu’ils ne sont pas autorisés à donner son consentement pour les autorisations de votre application.
 
@@ -285,7 +285,7 @@ Aucun consentement pour l’utilisateur n’existe entre le client et Microsoft 
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exemple 3 : L’utilisateur a donné son consentement et le client demande des étendues supplémentaires
 
-L’utilisateur a déjà donné son consentement à `mail.read` pour le client. Le client s’est inscrit à l’étendue `contacts.read` dans son inscription. Quand le client effectue une demande pour un jeton à l’aide de `scope=https://graph.microsoft.com/.default` et demande un consentement via `prompt=consent`, l’utilisateur voit un écran de consentement uniquement pour toutes les autorisations inscrites par l’application. `contacts.read` seront présents dans l’écran de consentement, mais `mail.read` ne sera pas. Le jeton retourné concerne Microsoft Graph et contient `mail.read` et `contacts.read`.
+L’utilisateur a déjà donné son consentement à `mail.read` pour le client. Le client s’est inscrit à l’étendue `contacts.read` dans son inscription. Quand le client effectue une demande pour un jeton à l’aide de `scope=https://graph.microsoft.com/.default` et demande un consentement via `prompt=consent`, l’utilisateur voit un écran de consentement uniquement pour toutes les autorisations inscrites par l’application. `contacts.read` est présent dans l’écran de consentement, mais pas `mail.read`. Le jeton retourné concerne Microsoft Graph et contient `mail.read` et `contacts.read`.
 
 ### <a name="using-the-default-scope-with-the-client"></a>Utilisation de l’étendue /.default avec le client
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280568"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Activer combinée sécurité informations inscription (version préliminaire)
@@ -57,6 +57,6 @@ Si vous avez configuré la liste sites aux zones attribution dans Internet Explo
 
 [Configurer la réinitialisation du mot de passe libre-service](howto-sspr-deployment.md)
 
-[Configuration d’Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+[Configurer l’authentification multifacteur Azure](howto-mfa-getstarted.md)
 
 [Résolution des problèmes combinée d’enregistrement d’informations de sécurité](howto-registration-mfa-sspr-combined-troubleshoot.md)

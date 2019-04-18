@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/09/2019
+ms.date: 04/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426477"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679072"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -134,9 +134,9 @@ Pour plus d’informations sur la façon dont les packs d’administration de so
 
 Pour commencer à appliquer des correctifs aux systèmes, vous devez activer la solution Update Management. Vous pouvez intégrer des machines à Update Management de différentes manières. Voici des méthodes recommandées et prises en charge pour intégrer la solution :
 
-* [À partir d’une machine virtuelle](automation-onboard-solutions-from-vm.md)
-* [À partir de la navigation sur plusieurs ordinateurs](automation-onboard-solutions-from-browse.md)
-* [À partir de votre compte Automation](automation-onboard-solutions-from-automation-account.md)
+* [Depuis une machine virtuelle](automation-onboard-solutions-from-vm.md)
+* [Depuis plusieurs machines](automation-onboard-solutions-from-browse.md)
+* [Depuis votre compte Automation](automation-onboard-solutions-from-automation-account.md)
 * [Avec un runbook Azure Automation](automation-onboard-solutions.md)
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Vérifier que les ordinateurs non-Azure sont intégrés
@@ -208,9 +208,9 @@ Pour exécuter une recherche dans les journaux qui permet de retourner des infor
 
 ## <a name="install-updates"></a>Installer les mises à jour
 
-Une fois les mises à jour évaluées pour tous les ordinateurs Linux et Windows dans votre espace de travail, vous pouvez installer les mises à jour obligatoires en créant une opération de *déploiement de mises à jour*. Un déploiement de mises à jour est une installation planifiée de mises à jour obligatoires pour un ou plusieurs ordinateurs. Vous pouvez spécifier la date et l’heure du déploiement ainsi qu’un ordinateur ou groupe d’ordinateurs à inclure dans un déploiement. Pour en savoir plus sur les groupes d’ordinateurs, consultez [groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
+Une fois les mises à jour évaluées pour tous les ordinateurs Linux et Windows dans votre espace de travail, vous pouvez installer les mises à jour obligatoires en créant une opération de *déploiement de mises à jour*. Pour créer un déploiement de mises à jour, vous devez avoir accès en écriture au compte Automation et accès en écriture à la de machines virtuelles Azure qui sont ciblés dans le déploiement. Un déploiement de mises à jour est une installation planifiée de mises à jour obligatoires pour un ou plusieurs ordinateurs. Vous pouvez spécifier la date et l’heure du déploiement ainsi qu’un ordinateur ou groupe d’ordinateurs à inclure dans un déploiement. Pour en savoir plus sur les groupes d’ordinateurs, consultez [groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
- Lorsque vous incluez des groupes d’ordinateurs dans votre déploiement de mises à jour, l’appartenance au groupe n’est évaluée qu’une seule fois au moment de la création de la planification. Les modifications ultérieures apportées à un groupe ne sont pas répercutées. Pour contourner ce problème, utilisez des [groupes dynamiques](#using-dynamic-groups), qui sont résolus au moment du déploiement et sont définis par une requête.
+Lorsque vous incluez des groupes d’ordinateurs dans votre déploiement de mises à jour, l’appartenance au groupe n’est évaluée qu’une seule fois au moment de la création de la planification. Les modifications ultérieures apportées à un groupe ne sont pas répercutées. Pour contourner cette utilisation [groupes dynamiques](#using-dynamic-groups), ces groupes sont résolues au moment du déploiement et sont définis par une requête pour les machines virtuelles Azure ou une recherche enregistrée pour les machines virtuelles Non Azure.
 
 > [!NOTE]
 > Les machines virtuelles Windows déployées à partir de Place de marché Microsoft Azure sont configurées par défaut pour recevoir des mises à jour automatiques de Windows Update Service. Ce comportement ne change pas lorsque vous ajoutez cette solution ou des machines virtuelles Windows à votre espace de travail. Si vous n’avez pas géré activement les mises à jour avec cette solution, le comportement par défaut (appliquer automatiquement les mises à jour) s’applique.
@@ -219,13 +219,13 @@ Pour éviter que les mises à jour soient appliquées en dehors d’une fenêtre
 
 Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (RHEL) à la demande disponibles dans le service Place de marché Azure sont inscrites pour accéder à l’infrastructure [RHUI (Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) déployée dans Azure. Toute autre distribution Linux doit être mise à jour à partir du référentiel de fichiers de distribution en ligne en tenant compte de leurs méthodes de distribution prises en charge.
 
-Pour créer un déploiement de mises à jour, sélectionnez **Planifier le déploiement de la mise à jour**. Le volet **Nouveau déploiement de mises à jour** s’ouvre. Entrez les valeurs des propriétés décrites dans le tableau suivant, puis cliquez sur **Créer** :
+Pour créer un déploiement de mises à jour, sélectionnez **Planifier le déploiement de la mise à jour**. Le **nouveau déploiement de mises à jour** page s’ouvre. Entrez les valeurs des propriétés décrites dans le tableau suivant, puis cliquez sur **Créer** :
 
 | Propriété | Description |
 | --- | --- |
 | Nom |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Linux ou Windows|
-| Groupes à mettre à jour (préversion)|Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)|
+| Groupes à mettre à jour |Pour les machines Azure, définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des balises pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. </br></br>Pour les ordinateurs Non Azure, sélectionnez une recherche existante enregistrée pour sélectionner un groupe de machines Non Azure à inclure dans le déploiement. </br></br>Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)|
 | Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux d’activité Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux d’activité Azure Monitor](../azure-monitor/platform/computer-groups.md). |
 |Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin.|
 |Inclure/exclure des mises à jour|La page **Inclure/Exclure** s’ouvre. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Comportement d’inclusion](automation-update-management.md#inclusion-behavior) |
@@ -567,7 +567,14 @@ Update
 
 ## <a name="using-dynamic-groups"></a>À l’aide de groupes dynamiques
 
-Update Management permet de cibler un groupe dynamique de machines virtuelles Azure pour les déploiements de mises à jour. Ces groupes sont définis par une requête et, au démarrage d’un déploiement de mise à jour, les membres de ce groupe sont évalués. Groupes dynamiques ne fonctionnent pas avec les machines virtuelles classiques. Quand vous définissez votre requête, les éléments suivants peuvent être utilisés ensemble pour remplir le groupe dynamique
+Gestion de la mise à jour offre la possibilité de cibler un groupe dynamique d’Azure ou machines virtuelles Non Azure pour les déploiements de mise à jour. Ces groupes sont évalués au moment du déploiement, donc vous n’êtes pas obligé de modifier votre déploiement pour ajouter des machines.
+
+> [!NOTE]
+> Vous devez disposer des autorisations appropriées lors de la création d’un déploiement de mises à jour. Pour plus d’informations, consultez [installer les mises à jour](#install-updates).
+
+### <a name="azure-machines"></a>Machines Azure
+
+Ces groupes sont définis par une requête et, au démarrage d’un déploiement de mise à jour, les membres de ce groupe sont évalués. Groupes dynamiques ne fonctionnent pas avec les machines virtuelles classiques. Quand vous définissez votre requête, les éléments suivants peuvent être utilisés ensemble pour remplir le groupe dynamique
 
 * Abonnement
 * Groupes de ressources
@@ -579,6 +586,12 @@ Update Management permet de cibler un groupe dynamique de machines virtuelles Az
 Pour prévisualiser les résultats d’un groupe dynamique, cliquez sur le bouton **Aperçu**. Cet aperçu montre l’appartenance au groupe à ce moment-là. Dans cet exemple, nous recherchons les machines dont la balise **Role** (Rôle) est définie à **BackendServer**. Si plusieurs machines ont cette balise, elles seront ajoutées à tous les déploiements ultérieurs effectués pour ce groupe.
 
 ![aperçu des groupes](./media/automation-update-management/preview-groups.png)
+
+### <a name="non-azure-machines"></a>Ordinateurs non-Azure
+
+Pour les Non-Azure machines, les recherches enregistrées également appelé groupes d’ordinateurs sont utilisés pour créer le groupe dynamique. Pour savoir comment créer une recherche enregistrée, consultez [création d’un groupe d’ordinateurs](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Une fois que votre groupe est créé, vous pouvez la sélectionner dans la liste des recherches enregistrées. Cliquez sur **aperçu** pour afficher un aperçu des ordinateurs de la recherche enregistrée à ce moment-là.
+
+![Sélection de groupes](./media/automation-update-management/select-groups-2.png)
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Intégrer avec System Center Configuration Manager
 

@@ -19,10 +19,10 @@ ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2054a873d73bce7048ef9e48adabf3fb5279df9
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500394"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Activation Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
@@ -36,10 +36,10 @@ Si vous avez une application existante qui possède son propre système de compt
 
 Il existe quatre étapes simples pour convertir votre application en une application Azure AD mutualisée :
 
-1. [Conversion de votre application d’inscription en une application mutualisée](#update-registration-to-be-multi-tenant)
-2. [Mise à jour de votre code pour envoyer des demandes au point de terminaison /common](#update-your-code-to-send-requests-to-common)
-3. [Mise à jour de votre code pour gérer plusieurs valeurs issuer](#update-your-code-to-handle-multiple-issuer-values)
-4. [Comprendre le consentement de l’utilisateur et de l’administrateur et application des modifications de code appropriées](#understand-user-and-admin-consent)
+1. [Convertir votre application d’inscription en application mutualisée](#update-registration-to-be-multi-tenant)
+2. [Mettre à jour votre code pour envoyer des demandes au point de terminaison /common](#update-your-code-to-send-requests-to-common)
+3. [Mettre à jour votre code pour gérer plusieurs valeurs issuer](#update-your-code-to-handle-multiple-issuer-values)
+4. [Comprendre le consentement de l’utilisateur et de l’administrateur et apporter des modifications de code appropriées](#understand-user-and-admin-consent)
 
 Examinons chaque étape en détail. Vous pouvez également accéder directement à [cette liste d’exemples d’architectures mutualisées][AAD-Samples-MT].
 

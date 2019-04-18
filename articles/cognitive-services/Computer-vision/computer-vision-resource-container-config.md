@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: db33ce748928b954f5447a82550c6ecde2188abf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877123"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678681"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configurer des conteneurs Docker Reconnaître le texte
 
@@ -31,11 +31,11 @@ L’environnement d’exécution de conteneur **Reconnaître le texte** est conf
 
 ## <a name="apikey-configuration-setting"></a>Paramètre de configuration ApiKey
 
-Le paramètre `ApiKey` spécifie la clé de ressource Azure utilisée pour effectuer le suivi des informations de facturation pour le conteneur. Vous devez spécifier une valeur pour ApiKey, et il doit s’agir d’une clé valide pour la ressource _Vision par ordinateur_ spécifiée pour le paramètre de configuration [`Billing`](#billing-configuration-setting).
+Le `ApiKey` paramètre spécifie le Azure `Cognitive Services` utilisé pour effectuer le suivi des informations de facturation pour le conteneur de clé de ressource. Vous devez spécifier une valeur pour la clé API et la valeur doit être une clé valide pour le _Cognitive Services_ ressource spécifiée pour le [ `Billing` ](#billing-configuration-setting) paramètre de configuration.
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : Gestion des ressources de **Vision par ordinateur**, sous **Clés**
+* Portail Azure : **COGNITIVE Services** gestion des ressources, sous **clés**
 
 ## <a name="applicationinsights-setting"></a>Paramètre ApplicationInsights
 
@@ -43,11 +43,13 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 ## <a name="billing-configuration-setting"></a>Paramètre de configuration Billing
 
-Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de la ressource _Vision par ordinateur_ sur Azure servant à mesurer les informations de facturation du conteneur. Vous devez affecter à ce paramètre de configuration une valeur correspondant à un URI de point de terminaison valide pour une ressource _Vision par ordinateur_ sur Azure. La conteneur crée des rapports sur l'utilisation toutes les 10 à 15 minutes.
+Le `Billing` paramètre spécifie l’URI de point de terminaison de la _Cognitive Services_ ressources sur Azure permet de contrôler les informations de facturation pour le conteneur. Vous devez spécifier une valeur pour ce paramètre de configuration, et la valeur doit être un URI de point de terminaison valide pour un _Cognitive Services_ ressources sur Azure. La conteneur crée des rapports sur l'utilisation toutes les 10 à 15 minutes.
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : **Vision par ordinateur** vue d’ensemble, étiqueté `Endpoint`
+* Portail Azure : **COGNITIVE Services** vue d’ensemble, étiqueté `Endpoint`
+
+N’oubliez pas d’ajouter le `vision/v1.0` routage vers l’URI de point de terminaison, comme indiqué dans le tableau suivant. 
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
@@ -89,16 +91,18 @@ Les exemples suivants utilisent les paramètres de configuration pour illustrer 
 * **Caractère de continuation de ligne** : Les commandes Docker dans les sections suivantes utilisent la barre oblique inverse, `\`, comme caractère de continuation de ligne. Remplacez-la ou supprimez-la en fonction des exigences de votre système d’exploitation hôte. 
 * **Ordre des arguments** : Ne changez pas l’ordre des arguments, sauf si vous avez une connaissance approfondie des conteneurs Docker.
 
+N’oubliez pas d’ajouter le `vision/v1.0` routage vers l’URI de point de terminaison, comme indiqué dans le tableau suivant. 
+
 Remplacez {_argument_name_} par vos propres valeurs :
 
 | Placeholder | Valeur | Format ou exemple |
 |-------------|-------|---|
-|{BILLING_KEY} | Clé de point de terminaison de la ressource Vision par ordinateur. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_KEY} | La clé de point de terminaison de la ressource Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | Valeur de point de terminaison de facturation, région comprise.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](computer-vision-how-to-install-containers.md#billing).
-> La valeur ApiKey est la **Clé** présente dans la page des clés des ressources de Vision par ordinateur Azure. 
+> La valeur de clé API est la **clé** à partir d’Azure `Cognitive Services` page clés de ressources. 
 
 ## <a name="recognize-text-container-docker-examples"></a>Exemples de conteneur Docker Reconnaître le texte
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281112"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurer un pare-feu IP dans Azure Cosmos DB
@@ -159,7 +159,7 @@ Les demandes à partir d’un sous-réseau de réseau virtuel avec un point de t
 
 Pour configurer un point de terminaison de service de réseau virtuel pour votre compte Azure Cosmos DB, consultez les articles suivants :
 
-* [Réseau virtuel et sous-réseau de contrôle d’accès pour votre compte Azure Cosmos DB](vnet-service-endpoint.md)
+* [Contrôle d’accès à votre compte Azure Cosmos DB à partir d’un réseau virtuel et d’un sous-réseau](vnet-service-endpoint.md)
 * [Configurer l’accès à votre compte Azure Cosmos DB à partir d’un réseau virtuel et d’un sous-réseau](how-to-configure-vnet-service-endpoint.md)
 
 

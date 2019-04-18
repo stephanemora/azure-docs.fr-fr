@@ -13,10 +13,10 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
 ms.openlocfilehash: ed9fbdd3e999cfd262ecbcf05a843c19cc969ed1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360424"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à Azure SQL Database Managed Instance
@@ -39,7 +39,7 @@ Ce scénario est un peu plus complexe, car Managed Instance a une adresse IP pri
 
 Il existe deux options pour connecter des réseaux virtuels :
 
-- [Appairage de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
+- [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 - Passerelle VPN de réseau virtuel à réseau virtuel ([portail Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
 L’option d’homologation est préférable car elle utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel homologué et dans le même réseau virtuel. L’homologation de réseau virtuel est limité aux réseaux d’une même région.  

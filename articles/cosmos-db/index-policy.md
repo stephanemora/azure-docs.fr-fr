@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278562"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Stratégie d’indexation dans Azure Cosmos DB
@@ -70,7 +70,7 @@ Voici les cas d’usage courants lorsque vous souhaitez mettre à jour une strat
 
 Pour en savoir plus sur l’indexation, consultez les articles suivants :
 
-* [Vue d’ensemble d’indexation](index-overview.md)
+* [Vue d’ensemble de l’indexation](index-overview.md)
 * [Types d’index](index-types.md)
-* [Chemins d’accès de l’index](index-paths.md)
-* [Comment gérer la stratégie d’indexation](how-to-manage-indexing-policy.md)
+* [Chemins des index](index-paths.md)
+* [Guide pratique pour gérer la stratégie d’indexation](how-to-manage-indexing-policy.md)

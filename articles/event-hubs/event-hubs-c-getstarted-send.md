@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 6cb1f788f41fe07516d759b177e1d76405dd2bf8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a8f647018ba6ed3c9e951db2054036b60c7d4ab5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529706"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678766"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Envoyer des événements vers Azure Event Hubs avec C
 
@@ -34,13 +34,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un environnement de développement en C. Ce didacticiel présuppose que la pile GCC est sur une machine virtuelle Linux Azure dotée du système d’exploitation Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Création d’un espace de noms Event Hubs et d’un concentrateur d’événements
-La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md).
-
-Obtenez la valeur de la clé d’accès du hub d’événements en suivant les instructions de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utilisez la clé d’accès dans le code que vous écrivez plus loin dans ce tutoriel. Le nom de clé par défaut est : **RootManageSharedAccessKey**.
-
-Maintenant, continuez avec les étapes suivantes du tutoriel.
+* **Créer un espace de noms Event Hubs et un concentrateur d’événements**. Utilisez le [Azure portal](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations d’identification de gestion que votre application a besoin pour communiquer avec le hub d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md). Obtenez la valeur de la clé d’accès du hub d’événements en suivant les instructions de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utilisez la clé d’accès dans le code que vous écrivez plus loin dans ce tutoriel. Le nom de clé par défaut est : **RootManageSharedAccessKey**.
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>Écrire du code pour envoyer des messages à Event Hubs
 Cette section explique comment écrire une application en C pour envoyer des événements à votre hub d’événements. Le code utilise la bibliothèque Proton AMQP du [projet Apache Qpid](https://qpid.apache.org/). Cette approche est similaire à l’utilisation de rubriques et de files d’attente Service Bus avec AMQP en partant du langage C comme indiqué dans [cet exemple](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Pour plus d’informations, consultez la [Documentation Qpid Proton](https://qpid.apache.org/proton/index.html).
@@ -161,7 +155,10 @@ Utiliser l'application pour envoyer des messages à l’Event Hub
 Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’événements.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la réception d'événements à partir de l'Event Hub, cliquez sur le langage de réception approprié sous le nœud **Recevoir des événements d'un Event Hub** dans la table des matières.
+Consultez les articles suivants :
+
+- [EventProcessorHost](event-hubs-event-processor-host.md)
+- [Fonctionnalités et la terminologie dans Azure Event Hubs](event-hubs-features.md).
 
 
 <!-- Images. -->

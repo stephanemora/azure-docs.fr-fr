@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
 ms.openlocfilehash: 734cf09869e5a2df5f9a505a3cb8ccc7bc2338d5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495974"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Sortie Azure Stream Analytics dans Azure Cosmos DB  
@@ -88,5 +88,5 @@ Lorsque vous créez une sortie Cosmos DB dans Stream Analytics, vous devez four
 |ID de compte      | Nom ou URI de point de terminaison du compte Azure Cosmos DB.|
 |Clé de compte     | Clé d’accès partagé du compte Azure Cosmos DB.|
 |Base de données        | Nom de la base de données Azure Cosmos DB.|
-|Modèle de nom de collection | Nom de la collection à utiliser `MyCollection` est un exemple d’entrée valide - une collection nommée `MyCollection` doit exister.  |
+|Modèle de nom de collection | Nom de la collection à utiliser `MyCollection` est un exemple d’entrée valide ; une collection nommée `MyCollection` doit exister.  |
 |ID du document     | facultatif. Nom de colonne dans les événements de sortie utilisé comme clé unique sur laquelle doivent être basées les opérations d’insertion ou de mise à jour. Si vide, tous les événements sont insérés, sans option de mise à jour.|

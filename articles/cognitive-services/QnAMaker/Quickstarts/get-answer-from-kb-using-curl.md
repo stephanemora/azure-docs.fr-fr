@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: ce2d39f3941030059cef329aa60e804a44d73a98
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ad4b40d649d4e4cbc17d6aec5d8bc7308012b927
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263092"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677423"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Démarrage rapide : Obtenir une réponse d’une base de connaissances en utilisant cURL
 
@@ -34,7 +34,7 @@ Quand vous êtes prêt à générer une réponse à une question à partir de vo
 
 Une fois votre base de connaissances publiée, la page **Publier** affiche les paramètres de requête HTTP pour générer une réponse. L’onglet **CURL** affiche les paramètres nécessaires à la génération d’une réponse à partir de l’outil de ligne de commande, [CURL](https://www.getpostman.com).
 
-[![Présultats d’ublier](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
+[![Publier les résultats](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
 
 Pour générer une réponse avec CURL, effectuez les étapes suivantes :
 
@@ -69,13 +69,15 @@ Pour générer une réponse avec CURL, effectuez les étapes suivantes :
 
 ## <a name="use-staging-endpoint-with-curl"></a>Utiliser le point de terminaison de mise en lots avec cURL
 
-Si vous souhaitez obtenir une réponse du point de terminaison de mise en lots, utilisez le paramètre booléen querystring `isTest` avec la valeur `true`.
+Si vous souhaitez obtenir une réponse du point de terminaison de mise en lots, utilisez le `isTest` corps de la propriété.
 
-`isTest=true`
+```json
+isTest:true
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 La page de publication fournit aussi des informations pour [générer une réponse](get-answer-from-kb-using-postman.md) avec Postman. 
 
 > [!div class="nextstepaction"]
-> [Utiliser les métadonnées lors de la génération d’une réponse](../How-to/metadata-generateanswer-usage.md)
+> [Utiliser des métadonnées pendant la génération d’une réponse](../How-to/metadata-generateanswer-usage.md)

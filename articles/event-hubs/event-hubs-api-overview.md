@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: dcfc2480cd9a62b57255163132373998db328034
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 80566b0246179064d2a479b8c9bf3c79a2a93aac
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075797"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681282"
 ---
 # <a name="available-event-hubs-apis"></a>API Event Hubs disponibles
 
@@ -36,7 +36,7 @@ Pour plus d’informations sur l’état actuel de chaque bibliothèque runtime,
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
 | .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/A |
 | Java | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22) | [GitHub](https://github.com/Azure/azure-event-hubs-java) |
-| Nœud | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N/A | [GitHub](https://github.com/Azure/azure-event-hubs-node) |
+| Nœud | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N/A | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) |
 | C | N/A | N/A | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
 
 ### <a name="additional-information"></a>Informations supplémentaires
@@ -47,7 +47,7 @@ L’écosystème .NET ayant plusieurs runtimes, il existe plusieurs bibliothèqu
 
 #### <a name="node"></a>Nœud
 
-La [bibliothèque Node.js](https://github.com/Azure/azure-event-hubs-node) est actuellement en préversion et est tenue à jour en parallèle par les employés de Microsoft et des contributeurs externes. Toutes les contributions, y compris le code source sont les bienvenues et seront examinées.
+La [bibliothèque Node.js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) est actuellement en préversion et est tenue à jour en parallèle par les employés de Microsoft et des contributeurs externes. Toutes les contributions, y compris le code source sont les bienvenues et seront examinées.
 
 ## <a name="management-apis"></a>API de gestion
 

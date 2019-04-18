@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: b8f6a2d12e1a9920421e6491432b516520ae110b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493737"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profiler des applications Azure App Service en production avec Application Insights
@@ -26,8 +26,8 @@ Vous pouvez exécuter Profiler sur ASP.NET et ASP.NET Core applications qui s’
 ## <a id="installation"></a> Activer Profiler pour votre application
 Pour activer Profiler pour une application, suivez les instructions ci-dessous. Si vous utilisez un autre type de service Azure, Voici des instructions pour activer Profiler sur d’autres plateformes prises en charge :
 * [Cloud Services](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Applications service Fabric](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Virtual Machines](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Applications Service Fabric](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Machines virtuelles](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler est préinstallé dans le cadre de l’exécution des Services d’application. Les étapes ci-dessous vous affiche comment l’activer pour votre App Service. Suivez ces étapes, même si vous avez inclus le SDK d’application Insights dans votre application au moment de la génération.
 

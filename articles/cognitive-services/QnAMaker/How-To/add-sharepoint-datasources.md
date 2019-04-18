@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.openlocfilehash: 671d76b6c0a5a2cdac5797668fb0e5651b5823e0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281741"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Ajouter une source de données Sharepoint sécurisée à votre base de connaissances
@@ -103,11 +103,11 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Recherchez `QnAMakerPortalSharepoint` le, sélectionnez l’application de QnA Maker. 
 
-    [![Scritère de recherche pour QnAMakerPortalSharepoint dans la liste des applications d’entreprise](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+    [![Recherchez QnAMakerPortalSharepoint dans la liste des applications d’entreprise](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
 1. Sous **sécurité**, accédez à **autorisations**. Sélectionnez **accorder le consentement de l’administrateur pour l’organisation**. 
 
-    [![Schoisir l’utilisateur authentifié pour l’administrateur Active Directory](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
+    [![Sélectionner un utilisateur authentifié pour l’administrateur Active Directory](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
 1. Sélectionnez un compte d’authentification avec des autorisations pour accorder des autorisations pour l’annuaire Active Directory. 
 

@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496401"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
@@ -266,7 +266,7 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
 * **Code de support**. Quel était le code de support généré quand l’utilisateur a vu l’erreur ?
    * Pour trouver ce code, reproduisez l’erreur, puis sélectionnez le lien **Code de support** en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu.
 
-   ![Rechercher le code de support en bas de l’écran][Support code]
+   ![Recherchez le code de support en bas de l’écran][Support code]
 
   * Si vous êtes dans une page sans code de support dans la partie inférieure, appuyez sur F12 et recherchez le SID et le CID et envoyez ces deux résultats à l’ingénieur de support.
 * **Date, heure et fuseau horaire**. Incluez la date et l’heure précises, *avec le fuseau horaire*, d’occurrence de l’erreur.
@@ -285,14 +285,14 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
 
 Les articles suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD :
 
-* [Comment mener à bien un déploiement réussi de SSPR ?](howto-sspr-deployment.md)
+* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](howto-sspr-deployment.md)
 * [Réinitialiser ou modifier votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md)
-* [S’inscrire à la réinitialisation de mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md)
-* [Vous avez une question de licence ?](concept-sspr-licensing.md)
-* [Données utilisées par SSPR et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
-* [Méthodes d’authentification sont disponibles pour les utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
-* [Quelles sont les options de stratégie avec SSPR ?](concept-sspr-policy.md)
-* [Qu’est l’écriture différée de mot de passe et Pourquoi m’y intéresser ?](howto-sspr-writeback.md)
-* [Comment signaler sur l’activité dans SSPR ?](howto-sspr-reporting.md)
-* [Quelles sont toutes les options dans SSPR et que signifient-elles ?](concept-sspr-howitworks.md)
-* [J’ai une question qui a été pas trouvée de réponse ailleurs](active-directory-passwords-faq.md)
+* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md)
+* [Vous avez une question relative à la licence ?](concept-sspr-licensing.md)
+* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
+* [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
+* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)
+* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](howto-sspr-writeback.md)
+* [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](howto-sspr-reporting.md)
+* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
+* [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)

@@ -13,10 +13,10 @@ ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357948"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveaux de service vCore, Azure Hybrid Benefit et migration
@@ -37,7 +37,7 @@ Le modèle vCore fournit trois niveaux de service, Usage général et Hyperscale
 
 Le tableau suivant montre les différences entre les trois niveaux :
 
-||**Usage général**|**Critique pour l’entreprise**|**Très grande échelle (version préliminaire)**|
+||**Usage général**|**Critique pour l’entreprise**|**Hyperscale (préversion)**|
 |---|---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité|
 |Calcul|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|
@@ -83,10 +83,10 @@ Azure Hybrid Benefit vous permet de choisir de payer uniquement pour l’infrast
 
 - Pour définir ou mettre à jour le type de licence en utilisant l’API REST :
 
-  - [Bases de données - créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [Bases de données - mise à jour](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Instances - gérées créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Instances gérées - mise à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+  - [Bases de données : Create ou Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Instances managées - Créer ou Mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Instances managées - Mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migration du modèle DTU vers le modèle vCore
 

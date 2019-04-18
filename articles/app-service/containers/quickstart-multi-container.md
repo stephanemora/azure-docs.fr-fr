@@ -1,7 +1,7 @@
 ---
 title: Créer une application à plusieurs conteneurs à l’aide de Docker Compose - Azure App Service
 description: Déployer votre première application multiconteneur dans Azure Web App pour conteneurs en quelques minutes
-keywords: service d’application Azure, application web, Linux, Docker, Compose, multiconteneur, plusieurs conteneurs, Web App pour conteneurs, plusieurs conteneurs, conteneurs, Kubernetes, Wordpress, base de données Azure pour MySQL, base de données de production avec des conteneurs
+keywords: azure app service, application web, Linux, Docker, Compose, multiconteneur, multi-conteneurs, Web App pour conteneurs, plusieurs conteneurs, conteneurs, WordPress, base de données Azure pour MySQL, base de données de production avec des conteneurs
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 404be7a064e0e4b09178830b7802192e8775e121
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 543ba3ee4e72c5d31708e9b4983e7889421940ca
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316573"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546230"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Créer une application à plusieurs conteneurs (préversion) à l’aide d’une configuration Docker Compose
 
-[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Ce guide de démarrage rapide montre comment déployer une application multiconteneur sur Web App pour conteneurs dans [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) à l’aide d’une configuration Docker Compose. Pour Kubernetes et une solution de bout en bout complète qui utilise une base de données Azure pour MySQL, suivez le [didacticiel sur les multiconteneurs](tutorial-multi-container-app.md).
+[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Ce guide de démarrage rapide montre comment déployer une application multiconteneur sur Web App pour conteneurs dans [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) à l’aide d’une configuration Docker Compose.
 
 Vous allez effectuer les étapes de ce guide de démarrage rapide dans Cloud Shell, mais vous pouvez également exécuter ces commandes en local avec [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 ou ultérieur). 
 
@@ -138,7 +138,10 @@ Accédez à l’application déployée dans (`http://<app_name>.azurewebsites.ne
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer une application WordPress multiconteneur dans Web App pour conteneurs](tutorial-multi-container-app.md)
+> [Tutoriel : Application WordPress avec plusieurs conteneurs](tutorial-multi-container-app.md)
+
+> [!div class="nextstepaction"]
+> [Configurer un conteneur personnalisé](configure-custom-container.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

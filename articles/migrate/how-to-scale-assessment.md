@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490635"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
@@ -18,7 +18,7 @@ ms.locfileid: "59490635"
 Une limite de 1 500 machines par projet s’applique pour Azure Migrate. Cet article décrit comment évaluer un grand nombre de machines virtuelles locales avec [Azure Migrate](migrate-overview.md).
 
 > [!NOTE]
-> Nous avons une préversion disponible qui permet de découvrir des machines virtuelles de VMware jusqu'à 10 000 dans un seul projet à l’aide d’une seule appliance, si vous êtes intéressé par le œil, veuillez vous inscrire [ici.](https://aka.ms/migratefuture)
+> Une préversion permet de découvrir jusqu’à 10 000 machines virtuelles VMware dans un même projet à l’aide d’une seule appliance. Pour l’essayer, [inscrivez-vous ici](https://aka.ms/migratefuture).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -56,7 +56,7 @@ En cas de détection unique (maintenant dépréciée), la détection fonctionne 
 
 Planifiez vos découvertes et vos évaluations en fonction des contraintes suivantes :
 
-| **Entité** | **Limite de l’ordinateur** |
+| **Entité** | **Limite de la machine** |
 | ---------- | ----------------- |
 | Projet    | 1 500             |
 | Découverte  | 1 500             |
@@ -149,7 +149,7 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer :
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-   Exemple d'utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Vérifiez que le hachage généré correspond aux paramètres suivants.
 

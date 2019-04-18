@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide Azure AD v2 avec iOS | Microsoft Docs
+title: Guide de démarrage rapide iOS pour la plateforme d’identités Microsoft | Azure
 description: Découvrez comment connecter des utilisateurs et interroger Microsoft Graph dans une application native iOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439260"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496127"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application native iOS
 
@@ -30,7 +30,7 @@ ms.locfileid: "58439260"
 
 Ce démarrage rapide contient un exemple de code qui montre comment une application iOS native peut connecter des comptes personnels, professionnels et scolaires, obtenir un jeton d’accès et appeler l’API Microsoft Graph.
 
-![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-ios/ios-intro-updated.png)
+![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Inscrire et télécharger
@@ -147,7 +147,7 @@ self.applicationContext = try MSALPublicClientApplication(clientId: kClientID, a
 > |Où : ||
 > |---------|---------|
 > | `clientId` | L’ID d’application de l’application inscrite dans *portal.azure.com* |
-> | `authority` | Le point de terminaison Azure AD v2.0. Dans la plupart des cas, il s’agit de *https<span/>://login.microsoftonline.com/common* |
+> | `authority` | Point de terminaison de la plateforme d’identités Microsoft. Dans la plupart des cas, il s’agit de *https<span/>://login.microsoftonline.com/common* |
 
 ### <a name="requesting-tokens"></a>Demande de jetons
 
@@ -155,7 +155,7 @@ MSAL utilise deux méthodes pour acquérir des jetons : `acquireToken` et `acqui
 
 #### <a name="getting-an-access-token-interactively"></a>Obtention d’un jeton d’accès de manière interactive
 
-Certaines situations exigent de forcer les utilisateurs à interagir avec le point de terminaison Azure Active Directory (Azure AD) v2.0, ce qui entraîne un changement de contexte sur le navigateur système pour valider les informations d’identification des utilisateurs ou pour le consentement. Voici quelques exemples :
+Certaines situations exigent de forcer les utilisateurs à interagir avec le point de terminaison de la plateforme d’identités Microsoft, ce qui entraîne un changement de contexte sur le navigateur système pour valider les informations d’identification des utilisateurs ou demander leur consentement. Voici quelques exemples :
 
 * La première connexion des utilisateurs à l’application
 * Quand les utilisateurs doivent de nouveau entrer leurs informations d’identification, car le mot de passe a expiré
@@ -190,6 +190,6 @@ Essayez le didacticiel iOS pour apprendre à créer, étape par étape, des appl
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Découvrez les étapes permettant de créer l’application utilisée dans ce démarrage rapide
 
 > [!div class="nextstepaction"]
-> [Didacticiel iOS pour appeler l’API Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Tutoriel iOS pour appeler l’API Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ms.openlocfilehash: bbb10bf0174b6e06e28d171510345ed92b6642d9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357094"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Déployer des applications logiques avec des modèles Azure Resource Manager
@@ -23,9 +23,9 @@ Après avoir créé un modèle Azure Resource Manager pour déployer votre appli
 
 * [Portail Azure](#portal)
 * [Azure PowerShell](#powershell)
-* [Azure CLI](#cli)
-* [API REST Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
-* [Azure DevOps Azure Pipelines](#azure-pipelines)
+* [Interface de ligne de commande Azure](#cli)
+* [API Azure Resource Manager REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Pipelines Azure DevOps Azure](#azure-pipelines)
 
 <a name="portal"></a>
 
@@ -33,7 +33,7 @@ Après avoir créé un modèle Azure Resource Manager pour déployer votre appli
 
 Pour déployer automatiquement un modèle d’application logique sur Azure, vous pouvez choisir les éléments suivants **déployer sur Azure** bouton, ce qui se connecte au portail Azure et vous demande les informations relatives à votre application logique. Vous pouvez puis apporter les modifications nécessaires pour le modèle d’application logique ou les paramètres.
 
-[![Déployer vers Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Déployer sur Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Par exemple, vous êtes invité à entrer ces informations après que vous être connecté au portail Azure :
 
@@ -88,7 +88,7 @@ az deployment create --location <location> --template-uri https://raw.githubuser
 
 Pour plus d’informations, consultez les rubriques suivantes : 
 
-* [Déployer des ressources à l’aide de modèles Resource Manager et dAzure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 
+* [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) 
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 * [`az deployment create`](https://docs.microsoft.com/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)
 

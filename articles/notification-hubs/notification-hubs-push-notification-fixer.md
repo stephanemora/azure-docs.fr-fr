@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281639"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Diagnostic d’Azure Notification Hubs - notifications ignorées
@@ -33,7 +33,7 @@ Dans un flux de notification d’envoi type, le message est envoyé par le *serv
 
 Une fois les cibles établies, le service Notification Hubs envoie (push) des notifications au *service de notifications Push* correspondant à la plateforme de l’appareil. Il peut s’agir, par exemple, d’Apple Push Notification Service (APNs) pour Apple ou de Firebase Cloud Messaging (FCM) pour Google. Notification Hubs envoie les notifications regroupées en plusieurs lots d’inscriptions. Notification Hubs s’authentifie auprès du service de notifications Push correspondant, en fonction des informations d’identification que vous avez configurées dans le portail Azure, sous **Configure Notification Hub** (Configurer Notification Hubs). Le service de notifications Push transmet alors les notifications aux *appareils clients* correspondants.
 
-Le dernier tronçon de remise des notifications s’effectue entre le service de notifications Push de la plateforme et l’appareil. La perte des notifications peut être causée par l’un des quatre composants principaux du processus de notification Push, à savoir le client, le serveur d’applications backend, Notification Hubs et le service de notifications Push de la plateforme. Pour plus d’informations sur l’architecture de Notification Hubs, consultez [Présentation de Notification Hubs].
+Le dernier tronçon de remise des notifications s’effectue entre le service de notifications Push de la plateforme et l’appareil. La perte des notifications peut être causée par l’un des quatre composants principaux du processus de notification Push, à savoir le client, le serveur d’applications backend, Notification Hubs et le service de notifications Push de la plateforme. Pour plus d’informations sur l’architecture de Notification Hubs, consultez [Vue d’ensemble de Notification Hubs].
 
 L’échec de la remise des notifications peut se produire lors de la phase de test ou de préproduction. À ce stade, la perte des notifications peut indiquer un problème de configuration. Si l’échec de remise des notifications se produit lors de la phase de production, il se peut que certaines ou que l’ensemble des notifications soient perdues. Dans ce cas, cela indique un problème plus complexe lié à l’application ou au type de messagerie.
 
@@ -64,7 +64,7 @@ Vous devez disposer de deux hubs : un pour la production et l’autre pour vos t
 
 Si vous chargez par inadvertance plusieurs types de certificats dans un même hub, nous vous recommandons de supprimer ce hub et d’en créer un nouveau. Si vous ne pouvez pas supprimer le hub pour une raison quelconque, vous devez au moins supprimer toutes les inscriptions effectuées auprès de ce hub.
 
-**Configuration de FCM**
+**Configuration de Firebase Cloud Messaging**
 
 1. Vérifiez que la *clé serveur* que vous avez obtenue de Firebase correspond à celle que vous avez inscrite dans le portail Azure.
 
@@ -111,7 +111,7 @@ Les services de notifications de plateforme étant très performants, les notifi
 
 Si un service de notifications Push tente de remettre une notification alors que l’appareil est hors connexion, la notification est stockée par le service pendant une période limitée. La notification est envoyée à l’appareil lorsque celui-ci est de nouveau disponible.
 
-Pour chaque application, seule une notification récente est stockée. Si plusieurs notifications sont envoyées lorsque l’appareil est hors connexion, chaque nouvelle notification provoque la suppression de la précédente. Conserver uniquement la dernière notification est appelé *fusion des notifications* dans APN, et *réduction* dans FCM (qui utilise une clé de réduction). Si l’appareil reste hors connexion pendant une longue période, les notifications qui ont été stockées pour l’appareil sont supprimées. Pour plus d’informations, consultez [présentation APN] et [les messages FCM sur].
+Pour chaque application, seule une notification récente est stockée. Si plusieurs notifications sont envoyées lorsque l’appareil est hors connexion, chaque nouvelle notification provoque la suppression de la précédente. Conserver uniquement la dernière notification est appelé *fusion des notifications* dans APN, et *réduction* dans FCM (qui utilise une clé de réduction). Si l’appareil reste hors connexion pendant une longue période, les notifications qui ont été stockées pour l’appareil sont supprimées. Pour plus d’informations, consultez [présentation APN] et [À propos des messages Firebase Cloud Messaging].
 
 Avec Azure Notification Hubs, vous pouvez passer une clé de fusion via un en-tête HTTP à l’aide de l’API générique SendNotification. Par exemple, pour le SDK .NET, vous devez utiliser `SendNotificationAsync`. L’API SendNotification accepte également les en-têtes HTTP qui sont passés tels quels au service de notifications Push correspondant.
 
@@ -121,7 +121,7 @@ Voici les chemins d’accès pour diagnostiquer la cause racine des pertes de no
 
 ### <a name="verify-credentials"></a>Vérification des informations d’identification
 
-**Portail développeur de service de notifications Push**
+**Service de notifications Push - Portail des développeurs**
 
 Vérifiez les informations d’identification dans le portail des développeurs du service de notifications Push correspondant (Apple Push Notification Service, Firebase Cloud Messaging, service de notification Windows, etc.). Pour plus d’informations, consultez [Bien démarrer avec Azure Notification Hubs].
 
@@ -133,7 +133,7 @@ Pour vérifier et comparer les informations d’identification avec celles que v
 
 ### <a name="verify-registrations"></a>Vérification des inscriptions
 
-**Visual Studio**
+**Visual Studio**
 
 Si vous utilisez Visual Studio à des fins de développement, vous pouvez vous connecter à Azure via l’Explorateur de serveurs pour afficher et gérer un ensemble de services Azure, y compris Notifications Hubs. Cela est particulièrement utile pour votre environnement de développement et de test.
 
@@ -172,7 +172,7 @@ Pour envoyer une notification de test à vos clients sans backend de service op�
 
 ![Fonctionnalité Envoi de test dans Azure][7]
 
-**Visual Studio**
+**Visual Studio**
 
 Vous pouvez également envoyer des notifications de test à partir de Visual Studio.
 
@@ -180,9 +180,9 @@ Vous pouvez également envoyer des notifications de test à partir de Visual Stu
 
 Pour plus d’informations sur l’utilisation de Notification Hubs avec l’Explorateur de serveurs Visual Studio, consultez les articles suivants :
 
-* [Afficher les inscriptions d’appareil pour les concentrateurs de notification]
-* [Présentation approfondie : Visual Studio 2013 Update 2 RC et Azure SDK 2.3]
-* [Annonce de version de Visual Studio 2013 Update 3 et Azure SDK 2.4]
+* [Afficher les inscriptions d’appareils pour les hubs de notification]
+* [Présentation approfondie : Visual Studio 2013 Update 2 RC and Azure SDK 2.3]
+* [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Résoudre les échecs de remise de notification et analyser les résultats des notifications
 
@@ -200,7 +200,7 @@ Pour utiliser la propriété `EnableTestSend` avec l’appel REST, ajoutez un pa
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 ```
 
-**Exemple (SDK .NET)**
+**Exemple (Kit de développement logiciel (SDK) .NET)**
 
 Voici un exemple d’utilisation du SDK .NET pour envoyer une notification (toast) sous forme de fenêtre contextuelle native :
 
@@ -261,7 +261,7 @@ Le portail vous permet d’obtenir un aperçu rapide de toutes les activités su
 
 **Accès par programme**
 
-Pour plus d’informations sur l’accès par programmation, consultez [accès à la télémétrie par programme].
+Pour plus d’informations sur l’accès par programmation, consultez [Accès par programmation à la télémétrie].
 
 > [!NOTE]
 > Plusieurs fonctionnalités de télémétrie, comme l’exportation et l’importation des inscriptions, et l’accès à la télémétrie via des API, sont disponibles uniquement avec le niveau de service Standard. Si vous tentez d’utiliser ces fonctionnalités avec le niveau de service Gratuit ou De base, un message d’exception s’affiche lorsque vous utilisez le SDK, et une erreur HTTP 403 (Refusé) s’affiche si vous utilisez les fonctionnalités directement dans les API REST.
@@ -282,14 +282,14 @@ Pour plus d’informations sur l’accès par programmation, consultez [accès �
 
 <!-- LINKS -->
 [Vue d’ensemble de Notification Hubs]: notification-hubs-push-notification-overview.md
-[Prise en main Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Bien démarrer avec Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Modèles]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
-[À propos des messages FCM]: https://firebase.google.com/docs/cloud-messaging/concept-options
+[À propos des messages Firebase Cloud Messaging]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Afficher les inscriptions d’appareil pour les concentrateurs de notification]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Présentation approfondie : Visual Studio 2013 Update 2 RC et Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Annonce de version de Visual Studio 2013 Update 3 et Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[Afficher les inscriptions d’appareils pour les hubs de notification]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[Présentation approfondie : Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Accès à la télémétrie par programme]: https://msdn.microsoft.com/library/azure/dn458823.aspx
+[Accès par programmation à la télémétrie]: https://msdn.microsoft.com/library/azure/dn458823.aspx

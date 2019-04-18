@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426526"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Exemple 3 : Créer un réseau de périmètre pour protéger les réseaux avec un pare-feu, UDR et groupes de sécurité réseau
@@ -27,7 +27,7 @@ ms.locfileid: "59426526"
 
 Dans cet exemple, vous créez un réseau de périmètre (également connu comme une zone DMZ, zone démilitarisée et sous-réseau filtré). L’exemple implémente un pare-feu, quatre serveurs Windows, un routage défini par l’utilisateur (UDR), le transfert IP et les groupes de sécurité réseau (NSG). Cet article vous guide à travers chacune des commandes appropriées pour fournir une compréhension plus approfondie de chaque étape. La section de scénario de trafic explique également en détail l’évolution du trafic à travers les couches de défense du réseau de périmètre. Enfin, la section Références contient tout le code et les instructions pour créer cet environnement afin de pouvoir tester et expérimenter différents scénarios.
 
-![Réseau de périmètre bidirectionnel avec appliance virtuelle réseau, groupe de sécurité réseau et routage défini par l’utilisateur][1]
+![Réseau de périmètre bidirectionnel avec NVA, NSG et UDR][1]
 
 ## <a name="environment-setup"></a>Configuration de l’environnement
 
@@ -370,7 +370,7 @@ Voici les spécificités de chaque règle nécessaire pour terminer cet exemple�
   
   * La règle frontale pour le trafic web :
   
-    ![Règle web de pare-feu ][12]
+    ![Règle web de pare-feu][12]
   
     Cette règle NAT de Destination autorise le trafic de réelle application d’atteindre le serveur d’applications. Contrairement aux règles de sécurité, gestion et et autres éléments riches, règles d’application permettent aux utilisateurs externes ou des services accéder aux applications. Cet exemple a un seul serveur web sur le port 80, ce qui permet une règle d’application unique rediriger le trafic destiné à une adresse IP externe à la place acheminer vers les adresse IP interne du serveur web. Session de trafic redirigée est remappée par NAT vers le serveur interne.
 
@@ -379,7 +379,7 @@ Voici les spécificités de chaque règle nécessaire pour terminer cet exemple�
   
   * La règle de serveur principal autorise le serveur web communiquer avec le serveur AppVM01, et non AppVM02, via **n’importe quel** service :
   
-    ![Règle AppVM01 de pare-feu ][13]
+    ![Règle AppVM01 de pare-feu][13]
   
     Cette règle passe permet à n’importe quel serveur IIS sur le sous-réseau frontal d’atteindre AppVM01 (10.0.2.5) sur n’importe quel port à l’aide de n’importe quel protocole afin que les données sont accessibles par l’application web.
   
@@ -402,7 +402,7 @@ Voici les spécificités de chaque règle nécessaire pour terminer cet exemple�
 
 * **Règle DNS**: Cette règle pass autorise uniquement le trafic DNS (port 53) vers le serveur DNS. Pour cet environnement, la plupart du trafic du composant frontal au serveur principal est bloqué pour cette règle autorise spécifiquement le trafic DNS.
   
-    ![Règle DNS de pare-feu ][15]
+    ![Règle DNS de pare-feu][15]
   
     > [!NOTE]
     > Le **méthode de connexion** est défini sur `No SNAT` , car cette règle est pour l’adresse IP interne pour le trafic des adresses IP interne et aucune redirection via NAT n’est requise.

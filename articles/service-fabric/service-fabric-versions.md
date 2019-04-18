@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: d99000e1682b662f4bceb28096395243c894282f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191645"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681605"
 ---
 # <a name="supported-service-fabric-versions"></a>Versions de Service Fabric prises en charge
 
@@ -30,7 +30,9 @@ Consultez les documents suivants pour savoir plus en détails comment faire en s
 - [Version mise à niveau de Service Fabric sur un cluster Azure](service-fabric-cluster-upgrade.md)
 - [Mettre à niveau la version de Service Fabric sur un cluster autonome windows server](service-fabric-cluster-upgrade-windows-server.md)
 
-Voici la liste des versions de Service Fabric prises en charge et la date associée de fin de prise en charge.
+## <a name="supported-versions"></a>Versions prises en charge
+
+Le tableau suivant répertorie les versions de Service Fabric sont prises en charge et leurs dates de fin de prise en charge.
 
 | **Runtime Service Fabric dans le cluster** | **Version de cluster à partir de laquelle une mise à niveau directe est possible** |**Kit de développement logiciel compatible / Versions de package NuGet** | **Date de fin de prise en charge** |
 | --- | --- |--- | --- |
@@ -45,3 +47,18 @@ Voici la liste des versions de Service Fabric prises en charge et la date associ
 | 6.2.* | 6.0.232.* |Inférieure ou égale à la version 3.1 |26 octobre 2018   |
 | 6.3.* | 6.1.480.* |Inférieure ou égale à la version 3.2 |Mars 31,2019  |
 | 6.4.* | 6.2.301.* |Inférieure ou égale à la version 3.3 |Version actuelle ; par conséquent, pas de date de fin |
+
+## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
+
+ Le tableau suivant répertorie les systèmes d’exploitation pris en charge pour les versions de Service Fabric prises en charge.
+
+| **Système d’exploitation** | **Version la plus ancienne prise en charge Service Fabric** |
+| --- | --- |
+| Windows Server 2012 R2 | Toutes les Versions |
+| Windows Server 2016 | Toutes les Versions |
+| Windows Server 1709 | 6.0 |
+| Windows Server 1803 | 6.4. |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+

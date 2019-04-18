@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288710"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Créer des rapports interactifs avec les classeurs Azure Monitor
@@ -119,9 +119,9 @@ Chaque section a ses propres paramètres avancés, qui sont accessibles via les 
 | ---------------- |:-----|
 | **Largeur personnalisée**    | Met un élément à une taille arbitraire, donc vous pouvez insérer le nombre d’éléments sur une seule ligne, ce qui vous permet de mieux organiser vos tables et graphiques dans des rapports interactifs efficaces.  |
 | **Visible sous conditions** | Spécifiez cette option pour masquer les étapes selon un paramètre en mode lecture. |
-| **Un paramètre d’exportation**| Autoriser une ligne sélectionnée dans la grille ou un graphique à provoquer des étapes ultérieures à modifier des valeurs ou deviennent visibles.  |
-| **Afficher la requête en l'absence d'édition** | Affiche la requête au-dessus du graphique ou de la table même en mode lecture.
-| **Afficher le bouton Ouvrir dans Analytics en l'absence d'édition** | Ajoute l’icône bleue Analytique à l’angle droit du graphique pour autoriser l’accès d’un clic.|
+| **Exporter un paramètre**| Autoriser une ligne sélectionnée dans la grille ou un graphique à provoquer des étapes ultérieures à modifier des valeurs ou deviennent visibles.  |
+| **Afficher la requête en mode lecture** | Affiche la requête au-dessus du graphique ou de la table même en mode lecture.
+| **Afficher le bouton Ouvrir dans Analytics en mode lecture** | Ajoute l’icône bleue Analytique à l’angle droit du graphique pour autoriser l’accès d’un clic.|
 
 La plupart de ces paramètres sont relativement intuitifs, mais pour comprendre comment fonctionne l’option **Exporter un paramètre**, il est préférable d’examiner un classeur qui utilise cette fonctionnalité.
 
@@ -166,9 +166,9 @@ Il existe quatre types de paramètres, qui sont actuellement prises en charge :
 
 |                  |      |
 | ---------------- |:-----|
-| **Texte**    | Permet à l’utilisateur modifier une zone de texte, et vous pouvez éventuellement fournir une requête pour remplir la valeur par défaut. |
+| **Text**    | Permet à l’utilisateur modifier une zone de texte, et vous pouvez éventuellement fournir une requête pour remplir la valeur par défaut. |
 | **Liste déroulante** | Permet à l’utilisateur de choisir parmi un ensemble de valeurs. |
-| **Sélecteur de plage d'heures**| Permet à l’utilisateur à choisir parmi un ensemble prédéfini de valeurs de plage de temps, ou sélectionner dans une plage horaire personnalisée.|
+| **Sélecteur d’intervalle de temps**| Permet à l’utilisateur à choisir parmi un ensemble prédéfini de valeurs de plage de temps, ou sélectionner dans une plage horaire personnalisée.|
 | **Sélecteur de ressource** | Permet à l’utilisateur à choisir parmi les ressources sélectionnées pour le classeur.|
 
 ### <a name="using-a-text-parameter"></a>Utilisation d’un paramètre de texte

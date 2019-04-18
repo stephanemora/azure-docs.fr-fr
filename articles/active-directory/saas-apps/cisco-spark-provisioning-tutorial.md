@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77dab6ad0480bc1565c219766d17211995dcfc20
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278410"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Didacticiel : Configurer Cisco Spark pour l’attribution automatique d’utilisateurs
@@ -45,7 +45,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 Avant de configurer Cisco Spark pour l’attribution automatique d’utilisateurs avec Azure AD, vous devez ajouter Cisco Spark à votre liste d’applications SaaS managées, à partir de la galerie d’applications Azure AD.
 
-**Pour ajouter Cisco Spark à partir de la galerie d’applications Azure AD, procédez comme suit :**
+**Pour ajouter Cisco Spark à partir de la galerie d’applications Azure AD, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -179,12 +179,12 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [La gestion de l’approvisionnement de comptes utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
+* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/cisco-spark-provisioning-tutorial/tutorial_general_01.png

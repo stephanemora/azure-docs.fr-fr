@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 14291a6e8f9c4cde3c8777969047ebaa77e42b59
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500445"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Plateforme d’identité Microsoft et le flux de code d’appareil OAuth 2.0
@@ -101,7 +101,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 | Paramètre | Obligatoire | Description|
 | -------- | -------- | ---------- |
-| `grant_type` | Obligatoire | doit être `urn:ietf:params:oauth:grant-type:device_code`|
+| `grant_type` | Obligatoire | Doit être `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Obligatoire | Doit correspondre au `client_id` utilisé dans la requête initiale. |
 | `device_code`| Obligatoire | `device_code` retourné dans la requête d’autorisation d’appareil.  |
 

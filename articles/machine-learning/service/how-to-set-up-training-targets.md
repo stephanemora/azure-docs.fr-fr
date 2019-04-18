@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046153"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683900"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles
 
@@ -45,7 +45,7 @@ La prise en charge par Azure Machine Learning service varie selon les cibles de 
 |[Machine virtuelle distante](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
 |[Service Analytique Azure Data Lake](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 **Toutes les cibles de calcul peuvent être réutilisées pour plusieurs travaux de formation**. Par exemple, une fois que vous avez joint une machine virtuelle distante à votre espace de travail, vous pouvez la réutiliser pour différents travaux.
@@ -91,8 +91,8 @@ Reportez-vous aux sections ci-dessous pour configurer ces cibles de calcul :
 
 * [Ordinateur local](#local)
 * [Capacité de calcul Azure Machine Learning](#amlcompute)
-* [Machines virtuelles à distance](#vm)
-* [Azure HDInsight](#hdinsight)
+* [Machines virtuelles distantes](#vm)
+* [Azure HDInsight](#hdinsight)
 
 
 ### <a id="local"></a>Ordinateur local
@@ -253,7 +253,7 @@ Pour joindre Azure Batch comme cible de calcul, vous devez utiliser le Kit de d�
 
 -   **Nom de calcul Azure Batch**: Un nom convivial à utiliser pour le calcul au sein de l’espace de travail
 -   **Nom du compte Azure Batch**: Le nom du compte Azure Batch
--   **Groupe de ressources** : Le groupe de ressources qui contient le compte Azure Batch.
+-   **Groupe de ressources** : Le groupe de ressources qui contient le compte Azure Batch.
 
 Le code suivant montre comment attacher Azure Batch comme cible de calcul :
 
@@ -377,7 +377,6 @@ Vous pouvez accéder aux cibles de calcul associées à votre espace de travail 
 
 Pour plus d’informations, voir [Gestion des ressources](reference-azure-machine-learning-cli.md#resource-management).
 
-
 ## <a id="submit"></a>Soumettre une série de tests d’apprentissage
 
 Après avoir créé une configuration de série de tests, vous l’utilisez pour exécuter votre expérience.  Le modèle de code pour soumettre une série de tests d’apprentissage est le même pour tous les types de cibles de calcul :
@@ -385,6 +384,13 @@ Après avoir créé une configuration de série de tests, vous l’utilisez pour
 1. Créer une expérience à exécuter
 1. Soumettez l’exécution.
 1. Attendez la fin de l’exécution.
+
+> [!IMPORTANT]
+> Lorsque vous soumettez l’exécution de la formation, un instantané du répertoire qui contient vos scripts de formation est créé et envoyé à la cible de calcul. Il est également stocké dans le cadre de l’expérience dans votre espace de travail. Si vous modifiez des fichiers et que vous soumettez l’exécution là encore, que les fichiers modifiés seront téléchargés.
+>
+> Pour empêcher les fichiers d’être inclus dans l’instantané, créez un [.gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` dans le répertoire de fichiers et de lui ajouter les fichiers. Le `.amlignore` fichier utilise la même syntaxe et les modèles en tant que le [.gitignore](https://git-scm.com/docs/gitignore) fichier. Si les deux fichiers existent, le `.amlignore` fichier est prioritaire.
+> 
+> Pour plus d’informations, consultez [Instantanés](concept-azure-machine-learning-architecture.md#snapshot).
 
 ### <a name="create-an-experiment"></a>Création d'une expérience
 
@@ -399,8 +405,6 @@ Soumettez l’expérience avec un objet `ScriptRunConfig`.  Cet objet inclut ce 
 * **source_directory** : Répertoire source contenant votre script d’apprentissage
 * **script** : Identifiez le script d’apprentissage
 * **run_config** : Configuration de série de tests qui définit où aura lieu l’apprentissage.
-
-Quand vous soumettez une série de tests d’apprentissage, un instantané du répertoire contenant vos scripts d’apprentissage est créé et envoyé à la cible de calcul. Pour plus d’informations, consultez [Instantanés](concept-azure-machine-learning-architecture.md#snapshot).
 
 Par exemple, pour utiliser la configuration de [cible de calcul](#local) :
 
@@ -428,4 +432,4 @@ Pour des exemples d’apprentissage avec différentes cibles de calcul, voir les
 * [Tutoriel : Former un modèle](tutorial-train-models-with-aml.md) utilise une cible de calcul gérée pour former un modèle.
 * Une fois le modèle formé, découvrez [comment et où déployer les modèles](how-to-deploy-and-where.md).
 * Consultez la documentation de référence du Kit de développement logiciel (SDK) de la [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
-* [Utiliser le service Azure Machine Learning avec des réseaux virtuels Azure](how-to-enable-virtual-network.md)
+* [Utiliser Azure Machine Learning service avec des réseaux virtuels Azure](how-to-enable-virtual-network.md)

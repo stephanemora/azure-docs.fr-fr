@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283271"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
@@ -55,7 +55,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 5.  Pour obtenir la clé BitLocker du lecteur, exécutez la commande suivante :
     
     `manage-bde -protectors -get <DriveLetter>:`
-6.  Pour préparer le disque, exécutez la commande suivante. **Selon la taille des données, cette opération peut prendre plusieurs heures et jours.** 
+6.  Pour préparer le disque, exécutez la commande suivante. **Selon la taille des données, l’opération peut durer plusieurs heures, voire plusieurs jours.** 
 
     ```
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
@@ -144,7 +144,7 @@ Surveillez le travail jusqu’à son achèvement. Une fois le travail terminé, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Afficher l’état du travail et de lecteur](storage-import-export-view-drive-status.md)
-* [Passez en revue les exigences d’Import/Export](storage-import-export-requirements.md)
+* [Voir l’état de la tâche et des disques](storage-import-export-view-drive-status.md)
+* [Passer en revue les exigences d’importation/exportation](storage-import-export-requirements.md)
 
 

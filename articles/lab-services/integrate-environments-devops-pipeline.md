@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357392"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Intégrer des environnements à vos pipelines Azure DevOps CI/CD
@@ -62,7 +62,7 @@ L’étape suivante du déploiement consiste à créer l’environnement à util
 4. Pour **nom du modèle**, sélectionnez le nom de l’environnement que vous avez enregistré dans votre référentiel de code source *. 
 5. Le **nom Lab**, **nom du référentiel**, et **nom du modèle** sont les représentations sous forme conviviales de l’ID de ressource Azure. Entrer manuellement le nom convivial pour provoquer des erreurs, utilisez les listes déroulantes pour sélectionner les informations.
 6. Pour **nom de l’environnement**, entrez un nom pour identifier de façon unique l’instance de l’environnement du laboratoire.  Il doit être unique dans le laboratoire.
-7. Le **fichier de paramètres** et **paramètres**, autoriser des paramètres personnalisés à passer à l’environnement. Une ou les deux peuvent être utilisés pour définir les valeurs de paramètre. Pour cet exemple, la section Parameters servira. Utilisez les noms des variables que vous avez définies dans l’environnement, par exemple : `-administratorLogin “$(administratorLogin)” -administratorLoginPassword “$(administratorLoginPassword)” -databaseName “$(databaseName)” -cacheSKUCapacity 1`
+7. Le **fichier de paramètres** et **paramètres**, autoriser des paramètres personnalisés à passer à l’environnement. Une ou les deux peuvent être utilisés pour définir les valeurs de paramètre. Pour cet exemple, la section Parameters servira. Utilisez les noms des variables que vous avez défini dans l’environnement, par exemple : `-administratorLogin “$(administratorLogin)” -administratorLoginPassword “$(administratorLoginPassword)” -databaseName “$(databaseName)” -cacheSKUCapacity 1`
 8. Pour plus d’informations dans le modèle d’environnement peuvent être transmises dans la section de sortie du modèle. Vérifiez **créer les variables de sortie en fonction de la sortie de modèle d’environnement** afin d’autres tâches peuvent utiliser les données. `$(Reference name.Output Name)` est le modèle à suivre. Par exemple, si le nom de référence a été DTL et le nom de sortie dans le modèle a été l’emplacement de la variable serait `$(DTL.location)`.
 
 ## <a name="delete-the-environment"></a>Supprimer l’environnement

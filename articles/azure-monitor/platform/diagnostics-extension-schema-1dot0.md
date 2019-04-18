@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492717"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schéma de configuration Diagnostics Azure 1.0
@@ -154,7 +154,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**conteneur**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**container**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ## <a name="failedrequestlogs-element"></a>Élément FailedRequestLogs  
@@ -166,7 +166,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**conteneur**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**container**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ##  <a name="iislogs-element"></a>Élément IISLogs  
@@ -178,7 +178,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**conteneur**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**container**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ## <a name="datasources-element"></a>Élément DataSources  
@@ -195,7 +195,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**conteneur**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
+|**container**|string|Nom du conteneur dans lequel le contenu du répertoire doit être transféré.|  
 |**directoryQuotaInMB**|unsignedInt|facultatif. Définit la taille maximale du répertoire en mégaoctets.<br /><br /> La valeur par défaut est 0.|  
 
 ## <a name="absolute-element"></a>Élément Absolute  
@@ -207,7 +207,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**chemin d’accès**|string|Requis. Chemin d’accès absolu au répertoire à surveiller.|  
+|**path**|string|Requis. Chemin d’accès absolu au répertoire à surveiller.|  
 |**expandEnvironment**|booléenne|Requis. Si la valeur **true** est attribuée, les variables d’environnement du chemin d’accès sont développées.|  
 
 ## <a name="localresource-element"></a>Élément LocalResource  
@@ -219,7 +219,7 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**Nom**|string|Requis. Nom de la ressource locale qui contient le répertoire à surveiller.|  
+|**name**|string|Requis. Nom de la ressource locale qui contient le répertoire à surveiller.|  
 |**relativePath**|string|Requis. Chemin d’accès relatif à la ressource locale à surveiller.|  
 
 ## <a name="performancecounters-element"></a>Élément PerformanceCounters  
@@ -269,5 +269,5 @@ Attributs :
 
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
-|**Nom**|string|Requis. Expression XPath spécifiant le journal à collecter.|  
+|**name**|string|Requis. Expression XPath spécifiant le journal à collecter.|  
 

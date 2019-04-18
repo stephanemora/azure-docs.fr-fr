@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: c7edc7979636ced8697aa5ad724f9c6600d840bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283356"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Mise en réseau accélérée avec la récupération d’urgence de machines virtuelles Azure
@@ -52,13 +52,13 @@ Pour plus d’informations sur les instances de machine virtuelle, consultez la 
 Azure Site Recovery prend en charge l’activation de la mise en réseau accélérée pour les machines virtuelles répliquées seulement si celle-ci est activée pour la machine virtuelle source. Si la mise en réseau accélérée n’est pas activée pour votre machine virtuelle source, vous pouvez apprendre [ici](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) à activer la mise en réseau accélérée pour les machines virtuelles Linux.
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
-Les distributions suivantes sont prises en charge sans configuration supplémentaire à partir de la galerie Azure :
+Les distributions suivantes sont prises en charge sans configuration supplémentaire à partir de la galerie Azure :
 * **Ubuntu 16.04**
 * **SLES 12 SP3**
 * **RHEL 7.4**
 * **CentOS 7.4**
 * **CoreOS Linux**
-* **Debian « Stretch » with backports kernel**
+* **Debian « Stretch » with backports kernel**
 * **Oracle Linux 7.4**
 
 ### <a name="supported-vm-instances"></a>Instances de machines virtuelles prises en charge

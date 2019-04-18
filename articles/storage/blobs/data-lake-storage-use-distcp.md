@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 8328ea5afb66bbecdafbb06dcbf6700194d62f9e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3b58dc8dabc55ba428ce6e35091a6947e5f4a824
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864058"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678378"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Utiliser DistCp pour copier des données entre Azure Storage Blob et Azure Data Lake Storage Gen2
 
@@ -21,13 +21,13 @@ Vous pouvez utiliser [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distc
 
 DistCp offre différents paramètres de ligne de commande, et nous vous encourageons vivement à lire cet article afin d’optimiser votre utilisation de cet outil. Cet article explique les fonctionnalités de base tout en mettant l’accent sur son utilisation pour la copie de données vers un compte avec espace de noms hiérarchique activé.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Stockage Azure existant sans fonctionnalités Data Lake Storage Gen2 (espace de noms hiérarchique) activées**.
 * **Un compte Stockage Azure avec fonctionnalité Data Lake Storage Gen2 activée**. Pour savoir comment en créer un, consultez [Créer un compte de stockage Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 * **Un système de fichiers** qui a été créé dans le compte de stockage avec espace de noms hiérarchique activé.
-* **Cluster Azure HDInsight** avec un accès à un compte de stockage avec fonctionnalité Data Lake Storage Gen2 activée. Consultez [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](data-lake-storage-use-hdi-cluster.md). Veillez à activer le Bureau à distance pour le cluster.
+* **Cluster Azure HDInsight** avec un accès à un compte de stockage avec fonctionnalité Data Lake Storage Gen2 activée. Consultez [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Veillez à activer le Bureau à distance pour le cluster.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Utiliser DistCp à partir d’un cluster HDInsight Linux
 

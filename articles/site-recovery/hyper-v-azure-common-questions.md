@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357994"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Questions courantes sur la reprise d’activité d’Hyper-V sur Azure
@@ -33,9 +33,9 @@ Lors de la réplication, les données sont répliquées vers le stockage Azure e
 
 Ce dont vous avez besoin pour le serveur hôte Hyper-V dépend du scénario de déploiement. Découvrez les prérequis dans :
 
-* [Réplication des machines virtuelles Hyper-V (sans VMM) vers Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Réplication des machines virtuelles Hyper-V (avec VMM) vers Azure](site-recovery-vmm-to-azure.md)
-* [Réplication des machines virtuelles Hyper-V vers un centre de données secondaire](site-recovery-vmm-to-vmm.md)
+* [Réplication de machines virtuelles Hyper-V (sans VMM) sur Azure](site-recovery-hyper-v-site-to-azure.md)
+* [Réplication de machines virtuelles Hyper-V (avec VMM) sur Azure](site-recovery-vmm-to-azure.md)
+* [Réplication de machines virtuelles Hyper-V sur un centre de données secondaire](site-recovery-vmm-to-vmm.md)
 * Si vous répliquez sur un centre de données secondaire, consultez l’article [Systèmes d’exploitation invités pris en charge pour les ordinateurs virtuels Hyper-V](https://technet.microsoft.com/library/mt126277.aspx).
 * Si vous effectuez une réplication vers Azure, Site Recovery prend en charge tous les systèmes d’exploitation invités [pris en charge par Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
@@ -114,8 +114,8 @@ Oui. Site Recovery les convertit de la génération 2 à la génération 1 pen
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Puis-je automatiser des scénarios Site Recovery avec un kit SDK ?
 Oui. Vous pouvez automatiser les flux de travail Site Recovery à l’aide de l’API Rest, de PowerShell ou du kit SDK Azure. Scénarios actuellement pris en charge pour la réplication de Hyper-V vers Azure à l’aide de PowerShell :
 
-- [La réplication de Hyper-V sans VMM à l’aide de PowerShell](hyper-v-azure-powershell-resource-manager.md)
-- [Réplication Hyper-V avec VMM à l’aide de Powershell](hyper-v-vmm-powershell-resource-manager.md)
+- [Répliquer Hyper-V sans VMM à l’aide de PowerShell](hyper-v-azure-powershell-resource-manager.md)
+- [Réplication Hyper-V sans VMM à l’aide de PowerShell](hyper-v-vmm-powershell-resource-manager.md)
 
 ## <a name="replication"></a>Réplication
 

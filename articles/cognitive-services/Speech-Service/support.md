@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358049"
 ---
 # <a name="support-and-help-options"></a>Options d’aide et de support
@@ -74,8 +74,8 @@ Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soume
 
 > [!TIP]
 > Les publications suivantes de Stack Overflow présentent des conseils sur la façon de formuler des questions et d’ajouter du code source. En suivant ces recommandations, vous augmentez vos chances que des membres de la communauté comprennent votre question et y répondent rapidement :  
-> * [Comment pour poser une question de bon ?](https://stackoverflow.com/help/how-to-ask)
-> * [Comment créer un Minimal, complet et vérifiable exemple](https://stackoverflow.com/help/mcve)
+> * [Comment poser une bonne question ?](https://stackoverflow.com/help/how-to-ask)
+> * [Comment créer un exemple minimal, complet et vérifiable](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Créer un problème GitHub
 
@@ -86,11 +86,11 @@ Les exemples sont souvent publiés en open source. Si vous avez des questions, o
 
 Vous pouvez créer un rapport de bogues, demander une fonctionnalité ou poser une question générale et partager les meilleures pratiques. Pour les rapports de bogues, veuillez suivre le modèle fourni :
 
-**Décrivez le bogue**
+**Décrire le bogue**
 
 Description claire et concise du bogue.
 
-**À reproduire**
+**Opérations à reproduire**
 
 Étapes pour reproduire le problème :
 1. ...
@@ -100,11 +100,11 @@ Description claire et concise du bogue.
 
 Description claire et concise du comportement normal attendu.
 
-**Version de la reconnaissance vocale de Cognitive Services SDK**
+**Version du kit de développement logiciel Speech de Cognitive Services**
 
 Version du kit de développement logiciel utilisé.
 
-**Plateforme de système d’exploitation et langage de programmation**
+**Plateforme, système d’exploitation et langage de programmation**
 
  - Système d’exploitation : [par exemple, Windows, Linux, Android, iOS,...] - Merci d’être précis
  - Matériel - x64, x86, ARM...

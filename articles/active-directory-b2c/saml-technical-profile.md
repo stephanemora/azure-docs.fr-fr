@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d5120b7569acbe9735ea1a70fcb609d322d60793
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: c719bcaca91f9a6e77d79735283cf2c68404ef16
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154369"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680534"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique SAML dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -81,21 +81,6 @@ L’exemple suivant montre la section de chiffrement de profil technique Azure A
   </KeyInfo>
 </KeyDescriptor>
 ```
-
-## <a name="identity-provider-initiated-flow"></a>Flux lancé par le fournisseur d’identité
-
-Dans une session d’authentification unique (demande non sollicitée) lancée par le fournisseur d’identité, une réponse SAML non sollicitée est envoyée au fournisseur de services, dans le cas présent un profil technique Azure AD B2C. Dans ce flux, l’utilisateur ne passe pas d’abord par l’application web, mais il est dirigé vers le fournisseur d’identité. Quand la demande est envoyée, une page d’authentification est fournie à l’utilisateur par le fournisseur d’identité. L’utilisateur effectue l’authentification, puis la demande est redirigée vers Azure AD B2C avec une réponse SAML qui contient les assertions. Azure AD B2C lit les assertions et émet un nouveau jeton SAML, puis redirige l’utilisateur vers l’application par partie de confiance. Les redirections sont effectuées par la propriété **Location** de l’élément **AssertionConsumerService**.
-
-
-![flux SAML lancé par le fournisseur d’identité](media/saml-technical-profile/technical-profile-idp-saml-idp-initiated.png) 
-
-Lors de la création d’un flux lancé par le fournisseur d’identité, tenez compte des exigences de stratégie suivantes :
-
-- La première étape d’orchestration doit être un échange de revendications unique qui pointe vers un profil technique SAML.
-- Le profil technique doit avoir un élément de métadonnées nommé **IdpInitiatedProfileEnabled** défini sur `true`.
-- La stratégie de partie de confiance doit être une partie de confiance SAML.
-- La stratégie de partie de confiance doit avoir un élément de métadonnées nommé **IdpInitiatedProfileEnabled** défini sur `true`.
-- La réponse non sollicitée doit être envoyée au point de terminaison `/your-tenant/your-policy/samlp/sso/assertionconsumer`. Tout état de relais inclus dans la réponse est transféré à la partie de confiance. Remplacez les valeurs suivantes : **your-tenant** par le nom de votre locataire. **your-policy** par le nom de votre stratégie de partie de confiance.
     
 ## <a name="protocol"></a>Protocole
 

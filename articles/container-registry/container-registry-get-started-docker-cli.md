@@ -10,10 +10,10 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282693"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Transmission de votre première image vers un Registre de conteneur Docker privé à l’aide de l’interface de ligne de commande (CLI) Docker
@@ -126,11 +126,11 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 
 Maintenant que vous connaissez les principes de base, vous êtes prêt à utiliser votre registre. Par exemple, déployez des images de conteneur à partir de votre Registre vers :
 
-* [Service Azure Kubernetes (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 
-Si vous le souhaitez installer le [Extension Docker pour Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) et le [compte Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension pour travailler avec vos registres de conteneurs Azure. Extraire et envoyer des images à un Registre de conteneurs Azure ou exécuter des tâches d’ACR, tout dans Visual Studio Code.
+Si vous le souhaitez, vous pouvez installer l’[extension Docker pour Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) et l’extension [Compte Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) pour utiliser vos registres de conteneurs Azure. Dans Visual Studio Code, vous pouvez tirer (pull) et envoyer (push) des images vers un registre de conteneurs Azure, et exécuter ACR Tasks.
 
 
 <!-- LINKS - external -->

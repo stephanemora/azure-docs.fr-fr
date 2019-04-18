@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279501"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transactions et contrôle d’accès concurrentiel optimiste
@@ -20,7 +20,7 @@ Les transactions de base de données offrent un modèle de programmation prédic
 
 Le moteur de base de données dans Azure Cosmos DB prend en charge les transactions entièrement conformes à ACID (atomicité, cohérence, isolation, durabilité) avec isolement de capture instantanée. Toutes les opérations de base de données dans l’étendue d’un conteneur [partition logique](partition-data.md) sont exécutées au niveau transactionnel dans le moteur de base de données qui est hébergé par le réplica de la partition. Ces opérations comprennent à la fois les opérations d’écriture (mise à jour d’un ou de plusieurs éléments dans la partition logique) et de lecture. Le tableau suivant illustre différents types de transactions et d’opérations :
 
-| **Opération**  | **Type d'opération** | **Unique ou de plusieurs articles** |
+| **opération**  | **Type d’opération** | **Transaction à un seul ou plusieurs éléments** |
 |---------|---------|---------|
 | Insérer (sans pré/postdéclencheur) | Écrire | Transaction à un seul élément |
 | Insérer (avec pré/postdéclencheur) | Écrire et lire | Transaction à plusieurs éléments |

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 126eee1664d810850f63e702abe78b241649d665
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438816"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683731"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Stratégies de rétention des rapports Azure Active Directory
 
@@ -68,8 +68,8 @@ Pour les signaux de sécurité, le processus de collection démarre lorsque vous
 
 | Rapport                 | Azure AD Gratuit | Azure AD Standard | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
-| Audit de répertoire        | 7 jours        |  7 jours        | 30 jours             | 30 jours             |
-| Activité de connexion       | S.O.           |  S.O.           | 30 jours             | 30 jours             |
+| Journaux d’audit             | 7 jours        |  7 jours        | 30 jours             | 30 jours             |
+| Connexions               | S.O.           |  S.O.           | 30 jours             | 30 jours             |
 | Utilisation d’Azure MFA        | 30 jours       |  30 jours       | 30 jours             | 30 jours             |
 
 Vous pouvez conserver les données d'activité d'audit et de connexion au-delà de la période de conservation par défaut décrite ci-dessus en les acheminant vers un compte de stockage Azure à l'aide d'Azure Monitor. Pour plus d’informations, consultez [Archiver des journaux d’activité Azure AD sur un compte de stockage Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).

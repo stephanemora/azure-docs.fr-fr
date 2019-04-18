@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: dfe23baa67c87b04a65630611ef71758beda268d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754903"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678531"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Utiliser les versions pour modifier et tester sans impact sur les applications intermédiaires et de production
 
@@ -24,7 +24,7 @@ Les versions vous permettent de générer et de publier différents modèles. Un
 
 Pour utiliser des versions, ouvrez votre application en sélectionnant son nom dans la page **My Apps** (Mes applications), sélectionnez **Manage** (Gérer) dans la barre supérieure, puis **Versions** dans le volet de navigation gauche. 
 
-La liste des versions montre quelles versions sont publiées, où elles sont publiées et quelle version est actuellement active. 
+La liste des versions montre quelles versions sont publiées, où ils sont publiés, et quelle version est actuellement active. 
 
 [![Section gérer, page versions](./media/luis-how-to-manage-versions/versions-import.png "Section gérer, page versions")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -67,5 +67,5 @@ Sélectionnez une version dans la liste, puis sélectionnez **Make Active** (Act
 
 * Pour **supprimer** une version, sélectionnez une version dans la liste, puis sélectionnez **Delete** (Supprimer) dans la barre d’outils. Sélectionnez **OK**. 
 * Pour **renommer** une version, sélectionnez une version dans la liste, puis sélectionnez **Rename** (Renommer) dans la barre d’outils. Entrez le nouveau nom, puis sélectionnez **Done** (Terminé). 
-* Pour **exporter** une version, sélectionnez une version dans la liste, puis sélectionnez **Export app** (Exporter l’application) dans la barre d’outils. Le fichier est téléchargé sur votre ordinateur local. 
+* Pour **exporter** une version, sélectionnez une version dans la liste, puis sélectionnez **Export app** (Exporter l’application) dans la barre d’outils. Choisissez JSON à exporter pour la sauvegarde, choisissez **exporter pour conteneur** à [utiliser cette application dans un conteneur de LUIS](luis-container-howto.md).  
 

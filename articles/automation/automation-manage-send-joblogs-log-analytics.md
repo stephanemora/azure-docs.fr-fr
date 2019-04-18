@@ -10,10 +10,10 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496588"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Transférer l’état du travail et flux de travail d’Automation dans les journaux d’Azure Monitor
@@ -68,8 +68,7 @@ Pour rechercher Le *Nom* de votre compte Automation, sélectionnez votre compte 
 
 Après avoir exécuté ce script, il peut prendre une heure avant de commencer à voir les enregistrements dans les journaux Azure Monitor de nouveaux JobLogs ou JobStreams.
 
-Pour afficher les journaux, exécutez la requête suivante dans la recherche de journal log analytique :
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Pour afficher les journaux, exécutez la requête suivante dans la recherche de journal log analytique : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Vérifier la configuration
 
@@ -137,8 +136,7 @@ Diagnostic d’Azure Automation crée deux types d’enregistrements dans les jo
 
 Maintenant que vous commencé à envoyer vos journaux de travaux Automation dans les journaux d’Azure Monitor, nous allons voir ce que vous pouvez faire avec ces journaux dans les journaux Azure Monitor.
 
-Pour afficher les journaux, exécutez la requête suivante :
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Pour afficher les journaux d’activité, exécutez la requête suivante :`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Envoyer un e-mail en cas d’échec ou de suspension d’un travail de runbook
 Nos clients demandent souvent à pouvoir envoyer un e-mail ou un SMS lorsqu’une erreur survient sur un travail de runbook.   
@@ -146,7 +144,7 @@ Nos clients demandent souvent à pouvoir envoyer un e-mail ou un SMS lorsqu’un
 Pour créer une règle d’alerte, vous devez commencer par créer une recherche de journal pour les enregistrements de travaux de runbook qui doivent appeler l’alerte. Cliquez sur le bouton **Alerte** pour créer et configurer la règle d’alerte.
 
 1. Dans la page de vue d’ensemble d’espace de travail Analytique de journal, cliquez sur **afficher les journaux**.
-2. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  Vous pouvez également regrouper par RunbookName à l’aide de : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`. Vous pouvez également effectuer un regroupement par nom de runbook à l’aide de `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`.
 
    Si vous avez configuré des journaux d’activité dans votre espace de travail sur plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation. Le nom du compte Automation se trouve dans le champ Ressource de la recherche de JobLogs.
 3. Pour ouvrir l’écran **Créer une règle**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, voir [Alertes de journaux dans Azure](../azure-monitor/platform/alerts-unified-log.md).
@@ -166,7 +164,7 @@ Lorsque vous déboguez un travail, vous pouvez également examiner les flux de t
 Vous pouvez enfin souhaiter visualiser l’historique de vos travaux dans le temps. Vous pouvez utiliser cette requête pour rechercher l’état de vos travaux au fil du temps.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![Journal Analytique travail historique état graphique](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Graphique de l’état de la tâche historique de Log Analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="remove-diagnostic-settings"></a>Supprimer les paramètres de diagnostic
 

@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6362084c11ce7aa9078823758700239694162765
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359156"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Informations de référence sur l’API de gestion pour Azure SQL Database Managed Instance
@@ -60,7 +60,7 @@ Pour créer et gérer des instances gérées avec [Azure CLI](/cli/azure), utili
 | --- | --- |
 |[az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Crée une instance managée|
 |[az sql mi list](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Liste les instances managées disponibles|
-|[afficher de AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Obtient les détails concernant une instance managée|
+|[az sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Obtient les détails concernant une instance managée|
 |[az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Met à jour une instance managée|
 |[az sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Supprime une instance managée|
 |[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Crée une base de données managée|
@@ -79,7 +79,7 @@ Pour créer et gérer une base de données d’instance après avoir créé l’
 
 | Commande | Description |
 | --- | --- |
-|[CRÉER UNE BASE DE DONNÉES](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crée une base de données Managed Instance. Vous devez être connecté à la base de données MASTER pour créer une base de données.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crée une base de données Managed Instance. Vous devez être connecté à la base de données MASTER pour créer une base de données.|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifie une base de données Azure SQL Managed Instance.|
 
 ## <a name="rest-api-create-and-manage-managed-instances"></a>API REST : créer et gérer des instances gérées
@@ -88,12 +88,12 @@ Pour créer et gérer des instances gérées, utilisez ces requêtes d’API RES
 
 | Commande | Description |
 | --- | --- |
-|[Instances - gérées créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Crée ou met à jour une instance managée.|
-|[Les Instances gérées - supprimer](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Supprime une instance managée.|
-|[Instances gérées - Get](https://docs.microsoft.com/rest/api/sql/managedinstances/get)|Obtient une instance managée.|
-|[Liste d’Instances - gérés](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Retourne la liste des instances managées d’un abonnement.|
-|[Instances - liste par groupe de ressources gérées](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Retourne la liste des instances managées d’un groupe de ressources.|
-|[Instances gérées - mise à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Met à jour une instance managée.|
+|[Instances managées - Créer ou Mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Crée ou met à jour une instance managée.|
+|[Instances managées - Supprimer](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Supprime une instance managée.|
+|[Instances managées - Obtenir](https://docs.microsoft.com/rest/api/sql/managedinstances/get)|Obtient une instance managée.|
+|[Instances managées - Lister](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Retourne la liste des instances managées d’un abonnement.|
+|[Instances managées - Lister par groupe de ressources](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Retourne la liste des instances managées d’un groupe de ressources.|
+|[Instances managées - Mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Met à jour une instance managée.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

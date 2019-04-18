@@ -5,20 +5,20 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.author: danlep
-ms.openlocfilehash: f3206da25a3c0727e3f9fe12190580a6c28c81a3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983249"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683458"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Supprimer des images conteneur dans Azure Container Registry
 
 Pour limiter la taille de votre registre de conteneurs Azure, vous devez supprimer régulièrement les données d’image obsolètes. Certaines images conteneur déployées dans l’environnement de production peuvent nécessiter un stockage à long terme, mais d’autres peuvent être supprimées plus rapidement. Par exemple, dans un scénario de génération et de tests automatisés, votre registre peut se remplir rapidement d’images qui peuvent ne jamais être déployées, et peuvent donc être vidées peu après la génération et la réussite des tests.
 
-Il existe plusieurs façons de supprimer les données d’image, et il est important de comprendre comment chaque opération de suppression affecte l’utilisation du stockage. Cet article présente d’abord les composants d’un registre Docker et des images conteneur, puis présente plusieurs méthodes de suppression pour les données d’image.
+Il existe plusieurs façons de supprimer les données d’image, et il est important de comprendre comment chaque opération de suppression affecte l’utilisation du stockage. Cet article présente d’abord les composants d’un registre Docker et des images conteneur, puis présente plusieurs méthodes de suppression pour les données d’image. Exemples de scripts sont fournis pour vous aider à automatiser les opérations de suppression.
 
 ## <a name="registry"></a>Registre
 
@@ -34,7 +34,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-Les noms des référentiels peuvent également comprendre des [espaces de noms](container-registry-best-practices.md#repository-namespaces). Les espaces de noms permettent de grouper des images à l’aide de noms de référentiels délimités par des barres obliques, par exemple :
+Les noms des référentiels peuvent également comprendre des [espaces de noms](container-registry-best-practices.md#repository-namespaces). Espaces de noms vous permettent de regrouper des images à l’aide des noms de référentiel de délimitée par des barres obliques vers l’avant, par exemple :
 
 ```
 marketing/campaign10-18/web:v2
@@ -50,11 +50,11 @@ Une image conteneur qui se trouve dans le registre est associée à une ou plusi
 
 ### <a name="tag"></a>Tag
 
-*L’étiquette* d’une image spécifie sa version. Dans un référentiel, une image peut être associée à une ou plusieurs étiquettes, mais elle peut aussi n’être associée à aucune étiquette. Autrement dit, vous pouvez supprimer toutes les étiquettes d’une image, tout en conservant les données de l’image (ses calques) dans le registre.
+*L’étiquette* d’une image spécifie sa version. Dans un référentiel, une image peut être associée à une ou plusieurs étiquettes, mais elle peut aussi n’être associée à aucune étiquette. Autrement dit, vous pouvez supprimer toutes les balises à partir d’une image, alors que les données de l’image (ses couches) restent dans le Registre.
 
 Le nom d’une image est défini par le référentiel (ou le référentiel et l’espace de noms) et l’étiquette. Vous pouvez envoyer (push) et tirer (pull) une image en spécifiant son nom dans l’opération push ou pull.
 
-Dans un registre privé comme Azure Container Registry, le nom de l’image comprend également le nom complet de l’hôte du registre. Le nom de l’hôte du registre pour les images ACR est au format *acrname.azurecr.io*. Par exemple, le nom complet de la première image dans l’espace de noms « marketing » de la section précédente serait :
+Dans un registre privé comme Azure Container Registry, le nom de l’image comprend également le nom complet de l’hôte du registre. L’hôte de Registre pour les images dans ACR est au format *acrname.azurecr.io* (tout en minuscules). Par exemple, le nom complet de la première image dans l’espace de noms « marketing » dans la section précédente serait :
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
@@ -158,7 +158,7 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> La suppression *en fonction de l’étiquette* ne doit pas être confondue avec la suppression d’une étiquette. Vous pouvez supprimer une étiquette avec la commande [az acr repository untag][az-acr-repository-untag] d’Azure CLI. Aucun espace n’est libéré lorsque vous supprimez l’étiquette d’une image, car son [manifeste](#manifest) et ses données de calque sont conservés dans le registre. Seule la référence de l’étiquette est supprimée.
+> La suppression *en fonction de l’étiquette* ne doit pas être confondue avec la suppression d’une étiquette. Vous pouvez supprimer une étiquette avec la commande [az acr repository untag][az-acr-repository-untag] d’Azure CLI. Aucun espace n’est libérée lorsque vous baliser une image, car son [manifeste](#manifest) et données de la couche restent dans le Registre. Seule la référence de l’étiquette est supprimée.
 
 ## <a name="delete-by-manifest-digest"></a>Supprimer en fonction du code de hachage du manifeste
 
@@ -201,7 +201,56 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): y
 ```
 
-L’image « acr-helloworld:v2 » est supprimée du registre, comme le sont les données de calques propres à cette image. Si un manifeste est associé à plusieurs étiquettes, toutes les étiquettes associées sont également supprimées.
+Le `acr-helloworld:v2` image est supprimée à partir du Registre, comme des données de couche unique pour cette image. Si un manifeste est associé à plusieurs étiquettes, toutes les étiquettes associées sont également supprimées.
+
+### <a name="list-digests-by-timestamp"></a>Liste des résumés par horodatage
+
+Pour limiter la taille d’un référentiel ou le Registre, vous devrez peut-être supprimer périodiquement les résumés de manifeste antérieurs à une certaine date.
+
+La commande CLI Azure suivante répertorie tous les résumés de manifeste dans un référentiel antérieurs à un horodatage spécifié, dans l’ordre croissant. Remplacez `<acrName>` et `<repositoryName>` par les valeurs adaptées à votre environnement. L’horodatage peut être une expression complète de date-heure ou une date, comme dans cet exemple.
+
+```azurecli
+az acr repository show-manifests --name <acrName> --repository <repositoryName> \
+--orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
+```
+
+### <a name="delete-digests-by-timestamp"></a>Suppression des condensats par horodatage
+
+Après avoir identifié les résumés de manifeste obsolètes, vous pouvez exécuter le script Bash suivant pour supprimer les résumés de manifeste antérieurs à un horodatage spécifié. Ce script nécessite Azure CLI et **xargs**. Par défaut, le script n’effectue aucune suppression. Remplacez la valeur `ENABLE_DELETE` par `true` pour activer la suppression des images.
+
+> [!WARNING]
+> Utilisez l’exemple de script suivant avec précaution--données d’image supprimée est irrécupérable. Si vous avez des systèmes qui extrait les images par manifeste digest (par opposition à nom de l’image), vous ne devez pas exécuter ces scripts. La suppression les résumés de manifeste évite ces systèmes tirant les images à partir de votre Registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma *d’étiquetage unique* (il s’agit là d’une [bonne pratique)][tagging-best-practices]. 
+
+```bash
+#!/bin/bash
+
+# WARNING! This script deletes data!
+# Run only if you do not have systems
+# that pull images via manifest digest.
+
+# Change to 'true' to enable image delete
+ENABLE_DELETE=false
+
+# Modify for your environment
+# TIMESTAMP can be a date-time string such as 2019-03-15T17:55:00.
+REGISTRY=myregistry
+REPOSITORY=myrepository
+TIMESTAMP=2019-04-05  
+
+# Delete all images older than specified timestamp.
+
+if [ "$ENABLE_DELETE" = true ]
+then
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+    --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].digest" -o tsv \
+    | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
+else
+    echo "No data deleted."
+    echo "Set ENABLE_DELETE=true to enable deletion of these images in $REPOSITORY:"
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+   --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].[digest, timestamp]" -o tsv
+fi
+```
 
 ## <a name="delete-untagged-images"></a>Supprimer les images sans étiquette
 
@@ -257,14 +306,12 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 
 ### <a name="delete-all-untagged-images"></a>Supprimer toutes les images sans étiquette
 
-Utilisez les exemples de scripts suivants avec prudence : la suppression des données d’image est irrécupérable.
+> [!WARNING]
+> Utilisez les exemples de scripts suivants avec prudence : la suppression des données d’image est irrécupérable. Si vous avez des systèmes qui extrait les images par manifeste digest (par opposition à nom de l’image), vous ne devez pas exécuter ces scripts. La suppression des images sans étiquette va empêcher ces systèmes de tirer les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma *d’étiquetage unique* (il s’agit là d’une [bonne pratique)][tagging-best-practices].
 
 **Azure CLI dans Bash**
 
 Le script Bash suivant supprime toutes les images sans étiquette d’un référentiel. Ce script nécessite Azure CLI et **xargs**. Par défaut, le script n’effectue aucune suppression. Remplacez la valeur `ENABLE_DELETE` par `true` pour activer la suppression des images.
-
-> [!WARNING]
-> Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l’image), vous ne devez pas exécuter ce script. La suppression des images sans étiquette va empêcher ces systèmes de tirer les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma *d’étiquetage unique* (il s’agit là d’une [bonne pratique)][tagging-best-practices].
 
 ```bash
 #!/bin/bash
@@ -293,9 +340,6 @@ fi
 **Azure CLI dans PowerShell**
 
 Le script PowerShell suivant supprime toutes les images sans étiquette d’un référentiel. Il nécessite PowerShell et Azure CLI. Par défaut, le script n’effectue aucune suppression. Remplacez la valeur `$enableDelete` par `$TRUE` pour activer la suppression des images.
-
-> [!WARNING]
-> Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l’image), vous ne devez pas exécuter ce script. La suppression des images sans étiquette va empêcher ces systèmes de tirer les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma *d’étiquetage unique* (il s’agit là d’une [bonne pratique)][tagging-best-practices].
 
 ```powershell
 # WARNING! This script deletes data!

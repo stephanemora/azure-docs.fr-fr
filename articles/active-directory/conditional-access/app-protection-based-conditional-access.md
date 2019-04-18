@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496928"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Exiger la stratégie de protection des applications pour accéder aux applications de cloud avec l’accès conditionnel (version préliminaire)
@@ -97,7 +97,7 @@ Les stratégies de protection d’application Intune doivent être sur l’appli
 
 ### <a name="configuration"></a>Configuration
 
-**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online**
+**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online**
 
 Pour la stratégie d’accès conditionnel dans cette étape, configurez les composants suivants :
 
@@ -180,7 +180,7 @@ Ce scénario part du principe que :
 
 ### <a name="configuration"></a>Configuration
 
-**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online**
+**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online**
 
 Pour la stratégie d’accès conditionnel dans cette étape, configurez les composants suivants :
 
@@ -208,7 +208,7 @@ Pour la stratégie d’accès conditionnel dans cette étape, configurez les com
 
    - **Exiger que l’appareil soit marqué comme conforme**
 
-   - **Exiger une stratégie de protection des applications (préversion)**
+   - **Exiger la stratégie de protection des applications (version préliminaire)**
 
    - **Demander un des contrôles sélectionnés**   
  
@@ -240,7 +240,7 @@ Pour la stratégie d’accès conditionnel dans cette étape, configurez les com
 
    - **Exiger que l’appareil soit marqué comme conforme**
 
-   - **Exiger une stratégie de protection des applications (préversion)**
+   - **Exiger la stratégie de protection des applications (version préliminaire)**
 
    - **Demander un des contrôles sélectionnés**
 
@@ -282,7 +282,7 @@ Les stratégies de protection d’application Intune sont activés avant de pouv
 
 ### <a name="configuration"></a>Configuration
 
-**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online**
+**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online**
 
 Pour la stratégie d’accès conditionnel dans cette étape, configurez les composants suivants :
 
@@ -310,7 +310,7 @@ Pour la stratégie d’accès conditionnel dans cette étape, configurez les com
 
    - **Exiger que l’appareil soit marqué comme conforme**
 
-   - **Exiger une stratégie de protection des applications (préversion)**
+   - **Exiger la stratégie de protection des applications (version préliminaire)**
 
    - **Demander tous les contrôles sélectionnés**   
  
@@ -342,7 +342,7 @@ Pour la stratégie d’accès conditionnel dans cette étape, configurez les com
 
    - **Exiger que l’appareil soit marqué comme conforme**
 
-   - **Exiger une stratégie de protection des applications (préversion)**
+   - **Exiger la stratégie de protection des applications (version préliminaire)**
 
    - **Demander tous les contrôles sélectionnés**   
  
@@ -389,7 +389,7 @@ Les stratégies de protection d’application Intune sont nécessaires avant de 
 
 ### <a name="configuration"></a>Configuration
 
-**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online**
+**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online**
 
 Pour la stratégie d’accès conditionnel dans cette étape, configurez les composants suivants :
 
@@ -417,7 +417,7 @@ Pour la stratégie d’accès conditionnel dans cette étape, configurez les com
 
    - **Demander une application cliente approuvée**
 
-   - **Exiger une stratégie de protection des applications (préversion)**
+   - **Exiger la stratégie de protection des applications (version préliminaire)**
 
    - **Demander un des contrôles sélectionnés**
  

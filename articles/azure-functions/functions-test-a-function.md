@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357645"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
@@ -26,7 +26,7 @@ Tester l'intégralité du code est recommandé. Cela étant, vous pouvez obtenir
 
 Le contenu suivant est divisé en deux sections distinctes destinées à cibler différents environnements et langages. Découvrez comment créer des tests dans :
 
-- [C#dans Visual Studio avec xUnit](#c-in-visual-studio)
+- [C# dans Visual Studio avec xUnit](#c-in-visual-studio)
 - [JavaScript dans VS Code avec Jest](#javascript-in-vs-code)
 
 L’exemple de dépôt est disponible sur [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
@@ -378,5 +378,5 @@ Ensuite, définissez un point d’arrêt dans votre test et appuyez sur **F5**.
 
 Maintenant que vous savez écrire des tests automatisés pour vos fonctions, penchez-vous sur les ressources suivantes :
 - [Exécuter manuellement une fonction non déclenchée via HTTP](./functions-manually-run-non-http.md)
-- [Gestion d’erreurs d’Azure Functions](./functions-bindings-error-pages.md)
+- [Gestion des erreurs Azure Functions](./functions-bindings-error-pages.md)
 - [Débogage local lors du déclenchement de fonctions Azure Event Grid](./functions-debug-event-grid-trigger-local.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283475"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure CDN 
@@ -74,7 +74,7 @@ Nom | Objectif
 [Adresse IP du client](#client-ip-address) | Identifie les requêtes issues d’une adresse IP particulière.
 [Paramètre de cookie](#cookie-parameter) | Recherche la valeur spécifiée dans les cookies associés à chaque requête.
 [Expression régulière de paramètre de cookie](#cookie-parameter-regex) | Recherche l’expression régulière spécifiée dans les cookies associés à chaque requête.
-[Cname Edge](#edge-cname) | Identifie les requêtes qui pointent vers un CNAME de périphérie spécifique.
+[CNAME de périmètre](#edge-cname) | Identifie les requêtes qui pointent vers un CNAME de périphérie spécifique.
 [Domaine de référence](#referring-domain) | Identifie les requêtes qui ont été référencées à partir des noms d’hôte spécifiés.
 [Littéral d’en-tête de requête](#request-header-literal) | Identifie les requêtes qui contiennent l’en-tête spécifié défini sur une valeur spécifiée.
 [Expression régulière d’en-tête de requête](#request-header-regex) | Identifie les requêtes qui contiennent l’en-tête spécifié défini sur une valeur qui correspond à l’expression régulière spécifiée.
@@ -970,9 +970,9 @@ user=joe              | Ce modèle correspond lorsque la chaîne de requête d�
 </br>
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Vue d’ensemble de Azure Content Delivery Network](cdn-overview.md)
+* [Vue d’ensemble d’Azure Content Delivery Network](cdn-overview.md)
 * [Informations de référence du moteur de règles](cdn-rules-engine-reference.md)
 * [Expressions conditionnelles du moteur de règles](cdn-rules-engine-reference-conditional-expressions.md)
 * [Fonctionnalités du moteur de règles](cdn-rules-engine-reference-features.md)
-* [Le comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
+* [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
 

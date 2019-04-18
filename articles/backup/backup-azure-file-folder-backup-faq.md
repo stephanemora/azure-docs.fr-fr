@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
 ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426254"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Questions sur le service de sauvegarde Azure
@@ -81,8 +81,8 @@ Utilisez la liste suivante pour modifier l’emplacement du cache.
 
     | Chemin d’accès au Registre | Clé de Registre | Valeur |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nouvel emplacement de dossier de cache* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nouvel emplacement de dossier de cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
 
 4. Démarrez le moteur Backup en exécutant la commande suivante dans une invite de commandes avec élévation de privilèges :
 
@@ -114,7 +114,7 @@ Le dossier du cache et les métadonnées du disque dur virtuel ne possèdent les
 ## <a name="restore"></a>Restore
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Que se passe-t-il si j’annule un travail de restauration en cours ?
-Si un travail de restauration en cours est annulé, le processus de restauration s’arrête et tous les fichiers restaurés avant l’annulation, restez dans la destination configuré (emplacement d’origine ou autre) sans les restaurations.
+Si un travail de restauration en cours est annulé, le processus de restauration s’arrête et tous les fichiers restaurés avant l’annulation restent dans la destination configurée (emplacement d’origine ou autre) sans aucun restauration.
 
 
 ## <a name="manage-backups"></a>Gestion des sauvegardes

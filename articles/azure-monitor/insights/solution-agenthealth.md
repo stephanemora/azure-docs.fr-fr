@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426220"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solution agent Health Azure Monitor
@@ -51,7 +51,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | Groupe d’administration Microsoft System Center Operations Manager | Oui | Événements de pulsation sont collectées à partir des agents qui communiquent avec le groupe d’administration toutes les 60 secondes et ensuite transmis à Azure Monitor. Une connexion directe entre les agents Operations Manager et Azure Monitor n’est pas requise. Données d’événement de pulsation sont transférées du groupe d’administration à l’espace de travail Analytique de journal.|
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
-Quand vous ajoutez la solution à votre espace de travail Log Analytics, la vignette **Agent Health** est ajoutée à votre tableau de bord. La vignette indique le nombre total d’agents et le nombre d’agents inactifs au cours des dernières 24 heures.<br><br> ![Vignette de Solution de contrôle d’intégrité de l’agent sur le tableau de bord](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Quand vous ajoutez la solution à votre espace de travail Log Analytics, la vignette **Agent Health** est ajoutée à votre tableau de bord. La vignette indique le nombre total d’agents et le nombre d’agents inactifs au cours des dernières 24 heures.<br><br> ![Vignette de la solution Agent Health du tableau de bord](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Cliquez sur la vignette **Agent Health** pour ouvrir le tableau de bord **Agent Health**.  Le tableau de bord comprend les colonnes figurant dans le tableau suivant. Chaque colonne répertorie les dix premiers événements, classés selon leur nombre, correspondant aux critères de cette colonne pour l’intervalle de temps spécifié. Vous pouvez exécuter une recherche dans les journaux qui fournit la liste complète. Pour cela, sélectionnez **Afficher tout** dans l’angle inférieur droit de chaque colonne ou cliquez sur l’en-tête de colonne.
 
@@ -76,7 +76,7 @@ L’enregistrement d’un type de **pulsation** est créé.  Les propriétés de
 
 | Propriété | Description |
 | --- | --- |
-| `Type` | *Heartbeat*|
+| `Type` | *Pulsation*|
 | `Category` | La valeur correspond à *Agent Direct*, *Agent SCOM*, ou *Serveur d’administration SCOM*.|
 | `Computer` | Nom de l’ordinateur.|
 | `OSType` | Système d’exploitation : Windows ou Linux.|

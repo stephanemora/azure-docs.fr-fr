@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494916"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Créer des compteurs de performances pour suivre les performances du Gestionnaire des cartes de partitions
@@ -66,7 +66,7 @@ Les compteurs de performance seront mis à jour par toutes les opérations du ca
 * Il est recommandé de créer la catégorie et les compteurs de performances une fois seulement avant la création de l’objet ShardMapManager. Chaque exécution de la commande CreatePerformanceCategoryAndCounters() efface les compteurs précédents (perte de données signalée par toutes les instances) et en crée de nouveaux.  
 * Des instances de compteurs de performances sont créées pour chaque processus. Toute panne de l’application ou suppression d’une carte de partitions dans le cache entraîne la suppression des instances de compteurs de performances.  
 
-### <a name="see-also"></a>Voir aussi
+### <a name="see-also"></a>Vous pouvez également consulter l’article 
 
 [Vue d’ensemble des fonctionnalités de base de données élastique](sql-database-elastic-scale-introduction.md)  
 

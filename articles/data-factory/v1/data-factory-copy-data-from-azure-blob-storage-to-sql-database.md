@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7accb8f2d97f5e4b4dc19ba93ab9edc1a4e6ce8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 557228bafc00c3028a1fda520da8fe4ec8c7a6f2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541331"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678715"
 ---
-# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutoriel : Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory
+# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Didacticiel : Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
@@ -95,7 +95,6 @@ Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **AC
     ```
 2. Utilisez des outils tels que [l’Explorateur de stockage Azure](https://storageexplorer.com/) pour créer le conteneur **adftutorial** et télécharger le fichier **emp.txt** vers ce dernier.
 
-    ![Azure Storage Explorer. Copie de données Blob Storage vers une base de données SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Utilisez le script SQL suivant pour créer la table **emp** dans votre base de données SQL Azure.  
 
     ```SQL

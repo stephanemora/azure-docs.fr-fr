@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489979"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678477"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -63,8 +63,7 @@ Lorsque des réseaux virtuels sont homologués, vous pouvez également configure
 
 ![Transit d’homologation de réseaux virtuels](./media/virtual-networks-peering-overview/figure04.png)
 
-Transit de passerelle est pris en charge pour l’homologation de réseau virtuel et Global VNet Peering (version préliminaire). Vous pouvez utiliser des passerelles distantes ou autoriser le transit par passerelle dans les réseaux virtuels homologués dans le monde entier en version préliminaire. La version préliminaire est disponible dans toutes les régions Azure, les régions de cloud de Chine et régions de cloud Government. Aucune mise en liste verte n’est nécessaire. Vous pouvez tester en version préliminaire via l’interface CLI, PowerShell, des modèles ou des API. Portail n’est pas pris en charge dans la version préliminaire.
-Transit de passerelle entre réseaux virtuels créés via des modèles de déploiement différents (Resource Manager et classic) est pris en charge uniquement si la passerelle est dans le réseau virtuel (Resource Manager). Pour en savoir plus sur l’utilisation d’une passerelle pour le transit, consultez [Configure a VPN gateway for transit in a virtual network peering (Configurer une passerelle VPN pour le transit dans une homologation de réseaux virtuels)](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Transit de passerelle est pris en charge pour l’homologation de réseau virtuel et Global VNet Peering. Transit de passerelle entre réseaux virtuels créés via des modèles de déploiement différents (Resource Manager et classic) est pris en charge uniquement si la passerelle est dans le réseau virtuel (Resource Manager). Pour en savoir plus sur l’utilisation d’une passerelle pour le transit, consultez [Configure a VPN gateway for transit in a virtual network peering (Configurer une passerelle VPN pour le transit dans une homologation de réseaux virtuels)](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Lorsque des réseaux virtuels qui partagent une même connexion Azure ExpressRoute sont homologués, le trafic entre eux transite via la relation d’homologation (c’est-à-dire via le réseau principal Azure). Vous pouvez toujours utiliser des passerelles locales dans chaque réseau virtuel pour vous connecter au circuit local. Vous pouvez également utiliser une passerelle partagée et configurer le transit pour la connectivité locale.
 

@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd3aac6a7fb0904089f135c9af7b136eda73701f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2746775c72976159cdcdb6bdd86e39a5dbe3a4fc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835467"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683665"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cette rubrique décrit les conditions préalables et la configuration matérielle requise pour Azure AD Connect.
@@ -49,6 +49,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
 
 ### <a name="azure-ad-connect-server"></a>Serveur Azure AD Connect
 * Vous ne pouvez pas installer Azure AD Connect sur Small Business Server ou Windows Server Essentials version antérieure à 2019 (Windows Server Essentials 2019 est pris en charge). Le serveur doit utiliser Windows Server Standard ou une version supérieure.
+* Installation d’Azure AD Connect sur un contrôleur de domaine est déconseillée en raison des pratiques de sécurité et des paramètres plus restrictifs qui peuvent empêcher Azure AD Connect à partir de l’installation correctement
 * Le serveur Azure AD Connect doit disposer d’une interface utilisateur graphique complète. Il ne **peut pas être installé** sur Server Core.
 * Azure Active Directory Connect doit être installé sur Windows Server 2008 R2 ou version ultérieure. Ce serveur doit être domaine joint et peut être un contrôleur de domaine ou un serveur membre.
 * Si vous installez Azure AD Connect sous Windows Server 2008 R2, veillez à appliquer les derniers correctifs à partir de Windows Update. L’installation ne pourra pas démarrer sur un serveur non corrigé.
@@ -60,6 +61,19 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
 * Si Active Directory Federation Services est déployé, vous avez besoin de [certificats SSL](#ssl-certificate-requirements).
 * Si des services ADFS sont déployés, vous devrez configurer une [résolution de noms](#name-resolution-for-federation-servers).
 * Si l’authentification MFA est activée pour vos administrateurs généraux, **https://secure.aadcdn.microsoftonline-p.com** doit figurer dans la liste des sites de confiance. Vous êtes invité à ajouter ce site à la liste des sites de confiance lorsque vous êtes invité à passer un test d’authentification MFA et qu’il n’a pas ajouté. Vous pouvez utiliser Internet Explorer pour l’ajouter à vos sites de confiance.
+* Microsoft vous recommande de renforcement de votre serveur Azure AD Connect afin de réduire la surface d’attaque de sécurité pour ce composant essentiel de votre environnement informatique.  Suivez les recommandations ci-dessous réduira les risques de sécurité pour votre organisation.
+
+* Déployer Azure AD Connect sur un serveur joint au domaine et restreindre l’accès administratif aux administrateurs de domaine ou d’autres groupes de sécurité étroitement contrôlées.
+
+Pour plus d'informations, consultez les rubriques suivantes : 
+
+* [Groupes d’administrateurs sécurisation](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Sécurisation des comptes d’administrateur intégré](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Amélioration de la sécurité et sustainment en réduisant les surfaces d’attaque](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [En réduisant la surface d’attaque Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server utilisé par Azure AD Connect
 * Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Par défaut, une base de données SQL Server 2012 Express LocalDB (version légère de SQL Server Express) est installée. SQL Server Express a une limite de 10 Go qui vous permet de gérer environ 100 000 objets. Si vous avez besoin de gérer un volume plus important d’objets d’annuaire, vous devez pointer l’assistant d’installation vers une autre installation de SQL Server.

@@ -9,10 +9,10 @@ ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489281"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Mesure analytique du stockage Azure (classique)
@@ -139,7 +139,7 @@ Si vous souhaitez télécharger les métriques de stockage à long terme ou pour
 
 ||||  
 |-|-|-|  
-|**Mesures**|**Noms de tables**|**Notes**|  
+|**Métriques**|**Noms de table**|**Remarques**|  
 |Métriques toutes les heures|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Dans les versions antérieures à 2013-08-15, ces tables portaient les :<br /><br /> $MetricsTransactionsBlob <br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Métriques pour le service de fichier sont disponibles depuis la version 2015-04-05.|  
 |Métriques par minute|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Ne peut être activée à l’aide de PowerShell ou par programmation.<br /><br /> Métriques pour le service de fichier sont disponibles depuis la version 2015-04-05.|  
 |Capacité|$MetricsCapacityBlob|Service BLOB uniquement.|  
@@ -227,6 +227,6 @@ La capacité utilisée par les tables de métriques est également facturable. V
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Guide pratique pour surveiller un compte de stockage](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [Schéma de Table de métriques Storage Analytique](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
-* [Analytique de stockage opérations journalisées et Messages d’état](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
-* [Journalisation du stockage Analytique](storage-analytics-logging.md)
+* [Schéma de table de métriques Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [Opérations et messages d'état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
+* [Journalisation Storage Analytics](storage-analytics-logging.md)

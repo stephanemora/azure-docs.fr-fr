@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: db01c2f51e9069e8fc9ee979eacf746bee8dbdd2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3e33eef430db627a82bb82e8c22ddc861d08982b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260916"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546263"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
 
@@ -283,11 +283,11 @@ Dans ce tutoriel, vous avez appris à :
 > * Créer des requêtes d’itinéraire déclarant le mode de déplacement
 > * Afficher plusieurs itinéraires sur votre carte
 
-Vous trouverez l’exemple de code de ce didacticiel à cet emplacement :
+> [!div class="nextstepaction"]
+> [Afficher le code source complet](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
 
-> [Itinéraires multiples avec Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
-
-[Consulter l’exemple en direct ici](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+> [!div class="nextstepaction"]
+> [Afficher un exemple en direct](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
 Le tutoriel suivant montre comment créer un localisateur de magasin simple à l’aide d’Azure Maps.
 

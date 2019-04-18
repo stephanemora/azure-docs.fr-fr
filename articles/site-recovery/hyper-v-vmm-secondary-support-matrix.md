@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360799"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
@@ -108,7 +108,7 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 Le fournisseur coordonne les communications entre les serveurs VMM. 
 
-**Dernière** | **Mises à jour**
+**La plus récente** | **Mises à jour**
 --- | --- 
 5.1.19 ([disponible sur le portail](https://aka.ms/downloaddra)) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
 
@@ -116,5 +116,5 @@ Le fournisseur coordonne les communications entre les serveurs VMM.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Répliquer des machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire](tutorial-vmm-to-vmm.md)
+[Répliquer des machines virtuelles Hyper-V résidant dans des clouds VMM vers un site secondaire](tutorial-vmm-to-vmm.md)
 

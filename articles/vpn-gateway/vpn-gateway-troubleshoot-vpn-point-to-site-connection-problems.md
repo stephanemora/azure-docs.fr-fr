@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2018
 ms.author: genli
 ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492377"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
@@ -31,7 +31,7 @@ Cet article répertorie les problèmes de connexion de point à site courants qu
 
 Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide du client VPN, vous recevez le message d’erreur suivant :
 
-**Un certificat est introuvable qui peut être utilisé avec ce protocole d’authentification Extensible. (Erreur 798)**
+**Impossible de trouver un certificat qui peut être utilisé avec le protocole EAP (Extensible Authentication Protocol). (Erreur 798)**
 
 ### <a name="cause"></a>Cause :
 
@@ -93,7 +93,7 @@ Pour préparer Windows 10 ou Server 2016 pour IKEv2 :
 
 Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide du client VPN, vous recevez le message d’erreur suivant :
 
-**Le message reçu était inattendu ou formaté. (Erreur 0x80090326)**
+**Le message reçu était inattendu ou formaté de façon incorrecte. (Erreur 0x80090326)**
 
 ### <a name="cause"></a>Cause :
 
@@ -116,7 +116,7 @@ Pour résoudre ce problème, effectuez les opérations suivantes :
 
 Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide du client VPN, vous recevez le message d’erreur suivant :
 
-**Une chaîne de certificat traitée mais s’est terminée par un certificat racine qui n’est pas approuvé par le fournisseur d’approbation.**
+**Une chaîne de certificats a été traitée mais s’est terminée par un certificat racine qui n’est pas approuvé par le fournisseur d’approbation.**
 
 ### <a name="solution"></a>Solution
 
@@ -136,7 +136,7 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 Vous recevez le message d’erreur suivant :
 
-**Erreur de téléchargement de fichier. URI cible non indiqué.**
+**Erreur de téléchargement du fichier. L’URI cible n’est pas spécifié.**
 
 ### <a name="cause"></a>Cause : 
 
@@ -152,7 +152,7 @@ Le type de passerelle VPN doit être défini sur la valeur **VPN**, tandis que l
 
 Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide du client VPN, vous recevez le message d’erreur suivant :
 
-**Échec de script personnalisé (pour mettre à jour votre table de routage). (Erreur 8007026f)**
+**Échec du script personnalisé (pour mettre à jour votre table de routage) (Erreur 8007026f)**
 
 ### <a name="cause"></a>Cause :
 
@@ -185,7 +185,7 @@ Extrayez le package de configuration du client VPN et localisez le fichier .cer.
 
 Lorsque vous essayez d’enregistrer les modifications apportées à la passerelle VPN dans le portail Azure, vous recevez le message d’erreur suivant :
 
-**Impossible d’enregistrer la passerelle de réseau virtuel &lt; *nom de la passerelle*&gt;. Les données de certificat &lt; *ID de certificat* &gt; n’est pas valide.**
+**Échec de l’enregistrement de la passerelle de réseau virtuel &lt;*nom de la passerelle*&gt;. Les données du certificat &lt;*ID de certificat*&gt; ne sont pas valides.**
 
 ### <a name="cause"></a>Cause : 
 

@@ -9,10 +9,10 @@ ms.date: 09/14/2017
 ms.author: rogarana
 ms.subservice: queues
 ms.openlocfilehash: 9992673ab36d5b4b2cc1ca18a5108107c14a1eb1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59488949"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
@@ -192,7 +192,7 @@ Cet article sur les procédures vous a présenté les bases de la gestion de Sto
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Applets de commande Microsoft Azure PowerShell - Stockage
 
-* [Applets de commande PowerShell de stockage](/powershell/module/az.storage)
+* [Applets de commande PowerShell - Stockage](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorateur Stockage Microsoft Azure
 

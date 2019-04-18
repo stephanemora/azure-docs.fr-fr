@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357254"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680857"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatique-former un modèle de prévision de séries chronologiques
 
@@ -34,27 +34,27 @@ Dans cet article, vous allez apprendre à former un modèle de régression prév
 
 La principale différence entre un type de tâche de régression et de régression prévision type de tâche dans l’apprentissage automatique est notamment une fonctionnalité dans vos données qui représente une série d’heure valide. Une série chronologique standard a une fréquence bien définie et cohérente et a une valeur à chaque point de l’exemple dans un intervalle de temps continue. Envisagez l’instantané suivant d’un fichier `sample.csv`.
 
-    week_starting,store,sales_quantity,week_of_year
+    day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
     9/3/2018,B,600,36
-    9/10/2018,A,2300,37
-    9/10/2018,B,550,37
-    9/17/2018,A,2100,38
-    9/17/2018,B,650,38
-    9/24/2018,A,2400,39
-    9/24/2018,B,700,39
-    10/1/2018,A,2450,40
-    10/1/2018,B,650,40
+    9/4/2018,A,2300,36
+    9/4/2018,B,550,36
+    9/5/2018,A,2100,36
+    9/5/2018,B,650,36
+    9/6/2018,A,2400,36
+    9/6/2018,B,700,36
+    9/7/2018,A,2450,36
+    9/7/2018,B,650,36
 
-Ce jeu de données est un exemple simple de données de ventes hebdomadaires pour une société qui a deux magasins différents, A et B. en outre, il existe une fonctionnalité pour `week_of_year` qui permettra le modèle détecter la saisonnalité hebdomadaire. Le champ `week_starting` représente une série chronologique propre avec une fréquence hebdomadaire et le champ `sales_quantity` est la colonne cible pour l’exécution de prédictions. Lire les données dans une trame de données Pandas, puis utilisez le `to_datetime` (fonction) pour vous assurer de la série chronologique est un `datetime` type.
+Ce jeu de données est un exemple simple de données de ventes quotidiennes d’une société qui a deux magasins différents, A et B. en outre, il existe une fonctionnalité pour `week_of_year` qui permettra le modèle détecter la saisonnalité hebdomadaire. Le champ `day_datetime` représente une série chronologique propre avec une fréquence quotidienne et le champ `sales_quantity` est la colonne cible pour l’exécution de prédictions. Lire les données dans une trame de données Pandas, puis utilisez le `to_datetime` (fonction) pour vous assurer de la série chronologique est un `datetime` type.
 
 ```python
 import pandas as pd
 data = pd.read_csv("sample.csv")
-data["week_starting"] = pd.to_datetime(data["week_starting"])
+data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-Dans ce cas les données sont déjà triées par ordre croissant par le champ d’heure `week_starting`. Toutefois, lorsque vous configurez une expérience, vérifiez que la colonne de temps souhaitée est triée dans l’ordre croissant, pour générer une série chronologique valide. Supposons que les données contiennent 1 000 enregistrements et effectuez un fractionnement déterministe dans les données à créer d’apprentissage et jeux de données de test. Puis séparer le champ cible `sales_quantity` pour créer la formation de prédiction et de test définit.
+Dans ce cas les données sont déjà triées par ordre croissant par le champ d’heure `day_datetime`. Toutefois, lorsque vous configurez une expérience, vérifiez que la colonne de temps souhaitée est triée dans l’ordre croissant, pour générer une série chronologique valide. Supposons que les données contiennent 1 000 enregistrements et effectuez un fractionnement déterministe dans les données à créer d’apprentissage et jeux de données de test. Puis séparer le champ cible `sales_quantity` pour créer la formation de prédiction et de test définit.
 
 ```python
 X_train = data.iloc[:950]
@@ -84,14 +84,18 @@ Le `AutoMLConfig` objet définit les paramètres et les données nécessaires po
 |`time_column_name`|Permet de spécifier la colonne datetime dans les données d’entrée utilisées pour la création de la série chronologique et de déduction sa fréquence.|✓|
 |`grain_column_names`|Noms de définition de groupes de séries individuelles dans les données d’entrée. Si le fragment n’est pas défini, le jeu de données est supposé être une série chronologique.||
 |`max_horizon`|Nombre maximal souhaité horizon de prévision en unités de fréquence de série chronologique.|✓|
+|`target_lags`|*n* périodes de retard de transfert des valeurs avant l’apprentissage du modèle ciblent.||
+|`target_rolling_window_size`|*n* périodes historiques à utiliser pour générer des valeurs prédites, < = taille du jeu de formation. Si omis, *n* est taille de jeu d’apprentissage complet.||
 
-Créer les paramètres de série chronologique en tant qu’un objet de dictionnaire. Définir le `time_column_name` à la `week_starting` champ dans le jeu de données. Définir le `grain_column_names` paramètre pour vous assurer que **deux séparent les groupes de séries chronologiques** créés pour nos données ; un pour le magasin A et B. Enfin, définissez le `max_horizon` 50 afin de prédire le test complet à définir.
+Créer les paramètres de série chronologique en tant qu’un objet de dictionnaire. Définir le `time_column_name` à la `day_datetime` champ dans le jeu de données. Définir le `grain_column_names` paramètre pour vous assurer que **deux séparent les groupes de séries chronologiques** créés pour les données ; un pour le magasin A et B. Enfin, définissez le `max_horizon` 50 afin de prédire le test complet à définir. Définir une fenêtre de prévision à 10 périodes avec `target_rolling_window_size`et la cible 2 périodes à l’avance avec les valeurs de décalage le `target_lags` paramètre.
 
 ```python
 time_series_settings = {
-    "time_column_name": "week_starting",
+    "time_column_name": "day_datetime",
     "grain_column_names": ["store"],
-    "max_horizon": 50
+    "max_horizon": 50,
+    "target_lags": 2,
+    "target_rolling_window_size": 10
 }
 ```
 
@@ -141,11 +145,11 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Maintenant que l’ensemble précision du modèle a été déterminée, l’étape suivante plus réaliste consiste à utiliser le modèle pour prévoir les futures valeurs inconnues. Il suffit de fournir un jeu de données dans le même format que le jeu de test `X_test` mais avec des dates/heures futures et la prédiction résultant ensemble est les valeurs prédites pour chaque étape de la série chronologique. Supposons que les derniers enregistrements de série chronologique dans le jeu de données ont été pour le démarrage de la semaine 31/12/2018. Pour prévoir la demande pour la semaine suivante (ou périodes autant que nécessaire pour effectuer des prévisions, < = `max_horizon`), créez un seul enregistrement de la série de temps pour chaque magasin pour le démarrage de la semaine 01/07/2019.
+Maintenant que l’ensemble précision du modèle a été déterminée, l’étape suivante plus réaliste consiste à utiliser le modèle pour prévoir les futures valeurs inconnues. Il suffit de fournir un jeu de données dans le même format que le jeu de test `X_test` mais avec des dates/heures futures et la prédiction résultant ensemble est les valeurs prédites pour chaque étape de la série chronologique. Supposons que les derniers enregistrements de série chronologique dans le jeu de données ont été pour le 31/12/2018. Pour prévoir la demande pour le jour suivant (ou des périodes autant que nécessaire pour effectuer des prévisions, < = `max_horizon`), créez un seul enregistrement de la série de temps pour chaque magasin pour le 01/01/2019.
 
-    week_starting,store,week_of_year
-    01/07/2019,A,2
-    01/07/2019,A,2
+    day_datetime,store,week_of_year
+    01/01/2019,A,1
+    01/01/2019,A,1
 
 Répétez les étapes nécessaires pour charger ces données futures à une trame de données, puis exécutez `best_run.predict(X_test)` pour prédire des valeurs futures.
 

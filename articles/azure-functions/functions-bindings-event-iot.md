@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: 87a99651d17e9867130024a5f721c5488cd42a8c
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426101"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Liaisons de IoT Hub Azure pour Azure Functions
@@ -44,4 +44,4 @@ Pour Functions 2.x, utilisez le package [Microsoft.Azure.WebJobs.Extensions.Even
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur les liaisons et les déclencheurs Azure functions](functions-triggers-bindings.md)
+> [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

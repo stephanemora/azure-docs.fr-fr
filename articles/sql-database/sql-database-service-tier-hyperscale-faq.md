@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540667"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680897"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Questions fréquentes (FAQ) sur les bases de données SQL Azure Hyperscale
 
@@ -216,7 +216,7 @@ Non. Dans la préversion publique, vous ne pouvez pas déplacer une base de donn
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Est-ce que je perds des fonctionnalités ou des capacités après la migration vers le niveau de service Hyperscale ?
 
-Oui. Certaines des fonctionnalités de base de données SQL Azure ne sont pas pris en charge dans Hyperscale pendant la préversion publique, y compris de manière non limitative, sauvegarde avec rétention long terme. Après la migration de vos bases de données vers Hyperscale, ces fonctionnalités cessent de fonctionner.
+Oui. Des sauvegardes de rétention à long terme dans la base de données SQL Azure n’est pas pris en charge dans Hyperscale pendant la préversion publique. Après avoir migré vos bases de données à très grande échelle, cette fonctionnalité cesse de fonctionner.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Puis-je déplacer ma base de données SQL Server locale ou ma base de données sur machine virtuelle SQL Server vers Hyperscale ?
 
@@ -295,7 +295,7 @@ Non. Le format de stockage pour les bases de données Hyperscale est différent 
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Est-ce que je perds des fonctionnalités ou des capacités après la migration vers le niveau de service Hyperscale ?
 
-Oui. Certaines des fonctionnalités d’Azure SQL Database ne sont pas prises en charge dans Hyperscale pendant la préversion publique, notamment, mais pas seulement, TDE et la rétention des sauvegardes à long terme. Après la migration de vos bases de données vers Hyperscale, ces fonctionnalités cessent de fonctionner.
+Oui. Des sauvegardes de rétention à long terme dans la base de données SQL Azure n’est pas pris en charge dans Hyperscale pendant la préversion publique. Après avoir migré vos bases de données à très grande échelle, cette fonctionnalité cesse de fonctionner.
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>PolyBase fonctionne-t-il avec SQL Database Hyperscale ?
 

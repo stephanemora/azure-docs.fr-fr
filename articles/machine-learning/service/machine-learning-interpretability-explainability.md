@@ -1,7 +1,7 @@
 ---
 title: Interprétabilité de modèles
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le SDK de ce problème d’Azure Machine Learning pour expliquer la raison pour laquelle votre modèle élabore des prédictions. Il peut être utilisé au cours de formation ou d’inférence pour comprendre la façon dont votre modèle élabore des prédictions.
+description: Découvrez comment expliquer pourquoi votre modèle effectue des prédictions à l’aide du SDK de ce problème d’Azure Machine Learning. Il peut être utilisé au cours de formation ou d’inférence pour comprendre la façon dont votre modèle élabore des prédictions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/09/2019
-ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 668551603dfa2a9c42f4538fd9a66ee646e1feb7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494438"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682455"
 ---
-# <a name="azure-machine-learning-interpretability-sdk"></a>Problème d’apprentissage Azure SDK
+# <a name="model-interpretability-with-azure-machine-learning-service"></a>Problème de modèle avec le service Azure Machine Learning
 
 Dans cet article, vous allez apprendre à expliquer pourquoi votre modèle a fait les prédictions il effectuées à l’aide du SDK de ce problème d’Azure Machine Learning. Il est important de pouvoir expliquer votre modèle pour les raisons suivantes :
 
@@ -25,9 +25,10 @@ Dans cet article, vous allez apprendre à expliquer pourquoi votre modèle a fai
 * En tant qu’un scientifique des données, vous souhaitez comprendre **comment interroger le modèle pour mieux les connaître**. Vous avez également besoin d’outils pour prendre des décisions avisées sur **comment améliorer votre modèle**.
 * En tant que société, vous devez comprendre **le comportement du modèle avec des variables d’entrée distributions** et **le modèle de comportement lors de l’analyse d’entrée spécifique**.
 
-Ce problème d’apprentissage machine est important en deux phases de cycle de développement d’apprentissage : **formation** temps et **inférence** temps :
+Ce problème d’apprentissage machine est important dans les deux phases du cycle de développement d’apprentissage automatique : 
 
 * Au cours de **formation**: Les concepteurs de modèles et les évaluateurs requièrent les outils de ce problème pour expliquer la sortie d’un modèle aux parties prenantes pour consolider la confiance. Ils doivent également des informations sur le modèle afin qu’ils peuvent déboguer le modèle et prendre des décisions sur le comportement de la correspondance entre leurs objectifs. Enfin, dont ils ont besoin pour vous assurer que le modèle n’est pas influencé.
+
 * Au cours de **inférence**: Prédictions doivent être être expliquées aux personnes qui utilisent votre modèle. Par exemple, pourquoi le modèle refuser un prêt immobilier ou prédire qu’un portefeuille comporte un risque plus élevé ?
 
 Le SDK de ce problème d’Azure Machine Learning intègre des technologies développées par Microsoft et éprouvé des bibliothèques tierces (par exemple, photos et citron vert). Le Kit de développement logiciel crée une API commune entre les bibliothèques intégrés et intègre des services Azure Machine Learning. À l’aide de ce SDK, vous pouvez expliquer les modèles d’apprentissage automatique **globalement sur toutes les données**, ou **localement sur un point de données spécifique** à l’aide de technologies de pointe de manière facile à utiliser et évolutive.
@@ -91,7 +92,7 @@ L’intelligence intégrée `TabularExplainer` deviendront plus complexes comme 
 
 Le diagramme suivant montre la relation entre les deux ensembles de direct et explainers de métadonnées.
 
-[![MArchitecture de ce problème d’apprentissage d’achine](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+[![Architecture de ce problème d’apprentissage](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
 
 ### <a name="models-supported"></a>Modèles pris en charge
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579408"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683585"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obtenir une réponse de la base de connaissances avec les API de GenerateAnswer et les métadonnées
 
@@ -64,7 +64,7 @@ Vous appelez GenerateAnswer à l’aide d’une requête HTTP POST. Pour obtenir
 Le **URL de demande** a le format suivant : 
 
 ```
-https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
 |Propriété de demande HTTP|Nom|Type|Objectif|
@@ -84,7 +84,7 @@ Le corps JSON a plusieurs paramètres :
 |`top`|facultatif|integer|nombre de résultats classés à inclure dans la sortie. La valeur par défaut est 1.|
 |`userId`|facultatif|string|ID unique d’identification de l’utilisateur. Cet ID est enregistré dans les journaux d’activité de conversations.|
 |`isTest`|facultatif|booléenne|Si défini sur true, renvoie les résultats à partir de `testkb` index de recherche au lieu de l’index publié.|
-|`strictFilters`|facultatif|string|si elle est spécifiée, cette chaîne indique à QnA Maker de retourner uniquement les réponses qui contiennent les métadonnées spécifiées.|
+|`strictFilters`|facultatif|string|si elle est spécifiée, cette chaîne indique à QnA Maker de retourner uniquement les réponses qui contiennent les métadonnées spécifiées. Utilisez `none` pour indiquer la réponse ne doit comporter aucun filtre de métadonnées. |
 
 Un exemple de corps JSON ressemble à :
 

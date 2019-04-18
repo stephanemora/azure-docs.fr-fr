@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522194"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678987"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilisez la formation active pour améliorer votre base de connaissances
 
@@ -156,7 +156,7 @@ L’application cliente affiche toutes les questions avec une option permettant 
 
 Une fois que l’utilisateur sélectionne l’une des questions existantes, l’application cliente envoie le choix de l’utilisateur en tant que commentaires à l’aide des API de Train de QnA Maker. Cette évaluation termine actif boucle de rétroaction d’apprentissage. 
 
-Utilisez le [Azure Bot C# exemple](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) pour voir un apprentissage actif dans un scénario de bout en bout.
+Utilisez le [exemple d’Azure Bot](https://aka.ms/activelearningsamplebot) pour voir un apprentissage actif dans un scénario de bout en bout.
 
 ## <a name="train-api"></a>API d’apprentissage
 

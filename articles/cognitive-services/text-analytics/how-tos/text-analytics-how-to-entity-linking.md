@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505573"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte (préversion)
@@ -90,13 +90,13 @@ La taille des documents doit être inférieure à 5 120 caractères par docume
 }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
+## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
 
 Vous trouverez plus d’informations sur la définition d’une demande dans [Guide pratique pour appeler l’API Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
 
 + Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API de liaison d’entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Définissez le point de terminaison HTTP pour l’extraction d’entité. Il doit inclure le `/entities` ressource : `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Définissez le point de terminaison HTTP pour l’extraction d’entité. Il doit inclure la ressource `/entities` : `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
 
@@ -288,8 +288,8 @@ Dans cet article, vous avez vu les concepts et le flux de travail de liaison d'e
 ## <a name="see-also"></a>Voir aussi 
 
  [Vue d’ensemble d’Analyse de texte](../overview.md)  
- [Forum Aux Questions (FAQ)](../text-analytics-resource-faq.md)</br>
- [Page de produit Analytique de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

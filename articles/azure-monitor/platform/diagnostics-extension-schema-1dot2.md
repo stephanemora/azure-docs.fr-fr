@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496486"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Schéma de configuration Diagnostics Azure 1.2
@@ -100,19 +100,19 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**WadCfg**|Requis. Paramètres de configuration pour les données de télémétrie à collecter.|  
 |**StorageAccount**|Nom du compte de stockage Azure où stocker les données. Cela peut également être spécifié en tant que paramètre lors de l’exécution de l’applet de commande Set-AzureServiceDiagnosticsExtension.|  
-|**LocalResourceDirectory**|Répertoire se trouvant sur la machine virtuelle à utiliser par Monitoring Agent pour stocker les données d’événement. S’il n’est pas défini, le répertoire par défaut est utilisé :<br /><br /> Pour un rôle web/de travail : `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Pour une Machine virtuelle : `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Les attributs requis sont :<br /><br /> -                      **path** - Répertoire sur le système à utiliser par Azure Diagnostics.<br /><br /> -                      **expandEnvironment** - Contrôle si les variables d’environnement sont développées dans le nom du chemin d’accès.|  
+|**LocalResourceDirectory**|Répertoire se trouvant sur la machine virtuelle à utiliser par Monitoring Agent pour stocker les données d’événement. S’il n’est pas défini, le répertoire par défaut est utilisé :<br /><br /> Pour un rôle Worker/web : `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Pour une machine virtuelle : `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Les attributs requis sont :<br /><br /> -                      **path** - Répertoire sur le système à utiliser par Azure Diagnostics.<br /><br /> -                      **expandEnvironment** - Contrôle si les variables d’environnement sont développées dans le nom du chemin d’accès.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
 Définit les paramètres de configuration pour les données de télémétrie à collecter. Le tableau suivant décrit les éléments enfants :  
 
 |Nom de l'élément|Description|  
 |------------------|-----------------|  
-|**DiagnosticMonitorConfiguration**|Requis. Les attributs facultatifs sont les suivants :<br /><br /> -                     **overallQuotaInMB** - Quantité maximale d’espace disque local pouvant être utilisé par les différents types de données de diagnostic collectés par Azure Diagnostics. Le paramètre par défaut est 5 210 Mo.<br /><br /> -                     **useProxyServer** - Configurer Azure Diagnostics de manière à utiliser les paramètres du serveur proxy comme défini dans les paramètres d’Internet Explorer.|  
+|**DiagnosticMonitorConfiguration**|Requis. Les attributs facultatifs sont les suivants :<br /><br /> -                     **overallQuotaInMB** - Quantité maximale d’espace disque local pouvant être utilisé par les différents types de données de diagnostic collectés par Azure Diagnostics. Le paramètre par défaut est 5 210 Mo.<br /><br /> -                     **useProxyServer** - Configurer Diagnostics Azure de manière à utiliser les paramètres du serveur proxy comme défini dans les paramètres d’Internet Explorer.|  
 |**CrashDumps**|Permet la collecte des vidages sur incident. Les attributs facultatifs sont les suivants :<br /><br /> -                     **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les vidages sur incident.<br /><br /> -                     **crashDumpType** - Configure Azure Diagnostics pour collecter les mini-vidages sur incident ou les vidages sur incident complets.<br /><br /> -                     **directoryQuotaPercentage** - Configure le pourcentage de **overallQuotaInMB** à réserver pour les vidages sur incident sur la machine virtuelle.|  
-|**DiagnosticInfrastructureLogs**|Permet la collecte des journaux d’activité générés par Azure Diagnostics. Les journaux d’activité d’infrastructure de diagnostic sont utiles pour le dépannage du système de diagnostic lui-même. Les attributs facultatifs sont les suivants :<br /><br /> -                     **scheduledTransferLogLevelFilter** - Configure le niveau de gravité minimal des journaux collectés.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
-|**Répertoires**|Permet la collecte du contenu d’un répertoire, des journaux d’activité de demandes d’accès ayant échouées IIS et/ou des journaux d’activité IIS. Attribut facultatif :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**DiagnosticInfrastructureLogs**|Permet la collecte des journaux générés par Diagnostics Azure. Les journaux d’activité d’infrastructure de diagnostic sont utiles pour le dépannage du système de diagnostic lui-même. Les attributs facultatifs sont les suivants :<br /><br /> -                     **scheduledTransferLogLevelFilter** - Configure le niveau de gravité minimal des journaux collectés.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**Directories**|Permet la collecte du contenu d’un répertoire, des journaux d’activité de demandes d’accès ayant échouées IIS et/ou des journaux d’activité IIS. Attribut facultatif :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**EtwProviders**|Configure la collecte d’événements ETW issus des fournisseurs de manifeste EventSource et/ou ETW.|  
-|**Mesures**|Cet élément permet de générer une table de compteur de performance optimisée pour les requêtes rapides. Chaque compteur de performance défini dans l’élement **PerformanceCounters** est stocké dans la table Metrics et dans la table Performance Counter. Attribut requis :<br /><br /> **resourceId** - Il s’agit de l’ID de ressource de la machine virtuelle sur laquelle vous déployez Azure Diagnostics. Obtenez le **resourceID** à partir du [portail Azure](https://portal.azure.com). Sélectionnez **Parcourir** -> **Groupe de ressources** -> **<>\>**. Cliquez sur la vignette **Propriétés** et copiez la valeur à partir du champ **ID**.|  
+|**Métriques**|Cet élément permet de générer une table de compteur de performance optimisée pour les requêtes rapides. Chaque compteur de performance défini dans l’élement **PerformanceCounters** est stocké dans la table Metrics et dans la table Performance Counter. Attribut requis :<br /><br /> **resourceId** - Il s’agit de l’ID de ressource de la machine virtuelle sur laquelle vous déployez Azure Diagnostics. Obtenez le **resourceID** à partir du [portail Azure](https://portal.azure.com). Sélectionnez **Parcourir** -> **Groupe de ressources** -> **<>\>**. Cliquez sur la vignette **Propriétés** et copiez la valeur à partir du champ **ID**.|  
 |**PerformanceCounters**|Permet la collecte des compteurs de performance. Attribut facultatif :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**WindowsEventLog**|Permet la collecte des journaux des événements Windows. Attribut facultatif :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 
@@ -121,7 +121,7 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**CrashDumpConfiguration**|Requis. Attribut requis :<br /><br /> **processName** - Nom du processus pour lequel vous voulez qu’Azure Diagnostics collecte un vidage sur incident.|  
+|**CrashDumpConfiguration**|Requis. Attribut requis :<br /><br /> **processName** - Nom du processus pour lequel vous voulez que Diagnostics Azure collecte un vidage sur incident.|  
 |**crashDumpType**|Configure Diagnostics Azure pour collecter les mini-vidages sur incident ou les vidages sur incident complets.|  
 |**directoryQuotaPercentage**|Configure le pourcentage de **overallQuotaInMB** à réserver pour les vidages sur incident sur la machine virtuelle.|  
 
@@ -130,7 +130,7 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**Sources de données**|Liste de répertoires à analyser.|  
+|**DataSources**|Liste de répertoires à analyser.|  
 |**FailedRequestLogs**|Incluez cet élément dans la configuration pour permettre la collecte des journaux d’activité concernant les demandes ayant échoué sur une application ou un site IIS. Vous devez également activer les options de suivi sous **system.WebServer** dans **Web.config**.|  
 |**IISLogs**|Incluez cet élément dans la configuration pour permettre la collecte des journaux d’activité IIS :<br /><br /> **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les vidages sur incident.|  
 
@@ -146,7 +146,7 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**Absolu**|Chemin d’accès absolu au répertoire à surveiller. Les attributs suivants sont requis :<br /><br /> -                     **Path** - Chemin d’accès absolu au répertoire à surveiller.<br /><br /> -                      **expandEnvironment** - Détermine si les variables d’environnement de Path sont développées.|  
+|**Absolute**|Chemin d’accès absolu au répertoire à surveiller. Les attributs suivants sont requis :<br /><br /> -                     **Path** - Chemin d’accès absolu au répertoire à surveiller.<br /><br /> -                      **expandEnvironment** - Détermine si les variables d’environnement de Path sont développées.|  
 |**LocalResource**|Chemin d’accès relatif à une ressource locale à surveiller. Les attributs requis sont :<br /><br /> -                     **Name** - Nom de la ressource locale contenant le répertoire à surveiller<br /><br /> -                     **relativePath** - Chemin d’accès relatif au nom qui contient le répertoire à surveiller|  
 
 ## <a name="etwproviders-element"></a>Élément EtwProviders  
@@ -163,7 +163,7 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
 |**DefaultEvents**|Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
-|**Événement**|Attribut requis :<br /><br /> **id** : ID de l’événement.<br /><br /> Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
+|**Event**|Attribut requis :<br /><br /> **id** : ID de l’événement.<br /><br /> Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
  Le tableau suivant décrit les éléments enfants :  
@@ -171,7 +171,7 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
 |**DefaultEvents**|Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
-|**Événement**|Attribut requis :<br /><br /> **id** : ID de l’événement.<br /><br /> Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
+|**Event**|Attribut requis :<br /><br /> **id** : ID de l’événement.<br /><br /> Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
 
 ## <a name="metrics-element"></a>Élément Metrics  
  Permet de générer une table de compteur de performance optimisée pour les requêtes rapides. Le tableau suivant décrit les éléments enfants :  

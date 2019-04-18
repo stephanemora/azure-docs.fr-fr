@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
 ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495530"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
@@ -136,7 +136,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-`func init` prend en charge les options suivantes, qui sont la version 2.x uniquement, sauf indication contraire :
+`func init` prend en charge les options suivantes, qui sont, sauf indication contraire, uniquement des versions 2.x :
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
@@ -192,9 +192,9 @@ Le fichier local.settings.json stocke les paramètres de l’application, les ch
 
 Ces valeurs de paramètres d’application de fonction peuvent aussi être lues dans votre code en tant que variables d’environnement. Pour plus d’informations, consultez la section Variables d’environnement de ces rubriques de référence spécifiques à une langue :
 
-* [C#précompilé](functions-dotnet-class-library.md#environment-variables)
+* [C# précompilé](functions-dotnet-class-library.md#environment-variables)
 * [Script C# (.csx)](functions-reference-csharp.md#environment-variables)
-* [F#script (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Script F# (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -469,7 +469,7 @@ Les options de déploiement de conteneur personnalisées suivantes sont disponib
 
 ## <a name="monitoring-functions"></a>Surveillance des fonctions
 
-La méthode recommandée pour surveiller l’exécution de vos fonctions consiste en s’intégrant avec Azure Application Insights. Lorsque vous créez une application de fonction dans le portail Azure, cette intégration est faite pour vous par défaut. Toutefois, lorsque vous créez votre application de fonction à l’aide de l’interface CLI, l’intégration dans votre function app dans Azure n’est pas effectuée.
+La méthode recommandée pour surveiller l’exécution de vos fonctions consiste en s’intégrant avec Azure Application Insights. Lorsque vous créez une application de fonction dans le portail Azure, cette intégration est faite pour vous par défaut. Toutefois, quand vous créez votre application de fonction à l’aide de l’interface Azure CLI, l’intégration à votre application de fonction dans Azure n’est pas effectuée.
 
 Pour activer Application Insights pour votre application de fonction :
 
@@ -486,6 +486,6 @@ Pour enregistrer un bogue ou une demande de fonctionnalité, [créez un problèm
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Portail Azure]: https://portal.azure.com 
-[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

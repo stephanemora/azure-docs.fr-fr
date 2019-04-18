@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359030"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery 
@@ -109,17 +109,17 @@ Pour ajouter manuellement des machines virtuelles :
 
     a. **Nombre de machines virtuelles**
 
-    b. **Taille IaaS (votre sélection)**
+    b. **Taille de l’IaaS (votre sélection)**
 
-    c. **Type de stockage Standard ou Premium**
+    c. **Type de stockage Standard/Premium**
 
-    d. **Taille de stockage totale de machine virtuelle (en Go)**
+    d. **Taille de stockage totale de la machine virtuelle (en Go)**
 
-    e. **Nombre d’extractions de la récupération d’urgence dans une année**
+    e. **Nombre de tests de récupération d’urgence en un an**
 
-    f. **Chaque durée de récupération d’urgence (jours)**
+    f. **Durée de chaque test de récupération d’urgence (en jours)**
 
-    g. **Type de système d’exploitation**
+    g. **OS Type**
 
     h. **Redondance des données**
 

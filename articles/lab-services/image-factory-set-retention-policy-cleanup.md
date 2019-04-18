@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490737"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Créez une fabrique d’image personnalisée dans Azure DevTest Labs
@@ -26,8 +26,8 @@ Cet article traite de définition d’une stratégie de rétention, nettoyage de
 Assurez-vous que vous avez suivi ces articles avant de continuer :
 
 - [Créer une fabrique d’images](image-factory-create.md)
-- [Exécuter une fabrique d’images depuis Azure DevOps](image-factory-set-up-devops-lab.md)
-- [Enregistrer les images personnalisées et les distribuer à plusieurs laboratoires](image-factory-save-distribute-custom-images.md)
+- [Exécuter une fabrique d’images à partir d’Azure DevOps](image-factory-set-up-devops-lab.md)
+- [Enregistrer des images personnalisées et la distribuer à plusieurs laboratoires](image-factory-save-distribute-custom-images.md)
 
 Les éléments suivants doivent être déjà en place :
 

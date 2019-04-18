@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278545"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679990"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Créer et exécuter un pipeline Machine Learning à l’aide du SDK Azure Machine Learning
 
@@ -93,7 +93,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-Les données intermédiaires (ou la sortie d’une étape) sont représentées par un objet [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` est généré en tant que la sortie d’une étape et utilisé comme entrée d’un ou plusieurs étapes futures. `PipelineData` présente une dépendance de données entre les étapes et crée une commande de l’exécution implicite dans le pipeline.
+Les données intermédiaires (ou la sortie d’une étape) sont représentées par un objet [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` est généré en tant que sortie d’une étape et utilisé en tant qu’entrée pour une ou plusieurs étapes ultérieures. `PipelineData` présente une dépendance de données entre les étapes et crée un ordre d’exécution implicite dans le pipeline.
 
 ```python
 output_data1 = PipelineData(
@@ -253,8 +253,8 @@ trainStep = PythonScriptStep(
 
 Après avoir défini vos étapes, vous générez le pipeline à l’aide de tout ou partie de ces étapes.
 
->[!NOTE]
->Aucune donnée ni fichier n’est téléchargé sur le service Azure Machine Learning lorsque vous définissez les étapes ou générez le pipeline.
+> [!NOTE]
+> Aucune donnée ni fichier n’est téléchargé sur le service Azure Machine Learning lorsque vous définissez les étapes ou générez le pipeline.
 
 ```python
 # list of steps to run
@@ -289,8 +289,12 @@ Pour plus d’informations, consultez le [étapes de pipeline azure package](htt
 
 ## <a name="submit-the-pipeline"></a>Envoyer le pipeline
 
-Lorsque vous envoyez le pipeline, le service Azure Machine Learning vérifie les dépendances pour chaque étape et charge un instantané du répertoire source que vous avez spécifié. Si aucun répertoire source n’est spécifié, le répertoire local actuel est chargé.
+Lorsque vous envoyez le pipeline, le service Azure Machine Learning vérifie les dépendances pour chaque étape et charge un instantané du répertoire source que vous avez spécifié. Si aucun répertoire source n’est spécifié, le répertoire local actuel est chargé. La capture instantanée est également stockée dans le cadre de l’expérience dans votre espace de travail.
 
+> [!IMPORTANT]
+> Pour empêcher les fichiers d’être inclus dans l’instantané, créez un [.gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` dans le répertoire de fichiers et de lui ajouter les fichiers. Le `.amlignore` fichier utilise la même syntaxe et les modèles en tant que le [.gitignore](https://git-scm.com/docs/gitignore) fichier. Si les deux fichiers existent, le `.amlignore` fichier est prioritaire.
+>
+> Pour plus d’informations, consultez [Instantanés](concept-azure-machine-learning-architecture.md#snapshot).
 
 ```python
 # Submit the pipeline to be run
@@ -361,7 +365,7 @@ Consultez la liste de tous vos pipelines et les détails relatifs à leur exécu
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).  
 
 1. [Affichez votre espace de travail](how-to-manage-workspace.md#view) pour trouver la liste des pipelines.
- ![liste des pipelines d’apprentissage](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ ![Liste de pipelines Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Sélectionnez un pipeline spécifique pour afficher les résultats de l’exécution.
 

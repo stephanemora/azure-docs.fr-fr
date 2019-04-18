@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425846"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Surveiller l’état de la réplication Active Directory avec Azure Monitor
@@ -119,32 +119,32 @@ Vous pouvez également cliquer sur **Exporter** pour exporter les résultats ver
 ![Erreurs de l’état de réplication AD exportées dans Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>FAQ sur l’état de la réplication AD
-**Q : Sont la fréquence à laquelle les données AD replication status mis à jour ?**
+**Q : Quelle est la fréquence de la mise à jour de l’état de la réplication AD ?**
 R : Les informations sont mises à jour tous les cinq jours.
 
-**Q : Existe-t-il un moyen pour configurer la fréquence à laquelle ces données sont mis à jour ?**
+**Q : Est-il possible de configurer la fréquence de la mise à jour de ces données ?**
 R : Pas pour l'instant.
 
-**Q : Je dois ajouter tous mes contrôleurs de domaine à mon espace de travail Analytique de journal pour afficher l’état de la réplication ?**
+**Q : Dois-je ajouter tous mes contrôleurs de domaine à mon espace de travail Log Analytics pour afficher l’état de réplication ?**
 R : Non, un seul contrôleur de domaine doit être ajouté. Si vous avez plusieurs contrôleurs de domaine dans votre espace de travail Log Analytics, toutes leurs données sont envoyées à Azure Monitor.
 
-**Q : Je ne veux pas ajouter de contrôleurs de domaine à mon espace de travail Log Analytics. Puis-je continuer à utiliser la solution AD Replication Status ?**
+**Q : Je ne veux pas ajouter de contrôleurs de domaine à mon espace de travail Log Analytics. Puis-je néanmoins utiliser la solution État de la réplication AD ?**
 
 R : Oui. Vous pouvez définir la valeur d’une clé de Registre pour l’activer. Consultez [Activer un contrôleur autre qu’un contrôleur de domaine](#enable-non-domain-controller).
 
-**Q : Quel est le nom du processus qui effectue la collecte de données ?**
+**Q : Quel est le nom du processus qui effectue la collecte de données ?**
 R : AdvisorAssessment.exe
 
-**Q : Combien de temps faut-il pour données prend-elle ?**
+**Q : Combien de temps la collecte de données prend-elle ?**
 R : La durée de la collecte de données dépend de la taille de l’environnement Active Directory, mais elle est généralement inférieure à 15 minutes.
 
-**Q : Quels types de données sont collectés ?**
+**Q : Quels types de données sont collectés ?**
 R : Les informations de réplication sont recueillies par le biais de LDAP.
 
-**Q : Existe-t-il un moyen pour configurer les périodes de collecte de données ?**
+**Q : Est-il possible de configurer les périodes de collecte de données ?**
 R : Pas pour l'instant.
 
-**Q : De quelles autorisations dois-je collecter des données ?**
+**Q : Quelles autorisations dois-je avoir pour collecter les données ?**
 R : Les autorisations utilisateur normales sur Active Directory sont suffisantes.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Résoudre les problèmes de collecte de données

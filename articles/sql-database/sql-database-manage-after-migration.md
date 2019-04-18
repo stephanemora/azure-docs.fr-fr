@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358418"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et en pool dans Azure SQL Database
@@ -88,7 +88,7 @@ SQL Database propose [deux méthodes d’authentification](sql-database-control-
 
 L’authentification Windows traditionnelle n’est pas prise en charge. Azure Active Directory (AD) est un service centralisé de gestion des identités et des accès. Ce service vous permet de proposer très facilement un accès par authentification unique à tout le personnel de votre organisation. Autrement dit, les informations d’identification sont partagées entre tous les services Azure pour une authentification plus simple. AAD prend en charge [MFA (Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) et, en [quelques clics](../active-directory/hybrid/how-to-connect-install-express.md), peut être intégré à Windows Server Active Directory. L’authentification SQL fonctionne exactement comme par le passé. Vous fournissez un nom d’utilisateur/mot de passe et vous pouvez authentifier des utilisateurs après de toute base de données sur un serveur SQL Database donné. Cela permet également à SQL Database et SQL Data Warehouse de proposer une authentification multifacteur et des comptes d’utilisateur Invité dans un domaine Azure AD. Si vous disposez déjà d’Active Directory localement, vous pouvez fédérer l’annuaire avec Azure Active Directory pour étendre votre annuaire à Azure.
 
-|**Si vous...**|**Base de données SQL / SQL Data Warehouse**|
+|**Si vous…**|**SQL Database/SQL Data Warehouse**|
 |---|---|
 |Préférez ne pas utiliser Azure Active Directory (AD) dans Azure|Utilisez l’[authentification SQL](sql-database-security-overview.md)|
 |Avez utilisé AD avec SQL Server localement|[Fédérez AD avec Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md), puis utilisez l’authentification basée sur Azure AD Authentication. Ainsi, vous pouvez utiliser l’authentification unique.|
@@ -149,12 +149,12 @@ Le chiffrement constitue un puissant mécanisme de protection et de sécurisatio
 Dans SQL Database, par défaut, vos données au repos dans les fichiers journaux et de données du sous-système de stockage sont entièrement et toujours chiffrées par le biais de [Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Vos sauvegardes sont également chiffrées. Avec TDE, aucune modification n’est exigée du côté de l’application qui accède à ces données. Le chiffrement et le déchiffrement se produisent de manière transparente, d’où le nom.
 Pour protéger vos données sensibles en transit et au repos, SQL Database propose une fonctionnalité appelée [Always Encrypted (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE est une forme de chiffrement côté client qui permet de chiffrer les colonnes sensibles de votre base de données (elles sont en texte chiffré pour les administrateurs de base de données et les utilisateurs non autorisés). Au départ, le serveur reçoit les données chiffrées. La clé de chiffrement Always Encrypted est également stockée côté client, pour permettre uniquement aux clients autorisés de déchiffrer les colonnes sensibles. Les administrateurs du serveur et des données ne peuvent pas voir les données sensibles, car les clés de chiffrement sont stockées sur le client. AE chiffre les colonnes sensibles de la table, de bout en bout, depuis les clients non autorisés jusqu’au disque physique. AE prend en charge les comparaisons d’égalité, ce qui permet aux administrateurs de base de données de continuer à interroger les colonnes chiffrées quand ils exécutent des commandes SQL. Vous pouvez utiliser Always Encrypted avec diverses options de magasin de clés, par exemple [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), le magasin de certificats Windows et les modules de sécurité matériels locaux.
 
-|**Caractéristiques**|**Toujours chiffré**|**Chiffrement transparent des données**|
+|**Caractéristiques**|**Always Encrypted**|**Chiffrement transparent des données**|
 |---|---|---|
 |**Étendue de chiffrement**|Bout en bout|Données au repos|
-|**Serveur de base de données peut accéder aux données sensibles**|Non |Oui, étant donné que le chiffrement concerne les données au repos|
+|**Le serveur de base de données peut accéder aux données sensibles**|Non |Oui, étant donné que le chiffrement concerne les données au repos|
 |**Opérations T-SQL autorisées**|Comparaison d’égalité|Toute la surface d’exposition T-SQL est disponible|
-|**Modification de l’application doit utiliser la fonctionnalité**|Minimales|Très minimes|
+|**Modifications de l’application exigées pour utiliser la fonctionnalité**|Minimales|Très minimes|
 |**Granularité de chiffrement**|Au niveau des colonnes|Au niveau de la base de données|
 ||||
 
@@ -195,14 +195,14 @@ Le diagramme suivant montre les options relatives au magasin de clés pour les c
 
 Le trafic réseau entre votre organisation et SQL Database est généralement acheminé par le biais du réseau public. Toutefois, si vous choisissez d’optimiser ce parcours et de le rendre plus sécurisé, vous pouvez envisager d’utiliser Express Route. Express Route vous permet avant tout d’étendre votre réseau d’entreprise dans la plateforme Azure par le biais d’une connexion privée. Ainsi, vous ne passez pas par l’Internet public. Vous obtenez également une sécurité, une fiabilité et une optimisation du routage accrues qui se traduisent par des latences réseau inférieures et des débits beaucoup plus rapides que ceux que vous expérimenteriez par le bais de l’Internet public en temps normal. Si vous envisagez de transférer un bloc important de données entre votre organisation et Azure, l’utilisation d’Express Route peut permettre de réduire vos coûts. Vous avez trois modèles de connectivité différents à votre disposition pour la connexion entre votre organisation et Azure :
 
-- [Colocalisation cloud Exchange](../expressroute/expressroute-connectivity-models.md#CloudExchange)
-- [Pour tout](../expressroute/expressroute-connectivity-models.md#IPVPN)
-- [Point à point](../expressroute/expressroute-connectivity-models.md#Ethernet)
+- [Colocalisation avec échange de cloud](../expressroute/expressroute-connectivity-models.md#CloudExchange)
+- [Connexion universelle](../expressroute/expressroute-connectivity-models.md#IPVPN)
+- [Connexion point à point](../expressroute/expressroute-connectivity-models.md#Ethernet)
 
 Express Route vous permet également de doubler la limite de bande passante que vous achetez sans frais supplémentaires. Vous pouvez également configurer une connectivité interrégion à l’aide d’ExpressRoute. Pour obtenir la liste des fournisseurs de connectivité ER, consultez : [Partenaires ExpressRoute et emplacements de peering](../expressroute/expressroute-locations.md). Les articles suivants décrivent Express Route de façon plus approfondie :
 
-- [Présentation d’Expressroute](../expressroute/expressroute-introduction.md)
-- [Conditions préalables](../expressroute/expressroute-prerequisites.md)
+- [Présentation d’ExpressRoute](../expressroute/expressroute-introduction.md)
+- [Composants requis](../expressroute/expressroute-prerequisites.md)
 - [Flux de travail](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Est-ce que SQL Database est conforme aux exigences réglementaires et comment cela peut-il répondre aux exigences de conformité de mon organisation
@@ -281,10 +281,10 @@ Pour obtenir un ensemble complet de recommandations pour résoudre les problème
 
 SQL Database propose plusieurs niveaux de service : De base, Standard et Premium. Chaque niveau de service vous permet d’obtenir les performances prévisibles garanties qui lui sont associées. En fonction de votre charge de travail, vous pouvez avoir des pics d’activité qui font atteindre à l’utilisation de vos ressources le plafond de votre taille de calcul. Le cas échéant, commencez judicieusement par déterminer si un paramétrage peut résoudre le problème (par exemple, en ajoutant ou en modifiant un index, etc.). Si vous rencontrez toujours des problèmes de limite, passez à un niveau de service ou à une taille de calcul supérieurs.
 
-|**Niveau de service**|**Scénarios courants d’utilisation**|
+|**Niveau de service**|**Scénarios de cas d’usage courants**|
 |---|---|
 |**De base**|Applications avec une poignée d’utilisateurs et une base de données sans besoins de concurrence, de mise à l’échelle et de performances élevés. |
-|**standard**|Applications qui ont des besoins de concurrence, de mise à l’échelle et de performances considérables associés à des demandes d’E/S faibles à moyennes. |
+|**Standard**|Applications qui ont des besoins de concurrence, de mise à l’échelle et de performances considérables associés à des demandes d’E/S faibles à moyennes. |
 |**Premium**|Applications avec un grand nombre d’utilisateurs simultanés, des besoins d’UC/mémoire élevés et des demandes d’E/S élevées. Les applications à concurrence élevée, à débit élevé et sensibles à la latence peuvent exploiter le niveau Premium. |
 |||
 

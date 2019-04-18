@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 24201cfd657d4f23eb962b7407ed20262d780cf7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407417"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684223"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Types de conflits et stratégies de résolution
 
@@ -37,11 +37,11 @@ Azure Cosmos DB offre un mécanisme flexible pilotée par des stratégies pour r
   > [!NOTE]
   > La stratégie Dernière écriture prioritaire (LWW) est la stratégie de résolution de conflit par défaut. Il est disponible pour les API suivantes : SQL, MongoDB, Cassandra, Gremlin et Table.
 
-  Pour plus d’informations, consultez les [exemples qui utilisent des stratégies de résolution de conflit LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Pour plus d’informations, consultez les [exemples qui utilisent des stratégies de résolution de conflit LWW](how-to-manage-conflicts.md).
 
 - **Personnalisé** : cette stratégie de résolution est destinée à la sémantique définie au niveau de l’application pour le rapprochement des conflits. Lorsque vous définissez cette stratégie sur votre conteneur Azure Cosmos, vous devez également inscrire une *fusionner la procédure stockée*. Cette procédure est automatiquement appelée lorsque les conflits sont détectés sous une transaction de base de données sur le serveur. Le système fournit exactement une garantie pour l’exécution d’une procédure de fusion dans le cadre du protocole d’engagement.  
 
-  Si vous configurez votre conteneur avec l’option de résolution personnalisé et vous ne parvenez pas à enregistrer une procédure de fusion sur le conteneur, ou la procédure de fusion lève une exception lors de l’exécution, les conflits sont écrits dans le *conflits flux*. Les conflits de l’application doivent ensuite être résolus manuellement dans le flux de conflits. Pour plus d’informations, consultez les [exemples illustrant la façon d’utiliser la stratégie de résolution personnalisée, et comment utiliser le flux de conflits](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Si vous configurez votre conteneur avec l’option de résolution personnalisé et vous ne parvenez pas à enregistrer une procédure de fusion sur le conteneur, ou la procédure de fusion lève une exception lors de l’exécution, les conflits sont écrits dans le *conflits flux*. Les conflits de l’application doivent ensuite être résolus manuellement dans le flux de conflits. Pour plus d’informations, consultez les [exemples illustrant la façon d’utiliser la stratégie de résolution personnalisée, et comment utiliser le flux de conflits](how-to-manage-conflicts.md).
 
   > [!NOTE]
   > La stratégie personnalisée de résolution de conflits est disponible uniquement pour les comptes d’API SQL.
@@ -51,6 +51,5 @@ Azure Cosmos DB offre un mécanisme flexible pilotée par des stratégies pour r
 Découvrez comment configurer des stratégies de résolution des conflits :
 
 * [Configurer la fonction multimaître dans vos applications](how-to-multi-master.md)
-* [Comment utiliser la stratégie de résolution des conflits LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Comment utiliser la stratégie personnalisée de résolution des conflits](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [Comment gérer les stratégies de résolution de conflit](how-to-manage-conflicts.md)
 * [Guide pratique pour lire le flux de conflits](how-to-manage-conflicts.md#read-from-conflict-feed)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
 ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489620"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
@@ -101,7 +101,7 @@ Analyse côté client est opt-in pour ASP.NET. Pour activer l’analyse côté c
 
      Nom : `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Valeur : `true`
+     Valeur: `true`
 
    * **Enregistrez** les paramètres et **Redémarrez** votre application.
 
@@ -118,9 +118,9 @@ Si pour une raison quelconque, vous souhaitez désactiver l’analyse côté cli
 * Sélectionnez **paramètres** > **paramètres d’Application**
    * Sous paramètres de l’Application, ajoutez un nouveau **nom de paramètre d’application** et **valeur**:
 
-     name : `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Nom : `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Valeur : `false`
+     Valeur: `false`
 
    * **Enregistrez** les paramètres et **Redémarrez** votre application.
 

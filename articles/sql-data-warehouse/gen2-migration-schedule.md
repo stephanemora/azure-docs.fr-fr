@@ -11,10 +11,10 @@ ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361134"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
@@ -30,7 +30,7 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 
 \* indique qu’une planification spécifique pour la région est actuellement non disponible.
 
-| **Région** | **Inférieur Gen2 disponibles** | **Commencent des mises à niveau automatiques** |
+| **Région** | **Gen2 inférieur disponible** | **Commencement de la mise à niveau automatique** |
 |:--- |:--- |:--- |
 | Australie Est |Disponible |1 juin 2019 |
 | Australie Sud-Est |15 avril 2019 |1er mai 2019 |
@@ -85,8 +85,8 @@ Deux options s’offrent à vous quand vous procédez à une mise à niveau auto
 - [Effectuer une mise à niveau sur place](upgrade-to-latest-generation.md) : cette option met à niveau votre entrepôt de données Gen1 existant vers Gen2. Le processus de mise à niveau implique une brève liste de connectivité (environ 5 min) nous le redémarrage de votre entrepôt de données.  Une fois que votre entrepôt de données aura été redémarré, il sera entièrement disponible pour utilisation. Si vous rencontrez des problèmes lors de la mise à niveau, ouvrez un [demande de support](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) et faire référence à « Mise à niveau Gen2 » comme cause possible.
 - [Effectuer une mise à niveau à partir du point de restauration](sql-data-warehouse-restore.md) : créez un point de restauration défini par l’utilisateur sur votre entrepôt de données Gen1 actuel, puis effectuez la restauration directement vers une instance Gen2. L’entrepôt de données Gen1 existant est conservé. Une fois la restauration terminée, votre entrepôt de données Gen2 sera entièrement disponible pour utilisation.  Une fois tous les processus de test et de validation exécutés sur l’instance Gen2 restaurée, l’instance Gen1 d’origine peut être supprimée.
 
-   - Étape 1 : À partir du portail Azure, [créez un point de restauration défini par l’utilisateur](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
-   - Étape 2 : Lors d’une restauration à partir d’un point de restauration défini par l’utilisateur, définissez le « niveau de performances » sur votre niveau Gen2 préféré.
+   - Étape 1 : À partir du portail Azure, [créez un point de restauration défini par l’utilisateur](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
+   - Étape 2 : Lors d’une restauration à partir d’un point de restauration défini par l’utilisateur, définissez le « niveau de performances » sur votre niveau Gen2 préféré.
 
 Vous pouvez être confronté à un délai de dégradation des performances pendant que le processus de mise à niveau continue à mettre à niveau les fichiers de données en arrière-plan. La durée totale de la dégradation des performances varie en fonction de la taille de vos fichiers de données.
 
@@ -101,57 +101,57 @@ Pour plus d’informations, consultez [Mettre à niveau vers Gen2](upgrade-to-la
 
 ## <a name="migration-frequently-asked-questions"></a>Questions fréquentes sur la migration
 
-**Q : Gen2 coûte le même que la génération 1 ?**
+**Q : Le coût de Gen2 est-il le même que celui de Gen1 ?**
 
-- R : Oui.
+- R : Oui.
 
-**Q : Les mises à niveau répercussions mes scripts d’automatisation ?**
+**Q : Comment les mises à niveau affecteront-elles mes scripts d’automatisation ?**
 
-- R : Tout script d’automatisation qui fait référence à un objectif de niveau de service doit être changé pour correspondre à l’équivalent Gen2.  Consultez les informations détaillées [ici](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
+- R : Tout script d’automatisation qui fait référence à un objectif de niveau de service doit être changé pour correspondre à l’équivalent Gen2.  Consultez les informations détaillées [ici](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
-**Q : Combien de temps à une mise à niveau automatique normalement faut-il ?**
+**Q : Combien de temps prend normalement une mise à niveau automatique ?**
 
-- R : Vous pouvez effectuer une mise à niveau sur place ou à partir d’un point de restauration.  
+- R : Vous pouvez effectuer une mise à niveau sur place ou à partir d’un point de restauration.  
    - Une mise à niveau sur place provoque une suspension momentanée puis une reprise de votre entrepôt de données.  Un processus en arrière-plan continuera pendant que l’entrepôt de données sera en ligne.  
    - L’opération prend plus de temps si vous effectuez la mise à niveau par le biais d’un point de restauration, car la mise à niveau passera par le processus de restauration complète.
 
-**Q : Temps que prendra la mise à niveau automatique ?**
+**Q : Combien de temps prend la mise à niveau automatique ?**
 
-- R : Le temps d’arrêt réel pour la mise à niveau est uniquement le temps nécessaire pour suspendre et reprendre le service, qui est compris entre 5 et 10 minutes. Après la courte interruption, un processus en arrière-plan exécutera une migration de stockage. La durée du processus en arrière-plan dépend de la taille de votre entrepôt de données.
+- R : Le temps d’arrêt réel pour la mise à niveau est uniquement le temps nécessaire pour suspendre et reprendre le service, qui est compris entre 5 et 10 minutes. Après la courte interruption, un processus en arrière-plan exécutera une migration de stockage. La durée du processus en arrière-plan dépend de la taille de votre entrepôt de données.
 
-**Q : Lorsque cette mise à niveau automatique aura lieu ?**
+**Q : Quand cette mise à niveau automatique aura-t-elle lieu ?**
 
-- R : Pendant votre planification de maintenance. Exploiter la planification de maintenance que vous avez choisie limite les perturbations pour votre activité.
+- R : Pendant votre planification de maintenance. Exploiter la planification de maintenance que vous avez choisie limite les perturbations pour votre activité.
 
-**Q : Que dois-je faire si mon processus de mise à niveau en arrière-plan semblent être bloqués ?**
+**Q : Que dois-je faire si mon processus de mise à niveau en arrière-plan semble être bloqué ?**
 
- - R : Lancez une réindexation de vos tables Columnstore. Notez que la réindexation de la table s’effectuera hors connexion.
+ - R : Lancez une réindexation de vos tables Columnstore. Notez que la réindexation de la table s’effectuera hors connexion.
 
-**Q : Que se passe-t-il si la génération 2 n’a pas l’objectif de niveau de Service ont sur la génération 1 ?**
-- R : Si vous exécutez DW600 ou DW1200 sur Gen1, il est conseillé d’utiliser DW500c ou DW1000c, respectivement, car Gen2 fournit plus de mémoire, plus de ressources et des performances plus élevées que Gen1.
+**Q : Que se passe-t-il si Gen2 n’a pas l’objectif de niveau de service que j’ai sur Gen1 ?**
+- R : Si vous exécutez DW600 ou DW1200 sur Gen1, il est conseillé d’utiliser DW500c ou DW1000c, respectivement, car Gen2 fournit plus de mémoire, plus de ressources et des performances plus élevées que Gen1.
 
-**Q : Puis-je désactiver la géo-sauvegarde ?**
-- R : Non. La géosauvegarde est une fonctionnalité d’entreprise permettant de préserver la disponibilité de votre entrepôt de données dans le cas où une région n’est plus disponible. Si vous avez d’autres questions, ouvrez une [demande de support](sql-data-warehouse-get-started-create-support-ticket.md).
+**Q : Puis-je désactiver la géosauvegarde ?**
+- R : Non. La géosauvegarde est une fonctionnalité d’entreprise permettant de préserver la disponibilité de votre entrepôt de données dans le cas où une région n’est plus disponible. Si vous avez d’autres questions, ouvrez une [demande de support](sql-data-warehouse-get-started-create-support-ticket.md).
 
-**Q : Existe-t-il une différence dans la syntaxe T-SQL entre Gen1 et Gen2 ?**
+**Q : Existe-t-il une différence de syntaxe T-SQL entre Gen1 et Gen2 ?**
 
-- R : Aucun changement n’affecte la syntaxe du langage T-SQL entre Gen1 et Gen2.
+- R : Aucun changement n’affecte la syntaxe du langage T-SQL entre Gen1 et Gen2.
 
-**Q : Génération 2 prend-il en charge la Maintenance Windows ?**
+**Q : Gen2 prend-il en charge les fenêtres de maintenance ?**
 
-- R : Oui.
+- R : Oui.
 
-**Q : J’ai sera en mesure de créer une nouvelle instance de la génération 1 après que ma région a été mis à niveau ?**
+**Q : Pourrai-je créer une instance Gen1 après la mise à niveau de ma région ?**
 
-- R : Non. Une fois qu’une région aura été mise à niveau, la création d’instances Gen1 sera désactivée.
+- R : Non. Une fois qu’une région aura été mise à niveau, la création d’instances Gen1 sera désactivée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Étapes de la mise à niveau](upgrade-to-latest-generation.md)
 - [Fenêtres de maintenance](maintenance-scheduling.md)
-- [Moniteur d’intégrité de ressource](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Passez en revue avant de commencer une migration](upgrade-to-latest-generation.md#before-you-begin)
-- [Mise à niveau sur place et de mettre à niveau à partir d’un point de restauration](upgrade-to-latest-generation.md)
+- [Supervision de l’intégrité des ressources](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Revue avant de commencer une migration](upgrade-to-latest-generation.md#before-you-begin)
+- [Mise à niveau sur place et mise à niveau à partir d’un point de restauration](upgrade-to-latest-generation.md)
 - [Créer un point de restauration défini par l’utilisateur](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
-- [Découvrez comment restaurer vers Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
-- [Ouvrez une demande de prise en charge de SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Découvrir comment effectuer une restauration vers Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [Ouvrir une demande de support SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 73fc17ae5c65cd1a6ce47a18cbe17e6c338b7aaf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882121"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677780"
 ---
 # <a name="configure-face-docker-containers"></a>Configurer des conteneurs Docker Visage
 
@@ -31,11 +31,11 @@ L’environnement d’exécution de conteneur **Visage** est configuré à l’a
 
 ## <a name="apikey-configuration-setting"></a>Paramètre de configuration ApiKey
 
-Le paramètre `ApiKey` spécifie la clé de ressource Azure utilisée pour effectuer le suivi des informations de facturation pour le conteneur. Vous devez spécifier une valeur pour ApiKey, et il doit s’agir d’une clé valide pour la ressource _Visage_ spécifiée pour le paramètre de configuration [`Billing`](#billing-configuration-setting).
+Le paramètre `ApiKey` spécifie la clé de ressource Azure utilisée pour effectuer le suivi des informations de facturation pour le conteneur. Vous devez spécifier une valeur pour la clé API et la valeur doit être une clé valide pour le _Cognitive Services_ ressource spécifiée pour le [ `Billing` ](#billing-configuration-setting) paramètre de configuration.
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : Gestion des ressources de **Visage**, sous **Clés**
+* Portail Azure : **COGNITIVE Services** gestion des ressources, sous **clés**
 
 ## <a name="applicationinsights-setting"></a>Paramètre ApplicationInsights
 
@@ -43,11 +43,13 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 ## <a name="billing-configuration-setting"></a>Paramètre de configuration Billing
 
-Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de la ressource _Visage_ sur Azure servant à mesurer les informations de facturation du conteneur. Vous devez affecter à ce paramètre de configuration une valeur correspondant à un URI de point de terminaison valide pour une ressource _Visage_ sur Azure. La conteneur crée des rapports sur l'utilisation toutes les 10 à 15 minutes.
+Le `Billing` paramètre spécifie l’URI de point de terminaison de la _Cognitive Services_ ressources sur Azure permet de contrôler les informations de facturation pour le conteneur. Vous devez spécifier une valeur pour ce paramètre de configuration, et la valeur doit être un URI de point de terminaison valide pour un _Cognitive Services_ ressources sur Azure. La conteneur crée des rapports sur l'utilisation toutes les 10 à 15 minutes.
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : **Face** vue d’ensemble, étiqueté `Endpoint`
+* Portail Azure : **COGNITIVE Services** vue d’ensemble, étiqueté `Endpoint`
+
+N’oubliez pas d’ajouter le _Face_ routage vers l’URI de point de terminaison, comme illustré dans l’exemple. 
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
@@ -80,7 +82,7 @@ Les scénarios de stockage et les paramètres de configuration associés sont g�
 
 | Nom | Type de données | Description |
 |------|-----------|-------------|
-| `StorageScenario` | Chaîne | Scénario de stockage pris en charge par le conteneur. Les valeurs disponibles sont les suivantes :<br/>`Memory` -Valeur par défaut. Le conteneur utilise un stockage non persistant, non réparti et en mémoire pour une utilisation temporaire sur un nœud unique. Si le conteneur est arrêté ou supprimé, son stockage est détruit.<br/>`Azure` -Conteneur utilise les ressources Azure pour le stockage. Si le conteneur est arrêté ou supprimé, son stockage est conservé.|
+| `StorageScenario` | Chaîne | Scénario de stockage pris en charge par le conteneur. Les valeurs disponibles sont les suivantes :<br/>`Memory` - Valeur par défaut. Le conteneur utilise un stockage non persistant, non réparti et en mémoire pour une utilisation temporaire sur un nœud unique. Si le conteneur est arrêté ou supprimé, son stockage est détruit.<br/>`Azure` - Le conteneur utilise des ressources Azure pour le stockage. Si le conteneur est arrêté ou supprimé, son stockage est conservé.|
 | `ConnectionStringOfAzureStorage` | Chaîne | Chaîne de connexion de la ressource Stockage Azure utilisée par le conteneur.<br/>Ce paramètre s’applique uniquement si `Azure` est spécifié pour le paramètre de configuration `StorageScenario`. |
 | `ConnectionStringOfCosmosMongo` | Chaîne | Chaîne de connexion MongoDB de la ressource Azure Cosmos DB utilisée par le conteneur.<br/>Ce paramètre s’applique uniquement si `Azure` est spécifié pour le paramètre de configuration `StorageScenario`. |
 
@@ -136,12 +138,12 @@ Remplacez {_argument_name_} par vos propres valeurs :
 
 | Placeholder | Valeur | Format ou exemple |
 |-------------|-------|---|
-|{BILLING_KEY} | Clé de point de terminaison de la ressource Visage. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Valeur de point de terminaison de facturation, région comprise.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{BILLING_KEY} | La clé de point de terminaison de la ressource Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | La valeur de point de terminaison facturation, y compris la région et le routage de face.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
 
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](face-how-to-install-containers.md#billing).
-> La valeur ApiKey est la **Clé** présente dans la page des clés des ressources de Visage Azure. 
+> La valeur de clé API est la **clé** à partir d’Azure `Cognitive Services` page clés de ressources. 
 
 ## <a name="face-container-docker-examples"></a>Exemples Docker de conteneurs Visage
 

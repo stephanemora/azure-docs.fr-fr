@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0688235d928584df223a3a6a6ca2821282e4cb92
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762682"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680802"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Forum aux questions (FAQ) relatives à l’exécution de SQL Server sur les machines virtuelles Windows dans Azure
 
@@ -56,7 +56,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je créer une image de disque dur virtuel à partir d’une machine virtuelle SQL Server ?**
 
-   Oui, mais il existe quelques considérations à prendre en compte. Si vous déployez ce disque dur virtuel sur une nouvelle machine virtuelle dans Azure, la section Configuration de SQL Server ne s’affiche pas dans le portail. Vous devez alors gérer les options de configuration SQL Server via PowerShell. En outre, vous serez facturé en fonction du taux de la machine virtuelle SQL sur laquelle votre image était basée à l’origine. Ceci s’applique même si vous supprimez SQL Server à partir du disque dur virtuel avant le déploiement. 
+   Oui, mais il existe quelques considérations à prendre en compte. Si vous déployez ce disque dur virtuel sur une machine virtuelle dans Azure, vous n’obtenez pas la section de Configuration SQL Server dans le portail. Vous devez alors gérer les options de configuration SQL Server via PowerShell. En outre, vous serez facturé en fonction du taux de la machine virtuelle SQL sur laquelle votre image était basée à l’origine. Ceci s’applique même si vous supprimez SQL Server à partir du disque dur virtuel avant le déploiement. 
 
 1. **Est-il possible de définir des configurations non affichées dans la galerie de machines virtuelles (par exemple, Windows 2008 R2 + SQL Server 2012) ?**
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493635"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683017"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -143,11 +143,11 @@ La [spécification du modèle de données OpenTracing](https://opentracing.io/) 
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`. `PageView`                 | `Span` par `span.kind = server`                  |
-| `Dependency`                          | `Span` par `span.kind = client`                  |
+| `Request`, `PageView`                 | `Span` avec `span.kind = server`                  |
+| `Dependency`                          | `Span` avec `span.kind = client`                  |
 | `Id` de `Request` et `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `Reference` de type `ChildOf` (l’étendue parent)   |
+| `Operation_ParentId`                  | `Reference` de type `ChildOf` (étendue parent)   |
 
 Pour plus d’informations, consultez le [Modèle de données de télémétrie d’Application Insights](../../azure-monitor/app/data-model.md). 
 
@@ -157,18 +157,18 @@ Pour obtenir des définitions des concepts OpenTracing, consultez les pages [spe
 
 Au fil du temps, .NET a défini plusieurs façons de mettre en corrélation les journaux de diagnostics et de télémétrie :
 
-- `System.Diagnostics.CorrelationManager` permet le suivi de [LogicalOperationStack et ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). 
-- `System.Diagnostics.Tracing.EventSource` et le suivi d’événements pour Windows (ETW) définissent la [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) (méthode).
-- `ILogger` utilise [étendues de journal](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). 
+- `System.Diagnostics.CorrelationManager` permet d’effectuer le suivi de [LogicalOperationStack et ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). 
+- `System.Diagnostics.Tracing.EventSource` et le suivi d’événements pour Windows (ETW) définissent la méthode [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx).
+- `ILogger` utilise les [étendues de journaux](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). 
 - WCF (Windows Communication Foundation) et HTTP relient la propagation de contexte « actuelle ».
 
-Toutefois, ces méthodes n’activent pas la prise en charge du traçage distribué automatique. `DiagnosticSource` est un moyen pour prendre en charge une corrélation automatique entre ordinateurs. Les bibliothèques .NET prennent en charge « Diagnostics Source » et autorisent la propagation automatique entre ordinateurs du contexte de corrélation par le biais du transport, tel que le protocole HTTP.
+Toutefois, ces méthodes n’activent pas la prise en charge du traçage distribué automatique. `DiagnosticSource` est une méthode permettant de prendre en charge la corrélation automatique entre ordinateurs. Les bibliothèques .NET prennent en charge « Diagnostics Source » et autorisent la propagation automatique entre ordinateurs du contexte de corrélation par le biais du transport, tel que le protocole HTTP.
 
 Le [guide des activités](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) dans `DiagnosticSource` explique les principes de base du suivi des activités.
 
 ASP.NET Core 2.0 prend en charge l’extraction des en-têtes HTTP et le démarrage d’une nouvelle activité.
 
-`System.Net.HttpClient`, en commençant par la version 4.1.0, prend en charge l’injection automatique des en-têtes de corrélation HTTP suivi HTTP appeler en tant qu’activité.
+`System.Net.HttpClient`, à partir de la version 4.1.0, prend en charge l’injection automatique des en-têtes HTTP de corrélation et le suivi de l’appel HTTP en tant qu’activité.
 
 Il existe un nouveau module HTTP, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), pour ASP.NET Classic. Ce module implémente la corrélation de télémétrie à l’aide de `DiagnosticSource`. Il démarre une activité en fonction des en-têtes de requête entrante. Il met également en corrélation les données de télémétrie des différentes phases de traitement de requêtes, même pour les cas où chaque phase du traitement IIS (Internet Information Services) s’exécute sur un thread managé différent.
 
@@ -217,7 +217,7 @@ Dans certains cas, vous souhaiterez peut-être personnaliser la façon dont les 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Écrivez des [données de télémétrie personnalisées](../../azure-monitor/app/api-custom-events-metrics.md).
-- Découvrez plus en détail la [définition de cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud_rolename) pour d’autres kits SDK.
+- Découvrez plus en détail la [définition de cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) pour d’autres kits SDK.
 - Intégrez tous les composants de votre microservice sur Application Insights. Consultez les [plateformes prises en charge](../../azure-monitor/app/platforms.md).
 - Pour connaître les types Application Insights, consultez [Modèle de données](../../azure-monitor/app/data-model.md).
 - Découvrez comment [étendre et filtrer la télémétrie](../../azure-monitor/app/api-filtering-sampling.md).

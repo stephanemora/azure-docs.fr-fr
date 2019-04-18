@@ -3,7 +3,7 @@ title: Fonctionnalités et plateformes prises en charge par Azure Security Cente
 description: Ce document fournit une liste des fonctionnalités et des plateformes prises en charge par Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/9/2019
-ms.author: rkarlin
-ms.openlocfilehash: 5422ba1b29ac48a7255f25ac0beb43e3481d256a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 4/17/2019
+ms.author: monhaber
+ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105890"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678307"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plateformes et fonctionnalités prises en charge par Azure Security Center
 
@@ -37,11 +37,12 @@ Cette section liste les plateformes sur lesquelles l’agent Azure Security Cent
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plateformes prises en charge pour les ordinateurs et machines virtuelles Windows
 Les systèmes d’exploitation Windows suivants sont pris en charge :
 
-* Windows Server 2008
-* Windows Server 2008 R2
-* Windows Server 2012
-* Windows Server 2012 R2
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows Server 2008
 
 > [!NOTE]
 > L’intégration à Windows Defender ATP prend en charge seulement Windows Server 2012 R2 et Windows Server 2016.
@@ -69,7 +70,7 @@ Les machines virtuelles en cours d’exécution dans un service cloud sont égal
 > [!div class="mx-tableFixed"]
 > 
 
-|Serveur| Windows||Linux||
+|Serveur|Windows||Linux||
 |----|----|----|----|----|
 |Environnement|Azure|Non-Azure|Azure|Non-Azure|
 |Alertes de détection des menaces VMBA|✔|✔|✔ (sur les versions prises en charge)|✔|
@@ -97,11 +98,11 @@ Le tableau suivant fournit une matrice de ce qui suit :
 
 | Protection du point de terminaison| Plateformes | Installation du centre de sécurité | Détection du centre de sécurité |
 |------|------|-----|-----|
-| Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| OUI |
-| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | OUI |
-| Trend Micro : toutes les versions | Gamme Windows Server  | Non  | OUI |
-| Symantec v12.1.1100+| Gamme Windows Server  | Non  | OUI |
-| McAfee v10+ | Gamme Windows Server  | Non  | OUI |
+| Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| Oui |
+| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | Oui |
+| Trend Micro : toutes les versions | Gamme Windows Server  | Non  | Oui |
+| Symantec v12.1.1100+| Gamme Windows Server  | Non  | Oui |
+| McAfee v10+ | Gamme Windows Server  | Non  | Oui |
 | Kaspersky| Gamme Windows Server  | Non  | Non   |
 | Sophos| Gamme Windows Server  | Non  | Non   |
 

@@ -106,7 +106,7 @@ sections:
         style: ordered
         items:
           - html: Créer une application avec <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET avec Azure SQL DB</a> ou <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js avec MongoDB</a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mapper un domaine personnalisé existant à votre application </a>
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mapper un domaine personnalisé existant à votre application</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Lier un certificat SSL existant à votre application</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Ajouter un CDN à votre application</a>
   - title: Développer vos compétences avec Microsoft Learn
@@ -147,7 +147,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-          - html: <a href="/cli/azure/appservice">Azure CLI</a>
+          - html: <a href="/cli/azure/appservice">Interface de ligne de commande Azure</a>
   - title: Informations de référence
     items:
       - type: list
@@ -155,8 +155,8 @@ sections:
         className: cardsD
         items:
           - title: Ligne de commande
-            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
+            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Interface de ligne de commande Azure</a></p>
           - title: Languages
             html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
           - title: REST
-            html: <p><a href="/rest/api/appservice">Référence sur les API REST</a></p>
+            html: "<p><a href=\"/rest/api/appservice\">Référence d’API\_REST</a></p>"

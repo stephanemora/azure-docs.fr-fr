@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358115"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planification basée sur le cloud Azure multi-Factor Authentication
@@ -314,6 +314,6 @@ Trouver des solutions pour les problèmes courants avec Azure MFA à la [article
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Que sont les méthodes d’authentification ?](concept-authentication-methods.md)
-* [Activer l’inscription de convergence pour la réinitialisation du mot de passe libre-service Azure multi-Factor Authentication et Azure AD](concept-registration-mfa-sspr-converged.md)
+* [Que sont les méthodes d’authentification ?](concept-authentication-methods.md)
+* [Activer l’inscription convergée pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service Azure AD](concept-registration-mfa-sspr-converged.md)
 * Qu’est-ce qui détermine qu’un utilisateur est ou n’est pas invité à effectuer une MFA ? Consultez la section [Rapport de connexion Azure AD du document Rapports dans Azure Multi-Factor Authentication](howto-mfa-reporting.md#azure-ad-sign-ins-report).

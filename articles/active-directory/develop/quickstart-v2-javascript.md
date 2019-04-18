@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide Azure AD v2 JavaScript | Microsoft Docs
-description: Découvrez comment les applications JavaScript peuvent appeler une API qui nécessite des jetons d’accès à partir d’un point de terminaison Azure Active Directory v2.0
+title: Guide de démarrage rapide JavaScript pour la plateforme d’identités Microsoft | Azure
+description: Découvrez comment les applications JavaScript peuvent appeler une API qui nécessite des jetons d’accès pour la plateforme d’identités Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -12,24 +12,32 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe8c2287da7a7eabc26ff134d8bb44c5e45085f1
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 2021c5028637a6f7e732df61b6f7c034ef79324f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203045"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547395"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Démarrage rapide : Connecter des utilisateurs et acquérir un jeton d’accès à partir d’une application JavaScript
+# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Démarrage rapide : Connecter des utilisateurs et acquérir un jeton d’accès à partir d’une application monopage JavaScript
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Dans ce démarrage rapide, vous allez apprendre à utiliser un exemple de code qui montre comment une application monopage JavaScript peut connecter des comptes personnels, professionnels et scolaires et obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou toute API web.
+Dans ce guide de démarrage rapide, vous allez apprendre à utiliser un exemple de code qui montre comment une application monopage JavaScript peut connecter des comptes personnels, professionnels et scolaires, et obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou toute autre API web.
 
-![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-javascript/javascriptspa-intro-updated.png)
+![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+
+## <a name="prerequisites"></a>Prérequis
+
+Ce guide de démarrage rapide nécessite la configuration suivante :
+* Pour exécuter le projet avec un serveur node.js :
+    * Installez [Node.js](https://nodejs.org/en/download/)
+    * Installez [Visual Studio Code](https://code.visualstudio.com/download) pour modifier les fichiers du projet
+* Pour exécuter le projet comme une solution Visual Studio, installez [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Inscrire et télécharger votre application de démarrage rapide
@@ -39,7 +47,9 @@ Dans ce démarrage rapide, vous allez apprendre à utiliser un exemple de code q
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
 >
-> 1. Accédez au [portail Azure - Inscription d’applications (préversion)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+> 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
+> 1. Accédez au nouveau volet [Portail Azure - Inscriptions des applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
 > 1. Saisissez un nom pour votre application et cliquez sur **Inscrire**.
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application pour vous en un seul clic.
 >
@@ -47,9 +57,10 @@ Dans ce démarrage rapide, vous allez apprendre à utiliser un exemple de code q
 >
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 >
-> 1. Connectez-vous au [portail Azure](https://portal.azure.com/) pour inscrire une application.
+> 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 > 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-> 1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, puis sélectionnez **Inscriptions d’applications (préversion) > Nouvelle inscription**.
+> 1. Accédez à la page [Inscriptions des applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
+> 1. Sélectionnez **Nouvelle inscription**.
 > 1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
 > 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
 > 1. Sélectionnez la plateforme **Web** dans la section **URI de redirection** et définissez la valeur sur `http://localhost:30662/`.
@@ -121,14 +132,16 @@ var applicationConfig = {
 
 * Si vous utilisez [Visual Studio](https://visualstudio.microsoft.com/downloads/), prenez soin de sélectionner la solution de projet avant d’appuyer sur **F5** pour exécuter votre projet.
 
+Une fois que l’application est chargée dans le navigateur, cliquez sur **Se connecter**.  La première fois que vous vous connectez, vous êtes invité à autoriser l’application à accéder à votre profil et à vous connecter. Une fois connecté, vous devez voir les informations de votre profil utilisateur.
+
 ## <a name="more-information"></a>Informations complémentaires
 
 ### <a name="msaljs"></a>*msal.js*
 
-MSAL est la bibliothèque utilisée pour connecter des utilisateurs et demander des jetons permettant d’accéder à une API protégée par Microsoft Azure Active Directory (Azure AD). Le fichier *index.html* du démarrage rapide contient une référence à la bibliothèque :
+MSAL est la bibliothèque utilisée pour connecter les utilisateurs et demander des jetons permettant d’accéder à une API protégée par la plateforme d’identités Microsoft. Le fichier *index.html* du démarrage rapide contient une référence à la bibliothèque :
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.min.js"></script>
 ```
 
 Sinon, si Node est installé, vous pouvez le télécharger via npm :
@@ -189,14 +202,14 @@ myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (acces
 
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
 
-Dans certaines situations, vous devez forcer les utilisateurs à interagir avec le point de terminaison Azure AD v2.0. Par exemple : 
+Il existe des situations dans lesquelles vous devez forcer les utilisateurs à interagir avec le point de terminaison de la plateforme d’identités Microsoft. Par exemple : 
 * Les utilisateurs doivent réentrer leurs informations d’identification, car leur mot de passe a expiré
 * Votre application demande l’accès à des étendues de ressource supplémentaires pour laquelle l’utilisateur doit donner son consentement
 * Une authentification à 2 facteurs est demandée.
 
 Le modèle habituellement recommandé pour la plupart des applications est le suivant : `acquireTokenSilent` d’abord, puis intercepter l’exception et appeler `acquireTokenRedirect` (ou `acquireTokenPopup`) pour démarrer une requête interactive.
 
-Le fait d’appeler `acquireTokenPopup(scope)` entraîne l’affichage d’une fenêtre contextuelle pour la connexion (ou l’appel de `acquireTokenRedirect(scope)` entraîne la redirection des utilisateurs vers le point de terminaison Azure AD v2.0). Les utilisateurs doivent alors intervenir en confirmant leurs informations d’identification, en consentant à ce que l’application accède à la ressource ou en effectuant l’authentification à 2 facteurs.
+Le fait d’appeler `acquireTokenPopup(scope)` entraîne l’affichage d’une fenêtre contextuelle pour la connexion (ou l’appel de `acquireTokenRedirect(scope)` entraîne la redirection des utilisateurs vers le point de terminaison de la plateforme d’identités Microsoft). Les utilisateurs doivent alors intervenir en confirmant leurs informations d’identification, en consentant à ce que l’application accède à la ressource ou en effectuant l’authentification à 2 facteurs.
 
 ```javascript
 myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (accessToken) {

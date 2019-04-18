@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: e6f4f1feb5c1c78e78ff5d71b08a0e8a40537d13
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803256"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681724"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du stockage Blob Azure
 
@@ -45,7 +45,7 @@ La fonctionnalité de gestion du cycle de vie est disponible dans toutes les ré
 Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du portail Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), l’interface CLI, [API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), ou un outil client. Cet article explique comment gérer la stratégie en utilisant le portail et les méthodes de PowerShell.  
 
 > [!NOTE]
-> Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer ces requêtes en fournissant des exceptions. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer ces requêtes en fournissant des exceptions. Le contournement requis sont : `Logging,  Metrics,  AzureServices`. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Portail Azure
 

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009193"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678537"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -90,9 +90,9 @@ Pour visualiser les alertes actives et les règles sous-jacentes qui entraînent
 
 ![Capture d’écran de l’expérience d’analyse](media/app-map/alerts-view.png)
 
-## <a name="set-cloudrolename"></a>Définir cloud_RoleName
+## <a name="set-cloud-role-name"></a>Nom de rôle de cloud de jeu
 
-La cartographie d’application utilise la propriété `cloud_RoleName` pour identifier les composants sur la carte. Le SDK Application Insights ajoute automatiquement la propriété `cloud_RoleName` aux données de télémétrie émises par les composants. Par exemple, le SDK ajoute un nom de site web ou un nom de rôle de service à la propriété `cloud_RoleName`. Toutefois, vous pouvez être amené à remplacer la valeur par défaut. Pour remplacer cloud_RoleName et changer ce qui s’affiche sur la cartographie d’application :
+Cartographie d’application utilise le **nom_rôle cloud** propriété pour identifier les composants sur la carte. Le SDK Application Insights ajoute automatiquement la propriété de nom de rôle de cloud pour les données de télémétrie émises par les composants. Par exemple, le Kit de développement logiciel ajouterez un nom de site web ou le nom de rôle de service à la propriété de nom de rôle de cloud. Toutefois, vous pouvez être amené à remplacer la valeur par défaut. Pour remplacer le nom de rôle de cloud et modifier ce qui s’affiche sur la carte de l’Application :
 
 ### <a name="net"></a>.NET
 
@@ -167,13 +167,13 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
-Si vous utilisez Spring Boot avec le starter SpringBoot Application Insights, le seul changement requis consiste à définir votre nom personnalisé pour l’application dans le fichier application.properties.
+Si vous utilisez Spring Boot avec le starter SpringBoot Application Insights, le seul changement nécessaire consiste à définir votre nom personnalisé pour l’application dans le fichier application.properties.
 
 `spring.application.name=<name-of-app>`
 
-Le starter SpringBoot assigne automatiquement cloudRoleName à la valeur que vous entrez pour la propriété spring.application.name.
+La Spring Boot starter attribuera automatiquement le nom de rôle de cloud à la valeur d’entrée pour la propriété spring.application.name.
 
-Pour plus d’informations sur la corrélation Java et sur la façon de configurer cloudRoleName pour les applications non-SpringBoot, consultez cette [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) sur la corrélation.
+Pour plus d’informations sur Java corrélation et comment configurer le rôle de cloud nom pour la récupération des applications non SpringBoot ce [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) sur la corrélation.
 
 ### <a name="clientbrowser-side-javascript"></a>JavaScript côté client/navigateur
 
@@ -186,15 +186,15 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
-### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>Présentation de Cloud.RoleName dans le contexte de la cartographie d’Application
+### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Nom de rôle de cloud de compréhension dans le contexte de la cartographie d’Application
 
-Jusque comment réfléchir à Cloud.RoleName, il peut être utile d’examiner un plan de l’Application qui a plusieurs Cloud.RoleNames présents :
+En ce qui concerne la façon de réfléchir à **nom_rôle cloud**, il peut être utile d’examiner une cartographie d’Application qui a plusieurs noms de rôle cloud présents :
 
 ![Capture d’écran de la cartographie d’application](media/app-map/cloud-rolename.png)
 
-Dans le mappage d’Application ci-dessus chacun de ces noms dans les zones vertes sont Cloud.RoleName/role les valeurs des différents aspects de cette application distribuée. Donc pour cette application, ses rôles se composent de : `Authentication`, `acmefrontend`, `Inventory Management`, un `Payment Processing Worker Role`. 
+Dans le mappage d’Application ci-dessus chacun de ces noms dans les zones vertes est cloud valeurs de nom de rôle pour différents aspects de cette application distribuée. Donc pour cette application, ses rôles se composent de : `Authentication`, `acmefrontend`, `Inventory Management`, un `Payment Processing Worker Role`. 
 
-Dans le cas de cette application de ces `Cloud.RoleNames` représente également une autre ressource Application Insights unique avec leurs propres clés d’instrumentation. Étant donné que le propriétaire de cette application a accès à chacune de ces quatre ressources d’Application Insights disparates, cartographie d’Application est en mesure d’assembler une représentation des relations sous-jacent.
+Dans le cas de cette application, chacun de ces noms de rôle cloud représente également une autre ressource Application Insights unique avec leurs propres clés d’instrumentation. Étant donné que le propriétaire de cette application a accès à chacune de ces quatre ressources d’Application Insights disparates, cartographie d’Application est en mesure d’assembler une représentation des relations sous-jacent.
 
 Pour le [définitions officielles](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
 
@@ -208,15 +208,17 @@ Pour le [définitions officielles](https://github.com/Microsoft/ApplicationInsig
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-Cloud.RoleInstance peut également être utile pour les scénarios où Cloud.RoleName vous indique le problème est quelque part dans votre serveur web frontal, mais vous pouvez exécuter votre serveur web frontal sur plusieurs serveurs à charge équilibrée, qui est en mesure d’Explorer dans une couche plus approfondie par le biais de requêtes de Kusto et de savoir si le problème affecte toutes les web frontal serveurs/instances, ou à un seul peut être extrêmement important.
+Vous pouvez également **instance de rôle cloud** peut être utile pour les scénarios où **nom_rôle cloud** vous indique le problème est quelque part dans votre serveur web frontal, mais vous pouvez exécuter votre serveur web frontal sur plusieurs serveurs à équilibrage donc être en mesure d’Explorer dans une couche plus approfondie via des requêtes de Kusto et de savoir si le problème affecte toutes les frontaux serveurs/instances web ou un seul peut être extrêmement important.
 
-Un scénario où vous pouvez souhaiter remplacer la valeur pour Cloud.RoleInstance peut être si votre application est en cours d’exécution dans un environnement en conteneur dans lequel seulement à savoir le serveur peut ne pas être suffisamment d’informations pour localiser un problème donné.
+Un scénario où vous pouvez souhaiter remplacer la valeur de l’instance de rôle de cloud peut être si votre application est en cours d’exécution dans un environnement en conteneur dans lequel seulement à savoir le serveur peut ne pas être suffisamment d’informations pour localiser un problème donné.
 
-Pour plus d’informations sur la substitution de la propriété cloud_RoleName avec des starters de télémétrie, consultez [Ajout de propriétés : ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Pour plus d’informations sur la substitution de la propriété de nom de rôle de cloud avec des initialiseurs de télémétrie, consultez [ajouter des propriétés : ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
 Si la cartographie d’application ne fonctionne pas comme prévu, essayez ces étapes :
+
+### <a name="general"></a>Généralités
 
 1. Veillez à utiliser un SDK officiellement pris en charge. Les SDK non pris en charge ou de la communauté ne prennent pas forcément en charge la corrélation.
 
@@ -226,9 +228,23 @@ Si la cartographie d’application ne fonctionne pas comme prévu, essayez ces �
 
 3. Si vous utilisez Azure Functions avec C#, effectuez une mise à niveau vers [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Vérifiez que [cloud_RoleName](#set-cloud_rolename) est correctement configuré.
+4. Confirmer [nom_rôle cloud](#set-cloud-role-name) est correctement configuré.
 
 5. S’il vous manque une dépendance, vérifiez qu’elle figure dans la liste des [dépendances collectées automatiquement](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Sinon, vous pouvez toujours la suivre manuellement avec un [suivi d’appel de dépendance](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+
+### <a name="too-many-nodes-on-the-map"></a>Trop grand nombre de nœuds sur la carte
+
+Cartographie d’application construit un nœud d’application pour chaque nom de rôle de cloud unique présent dans vos données de télémétrie de demande et un nœud de dépendance pour chaque combinaison unique de type et nom de rôle de cloud dans vos données de télémétrie de dépendance cible. S’il existe plus de 10 000 nœuds dans vos données de télémétrie, cartographie d’Application ne sera pas en mesure d’extraire tous les nœuds et liens, ainsi, votre carte sera incomplète. Si cela se produit, un message d’avertissement s’affiche lors de l’affichage de la carte.
+
+En outre, cartographie d’Application prend uniquement en charge des nœuds non groupés distincts jusqu'à 1000 rendus à la fois. Cartographie d’application réduit la complexité visuelle en regroupant les dépendances qui ont le même type et les appelants, mais si vos données de télémétrie a trop de noms de rôle de cloud unique ou trop de types de dépendances, ce regroupement ne suffire pas suffisants et que la carte ne pourront pas être rendu.
+
+Pour résoudre ce problème, vous devrez modifier votre instrumentation pour définir correctement le nom de rôle de cloud, type de dépendance et les champs de dépendance cible.
+
+* Cible de dépendance doit représenter le nom logique d’une dépendance. Dans de nombreux cas, il est équivalent au serveur ou au nom de la ressource de la dépendance. Par exemple, dans le cas des dépendances HTTP, il est défini pour le nom d’hôte. Il ne doit pas contenir des ID uniques ou des paramètres qui changent d’une requête à un autre.
+
+* Type de dépendance doit représenter le type de logique d’une dépendance. Par exemple, HTTP, SQL ou Azure Blob sont des types de dépendances classique. Il ne doit pas contenir un ID unique.
+
+* L’objectif du nom de rôle de cloud est décrit dans la [au-dessus de section](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Commentaires du portail
 
@@ -238,4 +254,4 @@ Pour envoyer des commentaires, utilisez l’option de commentaires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Corrélation de présentation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* [Présentation de la corrélation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)

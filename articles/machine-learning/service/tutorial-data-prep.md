@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: cd0b41966a392f6e56a5f0dfb97c00fc713d17d7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: cd77dcc7202f61a801d29d42f61815c8ce7c2067
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266271"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496212"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Didacticiel : Préparer les données pour la modélisation de régression
 
@@ -84,7 +84,7 @@ Toute la configuration pour votre travail de développement peut être effectué
 Exécutez la commande suivante pour installer les packages nécessaires si vous ne les avez pas déjà.
 
 ```shell
-pip install azureml-dataprep==1.0.17
+pip install "azureml-dataprep>=1.1.0,<1.2.0"
 ```
 
 Importez le SDK.
@@ -94,7 +94,7 @@ import azureml.dataprep as dprep
 ```
 
 > [!IMPORTANT]
-> Veillez à installer la version 1.0.17. Ce tutoriel ne fonctionnera pas avec la version la plus récente, 1.1.0
+> Veillez à installer la version la plus récente. Ce tutoriel ne fonctionnera pas avec un numéro de version inférieur à 1.1.0
 
 ## <a name="load-data"></a>Charger des données
 
@@ -1090,8 +1090,7 @@ Vous disposez maintenant d’un objet de dataflow entièrement transformé et pr
 import os
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
-package = dprep.Package([final_df])
-package.save(file_path)
+final_df.save(file_path)
 ```
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

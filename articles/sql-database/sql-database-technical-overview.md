@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358338"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Qu’est le service de base de données SQL Azure
@@ -259,5 +259,5 @@ Les clients SQL Database auront les droits associés à Azure Hybrid Benefit pou
   - [Créer une base de données SQL à l’aide de PowerShell](sql-database-get-started-powershell.md)
 
 - Pour accéder à des exemples Azure CLI et PowerShell, consultez :
-  - [Exemples Azure CLI pour base de données SQL](sql-database-cli-samples.md)
-  - [Exemples Azure PowerShell pour la base de données SQL](sql-database-powershell-samples.md)
+  - [Exemples d’interface de ligne de commande Azure pour SQL Database](sql-database-cli-samples.md)
+  - [Exemples Azure PowerShell pour SQL Database](sql-database-powershell-samples.md)

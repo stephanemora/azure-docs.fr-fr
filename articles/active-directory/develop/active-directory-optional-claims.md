@@ -18,10 +18,10 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501057"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Activation Fournir des revendications facultatives à votre application Azure AD
@@ -36,7 +36,7 @@ Dans les listes des revendications standard, consultez le [jeton d’accès](acc
 
 Revendications facultatives prend en charge à la fois v1.0 et v2.0 les jetons de format, ainsi que les jetons SAML, ils fournissent la plupart de leur valeur lors du déplacement à partir de la version 1.0 vers la version 2.0. L’un des objectifs du point de terminaison [v2.0 Azure AD](active-directory-appmodel-v2-overview.md) est de réduire la taille des jetons afin de garantir des performances optimales par les clients. Ainsi, plusieurs revendications précédemment incluses dans les jetons d’accès et d’ID ne sont plus présentes dans les jetons v2.0 et doivent être demandées spécifiquement pour chaque application.
 
-**Tableau 1 : Applicabilité**
+**Tableau 1 : Applicabilité**
 
 | Type de compte | Jetons v1.0 | Jetons v2.0  |
 |--------------|---------------|----------------|
@@ -50,7 +50,7 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 > [!NOTE]
 > La plupart de ces revendications peuvent figurer dans les jetons JWT pour les jetons v1.0 et v2.0, mais pas dans les jetons SAML, sauf indication contraire dans la colonne Type de jeton. Comptes du consommateur prend en charge un sous-ensemble de ces revendications, dans la colonne « Type d’utilisateur ».  La plupart des revendications répertoriées ne s’appliquent pas aux utilisateurs de consommateur (ils n’ont aucun locataire, par conséquent, `tenant_ctry` n’a aucune valeur).  
 
-**Tableau 2 : Ensemble de revendications v1.0 et V2.0 facultatif**
+**Tableau 2 : Ensemble de revendications v1.0 et V2.0 facultatif**
 
 | Nom                       |  Description   | Type de jeton | Type d’utilisateur | Notes  |
 |----------------------------|----------------|------------|-----------|--------|
@@ -78,7 +78,7 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 
 Ces revendications sont toujours incluses dans les jetons d’Azure AD v1.0, mais pas incluses dans les jetons v2.0 sauf si demandée. Ces revendications sont applique uniquement aux jetons Web JSON (jetons d’ID et jetons d’accès). 
 
-**Tableau 3 : Revendications facultatives v2.0 uniquement**
+**Tableau 3 : Revendications facultatives propres à V2.0**
 
 | Revendication JWT     | Nom                            | Description                                | Notes |
 |---------------|---------------------------------|-------------|-------|
@@ -104,7 +104,7 @@ Certaines revendications facultatives peuvent être configurées pour modifier l
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Peut être utilisée pour les réponses SAML et JWT, ainsi que pour les jetons v1.0 et v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclut l’UPN de l’invité tel que stocké dans le locataire de ressource. Par exemple, `foo_hometenant.com#EXT#@resourcetenant.com` |             
-|                | `include_externally_authenticated_upn_without_hash` | Même chose que ci-dessus, à ceci près que le hachage marque (`#`) sont remplacées par des traits de soulignement (`_`), par exemple `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Comme ci-dessus, sauf que les signes dièse (`#`) sont remplacés par des traits de soulignement (`_`), par exemple `foo_hometenant.com_EXT_@resourcetenant.com`. |
 
 #### <a name="additional-properties-example"></a>Exemple de propriétés supplémentaires
 
@@ -162,7 +162,7 @@ Vous pouvez configurer des revendications facultatives pour votre application en
 
 Déclare les revendications facultatives demandées par une application. Une application peut configurer des revendications facultatives à retourner dans chacun des trois types de jetons (jeton d’ID, jeton d’accès, jeton SAML 2) qu’elle peut recevoir à partir du service d’émission de jeton de sécurité. L’application peut configurer un ensemble différent de revendications facultatives à retourner dans chaque type de jeton. La propriété OptionalClaims de l’entité Application est un objet OptionalClaims.
 
-**Tableau 5 : Propriétés de Type OptionalClaims**
+**Tableau 5 : Propriétés de type OptionalClaims**
 
 | Nom        | type                       | Description                                           |
 |-------------|----------------------------|-------------------------------------------------------|
@@ -175,7 +175,7 @@ Déclare les revendications facultatives demandées par une application. Une app
 Contient une revendication facultative associée à une application ou à un principal de service. Les propriétés idToken, accessToken et saml2Token du type [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) sont une collection d’OptionalClaim.
 En cas de prise en charge par une revendication spécifique, vous pouvez également modifier le comportement de l’OptionalClaim à l’aide du champ AdditionalProperties.
 
-**Tableau 6 : Propriétés de Type OptionalClaim**
+**Tableau 6 : Propriétés de type OptionalClaim**
 
 | Nom                 | type                    | Description                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -196,7 +196,7 @@ Pour les attributs d’extension, utilisez le nom complet de l’extension (au f
 
 Dans les jetons JWT, ces revendications seront émises avec le format de nom suivant : `extn.<attributename>`.
 
-Dans les jetons SAML, ces revendications seront émises avec le format d’URI suivant : `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+Dans les jetons SAML, ces revendications seront émises avec le format d’URI suivant : `http://schemas.microsoft.com/identity/claims/extn.<attributename>`.
 
 ## <a name="optional-claims-example"></a>Exemple de revendications facultatives
 

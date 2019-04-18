@@ -9,17 +9,17 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 64559f653ba8a466de7bec10db34383b508e3e4b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361293"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurer la récupération d’urgence dans Azure de machines virtuelles Hyper-V locales hébergées dans des clouds VMM
 
 Cet article décrit comment activer la réplication des machines virtuelles de Hyper-V locales gérées par System Center Virtual Machine Manager (VMM), récupération d’urgence vers Azure à l’aide du [Azure Site Recovery](site-recovery-overview.md) service. Si vous n’utilisez pas VMM, puis [suivez ce didacticiel](hyper-v-azure-tutorial.md).
 
-Il s’agit du troisième didacticiel d’une série qui vous montre comment configurer la récupération d’urgence vers Azure pour les machines virtuelles VMware en local. Dans le didacticiel précédent, nous [préparé l’environnement Hyper-V en local](hyper-v-prepare-on-premises-tutorial.md) pour la récupération d’urgence vers Azure. 
+Il s’agit du troisième tutoriel d’une série qui montre comment configurer la reprise d’activité sur Azure pour des machines virtuelles VMware locales. Dans le didacticiel précédent, nous [préparé l’environnement Hyper-V en local](hyper-v-prepare-on-premises-tutorial.md) pour la récupération d’urgence vers Azure. 
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -33,7 +33,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 
 > [!NOTE]
-> Didacticiels vous montrent le chemin d’accès de déploiement la plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Pour obtenir des instructions détaillées, consultez l’article de la section de la Table des matières Site Recovery.
+> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Pour obtenir des instructions détaillées, consultez l’article de la section Procédures dans la table des matières de Site Recovery.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -45,11 +45,11 @@ Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que
 
 ## <a name="select-a-replication-goal"></a>Sélectionner un objectif de réplication
 
-1. Dans **Archivages de Recovery Services**, sélectionnez l’archivage. Nous avons préparé le coffre **ContosoVMVault** dans le didacticiel précédent.
+1. Dans **Archivages de Recovery Services**, sélectionnez l’archivage. Nous avons préparé le coffre-fort **ContosoVMVault** au cours du tutoriel précédent.
 2. Dans **Prise en main**, cliquez sur **Site Recovery**. Cliquez ensuite sur **Préparer l’infrastructure**
 3. Dans **objectif de Protection** > **sont où se trouvent vos machines ?**, sélectionnez **On-premises**.
-4. Dans **où voulez-vous répliquer vos machines ?**, sélectionnez **vers Azure**.
-5. Dans **vos machines sont-elles virtualisées ?** sélectionnez **Oui, avec Hyper-V**.
+4. Dans **Où voulez-vous répliquer vos machines ?**, sélectionnez **Dans Azure**.
+5. Dans **Vos machines sont-elles virtualisées ?**, sélectionnez **Oui, avec Hyper-V**.
 6. Dans **Utilisez-vous System Center VMM**, sélectionnez **Oui**. Cliquez ensuite sur **OK**.
 
     ![Objectif de réplication](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
@@ -57,8 +57,8 @@ Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que
 
 ## <a name="confirm-deployment-planning"></a>Confirmer la planification d’un déploiement
 
-1. Dans **planification du déploiement**, si vous planifiez un déploiement à grande échelle, téléchargez le Planificateur de déploiement pour Hyper-V à partir du lien sur la page. [En savoir plus](hyper-v-deployment-planner-overview.md) sur la planification de déploiement de Hyper-V.
-2. Dans le cadre de ce didacticiel, nous n’avez pas besoin du Planificateur de déploiement. Dans **avez-vous effectué la planification du déploiement ?**, sélectionnez **je le ferai plus tard**. Cliquez ensuite sur **OK**.
+1. Dans **Planification du déploiement**, si vous planifiez un déploiement de grande envergure, téléchargez l’outil Planificateur de déploiement pour Hyper-V à partir du lien figurant dans la page. [En savoir plus](hyper-v-deployment-planner-overview.md) sur la planification du déploiement Hyper-V.
+2. Pour ce tutoriel, nous n’avons pas besoin de l’outil Planificateur de déploiement. Dans **avez-vous effectué la planification du déploiement ?**, sélectionnez **je le ferai plus tard**. Cliquez ensuite sur **OK**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurer l’environnement source
@@ -142,4 +142,4 @@ Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comp
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Exécuter une simulation de récupération d'urgence](tutorial-dr-drill-azure.md)
+> [Effectuer un test de récupération d’urgence](tutorial-dr-drill-azure.md)

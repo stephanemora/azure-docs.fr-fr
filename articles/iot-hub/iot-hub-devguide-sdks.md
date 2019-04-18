@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: e51313bbed21459de9f717edd123887caed18f4b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279345"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendre et utiliser les kits Azure IoT Hub SDK
@@ -54,10 +54,10 @@ Azure IoT Hub device SDK pour C (ANSI C - C99) :
 
 * installation à partir d’[apt-get, MBED, Arduino IDE ou iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)
 * [Code source](https://github.com/Azure/azure-iot-sdk-c)
-* [Compiler le Kit de développement logiciel C de périphérique](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compiling-the-c-device-sdk)
+* [Compiler le kit Device SDK C](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compiling-the-c-device-sdk)
 * [Informations de référence sur l'API](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [Informations de référence sur les modules](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
-* [Le Kit de développement logiciel C sur d’autres plateformes de portage](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
+* [Portage du kit SDK C vers d’autres plateformes](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * [Documentation du développeur](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc) pour plus d’informations sur la compilation croisée, la procédure pour bien démarrer avec différentes plateformes, et ainsi de suite.
 * [Informations de consommation de ressources IoT Hub C SDK Azure](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
 
@@ -169,7 +169,7 @@ Les kits de développement logiciel IoT d’Azure fournissent également un ense
 Documentation pertinente relative au développement à l’aide des kit Azure IoT SDK :
 * Découvrez comment [gérer la connectivité et la messagerie fiable](iot-hub-reliability-features-in-sdks.md) à l’aide des kits IoT Hub SDK.
 * Découvrez comment [développer pour des plateformes mobiles](iot-hub-how-to-develop-for-mobile-devices.md) telles qu’iOS et Android.
-* [Support de plateforme Azure IoT SDK](iot-hub-device-sdk-platform-support.md)
+* [Prise en charge des plateformes par le kit de développement logiciel (SDK) Azure IoT](iot-hub-device-sdk-platform-support.md)
 
 
 Les autres rubriques de référence de ce Guide du développeur IoT Hub comprennent :
@@ -177,5 +177,5 @@ Les autres rubriques de référence de ce Guide du développeur IoT Hub comprenn
 * [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md)
 * [Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages](iot-hub-devguide-query-language.md)
 * [Quotas et limitation](iot-hub-devguide-quotas-throttling.md)
-* [Prise en charge de MQTT au niveau d’IoT Hub](iot-hub-mqtt-support.md)
-* [Référence de l’API REST IoT Hub](/rest/api/iothub/)
+* [Prise en charge de MQTT dans IoT Hub](iot-hub-mqtt-support.md)
+* [Informations de référence sur l’API REST d’IoT Hub](/rest/api/iothub/)

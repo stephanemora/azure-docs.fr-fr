@@ -7,14 +7,14 @@ ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 34a63c8f283f24fa58b4e2a41d3a44ff0c8c3c17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 02c7f53c090559ca0ada46ec90de3a44b0518a29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003473"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683571"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight – meilleures pratiques concernant la migration de données
 
@@ -29,8 +29,7 @@ Il existe deux options principales pour migrer des données d’un environnement
     2. Express Route : ExpressRoute est un service Azure qui vous permet de créer des connexions privées entre les centres de données Microsoft et une infrastructure locale ou une installation de colocalisation. Les connexions ExpressRoute ne sont pas établies via le réseau public Internet et offrent plus de sécurité, de fiabilité et de rapidité, ainsi que moins de latences que les connexions classiques sur Internet. Pour plus d’informations, consultez l’article [Créer et modifier un circuit ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Transfert de données en ligne Data Box : Data Box Edge et Data Box Gateway sont des produits de transfert de données en ligne, qui font office de passerelles de stockage réseau pour gérer les données transitant entre votre site et Azure. Data Box Edge est un appareil réseau local, qui échange des données avec Azure et utilise le computing en périphérie basé sur l’intelligence artificielle pour traiter les données. Data Box Gateway est une appliance virtuelle dotée de fonctionnalités de passerelle de stockage. Pour plus d’informations, consultez [Documentation Azure Data Box - Transfert en ligne](https://docs.microsoft.com/azure/databox-online/).
 1.  Expédition de données hors connexion
-    1. Service d’importation/exportation : vous pouvez envoyer des disques physiques à Azure, qui les chargera pour vous. Pour plus d’informations, consultez [Qu’est-ce que le service Azure Import/Export ?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
-    1. Transfert de données hors connexion Data Box : les appareils Data Box, Data Box Disk et Data Box Heavy vous permettent de transférer de grandes quantités de données vers Azure quand l’utilisation du réseau n’est pas envisageable. Ces appareils de transfert de données hors connexion sont échangés entre votre organisation et le centre de données Azure. Ils utilisent un chiffrement AES pour protéger vos données en transit et font l’objet d’un processus complet d’assainissement après téléchargement, destiné à supprimer vos données. Pour plus d’informations, consultez [Documentation Azure Data Box - Transfert hors connexion](https://docs.microsoft.com/azure/databox/).
+    1. Transfert de données hors connexion Data Box : les appareils Data Box, Data Box Disk et Data Box Heavy vous permettent de transférer de grandes quantités de données vers Azure quand l’utilisation du réseau n’est pas envisageable. Ces appareils de transfert de données hors connexion sont échangés entre votre organisation et le centre de données Azure. Ils utilisent un chiffrement AES pour protéger vos données en transit et font l’objet d’un processus complet d’assainissement après téléchargement, destiné à supprimer vos données. Pour plus d’informations sur les appareils de transfert hors connexion de zone de données, consultez [Documentation Azure Data Box - transfert hors connexion](https://docs.microsoft.com/azure/databox/). Pour plus d’informations sur la migration des clusters Hadoop, consultez [utiliser Azure Data Box pour migrer à partir d’un magasin HDFS en local vers Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 Le tableau suivant indique les durées moyennes de transfert de données en fonction du volume de données et de la bande passante réseau. Utilise une Data Box si la migration des données est censée prendre plus de trois semaines.
 

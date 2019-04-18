@@ -1,39 +1,37 @@
 ---
 title: Connexion web avec OpenID Connect - Azure Active Directory B2C | Microsoft Docs
-description: Création d’applications web à l’aide de l’implémentation du protocole d’authentification OpenID Connect d’Azure Active Directory.
+description: Créer des applications web à l’aide du protocole d’authentification OpenID Connect dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: bd7ecf273d4e842909d88eeaa3683203d8d9e841
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 6285a90a9dca305f3a9cd909af6c084c747daf99
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429161"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679055"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Connexion web avec OpenID Connect dans Azure Active Directory B2C
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) est un protocole d’authentification basé sur OAuth 2.0, qui peut être utilisé pour connecter de façon sécurisée des utilisateurs à des applications web. En utilisant l’implémentation d’OpenID Connect d’Azure Active Directory B2C (Azure AD B2C), vous pouvez sous-traiter l’inscription, la connexion et d’autres tâches de gestion des identités de vos applications web à Azure Active Directory. Ce guide explique comment procéder, indépendamment du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos bibliothèques open source.
+OpenID Connect est un protocole d’authentification basé sur OAuth 2.0, qui peut être utilisé pour connecter de façon sécurisée des utilisateurs à des applications web. En utilisant l’implémentation d’OpenID Connect d’Azure Active Directory B2C (Azure AD B2C), vous pouvez sous-traiter l’inscription, la connexion et d’autres tâches de gestion des identités de vos applications web à Azure Active Directory. Ce guide explique comment procéder, indépendamment du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos bibliothèques open source.
 
-OpenID Connect étend le protocole d’*autorisation* OAuth 2.0 pour l’utiliser en tant que protocole d’*authentification*. Vous pouvez ainsi procéder à une authentification unique à l’aide d’OAuth. Il introduit le concept de *jeton d’ID*, qui est un jeton de sécurité permettant au client de vérifier l’identité de l’utilisateur et d’obtenir des informations de base sur son profil.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) étend le protocole *d’autorisation* OAuth 2.0 pour l’utiliser en tant que protocole *d’authentification*. Ce protocole d’authentification vous permet d’effectuer l’authentification unique. Il introduit le concept d’un *jeton d’ID*, ce qui permet au client de vérifier l’identité de l’utilisateur et obtenir des informations de profil de base sur l’utilisateur.
 
-Comme il étend OAuth 2.0, les applications peuvent acquérir de façon sécurisée des *jetons d’accès*. Vous pouvez utiliser des jetons d’accès pour accéder aux ressources qui sont sécurisées par un [serveur d’autorisation](active-directory-b2c-reference-protocols.md#the-basics). Nous recommandons OpenID Connect si vous concevez une application web hébergée sur un serveur et accessible par le biais d’un navigateur. Si vous souhaitez ajouter la gestion des identités à votre application mobile ou à votre application de bureau à l’aide d’Azure AD B2C, vous devez utiliser [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) au lieu d’OpenID Connect.
+Parce qu’il étend OAuth 2.0, il permet également aux applications d’acquérir en toute sécurité *de jetons d’accès*. Vous pouvez utiliser des jetons d’accès pour accéder aux ressources qui sont sécurisées par un [serveur d’autorisation](active-directory-b2c-reference-protocols.md). OpenID Connect est recommandée si vous créez une application web qui a hébergé sur un serveur et accessibles via un navigateur. Si vous souhaitez ajouter la gestion des identités pour vos appareils mobiles ou applications de bureau à l’aide d’Azure AD B2C, vous devez utiliser [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) au lieu d’OpenID Connect. Pour plus d’informations sur les jetons, consultez le [vue d’ensemble de jetons dans Azure Active Directory B2C](active-directory-b2c-reference-tokens.md)
 
-Azure AD B2C étend le protocole OpenID Connect standard pour proposer plus qu’une simple authentification et une simple autorisation. Il introduit le [paramètre de flux utilisateur](active-directory-b2c-reference-policies.md), grâce auquel vous pouvez utiliser OpenID Connect pour ajouter à votre application des expériences utilisateur comme l’inscription, la connexion et la gestion des profils. Fournisseurs d’identité qui utilisent le protocole OpenID Connect incluent le [compte Microsoft](active-directory-b2c-setup-msa-app.md) et d’autres [fournisseurs OpenID Connect](active-directory-b2c-setup-oidc-idp.md).
-
-Les demandes HTTP d’exemple dans la section suivante utilisent notre répertoire B2C d’exemple fabrikamb2c.onmicrosoft.com, ainsi que notre exemple d’application, https://aadb2cplayground.azurewebsites.net, et nos flux d’utilisateurs. Vous êtes libre de tester ces demandes vous-même à l’aide de ces valeurs, ou de les remplacer par les vôtres.
-Découvrez comment [obtenir votre propre client B2C, votre application et vos flux d’utilisateurs](#use-your-own-b2c-tenant).
+Azure AD B2C étend le protocole OpenID Connect standard pour proposer plus qu’une simple authentification et une simple autorisation. Il introduit le [paramètre de flux utilisateur](active-directory-b2c-reference-policies.md), ce qui vous permet d’utiliser OpenID Connect pour ajouter l’utilisateur des expériences à votre application, comme inscription, connexion et gestion de profil.
 
 ## <a name="send-authentication-requests"></a>Envoi de demandes d’authentification
-Lorsque votre application web a besoin d’authentifier l’utilisateur et d’exécuter un flux utilisateur, elle peut le diriger vers le point de terminaison `/authorize`. Il s’agit de la partie interactive du flux, dans laquelle l’utilisateur agit en fonction du flux utilisateur.
 
-Dans cette demande, le client indique les autorisations qu’il a besoin d’acquérir de l’utilisateur dans le paramètre `scope` et le flux utilisateur à exécuter dans le paramètre `p`. Trois exemples sont fournis dans les sections suivantes (avec des sauts de ligne pour une meilleure lisibilité), chacun utilisant un flux utilisateur différent. Pour avoir une idée du fonctionnement de chaque demande, essayez de coller la demande dans un navigateur et exécutez-la.
+Lorsque votre application web doit authentifier l’utilisateur et exécuter un flux d’utilisateur, il peut diriger l’utilisateur vers le `/authorize` point de terminaison. L’utilisateur prend des mesures selon le flux de l’utilisateur.
+
+Dans cette demande, le client indique les autorisations dont il a besoin d’acquérir de l’utilisateur dans le `scope` paramètre et le flux d’utilisateur s’exécute le `p` paramètre. Trois exemples sont fournis dans les sections suivantes (avec des sauts de ligne pour une meilleure lisibilité), chacun utilisant un flux utilisateur différent. Pour avoir une idée du fonctionnement de chaque demande, essayez de coller la demande dans un navigateur et exécutez-la. Vous pouvez remplacer `fabrikamb2c` avec le nom de votre client si vous en avez pas et que vous avez créé un flux utilisateur.
 
 #### <a name="use-a-sign-in-user-flow"></a>Utilisation d’un flux d’utilisateur de connexion
 ```
@@ -74,21 +72,21 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Paramètre | Requis ? | Description |
-| --- | --- | --- |
-| client_id |Obligatoire |L’ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
-| response_type |Obligatoire |Type de réponse, qui doit inclure un jeton d’ID pour OpenID Connect. Si votre application web a également besoin de jetons pour appeler une API web, vous pouvez utiliser `code+id_token`, comme nous l’avons fait ici. |
-| redirect_uri |Recommandé |Paramètre `redirect_uri` de votre application, où les réponses d’authentification peuvent être envoyées et reçues par votre application. Il doit correspondre exactement à un des paramètres `redirect_uri` que vous avez inscrits dans le portail, excepté qu’il doit être codé dans une URL. |
-| scope |Obligatoire |Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure AD les deux autorisations qui sont demandées. L’étendue `openid` indique une autorisation de connecter l’utilisateur et d’obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID (vous pouvez trouver plus d’informations à ce sujet plus loin dans l’article). L’étendue `offline_access` est facultative pour les applications Web. Elle indique que votre application a besoin d’un *jeton d’actualisation* pour un accès de longue durée aux ressources. |
-| response_mode |Recommandé |Méthode à utiliser pour renvoyer le code d’autorisation résultant à votre application. Il peut s’agir de `query`, `form_post` ou `fragment`.  Le mode de réponse `form_post` est recommandé pour une sécurité optimale. |
-| state |Recommandé |Une valeur incluse dans la requête qui est également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour empêcher les falsifications de requête intersite. La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page sur laquelle il était positionné. |
-| nonce |Obligatoire |Valeur incluse dans la demande (générée par l’application), qui sera intégrée dans le jeton d’ID résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique aléatoire qui peut être utilisée pour identifier l’origine de la demande. |
-| p |Obligatoire |Le flux utilisateur qui sera exécuté. Il s’agit du nom d’un flux utilisateur qui est créé dans votre client B2C. La valeur du nom du flux utilisateur doit commencer par `b2c\_1\_`. Découvrez plus d’informations sur les stratégies et [l’infrastructure de flux utilisateur extensible](active-directory-b2c-reference-policies.md). |
-| prompt |Facultatif |Type d’interaction utilisateur requis. La seule valeur valide pour l’instant est `login`, qui oblige l’utilisateur à saisir ses informations d’identification sur cette demande. L’authentification unique ne prendra pas effet. |
+| Paramètre | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| client_id | Oui | L’ID d’application qui le [Azure portal](https://portal.azure.com/) affecté à votre application. |
+| response_type | Oui | Doit inclure un jeton d’ID pour OpenID Connect. Si votre application web doit également des jetons pour appeler une API web, vous pouvez utiliser `code+id_token`. |
+| redirect_uri | Non  | Le `redirect_uri` paramètre de votre application, où les réponses d’authentification peuvent être envoyés et reçus par votre application. Il doit correspondre exactement à un de le `redirect_uri` paramètres que vous avez inscrite dans le portail Azure, à ceci près qu’il doit être codée URL. |
+| scope | Oui | Une liste d’étendues séparées par des espaces. L’étendue `openid` indique une autorisation pour connecter l’utilisateur et obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID. Le `offline_access` étendue est facultative pour les applications web. Il indique que votre application a besoin un *jeton d’actualisation* d’un accès étendu aux ressources. |
+| response_mode | Non  | La méthode qui est utilisée pour renvoyer le code d’autorisation résultant à votre application. Il peut s’agir de `query`, `form_post` ou `fragment`.  Le mode de réponse `form_post` est recommandé pour une sécurité optimale. |
+| state | Non  | Une valeur incluse dans la requête qui est également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour empêcher les falsifications de requête intersite. L’état est également utilisé pour encoder les informations sur l’état de l’utilisateur dans l’application avant la demande d’authentification, comme la page sur qu'ils se trouvaient. |
+| nonce | Oui | Une valeur incluse dans la demande (générée par l’application) qui est incluse dans le jeton d’ID résultant en tant que revendication. L’application peut ensuite vérifier cette valeur pour atténuer les attaques par relecture de jeton. La valeur est généralement une valeur unique aléatoire qui peut être utilisée pour identifier l’origine de la demande. |
+| p | Oui | Le flux de l’utilisateur qui est exécuté. Il s’agit du nom d’un flux d’utilisateur qui est créé dans votre locataire Azure AD B2C. Le nom du flux utilisateur doit commencer par `b2c\_1\_`. |
+| prompt | Non  | Type d’interaction utilisateur demandée. La seule valeur valide pour l’instant est `login`, qui oblige l’utilisateur à saisir ses informations d’identification sur cette demande. |
 
-À ce stade, il est demandé à l’utilisateur d’effectuer le workflow du flux utilisateur. Il est possible que l’utilisateur doive entrer son nom d’utilisateur et son mot de passe, se connecter avec une identité sociale, s’inscrire à l’annuaire ou effectuer d’autres actions, en fonction de la façon dont le flux utilisateur est défini.
+À ce stade, l’utilisateur est invité à terminer le flux de travail. L’utilisateur peut avoir à entrer son nom d’utilisateur et le mot de passe, inscrivez-vous avec une identité sociale ou la connexion à l’annuaire. Il peut y avoir autant d’étapes en fonction de la façon dont le flux de l’utilisateur est défini.
 
-Une fois que l’utilisateur a terminé le flux utilisateur, Azure AD retourne une réponse à votre application dans le paramètre `redirect_uri` indiqué, en utilisant la méthode spécifiée dans le paramètre `response_mode`. La réponse est la même pour chacun des cas ci-dessus, indépendamment du flux utilisateur exécuté.
+Une fois que l’utilisateur termine le flux de l’utilisateur, une réponse est retournée à votre application à l’indiquée `redirect_uri` paramètre, à l’aide de la méthode qui est spécifiée dans le `response_mode` paramètre. La réponse est la même pour chacun des cas précédents, indépendamment du flux utilisateur.
 
 Une réponse réussie utilisant `response_mode=fragment` se présenterait ainsi :
 
@@ -100,12 +98,12 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
 | Paramètre | Description |
-| --- | --- |
-| id_token |Le jeton d'ID que l’application a demandé. Vous pouvez utiliser le jeton d'ID pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. Pour plus d’informations sur les jetons d’ID et leur contenu, consultez les [Informations de référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md). |
-| code |Le code d’autorisation demandé par l’application, si vous avez utilisé `response_type=code+id_token`. L’application peut utiliser ce code d’autorisation afin de demander un jeton d’accès pour une ressource cible. Les codes d’autorisation ont des durées de vie très courtes. Généralement, ils expirent au bout de 10 minutes. |
-| state |Si un paramètre `state` est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs `state` de la demande et de la réponse sont identiques. |
+| --------- | ----------- |
+| id_token | Le jeton d’ID demandé par l’application. Vous pouvez utiliser le jeton d'ID pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. |
+| code | Le code d’autorisation demandé par l’application, si vous avez utilisé `response_type=code+id_token`. L’application peut utiliser le code d’autorisation pour demander un jeton d’accès pour une ressource cible. Codes d’autorisation est généralement expirent après 10 minutes environ. |
+| state | Si un paramètre `state` est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que le `state` valeurs de la demande et la réponse sont identiques. |
 
-Les réponses d’erreur peuvent également être envoyées au paramètre `redirect_uri`, pour que l’application puisse les traiter de façon appropriée :
+Réponses d’erreur peuvent également être envoyés à la `redirect_uri` paramètre afin que l’application peut traiter de manière appropriée :
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -115,17 +113,16 @@ error=access_denied
 ```
 
 | Paramètre | Description |
-| --- | --- |
-| error |Chaîne de code d’erreur qui peut être utilisée pour classer les types d’erreur qui se produisent, et aussi pour réagir aux erreurs. |
-| error_description |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
-| state |Consultez la description complète dans le premier tableau de cette section. Si un paramètre `state` est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs `state` de la demande et de la réponse sont identiques. |
+| --------- | ----------- |
+| error | Un code qui peut être utilisé pour classer les types d’erreurs qui se produisent. |
+| error_description | Un message d’erreur spécifique qui peut aider à identifier la cause racine d’une erreur d’authentification. |
+| state | Si un paramètre `state` est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que le `state` valeurs de la demande et la réponse sont identiques. |
 
 ## <a name="validate-the-id-token"></a>Validation du jeton d’ID
-La réception d’un jeton d’ID à elle seule n’est pas suffisante pour authentifier l’utilisateur. Vous devez valider la signature du jeton d’ID et vérifier les revendications du jeton selon les exigences de votre application. Azure AD B2C utilise les [jetons Web JSON (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
 
-Il existe de nombreuses bibliothèques open source pour valider les jetons JWT en fonction de votre langage préféré. Nous vous recommandons d’explorer ces options plutôt que d’implémenter votre propre logique de validation. Ces informations sont utiles pour savoir comment utiliser correctement ces bibliothèques.
+La réception d’un jeton d’ID à elle seule n’est pas suffisante pour authentifier l’utilisateur. Valider la signature du jeton d’ID et vérifier les revendications du jeton selon les exigences de votre application. Azure AD B2C utilise les [jetons Web JSON (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité. Il existe de nombreuses bibliothèques open source pour valider les jetons JWT en fonction de votre langage préféré. Nous vous recommandons d’explorer ces options plutôt que d’implémenter votre propre logique de validation. 
 
-Azure AD B2C présente un point de terminaison de métadonnées OpenID Connect, qui permet à une application de récupérer les informations relatives à Azure AD B2C lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Il existe un document de métadonnées JSON pour chaque flux utilisateur dans votre locataire B2C. Par exemple, le document de métadonnées pour le flux utilisateur `b2c_1_sign_in` dans `fabrikamb2c.onmicrosoft.com` se trouve à l’emplacement suivant :
+Azure AD B2C a un OpenID Connect métadonnées point de terminaison, ce qui permet à une application obtenir des informations sur Azure AD B2C lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Il existe un document de métadonnées JSON pour chaque flux utilisateur dans votre locataire B2C. Par exemple, le document de métadonnées pour le flux utilisateur `b2c_1_sign_in` dans `fabrikamb2c.onmicrosoft.com` se trouve à l’emplacement suivant :
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
@@ -133,31 +130,29 @@ Une des propriétés de ce document de configuration est `jwks_uri`, dont la val
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
 
-Pour déterminer le flux utilisateur utilisé pour la connexion d’un jeton d’ID (et d’où extraire les métadonnées), deux options sont possibles. Tout d’abord, le nom du flux utilisateur est inclus dans la revendication `acr` du jeton d’ID. Pour plus d’informations sur la façon d’analyser les revendications à partir d’un jeton d’ID, consultez les [Informations de référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md). L’autre option consiste à coder le flux utilisateur dans la valeur du paramètre `state` lors de l’émission de la requête, puis à la décoder pour déterminer le flux utilisateur qui a été utilisé. Les 2 méthodes sont valides.
+Pour déterminer quels flux utilisateur utilisé pour la connexion d’un ID de jeton (et à partir de laquelle obtenir les métadonnées), vous avez deux options. Tout d’abord, le nom du flux utilisateur est inclus dans la revendication `acr` du jeton d’ID. L’autre option consiste à coder le flux utilisateur dans la valeur du paramètre `state` lors de l’émission de la requête, puis à la décoder pour déterminer le flux utilisateur qui a été utilisé. Les 2 méthodes sont valides.
 
-Après avoir acquis le document de métadonnées auprès du point de terminaison de métadonnées OpenID Connect, vous pouvez utiliser les clés publiques RSA 256 (qui se trouvent sur ce point de terminaison) pour valider la signature du jeton d’ID. Ce point de terminaison peut comporter plusieurs clés à tout moment, chacune étant identifiée par une revendication `kid`. L’en-tête de ce jeton d’ID contient également une revendication `kid`, qui indique quelle clé a été utilisée pour signer le jeton d’ID. Pour plus d’informations, consultez les [Informations de référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md) (en particulier la section sur la [validation des jetons](active-directory-b2c-reference-tokens.md#token-validation)).
-<!--TODO: Improve the information on this-->
+Une fois que vous avez acquis le document de métadonnées à partir du point de terminaison de métadonnées OpenID Connect, vous pouvez utiliser les clés publiques RSA 256 pour valider la signature du jeton d’ID. Il peut y avoir plusieurs clés répertoriées à ce point de terminaison, chacune étant identifiée par un `kid` de revendication. L’en-tête de ce jeton d’ID contient également une revendication `kid`, qui indique quelle clé a été utilisée pour signer le jeton d’ID.
 
 Après avoir validé la signature du jeton d’ID, vous devez vérifier plusieurs revendications. Exemple :
 
-* Vous devez valider la revendication `nonce` afin d’empêcher les attaques par relecture de jetons. Sa valeur doit correspondre à ce que vous avez spécifié dans la requête de connexion.
-* Vous devez valider la revendication `aud` afin de vérifier que le jeton d’ID a été émis pour votre application. Sa valeur doit correspondre à l’ID d’application de votre application.
-* Vous devez valider les revendications `iat` et `exp` afin de vérifier que le jeton d’ID n’est pas expiré.
+- Validez la revendication `nonce` afin d’empêcher les attaques par relecture de jetons. Sa valeur doit correspondre à ce que vous avez spécifié dans la requête de connexion.
+- Valider la `aud` revendication afin de vérifier que le jeton d’ID a été émis pour votre application. Sa valeur doit être l’ID d’application de votre application.
+- Valider la `iat` et `exp` de revendications pour vous assurer que le jeton d’ID n’a pas expiré.
 
-Vous devez également effectuer plusieurs autres validations. Celles-ci sont décrites en détail dans les [Spécifications principales d’OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires. Voici quelques validations courantes :
+Vous devez également effectuer plusieurs autres validations. Les validations sont décrites en détail dans le [spécifications principales d’OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires. Voici quelques validations courantes :
 
-* Vérifier que l’utilisateur/l’organisation s’est inscrit pour l’application.
-* Vérifier que l’utilisateur dispose de l’autorisation/des privilèges appropriés.
-* S’assurer de l’utilisation d’une force certaine d’authentification, comme Azure Multi-Factor Authentication.
+- Vérifier que l’utilisateur / l’organisation s’est inscrit pour l’application.
+- Vérifier que l’utilisateur dispose de l’autorisation/des privilèges appropriés.
+- S’assurer de l’utilisation d’une force certaine d’authentification, comme Azure Multi-Factor Authentication.
 
-Pour plus d’informations sur les revendications dans un jeton d’ID, consultez les [Informations de référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md).
-
-Une fois que vous avez validé le jeton d’ID, vous pouvez démarrer une session avec l’utilisateur. Vous pouvez utiliser les revendications du jeton d’ID pour obtenir des informations sur l’utilisateur dans votre application. Les utilisations de ces informations sont notamment l’affichage, les enregistrements et les autorisations.
+Après avoir validé le jeton d’ID, vous pouvez commencer une session avec l’utilisateur. Vous pouvez utiliser les revendications dans le jeton d’ID pour obtenir des informations sur l’utilisateur dans votre application. Les utilisations de ces informations sont notamment l’affichage, les enregistrements et les autorisations.
 
 ## <a name="get-a-token"></a>Obtention d’un jeton
-Si votre application web doit seulement exécuter des flux d’utilisateurs, vous pouvez ignorer les quelques sections suivantes. Ces sections s’appliquent seulement aux applications web qui doivent effectuer des appels authentifiés à une API web et qui sont également protégées par Azure AD B2C.
 
-Vous pouvez échanger le code d’autorisation que vous avez acquis (en utilisant `response_type=code+id_token`) contre un jeton sur la ressource souhaitée en envoyant une demande `POST` au point de terminaison `/token`. Actuellement, la seule ressource pour laquelle vous pouvez demander un jeton est l’API web principale de votre application. La convention pour demander un jeton à vous-même consiste à utiliser votre ID de client d’application en tant qu’étendue :
+Si vous avez besoin de votre application web pour exécuter uniquement les flux d’utilisateurs, vous pouvez ignorer les sections suivantes. Ces sections sont applique uniquement aux web applications qui doivent effectuer des appels authentifiés à une API web et sont également protégées par Azure AD B2C.
+
+Vous pouvez échanger le code d’autorisation que vous avez acquis (en utilisant `response_type=code+id_token`) contre un jeton sur la ressource souhaitée en envoyant une demande `POST` au point de terminaison `/token`. Actuellement, la seule ressource pour laquelle vous pouvez demander un jeton est votre web back-end de l’application API. La convention pour demander un jeton à vous-même consiste à utiliser des ID de client de votre application en tant que l’étendue :
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -165,18 +160,17 @@ Host: https://fabrikamb2c.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
-
 ```
 
-| Paramètre | Requis ? | Description |
-| --- | --- | --- |
-| p |Obligatoire |Le flux utilisateur qui a été utilisé pour obtenir le code d’autorisation. Vous ne pouvez pas utiliser un autre flux utilisateur dans cette demande. Notez que vous ajoutez ce paramètre à la chaîne de requête, et non pas au corps de `POST`. |
-| client_id |Obligatoire |L’ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
-| grant_type |Obligatoire |Le type d’octroi, qui doit être `authorization_code` pour le flux de code d’autorisation. |
-| scope |Recommandé |Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure AD les deux autorisations qui sont demandées. L’étendue `openid` indique une autorisation pour connecter l’utilisateur et obtenir des données relatives à l’utilisateur sous la forme de paramètres id_token. Elle peut être utilisée afin d’obtenir des jetons pour l’API web principale de votre application, qui est représentée par le même ID d’application que le client. L’étendue `offline_access` indique que votre application a besoin d’un jeton d’actualisation pour un accès de longue durée aux ressources. |
-| code |Obligatoire |Code d’autorisation acquis dans le premier tronçon du flux. |
-| redirect_uri |Obligatoire |Le paramètre `redirect_uri` de l’application où vous avez reçu le code d’autorisation. |
-| client_secret |Obligatoire |Le secret d'application que vous avez généré dans le [portail Azure](https://portal.azure.com/). Ce secret d’application est un artefact de sécurité important. Vous devez le stocker sur votre serveur de manière sécurisée. Vous devez également veiller à renouveler ce secret du client régulièrement. |
+| Paramètre | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| p | Oui | Le flux utilisateur qui a été utilisé pour obtenir le code d’autorisation. Vous ne pouvez pas utiliser un flux d’utilisateur différent dans cette demande. Ajoutez ce paramètre à la chaîne de requête, et non vers le corps POST. |
+| client_id | Oui | L’ID d’application qui le [Azure portal](https://portal.azure.com/) affecté à votre application. |
+| grant_type | Oui | Le type d’octroi, qui doit être `authorization_code` pour le flux de code d’autorisation. |
+| scope | Non  | Une liste d’étendues séparées par des espaces. L’étendue `openid` indique une autorisation pour connecter l’utilisateur et obtenir des données relatives à l’utilisateur sous la forme de paramètres id_token. Il peut être utilisé pour obtenir des jetons pour votre web back-end de l’application API, qui est représentée par le même ID d’application en tant que le client. Le `offline_access` étendue indique que votre application a besoin d’un jeton d’actualisation d’un accès étendu aux ressources. |
+| code | Oui | Le code d’autorisation que vous avez acquis au début du flux utilisateur. |
+| redirect_uri | Oui | Le paramètre `redirect_uri` de l’application où vous avez reçu le code d’autorisation. |
+| client_secret | Oui | Le secret d’application qui a été généré dans le [Azure portal](https://portal.azure.com/). Ce secret d’application est un artefact de sécurité important. Vous devez le stocker sur votre serveur de manière sécurisée. Modifiez cette clé secrète client de manière périodique. |
 
 Un jeton de réponse de réussite se présente ainsi :
 
@@ -191,13 +185,13 @@ Un jeton de réponse de réussite se présente ainsi :
 }
 ```
 | Paramètre | Description |
-| --- | --- |
-| not_before |Heure à laquelle le jeton est considéré comme valide, en heure epoch. |
-| token_type |Valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est `Bearer`. |
-| access_token |Le jeton JWT signé que vous avez demandé. |
-| scope |Étendues pour lesquelles le jeton est valide. Elles peuvent être utilisées pour mettre en cache des jetons pour une utilisation ultérieure. |
-| expires_in |Durée de validité du jeton d’accès (en secondes). |
-| refresh_token |Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons supplémentaires après l’expiration du jeton actuel. Les jetons d’actualisation ont une durée de vie longue et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes de temps étendues. Pour plus d’informations, consultez les [Informations de référence sur les jetons B2C](active-directory-b2c-reference-tokens.md). Notez que vous devez avoir utilisé l’étendue `offline_access` dans les demandes d’autorisation et de jeton pour recevoir un jeton d’actualisation. |
+| --------- | ----------- |
+| not_before | Heure à laquelle le jeton est considéré comme valide, en heure epoch. |
+| token_type | Valeur du type de jeton. `Bearer` est le seul type pris en charge. |
+| access_token | Le jeton JWT signé que vous avez demandé. |
+| scope | Étendues pour lesquelles le jeton est valide. |
+| expires_in | Durée de validité du jeton d’accès (en secondes). |
+| refresh_token | Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons supplémentaires après l’expiration du jeton en cours. Actualiser les jetons peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées. L’étendue `offline_access` doit avoir été utilisé dans les demandes de jeton et d’autorisation afin de recevoir un jeton d’actualisation. |
 
 Les réponses d’erreur se présentent comme ceci :
 
@@ -209,11 +203,12 @@ Les réponses d’erreur se présentent comme ceci :
 ```
 
 | Paramètre | Description |
-| --- | --- |
-| error |Chaîne de code d’erreur qui peut être utilisée pour classer les types d’erreur qui se produisent, et aussi pour réagir aux erreurs. |
-| error_description |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
+| --------- | ----------- |
+| error | Un code qui peut être utilisé pour classer les types d’erreurs qui se produisent. |
+| error_description | Un message qui peut aider à identifier la cause racine d’une erreur d’authentification. |
 
 ## <a name="use-the-token"></a>Utilisation du jeton
+
 Un jeton d’accès étant acquis, vous pouvez maintenant l’utiliser dans les demandes effectuées à vos API web principales en l’incluant dans l’en-tête `Authorization` :
 
 ```
@@ -223,7 +218,8 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ## <a name="refresh-the-token"></a>Actualisation du jeton
-Les jetons d’ID ont une durée de vie courte. Vous devez les actualiser après leur expiration pour continuer à accéder aux ressources. Pour ce faire, envoyez une nouvelle demande `POST` au point de terminaison `/token`. Cette fois-ci, spécifiez le paramètre `refresh_token` au lieu du paramètre `code` :
+
+Les jetons d’ID expirent après une courte période de temps. Les jetons d’actualisation après leur expiration pour continuer à accéder aux ressources. Vous pouvez actualiser un jeton, envoyez une nouvelle `POST` demande à le `/token` point de terminaison. Cette fois-ci, spécifiez le paramètre `refresh_token` au lieu du paramètre `code` :
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -234,14 +230,14 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 ```
 
 | Paramètre | Obligatoire | Description |
-| --- | --- | --- |
-| p |Obligatoire |Flux utilisateur utilisé pour obtenir le jeton d’actualisation d’origine. Vous ne pouvez pas utiliser un autre flux utilisateur dans cette demande. Notez que vous ajoutez ce paramètre à la chaîne de requête, et non pas au corps de POST. |
-| client_id |Obligatoire |L’ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
-| grant_type |Obligatoire |Le type d’octroi, qui doit être un jeton d’actualisation pour ce tronçon du flux de code d’autorisation. |
-| scope |Recommandé |Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure AD les deux autorisations qui sont demandées. L’étendue `openid` indique une autorisation pour connecter l’utilisateur et obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID. Elle peut être utilisée afin d’obtenir des jetons pour l’API web principale de votre application, qui est représentée par le même ID d’application que le client. L’étendue `offline_access` indique que votre application a besoin d’un jeton d’actualisation pour un accès de longue durée aux ressources. |
-| redirect_uri |Recommandé |Le paramètre `redirect_uri` de l’application où vous avez reçu le code d’autorisation. |
-| refresh_token |Obligatoire |Jeton d’actualisation d’origine que vous avez acquis dans le second tronçon du flux. Notez que vous devez avoir utilisé l’étendue `offline_access` dans les demandes d’autorisation et de jeton pour recevoir un jeton d’actualisation. |
-| client_secret |Obligatoire |Le secret d'application que vous avez généré dans le [portail Azure](https://portal.azure.com/). Ce secret d’application est un artefact de sécurité important. Vous devez le stocker sur votre serveur de manière sécurisée. Vous devez également veiller à renouveler ce secret du client régulièrement. |
+| --------- | -------- | ----------- |
+| p | Oui | Flux utilisateur utilisé pour obtenir le jeton d’actualisation d’origine. Vous ne pouvez pas utiliser un flux d’utilisateur différent dans cette demande. Ajoutez ce paramètre à la chaîne de requête, et non vers le corps POST. |
+| client_id | Oui | L’ID d’application qui le [Azure portal](https://portal.azure.com/) affecté à votre application. |
+| grant_type | Oui | Le type d’octroi, qui doit être un jeton d’actualisation pour cette partie du flux de code d’autorisation. |
+| scope | Non  | Une liste d’étendues séparées par des espaces. L’étendue `openid` indique une autorisation pour connecter l’utilisateur et obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID. Il peut être utilisé pour envoyer des jetons à votre web back-end de l’application API, qui est représentée par le même ID d’application en tant que le client. Le `offline_access` étendue indique que votre application a besoin d’un jeton d’actualisation d’un accès étendu aux ressources. |
+| redirect_uri | Non  | Le paramètre `redirect_uri` de l’application où vous avez reçu le code d’autorisation. |
+| refresh_token | Oui | Le jeton d’actualisation d’origine qui a été acquis dans la deuxième partie du flux. Le `offline_access` étendue doit être utilisée dans les demandes de jeton et d’autorisation afin de recevoir un jeton d’actualisation. |
+| client_secret | Oui | Le secret d’application qui a été généré dans le [Azure portal](https://portal.azure.com/). Ce secret d’application est un artefact de sécurité important. Vous devez le stocker sur votre serveur de manière sécurisée. Modifiez cette clé secrète client de manière périodique. |
 
 Un jeton de réponse de réussite se présente ainsi :
 
@@ -256,13 +252,13 @@ Un jeton de réponse de réussite se présente ainsi :
 }
 ```
 | Paramètre | Description |
-| --- | --- |
-| not_before |Heure à laquelle le jeton est considéré comme valide, en heure epoch. |
-| token_type |Valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est `Bearer`. |
-| access_token |Le jeton JWT signé que vous avez demandé. |
-| scope |Les étendues pour lesquelles le jeton est valide, qui peuvent être utilisées afin de mettre en cache des jetons pour une utilisation ultérieure. |
-| expires_in |Durée de validité du jeton d’accès (en secondes). |
-| refresh_token |Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons supplémentaires après l’expiration du jeton actuel.  Les jetons d’actualisation ont une durée de vie longue et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes de temps étendues. Pour plus d’informations, consultez la page de [référence des jetons B2C](active-directory-b2c-reference-tokens.md). |
+| --------- | ----------- |
+| not_before | Heure à laquelle le jeton est considéré comme valide, en heure epoch. |
+| token_type | Valeur du type de jeton. `Bearer` est le seul type pris en charge. |
+| access_token | Le jeton JWT signé qui a été demandé. |
+| scope | L’étendue pour laquelle le jeton est valide. |
+| expires_in | Durée de validité du jeton d’accès (en secondes). |
+| refresh_token | Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons supplémentaires après l’expiration du jeton en cours. Actualiser les jetons peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées. |
 
 Les réponses d’erreur se présentent comme ceci :
 
@@ -274,14 +270,15 @@ Les réponses d’erreur se présentent comme ceci :
 ```
 
 | Paramètre | Description |
-| --- | --- |
-| error |Chaîne de code d’erreur qui peut être utilisée pour classer les types d’erreur qui se produisent, et aussi pour réagir aux erreurs. |
-| error_description |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
+| --------- | ----------- |
+| error | Un code qui peut être utilisé pour classer les types d’erreurs qui se produisent. |
+| error_description | Un message qui peut aider à identifier la cause racine d’une erreur d’authentification. |
 
 ## <a name="send-a-sign-out-request"></a>Envoi d’une demande de déconnexion
-Quand vous souhaitez déconnecter l’utilisateur de l’application, la suppression des cookies de votre application ou l’arrêt de la session de l’utilisateur ne suffisent pas. Vous devez également rediriger l’utilisateur vers Azure AD. Si vous n’y parvenez pas, l’utilisateur peut être en mesure de se ré-authentifier auprès de votre application, sans entrer ses informations d’identification à nouveau. En effet, il dispose d’une session d’authentification unique valide avec Azure AD.
 
-Vous pouvez simplement rediriger l’utilisateur vers le point de terminaison `end_session` qui est répertorié dans le document de métadonnées OpenID Connect précédemment décrit dans la section « Validation du jeton d’ID » :
+Lorsque vous souhaitez déconnecter l’utilisateur de l’application, il n’est pas suffisant pour effacer les cookies de l’application ou d’arrêter la session de l’utilisateur. Rediriger l’utilisateur vers Azure AD B2C pour vous déconnecter. Si vous ne parvenez pas à le faire, l’utilisateur peut être en mesure de s’authentifier de nouveau à votre application sans saisir de nouveau leurs informations d’identification.
+
+Vous pouvez simplement rediriger l’utilisateur vers le `end_session` point de terminaison qui est répertorié dans le document de métadonnées OpenID Connect décrit précédemment :
 
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
@@ -289,20 +286,10 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Paramètre | Requis ? | Description |
-| --- | --- | --- |
-| p |Obligatoire |Flux utilisateur que vous voulez utiliser pour déconnecter l’utilisateur de votre application. |
-| post_logout_redirect_uri |Recommandé |URL vers laquelle l’utilisateur doit être redirigé après la déconnexion. Si elle n’est pas incluse, Azure AD B2C affiche un message générique à l’utilisateur. |
+| Paramètre | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| p | Oui | Flux utilisateur que vous voulez utiliser pour déconnecter l’utilisateur de votre application. |
+| post_logout_redirect_uri | Non  | L’URL vers laquelle l’utilisateur doit être redirigé après déconnexion réussie. Si elle n’est pas incluse, Azure AD B2C affiche un message générique à l’utilisateur. |
 
-> [!NOTE]
-> Bien que la redirection de l’utilisateur vers le point de terminaison `end_session` efface en partie l’état d’authentification unique de l’utilisateur auprès d’Azure AD B2C, elle ne déconnecte pas l’utilisateur de la session du fournisseur d’identité sociale. Si l’utilisateur sélectionne le même IDP pendant une connexion ultérieure, il est de nouveau authentifié sans entrer ses informations d’identification. Si un utilisateur veut se déconnecter de votre application B2C, cela ne signifie pas nécessairement qu’il souhaite se déconnecter de son compte Facebook. Toutefois, dans le cas de comptes locaux, la session de l’utilisateur sera terminée correctement.
-> 
-> 
-
-## <a name="use-your-own-b2c-tenant"></a>Utilisation de votre propre client B2C
-Si vous voulez tester ces demandes par vous-même, vous devez effectuer ces trois étapes puis remplacer les exemples de valeurs décrites précédemment par les vôtres :
-
-1. [Créez un client B2C](active-directory-b2c-get-started.md)et utilisez le nom de votre client dans les demandes.
-2. [Créez une application](active-directory-b2c-app-registration.md) pour obtenir un ID d’application. Incluez une application web/API web dans votre application. Si vous le souhaitez, créez un secret d’application.
-3. [Créez vos flux d’utilisateurs](active-directory-b2c-reference-policies.md) pour obtenir vos noms de flux utilisateur.
+Redirection de l’utilisateur pour le `end_session` point de terminaison efface certains d’unique état d’authentification l’utilisateur avec Azure AD B2C, mais elle ne déconnecte l’utilisateur en dehors de leur session (IDP) de fournisseur d’identité sociale. Si l’utilisateur sélectionne le même fournisseur d’identité au cours d’une suivantes signe, ils sont réauthentifiés sans entrer leurs informations d’identification. Si un utilisateur veut se déconnecter de l’application, n’implique pas forcément qu’il souhaite se déconnecter de leur compte Facebook. Toutefois, si les comptes locaux sont utilisés, la session utilisateur se termine correctement.
 

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
 ms.openlocfilehash: 0a29d763ab54ee716e514df23576e9c3b294d792
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359664"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning Studio : Déploiement et consommation
@@ -95,8 +95,8 @@ Vous pouvez tester votre service web sur le portail de services web Azure Machin
 
 Vous pouvez télécharger un modèle Excel qui consomme le service web :
 
-* [Utilisation d’un service web de Azure Machine Learning à partir d’Excel](consuming-from-excel.md)
-* [Complément Excel pour les Services Web de Azure Machine Learning](excel-add-in-for-web-services.md)
+* [Utilisation d’un service web Microsoft Azure Machine Learning à partir de Microsoft Excel.](consuming-from-excel.md)
+* [Complément Excel de services web Azure Machine Learning](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>À partir d’un client basé sur REST
 

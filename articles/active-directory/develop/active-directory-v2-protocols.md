@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490712"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocoles de plateforme d’identité Microsoft
@@ -69,7 +69,7 @@ Où le `{tenant}` peut prendre l’une de quatre valeurs différentes :
 | `common` | Permet aux utilisateurs avec des comptes Microsoft personnels et des comptes professionnels/scolaires Azure AD de se connecter à l’application. |
 | `organizations` | Permet uniquement aux utilisateurs avec des comptes professionnels/scolaires Azure AD de se connecter à l’application. |
 | `consumers` | Permet uniquement aux utilisateurs avec des comptes personnels Microsoft (MSA) de se connecter à l’application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Permet uniquement aux utilisateurs avec des comptes professionnels/scolaires d’un client Azure AD spécifique de se connecter à l’application. Le nom de domaine convivial du client Azure AD ou l’identificateur GUID du client peut être utilisé. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` | Permet uniquement aux utilisateurs avec des comptes professionnels/scolaires d’un client Azure AD spécifique de se connecter à l’application. Le nom de domaine convivial du client Azure AD ou l’identificateur GUID du client peut être utilisé. |
 
 Pour savoir comment interagir avec ces points de terminaison, choisissez un type particulier d’application dans la section [Protocoles](#protocols) et suivez les liens.
 
@@ -86,8 +86,8 @@ Plus d’informations de différents types de jetons utilisés dans le Microsoft
 
 Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacticiels ci-dessous. Chacun d’eux correspond à un scénario d’authentification particulier. Si vous avez besoin d’aide pour déterminer qui est le flux pour vous, consultez [les types d’applications que vous pouvez créer avec la plateforme d’identité Microsoft](v2-app-types.md).
 
-* [Créer une application mobile et native avec OAuth 2.0](v2-oauth2-auth-code-flow.md)
-* [Créer des applications web avec OpenID Connect](v2-protocols-oidc.md)
-* [Générer des applications à page unique avec le flux implicite d’OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
-* [Générer des démons ou processus côté serveur avec le flux des informations d’identification client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
-* [Obtenir des jetons dans une API web avec le flux d’authentification OAuth 2.0 on-behalf-of](v2-oauth2-on-behalf-of-flow.md)
+* [Générer une application mobile et native avec OAuth 2.0](v2-oauth2-auth-code-flow.md)
+* [Générer des applications web avec OpenID Connect](v2-protocols-oidc.md)
+* [Générer des applications monopages avec le flux implicite OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
+* [Générer des démons ou des processus côté serveur avec le flux d’informations d’identification du client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
+* [Obtenir des jetons dans une API web avec le flux Au nom de d’OAuth 2.0](v2-oauth2-on-behalf-of-flow.md)

@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279871"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrer à partir de l’accord entreprise aux API de contrat de client de Microsoft
@@ -80,7 +80,7 @@ Si vous utilisez des API EA existante, vous devez les mettre à jour pour prendr
 
 | Objectif | Ancien offre | Nouvelle offre |
 | --- | --- | --- |
-| Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Gestion des coûts Azure](https://azure.microsoft.com/services/cost-management/) |
+| Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
 | Power BI | [Informations sur la consommation Microsoft](/power-bi/desktop-connect-azure-consumption-insights) pack et connecteur de contenu | [Application Insights Power BI de Microsoft Azure consommation](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) et [connecteur d’Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>API pour obtenir le solde et crédits

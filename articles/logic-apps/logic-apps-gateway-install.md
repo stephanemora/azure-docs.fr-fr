@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065798"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679123"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -49,7 +49,7 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un [compte professionnel ou scolaire](../active-directory/fundamentals/sign-up-organization.md) avec un [abonnement Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
 
@@ -234,7 +234,7 @@ Le pare-feu peut également bloquer des connexions qu’Azure Service Bus tente 
 
 ## <a name="configure-ports"></a>Configuration des ports
 
-La passerelle crée une connexion sortante vers [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) et communique sur les ports de sortie suivants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354. La passerelle ne nécessite pas de ports entrants. Pour en savoir plus, voir [Solutions Azure Service Bus et hybrides](../service-bus-messaging/service-bus-messaging-overview.md).
+La passerelle crée une connexion sortante vers [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) et communique sur des ports sortants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354. La passerelle ne nécessite pas de ports entrants. Pour en savoir plus, voir [Solutions Azure Service Bus et hybrides](../service-bus-messaging/service-bus-messaging-overview.md).
 
 La passerelle utilise ces noms de domaine complets :
 
@@ -420,9 +420,9 @@ Voici les emplacements où vous trouverez divers journaux d’activité :
 
 | Type de journal | Lieu | 
 |----------|----------| 
-| **Journaux du programme d’installation** | %localappdata%\Temp\On-premises_data_gateway_ <*AAAAMMJJ*>.<*nombre*>.log | 
-| **Journaux de configuration** | C:\Utilisateurs\<*nom d’utilisateur*> \AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*AAAAMMJJ*>. <*nombre*>.log | 
-| **Journaux d’entreprise du service de passerelle** | C:\Utilisateurs\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\Gateway<*AAAAMMJJ*>.<*nombre*>.log | 
+| **Journaux d’activité du programme d’installation** | %localappdata%\Temp\On-premises_data_gateway_ <*AAAAMMJJ*>.<*nombre*>.log | 
+| **Journaux d’activité de configuration** | C:\Utilisateurs\<*nom d’utilisateur*> \AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*AAAAMMJJ*>. <*nombre*>.log | 
+| **Journaux d’activité d’entreprise du service de passerelle** | C:\Utilisateurs\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\Gateway<*AAAAMMJJ*>.<*nombre*>.log | 
 ||| 
 
 **Journaux d’événements**
@@ -434,26 +434,6 @@ Pour rechercher les journaux des événements de la passerelle, procédez comme 
 3. Sélectionnez **Service de passerelle de données locale**.
 
    ![Afficher les journaux d’événements pour la passerelle](./media/logic-apps-gateway-install/event-viewer.png)
-
-### <a name="telemetry"></a>Télémétrie
-
-Pour une surveillance et un dépannage supplémentaires, vous pouvez activer et collecter des données de télémétrie. 
-
-1. Accédez à l’emplacement pour le client de passerelle de données locale, qui se trouve généralement ici : ```C:\Program Files\On-premises data gateway```
-
-   Sinon, pour rechercher l’emplacement du client, ouvrez la console Services sur le même ordinateur, recherchez le **Service de passerelle de données locale** et affichez la propriété **Chemin d’accès au fichier exécutable**.
-
-2. Ouvrez ce fichier de *configuration* : **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-3. Modifiez le paramètre **SendTelemetry** sur **true** :
-
-   ```html
-   <setting name="SendTelemetry" serializeAs="String">
-      <value>true</value>
-   </setting>
-   ```
-
-4. Enregistrez vos modifications et redémarrez le service Windows.
 
 ### <a name="review-slow-query-performance"></a>Examinez les performances des requêtes lentes
 
@@ -526,7 +506,7 @@ Pour déterminer la durée d’une requête, procédez comme suit :
 
 ### <a name="trace-traffic-with-fiddler"></a>Tracez le trafic avec Fiddler
 
-[Fiddler](http://www.telerik.com/fiddler) est un outil gratuit développé par Telerik, qui surveille le trafic HTTP. Il vous permet de visualiser le trafic entre le service Power BI et la machine client. Ce service peut également indiquer les éventuelles erreurs et autres informations connexes.
+[Fiddler](https://www.telerik.com/fiddler) est un outil gratuit développé par Telerik, qui surveille le trafic HTTP. Il vous permet de visualiser le trafic entre le service Power BI et la machine client. Ce service peut également indiquer les éventuelles erreurs et autres informations connexes.
 
 ## <a name="next-steps"></a>Étapes suivantes
     

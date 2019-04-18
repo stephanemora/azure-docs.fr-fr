@@ -9,10 +9,10 @@ ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280738"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
@@ -362,7 +362,7 @@ Si vous activez l’exception **Services Microsoft approuvés**, les services su
 
 ### <a name="storage-analytics-data-access"></a>Accès aux données Storage Analytics
 
-Dans certains cas, un accès en lecture aux journaux et aux métriques de diagnostic est nécessaire en dehors de la limite du réseau. Vous pouvez accorder des exceptions aux règles de réseau afin d’autoriser l’accès en lecture aux fichiers journaux ou aux tables de métriques du compte de stockage, ou aux deux. [En savoir plus sur l’utilisation d’analytique de stockage.](/azure/storage/storage-analytics)
+Dans certains cas, un accès en lecture aux journaux et aux métriques de diagnostic est nécessaire en dehors de la limite du réseau. Vous pouvez accorder des exceptions aux règles de réseau afin d’autoriser l’accès en lecture aux fichiers journaux ou aux tables de métriques du compte de stockage, ou aux deux. [Découvrez plus d’informations sur l’utilisation de Storage Analytics.](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>Gestion des exceptions
 

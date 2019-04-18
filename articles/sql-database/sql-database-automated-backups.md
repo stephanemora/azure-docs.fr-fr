@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/12/2019
-ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545822"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678596"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
-SQL Database crée automatiquement des sauvegardes de base de données qui sont conservées entre 7 et 35 jours, et il utilise le stockage géoredondant avec accès en lecture seule (RA-GRS) d’Azure pour garantir leur conservation, même en cas d’indisponibilité du centre de données. Ces sauvegardes sont créées automatiquement et sans frais supplémentaires. Vous n’avez rien à faire pour qu’elles se produisent et vous pouvez [modifier la période de conservation des sauvegardes](#how-to-change-the-pitr-backup-retention-period). Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Si les règles de sécurité nécessitent que vos sauvegardes soient disponibles pendant une période prolongée (jusqu’à 10 ans), vous pouvez configurer une stratégie de [conservation à long terme](sql-database-long-term-retention.md).
+Base de données SQL est automatiquement crée des sauvegardes de base de données qui sont conservées entre 7 et 35 jours et utilise le stockage géo-redondant Azure avec accès en lecture (RA-GRS) pour vous assurer qu’elles sont conservées même si le centre de données n’est pas disponible. Ces sauvegardes sont créées automatiquement et sans frais supplémentaires. Vous n’avez rien à faire pour qu’elles se produisent et vous pouvez [modifier la période de conservation des sauvegardes](#how-to-change-the-pitr-backup-retention-period). Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Si les règles de sécurité nécessitent que vos sauvegardes soient disponibles pendant une période prolongée (jusqu’à 10 ans), vous pouvez configurer une stratégie de [conservation à long terme](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

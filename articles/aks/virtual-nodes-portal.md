@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4b9e9aeab6ed24dd2179f853def02ad194fe1b67
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755254"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681027"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Afficher un aperçu : créer et configurer un cluster Azure Kubernetes service (AKS) pour utiliser des nœuds virtuels dans le portail Azure
 
@@ -21,7 +21,7 @@ Pour déployer rapidement des charges de travail dans un cluster Azure Kubernete
 > [!IMPORTANT]
 > Fonctionnalités de préversion AKS sont libre-service et participer. Les préversions sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Toutefois, ils ne sont pas pris en charge par le support technique Azure. Si vous créez un cluster, ou ajoutez ces fonctionnalités à des clusters existants, ce cluster est non pris en charge jusqu'à ce que la fonctionnalité n’est plus disponible en version préliminaire et atteignent à la disposition générale (GA).
 >
-> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS] [ aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
+> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS][aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
@@ -32,6 +32,16 @@ Les régions suivantes sont prises en charge pour les déploiements de nœud vir
 * Ouest des États-Unis (westcentralus)
 * Europe Ouest (Europe occidentale)
 * USA Ouest (ouest des USA)
+
+## <a name="known-limitations"></a>Limites connues
+Fonctionnalité de nœuds virtuel dépend fortement de jeu de fonctionnalités de ACI. Les scénarios suivants ne sont pas encore pris en charge avec les nœuds virtuels
+
+* À l’aide de principal du service pour extraire des images ACR. [Solution de contournement](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste à utiliser [secrets Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Limitations du réseau virtuel](../container-instances/container-instances-vnet.md) , y compris l’homologation, les stratégies de réseau Kubernetes et le trafic sortant vers internet avec les groupes de sécurité réseau.
+* Conteneurs Init
+* [Alias d’hôte](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Arguments](../container-instances/container-instances-exec.md#restrictions) pour exec dans ACI
+* [Les Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) ne déploiera pas de pods dans le nœud virtuel
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

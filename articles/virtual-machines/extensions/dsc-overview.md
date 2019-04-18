@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: b3cfc33f435c6ddaabe8358c344b1944f7c271f6
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500513"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure
@@ -202,7 +202,7 @@ Le portail collecte l’entrée suivante :
 
 ## <a name="logs"></a>Journaux d’activité
 
-Journaux pour l’extension sont stockés dans l’emplacement suivant : `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
+Les journaux d’activité de l’extension sont stockés à l’emplacement suivant : `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

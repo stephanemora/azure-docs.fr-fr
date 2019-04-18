@@ -18,10 +18,10 @@ ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500295"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Activation Configurer les termes du contrat de service et déclaration de confidentialité pour une application
@@ -50,16 +50,16 @@ Avant d’ajouter des liens vers les documents des conditions d’utilisation et
 | Schémas valides | HTTP et HTTPS<br/>Nous recommandons HTTPS |
 | Longueur maximale    | 2 048 caractères                       |
 
-Exemples : `https://myapp.com/terms-of-service` et `https://myapp.com/privacy-statement`
+Exemples : `https://myapp.com/terms-of-service` et `https://myapp.com/privacy-statement`
 
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Ajout de liens aux conditions d’utilisation et à la déclaration de confidentialité
 
 Quand les conditions d’utilisation et la déclaration de confidentialité sont prêtes, vous pouvez ajouter des liens vers ces documents dans votre application à l’aide de l’une des méthodes suivantes :
 
-* [Via le portail Azure](#registered-in-azure-portal)
-* [Dans le portail d’inscription des applications, ou le centre de développement](#registered-in-app-reg-portal)
-* [À l’aide de l’objet application JSON](#app-object-json)
-* [À l’aide de la version bêta de MSGraph API REST](#msgraph-beta-rest-api)
+* [À l’aide du portail Azure](#registered-in-azure-portal)
+* [Dans le portail d’inscription des applications ou le Centre de développement](#registered-in-app-reg-portal)
+* [À l’aide de l’objet JSON de l’application](#app-object-json)
+* [À l’aide de l’API REST de MSGraph version bêta](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Si vous avez inscrit votre application dans le portail Azure
 
@@ -114,5 +114,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> * Veillez à ne pas remplacer toutes les valeurs existants que vous avez affectés à aucun de ces champs : `supportUrl`, `marketingUrl`, et `logoUrl`
+> * Veillez à ne pas remplacer les valeurs préexistantes que vous avez affectées à l’un des champs suivants : `supportUrl`, `marketingUrl` et `logoUrl`.
 > * L’API REST de MSGraph version bêta fonctionne uniquement quand vous vous connectez avec un compte Azure AD. Les comptes Microsoft personnels ne sont pas pris en charge.

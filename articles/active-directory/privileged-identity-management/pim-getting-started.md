@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59488630"
 ---
 # <a name="start-using-pim"></a>Commencer à utiliser PIM
@@ -106,8 +106,8 @@ Une fois PIM configuré, vous pouvez effectuer vos tâches de gestion des identi
 | --- | --- |
 | **Mes rôles**  | Affiche la liste des rôles éligibles et actifs qui vous sont attribués. C’est là où vous pouvez activer tout rôle éligible attribué. |
 | **Mes demandes** | Affiche toutes vos requêtes en attente pour activer les attributions de rôles éligibles. |
-| **Approuver les demandes** | Affiche la liste des demandes d’activation des rôles éligibles par utilisateur dans votre annuaire, dont l’approbation vous revient. |
-| **Revoir l’accès** | Répertorie les révisions d’accès que vous devez terminer, que vous les effectuiez pour vous-même ou pour quelqu’un d’autre. |
+| **Approuver des requêtes** | Affiche la liste des demandes d’activation des rôles éligibles par utilisateur dans votre annuaire, dont l’approbation vous revient. |
+| **Révision d’accès** | Répertorie les révisions d’accès que vous devez terminer, que vous les effectuiez pour vous-même ou pour quelqu’un d’autre. |
 | **Rôles Azure AD** | Affiche un tableau de bord et les paramètres de rôle privilégié aux administrateurs de gérer les attributions de rôles Azure AD. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord (et non sur l’ensemble du locataire). |
 | **Ressources Azure** | Affiche un tableau de bord et des paramètres pour les administrateurs de rôle privilégié qui doivent gérer les attributions de rôles de ressources Azure. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord (et non sur l’ensemble du locataire). |
 
@@ -134,4 +134,4 @@ Pour faciliter l’ouverture de PIM, vous pouvez ajouter une vignette PIM à vot
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Attribuer des rôles Azure AD dans PIM](pim-how-to-add-role-to-user.md)
-- [Découvrir les ressources Azure à gérer dans PIM](pim-resource-roles-discover-resources.md)
+- [Découvrir les ressources Azure de gestion dans PIM](pim-resource-roles-discover-resources.md)

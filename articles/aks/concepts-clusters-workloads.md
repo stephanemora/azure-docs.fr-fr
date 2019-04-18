@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181348"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678786"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -196,6 +196,9 @@ Le contrôleur DaemonSet peut planifier des pods sur des nœuds tôt dans le pro
 À l’image des ressources StatefulSet, une ressource DaemonSet est définie dans le cadre d’une définition YAML à l’aide de `kind: DaemonSet`.
 
 Pour plus d’informations, consultez [Kubernetes DaemonSets][kubernetes-daemonset] (Ressources DaemonSet Kubernetes).
+
+> [!NOTE]
+> Si vous utilisez le [module complémentaire de nœuds virtuels](virtual-nodes-cli.md#enable-virtual-nodes-addon), les DaemonSets ne créera pas pods sur le nœud virtuel.
 
 ## <a name="namespaces"></a>Espaces de noms
 

@@ -1,137 +1,140 @@
 ---
-title: Demande de jetons d’accès dans Azure Active Directory B2C | Microsoft Docs
-description: Cet article vous montre comment configurer une application cliente et acquérir un jeton d’accès.
+title: Demander un jeton d’accès - Azure Active Directory B2C | Microsoft Docs
+description: Découvrez comment demander un jeton d’accès à partir d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/09/2017
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 5670d8b3c97cc1f9f6d149e8eadaa60d527e45f5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768340"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683934"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C : Demande de jetons d'accès
+# <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Demande un jeton d’accès dans Azure Active Directory B2C
 
-Un jeton d’accès (défini en tant que **access\_token** dans les réponses d’Azure AD B2C) est une forme de jeton de sécurité qu’un client peut utiliser pour accéder aux ressources sécurisées par un  [serveur d’autorisation](active-directory-b2c-reference-protocols.md), tel qu’une API web. Les jetons d’accès sont représentés en tant que jetons [JWT](active-directory-b2c-reference-tokens.md) et contiennent des informations sur le serveur de ressources prévu et les autorisations accordées au serveur. Lorsque vous appelez le serveur de ressources, le jeton d’accès doit être présent dans la requête HTTP.
+Un *jeton d’accès* contient des revendications que vous pouvez utiliser dans Azure Active Directory (Azure AD) B2C pour identifier les autorisations accordées à votre API. Lors de l’appel d’un serveur de ressources, un jeton d’accès doit être présent dans la requête HTTP. Un jeton d’accès est désigné comme **access_token** dans les réponses à partir d’Azure AD B2C. 
 
-Cet article explique comment configurer une application cliente et une API web afin d’obtenir un **access\_token**.
-
-> [!NOTE]
-> **Les chaînes d’API web (pour le compte de) ne sont pas prises en charge par Azure AD B2C.**
->
-> De nombreuses architectures incluent une API web qui doit appeler une autre API web en aval, toutes deux sécurisées par Azure AD B2C. Ce scénario est courant dans les clients natifs qui disposent d’une API web principale, qui à son tour appelle un service en ligne Microsoft, comme l’API Graph Azure AD.
->
-> Ce scénario d’API web chaînée peut être pris en charge à l’aide de l’octroi des informations d’identification du porteur OAuth 2.0 JWT, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n’est pas implémenté dans Azure AD B2C pour l’instant.
-
-## <a name="register-a-web-api-and-publish-permissions"></a>Inscrire une API web et publier des autorisations
-
-Avant de demander un jeton d’accès, vous devez inscrire une API web et publier des autorisations (étendues) qui peuvent être accordées à l’application cliente.
-
-### <a name="register-a-web-api"></a>Inscrire une API web
-
-1. Dans le panneau de fonctionnalités Azure AD B2C du Portail Azure, cliquez sur **Applications**.
-2. Cliquez sur **+Ajouter** dans la partie supérieure du menu.
-3. Entrez un **nom** pour l’application qui décrira votre application aux consommateurs. Par exemple, vous pouvez entrer « API Contoso ».
-4. Activez/désactivez le commutateur **Include web app / web API** (Inclure l’application web/l’API web) pour le définir sur **Oui**.
-5. Entrez une valeur arbitraire pour **URL de réponse**. Par exemple, entrez : `https://localhost:44316/`. La valeur n’a pas d’importance, car une API ne doit pas recevoir le jeton directement d’Azure AD B2C.
-6. Entrez un **URI ID d’application**. Il s’agit de l’identificateur utilisé pour votre API web. Par exemple, entrez « notes » dans le champ. **L’URI ID d’application** serait alors `https://{tenantName}.onmicrosoft.com/notes`.
-7. Cliquez sur **Créer** pour inscrire votre application.
-8. Cliquez sur l’application que vous venez de créer, puis notez l’ **ID du client d’application** global unique à intégrer ultérieurement dans votre code.
-
-### <a name="publishing-permissions"></a>Publication des autorisations
-
-Les étendues, qui sont similaires aux autorisations, sont nécessaires lorsque votre application appelle une API. « Lecture » ou « écriture » sont des exemples d’étendues. Supposons que vous souhaitez que votre application web ou native « lise » à partir d’une API. Votre application appellerait Azure AD B2C et demanderait un jeton d’accès qui donne accès à l’étendue « lecture ». Pour qu’Azure AD B2C émette ce jeton d’accès, l’application doit disposer de l’autorisation de « lecture » à partir de l’API spécifique. Pour ce faire, votre API doit d’abord publier l’étendue « lecture ».
-
-1. Dans le panneau **Applications** d’Azure AD B2C, ouvrez l’application d’API web (« API Contoso »).
-2. Cliquez sur **Étendues publiées**. C’est ici que vous définissez les autorisations (étendues) qui peuvent être accordées à d’autres applications.
-3. Ajoutez les **valeurs d’étendue** si nécessaire (par exemple, « lecture »). Par défaut, l’étendue « user_impersonation » est définie. Vous pouvez l’ignorer si vous le souhaitez. Entrez une description de l’étendue dans la colonne **Nom de l’étendue**.
-4. Cliquez sur **Enregistrer**.
-
-> [!IMPORTANT]
-> Le **nom de l’étendue** est la description de la **valeur d’étendue**. Lorsque vous utilisez l’étendue, assurez-vous d’utiliser la **valeur d’étendue**.
-
-## <a name="grant-a-native-or-web-app-permissions-to-a-web-api"></a>Attribuer des autorisations d’application web ou native à une API web
-
-Une fois qu’une API est configurée pour publier des étendues, ces étendues doivent être attribuées à l’application cliente via le portail Azure.
-
-1. Accédez au menu **Applications** dans le panneau des fonctionnalités Azure AD B2C.
-2. Inscrivez une application cliente ([application web](active-directory-b2c-app-registration.md) ou [cliente native](active-directory-b2c-app-registration.md)) si vous ne l’avez pas déjà fait. Si vous suivez ce guide comme point de départ, vous devrez inscrire une application cliente.
-3. Cliquez sur **Accès d’API**.
-4. Cliquez sur **Ajouter**.
-5. Sélectionnez l’API web et les étendues (autorisations) que vous souhaitez accorder.
-6. Cliquez sur **OK**.
+Cet article vous montre comment demander un jeton d’accès pour une application web et l’API web. Pour plus d’informations sur les jetons dans Azure AD B2C, consultez le [vue d’ensemble de jetons dans Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
 
 > [!NOTE]
-> Azure Active Directory B2C ne demande pas leur consentement aux utilisateurs de votre application cliente. À la place, le consentement est fourni par l’administrateur, selon les autorisations configurées entre les applications décrites ci-dessus. Si l’octroi d’une autorisation pour une application est révoqué, tous les utilisateurs qui ont précédemment pu acquérir cette autorisation ne sont plus en mesure de le faire.
+> **Les chaînes d’API web (pour le compte de) ne sont pas prises en charge par Azure AD B2C.** -De nombreuses architectures incluent une API web qui doit appeler une autre API, toutes deux sécurisées par Azure AD B2C de web en aval. Ce scénario est courant dans les clients disposant d’une API web principale, qui à son tour appelle un autre service. Ce scénario d’API web chaînée peut être pris en charge à l’aide de l’octroi des informations d’identification du porteur OAuth 2.0 JWT, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n’est pas implémenté dans Azure AD B2C pour l’instant.
 
-## <a name="requesting-a-token"></a>Demande d’un jeton
+## <a name="prerequisites"></a>Conditions préalables
 
-Lorsque vous demandez un jeton d’accès, l’application cliente doit spécifier les autorisations souhaitées dans le paramètre **d’étendue** de la requête. Par exemple, pour spécifier la **valeur d’étendue** « lecture » pour l’API qui a **l’URI ID d’application** de `https://contoso.onmicrosoft.com/notes`, l’étendue serait `https://contoso.onmicrosoft.com/notes/read`. Voici un exemple de demande de code d’autorisation adressée au point de terminaison `/authorize`.
+- [Créez un flux d'utilisateurs](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s'inscrire et de se connecter à votre application.
+- Si vous n’avez pas déjà fait, [ajouter une application API à votre locataire Azure Active Directory B2C web](add-web-application.md).
 
-> [!NOTE]
-> Actuellement, les domaines personnalisés ne sont pas pris en charge avec les jetons d’accès. Vous devez utiliser votre domaine tenantName.onmicrosoft.com dans l’URL de la requête.
+## <a name="scopes"></a>Étendues
+
+Étendues offrent un moyen de gérer les autorisations à des ressources protégées. Lorsqu’un jeton d’accès est demandé, l’application cliente doit spécifier les autorisations souhaitées dans le **étendue** paramètre de la requête. Par exemple, pour spécifier le **valeur d’étendue** de `read` pour l’API qui a le **URI ID d’application** de `https://contoso.onmicrosoft.com/api`, l’étendue serait `https://contoso.onmicrosoft.com/api/read`.
+
+Elles sont utilisées par l’API web pour implémenter le contrôle d’accès basé sur les étendues. Par exemple, les utilisateurs de l’API web peuvent avoir un accès en lecture et en écriture, ou les utilisateurs de l’API web peuvent avoir l’accès en lecture uniquement. Pour acquérir plusieurs autorisations dans la même requête, vous pouvez ajouter plusieurs entrées dans le seul **étendue** paramètre de la requête, séparée par des espaces.
+
+L’exemple suivant montre des étendues décodées dans une URL :
+
+```
+scope=https://contoso.onmicrosoft.com/api/read openid offline_access
+```
+
+L’exemple suivant montre des étendues codés dans une URL :
+
+```
+scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
+```
+
+Si vous demandez plus étendues que ce qui est accordé pour votre application cliente, l’appel réussit si au moins une autorisation est accordée. Le **scp** revendication dans le jeton d’accès résultant est remplie uniquement avec les autorisations qui ont été accordées avec succès. La norme OpenID Connect spécifie plusieurs valeurs de portée spéciale. Les étendues suivantes représentent l’autorisation d’accès au profil de l’utilisateur :
+
+- **OpenID** -demande un jeton d’ID.
+- **offline_access** -demande un jeton de l’actualisation à l’aide [flux du Code d’authentification](active-directory-b2c-reference-oauth-code.md).
+
+Si le **response_type** paramètre dans un `/authorize` demande inclut `token`, le **étendue** paramètre doit inclure cette étendue d’au moins une ressource autre que `openid` et `offline_access`qui sera accordée. Sinon, le `/authorize` demande échoue.
+
+## <a name="request-a-token"></a>Demander un jeton
+
+Pour demander un jeton d’accès, vous avez besoin d’un code d’autorisation. Voici un exemple d’une demande à la `/authorize` point de terminaison pour un code d’autorisation. Domaines personnalisés ne sont pas pris en charge pour une utilisation avec des jetons d’accès. Utiliser votre domaine de locataire-name.onmicrosoft.com dans l’URL de requête.
 
 Dans l'exemple suivant, vous remplacez ces valeurs :
 
 - `<tenant-name>` - Nom de votre locataire Azure AD B2C.
 - `<policy-name>` - Nom de votre stratégie personnalisée ou de votre flux d'utilisateurs.
-- `<application-ID>` - Identificateur de l'application cliente que vous avez inscrite.
+- `<application-ID>` -L’identificateur d’application de l’application web que vous avez inscrite pour prendre en charge le flux de l’utilisateur.
 - `<redirect-uri>` - **URI de redirection** que vous avez entré lorsque vous avez inscrit l'application cliente.
 
 ```
-https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
+client_id=<application-ID>
+&nonce=anyRandomValue
+&redirect_uri=https://jwt.ms
+&scope=https://tenant-name>.onmicrosoft.com/api/read
+&response_type=code 
 ```
 
-Pour acquérir plusieurs autorisations dans la même requête, vous pouvez ajouter plusieurs entrées séparées par des espaces dans le même paramètre d’**étendue**. Par exemple : 
-
-URL décodée :
+La réponse avec le code d’autorisation doit être similaire à cet exemple :
 
 ```
-scope=https://contoso.onmicrosoft.com/notes/read openid offline_access
+https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 ```
 
-URL encodée :
+Après avoir correctement reçu le code d’autorisation, vous pouvez l’utiliser pour demander un jeton d’accès :
 
 ```
-scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_access
+POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
+Host: https://<tenant-name>.b2clogin.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code
+&client_id=<application-ID>
+&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
+&redirect_uri=https://jwt.ms
+&client_secret=2hMG2-_:y12n10vwH...
 ```
 
-Vous pouvez demander plus d’étendues (autorisations) pour une ressource que ce qui est accordé pour votre application cliente. Quand c’est le cas, l’appel réussit si au moins une autorisation est accordée. Le jeton d’accès (**access\_token**) a sa demande « scp » remplie uniquement avec les autorisations qui ont été accordées.
+Vous devez voir quelque chose de similaire à la réponse suivante :
 
-> [!NOTE] 
-> Nous ne prenons pas en charge les demandes d’autorisation d’accès à deux ressources web différentes dans la même demande. Ce type de demande échoue.
+```
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
+    "token_type": "Bearer",
+    "not_before": 1549647431,
+    "expires_in": 3600,
+    "expires_on": 1549651031,
+    "resource": "f2a76e08-93f2-4350-833c-965c02483b11",
+    "profile_info": "eyJ2ZXIiOiIxLjAiLCJ0aWQiOiJjNjRhNGY3ZC0zMDkxLTRjNzMtYTcyMi1hM2YwNjk0Z..."
+}
+```
 
-### <a name="special-cases"></a>Cas particuliers
+Lorsque vous utilisez https://jwt.ms pour examiner le jeton d’accès qui a été retourné, vous devez voir quelque chose de similaire à l’exemple suivant :
 
-Le standard OpenID Connect spécifie plusieurs valeurs spéciales d’étendue (« scope »). Les étendues spéciales suivantes représentent l’autorisation d’accès au profil de l’utilisateur :
-
-* **openid** : Cette étendue demande un jeton d’ID
-* **offline\_access** : Cette étendue demande un jeton d’actualisation (à l’aide du [flux de code d’authentification](active-directory-b2c-reference-oauth-code.md)).
-
-Si le paramètre `response_type` dans une requête `/authorize` inclut `token`, le paramètre `scope` doit inclure au moins l’une des étendues de ressource (autre que `openid` et `offline_access`) qui sera accordée. Sinon, la demande `/authorize` échoue.
-
-## <a name="the-returned-token"></a>Jeton retourné
-
-Dans un jeton d’accès (**access\_token**) correctement configuré (à partir du point de terminaison `/authorize` ou `/token`), les revendications suivantes sont présentes :
-
-| Nom | Revendication | Description |
-| --- | --- | --- |
-|Audience |`aud` |L’**ID d’application** de la ressource unique à laquelle le jeton accorde l’accès. |
-|Étendue |`scp` |Les autorisations accordées à la ressource. Plusieurs autorisations octroyées doivent être séparées par une espace. |
-|Tiers autorisé |`azp` |**ID** de l’application cliente qui a initié la demande. |
-
-Lorsque votre API reçoit le jeton d’accès (**access\_token**), elle doit [valider le jeton](active-directory-b2c-reference-tokens.md) pour prouver que le jeton est authentique et qu’il a les revendications adéquates.
-
-Nous sommes ouverts aux commentaires et suggestions ! Si vous rencontrez des difficultés vis-à-vis de ce sujet, publiez sur Stack Overflow à l’aide de la mention [« azure-ad-b2c »](https://stackoverflow.com/questions/tagged/azure-ad-b2c). En cas de demandes liées aux fonctionnalités, utilisez [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+```
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dl..."
+}.{
+  "iss": "https://contoso0926tenant.b2clogin.com/c64a4f7d-3091-4c73-a7.../v2.0/",
+  "exp": 1549651031,
+  "nbf": 1549647431,
+  "aud": "f2a76e08-93f2-4350-833c-965...",
+  "oid": "1558f87f-452b-4757-bcd1-883...",
+  "sub": "1558f87f-452b-4757-bcd1-883...",
+  "name": "David",
+  "tfp": "B2C_1_signupsignin1",
+  "nonce": "anyRandomValue",
+  "scp": "read",
+  "azp": "38307aee-303c-4fff-8087-d8d2...",
+  "ver": "1.0",
+  "iat": 1549647431
+}.[Signature]
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Générer une API web à l’aide de [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-* Générer une API web à l’aide de [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+- En savoir plus sur comment [configurer des jetons dans Azure AD B2C](configure-tokens.md)

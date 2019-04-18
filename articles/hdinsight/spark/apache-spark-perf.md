@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283067"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimiser des travaux Apache Spark
@@ -60,7 +60,7 @@ Quand vous créez un cluster Spark, vous pouvez sélectionner Stockage Blob Azur
 
 | Type de magasin | Système de fichiers | Vitesse | Temporaire | Cas d'utilisation |
 | --- | --- | --- | --- | --- |
-| un stockage Azure Blob | **wasb[s]:**//url/ | **standard** | Oui | Cluster temporaire |
+| un stockage Azure Blob | **wasb[s]:**//url/ | **Standard** | Oui | Cluster temporaire |
 | Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **Plus rapide** | Oui | Cluster temporaire |
 | Azure Data Lake Storage Gen 1| **adl:**//url/ | **Plus rapide** | Oui | Cluster temporaire |
 | HDFS local | **hdfs:**//url/ | **Le plus rapide** | Non  | Cluster 24/7 interactif |
@@ -78,7 +78,7 @@ Spark fournit ses propres mécanismes de mise en cache native, que vous pouvez u
     * Utilise la mise en cache en mémoire et SSD
 
 * HDFS local (recommandé)
-    * `hdfs://mycluster` chemin d’accès.
+    * Chemin `hdfs://mycluster`
     * Utilise la mise en cache SSD
     * Les données mises en cache sont perdues quand vous supprimez le cluster, ce qui nécessite une reconstruction du cache
 
@@ -162,7 +162,7 @@ Voici quelques paramètres courants que vous pouvez ajuster :
 
 * `--num-executors` définit le nombre approprié d’exécuteurs.
 * `--executor-cores` définit le nombre de cœurs pour chaque exécuteur. En règle générale, vous devez avoir des exécuteurs de taille moyenne, car d’autres processus consomment une partie de la mémoire disponible.
-* `--executor-memory` définit la taille de mémoire pour chaque exécuteur, qui contrôle la taille de segment de mémoire sur YARN. Vous devez conserver de la mémoire pour la surcharge d’exécution.
+* `--executor-memory` définit la taille de la mémoire pour chaque exécuteur, ce qui contrôle la taille de segment de mémoire sur YARN. Vous devez conserver de la mémoire pour la surcharge d’exécution.
 
 ### <a name="select-the-correct-executor-size"></a>Sélectionner la taille d’exécuteur correcte
 
@@ -214,8 +214,8 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Déboguer des travaux Apache Spark en cours d’exécution sur Azure HDInsight](apache-spark-job-debugging.md)
-* [Gérer les ressources pour un cluster Apache Spark sur HDInsight](apache-spark-resource-manager.md)
+* [Gérer les ressources d’un cluster Apache Spark dans HDInsight](apache-spark-resource-manager.md)
 * [Utiliser l’API REST Apache Spark pour envoyer des travaux à distance à un cluster Apache Spark](apache-spark-livy-rest-interface.md)
-* [Paramétrage Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [Comment réellement paramétrer votre Apache Spark travaux par conséquent, elles fonctionnent](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Optimisation d’Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [Guide pratique pour paramétrer vos travaux Apache Spark afin qu’ils fonctionnent](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Sérialisation Kryo](https://github.com/EsotericSoftware/kryo)

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426390"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster AKS avec Azure Monitor pour les conteneurs 
@@ -61,17 +61,17 @@ Le tableau suivant fournit une répartition du calcul pour le contrôle des éta
 
 | |Statut |Disponibilité |  
 |-------|-------|-----------------|  
-|**Utilisateur Pod**| | |  
+|**Pod utilisateur**| | |  
 | |Healthy |100 % |  
 | |Avertissement |90 - 99 % |  
 | |Critique |< 90 % |  
 | |Unknown |Si non signalé dans les 30 dernières minutes |  
-|**Système Pod**| | |  
+|**Pod système**| | |  
 | |Healthy |100 % |
 | |Avertissement |S.O. |
 | |Critique |< 100 % |
 | |Unknown |Si non signalé dans les 30 dernières minutes |
-|**Nœud** | | |
+|**Node** | | |
 | |Healthy |> 85 % |
 | |Avertissement |60 - 84 % |
 | |Critique |< 60 % |

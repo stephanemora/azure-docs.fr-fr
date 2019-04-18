@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361340"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de Hyper-V sur Azure
@@ -20,7 +20,7 @@ Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) 
 -   Accéder à la liste de machines virtuelles
 -   [Profil](#profile-hyper-v-vms)
 -   Générer un rapport
--   [GetThroughput](#get-throughput)
+-   [Obtenir le débit](#get-throughput)
 
 Exécutez tout d’abord l’outil pour obtenir la liste des machines virtuelles à partir d’un ou plusieurs hôtes Hyper-V. Exécutez ensuite l’outil en mode profilage pour rassembler l’activité des données de machine virtuelle et les E/S par seconde. Ensuite, exécutez l’outil pour générer le rapport afin de déterminer les besoins en bande passante réseau et en stockage.
 
@@ -256,9 +256,9 @@ Le rapport Microsoft Excel généré contient les informations suivantes :
 
 * [Résumé local](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recommandations](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [VM-storage placement](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
-* [Machines virtuelles compatibles](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
-* [Machines virtuelles incompatibles](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
+* [VM-Storage Placement](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [Compatible VMs](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
+* [Incompatible VMs](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [Exigence de stockage local](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
 * [Traitement par lot IR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [Estimation des coûts](hyper-v-deployment-planner-cost-estimation.md)

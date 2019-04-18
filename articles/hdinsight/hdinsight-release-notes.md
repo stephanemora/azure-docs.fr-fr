@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 6ba9e77faeb297f9862b39384d397b478dc7cf36
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 5769f90ef69a82497194ff6de01b378acc84deec
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617731"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678384"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notes de publication pour Azure HDInsight
 
@@ -29,7 +29,7 @@ Azure HDInsight est l'un des services les plus populaires parmi les clients d'en
 
 ## <a name="new-features"></a>Nouvelles fonctionnalités
 
-Pour plus d’informations sur les modifications importantes avec HDInsight 4.0., consultez [quelles sont les nouveautés dans HDI 4.0 ?](../hdinsight/hdinsight-version-release.md#whats-new-in-hdi-40).
+Pour plus d’informations sur les modifications importantes avec HDInsight 4.0., consultez [quelles sont les nouveautés dans HDI 4.0 ?](../hdinsight/hdinsight-version-release.md).
 
 ## <a name="component-versions"></a>Versions des composants
 

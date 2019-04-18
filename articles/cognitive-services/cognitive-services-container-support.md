@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: c6cf3f188309891b0456b034e3809a0f0209c124
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: d84ebcdbd557a56c4c20600be67f26a084d43ed2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489431"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681809"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Prise en charge des conteneurs dans Azure Cognitive Services
 
@@ -25,7 +25,7 @@ La mise en conteneur est une méthode de distribution de logiciels dans laquelle
 
 La vidéo suivante montre l’utilisation d’un conteneur Cognitive Services.
 
-[![Cdémonstration d’onteneur pour Cognitive Services](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
+[![Démonstration d’un conteneur pour Cognitive Services](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
 Les services [Vision par ordinateur](Computer-vision/Home.md), [Visage](Face/Overview.md), [Analyse de texte](text-analytics/overview.md) et [Language Understanding (LUIS)](LUIS/what-is-luis.md) sont disponibles sur [Microsoft Azure](https://azure.microsoft.com). Connectez-vous au [portail Azure](https://portal.azure.com/) pour créer et explorer les ressources Azure pour ces services.
 
@@ -43,8 +43,8 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 
 | de diffusion en continu | Niveau de tarification pris en charge | Conteneur | Description |
 |---------|----------|----------|-------------|
-|[Vision par ordinateur](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Reconnaître le texte** |Extraire un texte imprimé à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite.<br/><br/>**Important :** Le conteneur Reconnaître le texte ne fonctionne qu’en anglais pour le moment.<br>[Demander l'accès](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
-|[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.<br>[Demander l'accès](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
+|[Vision par ordinateur](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Reconnaître le texte** |Extraire un texte imprimé à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite.<br/><br/>**Important :** Le conteneur Reconnaître le texte ne fonctionne qu’en anglais pour le moment.<br>[Demander l’accès](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
+|[Visage](Face/face-how-to-install-containers.md) |F0, S0|**Visage** |Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.<br>[Demander l’accès](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204))|Charge un modèle Language Understanding entraîné ou publié, également connu sous le nom d’application LUIS, dans un conteneur docker et fournit l’accès aux prédictions de requête à partir des points de terminaison d’API du conteneur. Vous pouvez collecter les journaux d’activité de requêtes du conteneur et les charger sur le [portail LUIS](https://www.luis.ai) pour améliorer la précision de prédiction de l’application.|
 |[Analyse de texte](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Extraction de phrases clés** ([image](https://go.microsoft.com/fwlink/?linkid=2018757)) |Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». |
 |[Analyse de texte](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Détection de la langue** ([image](https://go.microsoft.com/fwlink/?linkid=2018759)) |Détecter la langue (parmi 120 langues maximum) dans laquelle le texte d’entrée est rédigé et générer un code de langue unique pour chaque document envoyé dans la demande. Le code de langue est associé à un score indiquant la puissance de l’analyse. |
@@ -81,7 +81,7 @@ Des exemples de développement sont disponibles sur notre [dépôt GitHub](https
 
 Installer et explorer les fonctionnalités fournies par les conteneurs dans Azure Cognitive Services :
 
-* [Installer et utiliser des conteneurs de vision par ordinateur](Computer-vision/computer-vision-how-to-install-containers.md)
-* [Installer et utiliser des conteneurs de visage](Face/face-how-to-install-containers.md)
-* [Installer et utiliser des conteneurs d’Analytique de texte](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
-* [Installer et utiliser des conteneurs de reconnaissance vocale (LUIS)](LUIS/luis-container-howto.md)
+* [Installer et utiliser les conteneurs Vision par ordinateur](Computer-vision/computer-vision-how-to-install-containers.md)
+* [Installer et utiliser les conteneurs Visage](Face/face-how-to-install-containers.md)
+* [Installer et utiliser les conteneurs Analyse de texte](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
+* [Installer et utiliser des conteneurs Language Understanding (LUIS)](LUIS/luis-container-howto.md)

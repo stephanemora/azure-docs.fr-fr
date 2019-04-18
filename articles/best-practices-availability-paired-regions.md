@@ -2,16 +2,17 @@
 title: 'Continuité et reprise d’activité : Régions jumelées Azure | Microsoft Docs'
 description: Apprenez-en plus sur les paires régionales d’Azure, afin d’assurer la résilience des applications en cas de défaillance des centres de données.
 author: rayne-wiselman
+manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 12/23/2018
+ms.date: 04/17/2019
 ms.author: raynew
-ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792311"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678868"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité et reprise d’activité : Régions jumelées Azure
 
@@ -37,6 +38,7 @@ Figure 1 – Paires régionales Azure
 | Europe |Europe du Nord |Europe Ouest |
 | France |France Centre|France Sud|
 | Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
+| Allemagne |Nord de l’Allemagne | Ouest-Centre de l’Allemagne
 | Inde |Inde centrale |Inde du Sud |
 | Inde |Inde Ouest |Inde Sud |
 | Japon |Est du Japon |Ouest du Japon |
@@ -44,8 +46,15 @@ Figure 1 – Paires régionales Azure
 | Amérique du Nord |Est des États-Unis |États-Unis de l’Ouest |
 | Amérique du Nord |Est des États-Unis 2 |Centre des États-Unis |
 | Amérique du Nord |Centre-Nord des États-Unis |États-Unis - partie centrale méridionale |
-| Amérique du Nord |Ouest des États-Unis 2 |Centre-Ouest des États-Unis 
+| Amérique du Nord |Ouest des États-Unis 2 |USA Centre-Ouest 
+| Amérique du Nord |Ouest des États-Unis 3 |USA Est
+| Norvège |Norvège Est |Norvège Ouest
+| Afrique du Sud | Afrique du Sud Nord | Afrique du Sud Ouest
+| Suède |Suède Central |Sud de la Suède
+| Suisse | Nord de la Suisse | Ouest de la Suisse
 | Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
+| Royaume-Uni |Nord du Royaume-Uni |Sud du Royaume-Uni 2
+| Émirats Arabes Unis | Nord des Émirats arabes unis | Centre des Émirats Arabes Unis
 | Ministère de la défense des États-Unis |Est des États-Unis – US DoD |Centre des États-Unis – US DoD |
 | Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
 | Gouvernement américain |US Gov Iowa |Gouvernement américain - Virginie |
@@ -53,10 +62,11 @@ Figure 1 – Paires régionales Azure
 
 Tableau 1 - Mise en correspondance des paires régionales Azure
 
-- La région Inde Ouest est différente, car elle est jumelée avec une autre région dans une seule direction. La région secondaire de la région Inde de l’Ouest est Inde du Sud, mais la région secondaire de la région Inde du Sud est Centre de l’Inde.
-- La région Brésil Sud est unique, car elle est jumelée avec une région située en dehors de sa propre zone géographique. La région secondaire de la région Brésil Sud est USA Centre Sud mais la région secondaire de la région USA Centre Sud n’est pas Brésil Sud.
-- La région secondaire d’US Gov Iowa est US Gov Virginie, mais la région secondaire d’US Gov Virginie n’est pas US Gov Iowa.
-- La région secondaire d’US Gov Virginie est US Gov Texas, mais la région secondaire d’US Gov Texas n’est pas US Gov Virginie.
+- Inde de l’ouest est associée dans une seule direction. La région secondaire de la région Inde de l’Ouest est Inde du Sud, mais la région secondaire de la région Inde du Sud est Centre de l’Inde.
+- La région Brésil Sud est unique, car elle est jumelée avec une région située en dehors de sa propre zone géographique. Région secondaire sud du Brésil est sud du centre des États-Unis. De Sud région secondaire n’est pas sud du Brésil.
+- La des États-Unis-Iowa région secondaire est Virginie.
+- Région secondaire de gouvernement américain-Virginie est la région gouvernement des États-Unis-Texas.
+- L’US Gov Texas région secondaire est gouvernement des États-Unis-Arizona.
 
 
 Nous vous recommandons de configurer la continuité d’activité et reprise d’activité (BCDR) dans les paires régionales pour tirer parti des stratégies d’isolation et de disponibilité Azure. Pour les applications qui prennent en charge plusieurs régions actives, nous vous recommandons d’utiliser les deux régions d’une paire lorsque cela est possible. Cela garantit la disponibilité optimale des applications, ainsi qu’un temps de récupération réduit en cas de sinistre. 

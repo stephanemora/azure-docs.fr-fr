@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278818"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
@@ -150,6 +150,6 @@ Oui, vous pouvez configurer le même compte de stockage sur différents coffres 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez configuré le compte de stockage et importé le pack de contenu de la Sauvegarde Azure, les prochaines étapes consistent à personnaliser des rapports et à utiliser un modèle de données de rapports pour créer des rapports. Pour plus d'informations, consultez les articles suivants.
 
-* [Utiliser une sauvegarde Azure modèle de données de rapport](backup-azure-reports-data-model.md)
-* [Filtrer les rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+* [Utiliser un modèle de données de rapports de la Sauvegarde Azure](backup-azure-reports-data-model.md)
+* [Filtrer des rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Créer des rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

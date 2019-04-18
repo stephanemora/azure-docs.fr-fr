@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2110b1ec7d5d6b317341855ff19acf7975733e71
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275842"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617867"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Didacticiel : Intégration d’Azure Active Directory à Percolate
 
@@ -101,7 +101,7 @@ Pour configurer l’authentification unique Azure AD avec Percolate, procédez 
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le  **fournisseur d’identité** , l’utilisateur n’a rien à faire, car l’application est pré-intégrée avec Azure.
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, l’utilisateur n’a rien à faire, car l’application est pré-intégrée avec Azure.
 
     ![Informations d’authentification unique dans Domaine et URL Percolate](common/preintegrated.png)
 
@@ -141,7 +141,7 @@ Pour configurer l’authentification unique Azure AD avec Percolate, procédez 
 
     b. Dans la zone de texte **Entity ID**, collez la valeur de l’**identificateur Azure AD** que vous avez copiée dans le portail Azure.
 
-    c. Dans le Bloc-notes, ouvrez le certificat codé en base 64 téléchargé dans le portail Azure, copiez son contenu, puis collez-le dans la zone  **Certificats x509** .
+    c. Dans le Bloc-notes, ouvrez le certificat codé en base 64 téléchargé dans le portail Azure, copiez son contenu, puis collez-le dans la zone **Certificats x509**.
 
     d. Dans la zone de texte **Email attribute**, entrez **emailaddress**.
 
@@ -207,7 +207,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Pour se connecter à Percolate, les utilisateurs d’Azure AD doivent être provisionnés dans Percolate. Dans Percolate, l’approvisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à Percolate en tant qu’administrateur.
 
@@ -219,9 +219,9 @@ Pour se connecter à Percolate, les utilisateurs d’Azure AD doivent être pro
 
     ![Configurer l'authentification unique](./media/percolate-tutorial/configure04.png)
 
-    a. Dans la zone de texte  **Email** , entrez l’adresse e-mail de l’utilisateur, par exemple brittasimon@contoso.com.
+    a. Dans la zone de texte **E-mail**, entrez l’adresse e-mail de l’utilisateur, comme brittasimon@contoso.com.
 
-    b. Dans la zone de texte  **Fullname** , entrez le nom d’un utilisateur, par exemple  **Brittasimon**.
+    b. Dans la zone de texte **Fullname** (Nom complet), entrez le nom d’un utilisateur, par exemple **Brittasimon**.
 
     c. Cliquez sur **Create users**.
 

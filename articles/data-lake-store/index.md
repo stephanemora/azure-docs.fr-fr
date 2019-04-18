@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 24d6f41e2415d9a8a6113135bf11c98b1e19f1f7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904659"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentation sur Azure Data Lake Storage Gen1
@@ -182,7 +182,7 @@ Découvrez comment utiliser Azure Data Lake Storage Gen1 (anciennement Azure Dat
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
                         <p><a href="/powershell/module/az.datalakestore/">PowerShell</a></p>
-                        <p><a href="/cli/azure/dls">Azure CLI</a></p>
+                        <p><a href="/cli/azure/dls">Interface de ligne de commande Azure</a></p>
                     </div>
                 </div>
             </div>
@@ -196,7 +196,7 @@ Découvrez comment utiliser Azure Data Lake Storage Gen1 (anciennement Azure Dat
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
                         <p><a href="/java/api/overview/azure/datalake">Java</a></p>
-                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.JS</a></p>
                         <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python (gestion des comptes)</a></p>
                         <p><a href="https://azure-datalake-store.readthedocs.io/en/latest">Python (gestion du système de fichiers)</a></p>
                     </div>

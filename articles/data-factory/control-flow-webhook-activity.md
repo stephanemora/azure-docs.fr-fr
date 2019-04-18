@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495906"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Activité de Webhook dans Azure Data Factory
@@ -74,10 +74,10 @@ L’activité de raccordement web elle-même échoue uniquement lorsque l’appe
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory :
 
-- [Activité Condition si](control-flow-if-condition-activity.md)
+- [Activité IfCondition](control-flow-if-condition-activity.md)
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
 - [Pour chaque activité](control-flow-for-each-activity.md)
 - [Activité d’obtention des métadonnées](control-flow-get-metadata-activity.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
-- [Activité web](control-flow-web-activity.md)
+- [Activité Web](control-flow-web-activity.md)
 - [Activité jusqu’à](control-flow-until-activity.md)

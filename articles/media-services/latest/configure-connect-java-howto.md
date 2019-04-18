@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 9177a1ae1f2939979d1f824c98b6018a83c2779f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 27a4a30dd0eb449726a99d02f2409632aa327567
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502262"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683424"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Se connecter à l’API de Media Services v3 - Java
 
 Cet article vous montre comment se connecter au SDK Java Azure Media Services v3 à l’aide de la connexion du principal du service dans la méthode.
 
-Dans cet article, Visual Studio Code est utilisé pour développer une application.
+Dans cet article, Visual Studio Code est utilisé pour développer l’exemple d’application.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -54,9 +54,9 @@ Lorsque vous exécutez la commande, le `pom.xml`, `App.java`, et d’autres fich
 
 ## <a name="add-dependencies"></a>Ajout de dépendances
 
-1. Dans Visual Studio Code, ouvrez le dossier où votre projet. 
-1. Rechercher et ouvrir le `pom.xml`. 
-1. Ajoutez les dépendances nécessaires. Un d’eux est [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar).
+1. Dans Visual Studio Code, ouvrez le dossier où votre projet est
+1. Recherchez et ouvrez le `pom.xml`
+1. Ajoutez les dépendances nécessaires
 
     ```xml
     <dependency>
@@ -74,7 +74,6 @@ Lorsque vous exécutez la commande, le `pom.xml`, `App.java`, et d’autres fich
       <artifactId>azure-client-authentication</artifactId>
       <version>1.6.5</version>
     </dependency>
-    </dependency>
     ```
 
 ## <a name="connect-to-the-java-client"></a>Se connecter au client Java
@@ -84,7 +83,7 @@ Lorsque vous exécutez la commande, le `pom.xml`, `App.java`, et d’autres fich
     ```java
     package com.azure.ams;
     ```
-2. Sous l’instruction package, ajoutez ces instructions import :
+1. Sous l’instruction package, ajoutez ces instructions import :
    
    ```java
    import com.microsoft.azure.AzureEnvironment;
@@ -92,7 +91,7 @@ Lorsque vous exécutez la commande, le `pom.xml`, `App.java`, et d’autres fich
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-2. Pour créer les informations d’identification Active Directory dont vous avez besoin pour effectuer des demandes, ajoutez le code suivant à la méthode principale de la classe d’application et définissez les valeurs que vous avez obtenu à partir de [accéder aux API](access-api-cli-how-to.md):
+1. Pour créer les informations d’identification Active Directory dont vous avez besoin pour effectuer des demandes, ajoutez le code suivant à la méthode principale de la classe d’application et définissez les valeurs que vous avez obtenu à partir de [accéder aux API](access-api-cli-how-to.md):
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -115,16 +114,15 @@ Lorsque vous exécutez la commande, le `pom.xml`, `App.java`, et d’autres fich
       System.out.println(e.toString());
    }
    ```
+1. Exécutez l'application.
 
 ## <a name="see-also"></a>Voir aussi
 
 - [Concepts Media Services](concepts-overview.md)
-- [Kit de développement logiciel (SDK) Java](https://aka.ms/ams-v3-java-sdk)
+- [Kit SDK Java](https://aka.ms/ams-v3-java-sdk)
 - [Référence Java](https://aka.ms/ams-v3-java-ref)
-- [https://search.maven.org/](https://search.maven.org/)
+- [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez désormais inclure `import com.microsoft.azure.management.mediaservices.v2018_07_01.Asset;` et manipuler des entités.<br/>
-Par exemple obtenir toutes les ressources dans votre compte : `Observable<Asset> asyncAssets = 
-                    manager.assets().listAsync(groupId, accountId).last();`
+Vous pouvez désormais inclure `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` et manipuler des entités.

@@ -17,15 +17,15 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 348979a53bff76c85e6d1531bd16cd695145e21b
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425983"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Mise à jour corrective automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
-> * [Gestionnaire de ressources](virtual-machines-windows-sql-automated-patching.md)
+> * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 > * [Classique](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 La mise à jour corrective automatisée établit une fenêtre de maintenance pour une machine virtuelle Azure exécutant SQL Server. Les mises à jour automatisées ne peuvent être installées qu’au cours de cette fenêtre de maintenance. Pour SQL Server, cette restriction garantit que les mises à jour système et les redémarrages associés ont lieu au meilleur moment possible pour la base de données. 
@@ -67,9 +67,9 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une m
 | Paramètre | Valeurs possibles | Description |
 | --- | --- | --- |
 | **Mise à jour corrective automatisée** |Activer/Désactiver (désactivé) |Active ou désactive la mise à jour corrective automatisée pour une machine virtuelle Azure. |
-| **Calendrier de maintenance** |Tous les jours, lundi, mardi, mercredi, jeudi, vendredi, samedi et dimanche |Planification du téléchargement et de l’installation des mises à jour Windows, SQL Server et Microsoft pour votre machine virtuelle. |
-| **Heure de début de maintenance** |0-24 |Heure locale de début de la mise à jour de la machine virtuelle. |
-| **Durée de fenêtre de maintenance** |30 à 180 |Nombre de minutes autorisées pour terminer le téléchargement et l’installation des mises à jour. |
+| **Planification de la maintenance** |Tous les jours, lundi, mardi, mercredi, jeudi, vendredi, samedi et dimanche |Planification du téléchargement et de l’installation des mises à jour Windows, SQL Server et Microsoft pour votre machine virtuelle. |
+| **Heure de début de la maintenance** |0-24 |Heure locale de début de la mise à jour de la machine virtuelle. |
+| **Durée de la fenêtre de maintenance** |30 à 180 |Nombre de minutes autorisées pour terminer le téléchargement et l’installation des mises à jour. |
 | **Catégorie de correctif** |Important | Catégorie des mises à jour Windows à télécharger et installer.|
 
 ## <a name="configuration-in-the-portal"></a>Configuration dans le portail
@@ -115,7 +115,7 @@ En s’appuyant sur cet exemple, le tableau suivant décrit les effets concrets 
 
 | Paramètre | Résultat |
 | --- | --- |
-| **JourSemaine** |Les correctifs sont installés tous les jeudis. |
+| **DayOfWeek** |Les correctifs sont installés tous les jeudis. |
 | **MaintenanceWindowStartingHour** |Les mises à jour démarrent à 11 h 00. |
 | **MaintenanceWindowsDuration** |Les correctifs doivent être installés dans les 120 minutes. Selon l’heure de début, leur installation doit être terminée à 13 h 00 au plus tard. |
 | **PatchCategory** |La seule définition possible pour ce paramètre est **Important**. Cela installe les mises à jour Windows marquées Important ; et pas les mises à jour de SQL Server qui ne sont pas incluses dans cette catégorie. |

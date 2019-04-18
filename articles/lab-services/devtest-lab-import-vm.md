@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4585d151e286917c67586a02539a10ade32bdd4c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: 9d5b7f32cb298315a5816562f548bcdafbdeb5cf
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094520"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682306"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>Importer des machines virtuelles à partir d’un autre labo dans Azure DevTest Labs
 Le service Azure DevTest Labs améliore considérablement la gestion des machines virtuelles pour les activités de développement et test. Il vous permet de déplacer une machine virtuelle d’un labo à un autre quand les exigences de l’infrastructure ou de l’équipe changent. Voici quelques scénarios courants où vous pouvez être amené à effectuer cette opération : 
@@ -42,7 +42,7 @@ De plus, pour pouvoir importer une machine virtuelle d’un labo vers un autre, 
 Vous pouvez importer une machine virtuelle d’un labo vers un autre seulement à l’aide d’Azure PowerShell et de l’API REST.
 
 ### <a name="use-powershell"></a>Utiliser PowerShell
-Téléchargez le fichier de script PowerShell ImportVirtualMachines.ps1 à partir du [dépôt Git Azure DevTest Lab](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImportVirtualMachines) sur votre disque local. 
+Téléchargez le fichier de script PowerShell ImportVirtualMachines.ps1 à partir du [dépôt Git Azure DevTest Lab](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) sur votre disque local. 
 
 #### <a name="import-a-single-vm"></a>Importer une seule machine virtuelle
 Exécutez le script ImportVirtualMachines.ps1 pour importer une seule machine virtuelle d’un labo source vers un labo de destination. Vous pouvez spécifier un nouveau nom pour la machine virtuelle en cours de copie à l’aide du paramètre DestinationVirtualMachineName. 

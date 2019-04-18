@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 788b03bb55abdc3040df8c5317f1f55738ebb023
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268346"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677882"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : Présentation technique approfondie
 
@@ -44,7 +44,7 @@ L’authentification unique transparente s’active via Azure AD Connect comme i
 - La clé de déchiffrement Kerberos du compte d’ordinateur est partagée en toute sécurité avec Azure AD. S’il existe plusieurs forêts Active Directory, chaque compte d’ordinateur aura sa propre clé de déchiffrement Kerberos unique.
 
 >[!IMPORTANT]
-> Le `AZUREADSSOACC` compte d’ordinateur doit être fortement protégé pour des raisons de sécurité. Seuls les administrateurs de domaine doit être en mesure de gérer le compte d’ordinateur. Assurez-vous que la délégation Kerberos sur le compte d’ordinateur est désactivée. Store le compte d’ordinateur dans une unité d’organisation (UO) où ils sont protégés contre les suppressions accidentelles et seuls les administrateurs de domaine ont accès. La clé de déchiffrement Kerberos sur le compte d’ordinateur doit également être traitée comme sensible. Il est fortement recommandé que vous [substituiez la clé de déchiffrement Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) du `AZUREADSSOACC` compte d’ordinateur au moins tous les 30 jours.
+> Le `AZUREADSSOACC` compte d’ordinateur doit être fortement protégé pour des raisons de sécurité. Seuls les administrateurs de domaine doit être en mesure de gérer le compte d’ordinateur. Vérifiez que la délégation Kerberos sur le compte d’ordinateur est désactivée et qu’aucun autre compte dans Active Directory ne dispose des autorisations de délégation le `AZUREADSSOACC` compte d’ordinateur... Store le compte d’ordinateur dans une unité d’organisation (UO) où ils sont protégés contre les suppressions accidentelles et seuls les administrateurs de domaine ont accès. La clé de déchiffrement Kerberos sur le compte d’ordinateur doit également être traitée comme sensible. Il est fortement recommandé que vous [substituiez la clé de déchiffrement Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) du `AZUREADSSOACC` compte d’ordinateur au moins tous les 30 jours.
 
 Une fois la configuration terminée, l’authentification unique transparente fonctionne de la même façon que n’importe quelle autre connexion utilisant l’authentification Windows intégrée (IWA).
 

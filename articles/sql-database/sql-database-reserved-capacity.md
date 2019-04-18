@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359720"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
@@ -86,10 +86,10 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 
 - [Qu’est-ce qu’une réservation Azure ?](../billing/billing-save-compute-costs-reservations.md)
 - [Gérer les réservations Azure](../billing/billing-manage-reserved-vm-instance.md)
-- [Comprendre Qu'azure réservations de remise](../billing/billing-understand-reservation-charges.md)
-- [Comprendre l’utilisation de la réservation pour votre abonnement de paiement à l’utilisation](../billing/billing-understand-reserved-instance-usage.md)
-- [Comprendre l’utilisation de la réservation pour l’inscription de votre entreprise](../billing/billing-understand-reserved-instance-usage-ea.md)
-- [Réservations d’Azure dans le programme partenaire centre Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Comprendre la remise sur réservation Azure](../billing/billing-understand-reservation-charges.md)
+- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../billing/billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../billing/billing-understand-reserved-instance-usage-ea.md)
+- [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
