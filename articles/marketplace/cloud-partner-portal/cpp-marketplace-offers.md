@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010570"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Offres des places de marché Azure et AppSource
@@ -29,7 +29,7 @@ La vidéo suivante présente les différentes fonctionnalités et les différent
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513/player]
 
-**Création d’applications et Services pour Azure Marketplace et AppSource - Build 2018**
+**Génération d’applications et de services pour la Place de marché Microsoft Azure et AppSource - Build 2018**
 
 Pour plus d’informations sur ces places de marché, consultez le [Guide de publication sur AppSource et la Place de marché Azure](../marketplace-publishers-guide.md).
 
@@ -52,14 +52,14 @@ Le tableau suivant répertorie les types d’offre actuels pris en charge par le
 
 |                Type d’offre                |  Marketplace  |   Description                                                           |
 |                ----------                |  -----------  |   -----------                                                           |
-| [Application Windows Azure](./azure-applications/cpp-azure-app-offer.md) | Azure | La solution est composée d’une ou plusieurs machines virtuelles, d’un code Azure personnalisé facultatif, déployés par le biais d’un modèle Azure Resource Manager.  Le déploiement peut être effectué par le client au moyen d’un modèle de solution ou géré par l’éditeur. Ce type procure plus de souplesse que le type d’offre « machine virtuelle ».  |
+| [Application Azure](./azure-applications/cpp-azure-app-offer.md) | Azure | La solution est composée d’une ou plusieurs machines virtuelles, d’un code Azure personnalisé facultatif, déployés par le biais d’un modèle Azure Resource Manager.  Le déploiement peut être effectué par le client au moyen d’un modèle de solution ou géré par l’éditeur. Ce type procure plus de souplesse que le type d’offre « machine virtuelle ».  |
 | [Service de conseil](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Les deux | Les consultants agréés Microsoft peuvent annoncer leurs services spécifiques à un domaine sur la Place de marché Microsoft Azure ou AppSource.  Leur expertise aide les clients à évaluer leurs problèmes et à créer et à déployer des solutions adaptées à leurs objectifs métier.  |
 | [Conteneur](./containers/cpp-containers-offer.md)  | Azure | La solution est une image conteneur Docker provisionnée en tant que service Kubernetes ou instances Azure Container. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Package qui étend ce système ERP (Enterprise Resource Planning) et de gestion d’entreprise. |
 | [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Un package qui étend ce client système de gestion (CRM) de ressources, via ses ventes, service, service de projet et les modules de service de champ  |
-| [Dynamics 365 pour la finance et les opérations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Un package qui étend ce planning (ERP) avancée du service qui prend en charge des ressources d’entreprise finance, opérations, fabrication et la gestion de la chaîne logistique |
+| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Un package qui étend ce planning (ERP) avancée du service qui prend en charge des ressources d’entreprise finance, opérations, fabrication et la gestion de la chaîne logistique |
 | [Module IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Conteneur compatible Docker qui s’exécute sur un appareil IoT Edge.  Il contient de petits modules de calculs qui utilisent une combinaison de code personnalisé, d’autres services Azure et de services tiers. |
-| [Application Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Une application Power BI utilisées par les packages de contenu Power BI personnalisable, y compris les jeux de données, des rapports et tableaux de bord |
+| [Application Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Une application Power BI utilisées par les packages de contenu Power BI personnalisable, y compris les jeux de données, des rapports et tableaux de bord |
 | [Application SaaS](./saas-app/cpp-saas-offer.md) | Azure | Solution est un abonnement de software-as-a-service, géré par le serveur de publication, les utilisateurs se connectent via une interface personnalisée qui utilise Azure Active Directory. |
 | [Machine virtuelle](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | La solution est contenue dans une seule machine virtuelle déployée sur l’abonnement du client.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |

@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008836"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Configuration d’une machine virtuelle Geo Artificial Intelligence sur Azure 
@@ -42,14 +42,14 @@ Voici la procédure permettant de créer une instance de la machine virtuelle de
 
 1. Accédez à la liste des machines virtuelles présentes sur le [portail Azure](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
 2. Sélectionnez le bouton **Créer** au bas de l’écran pour accéder à un Assistant.
-![créer-geo-IA-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
+![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
 3. L’Assistant utilisé pour créer l’instance Geo-DLVM nécessite les **entrées** de chacune des **quatre étapes** énumérées à droite de cette figure. Voici les entrées nécessaires à la configuration de chacune de ces étapes :
 
 
 
    - **Concepts de base**
 
-      1. **Nom** : nom du serveur de science des données que vous créez.
+      1. **Nom** : nom du serveur de science des données que vous créez.
 
       2. **Nom d’utilisateur** : ID de connexion du compte Administrateur.
 
@@ -95,4 +95,4 @@ Une fois connecté au bureau ArcGIS Pro avec votre compte ArcGIS, vous pouvez co
 
 Apprenez à utiliser la machine virtuelle de science des données Geo AI en lisant les rubriques suivantes :
 
-* [Utiliser la Science de données et intelligence artificielle géographique machine virtuelle](use-geo-ai-dsvm.md)
+* [Use the Geo AI Data Science VM](use-geo-ai-dsvm.md) (Utiliser la machine virtuelle de sciences des données Geo AI)

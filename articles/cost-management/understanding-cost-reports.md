@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265829"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Compréhension des rapports de gestion des coûts Cloudyn
@@ -89,11 +89,11 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
        - Sélectionnez un client spécifique, plusieurs clients, ou tous les clients.
      - **Nom du compte**
        - Le nom du compte ou abonnement. Dans Azure, il s’agit du nom de l’abonnement Azure.
-     - **Numéro de compte**
+     - **No. de compte**
        - Sélectionnez un compte, plusieurs comptes ou tous les comptes. Dans Azure, il s’agit du GUID de l’un abonnement Azure.
      - **Compte parent**
        - Sélectionnez le compte parent, plusieurs comptes ou sélectionnez tout.
-     - **de diffusion en continu**
+     - **Service**
        - Sélectionnez un service, plusieurs services, ou tous les services.
      - **Fournisseur**
        - Le fournisseur cloud auquel les ressources et les frais sont associés.
@@ -103,9 +103,9 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
        - Emplacements AWS isolés dans une région.
      - **Type de ressource**
        - Le type de ressource en cours d’utilisation.
-     - **Sous-type**
+     - **Sub-Type**
        - Sélectionnez le sous-type.
-     - **Opération**
+     - **opération**
        - Sélectionnez l’opération ou **Afficher tout**.
      - **Modèle de prix**
        - Frais de démarrage uniquement
@@ -150,7 +150,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
     - Trimestrielle
     - Annuelle
 
-9. **Règles d’allocation**
+9. **Règles d'allocation**
 
     Utilisez Règles d’allocation pour appliquer ou désactiver le nouveau calcul d’allocation des coûts. Vous pouvez activer ou désactiver le nouveau calcul d’allocation des coûts pour les données de facturation. Le nouveau calcul s’applique aux catégories sélectionnées dans le rapport. Ceci vous permet d’évaluer l’impact du nouveau calcul d’allocation des coûts par rapport aux données de facturation brutes.
 
@@ -158,7 +158,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
 
     Utilisez Sans catégorie pour inclure ou exclure des coûts sans catégorie dans le rapport.
 
-11. **Afficher/masquer les champs**
+11. **Afficher/masquer des champs**
 
     L’option Afficher/masquer n’a aucun impact sur les rapports.
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260746"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identité managée pour Data Factory
@@ -192,6 +192,6 @@ Type                  : ServicePrincipal
 Consultez les rubriques suivantes qui expliquent quand et comment utiliser data factory gérés d’identité :
 
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md)
-- [Copier des données depuis/vers Azure Data Lake Store à l’aide d’identités gérées pour l’authentification des ressources Azure](connector-azure-data-lake-store.md)
+- [Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory](connector-azure-data-lake-store.md)
 
 Consultez [identités gérées pour la vue d’ensemble de ressources Azure](/azure/active-directory/managed-identities-azure-resources/overview) pour plus d’informations sur les identités pour les ressources Azure, identité gérée de la fabrique de données est basé. 

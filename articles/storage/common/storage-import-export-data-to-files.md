@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 28026a429643c62434ddfd7591126169857a7371
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265631"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utiliser le service Azure Import/Export pour importer des données dans Azure Files
@@ -207,7 +207,7 @@ Voici un exemple d’importation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Afficher l’état du travail et de lecteur](storage-import-export-view-drive-status.md)
-* [Passez en revue les exigences d’Import/Export](storage-import-export-requirements.md)
+* [Voir l’état de la tâche et des disques](storage-import-export-view-drive-status.md)
+* [Passer en revue les exigences d’importation/exportation](storage-import-export-requirements.md)
 
 

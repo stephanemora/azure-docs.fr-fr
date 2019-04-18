@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
 ms.openlocfilehash: 2066dc3e20ab9fc92b23fd071728ea6a920d3324
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012421"
 ---
 # <a name="stream-compressed-audio-with-the-speech-sdk"></a>Audio Stream compressée avec le Speech SDK
@@ -58,5 +58,5 @@ var text = result.GetText();
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenez votre abonnement d’essai de reconnaissance vocale](https://azure.microsoft.com/try/cognitive-services/)
-* [Apprenez à reconnaître la parole dansC#](quickstart-csharp-dotnet-windows.md)
+* [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Découvrir comment utiliser la reconnaissance vocale en C#](quickstart-csharp-dotnet-windows.md)

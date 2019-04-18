@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
 ms.openlocfilehash: 903f2700ad127c9bcc69e69ee125ba62fccf52e0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051629"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Recycler et déployer un modèle Machine Learning
@@ -192,5 +192,5 @@ Enfin, utilisez la [AzMlWebService de mise à jour](https://docs.microsoft.com/p
 
 Pour savoir comment gérer les services web ou effectuer le suivi de plusieurs exécutions d’expériences, voir les articles suivants :
 
-* [Explorer le portail de Services Web](manage-new-webservice.md)
-* [Gérer des itérations d'expériences](manage-experiment-iterations.md)
+* [Explorer le portail Services web](manage-new-webservice.md)
+* [Gérer des itérations d’expériences](manage-experiment-iterations.md)

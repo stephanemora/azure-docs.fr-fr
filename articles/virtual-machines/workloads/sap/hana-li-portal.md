@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009366"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Contrôle des grandes instances Azure HANA à l’aide du portail Azure
@@ -79,8 +79,8 @@ Dans l’écran vue d’ensemble, vous obtenez une présentation de l’unité, 
 
 Ces attributs en examinant les différents attributs affichés, recherchez tout à fait différents de celui des attributs de la machine virtuelle Azure. Sur l’en-tête de la partie gauche, il affiche le groupe de ressources, une région Azure, nom de l’abonnement et ID ainsi que certaines balises que vous avez ajouté. Par défaut, les unités de grande Instance HANA n’ont aucun balise. Sur le côté droit de l’en-tête, le nom de l’unité est répertorié comme affecté lorsque le déploiement a été effectué. Le système d’exploitation est indiqué, ainsi que l’adresse IP. Comme avec les machines virtuelles tapez de l’unité HANA grande instance avec le nombre d’UC threads et la mémoire est également affichée. Plus d’informations sur les différentes unités de grande Instance HANA sont indiquées ici :
 
-- [Références SKU disponibles pour HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [Architecture de stockage de SAP HANA (grandes instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [Références (SKU) disponibles pour HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
+- [Architecture de stockage SAP HANA (grandes Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
 Un champ supplémentaire dans la colonne de droite de l’en-tête informe de l’état d’alimentation de l’unité HANA grande instance.
 
@@ -149,6 +149,6 @@ Lorsque vous répondu aux questions et fourni des détails supplémentaires, vou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comment surveiller SAP HANA (grandes instances) sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
+- [La surveillance de SAP HANA (grandes instances) sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 - [Surveillance et dépannage à partir de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
 

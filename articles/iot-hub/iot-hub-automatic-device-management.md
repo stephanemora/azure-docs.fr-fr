@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012949"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Gestion automatique des appareils IoT à grande échelle à l’aide du portail Azure
@@ -203,13 +203,13 @@ Quand vous supprimez une configuration, tous les jumeaux d’appareil prennent l
 Dans cet article, vous avez appris à configurer et surveiller des appareils IoT à grande échelle. Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
 * [Gestion de vos identités d’appareil IoT Hub en bloc](iot-hub-bulk-identity-mgmt.md)
-* [Métriques IoT Hub](iot-hub-metrics.md)
+* [Métriques d’IoT Hub](iot-hub-metrics.md)
 * [Surveillance des opérations](iot-hub-operations-monitoring.md)
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur IoT Hub](iot-hub-devguide.md)
-* [Déploiement d’une IA sur des appareils edge avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guide du développeur d’IoT Hub](iot-hub-devguide.md)
+* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Pour savoir comment utiliser le service d’approvisionnement des appareils IoT Hub afin d’activer l’approvisionnement sans contact et juste-à-temps, consultez : 
 

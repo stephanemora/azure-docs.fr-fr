@@ -47,7 +47,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Créer et gérer une stratégie Azure</a>
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Créer et gérer Azure Policy</a>
           - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Créer une définition de stratégie personnalisée</a>
   - title: Exemples
     items:
@@ -65,7 +65,7 @@ sections:
         className: cardsD
         items:
           - title: Ligne de commande
-            html: '<p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (Policy)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (Policy Insights)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (Guest Configuration)</a></p>'
+            html: '<p><a href="/cli/azure/policy">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (Policy)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (Policy Insights)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (Guest Configuration)</a></p>'
           - title: Modèles Resource Manager
             html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Affectations</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Définitions de stratégies</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Définitions d’initiatives</a></p>
           - title: REST

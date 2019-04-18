@@ -231,13 +231,7 @@ sections:
         className: cardsD
         items:
           - title: Informations de référence sur le SDK
-            html: |
-              <p><a href="https://aka.ms/csspeech/csharpref">C# API (UWP, .NET et Unity)</a></p>
-              <p><a href="https://aka.ms/csspeech/cppref">API C++</a></p>
-              <p><a href="https://aka.ms/csspeech/javaref">API Java</a></p>
-              <p><a href="https://aka.ms/csspeech/pythonref">API Python</a></p>
-              <p><a href="https://aka.ms/csspeech/objectivecref">API Objective-C</a></p>
-              <p><a href="https://aka.ms/csspeech/javascriptref">API JavaScript</a></p>
+            html: "<p><a href=\"https://aka.ms/csspeech/csharpref\">API\_C# (UWP, .NET et Unity)</a></p>\n<p><a href=\"https://aka.ms/csspeech/cppref\">API C++</a></p>\n<p><a href=\"https://aka.ms/csspeech/javaref\">API Java</a></p>\n<p><a href=\"https://aka.ms/csspeech/pythonref\">API Python</a></p>\n<p><a href=\"https://aka.ms/csspeech/objectivecref\">API Objective-C</a></p>\n<p><a href=\"https://aka.ms/csspeech/javascriptref\">API JavaScript</a></p>\n"
           - title: API REST
             html: |
               <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">API REST</a></p>
@@ -246,4 +240,4 @@ sections:
               <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
           - title: Interface de ligne de commande
             html: |
-              <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+              <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Interface de ligne de commande Azure</a></p>

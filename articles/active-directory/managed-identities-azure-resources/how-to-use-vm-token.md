@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258910"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
@@ -365,7 +365,7 @@ Si une erreur se produit, le corps de réponse HTTP correspondant contient des d
 | Élément | Description |
 | ------- | ----------- |
 | error   | Identificateur de l’erreur. |
-| error_description | Description détaillée de l’erreur. **Descriptions des erreurs peuvent changer à tout moment. N’écrivez pas de code branches en fonction des valeurs dans la description d’erreur.**|
+| error_description | Description détaillée de l’erreur. **Les descriptions des erreurs peuvent changer à tout moment. N’écrivez pas de codes créant des branches en fonction des valeurs dans la description de l’erreur.**|
 
 ### <a name="http-response-reference"></a>Référence de réponse HTTP
 

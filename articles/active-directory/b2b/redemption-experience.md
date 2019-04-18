@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046493"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
@@ -62,8 +62,8 @@ Vous pouvez présenter les conditions d’utilisation à l’utilisateur invité
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce qu’Azure AD B2B Collaboration ?](what-is-b2b.md)
+- [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
 - [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure](add-users-administrator.md)
 - [Comment les professionnels de l’information ajoutent-ils des utilisateurs B2B Collaboration à Azure Active Directory ?](add-users-information-worker.md)
-- [Ajouter des utilisateurs Azure Active Directory B2B collaboration à l’aide de PowerShell](customize-invitation-api.md#powershell)
+- [Ajouter des utilisateurs Azure Active Directory B2B Collaboration à l’aide de PowerShell](customize-invitation-api.md#powershell)
 - [Quitter une organisation en tant qu’utilisateur invité](leave-the-organization.md)

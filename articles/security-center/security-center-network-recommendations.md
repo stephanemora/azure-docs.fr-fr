@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: monhaber
 ms.openlocfilehash: 3d9658a6b7501714a6aad0e8eaa30ce587284bfe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046204"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protection de vos ressources réseau dans Azure Security Center
@@ -101,7 +101,7 @@ Pour explorer une ressource au niveau du détail :
 1. Lorsque vous sélectionnez une ressource spécifique sur le mappage, le volet droit s’ouvre et vous donne des informations générales sur la ressource, les solutions de sécurité connectées, s’il y en a, et les suggestions relatives à la ressource. Vous aurez le même type de comportement pour chaque type de ressource que vous sélectionnez. 
 2. Cliquez sur **Trafic** pour afficher la liste des trafics entrant et sortant possibles sur la ressource. Il s’agit d’une liste complète de ceux qui peuvent communiquer avec la ressource, et inversement, ainsi que des protocoles et ports utilisés pour communiquer. Par exemple, apparaissent lorsque vous sélectionnez une machine virtuelle, toutes les machines virtuelles que celui-ci puisse communiquer avec, et lorsque vous sélectionnez un sous-réseau, tous les sous-réseaux dont il peut communiquer avec sont affichés.
 
-**Ces données sont basées sur l’analyse des groupes de sécurité réseau, ainsi que les algorithmes qui analysent plusieurs règles pour comprendre leurs interactions et les repères de croisement avancée en matière d’apprentissage.** 
+**Ces données sont basées sur les analyses de groupes de sécurité réseau, ainsi que sur des algorithmes de Machine Learning avancés qui analysent plusieurs règles pour en comprendre les croisements et les interactions.** 
 
 ![Mappage de trafic réseau](./media/security-center-network-recommendations/network-map-traffic.png)
 

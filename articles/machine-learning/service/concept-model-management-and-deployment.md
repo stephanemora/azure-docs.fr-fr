@@ -12,10 +12,10 @@ ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275435"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning
@@ -33,9 +33,9 @@ Le workflow de déploiement comprend les étapes suivantes :
 
 Chaque étape peut être effectuée indépendamment ou dans le cadre d’une même commande de déploiement. En outre, vous pouvez intégrer le déploiement dans un **flux de travail CI/CD**, comme illustré dans ce graphique.
 
-[!['Cycle de déploiement (CI/CD) une intégration continus Azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[![« Cycle de déploiement (CI/CD) une intégration continus azure Machine Learning »](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-## <a name="step-1-register-model"></a>Étape 1 : Inscrire le modèle
+## <a name="step-1-register-model"></a>Étape 1 : Inscrire le modèle
 
 L’inscription de modèle vous permet de stocker vos modèles dans le cloud Azure, au sein de votre espace de travail, et d’en gérer les versions. Le registre de modèle facilite l’organisation et le suivi de vos modèles entraînés.
  
@@ -49,7 +49,7 @@ Pour obtenir un exemple d’inscription d’un modèle stocké au format pickle,
 
 Pour obtenir des informations sur l’utilisation des modèles ONNX, consultez le document [ONNX et Azure Machine Learning](how-to-build-deploy-onnx.md).
 
-## <a name="step-2-register-image"></a>Étape 2 : Inscrire une image
+## <a name="step-2-register-image"></a>Étape 2 : Inscrire une image
 
 Les images permettent un déploiement de modèles fiable, ainsi que le déploiement de tous les composants nécessaires pour utiliser le modèle. Une image contient les éléments suivants :
 
@@ -69,13 +69,13 @@ Vous pouvez également utiliser des images personnalisées, qui peuvent être ch
 
 Pour plus d’informations, consultez la section consacrée à la configuration et à l’inscription d’une image dans l’article [Déployer des modèles](how-to-deploy-and-where.md#configureimage).
 
-## <a name="step-3-deploy-image"></a>Étape 3 : Déployer une image
+## <a name="step-3-deploy-image"></a>Étape 3 : Déployer une image
 
 Vous pouvez déployer des images inscrites dans le cloud ou sur des périphériques de périmètre. Le processus de déploiement crée toutes les ressources nécessaires pour effectuer le monitoring, l’équilibrage de charge et la mise à l’échelle automatique du modèle. L’accès aux services déployés est sécurisable avec l’authentification par certificat en fournissant les ressources de sécurité lors du déploiement. Vous pouvez également mettre à niveau un déploiement existant pour utiliser une image plus récente.
 
 Les déploiements de service web peuvent également faire l’objet de recherches. Par exemple, vous pouvez rechercher tous les déploiements d’un modèle ou d’une image spécifique.
 
-[![Icibles de nferencing](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Cibles d’inférence](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 Vous pouvez déployer vos images sur les cibles de déploiement suivantes dans le cloud :
 
@@ -88,7 +88,7 @@ Une fois votre service déployé, la charge des demandes d’inférence est auto
 
 Pour plus d’informations, consultez la section consacrée au déploiement dans l’article [Déployer des modèles](how-to-deploy-and-where.md#deploy).
 
-## <a name="step-4-monitor-models-and-collect-data"></a>Étape 4 : Surveiller des modèles et collecter des données
+## <a name="step-4-monitor-models-and-collect-data"></a>Étape 4 : Surveiller des modèles et collecter des données
 
 Un SDK pour la journalisation des modèles et la capture de données est disponible pour vous permettre de surveiller les entrées, les sorties et d’autres données pertinentes de votre modèle. Les données sont stockées comme objet blob dans le compte de stockage Azure pour votre espace de travail.
 

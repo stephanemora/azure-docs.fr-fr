@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70e4e56742f45e0f6bfd80455e4d7545523a478b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265778"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemples PowerShell pour les licences basées sur les groupes dans Azure AD
@@ -26,7 +26,7 @@ ms.locfileid: "59265778"
 Toutes les fonctionnalités pour la gestion des licences par groupe sont disponibles via le [portail Azure](https://portal.azure.com), et la prise en charge de PowerShell et Microsoft Graph est actuellement limitée. Toutefois, il existe certaines tâches utiles qui peuvent être effectuées à l’aide des [cmdlets MSOnline PowerShell](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) existantes et Microsoft Graph. Ce document fournit des exemples de ce qui est possible.
 
 > [!NOTE]
-> Avant de commencer, les applets de commande en cours d’exécution, vérifiez que vous vous connectez à votre organisation tout d’abord, en exécutant la `Connect-MsolService` applet de commande.
+> Avant de commencer, les applets de commande en cours d’exécution, vérifiez que vous vous connectez à votre organisation tout d’abord, en exécutant la `Connect-MsolService`  applet de commande.
 
 > [!WARNING]
 > Ce code est fourni à titre d’exemple à des fins de démonstration. Si vous voulez l’utiliser dans votre environnement, testez-le au préalable à petite échelle ou dans un locataire de test distinct. Vous devez peut-être modifier le code pour répondre aux besoins spécifiques de votre environnement.
@@ -623,10 +623,10 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 Pour plus d’informations sur l’ensemble de fonctionnalités de gestion des licences par le biais des groupes, consultez les articles suivants :
 
-* [À quoi correspondent les licences basées sur les groupes dans Azure Active Directory ?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory? (Présentation des licences basées sur le groupe dans Azure Active Directory)](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Affectation de licences à un groupe dans Azure Active Directory](licensing-groups-assign.md)
 * [Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Migration des utilisateurs individuels sous licence vers une licence basée sur le groupe dans Azure Active Directory](licensing-groups-migrate-users.md)
-* [Comment migrer des utilisateurs entre les licences de produit à l’aide de la gestion des licences par groupe dans Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Autres scénarios de licence basée sur le groupe Azure Active Directory](licensing-group-advanced.md)
-* [Exemples PowerShell pour les licences basées sur le groupe dans Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)
+* [Migration des utilisateurs individuels sous licence vers les licences basées sur les groupes dans Azure Active Directory](licensing-groups-migrate-users.md)
+* [Guide pratique pour migrer des utilisateurs entre des licences de produit à l’aide de la gestion de licences basée sur des groupes dans Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Azure Active Directory group-based licensing additional scenarios (Autres scénarios de licence basée sur le groupe Azure Active Directory)](licensing-group-advanced.md)
+* [Exemples PowerShell pour les licences basées sur les groupes dans Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

@@ -7,10 +7,10 @@ ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: e47ce094cd690cba4ef398bc5d5d443f7ed647e9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272476"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
@@ -350,7 +350,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 Pour en savoir plus sur les groupes d’administration, consultez :
 
 - [Créer des groupes d’administration pour organiser les ressources Azure](create.md)
-- [Comment modifier, supprimer ou gérer vos groupes d’administration](manage.md)
-- [Passez en revue les groupes d’administration dans le Module de ressources Azure PowerShell](/powershell/module/az.resources#resources)
-- [Passez en revue les groupes d’administration dans l’API REST](/rest/api/resources/managementgroups)
-- [Passez en revue les groupes d’administration dans Azure CLI](/cli/azure/account/management-group)
+- [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](manage.md)
+- [Consulter les groupes d’administration dans le module Azure PowerShell Resources](/powershell/module/az.resources#resources)
+- [Consulter les groupes d’administration dans l’API REST](/rest/api/resources/managementgroups)
+- [Consulter les groupes d’administration dans Azure CLI](/cli/azure/account/management-group)

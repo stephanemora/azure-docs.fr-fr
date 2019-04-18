@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: yizhon
 ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261392"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Développer pour des appareils limités avec le kit SDK Azure IoT C
@@ -82,5 +82,5 @@ Un autre ensemble d’API sans l’index _LL_ est appelé la couche pratique, o�
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’architecture du SDK C Azure IoT :
--   [Code de source Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/)
--   [Azure IoT device SDK pour C introduction](iot-hub-device-sdk-c-intro.md)
+-   [Code source du SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c/)
+-   [Présentation d’Azure IoT device SDK pour C](iot-hub-device-sdk-c-intro.md)

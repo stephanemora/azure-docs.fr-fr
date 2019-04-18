@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
 ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274687"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques sur l’infrastructure
@@ -97,7 +97,7 @@ Des actions de script peuvent également être publiées dans la Place de march�
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Installer des Applications de fournisseurs tiers Apache Hadoop sur HDInsight](../hdinsight-apps-install-applications.md)
+- [Installer des applications Apache Hadoop tierces sur HDInsight](../hdinsight-apps-install-applications.md)
 - [Personnaliser des clusters HDInsight à l’aide d’actions de script](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Publier une application HDInsight sur la Place de marché Microsoft Azure](../hdinsight-apps-publish-applications.md)
 
@@ -168,8 +168,8 @@ HDInsight peut être ajouté à un réseau virtuel Azure nouveau ou existant. Si
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Azure virtuel-réseaux-vue d’ensemble](../../virtual-network/virtual-networks-overview.md)
-- [Étendre HDInsight à l’aide d’un réseau virtuel Azure](../hdinsight-extend-hadoop-virtual-network.md)
+- [Vue d’ensemble des réseaux virtuels Azure](../../virtual-network/virtual-networks-overview.md)
+- [Étendre HDInsight à l’aide d’un Réseau virtuel Azure](../hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Se connecter en toute sécurité à des services Azure avec des points de terminaison de service de réseau virtuel Azure
 
@@ -177,8 +177,8 @@ HDInsight prend en charge [points de terminaison de service réseau virtuel](../
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Points de terminaison du service Réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [Améliorer la sécurité de HDInsight avec des points de terminaison de service](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
+- [Points de terminaison de service de réseau virtuel](../../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Améliorer la sécurité HDInsight avec des points de terminaison de service](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>Connecter HDInsight au réseau local
 
@@ -194,4 +194,4 @@ Pour plus d’informations, consultez l’article [Connecter HDInsight à votre 
 
 Lisez l’article suivant de cette série :
 
-- [Bonnes pratiques de stockage local pour la migration d’Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md)
+- [Bonnes pratiques concernant le stockage pour une migration locale vers Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md)

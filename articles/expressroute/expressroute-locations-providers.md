@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: pareshmu
 ms.openlocfilehash: 01e48a7f78be16d51878b5458174a35253841539
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006516"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
@@ -33,7 +33,7 @@ Les tables de cet article offrent des informations sur les fournisseurs de conne
 ## <a name="partners"></a>Fournisseurs de connectivité ExpressRoute
 ExpressRoute est pris en charge dans tous les emplacements et régions Azure. La carte ci-dessous fournit une liste des régions Azure et des emplacements ExpressRoute. Les emplacements ExpressRoute se réfèrent à ceux où Microsoft s’associe à plusieurs fournisseurs de services.
 
-![Carte géographique][0]
+![Carte des emplacements][0]
 
 Vous aurez accès aux services Azure dans toutes les régions au sein d’une région géopolitique si vous êtes connecté à au moins un emplacement ExpressRoute dans la région géopolitique. 
 
@@ -42,7 +42,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 
 | **Région géopolitique** | **Zone** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- | --- |
-| **Gouvernement australien** | 1 | Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
+| **Secteur public australien** | 1 | Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
 | **Europe** | 1 |France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Amsterdam2, Dublin, London, London2, Marseille, Newport(Wales), Paris, Zurich |
 | **Amérique du Nord** | 1 |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
 | **Asie** | 2 |Asie Est, Asie Sud-Est |Hong Kong (R.A.S.), Kuala Lumpur, Singapour, Singapour2, Taipei |
@@ -50,7 +50,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Inde** | 2 |Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japon** | 2 |Japon Ouest, Japon Est |Osaka, Tokyo |
 | **Corée du Sud** | 2 |Centre de la Corée, Corée du Sud |Busan, Séoul|
-| **UAE** | 2 | Émirats Arabes Unis, États-Unis, Nord des Émirats Arabes Unis | Dubaï |
+| **ÉMIRATS ARABES UNIS** | 2 | Émirats Arabes Unis, États-Unis, Nord des Émirats Arabes Unis | Dubaï |
 | **Afrique du Sud** | 3 |Afrique du Sud Ouest, Nord de l’Afrique du Sud |Le Cap, Johannesburg |
 | **Amérique du Sud** | 3 |Brésil Sud |Sao Paulo |
 
@@ -60,8 +60,8 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- |
 | **Cloud du gouvernement des États-Unis** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginie, US DoD Centre, US DoD Est  |Chicago, Dallas, New York, Seattle, Phoenix, San Antonio, Silicon Valley, Washington DC |
-| **Chine orientale** |Chine Est, Chine Est2 |Shanghai, Shanghai2 |
-| **Chine du Nord** |Chine Nord, Chine Nord2 |Beijing, Beijing2 |
+| **Chine Est** |Chine Est, Chine Est2 |Shanghai, Shanghai2 |
+| **Chine Nord** |Chine Nord, Chine Nord2 |Beijing, Beijing2 |
 | **Allemagne** |Allemagne centrale, Allemagne de l’est |Berlin, Francfort |
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge dans la référence ExpressRoute Standard. Vous devez activer le module complémentaire ExpressRoute Premium pour prendre en charge la connectivité globale. La connectivité à des environnements de cloud nationaux n’est pas prise en charge. En cas de besoin, vous pouvez collaborer avec votre fournisseur de connectivité.
@@ -72,7 +72,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 
 
 ### <a name="production-azure"></a>Production Azure
-| **Lieu** | **Homologation propriétaire de l’emplacement** | **Fournisseurs de services** |
+| **Lieu** | **Propriétaire de l’emplacement d’homologation** | **Fournisseurs de services** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdam2** | Interxion | Allemagne-CIX, Interxion |
@@ -86,14 +86,14 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Chicago** | Equinix | Aryaka Networks, AT & T NetBond, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global limitée, Sprint, Telia transporteur, Verizon, Zayo |
 | **Dallas** | Equinix | Aryaka Networks, AT & T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona réseaux, Telmex Uninet, Telia transporteur, Verizon, Zayo|
 | **Denver** | CoreSite | CoreSite, Megaport, Zayo |
-| **Dubaï** | Émirats arabes unis Etisalat | Émirats arabes unis Etisalat |
+| **Dubai** | Émirats arabes unis Etisalat | Émirats arabes unis Etisalat |
 | **Dublin** | Equinix | Colt, eir, Equinix, Interxion, Megaport |
 | **Hong Kong (R.A.S.)** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Johannesburg** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | TIME dotCom |
 | **Las Vegas** | Switch | CenturyLink Cloud Connect, Megaport |
 | **Londres** | Equinix | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **London2** | Telehouse | IX Reach, Equinix |
+| **Londres2** | Telehouse | IX Reach, Equinix |
 | **Los Angeles** | CoreSite | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Marseille** |Interxion | Interxion |
 | **Melbourne** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation |
@@ -113,13 +113,13 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Séoul** | KINX | KINX, LG CNS, Sejong Telecom |
 | **Silicon Valley** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, InterCloud, IXReach, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Verizon, Zayo |
 | **Singapour** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
-| **Singapour2** | Global Switch | Colt, Epsilon Global Communications, Megaport, SingTel |
+| **Singapore2** | Global Switch | Colt, Epsilon Global Communications, Megaport, SingTel |
 | **Sydney** | Equinix | AARNet, AT & T NetBond, British Telecom, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, Verizon |
 | **Taipei** | Chief Telecom | Chief Telecom |
 | **Tokyo** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | Cologix | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, Megaport, Telus, Zayo |
 | **Washington DC** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
-| **Washington DC2** | Coresite | Coresite | 
+| **Washington DC2** | Coresite | Coresite | 
 | **Zurich** | Interxion | Interxion |
 
  **+** = bientôt disponible
@@ -149,7 +149,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### <a name="germany"></a>Allemagne
-| **Lieu** | **Fournisseurs de services** |
+| **Emplacement** | **Fournisseurs de services** |
 | --- | --- |
 | **Berlin** |e-shelter, Megaport+, T-Systems |
 | **Francfort** |Colt, Equinix, Interxion |
@@ -179,7 +179,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 | **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Francfort** | Telecity | BICS, Cinia, Nianet, QSC AG |
-| **Hamburg** | Equinix | Cinia |
+| **Hambourg** | Equinix | Cinia |
 | **Hong Kong (R.A.S.)** | Equinix | Chief, Macroview Telecom |
 | **Johannesburg** | Teraco | MTN |
 | **Londres** | BICS, Equinix, euNetworks, Telecity | Opérateur Bezeq International Ltd., CoreAzure, Epsilon télécommunications Limited, E exponentielle, HSO, nextgen Networks, Proximus, Tamares Telecom, Zain |
@@ -189,7 +189,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 | **New York** |Equinix, Megaport | Altice Business, Lightower, Webair |
 | **Paris** | Equinix | Proximus |
 | **Québec** | Megaport | Fibrenoire |
-| **Sao Paula** | Equinix | Venha Pra Nuvem |
+| **Sao Paulo** | Equinix | Venha Pra Nuvem |
 | **Seattle** |Equinix | Alaska Communications |
 | **Silicon Valley** |Equinix | Cox Business, Windstream |
 | **Singapour** |Equinix |1CLOUDSTAR, BICS, Epsilon Telecommunications Limited, LGA Telecom, United Information Highway (UIH) |

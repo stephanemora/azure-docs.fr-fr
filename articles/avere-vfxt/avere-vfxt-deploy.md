@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: v-erkell
 ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257312"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Déployer le cluster vFXT
@@ -29,7 +29,7 @@ Après avoir suivi les instructions fournies dans ce document, vous aurez un ré
 Avant d'utiliser le modèle de création, vérifiez que les conditions préalables suivantes sont réunies :  
 
 1. [Nouvel abonnement](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [Autorisations de propriétaire d’abonnement](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+1. [Autorisations du propriétaire de l’abonnement](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota pour le cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [Point de terminaison de service de stockage (si nécessaire)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) : requis pour déploie à l’aide d’un réseau virtuel existant et la création de stockage d’objets blob
 

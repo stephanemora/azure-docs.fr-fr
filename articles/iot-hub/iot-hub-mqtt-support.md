@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ms.openlocfilehash: 5c879b050fad0ac8c6467ffa29d9aee398f57aa2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276838"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
@@ -45,7 +45,7 @@ Le tableau suivant contient des liens vers des exemples de code pour chaque lang
 
 | Langage | Paramètre de protocole |
 | --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
+| [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
@@ -148,13 +148,13 @@ pip install paho-mqtt
 
 Ensuite, implémentez le client dans un script Python. Remplacez les espaces réservés comme suit :
 
-* `<local path to digicert.cer>` est le chemin d’accès dans un fichier local qui contient le certificat racine DigiCert Baltimore. Vous pouvez créer ce fichier en copiant les informations de certificat à partir de [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) dans le SDK Azure IoT pour C. Incluez les lignes `-----BEGIN CERTIFICATE-----` et `-----END CERTIFICATE-----`, supprimez les marques `"` au début et à la fin de chaque ligne, et supprimez les caractères `\r\n` à la fin de chaque ligne.
+* `<local path to digicert.cer>` est le chemin d’un fichier local qui contient le certificat racine DigiCert Baltimore. Vous pouvez créer ce fichier en copiant les informations de certificat à partir de [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) dans le SDK Azure IoT pour C. Incluez les lignes `-----BEGIN CERTIFICATE-----` et `-----END CERTIFICATE-----`, supprimez les marques `"` au début et à la fin de chaque ligne, et supprimez les caractères `\r\n` à la fin de chaque ligne.
 
-* `<device id from device registry>` est l’ID d’un appareil que vous avez ajouté à votre IoT hub.
+* `<device id from device registry>` est l’ID d’un appareil que vous avez ajouté à votre hub IoT.
 
 * `<generated SAS token>` est un jeton SAP pour l’appareil créé comme décrit précédemment dans cet article.
 
-* `<iot hub name>` le nom de votre IoT hub.
+* `<iot hub name>` est le nom de votre hub IoT.
 
 ```python
 from paho.mqtt import client as mqtt
@@ -216,7 +216,7 @@ Pour recevoir des messages d’IoT Hub, l’appareil doit s’abonner en utilisa
 
 L’appareil ne reçoit aucun message d’IoT Hub tant qu’il ne s’est pas abonné à son point de terminaison spécifique d’appareil, représenté par le filtre de rubrique `devices/{device_id}/messages/devicebound/#`. Une fois qu’un abonnement a été établi, l’appareil reçoit les messages cloud-à-appareil qui lui ont été envoyés après l’abonnement. Si l’appareil se connecte avec l’indicateur **CleanSession** défini sur **0**, l’abonnement est rendu persistant entre les différentes sessions. Dans ce cas, la prochaine fois que l’appareil se connecte avec **CleanSession 0**, il reçoit les messages en attente qui lui ont été envoyés quand il était déconnecté. Si l’appareil utilise l’indicateur **CleanSession** défini sur **1**, il ne reçoit pas les messages à partir d’IoT Hub jusqu’à ce qu’il s’abonne à son point de terminaison d’appareil.
 
-IoT Hub remet les messages avec le **Nom de la rubrique** `devices/{device_id}/messages/devicebound/`, ou `devices/{device_id}/messages/devicebound/{property_bag}` quand il y a des propriétés de message. `{property_bag}` contient des paires clé/valeur codées url des propriétés de message. Seules les propriétés d’application et les propriétés système définissables par l’utilisateur (comme **messageId** ou **correlationId**) sont incluses dans le jeu de propriétés. Les noms de propriété système ont le préfixe **$**, tandis que les noms de propriété d’application ne sont précédés d’aucun préfixe.
+IoT Hub remet les messages avec le **Nom de la rubrique** `devices/{device_id}/messages/devicebound/`, ou `devices/{device_id}/messages/devicebound/{property_bag}` quand il y a des propriétés de message. `{property_bag}` contient des paires clé/valeur codées URL de propriétés de message. Seules les propriétés d’application et les propriétés système définissables par l’utilisateur (comme **messageId** ou **correlationId**) sont incluses dans le jeu de propriétés. Les noms de propriété système ont le préfixe **$**, tandis que les noms de propriété d’application ne sont précédés d’aucun préfixe.
 
 Quand une application d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**. Après cela, IoT Hub remet les messages à l’appareil à l’aide de QoS 1.
 
@@ -337,11 +337,11 @@ Pour en savoir plus sur le protocole MQTT, consultez le [documentation de MQTT](
 Pour en savoir plus sur la planification de votre déploiement IoT Hub, consultez :
 
 * [Catalogue d’appareils certifiés Azure pour l’IoT](https://catalog.azureiotsolutions.com/)
-* [Prendre en charge des protocoles supplémentaires](iot-hub-protocol-gateway.md)
+* [Prise en charge des protocoles supplémentaires](iot-hub-protocol-gateway.md)
 * [Comparer à Event Hubs](iot-hub-compare-event-hubs.md)
-* [Mise à l'échelle, HA et DR](iot-hub-scaling.md)
+* [Mise à l’échelle, haute disponibilité et récupération d’urgence](iot-hub-scaling.md)
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur IoT Hub](iot-hub-devguide.md)
-* [Déploiement d’une IA sur des appareils edge avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guide du développeur d’IoT Hub](iot-hub-devguide.md)
+* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

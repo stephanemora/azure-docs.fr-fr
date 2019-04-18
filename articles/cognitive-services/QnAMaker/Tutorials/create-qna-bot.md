@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263874"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Didacticiel : Créez un robot QnA avec Azure Bot Service v4
 
 Créer un agent conversationnel QnA à partir de la **publier** page pour une base de connaissances existante. Ce robot utilise le Kit de développement de Bot Framework v4. Vous n’avez pas besoin d’écrire du code pour générer le bot, tout le code est fourni pour vous.
 
-**Ce tutoriel vous montre comment effectuer les opérations suivantes :**
+**Dans ce tutoriel, vous allez découvrir comment :**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -41,7 +41,7 @@ Créez un robot en tant qu’une application cliente pour la base de connaissanc
 
 1. Dans le portail QnA Maker, accédez à la **publier** page et publier votre base de connaissances. Sélectionnez **créer Bot**. 
 
-    ![Dans le portail QnA Maker, accédez à la page de publication et publier votre base de connaissances. Sélectionnez Créer un robot.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
+    ![Dans le portail QnA Maker, accédez à la page Publish et publiez votre base de connaissances. Sélectionnez Create Bot.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
     Le portail Azure s’ouvre avec la configuration de la création de robot.
 
@@ -56,11 +56,11 @@ Créez un robot en tant qu’une application cliente pour la base de connaissanc
     |Niveau tarifaire|`F0`|Le niveau gratuit pour le service de robot Azure.|
     |Nom de l’application|`my-tutorial-kb-bot-app`|Il s’agit d’une application web pour prendre en charge votre robot uniquement. Cela ne doit pas être le même nom d’application que votre service QnA Maker est déjà à l’aide de. Partage d’application web de QnA Maker avec toute autre ressource n’est pas pris en charge.|
     |Langue du Kit de développement logiciel|C#|Ceci est le langage de programmation sous-jacent utilisé par l’infrastructure de robot Kit de développement logiciel. Vos choix sont C# ou Node.js.|
-    |Clé d’authentification QnA|**Ne pas modifier**|Cette valeur est renseignée automatiquement.|
-    |Plan App Service/Emplacement|**Ne pas modifier**|Pour ce didacticiel, l’emplacement n’est pas important.|
-    |Stockage Azure|**Ne pas modifier**|Données de conversation sont stockées dans les tables de stockage Azure.|
-    |Application Insights|**Ne pas modifier**|La journalisation est envoyée à Application Insights.|
-    |ID d’application Microsoft|**Ne pas modifier**|Mot de passe et d’utilisateur active directory est requis.|
+    |Clé d’authentification QnA|**Ne modifiez pas**|Cette valeur est renseignée automatiquement.|
+    |Plan App Service/Emplacement|**Ne modifiez pas**|Pour ce didacticiel, l’emplacement n’est pas important.|
+    |Stockage Azure|**Ne modifiez pas**|Données de conversation sont stockées dans les tables de stockage Azure.|
+    |Application Insights|**Ne modifiez pas**|La journalisation est envoyée à Application Insights.|
+    |ID d’application Microsoft|**Ne modifiez pas**|Mot de passe et d’utilisateur active directory est requis.|
 
     ![Créer le robot de base de connaissances avec ces paramètres.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
@@ -112,4 +112,4 @@ Si vous n’avez pas créé un nouveau groupe de ressources, vous devez trouver 
 ## <a name="see-also"></a>Voir aussi
 
 - [Gérer votre base de connaissances](https://qnamaker.ai)
-- [Activer votre robot dans différents canaux](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)
+- [Activer votre bot dans différents canaux](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

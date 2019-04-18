@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045482"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Qu’est-ce qu’Azure AD Identity Governance ?
@@ -68,15 +68,15 @@ Azure AD Privileged Identity Management (PIM) offre des contrôles supplémentai
 
 Il n’existe pas de solution ou recommandation parfaite pour chaque client. Cependant, vous pouvez vous appuyer sur les configurations suivantes afin d’appréhender les stratégies de base recommandées par Microsoft pour renforcer la sécurité et la productivité de la force de travail.
 
-- [Configurations d’accès aux identités et des appareils](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurations des identités et de l’accès aux appareils](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Sécurisation de l’accès privilégié](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Révisions d’accès
 
 - [Qu’est-ce qu’une révision d’accès ?](access-reviews-overview.md)
-- [Gérer l’accès utilisateur avec les révisions d’accès](manage-user-access-with-access-reviews.md)
-- [Gérer l’accès invité avec révisions d’accès](manage-guest-access-with-access-reviews.md)
+- [Gérer l’accès des utilisateurs avec les révisions d’accès](manage-user-access-with-access-reviews.md)
+- [Gérer l’accès des invités avec les révisions d’accès](manage-guest-access-with-access-reviews.md)
 - [Démarrer une révision d’accès des rôles Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Conditions d’utilisation
@@ -85,4 +85,4 @@ Il n’existe pas de solution ou recommandation parfaite pour chaque client. Cep
 
 ### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-- [Qu’est-ce qu’Azure AD PIM ?](../privileged-identity-management/pim-configure.md)
+- [Qu’est-ce qu’Azure AD B2C ?](../privileged-identity-management/pim-configure.md)

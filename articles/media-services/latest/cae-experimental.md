@@ -13,10 +13,10 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.custom: ''
 ms.openlocfilehash: 3c50502a8b873503ee937914fac5f2d92cb23a2b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288380"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Expérimental présélection d’encodage de contenu prenant en charge
@@ -37,17 +37,17 @@ La présélection d’encodage contenu prenant en charge expérimentale étend c
 
 ![Courbe de distorsion de vitesse (RD) à l’aide de VMAF](media/cae-experimental/msrv2.png)
 
-**Figure 2 : Courbe de distorsion de vitesse (RD) à l’aide de la métrique VMAF pour la source de complexité élevée**
+**Figure 2 : Courbe de distorsion de vitesse (RD) à l’aide de la métrique VMAF pour la source de complexité élevée**
 
 La présélection actuellement met l’accent sur haute complexité, vidéos de source de haute qualité (films, émissions TV). Travail est en cours pour s’adapter au contenu de complexité faible (par exemple, des présentations PowerPoint), ainsi que des vidéos de qualité médiocre. Cette présélection utilise également le même ensemble de résolutions que la diffusion en continu adaptative de la présélection. Microsoft travaille sur des méthodes pour sélectionner l’ensemble minimal de résolutions en fonction du contenu. Comme suit sont les résultats pour une autre catégorie de contenu de la source, où l’encodeur a été en mesure de déterminer que l’entrée a été de mauvaise qualité (nombreux artefacts de compression en raison de la faible vitesse de transmission). Notez que, avec l’instance expérimentale, présélection, l’encodeur décidé produire qu’une seule couche de sortie – à une vitesse de transmission suffisamment faible pour que la plupart des clients seraient en mesure de lire les données sans faire du surplace.
 
 ![Courbe de bureau à distance à l’aide de PSNR](media/cae-experimental/msrv3.png)
 
-**Figure 3 : Courbe de bureau à distance à l’aide de PSNR pour l’entrée de basse qualité (au 1080p)**
+**Figure 3 : Courbe de bureau à distance à l’aide de PSNR pour l’entrée de basse qualité (au 1080p)**
 
 ![Courbe de bureau à distance à l’aide de VMAF](media/cae-experimental/msrv4.png)
 
-**Figure 4 : Courbe de bureau à distance à l’aide de VMAF pour l’entrée de basse qualité (au 1080p)**
+**Figure 4 : Courbe de bureau à distance à l’aide de VMAF pour l’entrée de basse qualité (au 1080p)**
 
 ## <a name="use-the-experimental-preset"></a>Utiliser la présélection expérimentale
 

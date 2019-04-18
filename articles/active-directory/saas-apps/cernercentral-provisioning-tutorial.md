@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268600"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Didacticiel : Configurer Cerner Central pour l'approvisionnement automatique d'utilisateurs
@@ -126,9 +126,9 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Cerner Central : Publication de données identité à l’aide d’Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
-* [Didacticiel : Configuration de Cerner Central pour l’authentification unique avec Azure Active Directory](cernercentral-tutorial.md)
-* [La gestion de l’approvisionnement de comptes utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Cerner Central : Publication de données d'identité à l'aide d'Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
+* [Tutoriel : Configuration de Cerner Central pour l'authentification unique avec Azure Active Directory](cernercentral-tutorial.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

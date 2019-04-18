@@ -9,21 +9,21 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045711"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Créer et modifier l’homologation pour un circuit ExpressRoute (Classic)
 > [!div class="op_single_selector"]
 > * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
-> * [Azure CLI](howto-routing-cli.md)
-> * [Vidéo - homologation privée](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Vidéo - homologation publique](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Vidéo - homologation Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
-> * [PowerShell (Classic)](expressroute-howto-routing-classic.md)
+> * [Interface de ligne de commande Azure](howto-routing-cli.md)
+> * [Vidéo - Homologation privée](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vidéo - Homologation publique](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Vidéo - Homologation Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [PowerShell (classique)](expressroute-howto-routing-classic.md)
 > 
 
 Cet article vous guide tout au long des étapes de création et de gestion de la configuration du peering/routage d’un circuit ExpressRoute à l’aide de PowerShell et du modèle de déploiement classique. Les étapes ci-dessous vous montreront également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement des homologations d'un circuit ExpressRoute. Vous pouvez configurer une, deux ou les trois homologations (privée Azure, publique Azure et Microsoft) pour un circuit ExpressRoute. Vous pouvez configurer les homologations dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque homologation. 
@@ -90,7 +90,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 1. **Créez un circuit ExpressRoute.**
 
    Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
-2. **Vérifiez que le circuit ExpressRoute pour vous assurer qu’il est configuré.**
+2. **Vérifiez que le circuit ExpressRoute est approvisionné.**
    
    Vérifiez que le circuit ExpressRoute est approvisionné et activé.
 
@@ -193,7 +193,7 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
 1. **Création d’un circuit ExpressRoute**
 
    Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
-2. **Vérifier le circuit ExpressRoute pour vérifier qu’ils sont configurés**
+2. **Vérification de l’approvisionnement du circuit ExpressRoute**
 
    Vous devez tout d'abord vérifier que le circuit ExpressRoute est approvisionné et activé.
 
@@ -220,7 +220,7 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-4. **Configurer l’homologation publique Azure pour le circuit**
+4. **Configuration de l'homologation publique Azure pour le circuit**
    
    Assurez-vous de disposer des informations suivantes avant de poursuivre :
    
@@ -297,7 +297,7 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
 1. **Création d’un circuit ExpressRoute**
   
    Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
-2. **Vérifier le circuit ExpressRoute pour vérifier qu’ils sont configurés**
+2. **Vérification de l’approvisionnement du circuit ExpressRoute**
 
    Assurez-vous que le circuit affiche l’état Provisioned (approvisionné) et Enabled (activé). 
    
@@ -324,7 +324,7 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **Configurer l’homologation Microsoft pour le circuit**
+3. **Configuration de l'homologation Microsoft pour le circuit**
    
     Assurez-vous de disposer des informations suivantes avant de poursuivre.
    
@@ -335,7 +335,7 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
    * Préfixes publiés : Vous devez fournir la liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Vous pouvez envoyer une liste séparée par des virgules si vous prévoyez d'envoyer un jeu de préfixes. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
    * ASN client : Si vous publiez des préfixes non enregistrés dans le numéro AS de peering, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés. **Facultative**.
    * Nom du registre de routage : Vous pouvez spécifier les registres RIR/IRR par rapport auquel le numéro AS et les préfixes sont enregistrés.
-   * Un hachage MD5 si vous choisissez d’en utiliser un. **facultatif.**
+   * Un hachage MD5 si vous choisissez d’en utiliser un. **Facultatif.**
      
    Exécutez l'applet de commande suivante afin de configurer le peering Microsoft pour votre circuit :
  

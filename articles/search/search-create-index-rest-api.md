@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268022"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Démarrage rapide : Créer un index Azure Search à l’aide de PowerShell et l’API REST
@@ -22,14 +22,14 @@ ms.locfileid: "59268022"
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Postman (REST)](search-fiddler.md)
-> * [Portail](search-create-index-portal.md)
+> * [Portal](search-create-index-portal.md)
 > 
 
 Cet article vous guide dans le processus de création, de charger et d’interroger une recherche Azure [index](search-what-is-an-index.md) à l’aide de PowerShell et le [API REST de Service Azure Search](https://docs.microsoft.com/rest/api/searchservice/). La définition d’index et le contenu de recherche est fourni dans le corps de la demande en tant qu’un contenu JSON correct.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Les services et les outils suivants sont utilisés dans ce démarrage rapide. 
+Les services et les outils qui suivent sont utilisés dans ce guide de démarrage rapide. 
 
 [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
 
@@ -39,7 +39,7 @@ Les services et les outils suivants sont utilisés dans ce démarrage rapide.
 
 Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur chaque demande. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
 
-1. [Connectez-vous au portail Azure](https://portal.azure.com/)et dans votre service de recherche **vue d’ensemble** page, obtenez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
+1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
 2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
@@ -47,7 +47,7 @@ Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
-## <a name="connect-to-azure-search"></a>Se connecter à recherche Azure
+## <a name="connect-to-azure-search"></a>Se connecter à la Recherche Azure
 
 Dans PowerShell, créez un **$headers** objet à stocker le content-type et la clé d’API. Vous devez uniquement définir cet en-tête qu’une seule fois pendant la durée de la session, mais vous allez l’ajouter à chaque requête. 
 

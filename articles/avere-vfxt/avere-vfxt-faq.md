@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
 ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264452"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Questions fréquentes (FAQ) sur Avere vFXT pour Azure
@@ -288,7 +288,7 @@ Pour bien démarrer avec Avere vFXT pour Azure, consultez les articles suivants 
 
 * [Planifier votre système Avere vFXT](avere-vfxt-deploy-plan.md)
 * [Vue d’ensemble du déploiement](avere-vfxt-deploy-overview.md)
-* [Se préparer à créer un cluster de vFXT Avere](avere-vfxt-prereqs.md)
-* [Déployer le cluster de vFXT Avere](avere-vfxt-deploy.md)
+* [Se préparer à la création d'un cluster Avere vFXT](avere-vfxt-prereqs.md)
+* [Déployer le cluster Avere vFXT](avere-vfxt-deploy.md)
 
 Pour en savoir plus sur les fonctionnalités et les cas d'usage du système Avere vFXT, consultez [Avere vFXT pour Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

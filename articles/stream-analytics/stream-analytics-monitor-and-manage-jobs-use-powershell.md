@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: 27ee1980fd60a2e301830f198a5f65c4d89df59f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046527"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Surveillance et gestion des travaux Stream Analytics à l’aide des applets de commande Azure PowerShell
@@ -58,12 +58,12 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Applets de commande Azure PowerShell pour Stream Analytics
 Vous pouvez utiliser les applets de commande Azure PowerShell suivantes pour surveiller et gérer des travaux Azure Stream Analytics. Notez qu'il existe différentes versions d'Azure PowerShell. 
-**Dans les exemples répertoriés la première commande concerne Azure PowerShell 0.9.8, la deuxième commande concerne Azure PowerShell 1.0.** Les commandes Azure PowerShell 1.0 aura toujours « Az » dans la commande.
+**Dans les exemples répertoriés, la première commande s'applique à Azure PowerShell 0.9.8, la deuxième commande s'applique à Azure PowerShell 1.0.** Les commandes Azure PowerShell 1.0 aura toujours « Az » dans la commande.
 
 ### <a name="get-azurestreamanalyticsjob--get-azstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
 Répertorie tous les travaux Stream Analytics définis dans l’abonnement Azure ou le groupe de ressources spécifié, ou obtient des informations sur un travail spécifique au sein d’un groupe de ressources.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -79,7 +79,7 @@ Get-AzStreamAnalyticsJob
 
 Cette commande PowerShell retourne des informations sur tous les travaux Stream Analytics dans l’abonnement Azure.
 
-**Exemple 2**
+**Exemple 2**
 
 Azure PowerShell 0.9.8 :  
 
@@ -95,7 +95,7 @@ Get-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US
 
 Cette commande PowerShell retourne des informations sur tous les travaux Stream Analytics dans le groupe de ressources StreamAnalytics-Default-Central-US.
 
-**Exemple 3**
+**Exemple 3**
 
 Azure PowerShell 0.9.8 :  
 
@@ -114,7 +114,7 @@ Cette commande PowerShell retourne des informations sur le travail Stream Analyt
 ### <a name="get-azurestreamanalyticsinput--get-azstreamanalyticsinput"></a>Get-AzureStreamAnalyticsInput | Get-AzStreamAnalyticsInput
 Répertorie toutes les entrées qui sont définies dans un travail Stream Analytics spécifié ou obtient des informations sur une entrée spécifique.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -130,7 +130,7 @@ Get-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US
 
 Cette commande PowerShell retourne des informations sur toutes les entrées définies dans le travail StreamingJob.
 
-**Exemple 2**
+**Exemple 2**
 
 Azure PowerShell 0.9.8 :  
 
@@ -149,7 +149,7 @@ Cette commande PowerShell retourne des informations sur l’entrée nommée Entr
 ### <a name="get-azurestreamanalyticsoutput--get-azstreamanalyticsoutput"></a>Get-AzureStreamAnalyticsOutput | Get-AzStreamAnalyticsOutput
 Répertorie toutes les sorties qui sont définies dans un travail Stream Analytics spécifié ou obtient des informations sur une sortie spécifique.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -165,7 +165,7 @@ Get-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-U
 
 Cette commande PowerShell retourne des informations sur les sorties définies dans le travail StreamingJob.
 
-**Exemple 2**
+**Exemple 2**
 
 Azure PowerShell 0.9.8 :  
 
@@ -184,7 +184,7 @@ Cette commande PowerShell retourne des informations sur la sortie nommée Output
 ### <a name="get-azurestreamanalyticsquota--get-azstreamanalyticsquota"></a>Get-AzureStreamAnalyticsQuota | Get-AzStreamAnalyticsQuota
 Obtient des informations sur le quota des unités de diffusion en continu d'une région spécifiée.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -203,7 +203,7 @@ Cette commande PowerShell retourne des informations sur le quota et l’utilisat
 ### <a name="get-azurestreamanalyticstransformation--get-azstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | Get-AzStreamAnalyticsTransformation
 Obtient des informations sur une transformation spécifique définie dans un travail Stream Analytics.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -230,7 +230,7 @@ Si vous spécifiez le paramètre -Force et un nom d'entrée existant, l'entrée 
 
 Pour plus d’informations sur la structure et le contenu du fichier JSON, reportez-vous à la section [Création d’une entrée (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] de la [bibliothèque de référence des API REST de gestion de Stream Analytics][stream.analytics.rest.api.reference].
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -246,7 +246,7 @@ New-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US
 
 Cette commande PowerShell crée une entrée à partir du fichier Input.json. Si une entrée existante avec le nom spécifié dans le fichier de définition d'entrée est déjà définie, l'applet de commande vous demande s'il faut la remplacer.
 
-**Exemple 2**
+**Exemple 2**
 
 Azure PowerShell 0.9.8 :  
 
@@ -262,7 +262,7 @@ New-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US
 
 Cette commande PowerShell crée une entrée dans le travail nommé EntryStream. Si une entrée existante portant ce nom est déjà définie, l'applet de commande vous demande s'il faut la remplacer.
 
-**Exemple 3**
+**Exemple 3**
 
 Azure PowerShell 0.9.8 :  
 
@@ -289,7 +289,7 @@ Si vous spécifiez le paramètre -Force et un nom de travail existant, la défin
 
 Pour plus d’informations sur la structure et le contenu du fichier JSON, reportez-vous à la section [Création d’un travail Stream Analytics][msdn-rest-api-create-stream-analytics-job] de la [bibliothèque de référence des API REST de gestion de Stream Analytics][stream.analytics.rest.api.reference].
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -305,7 +305,7 @@ New-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US �
 
 Cette commande PowerShell crée un travail à partir de la définition qui se trouve dans JobDefinition.json. Si un travail existant avec le nom spécifié dans le fichier de définition de travail est déjà défini, l'applet de commande vous demande s'il faut le remplacer.
 
-**Exemple 2**
+**Exemple 2**
 
 Azure PowerShell 0.9.8 :  
 
@@ -332,7 +332,7 @@ Si vous spécifiez le paramètre -Force et un nom de sortie existant, la sortie 
 
 Pour plus d’informations sur la structure et le contenu du fichier JSON, reportez-vous à la section [Création d’une sortie (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] de la[ bibliothèque de référence des API REST de gestion de Stream Analytics][stream.analytics.rest.api.reference].
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -348,7 +348,7 @@ New-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-U
 
 Cette commande PowerShell crée une sortie nommée « output » dans le travail StreamingJob. Si une sortie existante portant ce nom est déjà définie, l'applet de commande vous demande s'il faut la remplacer.
 
-**Exemple 2**
+**Exemple 2**
 
 Azure PowerShell 0.9.8 :  
 
@@ -375,7 +375,7 @@ Si vous spécifiez le paramètre -Force et un nom de transformation existant, la
 
 Pour plus d’informations sur la structure et le contenu du fichier JSON, reportez-vous à la section [Création d’une transformation (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] de la [bibliothèque de référence des API REST de gestion de Stream Analytics][stream.analytics.rest.api.reference].
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -391,7 +391,7 @@ New-AzStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-C
 
 Cette commande PowerShell crée une transformation nommée StreamingJobTransform dans le travail StreamingJob. Si une transformation existante est déjà définie avec ce nom, l'applet de commande vous demande s'il faut la remplacer.
 
-**Exemple 2**
+**Exemple 2**
 
 Azure PowerShell 0.9.8 :  
 
@@ -411,7 +411,7 @@ New-AzStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-C
 Supprime de manière asynchrone une entrée spécifique d'un travail Stream Analytics dans Microsoft Azure.  
 Si vous spécifiez le paramètre -Force, l'entrée est supprimée sans confirmation.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -431,7 +431,7 @@ Cette commande PowerShell supprime l’entrée EventStream dans le travail Strea
 Supprime de manière asynchrone un travail Stream Analytics spécifique dans Microsoft Azure.  
 Si vous spécifiez le paramètre -Force, le travail est supprimé sans confirmation.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -451,7 +451,7 @@ Cette commande PowerShell supprime le travail StreamingJob.
 Supprime de manière asynchrone une sortie spécifique d'un travail Stream Analytics dans Microsoft Azure.  
 Si vous spécifiez le paramètre -Force, la sortie est supprimée sans confirmation.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -470,7 +470,7 @@ Cette commande PowerShell supprime la sortie Output dans le travail StreamingJob
 ### <a name="start-azurestreamanalyticsjob--start-azstreamanalyticsjob"></a>Start-AzureStreamAnalyticsJob | Start-AzStreamAnalyticsJob
 Déploie et démarre un travail Stream Analytics dans Microsoft Azure de façon asynchrone.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -489,7 +489,7 @@ Cette commande PowerShell démarre le travail StreamingJob avec une heure de dé
 ### <a name="stop-azurestreamanalyticsjob--stop-azstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzStreamAnalyticsJob
 Arrête l'exécution d'un travail Stream Analytics dans Microsoft Azure de façon asynchrone et libère les ressources qui étaient utilisées. La définition du travail et les métadonnées restent disponibles dans votre abonnement par le biais du Portail Azure et des API de gestion ; ainsi, le travail peut être modifié et redémarré. Un travail à l'état Arrêté ne vous sera pas facturé.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -508,7 +508,7 @@ Cette commande PowerShell arrête le travail StreamingJob.
 ### <a name="test-azurestreamanalyticsinput--test-azstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzStreamAnalyticsInput
 Teste la capacité de Stream Analytics à se connecter à une entrée spécifiée.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -527,7 +527,7 @@ Cette commande PowerShell teste l’état de la connexion de l’entrée EntrySt
 ### <a name="test-azurestreamanalyticsoutput--test-azstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzStreamAnalyticsOutput
 Teste la capacité de Stream Analytics à se connecter à une sortie spécifiée.
 
-**Exemple 1**
+**Exemple 1**
 
 Azure PowerShell 0.9.8 :  
 
@@ -547,11 +547,11 @@ Cette commande PowerShell teste l’état de la connexion de la sortie Output da
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
-* [Prise en main Azure Stream Analytique](stream-analytics-real-time-fraud-detection.md)
-* [L’échelle des travaux d’Azure Stream Analytique](stream-analytics-scale-jobs.md)
-* [Référence du langage requête Azure Stream Analytique](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Référence API REST de gestion d’Analytique Azure Stream](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
+* [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx
 [powershell-install]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/

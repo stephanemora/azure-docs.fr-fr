@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257278"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Mettre à l’échelle votre travail Stream Analytics avec des fonctions Azure Machine Learning
@@ -74,7 +74,7 @@ Le tableau ci-après présente le débit du travail Stream Analytics pour diffé
 
 | Taille de lot (latence Machine Learning) | 500 (200 ms) | 1 000 (200 ms) | 5 000 (250 ms) | 10 000 (300 ms) | 25 000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 unité de recherche** |2 500 |5 000 |20 000 |30 000 |50 000 |
+| **1 unité de diffusion en continu** |2 500 |5 000 |20 000 |30 000 |50 000 |
 | **3 unités de diffusion en continu** |2 500 |5 000 |20 000 |30 000 |50 000 |
 | **6 unités de diffusion en continu** |2 500 |5 000 |20 000 |30 000 |50 000 |
 | **12 unités de diffusion en continu** |5 000 |10 000 |40 000 |60 000 |100 000 |
@@ -112,7 +112,7 @@ Notre exemple portait sur une requête Stream Analytics entièrement partitionn�
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Stream Analytics, consultez :
 
-* [Prise en main Azure Stream Analytique](stream-analytics-real-time-fraud-detection.md)
-* [L’échelle des travaux d’Azure Stream Analytique](stream-analytics-scale-jobs.md)
-* [Référence du langage requête Azure Stream Analytique](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Référence API REST de gestion d’Analytique Azure Stream](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

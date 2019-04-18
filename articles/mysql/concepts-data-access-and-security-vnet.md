@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006604"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour MySQL
@@ -93,7 +93,7 @@ Il existe une séparation des rôles de sécurité dans l’administration des p
 - **Administrateur réseau :** &nbsp; Activez le point de terminaison.
 - **Administrateur de base de données :** &nbsp; mettez à jour la liste de contrôle d’accès (ACL) pour ajouter le sous-réseau donné au serveur Azure Database pour MySQL.
 
-*Alternative RBAC :*
+*Alternative RBAC :*
 
 Les rôles d’administrateur de réseau et d’administrateur de base de données disposent de plus de fonctionnalités que nécessaires pour gérer les règles de réseau virtuel. Seule une partie de ces fonctionnalités est réellement nécessaire.
 
@@ -142,8 +142,8 @@ Vous pouvez définir l’indicateur **IgnoreMissingServiceEndpoint** à l’aide
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour des articles dédiés à la création de règles de réseau virtuel, consultez :
-- [Créer et gérer la base de données Azure pour les règles de MySQL VNet à l’aide du portail Azure](howto-manage-vnet-using-portal.md)
-- [Créer et gérer la base de données Azure pour les règles de MySQL VNet à l’aide d’Azure CLI](howto-manage-vnet-using-cli.md)
+- [Créer et gérer des règles de réseau virtuel Azure Database pour MySQL à l’aide du portail Azure](howto-manage-vnet-using-portal.md)
+- [Créer et gérer des règles de réseau virtuel Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure](howto-manage-vnet-using-cli.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md

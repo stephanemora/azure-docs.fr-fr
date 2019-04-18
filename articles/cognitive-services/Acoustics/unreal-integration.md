@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006486"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Projet acoustique Unreal et l’intégration de Wwise
@@ -80,7 +80,7 @@ Redéployer Wwise à votre jeu même si vous avez déjà intégré Wwise. Ceci s
 
     ![Capture d’écran de l’Explorateur Windows mise en surbrillance de fenêtre fourni script de correction Wwise](media/patch-wwise-script.png)
 
-* Si vous n’avez pas installé le SDK DirectX, vous devrez Commentez la ligne contenant DXSDK_DIR dans `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Si le SDK DirectX n’est pas installé sur votre machine, vous devez mettre en commentaire la ligne contenant DXSDK_DIR dans `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
     ![Capture d’écran de l’éditeur de code montrant DXSDK avec des commentaires](media/directx-sdk-comment.png)
 

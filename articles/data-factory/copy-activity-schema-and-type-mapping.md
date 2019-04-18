@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267121"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mappage de schéma dans l’activité de copie
@@ -150,7 +150,7 @@ Le mappage de schéma s'applique lors de la copie de données entre des données
 | schemaMapping | Une collection de paires clé-valeur, qui représente la relation de mappage **du côté source au récepteur côté**.<br/>- **Clé :** représente source. Pour **sources tabulaires**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour **source hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper.<br/>- **Valeur :** représente récepteur. Pour **récepteur tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour **récepteur hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et à mapper. <br/> Dans le cas des données hiérarchiques, pour les champs sous l’objet racine, chemin d’accès JSON commence par $ racine ; pour les champs dans le tableau sélectionné par `collectionReference` propriété, chemin d’accès JSON commence à partir de l’élément de tableau.  | Oui |
 | collectionReference | Si vous souhaitez effectuer une itération et extraire des données à partir des objets situés **à l’intérieur d’un champ de tableau** présentant le même modèle et effectuer une conversion par ligne et par objet, spécifiez le chemin JSON de ce tableau afin d’effectuer une application croisée. Cette propriété est prise en charge uniquement quand des données hiérarchiques sont la source. | Non  |
 
-**Exemple : copie à partir de MongoDB vers SQL :**
+**Exemple : copier à partir de MongoDB vers SQL :**
 
 Par exemple, si vous avez un document MongoDB avec le contenu suivant : 
 
@@ -267,6 +267,6 @@ Une « structure » est suggérée pour le jeu de données dans les scénarios
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les autres articles relatifs à l’activité de copie :
 
-- [Vue d’ensemble de l’activité copie](copy-activity-overview.md)
-- [Tolérance d’activité de copie](copy-activity-fault-tolerance.md)
+- [Vue d’ensemble des activités de copie](copy-activity-overview.md)
+- [Tolérance de panne de l’activité de copie](copy-activity-fault-tolerance.md)
 - [Performances de l’activité de copie](copy-activity-performance.md)

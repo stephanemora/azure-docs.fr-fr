@@ -19,10 +19,10 @@ ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, d
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260729"
 ---
 # <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>Comparaison du point de terminaison de plateforme Microsoft identity et le point de terminaison Azure AD v1.0
@@ -66,7 +66,7 @@ Quand il est recueilli pour le compte d’une organisation, le consentement de l
 
 Lorsqu’elle utilise le point de terminaison v1.0, une application peut se comporter comme une **ressource** ou comme un destinataire de jetons. Une ressource peut définir plusieurs **étendues** ou **oAuth2Permissions** qu’elle comprend, permettant ainsi aux applications clientes de demander des jetons à cette ressource pour un ensemble d’étendues donné. Prenez comme exemple de ressource l’API Graph d’Azure AD :
 
-* Identificateur de ressource, ou `AppID URI`: `https://graph.windows.net/`
+* Identificateur de ressource, ou `AppID URI` : `https://graph.windows.net/`
 * Étendues ou `oAuth2Permissions`: `Directory.Read`, `Directory.Write`, et ainsi de suite.
 
 Cela est vrai pour le point de terminaison Microsoft identity platform. Une application peut toujours se comporter comme une ressource, définir des étendues et être identifiée par un URI. Les applications clientes peuvent toujours demander l’accès à ces étendues. Toutefois, la manière dont le client demande ces autorisations a changé.
@@ -143,7 +143,7 @@ Les inscriptions d’applications qui prennent en charge les comptes professionn
 
 ### <a name="restrictions-on-redirect-urls"></a>Restrictions concernant les URL de redirection
 
-Les applications qui sont inscrits pour la plateforme d’identité Microsoft sont limitées à un ensemble limité de valeurs d’URL de redirection. L’URL de redirection pour les services et applications web doit commencer par le schéma `https`, et toutes les valeurs d’URL de redirection doivent partager un seul domaine DNS.  Le système d’inscription compare le nom DNS complet de l’URL de redirection existante au nom DNS de l’URL de redirection que vous ajoutez. `http://localhost` est également pris en charge comme une URL de redirection.  
+Les applications qui sont inscrits pour la plateforme d’identité Microsoft sont limitées à un ensemble limité de valeurs d’URL de redirection. L’URL de redirection pour les services et applications web doit commencer par le schéma `https`, et toutes les valeurs d’URL de redirection doivent partager un seul domaine DNS.  Le système d’inscription compare le nom DNS complet de l’URL de redirection existante au nom DNS de l’URL de redirection que vous ajoutez. `http://localhost` est également pris en charge comme URL de redirection.  
 
 La demande d’ajout du nom DNS échoue si l’une des conditions suivantes est remplie :  
 

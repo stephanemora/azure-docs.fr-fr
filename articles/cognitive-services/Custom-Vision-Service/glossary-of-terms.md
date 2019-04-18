@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048934"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossaire des termes du service Vision personnalisée
@@ -29,10 +29,10 @@ Un classifieur est un modèle que vous créez à l’aide du service Vision pers
 
 Lorsque vous créez un projet, vous sélectionnez un « domaine » pour ce projet. Le domaine optimise un classifieur pour un type spécifique d’objet présent dans vos images. Par exemple, si votre scénario consiste à classer des images de tartes aux pommes et des images de gâteaux à la carotte, choisissez le domaine « Food » (Nourriture). Si vous hésitez sur le choix du domaine, sélectionnez le domaine « Generic » (Général).
 
-- **Le domaine de la nourriture.** Optimisé pour les plats que vous pouvez voir dans un menu de restaurant. Il n’a pas été optimisé pour l’identification des fruits ou des légumes séparément. Si vous souhaitez classer des photographies de fruits ou de légumes distincts, utilisez le domaine Generic (Général) pour ce faire.
-- **Le domaine d’éléments géographiques.** Optimisé pour les monuments et sites reconnaissables, naturels et artificiels. Ce domaine fonctionne mieux lorsque le monument ou le site est clairement visible dans la photographie, même s’il est légèrement masqué par un groupe de personnes posant devant lui.
-- **Le domaine de la vente au détail.** Optimisé pour la classification d’images dans un catalogue de vente ou sur un site web commercial. Si vous souhaitez une grande précision lors de la classification de robes, de pantalons, de chemises, etc., utilisez le domaine Retail (Commerce).
-- **Le domaine général.** Particulièrement adapté à un large éventail de tâches de classification d’images.
+- **Le domaine Food (Nourriture).** Optimisé pour les plats que vous pouvez voir dans un menu de restaurant. Il n’a pas été optimisé pour l’identification des fruits ou des légumes séparément. Si vous souhaitez classer des photographies de fruits ou de légumes distincts, utilisez le domaine Generic (Général) pour ce faire.
+- **Le domaine Landmark (Monuments et sites).** Optimisé pour les monuments et sites reconnaissables, naturels et artificiels. Ce domaine fonctionne mieux lorsque le monument ou le site est clairement visible dans la photographie, même s’il est légèrement masqué par un groupe de personnes posant devant lui.
+- **Le domaine Retail (Commerce).** Optimisé pour la classification d’images dans un catalogue de vente ou sur un site web commercial. Si vous souhaitez une grande précision lors de la classification de robes, de pantalons, de chemises, etc., utilisez le domaine Retail (Commerce).
+- **Le domaine Generic (Général).** Particulièrement adapté à un large éventail de tâches de classification d’images.
 
 Les modèles générés par des **domaines compacts** sont exportables avec la fonction d’exportation d’itérations. Ils sont optimisés en fonction des contraintes de la classification en temps réel sur les appareils mobiles. Pour une même quantité de données d’entraînement, les classifieurs conçus avec un domaine compact sont parfois légèrement moins précis qu’avec un domaine standard. Leur avantage réside dans le fait qu’ils sont suffisamment petits pour être exécutés localement, pratiquement en temps réel. 
 

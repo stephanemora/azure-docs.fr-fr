@@ -16,10 +16,10 @@ ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267206"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
@@ -123,10 +123,10 @@ Lorsque vous modifiez la liste des attributs pris en charge, les propriétés su
    * *Integer* : l’attribut contient un entier.
    * *Référence* : l’attribut contient un ID qui fait référence à une valeur stockée dans une autre table de l’application cible.
    * *String* : l’attribut contient une chaîne de texte. 
-* **Clé primaire ?** : Indique si l’attribut est défini comme un champ de clé primaire dans le schéma de l’objet cible.
-* **Requis ?** : Indique si l’attribut est obligatoirement être renseigné dans l’application cible ou le système.
-* **Valeurs multiples ?** : Indique si l’attribut prend en charge plusieurs valeurs.
-* **Casse exacte ?** : Indique si les valeurs d’attributs sont évaluées de manière respect de la casse.
+* **Primary Key?** : Indique si l’attribut est défini comme un champ de clé primaire dans le schéma de l’objet cible.
+* **Obligatoire ?** : Indique si l’attribut est obligatoirement être renseigné dans l’application cible ou le système.
+* **Multi-value?** : Indique si l’attribut prend en charge plusieurs valeurs.
+* **Exact case?** : Indique si les valeurs d’attributs sont évaluées de manière respect de la casse.
 * **API Expression** -n’utilisez pas, sauf indication contraire pour ce faire, la documentation pour un connecteur d’approvisionnement spécifique (tel que Workday).
 * **Referenced Object Attribute** : si elle est un attribut de type référence, puis ce menu vous permet de sélectionner la table et l’attribut dans l’application cible qui contient la valeur associée à l’attribut. Par exemple, si vous avez un attribut nommé « Department » dont la valeur stockée fait référence à un objet dans une table « Departments » distincte, sélectionnez « Departments.Name ». Les tables de référence et les champs d’ID primaires pris en charge pour une application donnée sont préconfigurés et actuellement ne peut pas être modifiés à l’aide du portail Azure, mais peut être modifiées à l’aide de la [API Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
@@ -153,9 +153,9 @@ Cette option sera forcée une resynchronisation de tous les utilisateurs tandis 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Automatiser utilisateur approvisionnement/déprovisionnement des utilisateurs pour les applications SaaS](user-provisioning.md)
-* [Écriture d’Expressions pour les mappages d’attributs](functions-for-customizing-application-data.md)
-* [Filtres d’étendue pour l’approvisionnement](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Automatiser l’approvisionnement/le déprovisionnement des utilisateurs pour les applications SaaS](user-provisioning.md)
+* [Écriture d’expressions pour les mappages d’attributs](functions-for-customizing-application-data.md)
+* [Filtres d’étendue pour l’approvisionnement des utilisateurs](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](use-scim-to-provision-users-and-groups.md)
 * [Liste des didacticiels sur l’intégration des applications SaaS](../saas-apps/tutorial-list.md)
 

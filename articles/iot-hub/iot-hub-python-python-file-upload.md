@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: kgremban
 ms.openlocfilehash: 6195c37780acaf8c8f432fa09c5ac01a75363c04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265524"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
@@ -155,8 +155,8 @@ Vous êtes maintenant prêt à exécuter l’application.
 
 Dans ce didacticiel, vous avez appris à utiliser les fonctionnalités de téléchargement de fichier d’IoT Hub pour simplifier les chargements de fichiers à partir d’appareils. Vous pouvez continuer à explorer les scénarios et fonctionnalités d’IoT Hub avec les articles suivants :
 
-* [Créer un IoT hub par programme](iot-hub-rm-template-powershell.md)
+* [Créer un IoT Hub par programmation](iot-hub-rm-template-powershell.md)
 
-* [Présentation du Kit de développement logiciel (SDK) C](iot-hub-device-sdk-c-intro.md)
+* [Présentation du SDK C](iot-hub-device-sdk-c-intro.md)
 
 * [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md)

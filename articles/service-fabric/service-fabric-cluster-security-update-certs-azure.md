@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
 ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050235"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Ajouter ou supprimer des certificats pour un cluster Service Fabric dans Azure
@@ -61,7 +61,7 @@ Pour pouvoir exécuter ces étapes, vous devez connaître le fonctionnement de R
 
 Pour simplifier l’exécution de la procédure, l’exemple 5-VM-1-NodeTypes-Secure_Step2.JSON contient toutes les modifications que nous allons apporter. Cet exemple est disponible dans le [référentiel Git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
 
-**Veillez à suivre toutes les étapes**
+**Suivez bien toutes les étapes**
 
 1. Ouvrez le modèle Resource Manager que vous avez utilisé pour déployer votre cluster. (Si vous avez téléchargé l’exemple à partir du référentiel précédent, utilisez 5-VM-1-NodeTypes-Secure_Step1.JSON pour déployer un cluster sécurisé, puis ouvrez ce modèle).
 
@@ -291,8 +291,8 @@ Pour supprimer un certificat secondaire afin de ne plus l’utiliser pour la sé
 ## <a name="next-steps"></a>Étapes suivantes
 Lisez les articles suivants pour plus d’informations sur la gestion des clusters :
 
-* [Processus de mise à niveau de Cluster service Fabric et attentes à votre égard](service-fabric-cluster-upgrade.md)
-* [Le programme d’installation de l’accès en fonction du rôle pour les clients](service-fabric-cluster-security-roles.md)
+* [Processus de mise à niveau du cluster Service Fabric et attentes à votre égard](service-fabric-cluster-upgrade.md)
+* [Configurer l’accès en fonction du rôle pour les clients](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045592"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestion des données dans l’Explorateur de données Azure
@@ -66,9 +66,9 @@ Kusto propose des SDK client qui peuvent être utilisés pour ingérer et interr
 
 * [Kit de développement logiciel (SDK) .NET](/azure/kusto/api/netfx/about-the-sdk)
 
-* [Kit de développement logiciel (SDK) Java](/azure/kusto/api/java/kusto-java-client-library)
+* [Kit SDK Java](/azure/kusto/api/java/kusto-java-client-library)
 
-* [SDK Node](/azure/kusto/api/node/kusto-node-client-library)
+* [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
 
 * [API REST](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
@@ -90,9 +90,9 @@ Kusto propose des SDK client qui peuvent être utilisés pour ingérer et interr
 
 | Méthode | Latence |
 | --- | --- |
-| **Ingestion de inline** | Immédiat |
-| **Réception de requête** | Temps de requête + temps de traitement |
-| **Réception à partir du stockage** | Temps de téléchargement + temps de traitement |
+| **Ingestion inline** | Immédiat |
+| **Ingestion à partir de requête** | Temps de requête + temps de traitement |
+| **Ingestion à partir du stockage** | Temps de téléchargement + temps de traitement |
 | **Ingestion en file d’attente** | Temps de traitement par lot + temps de traitement |
 | |
 
@@ -144,19 +144,19 @@ Le mappage de schéma permet de lier des champs de données sources à des colon
 > [Ingérer des données Event Hub dans Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Recevoir des données à l’aide d’abonnement Event Grid dans l’Explorateur de données Azure](ingest-data-event-grid.md)
+> [Ingérer des données à l'aide de l'abonnement Event Grid dans Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Ingérer des données de Kafka dans Azure Data Explorer](ingest-data-kafka.md)
+> [Ingérer des données Kafka dans Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure](python-ingest-data.md)
+> [Ingérer des données à l'aide de la bibliothèque Python d'Azure Data Explorer](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
 > [Ingérer des données à l'aide de la bibliothèque Node d'Azure Data Explorer](node-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Ingérer des données à l’aide du kit SDK .NET Standard Azure Data Explorer (préversion)](net-standard-ingest-data.md)
+> [Ingérer des données à l'aide du SDK .NET Standard d'Azure Data Explorer (préversion)](net-standard-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Ingérer des données depuis Logstash vers Azure Data Explorer](ingest-data-logstash.md)
+> [Ingérer des données Logstash dans Azure Data Explorer](ingest-data-logstash.md)

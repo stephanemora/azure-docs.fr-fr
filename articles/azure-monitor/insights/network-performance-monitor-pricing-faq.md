@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
 ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005934"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Modification de la tarification d’Azure Network Performance Monitor
@@ -34,7 +34,7 @@ Les sections suivantes expliquent les modifications de tarification des composan
 
 ## <a name="performance-monitor"></a>Analyseur de performances
 
-**Comment était l’Analyseur de performances facturé dans l’ancien modèle ?**
+**Comment l’analyseur de performances était-il facturé dans l’ancien modèle ?**
 
 La facturation de NPM était basée sur l’utilisation et la consommation de deux composants :
 * **Nœuds** : toutes les transactions synthétiques commencent et se terminent au niveau des nœuds. Les nœuds sont également appelés agents ou Microsoft Management Agents.
@@ -42,41 +42,41 @@ La facturation de NPM était basée sur l’utilisation et la consommation de de
 
 Dans l’ancien modèle, la facture était calculée en fonction du nombre de nœuds et du volume de données généré. 
 
-**Comment l’Analyseur de performances est facturé pas sous le nouveau modèle ?**
+**Comment l’utilisation de l’Analyseur de performances est-elle facturée dans le nouveau modèle ?**
 
 La fonctionnalité de l’Analyseur de performances dans NPM est maintenant facturée en fonction d’une combinaison de : 
 
 * Liens de sous-réseau surveillés
 * Volume de données
 
-**Qu’est un lien de sous-réseau ?**
+**Qu’est un lien de sous-réseau ?**
 
 L’Analyseur de performances surveille la connectivité entre deux emplacements ou plus sur le réseau. La connexion entre un groupe de nœuds ou d’agents sur un sous-réseau et un groupe de nœuds sur un autre sous-réseau est appelée un lien de sous-réseau.
 
-**J’ai deux sous-réseaux (A et B), et il y a plusieurs agents sur chaque sous-réseau. Analyseur de performances surveille la connectivité entre tous les agents sur le sous-réseau A et tous les agents sur le sous-réseau B. Sera être facturé en fonction du nombre de connexions entre sous-réseaux ?**
+**J’ai deux sous-réseaux (A et B) et plusieurs agents sur chaque sous-réseau. L’Analyseur de performances surveille la connectivité entre tous les agents du sous-réseau A et tous les agents du sous-réseau B. Serai-je facturé en fonction du nombre de connexions entre sous-réseaux ?**
 
 Non. Pour la facturation, toutes les connexions du sous-réseau A au sous-réseau B sont regroupées dans un même lien de sous-réseau. Vous êtes facturé pour une seule connexion. L’Analyseur de performances continue à surveiller la connectivité entre différents agents sur chaque sous-réseau.
 
-**Quelles sont les coûts de surveillance d’un lien de sous-réseau ?**
+**Quels sont les coûts de surveillance d’un lien de sous-réseau ?**
 
 Pour connaître le coût de surveillance d’un seul lien de sous-réseau pour un mois entier, reportez-vous à la section intitulée [Ping Mesh](https://azure.microsoft.com/pricing/details/network-watcher/).
 
-**Quels sont les frais pour les données qui génère l’Analyseur de performances ?**
+**Quels sont les frais relatifs aux données générées par l’Analyseur de performances ?**
 
 Les frais d’ingestion (chargement des données à l’espace de travail Analytique de journal dans Azure Monitor, traitement et indexation) est disponible sur le [page de tarification](https://azure.microsoft.com/pricing/details/log-analytics/) pour l’Analytique de journal, dans la section Ingestion de données. Les frais de conservation des données (à savoir, les données conservées à la discrétion du client, après le premier mois) sont également disponibles sur la [page de tarification](https://azure.microsoft.com/pricing/details/log-analytics/) dans la section relative à la conservation des données.
 
 
 ## <a name="expressroute-monitor"></a>Moniteur ExpressRoute
 
-**Quels sont les frais d’utilisation du moniteur ExpressRoute ?**
+**Quels sont les frais d’utilisation du moniteur ExpressRoute ?**
 
 Les frais relatifs au moniteur ExpressRoute sont facturés en fonction du volume de données généré pendant la surveillance. Pour plus d’informations, reportez-vous à la question « Quels sont les frais relatifs aux données générées par l’Analyseur de performances ? ».
 
-**Moniteur ExpressRoute me permet de surveiller plusieurs circuits ExpressRoute. Suis-je facturé en fonction du nombre de circuits surveillés ?**
+**J’utilise le Moniteur ExpressRoute pour surveiller plusieurs circuits ExpressRoute. Suis-je facturé en fonction du nombre de circuits surveillés ?**
 
 Vous n’êtes pas facturé en fonction du nombre de circuits ou du type d’homologation (par exemple, homologation privée, homologation Microsoft). Vous êtes facturé en fonction du volume de données, comme expliqué précédemment.
 
-**Quel est le volume de données générées lorsque ExpressRoute surveille un même circuit ?**
+**Quel est le volume de données généré lorsque le service ExpressRoute surveille un seul circuit ?**
 
 Le volume de données généré par mois, lorsque le service ExpressRoute surveille une connexion d’homologation privée, est le suivant :
 
@@ -92,7 +92,7 @@ Le volume de données généré par mois, lorsque le service ExpressRoute survei
 
 D’après ce tableau, les clients au 50e percentile payent 192 Mo de données. À 2,30 USD/Go pour le premier mois, le coût de la surveillance d’un circuit est de 0,43 USD (= 192 * 2,30 / 1024).
 
-**Quelles sont certaines des raisons de variations dans le volume de données ?**
+**Quelles sont certaines raisons des variations du volume de données ?**
 
 Le volume de données de surveillance généré dépend de plusieurs facteurs :
 * Nombre d’agents. La précision de l’isolation des défaillances augmente à mesure que le nombre d’agents augmente.
@@ -103,17 +103,17 @@ Les clients aux percentiles supérieurs (dans le tableau précédent) surveillen
 
 ## <a name="service-endpoint-monitor"></a>Moniteur de points de terminaison de service
 
-**Quels sont les frais d’utilisation du moniteur de point de terminaison de Service ?**
+**Quels sont les frais d’utilisation du moniteur de points de terminaison de service ?**
 
 Les frais d’utilisation du moniteur de points de terminaison de service sont calculés en fonction de :
 * Nombre de connexions
 * Volume de données
 
-**Qu’est une connexion ?**
+**Qu’est-ce qu’une connexion ?**
 
 Une connexion est un test d’accessibilité à un point de terminaison (URL ou service réseau) à partir d’un seul agent pour le mois entier. Par exemple, la surveillance d’une connexion à bing.com à partir de trois agents correspond à trois connexions.
 
-**Quels sont les coûts pour le moniteur de point de terminaison de Service ?**
+**Quels sont les coûts du moniteur de points de terminaison de service ?**
 
 Reportez-vous à la section [Contrôle de la connexion](https://azure.microsoft.com/pricing/details/network-watcher/) pour connaître le coût de la surveillance d’un point de terminaison pour un mois entier. Les frais de données sont disponibles sur la [page de tarification](https://azure.microsoft.com/pricing/details/log-analytics/) de Log Analytics, dans la section relative à l’ingestion des données.
 

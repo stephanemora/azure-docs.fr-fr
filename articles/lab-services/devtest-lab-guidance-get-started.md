@@ -14,10 +14,10 @@ ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272378"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Scénarios courants pour l’utilisation d’Azure DevTest Labs
@@ -82,8 +82,8 @@ Un **déploiement à l’échelle** consiste en des semaines/mois d’examen et 
 Un **preuve de concept** déploiement se concentre sur un effort concentré à partir d’une seule équipe pour établir la valeur d’organisation. Si un déploiement à l’échelle semble tentant, l’approche a tendance à échouer plus souvent que l’option de preuve de concept. Par conséquent, nous vous recommandons de commencer doucement. Apprenez de la première équipe, répétez la même approche avec deux ou trois équipes supplémentaires, puis planifiez un déploiement à l’échelle en vous appuyant sur les connaissances acquises. Pour que l’option de preuve de concept réussisse, nous vous recommandons de choisir une ou deux équipes et d’identifier leurs scénarios (environnement de test ou environnement de développement), de documenter leurs cas d’utilisation actuels et de déployer DevTest Labs.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Lisez les articles suivants :
+Consultez les articles suivants :
 
 - [Concepts de DevTest Labs](devtest-lab-concepts.md)
-- [Forum Aux Questions DevTest Labs](devtest-lab-faq.md)
+- [FAQ DevTest Labs](devtest-lab-faq.md)
 

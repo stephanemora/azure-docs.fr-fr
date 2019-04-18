@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258740"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ?
@@ -78,7 +78,7 @@ Votre appareil doit être inscrit auprès d’Azure AD avant de pouvoir être ma
 
 - [Appareils inscrits sur Azure AD](../devices/overview.md#azure-ad-registered-devices)
 - [Appareils joints Azure AD](../devices/overview.md#azure-ad-joined-devices)  
-- [Appareils joints Azure AD hybrides](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Appareils avec jonction Azure AD Hybride](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Pour plus d’informations, consultez le [guide pratique pour exiger des appareils managés et accéder aux applications cloud avec l’accès conditionnel](require-managed-devices.md).
 
@@ -124,12 +124,12 @@ Ces contrôles permettent l’utilisation de certains services externes ou perso
 Les fournisseurs suivants offrent un service compatible :
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-- [Confiez Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
-- [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
+- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [Identité Ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
-- [Adresse IP virtuelle de Symantec](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
+- [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 Pour plus d’informations sur ces services, contactez directement les fournisseurs.
@@ -174,9 +174,9 @@ Vous pouvez utiliser ce contrôle pour exiger qu’Azure AD transmette les infor
 
 Pour plus d'informations, consultez les rubriques suivantes :
 
-- [Activation de l’accès limité avec SharePoint Online](https://aka.ms/spolimitedaccessdocs)
+- [Activation d’un accès limité avec SharePoint Online](https://aka.ms/spolimitedaccessdocs)
 
-- [Activation de l’accès limité avec Exchange Online](https://aka.ms/owalimitedaccess)
+- [Activation d’un accès limité avec Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

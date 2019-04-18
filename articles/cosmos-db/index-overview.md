@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: ecf53251020ce1b639a5bf8da65f5d31ff699db9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265693"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
@@ -60,5 +60,5 @@ Découvrez plus en détail l’indexation dans les articles suivants :
 
 - [Stratégie d’indexation](index-policy.md)
 - [Types d’index](index-types.md)
-- [Chemins d’accès de l’index](index-paths.md)
-- [Comment gérer la stratégie d’indexation](how-to-manage-indexing-policy.md)
+- [Chemins des index](index-paths.md)
+- [Guide pratique pour gérer la stratégie d’indexation](how-to-manage-indexing-policy.md)

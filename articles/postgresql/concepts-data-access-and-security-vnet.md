@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.openlocfilehash: 83d16071cbcac4199db9f3757121f9811db49727
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006340"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour PostgreSQL
@@ -92,7 +92,7 @@ Il existe une séparation des rôles de sécurité dans l’administration des p
 - **Administrateur réseau :** &nbsp; Activez le point de terminaison.
 - **Administrateur de base de données :** &nbsp; Mettez à jour la liste de contrôle d’accès (ACL) pour ajouter un sous-réseau donné sur le serveur Azure Database pour PostgreSQL.
 
-*Alternative RBAC :*
+*Alternative RBAC :*
 
 Les rôles d’administrateur de réseau et d’administrateur de base de données disposent de plus de fonctionnalités que nécessaires pour gérer les règles de réseau virtuel. Seule une partie de ces fonctionnalités est réellement nécessaire.
 
@@ -141,8 +141,8 @@ Vous pouvez définir l’indicateur **IgnoreMissingServiceEndpoint** à l’aide
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour des articles dédiés à la création de règles de réseau virtuel, consultez :
-- [Créer et gérer la base de données Azure pour les règles de PostgreSQL VNet à l’aide du portail Azure](howto-manage-vnet-using-portal.md)
-- [Créer et gérer la base de données Azure pour les règles de PostgreSQL VNet à l’aide d’Azure CLI](howto-manage-vnet-using-cli.md)
+- [Create and manage Azure Database for PostgreSQL VNet rules using the Azure portal](howto-manage-vnet-using-portal.md) (Créer et gérer des règles de réseau virtuel Azure Database pour PostgreSQL à l’aide du portail Azure)
+- [Create and manage Azure Database for PostgreSQL VNet rules using Azure CLI](howto-manage-vnet-using-cli.md) (Créer et gérer des règles de réseau virtuel Azure Database pour PostgreSQL à l’aide d’Azure CLI)
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->

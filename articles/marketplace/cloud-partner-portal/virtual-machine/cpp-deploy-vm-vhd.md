@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046680"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Déployer une machine virtuelle à partir de vos disques durs virtuels
@@ -29,8 +29,8 @@ Une fois que vous avez chargé les disques durs virtuels (disque dur virtuel de 
 
 Pour en savoir plus sur les images de machine virtuelle, consultez les billets de blog suivants :
 
-- [Image de machine virtuelle](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [VM Image PowerShell « Comment »](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [VM Image](https://azure.microsoft.com/blog/vm-image-blog-post/)
+- [VM Image PowerShell ’How To’](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/) (Procédure liée aux images de machine virtuelle à l’aide de PowerShell)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -38,7 +38,7 @@ Pour en savoir plus sur les images de machine virtuelle, consultez les billets d
 
 Si ce n’est déjà fait, installez Azure PowerShell et l’interface de ligne de commande Azure en appliquant les instructions suivantes :
 
-- [Installation d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Installation d'Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 - [Installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
@@ -53,10 +53,10 @@ Vous utiliserez les étapes suivantes pour créer et déployer une image de mach
 Une fois votre machine virtuelle déployée, vous pouvez [certifier votre image de machine virtuelle](./cpp-certify-vm.md).
 
 1. Cliquez sur **Nouveau**, recherchez **Déploiement de modèle**, puis sélectionnez **Build your own template in Editor** (Générez votre propre modèle dans l’éditeur).  <br/>
-   ![Générer le modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_021.png)
+   ![Générer un modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_021.png)
 
 1. Copiez et collez ce [modèle JSON](./cpp-deploy-json-template.md) dans l’éditeur, puis cliquez sur **Enregistrer**. <br/>
-   ![Enregistrez le modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_022.png)
+   ![Enregistrer un modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_022.png)
 
 1. Indiquez les valeurs des paramètres pour les pages de propriétés **Déploiement personnalisé** affichées.
 
@@ -69,7 +69,7 @@ Une fois votre machine virtuelle déployée, vous pouvez [certifier votre image 
    | DNS Name for Public IP (Nom DNS pour adresse IP publique)      | Nom DNS d’adresse IP publique                                                           |
    | Nom d’utilisateur administrateur             | Nom d’utilisateur du compte administrateur pour une nouvelle machine virtuelle                                  |
    | Mot de passe d’administrateur              | Mot de passe du compte administrateur pour une nouvelle machine virtuelle                                  |
-   | Type de système d’exploitation                     | Système d’exploitation de machine virtuelle : `Windows` \| `Linux`                                    |
+   | Type de système d’exploitation                     | Système d’exploitation de machine virtuelle : `Windows` \| `Linux`                                    |
    | Identifiant d’abonnement             | Identificateur de l’abonnement sélectionné                                      |
    | Lieu                    | Emplacement géographique du déploiement                                        |
    | Taille de la machine virtuelle                     | [Taille de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), par exemple `Standard_A2` |

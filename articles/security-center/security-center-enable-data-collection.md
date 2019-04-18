@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: monhaber
 ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006737"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Collecte de données dans Azure Security Center
@@ -77,11 +77,11 @@ Security Center peut créer automatiquement un espace de travail par défaut dan
 Pour sélectionner un espace de travail créé par Security Center :
 
 1. Sous **Configuration de l’espace de travail par défaut**, sélectionnez Utiliser un ou des espaces de travail créés par Security Center.
-   ![Sélectionner un niveau tarifaire][10] 
+   ![Sélectionnez le niveau tarifaire][10] 
 
 1. Cliquez sur **Enregistrer**.<br>
     Security Center crée un groupe de ressources et un espace de travail par défaut dans cette zone géographique et connecte l’agent à cet espace de travail. La convention d’affectation de noms pour l’espace de travail et le groupe de ressources est la suivante :<br>
-   **Espace de travail : DefaultWorkspace-[ID-abonnement]-[géolocalisation]<br> Groupe de ressources : DefaultResourceGroup-[geo]**
+   **Espace de travail : DefaultWorkspace-[ID-abonnement]-[géolocalisation]<br> Groupe de ressources : DefaultResourceGroup-[géolocalisation]**
 
    Si un abonnement contient des machines virtuelles se trouvant dans plusieurs zones géographiques, Security Center crée plusieurs espaces de travail. Plusieurs espaces de travail sont créés pour tenir à jour les règles de confidentialité des données.
 1. Security Center activera automatiquement une solution Security Center sur l’espace de travail, en fonction du niveau de tarification défini pour l’abonnement. 
@@ -137,8 +137,8 @@ Pour sélectionner un espace de travail Log Analytics existant :
     a.  Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
      
     b.  Sélectionnez l’espace de travail souhaité où vous avez l’intention de connecter l’agent en cliquant sur **Modifier les paramètres** dans la colonne Paramètres de l’abonnement souhaité dans la liste.
-        ![Sélectionnez l’espace de travail][8] c. Définir le niveau tarifaire.
-        ![Sélectionner un niveau tarifaire][9] 
+        ![Sélectionnez un espace de travail][8] c. Définir le niveau tarifaire.
+        ![Sélectionnez le niveau tarifaire][9] 
    
    >[!NOTE]
    >Si l’espace de travail a déjà une solution **Security** ou **SecurityCenterFree** activée, la tarification sera définie automatiquement. 
@@ -254,18 +254,18 @@ Vous pouvez installer manuellement Microsoft Monitoring Agent pour que Security 
    a.  Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
      
    b.  Sélectionnez l’espace de travail dans lequel vous avez l’intention de connecter l’agent. Assurez-vous que l’espace de travail est dans le même abonnement que vous utilisez dans Security Center et que vous disposez d’autorisations en lecture/écriture sur l’espace de travail.
-       ![Sélectionner un espace de travail][8]
+       ![Sélectionnez un espace de travail][8]
 3. Définir le niveau tarifaire.
-   ![Sélectionner un niveau tarifaire][9] 
+   ![Sélectionnez le niveau tarifaire][9] 
    >[!NOTE]
    >Si l’espace de travail a déjà une solution **Security** ou **SecurityCenterFree** activée, la tarification sera définie automatiquement. 
    > 
 
 4. Si vous souhaitez déployer les agents sur de nouvelles machines virtuelles à l’aide d’un modèle Resource Manager, installez l’extension de machine virtuelle OMS :
 
-   a.  [Installer l’extension de machine virtuelle OMS pour Windows](../virtual-machines/extensions/oms-windows.md)
+   a.  [Installez l’extension de machine virtuelle OMS pour Windows](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Installer l’extension de machine virtuelle OMS pour Linux](../virtual-machines/extensions/oms-linux.md)
+   b.  [Installez l’extension de machine virtuelle OMS pour Linux](../virtual-machines/extensions/oms-linux.md)
 5. Pour déployer les extensions sur des machines virtuelles existantes, suivez les instructions de [Collecter des données sur les machines virtuelles Azure](../azure-monitor/learn/quick-collect-azurevm.md).
 
    > [!NOTE]

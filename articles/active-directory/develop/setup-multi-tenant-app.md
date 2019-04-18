@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff314e0bbf548c96c4f652213cdea21f86ed1125
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006115"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Guide pratique pour configurer une nouvelle application multilocataire
@@ -32,4 +32,4 @@ Voici une liste de rubriques recommandées pour en savoir plus sur les applicati
 - Pour plus d’informations, découvrez [comment une application multilocataire est configurée et codée de bout en bout](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), notamment comment inscrire, utiliser le point de terminaison « commun », implémenter le consentement « utilisateur » et « administrateur », et implémenter des scénarios multiniveaux plus avancés
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

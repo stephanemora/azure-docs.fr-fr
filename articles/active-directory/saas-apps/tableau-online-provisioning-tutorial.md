@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f732eebd410a6b52a21a46925a29bf4676f7c8cb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270784"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Didacticiel : Configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs
@@ -44,7 +44,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 ## <a name="adding-tableau-online-from-the-gallery"></a>Ajout de Tableau Online à partir de la galerie
 Avant de configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs avec Azure AD, vous devez ajouter Tableau Online à partir de la galerie d’applications Azure AD à votre liste d’applications SaaS managées.
 
-**Pour ajouter Tableau Online à partir de la galerie d’applications Azure AD, procédez comme suit :**
+**Pour ajouter Tableau Online à partir de la galerie d’applications Azure AD, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -58,9 +58,9 @@ Avant de configurer Tableau Online pour l’approvisionnement automatique d’ut
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Tableau Online**, sélectionnez **Tableau Online** dans le volet de résultats puis cliquez sur **ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Tableau Online**, sélectionnez **Tableau Online** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![En ligne de tableau dans la liste des résultats](common/search-new-app.png)
+    ![Tableau Online dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="assigning-users-to-tableau-online"></a>Affectation d’utilisateurs à Tableau Online
 
@@ -91,7 +91,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 2. Dans la liste des applications, sélectionnez **Tableau Online**.
 
-    ![Le lien de Tableau Online dans la liste des Applications](common/all-applications.png)
+    ![Lien Tableau Online dans la liste des applications](common/all-applications.png)
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
@@ -170,12 +170,12 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [La gestion de l’approvisionnement de comptes utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
+* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

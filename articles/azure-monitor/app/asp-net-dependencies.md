@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273105"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurer Application Insights : Suivi des dépendances
@@ -71,7 +71,7 @@ Le panneau de performances indique la durée des appels de dépendances effectu�
 Le **Nombre d’échecs** est affiché dans le panneau **Échecs**. Un échec est tout code de retour non compris dans la plage 200-399 ou inconnu.
 
 > [!NOTE]
-> **échecs de 100 % ?** Cela signifie probablement que vous obtenez uniquement des données de dépendances partielles. Vous devez [configurer une surveillance des dépendances adaptée à votre plateforme](#set-up-dependency-monitoring).
+> **100 % d’échecs ?** Cela signifie probablement que vous obtenez uniquement des données de dépendances partielles. Vous devez [configurer une surveillance des dépendances adaptée à votre plateforme](#set-up-dependency-monitoring).
 >
 >
 
@@ -152,9 +152,9 @@ Par exemple, si vous générez votre code avec un assembly que vous n’avez pas
 Si vous souhaitez désactiver le module de suivi des dépendances standard, supprimez la référence à DependencyTrackingTelemetryModule dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
-*Indicateur de réussite de la dépendance toujours affiche true ou false.*
+*L’indicateur de réussite de la dépendance affiche toujours True ou False.*
 
-*Requête SQL ne pas affiché dans sa totalité.*
+*La requête SQL n’est pas affichée en entier.*
 
 Consultez le tableau ci-dessous et vérifiez que vous avez choisi la configuration appropriée afin d’activer la surveillance des dépendances pour votre application.
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
 ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046068"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Utiliser votre modèle avec l’API de prédiction
@@ -137,7 +137,7 @@ Lorsque vous exécutez l’application, vous êtes invité à entrer un chemin d
 Dans ce guide, vous avez appris à envoyer des images sur votre personnalisé/détecteur de classifieur d’image et recevoir une réponse par programmation avec le C# SDK. Ensuite, découvrez comment exécuter des scénarios de bout en bout avec C#, ou commencer à utiliser une autre langue SDK.
 
 * [Démarrage rapide : .NET SDK](csharp-tutorial.md)
-* [Démarrage rapide : Kit de développement logiciel (SDK) Python](python-tutorial.md)
-* [Démarrage rapide : Kit de développement logiciel (SDK) Java](java-tutorial.md)
-* [Démarrage rapide : SDK Node](node-tutorial.md)
-* [Démarrage rapide : Kit de développement logiciel (SDK) Go](go-tutorial.md)
+* [Démarrage rapide : SDK Python](python-tutorial.md)
+* [Démarrage rapide : Java SDK](java-tutorial.md)
+* [Démarrage rapide : Nœud SDK](node-tutorial.md)
+* [Démarrage rapide : Consultez le Kit de développement logiciel](go-tutorial.md)

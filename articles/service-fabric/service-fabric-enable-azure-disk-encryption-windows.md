@@ -14,16 +14,16 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050440"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-windows-cluster-nodes"></a>Activer le chiffrement de disque pour les nœuds de cluster Windows Service Fabric 
 > [!div class="op_single_selector"]
 > * [Chiffrement de disque pour Windows](service-fabric-enable-azure-disk-encryption-windows.md)
-> * [Disk Encryption pour Linux](service-fabric-enable-azure-disk-encryption-linux.md)
+> * [Chiffrement de disque pour Linux](service-fabric-enable-azure-disk-encryption-linux.md)
 >
 >
 

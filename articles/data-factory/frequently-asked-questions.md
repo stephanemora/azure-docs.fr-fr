@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048212"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
@@ -145,7 +145,7 @@ Les flux de contrôle orchestrent des activités de pipeline telles que le chaî
 
 Pour plus d’informations sur les concepts de Data Factory, consultez les articles suivants :
 
-- [Jeu de données et services liés](concepts-datasets-linked-services.md)
+- [Jeux de données et services liés](concepts-datasets-linked-services.md)
 - [Pipelines et activités](concepts-pipelines-activities.md)
 - [Runtime d’intégration](concepts-integration-runtime.md)
 
@@ -156,8 +156,8 @@ Pour plus d’informations sur la tarification d’Azure Data Factory, consultez
 Pour obtenir les informations les plus récentes sur Azure Data Factory, consultez les sites suivants :
 
 - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [Page d’accueil de documentation](/azure/data-factory)
-- [Page d’accueil produit](https://azure.microsoft.com/services/data-factory/)
+- [Page d’accueil de la documentation](/azure/data-factory)
+- [Page d’accueil du produit](https://azure.microsoft.com/services/data-factory/)
 
 ## <a name="technical-deep-dive"></a>Présentation technique approfondie 
 
@@ -212,4 +212,4 @@ L’activité de copie pour organiser les données à partir de tous les autres 
 Pour obtenir des instructions pas à pas pour créer une fabrique de données, consultez les tutoriels suivants :
 
 - [Démarrage rapide : Créer une fabrique de données](quickstart-create-data-factory-dot-net.md)
-- [Didacticiel : Copier des données dans le cloud](tutorial-copy-data-dot-net.md)
+- [Tutoriel : Copier des données dans le cloud](tutorial-copy-data-dot-net.md)

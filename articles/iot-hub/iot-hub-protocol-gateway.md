@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.openlocfilehash: 9dbb7905c2a0fed65ede610577e0fa11a1deef92
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276233"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Prise en charge de protocoles supplémentaires pour IoT Hub
@@ -35,9 +35,9 @@ Pour plus de flexibilité, la passerelle de protocole Azure IoT et l’implémen
 
 Pour en savoir plus sur la passerelle de protocole Azure IoT, son utilisation et son déploiement dans le cadre de votre solution IoT, consultez :
 
-* [Référentiel de passerelle de protocole Azure IoT sur GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
+* [Référentiel sur la passerelle de protocole Azure IoT sur GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 
-* [Guide du développeur passerelle de protocole IoT Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
+* [Guide du développeur de passerelle de protocole Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
 Pour en savoir plus sur la planification de votre déploiement IoT Hub, consultez :
 
@@ -45,4 +45,4 @@ Pour en savoir plus sur la planification de votre déploiement IoT Hub, consulte
 
 * [Mise à l’échelle, haute disponibilité et récupération d’urgence](iot-hub-scaling.md)
 
-* [Guide du développeur IoT Hub](iot-hub-devguide.md)
+* [Guide du développeur d’IoT Hub](iot-hub-devguide.md)

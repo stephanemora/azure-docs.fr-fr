@@ -16,10 +16,10 @@ ms.date: 03/28/2019
 ms.author: pbutlerm
 ROBOTS: NOINDEX
 ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009732"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS Fulfillment API Version 1 (déconseillée)
@@ -67,7 +67,7 @@ Lorsqu’un utilisateur est redirigé vers le site Web d’un éditeur de logici
 |  |  |
 
 
-*headers*
+*En-têtes*
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -101,7 +101,7 @@ Lorsqu’un utilisateur est redirigé vers le site Web d’un éditeur de logici
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                                         |
+| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Jeton résolu avec succès.                                                            |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit une api-version invalide est spécifiée. Échec de la résolution du jeton parce que le jeton est mal formé ou a expiré (le jeton n’est valide que pendant 1 heure une fois généré). |
@@ -128,7 +128,7 @@ Le point de terminaison d’abonnement permet aux utilisateurs de s’abonner à
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nom du paramètre**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
@@ -136,7 +136,7 @@ Le point de terminaison d’abonnement permet aux utilisateurs de s’abonner à
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*headers*
+*En-têtes*
 
 |  **Clé d’en-tête**        | **Obligatoire** |  **Description**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
@@ -148,7 +148,7 @@ Le point de terminaison d’abonnement permet aux utilisateurs de s’abonner à
 | x-ms-marketplace-session-mode| Non  | Drapeau pour activer le mode marche à vide lors de l’abonnement à une offre SaaS. S’il est défini, l’abonnement n’est pas facturé. Cela est utile pour les scénarios de test des éditeurs de logiciels indépendants. Définissez-le sur **‘dryrun’**|
 |  |  |  |
 
-*body*
+*Corps*
 
 ``` json
 {
@@ -156,14 +156,14 @@ Le point de terminaison d’abonnement permet aux utilisateurs de s’abonner à
 }
 ```
 
-| **Nom de l'élément** | **Type de données** | **Description**                      |
+| **Nom de l’élément** | **Type de données** | **Description**                      |
 |------------------|---------------|--------------------------------------|
 | planId           | (Obligatoire) Chaîne        | Id de plan auquel l’utilisateur du service SaaS est abonné.  |
 |  |  |  |
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                           |
+| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Activation d’abonnement SaaS reçue pour un plan donné.                   |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit le corps JSON est mal formé. |
@@ -193,7 +193,7 @@ Le point de terminaison de changement permet à l’utilisateur de convertir son
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nom du paramètre**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
@@ -201,7 +201,7 @@ Le point de terminaison de changement permet à l’utilisateur de convertir son
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*headers*
+*En-têtes*
 
 | **Clé d’en-tête**          | **Obligatoire** | **Description**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
@@ -212,7 +212,7 @@ Le point de terminaison de changement permet à l’utilisateur de convertir son
 | autorisation           | Oui          | Jeton du porteur Web JSON (JWT).                    |
 |  |  |  |
 
-*body*
+*Corps*
 
 ```json
 {
@@ -220,14 +220,14 @@ Le point de terminaison de changement permet à l’utilisateur de convertir son
 }
 ```
 
-|  **Nom de l'élément** |  **Type de données**  | **Description**                              |
+|  **Nom de l’élément** |  **Type de données**  | **Description**                              |
 |  ---------------- | -------------   | --------------------------------------       |
 |  planId           |  (Obligatoire) Chaîne         | Id de plan auquel l’utilisateur du service SaaS est abonné.          |
 |  |  |  |
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                           |
+| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Activation d’abonnement SaaS reçue pour un plan donné.                   |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit le corps JSON est mal formé. |
@@ -255,9 +255,9 @@ L’action Delete sur le point de terminaison d’abonnement permet à un utilis
 
 *Requête*
 
-**SUPPRIMER**
+**DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nom du paramètre**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
@@ -265,7 +265,7 @@ L’action Delete sur le point de terminaison d’abonnement permet à un utilis
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*headers*
+*En-têtes*
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
@@ -276,7 +276,7 @@ L’action Delete sur le point de terminaison d’abonnement permet à un utilis
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                           |
+| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Activation d’abonnement SaaS reçue pour un plan donné.                   |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit le corps JSON est mal formé. |
@@ -315,7 +315,7 @@ Ce terminal permet à l’utilisateur de suivre l’état d’une opération asy
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*headers*
+*En-têtes*
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -347,7 +347,7 @@ Ce terminal permet à l’utilisateur de suivre l’état d’une opération asy
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                              |
+| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Requête get résolue avec succès. Le corps contient la réponse.    |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit une api-version invalide a été spécifiée. |
@@ -375,7 +375,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nom du paramètre**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
@@ -383,7 +383,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*headers*
+*En-têtes*
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
@@ -419,7 +419,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                              |
+| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Requête get résolue avec succès. Le corps contient la réponse.    |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit une api-version invalide a été spécifiée. |
@@ -455,7 +455,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 | api-version         | Version de l’opération à utiliser pour cette requête. |
 |  |  |
 
-*headers*
+*En-têtes*
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -491,7 +491,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 *Codes de réponse*
 
-| **Code d’état HTTP** | **Code d'erreur**     | **Description**                                                              |
+| **Code d’état HTTP** | **Code d’erreur**     | **Description**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Requête get résolue avec succès. Le corps contient la réponse.    |
 | 400                  | `BadRequest`         | Soit les en-têtes requis sont manquants, soit une api-version invalide a été spécifiée. |
@@ -515,7 +515,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 Un Webhook SaaS est utilisé pour notifier les modifications de manière proactive au service SaaS. Cette API POST est censée ne pas être authentifié et sera appelée par le service Microsoft. Le service SaaS est censé appeler l’API Opérations pour valider et autoriser avant d’entreprendre une action sur la notification de Webhook. 
 
-*body*
+*Corps*
 
 ``` json
   {

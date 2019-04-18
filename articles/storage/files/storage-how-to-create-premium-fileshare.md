@@ -9,10 +9,10 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288425"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Comment créer un partage de fichiers Azure premium
@@ -156,7 +156,7 @@ az login
 
 Pour interagir avec les fichiers de premium à l’aide de l’interface CLI, vous devrez ajouter une extension à votre interpréteur de commandes.
 
-Pour ce faire, entrez la commande suivante à l’aide de l’interpréteur de commandes ou un interpréteur de commandes locale : `az extension add --name storage-preview`
+Pour ce faire, entrez la commande ci-après à l’aide de Cloud Shell ou d’un interpréteur de commandes local : `az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 

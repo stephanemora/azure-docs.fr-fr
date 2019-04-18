@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268408"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restreindre l’accès à un Registre de conteneurs Azure à l’aide d’un réseau virtuel Azure ou des règles de pare-feu
@@ -42,7 +42,7 @@ Cet article présente deux scénarios pour créer des règles d’accès réseau
 
 ## <a name="about-network-rules-for-a-container-registry"></a>Sur les règles de réseau pour un Registre de conteneurs
 
-Un Registre de conteneurs Azure par défaut accepte les connexions via internet à partir d’hôtes sur n’importe quel réseau. Avec un réseau virtuel, vous pouvez autoriser uniquement les ressources Azure comme un cluster AKS ou machine virtuelle Azure à accéder en toute sécurité le Registre, sans dépasser une limite réseau. Vous pouvez également configurer des règles de pare-feu de réseau à la liste verte d’adresses internet publiques spécifiques des plages d’adresses IP. 
+Un Registre de conteneurs Azure par défaut accepte les connexions via internet à partir d’hôtes sur n’importe quel réseau. Avec un réseau virtuel, vous pouvez autoriser uniquement les ressources Azure comme un cluster AKS ou machine virtuelle Azure à accéder en toute sécurité le Registre, sans dépasser une limite réseau. Vous pouvez également configurer des règles de pare-feu de réseau à la liste blanche d’adresses internet publiques spécifiques des plages d’adresses IP. 
 
 Pour limiter l’accès à un Registre, d’abord modifier l’action par défaut du Registre afin qu’il refuse toutes les connexions réseau. Ensuite, ajoutez des règles d’accès réseau. Les clients accordé un accès via les règles de réseau doivent continuer à [s’authentifier auprès du Registre de conteneurs](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) et être autorisé à accéder aux données.
 

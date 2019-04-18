@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263829"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilisation du service Azure Import/Export pour exporter des données à partir du Stockage Blob Azure
@@ -141,12 +141,12 @@ Cette étape *facultative* vous permet de déterminer le nombre de disques néce
     
     |Paramètre de ligne de commande|Description|  
     |--------------------------|-----------------|  
-    |**/LogDir :**|facultatif. Répertoire contenant les journaux. Les fichiers journaux détaillés sont écrits dans ce répertoire. Si ce paramètre n’est pas spécifié, le répertoire actif est utilisé en tant que répertoire de journaux.|  
-    |**/sn :**|Requis. Nom du compte de stockage du travail d’exportation.|  
+    |**/logdir:**|facultatif. Répertoire contenant les journaux. Les fichiers journaux détaillés sont écrits dans ce répertoire. Si ce paramètre n’est pas spécifié, le répertoire actif est utilisé en tant que répertoire de journaux.|  
+    |**/sn:**|Requis. Nom du compte de stockage du travail d’exportation.|  
     |**/sk:**|Obligatoire uniquement si aucun jeton SAP de conteneur n’est spécifié. Clé du compte de stockage du travail d’exportation.|  
-    |**/csas :**|Obligatoire uniquement si aucune clé de compte de stockage n’est spécifiée. SAP du conteneur pour lister les objets blob à exporter dans le travail d’exportation.|  
-    |**/ ExportBlobListFile :**|Requis. Chemin d’accès au fichier XML contenant la liste des chemins d’accès ou des préfixes de chemin d’accès aux objets blob à exporter. Format du fichier utilisé dans l’élément `BlobListBlobPath` dans l’opération [Put Job](/rest/api/storageimportexport/jobs) de l’API REST du service Import/Export.|  
-    |**/ DriveSize (Taille_lecteur) :**|Requis. Taille des disques à utiliser pour une tâche d’exportation, *par exemple*, 500 Go, 1,5 To.|  
+    |**/csas:**|Obligatoire uniquement si aucune clé de compte de stockage n’est spécifiée. SAP du conteneur pour lister les objets blob à exporter dans le travail d’exportation.|  
+    |**/ExportBlobListFile:**|Requis. Chemin d’accès au fichier XML contenant la liste des chemins d’accès ou des préfixes de chemin d’accès aux objets blob à exporter. Format du fichier utilisé dans l’élément `BlobListBlobPath` dans l’opération [Put Job](/rest/api/storageimportexport/jobs) de l’API REST du service Import/Export.|  
+    |**/DriveSize:**|Requis. Taille des disques à utiliser pour une tâche d’exportation, *par exemple*, 500 Go, 1,5 To.|  
 
     Consultez un [exemple de commande PreviewExport](#example-of-previewexport-command).
  
@@ -205,7 +205,7 @@ Le tableau suivant présente des exemples de chemins d’accès d’objet blob v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Afficher l’état du travail et de lecteur](storage-import-export-view-drive-status.md)
-* [Passez en revue les exigences d’Import/Export](storage-import-export-requirements.md)
+* [Voir l’état de la tâche et des disques](storage-import-export-view-drive-status.md)
+* [Passer en revue les exigences d’importation/exportation](storage-import-export-requirements.md)
 
 

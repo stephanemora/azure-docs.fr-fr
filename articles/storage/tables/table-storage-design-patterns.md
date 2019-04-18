@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271626"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
@@ -197,7 +197,7 @@ Pour permettre la recherche par nom de famille en utilisant la structure d'entit
 * La création d'entités d'index dans la même partition que les entités des employés.  
 * La création d'entités d'index dans une table ou une partition séparée.  
 
-<u>Option #1 : Utiliser le stockage d’objets blob</u>  
+<u>Option 1 : Utiliser le Stockage Blob</u>  
 
 Pour la première option, vous créez un objet blob pour chaque nom unique et dans chaque magasin d’objets blob vous stockez une liste des valeurs de **PartitionKey** (service) et **RowKey** (ID d’employé) pour les employés de ce nom. Lorsque vous ajoutez ou supprimez un employé, vous devez vous assurer que le contenu de l'objet blob adéquat est cohérent avec les entités de l'employé.  
 
@@ -362,7 +362,7 @@ Utilisez ce modèle lorsque vous avez besoin d'accéder aux entités dans l'ordr
 ### <a name="related-patterns-and-guidance"></a>Conseils et modèles connexes
 Les modèles et les conseils suivants peuvent également être pertinents lors de l'implémentation de ce modèle :  
 
-* [Ajouter un anti-modèle](#prepend-append-anti-pattern)  
+* [Ajouter un anti-modèle ou un préfixe d’anti-modèle](#prepend-append-anti-pattern)  
 * [Récupération des entités](#retrieving-entities)  
 
 ## <a name="high-volume-delete-pattern"></a>Modèle de suppression de volume élevé
@@ -426,7 +426,7 @@ Utilisez ce modèle lorsque vous devez mettre à jour et récupérer une série 
 ### <a name="related-patterns-and-guidance"></a>Conseils et modèles connexes
 Les modèles et les conseils suivants peuvent également être pertinents lors de l'implémentation de ce modèle :  
 
-* [Modèle d’entités volumineuses](#large-entities-pattern)  
+* [Modèle d'entités volumineuses](#large-entities-pattern)  
 * [Fusion ou remplacement](#merge-or-replace)  
 * [Modèle de transactions cohérentes](#eventually-consistent-transactions-pattern) (si vous stockez la série de données dans un objet blob)  
 
@@ -1109,6 +1109,6 @@ L'application cliente peut appeler plusieurs méthodes asynchrones comme celle-c
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Modélisation des relations](table-storage-design-modeling.md)
-- [Conception pour l'interrogation](table-storage-design-for-query.md)
-- [Chiffrement de données de table](table-storage-design-encrypt-data.md)
+- [Conception pour l’interrogation](table-storage-design-for-query.md)
+- [Chiffrement des données de table](table-storage-design-encrypt-data.md)
 - [Conception pour la modification de données](table-storage-design-for-modification.md)

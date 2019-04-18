@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275893"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
@@ -82,7 +82,7 @@ Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opéra
       -   Informations de renouvellement - > par exemple 90 jours avant l’expiration  
 
   - La création de certificat est généralement un processus asynchrone. Elle implique l’interrogation de votre coffre de clés pour connaître l’état de l’opération de création d’un certificat.  
-[Opération de certificat de récupération](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
+[Opération d’obtention du certificat](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   État : terminé, en échec avec informations sur l’erreur ou annulé.  
       -   Une opération d’annulation peut être lancée en raison du délai de création. L’annulation peut ou non être effective.  
 
@@ -132,4 +132,4 @@ Nous n’actuellement en charge les clés EC au format PEM.
 
 ## <a name="see-also"></a>Voir aussi
 
-- [À propos des clés, des secrets et des certificats](about-keys-secrets-and-certificates.md)
+- [Présentation des clés, des secrets et des certificats](about-keys-secrets-and-certificates.md)

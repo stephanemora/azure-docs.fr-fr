@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271269"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durée de vie (TTL) dans Azure Cosmos DB 
@@ -50,4 +50,4 @@ La suppression d'éléments basée sur la durée de vie est gratuite. Aucun coû
 
 Découvrez comment configurer la durée de vie dans les articles suivants :
 
-* [Comment configurer la durée de vie](how-to-time-to-live.md)
+* [Configurer la durée de vie](how-to-time-to-live.md)

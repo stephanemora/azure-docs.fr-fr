@@ -16,10 +16,10 @@ ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259199"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Guide pratique pour provisionner une machine virtuelle Windows SQL Server dans le portail Azure
@@ -80,7 +80,7 @@ Il existe plusieurs onglets pour la configuration d’une machine virtuelle SQL 
 ## <a name="1-configure-basic-settings"></a>1. Configurer les paramètres de base
 
 
-Sur le **notions de base** onglet, fournissez les informations suivantes :
+Sous l’onglet **De base**, fournissez les informations suivantes :
 
 * Sous **détails du projet**, assurez-vous que l’abonnement approprié est sélectionné. 
 *  Dans le **groupe de ressources** section, sélectionnez une ressource existante dans la liste de groupe ou choisissez **créer** pour créer un nouveau groupe de ressources. Un groupe de ressources est une collection de ressources liées dans Azure (machines virtuelles, comptes de stockage, réseaux virtuels, etc.). 
@@ -91,14 +91,14 @@ Sur le **notions de base** onglet, fournissez les informations suivantes :
   > L’utilisation d’un nouveau groupe de ressources est utile si vous testez ou découvrez les déploiements SQL Server dans Azure. Une fois que vous avez terminé votre test, supprimez le groupe de ressources pour supprimer automatiquement la machine virtuelle et toutes les ressources associées à ce groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
 
 
-* Sous **détails de l’Instance**:
+* Sous **Détails de l’instance** :
     1. Entrez une valeur unique **nom de machine virtuelle**.  
-    1. Choisissez un emplacement pour votre **région**. 
-    1. Pour les besoins de ce guide, laissez **options de disponibilité** définie sur _aucune redondance de l’infrastructure requise_. Pour plus d’informations sur les options de disponibilité, consultez [régions Azure et disponibilité](../../windows/regions-and-availability.md). 
-    1. Dans le **Image** liste, sélectionnez _licence gratuite de SQL Server : SQL Server 2017 Developer sous Windows Server 2016_.  
-    1. Choisissez de **modifier la taille** pour le **taille** de la machine virtuelle et sélectionnez le **A2 base** offre. Veillez à nettoyer vos ressources une fois que vous avez terminé avec eux pour éviter les frais imprévus. Pour les charges de travail de production, consultez les tailles de machine et la configuration recommandées dans l’article [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-performance.md).
+    1. Choisissez un emplacement pour votre **Région**. 
+    1. Pour les besoins de ce guide, laissez **options de disponibilité** définie sur _aucune redondance de l’infrastructure requise_. Pour plus d’informations sur les options de disponibilité, consultez [Régions Azure et disponibilité](../../windows/regions-and-availability.md). 
+    1. Dans la liste **Image**, sélectionnez _Licence SQL Server gratuite : SQL Server 2017 Developer sous Windows Server 2016_.  
+    1. Choisissez **Modifier la taille** pour la **taille** de la machine virtuelle, puis sélectionnez l’offre **A2 de base**. Nettoyez vos ressources lorsque vous n’en avez plus besoin afin d’éviter des frais imprévus. Pour les charges de travail de production, consultez les tailles de machine et la configuration recommandées dans l’article [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-performance.md).
 
-    ![Détails de l'instance](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
+    ![Détails de l’instance](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
 > Le coût mensuel estimé affiché sur la fenêtre **Choisir une taille** n’inclut pas les coûts de licence SQL Server. Cette estimation correspond uniquement au coût de la machine virtuelle. Pour les éditions Express et Developer de SQL Server, cette estimation représente le coût total estimé. Pour les autres éditions, consultez la [page de tarification des machines virtuelles Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) et sélectionnez votre édition de SQL Server. Consultez également le [tarification des machines virtuelles SQL Server Azure](virtual-machines-windows-sql-server-pricing-guidance.md) et [tailles des machines virtuelles](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -107,7 +107,7 @@ Sur le **notions de base** onglet, fournissez les informations suivantes :
 
    ![Compte d’administrateur](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
-* Sous **les règles de port de trafic entrant**, choisissez **autoriser les ports sélectionnés** , puis sélectionnez **RDP (3389)** à partir de la liste déroulante. 
+* Sous **Règles des ports d’entrée**, choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **RDP (3389)** dans la liste déroulante. 
 
    ![Règles des ports d’entrée](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
@@ -158,8 +158,8 @@ Sur le **paramètres SQL Server** , configurez les paramètres spécifiques et d
 | Paramètre |
 | --- |
 | [Connectivité](#connectivity) |
-| [Authentication](#authentication) |
-| [Intégration d’Azure Key Vault](#azure-key-vault-integration) |
+| [Authentification](#authentication) |
+| [Intégration du coffre de clés Azure](#azure-key-vault-integration) |
 | [Configuration du stockage](#storage-configuration) |
 | [Mise à jour corrective automatisée](#automated-patching) |
 | [Sauvegarde automatisée](#automated-backup) |
@@ -211,10 +211,10 @@ Le tableau suivant répertorie les paramètres requis pour configurer l’intég
 
 | PARAMÈTRE | Description | EXEMPLE |
 | --- | --- | --- |
-| **URL du coffre de clés Key Vault** |L’emplacement du coffre de clés. |https :\//contosokeyvault.vault.azure.net/ |
+| **URL du coffre de clés** |L’emplacement du coffre de clés. |https :\//contosokeyvault.vault.azure.net/ |
 | **Nom du principal** |Nom du principal du service Azure Active Directory Également appelé ID client. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Secret du principal** |Secret du principal du service Azure Active Directory Également appelé Secret client. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **Credential name (Nom des informations d’identification)** |**Nom des informations d'identification** : L’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification. |mycred1 |
+| **Nom des informations d’identification** |**Nom des informations d'identification** : L’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification. |mycred1 |
 
 Pour plus d’informations, consultez [Configurer l’intégration d’Azure Key Vault pour SQL Server sur des machines virtuelles Azure](virtual-machines-windows-ps-sql-keyvault.md).
 
@@ -276,7 +276,7 @@ Vous avez la possibilité d’activer [SQL Server R Services (Analytique avancé
 
 ## <a name="4-review--create"></a>4. Vérifier + créer
 
-Sur le **examiner + créer** onglet, passez en revue le résumé, puis sélectionnez **créer** pour créer les ressources spécifiées pour cette machine virtuelle SQL Server et groupe de ressources.
+Sous l’onglet **Vérifier + créer**, lisez le récapitulatif, puis sélectionnez **Créer** pour créer l’instance SQL Server, le groupe de ressources et les ressources spécifiées pour cette machine virtuelle.
 
 Vous pouvez surveiller le déploiement à partir du portail Azure. Le bouton **Notifications** en haut de l’écran affiche l’état de base du déploiement.
 

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261596"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gérer la montée en charge du cluster pour prendre en compte les fluctuations de la demande
@@ -45,9 +45,9 @@ Le graphisme suivant illustre le flux des prochaines étapes. Voir détails ci-d
     | Paramètre | Description et valeur |
     | --- | --- |
     | **Agrégation du temps** | Sélectionnez un critère d’agrégation, comme **Moyenne**. |
-    | **Nom de métrique** | Sélectionnez la métrique sur laquelle vous voulez baser l’opération de mise à l’échelle, comme **Utilisation du cache**. |
-    | **Statistique de fragment de temps** | Choisissez entre **Moyenne**, **Minimum**, **Maximum** et **Somme**. |
-    | **Operator** | Choisissez l’option appropriée, par exemple **Supérieur ou égal à**. |
+    | **Nom de la métrique** | Sélectionnez la métrique sur laquelle vous voulez baser l’opération de mise à l’échelle, comme **Utilisation du cache**. |
+    | **Statistiques de fragment de temps** | Choisissez entre **Moyenne**, **Minimum**, **Maximum** et **Somme**. |
+    | **Opérateur** | Choisissez l’option appropriée, par exemple **Supérieur ou égal à**. |
     | **Seuil** | Choisissez une valeur appropriée. Par exemple, pour l’utilisation du cache, 80 pour cent est un bon point de départ. |
     | **Durée (en minutes)** | Choisissez une durée appropriée pendant laquelle le système effectue des recherches lors du calcul de métriques. Commencez avec la valeur par défaut, 10 minutes. |
     |  |  |
@@ -56,7 +56,7 @@ Le graphisme suivant illustre le flux des prochaines étapes. Voir détails ci-d
 
     | Paramètre | Description et valeur |
     | --- | --- |
-    | **Opération** | Choisissez l’option appropriée pour diminuer ou augmenter la taille. |
+    | **opération** | Choisissez l’option appropriée pour diminuer ou augmenter la taille. |
     | **Nombre d’instances** | Choisissez le nombre de nœuds ou d’instances que vous voulez ajouter ou supprimer quand une condition de métrique est remplie. |
     | **Refroidissement (minutes)** | Choisissez un intervalle de temps d’attente approprié entre les opérations de mise à l’échelle. Commencez avec la valeur par défaut, cinq minutes. |
     |  |  |
@@ -67,9 +67,9 @@ Le graphisme suivant illustre le flux des prochaines étapes. Voir détails ci-d
 
     | Paramètre | Description et valeur |
     | --- | --- |
-    | **Minimale** | Nombre d’instances en dessous duquel la mise à l’échelle de votre cluster ne se met pas en œuvre, quelle que soit l’utilisation. |
-    | **Maximale** | Nombre d’instances au-dessus duquel la mise à l’échelle de votre cluster ne se met pas en œuvre, quelle que soit l’utilisation. |
-    | **Default** | Nombre d’instances par défaut. Ce paramètre est utilisé s’il existe des problèmes de lecture des métriques de ressource. |
+    | **Minimum** | Nombre d’instances en dessous duquel la mise à l’échelle de votre cluster ne se met pas en œuvre, quelle que soit l’utilisation. |
+    | **Maximum** | Nombre d’instances au-dessus duquel la mise à l’échelle de votre cluster ne se met pas en œuvre, quelle que soit l’utilisation. |
+    | **Par défaut** | Nombre d’instances par défaut. Ce paramètre est utilisé s’il existe des problèmes de lecture des métriques de ressource. |
     |  |  |
 
 7. Sélectionnez **Enregistrer**.

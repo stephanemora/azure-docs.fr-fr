@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: cithomas
 ms.openlocfilehash: 8243523887ec9861459b2d196126237cf89bad97
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288365"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights pour les applications ASP.NET Core
@@ -100,7 +100,7 @@ Voici les modifications à ajouter au fichier de votre projet .csproj.
              * Azure Cosmos DB est suivi automatiquement uniquement si HTTP/HTTPS est utilisé. Le mode TCP ne sera pas capturé par Application Insights.
 
 
-    1. [Compteurs de performance](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)
+    1. [Compteurs de performances](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)
         1. Prise en charge des compteurs de performances dans ASP.NET Core est limitée à ce qui suit
             1. Kit de développement logiciel version 2.4.1 et au-dessus de collecte des compteurs de performances si l’application s’exécute dans Azure Web App (Windows)
             1. Kit de développement logiciel version 2.7.0-beta3 et au-dessus de collecte des compteurs de performances si l’application est en cours d’exécution dans Windows et de ciblage `NETSTANDARD2.0` ou une version ultérieure.

@@ -13,10 +13,10 @@ ms.date: 04/05/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f67c2a4547ee923e5c1b49302c38693e9ffe87c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262208"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Installer Visual Studio et SSDT pour SQL Data Warehouse
@@ -29,13 +29,13 @@ L’utilisation de Visual Studio avec SSDT vous permet d’utiliser l’Explorat
 > 
 > 
 
-## <a name="step-1-install-visual-studio"></a>Étape 1 : Installation de Visual Studio
+## <a name="step-1-install-visual-studio"></a>Étape 1 : Installation de Visual Studio
 Suivez ces liens pour télécharger et installer Visual Studio. Si Visual Studio 2013 ou ultérieur est déjà installé sur votre machine, passez à l’étape 2 pour installer SSDT.
 
 1. [Téléchargez Visual Studio][].
 2. Suivez le guide [d’installation de Visual Studio][Installing Visual Studio] sur MSDN et sélectionnez les configurations par défaut.
 
-## <a name="step-2-install-ssdt"></a>Étape 2 : Installer SSDT
+## <a name="step-2-install-ssdt"></a>Étape 2 : Installer SSDT
 Pour installer SSDT pour Visual Studio, commencez par vérifier la présence d’une mise à jour SSDT dans Visual Studio en procédant comme suit.
 
 1. Dans Visual Studio, cliquez sur **Outils** / **Extensions et mises à jour...** / **Mises à jour**
@@ -54,7 +54,7 @@ Maintenant que vous disposez de la dernière version de SSDT, vous êtes prêt �
 [connect]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
-[Télécharger Visual Studio]: https://www.visualstudio.com/downloads/
+[Téléchargez Visual Studio]: https://www.visualstudio.com/downloads/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260542"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
@@ -41,7 +41,7 @@ Le terme *modèle de location* fait référence à la façon dont sont organisé
 
 En général, le modèle de location n’affecte pas le fonctionnement d’une application, mais il peut avoir un impact sur d’autres aspects de la solution dans son ensemble.  Les critères suivants sont utilisés pour évaluer chacun des modèles :
 
-- **Évolutivité :**
+- **Scalabilité :**
     - Nombre de locataires.
     - Stockage par locataire.
     - Stockage dans l’agrégat.
@@ -51,11 +51,11 @@ En général, le modèle de location n’affecte pas le fonctionnement d’une a
 
 - **Coût par locataire :**&nbsp; Coûts des bases de données.
 
-- **Complexité du développement :**
+- **Complexité du développement :**
     - Changements apportés au schéma.
     - Changements apportés aux requêtes (exigés par le modèle).
 
-- **Complexité opérationnelle :**
+- **Complexité opérationnelle :**
     - Surveillance et gestion des performances.
     - Gestion des schémas.
     - Restauration d’un locataire.
@@ -71,7 +71,7 @@ La discussion sur la location est axée sur la couche *Données*.  Mais réfléc
 
 Dans ce modèle, l’application est installée en intégralité à plusieurs reprises, une fois par locataire.  Chaque instance de l’application étant autonome, une instance n’interagit jamais avec une autre instance autonome.  Chaque instance de l’application n’a qu’un seul locataire et ne nécessite donc qu’une base de données.  Le locataire dispose de la base de données pour lui tout seul.
 
-![Conception d’une application autonome avec une base de données à locataire unique.][image-standalone-app-st-db-111a]
+![Conception d’une application autonome avec une seule base de données à locataire unique.][image-standalone-app-st-db-111a]
 
 Chaque instance de l’application est installée dans un groupe de ressources Azure distinct.  Le groupe de ressources peut appartenir à un abonnement dont le propriétaire est l’éditeur du logiciel ou le locataire.  Dans les deux cas, l’éditeur peut gérer le logiciel pour le locataire.  Chaque instance de l’application est configurée pour se connecter à la base de données correspondante.
 
@@ -97,7 +97,7 @@ Grâce au modèle de base de données par locataire, vous pouvez facilement pers
 
 Quand des bases de données sont déployées dans le même groupe de ressources, elles peuvent être regroupées dans des pools élastiques.  Les pools offrent un moyen économique de partager des ressources entre plusieurs bases de données.  Le fait de recourir à des pools revient moins cher que d’exiger une base de données suffisamment volumineuse pour faire face aux pics d’utilisation.  Même si les bases de données mises en pool partagent l’accès aux ressources, vous pouvez toujours obtenir un niveau élevé d’isolation des performances.
 
-![Conception d’une application multi-locataire avec une base de données par locataire, à l’aide de pool élastique.][image-mt-app-db-per-tenant-pool-153p]
+![Conception d’une application multi-locataire avec une base de données par locataire, à l’aide d’un pool élastique.][image-mt-app-db-per-tenant-pool-153p]
 
 Azure SQL Database fournit les outils nécessaires pour configurer, surveiller et gérer le partage.  Des mesures de performances au niveau du pool et le niveau de la base de données sont disponibles dans le portail Azure et via les journaux Azure Monitor.  Les métriques peuvent donner d’excellents insights sur les performances agrégées et celles spécifiques au locataire.  Vous pouvez déplacer les bases de données individuelles entre pools pour fournir des ressources réservées à un locataire spécifique.  Ces outils vous permettent de garantir un bon niveau de performance de façon rentable.
 

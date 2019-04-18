@@ -9,10 +9,10 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044961"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Lancer un basculement de compte de stockage (préversion)
@@ -106,6 +106,6 @@ az storage account failover \ --name accountName
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Basculement d’urgence compte et de récupération (version préliminaire) dans le stockage Azure](storage-disaster-recovery-guidance.md)
-- [Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS)](storage-designing-ha-apps-with-ragrs.md)
-- [Didacticiel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md) 
+- [Reprise d’activité après sinistre et basculement de compte (préversion) dans Stockage Azure](storage-disaster-recovery-guidance.md)
+- [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+- [Tutoriel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md) 

@@ -14,10 +14,10 @@ ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266923"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
@@ -149,7 +149,7 @@ La mise à l’échelle peut varier en fonction de certains facteurs et selon le
 
 Différents déclencheurs peuvent également avoir des limites de mise à l’échelle différentes, comme documentées ci-dessous :
 
-* [Event Hub](functions-bindings-event-hubs.md#trigger---scaling)
+* [Concentrateur d’événements](functions-bindings-event-hubs.md#trigger---scaling)
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Bonnes pratiques et modèles pour les applications scalables
 
@@ -164,4 +164,4 @@ La facturation du plan de consommation est décrite en détail dans la page [Tar
 
 Requêtes utiles et des informations sur la façon de comprendre votre facture de consommation, vous pouvez trouver [sur le Forum aux questions de facturation](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
-[Page de tarification d’Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[Tarification d’Azure Functions]: https://azure.microsoft.com/pricing/details/functions

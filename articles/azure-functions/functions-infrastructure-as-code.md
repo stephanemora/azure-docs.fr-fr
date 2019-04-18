@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
 ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270896"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
@@ -27,8 +27,8 @@ Vous pouvez utiliser un modèle Azure Resource Manager pour déployer une applic
 Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Pour des exemples de modèles, consultez :
-- [Application de fonction dans le plan de consommation]
-- [Application de fonction dans le plan Azure App Service]
+- [Function app on Consumption plan] (Application de fonction dans le plan Consommation)
+- [Function app on Azure App Service plan] (Application de fonction dans le plan Azure App Service)
 
 > [!NOTE]
 > Le plan Premium pour l’hébergement Azure Functions est actuellement en version préliminaire. Pour plus d’informations, consultez [plan Premium de fonctions Azure](functions-premium-plan.md).
@@ -123,7 +123,7 @@ En outre, la clé d’instrumentation doit être fourni à l’application de fo
 La définition de plan d’hébergement varie et peut prendre l’une des opérations suivantes :
 * [Plan de consommation](#consumption) (valeur par défaut)
 * [Plan Premium](#premium) (en version préliminaire)
-* [Plan App Service](#app-service-plan)
+* [Plan App Service](#app-service-plan)
 
 ### <a name="function-app"></a>Conteneur de fonctions
 
@@ -644,7 +644,7 @@ Une application de fonction dispose de nombreuses ressources enfant que vous pou
 Vous pouvez utiliser une des méthodes suivantes pour déployer votre modèle :
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
 * [Portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
@@ -669,10 +669,10 @@ Voici un exemple qui utilise HTML :
 En savoir plus sur le développement et la configuration d’Azure Functions.
 
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
-* [Comment configurer les paramètres d’application de fonction Azure](functions-how-to-use-azure-function-app-settings.md)
+* [Guide pratique pour configurer les paramètres d’application de fonction Azure](functions-how-to-use-azure-function-app-settings.md)
 * [Créer votre première fonction Azure](functions-create-first-azure-function.md)
 
 <!-- LINKS -->
 
-[Application de fonction dans le plan de consommation]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Application de fonction dans le plan Azure App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Function app on Consumption plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json (Application de fonction dans le plan Consommation)
+[Function app on Azure App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json (Application de fonction dans le plan Azure App Service)

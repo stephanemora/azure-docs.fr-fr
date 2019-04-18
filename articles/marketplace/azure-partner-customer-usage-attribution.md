@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
 ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050150"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
@@ -316,19 +316,19 @@ Vous serez contacté par un Consultant technique Microsoft pour configurer un ap
 
 ## <a name="faq"></a>Forum Aux Questions
 
-**Qu’est l’avantage d’ajouter le GUID pour le modèle ?**
+**Quel avantage l’ajout du GUID apporte-t-il au modèle ?**
 
 Microsoft offre aux partenaires avec une vue des déploiements de leurs solutions et des informations sur leur utilisation influencée. Microsoft et le partenaire peuvent utiliser ces informations pour favoriser un engagement plus proche entre les équipes de vente. Microsoft et le partenaire peuvent utiliser ces données pour obtenir une vue plus cohérente de l’impact d’un partenaire individuel sur la croissance Azure.
 
-**Après avoir ajouté un GUID, peut être modifié ?**
+**Une fois ajouté, un GUID peut-il être modifié ?**
 
 Oui, un client ou un partenaire d’implémentation peut personnaliser le modèle et modifier ou supprimer le GUID. Nous vous suggérons de proactive décrivent le rôle de la ressource et le GUID à leurs clients et les partenaires pour empêcher la suppression ou modifications vers le GUID pour les partenaires. La modification du GUID affecte uniquement les ressources et les déploiements nouveaux, qui n’existent pas.
 
-**Puis-je suivre les modèles déployés à partir d’un référentiel non Microsoft, tel que GitHub ?**
+**Puis-je effectuer le suivi de modèles déployés à partir d’un dépôt autre que Microsoft tel que GitHub ?**
 
 Oui, tant que le GUID est présent lorsque le modèle est déployé, l’utilisation fait l’objet d’un suivi. Les partenaires doivent avoir un profil dans le CPP pour inscrire le GUID utilisé pour le déploiement en dehors de la place de marché Azure.
 
-**Le client reçoit le reporting ainsi ?**
+**Le client reçoit-il également la création de rapports ?**
 
 Les clients peuvent effectuer le suivi de leur utilisation des ressources individuelles ou des groupes de ressources définis par le client sur le Portail Azure.
 
@@ -336,7 +336,7 @@ Les clients peuvent effectuer le suivi de leur utilisation des ressources indivi
 
 Cette nouvelle méthode de connexion du déploiement et de l’utilisation à la solution d’un partenaire fournit un mécanisme permettant de lier une solution de partenaire à l’utilisation d’Azure. Le partenaire de référence numérique (DPOR) est destiné à associer un partenaire de conseil (intégrateur de systèmes) ou de gestion (fournisseur de services managés) à l’abonnement Azure d’un client.
 
-**Qu’est l’avantage d’utiliser le formulaire de générateur de GUID du stockage Azure ?**
+**Quel avantage y a-t-il à utiliser le formulaire Générateur de GUID de Stockage Azure ?**
 
 Le formulaire Générateur de GUID de Stockage Azure est l’assurance de générer un GUID au format adéquat. De plus, si vous utilisez l’une des méthodes de suivi de plan de données de Stockage Azure, vous pouvez utiliser le même GUID pour le suivi de plan de contrôle de la Place de marché. Cela vous permet d’exploiter un même GUID unifié pour l’attribution Partenaire sans avoir à gérer plusieurs GUID.
 

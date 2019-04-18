@@ -16,10 +16,10 @@ ms.date: 04/03/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052356"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
@@ -35,7 +35,7 @@ La vidéo suivante fournit une vue d’ensemble des conditions d’utilisation.
 
 Pour voir d’autres vidéos, consultez :
 - [Comment déployer les conditions d’utilisation dans Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
-- [Comment déployer des conditions d’utilisation dans Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
+- [Comment installer les conditions d’utilisation dans Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>Que puis-je faire avec Conditions d’utilisation ?
 La fonctionnalité Conditions d’utilisation d’Azure AD vous permet d’effectuer les opérations suivantes :
@@ -126,7 +126,7 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
     | **Accès aux applications cloud pour tous les invités** | Une stratégie d’accès conditionnel est créée pour tous les invités et toutes les applications cloud. Cette stratégie impacte le portail Azure. Une fois la stratégie créée, il peut vous être demandé de vous déconnecter et de vous connecter. |
     | **Accès aux applications cloud pour tous les utilisateurs** | Une stratégie d’accès conditionnel est créée pour tous les utilisateurs et toutes les applications cloud. Cette stratégie impacte le portail Azure. Une fois la stratégie créée, il vous est demandé de vous déconnecter et de vous connecter. |
     | **Stratégie personnalisée** | Sélectionnez les utilisateurs, groupes et applications auxquels ces conditions d’utilisation seront appliquées. |
-    | **Créer la stratégie d'accès conditionnel plus tard** | Ces conditions d’utilisation apparaîtront dans la liste de contrôle d’autorisation lors de la création d’une stratégie d’accès conditionnel. |
+    | **Créer la stratégie d’accès conditionnel plus tard** | Ces conditions d’utilisation apparaîtront dans la liste de contrôle d’autorisation lors de la création d’une stratégie d’accès conditionnel. |
 
     >[!IMPORTANT]
     >Les contrôles de stratégie d’accès conditionnel (y compris les conditions d’utilisation) ne peuvent pas être appliqués sur les comptes de service. Nous vous recommandons d’exclure tous les comptes de service de la stratégie d’accès conditionnel.
@@ -265,7 +265,7 @@ Voici une liste des plateformes et des logiciels pris en charge.
 > | **Application native** | Oui | OUI | Oui |  |
 > | **Microsoft Edge** | Oui | OUI | Oui |  |
 > | **Internet Explorer** | Oui | OUI | Oui |  |
-> | **Chrome (avec l’extension)** | Oui | OUI | Oui |  |
+> | **Chrome (avec extension)** | Oui | OUI | Oui |  |
 
 Les conditions d’utilisation par appareil ont les contraintes suivantes :
 
@@ -345,44 +345,44 @@ Vous pouvez configurer une stratégie d’accès conditionnel pour l’applicati
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-**Q : Comment voir si un utilisateur a accepté les conditions d’utilisation ?**<br />
-R : Dans le panneau Conditions d’utilisation, cliquez sur le numéro sous **Accepté**. Vous pouvez également afficher ou rechercher l’activité d’acceptation dans les journaux d’audit Azure AD. Pour plus d’informations, consultez Afficher le rapport des utilisateurs ayant accepté et refusé les conditions d’utilisation et [Afficher les journaux d’audit Azure AD](#view-azure-ad-audit-logs).
+**Q : Comment déterminer si un utilisateur a accepté les conditions d’utilisation et quand ?**<br />
+R : Dans le panneau Conditions d’utilisation, cliquez sur le numéro sous **Accepté**. Vous pouvez également afficher ou rechercher l’activité d’acceptation dans les journaux d’audit Azure AD. Pour plus d’informations, consultez Afficher le rapport des utilisateurs ayant accepté et refusé les conditions d’utilisation et [Afficher les journaux d’audit Azure AD](#view-azure-ad-audit-logs).
 
-**Q : Sont la durée pendant laquelle les informations stockées ?**<br />
-R : Le nombre d’utilisateurs ayant accepté et refusé les conditions d’utilisation est stocké pour la durée de vie des conditions d’utilisation. Les journaux d’audit Azure AD sont stockés pendant 30 jours.
+**Q : Combien de temps sont stockées les informations ?**<br />
+R : Le nombre d’utilisateurs ayant accepté et refusé les conditions d’utilisation est stocké pour la durée de vie des conditions d’utilisation. Les journaux d’audit Azure AD sont stockés pendant 30 jours.
 
-**Q : Pourquoi un nombre différent des consentements dans les conditions d’utilisation des rapports et Azure AD journaux d’audit ?**<br />
-R : Le rapport des conditions d’utilisation est stocké pendant toute la durée de vie de celles-ci, alors que les journaux d’audit Azure AD sont stockés pendant 30 jours. En outre, le rapport des conditions d’utilisation affiche uniquement l’état actuel du consentement utilisateur. Par exemple, si un utilisateur refuse, puis accepte les conditions d’utilisation, le rapport affichera uniquement son acceptation. Si vous avez besoin de consulter l’historique, vous pouvez utiliser les journaux d’audit Azure AD.
+**Q : Pourquoi le nombre de consentements est-il différent dans le rapport des conditions d’utilisation et dans les journaux d’audit Azure AD ?**<br />
+R : Le rapport des conditions d’utilisation est stocké pendant toute la durée de vie de celles-ci, alors que les journaux d’audit Azure AD sont stockés pendant 30 jours. En outre, le rapport des conditions d’utilisation affiche uniquement l’état actuel du consentement utilisateur. Par exemple, si un utilisateur refuse, puis accepte les conditions d’utilisation, le rapport affichera uniquement son acceptation. Si vous avez besoin de consulter l’historique, vous pouvez utiliser les journaux d’audit Azure AD.
 
-**Q : Si la modification du détail des conditions d’utilisation, utilisateurs doivent-ils accepter à nouveau ?**<br />
-R : Non. Si un administrateur modifie les détails des conditions d’utilisation (nom, nom d’affichage, demander aux utilisateurs d’étendre ou ajouter une langue), les utilisateurs ne sont pas tenus de réaccepter les nouveaux termes.
+**Q : Si je modifie les détails des conditions d’utilisation, les utilisateurs doivent-ils les réaccepter ?**<br />
+R : Non. Si un administrateur modifie les détails des conditions d’utilisation (nom, nom d’affichage, demander aux utilisateurs d’étendre ou ajouter une langue), les utilisateurs ne sont pas tenus de réaccepter les nouveaux termes.
 
-**Q : Puis-je mettre à jour une existante document conditions d’utilisation ?**<br />
-R : Il n’est pas possible à l’heure actuelle de mettre à jour un document de conditions d’utilisation existant. Il vous faudra pour cela créer une nouvelle instance de conditions d’utilisation.
+**Q : Puis-je mettre à jour un document de conditions d’utilisation existant ?**<br />
+R : Il n’est pas possible à l’heure actuelle de mettre à jour un document de conditions d’utilisation existant. Il vous faudra pour cela créer une nouvelle instance de conditions d’utilisation.
 
-**Q : S’il existe des liens hypertexte dans les conditions d’utilisation des documents PDF, les utilisateurs finaux seront en mesure de cliquer dessus ?**<br />
-R : Par défaut, le fichier PDF est affiché au format JPEG, par conséquent, il n’est pas possible de cliquer sur les liens hypertexte. Les utilisateurs ont la possibilité de sélectionner **Des problèmes d’affichage ? Cliquez ici**, pour afficher le fichier PDF en mode natif, qui prend en charge les liens hypertexte.
+**Q : Si des liens hypertexte se trouvent dans les conditions d’utilisation d’un document PDF, les utilisateurs finaux peuvent-ils cliquer dessus ?**<br />
+R : Par défaut, le fichier PDF est affiché au format JPEG, par conséquent, il n’est pas possible de cliquer sur les liens hypertexte. Les utilisateurs ont la possibilité de sélectionner **Des problèmes d’affichage ? Cliquez ici**, pour afficher le fichier PDF en mode natif, qui prend en charge les liens hypertexte.
 
-**Q : Conditions d’utilisation peuvent prendre en charge plusieurs langues ?**<br />
-R : Oui. Actuellement, un administrateur peut configurer 108 langues différentes pour des conditions d’utilisation. Un administrateur peut charger plusieurs documents PDF et les étiqueter avec une langue correspondante (jusqu’à 108). Quand les utilisateurs finaux se connectent, nous examinons les préférences linguistiques de leur navigateur et affichons le document correspondant. En l’absence de correspondance, nous affichons le document par défaut (c’est-à-dire le premier qui a été chargé).
+**Q : Les conditions d’utilisation prennent-elles en charge plusieurs langues ?**<br />
+R : Oui. Actuellement, un administrateur peut configurer 108 langues différentes pour des conditions d’utilisation. Un administrateur peut charger plusieurs documents PDF et les étiqueter avec une langue correspondante (jusqu’à 108). Quand les utilisateurs finaux se connectent, nous examinons les préférences linguistiques de leur navigateur et affichons le document correspondant. En l’absence de correspondance, nous affichons le document par défaut (c’est-à-dire le premier qui a été chargé).
 
-**Q : Est lorsque les conditions d’utilisation déclenchée ?**<br />
-R : Les conditions d’utilisation sont déclenchées durant la procédure de connexion.
+**Q : À quel moment les conditions d’utilisation sont-elles déclenchées ?**<br />
+R : Les conditions d’utilisation sont déclenchées durant la procédure de connexion.
 
-**Q : Quelles applications puis-je cibler une conditions d’utilisation ?**<br />
-R : Vous pouvez créer une stratégie d’accès conditionnel sur les applications d’entreprise à l’aide de l’authentification moderne. Pour plus d’informations, consultez [Applications d’entreprise](./../manage-apps/view-applications-portal.md).
+**Q : Quelles sont les applications pouvant être ciblées par des conditions d’utilisation ?**<br />
+R : Vous pouvez créer une stratégie d’accès conditionnel sur les applications d’entreprise à l’aide de l’authentification moderne. Pour plus d’informations, consultez [Applications d’entreprise](./../manage-apps/view-applications-portal.md).
 
-**Q : Puis-je ajouter plusieurs conditions d’utilisation pour un utilisateur donné ou une application ?**<br />
-R : Oui. Pour cela, créez plusieurs stratégies d’accès conditionnel ciblant ces groupes ou applications. Si un utilisateur est concerné par plusieurs conditions d’utilisation, il accepte une instance à la fois.
+**Q : Puis-je ajouter plusieurs conditions d’utilisation à une application ou un utilisateur donné ?**<br />
+R : Oui. Pour cela, créez plusieurs stratégies d’accès conditionnel ciblant ces groupes ou applications. Si un utilisateur est concerné par plusieurs conditions d’utilisation, il accepte une instance à la fois.
 
-**Q : Que se passe-t-il si un utilisateur refuse les conditions d’utilisation ?**<br />
-R : L’utilisateur n’a pas accès à l’application. Il doit se reconnecter et accepter les conditions pour se voir octroyer des droits d’accès.
+**Q : Que se passe-t-il si un utilisateur refuse les conditions d’utilisation ?**<br />
+R : L’utilisateur n’a pas accès à l’application. Il doit se reconnecter et accepter les conditions pour se voir octroyer des droits d’accès.
 
-**Q : Il est possible d’unaccept des conditions d’utilisation qui ont été acceptées précédemment ?**<br />
-R : Vous pouvez [consulter les conditions d’utilisation précédemment acceptées](#how-users-can-review-their-terms-of-use), mais vous ne pouvez pas les refuser après les avoir acceptées.
+**Q : Est-il possible de refuser les conditions d’utilisation après les avoir acceptées ?**<br />
+R : Vous pouvez [consulter les conditions d’utilisation précédemment acceptées](#how-users-can-review-their-terms-of-use), mais vous ne pouvez pas les refuser après les avoir acceptées.
 
-**Q : Que se passe-t-il si j’utilise également les termes et conditions d’Intune ?**<br />
-R : Si vous avez configuré les conditions d’utilisation d’Azure AD et les [conditions d’utilisation d’Intune](/intune/terms-and-conditions-create), l’utilisateur doit accepter les deux. Pour plus d’informations, voir le [billet de blog sur le choix des conditions appropriées pour votre organisation](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+**Q : Que se passe-t-il si j’utilise également les conditions générales d’Intune ?**<br />
+R : Si vous avez configuré les conditions d’utilisation d’Azure AD et les [conditions d’utilisation d’Intune](/intune/terms-and-conditions-create), l’utilisateur doit accepter les deux. Pour plus d’informations, voir le [billet de blog sur le choix des conditions appropriées pour votre organisation](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

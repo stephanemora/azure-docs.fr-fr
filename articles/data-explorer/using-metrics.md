@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050605"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Surveiller les performances, l’intégrité et l’utilisation avec des mesures Explorateur de données Azure
@@ -40,7 +40,7 @@ Dans le volet mesures :
 
 1. Pour créer un graphique de mesures, sélectionnez **métrique** nom et pertinentes **agrégation** par métrique comme indiqué ci-dessous. Le **ressource** et **métrique Namespace** sélecteurs sont présélectionnées dans votre cluster de l’Explorateur de données Azure.
 
-    **Métrique** | **Unité** | **Agrégation** | **Description de la métrique**
+    **Mesure** | **Unité** | **Agrégation** | **Description de la métrique**
     |---|---|---|---|
     | Utilisation du cache | Pourcentage | AVG, Max, Min | Pourcentage des ressources de cache allouée en cours d’utilisation par le cluster. Cache fait référence à la taille du disque SSD allouée pour l’activité des utilisateurs en fonction de la stratégie de cache définie. Une utilisation du cache moyen de 80 % ou moins est un état durable pour un cluster. Si l’utilisation du cache moyenne est supérieure à 80 %, le cluster doit être [mis à l’échelle](manage-cluster-scale-up.md) vers un stockage optimisé le niveau tarifaire ou [mis à l’échelle](manage-cluster-scale-out.md) à plusieurs instances. Vous pouvez également adapter la stratégie de cache (moins de jours dans le cache). Si l’utilisation du cache est supérieure à 100 %, la taille des données doit être mis en cache, conformément à la stratégie de mise en cache, est plus grande que la taille totale du cache sur le cluster. |
     | UC | Pourcentage | AVG, Max, Min | Pourcentage des ressources de calcul alloués en cours d’utilisation par les ordinateurs du cluster. Un moyenne du processeur de 80 % ou moins est acceptable pour un cluster. La valeur maximale du processeur est de 100 %, ce qui signifie qu’aucune ressource de calcul supplémentaires pour traiter les données. Lorsqu’un cluster n’est pas fonctionne correctement, vérifiez la valeur maximale du processeur afin de déterminer s’il existe des unités centrales spécifiques qui sont bloqués. |

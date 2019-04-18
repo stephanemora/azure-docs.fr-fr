@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 352050f4bd53188a420f75607677d88ebc081505
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051033"
 ---
 <div id="main" class="v2">
@@ -155,17 +155,17 @@ ms.locfileid: "59051033"
                                                     <div class="cardText">
                                                         <h3><a href="manage-apps/index.yml">Gestion des applications</a></h3>
                                                         <p>
-                                                            <a href="manage-apps/what-is-single-sign-on.md">Qu’est-ce que l’authentification unique ?</a><br>
+                                                            <a href="manage-apps/what-is-single-sign-on.md">Qu’est-ce que l'authentification unique ?</a><br>
                                                             <a href="manage-apps/configure-single-sign-on-portal.md">Configurer l’authentification unique</a><br>
                                                             <a href="manage-apps/application-proxy.md">Proxy d’application pour applications locales</a><br>
                                                             <a href="manage-apps/index.yml"><i>Voir plus &gt;</i></a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="authentication/index.yml">Authentication</a></h3>
+                                                        <h3><a href="authentication/index.yml">Authentification</a></h3>
                                                         <p>
                                                             <a href="authentication/concept-mfa-howitworks.md">Fonctionnement : Azure MFA</a><br>
-                                                            <a href="authentication/concept-sspr-howitworks.md">Réinitialisation de mot de passe en libre-service Azure AD</a><br>
-                                                            <a href="authentication/concept-password-ban-bad.md">Protection de mot de passe Azure AD</a><br>
+                                                            <a href="authentication/concept-sspr-howitworks.md">Réinitialisation de mot de passe en libre-service Azure AD</a><br>
+                                                            <a href="authentication/concept-password-ban-bad.md">Protection de mots de passe Azure AD</a><br>
                                                             <a href="authentication/index.yml"><i>Voir plus &gt;</i></a>
                                                             </p>
                                                         <br><br>
@@ -179,8 +179,8 @@ ms.locfileid: "59051033"
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-b2c/index">Entreprise-client (B2C)</a></h3>
                                                         <p>
-                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-overview">Qu’est-ce qu’Azure AD B2C ?</a><br>
-                                                            <a href="/azure/active-directory-b2c/tutorial-create-tenant">Créer un client Azure AD B2C</a><br>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-overview">Présentation d’Azure AD B2C ?</a><br>
+                                                            <a href="/azure/active-directory-b2c/tutorial-create-tenant">Créer un locataire Azure AD B2C</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-get-started-custom">Stratégies personnalisées dans Azure AD B2C</a><br>
                                                             <a href="/azure/active-directory-b2c/index"><i>Voir plus &gt;</i></a>
                                                         </p>
@@ -198,7 +198,7 @@ ms.locfileid: "59051033"
                                                         <h3><a href="conditional-access/index.yml">Accès conditionnel</a></h3>
                                                         <p>
                                                             <a href="conditional-access/overview.md">Qu’est-ce que l’accès conditionnel ?</a><br>
-                                                            <a href="conditional-access/app-based-mfa.md">Exiger l’authentification multifacteur pour les applications spécifiques</a><br>
+                                                            <a href="conditional-access/app-based-mfa.md">Exiger une authentification multifacteur pour certaines applications spécifiques</a><br>
                                                             <a href="conditional-access/location-condition.md">Conditions en fonction de l’emplacement</a><br>
                                                             <a href="conditional-access/index.yml"><i>Voir plus &gt;</i></a>
                                                             </p>
@@ -247,7 +247,7 @@ ms.locfileid: "59051033"
                                                         <br><br>
                                                         <h3><a href="hybrid/index.yml">Identité hybride</a></h3>
                                                         <p>
-                                                            <a href="hybrid/whatis-hybrid-identity.md">L’Identité hybride</a><br>
+                                                            <a href="hybrid/whatis-hybrid-identity.md">Qu’est-ce que l’identité hybride ?</a><br>
                                                             <a href="hybrid/how-to-connect-sso.md">Authentification unique avec Azure AD Connect</a><br>
                                                             <a href="hybrid/how-to-connect-install-custom.md">Installation personnalisée d’Azure AD Connect</a><br>
                                                             <a href="hybrid/index.yml"><i>Voir plus &gt;</i></a>
@@ -278,7 +278,7 @@ ms.locfileid: "59051033"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="managed-identities-azure-resources/index.yml">Identités gérées pour les ressources Azure</a></h3>
+                                                        <h3><a href="managed-identities-azure-resources/index.yml">Identités managées pour les ressources Azure</a></h3>
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Utiliser une machine virtuelle Windows pour accéder à Azure SQL</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Utiliser une machine virtuelle Azure pour l’acquisition de jeton</a><br>

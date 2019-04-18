@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 3b354492778426d1e3c31e53e277fd9be1e22c93
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048110"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>À propos du service Mobilité pour serveurs physiques et machines virtuelles VMware
@@ -176,7 +176,7 @@ Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP
 
 Accédez au dossier %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository sur le serveur de configuration. Vérifiez le programme d’installation vous avez besoin en fonction de système d’exploitation. Le tableau suivant récapitule les fichiers de programme d’installation pour chaque VMware VM et le système d’exploitation de serveur physique. N'hésitez pas à consulter les [systèmes d’exploitation pris en charge](vmware-physical-azure-support-matrix.md#replicated-machines) avant de commencer.
 
-**Fichier de programme d’installation** | **Système d’exploitation (64 bits uniquement)**
+**Fichier d’installation** | **Système d’exploitation (64 bits uniquement)**
 --- | ---
 Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2016 ; Windows Server 2012 R2; Windows Server 2012 ; Windows Server 2008 R2 SP1
 Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* </br> CentOS 6.*

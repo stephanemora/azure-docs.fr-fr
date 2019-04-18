@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: 9bc3e4132919e5fc5baadc78841e66efd3c34bcd
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005945"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Comment démarrer un travail Azure Stream Analytique
@@ -59,6 +59,6 @@ Pour plus d’informations sur la `Start-AzStreamAnalyitcsJob` applet de command
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Créer un travail Stream Analytique à l’aide du portail Azure](stream-analytics-quick-create-portal.md)
-* [Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure Stream Analytics Tools pour Visual Studio](stream-analytics-quick-create-vs.md)
+* [Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md)
+* [Démarrage rapide : Créer un travail Stream Analytique à l’aide d’Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Démarrage rapide : créer une tâche Stream Analytics à l’aide des outils Azure Stream Analytics pour Visual Studio](stream-analytics-quick-create-vs.md)
