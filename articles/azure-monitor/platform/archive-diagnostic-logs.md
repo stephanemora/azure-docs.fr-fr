@@ -78,8 +78,8 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 | --- | --- | --- |
 | ResourceId |Oui |ID de la ressource pour laquelle vous voulez définir un paramètre de diagnostic. |
 | StorageAccountId |Non  |ID de ressource du compte de stockage dans lequel les journaux de diagnostic doivent être enregistrés. |
-| Catégories |Non  |Liste séparée par des virgules des catégories de journaux à activer. |
-| activé |Oui |Valeur booléenne indiquant si les diagnostics sont activés ou désactivés pour cette ressource. |
+| Categories |Non  |Liste séparée par des virgules des catégories de journaux à activer. |
+| Enabled |Oui |Valeur booléenne indiquant si les diagnostics sont activés ou désactivés pour cette ressource. |
 | RetentionEnabled |Non  |Valeur booléenne indiquant si une stratégie de rétention est activée pour cette ressource. |
 | RetentionInDays |Non  |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux d’activité seront stockés pour une durée indéfinie. |
 
@@ -153,7 +153,7 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 | Nom de l'élément | Description |
 | --- | --- |
 | time |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
-| ResourceId |ID de ressource de la ressource affectée. |
+| resourceId |ID de ressource de la ressource affectée. |
 | operationName |Nom de l’opération. |
 | category |Catégorie de journal de l’événement. |
 | properties |Jeu de paires `<Key, Value>` (p. ex. Dictionary) décrivant les détails de l’événement. |
