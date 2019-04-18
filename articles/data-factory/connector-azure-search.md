@@ -43,8 +43,8 @@ Les propriétés prises en charge pour le service lié Recherche Azure sont les 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **AzureSearch** | Oui |
-| URL | URL du service Recherche Azure. | Oui |
+| type | La propriété type doit être définie sur : **AzureSearch** | Oui |
+| url | URL du service Recherche Azure. | Oui |
 | key | Clé d’administration du service Recherche Azure. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
@@ -81,7 +81,7 @@ Pour copier des données vers Recherche Azure, affectez la valeur **RelationalTa
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **AzureSearchIndex** | Oui |
+| type | La propriété type du jeu de données doit être définie sur : **AzureSearchIndex** | Oui |
 | indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | Oui |
 
 **Exemple :**
@@ -112,7 +112,7 @@ Pour copier des données vers Recherche Azure, définissez **AzureSearchIndexSin
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **AzureSearchIndexSink** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureSearchIndexSink** | Oui |
 | writeBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).<br/><br/>Les valeurs autorisées sont les suivantes : **Merge** (par défaut) et **Upload**. | Non  |
 | writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property).<br/><br/>Valeurs autorisées : entier de 1 à 1000 ; la valeur par défaut est 1000. | Non  |
 
@@ -169,13 +169,13 @@ Le tableau suivant indique si un type de données Recherche Azure est pris en c
 
 | Type de données Recherche Azure | Pris en charge dans le récepteur de l’index Recherche Azure |
 | ---------------------- | ------------------------------ |
-| Chaîne | O |
+| String | O |
 | Int32 | O |
 | Int64 | O |
 | Double | O |
-| Booléen | O |
+| Boolean | O |
 | DataTimeOffset | O |
-| Tableau de chaînes | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="next-steps"></a>Étapes suivantes
