@@ -14,15 +14,15 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b2c665de94750c4c6f41bda47960fdb9ba17e819
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905628"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Déplacer des données depuis une source OData à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [version 1](data-factory-odata-connector.md)
+> * [Version 1](data-factory-odata-connector.md)
 > * [Version 2 (version actuelle)](../connector-odata.md)
 
 > [!NOTE]
@@ -218,7 +218,7 @@ L'exemple copie toutes les heures les données provenant de l’interrogation d'
 }
 ```
 
-**Service lié stockage Azure :**
+**Service lié Azure Storage :**
 
 ```json
 {
@@ -264,7 +264,7 @@ La définition de « external » : « true» informe le service Data Factory qu
 
 La spécification d’un **chemin d’accès** dans la définition du jeu de données est facultative.
 
-**Jeu de données de sortie Blob Azure :**
+**Jeu de données de sortie d'objet Blob Azure :**
 
 Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
 
@@ -324,7 +324,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 }
 ```
 
-**Activité de copie dans un pipeline avec une source OData et un récepteur Blob :**
+**Activité de copie dans un pipeline avec une source OData et un récepteur d’objets blob :**
 
 Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **RelationalSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée pour la propriété **query** sélectionne les dernières (nouvelles) données de la source OData.
 

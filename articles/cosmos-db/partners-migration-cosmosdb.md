@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
 ms.openlocfilehash: f3b744f676dd352bb38e5cbca6e532c650617816
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880608"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Partenaires pour le développement d’applications et la migration NoSQL pour solutions Azure Cosmos DB
@@ -19,39 +19,39 @@ De la migration NoSQL au développement d’applications, vous pouvez choisir pa
 
 ## <a name="migration-tools"></a>Outils de migration
 
-|**Partenaire**  |**Expérience et fonctionnalités**  |**Pays pris en charge**  |**Contact**  |
+|**Partenaire**  |**Expérience et capacités**  |**Pays pris en charge**  |**Contact**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | [Migration de données](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) de MongoDB vers Azure Cosmos DB. <br/> Imanis Data permet à des multinationales de migrer rapidement et facilement leurs bases de données MongoDB locales ou cloud vers Azure Cosmos DB. Imanis Data fournit une approche de migration cloud sans agent et incrémentielle à l’infini pour les magasins de données MongoDB, qui simplifie la migration et réduit considérablement le temps d’arrêt.|  États-Unis  |   [Website](http://www.imanisdata.com/)      |
-|![Striim][2]    |  [Assure le déplacement des données en temps réel vers Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) à partir de très nombreuses sources de données. <br/> Striim simplifie la collecte en temps réel et le déplacement des données à partir d’un large éventail de sources locales, y compris des documents d’entreprise et des bases de données relationnelles, des capteurs et des fichiers journaux dans Azure Cosmos DB. |   États-Unis   |  [Website](https://www.striim.com/)       |
+|![ImanisData][1]   | [Migration de données](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) de MongoDB vers Azure Cosmos DB. <br/> Imanis Data permet à des multinationales de migrer rapidement et facilement leurs bases de données MongoDB locales ou cloud vers Azure Cosmos DB. Imanis Data fournit une approche de migration cloud sans agent et incrémentielle à l’infini pour les magasins de données MongoDB, qui simplifie la migration et réduit considérablement le temps d’arrêt.|  États-Unis  |   [Site web](http://www.imanisdata.com/)      |
+|![Striim][2]    |  [Assure le déplacement des données en temps réel vers Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) à partir de très nombreuses sources de données. <br/> Striim simplifie la collecte en temps réel et le déplacement des données à partir d’un large éventail de sources locales, y compris des documents d’entreprise et des bases de données relationnelles, des capteurs et des fichiers journaux dans Azure Cosmos DB. |   États-Unis   |  [Site web](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Partenaires intégrateurs système
 
-|**Partenaire**  |**Expérience et fonctionnalités**  |**Pays pris en charge**  |**Contact**  |
+|**Partenaire**  |**Expérience et capacités**  |**Pays pris en charge**  |**Contact**  |
 |---------|---------|---------|---------|
-| ![10th Magnitude][13] | Migration NoSQL ; développement de nouvelles applications | États-Unis | [Website](https://www.10thmagnitude.com/)|
-|![Altoros Development LLC][3]    |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications |   États-Unis, Norvège, Finlande, Bélarus, Argentine |  [Website](https://www.altoros.com/)     |
-|![Attunix Redapt][4]     |   Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications      |    États-Unis     |  [Website](https://www.attunix.com/)       |
-| ![Avanade][26] | Développement de nouvelles applications, <br/> innovation en matière d’applications (applications existantes) | Autriche, Allemagne, Suisse, Italie, Norvège, Espagne, Royaume-Uni | [Website](https://www.avanade.com/)
-|![BlueMetal Architects][5]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    Amérique du Nord, Asie-Pacifique     |  [Website](https://www.bluemetal.com/)       |
-|![Capax Global LLC][6]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    États-Unis     |  [Website](https://www.capaxglobal.com/)       |
-| ![Capgemini][14] | Migration NoSQL ; innovation en matière d’applications (applications existantes) ; développement de nouvelles applications | États-Unis, France, Royaume-Uni, Pays-bas, Finlande  | [Website](https://www.capgemini.com/) | 
-|![Coeo][7]     |   Innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications |    Royaume-Uni     |  [Website](https://www.coeo.com/)       |
-| ![Cognizant][15] | Migration NoSQL |États-Unis, Canada, Royaume-Uni, Danemark, Pays-bas, Suisse, Australie, Japon | [Website](https://www.cognizant.com/)|
-|![Infosys][8]     |  Migration NoSQL       |    Globale     |  [Website](https://www.infosys.com/)       |
-| ![Lagash][16] | Migration NoSQL, <br/> développement de nouvelles applications | Argentine, Chili, Colombie, Mexique| [Website](https://www.lagash.com/)|
-| ![Lambda3 Informatics][17] | Migration NoSQL, <br/> développement de nouvelles applications | Brésil| [Website](https://www.lambda3.com.br/)|
-|![Neal Analytics][9]     |     Développement d’applications (nouvelles applications)    |    États-Unis     |  [Website](https://www.nealanalytics.com/)       |
-|![Pragmatic Works Software Inc.][10]    |   Migration NoSQL      |   États-Unis      |  [Website](https://www.pragmaticworks.com/)       |
-| ![Ricoh Global][18] | Migration NoSQL, <br/> innovation en matière d’applications (applications existantes)| Royaume-Uni  | [Website](https://www.ricoh.com/)|
-| ![SNP Technologies][19] | Migration NoSQL| FR | [Website](https://www.snp.com/)|
-| ![Solidsoft Reply][20] | Migration NoSQL | Croatie, Suède, Danemark, Irlande, Bulgarie, Slovénie, Chypre, Malte, Lituanie, la République tchèque, Islande, Suisse et Liechtenstein| [Website](https://www.reply.com/solidsoft-reply/)|
-| ![Spanish Point Technologies][21] | Migration NoSQL| Irlande| [Website](https://www.spanishpoint.ie/)|
-| ![Syone][22] | Migration NoSQL| Portugal| [Website](https://www.syone.com/)|
-|![Tallan][11]    |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    États-Unis     |  [Website](https://www.tallan.com/)       |
-| ![TCS][23] | innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications | États-Unis, Royaume-Uni, France, Malaisie, Danemark, Norvège, Suède| [Website](https://www.tcs.com/)|
-|![VTeamLabs][12]    | Migration NoSQL       |  États-Unis      | [Website](https://www.vteamlabs.com/)       |
-| ![White Duck][24] |Migration NoSQL, <br/> développement de nouvelles applications | Allemagne | [Website](https://whiteducksoftware.com/)|
-| ![Xpand IT][25] | développement de nouvelles applications | Portugal, Royaume-Uni| [Website](https://www.xpand-it.com/)|
+| ![10th Magnitude][13] | Migration NoSQL ; développement de nouvelles applications | États-Unis | [Site web](https://www.10thmagnitude.com/)|
+|![Altoros Development LLC][3]    |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications |   États-Unis, Norvège, Finlande, Bélarus, Argentine |  [Site web](https://www.altoros.com/)     |
+|![Attunix Redapt][4]     |   Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications      |    États-Unis     |  [Site web](https://www.attunix.com/)       |
+| ![Avanade][26] | Développement de nouvelles applications, <br/> innovation en matière d’applications (applications existantes) | Autriche, Allemagne, Suisse, Italie, Norvège, Espagne, Royaume-Uni | [Site web](https://www.avanade.com/)
+|![BlueMetal Architects][5]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    Amérique du Nord, Asie-Pacifique     |  [Site web](https://www.bluemetal.com/)       |
+|![Capax Global LLC][6]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    États-Unis     |  [Site web](https://www.capaxglobal.com/)       |
+| ![Capgemini][14] | Migration NoSQL ; innovation en matière d’applications (applications existantes) ; développement de nouvelles applications | États-Unis, France, Royaume-Uni, Pays-bas, Finlande  | [Site web](https://www.capgemini.com/) | 
+|![Coeo][7]     |   Innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications |    Royaume-Uni     |  [Site web](https://www.coeo.com/)       |
+| ![Cognizant][15] | Migration NoSQL |États-Unis, Canada, Royaume-Uni, Danemark, Pays-bas, Suisse, Australie, Japon | [Site web](https://www.cognizant.com/)|
+|![Infosys][8]     |  Migration NoSQL       |    Globale     |  [Site web](https://www.infosys.com/)       |
+| ![Lagash][16] | Migration NoSQL, <br/> développement de nouvelles applications | Argentine, Chili, Colombie, Mexique| [Site web](https://www.lagash.com/)|
+| ![Lambda3 Informatics][17] | Migration NoSQL, <br/> développement de nouvelles applications | Brésil| [Site web](https://www.lambda3.com.br/)|
+|![Neal Analytics][9]     |     Développement d’applications (nouvelles applications)    |    États-Unis     |  [Site web](https://www.nealanalytics.com/)       |
+|![Pragmatic Works Software Inc.][10]    |   Migration NoSQL      |   États-Unis      |  [Site web](https://www.pragmaticworks.com/)       |
+| ![Ricoh Global][18] | Migration NoSQL, <br/> innovation en matière d’applications (applications existantes)| Royaume-Uni  | [Site web](https://www.ricoh.com/)|
+| ![SNP Technologies][19] | Migration NoSQL| FR | [Site web](https://www.snp.com/)|
+| ![Solidsoft Reply][20] | Migration NoSQL | Croatie, Suède, Danemark, Irlande, Bulgarie, Slovénie, Chypre, Malte, Lituanie, la République tchèque, Islande, Suisse et Liechtenstein| [Site web](https://www.reply.com/solidsoft-reply/)|
+| ![Spanish Point Technologies][21] | Migration NoSQL| Irlande| [Site web](https://www.spanishpoint.ie/)|
+| ![Syone][22] | Migration NoSQL| Portugal| [Site web](https://www.syone.com/)|
+|![Tallan][11]    |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    États-Unis     |  [Site web](https://www.tallan.com/)       |
+| ![TCS][23] | innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications | États-Unis, Royaume-Uni, France, Malaisie, Danemark, Norvège, Suède| [Site web](https://www.tcs.com/)|
+|![VTeamLabs][12]    | Migration NoSQL       |  États-Unis      | [Site web](https://www.vteamlabs.com/)       |
+| ![White Duck][24] |Migration NoSQL, <br/> développement de nouvelles applications | Allemagne | [Site web](https://whiteducksoftware.com/)|
+| ![Xpand IT][25] | développement de nouvelles applications | Portugal, Royaume-Uni| [Site web](https://www.xpand-it.com/)|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

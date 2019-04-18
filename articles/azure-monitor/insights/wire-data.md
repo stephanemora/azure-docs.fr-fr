@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.openlocfilehash: d295a5a7eae2bdc7983e7271aa11bce1840b92dd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882070"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solution de communication Data 2.0 (version préliminaire) dans Azure Monitor
@@ -58,7 +58,7 @@ Toutefois, comme il s’agit de métadonnées, elles ne sont pas nécessairement
 
 Wire Data obtient ses données auprès de l’agent de dépendances Microsoft. L’Agent de dépendances dépend de l’agent d’Analytique de journal pour ses connexions à Azure Monitor. Cela signifie que l’agent Log Analytics doit être installé et configuré avec l’agent de dépendances sur le serveur. Le tableau suivant décrit les sources connectées prises en charge par la solution Wire Data.
 
-| **Source connectée** | **Prise en charge** | **Description** |
+| **Source connectée** | **Pris en charge** | **Description** |
 | --- | --- | --- |
 | Agents Windows | Oui | Wire Data analyse et collecte des données provenant d’ordinateurs agents Windows. <br><br> Outre [l’agent Log Analytics pour Windows](../../azure-monitor/platform/agent-windows.md), les agents Windows nécessitent Microsoft Dependency Agent. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems). |
 | Agents Linux | Oui | Wire Data analyse et collecte des données provenant d’ordinateurs agents Linux.<br><br> Outre [l’agent Log Analytics pour Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), les agents Linux nécessitent Microsoft Dependency Agent. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems). |
@@ -187,7 +187,7 @@ L’agent de dépendances s’installe sur les ordinateurs sous Windows par le b
 Utilisez les étapes suivantes pour installer l’agent de dépendances sur chaque ordinateur sous Windows :
 
 1. Installez l’agent Log Analytics en suivant les étapes décrites dans [Collecter les données à partir d’ordinateurs Windows hébergés dans votre environnement](../../azure-monitor/platform/agent-windows.md).
-2. Télécharger l’Agent de dépendances Windows en utilisant le lien dans la section précédente et exécutez-le à l’aide de la commande suivante : `InstallDependencyAgent-Windows.exe`
+2. Téléchargez l’agent de dépendances Windows en suivant le lien de la section précédente, puis exécutez-le à l’aide de la commande suivante : `InstallDependencyAgent-Windows.exe`
 3. Suivez les instructions de l’Assistant pour installer l’agent.
 4. Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Pour les agents Windows, le répertoire des journaux d’activité est %Programfiles%\Microsoft Dependency Agent\logs.
 

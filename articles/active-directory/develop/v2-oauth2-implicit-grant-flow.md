@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453a3316288cbc0b07d82e2fad9ecc7c3d353e9b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501312"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698450"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Flux d’octroi implicite et la plateforme d’identité Microsoft
 
@@ -52,7 +52,7 @@ Le diagramme suivant montre à quoi ressemble le flux implicite de connexion com
 
 ## <a name="send-the-sign-in-request"></a>Envoyer la requête de connexion
 
-Pour connecter initialement l’utilisateur dans votre application, vous pouvez envoyer un [OpenID Connect](v2-protocols-oidc.md) demande d’autorisation et obtenir un `id_token` du point de terminaison Microsoft identity platform.
+Pour connecter initialement l’utilisateur dans votre application, vous pouvez envoyer un [OpenID Connect](v2-protocols-oidc.md) demande d’authentification et d’obtenir un `id_token` du point de terminaison Microsoft identity platform.
 
 > [!IMPORTANT]
 > À demander un jeton d’ID, l’inscription d’application dans le [portail Azure - inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) page doit avoir le flux d’octroi implicite activé correctement, en sélectionnant **de jetons d’accès** et **Jetons d’ID** sous le **octroi implicite** section. S’il n’est pas activé, un `unsupported_response` erreur est retournée : **La valeur fournie pour le paramètre d’entrée 'response_type' n’est pas autorisée pour ce client. La valeur attendue est ’code’**
@@ -84,7 +84,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | facultatif |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Par défaut demande un jeton d’accès, mais fragmente si la requête inclut un jeton id_token. |
 | `state` | recommandé |Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](https://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | `nonce` | required |Une valeur incluse dans la requête, générée par l’application, qui sera intégrée dans le jeton id_token résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique, aléatoire pouvant être utilisé pour identifier l’origine de la requête. Nécessaire uniquement lorsqu’un jeton id_token est demandé. |
-| `prompt` | facultatif |Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont « login », « none », « select_account » et « consent ». `prompt=login` force l’utilisateur à entrer leurs informations d’identification lors de cette requête, annulant de fait l’authentification unique. `prompt=none` est le contraire - Cela permet de garantir que l’utilisateur n’est pas présenté avec aucune invite interactive que ce soit. Si la demande ne peut pas être exécutée en mode silencieux via l’authentification unique, le point de terminaison Microsoft identity plateforme retournera une erreur. `prompt=select_account` envoie l’utilisateur à un sélecteur de compte dans lequel tous les comptes mémorisés dans la session seront affiche. `prompt=consent` déclenche la boîte de dialogue de consentement OAuth une fois que l’utilisateur se connecte, l’invitant à accorder des autorisations à l’application. |
+| `prompt` | facultatif |Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont « login », « none », « select_account » et « consent ». `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique. `prompt=none` est le contraire - Cela permet de garantir que l’utilisateur n’est pas présenté avec aucune invite interactive que ce soit. Si la demande ne peut pas être exécutée en mode silencieux via l’authentification unique, le point de terminaison Microsoft identity plateforme retournera une erreur. `prompt=select_account` envoie l’utilisateur vers un sélecteur de compte dans lequel tous les comptes mémorisés dans la session seront affichés. `prompt=consent` déclenche l’affichage de la boîte de dialogue de consentement OAuth après la connexion de l’utilisateur, afin de lui demander d’octroyer des autorisations à l’application. |
 | `login_hint`  |facultatif |Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username` .|
 | `domain_hint` | facultatif |Peut être `consumers` ou `organizations`. Si inclus, il ignore le processus de découverte par courrier électronique que l’utilisateur doit se soumettre sur la connexion dans la page, ce qui conduit à une peu plus l’expérience utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` du jeton id_token. Si la valeur de revendication `tid` est `9188040d-6c67-4c5b-b112-36a304b66dad` (le client consommateur de compte Microsoft), vous devez utiliser `domain_hint=consumers`. Sinon, vous pouvez utiliser `domain_hint=organizations` au cours de la réauthentification. |
 

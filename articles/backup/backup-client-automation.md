@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: c2f6d8262d47a537667ef7b25333a3beff425bbe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 6280ca55023fc604e70b62cabdc30cca6409d9e6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878687"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698485"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 
@@ -200,9 +200,11 @@ Server properties updated successfully.
 
 Les données sauvegardées envoyées à Sauvegarde Azure sont chiffrées pour garantir leur confidentialité. Le mot de passe du chiffrement est le « mot de passe » permettant de déchiffrer les données lors de la restauration.
 
+Vous devez générer un code pin de sécurité en sélectionnant **générer**, sous **paramètres** > **propriétés** > **code PIN de sécurité** dans le **coffre Recovery Services** section du portail Azure. Ensuite, utilisez-le comme le `generatedPIN` dans la commande :
+
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
-Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase
+Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase -SecurityPin "<generatedPIN>"
 ```
 
 ```Output
@@ -732,5 +734,5 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 
 Pour plus d’informations sur Sauvegarde Azure pour client/serveur Windows, consultez
 
-* [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
+* [Présentation de Sauvegarde Azure](backup-introduction-to-azure-backup.md)
 * [Sauvegarder des serveurs Windows](backup-configure-vault.md)

@@ -4,17 +4,16 @@ description: Résolution des problèmes lors de l'utilisation des diagnostics Az
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.topic: conceptual
+ms.date: 04/17/2019
+ms.author: robb
+ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822134"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699096"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
 Cet article contient des informations de dépannage pour Diagnostics Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](diagnostics-extension-overview.md).
@@ -32,23 +31,23 @@ Voici les chemins d’accès de quelques journaux d’activité et artefacts imp
 ### <a name="azure-cloud-services"></a>Services cloud Azure
 | Artefact | path |
 | --- | --- |
-| **Fichier de configuration d’Azure Diagnostics** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Fichier de configuration de Diagnostics Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Fichiers journaux** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
 | **Magasin local pour les données de diagnostic** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
 | **Fichier de configuration de l’agent de surveillance** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Package d’extension d’Azure Diagnostics** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
+| **Package d’extension Diagnostics Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Chemin d’accès à l’utilitaire de collecte des journaux** | %SystemDrive%\Packages\GuestAgent\ |
 | **Fichier journal MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Machines virtuelles
 | Artefact | path |
 | --- | --- |
-| **Fichier de configuration d’Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Fichier de configuration de Diagnostics Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Fichiers journaux** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
 | **Magasin local pour les données de diagnostic** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
 | **Fichier de configuration de l’agent de surveillance** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **Fichier d’état** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
-| **Package d’extension d’Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
+| **Package d’extension Diagnostics Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Chemin d’accès à l’utilitaire de collecte des journaux** | C:\WindowsAzure\Packages |
 | **Fichier journal MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
@@ -82,7 +81,7 @@ S’il n’existe aucune donnée pour cette métrique en particulier, vérifiez 
 Si la configuration est correctement définie, mais que vous ne voyez toujours pas les données métriques, reportez-vous aux indications suivantes. Elles vous aideront à résoudre les problèmes rencontrés.
 
 
-## <a name="azure-diagnostics-isnt-starting"></a>Diagnostics Azure ne démarre pas
+## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics ne démarre pas
 Pour savoir pourquoi Diagnostics Azure ne démarre pas, voir les journaux **DiagnosticsPluginLauncher.log** et **DiagnosticsPlugin.log** dont nous avons fourni le chemin d’accès précédemment.
 
 Si ces journaux d’activité indiquent `Monitoring Agent not reporting success after launch`, cela signifie que le lancement de MonAgentHost.exe a échoué. Consultez ces journaux d’activité à l’emplacement indiqué pour `MonAgentHost log file` dans la section précédente.
@@ -105,9 +104,16 @@ Le plus souvent, quand aucune donnée d’événement ne s’affiche, le problè
 
 Solution : corrigez la configuration du plug-in Diagnostics et réinstallez-le.
 
-Si le compte de stockage est configuré correctement, accédez à distance à la machine, puis vérifiez que les fichiers DiagnosticsPlugin.exe et MonAgentCore.exe sont bien en cours d’exécution. Dans le cas contraire, suivez les étapes décrites dans la section Diagnostics Azure ne démarre pas.
+Si le compte de stockage est correctement configuré un accès à distance à l’ordinateur et vérifiez que *DiagnosticsPlugin.exe* et *MonAgentCore.exe* sont en cours d’exécution. Dans le cas contraire, suivez les étapes décrites dans la section [Diagnostics Azure ne démarre pas](#azure-diagnostics-is-not-starting).
 
 Si ces processus sont en cours d’exécution, reportez-vous à la section [La capture des données intervient-elle en local ?](#is-data-getting-captured-locally), puis suivez les instructions fournies.
+
+Si cela ne résout pas le problème, essayez de :
+
+1. Désinstaller l’agent
+2. Supprimer le répertoire C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+3. Réinstallez l’agent
+
 
 ### <a name="part-of-the-data-is-missing"></a>Une partie des données est manquante
 Si vous obtenez une partie des données, mais pas la totalité, cela signifie que le pipeline de collecte ou de transfert des données est défini correctement. Suivez les instructions des sous-sections ci-après pour tenter de localiser le problème.
@@ -118,8 +124,8 @@ La configuration des diagnostics contient des instructions pour un type bien pr�
 #### <a name="is-the-host-generating-data"></a>L’hôte génère-t-il des données ?
 - **Compteurs de performances** : ouvrez PerfMon et vérifiez le compteur.
 
-- **Journaux des traces** :  accédez à distance à la machine virtuelle, puis ajoutez un élément TextWriterTraceListener dans le fichier de configuration de l’application.  Consultez https://msdn.microsoft.com/library/sk36c28t.aspx pour configurer l’écouteur de texte.  Vérifiez que l’élément `<trace>` a la valeur `<trace autoflush="true">`.<br />
-Si aucun journal de suivi n’a été généré, voir En savoir plus sur les journaux d’activité de suivi manquants.
+- **Journaux d’activité des traces** :  accédez à distance à la machine virtuelle, puis ajoutez un élément TextWriterTraceListener dans le fichier de configuration de l’application.  Consultez https://msdn.microsoft.com/library/sk36c28t.aspx pour configurer l’écouteur de texte.  Vérifiez que l’élément `<trace>` a la valeur `<trace autoflush="true">`.<br />
+Si aucun journal de suivi n’a été généré, voir En savoir plus sur les journaux de suivi manquants.
 
 - **Traces ETW** : accédez à distance à la machine virtuelle, puis installez PerfView.  Dans PerfView, exécutez **Fichier** > **Commande utilisateur** > **Écouter etwprovder1** > **etwprovider2**, etc. Notez que la commande **Écouter** est sensible à la casse et que les espaces ne sont pas autorisés entre les listes de fournisseurs ETW séparées par des virgules. En cas d’échec de l’exécution de la commande, vous pouvez cliquer sur le bouton **Journal** dans l’angle inférieur droit de l’outil PerfView pour voir l’exécution qui était attendue et le résultat final de celle-ci.  Partons du principe que l’entrée est correcte. Une nouvelle fenêtre s’ouvre alors. En quelques secondes, vous commencer à voir les traces ETW.
 
@@ -142,7 +148,7 @@ Si vous avez vérifié que les données sont bien capturées en local, mais qu�
 
 - Vérifiez que le compte de stockage fourni est bien correct. Assurez-vous qu’aucune restriction réseau n’empêche les composants d’atteindre les points de terminaison de stockage public. Pour ce faire, vous pouvez accéder à distance à la machine, puis essayer d’écrire quelque chose par vous-même dans le même compte de stockage.
 
-- Enfin, vous pouvez essayer d’étudier les échecs signalés par l’agent de surveillance. Les journaux d’activité de l’agent de supervision se trouvent dans le fichier `maeventtable.tsf`, dans le magasin local des données de diagnostic. Pour ouvrir ce fichier, suivez les instructions figurant dans la section [Extraction locale des journaux](#local-log-extraction). Essayez ensuite de déterminer si des `errors` signalent un échec de lecture au niveau des fichiers locaux sachant que ces fichiers écrivent des données dans le stockage.
+- Enfin, vous pouvez essayer d’étudier les échecs signalés par l’agent de surveillance. Les journaux de l’agent de surveillance se trouvent dans le fichier `maeventtable.tsf`, dans le magasin local des données de diagnostic. Pour ouvrir ce fichier, suivez les instructions figurant dans la section [Extraction locale des journaux](#local-log-extraction). Essayez ensuite de déterminer si des `errors` signalent un échec de lecture au niveau des fichiers locaux sachant que ces fichiers écrivent des données dans le stockage.
 
 ### <a name="capturing-and-archiving-logs"></a>Capture et archivage des journaux d’activité
 Si vous envisagez de contacter le support technique, sachez que vous devrez fournir en premier les journaux d’activité générés par votre machine. Vous pouvez gagner du temps en effectuant vous-même cette procédure. Exécutez l’utilitaire `CollectGuestLogs.exe` (chemin d’accès de l’utilitaire de collecte des journaux). Il génère un fichier .zip qui regroupe dans un même dossier tous les journaux d’activité Azure pertinents.

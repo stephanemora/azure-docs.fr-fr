@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882410"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Exécuter des actions de workflow en fonction de l’état du groupe avec des étendues dans Azure Logic Apps
@@ -68,7 +68,7 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
       | Paramètre | Valeur | Description |
       | ------- | ----- | ----------- |
       | **Nom de connexion** | BingMapsConnection | Donnez un nom à votre connexion. | 
-      | **Clé de l’API** | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. | 
+      | **Clé API** | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. | 
       ||||  
 
    1. Configurez votre action **Obtenir un itinéraire**, comme le montre le tableau sous cette image :
@@ -79,14 +79,14 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
       | Paramètre | Valeur | Description |
       | ------- | ----- | ----------- |
-      | **Point 1** | <*start*> | Entrez l’origine de votre itinéraire. | 
-      | **Point de cheminement 2** | <*end*> | Entrez la destination de votre itinéraire. | 
-      | **À éviter** | Aucun | Entrez les éléments à éviter sur votre itinéraire, par exemple les autoroutes, les péages, etc. Pour les valeurs possibles, consultez [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calculer un itinéraire). | 
-      | **Optimisation** | timeWithTraffic | Sélectionnez un paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec les informations de circulation actuelle, etc. Cet exemple utilise cette valeur : « timeWithTraffic » | 
+      | **Étape 1** | <*start*> | Entrez l’origine de votre itinéraire. | 
+      | **Étape 2** | <*end*> | Entrez la destination de votre itinéraire. | 
+      | **Avoid** | Aucun | Entrez les éléments à éviter sur votre itinéraire, par exemple les autoroutes, les péages, etc. Pour les valeurs possibles, consultez [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calculer un itinéraire). | 
+      | **Optimize** | timeWithTraffic | Sélectionnez un paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec les informations de circulation actuelle, etc. Cet exemple utilise cette valeur : « timeWithTraffic » | 
       | **Unité de distance** | <*your-preference*> | Entrez l’unité de distance pour calculer votre itinéraire. Cet exemple utilise cette valeur : « Mile » | 
       | **Mode de déplacement** | Conduite | Entrez le mode de déplacement pour votre itinéraire. Cet exemple utilise cette valeur : « Driving » | 
-      | **Date / heure de transit** | Aucun | S’applique au mode transit uniquement. | 
-      | **Type de Type de Date de transit.** | Aucun | S’applique au mode transit uniquement. | 
+      | **Date et heure de transit** | Aucun | S’applique au mode transit uniquement. | 
+      | **Type de date et heure de transit** | Aucun | S’applique au mode transit uniquement. | 
       ||||  
 
 1. [Ajoutez une condition](../logic-apps/logic-apps-control-flow-conditional-statement.md) qui vérifie si le temps de trajet actuel dépasse une durée spécifiée. 
@@ -151,7 +151,7 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
   
        Votre champ **Corps** ressemble maintenant à cet exemple :
 
-       ![Champ « Corps » final](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Champ « Corps » terminé](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
 1. Enregistrez votre application logique.
@@ -397,7 +397,7 @@ Si vous travaillez en mode code, vous pouvez définir une structure d’étendue
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Exécuter des étapes en fonction d’une condition (instructions conditionnelles)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Étapes d’exécution en fonction des valeurs différentes (instructions switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Exécuter et répéter les étapes (boucles)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Exécuter ou joindre des étapes parallèles (les branches)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Switch statements: Run different steps based on specific values in logic apps](../logic-apps/logic-apps-control-flow-switch-statement.md) (Instructions switch : Exécuter différentes étapes en fonction de valeurs spécifiques dans des applications logiques)
+* [Loops: Process arrays or repeat actions until a condition is met](../logic-apps/logic-apps-control-flow-loops.md) (Boucles : Traiter des tableaux ou répéter des actions jusqu’à ce qu’une condition soit remplie)
+* [Create or join parallel branches in your logic app](../logic-apps/logic-apps-control-flow-branches.md) (Créer ou joindre des branches parallèles dans votre application logique)

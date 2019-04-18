@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894130"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Référence ACR Tasks : YAML
@@ -404,8 +404,8 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 
 La propriété `when` spécifie les dépendances d’une étape sur d’autres étapes au sein de la tâche. Elle prend en charge deux valeurs de paramètre :
 
-* `when: ["-"]` -N’indique aucune dépendance sur d’autres étapes. Une étape indiquant `when: ["-"]` est exécutée immédiatement et permet l’exécution simultanée des étapes.
-* `when: ["id1", "id2"]` : Indique l’étape dépend des étapes avec `id` « id1 » et `id` « id2 ». Cette étape ne sera pas être exécutée tant que les étapes « id1 » et « id2 » ne seront pas terminées.
+* `when: ["-"]` : indique l’absence de dépendance sur d’autres étapes. Une étape indiquant `when: ["-"]` est exécutée immédiatement et permet l’exécution simultanée des étapes.
+* `when: ["id1", "id2"]` : indique que l’étape dépend des étapes avec `id` « id1 » et `id` « id2 ». Cette étape ne sera pas être exécutée tant que les étapes « id1 » et « id2 » ne seront pas terminées.
 
 Si `when` n’est pas spécifié dans une étape, cette étape dépend de l’achèvement de l’étape précédente dans le fichier `acr-task.yaml`.
 

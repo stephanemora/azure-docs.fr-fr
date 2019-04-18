@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482944"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699011"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
@@ -260,6 +260,18 @@ Pour savoir quels modules sont en cours d’exécution sur un appareil, utilisez
    ```
 
 6. Sur la page **Vérifier le modèle**, sélectionnez **Envoyer**.
+
+## <a name="open-ports-on-gateway-device"></a>Ports ouverts sur le périphérique de passerelle
+
+Les appareils IoT Edge standards n’avez pas besoin les connexions entrantes de la fonction, étant donné que toutes les communications avec IoT Hub s’effectue via les connexions sortantes. Toutefois, les périphériques de passerelle sont différents, car ils doivent être en mesure de recevoir des messages à partir de leurs appareils en aval.
+
+Pour un scénario de passerelle fonctionne, au moins un des protocoles pris en charge du hub IoT Edge doit être ouvert pour le trafic entrant à partir d’appareils en aval. Les prise en charge portocols sont MQTT, AMQP et HTTPS.
+
+| Port | Protocole |
+| ---- | -------- |
+| 8883 | MQTT |
+| 5671 | AMQP |
+| 443 | HTTPS <br> MQTT + WS <br> AMQP + WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>Acheminer les messages à partir des appareils en aval
 Le runtime IoT Edge peut acheminer les messages envoyés à partir des appareils en aval comme les messages envoyés par les modules. Ainsi, vous pouvez effectuer une analytique dans un module s’exécutant sur la passerelle avant d’envoyer des données vers le cloud. 

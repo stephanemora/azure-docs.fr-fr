@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883562"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
@@ -111,10 +111,10 @@ Suivez les étapes de cette section pour découvrir comment ajouter un nouveau c
 
 4. Créez un cluster HDInsight et sélectionnez le réseau virtuel Azure pendant la configuration. Pour comprendre le processus de création du cluster, utilisez les étapes indiquées dans les documents suivants :
 
-    * [Créer HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md)
-    * [Créer HDInsight à l’aide d’Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-    * [Créer HDInsight à l’aide d’Azure Classic CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-    * [Créer HDInsight à l’aide d’un modèle Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+    * [Créer un cluster HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md)
+    * [Créer un cluster HDInsight à l’aide d’Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+    * [Créer un cluster HDInsight à l’aide d’Azure Classic CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Créer un cluster HDInsight à l’aide d’un modèle Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
    > [!IMPORTANT]  
    > L’ajout de HDInsight à un réseau virtuel est une étape de configuration facultative. Veillez à sélectionner le réseau virtuel lors de la configuration du cluster.
@@ -328,7 +328,7 @@ Les exemples de cette section montrent comment créer des règles de groupe de s
 
 Le modèle de gestion des ressources suivant crée un réseau virtuel qui restreint le trafic entrant, mais autorise le trafic en provenance des adresses IP requises par HDInsight. Ce modèle crée également un cluster HDInsight dans le réseau virtuel.
 
-* [Déployer un réseau virtuel Azure sécurisé et un cluster HDInsight Hadoop](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+* [Déployer un réseau virtuel Azure sécurisé et un cluster Hadoop HDInsight](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]  
 > Modifiez les adresses IP utilisées dans cet exemple pour les faire correspondre à la région Azure que vous utilisez. Pour trouver ces informations, voir la section [HDInsight avec des groupes de sécurité réseau et des itinéraires définis par l’utilisateur](#hdinsight-ip).

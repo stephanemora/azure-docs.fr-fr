@@ -9,10 +9,10 @@ ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 629a97048ceba4ac02e3aa1dd59310980e5a0c95
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894164"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
@@ -21,18 +21,18 @@ Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs 
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-**Configuration minimale requise :**
+**Configuration minimale requise :**
 
 * .NET Framework 4.5
 * Version 64 bits de Windows 7 / Windows Server 2008 R2 (ou version ultérieure)
 
-**Recommandé :**
+**Recommandé :**
 
 * Processeur 8 cœurs
 * 8 Go de mémoire
 * Version 64 bits de Windows 2012 R2 (ou version ultérieure)
 
-**Considérations importantes :**
+**Points importants à prendre en compte :**
 
 * Pendant la configuration, lors de l’inscription de votre passerelle auprès d’Azure, la région par défaut de votre abonnement est sélectionnée. Vous pouvez choisir une autre région. Si vous avez des serveurs dans plusieurs régions, vous devez installer une passerelle pour chaque région. 
 * La passerelle ne peut pas être installée sur un contrôleur de domaine.

@@ -15,10 +15,10 @@ ms.date: 03/21/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915683"
 ---
 # <a name="scaling-media-processing"></a>Mise à l’échelle du traitement multimédia
@@ -76,4 +76,4 @@ Vous êtes facturé en nombre de minutes pendant que les unités réservées mul
 ## <a name="see-also"></a>Voir aussi
 
 * [Quotas et limitations](limits-quotas-constraints.md)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

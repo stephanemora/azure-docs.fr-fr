@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
 ms.openlocfilehash: cf3a3ca1f751ce9eed5ee5c5397c1d9c864a1dd6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903673"
 ---
 # <a name="post-deployment-tasks"></a>Tâches de post-déploiement
@@ -251,7 +251,7 @@ Pour le modèle OpenShift Container et l’offre de la Place de marché, le fich
 
 Établissez une connexion SSH au nœud Bastion ou au premier nœud master (en fonction du modèle et de la branche utilisés), à l’aide des informations d’identification fournies durant le déploiement. Exécutez la commande suivante :
 
-**OpenShift Container Platform 3.7 et versions antérieur**
+**OpenShift Container Platform versions 3.7 et antérieures**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -263,7 +263,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-**OpenShift Container Platform 3.9 et versions ultérieur**
+**OpenShift Container Platform versions 3.9 et ultérieures**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -275,7 +275,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 -e openshift_logging_es_pvc_dynamic=true
 ```
 
-**OKD 3.7 et versions antérieur**
+**ODK versions 3.7 et antérieures**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -287,7 +287,7 @@ ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-l
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-**OKD 3.9 et versions ultérieur**
+**ODK versions 3.9 et ultérieures**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -304,7 +304,7 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 Établissez une connexion SSH au nœud Bastion ou au premier nœud master (en fonction du modèle et de la branche utilisés), à l’aide des informations d’identification fournies durant le déploiement. Exécutez la commande suivante :
 
 
-**OpenShift Container Platform 3.7 et versions antérieur**
+**OpenShift Container Platform versions 3.7 et antérieures**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -314,7 +314,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_logging_install_logging=True
 ```
 
-**OpenShift Container Platform 3.9 et versions ultérieur**
+**OpenShift Container Platform versions 3.9 et ultérieures**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -324,7 +324,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 -e openshift_logging_install_logging=True
 ```
 
-**OKD 3.7 et versions antérieur**
+**ODK versions 3.7 et antérieures**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -334,7 +334,7 @@ ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-l
 -e openshift_logging_install_logging=True
 ```
 
-**OKD 3.9 et versions ultérieur**
+**ODK versions 3.9 et ultérieures**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -351,5 +351,5 @@ Pour installer OSBA sur OpenShift, suivez les instructions fournies ici : https:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Prise en main OpenShift Container Platform](https://docs.openshift.com/container-platform)
-- [Prise en main OKD](https://docs.okd.io/latest)
+- [Prise en main d’OpenShift Container Platform](https://docs.openshift.com/container-platform)
+- [Bien démarrer avec OKD](https://docs.okd.io/latest)

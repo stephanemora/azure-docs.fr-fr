@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
 ms.openlocfilehash: f23cf78bfca48b3a78e234520d645abdb354038f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878466"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot LUIS en C# avec Bot Framework 3.x et bot d’application web Azure
@@ -49,9 +49,9 @@ ms.locfileid: "58878466"
    * Dans **Nom de l’application**, entrez le nom de votre bot. Il sera utilisé comme sous-domaine lors du déploiement de votre bot sur le cloud (par exemple, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
    * Sélectionnez l’abonnement, le [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), le plan App Service et [l’emplacement](https://azure.microsoft.com/regions/).
    * Pour **Modèle de bot**, sélectionnez :
-       * **Kit de développement logiciel v3**
+       * **SDK v3**
        * **C#**
-       * **Compréhension de la langue**
+       * **Language Understanding**
    * Sélectionnez **l’emplacement de l’application LUIS**. L’application sera créée dans cette [région](luis-reference-regions.md).
    * Cochez la case de confirmation de la mention légale. Les conditions de la mention légale figurent sous la case à cocher.
 

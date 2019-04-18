@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884344"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
@@ -44,7 +44,7 @@ Chaque fois qu'un utilisateur modifie ou réinitialise son mot de passe, la forc
 
 Même si le mot de passe d'un utilisateur contient un mot interdit, il peut être accepté s'il est globalement suffisamment fort. Un mot de passe nouvellement configuré passe par les étapes suivantes pour évaluer sa force globale et déterminer s'il doit être accepté ou rejeté.
 
-### <a name="step-1-normalization"></a>Étape 1 : Normalisation
+### <a name="step-1-normalization"></a>Étape 1 : Normalisation
 
 Un nouveau mot de passe est d'abord soumis à un processus de normalisation. Cela permet de mapper un petit ensemble de mots de passe interdits avec un ensemble beaucoup plus large de mots de passe potentiellement faibles.
 
@@ -59,7 +59,7 @@ La normalisation se décompose en deux parties.  Premièrement, toutes les majus
 
 Exemple : supposons que le mot de passe « blank » soit interdit et qu'un utilisateur tente de remplacer son mot de passe par « Bl@nK ». Bien que « Bl@nk » ne soit pas spécifiquement interdit, le processus de normalisation le remplace par « blank », qui est un mot de passe interdit.
 
-### <a name="step-2-check-if-password-is-considered-banned"></a>Étape 2 : Déterminer si le mot de passe est interdit
+### <a name="step-2-check-if-password-is-considered-banned"></a>Étape 2 : Déterminer si le mot de passe est interdit
 
 #### <a name="fuzzy-matching-behavior"></a>Correspondance approximative
 
@@ -122,5 +122,5 @@ Malheureusement, votre mot de passe contient un mot, une expression ou un modèl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer la liste des mots de passe interdits personnalisée](howto-password-ban-bad.md)
-* [Activer Azure AD mot de passe protection agents locaux](howto-password-ban-bad-on-premises-deploy.md)
+* [Configurer la liste de mots de passe interdits personnalisée](howto-password-ban-bad.md)
+* [Activer les agents locaux de protection de mot de passe Azure AD](howto-password-ban-bad-on-premises-deploy.md)

@@ -11,10 +11,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/02/2019
 ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862741"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
@@ -32,11 +32,11 @@ Bien que vous pouvez créer, modifier, gérer et déployer des applications logi
 
 * Téléchargez et installez ces outils, si vous ne les avez pas déjà : 
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 ou 2015 - Community edition ou supérieur</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 ou 2015 - édition Community ou supérieure</a>. 
   Ce démarrage rapide utilise Visual Studio Community 2017, qui est gratuit.
 
     > [!IMPORTANT]
-    > Lorsque vous installez Visual Studio 2019 ou 2017, vous assurer que vous sélectionnez le **développement Azure** charge de travail.
+    > Quand vous installez Visual Studio 2019 ou 2017, veillez à sélectionner la charge de travail **Développement Azure**.
     > Pour plus d’informations, consultez [gérer les ressources associées à vos comptes Azure dans Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
     >
     > Dans Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais encore Impossible d’ouvrir le Concepteur d’application logique intégré.
@@ -48,7 +48,7 @@ Bien que vous pouvez créer, modifier, gérer et déployer des applications logi
 
   * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
 
-  * Outils Azure Logic Apps pour la version de Visual Studio :
+  * Outils Azure Logic Apps pour la version Visual Studio souhaitée :
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
     
@@ -202,4 +202,4 @@ Lorsque vous ouvrez votre projet d’application logique dans le Concepteur d’
 Dans cet article, vous avez appris comment gérer des applications logiques déployées avec Visual Studio. À présent, découvrez-en plus sur la personnalisation des définitions d’application logique pour le déploiement :
 
 > [!div class="nextstepaction"]
-> [Créer des définitions d’application logique dans JSON](../logic-apps/logic-apps-author-definitions.md)
+> [Créer des définitions d’application logique en JSON](../logic-apps/logic-apps-author-definitions.md)

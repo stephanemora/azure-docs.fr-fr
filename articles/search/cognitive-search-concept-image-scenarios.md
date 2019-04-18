@@ -12,10 +12,10 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916969"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios de recherche cognitive
@@ -109,7 +109,7 @@ La compétence de reconnaissance optique des caractères vous permet de sélecti
 
 Un scénario courant implique la création d’une chaîne comprenant tous les contenus d’un fichier, tant le texte que le texte d’origine de l’image, en procédant comme suit :  
 
-1. [Extraire normalized_images](#get-normalized-images)
+1. [Extraction de normalized_images](#get-normalized-images).
 1. Exécution de la compétence de reconnaissance optique des caractères en utilisant `"/document/normalized_images"` en entrée.
 1. Fusion de la représentation textuelle de ces images avec le texte brut extrait du fichier. Vous pouvez utiliser la compétence de [fusion de texte](cognitive-search-skill-textmerger.md) pour combiner les deux blocs de texte dans une seule chaîne de grande taille.
 
@@ -218,9 +218,9 @@ Pour vous aider, si vous avez besoin de convertir des coordonnées normalisées 
 ```
 
 ## <a name="see-also"></a>Voir aussi
-+ [Création d’indexeur (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Analyser les compétences de l’image](cognitive-search-skill-image-analysis.md)
++ [Créer un indexeur (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Compétence d’analyse d’image](cognitive-search-skill-image-analysis.md)
 + [Compétence de reconnaissance optique des caractères](cognitive-search-skill-ocr.md)
-+ [Qualification de fusion de texte](cognitive-search-skill-textmerger.md)
-+ [Comment définir des compétences](cognitive-search-defining-skillset.md)
-+ [Comment mapper des champs enrichies](cognitive-search-output-field-mapping.md)
++ [Compétence de fusion de texte](cognitive-search-skill-textmerger.md)
++ [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)
++ [Guide pratique pour mapper des champs enrichis](cognitive-search-output-field-mapping.md)

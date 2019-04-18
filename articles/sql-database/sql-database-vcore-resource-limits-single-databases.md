@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/19/2019
-ms.openlocfilehash: b1467550ac84c57eaad9178d32fdcfaf14d84ae8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.date: 04/17/2019
+ms.openlocfilehash: d5ada9b992afe98241162749b1c45723b89a6b77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260228"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699353"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites du modèle d’achat par vCore d’Azure SQL Database pour une base de données unique
 
@@ -96,7 +96,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|500|1 000|1 500|2000|2 500|3000|3 500|
-|Limites de taux de journal (Mbits/s)|2.5|56|7.5|10|12.5|15|17.5|
+|Limites de taux de journal (Mbits/s)|2.5|5.6|7.5|10|12.5|15|17.5|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|1400|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|1|

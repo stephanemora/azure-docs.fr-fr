@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916799"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gérer l’expiration du stockage Blob Azure dans Azure CDN
 > [!div class="op_single_selector"]
 > * [Contenu web Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Stockage d'objets blob Azure](cdn-manage-expiration-of-blob-content.md)
+> * [stockage d’objets blob Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
@@ -59,7 +59,7 @@ La méthode recommandée pour définir l’en-tête `Cache-Control` d’un objet
    ![Page de mise en cache du CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 
-**Pour définir les en-têtes de Cache-Control d’un service de stockage Blob à l’aide des règles de mise en cache globales :**
+**Pour définir les en-têtes Cache-Control du service de stockage d’objets blob à l’aide de règles de mise en cache générales :**
 
 1. Sous **Règles de mise en cache générales**, définissez **Comportement de mise en cache des chaînes de requête** sur **Ignorer les chaînes de requête**, puis définissez **Comportement de mise en cache** sur **Remplacer**.
       
@@ -71,7 +71,7 @@ La méthode recommandée pour définir l’en-tête `Cache-Control` d’un objet
 
 3. Sélectionnez **Enregistrer**.
  
-**Pour définir des en-têtes de Cache-Control du fichier un objet blob à l’aide des règles de mise en cache personnalisées :**
+**Pour définir les en-têtes Cache-Control d’un fichier d’objets blob à l’aide de règles de mise en cache personnalisées :**
 
 1. Sous **Règles de mise en cache personnalisées**, créez deux conditions de correspondance :
 
@@ -180,6 +180,6 @@ Vous pouvez utiliser l’[API REST des services Stockage Azure](/rest/api/storag
 Vous pouvez facilement vérifier la durée de vie de vos objets blob. Avec les [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur, vérifiez que votre objet blob comprend l’en-tête de réponse `Cache-Control`. Vous pouvez également utiliser un outil tel que [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/) ou [Fiddler](https://www.telerik.com/fiddler) pour examiner les en-têtes de réponse.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Découvrez comment gérer l’expiration du contenu de Service Cloud dans Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
-* [En savoir plus sur les concepts de la mise en cache](cdn-how-caching-works.md)
+* [Comment gérer l’expiration des contenus de service cloud dans Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
+* [En savoir plus sur les concepts de mise en cache](cdn-how-caching-works.md)
 

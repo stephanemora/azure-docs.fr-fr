@@ -1,7 +1,7 @@
 ---
 title: Exécuter Azure IoT Edge sur des Machines virtuelles Ubuntu | Microsoft Docs
 description: Instructions de configuration d’Azure IoT Edge sur des Machines virtuelles de la Place de marché Azure Ubuntu 16.04.
-author: gregman
+author: gregman-msft
 manager: arjmands
 ms.reviewer: kgremban
 ms.service: iot-edge
@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: gregman
-ms.openlocfilehash: 5cb15f45508b60a1b7f8c9049b8779c1b7d31150
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7062bd2dbd8c375b8dd3fad348e5cc26de8f36d2
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757923"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698586"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Exécuter Azure IoT Edge sur des Machines virtuelles Ubuntu
 
@@ -41,7 +41,7 @@ Au premier démarrage, Azure IoT Edge sur la Machine virtuelle Ubuntu préinstal
     1.  Attendez quelques instants ; l’écran devrait alors présenter un message de réussite indiquant que la chaîne de connexion a été correctement définie.
 
 
-## <a name="deploy-from-the-azure-portal"></a>Effectuer un déploiement sur le Portail Azure
+## <a name="deploy-from-the-azure-portal"></a>Déployer à partir du portail Azure
 Sur le Portail Azure, recherchez « Azure IoT Edge » et sélectionnez **Runtime Azure IoT Edge Ubuntu Server 16.04 LTS +** pour lancer le workflow de création de machines virtuelles. À partir de là, suivez les étapes 3 et 4 dans les instructions « Déployer à partir de la Place de marché Azure » ci-dessus.
 
 ## <a name="deploy-from-azure-cli"></a>Effectuer un déploiement sur Azure CLI
@@ -95,6 +95,6 @@ Si vous souhaitez établir une connexion SSH sur cette machine virtuelle après 
 
 Maintenant que vous disposez d’un appareil IoT Edge approvisionné avec le runtime installé, vous pouvez [déployer des modules IoT Edge](how-to-deploy-modules-portal.md).
 
-Si vous ne parvenez pas à installer correctement le runtime Edge, consultez la page de [résolution des problèmes](troubleshoot.md).
+Si vous rencontrez des problèmes avec le runtime IoT Edge installation correctement, consultez la [dépannage](troubleshoot.md) page.
 
 Pour mettre à jour une installation existante vers la dernière version d’IoT Edge, voir [Mettre à jour le runtime et le démon de sécurité IoT Edge](how-to-update-iot-edge.md).

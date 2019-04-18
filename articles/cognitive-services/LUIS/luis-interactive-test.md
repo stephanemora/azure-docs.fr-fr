@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893620"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Tester votre application LUIS dans le portail LUIS
@@ -108,7 +108,7 @@ Utilisez la procédure suivante pour inclure le service [Vérification orthograp
 3. Lorsque le panneau **Publié** s’ouvre, sélectionnez **[Paramètres supplémentaires](#additional-settings-in-test-panel)**.
 
 4. Dans la boîte de dialogue contextuelle, entrez votre clé du service **Vérification orthographique Bing**. 
-    ![Entrez la clé du service de vérification orthographique Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+    ![Entrer la clé du service Vérification orthographique Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 5. Entrez une requête avec une orthographe incorrecte comme `book flite to seattle` et appuyez sur Entrée. L’orthographe incorrecte du mot `flite` est remplacée dans la requête envoyée au LUIS et le JSON obtenu affiche à la fois la requête d’origine, `query`, et l’orthographe corrigée dans la requête, `alteredQuery`.
 
@@ -132,5 +132,5 @@ Consultez les [concepts](luis-concept-batch-test.md) du test par lot et apprenez
 
 Si le test indique que votre application LUIS ne reconnaît pas les entités et les intentions correctes, vous pouvez travailler à l’amélioration de la précision de votre application LUIS en étiquetant plus d’énoncés ou en ajoutant des fonctionnalités. 
 
-* [Étiquette suggérées énoncés avec LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Étiqueter des énoncés suggérés avec LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Utiliser les fonctionnalités pour améliorer les performances de votre application LUIS](luis-how-to-add-features.md) 

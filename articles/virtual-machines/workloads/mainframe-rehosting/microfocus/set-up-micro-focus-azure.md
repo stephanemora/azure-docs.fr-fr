@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 33d0baf10df1882baf212c3e2c2683c8ca072fcc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896438"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Installation de Micro Focus Enterprise Server 4.0 et code Enterprise Developer 4.0 sur Azure
@@ -38,7 +38,7 @@ Avant de commencer, consultez ces conditions préalables :
 > [!NOTE]
 > Une bonne pratique consiste à configurer un tunnel de réseau privé virtuel (VPN) site à site ou un serveur de rebond, donc vous pouvez contrôler l’accès aux machines virtuelles Azure.
 
-## <a name="install-enterprise-server"></a>Installer le serveur d’entreprise
+## <a name="install-enterprise-server"></a>Installer Enterprise Server
 
 1. Pour une meilleure sécurité et la facilité de gestion, envisagez de créer un nouveau groupe de ressources uniquement pour ce projet, par exemple, **RGMicroFocusEntServer**. Utilisez la première partie du nom dans Azure pour désigner le type de ressource pour le rendre plus facile à repérer dans une liste.
 
@@ -120,4 +120,4 @@ Lors du chargement de développeur en entreprise, votre déploiement d’un envi
 
 - [Configurer l’application de démonstration de la banque](./demo.md)
 - [Exécuter le serveur d’entreprise dans des conteneurs Docker](./run-enterprise-server-container.md)
-- [Migration d’applications d’un environnement mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+- [Migration d’applications mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

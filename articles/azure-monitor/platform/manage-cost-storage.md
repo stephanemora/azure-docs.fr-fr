@@ -15,10 +15,10 @@ ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
 ms.openlocfilehash: a2f90c52823664df5fdc71c55220cc660c2f68e3
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878143"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Gérer l’utilisation et des coûts pour l’Analytique de journal dans Azure Monitor
@@ -26,7 +26,7 @@ ms.locfileid: "58878143"
 > [!NOTE]
 > Cet article décrit comment contrôler vos coûts dans Log Analytics en définissant la période de rétention des données.  Pour plus d’informations, consultez les articles suivants.
 > - [Analyser l’utilisation des données dans Log Analytics](manage-cost-storage.md) décrit comment analyser votre utilisation des données et donner des informations à ce sujet.
-> - L’article [Monitoring usage and estimated costs](usage-estimated-costs.md) (Surveillance de l’utilisation et estimation des coûts) explique comment visualiser l’utilisation et les coûts estimés avec plusieurs fonctionnalités de surveillance Azure en fonction des différents modèles de tarification. Il explique également comment modifier votre modèle de tarification.
+> - [Surveillance de l’utilisation et de l’estimation des coûts](usage-estimated-costs.md) explique comment visualiser l’utilisation et l’estimation des coûts avec plusieurs fonctions de surveillance Azure en fonction des différents modèles de prix. Il explique également comment modifier votre modèle de tarification.
 
 Analytique de journal dans Azure Monitor est conçu pour la mise à l’échelle et la collecte de prise en charge, d’indexation et stocker d’énormes quantités de données par jour à partir de n’importe quelle source de votre entreprise ou déployée dans Azure.  Si ce peut être un élément moteur pour votre organisation, la rentabilité est au final ce qui importe le plus. À cette fin, il est important de comprendre que le coût d’un espace de travail Log Analytics n’est pas simplement fonction du volume des données collectées, mais qu’il dépend aussi du plan sélectionné et de la durée de stockage des données générées à partir de vos sources connectées.  
 
@@ -66,7 +66,7 @@ Les étapes suivantes décrivent la configuration d’une limite pour gérer le 
 
 1. À partir de votre espace de travail, sélectionnez **Utilisation et estimation des coûts** dans le volet gauche.
 2. Cliquez sur **Gestion du volume de données** en haut de la page **Utilisation et estimation des coûts** de l’espace de travail sélectionné. 
-3. Par défaut, la limite quotidienne est **DÉSACTIVÉE** : cliquez sur **ACTIVER** pour l’activer, puis définissez la limite de volume de données en Go/jour.<br><br> ![Journal Analytique configurer la limite de données](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. Par défaut, la limite quotidienne est **DÉSACTIVÉE** : cliquez sur **ACTIVER** pour l’activer, puis définissez la limite de volume de données en Go/jour.<br><br> ![Configurer la limite de données dans Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>Alerte lorsque la limite quotidienne est atteinte
 Si nous présentons un indice visuel dans le portail Azure lorsque le seuil limite des données est atteint, ce comportement n’est pas nécessairement en harmonie avec la façon dont vous gérez les problèmes opérationnels exigeant une attention immédiate.  Pour recevoir une notification d’alerte, vous pouvez créer une règle d’alerte dans Azure Monitor.  Pour plus d’informations, reportez-vous à l’article sur [la création, l’affichage et la gestion des alertes](alerts-metric.md).      
@@ -92,7 +92,7 @@ Les étapes suivantes décrivent la configuration de la durée de conservation d
  
 1. À partir de votre espace de travail, sélectionnez **Utilisation et estimation des coûts** dans le volet gauche.
 2. Cliquez sur **Gestion du volume de données** en haut de la page **Utilisation et estimation des coûts**.
-5. Dans le volet, déplacez le curseur pour augmenter ou diminuer le nombre de jours, puis cliquez sur **OK**.  Si vous avez opté pour le niveau *Gratuit*, vous ne pouvez pas modifier la période de rétention de données et vous devez passer au niveau payant afin de contrôler ce paramètre.<br><br> ![Modification du paramètre de rétention de données espace de travail](media/manage-cost-storage/manage-cost-change-retention-01.png)
+5. Dans le volet, déplacez le curseur pour augmenter ou diminuer le nombre de jours, puis cliquez sur **OK**.  Si vous avez opté pour le niveau *Gratuit*, vous ne pouvez pas modifier la période de rétention de données et vous devez passer au niveau payant afin de contrôler ce paramètre.<br><br> ![Changer le paramètre de rétention de données de l’espace de travail](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="legacy-pricing-tiers"></a>Niveaux de tarification hérités
 
@@ -110,7 +110,7 @@ Si votre espace de travail Log Analytics a accès aux niveaux tarifaires hérit�
 2. Dans le volet de l’espace de travail, sous **Général**, sélectionnez **Niveau tarifaire**.  
 
 3. Sous **Niveau tarifaire**, sélectionnez un niveau tarifaire et cliquez sur **Sélectionner**.  
-    ![Sélectionné le plan de tarification](media/manage-cost-storage/workspace-pricing-tier-info.png)
+    ![Plan tarifaire sélectionné](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
 Si vous souhaitez déplacer votre espace de travail vers le niveau tarifaire actuel, vous devez [modifier le modèle de tarifaire de supervision de votre abonnement dans Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model), ce qui modifiera le niveau tarifaire de tous les espaces de travail de cet abonnement.
 
@@ -340,7 +340,7 @@ Lors de la création de l’alerte pour la première requête, lorsque plus de 1
 - **Définir la condition d’alerte** spécifiez votre espace de travail Log Analytics comme cible de la ressource.
 - **Critères d’alerte** spécifiez les éléments suivants :
    - **Nom du signal** sélectionnez **Recherche de journal personnalisée**
-   - **Requête de recherche** à `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Requête de recherche** sur `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
    - La **logique d’alerte** est **basée sur**  le *nombre de résultats* et **Condition** est *supérieur à* un **seuil**  de *0*
    - **Période de temps** de *1440* minutes et **fréquence des alertes** toutes les *60* minutes comme les données d’utilisation ne se mettent à jour qu’une fois par heure.
 - **Définir les détails de l’alerte** spécifiez les éléments suivants :
@@ -354,7 +354,7 @@ Lors de la création de l’alerte pour la seconde requête, lorsqu’il est pr�
 - **Définir la condition d’alerte** spécifiez votre espace de travail Log Analytics comme cible de la ressource.
 - **Critères d’alerte** spécifiez les éléments suivants :
    - **Nom du signal** sélectionnez **Recherche de journal personnalisée**
-   - **Requête de recherche** à `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Requête de recherche** sur `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
    - La **logique d’alerte** est **basée sur**  le *nombre de résultats* et **Condition** est *supérieur à* un **seuil**  de *0*
    - **Période de temps** de *180* minutes et **fréquence des alertes** toutes les *60* minutes comme les données d’utilisation ne se mettent à jour qu’une fois par heure.
 - **Définir les détails de l’alerte** spécifiez les éléments suivants :

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883273"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solution de VMware Monitoring (déconseillé) dans Azure Monitor
@@ -49,7 +49,7 @@ Créez une machine virtuelle de système d’exploitation Linux pour recevoir to
 ### <a name="configure-syslog-collection"></a>Configurer la collecte Syslog
 1. Configurez le transfert de Syslog à VSphere. Pour plus d’informations sur la configuration du transfert de Syslog, consultez [Configuring syslog on ESXi 5.0 and higher (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322) (Configuration de Syslog sur ESXi 5.0 et versions ultérieures (2003322)). Accédez à **Configuration de l’hôte ESXi** > **Logiciel** > **Paramètres avancés** > **Syslog**.
    ![vsphereconfig](./media/vmware/vsphere1.png)  
-1. Dans le champ *Syslog.global.logHost*, ajoutez votre serveur Linux et le numéro de port *1514*. Par exemple, `tcp://hostname:1514` ou `tcp://123.456.789.101:1514`
+1. Dans le champ *Syslog.global.logHost*, ajoutez votre serveur Linux et le numéro de port *1514*. Par exemple, `tcp://hostname:1514` ou `tcp://123.456.789.101:1514`.
 1. Ouvrez le pare-feu d’hôte ESXi pour Syslog. **Configuration de l’hôte ESXi** > **Logiciels** > **Profil de sécurité** > **Pare-feu**, puis ouvrez **Propriétés**.  
 
     ![vspherefw](./media/vmware/vsphere2.png)  
@@ -186,20 +186,20 @@ Il peut y avoir plusieurs raisons :
 
 * L’hôte ESXi ne transmet pas correctement les données vers la machine virtuelle qui exécute omsagent. Pour tester cela, procédez comme suit :
 
-  1. Pour vérifier, ouvrez une session sur l’hôte ESXi à l’aide de ssh et exécutez la commande suivante : `nc -z ipaddressofVM 1514`
+  1. Pour vérifier cela, ouvrez une session sur l’hôte ESXi à l’aide de ssh et exécutez la commande suivante : `nc -z ipaddressofVM 1514`
 
       Si cela n’a pas réussi, les paramètres de vSphere dans la Configuration avancée ne sont probablement pas corrects. Consultez [Configurer la collecte Syslog](#configure-syslog-collection) pour plus d’informations sur la configuration de l’hôte ESXi pour le transfert de syslog.
-  1. Si la connectivité du port syslog est correcte, mais vous ne voyez toujours pas toutes les données, puis rechargez syslog sur l’hôte ESXi à l’aide de ssh pour exécuter la commande suivante : `esxcli system syslog reload`
+  1. Si la connectivité du port syslog est correcte, mais que vous ne voyez toujours pas de données, rechargez syslog sur l’hôte ESXi à l’aide de ssh pour exécuter la commande suivante : `esxcli system syslog reload`
 * La machine virtuelle avec l’agent Log Analytics n’est pas configurée correctement. Pour tester cela, procédez comme suit :
 
-  1. Log Analytics écoute le port 1514. Pour vérifier qu’il est ouvert, exécutez la commande suivante : `netstat -a | grep 1514`
+  1. Log Analytics écoute le port 1514. Pour vérifier qu’il est ouvert, utilisez la commande suivante : `netstat -a | grep 1514`
   1. Vous devez voir le port `1514/tcp` ouvert. Si ce n’est pas le cas, vérifiez qu’omsagent est correctement installé. Si vous ne voyez pas les informations de port, le port syslog n’est pas ouvert sur la machine virtuelle.
 
-    a. Vérifiez que l’agent Log Analytics s’exécute à l’aide de `ps -ef | grep oms`. Si elle n’est pas en cours d’exécution, démarrez le processus en exécutant la commande `sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Vérifiez que l’agent Log Analytics s’exécute à l’aide de `ps -ef | grep oms`. S’il n’est pas en cours d’exécution, démarrez le processus en exécutant la commande `sudo /opt/microsoft/omsagent/bin/service_control start`
 
      b. Ouvrez le fichier `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
 
-     c. Vérifiez que le paramètre de groupe et d’utilisateur est valide, comme dans : `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     c. Vérifiez que les paramètres de groupe et d’utilisateur sont valides, comme dans : `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
      d. Si le fichier n’existe pas ou que les paramètres de groupe et d’utilisateur sont incorrects, prenez une mesure corrective en [Préparant un serveur Linux](#prepare-a-linux-server).
 

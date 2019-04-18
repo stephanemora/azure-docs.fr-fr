@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905535"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurer une passerelle d’application avec un point de terminaison d’équilibreur de charge interne
@@ -30,7 +30,7 @@ Dans cet article, vous allez apprendre à :
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure à <https://portal.azure.com>
+Connectez-vous au portail Azure à l’adresse suivante : <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
@@ -70,7 +70,7 @@ Le pool principal est utilisé pour acheminer les requêtes vers les serveurs pr
 3. Entrez ces valeurs pour la machine virtuelle :
    - *myVM* : pour le nom de la machine virtuelle.
    - *azureuser* : pour le nom d’utilisateur administrateur.
-   - *Azure123456 !* pour le mot de passe.
+   - *Azure123456!* pour le mot de passe.
    - Sélectionnez **Utiliser l’existant**, puis *myResourceGroupAG*.
 4. Cliquez sur **OK**.
 5. Sélectionnez **DS1_V2** pour la taille de la machine virtuelle et cliquez sur **sélectionnez**.

@@ -1,22 +1,22 @@
 ---
-title: Configurer des pré/post-scripts sur votre déploiement Update Management dans Azure (préversion)
+title: Configurer les scripts de pré / post sur votre déploiement de gestion de la mise à jour dans Azure
 description: Cet article explique comment configurer et gérer des pré/post-scripts pour les déploiements de mises à jour.
 services: automation
 ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263806"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698737"
 ---
-# <a name="manage-pre-and-post-scripts-preview"></a>Gérer les pré-scripts et les post-scripts (préversion)
+# <a name="manage-pre-and-post-scripts"></a>Gérer les scripts de pré / post
 
 Les pré-scripts et post-scripts vous permettent d’exécuter des runbooks PowerShell dans votre compte Automation avant (tâche préalable) et après (tâche postérieure) un déploiement de mises à jour. Les pré/post-scripts s’exécutent dans le contexte Azure, et non localement. Les scripts s’exécutent au début du déploiement de mise à jour. Les scripts postérieurs s’exécutent à la fin du déploiement et après chaque redémarrage qui a été configuré.
 
@@ -26,7 +26,7 @@ Le runbook que vous souhaitez utiliser en tant que pré/post-script doit être i
 
 ## <a name="using-a-prepost-script"></a>Utilisation d’un pré/post-script
 
-Pour utiliser un pré-script ou un post-script dans un déploiement de mises à jour, commencez par créer un déploiement de mises à jour. Sélectionnez **Pre-scripts + Post Scripts (Preview)** (Pré-scripts + post-scripts [préversion]). Cette action ouvre la page **Select Pre-scripts + Post-scripts** (Sélectionner des pré-scripts et post-scripts).  
+Pour utiliser un pré-script ou un post-script dans un déploiement de mises à jour, commencez par créer un déploiement de mises à jour. Sélectionnez **pré-scripts + Scripts de Post**. Cette action ouvre la page **Select Pre-scripts + Post-scripts** (Sélectionner des pré-scripts et post-scripts).  
 
 ![Sélection des scripts](./media/pre-post-scripts/select-scripts.png)
 
@@ -206,7 +206,20 @@ $variable = Get-AutomationVariable -Name $runId
 #>      
 ```
 
-## <a name="interacting-with-non-azure-machines"></a>Interaction avec les machines non-Azure
+## <a name="interacting-with-machines"></a>Interaction avec les ordinateurs
+
+Tâches de pré / exécutent en tant qu’un runbook dans votre compte Automation et non directement sur les ordinateurs dans votre déploiement. Tâches pré-script et post-script également exécutent dans le contexte d’Azure et n’ont pas accès à des ordinateurs Non-Azure. Les sections suivantes montrent comment vous pouvez interagir directement avec les machines s’ils sont d’une machine virtuelle Azure ou un ordinateur Non-Azure :
+
+### <a name="interacting-with-azure-machines"></a>Interaction avec les ordinateurs Azure
+
+Tâches de pré / post sont exécutés en tant que runbooks et n’exécutent pas en mode natif sur vos machines virtuelles Azure dans votre déploiement. Pour interagir avec vos machines virtuelles Azure, vous devez disposer des éléments suivants :
+
+* compte d’identification ;
+* Un runbook à exécuter
+
+Pour interagir avec les machines Azure, vous devez utiliser le [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) applet de commande pour interagir avec vos machines virtuelles Azure. Pour obtenir un exemple de procédure à suivre, consultez l’exemple de runbook [Update Management - exécuter le Script à exécuter une commande](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+
+### <a name="interacting-with-non-azure-machines"></a>Interaction avec les machines non-Azure
 
 Les tâches préalables et postérieures s’exécutent dans le contexte Azure et n’ont pas accès aux machines non-Azure. Pour interagir avec les machines non-Azure, vous devez disposer des éléments suivants :
 
@@ -215,38 +228,7 @@ Les tâches préalables et postérieures s’exécutent dans le contexte Azure e
 * runbook à exécuter localement ;
 * runbook parent.
 
-Pour interagir avec les machines non-Azure, un runbook parent est exécuté dans le contexte Azure. Ce runbook appelle un runbook enfant avec l’applet de commande [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Vous devez spécifier le paramètre `-RunOn` et indiquer le nom du Runbook Worker hybride sur lequel exécuter le script.
-
-```powershell
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
-
-Add-AzureRmAccount `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
-
-$resourceGroup = "AzureAutomationResourceGroup"
-$aaName = "AzureAutomationAccountName"
-
-$output = Start-AzureRmAutomationRunbook -Name "StartService" -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName -RunOn "hybridWorker"
-
-$status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-while ($status.status -ne "Completed")
-{ 
-    Start-Sleep -Seconds 5
-    $status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-}
-
-$summary = Get-AzureRmAutomationJobOutput -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-
-if ($summary.Type -eq "Error")
-{
-    Write-Error -Message $summary.Summary
-}
-```
+Pour interagir avec les machines non-Azure, un runbook parent est exécuté dans le contexte Azure. Ce runbook appelle un runbook enfant avec l’applet de commande [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Vous devez spécifier le paramètre `-RunOn` et indiquer le nom du Runbook Worker hybride sur lequel exécuter le script. Pour obtenir un exemple de procédure à suivre, consultez l’exemple de runbook [Update Management - exécuter le Script localement](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>Abandonner le déploiement des correctifs
 

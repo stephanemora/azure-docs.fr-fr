@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916023"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
@@ -67,8 +67,8 @@ Quand vous utilisez Live Encoding avec Media Services, vous configurez votre enc
 
 Pour comprendre le flux de travail de diffusion en continu en direct dans Media Services v3, vous avez au premier examen et comprenez les concepts suivants : 
 
-- [Points de terminaison de diffusion en continu](streaming-endpoint-concept.md)
-- [Événements en direct et Sorties en direct](live-events-outputs-concept.md)
+- [Points de terminaison de streaming](streaming-endpoint-concept.md)
+- [Événements en direct et sorties en direct](live-events-outputs-concept.md)
 - [Localisateurs de diffusion en continu](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Étapes générales
@@ -89,11 +89,11 @@ Pour comprendre le flux de travail de diffusion en continu en direct dans Media 
 
 - [Encodeurs live recommandés](recommended-on-premises-live-encoders.md)
 - [Utiliser un magnétoscope numérique cloud](live-event-cloud-dvr.md)
-- [Comparaison des fonctionnalités des types d’événements en direct](live-event-types-comparison.md)
+- [Comparaison des fonctionnalités des types d'événements en direct](live-event-types-comparison.md)
 - [États et facturation](live-event-states-billing.md)
 - [Latence](live-event-latency.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Didacticiel de diffusion en continu en direct](stream-live-tutorial-with-api.md)
+* [Didacticiel sur le streaming en direct](stream-live-tutorial-with-api.md)
 * [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md)

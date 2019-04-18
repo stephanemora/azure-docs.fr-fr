@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876886"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser des commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB 
@@ -23,8 +23,8 @@ En utilisant les API de l’Azure Cosmos DB pour MongoDB, vous pouvez profiter d
 
 Par défaut, des API de l’Azure Cosmos DB pour MongoDB est compatible avec MongoDB server version 3.2, pour plus d’informations, consultez [pris en charge de la syntaxe et les fonctionnalités](mongodb-feature-support.md). Les fonctionnalités ou les opérateurs de requête ajoutés dans MongoDB version 3.4 sont actuellement disponibles en version préliminaire dans l’API de Azure Cosmos DB pour MongoDB. Les commandes d’extension suivantes prennent en charge les fonctionnalités spécifiques d’Azure Cosmos DB lors de l’exécution des opérations CRUD sur les données stockées dans les API d’Azure Cosmos DB pour MongoDB :
 
-* [Création d’une base de données](#create-database)
-* [Mettre à jour la base de données](#update-database)
+* [Créer la base de données](#create-database)
+* [Mettre à jour de la base de données](#update-database)
 * [Obtenir la base de données](#get-database)
 * [Créer la collection](#create-collection)
 * [Mettre à jour de la collection](#update-collection)
@@ -286,4 +286,4 @@ Si non spécifié, une réponse personnalisée contient un document avec les cha
 Vous pouvez ensuite passer pour découvrir les concepts Azure Cosmos DB suivants : 
 
 * [Indexation dans Azure Cosmos DB](../cosmos-db/index-policy.md)
-* [Faire expirer les données dans Azure Cosmos DB automatiquement avec la durée de vie](../cosmos-db/time-to-live.md)
+* [Faire expirer automatiquement des données avec la durée de vie dans Azure Cosmos DB](../cosmos-db/time-to-live.md)

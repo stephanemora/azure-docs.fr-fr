@@ -14,10 +14,10 @@ ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
 ms.openlocfilehash: 8db65fd9a1f271aea4ceb345f4d9dfbb6b9ff8a6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877378"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guide de Java Enterprise pour App Service sur Linux
@@ -119,5 +119,4 @@ App Service fournit des outils pour vous aider à résoudre les problèmes renco
 
 -   Activez la journalisation en cliquant sur **Journaux de diagnostic** dans le volet de navigation gauche. Cliquez sur **Système de fichiers** pour définir votre quota de stockage et la période de conservation, et enregistrez vos modifications. Vous pouvez trouver ces journaux d’activité sous `/home/LogFiles/`.
 -   [Utilisez SSH pour vous connecter à l’instance d’application](app-service-linux-ssh-support.md) et afficher les journaux des applications en cours d’exécution.
--   Journaux de diagnostic de la vérification le **journaux de Diagnostic** panneau du portail ou à l’aide de la commande CLI Azure :
-`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`
+-   Vérifiez les journaux de diagnostic dans le panneau **Journaux de diagnostic** du portail ou avec la commande Azure CLI : `az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

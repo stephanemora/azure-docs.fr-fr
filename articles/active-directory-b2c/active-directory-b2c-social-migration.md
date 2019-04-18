@@ -11,10 +11,10 @@ ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894899"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C : Migrer des utilisateurs avec des identités de réseaux sociaux
@@ -29,11 +29,11 @@ Cet article est la suite de celui sur la migration des utilisateurs. Il est axé
 
 * Les identités des **comptes sociaux** sont stockées dans la collection `userIdentities`. L’entrée spécifie l’`issuer` (nom du fournisseur d’identité), tel que facebook.com, et l’`issuerUserId`, qui est un identificateur d’utilisateur unique pour l’émetteur. L’attribut `userIdentities` contient un ou plusieurs enregistrements UserIdentity qui spécifient le type de compte social et l’identificateur d’utilisateur unique du fournisseur d’identité sociale.
 
-* **Combiner un compte local avec une identité sociale**. Comme mentionné plus haut, les noms de connexion des comptes locaux et les identités de comptes sociaux sont stockés dans des attributs différents. `signInNames` est utilisé pour le compte local, tandis que `userIdentities` pour les comptes sociaux. Un compte Azure AD B2C unique peut être un compte local uniquement, un compte social uniquement, ou il peut combiner un compte local avec une identité sociale dans un enregistrement utilisateur. Ce comportement vous permet de gérer un seul compte, l’utilisateur pouvant se connecter avec les informations du compte local ou avec les identités sociales.
+* **Combiner un compte local avec une identité sociale**. Comme mentionné plus haut, les noms de connexion des comptes locaux et les identités de comptes sociaux sont stockés dans des attributs différents. `signInNames` est utilisé pour le compte local, tandis que `userIdentities` est utilisé pour le compte social. Un compte Azure AD B2C unique peut être un compte local uniquement, un compte social uniquement, ou il peut combiner un compte local avec une identité sociale dans un enregistrement utilisateur. Ce comportement vous permet de gérer un seul compte, l’utilisateur pouvant se connecter avec les informations du compte local ou avec les identités sociales.
 
-* `UserIdentity` Type - contient des informations sur l’identité d’un utilisateur de compte social dans un locataire Azure AD B2C :
-  * `issuer` Représentation sous forme de chaîne du fournisseur d’identité qui a émis l’identificateur d’utilisateur, par exemple facebook.com.
-  * `issuerUserId` Identificateur unique utilisé par le fournisseur d’identité sociale au format base64.
+* Type `UserIdentity` : contient des informations sur l’identité d’un utilisateur de compte social dans un locataire Azure AD B2C :
+  * `issuer` : représentation sous forme de chaîne du fournisseur d’identité qui a émis l’identificateur d’utilisateur, par exemple facebook.com.
+  * `issuerUserId` : identificateur d’utilisateur unique utilisé par le fournisseur d’identité sociale au format base64.
 
     ```JSON
     "userIdentities": [{

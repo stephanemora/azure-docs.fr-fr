@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
 ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879690"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
@@ -137,5 +137,5 @@ Voici un résumé des options de haute disponibilité/récupération d’urgence
 
 Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 
-* [Bien démarrer avec IoT Hubs (démarrage rapide)](quickstart-send-telemetry-dotnet.md)
+* [Bien démarrer avec les hubs IoT (démarrage rapide)](quickstart-send-telemetry-dotnet.md)
 * [Qu’est-ce qu’Azure IoT Hub ?](about-iot-hub.md)

@@ -10,10 +10,10 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: d7370fc14a5ede23744e04ac9d35140f2368e21f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877395"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(DÉPRÉCIÉ) Analyser un cluster Azure Container Service avec Log Analytics
@@ -123,7 +123,7 @@ Pour protéger votre ID et la clé de votre espace de travail Log Analytics, vou
   KEY:    88 bytes
   ```
 
-  - Créer votre daemonsset en exécutant ```kubectl create -f omsagent-ds-secrets.yaml```
+  - Créer votre DaemonsSet omsagent en exécutant ```kubectl create -f omsagent-ds-secrets.yaml```
 
 ### <a name="conclusion"></a>Conclusion
 Et voilà ! Après quelques minutes, vous devez être en mesure de voir le flux de données vers votre tableau de bord Log Analytics.

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893450"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
@@ -85,8 +85,8 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
 
 Utilisez ce paramètre si des enregistrements bruts ou externes contiennent un bruit de fond. Ce paramètre est utilisé pour configurer le processus d’indexation. Vous pouvez spécifier les valeurs suivantes :
 
-- `Default` – Permet d’indexer et d’extraire des analyses à l’aide de l’audio et vidéo
-- `AudioOnly` – Permet d’indexer et d’extraire des analyses à l’aide d’audio seulement (ignorer des données vidéo)
+- `Default` – Permet d’indexer et d’extraire des insights de l’audio et de la vidéo
+- `AudioOnly` – Permet d’indexer et d’extraire des insights de l’audio uniquement (la vidéo est ignorée)
 - `DefaultWithNoiseReduction` – Permet d’indexer et d’extraire des insights de l’audio et vidéo, tout en appliquant des algorithmes de réduction du bruit sur les flux audio
 
 Le prix dépend de l’option d’indexation sélectionnée.  

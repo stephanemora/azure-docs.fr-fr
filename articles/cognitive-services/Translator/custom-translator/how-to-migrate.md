@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 73fc0d26612d32f2614899c62f680ff9e85d1609
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901523"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698397"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrer un espace de travail et des projets Microsoft Hub vers Custom Translator
 
@@ -119,6 +119,7 @@ La page de l’historique des migrations s’affiche après les informations sui
 Si vous souhaitez obtenir un rapport plus détaillé sur la migration de vos projets, formations et documents, vous pouvez exporter ces informations au format CSV.
 
 ## <a name="implementation-notes"></a>Remarques relatives à l’implémentation
+* Systèmes avec le langage n’associe pas encore disponibles dans personnalisé Translator sera uniquement disponible pour accéder aux données ou annuler son déploiement via le traducteur de personnalisé. Ces projets portera la mention « Non disponible » sur la page projets. Comme nous activons nouvelles paires de langage avec personnalisé Translator, les projets devient actifs pour former et déployer. 
 * La migration d’un projet Hub vers Custom Translator n’a aucun impact sur vos entraînements ou projets Hub. Nous ne supprimons pas les projets ou documents Hub durant une migration et n’annulons pas le déploiement de modèles.
 * Vous ne pouvez migrer un projet qu’une seule fois. Si vous avez besoin de répéter la migration d’un projet, contactez-nous.
 * Traducteur personnalisé prend en charge les paires de langues NMT vers et à partir de l’anglais. [Afficher la liste complète des langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Hub ne nécessite pas de modèles de base et prend donc en charge plusieurs milliers de langues. Vous pouvez migrer une paire de langues non prise en charge, mais nous migrons uniquement les documents et définitions de projet. Nous ne pouvons pas entraîner le nouveau modèle. Par ailleurs, ces documents et projets apparaissent comme inactifs pour indiquer que vous ne pouvez pas les utiliser. Si ces projets et/ou documents sont un jour pris en charge, ils deviennent actifs et peuvent être entraînés.

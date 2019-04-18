@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004589"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697887"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Qu’est-ce qu’Azure Monitor pour machines virtuelles (préversion) ?
 
-Azure Monitor pour machines virtuelles surveille les machines virtuelles et groupes de machines virtuelles identiques à grande échelle. Il analyse les performances et l’intégrité de vos machines virtuelles Linux et Windows et surveille leurs processus et les dépendances sur d’autres ressources et les processus externes. 
+Azure Monitor pour machines virtuelles surveille les machines virtuelles et groupes de machines virtuelles identiques à grande échelle. Il analyse les performances et l’intégrité des machines virtuelles Windows et Linux, et supervise leurs processus et dépendances vis-à-vis d’autres ressources et des processus externes. 
 
 La solution Azure Monitor pour machines virtuelles prend en charge le monitoring des performances et des dépendances d’applications des machines virtuelles hébergées localement ou auprès d’un autre fournisseur de cloud. Trois fonctionnalités clés offrent des insights approfondis :
 
@@ -39,7 +39,7 @@ Ces fonctionnalités sont organisées selon trois perspectives :
 * Mappage
 
 >[!NOTE]
->À l’heure actuelle, la fonctionnalité Intégrité est exclusivement proposée pour les machines virtuelles et les groupes identiques de machines virtuelles Azure. Performances et des fonctionnalités de mappage prennent en charge les machines virtuelles Azure et machines virtuelles qui sont hébergées dans votre environnement ou d’autres fournisseurs de cloud.
+>Actuellement, la fonctionnalité de contrôle d’intégrité est disponible uniquement pour les machines virtuelles. Performances et des fonctionnalités de mappage prennent en charge les machines virtuelles Azure identiques de machines virtuelles Azure et machines virtuelles qui sont hébergées dans votre environnement ou d’autres fournisseurs de cloud.
 
 L’intégration avec les journaux d’activité Azure Monitor offre de puissantes fonctionnalités d’agrégation et de filtrage, ainsi que la possibilité d’analyser les tendances des données au fil du temps. Pris individuellement, Azure Monitor ou Service Map ne sont pas suffisants pour effectuer un monitoring aussi complet des charges de travail.  
 

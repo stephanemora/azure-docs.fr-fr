@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894455"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
@@ -64,7 +64,7 @@ Les applications prédéfinies Cortana sont déconseillées depuis 2017. Elles n
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Comment faire pour transférer la propriété d’une application LUIS ?
 Pour transférer une application LUIS vers un autre abonnement Azure, exportez l’application LUIS et importez-la à l’aide d’un nouveau compte. Mettez à jour l’ID de l’application LUIS dans l’application cliente qui l’appelle. La nouvelle application peut renvoyer des scores LUIS légèrement différents de ceux renvoyés par l’application d’origine.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Une entité prédéfinie est marquée dans un énoncé exemple au lieu de mon entité personnalisée. Comment résoudre ce problème ? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Une entité prédéfinie est marquée dans un énoncé exemple au lieu de mon entité personnalisée. Comment corriger ceci ? 
 
 Consultez [résolution des problèmes des entités prédéfinies](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
 
@@ -240,7 +240,7 @@ Il faut d’abord constater si le problème est lié à LUIS ou survient en deho
 #### <a name="resolve-issue-in-luis"></a>Résoudre le problème dans LUIS
 Passer le même énoncé à LUIS à partir du [point de terminaison LUIS](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). Si vous recevez une erreur, résolvez le problème dans LUIS jusqu'à ce que l’erreur ne soit plus renvoyée. Les erreurs courantes sont les suivantes :
 
-* `Out of call volume quota. Quota will be replenished in <time>.` -Ce problème indique que vous avez besoin pour modifier à partir d’une clé de création à une [clé du point de terminaison](luis-how-to-azure-subscription.md) ou vous devez modifier [niveaux de service](luis-how-to-azure-subscription.md#change-pricing-tier). 
+* `Out of call volume quota. Quota will be replenished in <time>.` -Ce problème indique que vous devez passer d’une clé de création à une [clé de point de terminaison](luis-how-to-azure-subscription.md) ou modifier des [niveaux de service](luis-how-to-azure-subscription.md#change-pricing-tier). 
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Résoudre le problème dans Azure Bot Service
 
@@ -296,10 +296,10 @@ Les fonctionnalités publiées lors de la conférence Build 2018 sont les suiva
 Des [itinéraires d’API](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) de création supplémentaires ont été inclus.
 
 Vidéos :
-* [Azure Friday au Build 2018 : COGNITIVE Services - langue (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - Nouveautés avec Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Build 2018 Session - Bot intelligence, les fonctionnalités vocales et NLU meilleures pratiques](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - mises à jour de LUIS](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+* [Azure Friday At Build 2018: Cognitive Services - Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Build 2018 AI Show - What’s New with Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
+* [Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projets :
 * Démo du [bot de Contoso Cafe](https://github.com/botbuilderbuild2018/build2018demo) - code source sur GitHub
@@ -307,5 +307,5 @@ Projets :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur LUIS, voir les ressources suivantes :
-* [Questions de dépassement de capacité de pile étiquetées avec LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [(LUIS) Forum des Services de langage MSDN présentation Intelligent](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Questions de Stack Overflow balisées avec LUIS](https://stackoverflow.com/questions/tagged/luis)
+* [Forum Language Understanding Intelligent Services (LUIS) de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)

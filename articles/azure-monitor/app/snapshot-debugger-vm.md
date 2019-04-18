@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
 ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877735"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Activer le débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, Service Cloud et Machines virtuelles
@@ -77,7 +77,7 @@ Si votre ASP.NET ou un ASP.NET core application est exécuté dans Azure App Ser
 
 3. Modifiez la classe `Startup` de votre application pour ajouter et configurer le processeur de télémétrie du collecteur de captures instantanées.
 
-    Ajoutez le code suivant à l’aide des instructions pour `Startup.cs`
+    Ajoutez les paramètres suivants à l’aide des instructions pour `Startup.cs`
 
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;

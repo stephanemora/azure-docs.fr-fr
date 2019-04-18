@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896157"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
@@ -29,7 +29,7 @@ Azure Functions prend en charge le langage de programmation C#, mais également 
 Cet article suppose que vous avez déjà lu les articles suivants :
 
 * [Guide de développement Azure Functions](functions-reference.md)
-* [Outils de Visual Studio 2017 d’Azure Functions](functions-develop-vs.md)
+* [Outils Azure Functions Visual Studio 2017](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Projet de bibliothèque de classes Azure Functions
 
@@ -344,7 +344,7 @@ Définissez une liaison impérative comme suit :
   }
   ```
 
-  `BindingTypeAttribute` est l’attribut .NET qui définit votre liaison, et `T` est un type d’entrée ou de sortie qui est pris en charge par ce type de liaison. `T` ne peut pas être un `out` type de paramètre (tel que `out JObject`). Par exemple, la liaison de sortie de la table Mobile Apps prend en charge [six types de sortie](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mais vous pouvez utiliser uniquement [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) avec des liaisons impératives.
+  `BindingTypeAttribute` est l’attribut .NET qui définit votre liaison et `T` est le type d’entrée ou de sortie pris en charge par ce type de liaison. `T` ne peut pas être un type de paramètre `out` (comme `out JObject`). Par exemple, la liaison de sortie de la table Mobile Apps prend en charge [six types de sortie](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mais vous pouvez utiliser uniquement [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) avec des liaisons impératives.
 
 ### <a name="single-attribute-example"></a>Exemple d’attribut unique
 
@@ -405,7 +405,7 @@ public static class IBinderExampleMultipleAttributes
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur les déclencheurs et liaisons](functions-triggers-bindings.md)
+> [En savoir plus sur les déclencheurs et les liaisons](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les meilleures pratiques pour Azure Functions](functions-best-practices.md)

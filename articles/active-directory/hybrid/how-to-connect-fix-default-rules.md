@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f524e8cef3878816cec53575217bdb6d0fd9be7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501255"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698159"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Résoudre les règles par défaut modifiées dans Azure AD Connect
 
@@ -76,12 +76,12 @@ Règle de synchronisation entrante signifie que la source de l’attribut est un
 
  ![règles par défaut](media/how-to-connect-fix-default-rules/default3a.png)
 
-Suivez votre propre convention d’affectation de noms pour le nom de la règle, ici nous avons utilisé **personnalisé à partir d’AD - utilisateur**, cela signifie que la règle est une règle personnalisée et une règle de trafic entrant à partir de l’espace de connecteur AD dans le métaverse. 
+Suivez votre propre convention d’affectation de noms pour le nom de la règle, ici nous avons utilisé **personnalisé à partir d’AD - utilisateur**, cela signifie que la règle est une règle personnalisée et une règle de trafic entrant à partir de l’espace de connecteur AD dans le métaverse.   
 
  ![règles par défaut](media/how-to-connect-fix-default-rules/default3b.png)
 
-Donnez votre propre description de la règle pour qu’une maintenance ultérieure de la règle est facile, comme ce qui est l’objectif de cette règle et pourquoi il a été nécessaire.
-Système connecté (la forêt) sélectionné la source de l’attribut. Puis Type d’objet système connecté et le Type d’objet de métaverse.
+Donnez votre propre description de la règle pour qu’une maintenance ultérieure de la règle est facile, quel est l’objectif de cette règle et pourquoi il a été nécessaire.
+Sélectionnez un système connecté (forêt), la source de l’attribut. Ensuite, sélectionnez le Type d’objet système connecté et le Type d’objet métaverse.
 
 Spécifiez la valeur de priorité compris entre 0 et 99 (le numéro inférieur, plu la priorité). Conservez les autres champs tels que « Tag », « Activer la synchronisation de mot de passe » et « Disabled » comme valeur par défaut.
 

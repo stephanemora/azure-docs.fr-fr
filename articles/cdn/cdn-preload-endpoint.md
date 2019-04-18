@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
 ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918363"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Préchargement d’éléments multimédias sur un point de terminaison CDN Azure
@@ -50,8 +50,8 @@ Ce didacticiel vous guide tout au long du préchargement de contenu mis en cache
    > Après avoir commencé à saisir du texte, d’autres zones de texte **Chemin du contenu** s’afficheront pour vous permettre de créer une liste de plusieurs ressources. Pour supprimer des ressources de la liste, sélectionnez le bouton avec les points de suspension (...), puis sélectionnez **Supprimer**.
    > 
    > Chaque chemin du contenu doit être une URL relative qui satisfait aux [expressions régulières](/dotnet/standard/base-types/regular-expression-language-quick-reference) suivantes :  
-   > - Chargement d’un seul fichier : `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - Chargement d’un fichier unique avec chaîne de requête : `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > - Chargement d’un fichier unique : `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Chargement d’un fichier unique avec chaîne de requête : `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > Étant donné que chaque ressource doit avoir son propre chemin, il n’existe aucune fonctionnalité générique pour le préchargement des ressources.
    > 

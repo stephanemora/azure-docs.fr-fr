@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917411"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Comment l’API de traduction de texte Translator Text compte les caractères
@@ -24,8 +24,8 @@ L’API de traduction de texte Translator Text comptabilise chaque point de code
 Voici ce qui est pris en compte :
 
 * Le texte passé à l’API de traduction de texte Translator Text dans le corps de la requête
-   * `Text` Lorsque vous utilisez les méthodes de recherche dans le dictionnaire, Translate et Transliterate
-   * `Text` et `Translation` lors de l’utilisation de la méthode d’exemples de dictionnaire
+   * `Text` lorsque vous utilisez les méthodes Translate, Transliterate et Dictionary Lookup
+   * `Text` et `Translation` lorsque vous utilisez la méthode Dictionary Examples
 * Toutes les balises : balises HTML, XML, etc. dans le champ de texte du corps de la requête. La notation JSON utilisée pour générer la requête (par exemple « Text: ») n’est pas prise en compte.
 * Une lettre seule
 * Ponctuation

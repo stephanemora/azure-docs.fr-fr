@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905085"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Comment exécuter des fonctions durables en tant que tâches Web
@@ -32,7 +32,7 @@ L’exemple de fonctions durables chaînage est disponible dans une version 2.x 
 Cet article suppose que vous connaissez les principes de base du SDK WebJobs, du développement de bibliothèque de classes C# pour Azure Functions et de l’extension Fonctions durables. Si vous souhaitez consulter une présentation de ces thématiques, accédez aux ressources suivantes :
 
 * [Prise en main du Kit de développement logiciel (SDK) WebJobs](../../app-service/webjobs-sdk-get-started.md)
-* [Créer votre première fonction à l’aide de Visual Studio](../functions-create-your-first-function-visual-studio.md)
+* [Créer votre première fonction à l’aide de Visual Studio](../functions-create-your-first-function-visual-studio.md)
 * [Fonctions durables](durable-functions-sequence.md)
 
 Pour accomplir les étapes décrites dans cet article :
@@ -133,7 +133,7 @@ Le SDK WebJobs ne prend pas en charge les fonctions suivantes d’Azure Function
 
 * [Attribut FunctionName](#functionname-attribute)
 * [Déclencheur HTTP](#http-trigger)
-* [API de gestion HTTP Functions durable](#http-management-api)
+* [API de gestion HTTP de Fonctions durables](#http-management-api)
 
 ### <a name="functionname-attribute"></a>Attribut FunctionName
 

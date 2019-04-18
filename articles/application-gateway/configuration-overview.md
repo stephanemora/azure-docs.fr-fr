@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
 ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58906121"
 ---
 # <a name="application-gateway-configuration-overview"></a>Vue d’ensemble de configuration Application Gateway
@@ -346,4 +346,4 @@ Maintenant que vous connaissez les composants de la passerelle d’Application, 
 
 - [Créer une passerelle d’application dans le portail Azure](quick-create-portal.md)
 - [Créer une passerelle d’application à l’aide de PowerShell](quick-create-powershell.md)
-- [Créer une passerelle Application Gateway à l’aide de l’interface de ligne de commande Azure](quick-create-cli.md)
+- [Créer une passerelle d’application à l’aide de l’interface CLI Azure](quick-create-cli.md)

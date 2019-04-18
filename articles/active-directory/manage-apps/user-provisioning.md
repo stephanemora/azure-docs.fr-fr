@@ -16,10 +16,10 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894404"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
@@ -58,13 +58,13 @@ Voici les principales raisons pour utiliser cette fonctionnalité :
 Le **Service d’approvisionnement Azure AD** approvisionne des utilisateurs pour les applications SaaS et d’autres systèmes en vous connectant aux points de terminaison de gestion des API utilisateur fournies par chaque fournisseur de l’application. Ces points de terminaison d’API de gestion des utilisateurs permettent à Azure AD de créer, de mettre à jour et de supprimer des utilisateurs par programmation. Pour les applications sélectionnées, le service d’approvisionnement peut également créer, mettre à jour et supprimer des objets supplémentaires liées à l’identité, comme les groupes et rôles. 
 
 ![Approvisionnement](./media/user-provisioning/provisioning0.PNG)
-*Figure 1 : Le service d’approvisionnement Azure AD*
+*Figure 1 : Le service d’approvisionnement Azure AD*
 
 ![Approvisionnement sortant](./media/user-provisioning/provisioning1.PNG)
-*Figure 2 : Workflow d’approvisionnement d’utilisateurs « sortant » entre Azure AD et des applications SaaS populaires*
+*Figure 2 : Workflow d’approvisionnement d’utilisateurs « sortant » entre Azure AD et des applications SaaS populaires*
 
 ![Approvisionnement entrant](./media/user-provisioning/provisioning2.PNG)
-*Figure 3 : Workflow d’approvisionnement d’utilisateurs « entrant » entre des applications de gestion du capital humain populaires, et Azure Active Directory et Windows Server Active Directory*
+*Figure 3 : Workflow d’approvisionnement d’utilisateurs « entrant » entre des applications de gestion du capital humain populaires, et Azure Active Directory et Windows Server Active Directory*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quels applications et systèmes puis-je utiliser avec l’approvisionnement d’utilisateurs automatique d’Azure AD ?
@@ -278,8 +278,8 @@ Pour résoudre ce problème, vous devez affecter explicitement (ou autre [étend
 ## <a name="related-articles"></a>Articles connexes
 
 - [Liste des didacticiels sur l’intégration des applications SaaS](../saas-apps/tutorial-list.md)
-- [Personnalisation des mappages d’attributs pour l’approvisionnement](customize-application-attributes.md)
+- [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](customize-application-attributes.md)
 - [Écriture d’expressions pour les mappages d’attributs](functions-for-customizing-application-data.md)
-- [Filtres d’étendue pour l’approvisionnement](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Filtres d’étendue pour l’approvisionnement des utilisateurs](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](use-scim-to-provision-users-and-groups.md)
-- [Vue d’ensemble des API de synchronisation Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Vue d’ensemble de l’API de synchronisation Azure AD)

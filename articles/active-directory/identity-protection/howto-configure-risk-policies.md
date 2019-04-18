@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc2a1bd8b751ab1b88e54876227892ea3c257a3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517536"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699029"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procédure : Configurer les stratégies en matière de risque dans Azure Active Directory Identity Protection (version actualisée)
 
@@ -41,7 +41,8 @@ Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analys
 
 La stratégie de connexion à risque est une réponse automatisée que vous pouvez configurer pour un niveau de risque de connexion spécifique. Dans votre réponse, vous pouvez bloquer l’accès à vos ressources ou exiger la résolution d’un test de l’authentification multifacteur pour obtenir l’accès.
 
-   
+Lorsqu’un utilisateur a effectué une invite d’authentification Multifacteur déclenchée par la stratégie de risque de connexion, elle fournit des commentaires à Identity Protection et l’authentification dans provenant d’un utilisateur légitime. Par conséquent, l’événement de risque de connexion qui a déclenché l’invite d’authentification Multifacteur sera automatiquement fermée et Identity Protection empêche cet événement qui contribuent à l’élévation de risque de l’utilisateur. Activation de la stratégie de risque de connexion peut réduire les éléments superflus dans la vue risquées en permettant aux utilisateurs de corrige automatiquement lorsque vous y êtes invité pour l’authentification Multifacteur et en fermant ensuite automatiquement l’associé à risque connectez-vous.
+
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Comment faire pour accéder à la stratégie de connexion à risque ?
    
 La stratégie de risque de connexion est disponible dans la section **Configurer** de la [page Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).

@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878160"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Didacticiel : Intégration d’Azure Active Directory à Workpath | Microsoft Docs
@@ -99,7 +99,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Workpath, v
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Workpath.
 
-**Pour configurer Azure AD-authentification unique avec Workpath, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec Workpath, procédez comme suit :**
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Workpath**, cliquez sur **Authentification unique**.
 
@@ -113,7 +113,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_workpath_url.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.workpath.com/v1/saml/metadata/<instancename>`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://api.workpath.com/v1/saml/assert/<instancename>`
 
@@ -212,7 +212,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ![Affecter des utilisateurs][200] 
 
-**Pour affecter Britta Simon à Workpath, procédez comme suit :**
+**Pour assigner Britta Simon à Workpath, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 

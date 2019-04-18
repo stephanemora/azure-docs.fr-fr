@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243771"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698270"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur Azure Monitor pour machines virtuelles (préversion)
 Cette FAQ Microsoft est une liste de questions fréquemment posées au sujet d’Azure Monitor pour machines virtuelles (préversion). Si vous avez d’autres questions sur la solution, rendez-vous sur le [forum de discussion](https://feedback.azure.com/forums/34192--general-feedback) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -100,7 +100,7 @@ La fonctionnalité de mappage d’Azure Monitor pour machines virtuelles est bas
 * Les machines virtuelles supervisées font maintenant partie du nœud du groupe de clients, et le graphique en secteurs montre la répartition entre les machines virtuelles supervisées et non supervisées dans ce groupe.  Il permet également de filtrer la liste des machines lorsque le groupe est développé.
 * Les machines virtuelles supervisées font désormais partie des nœuds du groupe de ports du serveur, et le graphique en secteurs montre la répartition entre les machines supervisées et non supervisées dans ce groupe.  Il permet également de filtrer la liste des machines lorsque le groupe est développé.
 * Le style de mappage a été mis à jour pour assurer une meilleure cohérence avec le mappage des applications (App Map) dans les insights des applications (Application insights).
-* Les panneaux latéraux ont été mis à jour, mais ne disposent pas encore de tout l’ensemble d’intégration pris en charge dans Service Map : Update Management, Change Tracking, Security et Service Desk. 
+* Les panneaux de côté ont été mis à jour et n’ont pas de l’ensemble complet d’intégration qui étaient pris en charge dans Service Map - Update Management, le suivi des modifications, la sécurité et Service Desk. 
 * L’option de sélection des groupes et des machines à mapper a été mise à jour et prend désormais en charge les abonnements, les groupes de ressources, les groupes de machines virtuelles identiques Azure et les services cloud.
 * Vous ne pouvez pas créer de nouveaux groupes de machines Service Map dans la fonctionnalité de mappage d’Azure Monitor pour machines virtuelles.  
 
@@ -125,6 +125,12 @@ Bien que nous ayons apporté des améliorations au mappage pour la gestion de co
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Pourquoi le graphique du réseau dans l’onglet Performance est-il différent de celui de la page d’aperçu de la machine virtuelle Azure ?
 
 La page d’aperçu d’une machine virtuelle Azure affiche des graphiques basés sur la mesure de l’activité de l’hôte dans la machine virtuelle hôte.  Dans le cas du graphique du réseau sur l’aperçu de la machine virtuelle Azure, seul le trafic réseau qui sera facturé est affiché.  Le trafic entre réseaux virtuels n’est pas compris.  Les données et les graphiques présentés dans Azure Monitor pour les machines virtuelles sont basés sur les données de la machine virtuelle invitée et le graphique du réseau affiche tout le trafic TCP/IP entrant et sortant vers cette machine virtuelle, y compris le trafic entre réseaux virtuels.
+
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Comment est mesuré les temps de réponse pour les données stockées dans VMConnection et affichées dans le panneau de connexion et les classeurs ?
+
+Temps de réponse est une approximation. Dans la mesure où nous ne pas instrumenter le code de l’application, nous ne savons pas vraiment le démarrage d’une demande et lorsque la réponse arrive. Au lieu de cela, nous observons les données envoyées sur une connexion, puis de revenir sur cette connexion de données. Notre agent effectue le suivi de ces envoie et reçoit et tente de les jumeler : reçoit une séquence d’envois, suivi d’une séquence d’est interprétée comme une paire requête/réponse. La synchronisation entre ces opérations est le temps de réponse. Elle inclut la latence du réseau et le temps de traitement serveur.
+
+Cette approximation fonctionne bien pour les protocoles qui sont en fonction de demande/réponse : une seule demande est envoyée sur la connexion, et une seule réponse arrive. Cela est le cas pour HTTP (S) (sans traitement « pipeline »), mais non satisfaites pour d’autres protocoles.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Existe-t-il des limites avec l'utilisation du plan tarifaire Gratuit de Log Analytics ?
 Si vous avez configuré Azure Monitor avec un espace de travail Log Analytics en utilisant le niveau tarifaire *Gratuit*, la fonctionnalité de mappage d’Azure Monitor pour machines virtuelles ne prend en charge que cinq machines connectées à l’espace de travail. Ainsi, si cinq machines virtuelles sont connectées à un espace de travail gratuit et que vous déconnectez l'une d'elle, puis connectez une nouvelle machine virtuelle, la nouvelle machine virtuelle n'est ni surveillée ni reflétée sur la page dédiée aux mappages.  

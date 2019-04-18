@@ -16,10 +16,10 @@ ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918533"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Créer des requêtes pour répertorier les ressources Batch efficacement
@@ -98,8 +98,8 @@ La chaîne expand réduit le nombre d’appels d’API nécessaires pour obtenir
 * Les noms de propriété respectent la casse contrairement aux valeurs de propriété.
 * Les chaînes de date/heure peuvent être d’un format ou de l’autre et doivent être précédées de `DateTime`.
   
-  * Exemple de format W3C-DTF : `creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  * Exemple de format RFC 1123 : `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+  * Exemple de format W3C-DTF : `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  * Exemple de format RFC 1123 : `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 * Les chaînes booléennes ont la valeur `true` ou `false`.
 * Si une propriété ou un opérateur non valide est spécifié, une erreur `400 (Bad Request)` se produit.
 

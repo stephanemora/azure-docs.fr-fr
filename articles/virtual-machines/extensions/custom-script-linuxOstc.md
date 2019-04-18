@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882427"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure Version 1 avec des machines virtuelles Linux
@@ -133,11 +133,11 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 
 ### <a name="property-value-details"></a>Détails des valeurs de propriété
 
-* `fileUris`: (facultatif, tableau de chaînes) la liste d’uri des scripts
-* `enableInternalDNSCheck`: (facultatif, booléen) par défaut est True, la valeur False pour désactiver la vérification DNS.
-* `commandToExecute`: (facultatif, chaîne) le script de point d’entrée à exécuter
-* `storageAccountName`: (facultatif, chaîne) le nom du compte de stockage
-* `storageAccountKey`: (facultatif, chaîne) la clé d’accès du compte de stockage
+* `fileUris` : (facultatif, tableau de chaînes) liste d’uri des scripts
+* `enableInternalDNSCheck` : (facultatif, booléen) par défaut est True, définir sur False pour désactiver la vérification DNS
+* `commandToExecute` : (facultatif, chaîne) script de point d’entrée à exécuter
+* `storageAccountName` : (facultatif, chaîne) nom du compte de stockage
+* `storageAccountKey` : (facultatif, chaîne) clé d’accès du compte de stockage
 
 Les valeurs suivantes peuvent être définies dans les paramètres publics ou protégés, mais elles ne doivent pas être définies dans les deux à la fois.
 

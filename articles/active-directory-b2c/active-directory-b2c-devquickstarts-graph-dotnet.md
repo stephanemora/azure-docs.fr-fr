@@ -11,10 +11,10 @@ ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0f380aa9f2efc1ae9636b7704f7eb75004bb71f9
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895052"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C : Utiliser l’API Azure AD Graph
@@ -126,7 +126,7 @@ B2C Help
 Ceci affiche une brève description de chaque commande. À chaque fois que vous appelez une de ces commandes, `B2CGraphClient` envoie une demande à l’API Azure AD Graph .
 
 ### <a name="get-an-access-token"></a>Obtention d’un jeton d’accès
-Toute demande envoyée à l’API Graph requiert un jeton d’accès pour l’authentification. `B2CGraphClient` utilise l’open source Active Directory Authentication Library (ADAL) pour aider à acquérir des jetons d’accès. La bibliothèque ADAL facilite l’acquisition des jetons en fournissant une API simple et en prenant soin de certains détails importants, tels que la mise en cache des jetons d’accès. Cependant, vous n’êtes pas obligé d’utiliser la bibliothèque ADAL pour obtenir des jetons. Vous pouvez également en obtenir en créant des requêtes HTTP.
+Toute demande envoyée à l’API Graph requiert un jeton d’accès pour l’authentification. `B2CGraphClient` utilise la bibliothèque d’authentification Active Directory (ADAL) open source pour vous aider à acquérir des jetons d’accès. La bibliothèque ADAL facilite l’acquisition des jetons en fournissant une API simple et en prenant soin de certains détails importants, tels que la mise en cache des jetons d’accès. Cependant, vous n’êtes pas obligé d’utiliser la bibliothèque ADAL pour obtenir des jetons. Vous pouvez également en obtenir en créant des requêtes HTTP.
 
 > [!NOTE]
 > Cet exemple de code utilise la bibliothèque ADAL v2 afin de communiquer avec l’API Graph.  Vous devez utiliser la bibliothèque ADAL v2 ou v3 afin d’obtenir des jetons d’accès qui peuvent être utilisés avec l’API Azure AD Graph .
@@ -355,7 +355,7 @@ Vous pouvez utiliser le nom complet, tel que `extension_55dc0861f9a44eb999e0a8a8
 B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-Avec `B2CGraphClient`, vous disposez d’une application de service capable de gérer les utilisateurs de votre client B2C par programmation. `B2CGraphClient` utilise sa propre identité de l’application pour s’authentifier auprès de l’API Graph Azure AD. et acquiert des jetons à l’aide d’une clé secrète client. Lorsque vous intégrez cette fonctionnalité dans votre application, prenez en considération les quelques points clés suivants pour les applications B2C :
+Avec `B2CGraphClient`, vous disposez d’une application de service capable de gérer les utilisateurs de votre client B2C par programmation. `B2CGraphClient` utilise sa propre identité d’application pour s’authentifier auprès de l’API Azure AD Graph. et acquiert des jetons à l’aide d’une clé secrète client. Lorsque vous intégrez cette fonctionnalité dans votre application, prenez en considération les quelques points clés suivants pour les applications B2C :
 
 * Vous devez accorder les autorisations appropriées à l’application dans le client.
 * Pour le moment, vous devez utiliser la bibliothèque ADAL (pas MSAL) pour obtenir des jetons d’accès. (vous pouvez également envoyer des messages de protocole directement, sans utiliser de bibliothèque).

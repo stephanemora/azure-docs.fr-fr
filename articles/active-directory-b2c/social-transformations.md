@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893518"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformations de revendications de comptes sociaux
@@ -81,7 +81,7 @@ Ajoute un `AlternativeSecurityId` à une revendication `alternativeSecurityIdCol
 L’exemple suivant lie une nouvelle identité sociale à un compte existant. Pour lier une nouvelle identité sociale :
 1. Dans les profils techniques **AAD-UserReadUsingAlternativeSecurityId** et **AAD-UserReadUsingObjectId**, faites sortir la revendication **alternativeSecurityIds** de l’utilisateur.
 1. Demandez à l’utilisateur à se connecter avec l’un des fournisseurs d’identité qui ne lui sont pas associés.
-1. À l’aide de la **CreateAlternativeSecurityId** de revendications de transformation, créer un nouveau **alternativeSecurityId** avec un nom de type de revendication `AlternativeSecurityId2`
+1. À l’aide de la transformation de revendications **CreateAlternativeSecurityId**, créez un type de revendication **alternativeSecurityId** nommé `AlternativeSecurityId2`.
 1. Appelez la transformation de revendications **AddItemToAlternativeSecurityIdCollection** pour ajouter la revendication **AlternativeSecurityId2** à la revendication **AlternativeSecurityIds** existante.
 1. Conservez la revendication **alternativeSecurityIds** sur le compte d’utilisateur.
 

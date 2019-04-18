@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918227"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
@@ -47,7 +47,7 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator ou hub
 
-|   | **Hub** | **Custom Translator**|
+|   | **Concentrateur** | **Custom Translator**|
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2 uniquement   | V3 uniquement |
@@ -66,4 +66,4 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Configurer un système de langage personnalisés à l’aide personnalisée Translator](https://aka.ms/CustomTranslatorDocs)
+> [Configurer un système de langue personnalisé à l’aide de Custom Translator](https://aka.ms/CustomTranslatorDocs)

@@ -16,10 +16,10 @@ ms.date: 10/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 936ad2e49aaf449144296dd941a3fbc42719fe4f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Didacticiel : Intégration d’Azure AD avec Skillport
@@ -99,7 +99,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Skillport, v
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Skillport.
 
-**Pour configurer Azure AD-authentification unique avec Skillport, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec Skillport, procédez comme suit :**
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Skillport**, cliquez sur **Authentification unique**.
 
@@ -115,19 +115,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Dans la zone de texte **URL de connexion**, tapez l’URL :
       
-      Centre de données de l’Union européenne : `https://adfs.skillport.eu`
+      Centre de données Europe : `https://adfs.skillport.eu`
    
       Centre de données États-Unis : `https://sso.skillport.com`
 
     b. Dans la zone de texte **Identificateur**, tapez l’URL suivante :
       
-      Centre de données de l’Union européenne : `http://adfs.skillport.eu/adfs/services/trust`
+      Centre de données Europe : `http://adfs.skillport.eu/adfs/services/trust`
    
       Centre de données États-Unis : `https://sso.skillport.com`
    
     c. Dans la zone de texte **URL de réponse**, tapez l’URL suivante :
     
-      Centre de données de l’Union européenne : `https://adfs.skillport.eu/adfs/ls/`
+      Centre de données Europe : `https://adfs.skillport.eu/adfs/ls/`
     
       Centre de données États-Unis : `https://sso.skillport.com/sp/ACS.saml2`
  

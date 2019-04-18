@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878721"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure 
@@ -53,13 +53,13 @@ Au cours de cette phase, une migration de la charge de travail SAP vers le cloud
         5.  [Tableau de disponibilité des produits SAP](https://support.sap.com/en/)
         6.  Autres notes SAP pour d'autres produits spécifiques  
     5.  Nous recommandons des conceptions strictes à 3 niveaux pour les systèmes de production SAP. Il est déconseillé de combiner des serveurs ASCS et APP sur la même machine virtuelle.  Azure prend en charge l'utilisation de configurations de cluster multi-SID pour SAP Central Services avec Windows en tant que système d'exploitation invité. En revanche, Azure ne prend pas en charge les configurations de cluster multi-SID pour SAP Central Services sur les systèmes d'exploitation Linux. La documentation relative au SE invité Windows est disponible aux emplacements suivants :
-        1.  [Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et un disque partagé sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
-        2.  [Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
+        1.  [Haute disponibilité multi-SID pour une instance SAP ASCS/SCS avec le clustering de basculement Windows Server et un disque partagé sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
+        2.  [Haute disponibilité multi-SID pour une instance SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
     6.  Architecture de haute disponibilité et de récupération d'urgence
         1.  Définissez l'architecture de haute disponibilité et de récupération d'urgence en fonction des objectifs RTO et RPO.
         2.  Pour une haute disponibilité dans la même zone, vérifiez ce que le SGBD souhaité peut offrir dans Azure. La plupart des SGBD offrent les méthodes synchrones d'un serveur de secours synchrone, ce que nous recommandons pour les systèmes de production. Consultez aussi la documentation SAP pour les différentes bases de données en commençant par [Facteurs à prendre en compte pour le déploiement SGBD de machines virtuelles Azure pour la charge de travail SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) et les documents connexes
             1.  L’utilisation du service de cluster de basculement Windows avec une configuration de disque partagé pour la couche SGBD comme décrit pour SQL Server [ici](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017) n’est **PAS** prise en charge. Utilisez à la place des solutions comme :
-                1.  [SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
+                1.  [SQL Server Always On](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
                 2.  [Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
                 3.  [Réplication de système HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         3.  Pour la récupération d'urgence dans différentes régions Azure, vérifiez les possibilités offertes par les différents fournisseurs de SGBD. La plupart d'entre eux prennent en charge la réplication asynchrone ou la copie des journaux de transaction.
@@ -72,13 +72,13 @@ Au cours de cette phase, une migration de la charge de travail SAP vers le cloud
     2.  Topologie de réseau dans Azure et affectation de différents systèmes SAP.
     3.  Structure d'[accès basée sur les rôles](https://docs.microsoft.com/azure/role-based-access-control/overview) pour vos différentes équipes afin d'assurer la gestion de l'infrastructure et des applications SAP dans Azure.
     3.  Topologie des groupes de ressources. 
-    4.  [Stratégie de balisage](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)
+    4.  [Stratégie de balisage](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing).
     5.  Convention d'affectation de noms pour les machines virtuelles, et autres composants d'infrastructure et/ou noms logiques.
 5.  Contrat Support Premier Microsoft - Identifier le Gestionnaire de compte technique MS. Pour connaître les exigences de support SAP, lisez la note de support SAP [n° 2015553](https://launchpad.support.sap.com/#/notes/2015553). 
 6.  Définissez le nombre d'abonnements Azure et le quota principal pour les différents abonnements. Si nécessaire, [ouvrez des demandes de support pour augmenter les quotas d'abonnements Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). 
 7.  Plan de réduction et de migration des données pour la migration des données SAP vers Azure. Pour les systèmes SAP NetWeaver, SAP propose des directives afin de limiter les gros volumes de données. SAP a publié [ce guide détaillé](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) consacré à la gestion des données dans les systèmes SAP ERP. Toutefois, certains contenus s'appliquent aux systèmes NetWeaver et S/4HANA en général.
 8.  Définissez une approche de déploiement automatisé. L'objectif de l'automatisation derrière les déploiements d'infrastructures sur Azure est de déployer de manière déterministe et d'obtenir des résultats déterministes. Beaucoup de clients utilisent des scripts basés sur Power Shell ou sur l'interface CLI. Mais différentes technologies open source sont disponibles et celles-ci peuvent être utilisées pour déployer une infrastructure Azure pour SAP, et même pour installer les logiciels SAP. Vous trouverez des exemples dans GitHub :
-    1.  [Déploiements automatisés SAP dans Azure Cloud](https://github.com/Azure/sap-hana)
+    1.  [Déploiements SAP automatisés dans le cloud Azure](https://github.com/Azure/sap-hana)
     2.  [Installation de SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Définissez une cadence régulière de révision de la conception et du déploiement entre vous, en tant que client, l'intégrateur système, Microsoft et les autres parties concernées.
 

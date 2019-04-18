@@ -16,10 +16,10 @@ ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894916"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
@@ -51,7 +51,7 @@ App Service journalise également les informations de déploiement quand vous p
 Pour activer les diagnostics sur le [portail Azure](https://portal.azure.com), accédez à la page de votre application, puis cliquez sur **Paramètres > Journaux de diagnostics**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
-![Partie des journaux d’activité](./media/web-sites-enable-diagnostic-log/logspart.png)
+![Partie des journaux](./media/web-sites-enable-diagnostic-log/logspart.png)
 
 Quand vous activez les **diagnostics d’application**, choisissez également le **niveau**. Le tableau suivant présente les catégories de journaux d’activité offertes par chaque niveau :
 
@@ -60,8 +60,8 @@ Quand vous activez les **diagnostics d’application**, choisissez également le
 |**Désactivé** | Aucun |
 |**Error** | Erreur, Critique |
 |**Avertissement** | Avertissement, Erreur, Critique|
-|**Information** | Info, Avertissement, Erreur, Critique|
-|**Détaillé** | Trace, Débogage, Info, Avertissement, Erreur, Critique (toutes les catégories) |
+|**Informations** | Info, Avertissement, Erreur, Critique|
+|**Verbose** | Trace, Débogage, Info, Avertissement, Erreur, Critique (toutes les catégories) |
 |-|-|
 
 Pour **Journal des applications**, vous pouvez temporairement activer l’option système à des fins de débogage. Cette option se désactive automatiquement au bout de 12 heures. Vous pouvez également activer l’option de stockage Blob pour sélectionner un conteneur d’objets blob pour y écrire des journaux d’activité.
@@ -132,7 +132,7 @@ Visual Studio Application Insights fournit des outils de filtrage et de reche
 3. Téléchargez votre projet et exécutez-le pour générer des données de journal.
 4. Dans le [portail Azure](https://portal.azure.com/), accédez à votre nouvelle ressource Application Insights, puis ouvrez la fonction de **recherche**. Vous devriez voir vos données de journal, ainsi que la requête, l’utilisation et les autres mesures de télémétrie. Vous devrez parfois patienter quelques minutes pour accéder à certaines mesures de télémétrie : dans ce cas, cliquez sur Actualiser. [En savoir plus](../azure-monitor/app/diagnostic-search.md)
 
-[En savoir plus sur les performances de suivi avec Application Insights](../azure-monitor/app/azure-web-apps.md)
+[En savoir plus sur le suivi des performances avec Application Insights](../azure-monitor/app/azure-web-apps.md)
 
 ## <a name="streamlogs"></a>Guide pratique : Diffuser les journaux d’activité en continu
 Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi réel. Vous pouvez diffuser ces informations vers votre environnement de développement en utilisant Azure CLI.
@@ -183,7 +183,7 @@ Par exemple, un événement d’erreur peut se présenter comme suit :
 
 Parmi les trois méthodes disponibles, la journalisation d’informations dans le système de fichiers est celle qui fournit les informations les plus élémentaires. L’heure, l’ID de processus, le niveau d’événement et le message sont, en effet, les seules informations fournies.
 
-**Stockage d'objets blob**
+**Stockage Blob**
 
 Lorsque vous consignez des données dans un stockage d'objets blob, elles sont stockées au format CSV (valeurs séparées par des virgules). Des champs supplémentaires sont consignés afin de fournir des informations plus précises sur l’événement. Les propriétés suivantes sont utilisées pour chaque ligne du fichier CSV :
 
@@ -230,6 +230,6 @@ Les journaux d’activité de serveur Web utilisent le [format de fichier journa
 >
 
 ## <a name="nextsteps"></a> Étapes suivantes
-* [Comment surveiller Azure App Service](web-sites-monitor.md)
-* [Résolution des problèmes d’Azure App Service dans Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Analyser les journaux d’application dans HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Surveillance des applications dans Azure App Service](web-sites-monitor.md)
+* [Dépannage d’une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio](troubleshoot-dotnet-visual-studio.md)
+* [Analyse des journaux d’activité d’application dans HDInsight (en anglais)](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

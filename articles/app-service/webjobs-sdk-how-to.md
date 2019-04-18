@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895205"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
@@ -80,7 +80,7 @@ Vous pouvez exécuter l’hôte en mode de développement pour améliorer l’ef
 
 | Propriété | Paramètre de développement |
 | ------------- | ------------- |
-| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` Pour optimiser la sortie du journal. |
+| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` pour optimiser la sortie de la journalisation. |
 | `Queues.MaxPollingInterval`  | Une valeur faible pour garantir le déclenchement immédiat des méthodes de file d’attente.  |
 | `Singleton.ListenerLockPeriod` | 15 secondes pour favoriser le développement itératif rapide. |
 
@@ -849,7 +849,7 @@ Vous pouvez filtrer indépendamment de chaque catégorie pour un particulier [ `
 
 Version 3. *x* du SDK s’appuie sur le filtrage intégré à .NET Core. La classe `LogCategories` vous permet de définir des catégories pour des fonctions, des déclencheurs ou des utilisateurs spécifiques. Il définit également des filtres pour les États de l’ordinateur hôte spécifique, comme `Startup` et `Results`. Cela vous permet de vous permettent d’affiner la sortie de journalisation. Si aucune correspondance n’est trouvée dans les catégories définies, le filtre se replie sur la valeur `Default` pour décider si le message doit être filtré ou non.
 
-`LogCategories` requiert les éléments suivants à l’aide d’instruction :
+`LogCategories` nécessite l’instruction using suivante :
 
 ```cs
 using Microsoft.Azure.WebJobs.Logging; 

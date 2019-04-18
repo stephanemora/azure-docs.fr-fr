@@ -8,10 +8,10 @@ ms.date: 11/20/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: c3a3305197802906077dab330a6b51c1195c6c36
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879469"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Coût total de possession avec Azure Cosmos DB
@@ -48,11 +48,11 @@ Le modèle de provisionnement serverless d’Azure Cosmos DB vous évite de devo
 
 * **Vous pouvez utiliser le débit provisionné jusqu’à une limite maximale :** en raison du multiplexage de sous-cœur dans Azure Cosmos DB, vous pouvez saturer le débit provisionné dans une plus grand mesure qu’avec les options hébergées sur IaaS ou les offres tierces. Cette méthode permet de réaliser davantage d’économies que les autres solutions.
 
-* **Intégration profonde d’Azure Cosmos DB avec d’autres services Azure.** Azure Cosmos DB offre une intégration native avec les services de mise en réseau, de calcul, Azure Functions (serverless), Azure IoT et d’autres services Azure. Avec cette intégration, vous obtenez les meilleures performances et la meilleure vitesse de réplication des données dans le monde entier avec de solides garanties. Les solutions tierces ne sont pas capables de s’adapter ou facturent généralement des frais élevés pour offrir ces fonctionnalités.
+* **Profonde intégration d’Azure Cosmos DB avec d’autres services Azure :** Azure Cosmos DB offre une intégration native avec les services de mise en réseau, de calcul, Azure Functions (serverless), Azure IoT et d’autres services Azure. Avec cette intégration, vous obtenez les meilleures performances et la meilleure vitesse de réplication des données dans le monde entier avec de solides garanties. Les solutions tierces ne sont pas capables de s’adapter ou facturent généralement des frais élevés pour offrir ces fonctionnalités.
 
 * **Vous obtenez automatiquement une haute disponibilité, avec au moins 10 à 20 domaines d’erreur par défaut :** Azure Cosmos DB prend en charge la distribution des charges de travail sur les domaines d’erreur, ce qui est essentiel à la haute disponibilité. Il offre une haute disponibilité de 99,999 % pour les lectures et les écritures au 99e centile n’importe où dans le monde. Le coût de l’implémentation d’une telle infrastructure par vous-même ou via une solution tierce serait élevé.
 
-* **Vous obtenez automatiquement toutes les fonctionnalités d’entreprise, sans coût supplémentaire.** Azure Cosmos DB offre l’ensemble le plus complet de certifications de conformité, de sécurité et de chiffrement au repos et en mouvement sans coûts supplémentaires (comparé à nos concurrents). Vous obtenez automatiquement une disponibilité régionale n’importe où dans le monde. Vous pouvez étendre votre base de données sur n’importe quel nombre de régions Azure et ajouter ou supprimer des régions à tout moment.
+* **Vous obtenez automatiquement toutes les fonctionnalités d’entreprise, sans coût supplémentaire :** Azure Cosmos DB offre l’ensemble le plus complet de certifications de conformité, de sécurité et de chiffrement au repos et en mouvement sans coûts supplémentaires (comparé à nos concurrents). Vous obtenez automatiquement une disponibilité régionale n’importe où dans le monde. Vous pouvez étendre votre base de données sur n’importe quel nombre de régions Azure et ajouter ou supprimer des régions à tout moment.
 
 * **Vous pouvez réaliser des économies allant jusqu’à 65 % avec une capacité réservée :** La [capacité réservée](cosmos-db-reserved-capacity.md) Azure Cosmos DB vous permet de faire des économies grâce au prépaiement des ressources Azure Cosmos DB sur un an ou trois ans. Vous pouvez considérablement réduire vos coûts avec les engagements à l’avance sur un ou trois ans et économiser entre 20 et 65 % par rapport à la tarification standard. Sur vos charges de travail critiques, vous pouvez obtenir un meilleur contrat SLA en termes de capacité de provisionnement.
 

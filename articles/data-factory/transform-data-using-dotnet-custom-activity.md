@@ -12,16 +12,16 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904574"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [version 1](v1/data-factory-use-custom-activities.md)
+> * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Version actuelle](transform-data-using-dotnet-custom-activity.md)
 
 Vous pouvez utiliser deux types d’activités dans un pipeline Azure Data Factory.
@@ -383,9 +383,9 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)
 * [Activité Hive](transform-data-using-hadoop-hive.md)
-* [Activité Pig](transform-data-using-hadoop-pig.md)
+* [Activité pig](transform-data-using-hadoop-pig.md)
 * [Activité MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Activité de diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md)
 * [Activité Spark](transform-data-using-spark.md)
-* [Activité de machine Learning Batch Execution](transform-data-using-machine-learning.md)
+* [Activité d’exécution du lot Machine Learning](transform-data-using-machine-learning.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)

@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895881"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
@@ -77,7 +77,7 @@ Voici les actions intégrées pour travailler avec les sorties de données et le
 |   |   | 
 |---|---| 
 | [![Icône intégrée][data-operations-icon]<br/>**Opérations avec les données**][data-operations-doc] | Effectuez des opérations avec les données : <p>- **Compose**: Créer une sortie unique à partir de plusieurs entrées avec différents types. <br>- **Créer un tableau CSV**: Créer une table (CSV) de valeurs séparées par des virgules à partir d’un tableau avec des objets JSON. <br>- **Créer un tableau HTML**: Créer un tableau HTML à partir d’un tableau avec des objets JSON. <br>- **Filtrer le tableau**: Créer un tableau des éléments dans un autre tableau qui répondent à vos critères. <br>- **Joindre**: Créer une chaîne à partir de tous les éléments dans un tableau et séparer ces éléments avec le séparateur spécifié. <br>- **Analyser JSON**: Créer des jetons conviviaux à partir des propriétés et leurs valeurs dans le contenu JSON afin de pouvoir utiliser ces propriétés dans votre flux de travail. <br>- **Sélectionnez**: Créer un tableau avec des objets JSON par transformation des éléments ou des valeurs dans un autre tableau et le mappage de ces éléments pour les propriétés spécifiées. | 
-| ![Icône intégrée][date-time-icon]<br/>**Date Heure** | Effectuez des opérations avec les horodatages : <p>- **Ajouter à la fois**: Ajouter le nombre spécifié d’unités à un horodateur. <br>- **Convertir le fuseau horaire**: Convertit un horodatage du fuseau horaire source au fuseau horaire cible. <br>- **Heure actuelle**: Renvoyer le timestamp actuel sous forme de chaîne. <br>- **Obtenir l’heure future**: Retourne l’horodatage actuel plus les unités de temps spécifiées. <br>- **Obtenir l’heure passée**: Retourne l’horodatage actuel moins les unités de temps spécifiées. <br>- **Soustraire de temps**: Soustrait un nombre d’unités de temps d’un horodatage. |
+| ![Icône d’élément intégré][date-time-icon]<br/>**Date Heure** | Effectuez des opérations avec les horodatages : <p>- **Ajouter à la fois**: Ajouter le nombre spécifié d’unités à un horodateur. <br>- **Convertir le fuseau horaire**: Convertit un horodatage du fuseau horaire source au fuseau horaire cible. <br>- **Heure actuelle**: Renvoyer le timestamp actuel sous forme de chaîne. <br>- **Obtenir l’heure future**: Retourne l’horodatage actuel plus les unités de temps spécifiées. <br>- **Obtenir l’heure passée**: Retourne l’horodatage actuel moins les unités de temps spécifiées. <br>- **Soustraire de temps**: Soustrait un nombre d’unités de temps d’un horodatage. |
 | [![Icône d’élément intégré][variables-icon]<br/>**Variables**][variables-doc] | Effectuez des opérations avec les variables : <p>- **Ajouter à la variable de tableau**: Insérer une valeur en tant que le dernier élément dans un tableau stocké par une variable. <br>- **Ajouter à la variable de chaîne**: Insérer une valeur en tant que le dernier caractère dans une chaîne stockée par une variable. <br>- **Décrémenter une variable**: Réduire une variable par une valeur constante. <br>- **Incrémenter la variable**: Augmenter une variable par une valeur constante. <br>- **Initialiser la variable**: Créez une variable et déclarer son type de données et sa valeur initiale. <br>- **Définir la variable**: Affectez une valeur différente dans une variable existante. |
 |  |  | 
 
@@ -105,7 +105,7 @@ Les connecteurs suivants sont couramment utilisés pour fournir un accès aux do
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
-| ![Icône d’API][biztalk-server-icon]<br/>**BizTalk**</br> **Serveur** | [![Icône d’API][file-system-icon]<br/>**Système de</br> fichiers**][file-system-doc] | [![Icône d’API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![Icône d’API][ibm-informix-icon]<br/>**IBM**</br>**Informix**][ibm-informix-doc] | ![Icône d’API][mysql-icon]<br/>**MySQL** | 
+| ![Icône API][biztalk-server-icon]<br/>**BizTalk**</br> **Serveur** | [![Icône d’API][file-system-icon]<br/>**Système de</br> fichiers**][file-system-doc] | [![Icône d’API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![Icône d’API][ibm-informix-icon]<br/>**IBM**</br>**Informix**][ibm-informix-doc] | ![Icône d’API][mysql-icon]<br/>**MySQL** | 
 | [![Icône d’API][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![Icône d’API][postgre-sql-icon]<br/>**PostgreSQL** | [![Icône d’API][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![Icône d’API][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![Icône d’API][teradata-icon]<br/>**Teradata** | 
 ||||| 
 
@@ -176,7 +176,7 @@ Pour rendre les applications API ou les connecteurs personnalisés publics afin 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Rechercher la [liste complète des connecteurs](https://docs.microsoft.com/connectors)
-* [Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Créez votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Créer des connecteurs personnalisés pour les applications logiques](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Créer des API personnalisées pour les applications logiques](../logic-apps/logic-apps-create-api-app.md)
 

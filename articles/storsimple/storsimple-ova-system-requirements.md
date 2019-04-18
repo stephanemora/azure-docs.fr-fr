@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876834"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
@@ -39,7 +39,7 @@ Les informations de configuration système requise StorSimple publiées dans cet
 La configuration logicielle requise inclut les informations sur les navigateurs web pris en charge, les versions SMB, les plateformes de virtualisation et la configuration minimale requise pour l'appareil virtuel.
 
 ### <a name="supported-virtualization-platforms"></a>Plateformes de virtualisation prises en charge
-| **hyperviseur** | **Version** |
+| **Hyperviseur** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 et versions ultérieures |
 | VMware ESXi |5.0, 5.5, 6.0 et 6.5. |
@@ -92,7 +92,7 @@ Seul le stockage d’objets blob de blocs Azure est pris en charge. Les objets b
 ## <a name="networking-requirements"></a>Configuration requise du réseau
 Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic iSCSI, SMB, cloud ou de gestion. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les demandes client entrantes accèdent à votre appareil. *Sortant* ou *Sortie* représente la direction vers laquelle votre appareil StorSimple envoie des données de façon externe, au-delà du déploiement : par exemple, sortant vers Internet.
 
-| **Numéro de port<sup>1</sup>** | **Entrant ou sortant** | **Étendue de ports** | **Obligatoire** | **Notes** |
+| **Numéro de port<sup>1</sup>** | **Entrant ou sortant** | **Étendue de ports** | **Obligatoire** | **Remarques** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |Sortie |WAN |Non  |Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
 | TCP 443 (HTTPS) |Sortie |WAN |Oui |Le port de sortie est utilisé pour accéder aux données dans le cloud. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
@@ -133,4 +133,4 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 | `https://*.data.microsoft.com` |Service de télémétrie dans Windows, consultez l’article [Mise à jour de l’expérience client et du diagnostic de la télémétrie](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Préparation du portail pour déployer votre StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
+* [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

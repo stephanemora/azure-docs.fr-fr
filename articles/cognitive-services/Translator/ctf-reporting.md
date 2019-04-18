@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917394"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Guide pratique pour utiliser le compte-rendu CTF (Collaborative Translation Framework)
@@ -72,7 +72,7 @@ Cette méthode permet d’obtenir le nombre des traductions qui sont créées pa
 >            int? take);
 > ```
 
-**parameters**
+**Paramètres**
 
 | Paramètre | Description |
 |:---|:---|
@@ -116,7 +116,7 @@ Le jeu de résultats contient un tableau des éléments **UserTranslationCount**
 > [!NOTE]
 > Le quota est ajusté pour garantir l’équité entre tous les utilisateurs du service.
 
-**Afficher des exemples de code en revue**
+**Affichage d’exemples de code sur GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
 
@@ -143,7 +143,7 @@ Cette méthode récupère les traductions créées par l’utilisateur. Elle fou
 >             int? take);
 > ```
 
-**parameters**
+**Paramètres**
 
 | Paramètre | Description |
 |:---|:---|
@@ -153,7 +153,7 @@ Cette méthode récupère les traductions créées par l’utilisateur. Elle fou
 | to| **Facultatif** Chaîne représentant le code de la langue dans laquelle le texte doit être traduit.|
 | minRating| **Facultatif** Entier représentant le niveau de qualité minimal pour le texte traduit. La valeur valide est comprise entre -10 et 10. La valeur par défaut est 1.|
 | maxRating| **Facultatif** Entier représentant le niveau de qualité maximal pour le texte traduit. La valeur valide est comprise entre -10 et 10. La valeur par défaut est 1.|
-| user| **facultatif. Une chaîne qui est utilisée pour filtrer le résultat en fonction de l’expéditeur de l’envoi**|
+| user| **Facultatif. Chaîne utilisée pour filtrer le résultat en fonction de la personne à l’origine de la soumission**|
 | category| **Facultatif** Chaîne contenant la catégorie ou le domaine de la traduction. Ce paramètre prend en charge uniquement l’option par défaut générale.|
 | minDateUtc| **Facultatif** Date à partir de laquelle vous souhaitez récupérer les traductions. La date doit être au format UTC.|
 | maxDateUtc| **Facultatif** Date jusqu’à laquelle vous souhaitez récupérer les traductions. La date doit être au format UTC.|
@@ -189,6 +189,6 @@ Le jeu de résultats contient un tableau des éléments **UserTranslation**. Cha
 > [!NOTE]
 > Le quota est ajusté pour garantir l’équité entre tous les utilisateurs du service.
 
-**Afficher des exemples de code en revue**
+**Affichage d’exemples de code sur GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)

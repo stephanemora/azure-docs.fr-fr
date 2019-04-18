@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
 ms.openlocfilehash: 8beba4f66cf24a937eec77e4bfdee2057b417269
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892804"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services pour les fournisseurs de solutions cloud (CSP) Azure
@@ -79,7 +79,7 @@ Tenez compte des considérations importantes suivantes quand vous administrez un
 * **Les agents d’administration CSP ne peuvent pas effectuer de tâches de gestion en continu sur le domaine managé à l’aide de leurs informations d’identification :** les utilisateurs administrateurs CSP ne peuvent pas effectuer de tâches de gestion courantes dans le domaine managé à l’aide de leurs informations d’identification. Ces utilisateurs étant externes à l’annuaire Azure AD du client, leurs informations d’identification ne sont pas disponibles dans l’annuaire Azure AD du client. Ainsi, Azure AD Domain Services n’a pas accès aux hachages de mot de passe Kerberos et NTLM pour ces utilisateurs. Ces utilisateurs ne peuvent donc pas être authentifiés sur les domaines managés Azure AD Domain Services.
 
   > [!WARNING]
-  > **Vous devez créer un compte d’utilisateur dans l’annuaire du client pour effectuer des tâches d’administration courantes sur le domaine géré.**
+  > **Vous devez créer un compte d’utilisateur dans l’annuaire du client pour effectuer des tâches d’administration courantes sur le domaine managé.**
   > Vous ne pouvez pas vous connecter au domaine managé à l’aide des informations d’identification d’un utilisateur administrateur CSP. Pour ce faire, utilisez les informations d’identification d’un compte d’utilisateur appartenant à l’annuaire Azure AD du client. Vous avez besoin de ces informations d’identification pour les tâches telles que la jonction de machines virtuelles au domaine managé, l’administration du système DNS ou l’administration de la stratégie de groupe.
   >
 
@@ -89,5 +89,5 @@ Tenez compte des considérations importantes suivantes quand vous administrez un
 ## <a name="next-steps"></a>Étapes suivantes
 * [S’inscrire au programme Azure CSP](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) et commencer à développer une activité par le biais d’Azure CSP.
 * Passer en revue la liste des [services Azure disponibles dans Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
-* [Activer Azure AD Domain Services à l’aide de PowerShell](active-directory-ds-enable-using-powershell.md)
+* [Activer les services de domaine Azure AD à l’aide de PowerShell](active-directory-ds-enable-using-powershell.md)
 * [Prise en main des services de domaine Azure AD](active-directory-ds-getting-started.md)

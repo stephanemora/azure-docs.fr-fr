@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 04163bea8f4c1247f42b65c35c2b82910e623bc9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7bb9b1c545d30f66a09817ba977f12666a9f41c9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661375"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699130"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Créer votre première application Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ Une application Service Fabric peut contenir un ou plusieurs services, chacun ay
 >
 >
 
-## <a name="build-the-application"></a>Créer l’application
+## <a name="build-the-application"></a>Création de l'application
 Les modèles Yeoman Service Fabric incluent un script de build que vous pouvez utiliser pour générer l’application à partir du terminal (après avoir accédé au dossier l’application).
 
   ```sh
@@ -108,7 +108,7 @@ Les projets d’acteur n’effectuent aucune opération automatiquement. Ils ont
 
 1. Exécutez le script à l’aide de l’utilitaire watch pour afficher la sortie du service d’acteur.
 
-   Sous MAC OS X, vous devez copier le dossier myactorsvcTestClient vers certains emplacements situés dans le conteneur en exécutant les commandes supplémentaires suivantes.
+   En cas de MAC OS X, vous devez copier le dossier myactorsvcTestClient dans le même emplacement au sein du conteneur en exécutant les commandes supplémentaires suivantes.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

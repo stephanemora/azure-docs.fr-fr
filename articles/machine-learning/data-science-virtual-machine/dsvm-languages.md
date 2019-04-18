@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877412"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Langages pris en charge sur la machine virtuelle DSVM 
@@ -110,7 +110,7 @@ Ouvrez Jupyter et cliquez sur le bouton `New` pour créer un bloc-notes. À ce s
 
 Les environnements Python par défaut sur la machine virtuelle DSVM sont des environnements généraux lisibles par tous les utilisateurs, mais seuls les administrateurs peuvent écrire / installer des packages généraux. Pour installer le package dans l’environnement général, activez l’environnement root ou py35 en exécutant la commande `source activate` en tant qu’administrateur ou utilisateur disposant de l’autorisation sudo. Vous pouvez ensuite utiliser un Gestionnaire de package comme `conda` ou `pip` pour installer ou mettre à jour les packages. 
 
-**Windows 2012**
+**Windows 2012**
 * Exécution à l’invite de commandes
 
 Ouvrez l’invite de commandes et effectuez les étapes suivantes en fonction de la version de Python à exécuter. 
@@ -145,7 +145,7 @@ Les environnements Python par défaut sur la machine virtuelle DSVM sont des env
 | ------------- | ------------- |
 | Versions de langage prises en charge | Microsoft R Open 3.x (100 % compatible avec CRAN-R)<br /> Microsoft R Server 9.x Developer Edition (plateforme R d’entreprise scalable)|
 | Éditions DSVM prises en charge      | Linux, Windows     |
-| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Windows : `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux : `/usr/lib64/microsoft-r/3.3/lib64/R`    |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Windows : `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux : `/usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Liens vers des exemples      | Des exemples de bloc-notes Jupyter pour R sont inclus.     |
 | Outils connexes sur la machine virtuelle DSVM      | SparkR, Python, Julia      |
 ### <a name="how-to-use--run-it"></a>Comment l’utiliser/l’exécuter ?    
@@ -193,7 +193,7 @@ R est installé sur la machine virtuelle DSVM dans un environnement général li
 | ------------- | ------------- |
 | Versions de langage prises en charge | 0,6 |
 | Éditions DSVM prises en charge      | Linux, Windows     |
-| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Windows : Installé sur `C:\JuliaPro-VERSION`<br /> Linux : Installé sur `/opt/JuliaPro-VERSION`    |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Windows : Installé dans `C:\JuliaPro-VERSION`<br /> Linux : Installé dans `/opt/JuliaPro-VERSION`    |
 | Liens vers des exemples      | Des exemples de bloc-notes Jupyter pour Julia sont inclus.     |
 | Outils connexes sur la machine virtuelle DSVM      | Python, R      |
 ### <a name="how-to-use--run-it"></a>Comment l’utiliser/l’exécuter ?    
@@ -209,7 +209,7 @@ Utilisez `Juno`, l’IDE Julia installé sur la machine virtuelle DSVM et dispon
 
 * Utilisation dans Jupyter
 
-Ouvrez Jupyter et cliquez sur le bouton `New` pour créer un bloc-notes. À ce stade, vous pouvez choisir le type de noyau `Julia VERSION` 
+Ouvrez Jupyter et cliquez sur le bouton `New` pour créer un bloc-notes. À ce stade, vous pouvez choisir le type de noyau `Julia VERSION`. 
 
 * Installation des packages Julia
 
@@ -226,7 +226,7 @@ Utilisez `Juno` l’IDE Julia installé sur la machine virtuelle DSVM et disponi
 
 * Utilisation dans Jupyter
 
-Ouvrez Jupyter et cliquez sur le bouton `New` pour créer un bloc-notes. À ce stade, vous pouvez choisir le type de noyau `Julia VERSION` 
+Ouvrez Jupyter et cliquez sur le bouton `New` pour créer un bloc-notes. À ce stade, vous pouvez choisir le type de noyau `Julia VERSION`. 
 
 * Installation des packages Julia
 
@@ -236,7 +236,7 @@ L’emplacement Julia par défaut est un environnement général lisible par tou
 
 **C#**  : disponible sur Windows et accessible via Visual Studio Community Edition ou sur `Developer Command Prompt for Visual Studio` où il suffit d’exécuter la commande `csc`. 
 
-**Java** : OpenJDK est disponible sur les éditions Linux et Windows de la machine virtuelle DSVM, et défini sur le chemin. Vous pouvez taper la commande `javac` ou `java` à l’invite de commandes dans Windows ou dans l’interpréteur de commandes Bash sur Linux pour utiliser Java. 
+**Java** : OpenJDK est disponible sur les éditions Linux et Windows de la machine virtuelle DSVM, et défini sur le chemin. Vous pouvez taper la commande `javac` ou `java` à l’invite de commandes dans Windows ou dans l’interpréteur de commandes Bash sur Linux pour utiliser Java. 
 
 **node.js** : node.js est disponible sur les éditions Linux et Windows de la machine virtuelle DSVM, et défini sur le chemin. Vous pouvez taper la commande `node` ou `npm` à l’invite de commandes dans Windows ou dans l’interpréteur de commandes Bash sur Linux pour accéder à node.js. Sur Windows, l’extension Node.js Tools pour Visual Studio est installée afin de fournir un IDE graphique pour le développement de votre application node.js. 
 

@@ -14,10 +14,10 @@ ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
 ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005748"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
@@ -92,7 +92,7 @@ Utilisez Visual Studio Enterprise pour enregistrer une session web.
 
     ![Dans Visual Studio édition Enterprise, créez un projet à partir du modèle Projet de test de performance Web et de charge.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *Ne voyez pas le modèle de performances Web et de Test de charge ?* - Fermez Visual Studio Enterprise. Ouvrez **le programme d’installation de Visual Studio** pour modifier votre installation de Visual Studio Enterprise. Sous **Composants individuels**, sélectionnez **Web Performance and load testing tools** (Outils de test de performance Web et de charge).
+   * *Le modèle Projet de test de performance Web et de charge ne s’affiche pas ?* - Fermez Visual Studio Enterprise. Ouvrez **le programme d’installation de Visual Studio** pour modifier votre installation de Visual Studio Enterprise. Sous **Composants individuels**, sélectionnez **Web Performance and load testing tools** (Outils de test de performance Web et de charge).
 
 2. Ouvrez le fichier .webtest et lancez l'enregistrement.
 
@@ -175,8 +175,8 @@ Sélectionnez **Voir les détails du test** d’un test spécifique pour affiche
 
 Vous souhaiterez peut-être désactiver les tests de disponibilité ou les règles d’alerte associées lorsque vous effectuez la maintenance de votre service.
 
-![Désactivation d’un test web](./media/monitor-web-app-availability/6disable.png)
-![modifier un test](./media/monitor-web-app-availability/8edittest.png)
+![Désactiver un test web](./media/monitor-web-app-availability/6disable.png)
+![Modifier un test](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>Si vous constatez des erreurs
 Cliquez sur un point rouge.
@@ -293,7 +293,7 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
 ## <a name="qna"></a> FAQ
 
-* *Site semble OK, mais je vois échecs de test ? Pourquoi d’Application Insights est m’alerte ?*
+* *Le site me semble OK, mais j’observe des échecs de tests. Pourquoi Application Insights m’envoie-t-il des alertes ?*
 
     * Est-ce que l’option « Analyser les requêtes dépendantes » est activée pour le test ? Cela entraîne une vérification stricte des ressources telles que les scripts, les images, etc. Ces types de d’échecs peuvent être difficiles à remarquer sur un navigateur. Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement. Pour désensibiliser le test à ces échecs de ressource, il vous suffit de décocher la case « Analyser les requêtes dépendantes » dans la configuration du test. 
 
@@ -305,21 +305,21 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
     * Est-ce qu’un échec est signalé pour tous vos emplacements, ou seulement certains d’entre eux ? Si des échecs ne sont signalés que pour certains, cela peut être dû à des problèmes de réseau/CDN. Là encore, cliquer sur les points rouges peut aider à comprendre pourquoi l’emplacement a signalé des échecs.
 
-* *Je n’a pas reçu un message électronique lorsque l’alerte déclenchée ou résolus ou les deux ?*
+* *Je n’ai pas reçu d’e-mail lorsque l’alerte s’est déclenchée, a été résolue, ou les deux ?*
 
     Vérifiez la configuration des alertes classiques pour confirmer que votre adresse e-mail est répertoriée directement, ou que vous êtes sur une liste de distribution qui est configurée pour recevoir des notifications. Le cas échéant, vérifiez ensuite la configuration de la liste de distribution pour confirmer qu’elle peut recevoir des e-mails externes. Vérifiez également si votre administrateur de messagerie dispose de stratégies configurées qui pourraient provoquer ce problème.
 
-* *Je n’ai pas reçu la notification de webhook ?*
+* *Je n’ai pas reçu la notification webhook ?*
 
     Vérifiez que l’application qui reçoit la notification webhook est disponible et traite correctement les requêtes webhook. Pour plus d’informations, consultez [ceci](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook).
 
-* *Échecs intermittents des tests avec une erreur de violation de protocole ?*
+* *Échecs intermittents des tests avec une erreur de violation de protocole.*
 
     L’erreur (« violation de protocole... CR doit être suivi par LF ») indique un problème lié au serveur (ou aux dépendances). Il se produit lorsque des en-têtes mal formés sont définis dans la réponse. Ce problème peut être provoqué par des équilibreurs de charge ou des réseaux de distribution de contenu (CDN). Plus précisément, certains en-têtes peuvent ne pas utiliser CRLF pour indiquer la fin de ligne, ce qui enfreint la spécification HTTP et entraîne donc l’échec de la validation au niveau WebRequest .NET. Examinez la réponse pour repérer les en-têtes qui peuvent ne pas être conformes.
     
     Remarque : L’URL peut ne pas être en échec sur les navigateurs qui présentent une validation approximative des en-têtes HTTP. Consultez ce billet de blog pour obtenir une explication détaillée de ce problème : http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
-* *Je ne vois pas les données de télémétrie côté serveur associées pour diagnostiquer les échecs de test ?*
+* *Je ne vois pas les données de télémétrie côté serveur associées pour diagnostiquer les échecs des tests.*
     
     Si Application Insights est défini pour votre application côté serveur, cela peut être en raison d’un [échantillonnage](../../azure-monitor/app/sampling.md) en cours. Sélectionnez un résultat de disponibilité différent.
 
@@ -327,11 +327,11 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
     Non. Les étapes du test doivent se trouver dans le fichier .webtest. Et vous ne pouvez pas appeler d’autres tests web ou utiliser des boucles. En revanche, il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.
 
-* *HTTPS est pris en charge ?*
+* *Le protocole HTTPS est-il pris en charge ?*
 
     Nous prenons en charge TLS 1.1 et TLS 1.2. Actuellement, nous ne vérifient pas les erreurs de certificat HTTPS.  
 
-* *Existe-t-il une différence entre « tests web » et « tests de disponibilité » ?*
+* *Quelle est la différence entre les « tests Web » et les « tests de disponibilité » ?*
 
     Les deux conditions peuvent être référencées indifféremment. « Tests de disponibilité » est un terme plus générique qui inclut les tests ping d’URL uniques en plus des tests web à plusieurs étapes.
     
@@ -342,7 +342,7 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
     * Configurez votre pare-feu pour autoriser les demandes entrantes provenant des [adresses IP de nos agents de test web](../../azure-monitor/app/ip-addresses.md).
     * Écrivez votre propre code pour tester régulièrement votre serveur interne. Exécutez le code en tant que processus en arrière-plan sur un serveur test derrière votre pare-feu. Le processus de test peut envoyer ses résultats à Application Insights à l’aide de l’API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) dans le package du kit de développement logiciel (SDK) principal. Cela nécessite que votre serveur de test ait un accès sortant au point de terminaison d’ingestion Application Insights, mais ce risque de sécurité est beaucoup plus faible que l’alternative, qui consiste à autoriser les demandes entrantes. Les résultats n’apparaissent pas dans les panneaux de tests web de disponibilité, mais ils s’affichent comme résultats de disponibilité dans Analytics, Search et Metric Explorer.
 
-* *Chargement d’un test web multi-étapes échoue*
+* *Le chargement d’un test web multi-étapes échoue*
 
     Certaines raisons à cause desquelles cela peut se produire :
     * La limite de taille est de 300 Ko.
@@ -350,11 +350,11 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
     * Les références à d’autres tests web ne sont pas prises en charge.
     * Les sources de données ne sont pas prises en charge.
 
-* *Ne se termine pas mon test à plusieurs étapes*
+* *Mon test à plusieurs étapes ne se termine pas.*
 
     Chaque test possède une limite de 100 demandes. En outre, le test s’arrête s’il s’exécute pendant plus de deux minutes.
 
-* *Comment puis-je exécuter un test avec des certificats clients ?*
+* *Comment puis-je exécuter un test avec des certificats clients ?*
 
     Désolé, ce n’est pas pris en charge.
 
@@ -380,7 +380,7 @@ Utilisez la nouvelle expérience d'alerte ou les alertes en temps quasi-réel si
 
 [Résolution des problèmes][qna]
 
-[Adresses IP des agents de test web](../../azure-monitor/app/ip-addresses.md)
+[Adresses IP d’agents de test web](../../azure-monitor/app/ip-addresses.md)
 
 <!--Link references-->
 

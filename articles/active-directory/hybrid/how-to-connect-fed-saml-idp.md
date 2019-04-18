@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1870137505b3d00ee6ed31595050908c970c444
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878092"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utiliser un fournisseur d’identité (IdP) SAML 2.0 pour l’authentification unique
@@ -280,4 +280,4 @@ Pour vérifier que l’authentification unique a été correctement configurée,
 
 - [Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect](how-to-connect-fed-management.md)
 - [Liste de compatibilité de fédération Azure AD](how-to-connect-fed-compatibility.md)
-- [Installation personnalisée d’Azure AD Connect](how-to-connect-install-custom.md)
+- [Installation personnalisée d’Azure AD Connect](how-to-connect-install-custom.md)

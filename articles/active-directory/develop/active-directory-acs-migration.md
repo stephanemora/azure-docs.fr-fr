@@ -18,10 +18,10 @@ ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879241"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Activation Effectuer une migration à partir d’Azure Access Control Service
@@ -101,9 +101,9 @@ Exécutez la procédure ci-après pour connaître celles de vos applications qui
 
 ### <a name="check-which-applications-will-be-impacted"></a>Vérifier les applications qui vont être affectées
 
-1. Utilisez l’espace de noms à partir de l’étape précédente, puis accédez à `https://<namespace>.accesscontrol.windows.net`
+1. Utilisez l’espace de noms obtenu à l’étape précédente pour accéder à l’adresse `https://<namespace>.accesscontrol.windows.net`.
 
-    Par exemple, si un des espaces de noms est contoso-test, accédez à `https://contoso-test.accesscontrol.windows.net`
+    Par exemple, si l’un des espaces de noms est contoso-test, accédez à l’adresse `https://contoso-test.accesscontrol.windows.net`.
 
 1. Sous **Relations d’approbation**, sélectionnez **Applications par partie de confiance** pour afficher la liste des applications qui vont être affectées par la mise hors service d’ACS.
 1. Répétez les étapes 1 et 2 pour tous les autres espaces de noms ACS dont vous disposez.
@@ -131,13 +131,13 @@ Chaque service cloud Microsoft qui accepte les jetons émis par Access Control S
 
 | de diffusion en continu | Assistance |
 | ------- | -------- |
-| Azure Service Bus | [Migrer vers les signatures d’accès partagé](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Azure Service Bus Relay | [Migrer vers les signatures d’accès partagé](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
+| Azure Service Bus | [Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
+| Azure Service Bus Relay | [Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
 | Azure Managed Cache | [Migrer vers le Cache Azure pour Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Azure DataMarket | [Migrer vers les API Cognitive Services](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk Services | [Migrer vers la fonctionnalité Logic Apps d’Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Migrer vers l’authentification Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Sauvegarde Azure | [Mettre à niveau l’agent Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
+| Sauvegarde Azure | [Questions sur le service de sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
@@ -154,7 +154,7 @@ SharePoint 2013, 2016, et les clients SharePoint Online ont utilisé longtemps A
 | ------- | -------- |
 | Authentification des utilisateurs à partir d’Azure AD | Avant, Azure AD ne prenait pas en charge les jetons SAML 1.1 requis par SharePoint pour l’authentification, et ACS était utilisé comme un intermédiaire assurant la compatibilité de SharePoint avec les formats de jetons Azure AD. Maintenant, vous pouvez [connecter directement SharePoint à Azure AD à l’aide de la galerie d’applications Azure AD SharePoint sur site application](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Authentification des applications et l’authentification de serveur à serveur dans SharePoint en local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. | 
-| [Autorisation peu fiable pour les compléments SharePoint (fournisseur hébergé et SharePoint hébergés)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. |
+| [Autorisation peu fiable pour les compléments SharePoint (fournisseur et SharePoint hébergés)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. |
 | [Recherche hybride cloud SharePoint](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>Applications web utilisant l’authentification passive
@@ -197,12 +197,12 @@ De manière générale, *Azure Active Directory est probablement le meilleur cho
 | Comptes d’autres systèmes de gestion d’identité d’entreprise |- Possible par le biais de la fédération avec un abonné Azure Active Directory <br />- Pris en charge par le biais de la fédération directe | Possible par le biais de la fédération avec un locataire Azure AD |
 | Comptes Microsoft destinés à une utilisation personnelle | Pris en charge | Pris en charge par le biais du protocole OAuth v2.0 d’Azure Active Directory, mais pas sur d’autres protocoles | 
 | Comptes Facebook, Google, Yahoo | Pris en charge | Aucune prise en charge |
-| **Protocoles et compatibilité du Kit de développement logiciel** | | |
+| **Protocoles et compatibilité des SDK** | | |
 | WIF | Pris en charge | Pris en charge, mais les instructions disponibles sont limitées |
 | Un certificat de fournisseur d'identité WS-Federation | Pris en charge | Pris en charge |
 | OAuth 2.0 | Pris en charge pour Draft 13 | Pris en charge pour RFC 6749, la spécification la plus récente |
 | WS-Trust | Pris en charge | Non pris en charge |
-| **Formats de jetons** | | |
+| **Formats de jeton** | | |
 | JWT | Pris en charge dans la version bêta | Pris en charge |
 | SAML 1.1 | Pris en charge | VERSION PRÉLIMINAIRE |
 | SAML 2.0 | Pris en charge | Pris en charge |
@@ -211,7 +211,7 @@ De manière générale, *Azure Active Directory est probablement le meilleur cho
 | Interface utilisateur de sélection de compte/découverte de domaine d’accueil personnalisable | Code téléchargeable pouvant être incorporé dans des applications | Non pris en charge |
 | Chargement de certificats de signature de jeton personnalisés | Pris en charge | Pris en charge |
 | Personnalisation des revendications dans les jetons |- Transfert direct des revendications d’entrée émis par des fournisseurs d’identité<br />- Obtention de jeton d’accès auprès du fournisseur d’identité en tant que revendication<br />- Émission de revendications de sortie basées sur les valeurs des revendications d’entrée<br />- Émission de revendications de sortie avec des valeurs constantes |- Impossibilité de transférer directement des revendications émises par des fournisseurs d’identité fédérés<br />- Impossibilité d’obtenir un jeton d’accès auprès du fournisseur d’identité sous la forme d’une revendication<br />- Impossibilité d’émettre des revendications de sortie basées sur les valeurs des revendications d’entrée<br />- Possibilité d’émettre des revendications de sortie avec des valeurs constantes<br />- Possibilité d’émettre des revendications de sortie basées sur des propriétés d’utilisateurs synchronisées avec Azure Active Directory |
-| **Automatisation** | | |
+| **Automation** | | |
 | Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service | Prise en charge par le biais de l’API Graph d’Azure Active Directory et Microsoft Graph |
 
 Si vous décidez qu’Azure Active Directory est la meilleure voie de migration pour vos applications et services, sachez qu’il existe deux manières d’intégrer votre application dans Azure Active Directory.
@@ -248,12 +248,12 @@ Le tableau suivant compare les fonctionnalités d’Access Control Service qui s
 | Comptes d’autres systèmes de gestion d’identité d’entreprise | Pris en charge par le biais de la fédération directe avec WS-Federation | Pris en charge par le biais de la fédération SAML à l’aide de stratégies personnalisées |
 | Comptes Microsoft destinés à une utilisation personnelle | Pris en charge | Pris en charge | 
 | Comptes Facebook, Google, Yahoo | Pris en charge | Facebook et Google pris en charge en mode natif, Yahoo pris en charge par le biais de la fédération OpenID Connect à l’aide de stratégies personnalisées |
-| **Protocoles et compatibilité du Kit de développement logiciel** | | |
+| **Protocoles et compatibilité des SDK** | | |
 | Windows Identity Foundation (WIF) | Pris en charge | Non pris en charge |
 | Un certificat de fournisseur d'identité WS-Federation | Pris en charge | Non pris en charge |
 | OAuth 2.0 | Pris en charge pour Draft 13 | Pris en charge pour RFC 6749, la spécification la plus récente |
 | WS-Trust | Pris en charge | Non pris en charge |
-| **Formats de jetons** | | |
+| **Formats de jeton** | | |
 | JWT | Pris en charge dans la version bêta | Pris en charge |
 | SAML 1.1 | Pris en charge | Non pris en charge |
 | SAML 2.0 | Pris en charge | Non pris en charge |
@@ -262,14 +262,14 @@ Le tableau suivant compare les fonctionnalités d’Access Control Service qui s
 | Interface utilisateur de sélection de compte/découverte de domaine d’accueil personnalisable | Code téléchargeable pouvant être incorporé dans des applications | Interface utilisateur entièrement personnalisable par le biais de feuilles de style CSS personnalisées |
 | Chargement de certificats de signature de jeton personnalisés | Pris en charge | Clés de signature (et non certificats) personnalisées prises en charge par le biais de stratégies personnalisées |
 | Personnalisation des revendications dans les jetons |- Transfert direct des revendications d’entrée émis par des fournisseurs d’identité<br />- Obtention de jeton d’accès auprès du fournisseur d’identité en tant que revendication<br />- Émission de revendications de sortie basées sur les valeurs des revendications d’entrée<br />- Émission de revendications de sortie avec des valeurs constantes |- Possibilité de transmettre des revendications à partir des fournisseurs d’identité ; stratégies personnalisées requises pour certaines revendications<br />- Impossibilité d’obtenir un jeton d’accès auprès du fournisseur d’identité sous la forme d’une revendication<br />- Possibilité d’émettre des revendications de sortie basées sur les valeurs des revendications d’entrée par le biais de stratégies personnalisées<br />- Possibilité d’émettre des revendications avec des valeurs constantes par le biais de stratégies personnalisées |
-| **Automatisation** | | |
+| **Automation** | | |
 | Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service |- Création d’utilisateurs possible avec l’API Graph d’Azure Active Directory<br />- Impossibilité de créer des abonnés, des applications ou des stratégies B2C par programmation |
 
 Si vous décidez qu’Azure Active Directory B2C représente la meilleure solution de migration pour vos applications et services, vous devez commencer par les ressources suivantes :
 
-- [Documentation de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
-- [Stratégies personnalisées Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
-- [Tarification d’Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+- [Documentation d’Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+- [Stratégies personnalisées Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
+- [Tarification d’Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrer vers Ping Identity ou Auth0
 
@@ -332,8 +332,8 @@ Mais vous pouvez aussi l’utiliser pour l’authentification de serveur à serv
 Pour obtenir des conseils sur l’implémentation des scénarios de serveur à serveur, consultez les ressources suivantes :
 
 - Section « service à service » du [Guide du développeur Azure Active Directory](https://aka.ms/aaddev)
-- [Exemple de code de démon à l’aide des informations d’identification du client de mot de passe simple](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
-- [Exemple de code de démon à l’aide des informations d’identification de certificat client](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
+- [Exemple de code de démon utilisant des informations d’identification de client avec mots de passe simples](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
+- [Exemple de code de démon utilisant des informations d’identification de client avec certificats](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrer vers Ping Identity ou Auth0
 

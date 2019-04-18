@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891682"
 ---
 # <a name="manage-database-roles-and-users"></a>Gérer les rôles et les utilisateurs de base de données
@@ -48,7 +48,7 @@ Lorsque vous créez un projet de modèle tabulaire, vous créez des rôles et aj
     |**Aucun**|Les membres ne peuvent pas modifier le schéma de modèle et ne peuvent pas interroger les données.|  
     |**Lire**|Les membres peuvent interroger des données (selon les filtres de lignes) mais ne peuvent pas modifier le schéma de modèle.|  
     |**Lecture et traitement**|Les membres peuvent interroger des données (selon les filtres au niveau des lignes) et exécuter des processus et traiter toutes les opérations, mais ne peuvent pas modifier le schéma de modèle.|  
-    |**Process**|Les membres peuvent exécuter des processus et traiter toutes les opérations. Ils ne peuvent pas modifier le schéma de modèle et ne peuvent pas interroger les données.|  
+    |**Processus**|Les membres peuvent exécuter des processus et traiter toutes les opérations. Ils ne peuvent pas modifier le schéma de modèle et ne peuvent pas interroger les données.|  
     |**Administrateur**|Les membres peuvent modifier le schéma de modèle et interroger toutes les données.|   
   
 5.  Si le rôle que vous créez a l’autorisation de Lecture ou de Lecture et processus, vous pouvez ajouter des filtres de lignes à l’aide d’une formule DAX. Cliquez sur l’onglet **Filtres de lignes**, sélectionnez une table, puis cliquez sur le champ **Filtre DAX**, puis tapez une formule DAX.
@@ -150,7 +150,7 @@ Les filtres de lignes s’appliquent aux lignes spécifiées et aux lignes conne
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-  [Gérer des administrateurs de serveur](analysis-services-server-admins.md)   
+  [Gérer les administrateurs de serveur](analysis-services-server-admins.md)   
   [Gérer Azure Analysis Services avec PowerShell](analysis-services-powershell.md)  
-  [Tabular Model Scripting référence du langage (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
+  [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 

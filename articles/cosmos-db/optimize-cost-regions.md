@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876700"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimiser le coût multirégion dans Azure Cosmos DB
 
 Vous pouvez ajouter et supprimer des régions dans votre compte Azure Cosmos à tout moment. Le débit que vous configurez pour différentes bases de données et conteneurs Azure Cosmos est réservé dans chaque région associée à votre compte. Si le débit approvisionné par heure, qui est la somme des RU/s configurées dans l’ensemble des bases de données et des conteneurs de votre compte Azure Cosmos, est égal à `T` et si le nombre de régions Azure associées à votre compte de base de données est de `N`, alors le débit total approvisionné pour votre compte Cosmos pour une heure donnée est égal à :
 
-1. `T x N RU/s` Si votre compte Azure Cosmos est configuré avec une région d’écriture unique. 
+1. `T x N RU/s` si votre compte Azure Cosmos est configuré avec une seule région d’écriture. 
 
-1. `T x (N+1) RU/s` Si votre compte Azure Cosmos est configurée avec toutes les régions capables de traiter les écritures. 
+1. `T x (N+1) RU/s` si votre compte Azure Cosmos est configuré de telle sorte que toutes les régions peuvent traiter les écritures. 
 
 Le débit approvisionné avec une seule région d’écriture coûte 0,008 $/heure pour 100 RU/seconde et le débit approvisionné avec plusieurs régions accessibles en écriture coûte 0,016 $/heure pour 100 RU/seconde. Pour en savoir plus, voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) d’Azure Cosmos DB.
 
@@ -37,7 +37,7 @@ Supposons que vous disposez d’un conteneur dans la région USA Ouest qui est p
 |Facture de débit pour 3 régions supplémentaires : USA Est, Europe Nord et Asie Est (plusieurs régions d’écriture) |(3 + 1) x 10 000 RU/s x 24 x 31 |0,016 $ pour 100 RU/s par heure |$4 761,60 |
 |Facture de stockage pour le conteneur de la région USA Ouest |100 Go |0,25 $/Go |25 $ |
 |Facture de stockage pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est) |3 x 1 To |0,25 $/Go |75 $ |
-|**Total**|||**$6,052** |
+|**Total**|||**6 052 $** |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Améliorer l’utilisation du débit par région
 

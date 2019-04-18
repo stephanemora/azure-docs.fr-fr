@@ -17,20 +17,20 @@ ms.date: 03/19/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd3d5a19e861bd738f3c618610aadb77da30b384
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520341"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698960"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Procédure : Configurer la stratégie d’inscription d’authentification multifacteur
 
-Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription de l’authentification multifacteur (MFA) en configurant une stratégie. Cet article décrit ce que vous pouvez faire avec cette stratégie et comment la configurer.
+Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription de l’authentification multifacteur (MFA) en configurant une stratégie pour exiger l’inscription MFA. Cet article décrit ce que vous pouvez faire avec cette stratégie et comment la configurer.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>Qu’est-ce que la stratégie d’inscription d’authentification multifacteur ?
 
-Azure Multi-Factor Authentication est une méthode permettant de vérifier votre identité qui requiert l’utilisation d’autres méthodes que le nom d’utilisateur et le mot de passe. Ce service fournit une deuxième couche de sécurité pour les connexions et les transactions de l'utilisateur.  
+Azure Multi-Factor Authentication est une méthode permettant de vérifier votre identité qui requiert l’utilisation d’autres méthodes que le nom d’utilisateur et le mot de passe. Ce service fournit une deuxième couche de sécurité pour les connexions et les transactions de l'utilisateur. Pour que les utilisateurs à être en mesure de répondre aux invites d’authentification Multifacteur, ils doivent s’enregistrer pour l’authentification Multifacteur. 
 
 Nous vous recommandons d’exiger l’authentification multifacteur d’Azure des connexions des utilisateurs pour les raisons suivantes :
 
@@ -39,7 +39,7 @@ Nous vous recommandons d’exiger l’authentification multifacteur d’Azure de
 - Elle joue un rôle clé dans la préparation de votre organisation pour protéger et récupérer les comptes compromis.
 
 
-Pour plus d’informations, consultez [Qu’est-ce qu’Azure Multi-Factor Authentication ?](../authentication/multi-factor-authentication.md)
+Pour plus d’informations sur l’authentification Multifacteur, consultez [What ' s Azure multi-Factor Authentication ?](../authentication/multi-factor-authentication.md)
 
 
 ## <a name="how-do-i-access-the-mfa-registration-policy"></a>Comment faire pour accéder à la stratégie d’inscription MFA ?
@@ -53,13 +53,13 @@ La stratégie d’inscription MFA se trouve dans la section **Configurer** de la
 
 ## <a name="policy-settings"></a>Paramètres de stratégie
 
-Lorsque vous configurez la stratégie de connexion à risque, vous devez définir les paramètres suivants :
+Lorsque vous configurez la stratégie d’inscription MFA, vous devez définir :
 
 - Les utilisateurs et les groupes auxquels la stratégie s’applique :
 
     ![Utilisateurs et groupes](./media/howto-mfa-policy/11.png)
 
-- Le type d’accès que vous souhaitez appliquer :  
+- Le contrôle que vous souhaitez appliquer exigence d’inscription MFA :  
 
     ![Access](./media/howto-mfa-policy/12.png)
 

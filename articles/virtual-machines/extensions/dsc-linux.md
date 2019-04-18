@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
 ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904472"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extension DSC pour Linux (Microsoft.OSTCExtensions.DSCForLinux)
@@ -57,14 +57,14 @@ La machine virtuelle cible doit être connectée à Internet pour pouvoir utilis
 
 Voici tous les paramètres de configuration publique pris en charge :
 
-* `FileUri`: (facultatif, chaîne) l’uri du fichier ZIP ressource de fichier/custom MOF/métadonnées du fichier MOF.
-* `ResourceName`: (facultatif, chaîne) le nom du module de ressource personnalisée
-* `ExtensionAction`: (facultatif, chaîne) spécifie ce que fait une extension. Valeurs valides : Register, Push, Pull, Install, Remove. Si rien n’est spécifié, l’action par défaut est Push.
-* `NodeConfigurationName`: (facultatif, chaîne) le nom d’une configuration de nœud à appliquer.
-* `RefreshFrequencyMins`: (facultatif, int) spécifie la fréquence (en minutes) de DSC tente d’obtenir la configuration à partir du serveur collecteur. 
+* `FileUri` : (facultatif, chaîne) URI du fichier MOF, du fichier MOF Meta ou du fichier ZIP de ressources personnalisées.
+* `ResourceName` : (facultatif, chaîne) nom du module de ressources personnalisées.
+* `ExtensionAction` : (facultatif, chaîne) spécifie le rôle d’une extension. Valeurs valides : Register, Push, Pull, Install, Remove. Si rien n’est spécifié, l’action par défaut est Push.
+* `NodeConfigurationName` : (facultatif, chaîne) nom d’une configuration de nœud à appliquer.
+* `RefreshFrequencyMins` : (facultatif, entier) spécifie la fréquence (en minutes) à laquelle DSC tente d’obtenir la configuration depuis le serveur collecteur. 
        Si la configuration du serveur collecteur est différente de la configuration actuelle sur le nœud cible, elle est copiée dans le magasin en attente, puis appliquée.
-* `ConfigurationMode`: (facultatif, chaîne) indique comment DSC doit appliquer la configuration. Les valeurs autorisées sont : ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
-* `ConfigurationModeFrequencyMins`: (facultatif, int) spécifie la fréquence (en minutes), DSC permet de s’assurer que la configuration est à l’état souhaité.
+* `ConfigurationMode` : (facultatif, chaîne) indique la façon dont DSC applique la configuration. Les valeurs autorisées sont : ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
+* `ConfigurationModeFrequencyMins` : (facultatif, entier) spécifie la fréquence (en minutes) à laquelle DSC vérifie que la configuration est conforme à l’état souhaité.
 
 > [!NOTE]
 > Si vous utilisez une version inférieure à la version 2.3, le paramètre mode est identique à ExtensionAction. Mode semble être un terme surchargé. Par conséquent, pour éviter toute confusion, ExtensionAction est utilisé à partir de la version 2.3 et dans les versions ultérieures. Pour la compatibilité descendante, l’extension prend en charge à la fois mode et ExtensionAction. 
@@ -74,10 +74,10 @@ Voici tous les paramètres de configuration publique pris en charge :
 
 Voici tous les paramètres de configuration protégée pris en charge :
 
-* `StorageAccountName`: (facultatif, chaîne) le nom du compte de stockage qui contient le fichier
-* `StorageAccountKey`: (facultatif, chaîne) la clé du compte de stockage qui contient le fichier
-* `RegistrationUrl`: (facultatif, chaîne) l’URL du compte Azure Automation
-* `RegistrationKey`: (facultatif, chaîne) la clé d’accès du compte Azure Automation
+* `StorageAccountName` : (facultatif, chaîne) nom du compte de stockage qui contient le fichier.
+* `StorageAccountKey` : (facultatif, chaîne) clé du compte de stockage qui contient le fichier.
+* `RegistrationUrl` : (facultatif, chaîne) URL du compte Azure Automation.
+* `RegistrationKey` : (facultatif, chaîne) clé d’accès du compte Azure Automation.
 
 
 ## <a name="scenarios"></a>Scénarios

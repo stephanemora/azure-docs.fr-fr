@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 3/23/2019
+ms.date: 4/11/2019
 ms.author: tamram
-ms.openlocfilehash: c4c62876ac2483851a1f60835eeee17b4ae47f13
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b3e2f018a3f1ba2563ba8cf2df6dfd4959be592e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395632"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737070"
 ---
 | Ressource | Cible        |
 |----------|---------------|
@@ -21,3 +21,6 @@ ms.locfileid: "58395632"
 | Taille maximale d’un objet blob d’ajout | 50 000 x 4 Mio (environ 195 Gio) |
 | Taille maximale d’un objet blob de pages | 8 Tio |
 | Nombre maximal de stratégies d’accès stockées par conteneur d’objets blob | 5. |
+|Débit cible pour un objet blob unique |Jusqu'à des limites d’entrées/sorties de compte de stockage<sup>1</sup> |
+
+<sup>1</sup> débit d’objet unique dépend de plusieurs facteurs, y compris, mais sans limitation : d’accès concurrentiel, taille de l’opération, niveau de performance, la vitesse de la source pour les téléchargements et de destination pour les téléchargements.

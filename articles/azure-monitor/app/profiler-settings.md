@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884157"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurer Application Insights Profiler
@@ -47,7 +47,7 @@ Vous pouvez déclencher manuellement Profiler en un clic. Supposons que vous ex�
 
 Les sections suivantes montrent comment ce scénario fonctionne :
 
-### <a name="step-1-optional-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Étape 1 : (Facultatif) Générer du trafic vers votre application web en démarrant un test de performances web
+### <a name="step-1-optional-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Étape 1 : (Facultatif) Générer du trafic vers votre application web en démarrant un test de performances web
 
 Si votre application web a déjà du trafic entrant ou si vous voulez simplement générer du trafic manuellement, ignorez cette section et continuez à l’étape 2.
 
@@ -67,14 +67,14 @@ Si votre application web a déjà du trafic entrant ou si vous voulez simplement
 
     ![Le test de charge est en cours d’exécution][load-test-in-progress]
 
-### <a name="step-2-start-a-profiler-on-demand-session"></a>Étape 2 : Démarrer une session de Profiler à la demande
+### <a name="step-2-start-a-profiler-on-demand-session"></a>Étape 2 : Démarrer une session de Profiler à la demande
 
 1. Quand le test de charge est en cours d’exécution, démarrez Profiler pour capturer les traces de l’application web pendant qu’elle reçoit la charge.
 
 1. Accédez au volet **Configurer Profiler**.
 
 
-### <a name="step-3-view-traces"></a>Étape 3 : Affichage des traces
+### <a name="step-3-view-traces"></a>Étape 3 : Affichage des traces
 
 Une fois que l’exécution de Profiler est terminée, suivez les instructions de la notification pour accéder au volet Performances et voir les traces.
 
@@ -125,7 +125,7 @@ Si une des valeurs précédentes n’est pas définie, installez la dernière ex
     ![Rechercher une mise à jour de l’extension][check-for-extension-update]
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Activer Profiler et afficher les traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
+[Activer Profiler et voir les traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916170"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
@@ -81,9 +81,9 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 
 * Se connecter à Azure SQL Database V12 via la redirection https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [Liste de version de protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
+* [Liste des versions du protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
-* [Activation Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
+* [Procédure : Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
 
 

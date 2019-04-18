@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58863172"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Résolution de problèmes de protection par mot de passe Azure AD
@@ -152,6 +152,6 @@ S’il est décidé de désinstaller le logiciel de protection de mot de passe A
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Forum aux questions pour la Protection de mot de passe Azure AD](howto-password-ban-bad-on-premises-faq.md)
+[Forum au questions sur la protection par mot de passe Azure AD](howto-password-ban-bad-on-premises-faq.md)
 
 Pour plus d’informations sur les listes de mots de passe interdits globales et personnalisées, consultez l’article [Éliminer les mots de passe interdits](concept-password-ban-bad.md).

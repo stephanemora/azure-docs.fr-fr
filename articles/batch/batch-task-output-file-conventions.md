@@ -16,10 +16,10 @@ ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d30a5ca0910c5ceebb38dec7b4cdbffd9b3cf27e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916782"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET
@@ -202,7 +202,7 @@ Pour activer l’affichage de vos fichiers de sortie dans le portail, vous devez
 
 Pour afficher les fichiers de sortie de tâches et les journaux d’activité dans le portail Azure, accédez à la tâche dont la sortie vous intéresse, puis cliquez sur **Fichiers de sortie enregistrés** ou **Journaux d’activité enregistrés**. Cette image affiche l’écran **Saved output files (Fichiers de sortie enregistrés)** pour la tâche pourvue de l’ID « 007 » :
 
-![Panneau des sorties des tâches dans le portail Azure][2]
+![Panneau des sorties des tâches dans le Portail Azure][2]
 
 ## <a name="code-sample"></a>Exemple de code
 

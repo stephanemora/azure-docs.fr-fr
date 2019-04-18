@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893178"
 ---
 # <a name="monitor-server-metrics"></a>Surveiller les indicateurs de performances du serveur
@@ -85,6 +85,6 @@ Ce tableau permet de déterminer les meilleurs indicateurs de performances pour 
 |TotalConnectionRequests|Nombre total de demandes de connexion|Nombre|Moyenne|Nombre total de demandes de connexion. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Analyse dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
-[Mesures dans Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Mesures dans l’API REST Azure Monitor](/rest/api/monitor/metrics)
+[Surveillance dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
+[Indicateurs de performances dans Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
+[Indicateurs de performances dans l’API REST Azure Monitor](/rest/api/monitor/metrics)

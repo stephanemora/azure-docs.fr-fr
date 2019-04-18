@@ -9,10 +9,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 30d99c3f4767eb50361f7074c0d508fcf309faca
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896431"
 ---
 # <a name="run-micro-focus-enterprise-server-40-in-a-docker-container-on-azure"></a>Exécutez Micro Focus Enterprise Server 4.0 dans un conteneur Docker sur Azure
@@ -171,4 +171,4 @@ Et voilà ! Vous êtes maintenant en cours d’exécution et la gestion d’une
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Installation de Micro Focus Enterprise Server 4.0 et code Enterprise Developer 4.0 sur Azure](./set-up-micro-focus-azure.md)
-- [Migration d’applications d’un environnement mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+- [Migration d’applications mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
 ms.openlocfilehash: 38f86bd19c85440fbad0e7fd56a3dd9ba836c7b8
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903300"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Utiliser Apache Phoenix avec les clusters Apache HBase basés sur Linux dans HDInsight
@@ -34,7 +34,7 @@ Avant de pouvoir utiliser SQLLine, vous devez disposer des éléments suivants 
 
 Quand vous vous connectez à un cluster HBase, vous devez vous connecter à l’une des machines virtuelles [Apache ZooKeeper](https://zookeeper.apache.org/). Chaque cluster HDInsight a trois machines virtuelles ZooKeeper.
 
-**Pour obtenir le nom d’hôte ZooKeeper**
+**Pour connaître le nom d’hôte ZooKeeper**
 
 1. Ouvrez [Apache Ambari](https://ambari.apache.org/) en accédant à la page **https://\<nom du cluster\>.azurehdinsight.net**.
 2. Pour vous connecter, entrez le nom d’utilisateur (cluster) HTTP et le mot de passe.

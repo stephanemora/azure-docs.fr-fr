@@ -16,10 +16,10 @@ ms.date: 11/27/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f76fef3d5e6515e9d546c709ace0a4a533c0a45
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881169"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant PowerShell
@@ -54,8 +54,8 @@ Pour créer une machine virtuelle Azure avec l’identité managée affectée pa
     $vmConfig = New-AzVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
     ```
 
-   - [Créer une machine virtuelle de Windows à l’aide de PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
-   - [Créer une machine virtuelle de Linux à l’aide de PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
+   - [Créer une machine virtuelle Windows avec PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+   - [Créer une machine virtuelle Linux avec PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
 > [!NOTE]
 > Vous pouvez éventuellement déployer des identités gérées pour l’extension de machine virtuelle de ressources Azure, mais il sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison Azure Instance Metadata identité pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS de Azure pour l’authentification](howto-migrate-vm-extension.md).
@@ -153,8 +153,8 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
     ```
     
-    - [Créer une machine virtuelle de Windows à l’aide de PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
-    - [Créer une machine virtuelle de Linux à l’aide de PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
+    - [Créer une machine virtuelle Windows avec PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+    - [Créer une machine virtuelle Linux avec PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
 > [!NOTE]
 > Vous pouvez éventuellement déployer des identités gérées pour l’extension de machine virtuelle de ressources Azure, mais il sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison Azure Instance Metadata identité pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS de Azure pour l’authentification](howto-migrate-vm-extension.md).
@@ -215,7 +215,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Les identités pour la vue d’ensemble de ressources Azure](overview.md)
+- [Vue d’ensemble des identités managées pour les ressources Azure](overview.md)
 - Pour obtenir les guides de démarrages rapides complets sur la création de machines virtuelles Azure, consultez :
   
   - [Créer une machine virtuelle Windows avec PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 

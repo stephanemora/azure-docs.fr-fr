@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
 ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892294"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Comment déterminer si les services de domaine Azure AD sont adaptés à votre cas d’utilisation ?
@@ -39,18 +39,18 @@ Le tableau suivant vous permet de choisir entre l’utilisation des services de 
 | [**Service géré**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Déploiements sécurisés**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |L’administrateur doit sécuriser le déploiement. |
 | [**Serveur DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (service géré) |**&#x2713;** |
-| [**Privilèges d’administrateur de domaine ou d’entreprise**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
-| [**jonction de domaine**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
+| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**Jonction de domaine**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Authentification de domaine à l’aide de NTLM et Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Délégation Kerberos contrainte**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|basée sur la ressource|basée sur la ressource et basée sur le compte|
 | [**Structure d’unité d’organisation personnalisée**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
 | [**Extensions de schéma**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**Approbations de domaine/forêt AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
-| [**Lecture LDAP**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
 | [**LDAP sécurisé (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
-| [**Écriture LDAP**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
-| [**Stratégie de groupe**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
-| [**Déploiements GÉOLOCALISÉS**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
+| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&amp;#x2715;** |**&#x2713;** |
+| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
+| [**Déploiements géolocalisés**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Service géré
 Les domaines des services de domaine Azure AD sont gérés par Microsoft. Vous n’avez pas à vous soucier des correctifs, des mises à jour, de la surveillance, des sauvegardes et de la disponibilité de votre domaine. Ces tâches de gestion sont proposées en tant que service par Microsoft Azure pour vos domaines gérés.
@@ -118,6 +118,6 @@ Vous disposez peut-être de cas d’utilisation de déploiement où vous avez be
 Nous avons publié des [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) pour faciliter les installations personnalisées.
 
 ## <a name="related-content"></a>Contenu connexe
-* [Fonctionnalités - Azure AD Domain Services](active-directory-ds-features.md)
-* [Scénarios de déploiement - Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Instructions pour le déploiement de Windows Server Active Directory sur des Machines virtuelles](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)
+* [Fonctionnalités - Services de domaine Azure AD](active-directory-ds-features.md)
+* [Scénarios de déploiement - Services de domaine Azure AD](active-directory-ds-scenarios.md)
+* [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)

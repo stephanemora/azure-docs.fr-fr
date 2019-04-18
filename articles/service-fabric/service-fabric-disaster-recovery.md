@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883239"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Récupération d’urgence dans Azure Service Fabric
@@ -70,8 +70,8 @@ Par exemple, supposons que la défaillance d’une source d’alimentation provo
 Les domaines de mise à niveau sont utiles pour modéliser les zones qui vont subir en même temps une mise à niveau logicielle. Pour cette raison, les domaines de mise à niveau définissent souvent les limites du logiciel pendant les mises à niveau planifiées. Les mises à niveau de Service Fabric et de vos services suivent le même modèle. Pour plus d’informations sur le déploiement des mises à niveau, les domaines de mise à niveau et le modèle d’intégrité Service Fabric qui permet d’empêcher des modifications non souhaitées d’avoir un impact sur le cluster et sur votre service, consultez ces documents :
 
  - [Mise à niveau de l’application](service-fabric-application-upgrade.md)
- - [Didacticiel de mise à niveau d’application](service-fabric-application-upgrade-tutorial.md)
- - [Modèle de contrôle d’intégrité service Fabric](service-fabric-health-introduction.md)
+ - [Tutoriel sur la mise à niveau des applications](service-fabric-application-upgrade-tutorial.md)
+ - [Modèle d’intégrité Service Fabric](service-fabric-health-introduction.md)
 
 Vous pouvez visualiser la disposition de votre cluster à l’aide de la carte de cluster fournie dans [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) :
 

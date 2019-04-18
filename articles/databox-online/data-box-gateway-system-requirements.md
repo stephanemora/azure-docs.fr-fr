@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: alkohli
 ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881764"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Configuration requise à la passerelle de données Azure
@@ -48,7 +48,7 @@ Le système hôte sous-jacent pour le Data Box Gateway est en mesure de dédier 
 
 ## <a name="supported-virtualization-platforms-for-device"></a>Plateformes de virtualisation prises en charge pour l’appareil
 
-| **Système d’exploitation/plateforme**  |**Versions**   |**Notes**  |
+| **Système d’exploitation/plateforme**  |**Versions**   |**Remarques**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016  |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |Les outils VMware ne sont pas pris en charge.         |
@@ -95,5 +95,5 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 ## <a name="next-step"></a>Étape suivante
 
-* [Déploiement de votre passerelle de zone de données Azure](data-box-gateway-deploy-prep.md)
+* [Déployer votre instance Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
 

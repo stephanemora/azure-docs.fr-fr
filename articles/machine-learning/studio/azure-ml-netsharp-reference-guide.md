@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886095"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning Studio
@@ -149,7 +149,7 @@ Immédiatement après avoir défini la couche entraînable, vous devez déclarer
 
 À ce jour, cinq types de faisceau de connexions sont pris en charge :
 
-+ **Complète** offres groupées, indiquées par le mot clé `all`
++ Faisceau **complet**, signalé par le mot clé `all`
 + Faisceau **filtré**, signalé par le mot clé `where`, suivi par une expression de prédicat
 + Faisceau **convolutionnel**, signalé par le mot clé `convolve`, suivi des attributs de convolution
 + Faisceau de **regroupement**, signalé par les mots clés **max pool** ou **mean pool**
@@ -454,11 +454,10 @@ output Digit [10] from Hid3 all;
 + Le nombre de poids par noyau est de `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Ou `26 * 50 = 1300`.
 + Vous pouvez calculer les nœuds de chaque couche masquée comme suit :
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5`
-    `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5``NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
-+ Le nombre total de nœuds peut être calculé à l’aide de la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
++ Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
 + Étant donné que `Sharing[d]` a la valeur False uniquement pour `d == 0`, le nombre de noyaux est de `MapCount * NodeCount\[0] = 10 * 5 = 50`.
 
 ## <a name="acknowledgements"></a>Remerciements

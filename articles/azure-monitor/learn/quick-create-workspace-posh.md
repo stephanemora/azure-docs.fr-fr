@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: 6f27aeb65cb9077011e662c165ca26202546db26
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905730"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Créer un espace de travail Log Analytics avec Azure PowerShell
@@ -31,9 +31,9 @@ Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azu
  
 Pour les autres sources, telles que les machines virtuelles Azure et les machines virtuelles Windows ou Linux dans votre environnement, consultez les rubriques suivantes :
 
-* [Collecter des données à partir de machines virtuelles Azure](../learn/quick-collect-azurevm.md)
-* [Collecter des données à partir de l’ordinateur Linux hybride](../learn/quick-collect-linux-computer.md)
-* [Collecter des données à partir de l’ordinateur de Windows hybride](quick-collect-windows-computer.md)
+* [Collect data from Azure virtual machines](../learn/quick-collect-azurevm.md) (Collecter des données à partir de machines virtuelles Azure)
+* [Collect data from hybrid Linux computer](../learn/quick-collect-linux-computer.md) (Collecter des données à partir d’un ordinateur Linux hybride)
+* [Collect data from hybrid Windows computer](quick-collect-windows-computer.md) (Collecter des données à partir d’un ordinateur Windows hybride)
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

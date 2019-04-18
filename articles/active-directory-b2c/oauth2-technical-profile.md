@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: fde556c60f823f4bd287ca5672503158c7292f51
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918924"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OAuth2 dans une stratégie personnalisée Azure Active Directory B2C
@@ -112,7 +112,7 @@ Si vous utilisez le domaine **b2clogin.com** à la place de **login.microsoftonl
 
 Exemples :
 
-- [Ajout de Google + comme fournisseur d’identité OAuth2 à l’aide de stratégies personnalisées](active-directory-b2c-custom-setup-goog-idp.md)
+- [Ajouter Google+ en tant que fournisseur d’identités OAuth2 en utilisant des stratégies personnalisées](active-directory-b2c-custom-setup-goog-idp.md)
 
 
 

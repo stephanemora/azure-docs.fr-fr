@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885602"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Syntaxe des requêtes Lucene dans Recherche Azure
@@ -167,6 +167,6 @@ L’exemple suivant permet d’illustrer les différences entre les deux. Suppos
 
 ## <a name="see-also"></a>Voir aussi  
 
-+ [Search Documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-+ [Syntaxe d’expression OData de filtres et de tri](query-odata-filter-orderby-syntax.md)   
++ [Recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Syntaxe des expressions OData pour les filtres et le tri](query-odata-filter-orderby-syntax.md)   
 + [Syntaxe des requêtes simples dans Recherche Azure](query-simple-syntax.md)   

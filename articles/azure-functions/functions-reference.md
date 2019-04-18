@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891886"
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
@@ -85,11 +85,11 @@ Vous pouvez configurer la version du runtime Functions en utilisant le paramètr
 Le code pour Azure Fonctions est open source et stocké dans des dépôts GitHub :
 
 * [Azure Functions](https://github.com/Azure/Azure-Functions)
-* [Hôte de fonctions Azure](https://github.com/Azure/azure-functions-host/)
-* [portail Azure Functions](https://github.com/azure/azure-functions-ux)
+* [Hôte Azure Functions](https://github.com/Azure/azure-functions-host/)
+* [Portail Azure Functions](https://github.com/azure/azure-functions-ux)
 * [Modèles Azure Functions](https://github.com/azure/azure-functions-templates)
 * [Kit de développement logiciel Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/)
-* [Extensions du Kit de développement logiciel Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+* [Extensions du kit de développement logiciel Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## <a name="bindings"></a>Liaisons
 Voici un tableau de toutes les liaisons prises en charge.
@@ -104,8 +104,8 @@ Vous rencontrez des problèmes avec des erreurs de liaisons ? Consultez la docu
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
-* [Liaisons et déclencheurs de fonctions azure](functions-triggers-bindings.md)
+* [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
 * [Coder et tester Azure Functions localement](./functions-develop-local.md)
-* [Bonnes pratiques pour Azure Functions](functions-best-practices.md)
+* [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
 * [Informations de référence pour les développeurs C# sur Azure Functions](functions-reference-csharp.md)
-* [Informations de référence pour les développeurs NodeJS sur Azure Functions](functions-reference-node.md)
+* [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)

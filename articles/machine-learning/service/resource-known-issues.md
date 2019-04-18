@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892736"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problèmes connus et dépannage du service Azure Machine Learning
@@ -24,7 +24,7 @@ Cet article vous permet de rechercher et de corriger les erreurs ou les défaill
 
 ## <a name="sdk-installation-issues"></a>Problèmes d’installation de Kit de développement logiciel (SDK)
 
-**Message d’erreur : Impossible de désinstaller 'PyYAML'**
+**Message d’erreur : Impossible de désinstaller « PyYAML »**
 
 Kit SDK Azure Machine Learning pour Python : PyYAML est un projet installé distutils. Par conséquent, nous ne pouvons pas déterminer avec précision les fichiers qui lui appartiennent en cas de désinstallation partielle. Pour poursuivre l’installation du kit de développement logiciel (SDK) en ignorant cette erreur, utilisez :
 

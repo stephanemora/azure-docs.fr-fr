@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918635"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
@@ -170,9 +170,9 @@ Le clustering de basculement Windows Server est pris en charge par Azure File Sy
 
 ### <a name="data-deduplication"></a>Déduplication des données
 **Agent version 5.0.2.0**   
-La déduplication des données est prise en charge sur les volumes avec hiérarchisation cloud sur Windows Server 2016 et Windows Server 2019. Le fait d’activer la déduplication sur un volume pour lequel la hiérarchisation cloud est activée permet de mettre en cache plus de fichiers en local sans avoir à approvisionner davantage de stockage.
+La déduplication des données est prise en charge sur les volumes avec hiérarchisation cloud sur Windows Server 2016 et Windows Server 2019. L’activation de la déduplication sur un volume avec hiérarchisation cloud vous permet de mettre en cache plusieurs fichiers en local sans approvisionner davantage de stockage.
 
-**Windows Server 2012 R2 ou versions plus anciennes de l’agent**  
+**Windows Server 2012 R2 ou versions d’agent plus anciennes**  
 Pour les volumes sur lesquels la hiérarchisation cloud n’est pas activée, Azure File Sync prend en charge la déduplication des données Windows Server quand elle est activée sur le volume.
 
 ### <a name="distributed-file-system-dfs"></a>Système de fichiers DFS
@@ -293,7 +293,7 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Tient compte des paramètres de pare-feu et proxy](storage-sync-files-firewall-and-proxy.md)
+* [Prenez en compte les paramètres de pare-feu et de proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planification d’un déploiement Azure Files](storage-files-planning.md)
 * [Déployer Azure Files](storage-files-deployment-guide.md)
 * [Déployer Azure File Sync](storage-sync-files-deployment-guide.md)

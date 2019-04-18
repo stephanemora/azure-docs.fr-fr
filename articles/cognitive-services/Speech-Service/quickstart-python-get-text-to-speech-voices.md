@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: erhopf
 ms.openlocfilehash: 66bda68b1313a7c172e273671bc3a03503d08e0d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876578"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Démarrage rapide : Obtenir la liste des voix de synthèse vocale à l’aide de Python
@@ -131,10 +131,10 @@ N’oubliez pas de supprimer toutes les informations confidentielles (telles que
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Explorer les exemples Python sur GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
+> [Explorer des exemples Python sur GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Référence de l’API Conversion de texte par synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
+* [Référence sur l’API conversion de texte par synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Création de polices de voix personnalisée](how-to-customize-voice-font.md)
 * [Enregistrer des échantillons vocaux pour créer une voix personnalisée](record-custom-voice-samples.md)

@@ -12,10 +12,10 @@ author: marthalc
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885489"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Superviser vos modèles Azure Machine Learning avec Application Insights
@@ -85,15 +85,15 @@ Vous pouvez activer et désactiver Application Insights dans le portail Azure.
 
 1. Sous l’onglet **Déploiements**, sélectionnez le service dans lequel vous souhaitez activer Application Insights.
 
-   [![Liste des services sous l’onglet déploiements](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![Liste des services sous l’onglet Déploiements](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. Sélectionnez **Modifier**.
 
-   [![Ebouton de la dit](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Bouton Modifier](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. Dans **Paramètres avancés**, cochez la case **Activer les diagnostics AppInsights**.
 
-   [![Scase à cocher choisi pour l’activation des diagnostics](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![Case à cocher pour activer les diagnostics](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Sélectionnez **Mettre à jour** au bas de l’écran pour appliquer les modifications. 
 
@@ -101,11 +101,11 @@ Vous pouvez activer et désactiver Application Insights dans le portail Azure.
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre espace de travail.
 1. Sélectionnez **Déploiements**, sélectionnez le service, puis sélectionnez **Modifier**.
 
-   [![Use le bouton Modifier](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Utiliser le bouton Modifier](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. Dans **Paramètres avancés**, décochez la case **Activer les diagnostics AppInsights**. 
 
-   [![Cavez appris case à cocher pour activer les diagnostics](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![Case à décocher pour désactiver les diagnostics](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Sélectionnez **Mettre à jour** au bas de l’écran pour appliquer les modifications. 
  
@@ -119,12 +119,12 @@ Pour l’afficher :
 
 1. Sélectionnez l’onglet **Vue d’ensemble** qui présente l’ensemble des métriques de base de votre service.
 
-   [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![Vue d’ensemble](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 3. Pour explorer vos traces personnalisées, sélectionnez **Analytique**.
 4. Dans la section du schéma, sélectionnez **Traces**. Ensuite, sélectionnez **Exécuter** pour exécuter votre requête. Les données doivent s’afficher dans un tableau et doivent correspondre aux appels personnalisés de votre fichier de scoring. 
 
-   [![Ctraces de personnalisé](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Traces personnalisées](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Pour plus d’informations sur l’utilisation d’Application Insights, consultez [Présentation d’Application Insights](../../azure-monitor/app/app-insights-overview.md).
     

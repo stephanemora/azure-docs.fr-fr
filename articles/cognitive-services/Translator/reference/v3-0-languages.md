@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915762"
 ---
 # <a name="translator-text-api-30-languages"></a>API de traduction de texte Translator Text 3.0 : Languages
@@ -67,11 +67,11 @@ L’authentification n’est pas nécessaire pour obtenir les ressources de lang
 
 Un client utilise le paramètre de requête `scope` pour définir les groupes de langues qui l’intéresse.
 
-* `scope=translation` Fournit des langues prises en charge pour traduire le texte d’une langue à une autre langue ;
+* `scope=translation` fournit les langues prises en charge pour traduire le texte d’une langue dans une autre.
 
-* `scope=transliteration` Fournit des fonctionnalités de conversion du texte dans une langue à partir d’un script à un autre script ;
+* `scope=transliteration` fournit des fonctions de conversion de texte dans une langue, d’un script à l’autre.
 
-* `scope=dictionary` Fournit des paires de langues pour lesquelles `Dictionary` opérations retournent des données.
+* `scope=dictionary` fournit des paires de langues pour lesquelles les opérations `Dictionary` renvoient des données.
 
 Un client peut récupérer plusieurs groupes simultanément en indiquant une liste de noms séparée par des virgules. Par exemple, `scope=translation,transliteration,dictionary` peut renvoyer les langues prises en charge pour tous les groupes.
 
@@ -93,7 +93,7 @@ Une réponse correcte est un objet JSON avec une propriété pour chaque groupe 
 
 La valeur de chaque propriété prend la forme suivante.
 
-* `translation` propriété
+* Propriété `translation`
 
   La valeur de la propriété `translation` est un dictionnaire composé de paires (clé, valeur). Chaque clé est une balise de langue BCP 47. Une clé identifie une langue pour laquelle du texte peut être traduit de ou vers une autre langue. La valeur associée à cette clé est un objet JSON avec des propriétés décrivant la langue :
 
@@ -101,7 +101,7 @@ La valeur de chaque propriété prend la forme suivante.
 
   * `nativeName`: nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
 
-  * `dir`: sens de l’écriture, `ltr` pour les langues qui se lisent de droite à gauche, ou  pour les langues qui se lisent de gauche à droite.
+  * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
 
   Voici un exemple :
           
@@ -119,7 +119,7 @@ La valeur de chaque propriété prend la forme suivante.
   }
   ```
 
-* `transliteration` propriété
+* Propriété `transliteration`
 
   La valeur de la propriété `transliteration` est un dictionnaire composé de paires (clé, valeur). Chaque clé est une balise de langue BCP 47. Une clé identifie une langue pour laquelle du texte peut être converti d’un script à l’autre. La valeur associée à cette clé est un objet JSON avec des propriétés décrivant la langue et ses scripts pris en charge :
 
@@ -135,7 +135,7 @@ La valeur de chaque propriété prend la forme suivante.
 
     * `nativeName`: nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
 
-    * `dir`: sens de l’écriture, `ltr` pour les langues qui se lisent de droite à gauche, ou  pour les langues qui se lisent de gauche à droite.
+    * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
 
     * `toScripts`: liste de scripts disponibles en lesquels convertir le texte. Chaque élément de la liste `toScripts` possède des propriétés `code`, `name`, `nativeName` et `dir`, comme décrit précédemment.
 
@@ -184,7 +184,7 @@ La valeur de chaque propriété prend la forme suivante.
   }
   ```
 
-* `dictionary` propriété
+* Propriété `dictionary`
 
   La valeur de la propriété `dictionary` est un dictionnaire composé de paires (clé, valeur). Chaque clé est une balise de langue BCP 47. La clé identifie une langue pour laquelle d’autres traductions et des traductions inverses sont disponibles. La valeur est un objet JSON qui décrit la langue source et les langues cibles avec les traductions disponibles :
 
@@ -192,7 +192,7 @@ La valeur de chaque propriété prend la forme suivante.
 
   * `nativeName`: nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
 
-  * `dir`: sens de l’écriture, `ltr` pour les langues qui se lisent de droite à gauche, ou  pour les langues qui se lisent de gauche à droite.
+  * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
 
   * `translations`: liste de langues avec des traductions alternatives et des exemples pour la requête exprimée en langue source. Chaque élément de la liste `translations` possède des propriétés :
 
@@ -200,7 +200,7 @@ La valeur de chaque propriété prend la forme suivante.
 
     * `nativeName`: nom d’affichage de la langue cible dans les paramètres régionaux natifs de cette langue.
 
-    * `dir`: sens de l’écriture, `ltr` pour les langues qui se lisent de droite à gauche, ou  pour les langues qui se lisent de gauche à droite.
+    * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
     
     * `code`: code de langue identifiant la langue cible.
 
@@ -281,7 +281,7 @@ Si une erreur se produit, la requête renvoie également une réponse d'erreur J
 
 L’exemple suivant montre comment récupérer les langues prises en charge pour la traduction du texte.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

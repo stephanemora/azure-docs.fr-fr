@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904625"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
@@ -223,7 +223,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
 
 1. Facultatif : Configurer le service de proxy pour la protection de mot de passe à l’écoute sur un port spécifique.
    * Le logiciel de l’Agent du contrôleur de domaine pour la protection de mot de passe sur les contrôleurs de domaine utilise RPC sur TCP pour communiquer avec le service de proxy. Par défaut, le service de proxy écoute sur n’importe quel point de terminaison RPC dynamique disponible. Mais vous pouvez configurer le service pour l’écoute sur un port TCP spécifique, si cela est nécessaire en raison de la topologie de réseau ou de la configuration requise du pare-feu dans votre environnement.
-      * <a id="static" /></a>Pour configurer le service afin qu’il s’exécute sous un port statique, utilisez la cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`.
+      * <a id="static" /></a>Pour configurer le service s’exécute sous un port statique, utilisez le `Set-AzureADPasswordProtectionProxyConfiguration` applet de commande.
 
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
@@ -289,4 +289,4 @@ La conception du logiciel de l’Agent du contrôleur de domaine permet d’att�
 
 Maintenant que vous avez installé les services dont vous avez besoin pour la protection de mot de passe Azure AD sur vos serveurs locaux, [effectuer une configuration de post-installation et rassembler les informations de rapport](howto-password-ban-bad-on-premises-operations.md) pour achever votre déploiement.
 
-[Vue d’ensemble conceptuelle de protection de mot de passe Azure AD](concept-password-ban-bad-on-premises.md)
+[Vue d’ensemble conceptuelle de la protection de mot de passe Azure AD](concept-password-ban-bad-on-premises.md)

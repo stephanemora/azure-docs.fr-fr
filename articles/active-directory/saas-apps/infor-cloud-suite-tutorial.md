@@ -17,10 +17,10 @@ ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 025a9d7df16b2be5e22104010be057403ce53c25
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880625"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Tutoriel : Intégration d’Azure Active Directory à Infor CloudSuite
@@ -61,7 +61,7 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 
 Pour configurer l’intégration d’Infor CloudSuite à Azure AD, vous devez ajouter Infor CloudSuite, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Infor CloudSuite à partir de la galerie, procédez comme suit :**
+**Pour ajouter Infor CloudSuite à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
@@ -97,7 +97,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Infor Cloud
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Infor CloudSuite.
 
-**Pour configurer Azure AD-authentification unique avec Infor CloudSuite, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec Infor CloudSuite, effectuez les étapes suivantes :**
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Infor CloudSuite**, cliquez sur **Authentification unique**.
 

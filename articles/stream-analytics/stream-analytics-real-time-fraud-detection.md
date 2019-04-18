@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883715"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Bien démarrer avec Azure Stream Analytics : Détection des fraudes en temps réel
@@ -415,7 +415,7 @@ Vous pouvez poursuivre ce didacticiel en lisant l’article suivant :
 
 Pour plus d’informations sur Stream Analytics en général, consultez les articles suivants :
 
-* [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
-* [L’échelle des travaux d’Azure Stream Analytique](stream-analytics-scale-jobs.md)
-* [Référence du langage requête Azure Stream Analytique](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Référence API REST de gestion d’Analytique Azure Stream](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

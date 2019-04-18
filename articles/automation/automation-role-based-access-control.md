@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918788"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Contrôle d’accès en fonction du rôle dans Azure Automation
@@ -58,7 +58,7 @@ Un contributeur peut tout gérer, sauf les accès. Le tableau suivant indique le
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/|Créer et gérer les ressources de tous les types|
-|**Pas d’Actions**||
+|**NotActions**||
 |Microsoft.Authorization/*/Delete| Supprimer des rôles et des attributions de rôles.       |
 |Microsoft.Authorization/*/Write     |  Créer des rôles et des attributions de rôles.       |
 |Microsoft.Authorization/elevateAccess/Action    | Refuse la possibilité de créer un administrateur de l’accès utilisateur.       |
@@ -159,7 +159,7 @@ Un lecteur Log Analytics peut afficher et rechercher toutes les données de surv
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Gérer les requêtes dans les journaux Azure Monitor.|
 |Microsoft.OperationalInsights/workspaces/search/action|Rechercher des données de journal Azure Monitor.|
 |Microsoft.Support/*|Créer et gérer les tickets de support.|
-|**Pas d’Actions**| |
+|**NotActions**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Impossible de lire les clés d’accès partagé.|
 
 ### <a name="monitoring-contributor"></a>Contributeur d’analyse
@@ -214,7 +214,7 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 
 ### <a name="onboarding-from-a-virtual-machine"></a>Intégration à partir d’une machine virtuelle
 
-|**Action**  |**Autorisation**  |**Étendue minimale**  |
+|**Action**  |**Permission**  |**Étendue minimale**  |
 |---------|---------|---------|
 |Écrire le nouveau déploiement      | Microsoft.Resources/deployments/*          |Abonnement          |
 |Écrire le nouveau groupe de ressources      | Microsoft.Resources/subscriptions/resourceGroups/write        | Abonnement          |
@@ -237,7 +237,7 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 
 ### <a name="onboarding-from-automation-account"></a>Intégration à partir du compte Automation
 
-|**Action**  |**Autorisation** |**Étendue minimale**  |
+|**Action**  |**Permission** |**Étendue minimale**  |
 |---------|---------|---------|
 |Créer un déploiement     | Microsoft.Resources/deployments/*        | Abonnement         |
 |Créer un groupe de ressources     | Microsoft.Resources/subscriptions/resourceGroups/write         | Abonnement        |
@@ -251,7 +251,7 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 |Créer/modifier la recherche enregistrée     | Microsoft.OperationalInsights/workspaces/write        | Espace de travail        |
 |Créer/modifier la configuration d’étendue     | Microsoft.OperationalInsights/workspaces/write        | Espace de travail        |
 |Lier la solution à la configuration d’étendue      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
-|**Étape 2 : intégrer plusieurs machines virtuelles**     |         |         |
+|**Étape 2 : Intégrer plusieurs machines virtuelles**     |         |         |
 |Panneau VMOnboarding - Créer l’extension MMA     | Microsoft.Compute/virtualMachines/write           | Machine virtuelle        |
 |Créer/modifier la recherche enregistrée     | Microsoft.OperationalInsights/workspaces/write           | Espace de travail        |
 |Créer/modifier la configuration d’étendue  | Microsoft.OperationalInsights/workspaces/write   | Espace de travail|
@@ -260,7 +260,7 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 
 La gestion des mises à jour s’étend à plusieurs services pour fournir son service. Le tableau suivant présente les autorisations nécessaires pour gérer les déploiements de gestion des mises à jour :
 
-|**Ressource**  |**Rôle**  |**Étendue**  |
+|**Ressource**  |**Rôle**  |**Portée**  |
 |---------|---------|---------|
 |Compte Automation     | Contributeur Log Analytics       | Compte Automation        |
 |Compte Automation    | Contributeur de machine virtuelle        | Groupe de ressources pour le compte        |

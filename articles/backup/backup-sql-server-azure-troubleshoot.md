@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
 ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916680"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Résoudre les problèmes de sauvegarde SQL Server sur Azure
@@ -169,8 +169,7 @@ Ces problèmes peuvent survenir en raison d’une ou plusieurs des raisons suiva
   * Machine virtuelle a été arrêté pendant une période prolongée en raison de laquelle la configuration d’extension dessus expiré
   * Machine virtuelle a été supprimée et une autre machine virtuelle a été créée avec le même nom et du même groupe de ressources en tant que la machine virtuelle supprimée
   * Un des nœuds du groupe de disponibilité n’a pas reçu la configuration de la sauvegarde complète, cela peut se produire au moment de l’inscription du groupe de disponibilité dans le coffre ou quand un nouveau nœud est ajouté  <br>
-   
-Dans les scénarios ci-dessus, il est recommandé pour déclencher l’opération de Re-register sur la machine virtuelle. Cette option est uniquement disponible via PowerShell et sera bientôt disponible dans le portail Azure également.
+    Dans les scénarios ci-dessus, il est recommandé pour déclencher l’opération de Re-register sur la machine virtuelle. Cette option est uniquement disponible via PowerShell et sera bientôt disponible dans le portail Azure également.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

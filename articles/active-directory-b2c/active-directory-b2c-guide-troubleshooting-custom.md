@@ -11,10 +11,10 @@ ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880642"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Résoudre les problèmes liés aux stratégies personnalisées Azure AD B2C et à l’Infrastructure d’expérience d’identité.
@@ -41,16 +41,16 @@ Il peut être utile de passer en revue les règles XML. Azure AD B2C rejette tou
  
  Voici quelques-unes des erreurs de validation courantes.
 
-Extrait de code erreur : `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
+Extrait de code de l’erreur :`... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * La valeur ClaimType est mal orthographiée ou n’existe pas dans le schéma.
 * Les valeurs ClaimTypes doivent être définies dans au moins l’un des fichiers de la stratégie. 
-    Par exemple :  `<ClaimType Id="socialIdpUserId">`
+    Par exemple : `<ClaimType Id="socialIdpUserId">`
 * Si la valeur ClaimType est définie dans le fichier d’extensions mais utilisée également dans une valeur TechnicalProfile du fichier de base, le chargement du fichier de base provoque une erreur.
 
-Extrait de code erreur : `...makes a reference to a ClaimsTransformation with id...`
+Extrait de code de l’erreur :`...makes a reference to a ClaimsTransformation with id...`
 * Les causes de l’erreur peuvent être les mêmes que pour l’erreur ClaimType.
 
-Extrait de code erreur : `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+Extrait de code de l’erreur :`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 * Vérifiez que la valeur TenantId dans les éléments  **\<TrustFrameworkPolicy\>** et **\<BasePolicy\>** correspondent à votre locataire Azure AD B2C cible.  
 
 ## <a name="troubleshoot-the-runtime"></a>Résoudre les problèmes au moment de l’exécution
@@ -68,7 +68,7 @@ Extrait de code erreur : `Reason: User is currently logged as a user of 'yourte
 
 **Conservez plusieurs versions de vos scénarios. Regroupez-les dans un projet avec votre application.** Les fichiers de base, d’extensions et de partie de confiance dépendent directement les uns des autres. Enregistrez-les en tant que groupe. À mesure que de nouvelles fonctionnalités sont ajoutées à vos stratégies, conservez des versions de travail distinctes. Organisez les versions de travail dans votre propre système de fichiers avec le code d’application avec lequel ils interagissent.  Vos applications peuvent appeler de nombreuses stratégies de partie de confiance différentes dans un locataire. Elles peuvent devenir dépendantes envers les revendications qu’elles attendent de vos stratégies Azure AD B2C.
 
-**Développez et testez les profils techniques avec des parcours utilisateur connus.** Utilisez des stratégies de pack de démarrage testées pour configurer vos profils techniques. Testez-les séparément avant de les incorporer à vos propres parcours utilisateur.
+**Développez et testez des profils techniques avec des parcours utilisateur connus.** Utilisez des stratégies de pack de démarrage testées pour configurer vos profils techniques. Testez-les séparément avant de les incorporer à vos propres parcours utilisateur.
 
 **Développez et testez des parcours utilisateur avec des profils techniques testés.** Changez les étapes d’orchestration d’un parcours utilisateur de manière incrémentielle. Générez progressivement vos scénarios prévus.
 

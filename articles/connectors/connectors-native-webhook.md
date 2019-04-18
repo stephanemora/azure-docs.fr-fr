@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895577"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Créer des actions ou des workflows basés sur les événements avec des Webhooks et Azure Logic Apps
@@ -33,7 +33,7 @@ Un [*déclencheur*](../connectors/apis-list.md) est un événement qui démarre 
 
 Voici un exemple de configuration d’un déclencheur HTTP dans le concepteur d’application logique. Ces étapes supposent que vous avez déjà déployé ou que vous accédez à une API qui suit [le modèle d’abonnement et de résiliation d’abonnement au webhook dans les applications logiques](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
-**Pour ajouter le déclencheur de webhook**
+**Pour ajouter le déclencheur webhook**
 
 1. Ajoutez le déclencheur **HTTP Webhook** en tant que première étape dans une application logique.
 2. Renseignez les paramètres pour les appels d’abonnement et de résiliation d’abonnement au webhook.
@@ -104,7 +104,7 @@ Une * signifie que le champ est obligatoire.
 | Authentification de l’abonnement |Authentification |Authentification HTTP à utiliser pour s’abonner. [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
 | Corps de résiliation d’abonnement |body |Corps de la demande HTTP de résiliation d’abonnement |
 | En-têtes de résiliation d’abonnement |headers |En-têtes de la demande HTTP de résiliation d’abonnement |
-| Authentification de la résiliation d’abonnement |authentication |Authentification HTTP à utiliser pour la résiliation d’abonnement. [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
+| Authentification de la résiliation d’abonnement |authentication |Authentification HTTP à utiliser pour la résiliation d’abonnement. Voir [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
 
 **Détails des résultats**
 
@@ -140,7 +140,7 @@ Une * signifie que le champ est obligatoire.
 | Authentification de l’abonnement |Authentification |Authentification HTTP à utiliser pour s’abonner. [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
 | Corps de résiliation d’abonnement |body |Corps de la demande HTTP de résiliation d’abonnement |
 | En-têtes de résiliation d’abonnement |headers |En-têtes de la demande HTTP de résiliation d’abonnement |
-| Authentification de la résiliation d’abonnement |authentication |Authentification HTTP à utiliser pour la résiliation d’abonnement. [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
+| Authentification de la résiliation d’abonnement |authentication |Authentification HTTP à utiliser pour la résiliation d’abonnement. Voir [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
 
 **Détails des résultats**
 

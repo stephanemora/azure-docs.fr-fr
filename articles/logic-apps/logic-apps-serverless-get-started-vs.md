@@ -11,10 +11,10 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/02/2019
 ms.openlocfilehash: 39b44668a89ce0c77c09a7fa20dc4d95b2164bf4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862996"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Créer votre première application serverless avec Azure Logic Apps et Azure Functions - Visual Studio
@@ -29,18 +29,18 @@ Pour créer une application serverless dans Visual Studio, vous avez besoin des 
 
 * Téléchargez et installez ces outils, si vous ne les avez pas déjà :
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 ou 2015 - Community edition ou supérieur</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 ou 2015 - édition Community ou supérieure</a>. 
   Ce démarrage rapide utilise Visual Studio Community 2017, qui est gratuit.
 
     > [!IMPORTANT]
-    > Lorsque vous installez Visual Studio 2019 ou 2017, vous assurer que vous sélectionnez le **développement Azure** charge de travail.
-    > Pour Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais encore Impossible d’ouvrir le Concepteur d’application logique intégré.
+    > Quand vous installez Visual Studio 2019 ou 2017, veillez à sélectionner la charge de travail **Développement Azure**.
+    > Pour Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais ne peut pas encore ouvrir le Concepteur d’application logique intégré.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK pour .NET (2.9.1 ou version ultérieure)</a>. En savoir plus sur <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK pour .NET</a>.
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Kit de développement logiciel (SDK) Microsoft Azure pour .NET (version 2.9.1 ou ultérieure)</a>. En savoir plus sur <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK pour .NET</a>.
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * Outils Azure Logic Apps pour la version de Visual Studio :
+  * Outils Azure Logic Apps pour la version Visual Studio souhaitée :
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
 
@@ -73,11 +73,11 @@ Pour commencer, créez un [projet de groupe de ressources Azure](../azure-resour
    > [!NOTE]
    > Si la catégorie **Cloud** ou le projet **Groupe de ressources Azure** n’existe pas, vérifiez que vous avez installé le kit SDK Azure pour Visual Studio.
 
-   Si vous utilisez Visual Studio 2019, procédez comme suit :
+   Si vous utilisez Visual Studio 2019, effectuez ces étapes :
 
-   1. Dans le **créer un nouveau projet** boîte, sélectionnez le **groupe de ressources Azure** modèle de projet pour un visuel C# ou Visual Basic, puis choisissez **suivant**.
+   1. Dans la boîte de dialogue **Créer un projet**, sélectionnez le modèle de projet **Groupe de ressources Azure** pour Visual C# ou Visual Basic, puis choisissez **Suivant**.
 
-   1. Indiquez le nom pour le groupe de ressources Azure que vous souhaitez utiliser et d’autres informations de projet. Lorsque vous êtes prêt, choisissez **Créer**.
+   1. Indiquez le nom du groupe de ressources Azure que vous souhaitez utiliser et les autres informations relatives au projet. Lorsque vous êtes prêt, choisissez **Créer**.
 
 1. Attribuez un nom et un emplacement au projet, puis choisissez **OK**.
 

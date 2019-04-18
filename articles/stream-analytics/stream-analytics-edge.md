@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 4/2/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892226"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics sur IoT Edge
@@ -48,7 +48,7 @@ La procédure générale est décrite dans le tableau suivant. Vous obtiendrez p
 |      |Étape   | Notes   |
 | ---   | ---   |  ---      |
 | 1   | **Créer un conteneur de stockage**   | Les conteneurs de stockage sont utilisés pour enregistrer votre définition de tâche, là où ils sont accessibles par vos appareils IoT. <br>  Vous pouvez réutiliser un conteneur de stockage existant.     |
-| 2   | **Créer une tâche ASA edge**   |  Créez une nouvelle tâche, sélectionnez **Edge** en tant qu’**environnement d’hébergement**. <br> Ces tâches sont créées/gérées à partir du cloud et s’exécutent sur vos propres appareils IoT Edge.     |
+| 2   | **Créer une tâche ASA Edge**   |  Créez une nouvelle tâche, sélectionnez **Edge** en tant qu’**environnement d’hébergement**. <br> Ces tâches sont créées/gérées à partir du cloud et s’exécutent sur vos propres appareils IoT Edge.     |
 | 3   | **Configurer votre environnement IoT Edge sur vos appareils**   | Instructions pour [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Déployer ASA sur vos appareils IoT Edge**   |  La définition de tâche ASA est exportée vers le conteneur de stockage créé précédemment.       |
 
@@ -210,8 +210,8 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Plus d’informations sur Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
-* [ASA sur didacticiel de IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [Développer des tâches Edge Stream Analytics avec les outils Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+* [Didacticiel pour ASA sur IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [Développer des travaux Edge Stream Analytics avec les outils Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 * [Implémenter CI/CD pour Stream Analytics à l’aide d’API](stream-analytics-cicd-api.md)
 
 <!--Link references-->

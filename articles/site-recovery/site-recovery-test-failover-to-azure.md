@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: 6d8ad71894444b3759e506c50244b592ac1f8aac
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904710"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Effectuer un exercice de récupération d'urgence vers Azure 
@@ -104,7 +104,7 @@ Pour exécuter un test de basculement afin de tester des applications, vous deve
 
 Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de RDP/SSH après le basculement, respectez les exigences récapitulées dans le tableau.
 
-**Basculement** | **Lieu** | **Actions**
+**Type de basculement** | **Lieu** | **Actions**
 --- | --- | ---
 **Machine virtuelle Azure exécutant Windows** | Machine locale avant le basculement | Pour accéder à la machine virtuelle Azure par Internet, activez la fonction RDP, vérifiez que les règles TCP et UDP sont ajoutées pour **Public** et que RDP est autorisé pour tous les profils dans **Pare-feu Windows** > **Applications autorisées**.<br/><br/> Pour accéder à la machine virtuelle Azure via une connexion de site à site, activez RDP sur la machine, en vérifiant que ce dernier est autorisé dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées**, pour les réseaux de types **Domaine et Privé**.<br/><br/>  Vérifiez que la stratégie SAN du système d’exploitation est définie sur la valeur **OnlineAll**. [Plus d’informations](https://support.microsoft.com/kb/3031135)<br/><br/> Vérifiez qu’aucune mise à jour de Windows n’est en attente sur la machine virtuelle quand vous déclenchez un basculement. Une mise à jour de Windows peut démarrer quand vous procédez au basculement, et vous ne pouvez pas ouvrir de session sur la machine virtuelle tant que la mise à jour n’est pas terminée.
 **Machine virtuelle Azure exécutant Windows** | Machine virtuelle Azure après le basculement |  [Ajoutez une adresse IP publique](https://aka.ms/addpublicip) pour la machine virtuelle.<br/><br/> Les règles des groupes de sécurité réseau figurant sur la machine virtuelle basculée (et le sous-réseau Azure auquel elle est connectée) doivent autoriser les connexions entrantes avec le port RDP.<br/><br/> Cochez **Diagnostics de démarrage** pour examiner une capture d’écran de la machine virtuelle.<br/><br/> Si vous ne parvenez pas à vous connecter, vérifiez que la machine virtuelle est en cours d’exécution et consultez ces [conseils de résolution des problèmes](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).

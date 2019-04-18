@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919218"
 ---
 ## <a name="specifying-formats"></a>Spécification des formats
 Azure Data Factory prend en charge les types de format suivants :
 
-* [Format de texte](#specifying-textformat)
+* [Format Texte](#specifying-textformat)
 * [Format JSON](#specifying-jsonformat)
 * [Format Avro](#specifying-avroformat)
 * [Format ORC](#specifying-orcformat)
-* [Format parquet](#specifying-parquetformat)
+* [Format Parquet](#specifying-parquetformat)
 
 ### <a name="specifying-textformat"></a>Définition de TextFormat
 Si vous souhaitez analyser des fichiers texte ou écrire des données au format texte, définissez la propriété `format` `type` sur **TextFormat**. Vous pouvez également spécifier les propriétés **facultatives** suivantes, dans la section `format`. Consultez la section [Exemple pour TextFormat](#textformat-example) pour en savoir plus sur la méthode de configuration à suivre.
@@ -31,7 +31,7 @@ Si vous souhaitez analyser des fichiers texte ou écrire des données au format 
 | quoteChar |Le caractère utilisé pour entourer de guillemets une valeur de chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette propriété s’applique aux jeux de données d’entrée et de sortie.<br/><br/>Vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. |Un seul caractère est autorisé. Aucune valeur par défaut. <br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (par exemple : « Hello, world »), vous pouvez définir " (guillemet droit) comme caractère de guillemet et utiliser la chaîne "Hello, world" dans la source. |Non  |
 | nullValue |Un ou plusieurs caractères utilisés pour représenter une valeur null. |Un ou plusieurs caractères. Les valeurs **par défaut** sont **« \N » et « NULL »** en lecture, et **« \N »** en écriture. |Non  |
 | encodingName |Spécifier le nom d'encodage. |Une liste de noms d’encodage valides. Consultez : [Propriété Encoding.EncodingName](/dotnet/api/system.text.encoding). Exemple : windows-1250 ou shift_jis. La valeur **par défaut** est **UTF-8**. |Non  |
-| firstRowAsHeader |Spécifie si la première ligne doit être considérée comme un en-tête. Pour un jeu de données d’entrée, Data Factory lit la première ligne comme un en-tête. Pour un jeu de données de sortie, Data Factory écrit la première ligne comme un en-tête. <br/><br/>Voir [Scénarios d’utilisation de `firstRowAsHeader` et `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) pour obtenir des exemples de scénarios. |True<br/>**False (valeur par défaut)** |Non  |
+| firstRowAsHeader |Spécifie si la première ligne doit être considérée comme un en-tête. Pour un jeu de données d’entrée, Data Factory lit la première ligne comme un en-tête. Pour un jeu de données de sortie, Data Factory écrit la première ligne comme un en-tête. <br/><br/>Voir [Scénarios d’utilisation de `firstRowAsHeader` et `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) pour obtenir des exemples de scénarios. |True<br/>**false (valeur par défaut)** |Non  |
 | skipLineCount |Indique le nombre de lignes à ignorer lors de la lecture des données à partir des fichiers d’entrée. Si skipLineCount et firstRowAsHeader sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée. <br/><br/>Voir [Scénarios d’utilisation de `firstRowAsHeader` et `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) pour obtenir des exemples de scénarios. |Entier  |Non  |
 | treatEmptyAsNull |Spécifie si une chaîne null ou vide doit être traitée comme une valeur null lors de la lecture des données à partir d’un fichier d’entrée. |**True (valeur par défaut)**<br/>False |Non  |
 
@@ -85,11 +85,11 @@ Si vous souhaitez analyser des fichiers JSON ou écrire des données au format�
 
 L’activité de copie peut analyser les modèles de fichiers JSON ci-dessous :
 
-- **Type i : setOfObjects**
+- **Type I : setOfObjects**
 
     Chaque fichier contient un objet unique, ou plusieurs objets concaténés/délimités par des lignes. Quand cette option est sélectionnée dans un jeu de données de sortie, l’activité de copie produit un seul fichier JSON contenant un objet par ligne (format délimité par des lignes).
 
-    * **exemple JSON d’objet unique**
+    * **Exemple de fichier JSON à un seul objet**
 
         ```json
         {
@@ -102,7 +102,7 @@ L’activité de copie peut analyser les modèles de fichiers JSON ci-dessous 
         }
         ```
 
-    * **exemple JSON délimité par ligne**
+    * **Exemple de fichier JSON incluant des objets délimités par des lignes**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -110,7 +110,7 @@ L’activité de copie peut analyser les modèles de fichiers JSON ci-dessous 
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **exemple JSON concaténé**
+    * **Exemple de fichier JSON incluant des objets concaténés**
 
         ```json
         {
@@ -139,7 +139,7 @@ L’activité de copie peut analyser les modèles de fichiers JSON ci-dessous 
         }
         ```
 
-- **Type II : arrayOfObjects**
+- **Type II : arrayOfObjects**
 
     Chaque fichier contient un tableau d’objets.
 
@@ -174,11 +174,11 @@ L’activité de copie peut analyser les modèles de fichiers JSON ci-dessous 
 
 #### <a name="jsonformat-example"></a>Exemple pour JsonFormat
 
-**Cas 1 : Copie de données à partir de fichiers JSON**
+**Cas 1 : Copie de données à partir de fichiers JSON**
 
 Vous trouverez ci-dessous deux types d’exemples de copie des données à partir de fichiers JSON, ainsi que les points génériques à noter :
 
-**Exemple 1 : extraire des données d’objet et de tableau**
+**Exemple 1 : Extraire des données d’objet et de tableau**
 
 Dans cet exemple, un objet JSON racine doit correspondre à un seul enregistrement dans la table de résultats. Prenons un fichier JSON avec le contenu suivant :  
 
@@ -213,8 +213,8 @@ Vous voulez copier ce contenu dans un tableau SQL Azure au format suivant, en ex
 
 Le jeu de données d’entrée présentant le type **JsonFormat** est défini comme suit : (définition partielle présentant uniquement les éléments pertinents). Plus précisément :
 
-- `structure` section définit les noms de colonne personnalisé et le type de données correspondant lors de la conversion aux données tabulaires. Cette section est **facultative**, sauf si vous avez besoin d’effectuer un mappage de colonne. Pour en savoir plus, voir Spécification de la définition de la structure des jeux de données rectangulaires.
-- `jsonPathDefinition` Spécifie le chemin d’accès JSON pour chaque colonne indiquant où extraire les données à partir de. Pour copier les données d’un tableau, vous pouvez utiliser **array[x].property** pour extraire la valeur de la propriété spécifiée à partir de l’objet x, ou vous pouvez utiliser **array[*].property** pour trouver la valeur de tout objet contenant cette propriété.
+- La section `structure` définit les noms de colonne personnalisés et le type de données correspondant lors de la conversion des données au format tabulaire. Cette section est **facultative**, sauf si vous avez besoin d’effectuer un mappage de colonne. Pour en savoir plus, voir Spécification de la définition de la structure des jeux de données rectangulaires.
+- Le paramètre `jsonPathDefinition` indique le chemin JSON de chaque colonne indiquant l’emplacement à partir duquel les données sont extraites. Pour copier les données d’un tableau, vous pouvez utiliser **array[x].property** pour extraire la valeur de la propriété spécifiée à partir de l’objet x, ou vous pouvez utiliser **array[*].property** pour trouver la valeur de tout objet contenant cette propriété.
 
 ```json
 "properties": {
@@ -251,7 +251,7 @@ Le jeu de données d’entrée présentant le type **JsonFormat** est défini co
 }
 ```
 
-**Exemple 2 : application croisée de plusieurs objets avec le même modèle à partir du tableau**
+**Exemple 2 : application croisée de plusieurs objets avec le même modèle à partir d’un tableau**
 
 Dans cet exemple, vous voulez transformer un objet JSON racine en plusieurs enregistrements dans la table de résultats. Prenons un fichier JSON avec le contenu suivant :  
 
@@ -286,9 +286,9 @@ Vous souhaitez copier ce fichier dans une table SQL Azure au format suivant, en
 
 Le jeu de données d’entrée présentant le type **JsonFormat** est défini comme suit : (définition partielle présentant uniquement les éléments pertinents). Plus précisément :
 
-- `structure` section définit les noms de colonne personnalisé et le type de données correspondant lors de la conversion aux données tabulaires. Cette section est **facultative**, sauf si vous avez besoin d’effectuer un mappage de colonne. Pour en savoir plus, voir Spécification de la définition de la structure des jeux de données rectangulaires.
-- `jsonNodeReference` Indique qu’il faut effectuer une itération et extraire des données à partir des objets présentant le même modèle sous **tableau** orderlines.
-- `jsonPathDefinition` Spécifie le chemin d’accès JSON pour chaque colonne indiquant où extraire les données à partir de. Dans cet exemple, les éléments « ordernumber », « orderdate » et « city » se trouvent sous l’objet racine associé au chemin JSON commençant par « $. », tandis que les éléments « order_pd » et « order_price » sont définis avec le chemin d’accès dérivé de l’élément de tableau sans « $.».
+- La section `structure` définit les noms de colonne personnalisés et le type de données correspondant lors de la conversion des données au format tabulaire. Cette section est **facultative**, sauf si vous avez besoin d’effectuer un mappage de colonne. Pour en savoir plus, voir Spécification de la définition de la structure des jeux de données rectangulaires.
+- Le paramètre `jsonNodeReference` indique que les données doivent être itérées et extraites des objets présentant le même modèle sous « orderlines » dans le **tableau**.
+- Le paramètre `jsonPathDefinition` indique le chemin JSON de chaque colonne indiquant l’emplacement à partir duquel les données sont extraites. Dans cet exemple, les éléments « ordernumber », « orderdate » et « city » se trouvent sous l’objet racine associé au chemin JSON commençant par « $. », tandis que les éléments « order_pd » et « order_price » sont définis avec le chemin d’accès dérivé de l’élément de tableau sans « $.».
 
 ```json
 "properties": {
@@ -333,7 +333,7 @@ Le jeu de données d’entrée présentant le type **JsonFormat** est défini co
 * S’il y a plusieurs noms identiques au même niveau, l’activité de copie sélectionne le dernier nom.
 * Les noms de propriété respectent la casse. Quand deux propriétés de même nom ont une casse différente, elles sont considérées comme deux propriétés distinctes.
 
-**Cas 2 : Écriture de données dans le fichier JSON**
+**Cas 2 : Écriture de données dans un fichier JSON**
 
 Vous disposez de la table ci-dessous dans votre base de données SQL :
 

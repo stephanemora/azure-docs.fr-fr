@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918550"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilisation d’Azure CDN avec SAP
@@ -86,11 +86,10 @@ Cette option est disponible uniquement pour les profils **Azure CDN Premium de V
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Règle de réécriture d’URL CDN - gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![règle de réécriture d’URL CDN - droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Règle de réécriture d’URL CDN – gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![Règle de réécriture d’URL CDN – droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Une fois la nouvelle règle active, tous les utilisateurs peuvent accéder aux fichiers dans le conteneur spécifié sur le point de terminaison CDN, même s’ils n’utilisent pas de jeton SAP dans l’URL. Voici le format :
-   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Une fois la nouvelle règle active, tous les utilisateurs peuvent accéder aux fichiers dans le conteneur spécifié sur le point de terminaison CDN, même s’ils n’utilisent pas de jeton SAP dans l’URL. Voici le format : `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Par exemple :    
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -125,8 +124,8 @@ Pour utiliser l’authentification de jeton de sécurité d’Azure CDN, vous de
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Règle de réécriture d’URL CDN - gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![règle de réécriture d’URL CDN - droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Règle de réécriture d’URL CDN – gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![Règle de réécriture d’URL CDN – droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Si vous renouvelez la signature SAP, n’oubliez pas de mettre à jour la règle de réécriture d’URL avec le nouveau jeton SAP. 
 
@@ -145,6 +144,6 @@ Azure CDN ne peut pas changer son comportement de remise en se basant sur les pa
 
 Pour plus d'informations sur les SAP, voir les articles suivants :
 - [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Signatures d'accès partagé, partie 2 : Créer et utiliser une signature d'accès partagé avec le service Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [Signatures d’accès partagé, partie 2 : Créer et utiliser une signature d’accès partagé avec Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 Pour plus d’informations sur la configuration de l’authentification par jeton, voir [Sécuriser des ressources Azure Content Delivery Network avec l’authentification par jeton](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

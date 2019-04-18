@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 81005c2c95c9cccb32796d1afca4208f5ff8b919
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437337"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699268"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès à internet à l’aide de la passerelle d’Analytique de journal dans Azure Monitor
 
@@ -124,9 +124,9 @@ or
 1. Dans le panneau de votre espace de travail, sous **Paramètres**, sélectionnez **Paramètres avancés**.
 1. Accédez à **Sources connectées** > **les serveurs Windows** et sélectionnez **passerelle d’Analytique de journal télécharger**.
 
-## <a name="install-the-log-analytics-gateway"></a>Installation de la passerelle Log Analytics
+## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Installer la passerelle d’Analytique de journal à l’aide d’Assistant Installation
 
-Pour installer une passerelle, procédez comme suit.  (Si vous avez installé une version précédente, appelée redirecteur d’Analytique de journal, il est mis à niveau vers cette version.)
+Pour installer une passerelle à l’aide de l’Assistant installation, procédez comme suit. 
 
 1. Dans le dossier de destination, double-cliquez sur **Log Analytics gateway.msi**.
 1. Sur la page d’**accueil**, sélectionnez **Suivant**.
@@ -152,6 +152,40 @@ Pour installer une passerelle, procédez comme suit.  (Si vous avez installé un
 
    ![Capture d’écran des services locaux, montrant la passerelle OMS est en cours d’exécution](./media/gateway/gateway-service.png)
 
+## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Installer la passerelle d’Analytique de journal à l’aide de la ligne de commande
+Le fichier téléchargé pour la passerelle est un package de programme d’installation de Windows qui prend en charge une installation sans assistance à partir de la ligne de commande ou une autre méthode automatisée. Si vous n’êtes pas familiarisé avec les options de ligne de commande standards pour le programme d’installation de Windows, consultez [les options de ligne de commande](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).   
+
+Le tableau suivant répertorie les paramètres pris en charge par le programme d’installation.
+
+|parameters| Notes|
+|----------|------| 
+|NUMÉRO DE PORT | Numéro de port TCP pour la passerelle pour écouter sur |
+|PROXY | Adresse IP du serveur proxy |
+|INSTALLDIR | Chemin d’accès complet pour spécifier le répertoire d’installation des fichiers de logiciel de passerelle |
+|NOM D'UTILISATEUR | Id d’utilisateur à s’authentifier avec le serveur proxy |
+|MOT DE PASSE | Mot de passe de l’Id pour l’authentification avec le proxy de l’utilisateur |
+|LicenseAccepted | Spécifiez la valeur **1** pour vérifier vous acceptez le contrat de licence |
+|HASAUTH | Spécifiez la valeur **1** lorsque les paramètres de nom d’utilisateur/mot de passe sont spécifiés |
+|HASPROXY | Spécifiez la valeur **1** lors de la spécification d’adresse IP pour **PROXY** paramètre |
+
+Pour installer la passerelle en mode silencieux et le configurer avec une adresse de serveur proxy spécifique, le numéro de port, tapez la commande suivante :
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+```
+
+À l’aide de l’option de ligne de commande /qn masque le programme d’installation, /qb montre le programme d’installation lors de l’installation sans assistance.  
+
+Si vous avez besoin fournir des informations d’identification pour s’authentifier auprès du proxy, tapez la commande suivante :
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+```
+
+Après l’installation, vous pouvez vérifier les paramètres sont acceptées (exlcuding le nom d’utilisateur et mot de passe) à l’aide des applets de commande PowerShell suivante :
+
+- **Get-OMSGatewayConfig** – retourne le la passerelle est configurée pour écouter sur le Port TCP.
+- **Get-OMSGatewayRelayProxy** – renvoie l’adresse IP du serveur proxy que vous avez configuré pour communiquer avec.
 
 ## <a name="configure-network-load-balancing"></a>Configuration de l’équilibrage de la charge réseau 
 Vous pouvez configurer la passerelle pour la haute disponibilité à l’aide d’équilibrage de charge réseau (NLB) à l’aide de Microsoft [équilibrage de charge réseau (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), ou les équilibreurs de charge matérielle. L’équilibreur de charge gère le trafic en redirigeant les connexions demandées à partir des agents Log Analytics ou des serveurs d’administration Operations Manager sur ses nœuds. Si un serveur de passerelle tombe en panne, le trafic est redirigé vers d’autres nœuds.

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
 ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883409"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Créer des ressources Application Insights à l’aide de PowerShell
@@ -170,7 +170,7 @@ Créez un fichier .json appelé `template1.json` dans cet exemple. Copiez-y ce c
    
    * `-ResourceGroupName` est le groupe dans lequel vous souhaitez créer les nouvelles ressources.
    * `-TemplateFile` doit se produire avant les paramètres personnalisés.
-   * `-appName` Le nom de la ressource à créer.
+   * `-appName` est le nom de la ressource à créer.
 
 Vous pouvez ajouter d’autres paramètres. Vous trouverez leurs descriptions dans la section Paramètres du modèle.
 
@@ -448,8 +448,8 @@ Autres articles sur l’automation :
 
 * [Création d'une ressource Application Insights](powershell-script-create-resource.md) - méthode rapide sans utiliser de modèle.
 * [Configurer des alertes](powershell-alerts.md)
-* [Créez des tests web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
-* [Envoyez des Diagnostics Azure à Application Insights](powershell-azure-diagnostics.md)
+* [Créer des tests web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Envoyer des diagnostics Azure vers Application Insights.](powershell-azure-diagnostics.md)
 * [Déployer sur Azure à partir de GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Créer des annotations de version](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

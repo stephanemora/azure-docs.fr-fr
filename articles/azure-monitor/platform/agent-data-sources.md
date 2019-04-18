@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: d7d4aa89c4dcf2ac9cc0c393e0481cae1f3aeaf2
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58847016"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Sources de données d’agent dans Azure Monitor
@@ -31,9 +31,9 @@ Le tableau suivant répertorie les sources de données d’agent actuellement di
 
 | Source de données | Plateforme | Microsoft Monitoring Agent | Agent Operations Manager | Stockage Azure | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Journaux personnalisés](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | à l'arrivée |
-| [Journaux personnalisés](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | à l'arrivée |
-| [Journaux IIS](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |Dépend du paramètre Substitution de fichier journal |
+| [Journaux d’activité personnalisés](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | à l'arrivée |
+| [Journaux d’activité personnalisés](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | à l'arrivée |
+| [Journaux d’activité IIS](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |Dépend du paramètre Substitution de fichier journal |
 | [Compteurs de performances](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |comme prévu, minimum de 10 secondes |
 | [Compteurs de performances](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |comme prévu, minimum de 10 secondes |
 | [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |à partir de Stockage Azure : 10 minutes ; à partir de l’agent : à l’arrivée |
