@@ -54,11 +54,11 @@ Les propriétés prises en charge pour un service lié Azure SQL Database sont l
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** doit être définie sur **AzureSqlDatabase**. | Oui |
+| type | La propriété **type** doit être définie sur **AzureSqlDatabase**. | Oui |
 | connectionString | Spécifiez les informations requises pour la connexion à l’instance Azure SQL Database pour la propriété **connectionString**. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également stocker un mot de passe/une clé de principal de service dans Azure Key Vault et, en cas d'authentification SQL, extraire la configuration `password` de la chaîne de connexion. Pour plus d'informations, reportez-vous à l'exemple JSON décrit sous le tableau et à l'article [Stocker des informations d'identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
-| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
+| tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou un runtime d’intégration auto-hébergé si votre magasin de données se trouve sur un réseau privé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non  |
 
 Pour en savoir plus sur les autres types d’authentification, consultez les sections suivantes sur les prérequis et les exemples JSON, respectivement :
@@ -227,8 +227,8 @@ Pour copier des données vers ou à partir d’Azure SQL Database, affectez la v
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **AzureSqlTable**. | Oui |
-| TableName | Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. | Non pour Source, Oui pour Récepteur |
+| type | La propriété **type** du jeu de données doit être définie sur **AzureSqlTable**. | Oui |
+| tableName | Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. | Non pour Source, Oui pour Récepteur |
 
 #### <a name="dataset-properties-example"></a>Exemple de propriétés du jeu de données
 
@@ -259,8 +259,8 @@ Pour copier des données d’Azure SQL Database, affectez la valeur **SqlSource*
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source d’activité de copie doit être définie sur **SqlSource**. | Oui |
-| SqlReaderQuery | Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. | Non  |
+| type | La propriété **type** de la source d’activité de copie doit être définie sur **SqlSource**. | Oui |
+| sqlReaderQuery | Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. | Non  |
 | sqlReaderStoredProcedureName | Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. | Non  |
 | storedProcedureParameters | Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non  |
 
@@ -362,7 +362,7 @@ Pour copier des données vers Azure SQL Database, affectez la valeur **SqlSink**
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du récepteur d’activité de copie doit être définie sur **SqlSink**. | Oui |
+| type | La propriété **type** du récepteur d’activité de copie doit être définie sur **SqlSink**. | Oui |
 | writeBatchSize | Nombre de lignes pour les insertions dans la table SQL **par lot**.<br/> La valeur autorisée est **integer** (nombre de lignes). | Non. La valeur par défaut est 10000. |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/> La valeur autorisée est **timespan**. Exemple : “00:30:00” (30 minutes). | Non  |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Database. Elle n’est appelée qu’une seule fois par copie. Utilisez cette propriété pour nettoyer les données préchargées. | Non  |
@@ -595,22 +595,22 @@ Quand vous copiez des données vers ou à partir d’Azure SQL Database, les map
 | Type de données Azure SQL Database | Type de données intermédiaires d’Azure Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
-| binaire |Byte[] |
-| bit |Booléen |
+| binary |Byte[] |
+| bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| DateTime |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Attribut FILESTREAM (varbinary(max)) |Byte[] |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numérique |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -618,14 +618,14 @@ Quand vous copiez des données vers ou à partir d’Azure SQL Database, les map
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
-| texte |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 >[!NOTE]
 > Pour les mappages de types de données au type intermédiaire décimal, ADF prend en charge une précision allant jusqu’à 28. Si les données ont une précision supérieure à 28, envisagez d’effectuer une conversion en chaîne dans la requête SQL.
