@@ -53,7 +53,7 @@ Les propriétés prises en charge pour le service lié Azure SQL Database Manage
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **SqlServer**. | Oui. |
+| type | La propriété type doit être définie sur **SqlServer**. | Oui. |
 | connectionString |Cette propriété spécifie les informations connectionString nécessaires pour se connecter à l'instance gérée à l'aide de l'authentification SQL ou de l'authentification Windows. Pour plus d'informations, consultez les exemples suivants. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et, en cas d'authentification SQL, extraire la configuration `password` de la chaîne de connexion. Pour plus d'informations, reportez-vous à l'exemple JSON décrit sous le tableau et à l'article [Stocker des informations d'identification dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui. |
 | userName |Cette propriété spécifie un nom d'utilisateur si vous utilisez l'authentification Windows. Exemple : **domainname\\username**. |Non. |
 | password |Cette propriété spécifie le mot de passe du compte d'utilisateur que vous avez spécifié pour le nom d'utilisateur. Sélectionnez **SecureString** pour stocker les informations connectionString en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non. |
@@ -146,8 +146,8 @@ Pour copier des données vers et depuis Azure SQL Database Managed Instance, dé
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **SqlServerTable**. | Oui. |
-| TableName |Cette propriété est le nom de la table ou de la vue dans l'instance de base de données à laquelle le service lié fait référence. | Non pour la source. Oui pour le récepteur. |
+| type | La propriété type du jeu de données doit être définie sur **SqlServerTable**. | Oui. |
+| tableName |Cette propriété est le nom de la table ou de la vue dans l'instance de base de données à laquelle le service lié fait référence. | Non pour la source. Oui pour le récepteur. |
 
 **Exemple**
 
@@ -178,8 +178,8 @@ Pour copier des données d’Azure SQL Database Managed Instance, définissez **
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l'activité de copie doit être définie sur **SqlSource**. | Oui. |
-| SqlReaderQuery |Cette propriété utilise la requête SQL personnalisée pour lire les données. Par exemple `select * from MyTable`. |Non. |
+| type | La propriété type de la source de l'activité de copie doit être définie sur **SqlSource**. | Oui. |
+| sqlReaderQuery |Cette propriété utilise la requête SQL personnalisée pour lire les données. Par exemple `select * from MyTable`. |Non. |
 | sqlReaderStoredProcedureName |Cette propriété est le nom de la procédure stockée qui lit les données dans la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non. |
 | storedProcedureParameters |Ces paramètres concernent la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non. |
 
@@ -281,7 +281,7 @@ Pour copier des données vers Azure SQL Database Managed Instance, définissez *
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du récepteur de l'activité de copie doit être définie sur **SqlSink**. | Oui. |
+| type | La propriété type du récepteur de l'activité de copie doit être définie sur **SqlSink**. | Oui. |
 | writeBatchSize |Nombre de lignes pour les insertions dans la table SQL **par lot**.<br/>Les valeurs autorisées sont des entiers pour le nombre de lignes. |Non (valeur par défaut : 10 000). |
 | writeBatchTimeout |Cette propriété spécifie le délai d'attente avant expiration de l'opération d'insertion de lot.<br/>Les valeurs autorisées sont celles qui expriment une durée. Par exemple, « 00:30:00 » (30 minutes). |Non. |
 | preCopyScript |Cette propriété spécifie une requête SQL que l'activité de copie doit exécuter avant l'écriture des données dans l'instance gérée. Elle n'est appelée qu'une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non. |
@@ -510,22 +510,22 @@ Lors de la copie de données vers et depuis Azure SQL Database Managed Instance,
 | Type de données Azure SQL Database Managed Instance | Type de données intermédiaires Azure Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
-| binaire |Byte[] |
-| bit |Booléen |
+| binary |Byte[] |
+| bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| DateTime |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Attribut FILESTREAM (varbinary(max)) |Byte[] |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numérique |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -533,14 +533,14 @@ Lors de la copie de données vers et depuis Azure SQL Database Managed Instance,
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
-| texte |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 >[!NOTE]
 > Pour les types de données mappés avec le type intermédiaire Decimal, Azure Data Factory prend actuellement en charge une précision maximale de 28. Si vous disposez de données qui nécessitent une précision supérieure à 28, pensez à les convertir en chaîne dans une requête SQL.
