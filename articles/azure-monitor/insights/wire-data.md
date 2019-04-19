@@ -390,7 +390,7 @@ Un enregistrement de type _WireData_ est créé pour chaque type de données d�
 
 | Propriété | Description |
 |---|---|
-| Ordinateur | Nom de l’ordinateur sur lequel les données ont été recueillies |
+| Computer | Nom de l’ordinateur sur lequel les données ont été recueillies |
 | TimeGenerated | Heure de l’enregistrement |
 | LocalIP | Adresse IP de l’ordinateur local |
 | SessionState | Connecté ou déconnecté |
