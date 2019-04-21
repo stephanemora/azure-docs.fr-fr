@@ -242,8 +242,8 @@ Les propriétés des planifications de travail sont décrites dans le tableau su
 
 | Propriété | Description |
 |:--- |:--- |
-| nom de la planification |Entité **name** unique portant le nom de la planification. |
-| nom du runbook  |Entité **name** unique portant le nom du runbook.  |
+| schedule name |Entité **name** unique portant le nom de la planification. |
+| runbook name |Entité **name** unique portant le nom du runbook.  |
 
 
 
@@ -271,7 +271,7 @@ Les propriétés des ressources de variable sont décrites dans le tableau suiva
 |:--- |:--- |
 | description | Description facultative de la variable. |
 | isEncrypted | Spécifie si la variable doit être chiffrée. |
-| Type | Cette propriété n’a actuellement aucun effet.  Le type de données de la variable sera déterminé par la valeur initiale. |
+| type | Cette propriété n’a actuellement aucun effet.  Le type de données de la variable sera déterminé par la valeur initiale. |
 | value | Valeur de la variable. |
 
 > [!NOTE]
@@ -284,7 +284,7 @@ Si vous définissez la valeur initiale pour la variable, elle doit être configu
 | string   | Placer la valeur entre des guillemets doubles.  | "\"Hello world\"" | "Hello world" |
 | numérique  | Valeur numérique avec des guillemets simples.| "64" | 64 |
 | booléenne  | **true** ou **false** entre guillemets.  Notez que cette valeur doit être en minuscules. | "true" | true |
-| Datetime | Valeur de date sérialisée.<br>Vous pouvez utiliser la cmdlet ConvertTo-Json dans PowerShell pour générer cette valeur pour une date particulière.<br>Exemple : get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| datetime | Valeur de date sérialisée.<br>Vous pouvez utiliser la cmdlet ConvertTo-Json dans PowerShell pour générer cette valeur pour une date particulière.<br>Exemple : get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modules
 Votre solution de gestion ne doit pas nécessairement définir de [modules globaux](../../automation/automation-integration-modules.md) utilisés par vos runbooks, car ils sont toujours disponibles dans votre compte Automation.  Vous devez inclure une ressource pour tout module utilisé par vos runbooks.
