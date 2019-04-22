@@ -55,10 +55,10 @@ Ou bien, si votre connexion existe déjà, fournissez les informations nécessai
 
    | Propriété | Obligatoire | Value | Description |
    |----------|----------|-------|-------------|
-   | Requête de recherche | Oui | <*search-words*> | Entrez les mots clés de recherche à utiliser. |
-   | Marché | Oui | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
-   | Recherche sécurisée | Oui | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
-   | Nombre | Non  | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
+   | Search Query | Oui | <*search-words*> | Entrez les mots clés de recherche à utiliser. |
+   | Market | Oui | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
+   | Safe Search | Oui | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
+   | Count | Non  | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
    | Offset | Non  | <*skip-value*> | Le nombre de résultats à ignorer avant de retourner les résultats |
    |||||
 
@@ -106,10 +106,10 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
    | Propriété | Obligatoire | Value | Description |
    |----------|----------|-------|-------------|
-   | Requête de recherche | Oui | <*search-expression*> | Entrez une expression pour interroger les résultats du déclencheur. Vous pouvez sélectionner à partir des champs dans la liste de contenu dynamique, ou créer une expression avec le Générateur d’expressions. |
-   | Marché | Oui | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
-   | Recherche sécurisée | Oui | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
-   | Nombre | Non  | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
+   | Search Query | Oui | <*search-expression*> | Entrez une expression pour interroger les résultats du déclencheur. Vous pouvez sélectionner à partir des champs dans la liste de contenu dynamique, ou créer une expression avec le Générateur d’expressions. |
+   | Market | Oui | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
+   | Safe Search | Oui | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
+   | Count | Non  | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
    | Offset | Non  | <*skip-value*> | Le nombre de résultats à ignorer avant de retourner les résultats |
    |||||
 
