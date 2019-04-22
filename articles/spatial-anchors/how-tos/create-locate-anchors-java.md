@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 163edd544a2d93e380b8906df3e0055711321c95
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918856"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Comment créer et localiser les points d’ancrage à l’aide de points d’ancrage Spatial Azure dans Java
@@ -36,8 +36,8 @@ Azure Spatial Anchors vous permet de partager des ancres dans le monde entre dif
 
 Pour utiliser ce guide, assurez-vous que vous avez :
 
-- Lisez le [vue d’ensemble de points d’ancrage Spatial Azure](../overview.md).
-- Réalisation de l’un de le [démarrages en 5 minutes](../index.yml).
+- Lisez la page [Vue d’ensemble d’Azure Spatial Anchors](../overview.md).
+- Effectuez l’un des [guides de démarrage rapide de 5 minutes](../index.yml).
 - Connaissances élémentaires sur Java.
 - Une connaissance élémentaire sur <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.5.
 

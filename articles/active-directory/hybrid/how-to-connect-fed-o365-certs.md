@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883443"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renouvellement des certificats de fédération pour Office 365 et Azure Active Directory
@@ -59,7 +59,7 @@ Azure AD tente d’analyser les métadonnées de fédération et de mettre à jo
 >
 
 ## Vérifiez si les certificats doivent être mis à jour <a name="managecerts"></a>
-### <a name="step-1-check-the-autocertificaterollover-state"></a>Étape 1 : Vérifier l’état de AutoCertificateRollover
+### <a name="step-1-check-the-autocertificaterollover-state"></a>Étape 1 : Vérifier l’état de AutoCertificateRollover
 Sur votre serveur AD FS, ouvrez Powershell. Vérifiez que la valeur de AutoCertificateRollover est définie sur True.
 
     Get-Adfsproperties
@@ -69,7 +69,7 @@ Sur votre serveur AD FS, ouvrez Powershell. Vérifiez que la valeur de AutoCerti
 >[!NOTE] 
 >Si vous utilisez AD FS 2.0, commencez par exécuter Add-Pssnapin Microsoft.Adfs.Powershell.
 
-### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Étape 2 : Vérifier que les services AD FS et Azure AD sont synchronisés
+### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Étape 2 : Vérifier que les services AD FS et Azure AD sont synchronisés
 Sur votre serveur AD FS, ouvrez l’invite de commandes MSOnline PowerShell et connectez-vous à Azure AD.
 
 > [!NOTE]
@@ -93,7 +93,7 @@ Vérifiez les certificats configurés dans les propriétés d’approbation d’
 
 Si les Thumbprints des deux sorties correspondent, vos certificats sont synchronisés avec Azure AD.
 
-### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Étape 3 : Vérifier si votre certificat est sur le point d’expirer
+### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Étape 3 : Vérifier si votre certificat est sur le point d’expirer
 Dans la sortie de Get-MsolFederationProperty ou Get-AdfsCertificate, vérifiez la date sous « Not after ». Si la date indiquée est fixée à moins de 30 jours restants, vous devez agir en conséquence.
 
 | AutoCertificateRollover | Certificats synchronisés avec Azure AD | Les métadonnées de fédération sont accessibles publiquement | Validité | Action |
@@ -114,7 +114,7 @@ Vérifiez les points suivants pour confirmer que le certificat peut être mis à
 
 **1. La propriété AutoCertificateRollover d’AD FS doit être définie sur True.** Cela indique qu’AD FS génère automatiquement de nouveaux certificats de signature de jetons et de déchiffrement de jeton avant que les anciens certificats n’arrivent à expiration.
 
-**2. Les métadonnées de fédération AD FS sont accessible publiquement.**  Vérifiez que vos métadonnées de fédération sont publiquement accessibles en accédant à l’URL ci-dessous à partir d’un ordinateur relié au réseau Internet public (en dehors du réseau de l’entreprise) :
+**2. Les métadonnées de fédération AD FS sont accessibles publiquement.**  Vérifiez que vos métadonnées de fédération sont publiquement accessibles en accédant à l’URL ci-dessous à partir d’un ordinateur relié au réseau Internet public (en dehors du réseau de l’entreprise) :
 
 https://(votre_nom_FS)/federationmetadata/2007-06/federationmetadata.xml
 
@@ -129,12 +129,12 @@ Vous pouvez choisir le renouvellement manuel des certificats de signature de jet
 
 Dans ces scénarios, vous devez mettre à jour votre domaine Office 365 à l’aide de la commande PowerShell Update-MsolFederatedDomain à chaque fois que vous mettez à jour les certificats de signature de jeton.
 
-### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Étape 1 : Vérifier qu’AD FS dispose de nouveaux certificats de signature de jetons
-**Configuration par défaut non**
+### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Étape 1 : Vérifier qu’AD FS dispose de nouveaux certificats de signature de jetons
+**Configuration différente de la configuration par défaut**
 
 Si vous êtes dans une configuration différente de la configuration par défaut d’AD FS, dans laquelle **AutoCertificateRollover** est défini sur **False**, vous utilisez probablement des certificats personnalisés (pas auto-signés). Pour en savoir plus sur la manière de renouveler les certificats de signature de jeton AD FS, consultez [Conseils pour les clients qui n’utilisent pas de certificats auto-signés AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
-**Métadonnées de fédération ne sont pas disponible publiquement**
+**Les métadonnées de fédération ne sont pas disponibles publiquement**
 
 En revanche, si **AutoCertificateRollover** est défini sur **True** sans que vos métadonnées de fédération ne soient disponibles publiquement, assurez-vous que les nouveaux certificats de signature de jetons ont été générés par AD FS. Confirmez que vous disposez des nouveaux certificats de signature de jeton en suivant les étapes suivantes :
 
@@ -154,7 +154,7 @@ En revanche, si **AutoCertificateRollover** est défini sur **True** sans que vo
 
 Vous devez alors voir apparaître deux certificats, dont l’un présente une date **NotAfter** correspondant à environ un an après la date du jour et dont la valeur **IsPrimary** est définie sur **False**.
 
-### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Étape 2 : Mettre à jour les nouveaux certificats de signature de jetons pour l’approbation d’Office 365
+### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Étape 2 : Mettre à jour les nouveaux certificats de signature de jetons pour l’approbation d’Office 365
 Mettez Office 365 à jour avec les nouveaux certificats de signature de jeton devant être utilisés pour l’approbation en suivant la procédure ci-dessous.
 
 1. Ouvrez le Module Microsoft Azure Active Directory pour Windows PowerShell.

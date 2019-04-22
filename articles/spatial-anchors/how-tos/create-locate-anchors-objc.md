@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 3dd4fbedd51e11e84303f997cef0bb28bf79b241
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918176"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-objective-c"></a>Comment créer et localiser les points d’ancrage à l’aide de Azure les ancres spatiale en Objective-C
@@ -36,8 +36,8 @@ Azure Spatial Anchors vous permet de partager des ancres dans le monde entre dif
 
 Pour utiliser ce guide, assurez-vous que vous avez :
 
-- Lisez le [vue d’ensemble de points d’ancrage Spatial Azure](../overview.md).
-- Réalisation de l’un de le [démarrages en 5 minutes](../index.yml).
+- Lisez la page [Vue d’ensemble d’Azure Spatial Anchors](../overview.md).
+- Effectuez l’un des [guides de démarrage rapide de 5 minutes](../index.yml).
 - Connaissance élémentaire sur Objective-C.
 - Une connaissance élémentaire sur <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a>.
 

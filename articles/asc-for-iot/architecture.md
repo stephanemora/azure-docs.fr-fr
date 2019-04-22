@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: a0eb459391da65f8d0e2ae251809805924d07ad1
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862363"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Azure Security Center pour l’architecture IoT
@@ -26,7 +26,7 @@ ms.locfileid: "58862363"
 Cet article explique l’architecture système fonctionnel d’Azure Security Center (ASC) pour la solution IoT. 
 
 > [!IMPORTANT]
-> Azure Security Center pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="asc-for-iot-components"></a>ASC pour les composants de l’IoT
@@ -55,7 +55,7 @@ ASC pour IoT recommandations et alertes (sortie du pipeline analytique) est écr
 
 Dans cet article, vous avez appris à l’architecture de base et le flux de travail de ASC solution IoT. Pour en savoir plus sur la configuration requise, la prise en main et activer votre solution de sécurité dans IoT Hub, consultez les articles suivants :
 
-- [Prérequis du service](service-prerequisites.md)
+- [Configuration requise du service](service-prerequisites.md)
 - [Prise en main](getting-started.md)
 - [Configurer votre solution](quickstart-configure-your-solution.md)
 - [Activer la sécurité dans IoT Hub](quickstart-onboard-iot-hub.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880574"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Bien démarrer avec Azure Data Lake Store à l’aide d’Azure CLI
@@ -22,9 +22,9 @@ ms.locfileid: "58880574"
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
 > [!div class="op_single_selector"]
-> * [Portail](data-lake-store-get-started-portal.md)
+> * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
+> * [Interface de ligne de commande Azure](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
@@ -233,7 +233,7 @@ az dls account delete --account mydatalakestoragegen1
 Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Utiliser Azure Data Lake Storage Gen1 pour données volumineuses](data-lake-store-data-scenarios.md) 
+* [Utiliser Azure Data Lake Storage Gen1 pour le Big Data](data-lake-store-data-scenarios.md) 
 * [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Utiliser Azure Data Lake Analytique avec Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Utiliser Azure Data Lake Analytics avec Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

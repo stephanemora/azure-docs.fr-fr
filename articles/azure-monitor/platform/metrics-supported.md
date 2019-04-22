@@ -9,10 +9,10 @@ ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58851189"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
@@ -1460,10 +1460,10 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |CpuPercentage|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|Instance|
-|MemoryPercentage|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Instance|
+|Pourcentage mémoire|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Instance|
 |DiskQueueLength|Longueur de file d'attente de disque|Nombre|Moyenne|Longueur de file d'attente de disque|Instance|
 |HttpQueueLength|Longueur de la file d’attente HTTP|Nombre|Moyenne|Longueur de la file d’attente HTTP|Instance|
-|BytesReceived|Données entrantes|Octets|Total|Données entrantes|Instance|
+|Octets reçus|Données entrantes|Octets|Total|Données entrantes|Instance|
 |BytesSent|Données sortantes|Octets|Total|Données sortantes|Instance|
 
 ## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (à l’exclusion de Functions)
@@ -1472,7 +1472,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |---|---|---|---|---|---|
 |CpuTime|Temps processeur|Secondes|Total|Temps processeur|Instance|
 |Demandes|Demandes|Nombre|Total|Requests|Instance|
-|BytesReceived|Données entrantes|Octets|Total|Données entrantes|Instance|
+|Octets reçus|Données entrantes|Octets|Total|Données entrantes|Instance|
 |BytesSent|Données sortantes|Octets|Total|Données sortantes|Instance|
 |Http101|HTTP 101|Nombre|Total|HTTP 101|Instance|
 |Http2xx|Http 2xx|Nombre|Total|Http 2xx|Instance|
@@ -1508,7 +1508,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|BytesReceived|Données entrantes|Octets|Total|Données entrantes|Instance|
+|Octets reçus|Données entrantes|Octets|Total|Données entrantes|Instance|
 |BytesSent|Données sortantes|Octets|Total|Données sortantes|Instance|
 |Http5xx|Erreurs de serveur http|Nombre|Total|Erreurs de serveur http|Instance|
 |MemoryWorkingSet|Plage de travail de la mémoire|Octets|Moyenne|Plage de travail de la mémoire|Instance|
@@ -1536,7 +1536,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |---|---|---|---|---|---|
 |CpuTime|Temps processeur|Secondes|Total|Temps processeur|Instance|
 |Demandes|Demandes|Nombre|Total|Requests|Instance|
-|BytesReceived|Données entrantes|Octets|Total|Données entrantes|Instance|
+|Octets reçus|Données entrantes|Octets|Total|Données entrantes|Instance|
 |BytesSent|Données sortantes|Octets|Total|Données sortantes|Instance|
 |Http101|HTTP 101|Nombre|Total|HTTP 101|Instance|
 |Http2xx|Http 2xx|Nombre|Total|Http 2xx|Instance|
@@ -1575,7 +1575,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Demandes|Demandes|Nombre|Total|Requests|Instance|
-|BytesReceived|Données entrantes|Octets|Total|Données entrantes|Instance|
+|Octets reçus|Données entrantes|Octets|Total|Données entrantes|Instance|
 |BytesSent|Données sortantes|Octets|Total|Données sortantes|Instance|
 |Http101|HTTP 101|Nombre|Total|HTTP 101|Instance|
 |Http2xx|Http 2xx|Nombre|Total|Http 2xx|Instance|
@@ -1587,8 +1587,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Http4xx|Http 4xx|Nombre|Total|Http 4xx|Instance|
 |Http5xx|Erreurs de serveur http|Nombre|Total|Erreurs de serveur http|Instance|
 |AverageResponseTime|Temps de réponse moyen|Secondes|Moyenne|Temps de réponse moyen|Instance|
-|CpuPercentage|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|Instance|
-|MemoryPercentage|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Instance|
+|Pourcentage UC|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|Instance|
+|Pourcentage mémoire|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Instance|
 |DiskQueueLength|Longueur de file d'attente de disque|Nombre|Moyenne|Longueur de file d'attente de disque|Instance|
 |HttpQueueLength|Longueur de la file d’attente HTTP|Nombre|Moyenne|Longueur de la file d’attente HTTP|Instance|
 |ActiveRequests|Requêtes actives|Nombre|Total|Requêtes actives|Instance|
@@ -1604,8 +1604,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |WorkersTotal|Nombre total de workers|Nombre|Moyenne|Nombre total de workers|Aucune dimension|
 |WorkersAvailable|Workers disponibles|Nombre|Moyenne|Workers disponibles|Aucune dimension|
 |WorkersUsed|Workers utilisés|Nombre|Moyenne|Workers utilisés|Aucune dimension|
-|CpuPercentage|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|Instance|
-|MemoryPercentage|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Instance|
+|Pourcentage UC|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|Instance|
+|Pourcentage mémoire|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Instance|
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les mesures dans Azure Monitor](data-platform.md)

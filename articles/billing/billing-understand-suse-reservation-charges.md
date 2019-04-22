@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
 ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917785"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Comprendre comment la remise de plan de réservation de logiciel SUSE Linux Enterprise est appliquée pour Azure
@@ -127,11 +127,11 @@ Noms dans la place de marché du portail Azure :
 Pour plus d’informations sur les réservations, consultez les articles suivants :
 
 - [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
-- [Prépayer les plans de logiciel SUSE avec les réservations de Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prépayer les machines virtuelles avec Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prépayer les abonnements logiciels SUSE avec les réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)
-- [Comprendre l’utilisation de la réservation pour votre abonnement de paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
-- [Comprendre l’utilisation de la réservation pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md)
+- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 

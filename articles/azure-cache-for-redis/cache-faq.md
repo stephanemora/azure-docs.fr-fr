@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
 ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895594"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ sur le cache Azure pour Redis
@@ -35,7 +35,7 @@ Si votre question n’est pas répertoriée ici, faites-le-nous savoir et nous v
 ## <a name="azure-cache-for-redis-basics"></a>Concepts de base du Cache Azure pour Redis
 Les Forums aux questions de cette section couvrent des principes fondamentaux du Cache Azure pour Redis.
 
-* [Présentation du cache Azure pour Redis](#what-is-azure-cache-for-redis)
+* [Présentation du Cache Azure pour Redis](#what-is-azure-cache-for-redis)
 * [Bien démarrer avec le Cache Azure pour Redis](#how-can-i-get-started-with-azure-cache-for-redis)
 
 Les Forums aux questions suivants couvrent les concepts de base, et les questions sur le Cache Azure pour Redis sont traitées dans une des autres sections des Forums aux questions.
@@ -66,10 +66,10 @@ Les Forums aux questions suivants couvrent les concepts de base, et les question
 
 ## <a name="production-faqs"></a>Forum aux questions sur la production
 * [Quelles sont les meilleures pratiques en matière de production ?](#what-are-some-production-best-practices)
-* [Quels sont les points à prendre en compte en ce qui concerne les commandes Redis les plus courantes ?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
+* [Quels sont les points à prendre en compte en ce qui concerne l’utilisation des commandes Redis courantes ?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
 * [Comment puis-je évaluer et tester les performances de mon cache ?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Informations importantes sur la croissance du pool de threads](#important-details-about-threadpool-growth)
-* [Activation de Garbage Collection sur le serveur pour obtenir un meilleur début sur le client lors de l'utilisation de StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [Activer le nettoyage de la mémoire (GC) du serveur pour obtenir un meilleur débit sur le client lors de l’utilisation de StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
 * [Considérations relatives aux performances de connexion](#performance-considerations-around-connections)
 
 ## <a name="monitoring-and-troubleshooting-faqs"></a>Forum aux questions sur la surveillance et le dépannage
@@ -135,7 +135,7 @@ De ce tableau, nous pouvons tirer les conclusions suivantes :
 
 | Niveau tarifaire | Taille | Cœurs d’unité centrale | Bande passante disponible | Taille de la valeur 1 Ko | Taille de la valeur 1 Ko |
 | --- | --- | --- | --- | --- | --- |
-| **Tailles de cache standard** | | |**Mégabits par seconde (Mo/s) / mégaoctets par seconde (Mo/s)** |**Demandes par seconde (RPS) Non-SSL** |**Demandes par seconde (RPS) SSL** |
+| **Tailles de cache Standard** | | |**Mégabits par seconde (Mbit/s) / mégaoctets par seconde (Mo/s)** |**Demandes par seconde (RPS) hors SSL** |**Demandes par seconde (RPS) SSL** |
 | C0 |250 Mo |Partagé |100 / 12,5 |15 000 |7 500 |
 | C1 |1 Go |1 |500 / 62,5 |38 000 |20 720 |
 | C2 |2,5 Go |2 |500 / 62,5 |41 000 |37 000 |
@@ -143,7 +143,7 @@ De ce tableau, nous pouvons tirer les conclusions suivantes :
 | C4 |13 Go |2 |500 / 62,5 |60 000 |55 000 |
 | C5 |26 Go |4 |1 000 / 125 |102 000 |93 000 |
 | C6 |53 Go |8 |2 000 / 250 |126 000 |120 000 |
-| **Tailles de cache Premium** | |**Cœurs de processeur par partition** | **Mégabits par seconde (Mo/s) / mégaoctets par seconde (Mo/s)** |**Demandes par seconde (RPS) hors SSL, par partition** |**Demandes par seconde (RPS) SSL, par partition** |
+| **Tailles de cache Premium** | |**Cœurs de processeur par partition** | **Mégabits par seconde (Mbit/s) / mégaoctets par seconde (Mo/s)** |**Demandes par seconde (RPS) hors SSL, par partition** |**Demandes par seconde (RPS) SSL, par partition** |
 | P1 |6 Go |2 |1 500 / 187,5 |180 000 |172 000 |
 | P2 |13 Go |4 |3 000 / 375 |350 000 |341 000 |
 | P3 |26 Go |4 |3 000 / 375 |350 000 |341 000 |
@@ -174,7 +174,7 @@ Oui, le Cache Azure pour Redis est disponible dans le cloud Azure Government, le
 Pour plus d’informations sur les éléments à prendre en compte lors de l’utilisation du Cache Azure pour Redis avec d’autres clouds, consultez les liens suivants.
 
 - [Bases de données Azure Government - Cache Azure pour Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Cloud Azure China - Cache Azure pour Redis](https://www.azure.cn/home/features/redis-cache/)
+- [Cloud Azure Chine - Cache Azure pour Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
 Pour plus d’informations sur l’utilisation du Cache Azure pour Redis avec PowerShell dans le cloud Azure Government, le cloud Azure Chine et Microsoft Azure Allemagne, consultez [Comment se connecter aux autres clouds - Cache Azure pour Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
@@ -196,7 +196,7 @@ Généralement, les valeurs par défaut du client sont suffisantes. Vous pouvez 
   * Pour ConnectRetry et ConnectTimeout, la recommandation générale consiste à effectuer un Fail-fast, puis à réessayer. Cela dépend de votre charge de travail et de combien de temps en moyenne votre client prend pour émettre une commande Redis et recevoir une réponse.
   * Laissez StackExchange.Redis se reconnecter automatiquement au lieu de vérifier l’état de la connexion et de vous reconnecter vous-même. **Évitez d’utiliser la propriété ConnectionMultiplexer.IsConnected**.
   * Effet boule de neige : vous pouvez parfois rencontrer un problème, vous réessayez, mais le problème ne fait que grossir et n’est jamais résolu. Dans ce cas, envisagez d’utiliser un algorithme de nouvelle tentative d’interruption exponentiel, comme décrit dans l’article [Conseils généraux sur les nouvelles tentatives](../best-practices-retry-general.md), publié par le groupe Microsoft Patterns & Practices.
-* **Valeurs de délai d’attente**
+* **Valeurs de délai d’expiration**
   * Réfléchissez à votre charge de travail et définissez les valeurs en conséquence. Si vous stockez des valeurs élevées, définissez le délai sur une valeur plus élevée.
   * Définissez `AbortOnConnectFail` sur False et laissez StackExchange.Redis se reconnecter pour vous.
   * Utilisez une seule instance de ConnectionMultiplexer pour l’application. Vous pouvez utiliser une LazyConnection pour créer une instance unique qui est renvoyée par une propriété Connection, comme indiqué dans [Connexion au cache avec la classe ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
@@ -269,7 +269,7 @@ Oui, pour utiliser le Cache Azure pour Redis comme un cache de session PHP, poin
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> Si la clé n’est pas encodé URL, vous pouvez recevoir une exception avec un message similaire à : `Failed to parse session.save_path`
+> Si la clé n’est pas codée par URL, vous pouvez recevoir une exception avec un message du type : `Failed to parse session.save_path`
 >
 >
 
@@ -402,9 +402,9 @@ Configuration de ce paramètre :
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Activation de Garbage Collection sur le serveur pour obtenir un meilleur début sur le client lors de l'utilisation de StackExchange.Redis
 L'activation de Garbage Collection sur le serveur peut optimiser le client, fournir des performances et un débit optimaux lors de l'utilisation de StackExchange.Redis. Pour plus d'informations sur Garbage Collection sur le serveur et son activation, consultez les articles suivants :
 
-* [Pour activer le garbage collector du serveur](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+* [Activation de Garbage Collection sur le serveur](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
 * [Principes de base du Garbage Collection](/dotnet/standard/garbage-collection/fundamentals)
-* [Performances et le garbage Collection](/dotnet/standard/garbage-collection/performance)
+* [Garbage Collection et performances](/dotnet/standard/garbage-collection/performance)
 
 
 ### <a name="performance-considerations-around-connections"></a>Considérations relatives aux performances de connexion
@@ -467,12 +467,12 @@ Un autre aspect clé du succès de Redis est son écosystème open source intèg
 Pour plus d’informations sur la prise en main du Cache Azure pour Redis, voir [Utilisation du Cache Azure pour Redis](cache-dotnet-how-to-use-azure-redis-cache.md) et [Documentation Cache Azure pour Redis](index.md).
 
 ### <a name="managed-cache-service"></a>Service de cache géré
-[Managed Cache service a été supprimé le 30 novembre 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Le service de cache géré a été supprimé le 30 novembre 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 Pour consulter la documentation archivée, voir [Documentation archivée du service de cache géré](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
 ### <a name="in-role-cache"></a>In-Role Cache
-[In-Role Cache a été supprimé le 30 novembre 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[In-Role Cache a été supprimé le 30 novembre 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 Pour consulter la documentation archivée, voir [Documentation archivée du service In-Role Cache](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 

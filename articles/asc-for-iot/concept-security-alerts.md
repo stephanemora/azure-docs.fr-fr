@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: f3ae69cb6c8e2a60488b4f1ff3df1bb8ab0c04ea
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861976"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center pour les alertes de sécurité IoT
 
 > [!IMPORTANT]
-> Azure Security Center pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Security Center (ASC) pour IoT analyse continuellement votre solution IoT à l’aide des fonctionnalités d’intelligence analytique et les menaces avancées pour vous avertir des activités malveillantes.
@@ -93,6 +93,6 @@ Pour plus d’informations, consultez [créer des alertes personnalisées](quick
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Présentation](overview.md)
+- [Vue d'ensemble](overview.md)
 - [Accéder à vos données de sécurité](how-to-security-data-access.md)
-- [Investiguer un appareil](how-to-investigate-device.md)
+- [Examiner un appareil](how-to-investigate-device.md)

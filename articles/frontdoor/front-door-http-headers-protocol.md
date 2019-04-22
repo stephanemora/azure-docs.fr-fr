@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861840"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Prise en charge de protocole pour les en-têtes HTTP dans le Service de porte d’entrée Azure
@@ -54,7 +54,7 @@ Tous les en-têtes envoyés à la porte d’entrée depuis le serveur principal 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une Front Door](quickstart-create-front-door.md)
+- [Créer une porte d’entrée](quickstart-create-front-door.md)
 - [Fonctionnement de la porte d’entrée](front-door-routing-architecture.md)
 
 <!--Image references-->

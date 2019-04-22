@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862911"
 ---
 # <a name="security-agent-authentication-methods"></a>Méthodes d’authentification de l’agent de sécurité 
 
 > [!IMPORTANT]
-> Azure Security Center pour IoT est actuellement en version préliminaire publique.
+> Azure Security Center pour IoT est disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article explique les différentes méthodes d’authentification que vous pouvez utiliser avec l’agent AzureIoTSecurity pour s’authentifier auprès du IoT Hub.
@@ -63,8 +63,8 @@ Ces arguments sont documentées dans le tableau suivant.
 
 |Paramètre|Description|Options|
 |---------|---------------|---------------|
-|**identité**|mode d'authentification| **Module** ou **appareil**|
-|**Type**|Type d'authentification|**SymmetricKey** ou **SelfSignedCertificate**|
+|**identity**|mode d'authentification| **Module** ou **appareil**|
+|**type**|Type d'authentification|**SymmetricKey** ou **SelfSignedCertificate**|
 |**filePath**|Chemin d’accès complet absolu du fichier contenant le certificat ou la clé symétrique| |
 |**gatewayHostname**|Nom de domaine complet de l’IoT Hub|Exemple : ContosoIotHub.azure-devices.net|
 |**deviceId**|ID de périphérique|Exemple : MyDevice1|
@@ -114,4 +114,4 @@ Modifier _LocalConfiguration.json_ avec les paramètres suivants :
 ## <a name="see-also"></a>Voir aussi
 - [Vue d’ensemble des agents de sécurité](security-agent-architecture.md)
 - [Déploiement de l’agent de sécurité](how-to-deploy-agent.md)
-- [Accéder aux données de sécurité brutes](how-to-security-data-access.md)
+- [Accéder aux données de sécurité brute](how-to-security-data-access.md)

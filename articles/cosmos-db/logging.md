@@ -8,10 +8,10 @@ ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904863"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Journalisation des diagnostics dans Azure Cosmos DB 
@@ -260,7 +260,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 /MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/CONTOSOCOSMOSDB/y=2017/m=09/d=28/h=19/m=00/PT1H.json
 ```
 
-Comme vous pouvez le voir dans cette sortie, les objets BLOB suivent une convention d’affectation de noms : `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Comme vous pouvez le voir dans cette sortie, les objets blob suivent une convention d’affectation de noms : `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Les valeurs de date et d’heure utilisent UTC.
 
@@ -441,7 +441,7 @@ Le tableau suivant décrit le contenu de chaque entrée de journal.
 | Propriété ou champ du stockage Azure | Azure Monitor enregistre la propriété | Description |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | Date et heure (UTC) de l’opération. |
-| **ResourceId** | **Ressource** | Le compte Azure Cosmos DB pour lequel les journaux d’activité sont activés.|
+| **resourceId** | **Ressource** | Le compte Azure Cosmos DB pour lequel les journaux d’activité sont activés.|
 | **category** | **Catégorie** | Pour les journaux d’activité Azure Cosmos DB, **DataPlaneRequests** est la seule valeur disponible. |
 | **operationName** | **OperationName** | Nom de l’opération. Cette valeur peut être l’une des opérations suivantes : Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed ou Upsert.   |
 | **properties** | n/a | Le contenu de ce champ est décrit dans les lignes suivantes. |
@@ -462,7 +462,7 @@ Le tableau suivant décrit le contenu de chaque entrée de journal.
 
 - Pour comprendre comment activer la journalisation, mais aussi les métriques et les catégories de journaux d’activité prises en charge par les différents services Azure, consultez les articles [Vue d’ensemble des métriques dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) et [Présentation des journaux de diagnostic Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 - Pour en savoir plus sur les concentrateurs d’événements, lisez les articles suivants :
-   - [Nouveautés des concentrateurs d'événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
+   - [Nouveautés des concentrateurs d’événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Consultez [Télécharger les journaux de métriques et de diagnostics de Stockage Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
 - Lecture [présentation des recherches dans les journaux Azure Monitor](../log-analytics/log-analytics-log-search-new.md).

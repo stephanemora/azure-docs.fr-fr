@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8b72604d7e736230911d0a0987b88d372be4ddf3
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881272"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Authentification des utilisateurs finaux auprès d’Azure Data Lake Storage Gen1 à l’aide de Python
 > [!div class="op_single_selector"]
-> * [Utilisation de Java](data-lake-store-end-user-authenticate-java-sdk.md)
+> * [À l’aide de Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Utilisation du kit de développement logiciel (SDK) .NET](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Utilisation de Python](data-lake-store-end-user-authenticate-python.md)
 > * [Utilisation de l'API REST](data-lake-store-end-user-authenticate-rest-api.md)
@@ -119,5 +119,5 @@ Cette option est déconseillée. Pour plus d’informations, consultez la page [
 Dans cet article, vous avez appris à vous servir de l’authentification des utilisateurs finaux auprès d’Azure Data Lake Storage Gen1 avec Python. Vous pouvez maintenant consulter les articles suivants, qui expliquent comment utiliser Python pour travailler avec Azure Data Lake Storage Gen1.
 
 * [Opérations de gestion du compte sur Data Lake Storage Gen1 à l’aide de Python](data-lake-store-get-started-python.md)
-* [Opérations de données sur Data Lake Storage Gen1 à l’aide de Python](data-lake-store-data-operations-python.md)
+* [Opérations sur les données dans Data Lake Storage Gen1 à l’aide de Python](data-lake-store-data-operations-python.md)
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
 ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918720"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Coûts des logiciels non inclus dans les instances Azure Reserved VM Instances
@@ -72,11 +72,11 @@ Vous pouvez obtenir le coût de chacun de ces compteurs via l’API Azure RateCa
 Pour en savoir plus sur les réservations pour Azure, consultez les articles suivants :
 
 - [Quelles sont les réservations pour Azure ?](billing-save-compute-costs-reservations.md)
-- [Prépayer les machines virtuelles avec Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gérer les réservations pour Azure](billing-manage-reserved-vm-instance.md)
 - [Comprendre comment la remise de réservation est appliquée](billing-understand-vm-reservation-charges.md)
-- [Comprendre l’utilisation de la réservation pour votre abonnement de paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
-- [Comprendre l’utilisation de la réservation pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md)
+- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 

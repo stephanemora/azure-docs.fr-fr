@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917474"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
@@ -392,7 +392,7 @@ Dans cette section, vous allez configurer les chaînes de connexion Azure Storag
 
    * Nom : ContosoAdsDbConnectionString
    * Tapez : Chaîne
-   * Valeur : collez la même chaîne de connexion que celle utilisée pour le projet de rôle web. (L’exemple suivant concerne Visual Studio 2013. N’oubliez pas de modifier la source de données si vous copiez cet exemple et utilisez Visual Studio 2015 ou version ultérieure.)
+   * Valeur : collez la même chaîne de connexion que celle utilisée pour le projet de rôle web. (L’exemple suivant concerne Visual Studio 2013. N’oubliez pas de modifier la source de données si vous copiez cet exemple et utilisez Visual Studio 2015 ou version ultérieure.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -417,8 +417,8 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 Les sections suivantes présentent le code utilisé dans l'environnement, les objets blob et les files d'attente Azure. Ce didacticiel ne montre pas comment créer des contrôleurs et des vues MVC à l'aide de la structure, comment écrire du code Entity Framework qui fonctionne avec les bases de données SQL Server, ni les bases de la programmation asynchrone dans ASP.NET 4.5. Pour plus d'informations sur ces sujets, consultez les ressources suivantes :
 
-* [Bien démarrer avec MVC 5](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [Bien démarrer avec EF 6 et MVC 5](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
+* [Prise en main de MVC 5](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+* [Prise en main d’EF 6 et de MVC 5](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [Introduction à la programmation asynchrone dans .NET 4.5](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
@@ -703,7 +703,7 @@ Après chaque itération de la boucle, si aucun message de file d'attente n'a é
 
 Il arrive que le contenu d'un message de file d'attente provoque une erreur de traitement. On parle alors de *message empoisonné*, et si vous relancez la boucle après avoir consigné une erreur, vous risquez d'essayer sans fin de traiter ce message.  Le bloc catch inclut donc une instruction If qui vérifie combien de fois l'application a tenté de traiter le message actuel, et si le nombre de tentatives est supérieur à 5, le message est supprimé de la file d'attente.
 
-`ProcessQueueMessage` est appelée lorsqu’un message de file d’attente est détecté.
+`ProcessQueueMessage` est appelé lorsqu'un message de file d'attente est trouvé.
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -775,7 +775,7 @@ Pour voir une vidéo de présentation des meilleures pratiques et des modèles A
 
 Pour plus d’informations, consultez les ressources suivantes :
 
-* [Azure Cloud Services partie 1 : Présentation](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Comment gérer les Services de Cloud](cloud-services-how-to-manage-portal.md)
-* [Stockage Azure](https://docs.microsoft.com/azure/storage/)
+* [Azure Cloud Services Partie 1 : Introduction](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Gestion des services cloud](cloud-services-how-to-manage-portal.md)
+* [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Choix d’un fournisseur de services cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

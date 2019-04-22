@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 4a8126d658f227d9eed372cd51cf06f8f12c99f9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885518"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Utiliser le service Azure Import/Export pour copier les données dans Azure Data Lake Storage Gen1 hors connexion
@@ -29,7 +29,7 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
 * **Un abonnement Azure**. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Azure Storage**.
-* **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, voir [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
+* **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, consultez [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="preparing-the-data"></a>Préparation des données
 
@@ -212,5 +212,5 @@ Join-AzDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importedda
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Utiliser Azure Data Lake Analytique avec Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Utiliser Azure Data Lake Analytics avec Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

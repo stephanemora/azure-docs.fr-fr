@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917615"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Comment configurer et exécuter des tâches de démarrage pour un service cloud
@@ -99,7 +99,7 @@ Vous trouverez ci-dessous une description des attributs de l’élément **Task*
 
 **executionContext** - spécifie le niveau de privilège pour la tâche de démarrage. Le niveau de privilège peut être limité ou élevé :
 
-* **Limité**  
+* **limited**  
    : la tâche de démarrage s’exécute avec les mêmes privilèges que le rôle. Quand l’attribut **executionContext** de l’élément [Runtime] est également **limited**, les privilèges utilisateur sont utilisés.
 * **elevated**  
    : la tâche de démarrage s’exécute avec des privilèges d’administrateur. Les tâches de démarrage peuvent ainsi installer des programmes, apporter des modifications à la configuration IIS, modifier le Registre et effectuer d’autres tâches d’administration, sans augmenter le niveau de privilège du rôle.  
@@ -111,7 +111,7 @@ Vous trouverez ci-dessous une description des attributs de l’élément **Task*
 
 **taskType** - spécifie la façon dont une tâche de démarrage est exécutée.
 
-* **Simple**  
+* **simple**  
   sont exécutées de façon synchrone, une à la fois, dans l’ordre spécifié dans le fichier [ServiceDefinition.csdef] . Quand une tâche **simple** se termine par un **errorlevel** égal à zéro, la tâche de démarrage **simple** suivante est exécutée. Quand toutes les tâches **simple** ont été exécutées, le rôle est démarré.   
   
   > [!NOTE]
@@ -122,7 +122,7 @@ Vous trouverez ci-dessous une description des attributs de l’élément **Task*
     Pour vous assurer que votre fichier de commandes se termine par un **errorlevel** égal à zéro, exécutez la commande `EXIT /B 0` à la fin du processus de votre fichier de commandes.
 * **background**  
    sont exécutées de façon asynchrone, en parallèle du démarrage du rôle.
-* **Premier plan**  
+* **foreground**  
    sont exécutées de façon asynchrone, en parallèle du démarrage du rôle. La principale différence entre une tâche **foreground** et une tâche **background** est que la tâche **foreground** empêche le recyclage ou l’arrêt du rôle tant qu’elle n’est pas terminée. Les tâches **background** n’ont pas cette restriction.
 
 ## <a name="environment-variables"></a>Variables d’environnement
@@ -161,10 +161,10 @@ Découvrez comment effectuer certaines [tâches de démarrage courantes](cloud-s
 [Créez un package](cloud-services-model-and-package.md) de votre service cloud.  
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[Tâche]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Démarrage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
+[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Environnement]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

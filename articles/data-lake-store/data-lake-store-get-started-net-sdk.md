@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879707"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 à l’aide du SDK .NET
@@ -53,8 +53,8 @@ Pour obtenir des instructions sur l’exécution des opérations de gestion des 
    2. Dans l’onglet **Gestionnaire de package NuGet**, vérifiez que **Source du package** a la valeur **nuget.org** et que la case **Inclure la version préliminaire** est cochée.
    3. Recherchez et installez les packages NuGet suivants :
 
-      * `Microsoft.Azure.Management.DataLake.Store` -Ce didacticiel utilise v2.1.3-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Ce didacticiel utilise v2.2.12.
+      * `Microsoft.Azure.Management.DataLake.Store` - Ce didacticiel utilise v2.1.3-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Ce didacticiel utilise v2.2.12.
 
         ![Ajouter une source NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Créer un compte Azure Data Lake")
    4. Fermez le **Gestionnaire de package NuGet**.
@@ -142,8 +142,8 @@ L’extrait de code suivant supprime le compte Data Lake Storage Gen1 que vous a
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
 ## <a name="see-also"></a>Voir aussi
-* [Opérations de système de fichiers sur Data Lake Storage Gen1 à l’aide du Kit de développement logiciel .NET](data-lake-store-data-operations-net-sdk.md)
-* [Référence de kit de développement logiciel .NET Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Opérations de système de fichiers dans Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md)
+* [Référence SDK .NET Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)

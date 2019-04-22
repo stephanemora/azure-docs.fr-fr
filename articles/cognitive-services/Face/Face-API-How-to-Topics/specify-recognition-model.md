@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
 ms.openlocfilehash: 33348e637143b923719425b9674f99a475d848d9
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58806659"
 ---
-# <a name="specify-a-face-recognition-model"></a>Spécifiez un modèle de reconnaissance faciale
+# <a name="specify-a-face-recognition-model"></a>Spécifier un modèle de reconnaissance faciale
 
 Ce guide vous montre comment spécifier un modèle de reconnaissance faciale pour la détection de visage, l’identification et recherche de similarité à l’aide de l’API visage de Azure.
 

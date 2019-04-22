@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885670"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Sécurisation des données stockées dans Azure Data Lake Storage Gen1
@@ -33,7 +33,7 @@ Cet article explique comment utiliser le portail Azure pour effectuer les tâche
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un compte Data Lake Storage Gen1**. Pour savoir comment en créer un, voir [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
+* **Un compte Data Lake Storage Gen1**. Pour savoir comment en créer un, consultez [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Créer des groupes de sécurité dans Azure Active Directory
 Pour obtenir des instructions sur la création de groupes de sécurité AAD et l'ajout d'utilisateurs au groupe, consultez [Gestion des groupes de sécurité dans Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -149,10 +149,10 @@ Quand vous supprimez les ACL d’un groupe de sécurité d’un système de fich
 
 ## <a name="see-also"></a>Voir aussi
 * [Vue d’ensemble d’Azure Data Lake Storage Gen1](data-lake-store-overview.md)
-* [Copier des données à partir d’objets BLOB Azure Storage vers Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
-* [Utiliser Azure Data Lake Analytique avec Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Copier des données d’objets blob Stockage Azure vers Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [Utiliser Azure Data Lake Analytics avec Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Prise en main de Data Lake Storage Gen1 à l’aide de PowerShell](data-lake-store-get-started-powershell.md)
-* [Prise en main Data Lake Storage Gen1 à l’aide du Kit de développement logiciel .NET](data-lake-store-get-started-net-sdk.md)
-* [Journaux de diagnostic d’accès pour Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md)
+* [Prise en main de Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
+* [Accéder aux journaux de diagnostic de Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md)
 

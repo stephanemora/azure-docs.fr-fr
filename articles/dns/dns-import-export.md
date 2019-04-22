@@ -7,10 +7,10 @@ ms.service: dns
 ms.date: 4/3/2019
 ms.author: victorh
 ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905407"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importer et exporter un fichier de zone DNS en utilisant l’interface CLI Azure
@@ -67,9 +67,9 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 
 Valeurs :
 
-* `<resource group>` est le nom du groupe de ressources pour la zone dans Azure DNS.
+* `<resource group>` est le nom du groupe de ressources correspondant à la zone dans Azure DNS.
 * `<zone name>` est le nom de la zone.
-* `<zone file name>` est le chemin d’accès/nom du fichier de zone à importer.
+* `<zone file name>` est le chemin/nom du fichier de zone à importer.
 
 S’il n’existe aucune zone de ce nom dans le groupe de ressources, cette zone est automatiquement créée. Si la zone existe déjà, les jeux d’enregistrements importés sont fusionnés avec les jeux d’enregistrements existants. 
 
@@ -161,7 +161,7 @@ az network dns zone export -g <resource group> -n <zone name> -f <zone file name
 
 Valeurs :
 
-* `<resource group>` est le nom du groupe de ressources pour la zone dans Azure DNS.
+* `<resource group>` est le nom du groupe de ressources correspondant à la zone dans Azure DNS.
 * `<zone name>` est le nom de la zone.
 * `<zone file name>` est le chemin d’accès/nom du fichier de zone à exporter.
 

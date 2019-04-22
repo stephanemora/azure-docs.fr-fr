@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917309"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qu’est-ce que le modèle Cloud Service, et comment en créer un package ?
@@ -104,16 +104,16 @@ Vous pouvez vous reporter au [schéma de définition de service](/previous-versi
 **ConfigurationSettings**  
  Contient les définitions de paramètre des fonctionnalités d’un rôle spécifique.
 
-**Certificats**  
+**Certificates**  
  Contient les définitions des certificats nécessaires à un rôle. L’exemple de code précédent illustre un certificat qui est utilisé pour la configuration d’Azure Connect.
 
 **LocalResources**  
  Contient les définitions des ressources de stockage local. Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle dans lequel s’exécute l’instance d’un rôle.
 
-**Importations**  
+**Imports**  
  Contient les définitions des modules importés. L’exemple de code précédent illustre les modules Connexion Bureau à distance et Azure Connect.
 
-**Démarrage**  
+**Startup**  
  Contient les tâches qui sont exécutées au démarrage du rôle. Les tâches sont définies dans un fichier .cmd ou exécutable.
 
 <a name="cscfg"></a>
@@ -149,7 +149,7 @@ Vous pouvez vous reporter au [schéma de configuration de service](/previous-ver
 **ConfigurationSettings**  
  Configure les paramètres des instances en cours d’exécution d’un rôle. Le nom des éléments `<Setting>` doit correspondre aux définitions de paramètre dans le fichier de définition de service.
 
-**Certificats**  
+**Certificates**  
  Configure les certificats utilisés par le service. L’exemple de code précédent montre comment définir le certificat pour le module RemoteAccess. La valeur de l’attribut *thumbprint* doit être définie sur l’empreinte numérique du certificat à utiliser.
 
 <p/>
@@ -210,9 +210,9 @@ Vous pouvez mettre à jour la configuration du service cloud pendant son exécut
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Gestion des modifications de configuration à l’aide des événements de service Runtime
 La [bibliothèque Runtime Azure](/previous-versions/azure/reference/mt419365(v=azure.100)) inclut l’espace de noms [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)), qui fournit des classes pour interagir avec l’environnement Azure à partir d’un rôle. La classe [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) définit les événements suivants qui sont déclenchés avant et après une modification de la configuration :
 
-* **[Modification](/previous-versions/azure/reference/ee758134(v=azure.100)) événement**  
+* **[Modification](/previous-versions/azure/reference/ee758134(v=azure.100)) d’un événement**  
   Se produit avant que la modification de la configuration ne soit appliquée à une instance spécifiée d’un rôle, ce qui vous permet de supprimer les instances de rôle si nécessaire.
-* **[Modifié](/previous-versions/azure/reference/ee758129(v=azure.100)) événement**  
+* **[Événement](/previous-versions/azure/reference/ee758129(v=azure.100)) modifié**  
    Se produit après l’application de la modification de la configuration à l’instance spécifiée d’un rôle.
 
 > [!NOTE]

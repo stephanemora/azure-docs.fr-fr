@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 29efa963a254913e3d4744ade1d161c5c8ce42e4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893348"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Création d'une application Xamarin.Android
@@ -71,9 +71,9 @@ Si vous avez des difficultés à générer la solution, exécutez le gestionnair
 Veuillez noter que tous les packages de support référencés dans le projet doivent avoir la même version. Le [package NuGet Azure Mobile Apps](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) comporte une dépendance `Xamarin.Android.Support.CustomTabs` à la plateforme Android. Par conséquent, si votre projet utilise des packages de support plus récents, vous devez installer directement ce package avec la version requise pour éviter les conflits.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Ajouter la synchronisation hors connexion à votre application](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [Ajout d'une fonction d'authentification à votre application](app-service-mobile-xamarin-android-get-started-users.md)
-* [Ajouter des notifications push à votre application Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md)
+* [Ajout de la synchronisation hors connexion à votre application](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Ajout de l'authentification à votre application](app-service-mobile-xamarin-android-get-started-users.md)
+* [Ajouter des notifications Push à votre application](app-service-mobile-xamarin-android-get-started-push.md)
 * [Utilisation du client géré pour Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Images. -->

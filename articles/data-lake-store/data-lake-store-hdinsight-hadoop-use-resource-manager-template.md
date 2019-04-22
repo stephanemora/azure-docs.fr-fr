@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880132"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Créer un cluster HDInsight avec Data Lake Storage Gen1 à l’aide d’un modèle Azure Resource Manager
 > [!div class="op_single_selector"]
 > * [Utilisation du portail](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [À l’aide de PowerShell (pour le stockage par défaut)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [À l’aide de PowerShell (pour le stockage supplémentaire)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Utilisation de PowerShell (pour le stockage par défaut)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Utilisation de PowerShell (pour le stockage supplémentaire)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Utilisation du gestionnaire des ressources](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
@@ -146,5 +146,5 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Copier des données à partir d’objets BLOB Azure Storage vers Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
-* [Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Copier des données d’objets blob Stockage Azure vers Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
+* [Utiliser Data Lake Storage Gen1 avec les clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)

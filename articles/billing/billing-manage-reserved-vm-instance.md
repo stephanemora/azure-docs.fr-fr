@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
 ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904439"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
@@ -98,8 +98,8 @@ Pour déléguer la gestion de l’accès à une réservation :
 
 Selon le type de réservation, vous pourrez peut-être annuler ou échanger une réservation. Pour plus d’informations, consultez les sections relatives aux annulations et échanges dans les rubriques suivantes :
 
-- [Prépayer les machines virtuelles avec Azure Reserved VM Instances](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
-- [Prépayer des abonnements logiciels SUSE dans Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
+- [Prépayer des logiciels SUSE avec des réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
 - [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Modifier le paramètre d’optimisation pour des instances de machine virtuelle réservées
@@ -129,19 +129,19 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 - [Quelles sont les réservations pour Azure ?](billing-save-compute-costs-reservations.md)
 
 Acheter un plan de service :
-- [Prépayer les machines virtuelles avec Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
-- [Prépayer les ressources Azure Cosmos DB avec une capacité réservée Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
+- [Prépayer des ressources Azure Cosmos DB avec une capacité réservée Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Acheter un plan de logiciels :
 - [Prépayer les abonnements de logiciels de Red Hat à partir des réservations d’Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Prépayer des abonnements logiciels SUSE dans Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Prépayer des logiciels SUSE avec des réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Comprendre l’utilisation et remise :
-- [Comprendre comment la remise de réservation de machine virtuelle est appliquée](billing-understand-vm-reservation-charges.md)
+- [Comprendre comment la remise sur réservation de machine virtuelle est appliquée](billing-understand-vm-reservation-charges.md)
 - [Comprendre comment la remise de plan de logiciels de Red Hat Enterprise Linux est appliquée](../billing/billing-understand-rhel-reservation-charges.md)
-- [Comprendre comment la remise des abonnements logiciels SUSE Linux Enterprise est appliquée](../billing/billing-understand-suse-reservation-charges.md)
-- [Comprendre comment les autres remises de réservation sont appliqués](billing-understand-reservation-charges.md)
-- [Comprendre l’utilisation de la réservation pour votre abonnement de paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
-- [Comprendre l’utilisation de la réservation pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md)
-- [Coûts des logiciels Windows non inclus avec les réservations](billing-reserved-instance-windows-software-costs.md)
+- [Comprendre comment la remise sur offre logicielle SUSE Linux Enterprise est appliquée](../billing/billing-understand-suse-reservation-charges.md)
+- [Comprendre comment les autres remises sur réservation sont appliquées](billing-understand-reservation-charges.md)
+- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
+- [Coûts des logiciels Windows non inclus dans les réservations](billing-reserved-instance-windows-software-costs.md)

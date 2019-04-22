@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862110"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Analyse des journaux de métriques et dans le Service de porte d’entrée Azure
@@ -92,5 +92,5 @@ Porte d’entrée Service fournit actuellement des journaux de diagnostic (par l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer un profil Front Door](quickstart-create-front-door.md)
+- [Créer un profil de la porte d’entrée](quickstart-create-front-door.md)
 - [Fonctionnement de la porte d’entrée](front-door-routing-architecture.md)

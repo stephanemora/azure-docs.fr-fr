@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885704"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Utiliser Service Bus à partir de .NET avec AMQP 1.0
@@ -116,8 +116,8 @@ Les [API .NET](/dotnet/api/) exposent plusieurs paramètres pour contrôler le c
 
 Prêt à en savoir plus ? Visitez les liens suivants :
 
-* [Vue d’ensemble d’AMQP de service Bus]
-* [Guide du protocole AMQP 1.0]
+* [Vue d’ensemble d’AMQP de Service Bus]
+* [Guide du protocole AMQP 1.0]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
 [DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
@@ -126,6 +126,6 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
 [NuGet]: https://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
-[Vue d’ensemble d’AMQP de service Bus]: service-bus-amqp-overview.md
-[Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
+[Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
+[Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
 

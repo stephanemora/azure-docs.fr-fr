@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 3/21/2019
 ms.author: victorh
 ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905713"
 ---
 # <a name="azure-dns-faq"></a>FAQ Azure DNS
@@ -116,8 +116,8 @@ Les jeux d’enregistrements d’alias sont pris en charge pour les types d’en
 
 ### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>Quelles sont les ressources prises en charge comme cibles pour les jeux d’enregistrements alias ?
 
-- **Pointez sur une ressource IP publique à partir d’un jeu d’enregistrements A/AAAA DNS.** Vous pouvez créer un jeu d’enregistrements A/AAAA et en faire un jeu d’enregistrements d’alias pour pointer vers une ressource d’adresse IP publique.
-- **Pointez sur un profil Traffic Manager à partir d’un jeu d’enregistrements DNS A/AAAA/CNAME.** Vous pouvez pointer vers le CNAME d’un profil Traffic Manager à partir d’un jeu d’enregistrements CNAME DNS. contoso.trafficmanager.net en est un exemple. Maintenant, vous pouvez également pointer vers un profil Traffic Manager qui a des points de terminaison externes à partir d’un jeu d’enregistrements A ou AAAA dans votre zone DNS.
+- **Pointer vers une ressource d’adresse IP publique à partir d’un jeu d’enregistrements A/AAAA DNS.** Vous pouvez créer un jeu d’enregistrements A/AAAA et en faire un jeu d’enregistrements d’alias pour pointer vers une ressource d’adresse IP publique.
+- **Pointer vers un profil Traffic Manager à partir d’un jeu d’enregistrements A/AAAA/CNAME DNS.** Vous pouvez pointer vers le CNAME d’un profil Traffic Manager à partir d’un jeu d’enregistrements CNAME DNS. contoso.trafficmanager.net en est un exemple. Maintenant, vous pouvez également pointer vers un profil Traffic Manager qui a des points de terminaison externes à partir d’un jeu d’enregistrements A ou AAAA dans votre zone DNS.
 - **Pointez sur un point de terminaison Azure Content Delivery Network (CDN)**. Cela est utile lorsque vous créez des sites Web statiques à l’aide du stockage Azure et Azure CDN.
 - **Pointer vers un autre jeu d’enregistrements DNS au sein de la même zone.** Les enregistrements d’alias peuvent faire référence à d’autres jeux d’enregistrements du même type. Par exemple, un jeu d’enregistrements CNAME DNS peut être un alias pour un autre jeu d’enregistrements CNAME du même type. Cette disposition est utile si vous voulez que certains jeux d’enregistrements d’alias soient des alias et d’autres des non-alias.
 

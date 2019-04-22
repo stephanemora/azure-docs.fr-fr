@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fbefe233ce0d2477982faf0a9f38a73062e0c7a1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884463"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Utiliser Distcp pour copier des données entre des objets blob Stockage Azure et Azure Data Lake Storage Gen1
@@ -68,7 +68,7 @@ Un cluster HDInsight est fourni avec l’utilitaire Distcp, que vous pouvez util
 
 La granularité la plus basse de DistCp étant un fichier unique, la définition du nombre maximal de copies simultanées est le paramètre le plus important à optimiser par rapport à Data Lake Storage Gen1. Vous contrôlez le nombre de copies simultanées en définissant le paramètre de nombre de mappeurs (‘m’) en ligne de commande. Ce paramètre spécifie le nombre maximal de mappeurs utilisés pour copier les données. La valeur par défaut est 20.
 
-**Exemples**
+**Exemple**
 
     hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder -m 100
 
@@ -82,7 +82,7 @@ Voici quelques conseils à suivre.
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
-**Exemples**
+**Exemple**
 
 Supposons que vous avez 4 nœuds D14v2s dans le cluster et que vous essayez de transférer 10 To de données à partir de 10 dossiers différents. Chaque dossier contient différentes quantités de données, et la taille des fichiers dans chaque dossier est différente.
 
@@ -111,7 +111,7 @@ Lorsque la taille du jeu de données à déplacer est volumineuse (par exemple >
 * Si vous copiez à partir d’un compte de stockage d’objets Blob Azure, votre tâche de copie peut être limitée sur le côté du stockage d’objets blob. Cela dégrade les performances de votre tâche de copie. Pour en savoir plus sur les limites du stockage Blob Azure, consultez les limites du stockage Azure sur [Abonnement Azure et limites du service](../azure-subscription-service-limits.md).
 
 ## <a name="see-also"></a>Voir aussi
-* [Copier des données à partir d’objets BLOB Azure Storage vers Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [Copier des données d’objets blob Stockage Azure vers Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Utiliser Azure Data Lake Analytique avec Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Utiliser Azure Data Lake Analytics avec Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

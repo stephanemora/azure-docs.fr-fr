@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
 ms.openlocfilehash: b3660901c86dd644369e6d1913e825cbd5ea316b
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918465"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Gestion d'Azure Cloud Services à l'aide d'Azure Automation
@@ -36,12 +36,12 @@ Les services cloud Azure peuvent être gérés dans Azure Automation à l'aide 
 
 Voici quelques exemples qui utilisent Azure Automation pour gérer Azure Cloud Services :
 
-* [Déploiement continu d’un Service Cloud si cscfg ou cspkg est mis à jour dans le stockage Blob Azure](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
-* [Le redémarrage des instances de Service Cloud en parallèle, un seul domaine de mise à niveau à la fois](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
+* [Déploiement continu d’un service cloud si cscfg ou cspkg est mis à jour dans Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+* [Redémarrage des instances de service cloud en parallèle, un domaine de mise à niveau à la fois](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les bases d'Azure Automation et la manière de l'utiliser pour gérer les services de cloud computing Azure, cliquez sur ces liens pour en savoir plus sur Azure Automation.
 
-* [Vue d’ensemble d’Azure Automation](../automation/automation-intro.md)
+* [Vue d’ensemble de Microsoft Azure Automation](../automation/automation-intro.md)
 * [Mon premier Runbook](../automation/automation-first-runbook-graphical.md)
-* [Carte d’apprentissage pour Azure Automation](https://azure.microsoft.com/documentation/learning-paths/automation/)
+* [Plan d’apprentissage pour Azure Automation](https://azure.microsoft.com/documentation/learning-paths/automation/)

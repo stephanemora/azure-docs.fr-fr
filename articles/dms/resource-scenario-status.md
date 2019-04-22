@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
 ms.openlocfilehash: f25bc9bc3a958b2fa97ae4d5ab3715b602110393
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915473"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>État des scénarios de migration pris en charge par Azure Database Migration Service
@@ -41,10 +41,10 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 
 | Cible  | Source | Support | Statut |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Base de données SQL Azure** | SQL Server | ✔ | GA |
+| **Base de données Azure SQL** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |  |
-| **Azure SQL DB MI** | SQL Server | ✔ | GA |
+| **Base de données Azure SQL MI** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |   |
 | **Machine virtuelle Azure SQL** | SQL Server | ✔ | GA |
@@ -60,10 +60,10 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 
 | Cible  | Source | Support | Statut |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Base de données SQL Azure** | SQL Server | ✔ | GA |
+| **Base de données Azure SQL** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
 |   | Oracle |  |  |
-| **Azure SQL DB MI** | SQL Server | ✔ | GA |
+| **Base de données Azure SQL MI** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
 |   | Oracle | ✔ | Préversion privée |
 | **Machine virtuelle Azure SQL** | SQL Server |   |   |

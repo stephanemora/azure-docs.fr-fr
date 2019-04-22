@@ -76,7 +76,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 
 | Propriété | Obligatoire | Description |
 | --- | --- | --- |
-| ResourceId |Oui |ID de la ressource pour laquelle vous voulez définir un paramètre de diagnostic. |
+| resourceId |Oui |ID de la ressource pour laquelle vous voulez définir un paramètre de diagnostic. |
 | StorageAccountId |Non  |ID de ressource du compte de stockage dans lequel les journaux de diagnostic doivent être enregistrés. |
 | Categories |Non  |Liste séparée par des virgules des catégories de journaux à activer. |
 | Enabled |Oui |Valeur booléenne indiquant si les diagnostics sont activés ou désactivés pour cette ressource. |

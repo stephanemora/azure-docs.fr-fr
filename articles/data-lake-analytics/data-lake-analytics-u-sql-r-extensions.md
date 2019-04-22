@@ -10,10 +10,10 @@ ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885024"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Étendre des scripts U-SQL à l’aide de code R dans Azure Data Lake Analytics
@@ -93,7 +93,7 @@ Utilisez un script U-SQL pour déployer ce script R avec l’instruction DEPLOY 
 ### <a name="datatypes"></a>Types de données
 * Les colonnes de chaîne et numériques de U-SQL sont converties en l’état entre un tableau de données R et U-SQL [types pris en charge : `double`, `string`, `bool`, `integer`, `byte`].
 * Le type de données `Factor` n’est pas pris en charge dans U-SQL.
-* `byte[]` doit être sérialisé sous une codé en base64 `string`.
+* `byte[]` doit être sérialisé sous forme de `string` codé en base64.
 * Les chaînes U-SQL peuvent être converties en facteurs dans le code R quand U-SQL crée un tableau de données d’entrée R ou en définissant le paramètre du réducteur sur `stringsAsFactors: true`.
 
 ### <a name="schemas"></a>Schémas
@@ -208,5 +208,5 @@ Tout d’abord, créez un module R personnalisé, incluez-le dans un fichier zip
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Développer des scripts U-SQL à l’aide de Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Développer des scripts U-SQL avec les outils Data Lake pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure](data-lake-analytics-use-window-functions.md)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/03/2019
 ms.author: aschhab
 ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58910044"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Erreurs d’AMQP dans Azure Service Bus
@@ -49,10 +49,10 @@ Error{condition=amqp:connection:forced, description='The connection was inactive
 
 Pour en savoir plus sur AMQP et Service Bus, consultez les liens suivants :
 
-* [Vue d’ensemble d’AMQP de service Bus]
-* [Guide du protocole AMQP 1.0]
-* [AMQP dans Service Bus pour Windows Server]
+* [Vue d’ensemble du protocole AMQP de Service Bus]
+* [Guide du protocole AMQP 1.0]
+* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]
 
-[Vue d’ensemble d’AMQP de service Bus]: service-bus-amqp-overview.md
-[Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[AMQP dans Service Bus pour Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
+[Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
+[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

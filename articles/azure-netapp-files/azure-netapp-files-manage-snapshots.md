@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
 ms.openlocfilehash: 01387d0c219c86f33762b9c3fbf9f81cf04b4455
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880812"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gérer les instantanés avec Azure NetApp Files
@@ -58,7 +58,7 @@ Actuellement, vous pouvez restaurer un instantané seulement sur un nouveau volu
         
         Le nom doit être unique au sein d’un groupe de ressources. Il doit comprendre au moins trois caractères.  Vous pouvez utiliser tous les caractères alphanumériques.
 
-    * **Chemin de fichier**     
+    * **Chemin du fichier**     
         Spécifiez le chemin du fichier à utiliser pour créer le chemin d’exportation pour le nouveau volume. Le chemin d’exportation est utilisé pour monter le volume et y accéder.   
         
         Une cible de montage est le point de terminaison de l’adresse IP du service NFS. Elle est générée automatiquement.   
@@ -86,4 +86,4 @@ Actuellement, vous pouvez restaurer un instantané seulement sur un nouveau volu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Comprendre la hiérarchie de stockage de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+[Comprendre la hiérarchie de stockage d’Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
