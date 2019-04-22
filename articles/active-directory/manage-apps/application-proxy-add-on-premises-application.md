@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd494ffe6bc48495c882ed84062503bdc00ae9f4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: fc454fdba6ec875c3d3b572a7aba91bb9d389845
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917836"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617213"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
@@ -114,7 +114,7 @@ Pour installer le connecteur :
 
 ### <a name="general-remarks"></a>Remarques générales
 
-Si vous avez déjà installé un connecteur, réinstallez-le pour obtenir la dernière version.
+Si vous avez déjà installé un connecteur, réinstallez-le pour obtenir la dernière version. Pour avoir des informations sur les versions précédentes et les changements qu’elles incluent, consultez [Proxy d’application - Historique des versions](application-proxy-release-version-history.md).
 
 Si vous choisissez d'utiliser plusieurs serveurs Windows pour vos applications locales, vous devez installer et inscrire le connecteur sur chaque serveur. Vous pouvez organiser les connecteurs en groupes de connecteurs. Pour plus d'informations, consultez [Groupes de connecteurs](application-proxy-connector-groups.md). 
 
@@ -122,7 +122,6 @@ Si votre organisation utilise des serveurs proxy pour se connecter à Internet, 
 
 Pour plus d'informations sur les connecteurs, la planification de capacité et leur mise à jour, consultez [Présentation des connecteurs du service Proxy d'application d'Azure AD](application-proxy-connectors.md). 
 
-Si vous utilisez l’application Qlik Sense, installez toujours le connecteur le plus récent. Qlik Sense utilise WebSockets, qui est pris en charge uniquement sur les versions 1.5.612.0 ou ultérieures du connecteur.
 
 ## <a name="verify-the-connector-installed-and-registered-correctly"></a>Vérifier que le connecteur est correctement installé et inscrit
 
@@ -182,12 +181,12 @@ Maintenant que vous avez préparé votre environnement et installé un connecteu
 
     | Champ | Description |
     | :---- | :---------- |
-    | **Expiration de l’application principale** | Définissez cette valeur sur **Long** uniquement si l'authentification et la connexion de votre application sont lentes. |
-    | **Utiliser un cookie HTTPOnly** | Définissez cette valeur sur **Oui** pour que les cookies du service Proxy d'application incluent un indicateur HTTPOnly dans l'en-tête de réponse HTTP. Si vous utilisez les services Bureau à distance, définissez cette valeur sur **Non**.|
+    | **Expiration de l'application principale** | Définissez cette valeur sur **Long** uniquement si l'authentification et la connexion de votre application sont lentes. |
+    | **Utiliser un cookie HTTP-only** | Définissez cette valeur sur **Oui** pour que les cookies du service Proxy d'application incluent un indicateur HTTPOnly dans l'en-tête de réponse HTTP. Si vous utilisez les services Bureau à distance, définissez cette valeur sur **Non**.|
     | **Utiliser un cookie sécurisé**| Définissez cette valeur sur **Oui** pour transmettre les cookies sur un canal sécurisé, comme une requête HTTPS chiffrée.
     | **Utiliser un cookie persistant**| Conservez cette valeur sur **Non**. Ce paramètre doit être utilisé uniquement pour les applications qui ne peuvent pas partager de cookies entre les processus. Pour plus d’informations sur les paramètres de cookies, consultez [Paramètres de cookies pour l’accès aux applications locales dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
-    | **Traduire l’URL dans les en-têtes** | Conservez la valeur **Oui**, sauf si votre application a demandé l'en-tête d'hôte d'origine dans la requête d'authentification. |
-    | **Traduisez les URL dans le corps de l’application** | Conservez la valeur **Non**, sauf si vous avez codé en dur des liens HTML vers d'autres applications locales et que vous n'utilisez pas de domaines personnalisés. Pour plus d’informations, consultez [Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD](application-proxy-configure-hard-coded-link-translation.md).<br><br>Définissez cette valeur sur **Oui** si vous envisagez de superviser cette application avec Microsoft Cloud App Security (MCAS). Pour plus d’informations, consultez [Configurer la supervision de l’accès aux applications en temps réel avec Microsoft Cloud App Security et Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
+    | **Traduire l'URL dans les en-têtes** | Conservez la valeur **Oui**, sauf si votre application a demandé l'en-tête d'hôte d'origine dans la requête d'authentification. |
+    | **Traduire les URL dans le corps de l'application** | Conservez la valeur **Non**, sauf si vous avez codé en dur des liens HTML vers d'autres applications locales et que vous n'utilisez pas de domaines personnalisés. Pour plus d’informations, consultez [Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD](application-proxy-configure-hard-coded-link-translation.md).<br><br>Définissez cette valeur sur **Oui** si vous envisagez de superviser cette application avec Microsoft Cloud App Security (MCAS). Pour plus d’informations, consultez [Configurer la supervision de l’accès aux applications en temps réel avec Microsoft Cloud App Security et Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
    
 6. Sélectionnez **Ajouter**.
 

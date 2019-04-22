@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493244"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Déployer la représentation d’OPC à un projet existant
@@ -140,4 +140,4 @@ Client AAD à utiliser.
 Maintenant que vous avez appris à déployer des représentations d’OPC à un projet existant, voici l’étape suivante suggérée :
 
 > [!div class="nextstepaction"]
-> [Sécuriser les communications d’OPC Client et OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Sécuriser les communications de Client d’OPC et OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)

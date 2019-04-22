@@ -7,36 +7,32 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076885"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500632"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser Azure CLI pour créer une file d’attente Service Bus
-
-Microsoft Azure Service Bus est un courtier de messages d’intégration d’entreprise qui offre des services de messagerie et une fiabilité sécurisés. Un scénario Service Bus classique comprend généralement le découplage de deux (voire plus) applications, services ou processus (les applications n’ont pas besoin d’être en ligne en même temps), le transfert de changements d’état ou de données et l’envoi de messages entre les applications. 
-
-Par exemple, une entreprise de distribution pourrait envoyer leurs données de points de ventes vers un back office ou un centre de distribution régional pour réapprovisionnement et mises à jour de l’inventaire. Dans ce cas, l’application cliente envoie et reçoit des messages depuis une file d’attente Service Bus.
-
-![file d'attente](./media/service-bus-quickstart-cli/quick-start-queue.png)
-
 Ce guide de démarrage rapide explique comment envoyer et recevoir des messages avec Service Bus à l’aide d’Azure CLI et de la bibliothèque Java Service Bus. Enfin, si vous êtes intéressé par plus de détails techniques, vous pouvez [lire une explication](#understand-the-sample-code) des éléments clé de l’exemple de code.
 
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+## <a name="prerequisites"></a>Prérequis
 Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit][] avant de commencer.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
+Si vous utilisez le bouton **Essayez** pour lancer Cloud Shell, connectez-vous à Azure à l’aide de vos informations d’identification. 
 
-Cliquez sur le bouton Cloud Shell dans le menu du coin supérieur droit du portail Azure, et à partir de la liste déroulante **Sélectionner un environnement**, sélectionnez **Bash**. 
+Si vous avez lancé Cloud Shell dans votre navigateur web directement ou dans le portail Azure, passez à **Bash** si vous voyez **PowerShell** en haut à gauche de Cloud Shell. 
 
 ## <a name="use-the-azure-cli-to-create-resources"></a>Utiliser Azure CLI pour créer des ressources
-
-Dans Cloud Shell, depuis l’invite de commande Bash, exécutez les commandes suivantes pour provisionner les ressources Service Bus. Veillez à remplacer tous les espaces réservés par les valeurs appropriées : L’exemple de programme Java s’attend à ce que le nom de la file d’attente soit BasicQueue, donc ne le modifiez pas. 
+Dans Cloud Shell, depuis l’invite de commande Bash, exécutez les commandes suivantes pour provisionner les ressources Service Bus. Veillez à remplacer tous les espaces réservés par les valeurs appropriées : L’exemple de programme Java s’attend à ce que le nom de la file d’attente soit BasicQueue, donc ne le modifiez pas. Avant d’exécuter les commandes, vous pouvez les copier/coller une par une afin de remplacer les valeurs. 
 
 ```azurecli-interactive
 # Create a resource group
@@ -373,10 +369,10 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez créé un espace de noms Service Bus et d’autres ressources nécessaires pour envoyer et recevoir des messages depuis une file d’attente. Pour en savoir plus sur l’écriture de code pour envoyer et recevoir des messages, continuez le tutoriel suivant pour Service Bus :
+Dans cet article, vous avez créé un espace de noms Service Bus et d’autres ressources nécessaires pour envoyer et recevoir des messages depuis une file d’attente. Pour en savoir plus sur l’écriture de code afin d’envoyer et de recevoir des messages, passez aux tutoriels de la section **Envoyer et recevoir des messages**. 
 
 > [!div class="nextstepaction"]
-> [Mettre à jour l’inventaire à l’aide d’Azure CLI et de Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Envoyer et recevoir des messages](service-bus-dotnet-get-started-with-queues.md)
 
 [compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

@@ -10,7 +10,7 @@ ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: c5e6a44409e082f10a532759e3403f6b5801fdca
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59551571"

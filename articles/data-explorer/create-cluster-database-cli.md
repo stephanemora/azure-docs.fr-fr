@@ -6,19 +6,19 @@ ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: b1cc7d2966572da23a64e4555a0e94b440efa005
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/10/2019
+ms.openlocfilehash: 1fb9027ab3301bb860d260aed737ab7674039d9b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59043970"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524716"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Créer un cluster et une base de données Azure Data Explorer avec Azure CLI
 
 > [!div class="op_single_selector"]
-> * [Portail](create-cluster-database-portal.md)
-> * [Interface de ligne de commande](create-cluster-database-cli.md)
+> * [Portal](create-cluster-database-portal.md)
+> * [INTERFACE DE LIGNE DE COMMANDE](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
@@ -32,7 +32,7 @@ Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser Azure CLI en local, ce guide de démarrage rapide nécessite au minimum la version 2.0.4 d’Azure CLI. Exécutez `az --version` pour vérifier votre version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si vous choisissez d’installer et d’utiliser Azure CLI en local, ce guide de démarrage rapide nécessite au minimum la version 2.0.4 d’Azure CLI. Exécutez `az --version` pour vérifier votre version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-the-cli-parameters"></a>Configurer les paramètres CLI
 
@@ -79,7 +79,7 @@ Si le résultat contient `provisioningState` avec la valeur `Succeeded`, alors l
 1. Créez votre base de données avec la commande suivante :
 
     ```azurecli-interactive
-    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period P365D --hot-cache-period P31D
     ```
 
    |**Paramètre** | **Valeur suggérée** | **Description du champ**|
@@ -87,8 +87,8 @@ Si le résultat contient `provisioningState` avec la valeur `Succeeded`, alors l
    | cluster-name | *azureclitest* | Nom du cluster dans lequel la base de données est créée.|
    | Nom | *clidatabase* | Nom de votre base de données.|
    | resource-group | *testrg* | Nom du groupe de ressources dans lequel sera créé le cluster. |
-   | soft-delete-period | *3650:00:00:00* | Durée pendant laquelle les données restent disponibles pour les requêtes. |
-   | hot-cache-period | *3650:00:00:00* | Durée pendant laquelle les données sont conservées dans le cache. |
+   | soft-delete-period | *P365D* | Représente la durée pendant laquelle les données restent disponibles pour les requêtes. Pour plus d’informations, consultez [Stratégie de conservation](/azure/kusto/concepts/retentionpolicy). |
+   | hot-cache-period | *P31D* | Représente la durée pendant laquelle les données sont conservées dans le cache. Pour plus d’informations, consultez [Stratégie de cache](/azure/kusto/concepts/cachepolicy). |
 
 1. Exécutez la commande suivante pour voir la base de données que vous avez créée :
 
@@ -110,4 +110,4 @@ Vous disposez maintenant d’un cluster et d’une base de données.
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure](python-ingest-data.md)
+> [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python d’Azure Data Explorer](python-ingest-data.md)

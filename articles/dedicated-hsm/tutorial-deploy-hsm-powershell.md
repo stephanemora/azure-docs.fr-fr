@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 288ad14110bd446955d6cec7439bfa40a750276c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904846"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521643"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide de PowerShell
 
@@ -78,11 +78,11 @@ Un modèle HSM est provisionné dans le réseau virtuel d’un client. Cela né
 
 Une fois que vous avez reçu ces fichiers, vous devez insérer les noms choisis pour vos ressources dans le fichier de paramètres. Les noms doivent être insérés là où la valeur est vide ("value": "").
 
-- `namingInfix` Préfixe des noms de ressources HSM
-- `ExistingVirtualNetworkName` Nom du réseau virtuel utilisé pour les modules HSM
-- `DedicatedHsmResourceName1` Nom de la ressource HSM dans le tampon de centre de données 1
-- `DedicatedHsmResourceName2` Nom de la ressource HSM dans le tampon de centre de données 2
-- `hsmSubnetRange` Plage d’adresses IP du sous-réseau pour les modules HSM
+- `namingInfix` Préfixe des noms de ressources HSM
+- `ExistingVirtualNetworkName` Nom du réseau virtuel utilisé pour les modules HSM
+- `DedicatedHsmResourceName1` Nom de la ressource HSM dans le tampon de centre de données 1
+- `DedicatedHsmResourceName2` Nom de la ressource HSM dans le tampon de centre de données 2
+- `hsmSubnetRange` Plage d’adresses IP du sous-réseau pour les modules HSM
 - `ERSubnetRange` Plage d’adresses IP du sous-réseau pour la passerelle de réseau virtuel
 
 Voici un exemple de ces modifications :
@@ -217,7 +217,7 @@ L’outil SSH est utilisé pour la connexion à la machine virtuelle. La comman
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 Le mot de passe à utiliser est celui du fichier de paramètres.
-Une fois connecté à la machine virtuelle Linux, vous pouvez vous connecter au module HSM à l’aide de l’adresse IP privée fournie dans le portail pour la ressource <prefix>hsm_vnic.
+Une fois connecté à la machine virtuelle Linux, vous pouvez vous connecter au module HSM à l’aide de l’adresse IP privée fournie dans le portail pour la ressource \<préfixe>hsm_vnic.
 
 ```powershell
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
 ms.openlocfilehash: d72980d6e27600cb844d5477d3b9a61d9e1573e4
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505615"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Déployer un module de sécurité sur votre appareil IoT Edge
@@ -70,7 +70,7 @@ Utilisez les étapes suivantes pour déployer un ASC pour le module de sécurit�
 
 Il existe trois étapes pour créer un déploiement IoT Edge d’Azure Security Center pour IoT. Les sections suivantes les décrivent en détail. 
 
-#### <a name="step-1-add-modules"></a>Étape 1 : Ajouter des modules
+#### <a name="step-1-add-modules"></a>Étape 1 : Ajouter des modules
 
 1. À partir de la **ajouter des Modules** onglet, **Modules de déploiement** zone, cliquez sur **AzureSecurityCenterforIoT**. 
    
@@ -134,13 +134,13 @@ Il existe trois étapes pour créer un déploiement IoT Edge d’Azure Security 
    
 1. Cliquez sur **Suivant**.
 
-#### <a name="step-2-specify-routes"></a>Étape 2 : Spécifier des routes 
+#### <a name="step-2-specify-routes"></a>Étape 2 : Spécifier des routes 
 
 1. Dans le **spécifier des itinéraires** onglet, définissez la **ASCForIoTToIoTHub** router vers **» à partir / messages/modules/azureiotsecurity/\* dans $ en amont »**, puis cliquez sur  **Suivant**.
 
    ![Spécifier des routes](media/howto/edge-onboarding-9.png)
 
-#### <a name="step-3-review-deployment"></a>Étape 3 : Vérifier le déploiement
+#### <a name="step-3-review-deployment"></a>Étape 3 : Vérifier le déploiement
 
 1. Dans le **passez en revue le déploiement** onglet, passez en revue les informations de votre déploiement, puis sélectionnez **Submit** pour procéder au déploiement.
 

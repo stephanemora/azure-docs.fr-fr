@@ -9,10 +9,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
 ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496187"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Résolution de problèmes d'asymétrie des données à l’aide d'Azure Data Lake Tools pour Visual Studio
@@ -20,7 +20,7 @@ ms.locfileid: "59496187"
 ## <a name="what-is-data-skew"></a>Qu’est-ce que l'asymétrie des données ?
 
 en résumé, l'asymétrie des données correspond à une valeur surreprésentée. Imaginez que vous avez affecté 50 contrôleurs fiscaux pour auditer des déclarations fiscales, un contrôleur pour chaque état américain. Le contrôleur affecté au Wyoming a peu de travail, car la population y est restreinte. En Californie, cependant, le contrôleur est très occupé en raison de la grande population de cet état.
-    ![Exemple de problème d’asymétrie des données](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png)
+    ![Exemple de problème d'asymétrie des données](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png)
 
 Dans notre scénario, les données sont distribuées de manière inégale entre les contrôleurs fiscaux, ce qui signifie que certains d'entre eux doivent travailler plus que d’autres. Dans votre propre travail, vous rencontrez souvent des situations telles que celle-ci. En termes techniques, un vertex obtient beaucoup plus de données que ses pairs. Dans cette situation, le vertex doit travailler plus que les autres, ce qui ralentit toute la tâche. Qui plus est, la tâche peut échouer parce que les vertex sont, par exemple, limités à 5 heures d'exécution et à 6 Go de mémoire.
 

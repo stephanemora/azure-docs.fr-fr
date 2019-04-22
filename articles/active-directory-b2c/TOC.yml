@@ -85,8 +85,8 @@ items:
     href: add-native-application.md
   - name: Configurer la vérification de l’âge
     href: basic-age-gating.md
-  - name: Configurer des jetons
-    href: active-directory-b2c-token-session-sso.md
+  - name: Configurer le comportement de la session
+    href: session-behavior.md
   - name: Personnaliser le langage
     href: active-directory-b2c-reference-language-customization.md
   - name: Personnaliser le mot de passe
@@ -111,8 +111,6 @@ items:
       href: active-directory-b2c-ui-customization-custom.md
     - name: Personnaliser l’interface utilisateur de façon dynamique
       href: active-directory-b2c-ui-customization-custom-dynamic.md
-    - name: Personnaliser les jetons
-      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
     - name: Définir des attributs personnalisés
       href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
     - name: Activer le maintien de la connexion
@@ -147,8 +145,6 @@ items:
         href: active-directory-b2c-custom-setup-twitter-idp.md
     - name: Contrat de page
       href: page-contract.md
-    - name: Passer le jeton d’accès
-      href: idp-pass-through-custom.md
     - name: Complexité du mot de passe
       href: active-directory-b2c-reference-password-complexity-custom.md
     - name: Modification de mot de passe
@@ -159,6 +155,12 @@ items:
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: Salesforce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: Jetons
+      items:
+      - name: Personnaliser les jetons
+        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+      - name: Passer le jeton d’accès
+        href: idp-pass-through-custom.md
     - name: Suivre le comportement des utilisateurs
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Informations de référence
@@ -272,10 +274,6 @@ items:
       href: active-directory-b2c-devquickstarts-ios.md
     - name: Android utilisant AppAuth
       href: active-directory-b2c-devquickstarts-android.md
-  - name: Obtenir des jetons d’accès
-    href: active-directory-b2c-access-tokens.md
-  - name: Passer le jeton d’accès
-    href: idp-pass-through-user-flow.md
   - name: Utilisation des rapports
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Informations d’identification de mot de passe du propriétaire de ressource
@@ -284,6 +282,14 @@ items:
     href: direct-signin.md
   - name: Configurer la réinitialisation du mot de passe en libre-service
     href: active-directory-b2c-reference-sspr.md
+  - name: Jetons
+    items:
+    - name: Configurer des jetons
+      href: configure-tokens.md
+    - name: Passer le jeton d’accès
+      href: idp-pass-through-user-flow.md
+    - name: Demander un jeton d’accès
+      href: active-directory-b2c-access-tokens.md
   - name: Utiliser b2clogin.com
     href: b2clogin.md
   - name: Utiliser l’API Azure AD Graph
@@ -326,9 +332,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: cebc59a7d10ce669fd8187687b80f291a07d1c06
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: de9ae82220bd464cbee7345b7f2421d02f0fc545
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886571"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681129"

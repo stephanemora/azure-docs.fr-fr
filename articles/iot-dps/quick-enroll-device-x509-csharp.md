@@ -3,19 +3,19 @@ title: Ce démarrage rapide vous montre comment inscrire des appareils X.509 aup
 description: Ce démarrage rapide utilise des inscriptions de groupe. Dans ce démarrage rapide, vous inscrirez des appareils X.509 auprès du service Azure IoT Hub Device Provisioning à l’aide de C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/21/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 390421c2805bf242b8f931200c8b8981cb7116c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f375044fe7e2276b68476e609f33ca8372db9921
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874998"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500870"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Démarrage rapide : Inscrire des appareils X.509 auprès du service Device Provisioning avec C#
 
@@ -53,7 +53,7 @@ Pour utiliser ces outils de test pour générer des certificats, procédez comme
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   Pour le moment, ce référentiel a une taille d’environ 220 Mo. Attendez-vous à ce que cette opération prenne plusieurs minutes.
+   Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
    Les outils de test se trouvent dans le dossier *azure-iot-sdk-c/tools/CACertificates* du référentiel que vous avez cloné.    
 
@@ -176,4 +176,4 @@ Si vous prévoyez d’aller plus loin dans l’étude de l’exemple de service 
 Dans ce démarrage rapide, vous avez créé un groupe d’inscription pour un certificat X.509 d’autorité de certification racine ou intermédiaire à l’aide du service Azure IoT Hub Device Provisioning. Pour en savoir plus sur l’approvisionnement de l’appareil en profondeur, référez-vous au didacticiel relatif à l’installation du service d’approvisionnement d’appareil dans le portail Azure. 
  
 > [!div class="nextstepaction"]
-> [Didacticiels relatifs au service d’approvisionnement d’appareil Azure IoT Hub](./tutorial-set-up-cloud.md)
+> [Tutoriels relatifs au service IoT Hub Device Provisioning](./tutorial-set-up-cloud.md)

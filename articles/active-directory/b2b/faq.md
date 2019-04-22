@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496299"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
@@ -121,5 +121,5 @@ Pour plus d’informations sur les licences dont votre organisation a besoin pou
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce qu’Azure AD B2B Collaboration ?](what-is-b2b.md)
+- [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
 

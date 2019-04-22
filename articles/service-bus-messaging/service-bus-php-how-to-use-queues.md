@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 55eee839e24db2ad96eb635adc488e9a119c5907
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501193"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Utilisation des files d’attente Service Bus avec PHP
@@ -35,7 +35,7 @@ Dans ce didacticiel, vous allez apprendre à créer des applications PHP pour en
 
         > [!NOTE]
         > Vous allez créer un **file d’attente** dans l’espace de noms Service Bus à l’aide de PHP dans ce didacticiel. 
-3. [Kit SDK Azure pour PHP](../php-download-sdk.md)
+3. [Kit de développement logiciel (SDK) Azure pour PHP](../php-download-sdk.md)
 
 ## <a name="create-a-php-application"></a>Création d'une application PHP
 Le référencement de classes issues du [Kit de développement logiciel (SDK) Azure pour PHP](../php-download-sdk.md) dans votre code constitue la seule exigence pour créer une application PHP qui accède au service blob Azure. Vous pouvez utiliser tous les outils de développement pour créer votre application, ou Bloc-notes.

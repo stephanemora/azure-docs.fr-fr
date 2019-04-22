@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: f3f013f2e3090b54846ebba94ef54506275d6311
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282863"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680483"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -116,6 +116,14 @@ Oui. Chaque circuit ExpressRoute dispose d’une paire redondante de connexions 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Vais-je perdre ma connectivité en cas d’échec de l’un de mes liens ExpressRoute ?
 
 Vous ne perdez pas votre connectivité si une des connexions croisées échoue. Une connexion redondante est disponible pour gérer la charge de votre réseau et fournir une haute disponibilité de votre circuit ExpressRoute. Vous pouvez également créer un circuit dans un autre emplacement d’homologation pour bénéficier de la résilience au niveau du circuit.
+
+### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Comment implémenter la redondance sur l’homologation privée ?
+
+Plusieurs circuits ExpressRoute à partir de différents emplacements d’homologation peuvent être connectés au même réseau virtuel pour fournir à haute disponibilité dans le cas qu’un même circuit n’est plus disponible. Vous pouvez ensuite [affecter des poids plus élevés](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) à la connexion locale à favoriser les préférez un circuit spécifique. Il est fortement recommandé que les clients configurer au moins deux circuits ExpressRoute pour éviter les points de défaillance uniques. 
+
+### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Comment implémenter la redondance sur l’homologation Microsoft ?
+
+Il est vivement recommandé lorsque les clients utilisent l’homologation pour accéder à des services publics Azure tels que stockage Azure ou SQL Azure, ainsi que les clients qui utilisent l’homologation Microsoft pour Office 365 qu’elles implémentent plusieurs circuits dans différentes homologation Microsoft emplacements pour éviter les points uniques de faiure. Les clients peuvent soit publier le même préfixe sur les deux circuits et utiliser [préfixation AS PATH](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) ou publier des préfixes différents pour déterminer le chemin d’accès du système local.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Comment garantir une haute disponibilité sur un réseau virtuel connecté à ExpressRoute ?
 

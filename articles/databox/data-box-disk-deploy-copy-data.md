@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106897"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548744"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutoriel : Copier des données sur Azure Data Box Disk et procéder à une vérification
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Didacticiel : Copier des données sur Azure Data Box Disk et procéder à une vérification
 
 Ce didacticiel explique comment copier des données à partir de votre ordinateur hôte, puis générer les sommes de contrôle pour vérifier l’intégrité des données.
 
@@ -44,14 +44,15 @@ Passez en revue les considérations suivantes avant de commencer la copie des do
 - Lorsque vous copiez des données, vérifiez que la taille des données est conforme aux limites de taille spécifiées dans l’article [Azure storage and Data Box Disk limits](data-box-disk-limits.md) (Limitations relatives au stockage Azure et aux disques Data Box).
 - Si les données, qui sont en cours de chargement via Data Box Disk, sont chargées simultanément par d’autres applications en dehors de Data Box Disk, cela pourrait entraîner l’échec du téléchargement ou des corruptions de données.
 
-Si vous avez spécifié des disques managés dans la commande, passez en revue les considérations supplémentaires suivantes :
+   > [!IMPORTANT]
+   >  Si vous avez spécifié des disques managés en tant que destination de stockage pendant la création de commandes, la section suivante s’applique.
 
 - Vous pouvez avoir un seul disque managé du même nom dans un groupe de ressources sur l’ensemble des dossiers précréés et de Data Box Disk. Les disques durs virtuels chargés vers les dossiers précréés doivent donc avoir des noms uniques. Assurez-vous que le nom donné n’a pas déjà été utilisé pour un autre disque managé existant dans un groupe de ressources. Si plusieurs disques durs virtuels ont le même nom, un seul de ces disques est converti en disque managé avec ce nom. Les autres disques durs virtuels sont chargés comme objets blob de pages dans le compte de stockage de préproduction.
 - Vous devez toujours copier les disques durs virtuels dans un des dossiers précréés. Si vous copiez les disques durs virtuels ailleurs que dans ces dossiers ou dans un dossier que vous avez créé vous-même, les disques durs virtuels sont chargés dans le compte de stockage Azure comme objets blob de pages au lieu de disques non managés.
 - Seuls les disques durs virtuels fixes peuvent être chargés pour créer des disques managés. Les disques durs virtuels dynamiques, les disques durs virtuels de différenciation ou les fichiers VHDX ne sont pas pris en charge.
 
 
-Procédez comme suit pour vous connecter et copier des données à partir de votre ordinateur vers le disque Data Box.
+## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>Procédez comme suit pour vous connecter et copier des données à partir de votre ordinateur vers le disque Data Box.
 
 1. Affichez le contenu du disque déverrouillé. La liste des dossiers et sous-dossiers précréés sur le disque varie selon les options sélectionnées au moment de la commande Data Box Disk.
 
@@ -91,12 +92,12 @@ Procédez comme suit pour vous connecter et copier des données à partir de vot
     |Destination       | Spécifie le chemin d’accès au répertoire de destination.        |
     |/E                  | Copie les sous-répertoires, y compris les répertoires vides. |
     |/MT[:N]             | Crée des copies multithread avec N threads où N est un nombre entier compris entre 1 et 128. <br>La valeur par défaut de N est 8.        |
-    |/R: <N>             | Spécifie le nombre de nouvelles tentatives en cas d’échec de la copie. La valeur par défaut de N est 1 000 000 (un million de tentatives).        |
-    |/W: <N>             | Spécifie le délai d’attente entre les tentatives, en secondes. La valeur par défaut de N est 30 (temps d’attente de 30 secondes).        |
+    |/R: \<N>             | Spécifie le nombre de nouvelles tentatives en cas d’échec de la copie. La valeur par défaut de N est 1 000 000 (un million de tentatives).        |
+    |/W: \<N>             | Spécifie le délai d’attente entre les tentatives, en secondes. La valeur par défaut de N est 30 (temps d’attente de 30 secondes).        |
     |/NFL                | Indique que les noms de fichier ne doivent pas être consignés.        |
     |/NDL                | Indique que les noms de répertoire ne doivent pas être consignés.        |
     |/FFT                | Calcule l’heure des fichiers FAT (à 2 secondes près).        |
-    |/Log:<Log File>     | Écrit la sortie d’état dans le fichier journal (remplace le fichier journal existant).         |
+    |/Log:\<Log File>     | Écrit la sortie d’état dans le fichier journal (remplace le fichier journal existant).         |
 
     Plusieurs disques peuvent être utilisés en parallèle, avec plusieurs travaux s’exécutant sur chaque disque.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8ceb9aefb1e68ceb6030f078aba8b0717cdf9e7c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f9987a4aee561340c5ebe2639626e5f66a55358e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260882"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544600"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Établir un itinéraire vers un point d’intérêt avec Azure Maps
 
@@ -218,11 +218,11 @@ Dans ce tutoriel, vous avez appris à :
 > * Définir les coordonnées d’une adresse
 > * Interroger Route Service afin d’obtenir des indications pour rejoindre un point d’intérêt
 
-Vous trouverez l’exemple de code de ce didacticiel à cet emplacement :
+> [!div class="nextstepaction"]
+> [Afficher le code source complet](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
-> [Rechercher un itinéraire avec Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
-
-[Consulter cet exemple en direct ici](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+> [!div class="nextstepaction"]
+> [Afficher un exemple en direct](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 Le didacticiel suivant vous explique comment créer une requête d’itinéraire avec des restrictions comme le mode de déplacement ou le type de chargement, puis affiche les différents itinéraires sur la même carte.
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 04/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: d85c49cc8533b88382de81f8f12fde7116afb69a
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407587"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678426"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure
 
@@ -29,20 +29,20 @@ Cet article répond aux questions fréquentes sur le contrôle d’accès en fon
 ## <a name="problems-with-rbac-role-assignments"></a>Problèmes liés aux attributions de rôle RBAC
 
 - Si vous ne pouvez pas ajouter une attribution de rôle dans le portail Azure sur **contrôle d’accès (IAM)** , car le **ajouter** > **ajouter une attribution de rôle** option est désactivée ou Étant donné que vous obtenez l’erreur d’autorisations « le client avec l’id d’objet n’est pas autorisé à effectuer l’action », vérifiez que vous êtes actuellement connecté avec un utilisateur se voit attribuer un rôle qui a le `Microsoft.Authorization/roleAssignments/write` autorisation comme [propriétaire](built-in-roles.md#owner) ou [administrateur des accès utilisateur](built-in-roles.md#user-access-administrator) dans l’étendue que vous voulez attribuer le rôle.
-- Si vous obtenez le message d’erreur « aucune attribution de rôle plus ne peut être créée (code : RoleAssignmentLimitExceeded) » lorsque vous essayez d’assigner un rôle, essayez de réduire le nombre d’attributions de rôles en attribuant des rôles à des groupes à la place. Azure prend en charge jusqu’à **2 000** attributions de rôle par abonnement.
+- Si vous obtenez le message d’erreur « aucune attribution de rôle plus ne peut être créée (code : RoleAssignmentLimitExceeded) » lorsque vous tentez d’attribuer un rôle, essayez de réduire le nombre d’attributions de rôles en attribuant plutôt des rôles à des groupes. Azure prend en charge jusqu’à **2 000** attributions de rôle par abonnement.
 
 ## <a name="problems-with-custom-roles"></a>Problèmes liés aux rôles personnalisés
 
 - Si vous avez besoin d’étapes pour savoir comment créer un rôle personnalisé, consultez les didacticiels de rôle personnalisé à l’aide de [Azure PowerShell](tutorial-custom-role-powershell.md) ou [Azure CLI](tutorial-custom-role-cli.md).
 - Si vous ne parvenez pas à mettre à jour un rôle personnalisé existant, vérifiez que vous êtes actuellement connecté avec un utilisateur se voit attribuer un rôle qui a le `Microsoft.Authorization/roleDefinition/write` autorisation comme [propriétaire](built-in-roles.md#owner) ou [administrateur des accès utilisateur](built-in-roles.md#user-access-administrator).
-- Si vous ne pouvez pas supprimer un rôle personnalisé et obtenez le message d’erreur « Il existe des attributions de rôles référence au rôle (code : RoleDefinitionHasAssignments) », il existe des attributions de rôles que vous utilisez toujours le rôle personnalisé. Supprimer ces attributions de rôles et essayez de supprimer le rôle personnalisé à nouveau.
-- Si vous obtenez le message d’erreur « limite de définition de rôle a dépassé. Aucune définition de rôle plus ne peut être créée (code : RoleDefinitionLimitExceeded) » lorsque vous essayez de créer un nouveau rôle personnalisé, supprimez tous les rôles personnalisés qui ne sont pas utilisées. Azure prend en charge jusqu’à **2 000** rôles personnalisés dans un locataire.
-- Si vous obtenez une erreur similaire à « le client a l’autorisation d’effectuer l’action 'Microsoft.Authorization/roleDefinitions/write' sur l’étendue « / subscriptions / {subscriptionid} », mais l’abonnement lié est introuvable » lorsque vous essayez de mettre à jour un rôle personnalisé, consultez Si un ou plusieurs [étendues attribuables](role-definitions.md#assignablescopes) ont été supprimés dans le locataire. Si l’étendue a été supprimé, puis créez un ticket de support car il n’existe aucune solution libre-service disponible pour l’instant.
+- Si vous ne pouvez pas supprimer un rôle personnalisé et que vous obtenez le message d’erreur « Certaines attributions de rôle existantes font référence au rôle (code : RoleDefinitionHasAssignments) », cela signifie que des attributions de rôle utilisent toujours le rôle personnalisé. Supprimez ces attributions de rôle et réessayez de supprimer ce rôle.
+- Si vous obtenez le message d’erreur « La limite de définition de rôle a été dépassée. Aucune définition de rôle plus ne peut être créée (code : RoleDefinitionLimitExceeded) » lorsque vous essayez de créer un nouveau rôle personnalisé, supprimez tous les rôles personnalisés qui ne sont pas utilisées. Azure prend en charge jusqu’à **2 000** rôles personnalisés dans un locataire.
+- Si vous obtenez une erreur similaire à « le client a l’autorisation d’effectuer l’action 'Microsoft.Authorization/roleDefinitions/write' sur l’étendue « / subscriptions / {subscriptionid} », mais l’abonnement lié est introuvable » lorsque vous essayez de mettre à jour un rôle personnalisé, consultez Si un ou plusieurs [étendues attribuables](role-definitions.md#assignablescopes) ont été supprimés dans le locataire. Si l’étendue a été supprimée, créez un ticket de support, car il n’existe aucune solution en libre-service disponible pour l’instant.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Récupérer le contrôle d’accès en fonction du rôle (RBAC) lorsque les abonnements sont déplacés entre les locataires
 
 - Si vous avez besoin d’étapes pour savoir comment transférer un abonnement à un autre annuaire Azure AD locataire, consultez [transférer la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md).
-- Si vous transférez un abonnement à un autre annuaire Azure AD locataire, toutes les attributions de rôle sont définitivement supprimées du locataire source Azure AD et ne sont pas migrées au locataire Azure AD cible. Vous devez recréer vos attributions de rôle dans le locataire cible.
+- Si vous transférez un abonnement vers un autre locataire Azure AD, toutes les attributions de rôle définies sont définitivement supprimées du locataire Azure AD source et ne sont pas migrées sur le locataire Azure AD cible. Vous devez recréer vos attributions de rôle dans le locataire cible. Vous devez également recréer manuellement les identités pour les ressources Azure. Pour plus d’informations, consultez [FAQ et problèmes connus avec managed identités](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Si vous êtes un compte Azure AD administrateur général et vous n’avez pas accès à un abonnement après qu’il a été déplacé entre les locataires, utilisez le **Access management pour les ressources Azure** activer/désactiver temporairement [élever votre accès](elevate-access-global-admin.md) pour accéder à l’abonnement.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problèmes liés aux coadministrateurs ou administrateurs de service
@@ -51,7 +51,7 @@ Cet article répond aux questions fréquentes sur le contrôle d’accès en fon
 
 ## <a name="access-denied-or-permission-errors"></a>Accès refusé ou des erreurs d’autorisation
 
-- Si vous obtenez l’erreur d’autorisations « le client avec l’id d’objet n’est pas autorisé à effectuer l’action sur l’étendue (code : AuthorizationFailed) » lorsque vous essayez de créer une ressource, vérifiez que vous êtes actuellement connecté avec un utilisateur se voit attribuer un rôle qui a l’autorisation d’écriture à la ressource à l’étendue sélectionnée. Par exemple, pour gérer les machines virtuelles dans un groupe de ressources, vous devez avoir le [collaborateur de Machine virtuelle](built-in-roles.md#virtual-machine-contributor) rôle sur le groupe de ressources (ou l’étendue parente). Pour obtenir la liste des autorisations pour chaque rôle intégré, consultez [rôles intégrés pour les ressources Azure](built-in-roles.md).
+- Si vous obtenez l’erreur d’autorisations « Le client avec l’ID d’objet n’est pas autorisé à effectuer l’action sur l’étendue (code : AuthorizationFailed) » lorsque vous tentez de créer une ressource, vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation d’écriture sur la ressource au niveau de l’étendue sélectionnée. Par exemple, pour gérer les machines virtuelles dans un groupe de ressources, vous devez disposer du rôle [Contributeur de machines virtuelles](built-in-roles.md#virtual-machine-contributor) sur le groupe de ressources (ou l’étendue parente). Afin d’obtenir la liste des autorisations pour chaque rôle intégré, consultez [Rôles intégrés pour les ressources Azure](built-in-roles.md).
 - Si vous obtenez l’erreur d’autorisations « Vous n’êtes pas autorisé à créer une demande de support » lorsque vous tentez de créer ou mettre à jour un ticket de support, vérifiez que vous êtes actuellement connecté avec un utilisateur se voit attribuer un rôle qui a le `Microsoft.Support/supportTickets/write` autorisation, tels que [Prend en charge de contributeur de demande](built-in-roles.md#support-request-contributor).
 
 ## <a name="rbac-changes-are-not-being-detected"></a>Les changements de contrôle d’accès en fonction du rôle ne sont pas détectés

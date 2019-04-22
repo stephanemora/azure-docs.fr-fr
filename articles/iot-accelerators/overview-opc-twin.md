@@ -1,5 +1,5 @@
 ---
-title: Présentation de la gestion des appareils OPC UA Azure IoT | Microsoft Docs
+title: Présentation d’OPC Twin - Azure | Microsoft Docs
 description: Vue d’ensemble d’OPC Twin
 author: dominicbetts
 ms.author: dobett
@@ -8,15 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3bbc20aa61faafb1405fa756b334bae05ec4129b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759715"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496809"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>Présentation de la gestion des appareils OPC (Open Platform Communications) UA Azure IoT
-La gestion des appareils OPC UA Azure IoT, également appelée OPC Twin, se compose de microservices qui utilisent Azure IoT Edge et IoT Hub pour connecter le cloud et le réseau d’usine. OPC Twin fournit la découverte, l’inscription et le contrôle à distance des appareils industriels par le biais d’API REST. OPC Twin ne nécessite pas de SDK OPC UA (OPC Unified Architecture), est indépendant du langage de programmation et peut être inclus dans un workflow serverless. Cet article décrit plusieurs cas d’usage d’OPC Twin.
+
+OPC Twin se compose de microservices qui utilisent Azure IoT Edge et IoT Hub pour connecter le cloud et le réseau d’usine. OPC Twin fournit la découverte, l’inscription et le contrôle à distance des appareils industriels par le biais d’API REST. OPC Twin ne nécessite pas de SDK OPC UA (OPC Unified Architecture), est indépendant du langage de programmation et peut être inclus dans un workflow serverless. Cet article décrit plusieurs cas d’usage d’OPC Twin.
 
 ## <a name="discovery-and-control"></a>Découverte et contrôle
 Vous pouvez utiliser OPC Twin pour une découverte et une inscription simples.

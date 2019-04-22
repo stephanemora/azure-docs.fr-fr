@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: bb73f58c5dca5e49cdb075b046f883ffeb77c95c
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: c13c9ece54d512adf271532a4ac17876a88d733e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203321"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503010"
 ---
 ## <a name="test-your-code"></a>Test de votre code
 
@@ -35,7 +35,7 @@ Si vous n’utilisez pas Visual Studio, vérifiez que votre serveur web est dém
     ```
 1. Ouvrez le navigateur et tapez http://<span></span>localhost:30662 ou http://<span></span>localhost:{port}, où **port** correspond au port qu’écoute votre serveur web. Vous devez voir apparaître le contenu de votre fichier index.html, ainsi que le bouton **Se connecter**.
 
-<p/><!-- -->
+<p><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Effectuer des tests avec Visual Studio
 
@@ -43,7 +43,7 @@ Si vous utilisez Visual Studio, veillez à sélectionner la solution de projet, 
 
 ## <a name="test-your-application"></a>Tester votre application
 
-Une fois que le navigateur a chargé votre fichier index.html, cliquez sur **Se connecter**. Vous êtes invité à vous connecter avec le point de terminaison Microsoft Azure Active Directory (Azure AD) v2.0 :
+Une fois que le navigateur a chargé votre fichier index.html, cliquez sur **Se connecter**. Vous êtes invité à vous connecter avec le point de terminaison de la plateforme d’identités Microsoft :
 
 ![Connexion au compte JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 04/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e07678604797e7e2090f5fefcdb3f3adff40161
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521769"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544566"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Qu’est-ce qu’Azure Data Box Edge ? 
 
@@ -77,7 +77,7 @@ La solution Data Box Edge se compose d’une ressource Data Box Edge, d’un app
 
     Pour plus d’informations, consultez [Utiliser le service Data Box Edge pour gérer votre appareil Data Box Edge](https://aka.ms/dbe-docs).
 
-* **Interface utilisateur web locale Data Box** : utilisez l’interface utilisateur web locale pour exécuter des diagnostics, arrêter et redémarrer l’appareil Data Box Edge, afficher les journaux de copie, et contactez le support Microsoft pour créer une demande de service.
+* **Interface utilisateur web locale Data Box** : utilisez l’interface utilisateur web locale pour exécuter des diagnostics, arrêter et redémarrer l’appareil Data Box Edge, afficher les journaux d’activité de copie, et contactez le support Microsoft pour créer une demande de service.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
@@ -93,7 +93,7 @@ L’appareil physique Data Box, la ressource Azure et le compte de stockage cibl
     - **Union européenne** : Europe de l’Ouest
     - **Asie-Pacifique** : Sud-est de l’Asie
     
-    Le déploiement de Data Box Gateway est également possible dans Azure Government Cloud. Pour plus d’informations, voir [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    Le déploiement de Data Box Edge est également possible dans Azure Government Cloud. Pour plus d’informations, consultez [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
 - **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure. 
 

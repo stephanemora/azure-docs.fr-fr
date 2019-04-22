@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e91f51de53b920d1a130c3983489a08b7f1f6cfd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 798245dc293ecac01fb874fc57b98b14d258f686
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283830"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564881"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amms"></a>Didacticiel : Intégration d’Azure Active Directory à AMMS
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD auprès d’AMMS, effectue
 
     ![Informations d’authentification unique dans Domaine et URL AMMS](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<SUBDOMAIN>.microwestcloud.com/amms/pages/login.aspx`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.microwestcloud.com/amms/pages/login.aspx`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `<SUBDOMAIN>.microwestcloud.com/amms`
 
@@ -183,9 +183,9 @@ Le fait de cliquer sur la vignette AMMS dans le panneau d’accès doit vous con
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [ Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

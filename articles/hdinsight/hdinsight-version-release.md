@@ -1,20 +1,20 @@
 ---
-title: Vue d’ensemble de HDInsight 4.0 (préversion) - Azure
+title: Vue d’ensemble d’Azure HDInsight 4.0
 description: Comparer les fonctionnalités, les limitations et les recommandations de mise à niveau entre HDInsight 3.6 et HDInsight 4.0.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: hrasheed
 ms.topic: overview
-ms.date: 10/04/2018
-ms.openlocfilehash: 34582e66dec3b2f97efba7856ccfbf678f8f1f63
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 04/15/2019
+ms.openlocfilehash: af9f8a9e4d67c74910f60c70a0aee5c2439d6209
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408083"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609198"
 ---
-# <a name="hdinsight-40-overview-preview"></a>Vue d’ensemble de HDInsight 4.0 (préversion)
+# <a name="azure-hdinsight-40-overview"></a>Vue d’ensemble d’Azure HDInsight 4.0
 
 Azure HDInsight est l'un des services les plus populaires parmi les clients d'entreprise pour l'analytique Apache Hadoop et Apache Spark open source sur Azure. HDInsight (HDI) 4.0 est une distribution cloud des composants Apache Hadoop à partir de [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). Cet article fournit des informations sur les dernières versions d’Azure HDInsight et sur la mise à niveau.
 

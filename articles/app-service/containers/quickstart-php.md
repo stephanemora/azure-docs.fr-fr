@@ -3,8 +3,8 @@ title: Créer une application PHP sur Linux - Azure App Service | Microsoft Docs
 description: Déployez votre premier site Hello World en PHP sur App Service sur Linux en quelques minutes.
 services: app-service\web
 documentationcenter: ''
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: jeconnoc
 editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: af413528c279c5fcab472347d247b17dd5061167
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c0dde4c59c2fe9cde23a9f88c69f3e2673942812
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628406"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546809"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Créer une application PHP dans App Service sur Linux
 
@@ -169,4 +169,7 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [PHP avec MySQL](tutorial-php-mysql-app.md)
+> [Tutoriel : Application PHP avec MySQL](tutorial-php-mysql-app.md)
+
+> [!div class="nextstepaction"]
+> [Configurer une application PHP](configure-language-php.md)

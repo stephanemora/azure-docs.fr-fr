@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3db2b810ba4ba96e492c6b6ba841d9cfa35418a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 125e0c4331eea105ffc201bd1f5f26bdbec1c553
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260843"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549386"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
@@ -129,7 +129,7 @@ L’API Map Control est une bibliothèque cliente pratique qui vous permet d’i
     });
     ```
 
-   Ce segment lance l’API Map Control pour votre clé de compte Azure Maps. `atlas` est l’espace de noms qui contient les API et les composants visuels associés. `atlas.Map` fournit le contrôle d’une carte web visuelle et interactive.
+   Ce segment lance l’API Map Control pour votre clé de compte Azure Maps. `atlas` est l’espace de noms qui contient l’API et les composants visuels associés. `atlas.Map` fournit le contrôle d’une carte web visuelle et interactive.
 
 4. Enregistrez vos modifications du fichier, puis ouvrez la page HTML dans un navigateur. Il s’agit de la carte la plus basique que vous pouvez créer en appelant `atlas.Map` à l’aide de votre clé de compte.
 
@@ -280,11 +280,11 @@ Dans ce tutoriel, vous avez appris à :
 > * Créer une page web à l’aide de l’API Map Control
 > * Utiliser Search Service pour rechercher des points d’intérêt de proximité
 
-Vous trouverez l’exemple de code de ce didacticiel à cet emplacement :
+> [!div class="nextstepaction"]
+> [Afficher le code source complet](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
-> [Rechercher un emplacement avec Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-[Consulter l’exemple en direct ici](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+> [!div class="nextstepaction"]
+> [Afficher un exemple en direct](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 Le prochain didacticiel vous explique comment afficher un itinéraire entre deux emplacements.
 

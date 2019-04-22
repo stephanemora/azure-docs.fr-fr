@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ae9ad4d1101c3b42c46c51546ac82e5b4a134c8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 198faf6791a4a2caa2cefee2181a13ed8185310e
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519848"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617335"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>Démarrage rapide : Créer un classifieur de charge de travail à l’aide de T-SQL (préversion)
 
 Dans ce guide de démarrage rapide, vous créez rapidement un classifieur de charge de travail avec une importance haute pour le PDG (CEO) de votre organisation. Ce classifieur de charge de travail donne la priorités aux requêtes du PDG sur les autres requêtes avec une importance inférieure dans la file d’attente.
 
 > [!Note]
-> La classification de charge de travail est disponible dans SQL Data Warehouse Gen2.
+> La classification de charge de travail est disponible en préversion dans SQL Data Warehouse Gen2. Les informations relatives à l’importance et à la classification de la gestion des charges de travail (préversion) concernent les builds publiées au plus tôt le 9 avril 2019.  Les utilisateurs doivent éviter d’utiliser les builds antérieures à cette date à des fins de test de la gestion des charges de travail.  Pour déterminer si votre build est compatible avec la gestion des charges de travail, exécutez select @@version quand vous êtes connecté à votre instance SQL Data Warehouse.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

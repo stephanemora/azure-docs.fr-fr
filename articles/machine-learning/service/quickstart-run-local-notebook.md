@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281129"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549133"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utiliser votre propre serveur de notebooks pour démarrer avec Azure Machine Learning
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 * Un serveur de notebooks Python 3.6 avec le SDK Azure Machine Learning installé
 * Un espace de travail Azure Machine Learning service
-* Un fichier de configuration d’espace de travail (**aml_config/config.json**).
+* Un fichier de configuration d’espace de travail (**.azureml/config.json** ).
 
 Obtenez tous ces prérequis à partir de [Créer un espace de travail Azure Machine Learning service](setup-create-workspace.md#portal).
 
@@ -74,6 +74,6 @@ Si vous ne souhaitez pas utiliser les ressources que vous avez créées dans cet
 Dans cet article, vous avez créé les ressources dont vous avez besoin pour expérimenter des modèles et les déployer. Vous avez exécuté du code dans un bloc-notes et exploré l’historique des exécutions de ce code dans votre espace de travail dans le cloud.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md)
+> [Tutoriel : Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md)
 
 Vous pouvez aussi explorer des [exemples plus avancés sur GitHub](https://aka.ms/aml-notebooks) ou consulter le [guide utilisateur du SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

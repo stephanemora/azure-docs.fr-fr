@@ -1,25 +1,25 @@
 ---
-title: 'Tutoriel : Authentification multifacteur pour B2B - Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Authentification multifacteur pour B2B - Azure Active Directory | Microsoft Docs'
 description: Découvrez comment exiger une authentification multifacteur quand vous utilisez Azure AD B2B pour collaborer avec des utilisateurs externes et des organisations partenaires.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94e5f4eaf32815dd0342ef73705efb2c575b71bc
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: d83cad9c6681a9d1c852c3d874028ceb6913344f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293990"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496622"
 ---
-# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutoriel : Appliquer l’authentification multifacteur pour les utilisateurs invités B2B
+# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Didacticiel : Appliquer l’authentification multifacteur pour les utilisateurs invités B2B
 
 Lors d’une collaboration avec des utilisateurs invités B2B externes, il est judicieux de protéger vos applications avec des stratégies d’authentification multifacteur. Les utilisateurs externes doivent donc avoir plus qu’un simple nom d’utilisateur et mot de passe pour accéder à vos ressources. Dans Azure Active Directory (Azure AD), vous pouvez atteindre cet objectif avec une stratégie d’accès conditionnel exigeant une authentification multifacteur pour l’accès. Ces stratégies peuvent être appliquées au niveau du locataire, d’une application ou d’un utilisateur individuel invité, de la même façon qu’elles peuvent être activées pour les membres de votre propre organisation.
 
@@ -57,7 +57,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
 3.  Sous **Gérer**, sélectionnez **Utilisateurs**.
 4.  Sélectionnez **Nouvel utilisateur invité**.
 
-    ![Capture d’écran montrant où sélectionner l’option Nouvel utilisateur invité](media/tutorial-mfa/tutorial-mfa-user-3.png)
+    ![Capture d’écran montrant l’endroit où sélectionner l’option Nouvel utilisateur invité](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
 5.  Sous **Nom d’utilisateur**, entrez l’adresse e-mail de l’utilisateur externe. Vous pouvez éventuellement inclure un message d’accueil. 
 
@@ -72,7 +72,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
 3.  Déconnectez-vous.
 
 ## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>Créer une stratégie d’accès conditionnel exigeant l’authentification multifacteur
-1.  Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1.  Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur de sécurité ou administrateur de l’accès conditionnel.
 2.  Dans le portail Azure, sélectionnez **Azure Active Directory**. 
 3.  Dans la page **Azure Active Directory**, dans la section **Sécurité**, sélectionnez **Accès conditionnel**.
 4.  Dans la page **Accès conditionnel**, dans la barre d’outils en haut, sélectionnez **Nouvelle stratégie**.

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 33e2ac136ae68ee0c0ce0109a6f6934727d3a6c5
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: e054456662af3ef9df0760af163ec5d09df18b21
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203699"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502931"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application Android
 
@@ -29,7 +29,7 @@ Dans ce didacticiel, vous allez apprendre à créer une application Android et �
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Fonctionnement de l’exemple d’application de ce guide
 
-![Montre comment l’exemple d’application généré par cette fonctionne didacticiels](media/active-directory-develop-guidedsetup-android-intro/android-intro-updated.png)
+![Fonctionnement de l’exemple d’application généré par ce tutoriel](media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
 
 L’application utilisée dans cet exemple est destinée à connecter des utilisateurs et à obtenir des données au nom de ces derniers.  Ces données sont accessibles par le biais d’une API distante (l’API Microsoft Graph dans ce cas précis) qui nécessite une autorisation et est également protégée par la plateforme d’identité Microsoft.
 
@@ -42,7 +42,7 @@ Plus précisément :
 
 Cet exemple utilise la bibliothèque d’authentification Microsoft pour Android (MSAL) pour coordonner et faciliter l’authentification. MSAL renouvelle automatiquement les jetons, assure l’authentification unique entre les autres applications sur l’appareil, facilite la gestion des comptes et prend en charge la plupart des cas d’accès conditionnel.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Ce guide de configuration utilise Android Studio 3.0.
 * L’utilisation d’Android 21 ou d’une version ultérieure est requise (version 25 ou ultérieure recommandée).

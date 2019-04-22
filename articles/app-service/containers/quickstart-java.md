@@ -4,7 +4,7 @@ description: Dans ce démarrage rapide, vous déployez votre premier programme J
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 12/10/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 4b95c75b863cdc86dd8a1ebe8347b77b637b110c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af1256b4432e42f91209b622239ca55901929a1b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999101"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544736"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Démarrage rapide : créer une application Java dans App Service sous Linux
 
@@ -99,17 +99,15 @@ Une fois le déploiement terminé, accédez à l’application déployée à l�
 
 **Félicitations !** Vous avez déployé votre première application Java sur App Service sur Linux.
 
-
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez utilisé Maven pour créer une application Java, configuré le [plug-in Maven pour Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), puis déployé une application web Java packagée dans une archive web sur App Service sous Linux. Consultez les tutoriels et les articles pratiques suivants pour obtenir plus d’informations sur l’hébergement des applications Java sur App Service sur Linux.
+> [!div class="nextstepaction"]
+> [Tutoriel : application Java d’entreprise avec PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
-- [Tutoriel : Déployer une application Java d’entreprise avec PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
-- [Configurer une source de données Tomcat](app-service-linux-java.md#tomcat)
-- [Intégration continue/déploiement continu avec Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
-- [Configurer les outils de surveillance des performances des applications](how-to-java-apm-monitoring.md)
-- [Guide du développeur Java pour App Service sur Linux](app-service-linux-java.md)
+> [!div class="nextstepaction"]
+> [Configurer une application Java](configure-custom-container.md)
 
+> [!div class="nextstepaction"]
+> [Intégration continue/déploiement continu avec Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: a6abaf9b444ca9b3f14093dde1239d9158dfd3ff
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: d94e00c8a475e29ddd671004b8137ba4e6efd107
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469639"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495035"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Créer une instance managée Azure SQL Database
 
@@ -52,6 +52,7 @@ Les étapes suivantes détaillent la création d’une instance managée.
    |**Collation**|Classement à utiliser pour votre instance managée|Si vous migrez des bases de données depuis SQL Server, vérifiez le classement de la source avec `SELECT SERVERPROPERTY(N'Collation')` et utilisez cette valeur. Pour plus d’informations sur les classements, consultez les [classements au niveau du serveur](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Lieu**|Emplacement dans lequel vous souhaitez créer l’instance managée|Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).|
    |**Réseau virtuel**|Sélectionnez **Créer un réseau virtuel** ou un réseau virtuel et un sous-réseau valides.| Si un réseau/sous-réseau n’est pas disponible, il doit être [modifié pour respecter les exigences réseau](sql-database-managed-instance-configure-vnet-subnet.md) et pour pouvoir être sélectionné comme cible de la nouvelle instance managée. Pour obtenir des informations sur les exigences liées à la configuration de l’environnement réseau d’une instance managée, voir la [configuration d’un réseau virtuel pour une instance managée](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Type de connexion**|Choisissez entre le type de connexion Proxy et Redirection.|Pour plus d’informations sur les types de connexion, consultez [Stratégie de connexion SQL Azure](sql-database-connectivity-architecture.md#connection-policy).|
    |**Groupe de ressources**|Nouveau groupe de ressources ou groupe de ressources existant.|Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom).|
 
    ![formulaire de l’instance Managed Instance](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
 ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496093"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
@@ -28,7 +28,7 @@ Autres tableaux de prise en charge :
 
 Voici comment vous pouvez sauvegarder et restaurer des machines virtuelles Azure avec le service Sauvegarde Azure.
 
-**Scénario** | **Sauvegarde** | **Agent** |**Restore**
+**Scénario** | **Sauvegarde** | **Agent** |**Restauration**
 --- | --- | --- | ---
 sauvegarde directe de machines virtuelles Azure  | Sauvegarder la machine virtuelle entière.  | Aucun agent n’est nécessaire sur la machine virtuelle Azure. Sauvegarde Azure installe et utilise une extension pour le [agent de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) qui s’exécute sur la machine virtuelle. | Restaurez comme ceci :<br/><br/> - **Créez une machine virtuelle de base**. Cela est utile si la machine virtuelle n’a aucune configuration spéciale tels que plusieurs adresses IP.<br/><br/> - **Restaurer le disque de la machine virtuelle**. Restaurez le disque. Puis attachez-le à une machine virtuelle existante ou créer une machine virtuelle à partir du disque à l’aide de PowerShell.<br/><br/> - **Remplacer un disque de la machine virtuelle**. Si une machine virtuelle existe et qu’elle utilise des disques managés (non chiffrés), vous pouvez restaurer un disque et l’utiliser pour remplacer un disque existant sur la machine virtuelle.<br/><br/> - **Restaurer des fichiers/dossiers spécifiques**. Vous pouvez restaurer des fichiers ou dossiers à partir d’une machine virtuelle au lieu d’à partir de la machine virtuelle entière.
 Sauvegarde directe des machines virtuelles de Azure (Windows uniquement)  | Sauvegarder des fichiers/dossiers/volume spécifique. | Installer le [agent Azure Recovery Services](backup-azure-file-folder-backup-faq.md).<br/><br/> Vous pouvez exécuter l’agent MARS en même temps que l’extension de sauvegarde pour l’agent de machine virtuelle Azure pour sauvegarder la machine virtuelle au niveau des fichiers/dossiers. | Restaurer des fichiers/dossiers spécifiques.
@@ -59,7 +59,7 @@ Ajustement automatique de l’horloge | Non pris en charge.<br/><br/> Sauvegarde
 
 Le tableau suivant résume les systèmes d’exploitation pris en charge lors de la sauvegarde des machines virtuelles de Windows Azure.
 
-**Scénario** | **Prise en charge du système d’exploitation**
+**Scénario** | **Système d’exploitation pris en charge**
 --- | ---
 Sauvegarder avec l’extension de l’agent de machine virtuelle Azure | Client Windows : Non pris en charge<br/><br/> Windows Server 2019 (centre de données/Datacenter Core), Windows Server 2016 (Core du centre de données/centre de données) ; Windows Server 2012 R2 Datacenter ; Windows Server 2008 R2 (RTM et SP1)
 Sauvegarder avec l’agent MARS | Systèmes d’exploitation [pris en charge](backup-support-matrix-mars-agent.md#support-for-direct-backups).
@@ -87,7 +87,7 @@ Pour les sauvegardes de machines virtuelles Azure Linux, Sauvegarde Azure prend 
 
 ## <a name="backup-frequency-and-retention"></a>Fréquence et conservation des sauvegardes
 
-**Paramètre** | **limites**
+**Paramètre** | **Limites**
 --- | ---
 Points de récupération maximale par instance protégée (machine/charge de travail) | 9999.
 Délai d’expiration maximal pour un point de récupération | Aucune limite.
@@ -100,7 +100,7 @@ Points de récupération sur un disque DPM/MAB | 64 pour les serveurs de fichier
 
 ## <a name="supported-restore-methods"></a>Méthodes de restauration prises en charge
 
-**Méthode Restore** | **Détails**
+**Méthode de restauration** | **Détails**
 --- | ---
 Créer une machine virtuelle | Vous pouvez créer une machine virtuelle pendant le processus de restauration. <br/><br/> Cette option produit une machine virtuelle de base opérationnelle. Vous pouvez spécifier le nom de la machine virtuelle, le groupe de ressources, le réseau virtuel, le sous-réseau et le stockage.  
 Restaurer un disque | Vous pouvez restaurer un disque et l’utiliser pour créer une machine virtuelle.<br/><br/> Quand vous sélectionnez cette option, Sauvegarde Azure copie les données depuis le coffre vers un compte de stockage que vous sélectionnez. Le travail de restauration génère un modèle. Vous pouvez télécharger ce modèle, utilisez-le pour spécifier des paramètres personnalisés de machine virtuelle et créer une machine virtuelle.<br/><br/> Cette option vous permet de spécifier plus de paramètres que l’option précédente pour créer une machine virtuelle.<br/><br/>
@@ -109,7 +109,7 @@ Restaurer des fichiers | Vous pouvez récupérer des fichiers à partir d’un p
 
 ## <a name="support-for-file-level-restore"></a>Prise en charge de la restauration au niveau fichier
 
-**Restore** | **Pris en charge**
+**Restauration** | **Pris en charge**
 --- | ---
 Restauration de fichiers entre systèmes d’exploitation | Vous pouvez restaurer des fichiers sur n’importe quelle machine ayant le même système d’exploitation (ou un système d’exploitation compatible) que la machine virtuelle sauvegardée. Consultez le [table de système d’exploitation Compatible](backup-azure-restore-files-from-vm.md#system-requirements).
 Restauration de fichiers sur des machines virtuelles classiques | Non pris en charge.
@@ -123,7 +123,7 @@ Restaurer des fichiers avec des paramètres réseau spéciaux | Restauration non
 
 Le tableau suivant résume la prise en charge pour la sauvegarde au cours des tâches de gestion de machine virtuelle, comme l’ajout ou remplacement des disques de machine virtuelle.
 
-**Restore** | **Pris en charge**
+**Restauration** | **Pris en charge**
 --- | ---
 Restaurer entre abonnements/régions/zones. | Non pris en charge.
 Restaurer sur une machine virtuelle existante | Utilisez l’option de remplacement de disque.
@@ -212,7 +212,7 @@ Sécurité des données :
 - Sur le back end, la sauvegarde Azure utilise le [Chiffrement du service de stockage Azure](../storage/common/storage-service-encryption.md), ce qui protège les données au repos.
 
 
-**Ordinateur** | **En transit** | **Au repos**
+**Machine** | **En transit** | **Au repos**
 --- | --- | ---
 Machines Windows locales sans DPM/MAB | ![Oui][green] | ![Oui][green]
 Machines virtuelles Azure | ![Oui][green] | ![Oui][green]
@@ -228,7 +228,7 @@ Backup prend en charge la compression du trafic de sauvegarde, comme décrit dan
 - Pour les machines virtuelles Azure, l’extension de machine virtuelle lit les données directement à partir du compte de stockage Azure sur le réseau de stockage. Il n’est pas nécessaire de compresser ce trafic.
 - Si vous utilisez DPM ou MABS, vous pouvez économiser la bande passante en compressant les données avant qu’il est sauvegardée dans DPM/de sauvegarde AZURE.
 
-**Ordinateur** | **Compresser la sauvegarde AZURE/DPM (TCP)** | **Compresser dans le coffre (HTTPS)**
+**Machine** | **Compresser dans MABS/DPM (TCP)** | **Compresser dans le coffre (HTTPS)**
 --- | --- | ---
 Machines Windows locales sans DPM/MAB | N/D | ![Oui][green]
 Machines virtuelles Azure | N/D | N/D

@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Indexation de données semi-structurées dans des objets blob JSON - Recherche Azure'
-description: Apprenez à indexer et à rechercher des objets blob Azure JSON semi-structurés à l’aide de la Recherche Azure et de Postman.
+description: Apprenez à indexer et à rechercher des objets blob Azure JSON semi-structurés à l’aide des API REST Recherche Azure et Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471458"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525345"
 ---
-# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Didacticiel : Indexer et rechercher des données semi-structurées (objets blob JSON) dans la Recherche Azure
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutoriel REST : Indexer et rechercher des données semi-structurées (objets blob JSON) dans la Recherche Azure
 
 Recherche Azure peut indexer des tableaux et documents JSON dans le stockage d’objets blob Azure à l’aide d’un [indexeur](search-indexer-overview.md) qui sait comment lire des données semi-structurées. Les données semi-structurées contiennent des balises ou des marquages qui séparent le contenu au sein des données. Elles séparent les données non structurées, qui doivent être indexées entièrement, des données formellement structurées qui respectent un modèle de données (tel qu’un schéma de base de données relationnelle), qui peuvent être indexées par champ.
 
@@ -37,7 +37,7 @@ Voici les services, outils et données utilisés dans ce guide de démarrage rap
 
 [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel. 
 
-[Créer un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) permet de stocker les exemples de données.
+[Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données.
 
 L’[application de bureau Postman](https://www.getpostman.com/) permet d’envoyer des requêtes au service Recherche Azure.
 
@@ -59,9 +59,7 @@ Toutes les demandes nécessitent une clé API sur chaque demande envoyée à vot
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com), accédez à votre compte de stockage Azure, cliquez sur **Objets blob**, puis sur **+ Conteneur**.
 
-1. [Créez un conteneur d’objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) pour contenir des exemples de données. Dans la mesure où vous allez utiliser une clé et un nom de compte de stockage pour la connexion, vérifiez que le niveau d’accès public du conteneur a la valeur « Conteneur (accès en lecture anonyme pour les conteneurs) ».
-
-   ![Définir le niveau d’accès public](media/search-semi-structured-data/container-public-access-level.png "Définir le niveau d’accès public")
+1. [Créez un conteneur d’objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) pour contenir des exemples de données. Vous pouvez définir le niveau d’accès public sur l’une de ses valeurs valides.
 
 1. Une fois le conteneur créé, ouvrez-le et sélectionnez **Charger** dans la barre de commandes.
 
@@ -295,7 +293,7 @@ Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez attacher des algorithmes Cognitive Services basés sur l’IA (intelligence artificielle) à un pipeline d’indexeur. Comme prochaine étape, passez au tutoriel suivant.
+Il existe plusieurs approches et plusieurs options pour l’indexation d’objets blob JSON. Votre prochaine étape consiste à passer en revue et à tester les diverses options pour déterminer ce qui fonctionne le mieux pour votre scénario.
 
 > [!div class="nextstepaction"]
-> [Indexation avec l’IA](cognitive-search-tutorial-blob.md)
+> [Guide pratique pour indexer des objets blob JSON avec l’indexeur d’objets blob Recherche Azure](search-howto-index-json-blobs.md)

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 0c2ca8c17abd6ac5e540beec1bde715931e022a4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 58d7aeb3c710610d93eda09b37374a167b444bd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609402"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679004"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice de prise en charge pour la réplication des machines virtuelles Azure à partir d’une région vers une autre
 
@@ -225,6 +225,7 @@ Disque Premium P10 ou P15 | 16 Ko | 4 Mo/s |  336 Go par disque
 Disque Premium P10 ou P15 | 32 Ko ou plus | 8 Mo/s | 672 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 8 Ko    | 5 Mo/s | 421 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |20 Mo/s | 1684 Go par disque
+
 ## <a name="replicated-machines---networking"></a>Machines répliquées - Mise en réseau
 **Paramètre** | **Support** | **Détails**
 --- | --- | ---
@@ -236,6 +237,7 @@ Groupe de sécurité réseau (NSG) sur la carte réseau | Pris en charge | Assoc
 Groupe de sécurité réseau (NSG) sur le sous-réseau | Pris en charge | Associez le groupe de sécurité réseau au sous-réseau à l’aide d’un script Azure Automation dans un plan de récupération.
 Adresse IP (statique) réservée | Pris en charge | Si la carte réseau sur la machine virtuelle source a une adresse IP statique et que le sous-réseau cible a la même adresse IP disponible, celle-ci est affectée à la machine virtuelle de basculement.<br/><br/> Si le sous-réseau cible n’a pas la même adresse IP disponible, l’une des adresses IP disponibles sur le sous-réseau est réservée à la machine virtuelle.<br/><br/> Vous pouvez également spécifier une adresse IP fixe et un sous-réseau dans **Éléments répliqués** > **Paramètres** > **Calcul et réseau** > **Interfaces réseau**.
 Adresse IP dynamique | Pris en charge | Si la carte réseau sur la machine virtuelle source a l’adressage IP dynamique, la carte réseau sur la machine virtuelle de basculement est également dynamique par défaut.<br/><br/> Vous pouvez remplacer cela par une adresse IP fixe si nécessaire.
+Plusieurs adresses IP | Non pris en charge | Lorsque vous basculez une machine virtuelle avec une carte réseau avec plusieurs adresses IP, seule l’adresse IP principale de la carte réseau dans la région source est conservé. Pour affecter plusieurs adresses IP, vous pouvez ajouter des machines virtuelles à un [plan de récupération](recovery-plan-overview.md) et attache un script pour affecter des adresses IP supplémentaires au plan, ou vous pouvez le faire manuellement ou avec un script après le basculement. 
 Traffic Manager     | Pris en charge | Vous pouvez préconfigurer Traffic Manager pour que le trafic soit acheminé vers le point de terminaison dans la région source de manière régulière et vers le point de terminaison dans la région cible en cas de basculement.
 Azure DNS | Pris en charge |
 Système DNS personnalisé  | Pris en charge |

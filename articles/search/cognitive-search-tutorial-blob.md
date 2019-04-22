@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Appeler des API Cognitive Services dans un pipeline d’indexation - Recherche Azure'
-description: Examinez en détail un exemple d’extraction de données, de traitement du langage naturel et d’image par l’IA dans l’indexation Recherche Azure pour l’extraction et la transformation de données sur des objets blobs JSON.
+title: 'Didacticiel : Appeler des API REST Cognitive Services dans un pipeline d’indexation - Recherche Azure'
+description: Examinez en détail un exemple d’extraction de données, de traitement du langage naturel et d’image par l’IA dans l’indexation Recherche Azure pour l’extraction et la transformation de données sur des objets blobs JSON à l’aide de Postman et de l’API REST.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b6e3335ba78d29896c8a253ac710e6ec0da1829a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261919"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528371"
 ---
-# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Didacticiel : Appeler des API Cognitive Services dans un pipeline d’indexation Recherche Azure (préversion)
+# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutoriel REST : Appeler des API Cognitive Services dans un pipeline d’indexation Recherche Azure (préversion)
 
 Dans ce tutoriel, vous apprendrez les mécanismes d’enrichissement des données de programmation dans Recherche Azure à l’aide de *compétences cognitives*. Les compétences sont secondées par des fonctions d’analyse des images et de traitement en langage naturel (NLP) dans Cognitive Services. Par le biais de la configuration et de la composition de compétences, vous pouvez extraire du texte et des représentations sous forme de texte d’un fichier image ou document analysé. Vous pouvez également détecter la langue, les entités, les expressions clés et bien plus encore. Le résultat final est un contenu supplémentaire riche dans un index Recherche Azure, créé par un pipeline d’indexation basé sur l’intelligence artificielle. 
 
@@ -43,31 +43,37 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
+Voici les services, outils et données utilisés dans ce tutoriel. 
+
 [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
+
+[Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données.
 
 L’[application de bureau Postman](https://www.getpostman.com/) permet d’effectuer des appels REST au service Recherche Azure.
 
-### <a name="get-an-azure-search-api-key-and-endpoint"></a>Obtenir une clé API et un point de terminaison Recherche Azure
+Les [exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) se composent d’un petit ensemble de fichiers de types différents. 
+
+## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
 Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur chaque demande. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
 
-1. Dans le portail Azure, dans la page **Vue d’ensemble** de votre service de recherche, obtenez l’URL. Voici un exemple de point de terminaison : `https://my-service-name.search.windows.net`.
+1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
-2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
+1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
 ![Obtenir une clé d’accès et un point de terminaison HTTP](media/search-fiddler/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
-### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurer le service Blob Azure et charger les données d’exemple
+## <a name="prepare-sample-data"></a>Préparer l’exemple de données
 
-Le pipeline d’enrichissement extrait des données des sources de données Azure. Les données sources doivent provenir d’un type de source de données pris en charge d’un [indexeur Recherche Azure](search-indexer-overview.md). Notez que Stockage Table Azure n’est pas pris en charge pour la recherche cognitive. Pour cet exercice, nous utilisons le stockage d’objets blob pour présenter plusieurs types de contenu.
+Le pipeline d’enrichissement extrait des données des sources de données Azure. Les données sources doivent provenir d’un type de source de données pris en charge d’un [indexeur Recherche Azure](search-indexer-overview.md). Stockage Table Azure n’est pas pris en charge pour la recherche cognitive. Pour cet exercice, nous utilisons le stockage d’objets blob pour présenter plusieurs types de contenu.
 
-1. [Téléchargez les exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consistant en un petit ensemble de fichiers de types différents. 
+1. [Connectez-vous au portail Azure](https://portal.azure.com), accédez à votre compte de stockage Azure, cliquez sur **Objets blob**, puis sur **+ Conteneur**.
 
-1. [Inscrivez-vous au Stockage Blob Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), créez un compte de stockage, ouvrez les pages de services BLOB et créez un conteneur. Créez le compte de stockage dans la même région que la Recherche Azure.
+1. [Créez un conteneur d’objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) pour contenir des exemples de données. Vous pouvez définir le niveau d’accès public sur l’une de ses valeurs valides.
 
-1. Dans le conteneur que vous avez créé, cliquez sur **Charger** pour charger les fichiers d’exemples téléchargés lors d’une étape précédente.
+1. Une fois que le conteneur est créé, ouvrez-le, puis sélectionnez **Charger** dans la barre de commandes pour charger les exemples de fichiers que vous avez téléchargés lors de l’étape précédente.
 
    ![Fichiers source sur le Stockage Blob Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
 
@@ -81,11 +87,22 @@ Le pipeline d’enrichissement extrait des données des sources de données Azur
 
 Il existe d’autres manières de spécifier la chaîne de connexion, par exemple en fournissant une signature d’accès partagé. Pour en savoir plus sur les informations d’identification de source de données, consultez [Indexation du stockage d’objets blob Azure](search-howto-indexing-azure-blob-storage.md#Credentials).
 
+## <a name="set-up-postman"></a>Configurer Postman
+
+Démarrez Postman et paramétrez une requête HTTP. Si vous ne connaissez pas bien cet outil, consultez [Explorer les API REST de la Recherche Azure avec Postman](search-fiddler.md).
+
+Les méthodes de requête utilisées dans ce tutoriel sont **POST**, **PUT** et **GET**. Les clés d’en-tête sont « Content-type » définie sur « application/json » et « api-key » définie sur une clé d’administration de votre service Recherche Azure. Le corps est l’endroit où vous ajoutez le contenu réel de votre appel. 
+
+  ![Recherche de données semi-structurées](media/search-semi-structured-data/postmanoverview.png)
+
+Nous utilisons Postman pour effectuer quatre appels d’API vers votre service de recherche afin de créer une source de données, un ensemble de compétences, un index et un indexeur. La source de données inclut un pointeur vers votre compte de stockage et vos données JSON. Votre service de recherche établit la connexion lors du chargement des données.
+
+
 ## <a name="create-a-data-source"></a>Création d'une source de données
 
 Maintenant que vos services et fichiers sources sont préparés, commencez à assembler les composants de votre pipeline d’indexation. Commencez par un [objet source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source) qui indique à Recherche Azure comment récupérer des données d’une source externe.
 
-Pour ce tutoriel, utilisez l’API REST et un outil qui peut formuler et envoyer des requêtes HTTP, tel que PowerShell, Postman ou Fiddler. Dans l’en-tête de requête, fournissez le nom du service que vous avez utilisé lors de la création du service Recherche Azure et la clé d’API générée pour votre service de recherche. Dans le corps de la demande, spécifiez le nom du conteneur blob et la chaîne de connexion.
+Dans l’en-tête de requête, fournissez le nom du service que vous avez utilisé lors de la création du service Recherche Azure et la clé d’API générée pour votre service de recherche. Dans le corps de la demande, spécifiez le nom du conteneur blob et la chaîne de connexion.
 
 ### <a name="sample-request"></a>Exemple de demande
 ```http
@@ -108,7 +125,7 @@ api-key: [admin key]
 ```
 Envoyez la demande. L’outil de test web doit retourner un code d’état 201 confirmant la réussite. 
 
-Dans la mesure où il s’agit de votre première demande, vérifiez le portail Azure pour confirmer que la source de données a été créée dans Recherche Azure. Dans la page de tableau de bord du service de recherche, vérifiez que la vignette Sources de données a un nouvel élément. Vous devrez peut-être attendre quelques minutes que la page du portail soit actualisée. 
+Dans la mesure où il s’agit de votre première demande, vérifiez le portail Azure pour confirmer que la source de données a été créée dans Recherche Azure. Dans la page du tableau de bord du service de recherche, vérifiez que la liste Sources de données comporte un nouvel élément. Vous devrez peut-être attendre quelques minutes que la page du portail soit actualisée. 
 
   ![Vignette de sources de données dans le portail](./media/cognitive-search-tutorial-blob/data-source-tile.png "Vignette de sources de données dans le portail")
 
@@ -122,7 +139,7 @@ Dans cette étape, vous définissez un ensemble d’étapes d’enrichissement q
 
 + [Fractionnement de texte](cognitive-search-skill-textsplit.md) pour découper un grand contenu en plus petits morceaux avant d’appeler la compétence d’extraction de phrases clés. L’extraction de phrases clés accepte des entrées de 50 000 caractères au maximum. Certains fichiers d’exemple doivent être fractionnés pour satisfaire cette limite.
 
-+ [Reconnaissance d’entité nommée](cognitive-search-skill-named-entity-recognition.md) pour extraire les noms d’organisations du contenu dans le conteneur d’objets blob.
++ [Reconnaissance d’entité](cognitive-search-skill-entity-recognition.md) pour extraire les noms d’organisations du contenu dans le conteneur d’objets blob.
 
 + [Extraction de phrases clés](cognitive-search-skill-keyphrases.md) pour extraire les principales expressions clés. 
 
@@ -144,7 +161,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
       "inputs": [
@@ -217,7 +234,7 @@ Content-Type: application/json
 
 Envoyez la demande. L’outil de test web doit retourner un code d’état 201 confirmant la réussite. 
 
-#### <a name="about-the-request"></a>Informations sur la demande
+#### <a name="explore-the-request-body"></a>Explorer le corps de la demande
 
 Notez comment la compétence d’extraction de phrases clés est appliquée pour chaque page. En définissant le contexte sur ```"document/pages/*"```, vous exécutez cette enrichisseur pour chaque membre du document/tableau de pages (pour chaque page dans le document).
 
@@ -306,11 +323,13 @@ Pour en savoir plus sur la définition d’un index, consultez [Créer un index 
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>Créer un indexeur, mapper les champs et exécuter des transformations
 
-À ce stade, vous avez créé une source de données, un ensemble de compétences et un index. Ces trois composants deviennent partie intégrante d’un [indexeur](search-indexer-overview.md) qui extrait chaque élément pour l’insérer dans une opération unique à plusieurs phases. Pour lier ces éléments en un indexeur, vous devez définir des mappages de champs. Les mappages de champs font partie de la définition de l’indexeur et exécutent les transformations lorsque vous envoyez la demande.
+À ce stade, vous avez créé une source de données, un ensemble de compétences et un index. Ces trois composants deviennent partie intégrante d’un [indexeur](search-indexer-overview.md) qui extrait chaque élément pour l’insérer dans une opération unique à plusieurs phases. Pour lier ces éléments en un indexeur, vous devez définir des mappages de champs. 
 
-Pour une indexation non enrichie, la définition de l’indexeur fournit une section *fieldMappings* facultative si les noms de champs ou les types de données ne correspondent pas exactement, ou si vous voulez utiliser une fonction.
++ Les fieldMappings sont traités avant l’ensemble de compétences, en mappant les champs sources de la source de données sur des champs cibles dans un index. Si les noms et types de champ sont identiques aux deux extrémités, aucun mappage n’est nécessaire.
 
-Pour les charges de travail de recherche cognitive dotées d’un pipeline d’enrichissement, un indexeur nécessite des mappages *outputFieldMappings*. Ces mappages sont utilisés lorsqu’un processus interne (le pipeline d’enrichissement) est la source des valeurs de champ. Les comportements propres aux mappages *outputFieldMappings* incluent la possibilité de gérer des types complexes créés dans le cadre de l’enrichissement (via la compétence de modélisateur). En outre, il peut y avoir de nombreux éléments par document (par exemple, plusieurs organisations dans un document). La construction *outputFieldMappings* peut amener le système à « aplatir » des collections d’éléments en un seul enregistrement.
++ Les outputFieldMappings sont traités après l’ensemble de compétences, en référençant les sourceFieldNames qui n’existent pas tant que le décodage de document ou l’enrichissement ne les ont pas créés. targetFieldName est un champ dans un index.
+
+En plus de raccrocher des entrées à des sorties, vous pouvez également utiliser les mappages de champs pour aplatir les structures de données. Pour plus d’informations, consultez [Guide pratique pour mapper des champs enrichis sur un index pouvant faire l’objet d’une recherche](cognitive-search-output-field-mapping.md).
 
 ### <a name="sample-request"></a>Exemple de demande
 
@@ -378,7 +397,7 @@ Attendez-vous à ce que cette étape prenne plusieurs minutes. Même si le jeu d
 > [!TIP]
 > La création d’un indexeur appelle le pipeline. En cas de problèmes pour atteindre les données, mapper les entrées et les sorties, ou ordonner les opérations, ceux-ci apparaissent à ce stade. Pour réexécuter le pipeline avec des modifications de code ou de script, vous pouvez être amené à supprimer d’abord des objets. Pour plus d’informations, consultez [Réinitialiser et réexécuter](#reset).
 
-### <a name="explore-the-request-body"></a>Explorer le corps de la demande
+#### <a name="explore-the-request-body"></a>Explorer le corps de la demande
 
 Le script affecte à ```"maxFailedItems"``` la valeur -1, ce qui indique au moteur d’indexation d’ignorer les erreurs au cours de l’importation des données. Cela est utile car très peu de documents figurent dans la source de données de démonstration. Pour une source de données plus volumineuse, vous définiriez une valeur supérieure à 0.
 
@@ -535,4 +554,4 @@ Le moyen le plus rapide de nettoyer après un tutoriel consiste à supprimer le 
 Personnalisez ou étendez le pipeline avec des compétences personnalisées. La création d’une compétence personnalisée et son ajout dans un ensemble de compétences vous permet d’intégrer une analyse de texte ou d’image que vous écrivez vous-même. 
 
 > [!div class="nextstepaction"]
-> [Exemple : Créer une compétence personnalisée](cognitive-search-create-custom-skill-example.md)
+> [Exemple : créer une compétence personnalisée](cognitive-search-create-custom-skill-example.md)

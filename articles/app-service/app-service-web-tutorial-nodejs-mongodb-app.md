@@ -1,6 +1,6 @@
 ---
-title: Générer une application Node.js avec MongoDB - Azure App Service | Microsoft Docs
-description: Apprenez comment faire fonctionner une application Node.js dans Azure, avec une connexion à une base de données Cosmos DB, via une chaîne de connexion MongoDB.
+title: Node.js (MEAN.js) avec MongoDB - Azure App Service | Microsoft Docs
+description: Apprenez comment faire fonctionner une application Node.js dans Azure, avec une connexion à une base de données Cosmos DB, via une chaîne de connexion MongoDB. MEAN.js est utilisé dans le tutoriel.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f123a443d9a00aa7f1b35bd8ed540f90d66de97f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 361e921af65b33ac0a7a8d12e28db1cb305b0fa1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891822"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548117"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutoriel : Créer une application Node.js et MongoDB dans Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Didacticiel : Créer une application Node.js et MongoDB dans Azure
 
 > [!NOTE]
 > Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer une application Node.js et MongoDB dans Azure App Service sur Linux](./containers/tutorial-nodejs-mongodb-app.md).
