@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542303"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737076"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Stockage Azure Premium : conception sous le signe de la haute performance
 
@@ -67,7 +67,7 @@ La latence est le temps nécessaire à une application pour recevoir une demande
 
 Lorsque vous optimisez votre application pour augmenter le nombre d’E/S par seconde et le débit, la latence de votre application s’en trouve affectée. Après avoir ajusté les performances de votre application, pensez toujours à évaluer la latence de l’application afin d’éviter un comportement de latence élevée inattendu.
 
-Les opérations de plan de contrôle suivantes sur des disques gérés, vous devrez le déplacement du disque d’un emplacement de stockage à un autre. Cela est orchestrée par la copie de sauvegarde de données qui peuvent prendre plusieurs heures, généralement moins de 24 heures selon la quantité de données des disques. Pendant ce temps, votre application peut afficher une latence de lecture supérieure à la normale car certaines lectures sont redirigées vers l’emplacement d’origine et prennent donc plus de temps. Il n’y a aucun impact sur la latence d’écriture pendant cette période.
+Les opérations de plan de contrôle suivantes sur des disques gérés, vous devrez le déplacement du disque d’un emplacement de stockage à un autre. Cela est orchestrée par la copie de sauvegarde de données qui peuvent prendre plusieurs heures, généralement moins de 24 heures selon la quantité de données des disques. Pendant ce temps votre application peut être confrontés supérieure à celle de la latence de lecture habituelle comme des lectures puissent être redirigées vers l’emplacement d’origine et peuvent prendre plus de temps. Il n’y a aucun impact sur la latence d’écriture pendant cette période.
 
 - Mettre à jour le type de stockage.
 - Détacher et attacher un disque à partir d’une machine virtuelle à un autre.
@@ -235,7 +235,7 @@ Azure Premium Storage offre trois tailles de disque qui sont actuellement en ver
 
 | Type de disque Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Taille du disque           | 32 Gio | 64 Gio | 128 Go| 256 Gio| 512 Go            | 1 024 Gio (1 Tio)    | 2 048 Gio (2 Tio)    | 4 095 Gio (4 Tio)    | 8 192 Gio (8 Tio)    | 16 384 Gio (16 Tio)    | 32 767 Gio (32 Tio)    |
+| Taille du disque           | 32 Gio | 64 Gio | 128 Go| 256 Gio| 512 Go            | 1 024 Gio (1 Tio)    | 2 048 Gio (2 Tio)    | 4 095 Gio (4 Tio)    | 8 192 Gio (8 Tio)    | 16 384 Gio (16 Tio)    | 32 767 Gio (32 Tio)    |
 | IOPS par disque       | 120   | 240   | 500   | 1100 | 2 300              | 5 000              | 7500              | 7500              | 12 500              | 15 000              | 20 000              |
 | Débit par disque | 25 Mio par seconde  | 50 Mio par seconde  | 100 Mio par seconde |125 Mio par seconde | 150 Mio par seconde | 200 Mio par seconde | 250 Mio par seconde | 250 Mio par seconde | 480 Mio par seconde | 750 Mio par seconde | 750 Mio par seconde |
 
@@ -261,7 +261,8 @@ N’oubliez pas les disques Premium Storage délivrent des performances supérie
 Les machines virtuelles à grande échelle qui exploitent Azure Premium Storage ont une technologie de mise en cache à plusieurs niveaux appelée BlobCache. BlobCache utilise à la fois la RAM de la machine virtuelle et le SSD local pour la mise en cache. Ce cache est disponible pour les disques persistants Premium Storage et pour les disques locaux de la machine virtuelle. Par défaut, ce paramètre de cache est défini en lecture/écriture pour les disques du système d’exploitation et en lecture seule pour les disques de données hébergés sur Premium Storage. Lorsque la mise en cache du disque est activée sur les disques Premium Storage, les machines virtuelles à grande échelle peuvent atteindre des niveaux de performances extrêmement élevés qui dépassent les performances du disque sous-jacent.
 
 > [!WARNING]
-> La mise en cache du disque est uniquement prise en charge pour les tailles de disque jusqu’à 4 Tio.
+> Mise en cache disque n’est pas pris en charge pour les disques supérieurs à 4 TIO. Si plusieurs disques sont attachés à votre machine virtuelle, chaque disque est 4 To ou plus petits prendra en charge la mise en cache.
+>
 > La modification du paramètre de cache d’un disque Azure détache et rattache le disque cible. S’il s’agit du disque du système d’exploitation, la machine virtuelle redémarre. Arrêtez toutes les applications et services qui risquent d’être affectés par cette indisponibilité avant de modifier le paramètre de cache du disque.
 
 Pour en savoir plus sur le fonctionnement de BlobCache, reportez-vous à l’article du blog interne [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) .
@@ -353,7 +354,7 @@ Sous Linux, utilisez l’utilitaire MDADM pour entrelacer les disques. Pour obte
 
 Par exemple, si une demande d’E/S générée par votre application est supérieure à la taille d’entrelacement de disque, le système de stockage écrira au-delà des limites d’unité de bande sur plusieurs disques. Au moment d’accéder aux données, il devra effectuer une recherche sur plusieurs unités de bande pour exécuter la demande. L’effet cumulatif de ce comportement peut entraîner une dégradation significative des performances. En revanche, si la taille de la demande d’E/S est inférieure à la taille d’entrelacement, et si ces E/S sont aléatoires par nature, les demandes d’E/S peuvent s’ajouter sur le même disque et provoquer un goulot d’étranglement responsable d’une dégradation des performances d’E/S.
 
-Selon le type de charge de travail que votre application exécute, choisissez une taille d’entrelacement appropriée. Pour les petites demandes d’E/S aléatoires, utilisez une plus petite taille d’entrelacement. Pour de grandes demandes d’E/S séquentielles, utilisez en revanche une plus grande taille d’entrelacement. Découvrez les tailles d’entrelacement recommandées pour l’application exécutée sur Premium Storage. Pour SQL Server, configurez la taille d’entrelacement de 64 Ko pour les charges de travail OLTP et sur 256 Ko pour les charges d’entreposage de données. Pour en savoir plus, consultez [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance)
+Selon le type de charge de travail que votre application exécute, choisissez une taille d’entrelacement appropriée. Pour les petites demandes d’E/S aléatoires, utilisez une plus petite taille d’entrelacement. Alors que pour les grandes e/s séquentielles demandes utilisent une plus grande taille d’entrelacement. Découvrez les tailles d’entrelacement recommandées pour l’application exécutée sur Premium Storage. Pour SQL Server, configurez la taille d’entrelacement de 64 Ko pour les charges de travail OLTP et sur 256 Ko pour les charges d’entreposage de données. Pour en savoir plus, consultez [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance)
 
 > [!NOTE]
 >  vous pouvez entrelacer au maximum 32 disques de stockage premium sur une machine virtuelle DS et 64 disques de stockage premium sur une machine virtuelle GS.

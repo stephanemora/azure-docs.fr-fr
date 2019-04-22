@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
 ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59052656"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784737"
 ---
-# <a name="cross-network-connectivity"></a>Connectivité de réseau
+# <a name="cross-network-connectivity"></a>Connectivité interréseau
 
 Fabrikam Inc. a une présence physique et un déploiement Azure importants dans la région USA Est. Fabrikam a une connectivité back-end entre ses déploiements locaux et Azure par le biais d’ExpressRoute. De même, Contoso Ltd. a une présence et le déploiement d’Azure dans l’ouest des États-Unis. Contoso a une connectivité back-end entre ses déploiements locaux et Azure par le biais d’ExpressRoute.  
 

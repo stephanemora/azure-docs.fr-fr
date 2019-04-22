@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856020"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699045"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les similitudes entre les deux types de files d'attente proposés par Microsoft Azure : Files d’attente de stockage et files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
@@ -84,7 +84,7 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 * Le modèle Premier entré, premier sorti garanti dans les files d'attente Service Bus requiert l'utilisation de sessions de messagerie. Dans le cas où l’application se bloque lors du traitement d’un message reçu en mode **Aperçu et verrouillage**, la prochaine fois qu’un destinataire de file d’attente acceptera une session de messagerie, celle-ci démarrera avec le message ayant échoué après que sa durée de vie ait expiré.
 * Les files d’attente de stockage sont conçues pour prendre en charge des scénarios de mise en file d’attente standard, tels que le découplage de composants d’application pour augmenter l’évolutivité et la tolérance aux pannes, le nivellement de charge et la création des workflows de processus.
 * Les files d’attente Service Bus prennent en charge la garantie de livraison *Au moins une fois*. 
-* Incohérences en ce qui concerne la gestion des messages dans le contexte de sessions Service Bus peuvent être évitées à l’aide de l’état de session pour stocker l’état de l’application par rapport à la progression de séquence de message de la session de gestion et à l’aide de transactions autour règlement reçu des messages et la mise à jour de l’état de session. Ce type de fonctionnalité de cohérence porte parfois *exactement-une fois le traitement* dans les produits d’autres fournisseurs, mais la transaction échecs évidemment provoquera des messages être redeliveried et par conséquent, le terme n’est pas tout à fait suffisant.
+* Incohérences en ce qui concerne la gestion des messages dans le contexte de sessions Service Bus peuvent être évitées à l’aide de l’état de session pour stocker l’état de l’application par rapport à la progression de séquence de message de la session de gestion et à l’aide de transactions autour règlement reçu des messages et la mise à jour de l’état de session. Ce type de fonctionnalité de cohérence porte parfois *exactement-une fois le traitement* dans les produits d’autres fournisseurs, mais la transaction échecs évidemment provoquera des messages à être remis une nouvelle fois et par conséquent, le terme n’est pas tout à fait suffisant.
 * Les files d’attente de stockage fournissent un modèle de programmation uniforme et cohérent entre les files d’attente, les tables et les objets blob, pour les développeurs et les équipes d’exploitation.
 * Les files d'attente Service Bus prennent en charge les transactions locales dans le contexte d'une file d'attente unique.
 * Le mode **Réception et suppression** pris en charge par Service Bus offre la possibilité de réduire le nombre d’opérations de messagerie (et le coût associé) en échange d’une garantie de livraison réduite.

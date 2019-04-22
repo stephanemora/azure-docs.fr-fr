@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 0f50ecb086b45cffb4ff27135a26f962c92926bf
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434459"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683027"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métriques et alertes Azure DNS
 Azure DNS est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. Cet article aborde les métriques et les alertes du service Azure DNS.
 
 ## <a name="azure-dns-metrics"></a>Métriques Azure DNS
 
-Azure DNS fournit des métriques aux clients pour qu’ils puissent surveiller certains aspects de leurs domaines DNS hébergés dans le service. De plus, avec les métriques Azure DNS, vous pouvez configurer et recevoir des alertes en fonction des conditions qui vous intéressent. Les métriques sont fournies via le [service Azure Monitor](../azure-monitor/index.yml). Azure DNS fournit les métriques suivantes via Azure Monitor pour vos zones DNS :
+Azure DNS fournit des métriques aux clients pour leur permettre d’analyser des aspects spécifiques de leurs zones DNS hébergées dans le service. De plus, avec les métriques Azure DNS, vous pouvez configurer et recevoir des alertes en fonction des conditions qui vous intéressent. Les métriques sont fournies via le [service Azure Monitor](../azure-monitor/index.yml). Azure DNS fournit les métriques suivantes via Azure Monitor pour vos zones DNS :
 
 -   QueryVolume
 -   RecordSetCount
@@ -40,7 +40,9 @@ Le niveau de dimension granulaire de ces métriques est Zone DNS.
 
 ### <a name="query-volume"></a>Volume de requêtes
 
-Dans Azure DNS, la métrique *QueryVolume* (Volume de requêtes) indique le volume de requêtes DNS (trafic de requêtes) qui est reçu par Azure DNS concernant votre zone DNS. L’unité de mesure correspond à la métrique Nombre et l’agrégation correspond au total de toutes les requêtes reçues au cours d’une période. Pour afficher cette métrique, sélectionnez l’explorateur Métriques (préversion) sous l’onglet Surveiller du portail Azure. Sélectionnez votre zone DNS dans la liste déroulante Ressource, sélectionnez la métrique QueryVolume (Volume de requêtes), puis sélectionnez Somme comme type d’agrégation. La capture d'écran ci-dessous montre un exemple.  Pour plus d’informations sur Metrics Explorer et sur ses graphiques, consultez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md).
+Dans Azure DNS, la métrique *QueryVolume* (Volume de requêtes) indique le volume de requêtes DNS (trafic de requêtes) qui est reçu par Azure DNS concernant votre zone DNS. L’unité de mesure correspond à la métrique Nombre et l’agrégation correspond au total de toutes les requêtes reçues au cours d’une période. 
+
+Pour afficher cette métrique, sélectionnez l’explorateur Métriques (préversion) sous l’onglet Surveiller du portail Azure. Sélectionnez votre zone DNS dans la liste déroulante Ressource, sélectionnez la métrique QueryVolume (Volume de requêtes), puis sélectionnez Somme comme type d’agrégation. La capture d'écran ci-dessous montre un exemple.  Pour plus d’informations sur Metrics Explorer et sur ses graphiques, consultez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md).
 
 ![Volume de requêtes](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 

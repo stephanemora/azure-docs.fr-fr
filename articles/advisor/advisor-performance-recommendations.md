@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0b2d242519e7e8981a905d6adb1f3c0f091afe38
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491577"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698943"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Améliorer les performances des applications Azure avec Azure Advisor
 
@@ -74,6 +74,25 @@ Migrez le modèle de déploiement de votre compte de stockage vers Azure Resourc
 
 > [!NOTE]
 > Les alertes classiques d'Azure Monitor seront mises hors service en juin 2019. Nous vous recommandons de mettre à niveau votre compte de stockage classique pour utiliser Resource Manager afin de conserver la fonctionnalité d'alerte sur la nouvelle plateforme. Pour plus d’informations, consultez [Suppression des alertes classiques](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Concevez vos comptes de stockage pour éviter d’atteindre la limite maximale d’abonnements
+
+Une région Azure peut prendre en charge un maximum de 250 comptes de stockage par abonnement. Une fois que la limite est atteinte, il se peut que vous ne pourrez pas créer des comptes de stockage plus dans cette combinaison de région/un abonnement. L’Assistant vérifie vos abonnements et surfaces recommandations pour vous aider à concevoir des comptes de stockage moins pour ceux qui sont proches d’atteindre la limite maximale.
+
+## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Optimiser les performances de vos serveurs MySQL de Azure, Azure PostgreSQL et Azure MariaDB 
+
+### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>Corriger la pression de l’UC de vos serveurs MySQL de Azure, Azure PostgreSQL et Azure MariaDB avec les goulots d’étranglement du processeur
+Une utilisation très élevée du processeur sur une période prolongée peut entraîner des performances de requêtes pour votre charge de travail. Augmentation de la taille de l’UC pour aider à optimiser l’exécution des requêtes de base de données et améliorer les performances globales. Azure Advisor identifie les serveurs avec un utilisation élevée du processeur qui exécutent probablement des charges de travail de contrainte de processeur et recommande la mise à l’échelle de votre calcul.
+
+### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Réduire les contraintes de mémoire sur vos serveurs MySQL de Azure, Azure PostgreSQL et Azure MariaDB ou passer à une mémoire optimisé de référence (SKU)
+Un taux d’accès au cache faible peut entraîner une baisse des performances de requête et les e/s accrue. Cela peut être dû à un mauvais plan de requête ou de l’exécution d’une charge de travail gourmandes en mémoire. Correction du plan de requête ou [augmentation de la mémoire](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) de la base de données Azure pour le serveur de base de données PostgreSQL, serveur de base de données Azure MySQL ou MariaDB d’Azure server aidera à optimiser l’exécution de la charge de travail de base de données. Azure Advisor identifie les serveurs affectés en raison de cet évolution du pool de mémoire tampon haute et recommande la résolution du plan de requête, déplacement vers un SKU supérieur avec davantage de mémoire ou l’augmentation de taille de stockage pour obtenir plus d’IOPS.
+
+### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Utiliser un Azure MySQL ou un réplica de lecture Azure PostgreSQL pour monter en charge de lectures pour les charges de travail intensives en lecture
+Azure Advisor s’appuie sur l’heuristique de basée sur la charge de travail telles que le taux de lectures et écritures sur le serveur au cours des sept jours pour identifier les charges de travail gourmandes en lecture. Votre Azure database pour PostgreSQL ressource ou la base de données Azure pour la ressource de MySQL avec un taux très élevé de lectures/écritures peut entraîner des conflits du processeur ou de la mémoire conduisant à ralentir les performances de requête. Ajout d’un [réplica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) vous aidera à la montée en charge les lectures vers le serveur réplica, empêchant les contraintes de processeur ou de la mémoire sur le serveur principal. Advisor identifie les serveurs avec ces charges de travail gourmandes en lecture et vous recommandons d’ajouter un [réplica en lecture](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) pour décharger les charges de travail de lecture.
+
+
+### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Mettre à l’échelle de votre serveur Azure MySQL, PostgreSQL Azure ou Azure MariaDB vers une référence SKU plus élevé pour empêcher les contraintes de connexion
+Chaque nouvelle connexion à votre serveur de base de données occupe la partie de la mémoire. Si l’échec des connexions à votre serveur fait de dégradent les performances du serveur de base de données un [limite supérieure](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits) en mémoire. Azure Advisor identifie les serveurs en cours d’exécution avec nombreux échecs de connexion et recommandons des limites de connexions de votre serveur pour fournir davantage de mémoire à votre serveur par la mise à l’échelle de calcul ou à l’aide de la mémoire optimisé références (SKU), qui ont un calcul plus par cœur de la mise à niveau.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans le conseiller
 

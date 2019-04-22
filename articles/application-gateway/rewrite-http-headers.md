@@ -7,21 +7,23 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: absha
-ms.openlocfilehash: efb7b46919066beb1382d70b676a2115ea0fb8ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 20c484779e7ffe74ae01e33472b4cf8761d81b66
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544144"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682678"
 ---
-# <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Réécrire des en-têtes HTTP dans Azure Application Gateway (préversion publique)
+# <a name="rewrite-http-headers-with-application-gateway"></a>Réécrire les en-têtes HTTP avec Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Les en-têtes HTTP permettent au client et au serveur de passer des informations supplémentaires avec la requête ou la réponse. Réécriture de ces en-têtes HTTP vous permet d’accomplir plusieurs scénarios importants tels que l’ajout de champs d’en-tête liées à la sécurité comme HSTS / X-XSS-Protection, en-tête de réponse de suppression des champs qui peut révéler des informations sensibles, suppression des informations de port à partir de En-têtes X-Forwarded-For, etc. Passerelle d’application prend en charge la possibilité d’ajouter, supprimer ou mettre à jour des en-têtes de demande et de réponse HTTP lors de la demande et les paquets de réponse se déplacent entre les pools de client et serveur principal. Il fournit également la possibilité d’ajouter des conditions pour vous assurer que les en-têtes spécifiés sont réécrites uniquement lorsque certaines conditions sont remplies.
+Les en-têtes HTTP permettent au client et au serveur de passer des informations supplémentaires avec la requête ou la réponse. Réécriture de ces en-têtes HTTP vous permet d’accomplir plusieurs scénarios importants tels que l’ajout de champs d’en-tête liées à la sécurité comme HSTS / X-XSS-Protection, en-tête de réponse de suppression des champs qui peut révéler des informations sensibles, suppression des informations de port à partir de En-têtes X-Forwarded-For, etc. Passerelle d’application prend en charge la possibilité d’ajouter, supprimer ou mettre à jour des en-têtes de demande et de réponse HTTP lors de la demande et les paquets de réponse se déplacent entre les pools de client et serveur principal. Il vous permet d’ajouter des conditions pour vous assurer que les en-têtes spécifiés sont réécrites uniquement lorsque certaines conditions sont remplies. La fonctionnalité prend également en charge plusieurs [variables serveur](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) qui contribuent à stocker des informations supplémentaires sur les demandes et réponses, ce qui permet de rendre les règles de réécriture puissantes.
 > [!NOTE]
 >
 > La prise en charge de la réécriture d’en-tête HTTP n’est disponible que pour la [nouvelle référence SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+
+![Réécriture des en-têtes](media/rewrite-http-headers/rewrite-headers.png)
 
 ## <a name="headers-supported-for-rewrite"></a>Réécriture des en-têtes pris en charge pour
 
@@ -35,7 +37,7 @@ La fonctionnalité vous permet de réécrire tous les en-têtes de demande et de
 - En-têtes HTTP dans la réponse
 - Variables de serveur de passerelle application
 
-Une condition peut être utilisée pour déterminer si la variable spécifiée est présente, si la variable spécifiée correspond exactement à une valeur spécifique, ou si la variable spécifiée correspond exactement à un modèle spécifique. [Bibliothèque d’Expressions régulières Compatible (PCRE) Perl](https://www.pcre.org/) est utilisé pour implémenter le modèle d’expression régulière dans les conditions de correspondance. Pour en savoir plus sur la syntaxe d’expression régulière, consultez le [page de manuel des expressions régulières Perl](http://perldoc.perl.org/perlre.html).
+Une condition peut être utilisée pour déterminer si la variable spécifiée est présente, si la variable spécifiée correspond exactement à une valeur spécifique, ou si la variable spécifiée correspond exactement à un modèle spécifique. [Bibliothèque d’Expressions régulières Compatible (PCRE) Perl](https://www.pcre.org/) est utilisé pour implémenter le modèle d’expression régulière dans les conditions de correspondance. Pour en savoir plus sur la syntaxe d’expression régulière, consultez le [page de manuel des expressions régulières Perl](https://perldoc.perl.org/perlre.html).
 
 ## <a name="rewrite-actions"></a>Actions de réécriture
 
@@ -124,6 +126,18 @@ Ce problème peut être résolu en définissant le nom d’hôte dans l’en-tê
 Plusieurs vulnérabilités de sécurité peuvent être résolues en implémentant les en-têtes nécessaires dans la réponse de l’application. Certaines de ces en-têtes de sécurité sont X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, etc. Vous pouvez utiliser la passerelle d’application pour définir ces en-têtes pour toutes les réponses.
 
 ![En-tête de sécurité](media/rewrite-http-headers/security-header.png)
+
+### <a name="delete-unwanted-headers"></a>Supprimer des en-têtes indésirables
+
+Voulez-vous supprimer ces en-têtes de la réponse HTTP qui révèlent des informations sensibles telles que le nom du serveur principal, système d’exploitation, les détails de bibliothèque, etc. Vous pouvez utiliser la passerelle d’application pour les supprimer.
+
+![La suppression d’en-tête](media/rewrite-http-headers/remove-headers.png)
+
+### <a name="check-presence-of-a-header"></a>Vérifiez la présence d’un en-tête
+
+Vous pouvez évaluer l’en-tête de demande ou réponse HTTP pour la présence d’une variable de l’en-tête ou le serveur. Cela est utile lorsque vous souhaitez effectuer une réécriture de l’en-tête uniquement quand un en-tête spécifique est présent.
+
+![Vérification de la présence d’un en-tête](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Limites
 

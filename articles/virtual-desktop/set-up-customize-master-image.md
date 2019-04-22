@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505598"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698313"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
@@ -274,7 +274,7 @@ Pour rediriger les fuseaux horaires :
 1. Sur le serveur Active Directory, ouvrez le **Group Policy Management Console**.
 2. Développez votre domaine et des objets de stratégie de groupe.
 3. Cliquez sur le **objet stratégie de groupe** que vous avez créé pour les paramètres de stratégie de groupe, puis sélectionnez **modifier**.
-4. Dans le **éditeur de gestion de stratégie de groupe**, accédez à **Configuration ordinateur** > **stratégies** > **administratif Modèles** > **les composants Windows** > **Horizon afficher les Services RDSH** > **Session Bureau à distance Hôte** > **appareil et des ressources**.
+4. Dans le **éditeur de gestion de stratégie de groupe**, accédez à **Configuration ordinateur** > **stratégies** > **administratif Modèles** > **les composants Windows** > **des Services Bureau à distance** > **hôte de Session Bureau à distance**   >  **Appareil et des ressources**.
 5. Activer la **autoriser la redirection de fuseau horaire** paramètre.
 
 Vous pouvez également exécuter cette commande sur l’image maître pour rediriger les fuseaux horaires :
@@ -367,8 +367,8 @@ Les instructions suivantes vous indiquera comment charger votre image principale
 
 Maintenant que vous avez une image, vous pouvez créer ou mettre à jour des pools de l’hôte. Pour en savoir plus sur la création et de mettre à jour des pools d’hôte, consultez les articles suivants :
 
-- [Créer un pool d’hôtes avec le modèle Azure Resource Manager](create-host-pools-arm-template.md)
-- [Didacticiel : Créer un pool d’hôtes avec la Place de marché Azure](create-host-pools-azure-marketplace.md)
-- [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md)
-- [Configurer un partage de profil utilisateur pour un pool d’hôtes](create-host-pools-user-profile.md)
-- [Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+- [Créer un pool de l’hôte avec un modèle Azure Resource Manager](create-host-pools-arm-template.md)
+- [Tutoriel : Créer un pool de l’hôte avec la place de marché Azure](create-host-pools-azure-marketplace.md)
+- [Créer un pool de l’hôte avec PowerShell](create-host-pools-powershell.md)
+- [Configurez un partage de profil utilisateur pour un pool de l’hôte](create-host-pools-user-profile.md)
+- [Configurer la méthode d’équilibrage de charge de bureau virtuel Windows](configure-host-pool-load-balancing.md)

@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59363003"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59783965"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Règles personnalisées pour le pare-feu d’applications web avec Azure porte d’entrée
 Pare-feu d’applications Azure web (WAF) avec le service de la porte d’entrée vous permet de contrôler l’accès à vos applications web en fonction des conditions que vous définissez. Une règle de pare-feu d’applications Web personnalisée se compose d’un numéro de priorité, un type de règle, conditions de correspondance et une action. Il existe deux types de règles personnalisées : correspond aux règles et règles de restriction. Une règle de correspondance contrôle l’accès en fonction de conditions de correspondance alors qu’une règle de limite de taux contrôle d’accès basée sur la correspondance des conditions et les taux de demandes entrantes. Vous pouvez désactiver une règle personnalisée pour l’empêcher d’en cours d’évaluation, mais toujours conserver la configuration. Cet article décrit les règles de correspondance qui reposent sur les paramètres http.

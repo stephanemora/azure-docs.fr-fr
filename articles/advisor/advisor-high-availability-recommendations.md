@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881186"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699302"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Améliorer la disponibilité de votre application avec Azure Advisor
 
@@ -66,6 +66,10 @@ Activez la [suppression réversible](https://docs.microsoft.com/azure/storage/bl
 
 En configuration actif-actif, les deux instances d’une passerelle VPN établira tunnels S2S VPN pour votre périphérique VPN sur site. Lorsqu'un événement de maintenant planifié ou non planifié se produit sur une instance de passerelle, le trafic bascule automatiquement vers l'autre tunnel IPsec actif. Azure Advisor identifie les passerelles VPN non configurées en mode actif/actif et vous suggère que les configurer pour la haute disponibilité.
 
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Utiliser des passerelles VPN de production pour exécuter vos charges de travail de production
+
+Azure Advisor vérifie pour les passerelles VPN qui sont une référence SKU de base et vous recommandons d’utiliser une référence (SKU) de production à la place. La référence SKU de base est conçu pour le développement et à des fins de tests. Références SKU de production offre un nombre plus élevé de tunnels, prise en charge du protocole BGP, les options de configuration actif-actif, personnalisé stratégie Ipsec/IKE et plus élevé la stabilité et de disponibilité.
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de haute disponibilité dans le conseiller
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
@@ -75,9 +79,9 @@ En configuration actif-actif, les deux instances d’une passerelle VPN établir
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les recommandations d’Advisor, consultez :
-* [Présentation d’Azure Advisor](advisor-overview.md)
-* [Bien démarrer avec Advisor](advisor-get-started.md)
-* [Recommandations en matière de coûts du conseiller](advisor-cost-recommendations.md)
-* [Recommandations Azure Advisor en matière de performances](advisor-performance-recommendations.md)
-* [Recommandations de sécurité du conseiller](advisor-security-recommendations.md)
+* [Présentation du conseiller Azure](advisor-overview.md)
+* [Prise en main du conseiller](advisor-get-started.md)
+* [Recommandations du conseiller en matière de coûts](advisor-cost-recommendations.md)
+* [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)
+* [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)
 

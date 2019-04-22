@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: ca473474c62d0cb57c3ee76095740568398c67d7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c54d8aedb9464364f93a087de4bdb00c693a96ae
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272748"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698909"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Services partagés ISO 27001
 
@@ -36,7 +36,7 @@ Cet environnement se compose de plusieurs services Azure utilisés pour fournir 
 - [Log Analytics](../../../../azure-monitor/overview.md) est déployé en tant que premier service Azure pour vérifier que toutes les actions et tous les services journalisent à un emplacement central à partir du moment où vous démarrez votre déploiement sécurisé.
 - Un réseau virtuel prenant en charge des sous-réseaux pour la connectivité à un centre de données local, une pile d’entrée et de sortie pour la connectivité Internet et un sous-réseau de service partagé qui utilise des groupes de sécurité réseau et ASG pour la micro-segmentation complète contenant :
   - Un serveur de rebond ou hôte bastion utilisé à des fins de gestion, uniquement accessible par le biais d’un [pare-feu Azure](../../../../firewall/overview.md) déployé dans le sous-réseau de la pile d’entrée
-  - Deux machines virtuelles exécutant AADS (Active Directory Domain Services) et DNS uniquement accessible par le biais du serveur de rebond, pouvant être configurées uniquement pour répliquer AD sur un VPN ou une connexion [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (non déployée par le blueprint)
+  - Deux machines virtuelles exécutant AADS (Active Directory Domain Services) et DNS uniquement accessibles par Jumpbox, pouvant être configurées uniquement pour répliquer AD sur un VPN ou une connexion [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (non déployée par le blueprint)
   - Utilisation d’[Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) et d’une protection DDoS standard
 - Une instance [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) utilisée pour héberger les secrets utilisés pour les machines virtuelles déployées dans l’environnement des services partagés
 

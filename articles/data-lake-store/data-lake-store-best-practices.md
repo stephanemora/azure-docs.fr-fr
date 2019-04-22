@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 7e120980ed1379fb4ea18bca9f1e84938964cac5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882816"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684155"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen1
 
@@ -100,11 +100,11 @@ Vous trouverez ci-dessous les trois options les plus recommandées pour orchestr
 
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
-|**Limites d’échelle**     | Délimitée par des nœuds de travail        | Limitée par des unités de déplacement de données cloud max        | Délimitée par des unités Analytics        |
+|**Limites de mise à l’échelle**     | Délimitée par des nœuds de travail        | Limitée par des unités de déplacement de données cloud max        | Délimitée par des unités Analytics        |
 |**Prend en charge la copie des valeurs delta**     |   Oui      | Non          | Non          |
 |**Orchestration intégrée**     |  NON (utiliser Oozie Airflow ou les tâches Cron)       | Oui        | NON (utiliser Azure Automation ou le Planificateur de tâches Windows)         |
 |**Systèmes de fichiers pris en charge**     | ADL, HDFS, WASB, S3, GS, CFS        |Nombreux, voir [Connecteurs](../data-factory/connector-azure-blob-storage.md).         | ADL vers ADL, WASB vers ADL (même région uniquement)        |
-|**Prise en charge du système d’exploitation**     |N’importe quel système d’exploitation prenant en charge Hadoop         | S.O.          | Windows 10         |
+|**Système d’exploitation pris en charge**     |N’importe quel système d’exploitation prenant en charge Hadoop         | S.O.          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Utiliser Distcp pour déplacer des données entre deux emplacements
 
@@ -185,7 +185,6 @@ Dans le cas courant de traitement des données par lots dans des bases de donné
 * [Contrôle d’accès dans Azure Data Lake Storage Gen1](data-lake-store-access-control.md)
 * [Sécurité dans Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
 * [Réglage d’Azure Data Lake Storage Gen1 pour les performances](data-lake-store-performance-tuning-guidance.md)
-* [Conseils pour l’utilisation de HDInsight Spark avec Azure Data Lake Storage Gen1 de réglage des performances](data-lake-store-performance-tuning-spark.md)
-* [Conseils pour l’utilisation de HDInsight Hive avec Azure Data Lake Storage Gen1 de réglage des performances](data-lake-store-performance-tuning-hive.md)
-* [Orchestration des données à l’aide d’Azure Data Factory pour Azure Data Lake Storage Gen1](https://mix.office.com/watch/1oa7le7t2u4ka)
+* [Recommandations en matière d’optimisation des performances pour l’utilisation de HDInsight Spark avec Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-spark.md)
+* [Recommandations en matière d’optimisation des performances pour l’utilisation de HDInsight Hive avec Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-hive.md)
 * [Créer des clusters HDInsight avec Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

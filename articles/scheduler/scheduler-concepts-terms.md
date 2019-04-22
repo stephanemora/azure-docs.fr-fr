@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 67f51b078b8e92592e9593d7d254e6985265eee8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651267"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683050"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepts, terminologie et entités d’Azure Scheduler
 
@@ -39,21 +39,27 @@ D’une façon générale, l’API REST de Scheduler expose ces opérations pour
 
 ### <a name="job-management"></a>Gestion des travaux
 
-Prend en charge les opérations de création et de modification des travaux. Tous les travaux doivent appartenir à une collection de travaux existante ; il n’y a donc pas de création implicite. Pour plus d’informations, consultez [API REST de Scheduler - Travaux](https://docs.microsoft.com/rest/api/scheduler/jobs). Voici l’adresse URI pour ces opérations :
+Prend en charge les opérations de création et de modification des travaux. Tous les travaux doivent appartenir à une collection de travaux existante ; il n’y a donc pas de création implicite. Pour plus d’informations, consultez [API REST de Scheduler - Travaux](https://docs.microsoft.com/rest/api/scheduler/jobs). Voici l’adresse URI pour ces opérations :
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
+```
 
 ### <a name="job-collection-management"></a>Gestion de la collection de travaux
 
-Prend en charge les opérations de création et de modification des travaux et des collections de travaux, qui correspondent aux quotas et aux paramètres partagés. Par exemple, les quotas spécifient le nombre maximal de travaux et le plus petit intervalle de récurrence. Pour plus d’informations, consultez [API REST de Scheduler - Collections de travaux](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Voici l’adresse URI pour ces opérations :
+Prend en charge les opérations de création et de modification des travaux et des collections de travaux, qui correspondent aux quotas et aux paramètres partagés. Par exemple, les quotas spécifient le nombre maximal de travaux et le plus petit intervalle de récurrence. Pour plus d’informations, consultez [API REST de Scheduler - Collections de travaux](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Voici l’adresse URI pour ces opérations :
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
+```
 
 ### <a name="job-history-management"></a>Gestion de l’historique des travaux
 
-Prend en charge l’opération GET pour l’extraction de 60 jours d’historique d’exécution des travaux, par exemple le temps écoulé pour le travail et les résultats d’exécution du travail. Inclut la prise en charge du paramètre de chaîne de requête pour le filtrage basé sur l’état et le statut. Pour plus d’informations, consultez [API REST de Scheduler - Lister l’historique des travaux](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Voici l’adresse URI pour cette opération :
+Prend en charge l’opération GET pour l’extraction de 60 jours d’historique d’exécution des travaux, par exemple le temps écoulé pour le travail et les résultats d’exécution du travail. Inclut la prise en charge du paramètre de chaîne de requête pour le filtrage basé sur l’état et le statut. Pour plus d’informations, consultez [API REST de Scheduler - Lister l’historique des travaux](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Voici l’adresse URI pour cette opération :
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
+```
 
 ## <a name="job-types"></a>Types de travaux
 
@@ -245,7 +251,7 @@ Un travail se répète si la définition JSON du travail inclut l’objet **recu
 | **interval** | Non  | 1 à 1000 (inclusivement) | Entier positif qui détermine le nombre d’unités de temps entre chaque occurrence, en fonction de **frequency** | 
 | **schedule** | Non  | Varie | Détails pour les planifications avancées et plus complexes. Voir **hours**, **minutes**, **weekDays**, **months** et **monthDays** | 
 | **hours** | Non  | 1 à 24 | Tableau avec les marques d’heures pour le moment où exécuter le travail | 
-| **minutes** | Non  | 1 à 24 | Tableau avec les marques de minutes pour le moment où exécuter le travail | 
+| **minutes** | Non  | 0 à 59 | Tableau avec les marques de minutes pour le moment où exécuter le travail | 
 | **months** | Non  | 1 à 12 | Tableau avec les mois pour le moment où exécuter le travail | 
 | **monthDays** | Non  | Varie | Tableau avec les jours du mois pour le moment où exécuter le travail | 
 | **weekDays** | Non  | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Tableau avec les jours de la semaine pour le moment où exécuter le travail | 

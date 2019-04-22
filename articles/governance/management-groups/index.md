@@ -4,15 +4,15 @@ description: Découvrez les groupes d’administration, le fonctionnement des au
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: bd874ffe9293d01fced7ff6df5d329a829b7d8b4
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804832"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699379"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -43,11 +43,11 @@ Une affectation sur le groupe d’administration peut autoriser les utilisateurs
 ## <a name="root-management-group-for-each-directory"></a>Groupe d’administration racine pour chaque annuaire
 
 Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique appelé groupe d’administration « racine ».
-Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des affectations RBAC au niveau de l’annuaire. L’[administrateur général Azure AD doit élever ses privilèges](../../role-based-access-control/elevate-access-global-admin.md) pour être propriétaire de ce groupe racine au départ. Une fois que l’administrateur est propriétaire du groupe, il peut affecter un rôle RBAC à d’autres utilisateurs ou groupes de l’annuaire pour qu’ils gèrent la hiérarchie.
+Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des affectations RBAC au niveau de l’annuaire. L’[administrateur général d’Azure AD doit élever ses privilèges](../../role-based-access-control/elevate-access-global-admin.md) au rôle Administrateur d’accès utilisateur de ce groupe racine au départ. Une fois l’accès obtenu, l’administrateur peut attribuer un rôle RBAC à d’autres utilisateurs ou groupes de l’annuaire pour gérer la hiérarchie. En tant qu’administrateur, vous pouvez attribuer votre propre compte comme propriétaire du groupe d’administration racine.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Faits importants sur le groupe d’administration racine
 
-- Le nom et l’ID du groupe d’administration racine sont fournis par défaut. Le nom d’affichage peut être mis à jour à tout moment au sein du portail Azure.
+- Le nom et l’ID du groupe d’administration racine sont fournis par défaut. Le nom d’affichage peut être mis à jour à tout moment au sein du portail Azure. Pour [changer le nom](manage.md#change-the-name-of-a-management-group), votre compte doit avoir le rôle Propriétaire ou Contributeur sur le groupe d’administration racine.
   - Le nom sera « Groupe racine du locataire ».
   - L’ID sera l’ID Azure Active Directory.
 - Le groupe d’administration racine ne peut pas être déplacé ni supprimé, contrairement aux autres groupes d’administration.  
@@ -69,7 +69,7 @@ Lorsqu’un utilisateur commence à utiliser les groupes d’administration, un 
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Difficultés pour afficher tous les abonnements
 
-Un problème a été constaté sur quelques annuaires ayant commencé à utiliser des groupes d’administration de manière anticipée dans la préversion du 25 juin 2018 où tous les abonnements n’étaient pas dans la hiérarchie.  Les processus permettant d’avoir tous les abonnements dans la hiérarchie ont été mis en place après l’affectation d’un rôle ou d’une stratégie dans le groupe d’administration racine de l’annuaire.
+Quelques annuaires ayant commencé à utiliser des groupes d’administration de manière anticipée dans la préversion antérieure au 25 juin 2018 ont rencontré un problème où tous les abonnements n’étaient pas dans la hiérarchie. Le processus permettant d’avoir tous les abonnements dans la hiérarchie a été mis en place après l’attribution d’un rôle ou d’une stratégie au groupe d’administration racine de l’annuaire. 
 
 ### <a name="how-to-resolve-the-issue"></a>Que pouvez-vous faire pour résoudre le problème ?
 
