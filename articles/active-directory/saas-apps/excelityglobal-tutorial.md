@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Didacticiel : Intégration d’Azure Active Directory avec ExcelityGlobal
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’ExcelityGlobal à Azure AD, vous devez ajouter ExcelityGlobal disponible dans la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter ExcelityGlobal à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter ExcelityGlobal à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,15 +106,15 @@ Pour configurer l’authentification unique Azure AD avec ExcelityGlobal, procé
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
 
-    **Pour l’environnement de production** : `https://ess.excelityglobal.com`
+    **Pour l’environnement de production** : `https://ess.excelityglobal.com`
 
-    **Pour l’environnement de bac à sable (sandbox)**  : `https://s6.excelityglobal.com`
+    **Pour l’environnement Sandbox** : `https://s6.excelityglobal.com`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :
 
-    **Pour l’environnement de production** : `https://ess.excelityglobal.com/ACS`
+    **Pour l’environnement de production** : `https://ess.excelityglobal.com/ACS`
 
-    **Pour l’environnement de bac à sable (sandbox)**  : `https://s6.excelityglobal.com/ACS`
+    **Pour l’environnement Sandbox** : `https://s6.excelityglobal.com/ACS`
 
 5. Votre application ExcelityGlobal s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application ExcelityGlobal s’attend à ce que **nameidentifier** soit mappé avec **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
  

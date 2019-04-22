@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 83a5d4c1d9c0475609a506fbfe6ae23bd9e236fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262650"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Didacticiel : Intégration d’Azure Active Directory à Versal
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Versal à Azure AD, vous devez ajouter Versal à votre liste d’applications SaaS gérées à partir de la galerie.
 
-**Pour ajouter Versal à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Versal à partir de la galerie, suivez les étapes ci-dessous :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD auprès de Versal, effectu
 
     ![Informations d’authentification unique Domaine et URL Versal](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `VERSAL`
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `VERSAL`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://versal.com/sso/saml/orgs/<organization_id>`
 

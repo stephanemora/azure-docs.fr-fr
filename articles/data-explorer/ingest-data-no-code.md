@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 04/07/2019
 ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262905"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Didacticiel : Ingérer des données dans Azure Data Explorer sans une seule ligne de code
@@ -268,7 +268,7 @@ Les journaux de diagnostic Azure permettent d’exporter des métriques vers un 
 
 1. Créez un hub d’événements à l’aide d’un modèle Azure Resource Manager dans le portail Azure. Pour suivre le reste des étapes de l’article, cliquez avec le bouton droit sur le bouton **Déployer sur Azure**, puis sélectionnez **Ouvrir dans une nouvelle fenêtre**. Le bouton **Déployer sur Azure** vous permet d’accéder au Portail Azure.
 
-    [![DBouton Déployer sur Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Bouton Déployer sur Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Créez un espace de noms Event Hubs ainsi qu’un hub d’événements pour les journaux de diagnostic.
 
@@ -286,7 +286,7 @@ Les journaux de diagnostic Azure permettent d’exporter des métriques vers un 
     | **Nom du groupe de consommateurs** | *adxpipeline* | Créez un nom de groupe de consommateurs. Les groupes de consommateurs permettent que chacune des applications de consommation ait une vue distincte du flux d’événements. |
     | | |
 
-## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>Connecter les journaux Azure Monitor à votre hub d’événements
+## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>Connecter les journaux d’activité Azure Monitor à votre hub d’événements
 
 Vous devez maintenant connecter vos journaux de diagnostic et vos journaux d’activité au hub d’événements.
 
@@ -368,7 +368,7 @@ Vous devez maintenant créer les connexions de données pour vos journaux de dia
     |---|---|---|
     | **Nom de la connexion de données** | *DiagnosticsLogsConnection* | Nom de la connexion que vous souhaitez créer dans l’Explorateur de données Azure.|
     | **Espace de noms du hub d’événements** | *AzureMonitoringData* | Nom choisi précédemment qui identifie votre espace de noms. |
-    | **Event Hub** | *diagnosticlogsdata* | Hub d’événements que vous avez créé. |
+    | **Hub d’événements** | *diagnosticlogsdata* | Hub d’événements que vous avez créé. |
     | **Groupe de consommateurs** | *adxpipeline* | Groupe de consommateurs défini dans le hub d’événements que vous avez créé. |
     | | |
 
@@ -397,7 +397,7 @@ Répétez les étapes décrites dans la section « Créer la connexion de donn�
     |---|---|---|
     | **Nom de la connexion de données** | *ActivityLogsConnection* | Nom de la connexion que vous souhaitez créer dans l’Explorateur de données Azure.|
     | **Espace de noms du hub d’événements** | *AzureMonitoringData* | Nom choisi précédemment qui identifie votre espace de noms. |
-    | **Event Hub** | *insights-operational-logs* | Hub d’événements que vous avez créé. |
+    | **Hub d’événements** | *insights-operational-logs* | Hub d’événements que vous avez créé. |
     | **Groupe de consommateurs** | *$Default* | Groupe de consommateurs par défaut. Si nécessaire, vous pouvez créer un autre groupe de consommateurs. |
     | | |
 
@@ -460,4 +460,4 @@ Résultats de la requête :
 Consultez l’article suivant pour apprendre à écrire de nombreuses autres requêtes sur les données extraites à partir d’Azure Data Explorer :
 
 > [!div class="nextstepaction"]
-> [Rédiger des requêtes pour l’Explorateur de données Azure](write-queries.md)
+> [Écrire des requêtes pour l’Explorateur de données Azure](write-queries.md)

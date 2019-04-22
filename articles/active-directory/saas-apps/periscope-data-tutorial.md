@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275536"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617884"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Didacticiel : Intégration d’Azure Active Directory à Periscope Data
 
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Periscope Data à Azure AD, vous devez ajouter Periscope Data, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-**Pour ajouter Periscope Data à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Periscope Data à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -136,7 +136,7 @@ Pour configurer l’authentification unique Azure AD auprès de Periscope Data,
 
     d. Recherchez la balise **SingleLogoutService** et collez la valeur de **Location** (Emplacement) dans la zone de texte **SLO URL** (URL SLO).
 
-    e. Copiez la valeur de **Identifier** (Identificateur) pour votre instance et collez-la dans la zone de texte  **Identificateur (ID d’entité)** de la section **Configuration SAML de base** du portail Azure.
+    e. Copiez la valeur de **Identifier** (Identificateur) pour votre instance et collez-la dans la zone de texte **Identificateur (ID d’entité)** de la section **Configuration SAML de base** du portail Azure.
 
     f. Recherchez la première balise du fichier XML, copiez la valeur de **entityID** et collez-la dans la zone de texte **Issuer** (Émetteur).
 
@@ -203,7 +203,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Periscope Data, vous devez les provisionner dans Periscope Data. Dans Periscope Data, le provisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à Periscope Data en tant qu’administrateur.
 

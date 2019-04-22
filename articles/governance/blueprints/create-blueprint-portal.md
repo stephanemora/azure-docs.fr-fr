@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 598df72bf9c37b8687e2122813609e165ae8c2fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260661"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505683"
 ---
 # <a name="define-and-assign-a-blueprint-in-the-portal"></a>Définir et affecter un blueprint dans le portail
 
@@ -41,116 +41,117 @@ La première étape de la définition d’un modèle standard à des fins de con
 
    ![Créer un blueprint à partir de la page de définitions de blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Dans **Nom du blueprint**, fournissez un nom tel que **MyBlueprint** (vous pouvez utiliser jusqu’à 48 lettres et chiffres, mais pas d’espaces ni de caractères spéciaux). Laissez le champ **Description du blueprint** vide pour l’instant. 
-   
+1. Dans **Nom du blueprint**, fournissez un nom tel que **MyBlueprint** (vous pouvez utiliser jusqu’à 48 lettres et chiffres, mais pas d’espaces ni de caractères spéciaux). Laissez le champ **Description du blueprint** vide pour l’instant.
+
 1. Dans la zone **Emplacement de définition**, sélectionnez les points de suspension à droite, sélectionnez le [groupe d’administration](../management-groups/overview.md) ou l’abonnement dans lequel enregistrer le blueprint, puis choisissez **Sélectionner**.
 
 1. Vérifiez que les informations sont correctes. Une fois définis, les champs **Nom du blueprint** et **Emplacement de définition** ne peuvent plus être modifiés. Ensuite, sélectionnez **Suivant : Artefacts** en bas de la page ou sur l’onglet **Artefacts** en haut de la page.
 
-1. Ajoutez une attribution de rôle au niveau de l’abonnement : 
+1. Ajoutez une attribution de rôle au niveau de l’abonnement :
 
-   a. Sélectionnez la ligne **+ Ajouter un artefact** située sous **Abonnement**. La fenêtre **Ajouter un artefact** s’ouvre sur la droite. 
-   
-   b. Sélectionnez **Attribution de rôle** comme **Type d’artefact**. 
-   
-   c. Sous **Rôle**, sélectionnez **Contributeur**. N’entrez rien dans le champ **Ajouter un utilisateur, une application ou un groupe** sous lequel la case cochée indique qu’il s’agit d’un paramètre dynamique. 
-   
-   d. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
+   1. Sélectionnez la ligne **+ Ajouter un artefact** située sous **Abonnement**. La fenêtre **Ajouter un artefact** s’ouvre sur la droite.
+
+   1. Sélectionnez **Attribution de rôle** comme **Type d’artefact**.
+
+   1. Sous **Rôle**, sélectionnez **Contributeur**. N’entrez rien dans le champ **Ajouter un utilisateur, une application ou un groupe** sous lequel la case cochée indique qu’il s’agit d’un paramètre dynamique.
+
+   1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 
    ![Attribution de rôle pour un artefact de blueprint](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > La plupart des artefacts prennent en charge les paramètres. Un paramètre auquel une valeur est affectée durant la création du blueprint est un *paramètre statique*. Si la valeur est attribuée au paramètre durant l’affectation du blueprint, il s’agit d’un *paramètre dynamique*. Pour plus d’informations, consultez [Paramètres de blueprint](./concepts/parameters.md).
 
-1. Ajoutez une attribution de stratégie au niveau de l’abonnement : 
+1. Ajoutez une attribution de stratégie au niveau de l’abonnement :
 
-   a. Sélectionnez la ligne **+ Ajouter un artefact** sous l’artefact d’attribution de rôle. 
-   
-   b. Sélectionnez **Attribution de stratégie** comme **Type d’artefact**. 
-   
-   c. Définissez le **Type** sur **Intégré**. Dans la zone **Recherche**, entrez **étiquette**. 
-   
-   d. Cliquez en dehors de la fonction **Rechercher** pour que le filtrage se produise. Sélectionnez **Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources**. 
-   
-   e. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
+   1. Sélectionnez la ligne **+ Ajouter un artefact** sous l’artefact d’attribution de rôle.
 
-1. Sélectionnez la ligne d’attribution de stratégie  **Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources**. 
+   1. Sélectionnez **Attribution de stratégie** comme **Type d’artefact**.
+
+   1. Définissez le **Type** sur **Intégré**. Dans la zone **Recherche**, entrez **étiquette**.
+
+   1. Cliquez en dehors de la fonction **Rechercher** pour que le filtrage se produise. Sélectionnez **Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources**.
+
+   1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
+
+1. Sélectionnez la ligne d’attribution de stratégie  **Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources**.
 
 1. La fenêtre permettant de paramétrer l’artefact dans le cadre de la définition du blueprint s’ouvre. Vous définissez ainsi des paramètres statiques pour toutes les affectations basées sur ce blueprint (les paramètres dynamiques étant définis durant l’affectation). Cet exemple utilise des paramètres dynamiques durant l’affectation du blueprint. Veillez donc à conserver les valeurs par défaut et à sélectionner **Annuler**.
 
-1. Ajoutez un groupe de ressources au niveau de l’abonnement : 
+1. Ajoutez un groupe de ressources au niveau de l’abonnement :
 
-   a. Sélectionnez la ligne **+ Ajouter un artefact** située sous **Abonnement**. 
-   
-   b. Sélectionnez **Groupe de ressources** comme **Type d’artefact**. 
-   
-   c. Laissez les champs **Nom complet de l’artefact**, **Nom du groupe de ressources** et **Emplacement** vides, mais cochez la case de chaque propriété de paramètre pour en faire des paramètres dynamiques. 
-   
-   d. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
+   1. Sélectionnez la ligne **+ Ajouter un artefact** située sous **Abonnement**.
 
-1. Ajoutez un modèle sous le groupe de ressources : 
+   1. Sélectionnez **Groupe de ressources** comme **Type d’artefact**.
 
-   a. Sélectionnez la ligne **+ Ajouter un artefact** sous l’entrée **ResourceGroup**. 
-   
-   b. Sélectionnez **Modèle Azure Resource Manager** comme **type d’artefact**, définissez **Nom complet de l’artefact** sur la valeur **StorageAccount**, et laissez le champ **Description** vide. 
-   
-   c. Sous l’onglet **Modèle** dans la zone de l’éditeur, collez le modèle Resource Manager suivant. Après avoir collé le modèle, sélectionnez l’onglet **Paramètres** et notez que les paramètres du modèle **storageAccountType** et **location** ont été détectés. Chaque paramètre est automatiquement détecté et renseigné, mais configuré en tant que paramètre dynamique. 
-   
-   > [!IMPORTANT]
-   > Si vous importez le modèle, vérifiez que le fichier est uniquement au format JSON et qu’il ne contient pas de code HTML. Quand vous pointez vers une URL GitHub, vérifiez que vous avez bien sélectionné **RAW** pour obtenir le fichier JSON pur et non celui qui a été wrappé avec du code HTML à des fins d’affichage sur GitHub. Si le modèle importé n’est pas entièrement au format JSON, une erreur se produit.
+   1. Laissez les champs **Nom complet de l’artefact**, **Nom du groupe de ressources** et **Emplacement** vides, mais cochez la case de chaque propriété de paramètre pour en faire des paramètres dynamiques.
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "storageAccountType": {
-               "type": "string",
-               "defaultValue": "Standard_LRS",
-               "allowedValues": [
-                   "Standard_LRS",
-                   "Standard_GRS",
-                   "Standard_ZRS",
-                   "Premium_LRS"
-               ],
-               "metadata": {
-                   "description": "Storage Account type"
-               }
-           },
-           "location": {
-               "type": "string",
-               "defaultValue": "[resourceGroups('ResourceGroup').location]",
-               "metadata": {
-                   "description": "Location for all resources."
-               }
-           }
-       },
-       "variables": {
-           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-       },
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts",
-           "name": "[variables('storageAccountName')]",
-           "location": "[parameters('location')]",
-           "apiVersion": "2018-07-01",
-           "sku": {
-               "name": "[parameters('storageAccountType')]"
-           },
-           "kind": "StorageV2",
-           "properties": {}
-       }],
-       "outputs": {
-           "storageAccountName": {
-               "type": "string",
-               "value": "[variables('storageAccountName')]"
-           }
-       }
-   }
-   ```
+   1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 
-   d. Décochez la case **storageAccountType** et notez que la liste déroulante contient uniquement les valeurs incluses dans le modèle Resource Manager sous **allowedValues**. Cochez la case pour redéfinir le paramètre en paramètre dynamique. 
-   
-   e. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
+1. Ajoutez un modèle sous le groupe de ressources :
+
+   1. Sélectionnez la ligne **+ Ajouter un artefact** sous l’entrée **ResourceGroup**.
+
+   1. Sélectionnez **Modèle Azure Resource Manager** comme **type d’artefact**, définissez **Nom complet de l’artefact** sur la valeur **StorageAccount**, et laissez le champ **Description** vide.
+
+   1. Sous l’onglet **Modèle** dans la zone de l’éditeur, collez le modèle Resource Manager suivant.
+      Après avoir collé le modèle, sélectionnez l’onglet **Paramètres** et notez que les paramètres du modèle **storageAccountType** et **location** ont été détectés. Chaque paramètre est automatiquement détecté et renseigné, mais configuré en tant que paramètre dynamique.
+
+      > [!IMPORTANT]
+      > Si vous importez le modèle, vérifiez que le fichier est uniquement au format JSON et qu’il ne contient pas de code HTML. Quand vous pointez vers une URL GitHub, vérifiez que vous avez bien sélectionné **RAW** pour obtenir le fichier JSON pur et non celui qui a été wrappé avec du code HTML à des fins d’affichage sur GitHub. Si le modèle importé n’est pas entièrement au format JSON, une erreur se produit.
+
+      ```json
+      {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+              "storageAccountType": {
+                  "type": "string",
+                  "defaultValue": "Standard_LRS",
+                  "allowedValues": [
+                      "Standard_LRS",
+                      "Standard_GRS",
+                      "Standard_ZRS",
+                      "Premium_LRS"
+                  ],
+                  "metadata": {
+                      "description": "Storage Account type"
+                  }
+              },
+              "location": {
+                  "type": "string",
+                  "defaultValue": "[resourceGroup().location]",
+                  "metadata": {
+                      "description": "Location for all resources."
+                  }
+              }
+          },
+          "variables": {
+              "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+          },
+          "resources": [{
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[variables('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                  "name": "[parameters('storageAccountType')]"
+              },
+              "kind": "StorageV2",
+              "properties": {}
+          }],
+          "outputs": {
+              "storageAccountName": {
+                  "type": "string",
+                  "value": "[variables('storageAccountName')]"
+              }
+          }
+      }
+      ```
+
+   1. Décochez la case **storageAccountType** et notez que la liste déroulante contient uniquement les valeurs incluses dans le modèle Resource Manager sous **allowedValues**. Cochez la case pour redéfinir le paramètre en paramètre dynamique.
+
+   1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 
    ![Modèle Resource Manager pour l’artefact de blueprint](./media/create-blueprint-portal/add-resource-manager-template.png)
 
@@ -172,16 +173,16 @@ Dans [Créer un blueprint](#create-a-blueprint), vous n’avez pas fourni de des
 
 1. Sélectionnez **Suivant : Artefacts** en bas de la page ou sur l’onglet **Artefacts** en haut de la page.
 
-1. Ajoutez une attribution de rôle sous le groupe de ressources : 
+1. Ajoutez une attribution de rôle sous le groupe de ressources :
 
-   a. Sélectionnez la ligne **+ Ajouter un artefact** directement sous l’entrée **ResourceGroup**. 
-   
-   b. Sélectionnez **Attribution de rôle** comme **Type d’artefact**. 
-   
-   c. Sous **Rôle**, sélectionnez **Propriétaire**, puis décochez la case située sous le champ **Ajouter un utilisateur, une application ou un groupe**. 
-   
-   d. Recherchez puis sélectionnez un utilisateur, une application ou un groupe à ajouter. Cet artefact utilise un paramètre statique qui sera défini de la même manière dans toutes les affectations de ce blueprint. 
-   
+   1. Sélectionnez la ligne **+ Ajouter un artefact** directement sous l’entrée **ResourceGroup**.
+
+   1. Sélectionnez **Attribution de rôle** comme **Type d’artefact**.
+
+   1. Sous **Rôle**, sélectionnez **Propriétaire**, puis décochez la case située sous le champ **Ajouter un utilisateur, une application ou un groupe**.
+
+   1. Recherchez puis sélectionnez un utilisateur, une application ou un groupe à ajouter. Cet artefact utilise un paramètre statique qui sera défini de la même manière dans toutes les affectations de ce blueprint.
+
    e. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 
    ![Deuxième attribution de rôle pour l’artefact de blueprint](./media/create-blueprint-portal/add-role-assignment-2.png)
@@ -217,15 +218,15 @@ Une fois publié, vous pouvez affecter le blueprint à un abonnement. Affectez l
 
    Si des offres Entreprise prises en charge sont disponibles à partir de [Facturation Azure](../../billing/index.md), un lien **Créer** est activé sous la zone **Abonnement**. Procédez comme suit :
 
-   a. Sélectionnez le lien **Créer** pour créer un abonnement au lieu d’en sélectionner un existant.
+   1. Sélectionnez le lien **Créer** pour créer un abonnement au lieu d’en sélectionner des existants.
 
-   b. Indiquez le **nom complet** du nouvel abonnement.
+   1. Indiquez le **nom complet** du nouvel abonnement.
 
-   c. Sélectionnez l’**offre** disponible dans la liste déroulante.
+   1. Sélectionnez l’**offre** disponible dans la liste déroulante.
 
-   d. Utilisez le bouton de sélection pour sélectionner le [groupe d’administration](../management-groups/index.md) dont l’abonnement sera enfant.
+   1. Utilisez le bouton de sélection pour sélectionner le [groupe d’administration](../management-groups/index.md) dont l’abonnement sera enfant.
 
-   e. Au bas de la page, sélectionnez **Créer**.
+   1. Au bas de la page, sélectionnez **Créer**.
 
    ![Créer un abonnement pour une affectation de blueprint](./media/create-blueprint-portal/assignment-create-subscription.png)
 
@@ -254,7 +255,8 @@ Une fois publié, vous pouvez affecter le blueprint à un abonnement. Affectez l
 1. Pour **ResourceGroup**, entrez **StorageAccount** comme **Nom**, puis choisissez **USA Est 2** comme **Emplacement** dans la liste déroulante.
 
    > [!NOTE]
-   > Chaque artefact ajouté sous le groupe de ressources durant la définition du blueprint est mis en retrait de façon à être aligné sur le groupe de ressources ou l’objet avec lequel il sera déployé. Les artefacts qui ne prennent pas de paramètres, ou qui n’ont pas de paramètres devant être définis au moment de l’affectation, sont uniquement listés dans le but de fournir des informations contextuelles.
+   > Chaque artefact ajouté sous le groupe de ressources durant la définition du blueprint est mis en retrait de façon à être aligné sur le groupe de ressources ou l’objet avec lequel il sera déployé.
+   > Les artefacts qui ne prennent pas de paramètres, ou qui n’ont pas de paramètres devant être définis au moment de l’affectation, sont uniquement listés dans le but de fournir des informations contextuelles.
 
 1. Dans le modèle Azure Resource Manager **StorageAccount**, sélectionnez **Standard_GRS** comme paramètre **storageAccountType**.
 
@@ -294,7 +296,8 @@ Si vous n’avez plus besoin d’une affectation de blueprint, vous pouvez la su
 1. Cliquez avec le bouton droit sur le blueprint à supprimer, puis sélectionnez **Supprimer le blueprint**. Ensuite, sélectionnez **Oui** dans la boîte de dialogue de confirmation.
 
 > [!NOTE]
-> Avec cette méthode, la suppression d’un blueprint entraîne également la suppression de toutes ses versions publiées. Pour supprimer une seule version, ouvrez le blueprint, sélectionnez l’onglet **Versions publiées**, sélectionnez la version à supprimer, puis sélectionnez **Supprimer cette version**. En outre, vous ne pouvez pas supprimer un blueprint tant que vous n’avez pas supprimé toutes les affectations de cette définition de blueprint.
+> Avec cette méthode, la suppression d’un blueprint entraîne également la suppression de toutes ses versions publiées.
+> Pour supprimer une seule version, ouvrez le blueprint, sélectionnez l’onglet **Versions publiées**, sélectionnez la version à supprimer, puis sélectionnez **Supprimer cette version**. En outre, vous ne pouvez pas supprimer un blueprint tant que vous n’avez pas supprimé toutes les affectations de cette définition de blueprint.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

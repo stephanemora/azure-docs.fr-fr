@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 60ec322758a3c3b83e7b24cfba37daaec02fc4c0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270827"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Igloo Software
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’Igloo Software à Azure AD, vous devez ajouter Igloo Software à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Igloo Software à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Igloo Software à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,9 +106,9 @@ Pour configurer l’authentification unique Azure AD avec Igloo Software, effect
 
     ![Informations d’authentification unique dans Domaine et URL Igloo Software](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<company name>.igloocommmunities.com`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.igloocommmunities.com`.
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company name>.igloocommmunities.com/saml.digest`
+    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<company name>.igloocommmunities.com/saml.digest`
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<company name>.igloocommmunities.com/saml.digest`
 

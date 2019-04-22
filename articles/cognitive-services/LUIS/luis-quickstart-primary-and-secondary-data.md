@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100290"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526562"
 ---
-# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutoriel : Extraire des noms avec une entité simple et une liste d’expressions
+# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Didacticiel : Extraire des noms avec une entité simple et une liste d’expressions
 
 Dans ce tutoriel, vous allez extraire les données de nom de poste de travail issues du machine learning à partir d’un énoncé utilisant l’entité **Simple**. Pour augmenter la précision de l’extraction, ajoutez une liste d’expressions dont les termes sont spécifiques à l’entité simple.
 
@@ -48,7 +48,7 @@ L’entité simple est appropriée pour ce type de données quand :
 * Les données ne sont pas bien formées comme peut l’être une expression régulière.
 * Les données ne sont pas courantes, comme une entité prédéfinie de numéro de téléphone ou de données.
 * Les données ne correspondent pas exactement à une liste de mots connus, par exemple, une entité de liste.
-* Les données ne contiennent pas d’autres éléments de données comme une entité composite ou une entité hiérarchique.
+* Les données ne contiennent pas d’autres éléments de données comme une entité composite ou des rôles contextuels.
 
 Par exemple, examinez les énoncés suivants provenant d’un bot conversationnel :
 

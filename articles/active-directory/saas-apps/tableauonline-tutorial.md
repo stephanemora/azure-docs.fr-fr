@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278103"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617301"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Didacticiel : Intégration d’Azure Active Directory dans Tableau Online
 
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Tableau Online à Azure AD, vous devez ajouter Tableau Online à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Tableau Online à partir de la galerie, procédez comme suit :**
+**Pour ajouter Tableau Online à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Tableau Online, proc�
 
     a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez l’URL : `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez l’URL suivante : `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
     > [!NOTE]
     > Vous obtiendrez la valeur `<entityid>` à partir de la section **Configurer Tableau Online** de ce didacticiel. La valeur d’ID d’entité sera la valeur **Identificateur Azure AD** figurant dans la section **Configurer Tableau Online**.
@@ -144,7 +144,7 @@ Pour configurer l’authentification unique Azure AD avec Tableau Online, proc�
   
     a. Dans le portail Azure, accédez à la page d’intégration de l’application **Tableau Online**.
 
-    b. Dans la section **Attributs et revendications de l’utilisateur****, cliquez sur l’icône de modification.
+    b. Dans la section **Attributs et revendications de l’utilisateur**, cliquez sur l’icône de modification.
 
    ![Configurer l'authentification unique](./media/tableauonline-tutorial/attributesection.png)
 
@@ -189,7 +189,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple, BrittaSimon\@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 

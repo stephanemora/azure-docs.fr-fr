@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 30eedd982fa0536ce45506c159de6d04132e9a14
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493995"
 ---
 # <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>Sécuriser les communications du client d’OPC et OPC PLC
@@ -92,7 +92,7 @@ La raison de l’échec est que le certificat n’est pas approuvé. Cela signif
     
 1. Accédez à la [site Web OPC coffre](https://opcvault.azurewebsites.net/).
 
-1. Sélectionnez `Register New`
+1. Sélectionnez `Register New`.
 
 1. Entrez les informations de OPC PLC entre les sorties de journal `CreateSigningRequest information` zone dans les champs d’entrée sur le `Register New OPC UA Application` page, sélectionnez `Server` comme ApplicationType.
 

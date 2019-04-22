@@ -15,53 +15,89 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 63ce2be847017ed7e80fe5e573d5553311f6af2f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae9d52e4a26825e4318a6afb8aadc86ac29fa2b3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107676"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677831"
 ---
-# <a name="use-notebooks-to-hunt-for-anomalies"></a>Utiliser des blocs-notes pour la recherche d’anomalies
+# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Utiliser des blocs-notes Jupyter pour rechercher les menaces de sécurité
 
 > [!IMPORTANT]
-> Sentinel Azure est actuellement en version préliminaire publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Sentinel est actuellement disponible en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Sentinel Azure tire parti de la puissance de bloc-notes interactives Jupyter pour fournir un aperçu et les actions d’approfondir ou de recherche d’anomalies de sécurité au sein de votre environnement. Sentinel Azure est préinstallé avec les ordinateurs portables qui ont été développées par les analystes de sécurité de Microsoft. Chaque bloc-notes est spécialement conçus avec un flux de travail autonome pour un cas d’usage spécifiques. Visualisations sont incluses dans chaque bloc-notes pour l’exploration de données plus rapide et de chasse de menace. Vous personnalisez les notebooks intégrés pour répondre à vos besoins, de créer de nouveaux ordinateurs portables à partir de zéro ou d’importer des ordinateurs portables à partir de l’Azure Sentinel' Communauté GitHub. Les blocs-notes Jupyter sont importés en tant que projet dans la page Azure Notebooks – Cela permet aux utilisateurs à accéder à tous leurs blocs-notes Azure Sentinel au même endroit. Ordinateurs portables peuvent être exécutés avec un clic sur un bouton ou peuvent être configurés par l’utilisateur pour correspondre à leur environnement.
+La Fondation Sentinel Azure est le magasin de données ; Il combine les hautes performances de requêtes, le schéma dynamique et s’adapte aux volumes de données importants. Le portail Azure Sentinel et tous les outils Azure Sentinel utilisent une API commune pour accéder à ce magasin de données. La même API est également disponible pour les outils externes tels que [Jupyter](https://jupyter.org/) notebooks et Python. Bien que de nombreuses tâches courantes peuvent être effectuées dans le portail, Jupyter étend la portée de ce que vous pouvez faire avec ces données. Il combine la programmabilité complète avec une vaste collection de bibliothèques pour l’analyse de la machine learning, de visualisation et de données. Ces attributs rendent Jupyter un outil incontournable pour l’enquête de sécurité et de chasse.
 
-L’expérience entièrement intégrée permet les blocs-notes à exécuter sur le Cloud de calcul et de stockage sans aucune surcharge de maintenance sous-jacent. La possibilité de tirer parti de l’écosystème de blocs-notes Jupyter existant vous permet de modèles de source de réactions, sans partager les données client. 
+![Bloc-notes de l’exemple](./media/notebooks/sentinel-nb-mapandtimeline.png)
 
+Nous avons intégré l’expérience de Jupyter dans le portail Azure Sentinel, ce qui rend facile créer et exécuter des ordinateurs portables pour analyser vos données. Le *Kqlmagic* bibliothèque fournit le lien qui vous permet de prendre des requêtes dans Azure Sentinel et les exécuter directement à l’intérieur d’un bloc-notes. Les requêtes utilisent le [langage de requête Kusto](https://kusto.azurewebsites.net/docs/query/index.html). Plusieurs notebooks, développés par certains des analystes de sécurité de Microsoft, sont empaquetés avec Azure Sentinel. Certaines de ces ordinateurs portables sont pour un scénario spécifique et peut être utilisées en tant que-est. D’autres sont des exemples pour illustrer les techniques et les fonctionnalités que vous pouvez copier ou de s’adapter à utiliser vos propres blocs-notes. Autres blocs-notes peuvent également être importées à partir de la Communauté Azure Sentinel GitHub.
 
-Chaque bloc-notes est hébergé sur les blocs-notes Azure (actuellement en version préliminaire), un environnement de développement interactif dans le cloud Azure. Les blocs-notes sont toujours accessibles, toujours disponible à partir de n’importe quel navigateur, n’importe où dans le monde entier.  Le Azure Sentinel' notebooks intégrés d’investigation et de chasse sont clonés dans un projet qui vous appartient et que vous pouvez modifier et adapter à votre environnement. Les blocs-notes intégrées les plus populaires sont notamment :
+Utilise l’expérience intégrée de Jupyter [Azure Notebooks](https://notebooks.azure.com/) pour stocker, partager et exécuter des ordinateurs portables. Vous pouvez également exécuter ces blocs-notes localement (si vous avez un environnement Python et Jupyter sur votre ordinateur) ou dans d’autres environnements JupterHub tels que Azure Databricks.
 
-- **Alerte d’investigation et de chasse**: Ce bloc-notes interactif permet un triage rapide de différentes classes d’alertes en récupérant des activités connexes et enrichir l’alerte avec l’activité associée et des données à partir de laquelle l’alerte a été générée.
+Blocs-notes possèdent deux composants :
 
-- **Hôte du point de terminaison guidée chasse**: Vous permet de recherche pour rechercher des signes de violation de la sécurité en explorant les activités pertinentes de sécurité associées à un hôte de point de terminaison.  
+- l’interface basée sur navigateur où vous entrez et exécutez des requêtes et code, et où les résultats de l’exécution sont affichés.
+- un *noyau* qui est responsable de l’analyse et l’exécution du code lui-même. 
 
-- **Office connectez-vous guidée chasse**: Vous permet de recherche pour les connexions suspectes en visualisant des emplacements géographiques de journaux suspects, ainsi que d’affichage de connexion inhabituelles dérivés des données d’Office 365.
+Dans les blocs-notes Azure, ce noyau s’exécute sur Azure *de calcul Cloud gratuit et de stockage* par défaut. Si vos blocs-notes incluent des modèles d’apprentissage automatique complexes ou des visualisations vous devez envisager d’utiliser plus puissante, dédié des ressources de calcul tels que [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (DSVM). Les blocs-notes dans votre compte restent privées, sauf si vous choisissez de les partager.
+
+Les blocs-notes Azure Sentinel utilisent de nombreuses bibliothèques Python populaires telles que pandas, matplotlib, bokeh et autres. Il existe un très grand nombre d’autres packages Python de votre choix, couvrant des domaines tels que :
+
+- visualisations et des graphiques
+- traitement des données et analyse
+- statistiques et des calculs numériques
+- apprentissage automatique et l’apprentissage profond
+
+Nous avons également publié des outils de sécurité open source Jupyter dans un package nommé [msticpy](https://github.com/Microsoft/msticpy/). Ce package est utilisé dans la plupart des ordinateurs portables inclus. Msticpy outils conçus spécialement pour faciliter la création d’ordinateurs portables de chasse et enquête et nous travaillons activement à améliorations et nouvelles fonctionnalités.
+
+Les blocs-notes initiales sont les suivantes :
+
+- **Guidée par un examen - traiter les alertes**: Vous permet de trier rapidement les alertes en analysant l’activité sur l’ou les hôtes affecté.
+- **Guidée chasse - l’Explorateur Windows hôte**: Vous permet d’Explorer les activités de compte, les exécutions de processus, l’activité réseau et autres événements sur un ordinateur hôte.  
+- **Guidée chasse - Explorer-Office 365**: Recherche d’activité suspecte de Office 365 dans plusieurs jeux de données Office 365.
+
+Le [Azure Sentinel Communauté référentiel](https://github.com/Azure/Azure-Sentinel) est l’emplacement de n’importe quel bloc-notes Azure Sentinel futures créée par Microsoft ou fourni par la Communauté.
 
 ## <a name="run-a-notebook"></a>Exécuter une instance notebook
-Dans l’exemple suivant, nous exécutons le bloc-notes intégré à rechercher approfondie approfondissement des anomalies d’emplacement pour voir si tout le monde dans un emplacement inattendu fait quelque chose sur votre réseau.
 
-1. Dans le portail Azure Sentinel, cliquez sur **blocs-notes** , puis sélectionnez un des ordinateurs portables intégrés.
+Dans l’exemple suivant, nous créer un projet Azure Notebooks à partir du portail Azure Sentinel, remplissage du projet avec les blocs-notes. Avant d’utiliser ces ordinateurs portables, il est judicieux d’effectuer une copie de l’ordinateur portable et travailler sur la copie. Travail sur des copies vous permet d’en toute sécurité mettre à jour vers les versions ultérieures d’ordinateurs portables sans remplacer un de vos données.
+
+1. Dans le portail Azure Sentinel, cliquez sur **blocs-notes** dans le menu de navigation. Pour créer un nouveau projet Azure Notebooks, cliquez sur **Clone Azure Sentinel Notebooks** ou cliquez sur les projets pour ouvrir vos blocs-notes existants **accédez à vos blocs-notes**.
   
-   ![Sélectionnez le bloc-notes](./media/notebooks/select-notebook.png)
+   ![Sélectionnez les ordinateurs portables](./media/notebooks/sentinel-az-notebooks-home.png)
 
-3. Cliquez sur **importation** pour cloner le référentiel GitHub dans votre projet Azure Notebooks.
-   ![Bloc-notes d’importation](./media/notebooks/import1.png)
-4. Chaque bloc-notes vous guide tout au long des étapes d’exécution d’une recherche ou une enquête. Modèles, bibliothèques et autres dépendances et la configuration pour la connectivité à Azure Sentinel est automatiquement importé pour permettre l’exécution d’un seul clic. Tout code et les bibliothèques nécessaires à l’exécution d’un bloc-notes sont préchargées. Vous pouvez commencer immédiatement un bloc-notes en cours d’exécution par rapport à votre espace de travail Analytique de journal sans aucune configuration.
+2. Si vous avez choisi **Clone Azure Sentinel Notebooks** à l’étape précédente, la boîte de dialogue suivante s’affiche. Cliquez sur **importation** pour cloner le référentiel GitHub dans votre projet Azure Notebooks. Si vous n’avez pas un compte Azure Notebooks existant, vous devrez en créer une et connectez-vous.
 
-   ![Importation de dépôt](./media/notebooks/import2.png)
+   ![Bloc-notes d’importation](./media/notebooks/sentinel-nb-signin-and-clone.png)
 
-5. Explorez, modifier et exécuter tous les exemples de notebooks fournis. Ces peuvent être utilisés en tant que blocs de construction pour de nombreux scénarios différents.
+3. Lorsque vous créez un nouveau projet, vous devez nommer le projet - utiliser le nom par défaut ou le type dans un autre. Ne cochez pas la **cloner récursivement** option - cette option fait référence à des dépôts GitHub liés. En cliquant sur **importation** démarre le clonage du contenu de GitHub, qui peut prendre quelques minutes.
 
-   ![Sélectionnez le bloc-notes](./media/notebooks/import3.png)
+   ![Bloc-notes d’importation](./media/notebooks/sentinel-create-nb-project.png)
 
+4. Ouvrez le **blocs-notes** dossier pour afficher les ordinateurs portables. Chaque bloc-notes vous guide à travers les étapes pour effectuer une recherche ou d’une enquête. Bibliothèques et autres dépendances requises par l’ordinateur portable peuvent être installés à partir du bloc-notes lui-même ou via une procédure de configuration simple. Configuration qui lie votre projet portable à votre abonnement Azure Sentinel est automatiquement configurée dans les étapes précédentes. Vos blocs-notes sont prêts à exécuter par rapport à votre espace de travail Analytique de journal Azure Sentinel.
 
+   ![Importation de dépôt](./media/notebooks/sentinel-open-notebook1.png)
+
+5. Ouvrez un bloc-notes. Calcul gratuite est sélectionnée par défaut pour exécuter les blocs-notes (mis en surbrillance). Si vous avez configuré une machine virtuelle DSVM pour utiliser (voir ci-dessus), sélectionnez la machine virtuelle DSVM et s’authentifier avant d’ouvrir le bloc-notes en premier. Cliquez sur un ordinateur portable pour l’ouvrir.
+
+   ![Sélectionnez le bloc-notes](./media/notebooks/sentinel-open-notebook2.png)
+
+6. Sélectionner la version de Python. Lorsque vous ouvrez un bloc-notes pour la première fois, il peut vous invite à sélectionner une version de noyau. Si ce n’est pas le cas, sélectionnez le noyau à utiliser comme suit. Python 3.6 ou ultérieure doit être le noyau sélectionné (en haut à droite de la fenêtre du bloc-notes).
+
+   ![Sélectionnez le bloc-notes](./media/notebooks/sentinel-select-kernel.png)
+
+Pour une présentation rapide de l’interrogation des données dans Azure Sentinel, examinez le [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) bloc-notes dans le dossier principal de blocs-notes. Vous trouverez des exemples supplémentaires de bloc-notes dans le **des exemples de bloc-notes** sous-dossier. Les exemples de notebooks ont été enregistrées avec des données, afin qu’il soit plus facile de voir la sortie prévue (nous vous recommandons de les afficher dans [nbviewer](https://nbviewer.jupyter.org/)). Le **procédures** dossier contient des ordinateurs portables décrivant, par exemple : paramètre version de Python par défaut, configurez une machine virtuelle DSVM, création Sentinel Azure crée des signets à partir d’un ordinateur portable et les autres sujets.
+
+Ces ordinateurs portables sont conçus en tant que les deux outils utiles et illustrations et les exemples de code que vous pouvez utiliser dans le développement de vos propres blocs-notes.
+
+Nous apprécions vos commentaires, si des suggestions, des demandes de fonctionnalités, contribué blocs-notes, les rapports de bogues ou les améliorations et les ajouts aux blocs-notes existants. Accédez à la [Azure Sentinel Communauté GitHub](https://github.com/Azure/Azure-Sentinel) pour créer un problème ou une branche et de télécharger une contribution.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez appris comment exécuter une investigation de chasse à l’aide de notebooks dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, consultez les articles suivants :
+
+Dans cet article, vous avez appris à bien démarrer avec les blocs-notes Jupyter dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
 - [Recherche de façon proactive les menaces](hunting.md)
 - [Utiliser des signets pour enregistrer des informations intéressantes lors de la recherche](bookmarks.md)

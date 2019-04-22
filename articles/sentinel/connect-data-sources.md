@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a1c74f0ed9fd9b9abccfb7c2762cadf948c8fce0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884793"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492360"
 ---
 # <a name="connect-data-sources"></a>Connecter des sources de données
 
@@ -34,16 +34,16 @@ Pour intégrer Azure Sentinel, vous devez d’abord vous connecter à vos source
 
 ![Collecteurs de données](./media/collect-data/collect-data-page.png)
 
-## <a name="data-collection-methods"></a>Méthodes de collecte des données
+## <a name="data-connection-methods"></a>Méthodes de connexion de données
 
-Les méthodes de collecte de données suivantes sont prises en charge par Azure Sentinel :
+Les méthodes de connexion de données suivantes sont prises en charge par Azure Sentinel :
 
 - **Services Microsoft** :<br> Les services Microsoft sont connectés en mode natif. En tirant parti de la base Azure une intégration prête à l’emploi, les solutions suivantes peuvent être connectées en quelques clics :
     - [Office 365](connect-office-365.md)
     - [Journaux d’audit et infos d’identification Azure AD](connect-azure-active-directory.md)
     - [Activité Azure](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Centre de sécurité Azure](connect-azure-security-center.md)
+    - [Azure Security Center](connect-azure-security-center.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Advanced Threat Protection](connect-azure-atp.md)
     - [Cloud App Security](connect-cloud-app-security.md)
@@ -52,7 +52,7 @@ Les méthodes de collecte de données suivantes sont prises en charge par Azure 
 
 - **Solutions externes via API** : Certaines sources de données sont connectées à l’aide d’API fournies par la source de données connectée. En général, la plupart des technologies de sécurité fournissent un ensemble d’API par le biais duquel les journaux des événements peuvent être récupérés. Les API se connectent à Azure Sentinel, collectent des types de données spécifiques et les envoient à Azure Log Analytics. Les appliances connectées via une API sont les suivantes :
     - [Barracuda](connect-barracuda.md)
-    - Symantec
+    - [Symantec](connect-symantec.md)
 - **Solutions externes via un agent** : Sentinel Azure peut être connecté à toute source de données capable d’effectuer une diffusion en continu de journal en temps réel à l’aide du protocole Syslog, via un agent. <br>La plupart des appliances utilisent le protocole Syslog pour envoyer des messages d’événement incluant le journal proprement dit et des données sur le journal. Le format des journaux varie, mais la plupart des appliances prennent en charge la norme CEF (Common Event Format). <br>L’agent Sentinel Azure, qui est basé sur l’agent OMS, convertit les journaux de format CEF dans un format que Log Analytics peut ingérer. Selon le type d’appliance, l’agent est installé directement sur l’appliance ou sur un serveur Linux dédié. L’agent pour Linux reçoit des événements du démon Syslog en utilisant le protocole UDP mais, dans les cas où une machine Linux est supposée collecter un volume important d’événements Syslog, ceux-ci sont envoyés, en utilisant le protocole TCP, du démon Syslog à l’agent, puis de celui-ci à Log Analytics.
     - Pare-feu, proxys et points de terminaison :
         - [F5](connect-f5.md)

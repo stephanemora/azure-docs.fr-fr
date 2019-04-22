@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264860"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Didacticiel : Intégration d’Azure Active Directory à iPass SmartConnect
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de iPass SmartConnect à Azure AD, vous devez ajouter iPass SmartConnect, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter iPass SmartConnect à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter iPass SmartConnect à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -221,7 +221,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans i
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-**Pour tester l’application dans le flux lancé par le fournisseur de services, effectuez les étapes suivantes :**
+**Pour tester l’application dans le flux initié par SP, procédez comme suit :**
 
 a. Téléchargez le client iPass SmartConnect Windows [ici](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
 
@@ -239,7 +239,7 @@ d. Entrez le nom d’utilisateur Azure et le domaine. Cliquez sur **Continuer**.
 
 e. Une fois l’authentification effectuée, l’activation du client démarre. Le client est activé.
 
-**Pour tester l’application dans le flux lancé par le fournisseur d’identité, effectuez les étapes suivantes :**
+**Pour tester l’application dans le flux initié par IdP, procédez comme suit :**
 
 a. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com).
 

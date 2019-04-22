@@ -16,10 +16,10 @@ ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 05127e8ecfe68b4cb6330f838f252557bbd5e11d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272697"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Didacticiel : Intégration d’Azure Active Directory à Cisco Webex
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Cisco Webex, effectuez
 
     ![Informations d’authentification unique dans Domaine et URL Cisco Webex](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL comme : `https://web.ciscospark.com/#/signin`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL comme `https://web.ciscospark.com/#/signin`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://idbroker.webex.com/<Org Id>`
 
@@ -265,4 +265,4 @@ Le fait de cliquer sur la vignette Cisco Webex dans le panneau d’accès doit v
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configurer l’approvisionnement des utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial) 
+- [Configurer l’approvisionnement de l’utilisateur](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial) 

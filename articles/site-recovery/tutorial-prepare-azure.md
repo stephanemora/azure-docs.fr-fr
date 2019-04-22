@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e826bd965281d60cb6d73f325fbc5a7a06da234
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358491"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617411"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Préparer les ressources Azure pour la récupération d’urgence de machines locales
 
@@ -54,7 +54,7 @@ Pour effectuer ces tâches, le rôle prédéfini de contributeur de machines vir
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
-1. Dans le portail Azure, cliquez sur **Créer une ressource** et recherchez **Recovery Services** dans la Place de marché.
+1. Dans le portail Azure, cliquez sur **+ Créer une ressource** et recherchez **Recovery** dans la Place de marché.
 2. Cliquez sur **Backup and Site Recovery (OMS)**, puis dans la page éponyme, cliquez sur **Créer**. 
 1. Dans le **coffre Recovery Services** > **Nom**, entrez un nom convivial permettant d’identifier le coffre. Pour cette série de didacticiels, nous utilisons **ContosoVMVault**.
 2. Dans **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un. Pour ce tutoriel, nous utilisons **contosoRG**.
@@ -70,12 +70,12 @@ Pour effectuer ces tâches, le rôle prédéfini de contributeur de machines vir
 Les machines locales sont répliquées sur des disques managés Azure. Durant le basculement, les machines virtuelles Azure sont créées à partir de ces disques managés et jointes au réseau Azure spécifié dans cette procédure.
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
-2. Laissez **Resource Manager** sélectionné comme modèle de déploiement.
+2. Laissez **Resource Manager** sélectionné en tant que modèle de déploiement.
 3. Dans **Nom**, entrez un nom de réseau. Le nom doit être unique au sein du groupe de ressources Azure. Dans ce tutoriel, nous utilisons **ContosoASRnet**.
 4. Spécifiez le groupe de ressources dans lequel le réseau sera créé. Nous utilisons le groupe de ressources existant **contosoRG**.
-5. Dans **Plage d’adresses**, entrez la plage du réseau. Nous utilisons **10.0.0.0/24** sans utiliser de sous-réseau.
+5. Dans **Plage d’adresses**, entrez la plage du réseau. Nous utilisons **10.1.0.0/24** sans utiliser de sous-réseau.
 6. Dans **Abonnement**, sélectionnez l’abonnement dans lequel créer le réseau.
-7. Dans **Emplacement**, sélectionnez la même région que celle dans laquelle le coffre Recovery Services a été créé. Dans notre tutoriel, il s’agit de la région **Europe Ouest**.  Ce réseau doit se trouver dans la même région que le coffre.
+7. Dans **Emplacement**, sélectionnez la même région que celle dans laquelle le coffre Recovery Services a été créé. Dans notre tutoriel, il s’agit de la région **Europe Ouest**. Ce réseau doit se trouver dans la même région que le coffre.
 8. Nous laissons les options par défaut de la protection DDoS de base, sans point de terminaison de service sur le réseau.
 9. Cliquez sur **Créer**.
 

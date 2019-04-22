@@ -10,10 +10,10 @@ ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496144"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Développer des opérateurs U-SQL définis par l’utilisateur
@@ -124,5 +124,5 @@ Cet article explique comment développer des opérateurs définis par l’utilis
 2. Développez des exemples, des sorties, puis double-cliquez sur **Drivers.csv**.
 
 ## <a name="see-also"></a>Voir aussi
-* [Extension des Expressions U-SQL avec le Code utilisateur](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
-* [Utiliser Data Lake Tools pour Visual Studio pour le développement d’applications U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
+* [Extension des expressions U-SQL avec le code utilisateur](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
+* [Utiliser les outils Data Lake pour Visual Studio pour le développement d’applications U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

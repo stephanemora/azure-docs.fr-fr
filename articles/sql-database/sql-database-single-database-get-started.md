@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
 author: sachinpMSFT
-ms.author: sachinp
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
-ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/11/2019
+ms.openlocfilehash: a5fbc58feea8779ba8a7a61dfc89158e20bd2c92
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075183"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544276"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Démarrage rapide : créer et interroger une base de données unique dans Azure SQL Database à l’aide du portail Azure
 
@@ -34,51 +34,62 @@ Une base de données comprend un ensemble défini de ressources (capacité de ca
 Pour créer une base de données unique contenant les exemples de données AdventureWorksLT :
 
 1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du portail Azure.
-2. Sélectionnez **Bases de données**, puis **Base de données SQL**.
-3. Dans le formulaire **Créer une base de données SQL**, tapez ou sélectionnez les valeurs suivantes :
+2. Sélectionnez **Bases de données**, puis sélectionnez **Base de données SQL** pour ouvrir la page **Créer une base de données SQL**. 
 
-   - **Nom de la base de données** : Entrez *mySampleDatabase*.
-   - **Abonnement**: Faites défiler la liste et sélectionnez l’abonnement approprié, s’il n’apparaît pas.
-   - **Groupe de ressources** : Sélectionnez **Créer**, entrez *myResourceGroup* et sélectionnez **OK**.
-   - **Sélectionner la source** : Sélectionnez **Sample (AdventureWorksLT)** dans la liste.
-
-     > [!IMPORTANT]
-     > Veillez à sélectionner les données **Exemple (AdventureWorksLT)** pour pouvoir facilement suivre le présent guide ainsi que d’autres articles dédiés à Azure SQL Database qui utilisent ces données.
-  
    ![Créer une base de données unique](./media/sql-database-get-started-portal/create-database-1.png)
 
-4. Sous **Serveur**, sélectionnez **Créer**.
-5. Dans le formulaire **Nouveau serveur**, saisissez ou sélectionnez les valeurs suivantes :
+1. Sous l’onglet **Bases**, dans la section **Détails du projet**, tapez ou sélectionnez les valeurs suivantes :
 
-   - **Nom du serveur** : Entrez *mysqlserver*.
-   - **Connexion administrateur au serveur** : Tapez *azureuser*.
-   - **Mot de passe** : Entrez *Azure1234567*.
-   - **Confirmer le mot de passe** : Retapez le mot de passe.
-   - **Emplacement** : Sélectionnez n’importe quel emplacement valide dans la liste.  
+   - **Abonnement**: Faites défiler la liste et sélectionnez l’abonnement approprié, s’il n’apparaît pas.
+   - **Groupe de ressources** : sélectionnez **Créer**, tapez `myResourceGroup`, puis sélectionnez **OK**.
+
+   ![Nouvelle base de données SQL - Onglet des informations de base](media/sql-database-get-started-portal/new-sql-database-basics.png)
+
+
+1. Dans la section formulaire **Détails de la base de données**, tapez ou sélectionnez les valeurs suivantes : 
+
+   - **Nom de la base de données** : Entrez `mySampleDatabase`.
+   - **Server** (Serveur) : sélectionnez **Créer**, entrez les valeurs suivantes, puis sélectionnez **Sélectionner**. 
+       - **Nom du serveur** : tapez `mysqlserver` ainsi que des chiffres à des fins d’unicité. 
+       - **Connexion administrateur au serveur** : Saisissez `azureuser`.
+       - **Mot de passe** : tapez un mot de passe complexe qui répond aux exigences de mot de passe. 
+       - **Emplacement** : choisissez un emplacement dans la liste déroulante, tel que `West US 2`. 
+
+       ![Nouveau serveur](media/sql-database-get-started-portal/new-server.png)
+
+        > [!IMPORTANT]
+        > Mémorisez votre nom d’utilisateur et mot de passe de connexion d’administrateur au serveur, car vous en aurez besoin pour vous connecter au serveur et aux bases de données dans le cadre de ce guide ou d’autres guides de démarrage rapide. Si vous oubliez votre mot de passe ou vos identifiants de connexion, vous pouvez obtenir le nom de connexion ou réinitialiser le mot de passe sur la page **SQL Server**. Pour ouvrir la page **SQL Server** , sélectionnez le nom du serveur sur la page **Vue d’ensemble** de la base de données une fois cette dernière créée.
+
+      ![Détails de la base de données SQL](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
+
+   - **Vous souhaitez utiliser un pool élastique SQL ?**  : sélectionnez l’option **Non**. 
+   - **Calcul + stockage** : sélectionnez **Configurer la base de données** pour ce guide de démarrage rapide, sélectionnez le niveau de service **Standard** et utilisez le curseur pour sélectionner **10 DTUs (S0)** et **1** Go de stockage. Sélectionnez **Appliquer**. 
+
+    ![Configurer le niveau](media/sql-database-get-started-portal/create-database-s1.png) 
+
+
+      > [!NOTE]
+      > Ce gudie de démarrage rapide utilise le [modèle d’achat DTU](sql-database-service-tiers-dtu.md), mais le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) est également disponible.
+      > [!IMPORTANT]
+      > Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+
+    
+
+
+
+1. Sélectionnez l’onglet **Paramètres supplémentaires**. 
+1. Dans la section **Source de données**, sous **Utiliser des données existantes**, sélectionnez `Sample`. 
+
+   ![Paramètres supplémentaires de la base de données SQL](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
-   > Mémorisez votre nom d’utilisateur et mot de passe de connexion d’administrateur au serveur, car vous en aurez besoin pour vous connecter au serveur et aux bases de données dans le cadre de ce guide ou d’autres guides de démarrage rapide. Si vous oubliez votre mot de passe ou vos identifiants de connexion, vous pouvez obtenir le nom de connexion ou réinitialiser le mot de passe sur la page **SQL Server**. Pour ouvrir la page **SQL Server** , sélectionnez le nom du serveur sur la page **Vue d’ensemble** de la base de données une fois cette dernière créée.
+   > Veillez à sélectionner les données **Exemple (AdventureWorksLT)** pour pouvoir facilement suivre le présent guide ainsi que d’autres articles dédiés à Azure SQL Database qui utilisent ces données.
 
-    ![Créer un serveur](./media/sql-database-get-started-portal/create-database-server.png)
+1. Laissez le reste des valeurs par défaut, puis sélectionnez **Vérifier + créer** en bas du formulaire. 
+1. Passez en revue les paramètres finaux et sélectionnez **Créer**. 
 
-6. Choisissez **Select**.
-7. Sur le formulaire **SQL Database**, sélectionnez **Niveau tarifaire**. Explorez la quantité de DTU et de stockage disponible pour chaque niveau de service.
+8. Sur le formulaire **SQL Database**, sélectionnez **Créer** pour déployer et configurer le groupe de ressources, le serveur et la base de données.
 
-   > [!NOTE]
-   > Ce gudie de démarrage rapide utilise le [modèle d’achat DTU](sql-database-service-tiers-dtu.md), mais le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) est également disponible.
-   > [!IMPORTANT]
-   > Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
-8. Pour ce démarrage rapide, sélectionnez le niveau de service **Standard** et utilisez le curseur pour sélectionner **10 DTU (S0)** et **1** Go de stockage.
-9. Sélectionnez **Appliquer**.  
-
-   ![Sélectionner une tarification](./media/sql-database-get-started-portal/create-database-s1.png)
-
-10. Sur le formulaire **SQL Database**, sélectionnez **Créer** pour déployer et configurer le groupe de ressources, le serveur et la base de données.
-
-    Le déploiement prend quelques minutes. Pour surveiller la progression du déploiement, sélectionnez **Notifications** dans la barre d’outils.
-
-    ![Notification](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>Interroger la base de données
 
@@ -120,5 +131,5 @@ Une fois que vous avez fini d’utiliser ces ressources, vous pouvez les supprim
 - Après avoir créé une règle de pare-feu au niveau du serveur, [connectez et interrogez](sql-database-connect-query.md) votre base de données à l’aide de plusieurs outils et langues différents.
   - [Se connecter et effectuer des requêtes à l’aide de SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Se connecter et effectuer des requêtes à l’aide d’Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Pour créer des bases de données uniques à l’aide d’Azure CLI, consultez [Exemples d’interface de ligne de commande Azure](sql-database-cli-samples.md).
-- Pour créer des bases de données uniques à l’aide d’Azure PowerShell, consultez [Exemples Azure PowerShell](sql-database-powershell-samples.md).
+- Pour créer une base de données unique à l’aide d’Azure CLI, consultez [Exemples d’interface de ligne de commande Azure](sql-database-cli-samples.md).
+- Pour créer une base de données unique à l’aide d’Azure PowerShell, consultez [Exemples Azure PowerShell](sql-database-powershell-samples.md).

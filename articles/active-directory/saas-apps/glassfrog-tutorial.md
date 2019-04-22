@@ -1,191 +1,198 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec GlassFrog | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec GlassFrog | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et GlassFrog.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 7cf5dae6-32d6-418e-8ef2-b2041e686086
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/17/2018
+ms.topic: tutorial
+ms.date: 04/01/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8287a9847632d078d3c724d06c3d581b7bed510c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c2b32d1c96a01282aa8cdbae1d55976a89abea81
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834827"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Didacticiel : Intégration d’Azure Active Directory avec GlassFrog
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer GlassFrog à Azure Active Directory (Azure AD).
-
 L’intégration de GlassFrog à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à GlassFrog.
-- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à GlassFrog (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à GlassFrog.
+* Vous pouvez permettre à vos utilisateurs de se connecter automatiquement à GlassFrog (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à GlassFrog, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement GlassFrog pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
+* Un abonnement GlassFrog pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de GlassFrog à partir de la galerie.
-2. Configuration et test de l’authentification unique Azure AD
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+
+* GlassFrog prend en charge l’authentification unique lancée par le **fournisseur de services**
 
 ## <a name="adding-glassfrog-from-the-gallery"></a>Ajout de GlassFrog à partir de la galerie.
+
 Pour configurer l’intégration de GlassFrog SaaS à Azure AD, vous devez ajouter GlassFrog SaaS à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter GlassFrog à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![image](./media/glassfrog-tutorial/selectazuread.png)
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![image](./media/glassfrog-tutorial/a_select_app.png)
-    
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![image](./media/glassfrog-tutorial/a_new_app.png)
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
 4. Dans la zone de recherche, tapez **GlassFrog**, sélectionnez **GlassFrog** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![image](./media/glassfrog-tutorial/tutorial_glassfrog_addfromgallery.png)
+     ![GlassFrog dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec GlassFrog avec un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur GlassFrog équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur associé dans GlassFrog doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec GlassFrog au moyen d’un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur GlassFrog associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec GlassFrog, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test GlassFrog](#create-a-glassfrog-test-user)** pour avoir dans GlassFrog un équivalent de Britta Simon lié à la représentation Azure AD associée.
+2. **[Configurer l’authentification unique GlassFrog](#configure-glassfrog-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+5. **[Créer un utilisateur de test GlassFrog](#create-glassfrog-test-user)** pour avoir dans GlassFrog un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application GlassFrog.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec GlassFrog, procédez comme suit :**
+Pour configurer l’authentification unique Azure AD avec GlassFrog, effectuez les étapes suivantes :
 
 1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **GlassFrog**, cliquez sur **Authentification unique**.
 
-    ![image](./media/glassfrog-tutorial/b1_b2_select_sso.png)
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, cliquez sur **Sélectionner** pour le mode **SAML** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-    ![image](./media/glassfrog-tutorial/b1_b2_saml_sso.png)
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Sur la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    ![image](./media/glassfrog-tutorial/b1-domains_and_urlsedit.png)
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
+    ![Informations d’authentification unique dans Domaine et URL GlassFrog](common/sp-signonurl.png)
+
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://app.glassfrog.com/people/sso?org_id=<ORGANIZATIONID>`
 
-    ![image](./media/glassfrog-tutorial/tutorial_glassfrog_url.png)
+    > [!NOTE]
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe du support GlassFrog](mailto:support@glassfrog.com) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-    > [!NOTE] 
-    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez [l’équipe du support technique GlassFrog](https://support.glassfrog.com/support/solutions/9000107654) pour obtenir la valeur.
- 
-5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **XML de métadonnées de fédération**, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    ![image](./media/glassfrog-tutorial/tutorial_glassfrog_certificate.png) 
+    ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-6. Pour configurer l’authentification unique côté **GlassFrog**, vous devez envoyer le **XML de métadonnées de fédération** téléchargé à [l’équipe du support technique GlassFrog](mailto:support@alchemy.fr). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+6. Dans la section **Configurer GlassFrog**, copiez la ou les URL appropriées en fonction de vos besoins.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
+    a. URL de connexion
+
+    b. Identificateur Azure AD
+
+    c. URL de déconnexion
+
+### <a name="configure-glassfrog-single-sign-on"></a>Configurer l’authentification unique GlassFrog
+
+Pour configurer l’authentification unique côté **GlassFrog**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées appropriées à partir du portail Azure à l’[équipe du support de GlassFrog](mailto:support@glassfrog.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
 1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-    ![image](./media/glassfrog-tutorial/d_users_and_groups.png)
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
 2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![image](./media/glassfrog-tutorial/d_adduser.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
 3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![image](./media/glassfrog-tutorial/d_userproperties.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le **nom d’utilisateur** type de champ **brittasimon\@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
 
-    c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Sélectionnez **Créer**.
- 
-### <a name="create-a-glassfrog-test-user"></a>Créer un utilisateur de test GlassFrog
-
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans GlassFrog. Collaborez avec l’ [équipe du support technique GlassFrog](https://support.glassfrog.com/support/solutions/9000107654) pour ajouter des utilisateurs dans la plateforme GlassFrog. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+    d. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à GlassFrog.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **GlassFrog**.
 
-    ![image](./media/glassfrog-tutorial/d_all_applications.png)
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
 2. Dans la liste des applications, sélectionnez **GlassFrog**.
 
-    ![image](./media/glassfrog-tutorial/tutorial_glassfrog_app.png)
+    ![Lien GlassFrog dans la liste des applications](common/all-applications.png)
 
 3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
-    ![image](./media/glassfrog-tutorial/d_leftpaneusers.png)
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Sélectionnez le bouton **Ajouter**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![image](./media/glassfrog-tutorial/d_assign_user.png)
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-4. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-5. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+### <a name="create-glassfrog-test-user"></a>Créer un utilisateur de test GlassFrog
+
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans GlassFrog. Collaborez avec l’ [équipe du support technique GlassFrog](mailto:support@glassfrog.com) pour ajouter des utilisateurs dans la plateforme GlassFrog. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+
+### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la mosaïque GlassFrog dans le volet d’accès, vous devez être connecté automatiquement à votre application GlassFrog.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Quand vous cliquez sur la vignette GlassFrog dans le volet d’accès, vous devez être connecté automatiquement à l’application GlassFrog pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

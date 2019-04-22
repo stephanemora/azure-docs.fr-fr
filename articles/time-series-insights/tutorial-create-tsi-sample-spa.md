@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fe8b6113646589e30ff839c8bd47968138d98b03
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312204"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521425"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Didacticiel : Créer une application web monopage Azure Time Series Insights
 
@@ -179,7 +179,7 @@ Avant de générer l’application, vous devez l’inscrire auprès d’Azure AD
 Code d’erreur/condition | Description
 ---------------------| -----------
 *AADSTS50011 : Aucune adresse de réponse n’est inscrite pour l’application.* | Il manque la propriété « URL de réponse » dans l’inscription Azure AD. Accédez à la page **Paramètres** / **URL de réponse** pour votre inscription d’application Azure AD. Vérifiez que l’URL **de connexion** spécifiée à l’étape 3 de [Inscrire l’application auprès d’Azure AD](#register-the-application-with-azure-ad) est présente. 
-*AADSTS50011 : L’URL de réponse spécifiée dans la requête ne correspond pas aux URL de réponse configurées pour l’application : « <Application ID GUID> ».* | Le `postLogoutRedirectUri` spécifié à l’étape 4.b de [Générer et publier l’application web](#build-and-publish-the-web-application), doit correspondre à la valeur spécifiée sous la propriété **Paramètres** / **URL de réponse** dans votre inscription d’application Azure AD. Veillez à modifier également l’**URL de destination** pour utiliser `https`, conformément à l’étape 5.e de la section [Générer et publier l’application web](#build-and-publish-the-web-application).
+*AADSTS50011 : L’URL de réponse spécifiée dans la requête ne correspond pas aux URL de réponse configurées pour l’application : '\<GUID de l’ID d’application>'.* | Le `postLogoutRedirectUri` spécifié à l’étape 4.b de [Générer et publier l’application web](#build-and-publish-the-web-application), doit correspondre à la valeur spécifiée sous la propriété **Paramètres** / **URL de réponse** dans votre inscription d’application Azure AD. Veillez à modifier également l’**URL de destination** pour utiliser `https`, conformément à l’étape 5.e de la section [Générer et publier l’application web](#build-and-publish-the-web-application).
 L’application web charge, mais comporte une page de connexion textuelle non mise en forme et un arrière-plan blanc. | Vérifiez que les chemins d’accès indiqués dans l’étape 4.a de la section [Générer et publier l’application web](#build-and-publish-the-web-application) sont corrects. Si l’application web ne trouve pas les fichiers .css, la page ne sera pas mise en forme correctement.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

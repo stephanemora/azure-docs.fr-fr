@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b0d9e4fad61195118c92c047340f2cd4d9e20f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480683"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523356"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Windows affectée par le système pour accéder à l’API Azure AD Graph
 
@@ -165,7 +165,7 @@ Pour utiliser l’identité managée de machine virtuelle affectée par le syst�
    $AccessToken = $content.access_token
    ```
 
-5. À l’aide de l’ID d’objet du principal de service de l’identité de votre machine virtuelle (vous pouvez récupérer cette valeur à partir de la variable déclarée dans les étapes précédentes : ``$ManagedIdentitiesServicePrincipal.ObjectId``), vous pouvez interroger l’API Azure AD Graph pour récupérer ses appartenances aux groupes. Remplacez <OBJECT ID> par l’ID d’objet de l’étape précédente et <ACCESS-TOKEN> par le jeton d’accès obtenu précédemment :
+5. À l’aide de l’ID d’objet du principal de service de l’identité de votre machine virtuelle (vous pouvez récupérer cette valeur à partir de la variable déclarée dans les étapes précédentes : ``$ManagedIdentitiesServicePrincipal.ObjectId``), vous pouvez interroger l’API Azure AD Graph pour récupérer ses appartenances aux groupes. Remplacez `<OBJECT ID>` par l’ID d’objet de l’étape précédente et <`ACCESS-TOKEN>` par le jeton d’accès obtenu précédemment :
 
    ```powershell
    Invoke-WebRequest 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $AccessToken"} -ContentType "application/json"

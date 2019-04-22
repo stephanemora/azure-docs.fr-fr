@@ -16,10 +16,10 @@ ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
 ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045643"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Didacticiel : Superviser un cluster Service Fabric dans Azure
@@ -40,7 +40,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * Superviser un cluster
 > * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Suppression d'un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Supprimer un cluster](service-fabric-tutorial-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -75,7 +75,7 @@ L’image ci-dessus montre la page d’accueil de la solution Service Fabric Ana
  Si vous avez activé des diagnostics lors de la création du cluster, vous pouvez voir les événements pour le 
 
 * [Événements de cluster Service Fabric](service-fabric-diagnostics-event-generation-operational.md)
-* [Événements du modèle de programmation Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+* [Événements du modèle de programmation Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Événements du modèle de programmation Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
@@ -494,7 +494,7 @@ Dans ce tutoriel, vous avez appris à :
 
 Maintenant, passez au tutoriel suivant pour savoir comment mettre à l’échelle un cluster.
 > [!div class="nextstepaction"]
-> [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
+> [Mise à l'échelle d'un cluster](service-fabric-tutorial-scale-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 [template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: b439b702fb5ae4990c8c31838fe9677cb882d2a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7a17c695482f2e9c8158c437c9c40c0abcb07e67
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546309"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616286"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et C#
 
@@ -24,14 +24,17 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 ## <a name="prerequisites"></a>Prérequis
 
 * N’importe quelle édition de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Le framework [Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.
+* Pour installer `Newtonsoft.Json` en tant que package NuGet dans Visual Studio :
+    1. Dans votre Explorateur de solutions, cliquez avec le bouton droit sur le fichier Solution.
+    1. Sélectionnez **Gérer les packages NuGet pour la solution**.
+    1. Recherchez `Newtonsoft.Json` et installez le package.
 * Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Créer et initialiser un projet
 
-1. Créez une solution Console nommée `SpellCheckSample` dans Visual Studio. Ajoutez ensuite les espaces de noms suivants dans le fichier de code principal.
+1. Créez une solution de console nommée `SpellCheckSample` dans Visual Studio. Ajoutez ensuite les espaces de noms suivants dans le fichier de code principal.
     
     ```csharp
     using System;
@@ -52,14 +55,14 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
         {
             static string host = "https://api.cognitive.microsoft.com";
             static string path = "/bing/v7.0/spellcheck?";
-            static string key = "enter your key here";
+            static string key = "<ENTER-KEY-HERE>";
             //text to be spell-checked
             static string text = "Hollo, wrld!";
         }
     }
     ```
 
-3. Créez une variable pour vos paramètres de recherche. Ajoutez votre code de marché à `mkt=` et votre mode de vérification orthographique à `&mode=`.
+3. Créez une variable pour vos paramètres de recherche. Ajoutez le code de votre marché après `mkt=`. Le code du marché correspond au pays depuis lequel vous effectuez la demande. De plus, ajoutez votre mode de vérification orthographique après `&mode=`. Le mode est soit `proof` (détecte la plupart des erreurs d’orthographe et de grammaire) ou `spell` (détecte la plupart des erreurs d’orthographe mais pas autant d’erreurs de grammaire).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -76,10 +79,10 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
         HttpResponseMessage response = new HttpResponseMessage();
-        //...
+        // add the rest of the code snippets here (except for main())...
     }
 
-2. Create the URI for your request by appending your host, path, and parameters. 
+2. Create the URI for your request by appending your host, path, and parameters.
     
     ```csharp
     string uri = host + path + params_;

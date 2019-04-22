@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 602c7385b252daa7db22bd47f43afec3ad072263
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904200"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679344"
 ---
-# <a name="set-up-a-device-template-new-ui-design"></a>Configurer un modèle d’appareil (refonte de l’interface utilisateur)
+# <a name="set-up-a-device-template"></a>Configurer un modèle d’appareil
 
 Un modèle d’appareil est un blueprint qui définit les caractéristiques et les comportements d’un type d’appareil se connectant à une application Azure IoT Central.
 
@@ -197,8 +197,8 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
    ![Formulaire « Configurer l’emplacement » contenant les détails de l’emplacement](./media/howto-set-up-template/locationcloudproperty2.png)
 
    Vous pouvez ajouter un emplacement dans les deux formats suivants :
-   - **Emplacement en tant qu’adresse**
-   - **Emplacement en tant que coordonnées**
+   - **Emplacement sous forme d’adresse**
+   - **Emplacement sous forme de coordonnées**
 
 4. Sélectionnez **Enregistrer**. Un opérateur peut mettre à jour la valeur de l’emplacement dans **Device Explorer**.
 

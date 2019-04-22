@@ -16,10 +16,10 @@ ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f250a5ac5f6fefa099303b033a9687f1a219efd8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262310"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Didacticiel : Intégration d’Azure Active Directory à Bersin
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Bersin à Azure AD, vous devez ajouter Bersin, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Bersin à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Bersin à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD auprès de Bersin, effectue
 
     b. Cliquez sur **Définir des URL supplémentaires**.
 
-    c. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://www.bersin.com/secure/`
+    c. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://www.bersin.com/secure/`
 
 5. Cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes si vous souhaitez configurer l’application en mode lancé par le **fournisseur de services** :
 

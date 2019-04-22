@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec SAP NetWeaver | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec SAP NetWeaver | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP NetWeaver.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a1034a55bc4d516244e11d035f17fcc3b94929
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855637"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523781"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP NetWeaver
 
@@ -135,7 +135,7 @@ Pour configurer l’authentification unique Azure AD auprès de SAP NetWeaver, e
 6. Dans **Provider Name** (nom du fournisseur), remplacez T01122 par `http://T01122`, puis cliquez sur **Save** (Enregistrer).
 
     > [!NOTE]
-    > Par défaut, le nom du fournisseur est au format <sid><client>, mais Azure AD attend le nom au format <protocol>://<name>. Il est donc recommandé de conserver le nom du fournisseur au format https://<sid><client> pour autoriser la configuration de plusieurs moteurs ABAP SAP NetWeaver dans Azure AD.
+    > Par défaut, le nom du fournisseur est au format `<sid><client>`, mais Azure AD attend le nom au format `<protocol>://<name>`. Il est donc recommandé de conserver le nom du fournisseur au format `https://<sid><client>` pour autoriser la configuration de plusieurs moteurs ABAP SAP NetWeaver dans Azure AD.
 
     ![Lien Téléchargement de certificat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
@@ -316,7 +316,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

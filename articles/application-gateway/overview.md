@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 447c5b1e94b848e9e560db1188a767f2040740c0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225533"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546848"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -118,9 +118,12 @@ Pour plus d’informations, consultez [Prise en charge de WebSocket](https://doc
 
 ## <a name="rewrite-http-headers-public-preview"></a>Réécrire les en-têtes HTTP (préversion publique)
 
-Les en-têtes HTTP permettent au client et au serveur de passer des informations supplémentaires avec la requête ou la réponse. La réécriture de ces en-têtes HTTP permet de prendre en charge plusieurs scénarios importants, notamment l’ajout de champs d’en-tête liés à la sécurité comme HSTS/ X-XSS-Protection ou la suppression de champs d’en-tête de réponse pouvant révéler des informations sensibles comme le nom du serveur back-end. 
+Les en-têtes HTTP permettent au client et au serveur de passer des informations supplémentaires dans la requête ou la réponse. La réécriture de ces en-têtes HTTP vous permet d’accomplir plusieurs tâches importantes, comme :
+- L’ajout de champs d’en-tête liés à la sécurité comme HSTS/ X-XSS-Protection
+- La suppression de champs d’en-tête de réponse qui peuvent comprendre des informations sensibles
+- La suppression des informations de port dans les en-têtes X-Forwarded-For
 
-Application Gateway permet désormais de réécrire les en-têtes des requêtes HTTP entrantes et des réponses HTTP sortantes. Vous pouvez ajouter, supprimer ou mettre à jour les en-têtes de requête et de réponse HTTP pendant le déplacement des paquets de requête/réponse entre les pools client et back-end. Vous pouvez réécrire les champs d’en-tête standard (définis dans la [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) et non standard.  
+Application Gateway permet d’ajouter, de supprimer et de mettre à jour les en-têtes de requête et de réponse HTTP pendant le déplacement des paquets de requête et de réponse entre le pool client et le pool back-end. Il permet également d’ajouter des conditions de sorte que les en-têtes spécifiés soient réécrits uniquement lorsque certaines conditions sont remplies.
 
 Pour plus d’informations sur cette fonctionnalité en préversion publique, consultez [Réécrire les en-têtes HTTP](rewrite-http-headers.md).
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 2b3101e747ef70a669ca7f81128cb701aa6d9720
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Didacticiel : Intégration d’Azure Active Directory à SmartLPA
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de SmartLPA à Azure AD, vous devez ajouter SmartLPA à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter SmartLPA à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter SmartLPA à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec SmartLPA, effectuez le
 
     ![Informations d’authentification unique dans Domaine et URL SmartLPA](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<TENANTNAME>.smartlpa.com/`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<TENANTNAME>.smartlpa.com/`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<TENANTNAME>.smartlpa.com/<UNIQUE ID>`
 

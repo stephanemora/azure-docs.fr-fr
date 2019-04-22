@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 61be963f4edc2dc50f176087f2c817c5f485588b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>Didacticiel : Intégration d’Azure Active Directory à PatentSQUARE
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de PatentSQUARE à Azure AD, vous devez ajouter PatentSQUARE à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter PatentSQUARE à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter PatentSQUARE à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec PatentSQUARE, effectue
 
     ![Informations d’authentification unique dans Domaine et URL PatentSQUARE](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<companysubdomain>.pat-dss.com:443/patlics/secure/aad`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companysubdomain>.pat-dss.com:443/patlics/secure/aad`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<companysubdomain>.pat-dss.com:443/patlics`
 

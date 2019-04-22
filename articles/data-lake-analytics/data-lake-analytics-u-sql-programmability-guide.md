@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489654"
 ---
 # <a name="u-sql-programmability-guide"></a>Guide de programmabilité U-SQL
@@ -85,7 +85,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Utiliser des expressions C# pour la date du jour
 
-Pour extraire la date d’aujourd'hui, nous pouvons utiliser ce qui suit C# expression : `DateTime.Now.ToString("M/d/yyyy")`
+Pour extraire la date du jour, nous pouvons utiliser l’expression C# suivante : `DateTime.Now.ToString("M/d/yyyy")`
 
 Voici un exemple montrant comment utiliser cette expression dans un script :
 
@@ -533,9 +533,9 @@ L’interface `IFormatter` sérialise et désérialise un graphique d’objets a
 
 * **Sérialiser** : sérialise un objet, ou graphe d’objet, avec la racine donnée dans le flux fourni.
 
-`MyType` Instance : instance du type.  
-`IColumnWriter` enregistreur / `IColumnReader` lecteur : flux de colonne sous-jacent.  
-`ISerializationContext` contexte : énumération définissant un jeu d’indicateurs qui spécifie le contexte source ou cible pour le flux pendant la sérialisation.
+Instance `MyType` : instance du type.  
+Enregistreur `IColumnWriter` / Lecteur `IColumnReader` : flux de colonne sous-jacent.  
+Contexte `ISerializationContext` : énumération définissant un jeu d’indicateurs qui spécifie le contexte source ou cible pour le flux pendant la sérialisation.
 
 * **Intermediate** : spécifie que le contexte source ou cible n’est pas un magasin persistant.
 
@@ -1267,7 +1267,7 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output` est appelée pour chaque ligne d’entrée. Il retourne l’ensemble de lignes `IUnstructuredWriter output`.
+* `Output` est appelé pour chaque ligne d’entrée. Il retourne l’ensemble de lignes `IUnstructuredWriter output`.
 * La classe de constructeur est utilisée pour transmettre des paramètres au générateur de sortie défini par l’utilisateur.
 * `Close` est utilisé pour un remplacement éventuel pour libérer d’un état coûteux ou déterminer quand la dernière ligne a été écrite.
 

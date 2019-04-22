@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00c5ed3e3ea5c083f727d06c2ed305fe35ed03db
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994949"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523322"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Prendre en main la fonctionnalité Service d’exploration des connaissances
 
@@ -252,7 +252,7 @@ Lorsque vous avez créé le service cloud, vous pouvez utiliser [`kes.exe deploy
 
 [Remplacez](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) les contenus de l’emplacement de préproduction par ceux de l’emplacement de production pour que le trafic en direct soit désormais dirigé vers le service nouvellement déployé. Vous pouvez répéter ce processus lors du déploiement d’une version mise à jour du service avec de nouvelles données. Comme avec tous les autres services cloud Azure, vous pouvez éventuellement utiliser le Portail Azure pour configurer [mise à l’échelle automatique](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
 
-Dans cet exemple, vous déployez l’index *Academic* à l’emplacement de préproduction d’un service cloud existant avec les machines virtuelles *< vm_size >*. Utilisez la commande suivante :
+Dans cet exemple, vous déployez l’index *Academic* à l’emplacement de préproduction d’un service cloud existant avec les machines virtuelles *\<vm_size>*. Utilisez la commande suivante :
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 

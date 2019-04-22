@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007608"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548549"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application ASP.NET
 
@@ -32,7 +32,7 @@ Dans ce démarrage rapide, vous allez apprendre comment implémenter la connexio
 À la fin de ce démarrage rapide, votre application acceptera les connexions des comptes professionnels et scolaires d’organisations disposant d’une intégration à Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Si vous devez activer les connexions pour les comptes personnels en plus des comptes professionnels et scolaires, vous pouvez utiliser le [point de terminaison v2.0](azure-ad-endpoint-comparison.md). Pour plus d’informations, consultez [ce didacticiel ASP.NET pour le point de terminaison v2.0](tutorial-v2-asp-webapp.md) ainsi que [cet article](active-directory-v2-limitations.md) expliquant les limitations actuelles du point de terminaison v2.0.
+> Si vous devez activer les connexions pour les comptes personnels en plus des comptes professionnels et scolaires, vous pouvez utiliser le *[point de la plateforme d’identités Microsoft](azure-ad-endpoint-comparison.md)*. Pour plus d’informations, consultez [ce tutoriel ASP.NET](tutorial-v2-asp-webapp.md) ainsi que [cet article](active-directory-v2-limitations.md) qui expliquent ce que sont les *points de terminaison de la plateforme d’identités Microsoft*.
 
 ## <a name="prerequisites"></a>Prérequis
 

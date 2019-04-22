@@ -16,10 +16,10 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Didacticiel : Intégration d’Azure Active Directory à Appraisd
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Appraisd, effectuez l
 
     b. Dans la zone de texte **État de relais**, tapez une URL : `<TENANTCODE>`
 
-    c. Pour configurer l’application en mode lancé par le **fournisseur de services**, dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://app.appraisd.com/saml/<TENANTCODE>`
+    c. Si vous souhaitez configurer l’application en mode démarré par le **fournisseur de services**, dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://app.appraisd.com/saml/<TENANTCODE>`
 
     > [!NOTE]
     > Vous obtenez les valeurs d’URL de connexion et d’état de relais réelles dans la page de configuration de l’authentification unique pour Appraisd, comme expliqué plus loin dans le tutoriel.
@@ -242,7 +242,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 Pour se connecter à Appraisd, les utilisateurs Azure AD doivent être attribués dans Appraisd. Dans Appraisd, le provisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à Appraisd en tant qu’administrateur de la sécurité.
 

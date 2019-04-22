@@ -1,7 +1,7 @@
 ---
 title: Rôles de modèle
 titleSuffix: Azure Cognitive Services
-description: Utilisez un modèle pour extraire des données à partir d’un énoncé de modèle au format approprié. L’énoncé de modèle utilise une entité simple et des rôles pour extraire des données associées telles que l’emplacement d’origine et l’emplacement de destination.
+description: Les modèles permettent d’extraire des données à partir d’énoncés de modèle au format approprié. L’énoncé de modèle utilise une entité simple et des rôles pour extraire des données associées telles que l’emplacement d’origine et l’emplacement de destination.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106591"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523272"
 ---
-# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutoriel : Extraire des modèles relatifs au contexte à l’aide rôles
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Didacticiel : Extraire des modèles relatifs au contexte à l’aide de rôles
 
-Dans ce tutoriel, vous allez utiliser un modèle pour extraire des données à partir d’un énoncé de modèle au format approprié. L’énoncé de modèle utilise une entité simple et des rôles pour extraire des données associées telles que l’emplacement d’origine et l’emplacement de destination.  Lorsque vous utilisez des modèles, l’intention nécessite moins d’exemples d’énoncés.
+Dans ce tutoriel, vous allez utiliser un modèle pour extraire des données à partir d’un énoncé de modèle au format approprié. L’énoncé de modèle utilise une [entité simple](luis-concept-entity-types.md#simple-entity) et des [rôles](luis-concept-roles.md) pour extraire des données associées telles que la localisation d’origine et la localisation de destination.  Lorsque vous utilisez des modèles, l’intention nécessite moins d’exemples d’énoncés.
 
 
 **Dans ce tutoriel, vous allez découvrir comment :**
@@ -40,7 +40,7 @@ Dans ce tutoriel, vous allez utiliser un modèle pour extraire des données à p
 
 ## <a name="using-roles-in-patterns"></a>Utilisation de rôles dans les modèles
 
-L’objectif des rôles est extraire les entités liées au contexte d’un énoncé. Dans l’énoncé, les valeurs de ville d’origine (`Move new employee Robert Williams from Sacramento and San Francisco`) et de ville de destination sont liées et utilisent un langage commun pour indiquer chaque emplacement. 
+L’objectif des rôles est d’extraire les entités liées au contexte d’un énoncé. Dans l’énoncé, les valeurs de ville d’origine (`Move new employee Robert Williams from Sacramento and San Francisco`) et de ville de destination sont liées et utilisent un langage commun pour indiquer chaque emplacement. 
 
 
 Le nom du nouvel employé, Billy Patterson, ne fait pas encore partie de l’entité dans la liste des **employés**. Le nom du nouvel employé est d’abord extrait pour être envoyé vers un système externe afin de créer les informations d’identification de l’entreprise. Une fois les informations d’identification de l’entreprise créées, les informations d’identification des employés sont ajoutées à l’entité dans la liste des **employés**.
@@ -373,19 +373,6 @@ Tout comme les noms de personnes, les villes posent parfois problème car elles 
     ```
 
 Le score de l’intention est désormais beaucoup plus élevé, et les noms de rôles font partie de la réponse de l’entité.
-
-## <a name="hierarchical-entities-versus-roles"></a>Rôles et entités hiérarchiques
-
-Dans le [didacticiel hiérarchique](luis-quickstart-intent-and-hier-entity.md), l’intention **MoveEmployee** vous indique quand déplacer un employé existant d’un bâtiment/bureau à un autre. Les exemples d’énoncés contenaient les emplacements d’origine et de destination, mais n’utilisaient pas les rôles. Au lieu de cela, l’origine et la destination étaient des enfants de l’entité hiérarchique. 
-
-Dans ce tutoriel, l’application Ressources humaines détecte les énoncés sur le déplacement des nouveaux employés d’une ville à une autre. Ces deux types d’énoncés sont identiques, mais ils sont résolus avec des capacités LUIS différentes.
-
-|Didacticiel|Exemple d’énoncé|Emplacements d’origine et de destination|
-|--|--|--|
-|[Hiérarchique (aucun rôle)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones de **a-2349** à **b-1298**|a-2349, b-1298|
-|Ce tutoriel (avec des rôles)|Transférer Billy Patterson de **Yuma** vers **Denver**.|Yuma, Denver|
-
-Pour plus d’informations, consultez [Rôles et entités hiérarchiques](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

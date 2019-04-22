@@ -5,7 +5,7 @@ keywords: azure app service, application web, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/11/2018
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43016b3c31a0371f953f758bc7afb53bd1508495
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: da4d246e098751f650eb6315de3794ad957884d6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278511"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543891"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Créer une application ASP.NET Core dans App Service sur Linux
 
@@ -41,7 +41,7 @@ Vous pouvez suivre les étapes de ce article en utilisant un ordinateur Mac, Win
 
 Pour suivre ce guide de démarrage rapide :
 
-* <a href="https://git-scm.com/" target="_blank">Installer Git</a>
+* <a href="https://git-scm.com/" target="_blank">Installez Git</a>
 * <a href="https://www.microsoft.com/net/core/" target="_blank">Installez .NET Core</a>
 
 ## <a name="create-the-app-locally"></a>Créer l’application en local
@@ -148,7 +148,7 @@ L’exemple de code .NET Core s’exécute dans App Service sur Linux avec une i
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Félicitations !** Vous avez déployé votre première application .NET Core sur App Service sur Linux.
+**Félicitations !** Vous avez déployé votre première application .NET Core sur App Service sur Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Mettre à jour et redéployer le code
 
@@ -188,4 +188,7 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Générer une application .NET Core et SQL Database dans Azure App Service sur Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Tutoriel : application ASP.NET Core avec SQL Database](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configurer une application ASP.NET Core](configure-language-dotnetcore.md)
