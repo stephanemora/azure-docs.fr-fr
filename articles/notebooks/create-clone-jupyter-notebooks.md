@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282319"
 ---
 # <a name="create-and-clone-projects"></a>Créer et cloner des projets
@@ -30,19 +30,19 @@ Un projet gère également des métadonnées et d’autres paramètres de config
 
 Votre tableau de bord **Mes projets** sur `https://notebooks.azure.com/<userID>/projects` est l’emplacement où vous affichez, gérez et créez des projets :
 
-[![Mtableau de bord de projets de y dans les blocs-notes Azure](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
+[![Tableau de bord Mes projets dans Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Les actions possibles dans le tableau de bord varient selon si vous êtes connecté avec le compte qui a l’ID utilisateur :
 
 | Commande | Disponible pour | Description |
 | --- | --- | --- |
-| **Exécuter** | Propriétaire | Démarre le serveur de projet et ouvre le dossier de projet dans Jupyter. (En général, vous accédez tout d’abord à un dossier de projet, puis démarrez un notebook à partir de là.) |
-| **Téléchargement** | Tout le monde | Télécharge une copie du projet sélectionné sous la forme d’un fichier ZIP. |
+| **Run** | Propriétaire | Démarre le serveur de projet et ouvre le dossier de projet dans Jupyter. (En général, vous accédez tout d’abord à un dossier de projet, puis démarrez un notebook à partir de là.) |
+| **Télécharger** | Tout le monde | Télécharge une copie du projet sélectionné sous la forme d’un fichier ZIP. |
 | **Partager** | Tout le monde | Affiche la fenêtre contextuelle de partage par le biais de laquelle vous pouvez obtenir une URL vers un projet sélectionné, partager sur les réseaux sociaux, envoyer un e-mail avec l’URL et obtenir le code HTML ou Markdown associé avec un badge « lancement de notebook » (consultez [Obtenir un badge de lancement](#obtain-a-launch-badge)) avec l’URL. |
 | **Supprimer** | Propriétaire | Supprime le projet sélectionné. Il est impossible d’annuler cette opération. |
 | **Terminal** | Propriétaire | Démarre le serveur de projet, puis ouvre une nouvelle fenêtre de navigateur avec le terminal bash pour ce serveur. |
 | **+ Nouveau projet** | Propriétaire | Crée un projet. Consultez [Créer un projet](#create-a-new-project). |
-| **Téléchargez le référentiel GitHub** | Propriétaire | Importe un projet à partir de GitHub. [Importer un projet à partir de GitHub](#import-a-project-from-github). |
+| **Charger un dépôt GitHub** | Propriétaire | Importe un projet à partir de GitHub. [Importer un projet à partir de GitHub](#import-a-project-from-github). |
 | **Cloner** | Tout le monde | Copie un projet sélectionné dans votre propre compte. Vous invite à vous connecter si ce n’est déjà fait. Consultez [Cloner un projet](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Obtenir un badge de lancement
@@ -120,10 +120,10 @@ Pour cloner un projet :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Explorer les exemples de bloc-notes](azure-notebooks-samples.md)
-- [Activation Configurer et gérer des projets](configure-manage-azure-notebooks-projects.md)
-- [Activation Installer des packages à partir d’un bloc-notes](install-packages-jupyter-notebook.md)
-- [Activation Présenter un diaporama](present-jupyter-notebooks-slideshow.md)
-- [Activation Utiliser des fichiers de données](work-with-project-data-files.md)
-- [Activation Accéder aux ressources de données](access-data-resources-jupyter-notebooks.md)
-- [Activation Utiliser Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Explorer des exemples de notebooks](azure-notebooks-samples.md)
+- [Guide pratique pour configurer et gérer des projets](configure-manage-azure-notebooks-projects.md)
+- [Guide pratique pour installer des packages à partir d’un notebook](install-packages-jupyter-notebook.md)
+- [Guide pratique pour présenter un diaporama](present-jupyter-notebooks-slideshow.md)
+- [Guide pratique pour utiliser des fichiers de données](work-with-project-data-files.md)
+- [Guide pratique pour accéder aux ressources de données](access-data-resources-jupyter-notebooks.md)
+- [Guide pratique pour utiliser Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

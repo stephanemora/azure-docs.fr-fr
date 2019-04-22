@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288950"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Didacticiel : Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un bloc-notes Azure Databricks
@@ -205,4 +205,4 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’esp
 
 Passez à l’article suivant pour apprendre à extraire, transformer et charger des données à l’aide d’Azure Databricks.
 > [!div class="nextstepaction"]
-> [Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
+> [Tutoriel : Extraire, transformer et charger des données à l'aide d'Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

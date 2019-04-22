@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
 ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258525"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutoriel : Créer et exécuter un notebook Jupyter avec Python
@@ -128,7 +128,7 @@ Une fois le fichier de données prêt et l’environnement de projet défini, vo
 1. Comme vous avez un fichier *requirements.txt* dans les paramètres d’environnement, vous voyez le message « Waiting for your container to finish being prepared » (Attente de la fin de la préparation de votre conteneur). Vous pouvez sélectionner **OK** pour fermer le message et continuer à travailler dans le notebook ; toutefois, vous ne pouvez pas exécuter les cellules de code tant que l’environnement n’est pas entièrement configuré.
 1. Le notebook s’ouvre dans l’interface Jupyter avec une seule cellule de code vide en tant que valeur par défaut.
 
-    [![Iaffichage initial d’un nouveau bloc-notes dans Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Vue initiale d’un nouveau notebook dans Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Visiter l’interface du notebook
 
@@ -144,7 +144,7 @@ En haut de la fenêtre, vous voyez les éléments suivants :
 (F) Indicateur qui affiche si le notebook est approuvé (la valeur par défaut est **Non approuvé**).
 (G) Noyau utilisé pour exécuter le notebook avec un indicateur d’activité.
 
-[![Pzones d’interface utilisateur de l’interface Jupyter rincipale](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Zones d’interface utilisateur principales de l’interface Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter propose une visite intégrée des principaux éléments d’interface utilisateur. Démarrez la visite en sélectionnant la commande **Help** > **User Interface Tour** (Aide, Visite de l’interface utilisateur) et en cliquant sur plusieurs fenêtres contextuelles à la suite.
 
@@ -421,13 +421,13 @@ Consultez également [Visual Studio Code - Prise en charge de Jupyter](https://c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Explorer les exemples de bloc-notes](azure-notebooks-samples.md)
+- [Explorer des exemples de notebooks](azure-notebooks-samples.md)
 
 Articles de guide pratique :
 
 - [Créer et cloner des projets](create-clone-jupyter-notebooks.md)
 - [Configurer et gérer des projets](configure-manage-azure-notebooks-projects.md)
-- [Installer des packages à partir d’un bloc-notes](install-packages-jupyter-notebook.md)
+- [Installer des packages à partir d’un notebook](install-packages-jupyter-notebook.md)
 - [Présenter un diaporama](present-jupyter-notebooks-slideshow.md)
 - [Utiliser des fichiers de données](work-with-project-data-files.md)
 - [Accéder aux ressources de données](access-data-resources-jupyter-notebooks.md)

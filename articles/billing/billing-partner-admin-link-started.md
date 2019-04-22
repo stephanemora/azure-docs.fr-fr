@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270181"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
@@ -122,11 +122,11 @@ Participez à la discussion dans la [Communauté de partenaires Microsoft](https
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-**Qui peut lier l’ID partenaire ?**
+**Qui peut lier l’ID partenaire ?**
 
 Tout utilisateur de l’organisation partenaire qui gère les ressources Azure du client peut lier l’ID partenaire au compte.
 
-**Un ID de partenaire peut-elle être modifié une fois qu’il est lié ?**
+**Un ID partenaire peut-il être modifié une fois qu’il est lié ?**
 
 Oui. Un ID partenaire lié peut être modifié, ajouté ou supprimé.
 
@@ -134,7 +134,7 @@ Oui. Un ID partenaire lié peut être modifié, ajouté ou supprimé.
 
 Le lien entre l’ID partenaire et le compte est établi pour chaque locataire client. Liez l’ID partenaire dans chaque locataire client.
 
-**Peuvent autres partenaires ou des clients de modifier ou de supprimer le lien vers l’ID partenaire ?**
+**D’autres partenaires ou clients peuvent-ils modifier ou supprimer le lien vers l’ID partenaire ?**
 
 Le lien est associé au niveau du compte d'utilisateur. Vous seul pouvez modifier ou supprimer le lien vers l’ID partenaire. Le client et les autres partenaires ne peuvent pas modifier le lien vers l’ID partenaire. 
 

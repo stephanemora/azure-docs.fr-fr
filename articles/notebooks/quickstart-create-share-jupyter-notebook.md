@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273666"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Démarrage rapide : Créer et partager un notebook
@@ -43,7 +43,7 @@ ms.locfileid: "59273666"
 
 1. Après quelques instants, Azure Notebooks accède au nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+**), puis **Notebook** :
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "Un nouveau projet vide et ajouter des commandes de bloc-notes")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    [![](media/quickstarts/empty-project-new-notebook-button.png "Nouveau projet vide et commande d’ajout de notebook")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
 1. Dans la fenêtre contextuelle **Créer un notebook** qui s’affiche, entrez un nom de fichier pour votre notebook, tel que *HelloWorldInPython.ipynb* (*.ipynb* désigne un notebook IronPython (Jupyter)), puis sélectionnez **Python 3.6** pour le langage (également appelé *noyau*) :
 
@@ -106,4 +106,4 @@ Sur la page des projets, vous pouvez également utiliser le menu **Partager** po
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Didacticiel : créer une exécution d’un bloc-notes Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)
+> [Tutoriel : Créer et exécuter un notebook Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)

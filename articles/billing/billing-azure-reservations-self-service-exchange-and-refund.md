@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/5/2019
 ms.author: banders
 ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281979"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges de libre-service et les remboursements pour les réservations d’Azure
@@ -89,7 +89,7 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
     - [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
     - [Gérer les réservations dans Azure](billing-manage-reserved-vm-instance.md)
     - [Comprendre comment la remise de réservation est appliquée](billing-understand-vm-reservation-charges.md)
-    - [Comprendre l’utilisation de la réservation pour votre abonnement de paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
-    - [Comprendre l’utilisation de la réservation pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md)
-    - [Coûts des logiciels Windows non inclus avec les réservations](billing-reserved-instance-windows-software-costs.md)
-    - [Réservations d’Azure dans le programme partenaire centre Cloud Solution Provider (CSP)](/partner-center/azure-reservations)
+    - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+    - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
+    - [Coûts des logiciels Windows non inclus dans les réservations](billing-reserved-instance-windows-software-costs.md)
+    - [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](/partner-center/azure-reservations)

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
 ms.openlocfilehash: 50e24ce29b5378b3aa930c54824fd444cd823b46
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279888"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Découvrir et utiliser des exemples de notebooks
@@ -37,11 +37,11 @@ Une fois que vous avez identifié un notebook que vous souhaitez explorer, voici
 - [Galerie de notebooks intéressants](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (projet Jupyter sur GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Enseignement de la physique par le [département de physique de l’Imperial College of London](https://notebooks.azure.com/cvanbreu/libraries)
-- [Azure Machine Learning route exemples](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
+- [Exemples de prise en main d’Azure Machine Learning](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Activation Configurer et gérer des projets](configure-manage-azure-notebooks-projects.md)
-- [Activation Utiliser des fichiers de données](work-with-project-data-files.md)
-- [Activation Accéder aux ressources de données](access-data-resources-jupyter-notebooks.md)
-- [Activation Utiliser Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Guide pratique pour configurer et gérer des projets](configure-manage-azure-notebooks-projects.md)
+- [Guide pratique pour utiliser des fichiers de données](work-with-project-data-files.md)
+- [Guide pratique pour accéder aux ressources de données](access-data-resources-jupyter-notebooks.md)
+- [Guide pratique pour utiliser Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

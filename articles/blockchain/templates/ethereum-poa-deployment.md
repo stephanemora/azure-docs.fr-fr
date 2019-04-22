@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274788"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum Proof-of-Authority Consortium
@@ -220,7 +220,7 @@ Abonnement|Abonnement vers lequel vous déployez le réseau de consortium.||N/D
 Groupe de ressources|Groupe de ressources sur lequel déployez le réseau de consortium.||N/D
 Lieu|Région Azure du groupe de ressources.||N/D
 
-Voici un exemple de déploiement : ![Panneau de base](./media/ethereum-poa-deployment/basic-blade.png)
+Voici un exemple de déploiement : ![panneau de base](./media/ethereum-poa-deployment/basic-blade.png)
 
 #### <a name="deployment-regions"></a>Régions de déploiement
 
@@ -237,7 +237,7 @@ Voici une description détaillée de chaque paramètre :
   Quatrième région|Quatrième région dans laquelle déployer le réseau de consortium (visible uniquement lorsque le nombre de régions sélectionné est 4).|Toutes les régions sont autorisées.|N/D
   Cinquième région|Cinquième région dans laquelle déployer le réseau de consortium (visible uniquement lorsque le nombre de régions sélectionné est 5).|Toutes les régions sont autorisées.|N/D
 
-Voici un exemple de déploiement : ![régions de déploiement](./media/ethereum-poa-deployment/deployment-regions.png)
+Voici un exemple de déploiement : ![régions de déploiement](./media/ethereum-poa-deployment/deployment-regions.png)
 
 #### <a name="network-size-and-performance"></a>Taille et performances du réseau
 
@@ -252,9 +252,9 @@ Voici une description détaillée de chaque paramètre :
   Performances de stockage des nœuds de validateur|Type de disque managé prenant en charge chacun des nœuds de validateur déployés.|SSD Standard ou Premium|SSD Standard
   Taille de machine virtuelle du nœud de validateur|Taille de machine virtuelle utilisée pour les nœuds de validateur.|Standard A, Standard D, Standard D-v2, Standard F series, Standard DS et Standard FS|Standard D1 v2
 
-[Tarification – Stockage](https://azure.microsoft.com/pricing/details/managed-disks/)
+[Tarification Azure Storage](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-[Détails de tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+[Détails des tarifs des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 
 Machine virtuelle et le niveau de stockage affecte les performances du réseau.  Nous vous recommandons les références SKU suivantes selon la rentabilité voulue :
 
@@ -264,7 +264,7 @@ Machine virtuelle et le niveau de stockage affecte les performances du réseau. 
   D2_v3|SSD Standard|moyen|moyen|moyenne
   F16s|SSD Premium|élevée|élevée|basse
 
-Voici un exemple de déploiement : ![taille et les performances du réseau](./media/ethereum-poa-deployment/network-size-and-performance.png)
+Voici un exemple de déploiement : ![taille et performances du réseau](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
 #### <a name="ethereum-settings"></a>Paramètres Ethereum
 
@@ -283,7 +283,7 @@ Limite de gaz par bloc (Options avancées = Activer)|Limite de gaz par bloc de d
 Période de rescellage des blocs (s)|Fréquence à laquelle des blocs vides sont créés en l’absence de transaction sur le réseau. Une fréquence supérieure aboutit à une finalité plus rapide, mais avec des coûts de stockage plus élevés.|Toute valeur numérique|15
 Contrat d’autorisation de transaction (Options avancées = Activer)|Bytecode du contrat d’autorisation de transaction. Restreint le déploiement de contrat actives et d’exécution à une liste autorisée des comptes de Ethereum.|Bytecode du contrat|N/D
 
-Voici un exemple de déploiement : ![ethereum paramètres](./media/ethereum-poa-deployment/ethereum-settings.png)
+Voici un exemple de déploiement : ![paramètres ethereum](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>Surveillance
 
@@ -300,7 +300,7 @@ ID d’espace de travail existant log analytique (se connecter à des journaux A
 Clé primaire d’analytique de journal existant (se connecter à des journaux Azure Monitor existants = joindre existant)|La clé primaire est utilisée pour se connecter à l’instance de journaux Azure Monitor existante||N/D
 
 
-Voici un exemple de déploiement : ![azure monitor](./media/ethereum-poa-deployment/azure-monitor.png)
+Voici un exemple de déploiement : ![azure monitor](./media/ethereum-poa-deployment/azure-monitor.png)
 
 #### <a name="summary"></a>Résumé
 

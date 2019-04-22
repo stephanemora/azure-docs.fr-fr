@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: cbd2e456c96dbf8ca01387f0c7c17a1541dbfe55
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052791"
 ---
 # <a name="permissions-in-azure-advisor"></a>Autorisations dans Azure Advisor
@@ -54,4 +54,4 @@ Si vous recevez une erreur lorsque vous tentez de reporter ou ignorer une recomm
 Cet article a fourni une vue d’ensemble de comment l’Assistant utilise RBAC pour contrôler les autorisations utilisateur et comment résoudre les problèmes courants. Pour en savoir plus sur Advisor, consultez les ressources suivantes :
 
 - [Présentation d’Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview)
-- [Prise en main d’Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)
+- [Bien démarrer avec Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)

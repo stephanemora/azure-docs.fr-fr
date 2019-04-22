@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 8c73c55b059b4d3ca7136889122c11ab332b3f76
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270504"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>En tant que fournisseur de solutions cloud, créer et gérer une application Azure IoT Central pour le compte de votre client 
@@ -95,4 +95,4 @@ Vous pouvez choisir un des modèles d’application disponibles pour votre nouve
 Maintenant que vous avez découvert comment créer une application Azure IoT Central en tant que fournisseur de solutions cloud, voici l’étape suivante suggérée :
 
 > [!div class="nextstepaction"]
-> [Gérer votre application](howto-administer.md)
+> [Administrer votre application](howto-administer.md)

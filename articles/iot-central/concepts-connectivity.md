@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425965"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectivité des appareils dans Azure IoT Central
@@ -87,7 +87,7 @@ Les étapes suivantes décrivent comment connecter des appareils à IoT Central 
 
 - Exemple d’implémentation pour [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
-- [Exemple de client de périphérique en C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+- [Exemple de client d’appareil dans C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 
 ### <a name="for-testing-purposes-only"></a>Fins de test uniquement
 
@@ -115,7 +115,7 @@ Les étapes suivantes décrivent ce processus plus en détail. Les étapes diff�
 
     - **Certificats X.509 :** [Ajouter et vérifier le certificat racine/intermédiaire](#connect-devices-using-x509-certificates) et l’utiliser pour générer les certificats de périphérique à l’étape suivante.
     - **SAP :** Copiez la clé primaire. Cette clé est la clé SAS de groupe pour l’application IoT Central. Utilisez la clé pour générer les clés de signature d’accès partagé de périphérique à l’étape suivante.
-    ![Paramètres de connexion SAS](media/concepts-connectivity/connection-settings-sas.png)
+    ![Paramètres de connexion SAP](media/concepts-connectivity/connection-settings-sas.png)
 
 1. Générer vos informations d’identification de l’appareil
     - **Certificats X.509 :** Générer les certificats feuilles pour vos appareils à l’aide du certificat racine ou intermédiaire que vous avez ajouté à votre application IoT Central. Vérifiez que vous utilisez les minuscules **ID d’appareil** en tant que l’enregistrement CNAME dans les certificats feuilles. Pour vous à des fins de tests uniquement, utilisent [outil de ligne de commande](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) pour générer des certificats de l’appareil.
@@ -169,7 +169,7 @@ Chaque appareil se connecte en utilisant une chaîne de connexion unique qui l�
 Toutes les communications des appareils avec IoT Hub utilisent les options de connectivité IoT Hub suivantes :
 
 - [Messages d’appareil-à-cloud](../iot-hub/iot-hub-devguide-messages-d2c.md)
-- [Jumeaux d’appareil](../iot-hub/iot-hub-devguide-device-twins.md)
+- [Représentations d’appareil physique](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Le tableau suivant récapitule à quelles fonctionnalités des appareils Azure IoT Central correspondent les fonctionnalités IoT Hub :
 

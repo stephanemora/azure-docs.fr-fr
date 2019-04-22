@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105299"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489312"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic interne avec un équilibreur de charge de base sur le portail Azure
 
@@ -95,11 +95,10 @@ Créez un équilibreur de charge interne de base à l’aide du portail. Le nom 
     | Groupe de ressources         | Sélectionnez **Créer** et tapez *MyResourceGroupLB* dans la zone de texte.|
     | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
-    | Type          | Sélectionnez **Public**.                                        |
+    | Type          | sélectionnez **Interne**.                                        |
     | SKU           | Sélectionnez **De base**.                          |
     | Réseau virtuel           | Sélectionnez *MyVNet*.                          |    
-| Adresse IP publique | Sélectionnez **Créer nouveau**. |
-    | Affectation d’adresses IP publiques              | Sélectionnez **Statique**.   |
+    | Affectation d’adresses IP              | Sélectionnez **Statique**.   |
     | Adresse IP privée|entrez une adresse qui se trouve dans l'espace d'adressage de votre réseau virtuel et de votre sous-réseau, par exemple *10.3.0.7*.  |
 
 3. Dans l’onglet **Vérifier + créer**, cliquez sur **Créer**. 

@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269484"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Ajouter une couche de symboles à une carte
@@ -79,13 +79,13 @@ Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les a
 > [Ajouter une fenêtre contextuelle](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [Utiliser des expressions de style piloté par les données](data-driven-style-expressions-web-sdk.md)
+> [Utiliser des expressions de style basées sur les données](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter une forme](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de bulles](map-add-bubble-layer.md)
+> [Ajouter une couche de bulles](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter des créateurs HTML](map-add-bubble-layer.md)
+> [Ajouter des marqueurs HTML](map-add-bubble-layer.md)

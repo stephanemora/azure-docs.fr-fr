@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048875"
 ---
 # <a name="tpm-attestation"></a>Attestation TPM
@@ -67,5 +67,5 @@ L’appareil peut ensuite signer un jeton SAP à l’aide de la valeur nonce dé
 
 L’appareil se connecte maintenant à IoT Hub et vous êtes sûr que les clés de vos appareils sont stockées en toute sécurité. Maintenant que vous savez comment le service Device Provisioning vérifie de façon sécurisée l’identité d’un appareil à l’aide d’un TPM, consultez les articles suivants pour en savoir plus :
 
-* [En savoir plus sur tous les concepts de provisionnement automatique](./concepts-auto-provisioning.md)
+* [Concepts de provisionnement automatique](./concepts-auto-provisioning.md)
 * [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) à l’aide de Kits de développement logiciel (SDK) pour prendre en charge le flux.

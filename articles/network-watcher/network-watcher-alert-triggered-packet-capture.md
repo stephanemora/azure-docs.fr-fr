@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048756"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions
@@ -348,11 +348,11 @@ Accédez à une machine virtuelle existante, puis ajoutez une règle d’alerte.
   |---|---|---|
   |**Nom**|TCP_Segments_Sent_Exceeded|Nom de la règle d’alerte.|
   |**Description**|Les segments TCP envoyés ont dépassé le seuil|Description de la règle d’alerte.|
-  |**Métrique**|Segments TCP envoyés| Mesure à utiliser pour déclencher l’alerte. |
+  |**Mesure**|Segments TCP envoyés| Mesure à utiliser pour déclencher l’alerte. |
   |**Condition**|Supérieur à| Condition à utiliser lors de l’évaluation de la mesure.|
   |**Seuil**|100| La valeur de la métrique qui déclenche l’alerte. Cette valeur doit être définie sur une valeur valide pour votre environnement.|
   |**Période**|Dans les cinq dernières minutes| Détermine la période pendant laquelle rechercher le seuil de la mesure.|
-  |**webhook**|[URL du webhook de l’application de fonction]| L’URL du webhook de l’application de fonction créée dans les étapes précédentes.|
+  |**Webhook**|[URL du webhook de l’application de fonction]| L’URL du webhook de l’application de fonction créée dans les étapes précédentes.|
 
 > [!NOTE]
 > Par défaut, la métrique des segments TCP n’est pas activée. Pour en savoir plus sur l’activation de métriques supplémentaires, consultez [Prise en main d’Azure Monitor](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).

@@ -8,10 +8,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358153"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Meilleures pratiques pour utiliser le Service de recherche Azure Maps
@@ -80,7 +80,7 @@ Consultez [couverture du géocodage](https://docs.microsoft.com/azure/azure-maps
 
 Lorsque vous effectuez une recherche de Géocode inverse avec [API recherche d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), le service a la possibilité de retourner les polygones pour les tâches administratives. En ajoutant le paramètre `entityType` de la demande, vous pouvez affiner la recherche de types d’entité géographique spécifiée. La réponse résultante contient l’ID de zone géographique, ainsi que le type d’entité mis en correspondance. Si vous fournissez plusieurs entités, point de terminaison renvoie le **plus petite entité disponible**. Retourné ID de géométrie peut être utilisé pour obtenir la géométrie de la zone géographique via [service d’obtenir le polygone](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
-**Exemple de demande :**
+**Exemple de demande :**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
@@ -136,7 +136,7 @@ Pour rechercher des correspondances plus pour les requêtes partielles, `typeHea
 
 Dans l’exemple de requête ci-dessous, vous pouvez voir que le service de l’adresse de recherche est interrogé pour « Microsoft » avec le `typehead` paramètre défini sur **true**. Si vous observez la réponse, vous pouvez voir que le service de recherche interprété la requête en tant que requête partielle et réponse contient les résultats de requête suggérées automatiquement.
 
-**Exemple de requête :**
+**Exemple de requête :**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
@@ -318,7 +318,7 @@ Pour améliorer la pertinence des résultats et les informations contenues dans 
 
 Nous allons effectuer un [recherche de catégorie POI](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) demande pour stations-services près campus de Microsoft (Redmond, WA). Si vous observez la réponse, vous pouvez voir des informations sur les marques pour chaque point d’intérêt retourné.
 
-**Exemple de requête :**
+**Exemple de requête :**
 
 ```HTTP
 https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
@@ -497,7 +497,7 @@ Pour récupérer uniquement les résultats de point d’intérêt autour d’un 
 
 Nous allons effectuer une requête de recherche d’adresse pour le Azure Maps [service de recherche](https://docs.microsoft.com/rest/api/maps/search) pour une adresse à Seattle. Si vous examinez attentivement l’URL de requête ci-dessous, nous avons défini le `countrySet` paramètre **US** pour rechercher l’adresse dans les États-Unis d’Amérique.
 
-**Exemple de requête :**
+**Exemple de requête :**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US

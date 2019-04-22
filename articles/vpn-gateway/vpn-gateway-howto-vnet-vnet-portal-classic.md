@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046120"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurer une connexion de réseau virtuel à réseau virtuel (classique)
@@ -31,10 +31,10 @@ Cet article vous aide à créer une connexion de passerelle VPN entre des résea
 > [!div class="op_single_selector"]
 > * [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Portail Azure (Classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Se connecter à différents modèles de déploiement - portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [Se connecter à différents modèles de déploiement - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [Interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Portail Azure (classique)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Connexions entre différents modèles de déploiement - Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Connexions entre différents modèles de déploiement - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
@@ -58,7 +58,7 @@ Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivant
 
   * Vous pouvez configurer la géo-réplication ou la synchronisation avec une connectivité sécurisée sans passer par les points de terminaison accessibles sur Internet.
   * Avec l’Azure Load Balancer et les technologies de clustering Microsoft ou tierces, vous pouvez configurer une charge de travail hautement disponible avec la géoredondance dans plusieurs régions Azure. Vous pouvez par exemple configurer SQL Always On avec des groupes de disponibilité répartis dans différentes régions Azure.
-* **Applications multiniveaux régionales avec une forte limite d'isolement**
+* **Applications multiniveaux régionales avec une forte limite d’isolement**
 
   * Dans la même région, vous pouvez configurer des applications multiniveaux avec plusieurs réseaux virtuels interconnectés avec une isolation renforcée et une communication sécurisée entre les niveaux.
 * **Communication interorganisationnelle entre plusieurs abonnements dans Azure**
@@ -78,7 +78,7 @@ Il est important de choisir les plages que vous utiliserez pour configurer vos r
 
 Le tableau suivant présente un exemple de la définition de vos réseaux virtuels. Utilisez les plages comme indication uniquement. Consignez les plages pour vos réseaux virtuels. Vous aurez besoin de ces informations pour les étapes ultérieures.
 
-**Exemples**
+**Exemple**
 
 | Réseau virtuel | Espace d'adressage | Région | Se connecte au site de réseau local |
 |:--- |:--- |:--- |:--- |
@@ -124,7 +124,7 @@ GatewaySubnet : 10.41.1.0/27
 
 * **Emplacement** : lorsque vous créez un réseau virtuel, vous l’associez à un emplacement Azure (région). Par exemple, si vous souhaitez que vos machines virtuelles déployées sur votre réseau virtuel soient physiquement situées dans la région USA Ouest, sélectionnez cet emplacement. Vous ne pouvez pas modifier l’emplacement associé à votre réseau virtuel après sa création.
 
-**Après avoir créé vos réseaux virtuels, vous pouvez ajouter les paramètres suivants :**
+**Une fois vos réseaux virtuels créés, vous pouvez ajouter les paramètres suivants :**
 
 * **Espace d’adressage** : aucun espace d’adressage supplémentaire n’est nécessaire pour cette configuration, mais vous pouvez ajouter un espace d’adressage supplémentaire après avoir créé votre réseau virtuel.
 

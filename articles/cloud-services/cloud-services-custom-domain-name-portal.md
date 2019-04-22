@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267138"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuration d’un nom de domaine personnalisé pour un service cloud Azure
@@ -64,11 +64,11 @@ Pour créer un enregistrement CNAME, vous devez ajouter une nouvelle entrée dan
 
 1. Employez une des méthodes suivantes pour connaître le nom de domaine **.cloudapp.net** attribué à votre service cloud.
 
-   * Connexion à la [Azure portal], sélectionnez votre service cloud, examinez le **vue d’ensemble** section et recherchez le **URL du Site** entrée.
+   * Connexion à la [Portail Azure], sélectionnez votre service cloud, examinez le **vue d’ensemble** section et recherchez le **URL du Site** entrée.
 
        ![section aperçu rapide indiquant l’URL du site][csurl]
 
-       **Ou**
+       **OR**
    * Installez et configurez [Azure Powershell](/powershell/azure/overview), puis utilisez la commande suivante :
 
        ```powershell
@@ -101,7 +101,7 @@ Pour créer un enregistrement A, vous devez tout d’abord connaître l’adres
 
        ![section aperçu rapide illustrant l’adresse IP virtuelle publique][vip]
 
-       **Ou**
+       **OR**
    * Installez et configurez [Azure Powershell](/powershell/azure/overview), puis utilisez la commande suivante :
 
        ```powershell
@@ -131,7 +131,7 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gestion des services cloud](cloud-services-how-to-manage-portal.md)
-* [Comment mapper du contenu CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md)
+* [Mappage du contenu CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).

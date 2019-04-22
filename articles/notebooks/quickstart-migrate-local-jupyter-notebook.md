@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 5ee9970a255928bca9d08111229be6298f20d7b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279276"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Démarrage rapide : Migrer un notebook Jupyter local
@@ -67,4 +67,4 @@ Ce guide de démarrage rapide illustre le processus de migration d’un notebook
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Didacticiel : créer une exécution d’un bloc-notes Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)
+> [Tutoriel : Créer et exécuter un notebook Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)

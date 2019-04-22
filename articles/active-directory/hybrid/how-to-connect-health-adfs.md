@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 92825a9ef84edc30b6b34aa875f8a207c70c8511
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260933"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Surveiller AD FS avec Azure AD Connect Health
@@ -119,6 +119,6 @@ Ce rapport fournit les informations suivantes :
 
 ## <a name="related-links"></a>Liens connexes
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Installation de l'agent Azure AD Connect Health](how-to-connect-health-agent-install.md)
+* [Installation de l’agent Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Rapport d’adresse IP à risque](how-to-connect-health-adfs-risky-ip.md)
 

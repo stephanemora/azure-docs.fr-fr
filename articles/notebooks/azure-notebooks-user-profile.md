@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: b8c21b908ca9162a7e44c7af1e222babc6ee1eb7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265608"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Profil et identifiant utilisateur pour Azure Notebooks
 
 Dans le puissant espace collaboratif d’Azure Notebooks, votre profil utilisateur présente aux autres votre image publique :
 
-[![Apage de profil Azure Notebooks n](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
+[![Une page de profil Azure Notebooks](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 L’identifiant utilisateur fait partie des URL utilisées pour partager des projets et des blocs-notes. La liste suivante décrit les différents modèles d’URL :
 
@@ -63,10 +63,10 @@ Pour modifier votre profil, utilisez la commande **Modifier les informations de 
 | Informations sur le compte | Nom d’affichage, identifiant utilisateur et compte de courrier public. Le compte de courrier représente pour les autres utilisateurs un moyen de vous contacter. Il peut être différent du [compte](azure-notebooks-user-account.md) utilisé pour vous connecter à Azure Notebooks. |
 | Informations de profil | Localisation, entreprise, poste, site web et brève description de vous-même. |
 | Profils sociaux | Identifiants GitHub, Twitter et Facebook, si vous souhaitez les partager. |
-| Paramètres de confidentialité | Deux commandes :<ul><li>**Exporter mon profil** : crée et télécharge un fichier *.zip* contenant toutes les informations qu’Azure Notebooks enregistre dans votre profil, notamment votre photo, vos informations de profil et les journaux de sécurité.</li><li>**Supprimer mon compte** : supprime définitivement toutes vos informations personnelles stockées dans Azure Notebooks.</li></ul> |
+| Paramètres de confidentialité | Deux commandes :<ul><li>**Exporter mon profil** : crée et télécharge un fichier *.zip* contenant toutes les informations qu’Azure Notebooks enregistre dans votre profil, notamment votre photo, vos informations de profil et les journaux d’activité de sécurité.</li><li>**Supprimer mon compte** : supprime définitivement toutes vos informations personnelles stockées dans Azure Notebooks.</li></ul> |
 | Activer les fonctionnalités du site | Permet de contrôler les différents aspects du comportement d’Azure Notebooks :<ul><li>**Front-end unifié pour les blocs-notes** : permet d’accélérer le démarrage des blocs-notes et d’améliorer la persistance.</li><li>**Exécuter dans JupyterLab par défaut** : par défaut, Azure Notebooks propose une interface utilisateur simple, adaptée à la plupart des utilisateurs. JupyterLab offre aux utilisateurs expérimentés une interface plus riche, mais plus compliquée.</li><li>**Site web VNext** : active la mise en page web modernisée indiquée dans cette documentation.</li></ul> |
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
 > [!div class="nextstepaction"]
-> [Didacticiel : créer une exécution d’un bloc-notes Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)
+> [Tutoriel : Créer et exécuter un notebook Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)

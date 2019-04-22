@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006725"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Comprendre les affectations de refus relatives aux ressources Azure
@@ -56,12 +56,12 @@ Cet article explique comment définir des attributions de refus.
 
 ## <a name="system-defined-principal"></a>Principal défini par le système
 
-Le **principal défini par le système** a été introduit pour prendre en charge les affectations de refus. Ce principal représente tous les utilisateurs, groupes, principaux de service et identités managées figurant dans un annuaire Azure AD. Si l’ID du principal est un GUID nul `00000000-0000-0000-0000-000000000000`, et le type de principal `SystemDefined`, le principal représente tous les principaux. `SystemDefined` peut être combiné avec `ExcludePrincipals` pour refuser tous les principaux à l’exception de certains utilisateurs. `SystemDefined` présente les contraintes suivantes :
+Le **principal défini par le système** a été introduit pour prendre en charge les affectations de refus. Ce principal représente tous les utilisateurs, groupes, principaux de service et identités managées figurant dans un annuaire Azure AD. Si l’ID du principal est un GUID nul `00000000-0000-0000-0000-000000000000`, et le type de principal `SystemDefined`, le principal représente tous les principaux. `SystemDefined` peut être combiné avec `ExcludePrincipals` pour refuser tous les principaux, à l’exception de certains utilisateurs. `SystemDefined` présente les contraintes suivantes :
 
 - Il peut être utilisé uniquement dans `Principals` et ne peut pas être utilisé dans `ExcludePrincipals`.
-- `Principals[i].Type` Cette propriété doit être définie sur `SystemDefined`.
+- `Principals[i].Type` doit être défini sur `SystemDefined`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Afficher les affectations de refus pour les ressources Azure à l'aide du portail Azure](deny-assignments-portal.md)
+* [Refuser l’affichage des affectations de ressources Azure à l’aide du portail Azure](deny-assignments-portal.md)
 * [Comprendre les définitions de rôle relatives aux ressources Azure](role-definitions.md)

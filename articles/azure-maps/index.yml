@@ -28,7 +28,7 @@ sections:
             href: /azure/azure-maps/quick-demo-map-app
   - title: Didacticiels pas à pas
     items:
-      - html: <b>Tutoriels sur le kit SDK web</b>
+      - html: <b>Tutoriels sur le SDK web</b>
       - type: paragraph
         text: Créez des applications web géospatiales en utilisant le kit SDK web Azure Maps.
       - type: list

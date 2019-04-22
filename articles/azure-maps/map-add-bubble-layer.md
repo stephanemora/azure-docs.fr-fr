@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281486"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Ajouter une couche de bulles à une carte
@@ -73,7 +73,7 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de symboles](map-add-pin.md)
+> [Ajouter une couche de symboles](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Utiliser des expressions de style piloté par les données](data-driven-style-expressions-web-sdk.md)
+> [Utiliser des expressions de style basées sur les données](data-driven-style-expressions-web-sdk.md)

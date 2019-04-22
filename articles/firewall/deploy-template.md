@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
 ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046272"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Déployer un pare-feu Azure à l’aide d’un modèle
@@ -32,7 +32,7 @@ Pour plus d’informations sur le Pare-feu Azure, consultez [Déployer et config
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-**Pour installer et déployer des pare-feu Azure à l’aide du modèle :**
+**Pour installer et déployer le Pare-feu Azure à l’aide du modèle :**
 
 1. Accédez au modèle sur [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox).
    
@@ -71,4 +71,4 @@ Ne supprimez pas encore le groupe de ressources et le pare-feu si vous voulez co
 Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure :
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Surveillez les journaux de pare-feu Azure](./tutorial-diagnostics.md)
+> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)

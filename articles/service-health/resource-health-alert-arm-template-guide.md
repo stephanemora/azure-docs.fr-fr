@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
 ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047515"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurer les alertes Resource Health à l’aide de modèles Resource Manager
@@ -164,7 +164,7 @@ Pour une étendue au niveau d’une ressource, la section scopes doit se présen
 ],
 ```
 
-Par exemple :  `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+Par exemple : `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Pour obtenir cette chaîne, accédez au portail Azure et recherchez l’URL dans la page de votre ressource Azure.
 
@@ -429,7 +429,7 @@ Toutefois, vous savez mieux que quiconque quelles configurations sont les plus a
 
 En savoir plus sur Resource Health :
 -  [Vue d’ensemble d’Azure Resource Health](Resource-health-overview.md)
--  [Types de ressources et contrôles d’intégrité disponibles via Azure Resource Health](resource-health-checks-resource-types.md)
+-  [Types de ressource et contrôles d’intégrité disponibles par le biais d’Azure Resource Health](resource-health-checks-resource-types.md)
 
 Créer des alertes Service Health :
--  [Configurer des alertes pour l’intégrité du Service](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Configurer des alertes pour Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

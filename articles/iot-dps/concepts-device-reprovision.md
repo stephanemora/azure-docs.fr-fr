@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050847"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Concepts du reprovisionnement d’appareils IoT Hub
@@ -83,11 +83,11 @@ Le tableau suivant répertorie les versions d’API antérieures à la mise à d
 
 | API REST | Kit de développement logiciel (SDK) C | Kit de développement logiciel (SDK) Python |  SDK Node | Kit de développement logiciel (SDK) Java | Kit de développement logiciel (SDK) .NET |
 | -------- | ----- | ---------- | --------- | -------- | -------- |
-| [2018-04-01 et versions antérieures](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 et versions antérieures](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 et versions antérieures](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 ou une version antérieure](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 ou une version antérieure](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 ou une version antérieure](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
+| [2018-04-01 et versions antérieures](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 et versions antérieures](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 et versions antérieures](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 ou version antérieure](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 ou version antérieure](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 ou version antérieure](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
 
 > [!NOTE]
 > Ces valeurs et ces liens sont susceptibles de changer. Il s’agit ici uniquement de tenter de déterminer là où les versions peuvent être définies par un client et les versions attendues.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comment reprovisionner des appareils](how-to-reprovision.md)
+* [Guide pratique pour reprovisionner des appareils](how-to-reprovision.md)

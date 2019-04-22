@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051561"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Créer une instance d’Azure Network Watcher
@@ -108,11 +108,11 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 Maintenant que vous avez une instance de Network Watcher, découvrez les fonctionnalités disponibles :
 
 * [Topologie](network-watcher-topology-overview.md)
-* [Capture de paquet](network-watcher-packet-capture-overview.md)
-* [Vérification du flux IP](network-watcher-ip-flow-verify-overview.md)
+* [Capture de paquets](network-watcher-packet-capture-overview.md)
+* [Vérification des flux IP](network-watcher-ip-flow-verify-overview.md)
 * [Tronçon suivant](network-watcher-next-hop-overview.md)
-* [Vue du groupe de sécurité](network-watcher-security-group-view-overview.md)
+* [Affichage des groupes de sécurité](network-watcher-security-group-view-overview.md)
 * [Journalisation des flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md)
-* [Dépannage de passerelle de réseau virtuel](network-watcher-troubleshoot-overview.md)
+* [Résolution des problèmes de passerelle de réseau virtuel](network-watcher-troubleshoot-overview.md)
 
 Dès qu’une instance de Network Watcher est créée, vous pouvez activer la capture de paquets dans les machines virtuelles. Pour savoir comment faire, consultez [Créer une capture de paquets déclenchée par alerte](network-watcher-alert-triggered-packet-capture.md)

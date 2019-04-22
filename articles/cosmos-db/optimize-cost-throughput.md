@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009765"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
@@ -39,13 +39,13 @@ Voici quelques indications pour choisir une stratégie de débit approvisionné�
 
 4. Au lieu de définir un débit spécifique dans des conteneurs individuels, vous préférez répartir le débit d’agrégat sur un ensemble de conteneurs au sein de la base de données.
 
-**Pensez à approvisionner le débit sur un conteneur spécifique si :**
+**Approvisionnez le débit sur un conteneur individuel si :**
 
 1. Vous avez quelques conteneurs Cosmos Azure. Comme Azure Cosmos DB ne dépend pas d’un schéma spécifique, un conteneur peut contenir des éléments avec des schémas hétérogènes, sans forcer les clients à créer plusieurs types de conteneurs (un pour chaque entité). Choisissez cette option si vous estimez que le regroupement de 10 à 20 conteneurs dans un seul conteneur peut être bénéfique. Avec un minimum de 400 unités de requête pour les conteneurs, le regroupement de 10 à 20 conteneurs dans un seul conteneur peut être plus économique. 
 
 2. Vous souhaitez contrôler le débit sur un conteneur spécifique et obtenir le débit garanti sur un conteneur donné avec une garantie par contrat de niveau de service.
 
-**Prenez en compte un hybride des deux stratégies ci-dessus :**
+**Optez pour une solution hybride combinant les deux stratégies ci-dessus :**
 
 1. Comme mentionné précédemment, Azure Cosmos DB vous permet de combiner les deux stratégies ci-dessus : vous pouvez désormais avoir certains conteneurs au sein de la base de données Azure Cosmos, pouvant se partager le débit approvisionné sur la base de données, et d’autres conteneurs au sein de la même base de données, chacun avec un débit approvisionné dédié. 
 

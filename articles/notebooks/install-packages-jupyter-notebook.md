@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 504158f248cde3a399475cdec99de3e6a4ebfcc5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276853"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>Installer des packages à partir d’un bloc-notes
@@ -73,5 +73,5 @@ Paket.Package
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activation Configurer et gérer des projets](configure-manage-azure-notebooks-projects.md)
-- [Activation Présenter un diaporama](present-jupyter-notebooks-slideshow.md)
+- [Guide pratique pour configurer et gérer des projets](configure-manage-azure-notebooks-projects.md)
+- [Guide pratique : Présenter un diaporama](present-jupyter-notebooks-slideshow.md)

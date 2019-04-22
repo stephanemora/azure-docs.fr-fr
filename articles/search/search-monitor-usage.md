@@ -12,10 +12,10 @@ ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010411"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
@@ -61,9 +61,9 @@ Le tableau suivant compare les options de stockage des journaux d’activité et
 | Ressource | Utilisé pour |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous, en corrélation avec les événements utilisateur dans votre application. Il s’agit de la seule solution qui prend en compte les signaux ou les actions utilisateur, en mappant les événements à partir d’une recherche lancée par l’utilisateur, par opposition aux requêtes de filtre soumises par le code d’application. Pour utiliser cette approche, copiez-collez le code d’instrumentation dans vos fichiers sources pour router les informations de requête de route vers Application Insights. Pour plus d’informations, consultez [Analytique du trafic des recherches](search-traffic-analytics.md). |
-| [Journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous. Les événements sont enregistrés dans un espace de travail Analytique de journal. Vous pouvez exécuter des requêtes sur un espace de travail pour retourner des informations détaillées du journal. Pour plus d’informations, consultez [prise en main les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Stockage d'objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous. Les événements sont journalisés dans un conteneur d’objets blob et stockés dans des fichiers JSON. Utilisez un éditeur JSON pour afficher le contenu des fichiers.|
-| [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Événements et métriques des requêtes journalisés, basés sur les schémas présentés dans cet article. Choisissez cette option comme autre service de collecte de données pour les journaux d’activité très volumineux. |
+| [Journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous. Les événements sont enregistrés dans un espace de travail Analytique de journal. Vous pouvez exécuter des requêtes sur un espace de travail pour retourner des informations détaillées du journal. Pour plus d’informations, consultez [prise en main les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous. Les événements sont journalisés dans un conteneur d’objets blob et stockés dans des fichiers JSON. Utilisez un éditeur JSON pour afficher le contenu des fichiers.|
+| [Concentrateur d’événements](https://docs.microsoft.com/azure/event-hubs/) | Événements et métriques des requêtes journalisés, basés sur les schémas présentés dans cet article. Choisissez cette option comme autre service de collecte de données pour les journaux d’activité très volumineux. |
 
 Journaux d’Azure Monitor et le stockage d’objets Blob sont disponibles comme un service gratuit partagé afin que vous pouvez l’essayer sans frais pendant la durée de vie de votre abonnement Azure. L’inscription à Application Insights et son utilisation sont gratuits tant que la taille de données d’application n’excède pas certaines limites. (Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/monitor/).)
 
@@ -96,7 +96,7 @@ La journalisation est activée une fois que vous enregistrez le profil. Les cont
 * journaux d’activité-Insights-operationlogs : pour les journaux d’activité de trafic de recherche
 * mesures-Insights-pt1m : pour les mesures
 
-**Une heure est nécessaire pour que les conteneurs s’affichent dans le Stockage Blob. Il y a un seul objet blob par heure et par conteneur.**
+**Il faut une heure pour que les conteneurs seront affiche dans le stockage Blob. Il existe un seul objet blob, par heure, et par conteneur.**
 
 Vous pouvez utiliser [Visual Studio Code](#download-and-open-in-visual-studio-code) ou un autre éditeur JSON pour afficher les fichiers. 
 
@@ -168,10 +168,10 @@ Une fois le fichier téléchargé, ouvrez-le dans un éditeur JSON pour en voir 
 ## <a name="use-system-apis"></a>Utiliser des API système
 L’API REST de Recherche Azure et le SDK .NET fournissent tous les deux un accès programmatique aux métriques de service, aux informations sur les index et l’indexeur ainsi qu’aux décomptes de documents.
 
-* [Obtenir les statistiques de Services](/rest/api/searchservice/get-service-statistics)
-* [Obtention de statistiques d'index](/rest/api/searchservice/get-index-statistics)
+* [Obtenir les statistiques des services](/rest/api/searchservice/get-service-statistics)
+* [Obtention de statistiques d’index](/rest/api/searchservice/get-index-statistics)
 * [Nombre de documents](/rest/api/searchservice/count-documents)
-* [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
+* [Obtention de l’état d’indexeur](/rest/api/searchservice/get-indexer-status)
 
 Pour activer à l’aide de PowerShell ou de l’interface de ligne de commande Azure, consultez la documentation qui se trouve [ici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
 

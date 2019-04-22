@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268005"
 ---
 # <a name="manage-and-configure-projects"></a>Gérer et configurer des projets
@@ -95,8 +95,8 @@ La commande **+ Nouveau** (raccourci clavier : n) crée des fichiers ou dossier
 
 | Type d’élément | Description | Comportement de la commande |
 | --- | --- | --- |
-| **Bloc-notes** | Notebook Jupyter | Affiche une fenêtre contextuelle dans laquelle vous spécifiez le nom de fichier et le langage du notebook. |
-| **Dossier** | Sous-dossier | Crée un champ d’édition dans la liste des fichiers du projet dans lequel vous entrez le nom du dossier. |
+| **Notebook** | Notebook Jupyter | Affiche une fenêtre contextuelle dans laquelle vous spécifiez le nom de fichier et le langage du notebook. |
+| **Folder** | Sous-dossier | Crée un champ d’édition dans la liste des fichiers du projet dans lequel vous entrez le nom du dossier. |
 | **Fichier vide** | Fichier dans lequel vous pouvez stocker n’importe quel contenu comme du texte, des données, etc. | Crée un champ d’édition dans la liste des fichiers du projet dans lequel vous entrez le nom du fichier. |
 | **Markdown** | Fichier Markdown. | Crée un champ d’édition dans la liste des fichiers du projet dans lequel vous entrez le nom du fichier. |
 
@@ -222,5 +222,5 @@ Vous pouvez également utiliser la commande à partir d’une cellule de code da
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activation Travailler avec des fichiers de données de projet](work-with-project-data-files.md)
+- [Guide pratique pour utiliser des fichiers de données de projets](work-with-project-data-files.md)
 - [Accéder aux données de cloud dans un notebook](access-data-resources-jupyter-notebooks.md)

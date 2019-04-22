@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279973"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Création de blueprints dynamiques au moyen de paramètres
@@ -76,8 +76,8 @@ Une valeur de paramètre définie dans la définition d’un blueprint est appel
 
 Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par vos propres valeurs :
 
-- `{YourMG}` -Remplacer par le nom de votre groupe d’administration
-- `{subscriptionId}` -Remplacer par votre ID d’abonnement
+- Remplacer `{YourMG}` par le nom de votre groupe d’administration
+- Remplacer `{subscriptionId}` par votre ID d’abonnement
 
 ##### <a name="blueprint-level-parameter"></a>Paramètre de niveau blueprint
 
