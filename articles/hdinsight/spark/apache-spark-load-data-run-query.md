@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 04/03/2019
 ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274006"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Didacticiel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight
@@ -102,4 +102,4 @@ Dans ce tutoriel, vous avez appris à :
 
 Passez à l’article suivant pour découvrir comment les données que vous avez inscrites dans Apache Spark peuvent être tirées (pull) et placées dans un outil analytique décisionnel tel que Power BI. 
 > [!div class="nextstepaction"]
-> [Analyser des données avec des outils décisionnels](apache-spark-use-bi-tools.md)
+> [Analyser des données à l’aide d’outils décisionnels](apache-spark-use-bi-tools.md)

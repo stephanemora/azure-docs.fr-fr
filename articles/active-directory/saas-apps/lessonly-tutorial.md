@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: ec1fce18913d6763514abb80ceba471bf73d59ad
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Didacticiel : Intégration d’Azure Active Directory à Lessonly.com
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Lessonly.com à Azure AD, vous devez ajouter Lessonly.com à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter Lessonly.com à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Lessonly.com à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD auprès de Lessonly.com, ef
 
     ![Informations d’authentification unique relatives au domaine et aux URL Lessonly.com](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<companyname>.lessonly.com/signin`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.lessonly.com/signin`
 
     > [!NOTE]
     > Lors du référencement d’un nom générique, la partie **nomentreprise** doit être remplacée par un nom réel.

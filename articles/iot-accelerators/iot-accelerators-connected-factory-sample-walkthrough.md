@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490357"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Procédure pas à pas de l’accélérateur de solution Usine connectée
@@ -230,7 +230,7 @@ L’application web déployée dans le cadre de l’accélérateur de solution c
 Vous pouvez poursuivre la prise en main des accélérateurs de solution IoT en lisant les articles suivants :
 
 * [Autorisations sur le site azureiotsolutions.com][lnk-permissions]
-* [Déployer une passerelle sur Windows ou Linux pour l’accélérateur de solution usine connectée](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator (Déployer une passerelle sur Windows ou Linux pour l’accélérateur de solution Usine connectée)](iot-accelerators-connected-factory-gateway-deployment.md)
 * [Implémentation de référence de l’éditeur OPC](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

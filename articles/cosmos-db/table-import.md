@@ -9,10 +9,10 @@ ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876815"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrer vos données vers un compte d’API Table Azure Cosmos DB
@@ -39,7 +39,7 @@ L’outil de migration des données de données Azure Cosmos DB en ligne de comm
 Pour migrer des données de table, effectuez les tâches suivantes :
 
 1. Téléchargez l’outil de migration à partir de [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
-2. Exécutez `dt.exe` en utilisant les arguments de ligne de commande de votre scénario. `dt.exe` prend une commande au format suivant :
+2. Exécutez `dt.exe` en utilisant les arguments de ligne de commande de votre scénario. `dt.exe` prend une commande au format suivant :
 
    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
@@ -74,7 +74,7 @@ Pour récupérer la chaîne de connexion source lors de l’importation à parti
 
 ![Capture d’écran des options sources HBase](./media/table-import/cosmos-connection-string.png)
 
-[Exemple de commande de stockage de table Azure](#azure-table-storage)
+[Exemple de commande du Stockage Table Azure](#azure-table-storage)
 
 [Exemple de commande d’API Table Azure Cosmos DB (préversion)](#table-api-preview)
 
@@ -147,4 +147,4 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 Vous pouvez maintenant passer au didacticiel suivant et découvrir comment interroger les données à l’aide de l’API Table Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[Interroger les données](../cosmos-db/tutorial-query-table.md)
+>[Comment interroger les données ?](../cosmos-db/tutorial-query-table.md)

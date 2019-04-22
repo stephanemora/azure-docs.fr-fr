@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 4edd445fe526b9be5c421b21b25f9b095c734f43
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Didacticiel : Intégration d'Azure Active Directory à SumoLogic
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec SumoLogic, effectuez l
 
     ![Informations d’authentification unique dans Domaine et URL SumoLogic](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<tenantname>.SumoLogic.com`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenantname>.SumoLogic.com`
 
    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
 
@@ -225,7 +225,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Pour se connecter à SumoLogic, les utilisateurs Azure AD doivent être provisionnés dans SumoLogic. Dans le cas de SumoLogic, l’approvisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à votre locataire **SumoLogic**.
 

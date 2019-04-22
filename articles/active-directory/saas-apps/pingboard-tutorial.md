@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Didacticiel : Intégration d'Azure Active Directory à Pingboard
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Pingboard avec Azure AD, vous devez ajouter Pingboard, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter PingBoard à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Pingboard à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Pingboard, procédez 
 
     ![Informations d’authentification unique dans Domaine et URL Pingboard](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `http://app.pingboard.com/sp`
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `http://app.pingboard.com/sp`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<entity-id>.pingboard.com/auth/saml/consume`
 
@@ -208,9 +208,9 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-pingboard-test-user"></a>Créer un utilisateur de test Pingboard
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Pingboard. Pingboard prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Vous trouverez plus d’informations [ici](pingboard-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Pingboard. Pingboard prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Des informations supplémentaires sur la configuration de l’attribution automatique d’utilisateurs sont disponibles [ici](pingboard-provisioning-tutorial.md).
 
-**Si vous avez besoin de créer un utilisateur manuellement, effectuez les étapes suivantes :**
+**Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
 
 1. Connectez-vous au site d’entreprise Pingboard en tant qu’administrateur.
 
@@ -253,4 +253,4 @@ Le fait de cliquer sur la vignette Pingboard dans le panneau d’accès doit vou
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configurer l’approvisionnement des utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial)
+- [Configurer l’approvisionnement de l’utilisateur](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial)

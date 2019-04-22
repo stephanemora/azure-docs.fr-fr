@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 0ce92abda9652351712f086ab24aff8575d84c8d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Didacticiel : Intégration d’Azure Active Directory à PerformanceCentre
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de PerformanceCentre avec Azure AD, vous devez ajouter PerformanceCentre à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter PerformanceCentre à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter PerformanceCentre à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec PerformanceCentre, eff
 
     ![Informations d’authentification unique dans Domaine et URL PerformanceCentre](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `http://<companyname>.performancecentre.com/saml/SSO`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `http://<companyname>.performancecentre.com/saml/SSO`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `http://<companyname>.performancecentre.com`
 
@@ -205,7 +205,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans PerformanceCentre.
 
-**Pour créer un utilisateur appelé Britta Simon dans PerformanceCentre, effectuez les étapes suivantes :**
+**Pour créer un utilisateur appelé Britta Simon dans PerformanceCentre, procédez comme suit :**
 
 1. Connectez-vous à votre site d’entreprise PerformanceCentre en tant qu’administrateur.
 

@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 04/08/2019
 ms.author: diberry
 ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273462"
 ---
 # <a name="quickstart-change-model-using-c"></a>Démarrage rapide : Modifier un modèle à l’aide de C#
@@ -140,4 +140,4 @@ Une fois le démarrage rapide terminé, supprimez tous les fichiers créés pour
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 
-> [Créer une application LUIS par programmation](luis-tutorial-node-import-utterances-csv.md) 
+> [Créer une application LUIS par programme](luis-tutorial-node-import-utterances-csv.md) 

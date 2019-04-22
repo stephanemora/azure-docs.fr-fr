@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.openlocfilehash: 57d7fecfa9bf2b27a54387072b080ed95f4e87e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881209"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Didacticiel : Automatiser la gestion des e-mails et des pièces jointes avec Azure Logic Apps
@@ -271,7 +271,7 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
       | Paramètre | Valeur | Description | 
       | ------- | ----- | ----------- | 
-      | **Dossier** | Inbox | Dossier d’e-mail à vérifier | 
+      | **Folder** | Inbox | Dossier d’e-mail à vérifier | 
       | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications. | 
       | **Fréquence** | Minute | Unité de temps de chaque intervalle entre les vérifications. | 
       |  |  |  | 
@@ -280,9 +280,9 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
       | Paramètre | Valeur | Description | 
       | ------- | ----- | ----------- | 
-      | **Comporte une pièce jointe** | OUI | Récupère uniquement les e-mails comportant des pièces jointes. <p>**Remarque :** Le déclencheur ne supprime pas les e-mails de votre compte. Il vérifie uniquement les nouveaux messages et ne traite que les e-mails qui correspondent au filtre Objet. | 
-      | **Inclure les pièces jointes** | OUI | Récupérez les pièces jointes en tant qu’entrée de votre flux de travail au lieu de les rechercher simplement. | 
-      | **Subject Filter (Filtre d’objet)** | ```Business Analyst 2 #423501``` | Texte à rechercher dans l’objet de l’e-mail. | 
+      | **Contient une pièce jointe** | OUI | Récupère uniquement les e-mails comportant des pièces jointes. <p>**Remarque :** Le déclencheur ne supprime pas les e-mails de votre compte. Il vérifie uniquement les nouveaux messages et ne traite que les e-mails qui correspondent au filtre Objet. | 
+      | **Inclure des pièces jointes** | OUI | Récupérez les pièces jointes en tant qu’entrée de votre flux de travail au lieu de les rechercher simplement. | 
+      | **Filtre Objet** | ```Business Analyst 2 #423501``` | Texte à rechercher dans l’objet de l’e-mail. | 
       |  |  |  | 
 
 4. Pour masquer les informations du déclencheur pour le moment, cliquez dans sa barre de titre.
@@ -395,8 +395,7 @@ Cette étape ajoute votre fonction Azure créée précédemment à votre applica
 
    ![Sélectionner votre application de fonction](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
-5. Renommez la forme de votre fonction avec cette description :
-```Call RemoveHTMLFunction to clean email body```
+5. Renommez la forme de votre fonction avec cette description : ```Call RemoveHTMLFunction to clean email body```.
 
 6. Maintenant, spécifiez l’entrée pour votre fonction à traiter. 
 
@@ -410,7 +409,7 @@ Cette étape ajoute votre fonction Azure créée précédemment à votre applica
 
       De plus, lorsque le curseur se trouve à l’intérieur de la zone **Corps de la demande**, la liste de contenu dynamique s’affiche afin que vous puissiez sélectionner les valeurs de propriété disponibles à partir des actions précédentes. 
       
-   2. Dans la liste de contenu dynamique, sous **À la réception d’un e-mail**, sélectionnez la propriété **Corps**. Après cette propriété, pensez à ajouter l’accolade fermante : ```}```
+   2. Dans la liste de contenu dynamique, sous **À la réception d’un e-mail**, sélectionnez la propriété **Corps**. Après cette propriété, pensez à ajouter l’accolade fermante : ```}```
 
       ![Spécifier le corps de la requête à transmettre à la fonction](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
 
@@ -440,8 +439,7 @@ Ensuite, ajoutez une action qui crée un objet blob dans votre conteneur de stoc
    | **Compte de stockage** | attachmentstorageacct | Nom du compte de stockage que vous avez créé précédemment pour enregistrer des pièces jointes. | 
    |||| 
 
-4. Renommez l’action **Créer un objet blob** avec cette description :
-```Create blob for email body```
+4. Renommez l’action **Créer un objet blob** avec cette description : ```Create blob for email body```.
 
 5. Dans l’action **Créer un objet blob**, indiquez ces informations, puis sélectionnez ces champs pour créer l’objet blob comme indiqué et décrit :
 
@@ -450,7 +448,7 @@ Ensuite, ajoutez une action qui crée un objet blob dans votre conteneur de stoc
    | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Chemin d’accès du dossier** | /pièces jointes | Chemin d’accès et nom du conteneur que vous avez créé précédemment. Pour cet exemple, cliquez sur l’icône de dossier, puis sélectionnez le conteneur « /pièces jointes ». | 
-   | **Nom de l’objet blob** | Champ **De** | Pour cet exemple, utilisez le nom de l’expéditeur comme nom de l’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez le champ **De** sous l’action **À l’arrivée d’un e-mail**. | 
+   | **Nom de l’objet blob** | Champ **De** | Pour cet exemple, utilisez le nom de l’expéditeur comme nom de l’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez le champ **De** sous l’action **À l’arrivée d’un e-mail**. | 
    | **Contenu de l’objet blob** | Champ **Contenu** | Pour cet exemple, utilisez le corps de l’e-mail sans code HTML comme contenu d’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez **Corps** sous l’action **Call RemoveHTMLFunction to clean email body** (Appeler RemoveHTMLFunction pour nettoyer le corps de l’e-mail). |
    |||| 
 
@@ -507,8 +505,7 @@ Pour traiter chaque pièce jointe de l’e-mail, ajoutez une boucle **For Each**
 
    ![Ajouter une boucle « For Each »](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
-2. Renommez votre boucle avec cette description :
-```For each email attachment```
+2. Renommez votre boucle à l’aide de cette description : ```For each email attachment```.
 
 3. Indiquez les données de la boucle à traiter. Cliquez dans la zone **Sélectionnez un résultat à partir des étapes précédentes** afin que la liste de contenu dynamique s’ouvre, puis sélectionnez **Pièces jointes**. 
 
@@ -531,8 +528,7 @@ Ajoutez l’action qui enregistre chaque pièce jointe sous la forme d’un obje
 
    ![Ajouter une action pour créer un objet blob](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-3. Renommez l’action **Créer un objet blob 2** avec cette description :
-```Create blob for each email attachment```
+3. Renommez l’action **Créer un objet blob 2** avec cette description : ```Create blob for each email attachment```.
 
 4. Dans l’action **Créer un objet blob pour chaque pièce jointe d’e-mail**, indiquez ces informations, puis sélectionnez les propriétés pour chaque objet blob à créer comme indiqué et décrit :
 
@@ -541,7 +537,7 @@ Ajoutez l’action qui enregistre chaque pièce jointe sous la forme d’un obje
    | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Chemin d’accès du dossier** | /pièces jointes | Chemin d’accès et nom du conteneur que vous avez créé précédemment. Pour cet exemple, cliquez sur l’icône de dossier, puis sélectionnez le conteneur « /pièces jointes ». | 
-   | **Nom de l’objet blob** | Champ **Nom** | Pour cet exemple, utilisez le nom de la pièce jointe comme nom de l’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez le champ **Nom** sous l’action **À l’arrivée d’un e-mail**. | 
+   | **Nom de l’objet blob** | Champ **Nom** | Pour cet exemple, utilisez le nom de la pièce jointe comme nom de l’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez le champ **Nom** sous l’action **À l’arrivée d’un e-mail**. | 
    | **Contenu de l’objet blob** | Champ **Contenu** | Pour cet exemple, utilisez le champ **Contenu** comme contenu d’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez le champ **Contenu** sous l’action **À l’arrivée d’un e-mail**. |
    |||| 
 
@@ -597,8 +593,7 @@ Ajoutez une action afin que votre application logique envoie un e-mail pour pass
 
 3. Si vous êtes invité à entrer vos informations d’identification, connectez-vous à votre compte de messagerie afin que Logic Apps puisse établir une connexion avec votre compte de messagerie.
 
-4. Renommez l’action **Envoyer un e-mail** avec cette description :
-```Send email for review```
+4. Renommez l’action **Envoyer un e-mail** avec cette description : ```Send email for review```.
 
 5. Indiquez les informations de cette action, puis sélectionnez les champs que vous souhaitez inclure dans l’e-mail comme indiqué et décrit. Pour ajouter des lignes vides dans une zone d’édition, appuyez sur Maj + Entrée.  
 
@@ -608,9 +603,9 @@ Ajoutez une action afin que votre application logique envoie un e-mail pour pass
 
    | Paramètre | Valeur | Notes | 
    | ------- | ----- | ----- | 
-   | **body** | ```Please review new applicant:``` <p>```Applicant name:``` **À partir** <p>```Application file location:``` **path** <p>```Application email content:``` **body** | Contenu du corps de l’e-mail. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez ces champs : <p>- Champ **De** situé sous **À la réception d’un e-mail** </br>- Champ **Chemin d’accès** situé sous **Créer un objet blob pour le corps de l’e-mail** </br>- Champ **Corps** situé sous **Call RemoveHTMLFunction to clean email body (Appeler RemoveHTMLFunction pour nettoyer le corps de l’e-mail)** | 
-   | **Objet**  | ```ASAP - Review applicant for position:``` **Objet** | Objet de l’e-mail que vous souhaitez inclure. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez le champ **Objet** sous **À l’arrivée d’un e-mail**. | 
-   | **À** | <*recipient-email-address*> | À des fins de test, vous pouvez utiliser votre propre adresse e-mail. | 
+   | **Corps** | ```Please review new applicant:``` <p>```Applicant name:``` **De** <p>```Application file location:``` **Chemin d’accès** <p>```Application email content:``` **Corps** | Contenu du corps de l’e-mail. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez ces champs : <p>- Champ **De** situé sous **À la réception d’un e-mail** </br>- Champ **Chemin d’accès** situé sous **Créer un objet blob pour le corps de l’e-mail** </br>- Champ **Corps** situé sous **Call RemoveHTMLFunction to clean email body (Appeler RemoveHTMLFunction pour nettoyer le corps de l’e-mail)** | 
+   | **Objet**  | ```ASAP - Review applicant for position:``` **Subject** | Objet de l’e-mail que vous souhaitez inclure. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez le champ **Objet** sous **À l’arrivée d’un e-mail**. | 
+   | **To** | <*recipient-email-address*> | À des fins de test, vous pouvez utiliser votre propre adresse e-mail. | 
    |||| 
 
    > [!NOTE] 
@@ -688,4 +683,4 @@ Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contie
 Dans ce didacticiel, vous avez créé une application logique qui traite et stocke les pièces jointes en intégrant des services Azure, tels que Stockage Azure et Azure Functions. À présent, découvrez d’autres connecteurs que vous pouvez utiliser pour créer des applications logiques.
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur les connecteurs pour Logic Apps](../connectors/apis-list.md)
+> [En savoir plus sur les connecteurs de Logic Apps](../connectors/apis-list.md)

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: a0b5dd169d29dc392274ab5589931f37beb04e9b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273598"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Didacticiel : Intégration d’Azure Active Directory à ON24 Virtual Environment SAML Connection
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de la connexion SAML à l’environnement virtuel ON24 à Azure AD, vous devez ajouter la connexion SAML à l’environnement virtuel ON24 à votre liste d’applications SaaS managées depuis la galerie.
 
-**Pour ajouter ON24 Virtual Environment SAML Connection à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter la connexion SAML à l’environnement virtuel ON24 depuis la galerie, procédez aux étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Pour configurer Azure AD avec ON24 Virtual Environment SAML Connection, effectu
 
     a. Dans la zone de texte **Identificateur**, tapez une URL :
 
-     **URL de l’environnement de production**
+     **URL d’environnement de production**
     
     `SAML-VSHOW.on24.com`
 
@@ -115,7 +115,7 @@ Pour configurer Azure AD avec ON24 Virtual Environment SAML Connection, effectu
 
     `SAP PROD SAML-EliteAudience.on24.com` 
                 
-     **URL de l’environnement d’assurance qualité**
+     **URL d’environnement assurance qualité**
     
     `SAMLQA-VSHOW.on24.com` 
 
@@ -125,7 +125,7 @@ Pour configurer Azure AD avec ON24 Virtual Environment SAML Connection, effectu
 
     b. Dans la zone de texte **URL de réponse**, tapez l’URL :
 
-     **URL de l’environnement de production**
+     **URL d’environnement de production**
     
     `https://federation.on24.com/sp/ACS.saml2`
 
@@ -135,7 +135,7 @@ Pour configurer Azure AD avec ON24 Virtual Environment SAML Connection, effectu
 
     `https://federation.on24.com/sp/eyJ2c2lkIjoiU0FNTC1FbGl0ZUF1ZGllbmNlLm9uMjQuY29tIn0/ACS.saml2`
 
-     **URL de l’environnement d’assurance qualité**
+     **URL d’environnement assurance qualité**
     
     `https://qafederation.on24.com/sp/ACS.saml2`
 

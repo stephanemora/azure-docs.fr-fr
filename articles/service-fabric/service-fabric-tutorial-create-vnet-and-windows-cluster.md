@@ -16,10 +16,10 @@ ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050004"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Didacticiel : Déployer un cluster Service Fabric exécutant Windows sur un réseau virtuel Azure
@@ -48,7 +48,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Superviser un cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Suppression d'un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Supprimer un cluster](service-fabric-tutorial-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -154,7 +154,7 @@ Par défaut, le [programme antivirus Windows Defender](/windows/security/threat-
 
 Le fichier de paramètres [azuredeploy.parameters.json][parameters] déclare de nombreuses valeurs servant à déployer le cluster et les ressources associées. Voici les paramètres à modifier pour votre déploiement :
 
-**Paramètre** | **Exemple de valeur** | **Notes** 
+**Paramètre** | **Exemple de valeur** | **Remarques** 
 |---|---|---|
 |adminUsername|vmadmin| Nom d’utilisateur administrateur pour les machines virtuelles de cluster. [Conditions requises pour les noms d’utilisateur de la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| Mot de passe d’administrateur pour les machines virtuelles de cluster. [Conditions requises pour les mots de passe de la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
@@ -276,9 +276,9 @@ Ajoutez des valeurs dans le fichier de paramètres [azuredeploy.parameters.json]
 <a id="configurediagnostics" name="configurediagnostics_anchor"></a>
 
 ## <a name="configure-diagnostics-collection-on-the-cluster"></a>Configurer la collecte de diagnostics sur le cluster
-Quand vous exécutez un cluster Service Fabric, il peut être intéressant de recueillir les journaux de tous les nœuds pour les regrouper dans un emplacement central. La centralisation des journaux vous permet d’analyser et résoudre les problèmes que vous pourriez rencontrer dans votre cluster ou dans les applications et services exécutés dans ce cluster.
+Quand vous exécutez un cluster Service Fabric, il peut être intéressant de recueillir les journaux de tous les nœuds pour les regrouper dans un emplacement central. La centralisation des journaux d’activité vous permet d’analyser et résoudre les problèmes que vous pourriez rencontrer dans votre cluster ou dans les applications et services exécutés dans ce cluster.
 
-Pour charger et recueillir des journaux, vous pouvez utiliser l’extension Azure Diagnostics (WAD), qui charge les journaux dans Stockage Azure, ou envoyer les journaux à Azure Application Insights ou Event Hubs. Vous pouvez également utiliser un processus externe pour lire les événements à partir du stockage et les placer dans une plateforme d’analyse comme les journaux Azure Monitor ou une autre solution d’analyse des journaux.
+Pour charger et recueillir des journaux, vous pouvez utiliser l’extension Diagnostics Azure pour Windows (WAD), qui charge les journaux dans Stockage Azure, ou envoyer les journaux à Azure Application Insights ou Event Hubs. Vous pouvez également utiliser un processus externe pour lire les événements à partir du stockage et les placer dans une plateforme d’analyse comme les journaux Azure Monitor ou une autre solution d’analyse des journaux.
 
 Si vous suivez ce tutoriel, la collecte des diagnostics est déjà configurée dans le [modèle][template].
 

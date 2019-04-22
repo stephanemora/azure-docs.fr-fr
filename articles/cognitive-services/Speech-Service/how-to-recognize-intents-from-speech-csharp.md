@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
 ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280534"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Didacticiel : Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour C#
@@ -133,7 +133,7 @@ Ensuite, créez un module de reconnaissance de l’intention à l’aide de `new
 
 L’ajout d’intentions nécessite trois arguments : le modèle LUIS (qui a été créé et qui est nommé `model`), le nom de l’intention et un ID d’intention. La différence entre l’ID et le nom s’établit comme suit.
 
-|`AddIntent()` argument|Objectif|
+|Argument `AddIntent()`|Objectif|
 |--------|-------|
 |intentName |Nom de l’intention, tel que défini dans l’appli LUIS. Doit correspondre exactement au nom d’intention LUIS.|
 |intentID    |ID assigné à une intention reconnue par le kit SDK Speech. Il peut être ce que vous voulez ; il n’est pas nécessaire qu’il corresponde au nom de l’intention, tel que défini dans l’appli LUIS. Par exemple, si plusieurs intentions sont gérées par le même code, vous pouvez utiliser le même ID pour celles-ci.|
@@ -188,4 +188,4 @@ Retrouvez le code de cet article dans le dossier samples/csharp/sharedcontent/co
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Comment effectuer la reconnaissance vocale](how-to-recognize-speech-csharp.md)
+> [Comment effectuer une reconnaissance vocale](how-to-recognize-speech-csharp.md)
