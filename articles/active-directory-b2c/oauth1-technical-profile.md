@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 3fe839de8cbaa0b321b0b0602b000b7575224dde
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915780"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010056"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OAuth1 dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C prend en charge le fournisseur d’identité de protocole [OAuth protocole 1.0](https://tools.ietf.org/html/rfc5849). Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé. Avec un profil technique OAuth1, vous pouvez fédérer avec un fournisseur d’identité OAuth1, tel que Twitter, ce qui permet aux utilisateurs de se connecter avec leurs identités sociales ou d’entreprise existantes.
+Azure Active Directory (Azure AD) B2C prend en charge le fournisseur d’identité de protocole [OAuth protocole 1.0](https://tools.ietf.org/html/rfc5849). Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé. Avec un profil technique OAuth1, vous pouvez fédérer avec un fournisseur d’identité basé sur OAuth1, tels que Twitter. Fédération avec le fournisseur d’identité permet aux utilisateurs de se connecter avec leurs réseaux sociaux existants ou les identités d’entreprise.
 
 ## <a name="protocol"></a>Protocole
 
@@ -46,7 +46,7 @@ L’élément **OutputClaimsTransformations** peut contenir une collection d’�
 
 L’exemple suivant montre les revendications retournées par le fournisseur d’identité Twitter  :
 
-- La revendication **user_id** mappée à la revendication **socialIdpUserId**.
+- Le **user_id** revendication qui est mappée à la **issuerUserId** de revendication.
 - La revendication **screen_name** mappée à la revendication **displayName**.
 - La revendication **email** sans mappage de nom.
 
@@ -57,7 +57,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
   <OutputClaim ClaimTypeReferenceId="email" />
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />
@@ -87,7 +87,7 @@ L’élément **CryptographicKeys** contient l’attribut suivant :
 
 ## <a name="redirect-uri"></a>URI de redirection
 
-Lorsque vous configurez l’URL de redirection de votre fournisseur d’identité, entrez `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Veillez à remplacer **{tenant}** par le nom de votre locataire (par exemple, contosob2c.onmicrosoft.com), et **{policyId}** par l’identificateur de votre stratégie (par exemple, b2c_1_policy). L’URI de redirection doit être en minuscules. Vous devez ajouter un URI de redirection pour toutes les stratégies qui utilisent la connexion de fournisseur d’identité. 
+Lorsque vous configurez l’URL de redirection de votre fournisseur d’identité, entrez `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Veillez à remplacer **{tenant}** par le nom de votre locataire (par exemple, contosob2c.onmicrosoft.com), et **{policyId}** par l’identificateur de votre stratégie (par exemple, b2c_1_policy). L’URI de redirection doit être en minuscules. Ajouter une URL de redirection pour toutes les stratégies qui utilisent la connexion de fournisseur d’identité. 
 
 Si vous utilisez le domaine **b2clogin.com** à la place de **login.microsoftonline.com**, veillez à utiliser b2clogin.com au lieu de login.microsoftonline.com.
 

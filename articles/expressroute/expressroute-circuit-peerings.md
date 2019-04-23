@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: mialdridm
 ms.custom: seodec18
-ms.openlocfilehash: 095d637eac5478c65ca3f15cc845518a94aa5149
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 35cee297156cf64deeef8c9c6b514ec8176f9ca5
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080331"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149966"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuits ExpressRoute et peering
 
@@ -56,6 +56,10 @@ La connectivité aux services en ligne Microsoft (Office 365, Dynamics 365 et 
 Pour plus d’informations sur les services pris en charge, les coûts et les détails de configuration, consultez le [Forum Aux Questions](expressroute-faqs.md) . Pour plus d’informations sur la liste des fournisseurs de connectivité offrant une prise en charge de l’homologation Microsoft, consultez la page [Emplacements ExpressRoute](expressroute-locations.md)
 
 ### <a name="publicpeering"></a>Peering public Azure (déprécié pour les nouveaux circuits)
+
+> [!Note]
+> L’homologation publique Azure a 1 adresse IP NAT sont associée à chaque session BGP. Pour plus de 2 adresses IP NAT, passez à [l’homologation Microsoft](https://docs.microsoft.com/en-us/azure/expressroute/how-to-move-peering), où vous pouvez configurer vos propres allocations NAT, ainsi utiliser des filtres de routage pour les publications de préfixe sélectif. 
+>
 
 Les services tels qu’Azure Storage, les bases de données SQL et Sites web sont proposés sur des adresses IP publiques. En privé, vous pouvez vous connecter à des services hébergés sur des adresses IP publiques (y compris les adresses IP virtuelles de vos services cloud) via le domaine de routage d’homologation publique. Vous pouvez connecter le domaine d’homologation publique à votre zone DMZ et vous connecter à tous les services Azure sur leurs adresses IP publiques à partir de votre réseau étendu, sans avoir à vous connecter via Internet.
 

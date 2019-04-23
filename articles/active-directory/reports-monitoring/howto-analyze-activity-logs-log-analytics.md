@@ -1,6 +1,6 @@
 ---
-title: Analyser les journaux d’activité Azure Active Directory avec les journaux d’activité Azure Monitor (préversion) | Microsoft Docs
-description: Découvrez comment analyser les journaux d’activité Azure Active Directory avec les journaux d’activité Azure Monitor (préversion)
+title: Analyser les journaux d’activité Azure Active Directory à l’aide des journaux Azure Monitor | Microsoft Docs
+description: Découvrez comment analyser les journaux d’activité Azure Active Directory à l’aide des journaux Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
-ms.reviewer: dhanyahk
+ms.date: 04/18/2019
+ms.author: priyamo
+ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e195dd0e52b4938e829ea0aec1f4cc3ef7107c0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436802"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005534"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Analyser les journaux d’activité Azure AD avec les journaux d’activité Azure Monitor (préversion)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analyser Azure AD des journaux d’activité avec les journaux d’Azure Monitor
 
 Après avoir [intégré les journaux d’activité Azure AD aux journaux d’activité Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), vous pouvez exploiter la puissance des journaux d’activité Azure Monitor pour obtenir des insights sur votre environnement. Vous pouvez également installer les [vues Log Analytics pour les journaux d’activité Azure AD](howto-install-use-log-analytics-views.md). Vous avez ainsi accès à différents rapports prédéfinis qui affichent des événements d’audit et de connexion qui se produisent dans votre environnement.
 

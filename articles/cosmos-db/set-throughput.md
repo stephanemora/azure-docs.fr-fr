@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 1f8bec6fbf0bce9a3ac272231058a96a5d9e84cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762495"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004752"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Approvisionner le débit sur les conteneurs et les bases de données
 
@@ -88,7 +88,7 @@ Vous pouvez récupérer le débit minimal d’un conteneur ou d’une base de do
 
 Lors de l’utilisation du SDK .NET, le [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) méthode vous permet de récupérer le débit minimal d’un conteneur ou d’une base de données. 
 
-Vous pouvez faire évoluer le débit approvisionné d’un conteneur ou d’une base de données à tout moment. Vous pouvez exécuter l’opération de mise à l’échelle vers le bas après la période d’inactivité de 4 heures. La période d’inactivité est définie comme le temps période lorsqu’il n’y avait aucune offre des opérations de remplacement (qui inclut la montée et descente en puissance) dans un conteneur ou d’une base de données. 
+Vous pouvez faire évoluer le débit approvisionné d’un conteneur ou d’une base de données à tout moment. 
 
 ## <a name="comparison-of-models"></a>Comparaison des modèles
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: db48db5ce9402267570ac9e41f9f4b5bec2781ad
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 532c1051522410c496fb3809c06c7e3a74340adb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527946"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006044"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -32,7 +32,7 @@ La gestion des API Azure peut être déployée à l’intérieur du réseau virt
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -74,7 +74,8 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
      ![Sélectionner le VPN][api-management-setup-vpn-select]
 
-5. Cliquez sur **Enregistrer** dans la partie supérieure de l’écran.
+5. Cliquez sur **enregistrer** dans la barre de navigation supérieure.
+6. Cliquez sur **appliquer la configuration réseau** dans la barre de navigation supérieure.
 
 > [!NOTE]
 > L’adresse IP virtuelle de l’instance de gestion des API change à chaque activation ou désactivation du réseau virtuel.

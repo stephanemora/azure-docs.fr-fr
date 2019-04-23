@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: bd91d9201e81c884b48b41de27146c186eeb9598
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188099"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000842"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Récupération d’urgence régionale pour les clusters Azure Databricks
 
@@ -247,7 +247,7 @@ Pour créer votre propre topologie de récupération d’urgence régionale, res
 
 8. **Migrez les montages Azure Data Lake Store et Stockage Blob Azure.**
 
-   Remontez manuellement tous les points de montage [Stockage Blob Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) et [Azure Data Lake Store (Gen 1)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) à l’aide d’une solution basée sur notebook. Les ressources de stockage auront été montées dans l’espace de travail principal, et cette opération doit être répétée dans l’espace de travail secondaire. Il n’existe aucune API externe pour les montages.
+   Manuellement remonter toutes les [stockage Blob Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) et [Azure Data Lake Store (génération 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) à l’aide d’une solution basée sur un ordinateur portable de points de montage. Les ressources de stockage auront été montées dans l’espace de travail principal, et cette opération doit être répétée dans l’espace de travail secondaire. Il n’existe aucune API externe pour les montages.
 
 9. **Migrez les scripts d’initialisation de clusters.**
 

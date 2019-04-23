@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: ee714cd87676c519c1bbfca2c08b62287299114e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cdd9910bfef96f56cfa8c8e81363ff9bdb40f444
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700619"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005500"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Créer une machine virtuelle Linux dans une zone de disponibilité avec l’interface de ligne de commande Azure
 
 Cet article aborde l’utilisation de l’interface de ligne de commande Azure pour créer une machine virtuelle Linux dans une zone de disponibilité Azure. Une [zone de disponibilité](../../availability-zones/az-overview.md) est une zone physiquement séparée dans une région Azure. Utilisez les zones de disponibilité pour protéger vos applications et vos données dans l’éventualité peu probable d’une défaillance ou d’une perte d’un centre de données entier.
 
-Pour utiliser une zone de disponibilité, créez votre machine virtuelle dans une [région Azure prise en charge](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+Pour utiliser une zone de disponibilité, créez votre machine virtuelle dans une [région Azure prise en charge](../../availability-zones/az-overview.md#services-support-by-region).
 
 Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index).
 
@@ -102,7 +102,7 @@ La création de la machine virtuelle peut prendre plusieurs minutes. Une fois la
 
 Lorsque la machine virtuelle est déployée dans une zone de disponibilité, un disque managé pour la machine virtuelle est créé dans la même zone de disponibilité. Par défaut, une adresse IP publique est également créée dans cette zone. Les exemples suivants obtiennent des informations sur ces ressources.
 
-Pour vérifier que le disque managé de la machine virtuelle est dans la zone de disponibilité, utilisez la commande [az vm show](/cli/azure/vm) pour retourner l’ID du disque. Dans cet exemple, l’ID du disque est stocké dans une variable qui est utilisée dans une étape ultérieure. 
+Pour vérifier que le disque géré de la machine virtuelle est dans la zone de disponibilité, utilisez le [show de machine virtuelle az](/cli/azure/vm) commande pour retourner l’ID du disque. Dans cet exemple, l’ID de disque est stocké dans une variable qui est utilisée dans une étape ultérieure. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

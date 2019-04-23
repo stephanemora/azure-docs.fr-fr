@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521812"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149272"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : Forum Aux Questions (FAQ)
 
@@ -106,7 +106,7 @@ Une application de bureau que vous pouvez utiliser dans votre serveur web IIS po
 * [Exceptions](asp-net-exceptions.md) et arborescences des appels de procédure.
 * [Compteurs de performances](performance-counters.md) : si vous utilisez [Status Monitor](monitor-performance-live-website-now.md), [Supervision Azure](azure-web-apps.md) ou le [writer collectd d’Application Insights](java-collectd.md).
 * [Événements et mesures personnalisés](api-custom-events-metrics.md) que vous codez.
-* [Journaux de suivi](asp-net-trace-logs.md) si vous configurez le collecteur approprié.
+* [Journaux d’activité de suivi](asp-net-trace-logs.md) si vous configurez le collecteur approprié.
 
 À partir des [ pages web client](javascript.md) :
 
@@ -134,7 +134,7 @@ En savoir plus pour [ASP.NET](api-filtering-sampling.md) ou [Java](java-filter-t
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Comment sont calculées les données relative à la ville, au pays et aux autres emplacements géographiques ?
 
-Nous recherchons l’adresse IP (IPv4 ou IPv6) du client web à l’aide de [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
+Nous recherchons l’adresse IP (IPv4 ou IPv6) du client web à l’aide de [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Télémétrie de navigateur : nous collectons l’adresse IP de l’expéditeur.
 * Télémétrie de serveur : le module Application Insights collecte l’adresse IP du client. Elle n’est pas collectée si `X-Forwarded-For` est défini.

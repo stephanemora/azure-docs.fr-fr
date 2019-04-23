@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784890"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006486"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
 
@@ -28,7 +28,7 @@ Cet article vous explique comment incorporer des widgets Video Indexer dans vos 
 
 Un widget **Insight cognitifs** inclut tous les insights visuels extraits à partir du processus d’indexation de votre vidéo. Le widget Insights prend en charge les paramètres d’URL facultatifs suivants :
 
-|Nom|Définition|Description|
+|Name|Définition|Description|
 |---|---|---|
 |widgets|Chaînes séparées par des virgules|Vous permet de contrôler les insights dont vous voulez faire le rendu. <br/>Exemple : `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` affichera uniquement les insights d’IU des marques (brands) et des personnes (people)<br/>Options disponibles : personnes (people), mots clés (keywords), annotations, marques (brands), sentiments, transcription (transcript), recherche (search).<br/>non pris en charge via l’URL dans la version=2<br/><br/>**Remarque :** Le paramètre d’URL de widgets n’est pas pris en charge dans la version 2. |
 
@@ -36,7 +36,7 @@ Un widget **Insight cognitifs** inclut tous les insights visuels extraits à par
 
 Un widget **Lecteur** vous permet de diffuser la vidéo en continu à l’aide d’une vitesse de transmission adaptative. Le widget Lecteur prend en charge les paramètres d’URL facultatifs suivants :
 
-|Nom|Définition|Description|
+|Name|Définition|Description|
 |---|---|---|
 |t|Secondes depuis le début|Fait démarrer le lecteur à partir d’un instant donné.<br/>Exemple : t=60|
 |captions|Code de langue|Extrait les sous-titres dans la langue spécifiée pendant le chargement du widget pour les rendre disponibles dans le menu des sous-titres.<br/>Exemple : captions=en-US|
@@ -69,9 +69,9 @@ Si vous souhaitez incorporer une vidéo **privée**, vous devez passer un jeton 
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-Utilisez l’API [**Obtenir le widget Insight**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) pour obtenir le contenu du widget Insight cognitifs, ou utilisez [**Obtenir un jeton d’accès vidéo**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) et ajoutez-le comme paramètre de requête à l’URL comme indiqué ci-dessus. Spécifiez cette URL comme la valeur **src** de **iframe**.
+Utilisez l’API [**Obtenir le widget Insight**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) pour obtenir le contenu du widget Insight cognitifs, ou utilisez [**Obtenir un jeton d’accès vidéo**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) et ajoutez-le comme paramètre de requête à l’URL comme indiqué ci-dessus. Spécifiez cette URL comme la valeur **src** de **iframe**.
 
-Si vous souhaitez fournir des fonctionnalités d’édition d’insights (comme nous l’avons dans notre application web) dans votre widget incorporé, vous devrez passer un jeton d’accès avec des autorisations de modification. Utilisez [**Obtenir le widget Insight**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) ou [**Obtenir un jeton d’accès vidéo**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) avec **& allowEdit=true**. 
+Si vous souhaitez fournir des fonctionnalités d’édition d’insights (comme nous l’avons dans notre application web) dans votre widget incorporé, vous devrez passer un jeton d’accès avec des autorisations de modification. Utilisez [**Obtenir le widget Insight**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) ou [**Obtenir un jeton d’accès vidéo**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) avec **& allowEdit=true**. 
 
 ## <a name="widgets-interaction"></a>Interaction de widgets
 

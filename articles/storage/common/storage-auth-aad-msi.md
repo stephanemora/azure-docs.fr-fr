@@ -1,31 +1,29 @@
 ---
-title: Authentifier l’accès aux objets BLOB et files d’attente avec des identités Azure Active Directory géré pour les ressources Azure - stockage Azure | Microsoft Docs
-description: Le stockage d’objets blob et de files d’attente Azure prend en charge l’authentification Azure Active Directory avec des identités managées pour les ressources Azure. Vous pouvez utiliser des identités managées pour ressources Azure pour authentifier l’accès à des objets blob et à des files d’attente à partir d’applications s’exécutant dans Machines virtuelles Azure, des applications de fonction, des groupes de machines virtuelles identiques, etc. En utilisant des identités managées pour ressources Azure et en tirant parti de la puissance d’Azure AD Authentication, vous pouvez éviter de stocker des informations d’identification avec les applications qui s’exécutent dans le cloud.
+title: Authentifier l’accès aux objets BLOB et files d’attente avec des identités gérées pour les ressources Azure - stockage Azure | Microsoft Docs
+description: Stockage d’objets Blob et file d’attente Azure prennent en charge l’authentification Azure Active Directory avec des identités gérées pour les ressources Azure. Vous pouvez utiliser des identités managées pour ressources Azure pour authentifier l’accès à des objets blob et à des files d’attente à partir d’applications s’exécutant dans Machines virtuelles Azure, des applications de fonction, des groupes de machines virtuelles identiques, etc.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: dfdb419a5c06dc50717c0a8a3bdaffb302db52d0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9209161f9c9e34320b1388e0e1edbd5069e73727
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793014"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148847"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Authentifier l’accès aux objets BLOB et files d’attente avec des identités gérées pour les ressources Azure
+# <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Authentifier l’accès aux objets BLOB et files d’attente avec Azure Active Directory et des identités gérées pour les ressources Azure
 
-Le stockage d’objets blob et de files d’attente Azure prend en charge l’authentification Azure Active Directory (Azure AD) avec des [identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Les identités managées pour ressources Azure authentifient l’accès à des objets blob et à des files d’attente en utilisant les informations d’identification d’applications s’exécutant dans Machines virtuelles Azure, d’applications de fonction, de groupe de machines virtuelles identiques, etc. En utilisant des identités managées pour ressources Azure et en tirant parti de la puissance d’Azure AD Authentication, vous pouvez éviter de stocker des informations d’identification avec les applications qui s’exécutent dans le cloud.  
+Le stockage d’objets blob et de files d’attente Azure prend en charge l’authentification Azure Active Directory (Azure AD) avec des [identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Géré les identités pour les ressources Azure peuvent autoriser l’accès aux objets blob et les données de file d’attente à l’aide des informations d’identification Azure AD à partir d’applications qui s’exécutent dans des machines virtuelles (VM) Azure, des applications de fonction, des machines virtuelles identiques et d’autres services. À l’aide des identités gérées pour les ressources Azure avec l’authentification Azure AD, vous pouvez éviter de stocker les informations d’identification avec vos applications qui s’exécutent dans le cloud.  
 
-Pour accorder à une identité managée des autorisations sur un conteneur d’objets blob ou une file d’attente, vous attribuez un rôle de contrôle d’accès en fonction du rôle (RBAC) à l’identité managée qui englobe les autorisations de cette ressource à l’étendue appropriée. Pour plus d’informations sur les rôles RBAC dans le stockage, consultez [gérer les droits d’accès aux données de stockage avec RBAC](storage-auth-aad-rbac.md). 
-
-Cet article montre comment s’authentifier auprès du stockage Azure d’objets blob et de files d’attente avec une identité managée à partir d’une machine virtuelle Azure.  
+Cet article montre comment autoriser l’accès aux données d’objet blob ou file d’attente avec une identité gérée à partir d’une machine virtuelle Azure. 
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Activer les identités managées sur une machine virtuelle
 
-Avant de pouvoir utiliser les identités managées pour ressources Azure pour authentifier l’accès à des objets blob et à des files d’attente à partir de votre machine virtuelle, vous devez activer les identités managées pour ressources Azure sur la machine virtuelle. Pour savoir comment activer des identités managées pour ressources Azure, consultez un de ces articles :
+Avant de pouvoir utiliser des identités gérées pour les ressources Azure pour autoriser l’accès aux objets BLOB et files d’attente à partir de votre machine virtuelle, vous devez d’abord activer des identités gérées pour les ressources Azure sur la machine virtuelle. Pour savoir comment activer des identités managées pour ressources Azure, consultez un de ces articles :
 
 - [Portail Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
@@ -33,52 +31,105 @@ Avant de pouvoir utiliser les identités managées pour ressources Azure pour au
 - [Modèle Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Kits Azure SDK](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Attribuer un rôle RBAC à une identité managée Azure AD
+## <a name="grant-permissions-to-an-azure-ad-managed-identity"></a>Accorder des autorisations à une identité Azure AD géré
 
-Pour authentifier une identité managée à partir de votre application de Stockage Azure, commencez par configurer les paramètres du contrôle d’accès basé sur un rôle (RBAC) pour cette identité managée. Le Stockage Azure définit des rôles RBAC qui englobent les autorisations pour les conteneurs et les files d’attente. Lorsque le rôle RBAC est attribué à une identité managée, cette dernière est autorisée à accéder à cette ressource. Pour plus d’informations, consultez [gérer les droits d’accès aux données d’objets Blob Azure et de file d’attente avec RBAC](storage-auth-aad-rbac.md).
+Pour autoriser une demande au service Blob ou file d’attente à partir d’une identité gérée dans votre application Azure Storage, tout d’abord configurer les paramètres de contrôle (RBAC) d’accès en fonction du rôle pour cette identité gérée. Stockage Azure définit les rôles RBAC qui englobent les autorisations pour les données d’objet blob et file d’attente. Lorsque le rôle RBAC est attribué à une identité gérée, l’identité gérée est accordée ces autorisations aux données d’objet blob ou file d’attente à l’étendue appropriée. 
 
-## <a name="get-a-managed-identity-access-token"></a>Obtenir un jeton d’accès d’identité managée
+Pour plus d’informations sur l’affectation des rôles RBAC, consultez les articles suivants :
 
-Pour s’authentifier avec une identité managée, votre application ou script doit acquérir un jeton d’accès d’identité managée. Pour savoir comment acquérir un jeton d'accès d’identité managée, voir [Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+- [Accorder l’accès aux données blob et file d’attente Azure avec RBAC dans le portail Azure](storage-auth-aad-rbac-portal.md)
+- [Accorder l’accès à des données d’objet blob et file d’attente Azure avec RBAC à l’aide d’Azure CLI](storage-auth-aad-rbac-cli.md)
+- [Accorder l’accès à des données d’objet blob et file d’attente Azure avec RBAC à l’aide de PowerShell](storage-auth-aad-rbac-powershell.md)
 
-Pour autoriser les opérations d’objet blob et de file d’attente avec un jeton OAuth, vous devez utiliser HTTPS.
+## <a name="authorize-with-a-managed-identity-access-token"></a>Autoriser avec un jeton d’accès identité gérée
 
-## <a name="net-code-example-create-a-block-blob"></a>Exemple de code .NET : Créer un objet blob de blocs
+Pour autoriser les demandes auprès du stockage Blob et file d’attente avec une identité gérée, votre application ou le script doit acquérir un jeton OAuth. Le [Microsoft Azure App Authentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) bibliothèque cliente pour .NET (version préliminaire) simplifie le processus d’acquisition et de renouveler un jeton à partir de votre code.
 
-Pour l’exemple de code, vous êtes supposé avoir un jeton d’accès d’identité managée. Le jeton d’accès permet d’autoriser l’identité managée à créer un objet blob de blocs.
+La bibliothèque cliente de l’authentification d’application gère automatiquement l’authentification. La bibliothèque utilise les informations d’identification du développeur pour authentifier pendant le développement local. Il est plus sûr d’utiliser les informations d’identification du développeur pendant le développement local, car vous n’avez pas besoin de créer des informations d’identification Azure AD ou de partager des informations d’identification entre les développeurs. Lorsque la solution est déployée ultérieurement vers Azure, la bibliothèque bascule automatiquement à l’aide des informations d’identification de l’application.
 
-### <a name="add-references-and-using-statements"></a>Ajouter des références et des instructions using  
+Pour utiliser la bibliothèque d’authentification de l’application dans une application de stockage Azure, installez le dernier package de version préliminaire à partir de [Nuget]((https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)), ainsi que la dernière version de la [bibliothèque cliente de stockage Azure pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Ajoutez le code suivant **à l’aide de** instructions à votre code :
 
-Dans Visual Studio, installez la bibliothèque cliente Azure Storage. Dans le menu **Outils**, sélectionnez **Gestionnaire de package NuGet**, puis **Console du gestionnaire de package**. Tapez la commande suivante dans la console :
-
-```powershell
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage  
-```
-
-Ajoutez les instructions using suivantes à votre code :
-
-```dotnet
+```csharp
+using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Auth;
 ```
 
-### <a name="create-credentials-from-the-managed-identity-access-token"></a>Créer des informations d’identification à partir du jeton d’accès d’identité managée
+La bibliothèque d’authentification de l’application fournit le **le paramètre AzureServiceTokenProvider** classe. Une instance de cette classe peut être passée à un rappel qui obtient un jeton, puis renouvelle le jeton avant son expiration.
 
-Pour créer l’objet blob de blocs, utilisez le **TokenCredentials** classe. Construisez une nouvelle instance de **TokenCredentials**, en passant le jeton d’accès d’identité managée que vous avez obtenu :
+L’exemple suivant obtient un jeton utilise pour créer un nouvel objet blob, puis utilise le même jeton à lire l’objet blob.
 
-```dotnet
-// Create storage credentials from your managed identity access token.
-TokenCredential tokenCredential = new TokenCredential(accessToken);
+```csharp
+const string blobName = "https://storagesamples.blob.core.windows.net/sample-container/blob1.txt";
+
+// Get the initial access token and the interval at which to refresh it.
+AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+var tokenAndFrequency = TokenRenewerAsync(azureServiceTokenProvider, 
+                                            CancellationToken.None).GetAwaiter().GetResult();
+
+// Create storage credentials using the initial token, and connect the callback function 
+// to renew the token just before it expires
+TokenCredential tokenCredential = new TokenCredential(tokenAndFrequency.Token, 
+                                                        TokenRenewerAsync,
+                                                        azureServiceTokenProvider, 
+                                                        tokenAndFrequency.Frequency.Value);
+
 StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
-// Create a block blob using the credentials.
-CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
-``` 
+// Create a blob using the storage credentials.
+CloudBlockBlob blob = new CloudBlockBlob(new Uri(blobName), 
+                                            storageCredentials);
+
+// Upload text to the blob.
+blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
+
+// Continue to make requests against Azure Storage. 
+// The token is automatically refreshed as needed in the background.
+do
+{
+    // Read blob contents
+    Console.WriteLine("Time accessed: {0} Blob Content: {1}", 
+                        DateTimeOffset.UtcNow, 
+                        blob.DownloadTextAsync().Result);
+
+    // Sleep for ten seconds, then read the contents of the blob again.
+    Thread.Sleep(TimeSpan.FromSeconds(10));
+} while (true);
+```
+
+La méthode de rappel vérifie le délai d’expiration du jeton et renouvelle celui-ci en fonction des besoins :
+
+```csharp
+private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, CancellationToken cancellationToken)
+{
+    // Specify the resource ID for requesting Azure AD tokens for Azure Storage.
+    const string StorageResource = "https://storage.azure.com/";  
+
+    // Use the same token provider to request a new token.
+    var authResult = await ((AzureServiceTokenProvider)state).GetAuthenticationResultAsync(StorageResource);
+
+    // Renew the token 5 minutes before it expires.
+    var next = (authResult.ExpiresOn - DateTimeOffset.UtcNow) - TimeSpan.FromMinutes(5);
+    if (next.Ticks < 0)
+    {
+        next = default(TimeSpan);
+        Console.WriteLine("Renewing token...");
+    }
+
+    // Return the new token and the next refresh time.
+    return new NewTokenAndFrequency(authResult.AccessToken, next);
+}
+```
+
+Pour plus d’informations sur la bibliothèque d’authentification de l’application, consultez [l’authentification de Service à service dans Azure Key Vault à l’aide de .NET](../../key-vault/service-to-service-authentication.md). 
+
+Pour en savoir plus sur comment acquérir un jeton d’accès, consultez [l’utilisation des identités gérées pour les ressources Azure sur une machine virtuelle Azure pour acquérir un jeton d’accès](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 > [!NOTE]
-> L’intégration d’Azure AD au Stockage Azure nécessite l’utilisation du protocole HTTPS pour les opérations relatives au Stockage Azure.
+> Pour autoriser les requêtes sur des objets blob ou file d’attente des données avec Azure AD, vous devez utiliser HTTPS pour ces demandes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur les rôles RBAC pour le stockage Azure, consultez [gérer les droits d’accès aux données de stockage avec RBAC](storage-auth-aad-rbac.md).
 - Pour apprendre à autoriser l’accès aux conteneurs et aux files d’attente à partir de vos applications de stockage, consultez [Utiliser Azure AD avec les applications de stockage](storage-auth-aad-app.md).
-- Pour savoir comment se connecter à Azure CLI et PowerShell avec une identité Azure AD, consultez [utiliser une identité Azure AD pour accéder au stockage Azure avec PowerShell ou CLI](storage-auth-aad-script.md).
+- Pour savoir comment exécuter des commandes Azure CLI et PowerShell avec les informations d’identification Azure AD, consultez [exécuter Azure CLI ou PowerShell des commandes avec informations d’identification Azure AD pour accéder aux données d’objet blob ou file d’attente](storage-auth-aad-script.md).

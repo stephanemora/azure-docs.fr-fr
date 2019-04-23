@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089469"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008209"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Développer des modèles Azure Resource Manager de cohérence du cloud
 
@@ -534,9 +534,9 @@ Get-AzureRmVMSize -Location "West Europe"
 
 Pour obtenir la liste complète des services actuellement disponibles, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable).
 
-### <a name="check-use-of-azure-managed-disks-in-azure-stack"></a>Vérifier l’utilisation d’Azure Managed Disks dans Azure Stack
+### <a name="check-use-of-azure-managed-disks-in-azure-stack"></a>Vérifier l’utilisation d’Azure Disques managés dans Azure Stack
 
-Managed Disks gère le stockage pour un client Azure. Au lieu de créer explicitement un compte de stockage et de spécifier l’URI d’un disque dur virtuel (VHD), vous pouvez utiliser des disques managés pour exécuter implicitement ces actions lorsque vous déployez une machine virtuelle. Les disques managés améliorent la disponibilité en plaçant tous les disques de machines virtuelles dans le même groupe à haute disponibilité dans différentes unités de stockage. En outre, les disques durs virtuels (VHD) existants peuvent être convertis du stockage standard au stockage Premium avec beaucoup moins de temps d’arrêt.
+Disques Managés gère le stockage pour un client Azure. Au lieu de créer explicitement un compte de stockage et de spécifier l’URI d’un disque dur virtuel (VHD), vous pouvez utiliser des disques managés pour exécuter implicitement ces actions lorsque vous déployez une machine virtuelle. Les disques managés améliorent la disponibilité en plaçant tous les disques de machines virtuelles dans le même groupe à haute disponibilité dans différentes unités de stockage. En outre, les disques durs virtuels (VHD) existants peuvent être convertis du stockage standard au stockage Premium avec beaucoup moins de temps d’arrêt.
 
 Bien que les disques managés se trouvent sur la feuille de route Azure Stack, ils ne sont actuellement pas pris en charge. Tant qu’ils ne le sont pas, vous pouvez développer des modèles cohérents de cloud pour Azure Stack en spécifiant explicitement les disques durs virtuels à l’aide de l’élément `vhd` dans le modèle pour la ressource de machine virtuelle comme suit :
 
@@ -673,5 +673,5 @@ Prenez en compte les conseils suivants relatifs aux tests et à l’automatisati
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Considérations relatives au modèle Azure Resource Manager](../azure-stack/user/azure-stack-develop-templates.md)
+* [Considérations relatives au modèle Azure Resource Manager](/azure-stack/user/azure-stack-develop-templates)
 * [Meilleures pratiques relatives aux modèles Azure Resource Manager](resource-group-authoring-templates.md)

@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 137d7aa48595e3f21ee99c6ebe23babd7a2d32b5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 1333aefc145e95223624f42a28ec0bb31ab70065
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677763"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011756"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurer les conteneurs Docker Analyse de texte
 
@@ -53,7 +53,7 @@ Vous devez ajouter le `text/analytics/v2.0` routage vers l’URI de point de ter
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|Oui| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
+|Oui| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 
@@ -98,15 +98,15 @@ Remplacez {_argument_name_} par vos propres valeurs :
 | Placeholder | Valeur | Format ou exemple |
 |-------------|-------|---|
 |{BILLING_KEY} | La clé de point de terminaison de la `Cognitive Services` ressource disponible sur Azure `Cognitive Services` page clés. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | La valeur de point de terminaison de facturation est disponible sur Azure `Cognitive Services` page Vue d’ensemble.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_ENDPOINT_URI} | La valeur de point de terminaison de facturation est disponible sur Azure `Cognitive Services` page Vue d’ensemble.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](how-tos/text-analytics-how-to-install-containers.md#billing).
 > La valeur de clé API est la **clé** à partir d’Azure `Cognitive Services` page clés de ressources. 
 
-## <a name="keyphrase-extraction-container-docker-examples"></a>Exemples Docker pour le conteneur Extraction de phrases clés
+## <a name="key-phrase-extraction-container-docker-examples"></a>Exemples de phrases clés d’extraction conteneur docker
 
-Les exemples Docker suivants s’appliquent au conteneur Extraction de phrases clés. 
+Les exemples suivants de docker sont pour le conteneur de l’extraction de phrases clés. 
 
 ### <a name="basic-example"></a>Exemple de base 
 

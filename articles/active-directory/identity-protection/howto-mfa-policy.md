@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/17/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: abd1049551d7dbc4823636dfdc00f64afab72cdf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698960"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008594"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Procédure : Configurer la stratégie d’inscription d’authentification multifacteur
 
-Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription de l’authentification multifacteur (MFA) en configurant une stratégie pour exiger l’inscription MFA. Cet article décrit ce que vous pouvez faire avec cette stratégie et comment la configurer.
+Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription de l’authentification multifacteur (MFA) en configurant une stratégie pour exiger l’inscription MFA. Cet article explique ce que la stratégie peut être utilisée pour et comment le configurer.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>Qu’est-ce que la stratégie d’inscription d’authentification multifacteur ?
 

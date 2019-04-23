@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c719bcaca91f9a6e77d79735283cf2c68404ef16
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b0d1722df2bfe5116de2676dfc930d6050731bbd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680534"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005024"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique SAML dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -96,7 +96,7 @@ L’élément **OutputClaimsTransformations** peut contenir une collection d’�
  
 L’exemple suivant montre les revendications retournées par le fournisseur d’identité Facebook :
 
-- La revendication **socialIdpUserId** est mappée à la revendication **assertionSubjectName**.
+- Le **issuerUserId** revendication est mappée à la **assertionSubjectName** de revendication.
 - Revendication **first_name** mappée à la revendication **givenName**.
 - Revendication **last_name** mappée à la revendication **surname**.
 - Revendication **displayName** sans mappage de nom.
@@ -109,7 +109,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
  
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="assertionSubjectName" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="assertionSubjectName" />
   <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
   <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
@@ -124,7 +124,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | PartnerEntity | Oui | URL des métadonnées du fournisseur d’identité SAML. Copiez les métadonnées du fournisseur d’identité et ajoutez-les à l’intérieur de l’élément CDATA `<![CDATA[Your IDP metadata]]>` |
-| WantsSignedRequests | Non  | Indique si le profil technique exige que toutes les demandes d’authentification sortantes soient signées. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`. Quand la valeur est `true`, la clé de chiffrement **SamlMessageSigning** doit être spécifiée et toutes les demandes d’authentification sortantes sont signées. Si la valeur est `false`, les paramètres **SigAlg** et **Signature** (chaîne de requête ou paramètre d’envoi) sont omis de la demande. Ces métadonnées contrôlent également l’attribut **AuthnRequestsSigned** des métadonnées, qui est généré dans les métadonnées du profil technique Azure AD B2C partagées avec le fournisseur d’identité. Azure AD B2C ne signe pas la demande si **WantsSignedRequests** dans les métadonnées du profil technique est défini sur `false` et si les métadonnées du fournisseur identité **WantAuthnRequestsSigned** sont définies sur `false` ou ne sont pas spécifiées. |
+| WantsSignedRequests | Non  | Indique si le profil technique exige que toutes les demandes d’authentification sortantes soient signées. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`. Quand la valeur est `true`, la clé de chiffrement **SamlMessageSigning** doit être spécifiée et toutes les demandes d’authentification sortantes sont signées. Si la valeur est `false`, les paramètres **SigAlg** et **Signature** (chaîne de requête ou paramètre d’envoi) sont omis de la demande. Ces métadonnées contrôlent également l’attribut **AuthnRequestsSigned** des métadonnées, qui est généré dans les métadonnées du profil technique Azure AD B2C partagées avec le fournisseur d’identité. Azure AD B2C ne signe la demande si la valeur de **WantsSignedRequests** dans le profil technique de métadonnées sont définie sur `false` et les métadonnées du fournisseur identité **WantAuthnRequestsSigned** est la valeur `false` ou sauf indication contraire. |
 | XmlSignatureAlgorithm | Non  | Méthode utilisée par Azure AD B2C pour signer la demande SAML. Ces métadonnées contrôlent la valeur du paramètre **SigAlg** (chaîne de requête ou paramètre d’envoi) dans la demande SAML. Valeurs possibles : `Sha256`, `Sha384`, `Sha512` ou `Sha1`. Veillez à configurer l’algorithme de signature des deux côtés avec la même valeur. Utilisez uniquement l’algorithme pris en charge par votre certificat. | 
 | WantsSignedAssertions | Non  | Indique si le profil technique exige que toutes les assertions entrantes soient signées. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`. Si la valeur est `true`, toutes les sections d’assertions `saml:Assertion` envoyées par le fournisseur d’identité à Azure AD B2C doivent être signées. Si la valeur est `false`, le fournisseur d’identité ne doit pas signer les assertions, mais même s’il le fait, Azure AD B2C ne validera pas la signature. Ces métadonnées contrôlent également l’indicateur de métadonnées **WantsAssertionsSigned**, qui est généré dans les métadonnées du profil technique Azure AD B2C partagées avec le fournisseur d’identité. Si vous désactivez la validation des assertions, vous pouvez également désactiver la validation de signature de réponse (pour plus d’informations, consultez **ResponsesSigned**). |
 | ResponsesSigned | Non  | Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`. Si la valeur est `false`, le fournisseur d’identité ne doit pas signer la réponse SAML, mais même s’il le fait, Azure AD B2C ne validera pas la signature. Si la valeur est `true`, la réponse SAML envoyée par le fournisseur d’identité à Azure AD B2C est signée et doit être validée. Si vous désactivez la validation de la réponse SAML, vous pouvez également désactiver la validation de signature d’assertion (pour plus d’informations, consultez **WantsSignedAssertions**). |

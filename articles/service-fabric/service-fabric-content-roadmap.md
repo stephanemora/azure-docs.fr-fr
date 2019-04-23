@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: adbe101455bc200bc6be439920736b756f08b695
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667988"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011178"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Vous voulez en savoir plus sur Service Fabric ?
 Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables.  Service Fabric dispose d’une grande surface d’exposition et il y a beaucoup d’informations à découvrir.  Cet article fournit une synthèse de Service Fabric et décrit les concepts fondamentaux, les modèles de programmation, le cycle de vie d’application, les tests, les clusters et la surveillance de l’intégrité. Consultez [Vue d’ensemble](service-fabric-overview.md) et [Que sont les microservices ?](service-fabric-overview-microservices.md) pour obtenir une présentation et savoir comment utiliser Service Fabric pour créer des microservices. Cet article ne donne pas la liste complète du contenu, mais fournit un lien vers des articles de présentation et de prise en main pour chaque zone de Service Fabric. 
@@ -165,7 +165,7 @@ La création de rapports peut être effectuée à partir des éléments suivants
 * Les agents de surveillance internes qui s’exécutent sur les nœuds Service Fabric, mais qui ne sont pas implémentés en tant que services de Service Fabric.
 * Les agents de surveillance externes qui sondent la ressource à partir de l’extérieur du cluster Service Fabric (par exemple, un service de surveillance de type Gomez).
 
-Sans configuration préalable, les composants Service Fabric signalent l'intégrité de toutes les entités du cluster. Les [rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) procurent une visibilité sur les fonctionnalités du cluster et des applications, et signalent les problèmes d’intégrité. Pour les applications et services, les rapports d’intégrité du système vérifient que les entités sont implémentées et qu’elles se comportent correctement du point de vue du runtime Service Fabric. Les rapports ne fournissent aucune information sur l’intégrité de la logique métier du service ni sur la détection des processus bloqués. Pour ajouter des informations de contrôle d’intégrité spécifiques à la logique de votre service, [mettez en œuvre la création de rapports d’intégrité personnalisée](service-fabric-report-health.md) dans vos services.
+Sans configuration préalable, les composants Service Fabric signalent l'intégrité de toutes les entités du cluster. Les [rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) procurent une visibilité sur les fonctionnalités du cluster et des applications, et signalent les problèmes d’intégrité. Pour les applications et services, les rapports d’intégrité du système vérifient que les entités sont implémentées et qu’elles se comportent correctement du point de vue du runtime Service Fabric. Les rapports ne fournissent tout l’intégrité de la logique métier du service et détecter les processus qui ont cessé de répondre. Pour ajouter des informations de contrôle d’intégrité spécifiques à la logique de votre service, [mettez en œuvre la création de rapports d’intégrité personnalisée](service-fabric-report-health.md) dans vos services.
 
 Service Fabric offre plusieurs façons d’[afficher des rapports d’intégrité](service-fabric-view-entities-aggregated-health.md) qui sont regroupées dans le magasin d’intégrité :
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou autres outils de visualisation.

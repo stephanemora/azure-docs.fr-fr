@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 718eefc95384dde050a4a25e6850fe6db574d294
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ef62ec78bc7fc01bd2e6dd7c5561b15be85540d2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258927"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007897"
 ---
 # <a name="azure-maps-routing-coverage"></a>Couverture de routage Azure Maps
 
@@ -136,12 +136,12 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Cambodge                       |        ✓       |                      |             |
 | Fidji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| Hong Kong (R.A.S.)                      |        ✓       |         ✓            |             |
+| Hong Kong (R.A.S.)                  |        ✓       |         ✓            |             |
 | Inde                          |        ✓       |         ✓            |             |
 | Indonésie                      |        ✓       |         ✓            |             |
 | Corée du Sud                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
-| Macao R.A.S.                          |        ✓       |         ✓            |             |
+| Macao R.A.S.                      |        ✓       |         ✓            |             |
 | Malaisie                       |        ✓       |         ✓            |             |
 | Myanmar                        |        ✓       |                      |             |
 | Nouvelle-Zélande                    |        ✓       |         ✓            |     ✓       | 
@@ -190,7 +190,7 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Liechtenstein                  |        ✓       |         ✓            |             |
 | Lituanie                      |        ✓       |         ✓            |     ✓      | 
 | Luxembourg                     |        ✓       |         ✓            |     ✓      | 
-| République de Macédoine                      |        ✓       |                      |             |
+| Macédoine du Nord                |        ✓       |                      |             |
 | Malte                          |        ✓       |         ✓            |             |
 | Moldova                        |        ✓       |                      |             |
 | Monaco                         |        ✓       |         ✓            |             |

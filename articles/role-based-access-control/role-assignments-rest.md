@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a66969504dee5ba526cdccbbb39471ef5af971c0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439330"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006453"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gérer l'accès aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et de l'API REST
 
@@ -28,7 +28,7 @@ Le [contrôle d'accès en fonction du rôle (RBAC)](overview.md) vous permet de 
 
 ## <a name="list-access"></a>Répertorier les accès
 
-Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attributions de rôles pour énumérer les accès. Pour répertorier les attributions de rôles, utilisez l’une des API REST de la [liste d’attributions de rôles](/rest/api/authorization/roleassignments/list). Pour affiner vos résultats, vous spécifiez une étendue et un filtre facultatif. Pour appeler cette API, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/read` dans l’étendue spécifiée. Différents [rôles intégrés en lien avec les ressources Azure](built-in-roles.md) bénéficient d'un accès à cette opération.
+Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attributions de rôles pour énumérer les accès. Pour répertorier les attributions de rôles, utilisez l’une des API REST de la [liste d’attributions de rôles](/rest/api/authorization/roleassignments/list). Pour affiner vos résultats, vous spécifiez une étendue et un filtre facultatif.
 
 1. Commencez par la requête suivante :
 
@@ -38,7 +38,7 @@ Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attribu
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les attributions de rôle.
 
-    | Étendue | Type |
+    | Étendue | type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -77,7 +77,7 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
     
 1. Dans l’URI, remplacez *{scope}* par l’étendue de l’attribution de rôle.
 
-    | Étendue | Type |
+    | Étendue | type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -105,7 +105,7 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès. 
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue de suppression de l’attribution de rôle.
 
-    | Étendue | Type |
+    | Étendue | type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |

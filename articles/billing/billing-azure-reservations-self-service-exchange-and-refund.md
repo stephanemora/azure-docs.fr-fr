@@ -1,7 +1,6 @@
 ---
 title: Échanges de libre-service et les remboursements pour les réservations d’Azure | Microsoft Docs
 description: Découvrez comment vous pouvez échanger ou de la restitution des réservations d’Azure.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,20 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/5/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281979"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009308"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges de libre-service et les remboursements pour les réservations d’Azure
 
-Réservations d’Azure offrent la flexibilité pour répondre à vos besoins en constante évolution. Vous pouvez échanger une réservation pour une autre réservation du même type. Vous pouvez également rembourser une réservation, jusqu'à 50 000 USD par an, si vous n’avez plus besoin.
+Réservations d’Azure offrent la flexibilité pour répondre à vos besoins en constante évolution. Vous pouvez échanger une réservation pour une autre réservation du même type. Vous pouvez également rembourser une réservation, jusqu’à 50 000 USD par an, si vous n’en avez plus besoin.
 
-Libre service exchange et annuler la fonctionnalité n’est pas disponible pour les clients US Government accord d’entreprise. Autres types d’abonnement US Government, y compris le paiement à l’utilisation et CSP sont pris en charge.
+L’échange en libre service et la fonctionnalité d’annulation n’est pas disponible pour les clients Contrat Entreprise de l’administration américaine. Autres types d’abonnement US Government, y compris le paiement à l’utilisation et CSP sont pris en charge.
+
+Vous devez disposer d’un accès propriétaire sur l’ordre de réservation à échanger ou d’une réservation existante de remboursement.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>Échanger une instance réservée existante
 
@@ -32,14 +33,14 @@ Vous pouvez échanger votre réservation avec trois étapes rapides dans le [Azu
 
 1. Sélectionnez les réservations que vous souhaitez de remboursement et cliquez sur **Exchange**.  
     ![Image d’un exemple montrant des réservations à retourner](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
-2. Sélectionnez le produit de la machine virtuelle que vous souhaitez acheter et tapez une quantité. Assurez-vous que le nouveau total d’achat est supérieur au total de retour. [Déterminer la taille appropriée avant d’acheter](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+2. Sélectionnez le produit de machine virtuelle que vous voulez acheter et tapez une quantité. Assurez-vous que le nouveau total d’achat est supérieur au total de retour. [Déterminer la taille appropriée avant d’acheter](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Image montrant le produit de la machine virtuelle avec un échange de l’exemple](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. Passez en revue et terminer la transaction.  
     ![Image montrant le produit de la machine virtuelle avec un échange, la valeur de retour à la fin de l’exemple](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
 Pour une réservation de remboursement, accédez à **détails de la réservation** et cliquez sur **remboursement**.
 
-## <a name="how-return-and-exchange-transactions-are-processed"></a>Comment retrouver et traitement des transactions d’exchange
+## <a name="how-transactions-are-processed"></a>Mode de traitement des transactions
 
 Tout d’abord, Microsoft annule la réservation existante et remboursements la quantité au prorata pour cette réservation. S’il existe un échange, l’achat de nouveau est traitée. Microsoft traite les remboursements à l’aide d’une des méthodes suivantes, selon votre type de compte et de paiement :
 
@@ -49,7 +50,7 @@ Money est ajouté à l’engagement monétaire pour les échanges et rembourseme
 
 Si l’achat d’origine a été effectuée en tant que dépassement, Microsoft publie un avoir.
 
-### <a name="pay-as-you-go-invoice-payment-customers-and-cloud-solution-provider-program"></a>Clients de paiement de facture de paiement à l’utilisation et le programme de fournisseur de solutions de Cloud
+### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>Paiements sur facture paiement à l’utilisation et le programme CSP
 
 La facture d’achat de réservation d’origine est annulée, et ensuite une facture est créée pour la restitution. Pour les échanges, la nouvelle facture montre le remboursement et l’achat de nouveau. Le montant du remboursement est ajusté par rapport à l’achat. Si vous remboursé uniquement une réservation, la quantité au prorata reste avec Microsoft, puis elle est ajustée par rapport à un achat de réservation futures.
 
@@ -74,7 +75,7 @@ La facture d’origine est annulée et une facture est créée. L’argent est c
 - Seuls les propriétaires de réservation peuvent traiter un remboursement. [Découvrez comment ajouter ou modifier des utilisateurs qui peuvent gérer une réservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Microsoft réserve le droit de facturer une pénalité de 12 % pour n’importe quel retourne, bien que la pénalité n’est pas actuellement facturée.
 
-## <a name="exchange-a-non-premium-storage-vm-reservation-for-a-premium-storage-reservation"></a>Échanger une réservation de machine virtuelle pour une réservation de stockage premium de stockage non premium
+## <a name="exchange-non-premium-storage-for-premium-storage"></a>Stockage non premium pour le stockage premium pour Exchange
 
 Vous pouvez échanger une réservation achetée pour une taille de machine virtuelle qui ne prennent pas en charge le stockage premium à une taille de machine virtuelle correspondante qui effectue. Par exemple, un _F1_ pour un _F1s_. Pour effectuer l’échange, accédez aux détails de la réservation, puis cliquez sur **Exchange**. L’échange ne réinitialiser la durée de l’instance réservée ou créer une nouvelle transaction.
 

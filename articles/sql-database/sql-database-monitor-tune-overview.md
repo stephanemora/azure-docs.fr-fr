@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 0c93888af16ed7f7162f38c73be5f6330c886c65
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683171"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001573"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Surveillance et optimisation des performances
 
@@ -85,9 +85,9 @@ Si vous avez identifié un problème de performances lié à l’exécution, vou
 > [!IMPORTANT]
 > Pour obtenir un ensemble de requêtes T-SQL utilisant ces vues de gestion dynamique pour résoudre les problèmes d’utilisation du processeur, consultez [Identifier les problèmes de performances d’UC](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
-### <a name="troubleshoot-queries-with-parameter-sensitive-query-execution-plan-issues"></a>Résoudre les problèmes des requêtes relatifs aux plans d’exécution des requêtes sensible aux paramètres
+### <a name="ParamSniffing"></a> Résoudre les problèmes de plan de requête de sensible aux paramètres d’exécution des requêtes
 
-Le problème de plan sensible aux paramètres fait référence à un scénario dans lequel l’optimiseur de requête génère un plan d’exécution optimal pour une valeur de paramètre spécifique (ou un ensemble de valeurs) et le plan mis en cache est ensuite non optimal pour les valeurs de paramètre utilisées dans des exécutions consécutives. Les plans non optimaux peuvent conduire à des problèmes de performances de requête et à une dégradation du débit de charge de travail globale.
+Le problème de plan sensible aux paramètres fait référence à un scénario dans lequel l’optimiseur de requête génère un plan d’exécution optimal pour une valeur de paramètre spécifique (ou un ensemble de valeurs) et le plan mis en cache est ensuite non optimal pour les valeurs de paramètre utilisées dans des exécutions consécutives. Les plans non optimaux peuvent conduire à des problèmes de performances de requête et à une dégradation du débit de charge de travail globale. Pour plus d’informations sur la détection des paramètres et de traitement des requêtes, consultez la [Guide d’Architecture de traitement des requêtes](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide.md7#ParamSniffing).
 
 Plusieurs solutions s’offrent à vous pour atténuer les problèmes, chacun présentant des inconvénients et des avantages :
 
@@ -102,17 +102,17 @@ Plusieurs solutions s’offrent à vous pour atténuer les problèmes, chacun pr
 
 Pour plus d’informations sur la résolution de ces types de problèmes, consultez :
 
-- Ce billet de blog sur [la détection d’un paramètre](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/)
-- Ce billet de blog [The Elephant and the Mouse, or, Parameter Sniffing in SQL Server](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) (L’éléphant et la souris, ou le paramètre de détection dans SQL Server)
-- Ce billet de blog [Conor vs. Dynamic SQL vs. Procedures vs. Plan Quality for Parameterized Queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) (Conor vs SQL dynamique vs procédures vs requêtes paramétrables)
+- Cela [il y a un paramètre](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) billet de blog
+- Ce billet de blog [Conor vs. Dynamic SQL vs. Procedures vs. Plan Quality for Parameterized Queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) (Conor vs SQL dynamique vs procédures vs requêtes paramétrables)
+- Cela [Techniques d’optimisation de requête SQL dans SQL Server : Détection de paramètre](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) billet de blog
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Résolution des problèmes de l’activité de compilation en raison d’un paramétrage incorrect
 
 Lorsqu’une requête contient des littéraux, le moteur de base de données choisit de paramétrer automatiquement l’instruction, ou un utilisateur peut explicitement la paramétrer afin de réduire le nombre de compilations. Un nombre élevé de compilations d’une requête utilisant le même modèle mais différentes valeurs littérales peut entraîner une augmentation de l’utilisation d’UC. De même, si vous ne paramétrez que partiellement une requête qui continue à avoir des littéraux, le moteur de base de données ne la paramètre pas davantage.  Vous trouverez ci-dessous un exemple de requête partiellement paramétrable :
 
 ```sql
-select * from t1 join t2 on t1.c1=t2.c1
-where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+SELECT * FROM t1 JOIN t2 ON t1.c1 = t2.c1
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
 Dans l’exemple précédent, `t1.c1` prend `@p1` mais `t2.c2` continue de prendre GUID en tant que littéral. Dans ce cas, si vous modifiez la valeur de `c2`, la requête est traitée comme une requête différente et une nouvelle compilation se produit. Pour réduire les compilations dans l’exemple précédent, la solution consiste également à paramétrer le GUID.
@@ -120,24 +120,24 @@ Dans l’exemple précédent, `t1.c1` prend `@p1` mais `t2.c2` continue de prend
 La requête suivante affiche le nombre de requêtes par hachage de requête pour déterminer si une requête est correctement paramétrable ou non :
 
 ```sql
-   SELECT  TOP 10  
-      q.query_hash
-      , count (distinct p.query_id ) AS number_of_distinct_query_ids
-      , min(qt.query_sql_text) AS sampled_query_text
-   FROM sys.query_store_query_text AS qt
-      JOIN sys.query_store_query AS q
-         ON qt.query_text_id = q.query_text_id
-      JOIN sys.query_store_plan AS p 
-         ON q.query_id = p.query_id
-      JOIN sys.query_store_runtime_stats AS rs 
-         ON rs.plan_id = p.plan_id
-      JOIN sys.query_store_runtime_stats_interval AS rsi
-         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
-   WHERE
-      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
-      AND query_parameterization_type_desc IN ('User', 'None')
-   GROUP BY q.query_hash
-   ORDER BY count (distinct p.query_id) DESC
+SELECT  TOP 10  
+  q.query_hash
+  , count (distinct p.query_id ) AS number_of_distinct_query_ids
+  , min(qt.query_sql_text) AS sampled_query_text
+FROM sys.query_store_query_text AS qt
+  JOIN sys.query_store_query AS q
+     ON qt.query_text_id = q.query_text_id
+  JOIN sys.query_store_plan AS p 
+     ON q.query_id = p.query_id
+  JOIN sys.query_store_runtime_stats AS rs 
+     ON rs.plan_id = p.plan_id
+  JOIN sys.query_store_runtime_stats_interval AS rsi
+     ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+WHERE
+  rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+  AND query_parameterization_type_desc IN ('User', 'None')
+GROUP BY q.query_hash
+ORDER BY count (distinct p.query_id) DESC
 ```
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Résoudre les requêtes de problème ou fournir davantage de ressources
@@ -183,7 +183,7 @@ Dans les scénarios avec une UC élevée, le Magasin de données des requêtes e
 - Des requêtes de consommation élevée d’UC peuvent toujours être en cours d’exécution et les requêtes non terminées
 - Les requêtes consommant beaucoup d’UC étaient en cours d’exécution quand un basculement s’est produit
 
-Le Magasin de données des requêtes et les vues de gestion dynamique du suivi des statistiques d’attente affichent uniquement des résultats pour les requêtes ayant expiré ou ayant été complètement terminées, et n’affichent pas de données pour les instructions en cours d’exécution (tant qu’elles ne sont pas terminées).  La vue de gestion dynamique [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) vous permet de suivre les requêtes en cours d’exécution et la durée du rôle de travail associé.
+Le Magasin de données des requêtes et les vues de gestion dynamique du suivi des statistiques d’attente affichent uniquement des résultats pour les requêtes ayant expiré ou ayant été complètement terminées, et n’affichent pas de données pour les instructions en cours d’exécution (tant qu’elles ne sont pas terminées). La vue de gestion dynamique [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) vous permet de suivre les requêtes en cours d’exécution et la durée du rôle de travail associé.
 
 Comme illustré dans le graphique précédent, les attentes les plus courantes sont :
 
@@ -198,6 +198,8 @@ Comme illustré dans le graphique précédent, les attentes les plus courantes s
 > - [Identifier les problèmes de performances d’E/S](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identifier les problèmes de performances `tempdb`](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identifier les attentes d’allocation de mémoire](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
+> - [TigerToolbox - attentes et verrous](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox - usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## <a name="improving-database-performance-with-more-resources"></a>Amélioration des performances de base de données avec davantage de ressources
 

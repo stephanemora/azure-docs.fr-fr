@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87e1e57a969fc5e65302dcce44231773f7e74b3a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 33d8e18dcec98710443623c03651aa568aa37009
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548823"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010379"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurer des expériences de machine learning automatisé
 
@@ -112,7 +112,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 Le script `get_data` peut retourner :
 
-Clé | Type | Mutuellement exclusif avec    | Description
+Clé | type | Mutuellement exclusif avec    | Description
 ---|---|---|---
 X | Tramedonnées Pandas ou tableaux Numpy | data_train, étiquette, colonnes |  Toutes les caractéristiques pour l’entraînement
 y | Tramedonnées Pandas ou tableaux Numpy |   label   | Données des étiquettes pour l’entraînement. Pour la classification, il doit s’agir d’un tableau d’entiers.
@@ -179,7 +179,7 @@ Consultez le [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tre
 
 ## <a name="configure-your-experiment-settings"></a>Configurer les paramètres de votre expérience
 
-Vous disposez de plusieurs options pour configurer votre expérience de machine learning automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`. Pour obtenir la liste complète des paramètres, reportez-vous à la [Classe AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py).  
+Vous disposez de plusieurs options pour configurer votre expérience de machine learning automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`. Pour obtenir la liste complète des paramètres, reportez-vous à la [Classe AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).  
 
 Voici quelques exemples :
 
@@ -210,7 +210,7 @@ Voici quelques exemples :
         n_cross_validations=5)
     ```
 
-Les trois différents `task` les valeurs de paramètre déterminent la liste des algorithmes à appliquer.  Utilisez les paramètres `whitelist` ou `blacklist` pour modifier les itérations avec les algorithmes disponibles à inclure ou à exclure. Vous trouverez la liste des modèles pris en charge sur [SupportedAlgorithms classe](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)
+Les trois différents `task` les valeurs de paramètre déterminent la liste des algorithmes à appliquer.  Utilisez les paramètres `whitelist` ou `blacklist` pour modifier les itérations avec les algorithmes disponibles à inclure ou à exclure. Vous trouverez la liste des modèles pris en charge sur [SupportedAlgorithms classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
 
 ## <a name="primary-metric"></a>Métrique principale
 La mesure principale ; comme indiqué dans les exemples ci-dessus détermine la métrique à utiliser pendant l’apprentissage du modèle d’optimisation. La métrique principale, que vous pouvez sélectionner est déterminée par le type de tâche que vous choisissez. Voici une liste des mesures disponibles.
@@ -240,43 +240,6 @@ Si vous utilisez `preprocess=True`, les étapes de prétraitement des données s
 
 ## <a name="ensemble-models"></a>Modèles d’ensemble
 Apprentissage d’ensemble améliore les résultats de la machine learning et les performances de prédiction en combinant plusieurs modèles au lieu d’utiliser des modèles uniques. Lors de l’utilisation automatisées apprentissage, vous pouvez former des modèles d’ensemble à l’aide de la [algorithme de sélection Caruana ensemble avec l’initialisation Ensemble triée](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). L’itération de l’ensemble s’affiche en tant que la dernière itération de votre série de tests.
-
-## <a name="time-series-forecasting"></a>Prévision de séries chronologiques
-Pour le type de tâche prévision temps série, vous avez des paramètres supplémentaires à définir.
-1. time_column_name - il s’agit d’un paramètre obligatoire qui définit le nom de la colonne dans la formation séries de données conteneur date/heure. 
-1. max_horizon - définit la durée pendant laquelle que vous souhaitez prédire selon la périodicité des données d’apprentissage. Par exemple si vous avez des données d’apprentissage avec des fragments de temps quotidienne, vous définissez l’amplitude arrière dans jours que vous souhaitez former pour le modèle.
-1. grain_column_names - définit le nom des colonnes qui contiennent des données de séries de temps individuelles dans vos données d’apprentissage. Par exemple, si vous sont prévoir les ventes d’une marque particulière par magasin, vous définirait store et marque les colonnes en tant que colonnes de votre niveau de granularité.
-
-Consultez l’exemple de ces paramètres utilisés ci-dessous, l’exemple de bloc-notes est disponible [ici](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
-
-```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
-
-# View the number of time series data with defined grains
-print('Data contains {0} individual time-series.'.format(nseries))
-```
-
-```python
-time_series_settings = {
-    'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
-    'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
-}
-
-automl_config = AutoMLConfig(task='forecasting',
-                             debug_log='automl_oj_sales_errors.log',
-                             primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
-                             X=X_train,
-                             y=y_train,
-                             n_cross_validations=5,
-                             path=project_folder,
-                             verbosity=logging.INFO,
-                             **time_series_settings)
-```
 
 ## <a name="run-experiment"></a>Exécuter une expérience
 

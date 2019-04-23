@@ -6,20 +6,20 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: cc47ca07a843daf5cc35d23b838761166d39bdcc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351369"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000655"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Déployer des instances de conteneur qui utilisent des ressources GPU
 
 Pour exécuter certaines charges de travail nécessitant beaucoup de ressources système sur Azure Container Instances, déployez vos [groupes de conteneurs](container-instances-container-groups.md) avec des *ressources GPU*. Les instances de conteneur dans le groupe peuvent accéder à un ou plusieurs GPU NVIDIA Tesla pendant l’exécution de charges de travail de conteneur comme CUDA et les applications de Deep Learning.
 
-Comme indiqué dans cet article, vous pouvez ajouter des ressources GPU lorsque vous déployez un groupe de conteneurs avec un [fichier YAML](container-instances-multi-container-yaml.md) ou un [modèle Resource Manager](container-instances-multi-container-group.md).
+Cet article montre comment ajouter des ressources GPU lorsque vous déployez un groupe de conteneurs en utilisant un [fichier YAML](container-instances-multi-container-yaml.md) ou [modèle Resource Manager](container-instances-multi-container-group.md). Vous pouvez également spécifier des ressources GPU lorsque vous déployez une instance de conteneur à l’aide du portail Azure.
 
 > [!IMPORTANT]
 > Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
@@ -61,7 +61,7 @@ Lors du déploiement des ressources GPU, définir des ressources processeur et m
 
 * **Tarification** : semblable aux groupes de conteneurs sans ressources GPU ; factures Azure pour les ressources consommées sur la *durée* d’un groupe de conteneurs avec ressources GPU. La durée est calculée à partir du début de l’extraction de l’image de votre premier conteneur jusqu’à la fin de l’exécution du groupe de conteneurs. Elle n’inclut pas le temps de déploiement du groupe de conteneurs.
 
-  La tarification est plus élevée pour les groupes de conteneurs avec des ressources GPU que pour les groupes de conteneur sans ressources GPU. Consultez les [détails de la tarification](https://azure.microsoft.com/pricing/details/container-instances/).
+  Consultez les [détails de la tarification](https://azure.microsoft.com/pricing/details/container-instances/).
 
 * **Pilotes CUDA** : les instances de conteneur avec ressources GPU sont préconfigurées avec des pilotes NVIDIA CUDA et des runtimes de conteneur. Vous pouvez donc utiliser des images de conteneur développées pour les charges de travail CUDA.
 

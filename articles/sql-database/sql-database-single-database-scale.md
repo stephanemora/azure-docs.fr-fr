@@ -7,17 +7,17 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/20/2019
-ms.openlocfilehash: c6dc49204c0a7e1cb0d1116e29746eed2fe52f8d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 471ded9cd94623929630155f1a3c613bf00576a8
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286259"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006248"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mise à l'échelle de ressources de singletons Azure SQL Database unique
 
@@ -27,7 +27,7 @@ Cet article décrit comment faire évoluer les ressources de calcul et de stocka
 > [!IMPORTANT]
 > Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
-## <a name="change-compute-resources-vcores-or-dtus"></a>Modification des ressources de calcul (vCores ou dtu)
+## <a name="change-compute-size-vcores-or-dtus"></a>Modifier la taille de calcul (vCores ou dtu)
 
 Après la sélection initiale du nombre de dtu ou de vCores, vous pouvez faire évoluer une base de données unique ou descendre en puissance dynamiquement en fonction de l’expérience réelle à l’aide de la [Azure portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [ PowerShell](/powershell/module/az.sql/set-azsqldatabase), le [Azure CLI](/cli/azure/sql/db#az-sql-db-update), ou le [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
@@ -67,6 +67,37 @@ La latence pour modifier le niveau de service ou de mettre à l’échelle la ta
 > [!TIP]
 > Pour surveiller des opérations en cours, voir : [Gérer des opérations à l’aide de l’API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gérer des opérations à l’aide de l’interface de ligne de commande](/cli/azure/sql/db/op), [Surveiller des opérations à l’aide de T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) et les deux commandes PowerShell suivantes : [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) et [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
+### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>L’annulation des modifications de niveau de service ou des opérations de remise à l’échelle de calcul
+
+Un niveau de service, modifiez ou calculer la remise à l’échelle d’opération peut être annulée.
+
+#### <a name="azure-portal"></a>Portail Azure
+
+Dans le panneau Vue d’ensemble de la base de données, accédez à **Notifications** , puis cliquez sur la vignette indiquant une opération en cours est :
+
+![Opération en cours](media/sql-database-single-database-scale/ongoing-operations.png)
+
+Ensuite, cliquez sur le bouton intitulé **annuler cette opération**.
+
+![Annuler l’opération en cours](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
+
+#### <a name="powershell"></a>PowerShell
+
+À partir d’une invite de commandes PowerShell, définissez le `$ResourceGroupName`, `$ServerName`, et `$DatabaseName`, puis exécutez la commande suivante :
+
+```PowerShell
+$OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
+if(-not [string]::IsNullOrEmpty($OperationName))
+    {
+        (az sql db op cancel --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --name $OperationName)
+        "Operation " + $OperationName + " has been canceled"
+    }
+    else
+    {
+        "No service tier change or compute rescaling operation found"
+    }
+```
+
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Considérations supplémentaires lors de la modification de taille de calcul de niveau ou la remise à l’échelle du service
 
 - Si vous effectuez la mise à niveau vers un niveau de service ou une taille de calcul supérieurs, la taille maximale de la base de données n’augmente pas, à moins que vous n’en fassiez la demande (maxsize).
@@ -77,7 +108,7 @@ La latence pour modifier le niveau de service ou de mettre à l’échelle la ta
 - Les offres de service de restauration sont différentes selon les niveaux de service. Si vous repassez au niveau de service **De base**, la rétention des fichiers de sauvegarde sera de plus courte durée. Consultez l’article relatif aux [sauvegardes Azure SQL Database](sql-database-automated-backups.md).
 - Les nouvelles propriétés de la base de données ne sont appliquées qu’une fois les modifications terminées.
 
-### <a name="billing-during-rescaling"></a>Au cours de remise à l’échelle de facturation
+### <a name="billing-during-compute-rescaling"></a>Facturation lors de la remise à l’échelle de calcul
 
 Vous êtes facturé pour chaque heure d’existence de la base de données avec le niveau de service le plus élevé, la taille de calcul appliquée pendant cette heure quel que soit l’usage, ou si la base de données a été active pendant moins d’une heure. Par exemple, si vous avez créé une base de données unique et que vous l’avez supprimée cinq minutes après, votre facture mentionne le coût d’une heure de base de données.
 
@@ -102,9 +133,9 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
-## <a name="dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Modèle d’achat DTU : limitations de P11 et P15 lorsque la taille maximale est supérieure à 1 To
+## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>Contraintes de P11 et P15 lorsque max taille est supérieure à 1 to
 
-Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb). Les considérations et limitations suivantes s’appliquent aux bases de données P11 et P15 avec une taille maximale supérieure à 1 To :
+Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Les considérations et limitations suivantes s’appliquent aux bases de données P11 et P15 avec une taille maximale supérieure à 1 To :
 
 - Si la taille maximale pour une base de données P11 ou P15 était jamais une valeur supérieure à 1 To, puis pouvez il uniquement être restauré ou copié vers une base de données P11 ou P15.  Par la suite, la base de données permettre être remises à l’échelle à une taille de calcul différente fournie par la quantité d’espace allouée au moment de l’opération de remise à l’échelle ne dépasse pas les limites de taille maximale de la nouvelle taille de calcul.
 - Pour les scénarios de géoréplication active :

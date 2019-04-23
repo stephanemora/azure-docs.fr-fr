@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679072"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149697"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -208,7 +208,7 @@ Pour exécuter une recherche dans les journaux qui permet de retourner des infor
 
 ## <a name="install-updates"></a>Installer les mises à jour
 
-Une fois les mises à jour évaluées pour tous les ordinateurs Linux et Windows dans votre espace de travail, vous pouvez installer les mises à jour obligatoires en créant une opération de *déploiement de mises à jour*. Pour créer un déploiement de mises à jour, vous devez avoir accès en écriture au compte Automation et accès en écriture à la de machines virtuelles Azure qui sont ciblés dans le déploiement. Un déploiement de mises à jour est une installation planifiée de mises à jour obligatoires pour un ou plusieurs ordinateurs. Vous pouvez spécifier la date et l’heure du déploiement ainsi qu’un ordinateur ou groupe d’ordinateurs à inclure dans un déploiement. Pour en savoir plus sur les groupes d’ordinateurs, consultez [groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
+Une fois les mises à jour évaluées pour tous les ordinateurs Linux et Windows dans votre espace de travail, vous pouvez installer les mises à jour obligatoires en créant une opération de *déploiement de mises à jour*. Pour créer un déploiement de mises à jour, vous devez disposer d’accès en écriture au compte Automation et accès en écriture à des machines virtuelles Azure qui sont ciblés dans le déploiement. Un déploiement de mises à jour est une installation planifiée de mises à jour obligatoires pour un ou plusieurs ordinateurs. Vous pouvez spécifier la date et l’heure du déploiement ainsi qu’un ordinateur ou groupe d’ordinateurs à inclure dans un déploiement. Pour en savoir plus sur les groupes d’ordinateurs, consultez [groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
 Lorsque vous incluez des groupes d’ordinateurs dans votre déploiement de mises à jour, l’appartenance au groupe n’est évaluée qu’une seule fois au moment de la création de la planification. Les modifications ultérieures apportées à un groupe ne sont pas répercutées. Pour contourner cette utilisation [groupes dynamiques](#using-dynamic-groups), ces groupes sont résolues au moment du déploiement et sont définis par une requête pour les machines virtuelles Azure ou une recherche enregistrée pour les machines virtuelles Non Azure.
 
@@ -333,8 +333,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Correctifs tiers sur Windows
 
-Update Management s’appuie sur WSUS ou Windows Update pour corriger les systèmes Windows pris en charge. Des outils tels que l’[éditeur de mise à jour System Center ](/sccm/sum/tools/updates-publisher
-) (Éditeur de mise à jour) vous permettent de publier des mises à jour personnalisées dans WSUS. Ce scénario permet à Update Management de corriger les machines qui utilisent WSUS comme référentiel de mise à jour avec des logiciels tiers. Pour savoir comment configurer l’éditeur de mise à jour, consultez [Installer l’éditeur de mise à jour](/sccm/sum/tools/install-updates-publisher).
+Gestion de la mise à jour s’appuie sur le référentiel de mise à jour configurée localement de correction des systèmes Windows pris en charge. Il s’agit de WSUS ou de mise à jour de Windows. Des outils tels que l’[éditeur de mise à jour System Center ](/sccm/sum/tools/updates-publisher
+) (Éditeur de mise à jour) vous permettent de publier des mises à jour personnalisées dans WSUS. Ce scénario permet la gestion de mise à jour aux ordinateurs de correctifs qui utilisent System Center Configuration Manager comme son référentiel de mise à jour avec des logiciels tiers. Pour savoir comment configurer l’éditeur de mise à jour, consultez [Installer l’éditeur de mise à jour](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Planification réseau
 

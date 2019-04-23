@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 997b358a6daf2f5450c38fcbe484a584d06bf5c4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d11ebad3eaa629a1b03d22c6548f3b7ad591cf5b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787073"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003801"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure à l’aide d’Azure PowerShell
 
@@ -44,7 +44,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 Avant de commencer :
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](azure-to-azure-architecture.md).
 - Vérifiez les [exigences de prise en charge](azure-to-azure-support-matrix.md) pour tous les composants.
-- Vous avez Azure PowerShell `Az` module. Si vous devez installer ou mettre à niveau Azure PowerShell, consultez le [guide sur l’installation et la configuration d’Azure PowerShell](/powershell/install-az-ps).
+- Vous avez Azure PowerShell `Az` module. Si vous devez installer ou mettre à niveau Azure PowerShell, consultez le [guide sur l’installation et la configuration d’Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Connexion à un abonnement Microsoft Azure
 

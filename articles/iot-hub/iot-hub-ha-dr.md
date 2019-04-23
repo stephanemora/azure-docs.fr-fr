@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879690"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007625"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 
@@ -82,8 +82,6 @@ L’option de basculement manuel est toujours disponible, que la région primair
 > - Les exercices de test ne doivent pas être effectués sur des IoT Hubs utilisés dans vos environnements de production.
 >
 > - Il n’est pas conseillé d’utiliser le basculement manuel comme un mécanisme servant à migrer définitivement votre hub entre les régions Azure associées géographiquement. Cela augmenterait la latence des opérations exécutées sur le hub à partir d’appareils hébergés dans l’ancienne région primaire.
->
-> - Le basculement manuel est actuellement disponible en préversion et n’est pas disponible dans les régions Azure suivantes. USA Est, USA Ouest, Europe Nord, Europe Ouest, Brésil Sud, USA Centre Sud.
 
 ### <a name="failback"></a>Restauration automatique
 

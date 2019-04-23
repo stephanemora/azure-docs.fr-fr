@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528184"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007455"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utiliser les rapports d’intégrité du système pour la résolution des problèmes
 Les composants Azure Service Fabric fournissent des rapports d’intégrité du système prêts à l’emploi pour toutes les entités du cluster. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) crée et supprime des entités en fonction des rapports du système. Il les organise au sein d’une hiérarchie qui tient compte des interactions entre les entités.
@@ -29,7 +29,7 @@ Les composants Azure Service Fabric fournissent des rapports d’intégrité du 
 > 
 > 
 
-Les rapports d’intégrité du système procurent une visibilité sur les fonctionnalités du cluster et des applications, et signalent les problèmes. Pour les applications et services, les rapports d’intégrité du système vérifient que les entités sont implémentées et qu’elles se comportent correctement du point de vue de Service Fabric. Les rapports ne fournissent aucune information sur l’intégrité de la logique métier du service ni sur la détection des processus bloqués. Les services utilisateur peuvent enrichir les données d’intégrité avec des informations spécifiques à leur logique.
+Les rapports d’intégrité du système procurent une visibilité sur les fonctionnalités du cluster et des applications, et signalent les problèmes. Pour les applications et services, les rapports d’intégrité du système vérifient que les entités sont implémentées et qu’elles se comportent correctement du point de vue de Service Fabric. Les rapports ne fournissent pas toutes l’intégrité de la logique métier du service ou de la détection des processus qui ne répondent pas. Les services utilisateur peuvent enrichir les données d’intégrité avec des informations spécifiques à leur logique.
 
 > [!NOTE]
 > Les rapports d’intégrité envoyés par les agents de surveillance de l’utilisateur sont visibles uniquement *après* que les composants système ont créé une entité. Lorsqu’une entité est supprimée, le magasin d’intégrité élimine automatiquement l’ensemble des rapports d’intégrité qui lui sont associés. Il en est de même lorsqu’une instance de cette entité est créée. Par exemple, lorsqu’une instance de réplica de service persistant et avec état est créée. Tous les rapports associés à l’ancienne instance sont supprimés et éliminés du magasin.

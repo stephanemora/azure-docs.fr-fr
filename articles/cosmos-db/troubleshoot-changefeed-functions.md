@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5416c576e6392b7c5714ef83f152453aeff8d964
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685770"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010888"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnostiquer et résoudre les problèmes lors de l’utilisation de déclencheur Azure Cosmos DB dans Azure Functions
 
@@ -31,7 +31,7 @@ Cet article fait toujours référence à Azure Functions V2 chaque fois que le r
 
 Les fonctionnalités clés de package d’extension consiste à fournir la prise en charge pour le déclencheur Azure Cosmos DB et les liaisons. Il inclut également le [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), ce qui est utile si vous souhaitez interagir avec Azure Cosmos DB par programmation sans utiliser les déclencheurs et les liaisons.
 
-Si souhaitez à utiliser le SDK Azure Cosmos DB, assurez-vous que vous n’ajoutez à votre projet une autre référence de package NuGet. Au lieu de cela, **permettre à la référence du Kit de développement logiciel de résoudre via un package d’Extension Azure Functions**.
+Si souhaitez utiliser le SDK Azure Cosmos DB, assurez-vous que vous n’ajoutez à votre projet une autre référence de package NuGet. Au lieu de cela, **permettre à la référence du Kit de développement logiciel de résoudre via un package d’Extension Azure Functions**.
 
 En outre, si vous créez manuellement votre propre instance de la [client du SDK Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), vous devez suivre le modèle d’avoir qu’une seule instance du client [à l’aide d’une approche de modèle Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Ce processus permet d’éviter les problèmes potentiels de socket dans vos opérations.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d1db228f4c73cc00cd32ca6ae5b86056db68f05b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848692"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148949"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -83,7 +83,7 @@ La création de la machine virtuelle et des ressources de support ne nécessite 
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Installer le journal Azure AD dans une extension de machine virtuelle
 
-Pour vous connecter à une machine virtuelle Linux avec des informations d’identification Azure AD, installez le journal Azure Active Directory dans l’extension de machine virtuelle. Les extensions de machine virtuelle sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Utilisez la commande [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) pour installer l’extension *AADLoginForLinux* sur la machine virtuelle nommée *myVM* dans le groupe de ressources *myResourceGroup* :
+Pour vous connecter à une VM Linux avec informations d’identification Azure AD, installez l’extension de machine virtuelle de connexion Azure Active Directory. Les extensions de machine virtuelle sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Utilisez la commande [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) pour installer l’extension *AADLoginForLinux* sur la machine virtuelle nommée *myVM* dans le groupe de ressources *myResourceGroup* :
 
 ```azurecli-interactive
 az vm extension set \

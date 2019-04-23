@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798944"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003681"
 ---
 # <a name="logs-in-azure-monitor"></a>Journaux dans Azure Monitor
 
@@ -112,7 +112,7 @@ Azure Monitor peut collecter des données de journal à partir de diverses sourc
 
 | Données | Description |
 |:---|:---|
-| Azure Monitor pour les conteneurs | Données d’inventaire et de performances collectées par [Azure Monitor pour les conteneurs](../insights/container-insights-overview.md). Consultez [détails de collecte de données de conteneur](../insights/container-insights-analyze.md#container-data-collection-details) pour obtenir la liste des tables. |
+| Azure Monitor pour des conteneurs | Données d’inventaire et de performances collectées par [Azure Monitor pour les conteneurs](../insights/container-insights-overview.md). Consultez [détails de collecte de données de conteneur](../insights/container-insights-log-search.md#container-records) pour obtenir la liste des tables. |
 | Azure Monitor pour machines virtuelles | Données de carte et de performances collectées par [Azure Monitor pour les machines virtuelles](../insights/vminsights-overview.md). Consultez [comment interroger des journaux à partir d’Azure Monitor pour les machines virtuelles](../insights/vminsights-log-search.md) pour plus d’informations sur l’interrogation de ces données. |
 
 ### <a name="custom"></a>Personnalisée 

@@ -1,23 +1,23 @@
 ---
 title: Créer et gérer des règles et points de terminaison de service de réseau virtuel Azure Database pour PostgreSQL à l’aide d’Azure CLI
 description: Cet article décrit comment créer et gérer des règles et points de terminaison de service de réseau virtuel Azure Database pour PostgreSQL à l’aide d’Azure CLI.
-author: mbolz
+author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 67ca81e385bbb7aaddddc6af9aa9bcbd45005e20
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7dc5a49e8b27d1a4e4126bef1cce638373e056fb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416732"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008730"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>Créer et gérer des règles et points de terminaison de service de réseau virtuel Azure Database pour PostgreSQL à l’aide d’Azure CLI
 Les règles et points de terminaison de service de réseau virtuel étendent l’espace d’adressage privé d’un réseau virtuel à votre serveur Azure Database pour PostgreSQL. À l’aide de commandes d’Azure CLI pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles et points de terminaison de service de réseau virtuel pour gérer votre serveur. Pour une vue d’ensemble des points de terminaison de service de réseau virtuel Azure Database pour PostgreSQL, y compris les limitations, consultez [Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL](concepts-data-access-and-security-vnet.md) (Utiliser des règles et points de terminaison de service de réseau virtuel pour Azure Database pour PostgreSQL). Les points de terminaison de service de réseau virtuel sont disponibles dans toutes les régions prises en charge pour Azure Database pour PostgreSQL.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - Installez [Azure CLI](/cli/azure/install-azure-cli) ou Azure Cloud Shell dans le navigateur.
 - Un [serveur Azure Database pour PostgreSQL et une base de données](quickstart-create-server-database-azure-cli.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: caddb542e806457e085db096813e504ddc278ac0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108322"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011611"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -281,7 +281,7 @@ Azure Resource Explorer est un excellent outil de visualisation des ressources q
 
 Lorsque vous autorisez l’accès à des ressources Azure, il est toujours recommandé de fournir aux utilisateurs les privilèges minimaux nécessaires pour effectuer une tâche donnée.
 
-- **Contrôle d’accès en fonction du rôle (RBAC)** : dans Azure, vous pouvez accorder l’accès aux comptes d’utilisateur (principaux) dans une étendue spécifiée : abonnement, groupe de ressources ou ressources individuelles. RBAC vous permet de déployer un ensemble de ressources dans un groupe de ressources et d’accorder des autorisations à un utilisateur ou un groupe spécifique. Il permet également de limiter l’accès aux seules ressources qui appartiennent au groupe de ressources cible. Vous pouvez également accorder l’accès à une ressource unique, telle qu’une machine virtuelle ou un réseau virtuel. Pour accorder l’accès, vous assignez un rôle à l’utilisateur, au groupe ou au principal de service. Il existe de nombreux rôles prédéfinis et vous pouvez également définir vos propres rôles personnalisés. Pour en savoir plus, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md).
+- **Contrôle d’accès en fonction du rôle (RBAC)** : dans Azure, vous pouvez accorder l’accès aux comptes d’utilisateur (principaux) dans une étendue spécifiée : abonnement, groupe de ressources ou ressources individuelles. RBAC vous permet de déployer un ensemble de ressources dans un groupe de ressources et d’accorder des autorisations à un utilisateur ou un groupe spécifique. Il vous permet également de limiter l’accès aux seules ressources qui appartiennent au groupe de ressources cible. Vous pouvez également accorder l’accès à une ressource unique, telle qu’une machine virtuelle ou un réseau virtuel. Pour accorder l’accès, vous assignez un rôle à l’utilisateur, au groupe ou au principal de service. Il existe de nombreux rôles prédéfinis et vous pouvez également définir vos propres rôles personnalisés. Pour en savoir plus, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md).
 
   > **Quand l’utiliser** : quand vous avez besoin de gérer avec précision l’accès des utilisateurs et des groupes ou que vous devez faire d’un utilisateur le propriétaire d’un abonnement.
   > 

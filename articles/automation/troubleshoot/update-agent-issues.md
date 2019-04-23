@@ -4,17 +4,17 @@ description: Découvrez comment résoudre les problèmes rencontrés avec l’ag
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/14/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: d4331942526b3dbda376605db2618ceeaec3f60a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 864fe70d7702680f21234a1a15c02515b19f770b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165996"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149612"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendre les résultats de la vérification de l’agent Windows dans Update Management
 
@@ -25,6 +25,9 @@ Voici les trois états de préparation possibles d’une machine :
 * **Prête** : l’agent de mise à jour est déployé et a été vu pour la dernière fois il y a moins d’une heure.
 * **Déconnectée** : l’agent de mise à jour est déployé et a été vu pour la dernière fois il y a plus d’une heure.
 * **Non configurée** : l’agent de mise à jour est introuvable ou n’a pas terminé son intégration.
+
+> [!NOTE]
+> Il peut y avoir un léger délai entre ce que montre le portail Azure et l’état actuel de l’ordinateur.
 
 ## <a name="start-the-troubleshooter"></a>Démarrer l’utilitaire de résolution des problèmes
 

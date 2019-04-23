@@ -1,34 +1,24 @@
 ---
 title: Qu’est-ce qu’une réservation Azure ? | Microsoft Docs
 description: Découvrez les réservations et tarifs Azure pour économiser sur vos machines virtuelles, les bases de données SQL, Azure Cosmos DB et les coûts d’autres ressources.
-services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1349a05e1dd235c7b375335ae2c9fed16170a61f
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: b20983c45cd62b9812cdb52de32a6e29da459efe
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649388"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149195"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
 Les réservations Azure vous permettent d’économiser de l’argent en prépayant un ou trois ans de machine virtuelle, de capacité de calcul SQL Database, de débit Azure Cosmos DB ou d’autres ressources Azure. Le prépaiement vous permet d’obtenir une remise sur les ressources que vous utilisez. Les réservations peuvent réduire sensiblement les coûts de machine virtuelle, de calcul SQL Database, d’Azure Cosmos DB ou d’autres ressources, jusqu’à hauteur de 72 % sur les tarifs des paiements à l’utilisation. Des réservations permettent de bénéficier d’une remise sur la facturation et n’ont aucune incidence sur l’état de runtime de vos ressources.
 
-Vous pouvez acheter une réservation sur le [portail Azure](https://aka.ms/reservations). Pour plus d’informations, consultez les articles suivants :
-
-Plans de service :
-- [Machines virtuelles avec des Instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Capacité réservée de ressources Cosmos DB Azure avec Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
-- [Capacité réservée de ressources de calcul de base de données SQL avec la base de données SQL Azure](../sql-database/sql-database-reserved-capacity.md)
-
-Abonnements logiciels :
-- [Plans de logiciels Red Hat à partir des réservations d’Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Plans de logiciel SUSE à partir des réservations d’Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+Vous pouvez acheter une réservation sur le [portail Azure](https://aka.ms/reservations).
 
 ## <a name="why-buy-a-reservation"></a>Pourquoi acheter une réservation ?
 
@@ -41,7 +31,6 @@ Plans de service :
 - Instance de machine virtuelle réservée : une réservation couvre uniquement les coûts de calcul de machine virtuelle. Une réservation ne couvre pas les frais de logiciels, de mise en réseau ou de stockage.
 - Capacité réservée Azure Cosmos DB : Une réservation couvre le débit approvisionné pour vos ressources. Elle ne couvre pas les frais de stockage et de réseau.
 - vCore réservé de SQL Database : seuls les coûts de calcul sont inclus dans une réservation. La licence est facturée séparément.
-- Capacité réservée Azure Cosmos DB : une réservation couvre le débit provisionné pour vos ressources, mais pas les frais de stockage et de réseau.
 
 Pour les machines virtuelles Windows et SQL Database, vous pouvez couvrir les coûts de licence avec [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -53,28 +42,46 @@ Les clients EA peuvent limiter les achats aux administrateurs de l’EA en désa
 
 Une remise sur réservation s’applique uniquement aux ressources associées aux types d’abonnements CSP, Entreprise ou avec paiement à l’utilisation.
 
+## <a name="reservation-scope"></a>Étendue de la réservation
+
+Une étendue de réservation détermine les ressources auxquels s’applique la remise de réservation. Une étendue de réservation peut afficher les valeurs suivantes :
+
+**Étendue partagée** -la remise de réservation est appliquée aux ressources correspondantes dans les abonnements éligibles dans le contexte de facturation.
+
+- Pour les clients contrat entreprise, le contexte de facturation correspond à l’inscription.
+ Pour les clients de paiement à l’utilisation, l’étendue de facturation est tous les abonnements éligibles créés par l’administrateur de compte.
+
+**Abonnement unique** -la remise de réservation est appliquée aux ressources correspondantes dans l’abonnement sélectionné.
+
+Vous pouvez [mettre à jour la portée une fois que vous achetez une réservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+
+## <a name="discounted-subscription-and-offer-types"></a>Prix réduits abonnement et types d’offres
+
+Les remises de réservation s’appliquent aux abonnements éligibles suivants et types d’offres.
+
+- Contrat entreprise (offrent des nombres : MS-AZR-0017P ou MS-AZR - 0148p)
+- Paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR - 0023 P)
+- Abonnements CSP
+
+Les ressources opérant dans le cadre d’un abonnement relevant d’autres types d’offres ne bénéficient d’aucune remise sur réservation.
+
 ## <a name="how-is-a-reservation-billed"></a>Comment une réservation est-elle facturée ?
 
 La réservation est facturée selon le mode de paiement associé à l’abonnement. Si vous avez souscrit un abonnement Entreprise, le coût des réservations est déduit de votre solde d’engagement. Si ce solde ne couvre pas le coût des réservations, le dépassement vous est facturé. Si vous avez souscrit un abonnement avec paiement à l’utilisation, la carte de crédit associée à votre compte est facturée immédiatement. Si vous réglez sur facture, les frais sont portés sur votre prochaine facture.
 
 ## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est appliquée
 
-La remise sur réservation s’applique à l’utilisation de ressource correspondant aux attributs que vous sélectionnez lorsque vous achetez la réservation. Ces attributs englobent l’étendue dans laquelle les machines virtuelles, les bases de données SQL, Azure Cosmos DB ou d’autres ressources correspondantes s’exécutent. Par exemple, si vous voulez une remise sur réservation pour quatre machines virtuelles Standard D2 de la région USA Ouest, sélectionnez l’abonnement dans le cadre duquel ces machines virtuelles s’exécutent. Si elles s’exécutent dans différents abonnements au sein de votre compte/inscription, sélectionnez l’étendue alors définie comme partagée. Cette étendue partagée permet d’appliquer la remise de réservation à différents abonnements. Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour plus d’informations, voir [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md).
+La remise de réservation s’applique à l’utilisation de la ressource mise en correspondance les attributs que vous sélectionnez lorsque vous achetez la réservation. Ces attributs englobent l’étendue dans laquelle les machines virtuelles, les bases de données SQL, Azure Cosmos DB ou d’autres ressources correspondantes s’exécutent. Par exemple, si vous souhaitez une remise de réservation pour les quatre machines virtuelles de Standard D2 dans la région ouest des États-Unis, puis sélectionnez l’abonnement dans lequel les machines virtuelles sont en cours d’exécution.
+
+Une remise de réservation est «*utilisation-it-ou-perdre-it*». Si vous n’avez à faire correspondre des ressources pour toutes les heures, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas effectuer transférer heures réservées inutilisées.
+
+Lorsque vous arrêtez une ressource, la remise de réservation s’applique automatiquement à une autre ressource correspondante dans la portée spécifiée. Si aucune ressource correspondante ne se trouvent dans la portée spécifiée, les heures réservées sont *perdues*.
+
+Par exemple, vous pourrez créer une ressource plus loin et ont une réservation correspondante est sous-exploité. Dans cet exemple, la remise de réservation s’applique automatiquement à la nouvelle ressource correspondante.
+
+Si elles s’exécutent dans différents abonnements au sein de votre compte/inscription, sélectionnez l’étendue alors définie comme partagée. Cette étendue partagée permet d’appliquer la remise de réservation à différents abonnements. Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour plus d’informations, voir [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md).
 
 Une remise sur réservation s’applique uniquement aux ressources associées aux types d’abonnements CSP, Entreprise ou avec paiement à l’utilisation. Les ressources opérant dans le cadre d’un abonnement relevant d’autres types d’offres ne bénéficient d’aucune remise sur réservation.
-
-Pour mieux comprendre comment les réservations affecte votre facturation, consultez les articles suivants :
-
-Plans de service :
-
-- [Comprendre la remise sur Azure Reserved VM Instances](billing-understand-vm-reservation-charges.md)
-- [Comprendre la remise sur réservation Azure](billing-understand-vm-reservation-charges.md)
-- [Comprendre la remise sur réservation Azure Cosmos DB](billing-understand-cosmosdb-reservation-charges.md)
-
-Abonnements logiciels :
-
-- [Comprendre la remise de réservation Azure et d’utilisation pour Red Hat](billing-understand-rhel-reservation-charges.md)
-- [Comprendre la remise sur réservation Azure et son usage pour SUSE](billing-understand-suse-reservation-charges.md)
 
 ## <a name="when-the-reservation-term-expires"></a>Lorsque le terme de la réservation expire
 
@@ -96,10 +103,16 @@ Si vous avez des questions ou besoin d’aide, [créer une demande de support](h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Commencez à économiser sur vos machines virtuelles en achetant une [instance de machine virtuelle réservée](../virtual-machines/windows/prepay-reserved-vm-instances.md), une [capacité réservée SQL Database](../sql-database/sql-database-reserved-capacity.md) ou une [capacité réservée Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md).
 - Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
     - [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)
     - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
     - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
     - [Coûts des logiciels Windows non inclus dans les réservations](billing-reserved-instance-windows-software-costs.md)
-    - [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
+    - [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](/partner-center/azure-reservations)
+
+- En savoir plus sur les réservations pour les plans de service :
+    - [Machines virtuelles avec des Instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Capacité réservée de ressources Cosmos DB Azure avec Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
+    - [Capacité réservée de ressources de calcul de base de données SQL avec Azure SQL Database](../sql-database/sql-database-reserved-capacity.md) en savoir plus sur les réservations pour les plans de logiciels :
+    - [Plans de logiciels Red Hat à partir des réservations d’Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
+    - [Plans de logiciel SUSE à partir des réservations d’Azure](../virtual-machines/linux/prepay-suse-software-charges.md)

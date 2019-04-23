@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4563bb0de688a8328796badffc8a133a33f64fcc
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: 9d96bd76a4d284e9b4390c564446e8b27c43d591
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566561"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118538"
 ---
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -61,7 +61,7 @@ Ce disque a une capacité maximale de 2 048 Gio.
 
 ### <a name="temporary-disk"></a>Disque temporaire
 
-Chaque machine virtuelle contient un disque temporaire qui n’est pas un disque managé. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Données sur le disque temporaire peuvent être perdues pendant un [événement de maintenance](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) événement ou lorsque vous [redéployer une machine virtuelle](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Lors d’un redémarrage standard réussi de la machine virtuelle, les données présentes sur le disque temporaire sont conservées.
+Chaque machine virtuelle contient un disque temporaire qui n’est pas un disque managé. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Données sur le disque temporaire peuvent être perdues pendant un [événement de maintenance](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) événement ou lorsque vous [redéployer une machine virtuelle](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Machines virtuelles Azure Linux, le disque temporaire est/dev/sdb par défaut et sur les machines virtuelles Windows le disque temporaire est E: par défaut. Lors d’un redémarrage réussi standard de la machine virtuelle, les données sur le disque temporaire seront conservé.
 
 ## <a name="managed-disk-snapshots"></a>Captures instantanées de disque managé
 

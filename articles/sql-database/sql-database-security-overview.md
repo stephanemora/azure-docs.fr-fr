@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523696"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001080"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -47,7 +47,7 @@ Les [règles de réseau virtuel](sql-database-vnet-service-endpoint-rule-overvie
 > [!IMPORTANT]
 > La gestion des bases de données et des serveurs de bases de données dans Azure est contrôlée par les attributions de rôle de votre compte d’utilisateur du portail. Pour en savoir plus à ce sujet, consultez [Contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 L’authentification est le processus consistant à prouver que l’utilisateur est bien celui qu’il prétend être. Azure SQL Database prend en charge deux types d’authentification :
 
@@ -88,9 +88,9 @@ SQL Database sécurise les données client en fournissant des fonctionnalités d
 
 L’audit SQL Database suit les activités de base de données et permet d’assurer la conformité avec les normes de sécurité en enregistrant les événements de base de données dans un journal d’audit d’un compte de stockage Azure client. L’audit permet aux utilisateurs de surveiller les activités de base de données en cours, d’analyser et d’examiner l’historique des activités pour identifier les menaces potentielles ou les violations de sécurité et abus présumés. Pour plus d'informations, consultez [Prise en main de l’audit SQL Database](sql-database-auditing.md).  
 
-### <a name="threat-detection"></a>Détection de menaces
+### <a name="advanced-threat-protection"></a>Protection avancée contre les menaces
 
-La détection des menaces améliore l’audit en analysant les journaux d’audit afin d’y détecter d’éventuels comportements inhabituels ou tentatives d’accès ou d’exploitation potentiellement dangereuses. Des alertes sont créées pour les activités suspectes ou schémas d'accès anormaux comme les attaques par injection de code SQL, l'infiltration potentielle de données et les attaques par recherche exhaustive de mot de passe. Les alertes de détection des menaces s’affichent dans [Azure Security Center](https://azure.microsoft.com/services/security-center/), où des détails relatifs aux activités suspectes sont fournies et des suggestions d’examen approfondis formulées, de même que des actions visant à atténuer les menaces. La fonctionnalité Threat Detection coûte 15 USD/serveur/mois. Elle est gratuite pendant les 60 premiers jours. Pour en savoir plus, consultez [Prise en main de Threat Detection pour la base de données SQL](sql-database-threat-detection.md).
+Advanced Threat Protection analyse vos journaux de SQL Server pour détecter un comportement inhabituel et les tentatives potentiellement dangereuses visant à accéder ou à exploiter les bases de données. Alertes sont créées pour les activités suspectes, telles que les attaques en force l’injection SQL, infiltration de données potentielle et brute ou des anomalies dans access utilisent des modèles pour intercepter les escalades de privilèges et les informations d’identification de violation. Les alertes sont affichés depuis la [Azure Security Center](https://azure.microsoft.com/services/security-center/), où les détails sur les activités suspectes sont fournis et recommandations pour d’autres recherches menées donnée, ainsi que des actions à atténuer la menace. Advanced Threat Protection peut être activée par serveur pour un coût supplémentaire. Pour plus d’informations, consultez [prise en main SQL de base de données Advanced Threat Protection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 

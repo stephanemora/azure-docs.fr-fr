@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 75073058647f8e27a048e5ba0673a3d7e3f6a465
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 974062b06c58ee23a001066a70a08675e2e94e48
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311252"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008111"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Diffusion en continu de PlayReady en mode hors connexion pour Windows 10  
 
@@ -27,12 +27,15 @@ ms.locfileid: "58311252"
 > * [Version 3](../latest/offline-plaready-streaming-for-windows-10.md)
 > * [Version 2](offline-playready-streaming-windows-10.md)
 
+> [!NOTE]
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+
 Azure Media Services prend en charge le téléchargement/la lecture hors connexion avec la protection DRM. Cet article décrit la prise en charge hors connexion d’Azure Media Services pour les clients Windows 10/PlayReady. Pour en savoir plus sur la prise en charge du mode hors connexion pour les appareils iOS/FairPlay et Android/Widevine, consultez les articles suivants :
 
 - [Diffusion en continu de FairPlay en mode hors connexion pour iOS](media-services-protect-hls-with-offline-fairplay.md)
 - [Diffusion en continu de Widevine en mode hors connexion pour Android](offline-widevine-for-android.md)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cette section donne des précisions sur la lecture en mode hors connexion, notamment sur les points suivants :
 

@@ -6,19 +6,25 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648535"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010294"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Comprendre comment la remise de réservation est appliquée à Azure Cosmos DB
 
 Quand vous achetez une capacité réservée Azure Cosmos DB, la remise de réservation est automatiquement appliquée aux ressources Azure Cosmos DB qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre le débit provisionné pour les ressources Azure Cosmos DB. Elle ne couvre pas les frais de logiciel, de réseau, de stockage ou de conteneur prédéfini.
+
+## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est appliquée
+
+Une remise de réservation est «*utilisation-it-ou-perdre-it*». Par conséquent, si vous n’avez pas les ressources correspondantes pour toutes les heures, puis vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas effectuer transférer heures réservées inutilisées.
+
+Lorsque vous arrêtez une ressource, la remise de réservation s’applique automatiquement à une autre ressource correspondante dans la portée spécifiée. Si aucune ressource correspondante ne se trouvent dans la portée spécifiée, les heures réservées sont *perdues*.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Remise de réservation appliquée aux comptes Azure Cosmos DB
 

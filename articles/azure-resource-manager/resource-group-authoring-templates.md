@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2019
+ms.date: 04/18/2019
 ms.author: tomfitz
-ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492191"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004429"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
 
@@ -495,8 +495,8 @@ Vous définissez des ressources avec la structure suivante :
 |:--- |:--- |:--- |
 | condition | Non  | Valeur booléenne qui indique si la ressource sera provisionnée pendant ce déploiement. Quand la valeur est `true`, la ressource est créée pendant le déploiement. Quand la valeur est `false`, la ressource est ignorée pour ce déploiement. Consultez [condition](#condition). |
 | apiVersion |Oui |La version de l'API REST à utiliser pour la création de la ressource. Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). |
-| Type |Oui |Type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme **Microsoft.Storage/storageAccounts**). Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). |
-| Nom |Oui |Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986. Par ailleurs, les services Azure qui exposent le nom de la ressource à des parties externes valident le nom pour vérifier qu’il ne s’agit pas d’une tentative d’usurpation d’identité. |
+| Type |Oui |Type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme **Microsoft.Storage/storageAccounts**). Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). Pour une ressource enfant, le format du type dépend de si elle est imbriquée dans la ressource parente ou définis en dehors de la ressource parente. Consultez [ressources enfants](#child-resources). |
+| Nom |Oui |Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986. Par ailleurs, les services Azure qui exposent le nom de la ressource à des parties externes valident le nom pour vérifier qu’il ne s’agit pas d’une tentative d’usurpation d’identité. Pour une ressource enfant, le format du nom dépend de si elle est imbriquée dans la ressource parente ou définis en dehors de la ressource parente. Consultez [ressources enfants](#child-resources). |
 | location |Varie |Emplacements géographiques de la ressource fournie pris en charge. Vous pouvez sélectionner l’un des emplacements disponibles, mais en général, il est judicieux de choisir celui qui est proche de vos utilisateurs. En règle générale, il est également judicieux de placer dans la même région les ressources qui interagissent entre elles. La plupart des types de ressources nécessitent un emplacement, mais certains types (comme une attribution de rôle) n’ont pas besoin d’emplacement. |
 | tags |Non  |Balises associées à la ressource. Appliquer des balises pour organiser logiquement des ressources dans votre abonnement. |
 | commentaires |Non  |Vos commentaires pour documenter les ressources dans votre modèle. Pour plus d’informations, consultez [Commentaires dans les modèles](resource-group-authoring-templates.md#comments). |
@@ -506,11 +506,11 @@ Vous définissez des ressources avec la structure suivante :
 | sku | Non  | Certaines ressources autorisent les valeurs qui définissent la référence SKU à déployer. Par exemple, vous pouvez spécifier le type de redondance pour un compte de stockage. |
 | kind | Non  | Certaines ressources autorisent une valeur qui définit le type de ressource que vous déployez. Par exemple, vous pouvez spécifier le type Cosmos DB à créer. |
 | Plan | Non  | Certaines ressources autorisent les valeurs qui définissent le plan à déployer. Par exemple, vous pouvez spécifier l’image de marketplace pour une machine virtuelle. | 
-| les ressources |Non  |Ressources enfants qui dépendent de la ressource qui est définie. Fournissez uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. Le type complet de la ressource enfant inclut le type de ressource parente, par exemple **Microsoft.Web/sites/extensions**. La dépendance sur la ressource parente n’est pas induite. Vous devez la définir explicitement. |
+| les ressources |Non  |Ressources enfants qui dépendent de la ressource qui est définie. Fournissez uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. La dépendance sur la ressource parente n’est pas induite. Vous devez la définir explicitement. Consultez [ressources enfants](#child-resources). |
 
 ### <a name="condition"></a>Condition
 
-Quand vous devez décider pendant le déploiement s’il faut créer ou non une ressource, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource.
+Lorsque vous devez décider au cours du déploiement créer une ressource, utilisez le `condition` élément. La valeur de cet élément est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource.
 
 En règle générale, vous utilisez cette valeur quand vous voulez créer une ressource ou utiliser une ressource existante. Par exemple, pour spécifier si un nouveau compte de stockage est déployé ou si un compte de stockage existant est utilisé, utilisez :
 
@@ -652,45 +652,57 @@ Dans certains types de ressources, vous pouvez également définir un tableau de
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   ...
   "resources": [
     {
-      "name": "exampledatabase",
+      "apiVersion": "2017-10-01-preview",
       "type": "databases",
-      "apiVersion": "2014-04-01",
+      "name": "exampledatabase",
       ...
     }
   ]
 }
 ```
 
-En cas d’imbrication, le type est défini sur `databases`, mais son type de ressource complet est `Microsoft.Sql/servers/databases`. Vous ne fournissez pas `Microsoft.Sql/servers/`, car il est déduit du type de ressource parent. Le nom de la ressource enfant est défini sur `exampledatabase`, mais le nom complet inclut le nom parent. Vous ne fournissez pas `exampleserver`, car il est déduit de la ressource parente.
-
-Le format du type de la ressource enfant est : `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
-
-Le format du nom de la ressource enfant est : `{parent-resource-name}/{child-resource-name}`
-
 Toutefois, vous n’êtes pas obligé de définir la base de données dans le serveur. Vous pouvez définir la ressource enfant au niveau supérieur. Vous pouvez utiliser cette approche si la ressource parente n’est pas déployée dans le même modèle ou si voulez utiliser `copy` pour créer plusieurs ressources enfants. Dans le cadre de cette approche, vous devez fournir le type de ressource complet et inclure le nom de la ressource parent dans le nom de la ressource enfant.
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   "resources": [ 
   ],
   ...
 },
 {
-  "name": "exampleserver/exampledatabase",
+  "apiVersion": "2017-10-01-preview",
   "type": "Microsoft.Sql/servers/databases",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver/exampledatabase",
   ...
 }
 ```
+
+Les valeurs que vous fournissez pour le type et le nom varient selon que la ressource enfant est définie dans la ressource parente ou en dehors de la ressource parente.
+
+Lorsque imbriqué dans la ressource parente, utilisez :
+
+```json
+"type": "{child-resource-type}",
+"name": "{child-resource-name}",
+```
+
+Lorsque défini en dehors de la ressource parente, utilisez :
+
+```json
+"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
+"name": "{parent-resource-name}/{child-resource-name}",
+```
+
+Cas d’imbrication, le type est défini sur `databases` mais son type de ressource complet est toujours `Microsoft.Sql/servers/databases`. Vous ne fournissez pas `Microsoft.Sql/servers/`, car il est déduit du type de ressource parent. Le nom de la ressource enfant est défini sur `exampledatabase`, mais le nom complet inclut le nom parent. Vous ne fournissez pas `exampleserver`, car il est déduit de la ressource parente.
 
 Quand vous créez une référence complète à une ressource, l’ordre utilisé pour combiner les segments de type et de nom n’est pas une simple concaténation des deux. Au lieu de cela, utilisez après l’espace de noms une séquence de paires *type/nom* du moins spécifique au plus spécifique :
 
@@ -724,7 +736,7 @@ L'exemple suivant illustre la structure de la définition d'une sortie :
 |:--- |:--- |:--- |
 | outputName |Oui |Nom de la valeur de sortie. Doit être un identificateur JavaScript valide. |
 | condition |Non  | Valeur booléenne qui indique si cette valeur de sortie est retournée. Si elle est égale à `true`, cela signifie que la valeur est incluse dans la sortie pour le déploiement. Si elle est égale à `false`, la valeur de sortie est ignorée pour ce déploiement. Lorsqu’elle n’est pas spécifiée, la valeur par défaut est `true`. |
-| Type |Oui |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. |
+| Type |Oui |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. Si vous spécifiez **securestring** pour le type de sortie, la valeur n’est pas affichée dans l’historique de déploiement et ne peut pas être récupérée à partir d’un autre modèle. Pour utiliser une valeur secrète dans plusieurs modèles, stocker le secret dans un coffre de clés et référencez la clé secrète dans le fichier de paramètres. Pour plus d’informations, consultez [utiliser Azure Key Vault pour transmettre la valeur de paramètre sécurisée pendant le déploiement](resource-manager-keyvault-parameter.md). |
 | value |Oui |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. |
 
 ### <a name="define-and-use-output-values"></a>Définir et utiliser des valeurs de sortie

@@ -1,7 +1,6 @@
 ---
-title: Comprendre la remise de plan de réservation de SUSE et d’utilisation - Azure | Microsoft Docs
-description: Découvrez comment les remises des abonnements SUSE sont appliquées aux logiciels SUSE sur des machines virtuelles.
-services: billing
+title: Remise de plan de logiciels - Azure | Microsoft Docs
+description: Découvrez comment logiciel plan remises sont appliquées aux logiciels sur des machines virtuelles.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,22 +10,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2018
+ms.date: 04/12/2019
 ms.author: banders
-ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917785"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002729"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Comprendre comment la remise de plan de réservation de logiciel SUSE Linux Enterprise est appliquée pour Azure
+# <a name="azure-software-plan-discount"></a>Remise de plan logiciel Azure
 
-Quand vous achetez un abonnement SUSE Linux, la remise est automatiquement appliquée aux machines virtuelles SUSE qui correspondent à la réservation. Un abonnement SUSE Linux couvre le coût de l’exécution du logiciel SUSE sur une machine virtuelle Azure.
+Plans de logiciel Azure pour SUSE et RedHat sont a des réservations qui s’appliquent aux machines virtuelles déployées. La remise de plan de logiciel est appliquée à l’utilisation de logiciels de machines virtuelles déployées qui correspondent à la réservation.
 
-Pour acheter l’abonnement SUSE Linux approprié, vous devez connaître les machines virtuelles SUSE que vous exécutez et le nombre de processeurs virtuels qu’elles contiennent. Utilisez les sections suivantes pour vous aider à identifier l’abonnement à acheter à partir de votre fichier CSV d’utilisation.
+Lorsque vous arrêtez une machine virtuelle, la remise est automatiquement appliquée à une autre machine virtuelle correspondante, s’il est disponible. Un abonnement logiciel couvre le coût de l’exécution du logiciel sur une machine virtuelle. Autres frais liés à telles que le calcul, stockage et le réseau sont facturés séparément.
 
-## <a name="discount-applies-to-different-vm-sizes"></a>Remise s’applique aux différentes tailles de machine virtuelle
+Pour acheter le plan approprié, vous devez comprendre l’utilisation de votre machine virtuelle et le nombre de processeurs virtuels sur ces machines virtuelles. Utilisez les sections suivantes pour aider à identifier ce qui envisagent de souscrire, en fonction de vos données d’utilisation.
+
+## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est appliquée
+
+Une remise de réservation est «*utilisation-it-ou-perdre-it*». Par conséquent, si vous n’avez pas les ressources correspondantes pour toutes les heures, puis vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas effectuer transférer heures réservées inutilisées.
+
+Lorsque vous arrêtez une ressource, la remise de réservation s’applique automatiquement à une autre ressource correspondante dans la portée spécifiée. Si aucune ressource correspondante ne se trouvent dans la portée spécifiée, les heures réservées sont *perdues*.
+
+## <a name="review-redhat-vm-usage-before-you-buy"></a>Passez en revue l’utilisation de RedHat VM avant de l’acheter
+
+Obtenir le nom du produit à partir de vos données d’utilisation et acheter le plan de Red Hat avec le même type et la même taille.
+
+Par exemple, si votre utilisation a produit **Red Hat Enterprise Linux - 1-4 processeurs virtuels licence de machine virtuelle**, vous devez acheter **Red Hat Enterprise Linux** pour **1 à 4 processeurs virtuels machine virtuelle**.
+
+<!--ADD RHEL SCREENSHOT -->
+
+## <a name="review-suse-vm-usage-before-you-buy"></a>Passez en revue l’utilisation de SUSE VM avant de l’acheter
+
+Obtenir le nom du produit à partir de vos données d’utilisation et acheter le plan SUSE avec le même type et la même taille.
+
+Par exemple, si votre utilisation est pour le produit **SUSE Linux Enterprise Server priorité - 2-4 processeurs virtuels prise en charge de la machine virtuelle**, vous devez acheter **SUSE Linux Enterprise Server priorité** pour **2-4 processeurs virtuels**.
+
+![Exemple de sélection de produit à acheter](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
+
+## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>Remise s’applique aux différentes tailles de machine virtuelle pour les plans de SUSE
 
 Tout comme les instances réservées de machine virtuelle, l’achat d’un abonnement SUSE offre une flexibilité de taille d’instance. Cela signifie que votre remise s’applique même quand vous déployez une machine virtuelle avec un nombre différent de processeurs virtuels. La remise s’applique aux différentes tailles de machine virtuelle au sein de l’abonnement logiciel.
 
@@ -38,9 +61,7 @@ Par exemple, si vous achetez un abonnement SUSE Linux Enterprise Server for HPC 
 - 1 machine virtuelle déployée avec 3 ou 4 processeurs virtuels
 - ou 0,77 (soit environ 77 %) d’une machine virtuelle avec au moins 5 processeurs virtuels.
 
-Le ratio pour au moins 5 processeurs virtuels est 2,6. Par conséquent, une réservation pour SUSE avec une machine virtuelle avec 5 ou plus de processeurs virtuels couvre une seule partie du coût logiciel, qui est d’environ 77 %.
-
-## <a name="understand-suse-vm-usage-before-you-buy"></a>Comprendre l’utilisation de SUSE VM avant de l’acheter
+Le ratio pour au moins 5 processeurs virtuels est 2,6. Par conséquent, une réservation de SUSE avec une machine virtuelle contenant au moins 5 processeurs virtuels couvre seulement une partie du coût du logiciel, en l’occurrence environ 77 %.
 
 Les tableaux suivants indiquent les abonnements logiciels pour lesquels vous pouvez acheter une réservation, les compteurs d’utilisation associés et les ratios de chacun.
 
@@ -122,6 +143,10 @@ Noms dans la place de marché du portail Azure :
 |SLES 3-4 cores vCPUs |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1,92308|D4s_v3|
 |SLES 5+ vCPUs |7b349b65-d906-42e5-833f-b2af38513468|2,30769| D8s_v3|
 
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
+
+Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les réservations, consultez les articles suivants :
@@ -132,7 +157,3 @@ Pour plus d’informations sur les réservations, consultez les articles suivant
 - [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
-
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
-
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

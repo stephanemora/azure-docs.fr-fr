@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 28f963ab807cbd679b7efe8b034ab91f2893198e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659454"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005347"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Activer et utiliser le Bureau à distance pour les machines virtuelles Linux dans un laboratoire dans Azure Lab Services
 Cet article vous montre comment effectuer les tâches suivantes :
@@ -35,6 +35,7 @@ Lors de la création de laboratoire, les enseignants peuvent activer **connexion
 > [!IMPORTANT] 
 > L’activation de **connexion Bureau à distance** ouvre uniquement le **RDP** port sur les machines Linux. Vous, en tant qu’enseignant, connectez à la machine Linux à l’aide de SSH pour la première fois et que vous installez les packages RDP et l’interface utilisateur graphique afin que vous pouvez vous connecter à la machine Linux à l’aide de RDP ultérieurement. Ensuite, vous **publier** l’image afin que les étudiants peuvent RDP dans pour les étudiants, les machines virtuelles Linux. 
 
+## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 Actuellement, la connexion Bureau à distance est prise en charge pour les systèmes d’exploitation suivants :
 
 - openSUSE Leap 42.3

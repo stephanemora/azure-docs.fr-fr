@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248246"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149858"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Limites et quotas de mise à l’échelle dans votre laboratoire Azure DevTest Labs
 Lorsque vous travaillez dans DevTest Labs, vous pouvez remarquer un certain nombre de limites par défaut qui s’appliquent à certaines ressources Azure, ce qui peut affecter le service DevTest Labs. Ces limites sont appelées **quotas**.
@@ -28,7 +28,7 @@ Lorsque vous travaillez dans DevTest Labs, vous pouvez remarquer un certain nomb
 
 Vous pouvez utiliser chaque ressource Azure jusqu’à ce que vous ayez atteint son quota. Chaque abonnement a des quotas distincts et l’utilisation est suivie par abonnement.
 
-Par exemple, chaque abonnement possède un quota par défaut de 20 cœurs. Par conséquent, si vous créez des machines virtuelles dans votre laboratoire avec quatre cœurs, vous pouvez uniquement créer cinq machines virtuelles. 
+Par exemple, chaque abonnement possède un quota par défaut de 20 cœurs. Par conséquent, si vous créez des machines virtuelles dans votre laboratoire avec quatre cœurs, vous pouvez uniquement créer cinq machines virtuelles.
 
 La page [Abonnement Azure et limites de service](https://docs.microsoft.com/azure/azure-subscription-service-limits) dresse la liste des quotas les plus courants pour les ressources Azure. Les ressources couramment utilisées dans un laboratoire, et pour lesquelles vous pouvez rencontrer des quotas, incluent les noyaux de machine virtuelle, les adresses IP publiques, l’interface réseau, les disques managés, l’attribution de rôle RBAC et les circuits ExpressRoute.
 
@@ -67,4 +67,4 @@ La page [Understanding Azure Limits and Increases (Présentation des limites et 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="next-steps"></a>Étapes suivantes
-* Explorez la [Galerie de modèles de démarrage rapide d’Azure Resource Manager DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explorez la [Galerie de modèles de démarrage rapide d’Azure Resource Manager DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

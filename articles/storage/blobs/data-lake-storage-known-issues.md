@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d56fb411eb032e5e6227d68cd8abe02c0e30850b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194706"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006860"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -47,13 +47,13 @@ Les disques de machines virtuelles non managés dépendent des API de Stockage B
 
 Les API Stockage Blob et Azure Data Lake Gen2 APIs ne sont pas interopérables.
 
-Si vous disposez d’outils, d’applications, de services ou de scripts qui utilisent des API Blob et que vous souhaitez les utiliser pour travailler avec tout le contenu que vous téléchargez sur votre compte, n’activez pas les espaces de noms hiérarchiques sur votre compte de stockage Blob avant que les API Blob deviennent interopérables avec les API Azure Data Lake Gen2. L’utilisation d’un compte de stockage sans espace de noms hiérarchique signifie que vous n’avez alors pas accès aux fonctionnalités spécifiques de Data Lake Storage Gen2, comme les listes de contrôle d’accès au répertoire et au système de fichiers.
+Si vous disposez d’outils, d’applications, de services ou de scripts qui utilisent des API Blob et que vous souhaitez les utiliser pour travailler avec tout le contenu que vous téléchargez sur votre compte, n’activez pas les espaces de noms hiérarchiques sur votre compte de stockage Blob avant que les API Blob deviennent interopérables avec les API Azure Data Lake Gen2. À l’aide d’un compte de stockage sans espace de noms hiérarchique signifie que vous n’avez alors pas accès à Data Lake Storage Gen2 des fonctionnalités spécifiques, telles que des listes de contrôle d’accès système répertoire et fichier.
 
 ## <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
 
 Pour afficher ou gérer des comptes Data Lake Storage Gen2 à l’aide de l’Explorateur Stockage Azure, vous devez avoir au moins la version `1.6.0` de l’outil qui est disponible en tant que [téléchargement gratuit](https://azure.microsoft.com/features/storage-explorer/).
 
-Notez qu’actuellement la version de l’Explorateur Stockage qui se trouve dans le portail Azure ne prend pas en charge l’affichage ou la gestion des comptes Data Lake Storage Gen2 avec la fonctionnalité d'espace de noms hiérarchique activée.
+Notez que la version de l’Explorateur de stockage qui est incorporée dans le portail Azure ne prend pas en prendre en charge l’affichage ou la gestion des comptes Data Lake Storage Gen2 avec la fonctionnalité de l’espace de noms hiérarchique activée.
 
 ## <a name="blob-viewing-tool"></a>Outil d’affichage Blob
 

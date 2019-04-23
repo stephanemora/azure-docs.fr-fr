@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 4/22/2019
 ms.author: victorh
-ms.openlocfilehash: 6dc7d20d31d9399355b2b3de90ea90f2f3e07af5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 740b0ac505edfff1f703c2831ec5608e72851610
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224645"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149765"
 ---
 # <a name="fqdn-tags-overview"></a>Présentation des balises FQDN
 
@@ -26,17 +26,20 @@ Vous ne pouvez pas créer vos propres balises FQDN, ni spécifier quels noms de 
 
 Le tableau suivant présente les balises FQDN que vous pouvez actuellement utiliser. Microsoft gère ces balises, et vous pouvez vous attendre à ce que de nouvelles balises soient ajoutées régulièrement.
 
+## <a name="current-fqdn-tags"></a>Balises actives de nom de domaine complet
+
 |Balise FQDN  |Description  |
 |---------|---------|
 |Windows Update     |Autoriser un accès sortant à Microsoft Update, comme décrit dans [Comment configurer un pare-feu pour les mises à jour logicielles](https://technet.microsoft.com/library/bb693717.aspx).|
 |Diagnostics Windows|Autoriser l’accès sortant à tous les [points de terminaison Windows Diagnostics](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |Microsoft Active Protection Service (MAPS)|Autoriser l’accès sortant à [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
-|App Service Environment (ASE)|Autoriser l’accès sortant au trafic de plateforme ASE. Cette balise ne concerne pas les points de terminaison SQL et de stockage propres au client créés par ASE. Ceux-ci doivent être activés via les [points de terminaison de service](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou ajoutés manuellement.|
-|Sauvegarde Azure|Autoriser l’accès sortant aux services de sauvegarde Azure.
+|App Service Environment (ASE)|Autoriser l’accès sortant au trafic de plateforme ASE. Cette balise ne concerne pas les points de terminaison SQL et de stockage propres au client créés par ASE. Ceux-ci doivent être activés via les [points de terminaison de service](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou ajoutés manuellement.<br><br>Pour plus d’informations sur l’intégration du Pare-feu Azure avec l’ASE, consultez [Verrouillage d’un App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
+|Sauvegarde Azure|Autoriser l’accès sortant aux services de sauvegarde Azure.|
+|Azure HDInsight<br>(Préversion)|Autorise un accès sortant pour le trafic de plateforme HDInsight. Cette balise ne couvre pas le trafic de stockage ou SQL spécifiques au client à partir de HDInsight. Ces dernières sont activées [points de terminaison de Service](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou être ajoutées manuellement.|
 
 > [!NOTE]
 > Lorsque vous sélectionnez une balise FQDN dans une règle d’application, le champ protocol:port doit être défini sur **https**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour apprendre à déployer un pare-feu Azure, voir [Didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md).
+Pour savoir comment déployer un pare-feu d’Azure, consultez [didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md)

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b49c6733fd148fc6fb8b9fe535ac839f5b7402f9
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851189"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150164"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -506,10 +506,10 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |---|---|---|---|---|---|
 |JobEndedSuccess|Travaux réussis|Nombre|Total|Nombre de travaux réussis|Aucune dimension|
 |JobEndedFailure|Travaux en échec|Nombre|Total|Nombre de travaux en échec|Aucune dimension|
-|JobEndedCancelled|Travaux annulés|Nombre|Total|Nombre de travaux annulés|Aucune dimension|
+|JobEndedCanceled|Travaux annulés|Nombre|Total|Nombre de travaux a été annulées.|Aucune dimension|
 |JobAUEndedSuccess|Durée AU de réussite|Secondes|Total|Durée AU totale des travaux réussis.|Aucune dimension|
 |JobAUEndedFailure|Durée AU d’échec|Secondes|Total|Durée AU totale des travaux en échec|Aucune dimension|
-|JobAUEndedCancelled|Durée AU d’annulation|Secondes|Total|Durée AU totale des travaux annulés|Aucune dimension|
+|JobAUEndedCanceled|Durée d’annulation|Secondes|Total|Durée AU totale des travaux a été annulées.|Aucune dimension|
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
@@ -876,7 +876,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |RunsCompleted|Exécutions terminées|Nombre|Total|Nombre d’exécutions de flux de travail terminées.|Aucune dimension|
 |RunsSucceeded|Exécutions réussies|Nombre|Total|Nombre d’exécutions de flux de travail ayant réussi.|Aucune dimension|
 |RunsFailed|Exécutions ayant échoué|Nombre|Total|Nombre d’exécutions de flux de travail ayant échoué.|Aucune dimension|
-|RunsCancelled|Exécutions annulées|Nombre|Total|Nombre d’exécutions de flux de travail annulées.|Aucune dimension|
+|RunsCanceled|Exécutions annulées|Nombre|Total|Nombre de flux de travail s’exécute a été annulée.|Aucune dimension|
 |RunLatency|Latence d’exécution|Secondes|Moyenne|Latence des exécutions de flux de travail terminées.|Aucune dimension|
 |RunSuccessLatency|Latence d’exécution ayant réussi|Secondes|Moyenne|Latence des exécutions de flux de travail ayant réussi.|Aucune dimension|
 |RunThrottledEvents|Exécuter événements limités|Nombre|Total|Nombre d’actions de flux de travail ou d’événements limités par déclencheur.|Aucune dimension|
@@ -1513,7 +1513,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Http5xx|Erreurs de serveur http|Nombre|Total|Erreurs de serveur http|Instance|
 |MemoryWorkingSet|Plage de travail de la mémoire|Octets|Moyenne|Plage de travail de la mémoire|Instance|
 |AverageMemoryWorkingSet|Plage de travail moyenne de la mémoire|Octets|Moyenne|Plage de travail moyenne de la mémoire|Instance|
-|FunctionExecutionUnits|Unités d’exécution de fonctions|Nombre|Total|Unités d’exécution de fonctions|Instance|
+|FunctionExecutionUnits|Unités d’exécution de fonctions|Mo / millisecondes|Total|[Unités d’exécution (fonction)](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instance|
 |FunctionExecutionCount|Nombre d’exécutions de fonctions|Nombre|Total|Nombre d’exécutions de fonctions|Instance|
 |PrivateBytes|Octets privés|Octets|Moyenne|Octets privés|Instance|
 |IoReadBytesPerSecond|Octets lus par seconde (E/S)|BytesPerSecond|Total|Octets lus par seconde (E/S)|Instance|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225091"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002678"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 
@@ -99,7 +99,7 @@ De plus, vous pouvez utiliser des comptes de stockage Azure à l’échelle inte
 
 2. Le volet gauche affiche tous les comptes Azure auxquels vous vous êtes connecté. Pour vous connecter à un autre compte, sélectionnez **Ajouter un compte**
 
-3. Si vous souhaitez vous connecter à un cloud national ou une pile Azure Stack, cliquez sur la liste déroulante **Environnement Azure** pour sélectionner le cloud Azure à utiliser. Lorsque vous avez choisi votre environnement, cliquez sur le bouton **Se connecter...**. Si vous vous connectez à Azure Stack, consultez [Connecter l’Explorateur Stockage à un abonnement Azure Stack](azure-stack/user/azure-stack-storage-connect-se.md) pour plus d’informations.
+3. Si vous souhaitez vous connecter à un cloud national ou une pile Azure Stack, cliquez sur la liste déroulante **Environnement Azure** pour sélectionner le cloud Azure à utiliser. Lorsque vous avez choisi votre environnement, cliquez sur le bouton **Se connecter...**. Si vous vous connectez à Azure Stack, consultez [Connecter l’Explorateur Stockage à un abonnement Azure Stack](/azure-stack/user/azure-stack-storage-connect-se) pour plus d’informations.
 
     ![Option de connexion][2]
 

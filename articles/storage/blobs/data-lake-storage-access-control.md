@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e8d7d77128acd4bdb81a99ac6756a5e28b4a408f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802951"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001590"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -126,11 +126,11 @@ L’utilisateur qui a créé l’élément est automatiquement l’utilisateur p
 
 ### <a name="the-owning-group"></a>Le groupe propriétaire
 
-Dans les ACL POSIX, chaque utilisateur est associé à un *groupe principal*. Par exemple, l’utilisateur « Alice » peut appartenir au groupe « Finance ». Alice peut appartenir à plusieurs groupes, mais un groupe est toujours désigné comme son groupe principal. Dans POSIX, lorsqu’Alice crée un fichier, son groupe principal est défini comme groupe propriétaire de ce fichier (en l’occurrence, « finance »). Sinon, le groupe propriétaire se comporte comme pour les autorisations assignées à d’autres utilisateurs/groupes.
+Dans les ACL POSIX, chaque utilisateur est associé à un *groupe principal*. Par exemple, l’utilisateur « Alice » peut appartenir au groupe « finance ». Alice peut appartenir à plusieurs groupes, mais un groupe est toujours désigné comme son groupe principal. Dans POSIX, lorsqu’Alice crée un fichier, son groupe principal est défini comme groupe propriétaire de ce fichier (en l’occurrence, « finance »). Sinon, le groupe propriétaire se comporte comme pour les autorisations assignées à d’autres utilisateurs/groupes.
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Affectation du groupe propriétaire pour un nouveau fichier ou répertoire
 
-* **Cas n° 1** : Répertoire racine "/". Ce répertoire est créé lors de la création d’un système de fichiers Data Lake Storage Gen2. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le système de fichiers si l’opération est réalisée avec OAuth. Si le système de fichiers est créé à l’aide d’une clé partagée, d’une SAP de compte ou d’une SAP de service, le propriétaire et le groupe propriétaire sont définis sur **$superuser**.
+* **Cas n° 1** : Répertoire racine "/". Ce répertoire est créé lors de la création d’un système de fichiers Data Lake Storage Gen2. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le système de fichiers si l’opération est réalisée avec OAuth. Si le système de fichiers est créé à l’aide de la clé partagée, une SAP de compte ou une SAP de Service, le propriétaire et le groupe propriétaire sont définis sur **$superuser**.
 * **Cas 2** (tous les autres cas) : lorsqu’un nouvel élément est créé, le groupe propriétaire est copié à partir du répertoire parent.
 
 #### <a name="changing-the-owning-group"></a>Modification du groupe propriétaire
@@ -285,7 +285,7 @@ Un GUID s’affiche si l’entrée représente un utilisateur et que ce dernier 
 
 Lorsque vous définissez des ACL pour les principaux de service, il est important d’utiliser l’ID d’objet (OID) de la *principal du service* pour l’inscription d’application que vous avez créé. Il est important de noter que les applications inscrites ont un principal de service distinct dans spécifique au locataire Azure AD. Applications inscrites ont un OID qui est visible dans le portail Azure, mais la *principal du service* a un autre OID (différent).
 
-Pour obtenir l’OID du principal du service qui correspond à une inscription d’application, vous pouvez utiliser la `az ad sp show` commande. Spécifiez l’ID d’Application comme paramètre. Voici un exemple sur l’obtention de l’OID du principal du service qui correspond à une inscription d’application avec l’Id d’application = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Dans Azure CLI, exécutez la commande suivante :
+Pour obtenir l’OID du principal du service qui correspond à une inscription d’application, vous pouvez utiliser la `az ad sp show` commande. Spécifiez l’ID d’Application comme paramètre. Voici un exemple sur l’obtention de l’OID du principal du service qui correspond à une inscription d’application avec l’ID d’application = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Dans Azure CLI, exécutez la commande suivante :
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 2372f49c7280ee5c817f3d2f98cc80a196dae5f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879197"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000587"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Backends et pools de backends dans Azure Front Door Service
 Cet article décrit les concepts sur la façon de mapper votre déploiement d’application avec le Service Azure porte d’entrée. Il explique également les différents termes de configuration porte autour des backends d’applications.
@@ -43,7 +43,7 @@ Les serveurs principaux de Service de la porte d’entrée font référence au n
 
 Les demandes transférées par la porte d’entrée vers un serveur principal incluent un champ d’en-tête hôte que le serveur principal utilise pour récupérer la ressource cible. La valeur de ce champ provient généralement de l’URI du backend et indique l’hôte et le port.
 
-Par exemple, une demande effectuée pour www\.contoso.com aura l’en-tête d’hôte www\.contoso.com. Si vous utilisez le portail Azure pour configurer votre serveur principal, la valeur par défaut pour ce champ est le nom d’hôte du serveur principal. Si votre serveur principal est contoso-westus.azurewebsites.net, dans le portail Azure, la valeur de rempli automatiquement pour le serveur principal de l’en-tête d’hôte sera westus.azurewebsites.net de contoso. Toutefois, si vous utilisez des modèles Azure Resource Manager ou une autre méthode sans définir explicitement ce champ, porte Service envoie le nom d’hôte entrant comme valeur pour l’en-tête d’hôte. Si la demande a été faite pour www\.contoso.com et votre serveur principal est contoso-westus.azurewebsites.net qui a un champ d’en-tête vide, Service de la porte d’entrée sera l’en-tête d’hôte en tant que www\.contoso.com.
+Par exemple, une demande effectuée pour www\.contoso.com aura l’en-tête d’hôte www\.contoso.com. Si vous utilisez le portail Azure pour configurer votre serveur principal, la valeur par défaut pour ce champ est le nom d’hôte du serveur principal. Si votre serveur principal est contoso-westus.azurewebsites.net, dans le portail Azure, la valeur de rempli automatiquement pour l’en-tête d’hôte principal sera westus.azurewebsites.net de contoso. Toutefois, si vous utilisez des modèles Azure Resource Manager ou une autre méthode sans définir explicitement ce champ, porte Service envoie le nom d’hôte entrant comme valeur pour l’en-tête d’hôte. Si la demande a été faite pour www\.contoso.com et votre serveur principal est contoso-westus.azurewebsites.net qui a un champ d’en-tête vide, Service de la porte d’entrée sera l’en-tête d’hôte en tant que www\.contoso.com.
 
 La plupart des backends d’applications (Azure Web Apps, stockage d’objets Blob et Services Cloud) nécessitent l’en-tête d’hôte pour correspondre au domaine du serveur principal. Cependant, l’hôte de serveur frontal achemine vers votre serveur principal utilise un nom d’hôte différent, tel que www\.contoso.azurefd.net.
 
@@ -83,7 +83,7 @@ Paramètres de l’équilibrage de charge pour le pool principal définissent co
 
 - **Taille de l’échantillon**. Identifie le nombre d’échantillons de sondes d’intégrité que nous devons prendre en compte pour l’évaluation d’intégrité de serveur principal.
 
-- **Taille d’échantillon réussie**. Définit la taille d’échantillon comme mentionnée précédemment, le nombre d’échantillons réussies nécessaires pour appeler le serveur principal sain. Par exemple, supposons un intervalle de sonde d’intégrité porte d’entrée est de 30 secondes, la taille de l’échantillon est de 5 secondes et la taille d’échantillon réussie est de 3 secondes. Chaque fois que nous évaluer l’intégrité des sondes pour votre serveur principal, nous allons examiner les cinq derniers échantillons de plus de 150 secondes (5 x 30). Au moins trois sondes réussi sont requis pour déclarer le serveur principal comme étant saine.
+- **Taille d’échantillon réussie**. Définit la taille d’échantillon comme mentionnée précédemment, le nombre d’échantillons réussies nécessaires pour appeler le serveur principal sain. Par exemple, supposons un intervalle de sonde d’intégrité porte d’entrée est de 30 secondes, taille d’échantillon est 5, et taille d’échantillon réussie est 3. Chaque fois que nous évaluer l’intégrité des sondes pour votre serveur principal, nous allons examiner les cinq derniers échantillons de plus de 150 secondes (5 x 30). Au moins trois sondes réussi sont requis pour déclarer le serveur principal comme étant saine.
 
 - **Sensibilité de latence (latence supplémentaire)**. Définit si vous souhaitez que la porte d’entrée pour envoyer la demande aux serveurs principaux dans la plage de sensibilité de mesure de latence ou de transférer la demande vers le serveur principal le plus proche.
 

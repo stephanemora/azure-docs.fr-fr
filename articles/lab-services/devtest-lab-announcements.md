@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fca78c86849ef8210bb3aaeb8ad96e1fba3d7c05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542486"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148966"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publier une annonce dans un lab avec Azure DevTest Labs
 
@@ -37,8 +37,8 @@ La fonctionnalité d’annonce est destinée à être utilisée pour les notific
 
 1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si nécessaire, sélectionnez **Autres services**, puis **DevTest Labs** dans la liste. (Votre lab peut déjà être affiché dans le Tableau de bord sous **Toutes les ressources**).
-1. Dans la liste des labs, sélectionnez le lab dans lequel vous souhaitez publier une annonce.  
-1. Dans la zone **Vue d’ensemble** du laboratoire, sélectionnez **Configuration et stratégies**.  
+1. Dans la liste des labs, sélectionnez le lab dans lequel vous souhaitez publier une annonce.
+1. Dans la zone **Vue d’ensemble** du laboratoire, sélectionnez **Configuration et stratégies**.
 
     ![Bouton Configuration et stratégies](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
@@ -83,7 +83,7 @@ Quand vous ne souhaitez plus afficher cette annonce pour les utilisateurs du lab
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
-Vous pouvez spécifier une annonce dans le cadre d’un modèle Azure Resource Manager comme indiqué dans l’exemple suivant : 
+Vous pouvez spécifier une annonce dans le cadre d’un modèle Azure Resource Manager comme indiqué dans l’exemple suivant :
 
 ```json
 {
@@ -119,7 +119,7 @@ Vous pouvez spécifier une annonce dans le cadre d’un modèle Azure Resource M
                 "support": {
                     "markdown": "",
                     "enabled": "Enabled"
-                }                
+                }
             },
             "resources": [
                 {
@@ -167,4 +167,4 @@ Vous pouvez déployer un modèle Azure Resource Manager à l’aide d’une des 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Si vous modifiez ou définissez une stratégie de lab, vous avez peut-être envie de publier une annonce pour en informer les utilisateurs. La page [Définir des stratégies et des planifications](devtest-lab-set-lab-policy.md) vous renseigne sur l’application de conventions et de restrictions sur votre abonnement à l’aide de stratégies personnalisées.
-* Explorez la [Galerie de modèles de démarrage rapide d’Azure Resource Manager DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explorez la [Galerie de modèles de démarrage rapide d’Azure Resource Manager DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

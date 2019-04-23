@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799471"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149127"
 ---
 # <a name="registration-management"></a>Gestion des inscriptions
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cette rubrique explique comment inscrire des appareils auprès des hubs de notification en vue de recevoir des notifications Push. Elle donne une description générale des inscriptions, puis présente les deux principaux modes d’inscription des appareils : l’inscription de l’appareil directement auprès du hub de notification et l’inscription via un serveur principal d’application.
 
@@ -36,11 +36,11 @@ L’inscription d’un appareil auprès d’un hub de notification s’effectue 
 Une inscription associe le handle PNS (Platform Notification Service, service de notification de plateforme) à des balises et éventuellement à un modèle. Le handle PNS peut être un ChannelURI, un jeton d’appareil ou un ID d’inscription FCM. Les balises permettent d’acheminer des notifications vers l’ensemble approprié de handles d’appareils. Pour plus d’informations, consultez [Routage et expressions de balises](notification-hubs-tags-segment-push-message.md). Les modèles permettent d’implémenter la transformation par inscription. Pour plus d’informations, consultez [Modèles](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
-> Azure Notification Hubs prend en charge un maximum de 60 balises par inscription.
+> Azure Notification Hubs prend en charge un maximum de 60 balises par appareil.
 
 ### <a name="installations"></a>Installations
 
-Une installation est une inscription améliorée qui inclut un conteneur de propriétés associées à des opérations push. C’est la meilleure approche, et la plus récente, pour inscrire vos appareils. Toutefois, elle n’est actuellement pas prise en charge par le Kit de développement logiciel .NET côté client ([SDK Notification Hub pour les opérations de serveur principal](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  Cela signifie que si vous vous inscrivez à partir de l'appareil client lui-même, vous devrez utiliser l’approche [API REST Notification Hubs](https://msdn.microsoft.com/library/mt621153.aspx) pour prendre en charge ces installations. Si vous utilisez un service principal, vous devriez être en mesure d'utiliser [SDK Notification Hub pour les opérations de serveur principal](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Une installation est une inscription améliorée qui inclut un conteneur de propriétés associées à des opérations push. C’est la meilleure approche, et la plus récente, pour inscrire vos appareils. Toutefois, elle n’est actuellement pas prise en charge par le Kit de développement logiciel .NET côté client ([SDK Notification Hub pour les opérations de serveur principal](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  Cela signifie que si vous vous inscrivez à partir de l'appareil client lui-même, vous devrez utiliser l’approche [API REST Notification Hubs](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) pour prendre en charge ces installations. Si vous utilisez un service principal, vous devriez être en mesure d'utiliser [SDK Notification Hub pour les opérations de serveur principal](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Voici certains avantages essentiels que présente l’utilisation d’installations :
 
@@ -48,7 +48,7 @@ Voici certains avantages essentiels que présente l’utilisation d’installati
 - Le modèle d’installation prend en charge un format de balise spéciale (`$InstallationId:{INSTALLATION_ID}`) qui permet l’envoi d’une notification directement à un périphérique spécifique. Par exemple, si le code de l’application définit un ID d’installation de `joe93developer` pour cet appareil particulier, un développeur peut cibler ce périphérique lors de l’envoi d’une notification à le `$InstallationId:{joe93developer}` balise. Cela vous permet de cibler un appareil spécifique sans avoir à effectuer aucun codage supplémentaire.
 - L’utilisation d’installations vous permet également d’effectuer des mises à jour partielles d’inscriptions. La mise à jour partielle d’une installation est demandée avec une méthode PATCH utilisant la [norme JSON-Patch](https://tools.ietf.org/html/rfc6902). Cette opération est utile lorsque vous voulez mettre à jour des balises sur l’inscription. Il n’est pas nécessaire de retirer la totalité de l’inscription et de renvoyer à nouveau toutes les balises précédentes.
 
-Une installation peut contenir les propriétés suivantes. Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec l’API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriétés d’installation](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Une installation peut contenir les propriétés suivantes. Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec l’API REST](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) ou [Propriétés d’installation](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
 ```json
 // Example installation format to show some supported properties

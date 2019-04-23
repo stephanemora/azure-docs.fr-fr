@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6ca4156c19adbeea72ae268fe62638d40919b08f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5a97a40ba48db9f73471d5fd778ceb5cb9070964
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699614"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011327"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utiliser la console série pour les appels SysRq et NMI
 
 ## <a name="system-request-sysrq"></a>Requête système (SysRq)
-Une SysRq est une séquence de clés comprise par le noyau du système d’exploitation Linux et pouvant déclencher un ensemble d’actions prédéfinies. Ces commandes sont souvent utilisées lorsque l’administration classique ne peut pas effectuer la résolution de problèmes ou la restauration de la machine virtuelle (par exemple, si la machine virtuelle est suspendue). La fonction SysRq de la console série Azure permet de simuler l’appui sur la touche SysRq et la saisie de caractères sur un clavier physique.
+Une SysRq est une séquence de clés comprise par le noyau du système d’exploitation Linux et pouvant déclencher un ensemble d’actions prédéfinies. Ces commandes sont souvent utilisés lors de la résolution des problèmes de machine virtuelle ou de récupération n’est pas possible via l’administration traditionnelle (par exemple, si la machine virtuelle ne répond pas). La fonction SysRq de la console série Azure permet de simuler l’appui sur la touche SysRq et la saisie de caractères sur un clavier physique.
 
 Une fois que la séquence SysRq est livrée, la configuration du noyau contrôle le mode de réponse du système. Pour plus d’informations sur l’activation et la désactivation de SysRq, consultez le *SysRq Admin Guide* (Guide administrateur SysRq) [texte](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
 
@@ -96,10 +96,10 @@ Pour obtenir la documentation propre à la distribution sur SysRq et les étapes
 - [Configurer la capture de la sauvegarde du noyau central](https://www.suse.com/support/kb/doc/?id=3374462)
 
 #### <a name="coreos"></a>CoreOS ####
-- [Collecte des journaux d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
+- [Collecte des journaux d’activité d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>Interruption non masquable (NMI) 
-Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques.  Aujourd’hui, les programmeurs et les administrateurs système utilisent souvent les NMI comme mécanisme de débogage ou de dépannage des systèmes qui ne réponde pas.
+Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques.  Aujourd'hui, les programmeurs et les administrateurs système utilisent souvent interruption non programmable comme un mécanisme pour déboguer ou de dépanner des systèmes qui ne répondent pas.
 
 La console série peut être utilisée pour envoyer une NMI à une machine virtuelle Azure à l’aide de l’icône de clavier dans la barre de commandes ci-dessous. Une fois que la NMI est remise, la configuration de machine virtuelle contrôle le mode de réponse du système.  Les systèmes d’exploitation Linux peuvent être configurés de façon à provoquer un incident et à créer une image mémoire lorsque le système d’exploitation reçoit une NMI.
 
@@ -125,7 +125,7 @@ Pour plus d'informations sur les configurations du noyau Linux, notamment `unkno
 - [Configurer la capture de la sauvegarde du noyau central](https://www.suse.com/support/kb/doc/?id=3374462)
 
 ### <a name="coreos"></a>CoreOS 
-- [Collecte des journaux d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
+- [Collecte des journaux d’activité d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * La page principale de documentation de la console série Linux se trouve [ici](serial-console.md).

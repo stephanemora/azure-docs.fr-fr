@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/22/2019
-ms.openlocfilehash: 32d5d0d25c843be1cba1916e7679faa930e8e645
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.date: 04/13/2019
+ms.openlocfilehash: d9b9aae8bea323e5aac74a2e317b82d4cb43568f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671734"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118541"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Prépayer les machines virtuelles avec Azure Reserved VM Instances
 
@@ -35,6 +35,12 @@ Vous pouvez utiliser les recommandations de réservation pour vous aider à dét
 - Azure Advisor fournit des recommandations d’achat pour les abonnements individuels.  
 - Vous pouvez utiliser les API pour obtenir des recommandations d’achat pour la portée partagée et étendue de l’abonnement unique. Pour plus d’informations, consultez [réservé recommandation d’achat instance API pour les clients enterprise](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - Pour les clients EA, acheter des recommandations pour partagés et étendues de l’abonnement unique sont disponibles avec la [pack de contenu Azure consommation Insights Power BI](/power-bi/service-connect-to-azure-consumption-insights).
+
+### <a name="classic-vms-and-cloud-services"></a>Machines virtuelles classiques et les services cloud
+
+Instances réservées de machine virtuelle s’appliquent aux deux machines virtuelles classiques et services de cloud lors de la flexibilité de taille d’instance est activée automatiquement. Il ne sont pas les références (SKU) spécial pour les machines virtuelles classiques ou des services cloud. Les mêmes références (SKU) de machine virtuelle s’y appliquent.
+
+Par exemple, vous pourrez convertir vos machines virtuelles classiques ou des services cloud pour les machines virtuelles basées sur Azure Resource Manager. Dans cet exemple, la remise de réservation s’applique automatiquement à la mise en correspondance les machines virtuelles. Il est inutile de *exchange* une instance réservée existante - il applique automatiquement.
 
 ### <a name="analyze-your-usage-information"></a>Analyser vos informations d’utilisation
 Vous devez analyser vos informations d’utilisation pour aider à déterminer les réservations que vous devez acheter.
@@ -66,7 +72,7 @@ Les Instances de machine virtuelle réservées sont disponibles pour la plupart 
 
     | Champ      | Description|
     |------------|--------------|
-    |Nom        |Nom de cette réservation.|
+    |Name        |Nom de cette réservation.|
     |Abonnement|Abonnement utilisé pour payer la réservation. Les coûts initiaux de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.|    
     |Étendue       |L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>Abonnement unique : la remise de réservation est appliquée aux machines virtuelles incluses dans cet abonnement. </li><li>Partagé : la remise de réservation est appliquée aux machines virtuelles en cours d’exécution dans tous les abonnements au sein de votre contexte de facturation. Pour les clients Entreprise, l’étendue partagée correspond à l’inscription et inclut tous les abonnements au sein de l’inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</li></ul>|
     |Région    |Région Azure couverte par la réservation.|    
@@ -74,14 +80,8 @@ Les Instances de machine virtuelle réservées sont disponibles pour la plupart 
     |Optimiser pour     |La flexibilité de taille d’instance de machine virtuelle applique la remise sur réservation aux autres machines virtuelles du même [groupe de tailles de machine virtuelle](https://aka.ms/RIVMGroups). La priorité de capacité priorise la capacité de centre de données pour vos déploiements. Cela offre une assurance supplémentaire dans votre capacité à lancer les instances de machines virtuelles quand vous en avez besoin. La priorité de capacité est uniquement disponible si l’étendue de réservation comprend un seul abonnement. |
     |Terme        |Une année ou trois ans.|
     |Quantité    |Nombre d’instances achetées au sein de la réservation. La quantité correspond au nombre d’instances de machines virtuelles en cours d’exécution pouvant bénéficier de la remise de facturation. Par exemple, si vous exécutez 10 machines virtuelles Standard_D2 dans la région USA Est, vous devez spécifier 10 comme quantité pour optimiser l’avantage pour toutes les machines en cours d’exécution. |
-5. Vous pouvez afficher le coût de la réservation lorsque vous sélectionnez **Calculer le coût**.
 
-    ![Capture d’écran avant de soumettre l’achat de la réservation](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
-
-6. Sélectionnez **Achat**.
-7. Sélectionnez **Afficher cette réservation** pour connaître l’état de votre achat.
-
-    ![Capture d’écran après avoir soumis l’achat de la réservation](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## <a name="change-a-reservation-after-purchase"></a>Modifier une réservation après l’achat
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: e022a7661997d231e291a4d09611bb6e95bee262
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528313"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149476"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Mise en cache avec Azure Front Door Service
 Le document suivant explique comment spécifier le comportement d’une porte d’entrée à l’aide de règles de routage ayant la mise en cache activée.
@@ -104,7 +104,7 @@ L’ordre suivant des en-têtes sert à déterminer la durée de stockage d’un
 2. Cache-Control : maxage =\<secondes >
 3. Date d’expiration : \<http-date >
 
-Les en-têtes de réponse Cache-Control qui indiquent que la réponse n’est pas mise en cache comme Cache-Control: private, Cache-Control: no cache et Cache-Control: no-store sont honorés. Cependant, s’il existe plusieurs demandes en cours au niveau d’un point de présence pour la même URL, il se peut qu’elles partagent la réponse.
+Les en-têtes de réponse Cache-Control qui indiquent que la réponse n’est pas mise en cache comme Cache-Control: private, Cache-Control: no cache et Cache-Control: no-store sont honorés. Cependant, s’il existe plusieurs demandes en cours au niveau d’un point de présence pour la même URL, il se peut qu’elles partagent la réponse. Si aucun Cache-Control n’est présente le comportement par défaut est que AFD met en cache la ressource pour X quantité de temps où X est choisi au hasard entre les jours 1 à 3.
 
 
 ## <a name="request-headers"></a>En-têtes de requête

@@ -1,7 +1,6 @@
 ---
 title: API dédiées à l’automatisation de la réservation Azure | Microsoft Docs
 description: Découvrez les API Azure que vous pouvez utiliser pour obtenir par programmation les informations de réservation.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880214"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008207"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API dédiées à l’automatisation de la réservation Azure
 
@@ -55,7 +54,7 @@ Si vous constatez que les réservations de votre organisation sont sous-utilisé
 
 - Assurez-vous que les machines virtuelles créées par votre organisation correspondent à la taille de machine virtuelle qui se trouve sur la réservation.
 - Assurez-vous que la flexibilité de taille d’instance est activée. Pour plus d’informations, consultez [Gérer les réservations - Modifier le paramètre d’optimisation pour des instances de machine virtuelle réservées](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
-- Modifiez l’étendue de réservation en partage afin qu’elle s’applique plus largement. Pour plus d’informations, consultez [Gérer les réservations - Modifier l’étendue d’une réservation](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+- Modifiez l’étendue de réservation en partage afin qu’elle s’applique plus largement. Pour plus d’informations, consultez [Gérer les réservations - Modifier l’étendue d’une réservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 - Échangez la quantité inutilisée. Pour plus d’informations, consultez [Gérer les réservations - Annulations et échanges](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
 
 ## <a name="give-access-to-reservations"></a>Accorder l’accès aux réservations
@@ -68,7 +67,7 @@ Obtenez la liste de toutes les réservations auxquelles un utilisateur a accès 
 
 ## <a name="split-or-merge-reservation"></a>Split or merge reservation (Diviser ou fusionner des réservations)
 
-Après avoir acheté plusieurs instances de ressource dans une réservation, vous pouvez affecter de instances de cette réservation à d’autres abonnements. Vous pouvez modifier l’étendue de réservation afin qu’elle s’applique à tous les abonnements dans le même contexte de facturation. Mais pour faciliter la budgétisation et la gestion des coûts, vous pouvez conserver l’étendue en tant qu’« abonnement unique » et assigner des instances de réservation à un abonnement spécifique. 
+Après avoir acheté plusieurs instances de ressource dans une réservation, vous pouvez affecter de instances de cette réservation à d’autres abonnements. Vous pouvez modifier l’étendue de réservation afin qu’elle s’applique à tous les abonnements dans le même contexte de facturation. Mais pour faciliter la budgétisation et la gestion des coûts, vous pouvez conserver l’étendue en tant qu’« abonnement unique » et assigner des instances de réservation à un abonnement spécifique.
 
 Pour diviser une réservation, utilisez l’API [de réservation - Diviser](/rest/api/reserved-vm-instances/reservation/split). Vous pouvez également diviser une réservation à l’aide de PowerShell. Pour plus d’informations, consultez [Manage reservations - Split reservation into two reservations](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations) (Gérer les réservations - Diviser les réservations en deux réservations).
 
@@ -76,7 +75,7 @@ Pour fusionner deux réservations en une seule réservation, utilisez l’API [d
 
 ## <a name="change-scope-for-a-reservation"></a>Modifier l’étendue d’une réservation
 
-L’étendue d’une réservation peut être un abonnement unique ou tous les abonnements de votre contexte de facturation. Si vous définissez l’étendue à un seul abonnement, la réservation est mise en correspondance avec les ressources en cours d’exécution dans l’abonnement sélectionné. Si vous définissez l’étendue pour qu’elle soit partagée, Azure met en correspondance la réservation avec les ressources exécutées dans tous les abonnements du contexte de facturation. Le contexte de facturation dépend de l’abonnement utilisé pour acheter la réservation. Pour plus d’informations, consultez [Manage reservations - Change the scope](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation) (Gérer les réservations - Modifier l’étendue).
+L’étendue d’une réservation peut être un abonnement unique ou tous les abonnements de votre contexte de facturation. Si vous définissez l’étendue à un seul abonnement, la réservation est mise en correspondance avec les ressources en cours d’exécution dans l’abonnement sélectionné. Si vous définissez l’étendue pour qu’elle soit partagée, Azure met en correspondance la réservation avec les ressources exécutées dans tous les abonnements du contexte de facturation. Le contexte de facturation dépend de l’abonnement utilisé pour acheter la réservation. Pour plus d’informations, consultez [Manage reservations - Change the scope](billing-manage-reserved-vm-instance.md#change-the-reservation-scope) (Gérer les réservations - Modifier l’étendue).
 
 Pour modifier l’étendue par programmation, utilisez l’API [de réservation - Mise à jour](/rest/api/reserved-vm-instances/reservation/update).
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1b4bd904a9936c401f6b0ea6ac9663c20bc92b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 3645945400bcc58cdf11721458bfab529d89f0b7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400046"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009988"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemples JavaScript pour une utilisation dans Active Directory B2C
 
@@ -140,7 +140,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-Dans le code, remplacez `terms-of-use-url` par le lien pointant vers vos conditions d’utilisation. Pour votre répertoire, créez un nouvel attribut utilisateur nommé **termsOfUse**, puis incluez **termsOfUse** comme attribut utilisateur pour votre flux utilisateur.
+Dans le code, remplacez `termsOfUseUrl` par le lien pointant vers vos conditions d’utilisation. Pour votre répertoire, créez un nouvel attribut utilisateur nommé **termsOfUse**, puis incluez **termsOfUse** comme attribut utilisateur pour votre flux utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

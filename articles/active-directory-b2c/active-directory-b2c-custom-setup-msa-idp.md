@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4bcc51c3efce95178dbb190eb86cb7ac8e224cd0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 842d9497333d02a9f7918d86cd7d76e84b504063
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187519"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002106"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Microsoft à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55187519"
 
 Cet article explique comment autoriser la connexion d’utilisateurs à partir d’un compte Microsoft à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md) dans Azure Active Directory (Azure AD) B2C.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Si vous n’avez pas de compte Microsoft, créez-en un sur [https://www.live.com/](https://www.live.com/).
@@ -35,7 +35,7 @@ Pour utiliser un compte Microsoft en tant que fournisseur d’identité dans Azu
 1. Connectez-vous au [Portail d’inscription des applications Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) avec vos informations d'identification Microsoft.
 2. En haut à droite, sélectionnez **Ajouter une application**.
 3. Entrez un **nom d’application**, puis cliquez sur **Créer**. 
-4. Sélectionnez **Générer un nouveau mot de passe** et veillez à copier le mot de passe à utiliser quand vous configurez le fournisseur d’identité. Copiez également l’**ID de l’application**. 
+4. Sélectionnez **Générer un nouveau mot de passe** et veillez à copier le mot de passe à utiliser quand vous configurez le fournisseur d’identité. Copiez également l’ID d’Application. 
 5. Entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` dans **URL de redirection**. Remplacez `your-tenant-name` par le nom de votre locataire.
 6. Sélectionnez **Enregistrer**.
 
@@ -44,7 +44,7 @@ Pour utiliser un compte Microsoft en tant que fournisseur d’identité dans Azu
 Vous devez stocker le mot de passe que vous avez géré et précédemment enregistré dans votre locataire Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+2. Vérifiez que vous utilisez le répertoire qui contient votre locataire Azure AD B2C. Sélectionnez le **filtre Directory et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre client.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité - PRÉVERSION**.
 5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
@@ -88,7 +88,7 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant l�
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
@@ -141,13 +141,13 @@ L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisse
 Maintenant que vous avez un bouton en place, vous devez le lier à une action. Ici, l’action est la communication d’Azure AD B2C avec un compte Twitter pour recevoir un jeton.
 
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="2"` dans le parcours utilisateur.
-2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour l’**ID** la même valeur que celle que vous avez utilisée pour **TargetClaimsExchangeId** :
+2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour l’ID la même valeur que celle que vous avez utilisée pour **TargetClaimsExchangeId** :
 
     ```xml
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
     
-    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur **l’ID** du profil technique que vous avez créé précédemment. Par exemple : `MSA-OIDC`.
+    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur l’ID du profil technique que vous avez créé. Par exemple : `MSA-OIDC`.
 
 3. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
 
@@ -156,7 +156,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. I
 La communication avec Azure AD B2C s’effectue via une application que vous créez dans votre locataire. Cette section indique les étapes facultatives que vous pouvez effectuer pour créer une application de test si vous ne l’avez pas déjà fait.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+2. Vérifiez que vous utilisez le répertoire qui contient votre locataire Azure AD B2C. Sélectionnez le **filtre Directory et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre client.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application (par exemple, *testapp1*).

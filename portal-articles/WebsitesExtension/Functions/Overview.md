@@ -8,12 +8,12 @@ ms.service: functions
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: fa593eef1c01311d20216f3ab3af7ffcb54e12f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc37fbe218dd94da865e61e4b4275a7171fdbe7a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344138"
 ---
 # <a name="azure-functions-documentation"></a>Documentation Azure Functions
 
@@ -23,7 +23,7 @@ Azure Functions est un service de calcul sans serveur qui vous permet d’exécu
 
 Découvrez comme créer une fonction Hello World avec :
 
-- [portail Azure](/azure/azure-functions/functions-create-first-azure-function)
+- [Portail Azure](/azure/azure-functions/functions-create-first-azure-function)
 - [Interface de ligne de commande Azure](/azure/azure-functions/functions-create-first-azure-function-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>Didacticiels pas à pas

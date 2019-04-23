@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: c3c5484d865c73a6f478ffc9ad4c3fc86c2c8170
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59619102"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005364"
 ---
-# <a name="copy-data-from-azure-data-factory-to-azure-data-explorer"></a>Copier des données à partir d’Azure Data Factory à l’Explorateur de données Azure
+# <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copier des données dans l’Explorateur de données Azure à l’aide d’Azure Data Factory 
 
 Explorateur de données Azure est un service d’analytique de données entièrement géré pour l’analyse en temps réel sur de grands volumes de données de diffusion en continu à partir de nombreuses sources telles que des applications, des sites Web et des appareils IoT. Explorer les données de manière itérative et identifier des tendances et anomalies pour améliorer les produits, l’expérience des clients, analyser des périphériques et améliorer les opérations. Formulez de nouvelles questions et recevez des réponses en quelques minutes. Azure Data Factory est un service informatique d’intégration de données informatique intégralement managé. Vous pouvez utiliser le service pour remplir votre base de données de l’Explorateur de données Azure avec des données à partir de votre système existant et gagner du temps lors de la création de vos solutions d’analytique.
 
@@ -32,7 +32,7 @@ Cet article vous montre comment utiliser l’outil de copie de données Data Fac
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * [Un cluster de l’Explorateur de données Azure et de la base de données](create-cluster-database-portal.md)
-* Amazon S3.
+* Source de données.
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
@@ -46,7 +46,7 @@ Cet article vous montre comment utiliser l’outil de copie de données Data Fac
 
     **Paramètre**  | **Description du champ**
     |---|---|
-    | **Nom** | Entrez un nom global unique pour votre fabrique de données. Si vous recevez l’erreur *« nom de fabrique de données \"LoadADXDemo\" n’est pas disponible »*, entrez un nom différent pour la fabrique de données. Pour les règles d’affectation de noms d’artefacts Data Factory, consultez [les règles d’affectation de noms Data Factory](/azure/data-factory/naming-rules).|
+    | **Name** | Entrez un nom global unique pour votre fabrique de données. Si vous recevez l’erreur *« nom de fabrique de données \"LoadADXDemo\" n’est pas disponible »*, entrez un nom différent pour la fabrique de données. Pour les règles d’affectation de noms d’artefacts Data Factory, consultez [les règles d’affectation de noms Data Factory](/azure/data-factory/naming-rules).|
     | **Abonnement** | Sélectionnez l’abonnement Azure dans lequel créer la fabrique de données. |
     | **Groupe de ressources** | Sélectionnez **créer** et entrez le nom d’un nouveau groupe de ressources. Sélectionnez **utiliser l’existant**, si vous avez un groupe de ressources existant. |
     | **Version** | Sélectionnez **V2**. |
@@ -147,10 +147,6 @@ Azure Explorateur de données nouveau service lié est créé pour copier les do
 
     ![Banque de données de destination ADX](media/data-factory-load-data/destination-data-store.png)
 
-1. Dans **choisir le fichier de sortie ou le dossier**, entrez le nom de dossier de sortie, déterminer les paramètres, puis sélectionnez **suivant**.
-
-    ![Spécification du dossier de sortie](media/data-factory-load-data/specify-path.png)
-
 1. Dans **mappage de Table**, définissez le nom de table de destination, puis sélectionnez **suivant**.
 
     ![Mappage de table de jeu de données de destination](media/data-factory-load-data/destination-dataset-table-mapping.png)
@@ -186,6 +182,8 @@ Azure Explorateur de données nouveau service lié est créé pour copier les do
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la modification des services liés, jeux de données et pipelines dans le [interface utilisateur Data Factory](/azure/data-factory/quickstart-create-data-factory-portal)
+* En savoir plus sur la [connecteur de l’Explorateur de données Azure](/azure/data-factory/connector-azure-data-explorer) dans Azure Data Factory.
+
+* En savoir plus sur la modification des services liés, jeux de données et pipelines dans le [interface utilisateur Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
 
 * En savoir plus sur [requêtes de l’Explorateur de données Azure](/azure/data-explorer/web-query-data) pour l’interrogation de données.

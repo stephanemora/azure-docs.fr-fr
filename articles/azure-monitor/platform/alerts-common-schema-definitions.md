@@ -1,6 +1,6 @@
 ---
-title: Définitions de schéma alerte courants pour les fonctions d’applications/Azure/logique de Webhooks
-description: Comprendre les définitions de schéma alerte courants pour les fonctions d’applications/Azure/logique de Webhooks
+title: Définitions de schéma alerte courants pour les Runbooks de fonctions/Automation applications/Azure/logique de Webhooks
+description: Comprendre les définitions de schéma alerte courants pour les Runbooks de fonctions/Automation applications/Azure/logique de Webhooks
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010394"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149408"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
-Cet article décrit le [des définitions d’alerte de schéma communes](https://aka.ms/commonAlertSchemaDocs) pour la logique de Webhooks/applications/Azure Functions. 
+Cet article décrit le [des définitions d’alerte de schéma communes](https://aka.ms/commonAlertSchemaDocs) pour les Runbooks de fonctions/Automation/logique de Webhooks applications/Azure. 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 N’importe quelle instance d’alerte décrit **la ressource qui a été affectée** et **la cause de l’alerte**, et ces instances sont décrites dans le schéma commun dans les sections suivantes :
 * **Essentials**: Un ensemble de **standardisé champs**, parmi tous les types d’alerte, qui décrivent **quelle ressource** l’alerte est définie sur avec common alerte des métadonnées supplémentaires (par exemple, gravité ou la description). 

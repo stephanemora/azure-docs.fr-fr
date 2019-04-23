@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f617abc164761b4839b188822585eaa4eb0aacd6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7f1352b018fe9ea46b0f0824ba53ee0204c7dc7c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936893"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005517"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
 Cette section est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](api-management-howto-policies.md).  
@@ -53,12 +53,13 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
 -   [Stratégies d’authentification](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) : authentification avec un service principal à l’aide de l’authentification de base.  
     -   [Authenticate with client certificate](api-management-authentication-policies.md#ClientCertificate) : authentification avec un service principal à l’aide de certificats clients.  
+    -   [S’authentifier avec identité administré](api-management-authentication-policies.md#ManagedIdentity) -authentifier auprès d’un service principal à l’aide de certificats clients.  
 -   [Stratégies de mise en cache](api-management-caching-policies.md#CachingPolicies)  
     -   [Get from cache](api-management-caching-policies.md#GetFromCache) : effectue une recherche dans le cache et renvoie une réponse mise en cache valide si elle est disponible.  
     -   [Store to cache](api-management-caching-policies.md#StoreToCache) : met en cache la réponse en fonction de la configuration de contrôle de cache spécifiée.  
     -   [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) : récupère un élément mis en cache par clé.  
     -   [Store value in cache](api-management-caching-policies.md#StoreToCacheByKey) : stocke un élément mis en cache par clé.  
-    -   [Remove value from cache](api-management-caching-policies.md#RemoveCacheByKey) : supprime un élément du cache par clé.  
+    -   [Supprimer la valeur du cache](api-management-caching-policies.md#RemoveCacheByKey) : supprime un élément du cache par clé.  
 -   [Stratégies interdomaines](api-management-cross-domain-policies.md#CrossDomainPolicies)  
     -   [Allow cross-domain calls](api-management-cross-domain-policies.md#AllowCrossDomainCalls) : rend l'API accessible depuis les navigateurs clients utilisant Adobe Flash et Microsoft Silverlight.  
     -   [CORS](api-management-cross-domain-policies.md#CORS) : ajoute une prise en charge partage des ressources cross-origin (CORS) à une opération ou une API afin de permettre les appels interdomaines depuis les navigateurs clients.  

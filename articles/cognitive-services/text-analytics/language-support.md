@@ -10,22 +10,22 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: a9f48c8cef8d977469bb6c583d0bc363e334f693
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4f1ce8fd44a501f594f3093789d1ef03e664d018
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245318"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008492"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Langues et régions prises en charge par l’API Analyse de texte
 
-Cet article explique quelles langues sont prises en charge pour chaque opération : analyse des sentiments, extraction de phrases clés et détection de langue.
+Cet article explique quelles langues sont prises en charge pour chaque opération : analyse des sentiments, extraction de phrases clés, détection de la langue et reconnaissance d’entité nommée.
 
 ## <a name="language-detection"></a>Détection de la langue
 
 L’API Analyse de texte peut détecter jusqu'à 120 langues différentes. La fonction de détection de la langue renvoie le « script » d’une langue. Par exemple, pour la phrase « I have a dog », elle renvoie `en` à la place de `en-US`. Le chinois est un cas spécial unique : la fonction de détection de la langue renvoie `zh_CHS` ou `zh_CHT` si elle parvient à déterminer le script dans le texte fourni. Dans les situations où un script spécifique n’est pas identifié dans un document chinois, elle renvoie simplement `zh`.
 
-## <a name="sentiment-analysis-key-phrase-extraction-and-entity-recognition"></a>Analyse des sentiments, extraction de phrases clés et reconnaissance d’entité
+## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Analyse des sentiments, Extraction de phrases clés et reconnaissance d’entité nommée
 
 Pour l’analyse des sentiments, l’extraction de phrases clés et la reconnaissance d’entité, la liste des langues prises en charge est plus sélective, car les analyseurs sont optimisés pour prendre en compte les règles linguistiques des langues supplémentaires.
 
@@ -33,30 +33,34 @@ Pour l’analyse des sentiments, l’extraction de phrases clés et la reconnais
 
 Les langues prises en charge sont initialement déployées en préversion avant d’évoluer vers l’état de disponibilité générale, indépendamment les unes des autres et du service Analyse de texte global. Il est possible que les langues restent disponibles en préversion, même si l’API Analyse de texte est rendue globalement disponible.
 
-| Langage    | Code de langue | Sentiments | Expressions clés | Reconnaissance d’entité |   Notes  |
+| Langage    | Code de langue | Sentiments | Expressions clés | Reconnaissance d’entité nommée |   Notes  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| Danois      | `da`          | ✔ \*     | ✔           |             |     |
-| Néerlandais       | `nl`          | ✔ \*     | ✔          |             |     |
-| Anglais     | `en`          | ✔        | ✔           |  ✔ \*   |      |
-| Finnois     | `fi`          | ✔ \*     | ✔           |             |     |
-| Anglais      | `fr`          | ✔        | ✔           |             |     |
-| Allemand      | `de`          | ✔ \*     | ✔           |            |     |
+| Arabe      | `ar`          |           |             | ✔ \*                     | |
+| Tchèque       | `cs`          |           |             | ✔ \*                     | |
+| Chinois simplifié | `zh-CN`|           |             | ✔ \*        |    |
+| Danois      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
+| Néerlandais       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
+| Anglais     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
+| Finnois     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Anglais      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
+| Allemand      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
 | Grec       | `el`          | ✔ \*     |             |            |     |
-| Italien     | `it`          | ✔ \*     | ✔           |             |     |
-| Japonais    | `ja`          |          | ✔           |            |     |
-| Coréen      | `ko`          |          | ✔           |            |     |
-| Norvégien (Bokmål) | `no`          | ✔ \*     |  ✔          |             |     |
-| Polonais      | `pl`          | ✔ \*     |  ✔          |             |     |
-| Portugais (Portugal) | `pt-PT`| ✔        |  ✔          |       |`pt` également accepté|
-| Portugais (Brésil)   | `pt-BR`|          |  ✔   |         |     |
-| Russe     | `ru`          | ✔ \*     | ✔           |             |     |
-| Espagnol     | `es`          | ✔        | ✔           |   ✔ \*\*      |     |
-| Suédois     | `sv`          | ✔ \*     | ✔           |             |     |
-| Turc     | `tr`          | ✔ \*     |             |             |  |
+| Hongrois   | `hu`          |           |             |  ✔ \*          |     | 
+| Italien     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Japonais    | `ja`          |          | ✔           |  ✔ \*          |     |
+| Coréen      | `ko`          |          | ✔           |  ✔ \*          |     |
+| Norvégien (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
+| Polonais      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
+| Portugais (Portugal) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` également accepté|
+| Portugais (Brésil)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
+| Russe     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Espagnol     | `es`          | ✔        |            |   ✔ \*\*      |     | 
+| Suédois     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
+| Turc     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
-\* indique la prise en charge des langues dans la préversion
+\* Prise en charge linguistique est disponible en version préliminaire
 
-\*\* Pour l’espagnol, l'extraction d’entité est uniquement disponible dans [(version 2.1 - préversion)](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+\*\* Nommé reconnaissance d’entité et [Entity linking](how-tos/text-analytics-how-to-entity-linking.md) sont tous deux disponibles pour cette langue.    
 
 ## <a name="see-also"></a>Voir aussi
 

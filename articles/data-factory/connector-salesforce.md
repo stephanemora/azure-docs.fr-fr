@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e37d9c0c242de1bd95a93f12171a2a4271b064d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680704"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008696"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Ce connecteur Salesforce prend en charge :
 - Développeur Salesforce, éditions professionnelle, d’entreprise ou illimitées.
 - La copie de données depuis et vers le domaine de production, le bac à sable et le domaine personnalisé de Salesforce.
 
-Le connecteur Salesforce s’appuie sur l’API REST de Salesforce, avec [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) pour copier des données à partir d’et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier des données vers.
+Le connecteur Salesforce s’appuie sur l’API REST/Bulk Salesforce, avec [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) pour copier des données à partir d’et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier des données vers.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -172,7 +172,7 @@ Pour copier des données depuis et vers Salesforce, définissez la propriété d
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **RelationalTable**. | Oui |
-| TableName | Nom de la table dans Salesforce. | Non (si « query » est spécifié dans la source de l’activité) |
+| tableName | Nom de la table dans Salesforce. | Non (si « query » est spécifié dans la source de l’activité) |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
@@ -315,25 +315,25 @@ Lorsque vous copiez des données de Salesforce, les mappages suivants sont utili
 
 | Type de données Salesforce | Type de données intermédiaires d’Azure Data Factory |
 |:--- |:--- |
-| Numérotation automatique |Chaîne |
-| Case à cocher |Booléen |
+| Numérotation automatique |String |
+| Case à cocher |Boolean |
 | Devise |Decimal |
-| Date |DateTime |
-| Date/Heure |DateTime |
-| Email |Chaîne |
-| ID |Chaîne |
-| Relation de recherche |Chaîne |
-| Liste déroulante à sélection multiple |Chaîne |
+| Date |Datetime |
+| Date/Heure |Datetime |
+| Email |String |
+| ID |String |
+| Relation de recherche |String |
+| Liste déroulante à sélection multiple |String |
 | Number |Decimal |
 | Pourcentage |Decimal |
-| Téléphone |Chaîne |
-| Liste déroulante |Chaîne |
-| Texte |Chaîne |
-| Zone de texte |Chaîne |
-| Zone de texte (long) |Chaîne |
-| Zone de texte (enrichi) |Chaîne |
-| Texte (chiffré) |Chaîne |
-| URL |Chaîne |
+| Téléphone |String |
+| Liste déroulante |String |
+| Text |String |
+| Zone de texte |String |
+| Zone de texte (long) |String |
+| Zone de texte (enrichi) |String |
+| Texte (chiffré) |String |
+| URL |String |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

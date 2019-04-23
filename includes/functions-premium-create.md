@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 04/01/2019
 ms.author: jehollan
 ms.custom: include file
-ms.openlocfilehash: e3d3c2791cdc87784a20bcfbb3624c0fe0410b2a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f01ad6e1e6444a417300b38009ac9fbbe5cdbc88
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59528588"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012555"
 ---
 1. Accédez au portail Azure.
-2. Ajoutez une nouvelle ressource en cliquant sur le **créer une ressource** bouton dans le portail Azure
-3. Sélectionnez **application de fonction sans serveur**
-4. Entrez toutes les informations dans les paramètres de création et définissez votre **plan d’hébergement** à **Plan App Service**:
+2. Ajoutez une nouvelle ressource en sélectionnant le **créer une ressource** bouton dans le portail Azure.
+3. Sélectionnez **application de fonction sans serveur**.
+4. Entrez toutes les informations dans les paramètres de création et définissez votre **Plan d’hébergement** à **Plan App Service**:
     
     ![Créer le plan d’application (fonction)](./media/functions-premium-create/create-function-app-plan.png)  
 
-    1. Sélectionnez un niveau de Plan de Service Premium Plan (EP). 
+    1. Sélectionnez un niveau de plan (EP) Premium pour le plan de service. 
         ![Sélectionnez le plan premium](./media/functions-premium-create/hosting-plan.png)  
 
     1. Valider vos paramètres de plan terminé.  
         ![Plan de service d’application finie](./media/functions-premium-create/create-app-service-plan.png)  
     
-1. Valider vos paramètres d’application et le plan et cliquez sur **créer**
+1. Valider vos paramètres d’application et le plan, puis sélectionnez **créer**.
 
     ![Plan de service d’application finie](./media/functions-premium-create/create-function-app.png)  

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b25a47e929ef540ad3a74a86d431962d37cde434
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8777a7504c48b22d0e670dd9f0d28016ac8918db
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009435"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009461"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Présentation d'Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ Dans le passé, l’analytique cloud devait trouver le meilleur compromis entre 
 
 -   **Rentabilité** : Data Lake Storage Gen2 offre une capacité de stockage et des transactions à bas coût. Tout au long du cycle de vie des données, les taux de facturation changent pour maintenir les coûts au minimum par le biais de fonctionnalités intégrées comme le [cycle de vie du Stockage Blob Azure](storage-lifecycle-management-concepts.md).
 
--   **Pilote optimisé** : Le pilote ABFS est [optimisé spécifiquement](data-lake-storage-abfs-driver.md) pour l’analytique Big Data. Les API REST correspondantes sont exposées via le point de terminaison dfs, dfs.core.windows.net.
+-   **Pilote optimisé** : Le pilote ABFS est [optimisé spécifiquement](data-lake-storage-abfs-driver.md) pour l’analytique des données volumineuses. Les API REST correspondantes sont exposés via le point de terminaison `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Extensibilité
 
@@ -64,7 +64,7 @@ Les éléments suivants sont des entités équivalentes, décrites par différen
 | Concept                                | Organisation de niveau supérieur | Organisation de niveau inférieur                                            | Conteneur de données |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Objets BLOB – Stockage d’objets à usage général | Conteneur              | Répertoire virtuel (Kit de développement logiciel uniquement – ne fournit aucune manipulation atomique) | Blob           |
-| ADLS Gen2 – Stockage de l’analytique          | Filesystem             | Répertoire                                                           | Fichier           |
+| ADLS Gen2 – Stockage de l’analytique          | Système de fichiers             | Répertoire                                                           | Fichier           |
 
 ## <a name="supported-open-source-platforms"></a>Plateformes open source prises en charge
 

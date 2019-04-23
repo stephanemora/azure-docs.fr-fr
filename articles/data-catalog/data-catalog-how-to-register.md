@@ -2,21 +2,21 @@
 title: Inscrire des sources de données dans Azure Data Catalog
 description: Cet article traite de l’inscription des sources de données dans Azure Data Catalog, y compris des champs de métadonnées extraits lors de l’inscription.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 413f9340432f39d60ccdb43557616b4123132873
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 57b9a040b875c584b126e2062e4938b37875a31b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404892"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002984"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Inscrire des sources de données dans Azure Data Catalog
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 Azure Data Catalog est un service cloud entièrement géré qui permet d’inscrire et de détecter les sources de données d’entreprise. En d’autres termes, Data Catalog aide les utilisateurs à détecter, comprendre et utiliser les sources de données, et permet aux organisations de mieux exploiter leurs données existantes. La première étape pour qu’une source de données puisse être détectée via Data Catalog est de l’inscrire.
 
 ## <a name="register-data-sources"></a>Inscription des sources de données

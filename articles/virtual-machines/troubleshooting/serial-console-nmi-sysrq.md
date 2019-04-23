@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 3a9d3364f9e55611c94797b71b058128ce7c6696
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8ae9062a5e154f457f86dd7f3fbed7bda8580c88
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697925"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002102"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utiliser la console série pour les appels SysRq et NMI
 
 ## <a name="system-request-sysrq"></a>Requête système (SysRq)
-Une SysRq est une séquence de clés comprise par le noyau du système d’exploitation Linux et pouvant déclencher un ensemble d’actions prédéfinies. Ces commandes sont souvent utilisées lorsque l’administration classique ne peut pas effectuer la résolution de problèmes ou la restauration de la machine virtuelle (par exemple, si la machine virtuelle est suspendue). La fonction SysRq de la console série Azure permet de simuler l’appui sur la touche SysRq et la saisie de caractères sur un clavier physique.
+Une SysRq est une séquence de clés comprise par le noyau du système d’exploitation Linux et pouvant déclencher un ensemble d’actions prédéfinies. Ces commandes sont souvent utilisés lors de la résolution des problèmes de machine virtuelle ou de récupération n’est pas possible via l’administration traditionnelle (par exemple, si la machine virtuelle ne répond pas). La fonction SysRq de la console série Azure permet de simuler l’appui sur la touche SysRq et la saisie de caractères sur un clavier physique.
 
 Une fois que la séquence SysRq est livrée, la configuration du noyau contrôle le mode de réponse du système. Pour plus d’informations sur l’activation et la désactivation de SysRq, consultez le *SysRq Admin Guide* (Guide administrateur SysRq) [texte](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
 
@@ -63,7 +63,7 @@ Dans le guide administrateur SysRq ci-dessus :
 |``h``  |   Affiche l’aide (les touches qui ne sont pas mentionnées ici affichent aussi l’aide, mais il est facile de mémoriser ``h`` :-)
 |``i``  |    Envoie un SIGKILL à tous les processus, sauf init.
 |``j``  |    Forçage de « Just thaw it » (simple libération) - systèmes de fichiers gelés par l’ioctl FIFREEZE.
-|``k``  |    La clé d’accès sécurisée (SAK) arrête tous les programmes de la console virtuelle en cours. REMARQUE :  Consultez les commentaires importants ci-dessous dans la section SAK.
+|``k``  |    La clé d’accès sécurisée (SAK) arrête tous les programmes de la console virtuelle en cours. REMARQUE :  consultez les commentaires importants disponibles ci-dessous, à la section SAK.
 |``l``  |    Affiche un historique des piles de tous les processeurs actifs.
 |``m``  |    Sauvegarde les informations de la mémoire actuelle sur votre console.
 |``n``  |    Utilisé pour que les tâches RT soient agréables
@@ -76,7 +76,7 @@ Dans le guide administrateur SysRq ci-dessus :
 |``u``  |    Tente de remonter tous les systèmes de fichiers montés en lecture seule.
 |``v``  |    Force la restauration de la console framebuffer
 |``v``  |    Lance la copie de sauvegarde de la mémoire tampon ETM [spécifique à l’ARM]
-|``w``  |    Sauvegarde les tâches en état ininterrompu (bloqué).
+|``w``  |    Vide les tâches dont l'état est ininterrompu (bloqué).
 |``x``  |    Utilisé par l’interface xmon sur les plateformes ppc/powerpc. Affiche les registres PMU globaux sur sparc64. Sauvegarde toutes les entrées TLB sur MIPS.
 |``y``  |    Affiche les registres CPU globaux [spécifique à SPARC-64]
 |``z``  |    Sauvegarde la mémoire tampon ftrace
@@ -96,10 +96,10 @@ Pour obtenir la documentation propre à la distribution sur SysRq et les étapes
 - [Configurer la capture de la sauvegarde du noyau central](https://www.suse.com/support/kb/doc/?id=3374462)
 
 #### <a name="coreos"></a>CoreOS ####
-- [Collecte des journaux d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
+- [Collecte des journaux d’activité d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>Interruption non masquable (NMI) 
-Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques.  Aujourd’hui, les programmeurs et les administrateurs système utilisent souvent les NMI comme mécanisme de débogage ou de dépannage des systèmes qui ne réponde pas.
+Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques.  Aujourd'hui, les programmeurs et les administrateurs système utilisent souvent interruption non programmable comme un mécanisme pour déboguer ou de dépanner des systèmes qui ne répondent pas.
 
 La console série peut être utilisée pour envoyer une NMI à une machine virtuelle Azure à l’aide de l’icône de clavier dans la barre de commandes ci-dessous. Une fois que la NMI est remise, la configuration de machine virtuelle contrôle le mode de réponse du système.  Les systèmes d’exploitation Linux peuvent être configurés de façon à provoquer un incident et à créer une image mémoire lorsque le système d’exploitation reçoit une NMI.
 
@@ -112,7 +112,7 @@ Pour les systèmes Linux qui prennent en charge sysctl pour configurer les param
 1. Redémarrage ou mise à jour de sysctl en exécutant <br>
     `sysctl -p`
 
-Pour plus d’informations sur les configurations du noyau Linux, notamment `unknown_nmi_panic`, `panic_on_io_nmi` et `panic_on_unrecovered_nmi`, consultez ce qui suit : [Documentation de /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Pour obtenir de la documentation propre à la distribution sur NMI et les étapes de configuration de Linux pour créer un vidage sur incident à la réception d’une NMI, consultez les liens ci-dessous :
+Pour plus d'informations sur les configurations du noyau Linux, notamment `unknown_nmi_panic`, `panic_on_io_nmi` et `panic_on_unrecovered_nmi`, consultez ce qui suit : [Documentation de /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Pour obtenir de la documentation propre à la distribution sur NMI et les étapes de configuration de Linux pour créer un vidage sur incident à la réception d’une NMI, consultez les liens ci-dessous :
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Vidage sur incident du noyau](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
@@ -126,7 +126,7 @@ Pour plus d’informations sur les configurations du noyau Linux, notamment `unk
 - [Configurer la capture de la sauvegarde du noyau central](https://www.suse.com/support/kb/doc/?id=3374462)
 
 ### <a name="coreos"></a>CoreOS 
-- [Collecte des journaux d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
+- [Collecte des journaux d’activité d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * La page principale de documentation de la console série Linux se trouve [ici](serial-console-linux.md).

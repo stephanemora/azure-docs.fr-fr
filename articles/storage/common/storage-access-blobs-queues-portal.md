@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b56cbfbc9dfde8b1a7d43d55ee85c34fde385902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 5eba650ac2a052f264d82260e9fc07bf195235da
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846379"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148932"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Utiliser le portail Azure pour accéder aux données blob ou file d’attente
 
@@ -41,13 +41,13 @@ Lorsque vous tentez d’accéder aux données d’objet blob ou file d’attente
 Pour accéder aux données d’objet blob ou file d’attente à partir du portail Azure à l’aide de votre compte Azure AD, il se peut que les deux instructions suivantes doivent être remplies pour vous :
 
 - Vous avez été assigné à Azure Resource Manager [lecteur](../../role-based-access-control/built-in-roles.md#reader) rôle, au minimum, avec étendue au niveau du compte de stockage ou une version ultérieure. Le **lecteur** rôle accorde les autorisations plus limitées, mais un autre rôle d’Azure Resource Manager qui accorde l’accès aux ressources de gestion de compte de stockage est également acceptable.
-- Vous avez été affecté soit un rôle intégré ou personnalisé qui fournit l’accès aux objets BLOB ou les données de la file d’attente.
+- Vous avez été affecté soit un rôle intégré ou personnalisé qui fournit l’accès aux données d’objet blob ou file d’attente.
 
 Le **lecteur** attribution de rôle ou une autre attribution de rôle Azure Resource Manager est nécessaire pour que l’utilisateur peut afficher et parcourir les ressources de gestion de compte de stockage dans le portail Azure. Les rôles RBAC qui accordent l’accès aux données d’objet blob ou file d’attente n’accordent pas d’accès aux ressources de gestion de compte de stockage. Pour accéder aux données d’objet blob ou file d’attente dans le portail, l’utilisateur a besoin d’autorisations pour parcourir les ressources de compte de stockage. Pour plus d’informations sur cette exigence, consultez [affecter le rôle de lecteur pour accéder au portail](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 Les rôles intégrés qui prennent en charge les accès à vos données d’objet blob ou file d’attente sont les suivantes :
 
-- [Propriétaire des données de stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Pour POSIX contrôle d’accès pour le stockage Azure Data Lake Gen2 (version préliminaire).
+- [Propriétaire des données de stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Pour le contrôle d’accès POSIX pour Azure Data Lake Storage Gen2.
 - [Contributeur aux données stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Autorisations en lecture/écriture/suppression pour les objets BLOB.
 - [Lecteur de données de stockage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Autorisations en lecture seule pour les objets BLOB.
 - [Contributeur de données de file d’attente de stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Autorisations en lecture/écriture/suppression des files d’attente.

@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 04/16/2019
+ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497064"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006129"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans la base de données SQL Azure
 
@@ -97,7 +97,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 ### <a name="mandatory-inbound-security-rules"></a>Règles de sécurité du trafic entrant obligatoires
 
-| Nom       |Port                        |Protocole|Source           |Destination|Action|
+| Name       |Port                        |Protocole|Source           |Destination|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestion  |9000, 9003, 1438, 1440, 1452|TCP     |Quelconque              |SOUS-RÉSEAU MI  |AUTORISER |
 |mi_subnet   |Quelconque                         |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |AUTORISER |
@@ -105,13 +105,13 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 ### <a name="mandatory-outbound-security-rules"></a>Règles de sécurité du trafic sortant obligatoires
 
-| Nom       |Port          |Protocole|Source           |Destination|Action|
+| Name       |Port          |Protocole|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestion  |80, 443, 12000|TCP     |SOUS-RÉSEAU MI        |AzureCloud |AUTORISER |
 |mi_subnet   |Quelconque           |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |AUTORISER |
 
 > [!IMPORTANT]
-> Vérifiez qu’il n'existe qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440, 1452 et une règle de trafic sortant pour les ports 80, 443, 12000. Managed Instance approvisionnement via Azure Resource Manager déploiements échouent si les règles de trafic entrants et de sortie sont configurés séparément pour chaque port. Si ces ports sont dans des règles distinctes, le déploiement échoue avec le code d’erreur `VnetSubnetConflictWithIntendedPolicy`
+> Vérifiez qu’il n'existe qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440, 1452 et une règle de trafic sortant pour les ports 80, 443, 12000. Managed Instance approvisionnement via Azure Resource Manager déploiements échouent si les règles entrantes et sortantes sont configurés séparément pour chaque port. Si ces ports sont dans des règles distinctes, le déploiement échoue avec le code d’erreur `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI sous-réseau fait référence à la plage d’adresses IP pour le sous-réseau dans le formulaire 10.x.x.x/y. Vous pouvez trouver ces informations dans le portail Azure, dans les propriétés du sous-réseau.
 
@@ -122,7 +122,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 ### <a name="user-defined-routes"></a>itinéraires définis par l’utilisateur
 
-|Nom|Préfixe de l’adresse|Tronçon suivant|
+|Name|Préfixe de l’adresse|Tronçon suivant|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SOUS-RÉSEAU MI|Réseau virtuel|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

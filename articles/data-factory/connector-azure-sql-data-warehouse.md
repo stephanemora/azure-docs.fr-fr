@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: e3fc5a3dc5dc40078ca3a4733f6a2ba11da450f1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b97d21503e8dcd75906581faf1851533bcd69fa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681214"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009342"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -399,22 +399,29 @@ Apprenez-en davantage sur la façon d’utiliser PolyBase pour charger efficacem
 
 L’utilisation de [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) est un moyen efficace de charger de grandes quantités de données dans Azure SQL Data Warehouse avec un débit élevé. Vous profiterez d’un gain important de débit en utilisant PolyBase au lieu du mécanisme BULKINSERT par défaut. Consultez [Référence sur les performances](copy-activity-performance.md#performance-reference) pour obtenir une comparaison détaillée. Pour obtenir une procédure pas à pas avec un cas d’utilisation, consultez [Charger 1 To dans Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
 
-* Si votre source de données se trouve dans Stockage Blob Azure ou Azure Data Lake Store et que le format est compatible avec PolyBase, copiez directement vers Azure SQL Data Warehouse à l’aide de PolyBase. Pour plus d’informations, consultez **[Copie directe à l’aide de PolyBase](#direct-copy-by-using-polybase)**.
+* Si votre source de données se trouve dans **Blob Azure, Azure Data Lake Storage Gen1 ou Azure Data Lake Storage Gen2**et le **format est PolyBase compatible**, vous pouvez utiliser l’activité de copie pour appeler directement PolyBase pour permettre à Azure SQL Data Warehouse extraire les données à partir de la source. Pour plus d’informations, consultez **[Copie directe à l’aide de PolyBase](#direct-copy-by-using-polybase)**.
 * Si votre magasin de données source et son format ne sont pas pris en charge à l’origine par PolyBase, utilisez plutôt la fonctionnalité **[Copie intermédiaire avec PolyBase](#staged-copy-by-using-polybase)**. La fonctionnalité de copie intermédiaire offre également un meilleur débit. Elle convertit automatiquement les données dans un format compatible avec PolyBase. Et elle stocke les données dans Stockage Blob Azure. Elle charge ensuite les données dans SQL Data Warehouse.
 
 ### <a name="direct-copy-by-using-polybase"></a>Copie directe à l’aide de PolyBase
 
-SQL Data Warehouse PolyBase prend directement en charge les objets Blob Azure et Azure Data Lake Store. Il utilise le principal de service comme source et a des exigences de format de fichier spécifiques. Si vos données sources répondent aux critères décrits dans cette section, utilisez PolyBase pour copier directement à partir du magasin de données source vers Azure SQL Data Warehouse. Sinon, utilisez la méthode [Copie intermédiaire à l’aide de PolyBase](#staged-copy-by-using-polybase).
+SQL Data Warehouse PolyBase prend directement en charge les objets Blob Azure, Azure Data Lake Storage Gen1 et Gen2 de stockage Azure Data Lake. Si votre source de données répond aux critères décrits dans cette section, utilisez PolyBase pour copier directement à partir de la banque de données source vers Azure SQL Data Warehouse. Sinon, utilisez la méthode [Copie intermédiaire à l’aide de PolyBase](#staged-copy-by-using-polybase).
 
 > [!TIP]
-> Pour copier des données de Data Lake Store vers SQL Data Warehouse efficacement, consultez [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/) (Azure Data Factory facilite et rend plus pratique la découverte d’informations à partir de données lors de l’utilisation de Data Lake Store avec SQL Data Warehouse).
+> Pour copier des données vers SQL Data Warehouse efficacement, en savoir plus à partir de [Azure Data Factory rend encore plus facile et pratique pour découvrir des informations à partir des données lors de l’utilisation de Data Lake Store avec SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
 
 Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètres et rétablit automatiquement le mécanisme BULKINSERT pour le déplacement des données.
 
-1. Le **service lié Source** type est le stockage Blob Azure (**AzureBLobStorage**/**AzureStorage**) avec **l’authentification par clé de compte**  ou Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) avec **authentification de principal du service**.
-2. Le **jeu de données d’entrée** est de type **AzureBlob** ou **AzureDataLakeStoreFile**. Le format sous les propriétés `type` est de type **OrcFormat**, **ParquetFormat** ou **TextFormat** avec les configurations suivantes :
+1. Le **service lié source** est avec les méthodes d’authentification et les types suivants :
 
-   1. `fileName` ne contient pas filtre de caractères génériques.
+    | Type de magasin de données source prise en charge | Prise en charge du type de source de l’authentification |
+    |:--- |:--- |
+    | [Blob Azure](connector-azure-blob-storage.md) | Authentification par clé de compte |
+    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Authentification d’un principal du service |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Authentification par clé de compte |
+
+2. Le **format de jeu de données source** est de **ParquetFormat**, **OrcFormat**, ou **TextFormat**, avec les configurations suivantes :
+
+   1. `folderPath` et `fileName` dépourvus de filtre de caractères génériques.
    2. `rowDelimiter` doit être **\n**.
    3. `nullValue` est soit défini sur **une chaîne vide** («») ou conserve sa valeur par défaut, et `treatEmptyAsNull` conserve également sa valeur par défaut ou n’est pas définie sur false.
    4. `encodingName` est **utf-8**, qui est la valeur par défaut.
@@ -423,7 +430,7 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
 
       ```json
       "typeProperties": {
-        "folderPath": "<blobpath>",
+        "folderPath": "<path>",
         "format": {
             "type": "TextFormat",
             "columnDelimiter": "<any delimiter>",
@@ -431,10 +438,6 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
             "nullValue": "",
             "encodingName": "utf-8",
             "firstRowAsHeader": <any>
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
         }
       },
       ```

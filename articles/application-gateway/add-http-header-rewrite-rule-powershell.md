@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: bfafc74cbcb97f28cc085196a2cbaf4e9bf2e871
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 405bc9aed4605e9728e112595f33c879bf55ec7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548317"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005619"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Réécrire les en-têtes de demande et de réponse HTTP avec Azure Application Gateway - Azure PowerShell
 
@@ -26,7 +26,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Conditions préalables
 
 - Pour ce didacticiel, vous devez exécuter Azure PowerShell localement. Vous devez avoir installé la version du module Az 1.0.0 ou version ultérieure. Exécutez `Import-Module Az`, puis`Get-Module Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
-- Vous devez disposer d’un environnement v2 passerelle d’Application étant donné que la capacité de réécriture de l’en-tête dans la référence (SKU) n’est pas pris en charge pour la référence SKU v1. Si vous n’avez pas la référence (SKU) v2, créez un [référence (SKU) de passerelle d’Application v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) avant de commencer.
+- Vous devez disposer d’un environnement v2 passerelle d’Application étant donné que la capacité de réécriture de l’en-tête dans la référence (SKU) n’est pas pris en charge pour la référence SKU v1. Si vous n’avez pas la référence (SKU) v2, créez un [référence (SKU) de passerelle d’Application v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) avant de commencer.
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>Ce qui est nécessaire de réécrire un en-tête
 

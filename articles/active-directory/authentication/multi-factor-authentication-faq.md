@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707e0aecdaf2a579d086e012519182078c1a6303
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313224"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006027"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Questions fréquentes relatives à Azure Multi-Factor Authentication
 
@@ -142,7 +142,7 @@ Si votre organisation ne comporte pas de clients hérités, vous ne devez pas au
 > [!NOTE]
 > Authentification moderne pour les clients Office 2013
 >
-> Les mots de passe d’application sont nécessaires uniquement pour les applications ne prenant pas en charge l’authentification moderne. Les clients Office 2013 prennent en charge les protocoles d’authentification modernes, mais doivent être configurés. Les nouveaux clients Office prennent automatiquement en charge les protocoles d’authentification moderne. Pour plus d’informations, consultez [l’annonce de la version préliminaire publique de l’authentification moderne Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Les mots de passe d’application sont nécessaires uniquement pour les applications ne prenant pas en charge l’authentification moderne. Les clients Office 2013 prennent en charge les protocoles d’authentification modernes, mais doivent être configurés. L’authentification moderne est désormais disponible pour tous les clients exécutant la mise à jour de mars 2015 ou version ultérieure pour Office 2013. Pour plus d’informations, consultez le [présentation publique de l’authentification moderne Office 2013 annoncée](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 **Q : Mes utilisateurs disent que parfois ils ne reçoivent pas de SMS, ou qu’ils répondent à des SMS bidirectionnels, mais que la vérification a expiré.**
 

@@ -2,21 +2,21 @@
 title: Enregistrer des recherches et épingler des ressources de données dans Azure Data Catalog
 description: Article de procédure abordant les fonctionnalités d’Azure Data Catalog permettant d’enregistrer des sources de données et des ressources de données en vue d’une utilisation ultérieure.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 6bd00a81-820d-4b7c-91fa-ab09e575474c
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: f22dd0911a8e86e6a9e370c7e08add935c31e936
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: df3220ddb80ebc329ed6b0024ca4eefd2bdfb321
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409930"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002015"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Enregistrer des recherches et épingler des ressources de données dans Azure Data Catalog
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 Azure Data Catalog fournit des fonctionnalités de détection des sources de données. Vous pouvez rapidement rechercher et filtrer le catalogue pour localiser des sources de données et comprendre leur rôle respectif. Vous pouvez ainsi trouver plus facilement les données dont vous avez besoin pour le travail en cours.
 
 Mais qu’en est-il lorsque vous devez utiliser régulièrement les mêmes données ? Ou lorsque les utilisateurs mettent régulièrement à jour une même source de données du catalogue ? Dans de telles situations, le fait d’effectuer toujours les mêmes recherches peut représenter une perte de temps. C’est là que l’enregistrement des recherches et l’épinglage des ressources de données peuvent vous aider.

@@ -1,76 +1,109 @@
 ---
 title: Stratégies d’indexation d’Azure Cosmos DB
-description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB. Découvrez comment configurer et modifier la stratégie d’indexation pour bénéficier d’une indexation automatique et de meilleures performances.
-author: rimman
+description: Découvrez comment configurer et modifier la valeur par défaut pour l’indexation automatique et de meilleures performances dans Azure Cosmos DB la stratégie d’indexation.
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278562"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005092"
 ---
-# <a name="index-policy-in-azure-cosmos-db"></a>Stratégie d’indexation dans Azure Cosmos DB
+# <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
-Vous pouvez remplacer la stratégie d’indexation par défaut sur un conteneur Azure Cosmos en configurant les paramètres suivants :
+Dans Azure Cosmos DB, chaque conteneur possède une stratégie d’indexation qui détermine la façon dont les éléments du conteneur doivent être indexées. La valeur par défaut pour la stratégie d’indexation qui vient d’être créé des index de conteneurs chaque propriété de chaque élément, en appliquant des index de plage pour toute chaîne ou un nombre, et les index spatiaux pour n’importe quel objet GeoJSON de type Point. Ainsi, vous permettant d’obtenir des performances de requête sans avoir à réfléchir à l’indexation et de gestion des index dès le départ.
 
-* **Inclure ou exclure des éléments et des chemins dans l’index** : Vous pouvez exclure ou inclure des éléments spécifiques dans l’index, quand vous insérez ou remplacez les éléments dans un conteneur. Vous pouvez aussi inclure ou exclure des chemins/propriétés spécifiques à indexer sur tous les conteneurs. Les chemins peuvent être des modèles de caractère générique, par exemple, *.
+Dans certaines situations, vous souhaiterez remplacer ce comportement automatique pour mieux répondre à vos besoins. Vous pouvez personnaliser la stratégie d’indexation d’un conteneur en définissant son *mode d’indexation*et inclure ou exclure *chemins d’accès de la propriété*.
 
-* **Configurer les types d’index** : En outre pour la plage des chemins d’accès indexés, vous pouvez ajouter les autres types d’index, tel que spatiale.
+## <a name="indexing-mode"></a>Mode d’indexation
 
-* **Configurer les modes d’index** : en utilisant la stratégie d’indexation sur un conteneur, vous pouvez configurer différents modes d’indexation, comme *Cohérent* ou *Aucun*.
+Azure Cosmos DB prend en charge deux modes d’indexation :
 
-## <a name="indexing-modes"></a>Modes d’indexation
+- **Cohérent** : Si la stratégie d’indexation d’un conteneur est défini sur cohérent, l’index est mis à jour synchrone lorsque vous créez, mettre à jour ou supprimez des éléments. Cela signifie que la cohérence de vos requêtes de lecture sera le [cohérence configurée pour le compte](consistency-levels.md).
 
-Azure Cosmos DB prend en charge deux modes d’indexation que vous pouvez configurer sur un conteneur Azure Cosmos via la stratégie d’indexation :
+- **Aucun** : Si la stratégie d’indexation d’un conteneur est définie sur None, l’indexation est désactivée sur ce conteneur. Elle est couramment utilisée lorsqu’un conteneur est utilisé comme un magasin clé-valeur pur sans la nécessité d’index secondaires. Il peut également aider à accélérer en bloc les opérations d’insertion.
 
-* **Cohérent** : Si la stratégie d’un conteneur Azure Cosmos est définie sur *cohérent*, les requêtes sur un conteneur spécifique suivent le même niveau de cohérence que celui spécifié pour les lectures ponctuelles (par exemple, fort, obsolescence limitée, session ou éventuel). 
+## <a name="including-and-excluding-property-paths"></a>Inclusion et exclusion de chemins d’accès de propriété
 
-  L’index est mis à jour de manière synchrone en même temps que les éléments. Par exemple, les opérations d’insertion, de remplacement, de mise à jour et de suppression sur un élément entraînent la mise à jour de l’index. L’indexation cohérente prend en charge les requêtes cohérentes au détriment du débit d’écriture. La réduction du débit d’écriture dépend des « chemins inclus dans l’index » et « niveau de cohérence ». Mode d’indexation cohérent est conçu pour conserver l’index à jour avec les mises à jour et immédiatement à répondre aux requêtes.
+Une stratégie d’indexation personnalisée peut spécifier des chemins d’accès de propriété qui sont explicitement inclus ou exclus de l’indexation. En optimisant le nombre de chemins d’accès qui sont indexés, vous pouvez réduire la quantité de stockage utilisé par votre conteneur et améliorer la latence des opérations d’écriture. Ces chemins d’accès sont définies à l’aide [la méthode décrite dans la section vue d’ensemble d’indexation](index-overview.md#from-trees-to-property-paths) avec les ajouts suivants :
 
-* **Aucun** : un conteneur en mode d’indexation Aucun n’est associé à aucun index. Ce mode est souvent employé si une base de données Azure Cosmos est utilisée comme stockage de clés-valeurs et si les éléments sont accessibles seulement par le biais de leur propriété ID.
+- un chemin d’accès menant à une valeur scalaire (chaîne ou nombre) se termine par `/?`
+- éléments à partir d’un tableau sont traités ensemble par le biais du `/[]` notation (au lieu de `/0`, `/1` etc..)
+- le `/*` générique peut être utilisé pour correspondre à tous les éléments sous le nœud
 
-  > [!NOTE]
-  > Configuration du mode d’indexation en tant qu’un *aucun* a pour effet secondaire de la suppression de tous les index existants. Vous devez utiliser cette option si vos modèles d’accès nécessitent seulement un ID ou un lien vers lui-même.
+En prenant l’exemple même à nouveau :
 
-Les niveaux de cohérence de requête sont gérés de la même façon que les opérations de lecture normales. Base de données Azure Cosmos retourne une erreur si vous interrogez le conteneur qui a un *aucun* mode d’indexation. Vous pouvez exécuter les requêtes en tant qu’analyses via explicites **x-ms-documentdb-enable-scan** en-tête dans l’API REST ou le **EnableScanInQuery** option de requête à l’aide du SDK .NET. Certaines fonctionnalités de requête, comme ORDER BY, ne sont actuellement pas prises en charge avec **EnableScanInQuery**, car elles mandatent un index correspondant.
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 }
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
+
+- le `headquarters`du `employees` chemin d’accès est `/headquarters/employees/?`
+- le `locations`' `country` chemin d’accès est `/locations/[]/country/?`
+- le chemin d’accès d’une autre manière sous `headquarters` est `/headquarters/*`
+
+Lorsqu’un chemin d’accès est explicitement inclus dans la stratégie d’indexation, il doit également définir les types d’index doivent être appliquées à ce chemin d’accès et pour chaque type d’index, le type de données que cet index s’applique à :
+
+| Type d’index | Types de données cible autorisés |
+| --- | --- |
+| Plage | Chaîne ou nombre |
+| spatial | Point, LineString ou polygones |
+
+Par exemple, nous pourrions inclure la `/headquarters/employees/?` chemin d’accès et spécifier un `Range` index doit être appliqué sur ce chemin d’accès pour les deux `String` et `Number` valeurs.
+
+### <a name="includeexclude-strategy"></a>Inclure/exclure la stratégie
+
+Toute stratégie d’indexation doit inclure le chemin d’accès racine `/*` comme un inclus ou un chemin d’accès exclu.
+
+- Inclure le chemin d’accès racine pour exclure sélectivement des chemins d’accès que vous n’avez pas besoin d’être indexés. Il s’agit de l’approche recommandée car elle permet à Azure Cosmos DB proactivement toute nouvelle propriété qui peut être ajoutée à votre modèle d’index.
+- Exclure le chemin d’accès racine pour inclure sélectivement des chemins d’accès qui doivent être indexés.
+
+Consultez [cette section](how-to-manage-indexing-policy.md#indexing-policy-examples) pour des exemples de stratégie d’indexation.
 
 ## <a name="modifying-the-indexing-policy"></a>Modification de la stratégie d’indexation
 
-Dans Azure Cosmos DB, vous pouvez mettre à jour à tout moment la stratégie d’indexation d’un conteneur. Une modification de la stratégie d’indexation sur un conteneur Azure Cosmos peut entraîner une modification dans la forme de l’index. Ce changement affecte les chemins qui peuvent être indexés, leur précision et le mode de cohérence de l’index lui-même. Un changement dans la stratégie d’indexation nécessite donc une transformation de l’ancien index en un nouvel index.
+Stratégie d’indexation d’un conteneur peut être mis à jour à tout moment [à l’aide du portail Azure ou un des kits de développement logiciel pris en charge](how-to-manage-indexing-policy.md). Une mise à jour la stratégie d’indexation déclenche une transformation de l’ancien index vers le nouveau, ce qui est effectuée en ligne et localement (aucun espace de stockage supplémentaire n’est consommé pendant l’opération). Les index de l’ancienne stratégie sont transformée efficacement à la nouvelle stratégie sans affecter la disponibilité de l’écriture ou le débit approvisionné sur le conteneur. Transformation d’index est une opération asynchrone, et le temps que nécessaire pour terminer varie selon le débit approvisionné, le nombre d’éléments et leur taille. 
 
-### <a name="index-transformations"></a>Transformations d’index
+> [!NOTE]
+> Tandis que la réindexation est en cours d’exécution, les requêtes ne peuvent pas retourner tous les résultats correspondants et le fait sans retourner des erreurs. Cela signifie que les résultats de la requête ne soient pas cohérentes avant la fin de la transformation d’index. Il est possible de suivre la progression de la transformation d’index [à l’aide d’un des kits de développement logiciel](how-to-manage-indexing-policy.md).
 
-Toutes les transformations d’index s’effectuent en ligne. Les éléments indexés par l’ancienne stratégie sont transformés efficacement par la nouvelle stratégie sans affecter la disponibilité de l’écriture ou le débit approvisionné sur le conteneur. La cohérence de lire et écrire des opérations qui sont effectuées à l’aide de l’API REST, SDK, ou à l’aide des procédures stockées et déclencheurs n’est pas affectée au cours de la transformation d’index.
+Si le mode de l’indexation de la nouvelle stratégie est défini sur cohérent, aucune autre modification de stratégie d’indexation ne sont applicables lorsque la transformation d’index est en cours. Une transformation d’index en cours d’exécution peut être annulée en définissant le mode de la stratégie d’indexation sur None (ce qui supprime immédiatement l’index).
 
-Modification de stratégie d’indexation est une opération asynchrone, et le temps nécessaire à l’opération varie selon le nombre d’éléments, un débit approvisionné et la taille des éléments. Alors que la réindexation est en cours d’exécution, votre requête ne peut pas retourner tous les résultats de correspondance, si les requêtes sont effectuées à utiliser l’index est en cours de modification, et les requêtes ne retournent pas les erreurs/échecs. Alors que la réindexation est en cours d’exécution, les requêtes sont cohérents, indépendamment de la configuration du mode d’indexation. Après la transformation de l’index, vous continuerez à voir des résultats cohérents. Cela s’applique aux requêtes envoyées par les interfaces comme l’API REST, les SDK ou les déclencheurs et procédures stockées. Transformation d’index est exécutée de façon asynchrone, en arrière-plan, sur les réplicas à l’aide des ressources d’échange qui sont disponibles pour les réplicas spécifiques.
+## <a name="indexing-policies-and-ttl"></a>Stratégies d’indexation et de durée de vie
 
-Toutes les transformations d’index s’effectuent sur place. Azure Cosmos DB ne gère pas deux copies de l’index. Par conséquent, aucun espace disque supplémentaire n’est nécessaire ou utilisé dans vos conteneurs pendant la transformation d’index.
+Le [Time-to-Live (TTL) de fonctionnalité](time-to-live.md) nécessite l’indexation afin d’être actives sur le conteneur, il est allumé. Cela signifie que :
 
-Lorsque vous modifiez la stratégie d’indexation, les modifications sont appliquées pour passer de l’ancien index vers le nouvel index et reposent principalement sur les configurations de mode d’indexation. Les configurations de mode d’indexation jouent un rôle majeur par rapport à d’autres propriétés comme les chemins inclus/exclus, les genres d’index et la précision.
+- Il n’est pas possible d’activer la TTL sur un conteneur dans lequel le mode d’indexation est défini sur None,
+- Il n’est pas possible de définir le mode d’indexation sur None sur un conteneur dans lequel la durée de vie est activée.
 
-Si vos anciennes et nouvelles stratégies utilisent une indexation en mode **Cohérent**, la base de données Azure Cosmos effectue une transformation d’index en ligne. Vous ne pouvez pas appliquer une autre modification de stratégie d’indexation qui a le mode d’indexation Cohérent pendant que la transformation est en cours. Quand vous basculez sur le mode Aucun, l’index est supprimé immédiatement. Passez au mode Aucun quand vous voulez annuler une transformation en cours et lancer une stratégie d’indexation différente.
+Pour les scénarios où aucun chemin d’accès de propriété ne doit être indexée, mais TTL est requise, vous pouvez utiliser une stratégie d’indexation avec :
 
-## <a name="modifying-the-indexing-policy---examples"></a>Modification de la stratégie d’indexation - Exemples
+- un mode d’indexation défini sur cohérent, et
+- Aucun chemin d’accès inclus, et
+- `/*` comme le seul chemin d’accès exclus.
 
-Voici les cas d’usage courants lorsque vous souhaitez mettre à jour une stratégie d’indexation :
+## <a name="obsolete-attributes"></a>Attributs obsolètes
 
-* Si vous souhaitez avoir des résultats cohérents de fonctionnement normal, mais à revenir à la **aucun** mode d’indexation lors de l’importation de données en bloc.
+Lorsque vous travaillez avec des stratégies d’indexation, vous pouvez rencontrer les attributs suivants sont désormais obsolètes :
 
-* Si vous voulez commencer à utiliser des fonctionnalités d’indexation sur vos conteneurs Azure Cosmos DB actuels. Par exemple, vous pouvez utiliser l’interrogation géospatiale, qui nécessite le genre d’index Spatial, ou des requêtes de plage de chaînes/ORDER BY, qui nécessitent le genre d’index Plage de chaînes.
-
-* Si vous voulez sélectionner manuellement les propriétés à indexer et les changer au fil du temps pour les adapter à vos charges de travail.
-
-* Si vous voulez ajuster la précision d’indexation pour améliorer les performances de requête ou réduire le stockage utilisé.
+- `automatic` une valeur booléenne est définie à la racine d’une stratégie d’indexation. Il est désormais ignorée et peut être définie sur `true`, lorsque l’outil que vous utilisez l’exige.
+- `precision` un nombre est défini au niveau des index pour les chemins d’accès inclus. Il est désormais ignorée et peut être définie sur `-1`, lorsque l’outil que vous utilisez l’exige.
+- `hash` est un type d’index qui est désormais remplacé par le type de plage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l’indexation, consultez les articles suivants :
 
-* [Vue d’ensemble de l’indexation](index-overview.md)
-* [Types d’index](index-types.md)
-* [Chemins des index](index-paths.md)
-* [Guide pratique pour gérer la stratégie d’indexation](how-to-manage-indexing-policy.md)
+- [Vue d’ensemble d’indexation](index-overview.md)
+- [Guide pratique pour gérer la stratégie d’indexation](how-to-manage-indexing-policy.md)

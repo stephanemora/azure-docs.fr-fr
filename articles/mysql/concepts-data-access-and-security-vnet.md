@@ -1,18 +1,18 @@
 ---
 title: Présentation des points de terminaison des services de réseau virtuel des serveurs Azure Database pour MySQL | Microsoft Docs
 description: Décrit le fonctionnement des points de terminaison des services de réseau virtuel de votre serveur Azure Database pour MySQL.
-author: mbolz
+author: bolzmj
 ms.author: mbolz
 manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 3a7eaacc4c234ec7d1d3d88455bd423256a07e90
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006604"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005835"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour MySQL
 

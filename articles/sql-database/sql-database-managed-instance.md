@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 15b7bfc9e1d747fcefdbba03ca254a9604197b5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 04/16/2019
+ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361827"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002746"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utiliser Advanced Data Security pour SQL Database avec des réseaux virtuels et une compatibilité de presque 100 %
 
@@ -126,7 +126,7 @@ L’option de déploiement d’instance managée combine les fonctionnalités de
 Une instance managée offre une meilleure isolation de la sécurité vis-à-vis des autres locataires dans le cloud Azure. L’isolation de la sécurité inclut :
 
 - [Implémentation d’un réseau virtuel natif](sql-database-managed-instance-connectivity-architecture.md) et sa connexion à votre environnement local à l’aide d’Azure Express Route ou d’une passerelle VPN.
-- Exposition du point de terminaison SQL uniquement par le biais d’une adresse IP privée, ce qui permet de sécuriser la connexion à partir de réseaux Azure privés ou hybrides.
+- Dans un déploiement par défaut, le point de terminaison SQL est exposée uniquement par le biais d’une adresse IP privée, en autorisant les sécuriser la connexion à partir d’Azure privés ou les réseaux mixtes.
 - Locataire unique avec infrastructure sous-jacente dédiée (calcul, stockage).
 
 Le diagramme suivant présente différentes options de connectivité pour vos applications :
@@ -161,7 +161,7 @@ Une nouvelle syntaxe a été ajoutée pour créer des principaux (connexions) de
 
 L’option de déploiement d’instance managée vous permet de gérer de manière centralisée les identités d’utilisateur de base de données et d’autres services Microsoft avec l’[Intégration d’Azure Active Directory](sql-database-aad-authentication.md). Cette fonctionnalité simplifie la gestion des autorisations et améliore la sécurité. Azure Active Directory prend en charge l’[authentification multifacteur](sql-database-ssms-mfa-authentication-configure.md) (MFA) pour augmenter la sécurité des données et des applications, ainsi qu’un processus d’authentification unique.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 L’authentification d’instance managée fait référence à la façon dont les utilisateurs prouvent leur identité quand ils se connectent à la base de données. Une base de données SQL prend en charge deux types d’authentification :  
 

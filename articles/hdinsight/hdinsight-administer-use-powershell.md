@@ -7,40 +7,25 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 04/17/2019
 ms.author: tylerfox
-ms.openlocfilehash: 09574647aae8725a614dd20fd0247b0f8cf8b68a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 6cf05437d5fc181a9fadae110a44efd88d06a2da
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446980"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011610"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestion des clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell permet de contrôler et d’automatiser le déploiement et la gestion de vos charges de travail dans Azure. Dans cet article, vous allez apprendre à gérer des clusters [Apache Hadoop](https://hadoop.apache.org/) dans Azure HDInsight à l’aide d’Azure PowerShell. Pour obtenir la liste des cmdlets PowerShell HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+Azure PowerShell permet de contrôler et d’automatiser le déploiement et la gestion de vos charges de travail dans Azure. Dans cet article, vous allez apprendre à gérer [Apache Hadoop](https://hadoop.apache.org/) clusters dans Azure HDInsight à l’aide du module Azure PowerShell Az. Pour la liste des applets de commande HDInsight PowerShell, consultez le [Az.HDInsight référence](https://docs.microsoft.com/powershell/module/az.hdinsight).
 
-**Composants requis**
+## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-Avant de commencer cet article, vous devez disposer des éléments suivants :
-
-* **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-## <a name="install-azure-powershell"></a>Installation d’Azure PowerShell
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
-Si vous avez installé Azure PowerShell version 0.9x, vous devez le désinstaller avant d’installer une version plus récente.
-
-Pour connaître la version de PowerShell installée :
-
-```powershell
-Get-Module *Az*
-```
-
-Pour désinstaller l’ancienne version, exécutez Programmes et fonctionnalités dans le Panneau de configuration.
+* La commande PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installé.
 
 ## <a name="create-clusters"></a>Créer des clusters
 Consultez la page [Créer des clusters basés sur Linux dans HDInsight à l’aide d’Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -75,9 +60,6 @@ Remove-AzResourceGroup -Name <Resource Group Name>
 ## <a name="scale-clusters"></a>Mise à l’échelle des clusters
 La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifier le nombre de nœuds de travail utilisés par un cluster exécuté dans Azure HDInsight sans avoir à recréer ce cluster.
 
-> [!NOTE]  
-> Seuls les clusters ayant la version 3.1.3 de HDInsight ou une version ultérieure sont pris en charge. Si vous n’êtes pas sûr de la version de votre cluster, vous pouvez consulter la page Propriétés.  Voir [Énumération et affichage des clusters](hdinsight-administer-use-portal-linux.md#showClusters).
-
 Impact de la modification du nombre de nœuds de données pour chaque type de cluster pris en charge par HDInsight :
 
 * Apache Hadoop
@@ -90,9 +72,9 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
     Vous pouvez ajouter ou supprimer des nœuds en continu dans votre cluster HBase lorsque celui-ci s’exécute. Les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Cependant, vous pouvez équilibrer manuellement des serveurs régionaux en vous connectant au nœud principal du cluster, puis exécuter les commandes suivantes à partir d’une fenêtre d’invite de commandes :
 
     ```bash
-    >pushd %HBASE_HOME%\bin
-    >hbase shell
-    >balancer
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
     ```
 
 * Apache Storm
@@ -169,6 +151,10 @@ Il s'agit de la même procédure que pour l'octroi et la révocation de l'accès
 ## <a name="find-the-default-storage-account"></a>Trouvez le compte de stockage par défaut
 Le script PowerShell suivant montre comment obtenir le nom de compte de stockage par défaut et les informations connexes :
 
+> [!IMPORTANT]  
+> Les valeurs de `DefaultStorageAccount`, et `DefaultStorageContainer` ne sont pas retournés à partir de [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) lorsque [transfert sécurisé](../storage/common/storage-require-secure-transfer.md) est activé sur le compte de stockage.
+
+
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -226,34 +212,14 @@ Consultez [Utiliser Apache Sqoop avec HDInsight](hadoop/hdinsight-use-sqoop.md).
 Consultez [Utilisation d’Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow Azure HDInsight basé sur Linux](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Téléchargement de données vers le stockage d'objets blob Azure
-Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data].
+
+Consultez [charger des données dans HDInsight](hdinsight-upload-data.md).
 
 ## <a name="see-also"></a>Voir aussi
+
 * [Documentation de référence des cmdlets HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md)
-* [Administration de HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
-* [Création de clusters HDInsight][hdinsight-provision]
-* [Téléchargement de données vers HDInsight][hdinsight-upload-data]
-* [Envoi de tâches Apache Hadoop par programmation][hdinsight-submit-jobs]
-* [Prise en main d’Azure HDInsight][hdinsight-get-started]
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
-[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
-
-[hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
-[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
-
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
+* [Administrer HDInsight à l’aide d’une interface de ligne de commande](hdinsight-administer-use-command-line.md)
+* [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+* [Envoi de tâches Apache Hadoop par programmation](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Prise en main d’Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

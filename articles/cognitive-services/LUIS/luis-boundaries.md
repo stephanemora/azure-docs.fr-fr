@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897508"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006826"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
@@ -47,16 +47,16 @@ Si votre application dépasse les limites du modèle LUIS, envisagez d’utilise
 
 * 50 caractères par défaut maximum. 
 
-## <a name="intent-and-entity-naming"></a>Attribution de noms aux intentions et aux entités
-N’utilisez pas les caractères suivants dans les noms des intentions et des entités :
+<a name="intent-and-entity-naming"></a>
 
-|Caractère|Nom|
+## <a name="object-naming"></a>Nommage d’objet
+
+N’utilisez pas les caractères suivants dans les noms suivants.
+
+|Object|Exclure des caractères|
 |--|--|
-|`{`|Accolade gauche|
-|`}`|Accolade droite|
-|`[`|Crochet gauche|
-|`]`|Crochet droit|
-|`\`|Barre oblique inverse|
+|Noms d’intention, les entités et les rôles|`:`<br>`$`|
+|Nom de la version|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>Utilisation de la clé
 

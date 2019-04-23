@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549369"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149275"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -130,12 +130,6 @@ Non. Vous pouvez stocker des journaux d’activité bruts dans n’importe quel 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Que faire si je ne peux pas configurer un NSG pour l’analytique du trafic en raison d’une erreur « Introuvable » ?
 
 Sélectionnez une région prise en charge. Si vous sélectionnez une région non prise en charge, vous recevez une erreur « Introuvable ». Les régions prises en charge sont répertoriées plus haut dans cet article.
-
-## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>Pourquoi l’erreur « Impossible de mettre à jour les paramètres des journaux de flux pour... InternalServerError... » Lorsque vous activez les groupes de sécurité réseau dans Virginie ?
-
-Il s’agit d’un bogue où le fournisseur de ressources 'Microsoft.Network' n’est pas nouveau inscrit pour un abonnement en Virginie. L’équipe travaille sur la solution à ce problème. Pour résoudre ce problème, vous devez [réinscrire manuellement 'Microsoft.Network' RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
-
-Contactez le support technique si le problème persiste. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Que faire si j’obtiens l’état « Échec de chargement » sous la page de journaux de flux NSG ?
 

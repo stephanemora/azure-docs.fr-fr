@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: b38b1af8c72b814813804a49642668c28f3898d6
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: MT
+ms.openlocfilehash: fded37fee844a01f4d51518f2ca56dcf575704b2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302619"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150147"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Suppression de ressources Azure pour les déploiements en mode complet
 Cet article décrit la manière dont les types de ressources gèrent la suppression en dehors d'un modèle déployé en mode complet.
@@ -25,7 +25,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| DomainServices | OUI | 
+| DomainServices | Oui | 
 | DomainServices/oucontainer | Non  | 
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
@@ -74,13 +74,13 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| servers | OUI | 
+| servers | Oui | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
 | reportFeedback | Non  | 
-| service | OUI | 
+| service | Oui | 
 | validateServiceName | Non  | 
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
@@ -106,10 +106,10 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| automationAccounts | OUI | 
-| automationAccounts/configurations | OUI | 
+| automationAccounts | Oui | 
+| automationAccounts/configurations | Oui | 
 | automationAccounts/jobs | Non  | 
-| automationAccounts/runbooks | OUI | 
+| automationAccounts/runbooks | Oui | 
 | automationAccounts/softwareUpdateConfigurations | Non  | 
 | automationAccounts/webhooks | Non  | 
 
@@ -124,19 +124,19 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| b2cDirectories | OUI | 
+| b2cDirectories | Oui | 
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| registrations | OUI | 
+| registrations | Oui | 
 | registrations/customerSubscriptions | Non  | 
 | registrations/products | Non  | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| batchAccounts | OUI | 
+| batchAccounts | Oui | 
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 | Type de ressource | Effectuer la suppression du mode |
@@ -195,13 +195,13 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| mapApis | OUI | 
+| mapApis | Oui | 
 | updateCommunicationPreference | Non  | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| BizTalk | OUI | 
+| BizTalk | Oui | 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | Type de ressource | Effectuer la suppression du mode |
@@ -217,14 +217,14 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| botServices | OUI | 
+| botServices | Oui | 
 | botServices/channels | Non  | 
 | botServices/connections | Non  | 
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| Redis | OUI | 
+| Redis | Oui | 
 | RedisConfigDefinition | Non  | 
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
@@ -250,8 +250,8 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
 | edgenodes | Non  | 
-| profiles | OUI | 
-| profiles/endpoints | OUI | 
+| profiles | Oui | 
+| profiles/endpoints | Oui | 
 | profiles/endpoints/customdomains | Non  | 
 | profiles/endpoints/origins | Non  | 
 | validateProbe | Non  | 
@@ -259,7 +259,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| certificateOrders | OUI | 
+| certificateOrders | Oui | 
 | certificateOrders/certificates | Non  | 
 | validateCertificateRegistrationInformation | Non  | 
 
@@ -320,7 +320,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 | Type de ressource | Effectuer la suppression du mode |
@@ -331,18 +331,18 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| availabilitySets | OUI | 
-| disks | OUI | 
-| images | OUI | 
-| restorePointCollections | OUI | 
+| availabilitySets | Oui | 
+| disks | Oui | 
+| images | Oui | 
+| restorePointCollections | Oui | 
 | restorePointCollections/restorePoints | Non  | 
-| sharedVMImages | OUI | 
-| sharedVMImages/versions | OUI | 
-| snapshots | OUI | 
-| virtualMachines | OUI | 
+| sharedVMImages | Oui | 
+| sharedVMImages/versions | Oui | 
+| snapshots | Oui | 
+| virtualMachines | Oui | 
 | virtualMachines/diagnosticSettings | Non  | 
-| virtualMachines/extensions | OUI | 
-| virtualMachineScaleSets | OUI | 
+| virtualMachines/extensions | Oui | 
+| virtualMachineScaleSets | Oui | 
 | virtualMachineScaleSets/extensions | Non  | 
 | virtualMachineScaleSets/networkInterfaces | Non  | 
 | virtualMachineScaleSets/publicIPAddresses | Non  | 
@@ -375,17 +375,17 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| containerGroups | OUI | 
+| containerGroups | Oui | 
 | serviceAssociationLinks | Non  | 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| registries | OUI | 
+| registries | Oui | 
 | registries/builds | Non  | 
 | registries/builds/cancel | Non  | 
 | registries/builds/getLogLink | Non  | 
-| registries/buildTasks | OUI | 
+| registries/buildTasks | Oui | 
 | registries/buildTasks/steps | Non  | 
 | registries/eventGridFilters | Non  | 
 | registries/getBuildSourceUploadUrl | Non  | 
@@ -394,43 +394,43 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | registries/queueBuild | Non  | 
 | registries/regenerateCredential | Non  | 
 | registries/regenerateCredentials | Non  | 
-| registries/replications | OUI | 
+| registries/replications | Oui | 
 | registries/runs | Non  | 
 | registries/runs/cancel | Non  | 
 | registries/scheduleRun | Non  | 
-| registries/tasks | OUI | 
+| registries/tasks | Oui | 
 | registries/updatePolicies | Non  | 
-| registries/webhooks | OUI | 
+| registries/webhooks | Oui | 
 | registries/webhooks/getCallbackConfig | Non  | 
 | registries/webhooks/ping | Non  | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| containerServices | OUI | 
-| managedclusters | OUI | 
+| containerServices | Oui | 
+| managedclusters | Oui | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| applications | OUI | 
+| applications | Oui | 
 | updateCommunicationPreference | Non  | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
 | Alertes | Non  | 
 | BillingAccounts | Non  | 
-| Connecteurs | OUI | 
+| Connecteurs | Oui | 
 | Departments | Non  | 
 | Dimensions | Non  | 
 | EnrollmentAccounts | Non  | 
-| Requête | Non  | 
+| Interroger | Non  | 
 | inscription | Non  | 
 | Reportconfigs | Non  | 
 | Rapports | Non  | 
@@ -438,7 +438,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| hubs | OUI | 
+| hubs | Oui | 
 | hubs/authorizationPolicies | Non  | 
 | hubs/connectors | Non  | 
 | hubs/connectors/mappings | Non  | 
@@ -455,42 +455,42 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| jobs | OUI | 
+| jobs | Oui | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| DataBoxEdgeDevices | OUI | 
+| DataBoxEdgeDevices | Oui | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| workspaces | OUI | 
+| workspaces | Oui | 
 | workspaces/virtualNetworkPeerings | Non  | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| catalogs | OUI | 
+| catalogs | Oui | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| connectionManagers | OUI | 
+| connectionManagers | Oui | 
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| dataFactories | OUI | 
+| dataFactories | Oui | 
 | dataFactories/diagnosticSettings | Non  | 
 | dataFactorySchema | Non  | 
-| factories | OUI | 
+| factories | Oui | 
 | factories/integrationRuntimes | Non  | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 | accounts/dataLakeStoreAccounts | Non  | 
 | accounts/storageAccounts | Non  | 
 | accounts/storageAccounts/containers | Non  | 
@@ -498,34 +498,34 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 | accounts/eventGridFilters | Non  | 
 | accounts/firewallRules | Non  | 
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| services | OUI | 
-| services/projects | OUI | 
+| services | Oui | 
+| services/projects | Oui | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| servers | OUI | 
+| servers | Oui | 
 | servers/recoverableServers | Non  | 
 | servers/virtualNetworkRules | Non  | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| servers | OUI | 
+| servers | Oui | 
 | servers/recoverableServers | Non  | 
 | servers/virtualNetworkRules | Non  | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| servers | OUI | 
+| servers | Oui | 
 | servers/advisors | Non  | 
 | servers/queryTexts | Non  | 
 | servers/recoverableServers | Non  | 
@@ -536,34 +536,34 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| IoTHubs | OUI | 
+| IoTHubs | Oui | 
 | IotHubs/eventGridFilters | Non  | 
-| ProvisioningServices | OUI | 
+| ProvisioningServices | Oui | 
 | usages | Non  | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| controllers | OUI | 
+| controllers | Oui | 
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| labs | OUI | 
-| labs/serviceRunners | OUI | 
-| labs/virtualMachines | OUI | 
-| schedules | OUI | 
+| labs | Oui | 
+| labs/serviceRunners | Oui | 
+| labs/virtualMachines | Oui | 
+| schedules | Oui | 
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
 | databaseAccountNames | Non  | 
-| databaseAccounts | OUI | 
+| databaseAccounts | Oui | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| domaines | OUI | 
+| domaines | Oui | 
 | domains/domainOwnershipIdentifiers | Non  | 
 | generateSsoRequest | Non  | 
 | topLevelDomains | Non  | 
@@ -579,18 +579,18 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| domaines | OUI | 
+| domaines | Oui | 
 | domains/topics | Non  | 
 | eventSubscriptions | Non  | 
 | extensionTopics | Non  | 
-| topics | OUI | 
+| topics | Oui | 
 | topicTypes | Non  | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| clusters | OUI | 
-| namespaces | OUI | 
+| clusters | Oui | 
+| namespaces | Oui | 
 | namespaces/authorizationrules | Non  | 
 | namespaces/disasterrecoveryconfigs | Non  | 
 | namespaces/eventhubs | Non  | 
@@ -628,18 +628,18 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| hanaInstances | OUI | 
+| hanaInstances | Oui | 
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| clusters | OUI | 
+| clusters | Non  | 
 | clusters/applications | Non  | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| jobs | OUI | 
+| jobs | Oui | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Type de ressource | Effectuer la suppression du mode |
@@ -653,14 +653,14 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| actiongroups | OUI | 
-| activityLogAlerts | OUI | 
-| alertrules | OUI | 
+| actiongroups | Oui | 
+| activityLogAlerts | Oui | 
+| alertrules | Oui | 
 | automatedExportSettings | Non  | 
-| autoscalesettings | OUI | 
+| autoscalesettings | Oui | 
 | baseline | Non  | 
 | calculatebaseline | Non  | 
-| components | OUI | 
+| components | Oui | 
 | components/events | Non  | 
 | components/pricingPlans | Non  | 
 | components/query | Non  | 
@@ -672,15 +672,15 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | logDefinitions | Non  | 
 | logprofiles | Non  | 
 | journaux d’activité | Non  | 
-| metricAlerts | OUI |
+| metricAlerts | Oui |
 | migrateToNewPricingModel | Non  | 
 | myWorkbooks | Non  | 
 | queries | Non  | 
 | rollbackToLegacyPricingModel | Non  | 
-| scheduledqueryrules | OUI | 
+| scheduledqueryrules | Oui | 
 | vmInsightsOnboardingStatuses | Non  | 
-| webtests | OUI | 
-| workbooks | OUI | 
+| webtests | Oui | 
+| workbooks | Oui | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 | Type de ressource | Effectuer la suppression du mode |
@@ -691,25 +691,25 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| IoTApps | OUI | 
+| IoTApps | Oui | 
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| Graph | OUI | 
+| Graph | Oui | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
 | deletedVaults | Non  | 
-| vaults | OUI | 
+| vaults | Oui | 
 | vaults/accessPolicies | Non  | 
 | vaults/secrets | Non  | 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| clusters | OUI | 
+| clusters | Oui | 
 | clusters/databases | Non  | 
 | clusters/databases/dataconnections | Non  | 
 | clusters/databases/eventhubconnections | Non  | 
@@ -717,18 +717,18 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| labaccounts | OUI | 
+| labaccounts | Oui | 
 | users | Non  | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Type de ressource | Effectuer la suppression du mode |
@@ -738,42 +738,42 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| integrationAccounts | OUI | 
-| workflows | OUI | 
+| integrationAccounts | Oui | 
+| workflows | Oui | 
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| commitmentPlans | OUI | 
-| webServices | OUI | 
-| Workspaces | OUI | 
+| commitmentPlans | Oui | 
+| webServices | Oui | 
+| Workspaces | Oui | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| accounts | OUI | 
-| accounts/workspaces | OUI | 
-| accounts/workspaces/projects | OUI | 
-| teamAccounts | OUI | 
-| teamAccounts/workspaces | OUI | 
-| teamAccounts/workspaces/projects | OUI | 
+| accounts | Oui | 
+| accounts/workspaces | Oui | 
+| accounts/workspaces/projects | Oui | 
+| teamAccounts | Oui | 
+| teamAccounts/workspaces | Oui | 
+| teamAccounts/workspaces/projects | Oui | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| workspaces | OUI | 
+| workspaces | Oui | 
 | workspaces/computes | Non  | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
 | Identities | Non  | 
-| userAssignedIdentities | OUI | 
+| userAssignedIdentities | Oui | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 | Type de ressource | Effectuer la suppression du mode |
@@ -787,7 +787,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 | accounts/eventGridFilters | Non  | 
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -807,7 +807,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| classicDevServices | OUI | 
+| classicDevServices | Oui | 
 | updateCommunicationPreference | Non  | 
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
@@ -819,18 +819,18 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| mediaservices | OUI | 
+| mediaservices | Oui | 
 | mediaservices/accountFilters | Non  | 
 | mediaservices/assets | Non  | 
 | mediaservices/assets/assetFilters | Non  | 
 | mediaservices/contentKeyPolicies | Non  | 
 | mediaservices/eventGridFilters | Non  | 
 | mediaservices/liveEventOperations | Non  | 
-| mediaservices/liveEvents | OUI | 
+| mediaservices/liveEvents | Oui | 
 | mediaservices/liveEvents/liveOutputs | Non  | 
 | mediaservices/liveOutputOperations | Non  | 
 | mediaservices/streamingEndpointOperations | Non  | 
-| mediaservices/streamingEndpoints | OUI | 
+| mediaservices/streamingEndpoints | Oui | 
 | mediaservices/streamingLocators | Non  | 
 | mediaservices/streamingPolicies | Non  | 
 | mediaservices/transforms | Non  | 
@@ -839,21 +839,21 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| projects | OUI | 
+| projects | Oui | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| applicationGateways | OUI | 
-| applicationSecurityGroups | OUI | 
+| applicationGateways | Oui | 
+| applicationSecurityGroups | Oui | 
 | azureFirewallFqdnTags | Non  | 
-| azureFirewalls | OUI | 
+| azureFirewalls | Oui | 
 | bgpServiceCommunities | Non  | 
-| connections | OUI | 
-| ddosCustomPolicies | OUI | 
-| ddosProtectionPlans | OUI | 
+| connections | Oui | 
+| ddosCustomPolicies | Oui | 
+| ddosProtectionPlans | Oui | 
 | dnsOperationStatuses | Non  | 
-| dnszones | OUI | 
+| dnszones | Oui | 
 | dnszones/A | Non  | 
 | dnszones/AAAA | Non  | 
 | dnszones/all | Non  | 
@@ -866,47 +866,47 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | dnszones/SOA | Non  | 
 | dnszones/SRV | Non  | 
 | dnszones/TXT | Non  | 
-| expressRouteCircuits | OUI | 
+| expressRouteCircuits | Oui | 
 | expressRouteServiceProviders | Non  | 
-| frontdoors | OUI | 
-| frontdoorWebApplicationFirewallPolicies | OUI | 
+| frontdoors | Oui | 
+| frontdoorWebApplicationFirewallPolicies | Oui | 
 | getDnsResourceReference | Non  | 
-| interfaceEndpoints | OUI | 
+| interfaceEndpoints | Oui | 
 | internalNotify | Non  | 
-| loadBalancers | OUI | 
-| localNetworkGateways | OUI | 
-| natGateways | OUI | 
-| networkIntentPolicies | OUI | 
-| networkInterfaces | OUI | 
-| networkProfiles | OUI | 
-| networkSecurityGroups | OUI | 
-| networkWatchers | OUI | 
-| networkWatchers/connectionMonitors | OUI | 
-| networkWatchers/lenses | OUI | 
-| networkWatchers/pingMeshes | OUI | 
-| privateLinkServices | OUI | 
-| publicIPAddresses | OUI | 
-| publicIPPrefixes | OUI | 
-| routeFilters | OUI | 
-| routeTables | OUI | 
-| serviceEndpointPolicies | OUI | 
+| loadBalancers | Oui | 
+| localNetworkGateways | Oui | 
+| natGateways | Oui | 
+| networkIntentPolicies | Oui | 
+| networkInterfaces | Oui | 
+| networkProfiles | Oui | 
+| networkSecurityGroups | Oui | 
+| networkWatchers | Oui | 
+| networkWatchers/connectionMonitors | Oui | 
+| networkWatchers/lenses | Oui | 
+| networkWatchers/pingMeshes | Oui | 
+| privateLinkServices | Oui | 
+| publicIPAddresses | Oui | 
+| publicIPPrefixes | Oui | 
+| routeFilters | Oui | 
+| routeTables | Oui | 
+| serviceEndpointPolicies | Oui | 
 | trafficManagerGeographicHierarchies | Non  | 
-| trafficmanagerprofiles | OUI | 
+| trafficmanagerprofiles | Oui | 
 | trafficmanagerprofiles/heatMaps | Non  | 
-| virtualHubs | OUI | 
-| virtualNetworkGateways | OUI | 
-| virtualNetworks | OUI | 
-| virtualNetworkTaps | OUI | 
-| virtualWans | OUI | 
-| vpnGateways | OUI | 
-| vpnSites | OUI | 
-| webApplicationFirewallPolicies | OUI | 
+| virtualHubs | Oui | 
+| virtualNetworkGateways | Oui | 
+| virtualNetworks | Oui | 
+| virtualNetworkTaps | Oui | 
+| virtualWans | Oui | 
+| vpnGateways | Oui | 
+| vpnSites | Oui | 
+| webApplicationFirewallPolicies | Oui | 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| namespaces | OUI | 
-| namespaces/notificationHubs | OUI | 
+| namespaces | Oui | 
+| namespaces/notificationHubs | Oui | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Type de ressource | Effectuer la suppression du mode |
@@ -914,7 +914,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | périphériques | Non  | 
 | linkTargets | Non  | 
 | storageInsightConfigs | Non  | 
-| workspaces | OUI | 
+| workspaces | Oui | 
 | workspaces/dataSources | Non  | 
 | workspaces/linkedServices | Non  | 
 | workspaces/query | Non  | 
@@ -923,9 +923,9 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
 | managementassociations | Non  | 
-| managementconfigurations | OUI | 
-| solutions | OUI | 
-| views | OUI | 
+| managementconfigurations | Oui | 
+| solutions | Oui | 
+| views | Oui | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Type de ressource | Effectuer la suppression du mode |
@@ -939,34 +939,34 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
 | consoles | Non  | 
-| dashboards | OUI | 
+| dashboards | Oui | 
 | userSettings | Non  | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| workspaceCollections | OUI | 
+| workspaceCollections | Oui | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| capacities | OUI | 
+| capacities | Oui | 
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
 | backupProtectedItems | Non  | 
-| vaults | OUI | 
+| vaults | Oui | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| namespaces | OUI | 
+| namespaces | Oui | 
 | namespaces/authorizationrules | Non  | 
 | namespaces/hybridconnections | Non  | 
 | namespaces/hybridconnections/authorizationrules | Non  | 
@@ -1011,20 +1011,20 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| applications | OUI | 
+| applications | Oui | 
 | saasresources | Non  | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| flows | OUI | 
-| jobcollections | OUI | 
+| flows | Oui | 
+| jobcollections | Oui | 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
 | resourceHealthMetadata | Non  | 
-| searchServices | OUI | 
+| searchServices | Oui | 
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | Type de ressource | Effectuer la suppression du mode |
@@ -1070,7 +1070,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| namespaces | OUI | 
+| namespaces | Oui | 
 | namespaces/authorizationrules | Non  | 
 | namespaces/disasterrecoveryconfigs | Non  | 
 | namespaces/eventgridfilters | Non  | 
@@ -1085,36 +1085,36 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| clusters | OUI | 
+| clusters | Oui | 
 | clusters/applications | Non  | 
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| applications | OUI | 
-| gateways | OUI | 
-| networks | OUI | 
-| secrets | OUI | 
-| volumes | OUI | 
+| applications | Oui | 
+| gateways | Oui | 
+| networks | Oui | 
+| secrets | Oui | 
+| volumes | Oui | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| SignalR | OUI | 
+| SignalR | Oui | 
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| applianceDefinitions | OUI | 
-| appliances | OUI | 
-| applicationDefinitions | OUI | 
-| applications | OUI | 
-| jitRequests | OUI | 
+| applianceDefinitions | Oui | 
+| appliances | Oui | 
+| applicationDefinitions | Oui | 
+| applications | Oui | 
+| jitRequests | Oui | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| managedInstances | OUI |
+| managedInstances | Oui |
 | managedInstances/databases | Oui (voir la remarque ci-dessous) |
 | managedInstances/databases/backupShortTermRetentionPolicies | Non  |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Non  |
@@ -1124,7 +1124,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | managedInstances/keys | Non  |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Non  |
 | managedInstances/vulnerabilityAssessments | Non  |
-| servers | OUI | 
+| servers | Oui | 
 | servers/administrators | Non  | 
 | servers/communicationLinks | Non  | 
 | servers/databases | Oui (voir la remarque ci-dessous) | 
@@ -1142,14 +1142,14 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| SqlVirtualMachineGroups | OUI | 
+| SqlVirtualMachineGroups | Oui | 
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | Non  | 
-| SqlVirtualMachines | OUI | 
+| SqlVirtualMachines | Oui | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| storageAccounts | OUI | 
+| storageAccounts | Oui | 
 | storageAccounts/blobServices | Non  | 
 | storageAccounts/fileServices | Non  | 
 | storageAccounts/queueServices | Non  | 
@@ -1160,7 +1160,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| storageSyncServices | OUI | 
+| storageSyncServices | Oui | 
 | storageSyncServices/registeredServers | Non  | 
 | storageSyncServices/syncGroups | Non  | 
 | storageSyncServices/syncGroups/cloudEndpoints | Non  | 
@@ -1170,7 +1170,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| managers | OUI | 
+| managers | Oui | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Type de ressource | Effectuer la suppression du mode |
@@ -1196,23 +1196,23 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| providerRegistrations | OUI | 
-| les ressources | OUI | 
+| providerRegistrations | Oui | 
+| les ressources | Oui | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| environments | OUI | 
+| environments | Oui | 
 | environments/accessPolicies | Non  | 
-| environments/eventsources | OUI | 
-| environments/referencedatasets | OUI | 
+| environments/eventsources | Oui | 
+| environments/referencedatasets | Oui | 
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| account | OUI | 
-| account/extension | OUI | 
-| account/project | OUI | 
+| account | Oui | 
+| account/extension | Oui | 
+| account/project | Oui | 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Type de ressource | Effectuer la suppression du mode |
@@ -1228,13 +1228,13 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | apiManagementAccounts/connectionAcls | Non  | 
 | apiManagementAccounts/connections | Non  | 
 | billingMeters | Non  | 
-| certificates | OUI | 
-| connectionGateways | OUI | 
-| connections | OUI | 
-| customApis | OUI | 
+| certificates | Oui | 
+| connectionGateways | Oui | 
+| connections | Oui | 
+| customApis | Oui | 
 | deletedSites | Non  | 
 | functions | Non  | 
-| hostingEnvironments | OUI | 
+| hostingEnvironments | Oui | 
 | hostingEnvironments/multiRolePools | Non  | 
 | hostingEnvironments/multiRolePools/instances | Non  | 
 | hostingEnvironments/workerPools | Non  | 
@@ -1243,17 +1243,17 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | de films | Non  | 
 | resourceHealthMetadata | Non  | 
 | runtimes | Non  | 
-| serverFarms | OUI | 
+| serverFarms | Oui | 
 | serverFarms/workers | Non  | 
-| sites | OUI | 
+| sites | Oui | 
 | sites/domainOwnershipIdentifiers | Non  | 
 | sites/hostNameBindings | Non  | 
 | sites/instances | Non  | 
 | sites/instances/extensions | Non  | 
-| sites/premieraddons | OUI | 
+| sites/premieraddons | Oui | 
 | sites/recommendations | Non  | 
 | sites/resourceHealthMetadata | Non  | 
-| sites/slots | OUI | 
+| sites/slots | Oui | 
 | sites/slots/hostNameBindings | Non  | 
 | sites/slots/instances | Non  | 
 | sites/slots/instances/extensions | Non  | 
@@ -1270,7 +1270,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Type de ressource | Effectuer la suppression du mode |
 | ------------- | ----------- |
-| DeviceServices | OUI | 
+| DeviceServices | Oui | 
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 | Type de ressource | Effectuer la suppression du mode |

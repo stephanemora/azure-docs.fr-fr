@@ -1,17 +1,17 @@
 ---
 title: Activer la réplication des machines virtuelles VMware pour la récupération d’urgence vers Azure avec Azure Site Recovery | 'Microsoft Docs
 description: Cet article décrit comment activer des machines virtuelles VMware pour la réplication vers Azure pour la récupération d’urgence à l’aide d’Azure Site Recovery.
-author: mayurigupta13
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 3/6/2019
+ms.date: 4/18/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 472ff7810852bd03ef322cd5eb647c3d61f09b01
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.author: ramamill
+ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418106"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004735"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
 
@@ -89,7 +89,7 @@ Ensuite, vérifiez les propriétés de l’ordinateur virtuel source. N’oublie
     ![Fenêtre de propriétés de calcul et réseau](./media/vmware-azure-enable-replication/vmproperties.png)
 
     * Nom de machine virtuelle Azure : Modifiez le nom afin de répondre aux exigences d’Azure, si nécessaire.
-    * Taille de machine virtuelle cible ou le type de machine virtuelle : La taille de machine virtuelle par défaut est choisie en fonction de la taille de machine virtuelle source. Vous pouvez sélectionner une taille de machine virtuelle différente selon vos besoins à tout moment avant le basculement. Notez que la taille de disque de machine virtuelle est également basée sur la taille du disque source, et il ne peut être changé après le basculement. En savoir plus sur les tailles de disque et les taux d’e/s à [cibles d’évolutivité et les performances pour les disques de machine virtuelle sur Windows](../virtual-machines/windows/disk-scalability-targets.md).
+    * Taille de machine virtuelle cible ou le type de machine virtuelle : La taille de machine virtuelle par défaut est choisie en fonction de certains paramètres qui incluent le nombre de disques, nombre de cartes réseau, nombre de cœurs du processeur, mémoire et des tailles de rôle machine virtuelle disponibles dans la région Azure cible. Azure Site Recovery choisit la première taille de machine virtuelle disponible qui satisfait à tous les critères. Vous pouvez sélectionner une taille de machine virtuelle différente selon vos besoins à tout moment avant le basculement. Notez que la taille de disque de machine virtuelle est également basée sur la taille du disque source, et il ne peut être changé après le basculement. En savoir plus sur les tailles de disque et les taux d’e/s à [cibles d’évolutivité et les performances pour les disques de machine virtuelle sur Windows](../virtual-machines/windows/disk-scalability-targets.md).
 
     *  Groupe de ressources : Vous pouvez sélectionner un [groupe de ressources](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines), à partir de laquelle une machine virtuelle devient une partie d’un basculement de post. Vous pouvez modifier ce paramètre à tout moment avant le basculement. Après le basculement, si vous migrez la machine virtuelle vers un autre groupe de ressources, les paramètres de protection pour cette machine virtuelle saut.
     * Groupe à haute disponibilité : Vous pouvez sélectionner un [à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si votre machine virtuelle doit faire partie d’un après le basculement. Lorsque vous sélectionnez un groupe à haute disponibilité, gardez à l’esprit les informations suivantes :

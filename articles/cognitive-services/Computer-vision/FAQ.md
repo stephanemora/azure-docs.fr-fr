@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 2e04d86e7067db98c8399cfc3e202457b8f253d6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 579a47e70f292222914723606d032737b98822bc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351947"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004871"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur l’API Vision par ordinateur
 
@@ -37,28 +37,9 @@ ms.locfileid: "58351947"
 
 -----
 
-**Question** : *Quelles sont les langues prises en charge par Vision par ordinateur ?*
-
-**Réponse** : Les langages pris en charge incluent :
-
-| | | Langues prises en charge | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| Danois (da-DK)  | Néerlandais (nl-NL)     | Anglais           | Finnois (fi-FI)            |Français (fr-FR)
-| Allemand (de-DE)  | Grec (el-GR)     | Hongrois (hu-HU) | Italien (it-IT)            | Japonais (ja-JP)
-| Coréen (ko-KR)  | Norvégien (nb-NO) | Polonais (pl-PL)    | Portugais (pt-BR) (pt-PT) | Russe (ru-RU)
-| Espagnol (es-ES)   | Suédois (sv-SV)     | Turc (tr-TR)   |                            |
-
------
-
 **Question** : *Vision par ordinateur peut-elle être utilisée pour lire des plaques d’immatriculation ?*
 
 **Réponse** : L’API Vision par ordinateur offre une fonctionnalité efficace de détection de texte avec l’OCR, mais celle-ci n’est pas optimisée pour les plaques d’immatriculation pour le moment. Nous essayons en permanence d’améliorer nos services et avons ajouté l’OCR pour la détection automatique des plaques d’immatriculation à notre liste de demandes de fonctionnalités.
-
------
-
-**Question** : *Quelles sont les langues prises en charge pour la reconnaissance d’écriture manuscrite ?*
-
-**Réponse** : Actuellement, seul l’anglais est pris en charge.
 
 -----
 

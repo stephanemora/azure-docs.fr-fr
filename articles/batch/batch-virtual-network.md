@@ -6,15 +6,15 @@ author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5d725cdac93ebdb39437c0b9bcb619488fade0f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090659"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003508"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Créer un pool Azure Batch dans un réseau virtuel
 
@@ -40,7 +40,7 @@ Un pool Azure Batch comporte des paramètres qui servent à autoriser les nœuds
 
 Lorsque vous avez créé votre réseau virtuel et lui avez attribué un sous-réseau, vous pouvez créer un pool Batch avec ce réseau virtuel. Suivez ces étapes pour créer un pool à partir du portail Azure : 
 
-1. Accédez à votre compte  Batch dans le portail Azure. Ce compte doit relever du même abonnement et de la même région que le groupe de ressources contenant le réseau virtuel que vous envisagez d’utiliser. 
+1. Accédez à votre compte Batch dans le portail Azure. Ce compte doit relever du même abonnement et de la même région que le groupe de ressources contenant le réseau virtuel que vous envisagez d’utiliser. 
 2. Dans la fenêtre **Paramètres** située à gauche, sélectionnez l’élément de menu **Pools**.
 3. Dans la fenêtre **Pools**, sélectionnez la commande **Ajouter**.
 4. Dans la fenêtre **Ajouter un pool**, sélectionnez l’option que vous souhaitez utiliser à partir de la liste déroulante **Type d’image**. 

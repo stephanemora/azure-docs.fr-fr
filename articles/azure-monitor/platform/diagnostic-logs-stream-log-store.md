@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630783"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006792"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Journaux de Diagnostic Azure Stream à l’espace de travail Analytique de journal dans Azure Monitor
 
@@ -124,7 +124,7 @@ Azure Data Factory, en raison d’un ensemble très détaillé des journaux, est
 - *Les paramètres utilisateur définis par rapport à toutes les activités dans votre pipeline*: il y aura une nouvelle colonne pour chaque paramètre nommé de manière unique un utilisateur par rapport à n’importe quelle activité créée. 
 - *Activité entrées et sorties*: ces varient d’activité à et générer une grande quantité de colonnes en raison de leur nature détaillée. 
  
-Comme avec les propositions plus larges de solution de contournement ci-dessous, il est recommandé pour isoler les journaux de l’ADF dans leur propre espace de travail pour réduire le risque de ces journaux ayant un impact sur d’autres types de journaux collectés dans vos espaces de travail. Nous prévoyons d’avoir organisé les journaux pour Azure Data Factory est disponible par mid-avril 2019.
+Comme avec les propositions plus larges de solution de contournement ci-dessous, il est recommandé pour isoler les journaux de l’ADF dans leur propre espace de travail pour réduire le risque de ces journaux ayant un impact sur d’autres types de journaux collectés dans vos espaces de travail. Nous prévoyons d’avoir organisé les journaux pour Azure Data Factory est disponible bientôt.
  
 #### <a name="workarounds"></a>Solutions de contournement
 À court terme, jusqu'à ce que la limite de 500 colonnes est redéfinie, il est recommandé pour séparer les types de données détaillés en espaces de travail distincts afin de réduire le risque d’atteindre la limite.

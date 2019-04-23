@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: bwren
-ms.openlocfilehash: eebf3709657382eb403041e6637e32e5f5d43b15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789720"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002865"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Créer des champs personnalisés dans un espace de travail Analytique de journal dans Azure Monitor
 
@@ -27,7 +27,7 @@ ms.locfileid: "59789720"
 
 Le **champs personnalisés** fonctionnalité d’Azure Monitor vous permet d’étendre les enregistrements existants dans votre espace de travail Analytique de journal en ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
 
-![Présentation](media/custom-fields/overview.png)
+![Vue d'ensemble](media/custom-fields/overview.png)
 
 Par exemple, l’enregistrement ci-dessous contient des données utiles dans la description de l’événement. Extraction de ces données dans une propriété distincte rend disponibles pour les actions telles que le tri et le filtrage.
 
@@ -81,7 +81,7 @@ Pour afficher une liste de l’ensemble des champs personnalisés de votre group
 Il existe deux méthodes pour supprimer un champ personnalisé.  La première consiste à utiliser l’option **Supprimer** de chaque champ lorsque vous affichez la liste complète, comme indiqué ci-dessus.  L’autre consiste à extraire un enregistrement et à cliquer sur le bouton à gauche du champ.  Le menu affiche une option permettant de supprimer le champ personnalisé.
 
 ## <a name="sample-walkthrough"></a>Exemple de procédure
-La section suivante décrit la procédure complète de création d’un champ personnalisé.  Cet exemple extrait le nom du service dans les événements Windows indiquant un changement d’état de service.  Cela s’appuie sur les événements créés par le Gestionnaire de contrôle de Service dans la connexion de système sur les ordinateurs Windows.  Si vous souhaitez suivre cet exemple, vous devez [collecter des événements d’information du journal système](data-sources-windows-events.md).
+La section suivante décrit la procédure complète de création d’un champ personnalisé.  Cet exemple extrait le nom du service dans les événements Windows indiquant un changement d’état de service.  Cela s’appuie sur les événements créés par le Gestionnaire de contrôle de Service au démarrage du système sur les ordinateurs Windows.  Si vous souhaitez suivre cet exemple, vous devez [collecter des événements d’information du journal système](data-sources-windows-events.md).
 
 Nous spécifions la requête suivante pour renvoyer tous les événements du Gestionnaire de contrôle des services dont l’ID d’événement est 7036, c’est-à-dire l’événement indiquant le démarrage ou l’arrêt d’un service.
 

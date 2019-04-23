@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651541"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149312"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Mise en réseau dans Azure pour la réplication d’Azure
 
@@ -96,13 +96,19 @@ Les plages d’adresses IP Site Recovery sont les suivantes :
    Sud du Royaume-Uni 2 | 13.87.37.4| 13.87.34.139
    Nord du Royaume-Uni | 51.142.209.167 | 13.87.102.68
    Centre de la Corée | 52.231.28.253 | 52.231.32.85
-   Corée du Sud | 52.231.298.185 | 52.231.200.144
+   Corée du Sud | 52.231.198.185 | 52.231.200.144
    France Centre | 52.143.138.106 | 52.143.136.55
    France Sud | 52.136.139.227 |52.136.136.62
    Australie Centre| 20.36.34.70 | 20.36.46.142
    Centre de l’Australie 2| 20.36.69.62 | 20.36.74.130
    Afrique du Sud Ouest | 102.133.72.51 | 102.133.26.128
    Afrique du Sud Nord | 102.133.160.44 | 102.133.154.128
+   Gouvernement américain - Virginie | 52.227.178.114 | 23.97.0.197
+   US Gov Iowa | 13.72.184.23 | 23.97.16.186
+   Gouvernement des États-Unis – Arizona | 52.244.205.45 | 52.244.48.85
+   Gouvernement des États-Unis – Texas | 52.238.119.218 | 52.238.116.60
+   Est des États-Unis – US DoD | 52.181.164.103 | 52.181.162.129
+   Centre des États-Unis – US DoD | 52.182.95.237 | 52.182.90.133
 ## <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau
 
 Cet exemple montre comment configurer des règles de groupes de sécurité réseau pour une machine virtuelle à répliquer.

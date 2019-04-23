@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616354"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005245"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Surveillance et dépannage à partir de HANA
 
@@ -63,7 +63,7 @@ Le graphique de charge peut indiquer une consommation du processeur élevée, ou
 
 ![Le graphique de charge peut indiquer une consommation du processeur élevée, ou une consommation élevée par le passé](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-Une alerte déclenchée en raison d’une utilisation élevée du processeur peut être due à plusieurs raisons, y compris, sans toutefois s’y limiter : l’exécution de certaines transactions, le chargement de données, la mise en attente de tâches, les instructions SQL de longue durée et des performances de requête incorrectes (par exemple, avec BW sur des cubes HANA).
+Une alerte déclenchée en raison d’une utilisation élevée du processeur peut être dû à plusieurs raisons, y compris, mais sans limitation : l’exécution de certaines transactions, le chargement des données, les travaux qui ne répondre pas, longues instructions SQL et les performances de requête incorrectes (par exemple, avec BW sur des cubes HANA).
 
 Reportez-vous à la [SAP HANA résolution des problèmes : Processeur connexes Causes et Solutions](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) de site pour les étapes de dépannage détaillées.
 

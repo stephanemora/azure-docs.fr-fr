@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis/vers Azure Data Explorer à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données depuis/vers Azure Data Explorer à l’aide d’Azure Data Factory
 description: Découvrez comment copier des données vers ou depuis Azure Data Explorer à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: orspod
-ms.openlocfilehash: 756ede9cc90655163d6d53aa3ca920d2a15fb43d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.author: orspodek
+ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682489"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009359"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Explorer à l’aide d’Azure Data Factory
 
@@ -219,4 +219,7 @@ Pour copier des données vers Azure Data Explorer, définissez la propriété ty
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* En savoir plus sur [copier des données à partir d’Azure Data Factory à l’Explorateur de données Azure](/azure/data-explorer/data-factory-load-data).

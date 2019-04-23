@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: d84ebcdbd557a56c4c20600be67f26a084d43ed2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 172774c90633c96c3a8e2c128df050fedeb8b52b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681809"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005959"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Prise en charge des conteneurs dans Azure Cognitive Services
 
@@ -33,7 +33,7 @@ Les services [Vision par ordinateur](Computer-vision/Home.md), [Visage](Face/Ove
 
 - **Contrôle des données** : permettre aux clients de choisir où ces services Cognitive Services traitent leurs données. Ceci est essentiel pour les clients qui ne peut pas envoyer les données dans le cloud mais ont besoin d’accéder à la technologie de Cognitive Services. Cohérence de la prise en charge dans les environnements hybrides : entre les données, la gestion, l’identité et la sécurité.
 - **Contrôle des mises à jour du modèle** : Fournir aux clients une flexibilité dans le contrôle de version et la mise à jour des modèles déployés dans leurs solutions.
-- **Architecture portable** : Permettre la création d’une architecture d’application portable qui peut être déployée dans le cloud, localement et en périphérie. Les conteneurs peuvent être déployés directement sur [Azure Kubernetes Service](../aks/index.yml), sur [Azure Container Instances](../container-instances/index.yml) ou sur un cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](../azure-stack/index.yml). Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+- **Architecture portable** : Permettre la création d’une architecture d’application portable qui peut être déployée dans le cloud, localement et en périphérie. Les conteneurs peuvent être déployés directement sur [Azure Kubernetes Service](../aks/index.yml), sur [Azure Container Instances](../container-instances/index.yml) ou sur un cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](/azure-stack/operator). Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 - **Débit élevé / faible latence** : fournir aux clients la possibilité de mettre à l’échelle pour des exigences de débit élevé et de faible latence en permettant l’exécution de Cognitive Services physiquement proche de leur logique d’application et de leurs données. Les conteneurs ne limitent pas les transactions par seconde (TPS) et peuvent être configurés pour effectuer un scale-up ou un scale-out afin de gérer la demande si vous fournissez les ressources matérielles nécessaires. 
 
 

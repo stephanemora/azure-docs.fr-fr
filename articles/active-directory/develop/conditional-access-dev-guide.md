@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 3346f7a5af2a22cb7b7ece312fc367a874095668
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543184"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001046"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -104,7 +104,7 @@ Les sections suivantes décrivent des scénarios courants plus complexes. Le pri
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scénario : application effectuant le flux Pour le compte de
 
-Dans ce scénario, nous abordons le cas dans lequel une application native appelle une API/ service Web. À son tour, ce service exécute le flux « Pour le compte de » pour appeler un service en aval. Dans notre cas, nous avons appliqué notre stratégie d’accès conditionnel pour le service en aval (API Web 2) et nous utilisons une application native plutôt qu’une application démon/serveur. 
+Dans ce scénario, nous abordons le cas dans lequel une application native appelle une API/ service Web. À son tour, ce service effectue le flux « on-behalf-of » pour appeler un service en aval. Dans notre cas, nous avons appliqué notre stratégie d’accès conditionnel pour le service en aval (API Web 2) et nous utilisons une application native plutôt qu’une application démon/serveur. 
 
 ![Application effectuant le diagramme de flux Pour le compte](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -145,9 +145,9 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![Application accédant à plusieurs services demandant un nouveau jeton](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Si l’application utilise la bibliothèque ADAL, un échec d’acquisition du jeton est toujours retenté interactivement. Lorsque cette demande interactive se produit, l’utilisateur final a la possibilité de se conformer à l’accès conditionnel. Cela est vrai, sauf si la demande est un `AcquireTokenSilentAsync` ou `PromptBehavior.Never` et dans ce cas, l’application doit effectuer une demande interactive ```AcquireToken``` pour permettre à l’utilisation de fin de se conformer à la stratégie.
+Si l’application utilise la bibliothèque ADAL, un échec d’acquisition du jeton est toujours retenté interactivement. Lorsque cette demande interactive se produit, l’utilisateur final a la possibilité de se conformer à l’accès conditionnel. Cela est vrai, sauf si la demande est un `AcquireTokenSilentAsync` ou `PromptBehavior.Never` dans ce cas, l’application doit effectuer un interactive ```AcquireToken``` demande pour permettre à l’utilisateur final pour se conformer à la stratégie.
 
-## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scénario : application à page unique (SPA) en utilisant ADAL.js
+## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scénario : application à page unique (SPA) en utilisant ADAL.js
 
 Dans ce scénario, nous abordons le cas où nous disposons d’une application à page unique (SPA), en utilisant ADAL.js pour appeler une API Web protégée par l’accès conditionnel. Il s’agit d’une architecture simple mais avec des nuances qui doivent être prises en compte lors du développement autour de l’accès conditionnel.
 

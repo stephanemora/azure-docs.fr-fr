@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c067d6f02ceeca9bf390ab5421dcfe463e9f758d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699079"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002576"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Dépanner la Configuration de l’état souhaité
 
@@ -41,6 +41,31 @@ Cette erreur est un problème temporaire qui est prévu pour être résolu.
 * Utilisez l’applet de commande Az « Remove-AzAutomationDscConfiguration » pour supprimer la configuration.
 * La documentation relative à cette applet de commande n’a pas été encore mis à jour.  En attendant, reportez-vous à la documentation pour le module AzureRM.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+
+### <a name="failed-to-register-agent"></a>Scénario : Impossible d’inscrire le Dsc Agent
+
+#### <a name="issue"></a>Problème
+
+Lorsque vous tentez d’exécuter `Set-DscLocalConfigurationManager` ou une autre applet de commande DSC vous recevez l’erreur :
+
+```error
+Registration of the Dsc Agent with the server
+https://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000 failed. The
+underlying error is: Failed to register Dsc Agent with AgentId 00000000-0000-0000-0000-000000000000 with the server htt
+ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000/Nodes(AgentId='00000000-0000-0000-0000-000000000000'). .
+    + CategoryInfo          : InvalidResult: (root/Microsoft/...gurationManager:String) [], CimException
+    + FullyQualifiedErrorId : RegisterDscAgentCommandFailed,Microsoft.PowerShell.DesiredStateConfiguration.Commands.Re
+   gisterDscAgentCommand
+    + PSComputerName        : <computerName>
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur est due à un pare-feu, l’ordinateur se trouvant derrière un serveur proxy ou d’autres erreurs de réseau.
+
+#### <a name="resolution"></a>Résolution :
+
+Vérifiez que votre ordinateur a accès aux points de terminaison appropriés pour Azure Automation DSC et réessayez. Pour obtenir la liste des ports et adresses nécessaires, consultez [planification réseau](../automation-dsc-overview.md#network-planning)
 
 ### <a name="failed-not-found"></a>Scénario : Le nœud est en état d’échec avec une erreur « Introuvable »
 

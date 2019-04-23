@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247039"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148915"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Ajouter des balises à un laboratoire dans Azure DevTest Labs
 
@@ -32,7 +32,7 @@ Les ressources prises en charge par les balises comprennent les
 * Adresses IP
 * Équilibreurs de charge
 * Comptes de stockage
-* Disques gérés
+* Disques managés
 
 Vous pouvez appliquer des balises quand vous souhaitez [Créer un laboratoire](devtest-lab-create-lab.md), puis les gérer via le panneau Balises dans Configuration et paramètres.
 
@@ -42,8 +42,8 @@ Chaque balise est composée d’une paire **nom**/**valeur**. Par exemple, vous 
 
 1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si nécessaire, sélectionnez **Autres services**, puis **DevTest Labs** dans la liste. Votre laboratoire peut déjà être affiché sur le Tableau de bord dans **Toutes les ressources**.
-1. Dans la liste des laboratoires, sélectionnez le laboratoire dans lequel vous souhaitez ajouter ou gérer vos balises.  
-1. Dans la zone **Vue d’ensemble** du laboratoire, sélectionnez **Configuration et stratégies**.  
+1. Dans la liste des laboratoires, sélectionnez le laboratoire dans lequel vous souhaitez ajouter ou gérer vos balises.
+1. Dans la zone **Vue d’ensemble** du laboratoire, sélectionnez **Configuration et stratégies**.
 
     ![Bouton Configuration et stratégies](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
@@ -56,7 +56,7 @@ Chaque balise est composée d’une paire **nom**/**valeur**. Par exemple, vous 
 
 Les limites suivantes s’appliquent aux balises :
 
-* Chaque ressource ou groupe de ressources peut inclure un maximum de 15 paires nom/valeur de balise. Cette limitation s’applique uniquement aux balises directement appliquées au groupe de ressources ou à la ressource. Un groupe de ressources peut contenir de nombreuses ressources qui ont chacune 15 paires nom/valeur de balise. 
+* Chaque ressource ou groupe de ressources peut inclure un maximum de 15 paires nom/valeur de balise. Cette limitation s’applique uniquement aux balises directement appliquées au groupe de ressources ou à la ressource. Un groupe de ressources peut contenir de nombreuses ressources qui ont chacune 15 paires nom/valeur de balise.
 * Le nom de balise est limité à 512 caractères, et la valeur de balise à 256 caractères. Pour les comptes de stockage, le nom de balise est limité à 128 caractères, et la valeur de balise à 256 caractères.
 * Les ressources d’un groupe de ressources n’héritent pas des balises appliquées à ce groupe de ressources.
 
@@ -66,4 +66,4 @@ Les limites suivantes s’appliquent aux balises :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. La stratégie que vous définissez peut exiger que toutes les ressources aient une valeur pour une balise en particulier. Pour plus d’informations, consultez [Définir des stratégies et la planification](devtest-lab-set-lab-policy.md).
-* Explorez la [Galerie de modèles de démarrage rapide d’Azure Resource Manager DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explorez la [Galerie de modèles de démarrage rapide d’Azure Resource Manager DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

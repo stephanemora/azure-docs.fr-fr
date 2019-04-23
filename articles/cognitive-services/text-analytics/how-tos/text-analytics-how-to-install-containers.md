@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd2f257119595311e9d31ad2068fd12c8cf51ee
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: e0e8b9f767376db8028a3ac4a2d8659bab69268b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683374"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005867"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 
@@ -24,7 +24,7 @@ Les conteneurs Analyse de texte fournissent un traitement en langage naturel ava
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter un des conteneurs d’Analytique de texte, vous devez disposer les environnements d’ordinateur et le conteneur hôte.
 
@@ -36,7 +36,7 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs A
 |--|--|
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|`Cognitive Services` Ressources |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Un [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) des ressources Azure pour obtenir la clé de facturation associée et l’URI de point de terminaison facturation. Les deux valeurs sont disponibles sur les pages de vue d’ensemble de Cognitive Services et les clés du portail Azure et sont nécessaires pour démarrer le conteneur. Vous devez ajouter le `text/analytics/v2.0` routage vers l’URI de point de terminaison, comme indiqué dans l’exemple BILLING_ENDPOINT_URI suivant.<br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|`Cognitive Services` Ressources |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Un [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) des ressources Azure pour obtenir la clé de facturation associée et l’URI de point de terminaison facturation. Les deux valeurs sont disponibles sur les pages de vue d’ensemble de Cognitive Services et les clés du portail Azure et sont nécessaires pour démarrer le conteneur. Vous devez ajouter le `text/analytics/v2.0` routage vers l’URI de point de terminaison, comme indiqué dans l’exemple BILLING_ENDPOINT_URI suivant.<br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 ### <a name="the-host-computer"></a>L’ordinateur hôte
 

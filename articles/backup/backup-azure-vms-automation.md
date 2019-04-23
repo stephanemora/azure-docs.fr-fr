@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: f0959ff8b8ea5ce8d5516d25fdf0faf29dbcd994
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 62ad2e2b294a0589c9d52ddbce1339b8d55062e4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629590"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149034"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
@@ -31,7 +31,6 @@ Dans cet article, vous apprendrez comment :
 - [En savoir plus](backup-azure-recovery-services-vault-overview.md) sur les coffres Recovery Services.
 - [Passez en revue](backup-architecture.md#architecture-direct-backup-of-azure-vms) l’architecture pour la sauvegarde de machine virtuelle Azure, [en savoir plus sur](backup-azure-vms-introduction.md) le processus de sauvegarde, et [Examinez](backup-support-matrix-iaas.md) prise en charge, les limitations et les conditions préalables.
 - Passez en revue la hiérarchie d’objets PowerShell pour les Services de récupération.
-
 
 ## <a name="recovery-services-object-hierarchy"></a>Hiérarchie des objets dans Recovery Services
 
@@ -54,7 +53,7 @@ Pour commencer :
     ```powershell
     Get-Command *azrecoveryservices*
     ```
- 
+
     Les alias et cmdlets pour Sauvegarde Azure, Azure Site Recovery et le coffre Recovery Services s’affichent. L’image suivante est un exemple de ce que vous allez voir. Il ne s’agit pas de la liste complète des cmdlets.
 
     ![Liste des services Recovery Services](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
@@ -77,9 +76,11 @@ Pour commencer :
     ```
 
 6. Vous pouvez vérifier que les fournisseurs ont été correctement inscrits à l’aide des commandes suivantes :
+
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
+
     Dans la sortie de commande, **RegistrationState** doit prendre la valeur **Inscrit**. Si non, il suffit d’exécuter le **[Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** applet de commande à nouveau.
 
 
@@ -152,7 +153,7 @@ Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy Ge
 ```
 
 > [!NOTE]
-> Redondance de stockage peut être modifiée uniquement si aucun élément de sauvegarde protégés dans le coffre.
+> La redondance de stockage peut être modifiée uniquement si aucun élément de sauvegarde n’est protégé dans le coffre.
 
 ### <a name="create-a-protection-policy"></a>Création d’une stratégie de protection
 
@@ -241,9 +242,49 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Si vous utilisez le cloud Azure Government, utilisez la valeur ff281ffe-705c-4f53-9f37-a40e6f2c68f3 pour le paramètre ServicePrincipalName dans [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) applet de commande.
 >
 
+## <a name="monitoring-a-backup-job"></a>Surveillance d’une tâche de sauvegarde
+
+Vous pouvez surveiller les opérations à exécution longue, comme les tâches de sauvegarde, sans utiliser le portail Azure. Pour obtenir l’état d’un travail en cours d’exécution, utilisez la [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) applet de commande. Cette applet de commande obtient les tâches de sauvegarde pour un coffre spécifique, et ce coffre est spécifié dans le contexte du coffre. L’exemple suivant obtient l’état d’une tâche en cours d’exécution sous forme de tableau et stocke l’état dans la variable $joblist.
+
+```powershell
+$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
+$joblist[0]
+```
+
+Le résultat ressemble à l’exemple suivant :
+
+```
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   ----------
+V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+```
+
+Au lieu d’interroger ces travaux pour la saisie semi-automatique, qui est le code supplémentaire inutile - utiliser le [AzRecoveryServicesBackupJob d’attente](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) applet de commande. Cette applet de commande suspend l’exécution jusqu’à la fin de la tâche ou jusqu’à ce que la valeur spécifiée pour l’expiration du délai soit atteinte.
+
+```powershell
+Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
+```
+
+## <a name="manage-azure-vm-backups"></a>Gérer les sauvegardes de machines virtuelles Azure
+
 ### <a name="modify-a-protection-policy"></a>Modifier une stratégie de protection
 
 Pour modifier la stratégie de protection, utilisez [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) pour modifier les objets objets SchedulePolicy ou RetentionPolicy.
+
+#### <a name="modifying-scheduled-time"></a>Modification de l’heure planifiée
+
+Lorsque vous créez une stratégie de protection, il est affecté à une heure de début par défaut. Les exemples suivants montrent comment modifier l’heure de début d’une stratégie de protection.
+
+````powershell
+$SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = $UtcTime.ToUniversalTime()
+$SchPol.ScheduleRunTimes[0] = $UtcTime
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -SchedulePolicy $SchPol
+````
+
+#### <a name="modifying-retention"></a>Modification de rétention
 
 L’exemple suivant change la conservation des points de récupération en 365 jours.
 
@@ -267,14 +308,15 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 La valeur par défaut sera 2, l’utilisateur peut définir la valeur avec 1 minimum et maximum de 5. Pour des stratégies de sauvegarde hebdomadaire, la période est définie sur 5 et ne peut pas être modifiée.
 
-## <a name="trigger-a-backup"></a>Déclencher une sauvegarde
+### <a name="trigger-a-backup"></a>Déclencher une sauvegarde
 
-Utilisez [AzRecoveryServicesBackupItem de sauvegarde](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) pour déclencher un travail de sauvegarde. S’il s’agit de la sauvegarde initiale, cette sauvegarde est complète. Les sauvegardes suivantes prennent une copie incrémentielle. Veillez à utiliser **[Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext)** pour définir le contexte du coffre avant de déclencher le travail de sauvegarde. L’exemple suivant suppose que le contexte du coffre a déjà été défini.
+Utilisez [AzRecoveryServicesBackupItem de sauvegarde](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) pour déclencher un travail de sauvegarde. S’il s’agit de la sauvegarde initiale, cette sauvegarde est complète. Les sauvegardes suivantes prennent une copie incrémentielle. L’exemple suivant prend une machine virtuelle sauvegarde doivent être conservées pendant 60 jours.
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
 $item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
-$job = Backup-AzRecoveryServicesBackupItem -Item $item
+$endDate = (Get-Date).AddDays(60).ToUniversalTime()
+$job = Backup-AzRecoveryServicesBackupItem -Item $item -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ```
 
 Le résultat ressemble à l’exemple suivant :
@@ -290,28 +332,42 @@ V2VM              Backup              InProgress          4/23/2016             
 >
 >
 
-## <a name="monitoring-a-backup-job"></a>Surveillance d’une tâche de sauvegarde
+### <a name="change-policy-for-backup-items"></a>Modifier la stratégie pour les éléments de sauvegarde
 
-Vous pouvez surveiller les opérations à exécution longue, comme les tâches de sauvegarde, sans utiliser le portail Azure. Pour obtenir l’état d’un travail en cours d’exécution, utilisez la [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) applet de commande. Cette applet de commande obtient les tâches de sauvegarde pour un coffre spécifique, et ce coffre est spécifié dans le contexte du coffre. L’exemple suivant obtient l’état d’une tâche en cours d’exécution sous forme de tableau et stocke l’état dans la variable $joblist.
+Utilisateur peut modifier la stratégie existante ou diffère de la stratégie de l’élément sauvegardé Policy1 Stratégie2. Pour basculer des stratégies pour un élément sauvegardé, simplement extraire la stratégie concernée et sauvegarder élément et utiliser le [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) avec l’élément de sauvegarde comme paramètre.
+
+````powershell
+$TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
+$anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType AzureVM -BackupManagementType AzureVM -Name "<BackupItemName>"
+Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1
+````
+
+La commande attend jusqu'à ce que la sauvegarde de la configuration est terminée et renvoie le résultat suivant.
 
 ```powershell
-$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
-$joblist[0]
-```
-
-Le résultat ressemble à l’exemple suivant :
-
-```
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   ----------
-V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+------------     ---------            ------               ---------                 -------                   -----
+TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-Au lieu d’interroger ces travaux pour la saisie semi-automatique, qui est le code supplémentaire inutile - utiliser le [AzRecoveryServicesBackupJob d’attente](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) applet de commande. Cette applet de commande suspend l’exécution jusqu’à la fin de la tâche ou jusqu’à ce que la valeur spécifiée pour l’expiration du délai soit atteinte.
+### <a name="stop-protection"></a>Arrêter la protection
 
-```powershell
-Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
-```
+#### <a name="retain-data"></a>Conserver les données
+
+Si l’utilisateur souhaite arrêter la protection, ils peuvent utiliser le [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) applet de commande PS. Cela empêchera les sauvegardes planifiées, mais sont soutenues par les données jusqu'à présent sont conservées indéfiniment.
+
+````powershell
+$bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
+````
+
+#### <a name="delete-backup-data"></a>Supprimer les données de sauvegarde
+
+Pour supprimer complètement les données de sauvegarde stockées dans le coffre, il suffit d’ajouter «-indicateur/basculer des RemoveRecoveryPoints vers le ['disable' commande de protection](#retain-data).
+
+````powershell
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
+````
 
 ## <a name="restore-an-azure-vm"></a>Restauration d’une machine virtuelle Azure
 

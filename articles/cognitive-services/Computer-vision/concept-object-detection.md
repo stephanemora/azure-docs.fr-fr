@@ -1,28 +1,28 @@
 ---
 title: Détection d’objets - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Concepts liés à la détection d’objets à l’aide de l’API Vision par ordinateur.
+description: Découvrez les concepts liés à la fonctionnalité de détection d’objet de l’API vision par ordinateur - utilisation et les limites.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e3311aab74f58e3936039393eab76dee12b83ea
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496936"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001845"
 ---
-# <a name="object-detection"></a>Détection d’objets
+# <a name="detect-common-objects-in-images"></a>Détecter des objets dans des images
 
 La détection d’objets est similaire au [balisage](concept-tagging-images.md), mais l’API retourne les coordonnées de cadre englobant (en pixels) pour chaque objet trouvé. Par exemple, si une image contient un chien, un chat et une personne, l’opération de détection liste ces objets ainsi que leurs coordonnées dans l’image. Vous pouvez utiliser cette fonctionnalité pour traiter les relations entre les objets dans une image. Il vous permet également de déterminer s’il existe plusieurs instances de la même balise dans une image.
 
-L’API Détection applique des balises en fonction des objets ou éléments vivants identifiés dans l’image. À ce stade, il n’existe aucune relation formelle entre la taxonomie de balises et la taxonomie de détection d’objet. À un niveau conceptuel, l’API détecter la recherche uniquement les objets et les choses de la vie, tandis que l’API de la balise peut également inclure des termes contextuelles telles que « intérieur », qui ne peut pas être localisés avec zones englobantes.
+L’API Détection applique des balises en fonction des objets ou éléments vivants identifiés dans l’image. Il n’existe actuellement aucune relation formelle entre la taxonomie de balises et la taxonomie de détection d’objet. À un niveau conceptuel, l’API détecter la recherche uniquement les objets et les choses de la vie, tandis que l’API de la balise peut également inclure des termes contextuelles telles que « intérieur », qui ne peut pas être localisés avec zones englobantes.
 
 ## <a name="object-detection-example"></a>Exemple de détection d’objet
 
@@ -99,5 +99,5 @@ Il est important de noter les limitations de la détection d’objets afin d’�
 
 La fonctionnalité de détection d'objet fait partie de l'API [Analyser l'image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Inclure `Objects` dans le **visualFeatures** paramètre de requête. Ensuite, lorsque vous obtenez la réponse JSON complète, simplement analyser la chaîne pour le contenu de la `"objects"` section.
 
-* [Démarrage rapide : Analyser une image (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
-* [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)
+* [Démarrage rapide : Analyser une image (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)

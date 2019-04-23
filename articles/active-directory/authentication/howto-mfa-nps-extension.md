@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: a945316df27460fef48a8bb4d43e46d412d2ae81
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564529"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009705"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -76,14 +76,14 @@ Lorsque vous installez l’extension, vous devez disposer de l’ID de répertoi
 
 Le serveur NPS (Network Policy Server) doit pouvoir communiquer avec les URL suivantes sur les ports 80 et 443.
 
-* https://adnotifications.windowsazure.com  
-* https://login.microsoftonline.com
+* https:\//adnotifications.windowsazure.com  
+* https:\//login.microsoftonline.com
 
 En outre, la connectivité aux URL suivantes est nécessaire pour terminer le [le programme d’installation de l’adaptateur à l’aide du script PowerShell fourni](#run-the-powershell-script)
 
-- https://login.microsoftonline.com
-- https://provisioningapi.microsoftonline.com
-- https://aadcdn.msauth.net
+- https:\//login.microsoftonline.com
+- https :\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
 

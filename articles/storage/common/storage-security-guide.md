@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 74be21629a884313e74a824bb34fb5b66f5db61d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650119"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005984"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -302,7 +302,7 @@ Pour le chiffrement proprement dit, vous pouvez créer et gérer vos propres cl�
   Cet article explique le fonctionnement du chiffrement côté client. Il fournit des exemples d’utilisation de la bibliothèque cliente de stockage pour chiffrer et déchiffrer les ressources des quatre services de stockage. Il parle également d’Azure Key Vault.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Utilisation de la fonctionnalité Azure Disk Encryption pour chiffrer les disques utilisés par vos machines virtuelles
-Azure Disk Encryption est une nouvelle fonctionnalité. Cette fonctionnalité vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. La fonctionnalité est intégrée à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque.
+Azure Disk Encryption permet de chiffrer les disques de système d’exploitation et les disques de données utilisés par une Machine virtuelle IaaS. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. La fonctionnalité est intégrée à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque.
 
 La solution prend en charge les scénarios de machines virtuelles IaaS suivants lorsqu’ils sont activés dans Microsoft Azure :
 

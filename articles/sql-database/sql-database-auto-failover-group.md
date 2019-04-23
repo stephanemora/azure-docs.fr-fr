@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848380"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009067"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -40,7 +40,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>Terminologie et fonctionnalités relatives aux groupes de basculement automatique
 
-- **Groupe de basculement**
+- **Groupe de basculement (brouillard)**
 
   Un groupe de basculement est un groupe de bases de données gérées par un même serveur SQL Database ou dans une même instance gérée, et qui peut basculer entièrement vers une autre région lorsqu’une partie ou la totalité des bases de données primaires devient indisponible en raison d’une panne dans la région primaire.
 
@@ -77,11 +77,11 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
   - **Enregistrement DNS CNAME du serveur SQL Database pour l’écouteur en lecture-écriture**
 
-     Sur un serveur SQL Database, l’enregistrement DNS CNAME du groupe de basculement qui pointe vers l’URL du serveur primaire actuel est formé comme suit : `failover-group-name.database.windows.net`.
+     Sur un serveur SQL Database, l’enregistrement DNS CNAME du groupe de basculement qui pointe vers l’URL du serveur primaire actuel est formé comme suit : `<fog-name>.database.windows.net`.
 
   - **Enregistrement DNS CNAME de l’instance managée pour l’écouteur en lecture-écriture**
 
-     Sur une instance managée, l’enregistrement DNS CNAME du groupe de basculement qui pointe vers l’URL du serveur primaire actuel est formé comme suit : `failover-group-name.zone_id.database.windows.net`.
+     Sur une instance managée, l’enregistrement DNS CNAME du groupe de basculement qui pointe vers l’URL du serveur primaire actuel est formé comme suit : `<fog-name>.zone_id.database.windows.net`.
 
 - **Écouteur en lecture seule du groupe de basculement**
 
@@ -89,11 +89,11 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
   - **Enregistrement DNS CNAME du serveur SQL Database pour l’écouteur en lecture seule**
 
-     Sur un serveur SQL Database, l’enregistrement DNS CNAME pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire est formé comme suit : `failover-group-name.secondary.database.windows.net`.
+     Sur un serveur SQL Database, l’enregistrement DNS CNAME pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire est formé comme suit : `'.secondary.database.windows.net`.
 
   - **Enregistrement DNS CNAME de l’instance managée pour l’écouteur en lecture seule**
 
-     Sur une instance managée, l’enregistrement DNS CNAME pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire est formé comme suit : `failover-group-name.zone_id.database.windows.net`.
+     Sur une instance managée, l’enregistrement DNS CNAME pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire est formé comme suit : `<fog-name>.zone_id.database.windows.net`.
 
 - **Stratégie de basculement automatique**
 
@@ -156,11 +156,11 @@ Quand vous concevez un service en pensant à la continuité d’activité, suive
 
 - **Utiliser un écouteur en lecture-écriture pour la charge de travail OLTP**
 
-  Quand vous effectuez des opérations OLTP, utilisez `failover-group-name.database.windows.net`, car l’URL du serveur et les connexions sont automatiquement dirigées vers le serveur principal. L’URL ne change pas après le basculement. Notez que le basculement implique la mise à jour de l’enregistrement DNS de façon à ce que les connexions clients soient redirigées vers le nouveau serveur primaire seulement après l’actualisation du cache DNS.
+  Quand vous effectuez des opérations OLTP, utilisez `<fog-name>.database.windows.net`, car l’URL du serveur et les connexions sont automatiquement dirigées vers le serveur principal. L’URL ne change pas après le basculement. Notez que le basculement implique la mise à jour de l’enregistrement DNS de façon à ce que les connexions clients soient redirigées vers le nouveau serveur primaire seulement après l’actualisation du cache DNS.
 
 - **Utiliser un écouteur en lecture seule pour une charge de travail en lecture seule**
 
-  Si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour les sessions en lecture seule, utilisez `failover-group-name.secondary.database.windows.net`, car l’URL du serveur et la connexion sont automatiquement dirigées vers le serveur principal. Il est également recommandé d’indiquer dans la tentative de lecture de la chaîne de connexion à l’aide de **ApplicationIntent = ReadOnly**.
+  Si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour les sessions en lecture seule, utilisez `<fog-name>.secondary.database.windows.net`, car l’URL du serveur et la connexion sont automatiquement dirigées vers le serveur principal. Il est également recommandé d’indiquer dans la tentative de lecture de la chaîne de connexion à l’aide de **ApplicationIntent = ReadOnly**.
 
 - **Se préparer à une dégradation des performances**
 
@@ -206,7 +206,7 @@ Si votre application utilise Managed Instance comme couche de données, suivez c
 
 - **Utiliser un écouteur en lecture-écriture pour la charge de travail OLTP**
 
-  Quand vous effectuez des opérations OLTP, utilisez `failover-group-name.zone_id.database.windows.net`, car l’URL du serveur et les connexions sont automatiquement dirigées vers le serveur principal. L’URL ne change pas après le basculement. Le basculement implique la mise à jour de l’enregistrement DNS de façon à ce que les connexions clients soient redirigées vers le nouveau serveur primaire seulement après l’actualisation du cache DNS. Étant donné que l’instance secondaire partage la même zone DNS que l’instance principale, l’application peut se reconnecter à l’aide du même certificat SAN.
+  Quand vous effectuez des opérations OLTP, utilisez `<fog-name>.zone_id.database.windows.net`, car l’URL du serveur et les connexions sont automatiquement dirigées vers le serveur principal. L’URL ne change pas après le basculement. Le basculement implique la mise à jour de l’enregistrement DNS de façon à ce que les connexions clients soient redirigées vers le nouveau serveur primaire seulement après l’actualisation du cache DNS. Étant donné que l’instance secondaire partage la même zone DNS que l’instance principale, l’application peut se reconnecter à l’aide du même certificat SAN.
 
 - **Se connecter directement à l’instance géorépliquée secondaire pour les requêtes en lecture seule**
 
@@ -214,8 +214,8 @@ Si votre application utilise Managed Instance comme couche de données, suivez c
 
   > [!NOTE]
   > Dans certains niveaux de service, Azure SQL Database prend en charge l’utilisation de [réplicas en lecture seule](sql-database-read-scale-out.md) pour équilibrer les charges de travail de requêtes en lecture seule en utilisant la capacité d’un réplica en lecture seule et le paramètre `ApplicationIntent=ReadOnly` dans la chaîne de connexion. Lorsque vous avez configuré une instance géorépliquée secondaire, vous pouvez utiliser cette fonction pour vous connecter à un réplica en lecture seule à l’emplacement primaire ou à l’emplacement géorépliqué.
-  > - Pour vous connecter à un réplica en lecture seule à l’emplacement primaire, utilisez `failover-group-name.zone_id.database.windows.net`.
-  > - Pour vous connecter à un réplica en lecture seule dans l’emplacement secondaire, utilisez `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Pour vous connecter à un réplica en lecture seule à l’emplacement primaire, utilisez `<fog-name>.zone_id.database.windows.net`.
+  > - Pour vous connecter à un réplica en lecture seule dans l’emplacement secondaire, utilisez `<fog-name>.secondary.zone_id.database.windows.net`.
 
 - **Se préparer à une dégradation des performances**
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: c2c722331c95e72bae5605606564a2083e2802e3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075030"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002032"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Personnaliser un modèle linguistique avec les API Video Indexer
 
@@ -47,11 +47,11 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 --data-ascii "{body}" 
 ```
 
-[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-PersonModel?).
+[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountId|string|Oui|GUID pour ce compte|
@@ -118,11 +118,11 @@ Voici la requête dans Curl.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Train?accessToken={accessToken}"
 ```
  
-[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5bac3cf761779a6c2ab27?).
+[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train).
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountID|string|Oui|GUID pour ce compte.|
@@ -183,11 +183,11 @@ Voici la requête dans Curl.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5ba53782606e91f65be9d?).
+[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete).
 
 ### <a name="request-parameters"></a>Paramètres de la demande 
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountID|string|Oui|GUID pour ce compte.|
@@ -225,11 +225,11 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 --data-ascii "{body}" 
 ```
  
-[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b3ce85f4684240bdb78f?).
+[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update).
 
 ### <a name="request-parameters"></a>Paramètres de la demande 
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountID|string|Oui|GUID pour ce compte.|
@@ -294,11 +294,11 @@ Voici la requête dans Curl.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}?fileName={string}&enable={string}"
 ```
  
-[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b60547f33c1c2b2d1375?).
+[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update).
 
 ### <a name="request-parameters"></a>Paramètres de la demande 
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountId|string|Oui|GUID pour ce compte.|
@@ -344,11 +344,11 @@ Voici la requête dans Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4fcbd9b437d27d53f16).
+[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get).
 
 ### <a name="request-parameters-and-request-body"></a>Paramètres et corps de la requête
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountID|string|Oui|GUID pour ce compte.|
@@ -409,11 +409,11 @@ Voici la requête dans Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language?accessToken={accessToken}"
 ```
  
-[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4979e6ecbd30faa6f75?).
+[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get).
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountID|string|Oui|GUID pour ce compte|
@@ -480,11 +480,11 @@ Voici la requête dans Curl.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b57b5de51e64ee52242e).
+[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete).
 
 ### <a name="request-parameters"></a>Paramètres de la demande 
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountID|string|Oui|GUID pour ce compte.|
@@ -517,11 +517,11 @@ Voici la requête dans Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b73f9e6416d7a9965b42).
+[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model).
 
 ### <a name="request-parameters"></a>Paramètres de la demande 
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountID|string|Oui|GUID pour ce compte.|
@@ -566,11 +566,11 @@ Voici la requête dans Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}/download?accessToken={accessToken}"
 ```
  
-[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b99e522cb47bd9679122).
+[Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?).
 
 ### <a name="request-parameters"></a>Paramètres de la demande 
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountID|string|Oui|GUID pour ce compte.|

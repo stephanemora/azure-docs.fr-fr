@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a5b4d9fac1d2fb3ec1a45f34784552b2d41f2cf1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679327"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003851"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Résolution des problèmes d’Azure SQL Data Warehouse
 Cet article répertorie les questions de résolution de problèmes courantes.
@@ -33,7 +33,7 @@ Cet article répertorie les questions de résolution de problèmes courantes.
 | Problème                                                        | Résolution :                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Des utilisateurs Azure Active Directory sont manquants dans l’explorateur d’objets Visual Studio           | Il s'agit d'un problème connu.  Comme solution de contournement, vous pouvez afficher les utilisateurs dans [sys.database_principals][sys.database_principals].  Consultez la page [Authentification sur Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] pour en savoir plus sur l’utilisation d’Azure Active Directory avec SQL Data Warehouse. |
-| Les scripts manuels, l’utilisation de l’Assistant Création de scripts ou la connexion via SSMS sont lents, bloqués ou produisent des erreurs | Vérifiez que les utilisateurs ont été créés dans la base de données master. Dans les options de script, vérifiez aussi que l’édition du moteur est définie en tant que « Édition Microsoft Azure SQL Data Warehouse » et que le type de moteur est « Microsoft Azure SQL Database ». |
+| Manuel de scripts, à l’aide de l’Assistant de script ou qui se connectent via SSMS est lent, ne répond ne pas, ou la production d’erreurs | Vérifiez que les utilisateurs ont été créés dans la base de données master. Dans les options de script, vérifiez aussi que l’édition du moteur est définie en tant que « Édition Microsoft Azure SQL Data Warehouse » et que le type de moteur est « Microsoft Azure SQL Database ». |
 | La génération de scripts échoue dans SSMS                             | La génération d’un script pour SQL Data Warehouse échoue si l’option « Générer un script pour les objets dépendants » a la valeur « True ». Pour résoudre ce problème, les utilisateurs doivent accéder manuellement à Outils -> Options -> Explorateur d’objets SQL Server -> Générer un script pour les options dépendants et affecter la valeur false à cette option. |
 
 ## <a name="performance"></a>Performances

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/08/2019
+ms.date: 04/18/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360548"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004769"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -87,7 +87,7 @@ Vous installez sur chaque machine virtuelle que vous souhaitez répliquer, à l�
 - [Installation manuelle](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) à partir de l’interface utilisateur ou Powershell.
 - Déploiement à l’aide d’un outil de déploiement tels que [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
-## <a name="managed-disks"></a>Disques gérés
+## <a name="managed-disks"></a>Disques managés
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Où Site Recovery répliquer des données vers ?
 
@@ -111,7 +111,7 @@ Réplication de nouvelles machines virtuelles à un compte de stockage est uniqu
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Puis-je modifier le type de disque géré une fois que l’ordinateur est protégé ?
 
-Oui, vous pouvez facilement [modifier le type de disque géré](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Toutefois, si vous pouvez le type de disque géré, attendre des points de récupération fraîches est généré si vous devez basculement ou test de basculement après la modification.
+Oui, vous pouvez facilement [modifier le type de disque géré](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Avant de modifier le type, assurez-vous que vous révoquez l’URL SAS pour le disque en accédant à la ressource de disque managé sur le portail Azure. Dans le panneau Vue d’ensemble, annuler toute exportation en cours. Une fois que l’URL SAS est révoqué, modifiez le type du disque dans quelques minutes. Toutefois, si vous modifiez le type de disque managé, attendez que les points de récupération fraîches devant être généré par Azure Site Recovery. Utilisez les nouveaux points de récupération pour n’importe quel test de basculement ou le basculement à l’avenir.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Puis-je basculer la réplication à partir de disques gérés pour les disques non gérés ?
 

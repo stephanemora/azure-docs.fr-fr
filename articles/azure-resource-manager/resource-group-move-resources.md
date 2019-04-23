@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528235"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004055"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -63,7 +63,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Azure Database for MariaDB
 * Azure Database pour MySQL
 * Azure Database pour PostgreSQL
-* Azure DevOps : les organisations Azure DevOps ayant acheté des extensions non-Microsoft doivent [annuler leurs achats](https://go.microsoft.com/fwlink/?linkid=871160) avant de pouvoir déplacer le compte entre des abonnements.
+* Azure DevOps - suivez les étapes pour [modifier l’abonnement Azure utilisé pour la facturation](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
 * Azure Maps
 * Journaux d’activité Azure Monitor
 * Azure Relay
@@ -74,7 +74,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * CDN
 * Cloud Services : consultez [Limitations relatives au déploiement Classic](#classic-deployment-limitations)
 * Cognitive Services
-* Registre de conteneurs : un registre de conteneurs ne peut pas être déplacé quand la géoréplication est activée.
+* Container Registry
 * Content Moderator
 * Cost Management
 * Insights client

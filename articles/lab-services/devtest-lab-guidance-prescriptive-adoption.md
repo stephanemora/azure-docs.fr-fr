@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 67bb81675dabd8aef28693a958a0ac39b1b441e7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: e1d119f3c7c5d6dbdb570d362c53b80dad7886bd
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549239"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149000"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Configurer l’infrastructure d’Azure DevTest Labs dans votre entreprise
-Les entreprises adoptent rapidement le cloud en raison de son [avantages](/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) qui incluent l’économie, la flexibilité et agilité. Une première étape courants pour les clients à utiliser le cloud consiste à démarrer avec les charges de travail de développement et de test.  Dev/test fournit [fonctionnalités](devtest-lab-concepts.md) qui bénéficient de l’entreprise et la prise en charge [principaux scénarios de développement/test enterprise](devtest-lab-guidance-get-started.md).
+Les entreprises adoptent rapidement le cloud en raison de son [avantages](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) qui incluent l’économie, la flexibilité et agilité. Une première étape courants pour les clients à utiliser le cloud consiste à démarrer avec les charges de travail de développement et de test.  Dev/test fournit [fonctionnalités](devtest-lab-concepts.md) qui bénéficient de l’entreprise et la prise en charge [principaux scénarios de développement/test enterprise](devtest-lab-guidance-get-started.md).
 
 Il existe un ensemble commun de problèmes lors de la migration de ces charges de travail vers le cloud :
 
@@ -35,6 +35,10 @@ Il existe un ensemble commun de problèmes lors de la migration de ces charges d
 
 ## <a name="intended-audience"></a>Public concerné
 La documentation sur les innombrables est destinée aux planificateurs en informatique, les architectes et les responsables de l’établissement et de révision de déploiements globales et de superviser les pratiques d’opérations. Par conséquent, ce document met l’accent sur l’ensemble du processus et principes de conception pour promouvoir un environnement stable et sécurisé développement/test, ce qui finalement pilote adoption d’Azure DevTest Labs au sein d’une organisation recommandés.
+
+## <a name="enterprise-customers"></a>Clients d’entreprise
+
+De nombreux clients d’entreprise dev/test en cours utilisent DevTest Labs pour le développement et test des charges de travail dans leur organisation. [Plus d’informations](https://azure.microsoft.com/en-us/case-studies/?term=DevTest+labs)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Architecture de référence pour une entreprise](devtest-lab-reference-architecture.md)
