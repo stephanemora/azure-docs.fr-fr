@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 46eb23cf23506b950142068146283345db71a3ea
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520817"
 documentType: LandingData
 title: Documentation Gestion des appareils Azure AD
 metadata:
-  document_id: 
-  title: Documentation relative à la gestion des appareils Azure AD - Tutoriels, concepts, références | Microsoft Docs
+  document_id: null
+  title: 'Documentation relative à la gestion des appareils Azure AD - Tutoriels, concepts, références | Microsoft Docs'
   description: Découvrez comment configurer et tester la gestion des appareils Azure Active.
   services: active-directory
   ms.subservice: devices
@@ -22,20 +16,20 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: Grâce aux appareils, les utilisateurs peuvent accéder aux ressources d’entreprise. Pour protéger vos ressources d’entreprise, en tant qu’administrateur informatique, vous souhaitez avoir le contrôle de ces appareils. Cela vous permet de vous assurer que vos utilisateurs ont accès à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité.<br>La gestion des appareils est également à la base de l’accès conditionnel en fonction de l’appareil. Avec l’accès conditionnel en fonction des appareils, vous pouvez faire en sorte que l’accès aux ressources de votre environnement ne soit possible qu’avec des appareils gérés.
+  description: 'Grâce aux appareils, les utilisateurs peuvent accéder aux ressources d’entreprise. Pour protéger vos ressources d’entreprise, en tant qu’administrateur informatique, vous souhaitez avoir le contrôle de ces appareils. Cela vous permet de vous assurer que vos utilisateurs ont accès à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité.<br>La gestion des appareils est également à la base de l’accès conditionnel en fonction de l’appareil. Avec l’accès conditionnel en fonction des appareils, vous pouvez faire en sorte que l’accès aux ressources de votre environnement ne soit possible qu’avec des appareils gérés.'
 sections:
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Découvrez comment intégrer vos appareils joints à AD sur site avec Azure AD.
-  - type: list
-    style: icon48
+  - title: Didacticiels pas à pas
     items:
-    - image:
-        src: ./media/index/i_security-management.png
-      text: les domaines managés ;
-      href: hybrid-azuread-join-managed-domains.md
-    - image:
-        src: ./media/index/i_security-management.png
-      text: les domaines fédérés.
-      href: hybrid-azuread-join-federated-domains.md
+      - type: paragraph
+        text: Découvrez comment intégrer vos appareils joints à AD sur site avec Azure AD.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_security-management.png
+            text: les domaines managés ;
+            href: hybrid-azuread-join-managed-domains.md
+          - image:
+              src: ./media/index/i_security-management.png
+            text: les domaines fédérés.
+            href: hybrid-azuread-join-federated-domains.md

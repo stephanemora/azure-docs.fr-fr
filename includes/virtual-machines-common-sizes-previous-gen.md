@@ -10,7 +10,7 @@ ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
 ms.openlocfilehash: d0802cfcf05874044b6e116ba194c16a79f9d309
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59550136"
@@ -71,7 +71,7 @@ Premium Storage :  Pris en charge
 
 Mise en cache du Stockage Premium :  Non pris en charge
  
-| Taille          | Processeurs virtuels | Mémoire (Gio) | Stockage temporaire (Gio) | Disques de données max. | Débit de stockage temporaire maximal (IOPS / Mo/s) | Débit de disque maximal sans mise en cache (IOPS / Mo/s) | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) | 
+| Taille          | Processeurs virtuels | Mémoire (Gio) | Stockage temporaire (Gio) | Disques de données max. | Débit de stockage temporaire maximal (IOPS / Mbit/s) | Débit de disque maximal sans mise en cache (IOPS / Mbit/s) | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) | 
 |----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
 | Standard_L4s   | 4  | 32  | 678   | 16 | 20,000 / 200 | 5 000 / 125  | 2 / 4,000  | 
 | Standard_L8s   | 8  | 64  | 1,388 | 32 | 40,000 / 400 | 10 000 / 250 | 4 / 8,000  | 

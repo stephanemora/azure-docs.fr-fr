@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3052d856d83a7bf7cbb41a90f92b598c8c24cd5e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669147"
 documentType: LandingData
 title: Documentation Avere vFXT for Azure
 metadata:
@@ -17,14 +11,14 @@ metadata:
   ms.date: 10/31/2018
   ms.author: v-erkell
 abstract:
-  description: Avere vFXT for Azure fournit une couche de mise en cache basée sur le cloud pour les tâches haute performance computing (HPC) gourmandes en données. En mettant en cache les fichiers proches de vos nœuds de traitement, Avere vFXT accélère les temps de lecture et vous permet de travailler plus facilement, y compris pendant les pics de charge. Avere vFXT fonctionne mieux avec les systèmes comprenant entre 1 000 et 40 000 cœurs clients. <p>Avere vFXT peut fonctionner avec votre stockage de données local existant, en fournissant aux ressources de calcul basées sur Azure un accès local aux fichiers actifs stockés à long terme dans votre centre de données.
+  description: "Avere vFXT for Azure fournit une couche de mise en cache basée sur le cloud pour les tâches haute performance computing (HPC) gourmandes en données. En mettant en cache les fichiers proches de vos nœuds de traitement, Avere vFXT accélère les temps de lecture et vous permet de travailler plus facilement, y compris pendant les pics de charge. Avere vFXT fonctionne mieux avec les systèmes comprenant entre 1\_000 et 40\_000 cœurs clients. <p>Avere vFXT peut fonctionner avec votre stockage de données local existant, en fournissant aux ressources de calcul basées sur Azure un accès local aux fichiers actifs stockés à long terme dans votre centre de données."
 sections:
-- title: Commencer avec Avere vFXT pour Azure
-  items:
-  - type: list
-    style: unordered
+  - title: Commencer avec Avere vFXT pour Azure
     items:
-    - html: <a href="avere-vfxt-deploy-plan">Planifier votre système vFXT Avere pour Azure</a>
-    - html: <a href="avere-vfxt-deploy-overview">En savoir plus sur le déploiement Avere vFXT</a>
-    - html: <a href="avere-vfxt-prereqs">Remplir les conditions préalables</a>
-    - html: <a href="avere-vfxt-deploy">Déployer le cluster Avere vFXT</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="avere-vfxt-deploy-plan">Planifier votre système vFXT Avere pour Azure</a>
+          - html: <a href="avere-vfxt-deploy-overview">En savoir plus sur le déploiement Avere vFXT</a>
+          - html: <a href="avere-vfxt-prereqs">Remplir les conditions préalables</a>
+          - html: <a href="avere-vfxt-deploy">Déployer le cluster Avere vFXT</a>

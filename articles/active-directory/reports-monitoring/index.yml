@@ -28,7 +28,7 @@ sections:
           - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Télécharger un rapport de connexion</a>
           - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Télécharger un rapport d’audit</a>
           - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Installer le pack de contenu Power BI pour les rapports</a>
-          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Acheminer des journaux vers un compte de stockage</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Acheminer des journaux d’activité vers un compte de stockage</a>
   - title: Didacticiels pas à pas
     items:
       - type: paragraph

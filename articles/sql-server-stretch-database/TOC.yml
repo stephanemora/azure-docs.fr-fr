@@ -1,63 +1,56 @@
-items:
 - name: Documentation SQL Server Stretch Database
   href: index.md
 - name: Vue d’ensemble
   items:
-  - name: Qu’est-ce que Stretch Database ?
-    href: /sql/sql-server/stretch-database/stretch-database
-  - name: Limitations et erreurs majeures
-    href: /sql/sql-server/stretch-database/limitations-for-stretch-database
+    - name: "Qu’est-ce que Stretch Database\_?"
+      href: /sql/sql-server/stretch-database/stretch-database
+    - name: Limitations et erreurs majeures
+      href: /sql/sql-server/stretch-database/limitations-for-stretch-database
 - name: Prise en main
   items:
-  - name: Identifier les bases de données et les tables
-    href: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
-  - name: Exécuter l’Assistant
-    href: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
+    - name: Identifier les bases de données et les tables
+      href: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
+    - name: Exécuter l’Assistant
+      href: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
 - name: Procédure
   items:
-  - name: Activer
-    items:
-    - name: Activer une base de données
-      href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-database
-    - name: Activer une table
-      href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-table
-    - name: Sélectionner les lignes à migrer
-      href: /sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database
-  - name: gérer
-    items:
-    - name: Surveiller la migration de données
-      href: /sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database
-    - name: Suspendre et reprendre la migration
-      href: /sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database
-    - name: Gérer et résoudre les problèmes
-      href: /sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database
-    - name: Sauvegarder
-      href: /sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database
-    - name: Restore
-      href: /sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database
-    - name: Désactiver Stretch Database
-      href: /sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data
+    - name: Activer
+      items:
+        - name: Activer une base de données
+          href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-database
+        - name: Activer une table
+          href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-table
+        - name: Sélectionner les lignes à migrer
+          href: /sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database
+    - name: gérer
+      items:
+        - name: Surveiller la migration de données
+          href: /sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database
+        - name: Suspendre et reprendre la migration
+          href: /sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database
+        - name: Gérer et résoudre les problèmes
+          href: /sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database
+        - name: Sauvegarder
+          href: /sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database
+        - name: Restore
+          href: /sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database
+        - name: Désactiver Stretch Database
+          href: /sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data
 - name: Informations de référence
   items:
-  - name: Exemples de code
-    href: https://azure.microsoft.com/resources/samples/?service=sql-server-database
+    - name: Exemples de code
+      href: 'https://azure.microsoft.com/resources/samples/?service=sql-server-database'
 - name: Ressources
   items:
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Blog
-    href: https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/
-  - name: Tarifs
-    href: https://azure.microsoft.com/pricing/details/sql-server-stretch-database/
-  - name: Calculatrice de prix
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Mises à jour de service
-    href: https://azure.microsoft.com/updates/?product=sql-server-stretch-database
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database
-ms.openlocfilehash: ba3a3cfe763f17e07dc4bcd0c3106acbc352577f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340657"
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Blog
+      href: 'https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/sql-server-stretch-database/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=sql-server-stretch-database'
+    - name: Videos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database'

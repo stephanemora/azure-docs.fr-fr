@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 418410bfe1cb7c10d6095ee7175a2637501ce40f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520443"
 documentType: LandingData
-title: Documentation Azure HDInsight
+title: "Documentation Azure\_HDInsight"
 metadata:
-  title: Documentation Azure HDInsight - Didacticiels, informations de référence sur les API | Microsoft Docs
-  description: Découvrez Apache Hadoop sur HDInsight. La documentation vous montre comment utiliser, entre autres, Apache Hadoop, Apache Spark, Apache Kafka et Apache HBase pour traiter, analyser et interpréter le Big Data.
+  title: "Documentation Azure HDInsight\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
+  description: 'Découvrez Apache Hadoop sur HDInsight. La documentation vous montre comment utiliser, entre autres, Apache Hadoop, Apache Spark, Apache Kafka et Apache HBase pour traiter, analyser et interpréter le Big Data.'
   services: hdinsight
   author: hrasheed-msft
   ms.author: hrasheed
@@ -17,77 +11,77 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/26/2019
 abstract:
-  description: Découvrez comment utiliser Azure HDInsight pour analyser les données de diffusion en continu ou historiques. Des didacticiels et d’autres documents vous montrent comment créer des clusters, traiter et analyser les données Big Data, et développer des solutions à l’aide des infrastructures open source les plus courantes, telles que Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm et Microsoft Machine Learning Server.<p>Azure HDInsight est un service d’analytique open source managé et complet pour les entreprises. HDInsight est un service cloud qui rend facile, rapide et économique le traitement de volumes importants de données. HDInsight prend également en charge un large éventail de scénarios, tels que l’extraction, transformation et chargement (ETL) ; l’entreposage de données ; l’apprentissage automatique ; et IoT.</p>
+  description: "Découvrez comment utiliser Azure HDInsight pour analyser les données de diffusion en continu ou historiques. Des didacticiels et d’autres documents vous montrent comment créer des clusters, traiter et analyser les données Big Data, et développer des solutions à l’aide des infrastructures open source les plus courantes, telles que Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm et Microsoft Machine Learning Server.<p>Azure HDInsight est un service d’analytique open source managé et complet pour les entreprises. HDInsight est un service cloud qui rend facile, rapide et économique le traitement de volumes importants de données. HDInsight prend également en charge un large éventail de scénarios, tels que l’extraction, transformation et chargement (ETL)\_; l’entreposage de données\_; l’apprentissage automatique\_; et IoT.</p>"
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Apache Kafka sur HDInsight (17:19)
-    href: https://azure.microsoft.com/resources/videos/azure-friday-apache-kafka-on-hdinsight-ga/
+    title: 'Apache Kafka sur HDInsight (17:19)'
+    href: 'https://azure.microsoft.com/resources/videos/azure-friday-apache-kafka-on-hdinsight-ga/'
     width: 250
 sections:
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: 'Apprenez à créer un cluster HDInsight et à exécuter des travaux :'
-  - type: list
-    style: icon64
+  - title: "Démarrages en 5\_minutes"
     items:
-    - image:
-        src: media/index/hadoop_r.svg
-      text: Apache Hadoop
-      href: /azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal
-    - image:
-        src: media/index/spark_r.svg
-      text: Apache Spark
-      href: /azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal
-    - image:
-        src: media/index/kafka_r.svg
-      text: Apache Kafka
-      href: /azure/hdinsight/kafka/apache-kafka-get-started
-    - image:
-        src: media/index/hbase_r.svg
-      text: Apache HBase
-      href: /azure/hdinsight/hbase/apache-hbase-tutorial-get-started-linux
-    - image:
-        src: media/index/hive_r.svg
-      text: Interactive Query
-      href: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
-    - image:
-        src: media/index/storm_r.svg
-      text: Apache Storm
-      href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux
-    - image:
-        src: media/index/ml-server_r.svg
-      text: ML Services
-      href: /azure/hdinsight/r-server/r-server-get-started
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: 'Découvrez comment utiliser Azure HDInsight dans différents scénarios :'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Apprenez à créer un cluster HDInsight et à exécuter des travaux :'
+      - type: list
+        style: icon64
+        items:
+          - image:
+              src: media/index/hadoop_r.svg
+            text: "Apache\_Hadoop"
+            href: /azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal
+          - image:
+              src: media/index/spark_r.svg
+            text: Apache Spark
+            href: /azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal
+          - image:
+              src: media/index/kafka_r.svg
+            text: Apache Kafka
+            href: /azure/hdinsight/kafka/apache-kafka-get-started
+          - image:
+              src: media/index/hbase_r.svg
+            text: Apache HBase
+            href: /azure/hdinsight/hbase/apache-hbase-tutorial-get-started-linux
+          - image:
+              src: media/index/hive_r.svg
+            text: Interactive Query
+            href: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
+          - image:
+              src: media/index/storm_r.svg
+            text: Apache Storm
+            href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux
+          - image:
+              src: media/index/ml-server_r.svg
+            text: ML Services
+            href: /azure/hdinsight/r-server/r-server-get-started
+  - title: Didacticiels pas à pas
     items:
-    - html: Apache Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Effectuer des opérations ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Créer des clusters à la demande</a>
-    - html: Apache Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Exécuter des requêtes interactives</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualiser les données</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Machine learning</a>
-    - html: Apache Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Flux structuré avec Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Utilisation avec Storm sur HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Utiliser les API de producteur et de consommateur Kafka</a>
-    - html: Apache HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Créer des clusters HBase dans un réseau virtuel</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Utiliser Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Se connecter à Spark</a>
-    - html: Requête interactive &#58 ; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">Se connecter à Power BI à l’aide d’une requête directe</a>
-    - html: Apache Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Créer une topologie Storm dans Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Déployer des topologies Storm sur HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Écrire à partir de Storm sur Data Lake Storage</a>
-    - html: ML Services &#58 ; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Utiliser Outils R pour Visual Studio</a>
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Découvrez comment utiliser Azure HDInsight dans différents scénarios :'
+      - type: list
+        style: unordered
+        items:
+          - html: 'Apache Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Effectuer des opérations ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Créer des clusters à la demande</a>'
+          - html: 'Apache Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Exécuter des requêtes interactives</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualiser les données</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Machine learning</a>'
+          - html: 'Apache Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Flux structuré avec Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Utilisation avec Storm sur HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Utiliser les API de producteur et de consommateur Kafka</a>'
+          - html: 'Apache HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Créer des clusters HBase dans un réseau virtuel</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Utiliser Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Se connecter à Spark</a>'
+          - html: 'Requête interactive &#58 ; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">Se connecter à Power BI à l’aide d’une requête directe</a>'
+          - html: 'Apache Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Créer une topologie Storm dans Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Déployer des topologies Storm sur HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Écrire à partir de Storm sur Data Lake Storage</a>'
+          - html: 'ML Services &#58 ; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Utiliser Outils R pour Visual Studio</a>'
+  - title: Informations de référence
     items:
-    - title: Outils
-      html: <p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin">Outil HDInsight IntelliJ</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin">Outil HDInsight Eclipse</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode">Outil HDInsight VSCode</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started">Outil HDInsight Visual Studio</a></p>
-    - title: Ligne de commande
-      html: <p><a href="/powershell/module/az.hdinsight">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight">.NET (Hadoop)</a></p><p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/hdinsight/">API REST</a></p><p><a href="https://docs.microsoft.com/rest/api/hdinsightspark/">API REST (Spark)</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Outils
+            html: '<p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin">Outil HDInsight IntelliJ</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin">Outil HDInsight Eclipse</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode">Outil HDInsight VSCode</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started">Outil HDInsight Visual Studio</a></p>'
+          - title: Ligne de commande
+            html: <p><a href="/powershell/module/az.hdinsight">Azure PowerShell</a></p>
+          - title: Languages
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight">.NET (Hadoop)</a></p><p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/hdinsight/">API REST</a></p><p><a href="https://docs.microsoft.com/rest/api/hdinsightspark/">API REST (Spark)</a></p>'

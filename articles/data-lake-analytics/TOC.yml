@@ -1,163 +1,156 @@
-items:
 - name: Documentation Data Lake Analytics
   href: index.md
 - name: Vue d’ensemble
   items:
-  - name: Qu’est-ce que Data Lake Analytics ?
-    href: data-lake-analytics-overview.md
+    - name: "Qu’est-ce que Data Lake Analytics\_?"
+      href: data-lake-analytics-overview.md
 - name: Prise en main
   items:
-  - name: Portail Azure
-    href: data-lake-analytics-get-started-portal.md
-  - name: Visual Studio
-    href: data-lake-analytics-data-lake-tools-get-started.md
-  - name: Visual Studio Code
-    href: data-lake-analytics-data-lake-tools-for-vscode.md
-  - name: Azure PowerShell
-    href: data-lake-analytics-get-started-powershell.md
-  - name: Azure CLI
-    href: data-lake-analytics-get-started-cli.md
+    - name: Portail Azure
+      href: data-lake-analytics-get-started-portal.md
+    - name: Visual Studio
+      href: data-lake-analytics-data-lake-tools-get-started.md
+    - name: Visual Studio Code
+      href: data-lake-analytics-data-lake-tools-for-vscode.md
+    - name: Azure PowerShell
+      href: data-lake-analytics-get-started-powershell.md
+    - name: Azure CLI
+      href: data-lake-analytics-get-started-cli.md
 - name: Procédures
   items:
-  - name: Gérer Data Lake Analytics
-    items:
-    - name: Portail Azure
-      href: data-lake-analytics-manage-use-portal.md
-    - name: Ligne de commande
+    - name: Gérer Data Lake Analytics
       items:
-      - name: Azure CLI
-        href: data-lake-analytics-manage-use-cli.md
-      - name: Azure PowerShell
-        href: data-lake-analytics-manage-use-powershell.md
-    - name: Kits SDK
+        - name: Portail Azure
+          href: data-lake-analytics-manage-use-portal.md
+        - name: Ligne de commande
+          items:
+            - name: Azure CLI
+              href: data-lake-analytics-manage-use-cli.md
+            - name: Azure PowerShell
+              href: data-lake-analytics-manage-use-powershell.md
+        - name: Kits SDK
+          items:
+            - name: .NET
+              href: data-lake-analytics-manage-use-dotnet-sdk.md
+            - name: Python
+              href: data-lake-analytics-manage-use-python-sdk.md
+            - name: Java
+              href: data-lake-analytics-manage-use-java-sdk.md
+            - name: Node.js
+              href: data-lake-analytics-manage-use-nodejs.md
+        - name: Ajouter des utilisateurs
+          href: data-lake-analytics-add-users.md
+        - name: Stratégies
+          href: data-lake-analytics-policies.md
+        - name: Sécuriser les dossiers de travail
+          href: data-lake-analytics-secure.md
+        - name: Accéder aux journaux de diagnostic
+          href: data-lake-analytics-diagnostic-logs.md
+        - name: Ajuster les limites de quota
+          href: data-lake-analytics-quota-limits.md
+    - name: Développer des programmes U-SQL
       items:
-      - name: .NET
-        href: data-lake-analytics-manage-use-dotnet-sdk.md
-      - name: Python
-        href: data-lake-analytics-manage-use-python-sdk.md
-      - name: Java
-        href: data-lake-analytics-manage-use-java-sdk.md
-      - name: Node.js
-        href: data-lake-analytics-manage-use-nodejs.md
-    - name: Ajouter des utilisateurs
-      href: data-lake-analytics-add-users.md
-    - name: Stratégies
-      href: data-lake-analytics-policies.md
-    - name: Sécuriser les dossiers de travail
-      href: data-lake-analytics-secure.md
-    - name: Accéder aux journaux de diagnostic
-      href: data-lake-analytics-diagnostic-logs.md
-    - name: Ajuster les limites de quota
-      href: data-lake-analytics-quota-limits.md
-  - name: Développer des programmes U-SQL
-    items:
-    - name: Langage U-SQL
+        - name: Langage U-SQL
+          items:
+            - name: Concepts de base
+              href: data-lake-analytics-u-sql-get-started.md
+            - name: Référence sur le langage
+              href: 'https://msdn.microsoft.com/library/azure/mt591959'
+            - name: Catalogue
+              href: data-lake-analytics-u-sql-catalog.md
+            - name: Opérateurs définis par l’utilisateur
+              href: data-lake-analytics-u-sql-develop-user-defined-operators.md
+            - name: Extensions Python
+              href: data-lake-analytics-u-sql-python-extensions.md
+            - name: "Extensions\_R"
+              href: data-lake-analytics-u-sql-r-extensions.md
+            - name: Extensions cognitives
+              href: data-lake-analytics-u-sql-cognitive.md
+            - name: Guide de programmabilité
+              href: data-lake-analytics-u-sql-programmability-guide.md
+        - name: Visual Studio
+          items:
+            - name: Installer
+              href: data-lake-analytics-data-lake-tools-install.md
+            - name: Exécution locale
+              href: data-lake-analytics-data-lake-tools-local-run.md
+            - name: Débogage local
+              href: data-lake-analytics-data-lake-tools-local-debug.md
+            - name: Développer des bases de données U-SQL
+              href: data-lake-analytics-data-lake-tools-develop-usql-database.md
+            - name: Parcourir et afficher des travaux
+              href: data-lake-analytics-data-lake-tools-view-jobs.md
+            - name: "Déboguer un code\_C# personnalisé"
+              href: data-lake-analytics-debug-u-sql-jobs.md
+            - name: Résoudre les problèmes liés aux travaux récurrents
+              href: data-lake-analytics-data-lake-tools-debug-recurring-job.md
+            - name: Détails de l’exécution du vertex
+              href: data-lake-analytics-data-lake-tools-use-vertex-execution-view.md
+            - name: Exporter une base de données U-SQL
+              href: data-lake-analytics-data-lake-tools-export-database.md
+            - name: Analyser les journaux d’activité des sites web
+              href: data-lake-analytics-analyze-weblogs.md
+            - name: Résoudre l’asymétrie des données
+              href: data-lake-analytics-data-lake-tools-data-skew-solutions.md
+            - name: Travaux de surveillance et de résolution des problèmes
+              href: data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md
+        - name: Visual Studio Code
+          items:
+            - name: Création
+              href: data-lake-analytics-data-lake-tools-for-vscode.md
+            - name: Code personnalisé
+              href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
+            - name: Exécution et débogage locaux
+              href: data-lake-tools-for-vscode-local-run-and-debug.md
+    - name: Planifier des tâches U-SQL
       items:
-      - name: Concepts de base
-        href: data-lake-analytics-u-sql-get-started.md
-      - name: Référence sur le langage
-        href: https://msdn.microsoft.com/library/azure/mt591959
-      - name: Catalogue
-        href: data-lake-analytics-u-sql-catalog.md
-      - name: Opérateurs définis par l’utilisateur
-        href: data-lake-analytics-u-sql-develop-user-defined-operators.md
-      - name: Extensions Python
-        href: data-lake-analytics-u-sql-python-extensions.md
-      - name: Extensions R
-        href: data-lake-analytics-u-sql-r-extensions.md
-      - name: Extensions cognitives
-        href: data-lake-analytics-u-sql-cognitive.md
-      - name: Guide de programmabilité
-        href: data-lake-analytics-u-sql-programmability-guide.md
-    - name: Visual Studio
+        - name: Planifier des tâches avec SSIS
+          href: data-lake-analytics-schedule-jobs-ssis.md
+    - name: Intégration et déploiement continus
       items:
-      - name: Installer
-        href: data-lake-analytics-data-lake-tools-install.md
-      - name: Exécution locale
-        href: data-lake-analytics-data-lake-tools-local-run.md
-      - name: Débogage local
-        href: data-lake-analytics-data-lake-tools-local-debug.md
-      - name: Développer des bases de données U-SQL
-        href: data-lake-analytics-data-lake-tools-develop-usql-database.md
-      - name: Parcourir et afficher des travaux
-        href: data-lake-analytics-data-lake-tools-view-jobs.md
-      - name: Déboguer un code C# personnalisé
-        href: data-lake-analytics-debug-u-sql-jobs.md
-      - name: Résoudre les problèmes liés aux travaux récurrents
-        href: data-lake-analytics-data-lake-tools-debug-recurring-job.md
-      - name: Détails de l’exécution du vertex
-        href: data-lake-analytics-data-lake-tools-use-vertex-execution-view.md
-      - name: Exporter une base de données U-SQL
-        href: data-lake-analytics-data-lake-tools-export-database.md
-      - name: Analyser les journaux d’activité des sites web
-        href: data-lake-analytics-analyze-weblogs.md
-      - name: Résoudre l’asymétrie des données
-        href: data-lake-analytics-data-lake-tools-data-skew-solutions.md
-      - name: Travaux de surveillance et de résolution des problèmes
-        href: data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md
-    - name: Visual Studio Code
-      items:
-      - name: Création
-        href: data-lake-analytics-data-lake-tools-for-vscode.md
-      - name: Code personnalisé
-        href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
-      - name: Exécution et débogage locaux
-        href: data-lake-tools-for-vscode-local-run-and-debug.md
-  - name: Planifier des tâches U-SQL
-    items:
-    - name: Planifier des tâches avec SSIS
-      href: data-lake-analytics-schedule-jobs-ssis.md
-  - name: Intégration et déploiement continus
-    items:
-    - name: Vue d’ensemble
-      href: data-lake-analytics-cicd-overview.md
-    - name: Inscription d’assembly
-      href: data-lake-analytics-cicd-manage-assemblies.md
-    - name: Configurer des tests
-      href: data-lake-analytics-cicd-test.md
-    - name: KIT DE DÉVELOPPEMENT LOGICIEL (SDK) U-SQL
-      href: data-lake-analytics-u-sql-sdk.md
+        - name: Vue d’ensemble
+          href: data-lake-analytics-cicd-overview.md
+        - name: Inscription d’assembly
+          href: data-lake-analytics-cicd-manage-assemblies.md
+        - name: Configurer des tests
+          href: data-lake-analytics-cicd-test.md
+        - name: KIT DE DÉVELOPPEMENT LOGICIEL (SDK) U-SQL
+          href: data-lake-analytics-u-sql-sdk.md
 - name: Informations de référence
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.datalakeanalytics
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.datalake.analytics
-  - name: Node.js
-    href: https://www.npmjs.com/package/azure-arm-datalake-analytics
-  - name: Python
-    href: https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python
-  - name: REST
-    href: /rest/api/datalakeanalytics/
-  - name: Modèle Resource Manager
-    href: /azure/templates/microsoft.datalakeanalytics/allversions
-  - name: Interface de ligne de commande
-    href: https://docs.microsoft.com/cli/azure/dla
+    - name: Azure PowerShell
+      href: /powershell/module/az.datalakeanalytics
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.datalake.analytics
+    - name: Node.js
+      href: 'https://www.npmjs.com/package/azure-arm-datalake-analytics'
+    - name: Python
+      href: 'https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python'
+    - name: REST
+      href: /rest/api/datalakeanalytics/
+    - name: Modèle Resource Manager
+      href: /azure/templates/microsoft.datalakeanalytics/allversions
+    - name: Interface de ligne de commande
+      href: 'https://docs.microsoft.com/cli/azure/dla'
 - name: Ressources
   items:
-  - name: Blog sur Azure Data Lake
-    href: https://blogs.msdn.microsoft.com/azuredatalake/
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
-  - name: Demander des changements
-    href: https://feedback.azure.com/forums/327234-data-lake
-  - name: Forum MSDN
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake
-  - name: Tarifs
-    href: https://azure.microsoft.com/pricing/details/data-lake-analytics/
-  - name: Calculatrice de prix
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Mises à jour de service
-    href: https://azure.microsoft.com/updates/?product=data-lake-analytics
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-data-lake
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics
-  - name: Exemples de code
-    href: https://azure.microsoft.com/resources/samples/?service=data-lake-analytics
-ms.openlocfilehash: 34553cebfdad45477b0442e9966b3b15c81bd1f4
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340980"
+    - name: Blog sur Azure Data Lake
+      href: 'https://blogs.msdn.microsoft.com/azuredatalake/'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+    - name: Demander des changements
+      href: 'https://feedback.azure.com/forums/327234-data-lake'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/data-lake-analytics/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=data-lake-analytics'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-data-lake'
+    - name: Videos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics'
+    - name: Exemples de code
+      href: 'https://azure.microsoft.com/resources/samples/?service=data-lake-analytics'

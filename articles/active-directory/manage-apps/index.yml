@@ -1,57 +1,51 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d7b9dff034aca6c7602ea72fadfcdc53b11fe15
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335876"
 documentType: LandingData
 title: Documentation Gestion des applications
 metadata:
-  title: Documentation Gestion des applications Azure AD - Azure Active Directory
+  title: "Documentation Gestion des applications Azure\_AD\_- Azure Active Directory"
   description: Découvrez comment gérer et déployer des applications avec Azure Active Directory.
   services: active-directory
   author: barbkess
   manager: daveba
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: active-directory
   ms.topic: landing-page
   ms.date: 09/14/2018
   ms.author: barbkess
 abstract:
-  description: Azure Active Directory fournit un accès sécurisé et fluide aux applications cloud et locales. De plus, vous n’avez pas besoin de gérer les mots de passe. Vos utilisateurs peuvent se connecter une fois pour accéder à Office 365 et à des milliers d’autres applications. Découvrez comment gérer et déployer des applications avec nos guides de démarrage rapide, tutoriels et conseils.
+  description: 'Azure Active Directory fournit un accès sécurisé et fluide aux applications cloud et locales. De plus, vous n’avez pas besoin de gérer les mots de passe. Vos utilisateurs peuvent se connecter une fois pour accéder à Office 365 et à des milliers d’autres applications. Découvrez comment gérer et déployer des applications avec nos guides de démarrage rapide, tutoriels et conseils.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Sécuriser l’accès à vos applications avec Azure AD (1:47)
-    href: https://youtu.be/BSUuXXcJKCk/
+    title: 'Sécuriser l’accès à vos applications avec Azure AD (1:47)'
+    href: 'https://youtu.be/BSUuXXcJKCk/'
     width: 250
 sections:
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: Découvrez comment ajouter une application à laquelle des utilisateurs peuvent accéder via Azure Active Directory.
-  - type: list
-    style: icon48
+  - title: "Démarrages en 5\_minutes"
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Ajouter une application
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Afficher vos applications
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Découvrez comment activer un processus d’authentification simple et sécurisé pour vos applications.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Découvrez comment ajouter une application à laquelle des utilisateurs peuvent accéder via Azure Active Directory.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Ajouter une application
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal'
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Afficher vos applications
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal'
+  - title: Didacticiels pas à pas
     items:
-    - html: <a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Tutoriels sur les applications SaaS</a>
-    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configurer l’authentification unique</a>
+      - type: paragraph
+        text: Découvrez comment activer un processus d’authentification simple et sécurisé pour vos applications.
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Tutoriels sur les applications SaaS</a>'
+          - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configurer l’authentification unique</a>

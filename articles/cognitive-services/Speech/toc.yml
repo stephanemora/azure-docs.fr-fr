@@ -1,4 +1,4 @@
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   href: Home.md
 - name: Prise en main
   expanded: true
@@ -23,7 +23,7 @@
   href: samples.md
 - name: Concepts
   href: concepts.md
-- name: Procédures
+- name: Guides pratiques
   items:
     - name: Authentification pour utiliser le service
       href: How-to/how-to-authentication.md

@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 08426b9cb6dee2abd445f2e29eb4bf4d20a6e06d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475672"
 documentType: LandingData
 title: Documentation sur la machine virtuelle de science des données Azure
 metadata:
   title: Documentation sur la machine virtuelle de science des données - Azure
-  description: Découvrez comment utiliser la machine virtuelle de science des données, un environnement expérimental dans le cloud Azure créé spécifiquement pour le travail en science des données. Elle inclut de nombreux outils de science des données populaires et d’autres outils sont préinstallés et préconfigurés afin d’accélérer la création d’applications intelligentes à des fins d’analyse avancée.
+  description: 'Découvrez comment utiliser la machine virtuelle de science des données, un environnement expérimental dans le cloud Azure créé spécifiquement pour le travail en science des données. Elle inclut de nombreux outils de science des données populaires et d’autres outils sont préinstallés et préconfigurés afin d’accélérer la création d’applications intelligentes à des fins d’analyse avancée.'
   services: machine-learning
   author: gopitk
   manager: cgronlun
@@ -21,45 +15,45 @@ metadata:
   ms.date: 01/18/2018
   ms.author: gokuma
 abstract:
-  description: Les machines virtuelles de science des données et d’apprentissage profond sont des images de machine virtuelle personnalisées sur Azure, chargées avec des outils de science des données utilisés pour créer des applications intelligentes d’analytique avancée.
+  description: 'Les machines virtuelles de science des données et d’apprentissage profond sont des images de machine virtuelle personnalisées sur Azure, chargées avec des outils de science des données utilisés pour créer des applications intelligentes d’analytique avancée.'
 sections:
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: 'Découvrez comment configurer une machine virtuelle de science des données basée sur Windows ou Linux :'
-  - type: list
-    style: unordered
+  - title: "Démarrages en 5\_minutes"
     items:
-    - html: <a href="provision-vm.md">Windows</a>
-    - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
-    - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: 'Apprendre à configurer et utiliser des machines virtuelles de science des données :'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: "Découvrez comment configurer une machine virtuelle de science des données basée sur\_Windows ou\_Linux\_:"
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="provision-vm.md">Windows</a>
+          - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
+          - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
+  - title: Didacticiels pas à pas
     items:
-    - html: <a href="provision-vm">Configurer une machine virtuelle de science des données Windows</a>
-    - html: <a href="vm-do-ten-things">Utiliser une machine virtuelle de science des données Windows</a>
-    - html: <a href="linux-dsvm-intro">Configurer une machine virtuelle de science des données Linux CentOS</a>
-    - html: <a href="dsvm-ubuntu-intro">Configurer une machine virtuelle de science des données Linux Ubuntu</a>
-    - html: <a href="linux-dsvm-walkthrough">Utiliser une machine virtuelle de science des données Linux</a>
-- title: Plus de technologies Microsoft Azure Machine Learning
-  items:
-  - type: paragraph
-    text: 'Autres technologies disponibles dans Microsoft Azure Machine Learning :'
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: "Apprendre à configurer et utiliser des machines virtuelles de science des données\_:"
+      - type: list
+        style: ordered
+        items:
+          - html: "<a href=\"provision-vm\">Configurer une machine virtuelle de science des données\_Windows</a>"
+          - html: "<a href=\"vm-do-ten-things\">Utiliser une machine virtuelle de science des données\_Windows</a>"
+          - html: "<a href=\"linux-dsvm-intro\">Configurer une machine virtuelle de science des données\_Linux\_CentOS</a>"
+          - html: "<a href=\"dsvm-ubuntu-intro\">Configurer une machine virtuelle de science des données\_Linux\_Ubuntu</a>"
+          - html: "<a href=\"linux-dsvm-walkthrough\">Utiliser une machine virtuelle de science des données\_Linux</a>"
+  - title: "Plus de technologies Microsoft\_Azure\_Machine\_Learning"
     items:
-    - title: Service Azure Machine Learning (préversion)
-      href: /azure/machine-learning/service/
-      image:
-        src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image:
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
+      - type: paragraph
+        text: "Autres technologies disponibles dans Microsoft\_Azure\_Machine\_Learning\_:"
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Service Azure Machine Learning (préversion)
+            href: /azure/machine-learning/service/
+            image:
+              src: media/index/i_machine-learning.svg
+              href: /azure/machine-learning/service/
+          - title: "Azure\_Machine\_Learning\_Studio"
+            href: /azure/machine-learning/studio/
+            image:
+              src: media/index/machine-learning-studio.svg
+              href: /azure/machine-learning/studio/

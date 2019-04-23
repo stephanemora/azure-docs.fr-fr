@@ -1,63 +1,56 @@
-items:
 - name: Documentation Azure Advisor
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Présentation d’Azure Advisor
-    href: advisor-overview.md
+    - name: Présentation d’Azure Advisor
+      href: advisor-overview.md
 - name: Tutoriels
   items:
-  - name: Bien démarrer avec Advisor
-    href: advisor-get-started.md
+    - name: Bien démarrer avec Advisor
+      href: advisor-get-started.md
 - name: Guides pratiques
   items:
-  - name: Améliorer la disponibilité d’une application Azure
-    href: advisor-high-availability-recommendations.md
-  - name: Sécuriser davantage les ressources
-    href: advisor-security-recommendations.md
-  - name: Améliorer les performances des applications Azure
-    href: advisor-performance-recommendations.md
-  - name: Réduire les coûts de service
-    href: advisor-cost-recommendations.md
-  - name: Configurer des recommandations
-    href: view-recommendations.md
-  - name: Autorisations et actions bloquées
-    href: permissions.md
+    - name: Améliorer la disponibilité d’une application Azure
+      href: advisor-high-availability-recommendations.md
+    - name: Sécuriser davantage les ressources
+      href: advisor-security-recommendations.md
+    - name: Améliorer les performances des applications Azure
+      href: advisor-performance-recommendations.md
+    - name: Réduire les coûts de service
+      href: advisor-cost-recommendations.md
+    - name: Configurer des recommandations
+      href: view-recommendations.md
+    - name: Autorisations et actions bloquées
+      href: permissions.md
 - name: Informations de référence
   items:
-  - name: Security Center
-    href: https://azure.microsoft.com/services/security-center/
-  - name: SQL DB Advisor
-    href: https://azure.microsoft.com/documentation/articles/sql-database-advisor/
-  - name: App Service
-    href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
-  - name: API REST
-    href: https://docs.microsoft.com/rest/api/advisor/
-  - name: Interface de ligne de commande
-    href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
-  - name: PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0
+    - name: Security Center
+      href: 'https://azure.microsoft.com/services/security-center/'
+    - name: SQL DB Advisor
+      href: 'https://azure.microsoft.com/documentation/articles/sql-database-advisor/'
+    - name: App Service
+      href: 'https://docs.microsoft.com/azure/app-service/app-service-best-practices'
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/advisor/'
+    - name: Interface de ligne de commande
+      href: 'https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest'
+    - name: PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0'
 - name: Ressources
   items:
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Tarifs
-    href: https://azure.microsoft.com/pricing/details/advisor
-  - name: Calculatrice de prix
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Mises à jour de service
-    href: https://azure.microsoft.com/updates/?product=advisor
-  - name: Disponibilité régionale
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=advisor
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=advisor
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=azure+advisor
-  - name: Exemples de code
-    href: https://azure.microsoft.com/resources/samples/?service=advisor
-ms.openlocfilehash: 5df886b26bf81ffefc7e8e18f9a0aa0c6412ab2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793674"
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/advisor'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=advisor'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=advisor'
+    - name: Videos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=advisor'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=azure+advisor'
+    - name: Exemples de code
+      href: 'https://azure.microsoft.com/resources/samples/?service=advisor'

@@ -17,11 +17,11 @@ ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: d5dd916f7e4434640db6dae6f8c5a73d1ff2d3e0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60187948"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utiliser le portail pour attacher un disque de données à une machine virtuelle Linux 
 Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Windows dans le Portail Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -57,13 +57,13 @@ Avant d’attacher des disques à votre machine virtuelle, lisez les conseils su
 
    ![Enregistrer le nouveau disque géré Azure](./media/attach-disk-portal/confirm-create-new-md.png)
 
-5. Après qu’Azure a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**. Étant donné que les disques gérés sont des ressources de niveau supérieur, le disque s’affiche à la racine du groupe de ressources :
+5. Après qu’Azure a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**. Étant donné que les disques managés sont des ressources de niveau supérieur, le disque s’affiche à la racine du groupe de ressources :
 
    ![Disque géré Azure dans le groupe de ressources](./media/attach-disk-portal/view-md-resource-group.png)
 
 ## <a name="attach-an-existing-disk"></a>Association d'un disque existant
 1. Dans le panneau **Disques**, cliquez sur **+ Ajouter un disque de données**.
-2. Cliquez sur le menu déroulant **Nom** pour afficher une liste des disques gérés disponibles dans votre abonnement Azure. Sélectionnez le disque géré à attacher :
+2. Cliquez sur le menu déroulant **Nom** pour afficher une liste des disques managés disponibles dans votre abonnement Azure. Sélectionnez le disque géré à attacher :
 
    ![Attacher un disque géré Azure existant](./media/attach-disk-portal/select-existing-md.png)
 

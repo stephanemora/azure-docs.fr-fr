@@ -1,69 +1,62 @@
-items:
 - name: Documentation Scheduler
   href: index.md
 - name: Vue d’ensemble
   items:
-  - name: Présentation d’Azure Scheduler
-    href: scheduler-intro.md
+    - name: Présentation d’Azure Scheduler
+      href: scheduler-intro.md
 - name: Prise en main
   items:
-  - name: Créer et gérer des travaux - Portail
-    href: scheduler-get-started-portal.md
-  - name: Migrer de Scheduler vers Logic Apps
-    href: migrate-from-scheduler-to-logic-apps.md
+    - name: "Créer et gérer des travaux\_- Portail"
+      href: scheduler-get-started-portal.md
+    - name: Migrer de Scheduler vers Logic Apps
+      href: migrate-from-scheduler-to-logic-apps.md
 - name: Concepts
   items:
-  - name: Concepts, termes et entités
-    href: scheduler-concepts-terms.md
+    - name: 'Concepts, termes et entités'
+      href: scheduler-concepts-terms.md
 - name: Guides pratiques
   items:
-  - name: Planifier et concevoir
-    items:
-    - name: Plans et facturation
-      href: scheduler-plans-billing.md
-    - name: Limites, quotas et valeurs par défaut
-      href: scheduler-limits-defaults-errors.md
-    - name: Haute disponibilité et fiabilité
-      href: scheduler-high-availability-reliability.md
-  - name: Développement
-    items:
-    - name: Générer des planifications complexes et des récurrences avancées
-      href: scheduler-advanced-complexity.md
-    - name: Créer et gérer des planifications - Azure PowerShell
-      href: scheduler-powershell-reference.md
-  - name: Sécuriser
-    items:
-    - name: Authentifier des appels sortants
-      href: scheduler-outbound-authentication.md
+    - name: Planifier et concevoir
+      items:
+        - name: Plans et facturation
+          href: scheduler-plans-billing.md
+        - name: 'Limites, quotas et valeurs par défaut'
+          href: scheduler-limits-defaults-errors.md
+        - name: Haute disponibilité et fiabilité
+          href: scheduler-high-availability-reliability.md
+    - name: Développement
+      items:
+        - name: Générer des planifications complexes et des récurrences avancées
+          href: scheduler-advanced-complexity.md
+        - name: "Créer et gérer des planifications\_- Azure PowerShell"
+          href: scheduler-powershell-reference.md
+    - name: Sécuriser
+      items:
+        - name: Authentifier des appels sortants
+          href: scheduler-outbound-authentication.md
 - name: Informations de référence
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/azurerm.scheduler
-  - name: API REST
-    href: /rest/api/scheduler
-  - name: Modèle Resource Manager
-    href: /azure/templates/microsoft.scheduler/allversions
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.scheduler
+    - name: API REST
+      href: /rest/api/scheduler
+    - name: Modèle Resource Manager
+      href: /azure/templates/microsoft.scheduler/allversions
 - name: Ressources
   items:
-  - name: Feuille de route Azure Scheduler
-    href: https://azure.microsoft.com/updates/?product=scheduler
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/updates/
-  - name: Forum MSDN
-    href: https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-scheduler
-  - name: Tarifs
-    href: https://azure.microsoft.com/pricing/details/scheduler/
-  - name: Calculatrice de prix
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Mises à jour de service
-    href: https://azure.microsoft.com/updates/?product=scheduler
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=scheduler
-ms.openlocfilehash: fa4c53b0061f9ef23f8086cdcd6bcc73fc55986c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341473"
+    - name: Feuille de route Azure Scheduler
+      href: 'https://azure.microsoft.com/updates/?product=scheduler'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/updates/'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-scheduler'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/scheduler/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=scheduler'
+    - name: Videos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=scheduler'

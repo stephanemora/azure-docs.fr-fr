@@ -1,62 +1,55 @@
-items:
 - name: Documentation sur Azure Governance
   href: index.yml
 - name: Vue d’ensemble
-  items:
-  - name: Gestion d’Azure
-    href: azure-management.md
   expanded: true
+  items:
+    - name: Gestion d’Azure
+      href: azure-management.md
 - name: Composants et Services
-  items:
-  - name: Groupes d'administration
-    items:
-    - name: Vue d’ensemble
-      href: management-groups/index.md
-    - name: Créer
-      href: management-groups/create.md
-    - name: gérer
-      href: management-groups/manage.md
-  - name: Graphe des ressources
-    href: resource-graph/overview.md
-  - name: Stratégie
-    href: policy/overview.md
-  - name: Blueprints
-    href: blueprints/overview.md
   expanded: true
+  items:
+    - name: Groupes d'administration
+      items:
+        - name: Vue d’ensemble
+          href: management-groups/index.md
+        - name: Créer
+          href: management-groups/create.md
+        - name: gérer
+          href: management-groups/manage.md
+    - name: Graphe des ressources
+      href: resource-graph/overview.md
+    - name: Stratégie
+      href: policy/overview.md
+    - name: Blueprints
+      href: blueprints/overview.md
 - name: Implémentations
-  items:
-  - name: Adoption du cloud d’entreprise
-    items:
-    - name: Qu’est-ce que la gouvernance des ressources cloud ?
-      href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-    - name: Gouvernance des accès aux ressources dans Azure
-      href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-    - name: Conception de gouvernance pour une équipe unique
-      href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-    - name: Conception de gouvernance pour plusieurs équipes
-      href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
-  - name: Structure d’entreprise Azure
-    items:
-    - name: Gouvernance normative de l’abonnement
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-    - name: Implémenter une structure d’entreprise Azure
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
   expanded: true
+  items:
+    - name: Adoption du cloud d’entreprise
+      items:
+        - name: Qu’est-ce que la gouvernance des ressources cloud ?
+          href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+        - name: Gouvernance des accès aux ressources dans Azure
+          href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
+        - name: Conception de gouvernance pour une équipe unique
+          href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
+        - name: Conception de gouvernance pour plusieurs équipes
+          href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
+    - name: Structure d’entreprise Azure
+      items:
+        - name: Gouvernance normative de l’abonnement
+          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+        - name: Implémenter une structure d’entreprise Azure
+          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
 - name: Ressources
   items:
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Calculatrice de prix
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: User Voice
-    href: https://feedback.azure.com/forums/915958-azure-governance
-  - name: Governance Video
-    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
-  - name: Chaîne YouTube Governance
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-ms.openlocfilehash: 1d6a62a682762060898d8599c5cee18929ef86e1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673902"
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: User Voice
+      href: 'https://feedback.azure.com/forums/915958-azure-governance'
+    - name: Governance Video
+      href: 'https://www.youtube.com/watch?v=MhGbKjlmuRs'
+    - name: Chaîne YouTube Governance
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'

@@ -1,81 +1,74 @@
-items:
 - name: Jenkins sur Azure
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: À propos de Jenkins sur Azure
-    href: overview.md
+    - name: À propos de Jenkins sur Azure
+      href: overview.md
 - name: Démarrages rapides
-  items:
-  - name: Créer un serveur Jenkins
-    href: install-jenkins-solution-template.md
   expanded: true
-- name: Tutoriels
   items:
-  - name: 1. Installer
-    items:
     - name: Créer un serveur Jenkins
       href: install-jenkins-solution-template.md
-  - name: 2. Configuration
-    items:
-    - name: Mettre à l’échelle avec Azure Container Instances
-      href: /azure/container-instances/container-instances-jenkins
-      maintainContext: true
-    - name: Mettre à l’échelle avec les agents de machines virtuelles Azure
-      href: jenkins-azure-vm-agents.md
-  - name: 3. Implémenter CI/CD
-    items:
-    - name: AKS
+- name: Tutoriels
+  items:
+    - name: 1. Installer
       items:
-      - name: CI/CD vers Kubernetes
-        href: /azure/aks/jenkins-continuous-deployment
-        maintainContext: true
-      - name: Déployer sur AKS à l’aide du modèle bleu/vert
-        href: jenkins-aks-blue-green-deployment.md
-    - name: App Service
+        - name: Créer un serveur Jenkins
+          href: install-jenkins-solution-template.md
+    - name: 2. Configuration
       items:
-      - name: Créer des ressources Azure dans un travail de pipeline
-        href: execute-cli-jenkins-pipeline.md
-      - name: Déployer une application à partir de GitHub sur App Service
-        href: tutorial-jenkins-deploy-web-app-azure-app-service.md
-    - name: Utiliser Jenkins avec Azure DevOps
-      href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
-      maintainContext: true
-    - name: Déployer sur Azure Functions
-      href: jenkins-azure-functions-deploy.md
-    - name: Publier dans Stockage Azure
-      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
-      maintainContext: true
-    - name: CI/CD vers les machines virtuelles Linux
-      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
-      maintainContext: true
-    - name: CI/CD sur Service Fabric
-      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
-      maintainContext: true
+        - name: Mettre à l’échelle avec Azure Container Instances
+          href: /azure/container-instances/container-instances-jenkins
+          maintainContext: true
+        - name: Mettre à l’échelle avec les agents de machines virtuelles Azure
+          href: jenkins-azure-vm-agents.md
+    - name: 3. Implémenter CI/CD
+      items:
+        - name: AKS
+          items:
+            - name: CI/CD vers Kubernetes
+              href: /azure/aks/jenkins-continuous-deployment
+              maintainContext: true
+            - name: Déployer sur AKS à l’aide du modèle bleu/vert
+              href: jenkins-aks-blue-green-deployment.md
+        - name: App Service
+          items:
+            - name: Créer des ressources Azure dans un travail de pipeline
+              href: execute-cli-jenkins-pipeline.md
+            - name: Déployer une application à partir de GitHub sur App Service
+              href: tutorial-jenkins-deploy-web-app-azure-app-service.md
+        - name: Utiliser Jenkins avec Azure DevOps
+          href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
+          maintainContext: true
+        - name: Déployer sur Azure Functions
+          href: jenkins-azure-functions-deploy.md
+        - name: Publier dans Stockage Azure
+          href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+          maintainContext: true
+        - name: CI/CD vers les machines virtuelles Linux
+          href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+          maintainContext: true
+        - name: CI/CD sur Service Fabric
+          href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+          maintainContext: true
 - name: Procédure
   items:
-  - name: Utiliser le plug-in App Service
-    href: deploy-jenkins-app-service-plugin.md
+    - name: Utiliser le plug-in App Service
+      href: deploy-jenkins-app-service-plugin.md
 - name: Exemples
   items:
-  - name: Exemples de scripts et de travaux
-    href: https://github.com/azure/jenkins
+    - name: Exemples de scripts et de travaux
+      href: 'https://github.com/azure/jenkins'
 - name: Ressources
   items:
-  - name: Plug-ins Jenkins pour Azure
-    href: jenkins-plugins.md
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Accueil de Jenkins
-    href: https://jenkins.io/
-  - name: Accueil de Jenkins X
-    href: https://jenkins-x.io
-  - name: Architecture de Jenkins
-    href: /azure/architecture/reference-architectures/jenkins/
-    maintainContext: true
-ms.openlocfilehash: c83891a0037f009d539f2d1101697a554f478b1d
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621360"
+    - name: Plug-ins Jenkins pour Azure
+      href: jenkins-plugins.md
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Accueil de Jenkins
+      href: 'https://jenkins.io/'
+    - name: Accueil de Jenkins X
+      href: 'https://jenkins-x.io'
+    - name: Architecture de Jenkins
+      href: /azure/architecture/reference-architectures/jenkins/
+      maintainContext: true
