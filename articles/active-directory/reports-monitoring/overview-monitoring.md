@@ -1,5 +1,5 @@
 ---
-title: En quoi consiste la surveillance d’Azure Active Directory ? (préversion) | Microsoft Docs
+title: En quoi consiste la surveillance d’Azure Active Directory ? | Microsoft Docs
 description: Fournit une vue d’ensemble de la surveillance d’Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de416d18505d0258da446318b3dc6a9853ff13e7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434855"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009026"
 ---
-# <a name="what-is-azure-active-directory-monitoring-preview"></a>En quoi consiste la surveillance d’Azure Active Directory ? (préversion)
+# <a name="what-is-azure-active-directory-monitoring"></a>En quoi consiste la surveillance d’Azure Active Directory ?
 
 La supervision d’Azure Active Directory (Azure AD) vous permet désormais d’acheminer vos journaux d’activité Azure AD vers différents points de terminaison. Vous pouvez ensuite la conserver pour une utilisation à long terme ou l’intégrer à des outils SIEM (Security Information and Event Management) tiers pour obtenir davantage d’informations sur votre environnement.
 
@@ -61,12 +61,12 @@ L’acheminement des journaux d’activité vers un Azure Event Hub vous permet 
 
 ## <a name="send-logs-to-azure-monitor-logs"></a>Envoyer des journaux d’activité aux journaux d’activité Azure Monitor
 
-La solution des [journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) regroupe les données de supervision provenant de différentes sources et fournit un langage de requête et un moteur d’analytique offrant des insights sur le fonctionnement de vos applications et de vos ressources. Si vous envoyez les journaux d’activité Azure AD aux journaux d’activité Azure Monitor, vous pouvez rapidement récupérer, superviser et signaler les données collectées. Découvrez comment [envoyer des données aux journaux d’activité Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
+La solution des [journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) regroupe les données de supervision provenant de différentes sources et fournit un langage de requête et un moteur d’analytique offrant des insights sur le fonctionnement de vos applications et de vos ressources. Si vous envoyez les journaux d’activité Azure AD aux journaux d’activité Azure Monitor, vous pouvez rapidement récupérer, superviser et signaler les données collectées. Découvrez comment [envoyer des données aux journaux d’activité Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
 
 Vous pouvez également installer les vues prédéfinies des journaux d’activité d’Azure AD afin de surveiller les scénarios courants qui entraînent des connexions et des événements d’audit. Découvrez comment [installer et utiliser les vues Log Analytics pour les journaux d’activité Azure AD](howto-install-use-log-analytics-views.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Journaux d’activité dans Azure Monitor](concept-activity-logs-azure-monitor.md)
-* [Transmettre en continu des journaux vers un Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [Envoyer des journaux aux journaux Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
+* [Transmettre en continu des journaux d’activité vers un Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
+* [Envoyer des journaux d’activité aux journaux d’activité Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
