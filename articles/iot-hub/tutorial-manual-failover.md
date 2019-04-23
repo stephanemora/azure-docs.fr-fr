@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093733"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002899"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Didacticiel : Effectuer un basculement manuel pour un hub IoT (préversion publique)
 
@@ -49,9 +49,6 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
     **Région**: sélectionnez une région proche de vous fait partie de la préversion. Ce didacticiel utilise`westus2`. Un basculement ne peut être effectué entre des régions Azure géographiquement associées. La région géographiquement associée à westus2 est WestCentralUS.
     
-   > [!NOTE]
-   > Le basculement manuel est actuellement disponible en préversion publique et n’est *pas* disponible dans les régions Azure suivantes : USA Est, USA Ouest, Europe Nord, Europe Ouest, Brésil Sud et USA Centre Sud.
-
    **Nom de IoT Hub** : spécifiez un nom pour votre IoT Hub. Le nom du hub doit être globalement unique. 
 
    ![Capture d’écran montrant le volet d’informations de base pour la création d’un IoT Hub](./media/tutorial-manual-failover/create-hub-02-basics.png)
