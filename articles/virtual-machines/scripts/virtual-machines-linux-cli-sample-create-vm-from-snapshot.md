@@ -50,7 +50,7 @@ Ce script utilise les commandes suivantes pour créer un disque géré, une mach
 | Commande | Notes |
 |---|---|
 | [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Obtient une capture instantanée à l’aide d’un nom de capture instantanée et d’un nom de groupe de ressources. La propriété Id de l’objet retourné est utilisée pour créer un disque géré.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Crée des disques gérés à partir d’une capture instantanée en utilisant un ID de capture instantanée, un nom de disque, un type de stockage et une taille  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Crée des disques managés à partir d’une capture instantanée en utilisant un ID de capture instantanée, un nom de disque, un type de stockage et une taille  |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Crée une machine virtuelle à l’aide d’un disque de système d’exploitation géré |
 
 ## <a name="next-steps"></a>Étapes suivantes

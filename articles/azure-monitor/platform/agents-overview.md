@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 8b10cb0d66103410159a09ca156be3ea180c068b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371925"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003494"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Vue d’ensemble des agents de surveillance Azure 
 Microsoft Azure offre plusieurs moyens de collecter différents types de données de machines virtuelles exécutant Microsoft Windows et Linux hébergées sur Azure, dans votre centre de données ou chez d’autres fournisseurs de cloud. Les trois types d’agents suivants sont disponibles pour surveiller une machine virtuelle :
@@ -70,7 +70,7 @@ Auparavant, plusieurs services Azure étaient regroupés dabs *Operations Manage
 * Les services Azure tels que [Application Insights](https://docs.microsoft.com/azure/application-insights/) et [Azure Security Center](https://docs.microsoft.com/azure/security-center/), qui stockent leurs données directement dans Log Analytics.  
 
 ## <a name="dependency-agent"></a>Agent de dépendances
-L’agent de dépendances a été développé dans le cadre de la solution Service Map qui, à l’origine, a été développée en externe par Microsoft. [Service Map](../insights/service-map.md) et [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) nécessitent un agent de dépendance sur les machines virtuelles Windows et Linux et s’intègrent dans l’agent Log Analytics pour collecter des données découvertes relatives aux processus en cours d’exécution sur la machine virtuelle et aux dépendances de processus externes. Il stocke ces données dans un espace de travail Analytique de journal et visualise les composants interconnectés découverts.
+L’agent de dépendances a été développé dans le cadre de la solution Service Map, qui n’a pas été développée par Microsoft. [Service Map](../insights/service-map.md) et [Azure Monitor pour les machines virtuelles](../insights/vminsights-overview.md) nécessite un Agent de dépendances sur Windows et Linux virtual machines et il s’intègre à l’agent Log Analytique pour collecter les données découvertes sur les processus en cours d’exécution sur le serveur virtuel machine et les dépendances de processus externes. Il stocke ces données dans un espace de travail Analytique de journal et visualise les composants interconnectés découverts.
 
 Vous devez peut-être combiner ces agents pour surveiller votre machine virtuelle. Les agents peuvent être installés côte à côte en tant qu’extensions Azure. Cependant, sur Linux, l’agent Log Analytics *doit* être installé en premier, sinon l’installation échouera. 
 

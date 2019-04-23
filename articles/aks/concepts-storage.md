@@ -9,7 +9,7 @@ ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
 ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/02/2019
 ms.locfileid: "57243769"
@@ -61,7 +61,7 @@ Dans AKS, deux classes de stockage initiales sont créées :
 - *default* : utilise le stockage Azure Standard pour créer un disque managé. La stratégie de récupération indique que le disque Azure sous-jacent est supprimé quand le pod qui l’a utilisé l’est également.
 - *managed-premium* : utilise le stockage Azure Premium pour créer le disque managé. Là encore, la stratégie de récupération indique que le disque Azure sous-jacent est supprimé quand le pod qui l’a utilisé l’est également.
 
-Si aucune classe de stockage n’est spécifiée pour un volume persistant, la classe de stockage par défaut est utilisée. Quand vous demandez des volumes persistants, veillez à ce qu’ils utilisent le stockage dont vous avez besoin. Vous pouvez créer une classe de stockage pour des besoins supplémentaires à l’aide de `kubectl`. L’exemple suivant utilise des disques managés Premium et spécifie que le disque Azure sous-jacent doit être *conservé* quand le pod est supprimé :
+Si aucune classe de stockage n’est spécifiée pour un volume persistant, la classe de stockage par défaut est utilisée. Quand vous demandez des volumes persistants, veillez à ce qu’ils utilisent le stockage dont vous avez besoin. Vous pouvez créer une classe de stockage pour des besoins supplémentaires à l’aide de `kubectl`. L’exemple suivant utilise la fonctionnalité Disques managés Premium et spécifie que le disque Azure sous-jacent doit être *conservé* quand le pod est supprimé :
 
 ```yaml
 kind: StorageClass

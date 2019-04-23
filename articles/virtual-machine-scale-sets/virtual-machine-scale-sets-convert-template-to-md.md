@@ -126,7 +126,7 @@ Il n’existe aucune propriété explicite dans la configuration du jeu de mise 
 
 ## <a name="data-disks"></a>Disques de données
 
-Avec les modifications ci-dessus, le jeu de mise à l’échelle utilise des disques gérés pour le disque de système d’exploitation, mais qu’en est-il des disques de données ? Pour ajouter des disques de données, ajoutez la propriété « dataDisks » sous « storageProfile » au même niveau que « osDisk ». La valeur de la propriété est une liste JSON d’objets, chacun d'entre eux possédant les propriétés « lun » (qui doit être unique pour chaque disque de données sur une machine virtuelle), « createOption » (« empty » est actuellement la seule option prise en charge) et « diskSizeGB » (la taille du disque en gigaoctets ; doit être supérieure à 0 et inférieure à 1024) comme dans l’exemple suivant :
+Avec les modifications ci-dessus, le jeu de mise à l’échelle utilise des disques managés pour le disque de système d’exploitation, mais qu’en est-il des disques de données ? Pour ajouter des disques de données, ajoutez la propriété « dataDisks » sous « storageProfile » au même niveau que « osDisk ». La valeur de la propriété est une liste JSON d’objets, chacun d'entre eux possédant les propriétés « lun » (qui doit être unique pour chaque disque de données sur une machine virtuelle), « createOption » (« empty » est actuellement la seule option prise en charge) et « diskSizeGB » (la taille du disque en gigaoctets ; doit être supérieure à 0 et inférieure à 1024) comme dans l’exemple suivant :
 
 ```
 "dataDisks": [

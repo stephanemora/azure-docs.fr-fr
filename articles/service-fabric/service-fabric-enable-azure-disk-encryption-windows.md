@@ -15,7 +15,7 @@ ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050440"
@@ -66,7 +66,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>Scénarios pris en charge pour le chiffrement de disque
-* Le chiffrement de groupes de machines virtuelles identiques est pris en charge uniquement pour les groupes identiques créés avec des disques managés ; il ne l’est pas pour les groupes identiques de disques natifs (ou non managés).
+* Le chiffrement de groupes de machines virtuelles identiques est pris en charge uniquement pour les groupes identiques créés avec des disques managés, il ne l’est pas pour les groupes identiques de disques natifs (ou non managés).
 * Chiffrement mise à l’échelle de machine virtuelle est prise en charge pour les volumes de données et de système d’exploitation pour Windows machines virtuelles identiques. La désactivation du chiffrement est prise en charge pour les volumes de données et de systèmes d’exploitation des groupes identiques Windows.
 * Créer une nouvelle image de machine virtuelle de machines virtuelles identiques et les opérations de mise à niveau ne sont pas pris en charge dans la version préliminaire actuelle.
 

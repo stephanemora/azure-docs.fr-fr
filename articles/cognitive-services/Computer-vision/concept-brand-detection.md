@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/26/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: abeca204296bcb3933013f2b7434b8c558f62e50
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: d32beaa51471ccab19804122bfbcb33a6b1a5e3d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496585"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003103"
 ---
-# <a name="brand-detection"></a>Détection des marques
+# <a name="detect-popular-brands-in-images"></a>Détecter les marques dans des images
 
 La détection des marques est un mode spécialisé de la [détection des objets](concept-object-detection.md) qui utilise une base de données comprenant des milliers de logos du monde entier pour permettre d’identifier des marques commerciales dans les images et les vidéos. Vous pouvez utiliser cette fonctionnalité, par exemple, pour déterminer quelles marques sont les plus populaires sur les réseaux sociaux, et lesquelles prédominent dans les médias.
 
@@ -94,5 +94,5 @@ Dans certains cas, le détecteur de marque considère l’image du logo et le no
 
 La fonctionnalité de détection de marque fait partie de l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Inclure `Brands` dans le **visualFeatures** paramètre de requête. Ensuite, lorsque vous obtenez la réponse JSON complète, simplement analyser la chaîne pour le contenu de la `"brands"` section.
 
-* [Démarrage rapide : Analyser une image (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
-* [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)
+* [Démarrage rapide : Analyser une image (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)

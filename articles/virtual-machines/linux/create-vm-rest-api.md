@@ -1,6 +1,6 @@
 ---
 title: Créer une machine virtuelle Linux à l’aide de l’API REST Azure | Microsoft Docs
-description: Découvrez comment créer une machine virtuelle Linux dans Azure utilisant Managed Disks et l’authentification SSH avec l’API REST Azure.
+description: Découvrez comment créer une machine virtuelle Linux dans Azure utilisant la fonctionnalité Disques managés et l’authentification SSH avec l’API REST Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -17,7 +17,7 @@ ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
 ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57447844"

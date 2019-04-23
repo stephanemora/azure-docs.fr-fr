@@ -76,13 +76,13 @@ Le tableau suivant fournit une rapide vue d’ensemble des différences entre le
 | Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non  |Non  |Non  |OUI |
 | Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6. |6. |
 
-Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/common/storage-redundancy.md). Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble d’Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
+Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/common/storage-redundancy.md). Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Coûts de stockage
 Les prix varient selon le type de stockage et la disponibilité que vous sélectionnez.
 
 **Azure Managed Disks**
-* Les disques gérés Premium s’appuient sur des disques SSD et les disques gérés Standard sur des disques à rotation classique. Les disques gérés Premium et Standard sont facturés en fonction de la capacité déployée pour le disque.
+* Les disques managés Premium s’appuient sur des disques SSD et les disques managés Standard sur des disques à rotation classique. Les fonctionnalités Disques managés Premium et Standard sont facturées en fonction de la capacité déployée pour le disque.
 
 **Disques non gérés**
 * Le stockage Premium s’appuie sur des disques SSD et est facturé en fonction de la capacité du disque.
@@ -105,7 +105,7 @@ Un domaine de mise à jour est un groupe logique de matériels sous-jacents qui 
 ![Groupes à haute disponibilité](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ### <a name="managed-disk-fault-domains"></a>Domaines d’erreur des disques gérés
-Les machines virtuelles faisant appel à des [disques gérés Azure](../articles/virtual-machines/windows/faq-for-disks.md) sont alignées sur les domaines d’erreur des disques gérés lorsqu’un groupe à haute disponibilité géré est utilisé. Cet alignement garantit que tous les disques gérés attachés à une machine virtuelle se trouvent dans le même domaine d’erreur de disques gérés. Seules des machines virtuelles avec des disques gérés peuvent être créées dans un groupe à haute disponibilité géré. Le nombre de domaines d’erreur de disques gérés varie en fonction de la région (deux ou trois par région). Vous pouvez en savoir plus sur ces domaines d’erreur de disque géré pour [les machines virtuelles Linux](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) ou [les machines virtuelles Windows](../articles/virtual-machines/windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+Les machines virtuelles faisant appel à [Azure Disques managés](../articles/virtual-machines/windows/faq-for-disks.md) sont alignées sur les domaines d’erreur des disques managés lorsqu’un groupe à haute disponibilité géré est utilisé. Cet alignement garantit que tous les disques managés attachés à une machine virtuelle se trouvent dans le même domaine d’erreur de disques managés. Seules des machines virtuelles avec des disques managés peuvent être créées dans un groupe à haute disponibilité géré. Le nombre de domaines d’erreur de disques gérés varie en fonction de la région (deux ou trois par région). Vous pouvez en savoir plus sur ces domaines d’erreur de disque géré pour [les machines virtuelles Linux](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) ou [les machines virtuelles Windows](../articles/virtual-machines/windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
 
 ![Groupe à haute disponibilité géré](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 

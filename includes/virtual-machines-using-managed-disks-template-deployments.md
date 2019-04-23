@@ -10,14 +10,14 @@ ms.author: jaboes
 ms.custom: include file
 ms.openlocfilehash: 6085eb2b520217c4e678a75032e8a1cb4b9343ec
 ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58261491"
 ---
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilisation de disques gérés dans les modèles Azure Resource Manager
+# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilisation de la fonctionnalité Disques managés dans les modèles Azure Resource Manager
 
-Ce document décrit les différences entre les disques gérés et les disques non gérés lorsque vous utilisez des modèles Azure Resource Manager pour configurer des machines virtuelles. Ces exemples vous permettent de mettre à jour les modèles existants qui utilisent des disques non managés en les remplaçant par des disques managés. Pour référence, nous utilisons le modèle [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) comme guide. Vous pouvez consulter le modèle utilisant des [disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) et une version antérieure utilisant des [disques non gérés](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) si vous voulez les comparer directement.
+Ce document décrit les différences entre les disques gérés et les disques non gérés lorsque vous utilisez des modèles Azure Resource Manager pour configurer des machines virtuelles. Ces exemples vous permettent de mettre à jour les modèles existants qui utilisent des disques non managés en les remplaçant par des disques managés. Pour référence, nous utilisons le modèle [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) comme guide. Vous pouvez consulter le modèle utilisant des [disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) et une version antérieure utilisant des [disques non managés](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) si vous voulez les comparer directement.
 
 ## <a name="unmanaged-disks-template-formatting"></a>Mise en forme de modèle de disques non gérés
 
@@ -85,9 +85,9 @@ Dans l’objet de machine virtuelle, ajoutez une dépendance sur le compte de st
 }
 ```
 
-## <a name="managed-disks-template-formatting"></a>Mise en forme de modèle de disques gérés
+## <a name="managed-disks-template-formatting"></a>Mise en forme de modèle de disques managés
 
-Avec Azure Managed Disks, le disque devient une ressource de niveau supérieur et ne requiert plus qu’un compte de stockage soit créé par l’utilisateur. Les disques gérés ont d’abord été exposés dans la version de l’API `2016-04-30-preview`. Ils sont disponibles dans toutes les versions ultérieures de l’API et correspondent désormais au type de disque par défaut. Les sections suivantes abordent les paramètres par défaut et décrivent en détail comment personnaliser davantage vos disques.
+Avec Azure Disques managés, le disque devient une ressource de niveau supérieur et ne requiert plus qu’un compte de stockage soit créé par l’utilisateur. Les disques managés ont d’abord été exposés dans la version de l’API `2016-04-30-preview`. Ils sont disponibles dans toutes les versions ultérieures de l’API et correspondent désormais au type de disque par défaut. Les sections suivantes abordent les paramètres par défaut et décrivent en détail comment personnaliser davantage vos disques.
 
 > [!NOTE]
 > Il est recommandé d’utiliser une version d’API plus récente que `2016-04-30-preview` en raison de modifications intervenues entre les versions `2016-04-30-preview` et `2017-03-30`.
@@ -96,7 +96,7 @@ Avec Azure Managed Disks, le disque devient une ressource de niveau supérieur e
 
 ### <a name="default-managed-disk-settings"></a>Paramètres de disque géré par défaut
 
-Pour créer une machine virtuelle avec des disques gérés, vous n’avez plus besoin créer la ressource de compte de stockage et vous pouvez mettre à jour votre ressource de machine virtuelle comme suit. Notez en particulier que `apiVersion` reflète `2017-03-30`, et que `osDisk` et `dataDisks` ne font plus référence à un URI spécifique pour le disque dur virtuel. Lors d’un déploiement sans spécification de propriétés supplémentaires, le disque utilise un type de stockage qui dépend de la taille de la machine virtuelle. Par exemple, si vous utilisez une taille de machine virtuelle compatible Premium (tailles avec « s » dans leur nom, comme Standard_D2s_v3), le système utilise le stockage Premium_LRS. Pour spécifier un type de stockage, utilisez le paramètre de référence (SKU) du disque. Si aucun nom n’est spécifié, il prend le format `<VMName>_OsDisk_1_<randomstring>` pour le disque de système d’exploitation et `<VMName>_disk<#>_<randomstring>` pour chaque disque de données. Par défaut, le chiffrement de disque Azure est désactivé ; la mise en cache est Lecture/Écriture pour le disque de système d’exploitation et Aucune pour les disques de données. Vous avez pu remarquer dans l’exemple ci-dessous qu’il existe toujours une dépendance de compte de stockage, bien que cela concerne uniquement le stockage de diagnostics et n’est pas nécessaire pour le stockage de disques.
+Pour créer une machine virtuelle avec des disques managés, vous n’avez plus besoin créer la ressource de compte de stockage et vous pouvez mettre à jour votre ressource de machine virtuelle comme suit. Notez en particulier que `apiVersion` reflète `2017-03-30`, et que `osDisk` et `dataDisks` ne font plus référence à un URI spécifique pour le disque dur virtuel. Lors d’un déploiement sans spécification de propriétés supplémentaires, le disque utilise un type de stockage qui dépend de la taille de la machine virtuelle. Par exemple, si vous utilisez une taille de machine virtuelle compatible Premium (tailles avec « s » dans leur nom, comme Standard_D2s_v3), le système utilise le stockage Premium_LRS. Pour spécifier un type de stockage, utilisez le paramètre de référence (SKU) du disque. Si aucun nom n’est spécifié, il prend le format `<VMName>_OsDisk_1_<randomstring>` pour le disque de système d’exploitation et `<VMName>_disk<#>_<randomstring>` pour chaque disque de données. Par défaut, le chiffrement de disque Azure est désactivé ; la mise en cache est Lecture/Écriture pour le disque de système d’exploitation et Aucune pour les disques de données. Vous avez pu remarquer dans l’exemple ci-dessous qu’il existe toujours une dépendance de compte de stockage, bien que cela concerne uniquement le stockage de diagnostics et n’est pas nécessaire pour le stockage de disques.
 
 ```json
 {
@@ -200,9 +200,9 @@ Dans l’objet de machine virtuelle, faites référence à l’objet de disque d
 }
 ```
 
-### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Créer des groupes à haute disponibilité gérés avec des machines virtuelles à l’aide de disques gérés
+### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Créer des groupes à haute disponibilité managés avec des machines virtuelles à l’aide de disques managés
 
-Pour créer des groupes à haute disponibilité gérés avec des machines virtuelles à l’aide de disques gérés, ajoutez l’objet `sku` à la ressource de groupe à haute disponibilité et définissez la propriété `name` sur `Aligned`. Cette propriété garantit que les disques de chaque machine virtuelle sont suffisamment isolés les uns des autres pour éviter les points uniques de défaillance. Vous pouvez aussi remarquer que la propriété `apiVersion` de la ressource de groupe à haute disponibilité est définie sur `2017-03-30`.
+Pour créer des groupes à haute disponibilité managés avec des machines virtuelles à l’aide de disques managés, ajoutez l’objet `sku` à la ressource de groupe à haute disponibilité et définissez la propriété `name` sur `Aligned`. Cette propriété garantit que les disques de chaque machine virtuelle sont suffisamment isolés les uns des autres pour éviter les points uniques de défaillance. Vous pouvez aussi remarquer que la propriété `apiVersion` de la ressource de groupe à haute disponibilité est définie sur `2017-03-30`.
 
 ```json
 {
@@ -249,11 +249,11 @@ Pour obtenir des informations complètes sur les spécifications de l’API REST
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour des modèles complets qui utilisent des disques gérés, consultez les liens suivants du référentiel de démarrage rapide Azure.
+* Pour des modèles complets qui utilisent des disques managés, consultez les liens suivants du référentiel de démarrage rapide Azure.
     * [Machine virtuelle Windows avec disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [Machine virtuelle Linux avec disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
     * [Liste complète des modèles de disque géré](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
-* Consultez le document [Vue d’ensemble d’Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md) pour en savoir plus sur les disques gérés.
+* Consultez le document [Vue d’ensemble d’Azure Disques managés](../articles/virtual-machines/windows/managed-disks-overview.md) pour en savoir plus sur les disques managés.
 * Passez en revue la documentation de référence sur les modèles pour les ressources de machine virtuelle en consultant le document [de référence sur le modèle Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines).
 * Passez en revue la documentation de référence sur les modèles pour les ressources de disque en consultant le document [de référence sur le modèle Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks).
 * Pour plus d’informations sur l’utilisation de disques managés dans des groupes de machines virtuelles Azure identiques, consultez le document [Utiliser des disques de données avec des groupes identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks).

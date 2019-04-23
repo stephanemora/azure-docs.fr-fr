@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/21/2019
-ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: cc6c93420e939e90e12b989def491199fd2c6b15
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547946"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006996"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Créer un espace de travail du service Azure Machine Learning
 
@@ -27,7 +27,9 @@ Dans cet article, vous allez apprendre à créer un espace de travail en utilisa
 * Un modèle Azure Resource Manager
 * Le [Azure Machine Learning CLI](#cli)
 
-L’espace de travail que vous créez à l’aide de la procédure décrite ici dans peut être utilisé comme condition préalable à d’autres didacticiels et les articles de savoir-faire. 
+L’espace de travail que vous créez à l’aide de la procédure décrite ici dans peut être utilisé comme condition préalable à d’autres didacticiels et les articles de savoir-faire.
+
+Si vous souhaitez utiliser un script pour le programme d’installation automatisée de machine learning dans un environnement Python local, consultez le [Azure/MachineLearningNotebooks GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) pour obtenir des instructions.  
 
 Lorsque vous créez un espace de travail les ressources Azure suivantes sont ajoutées automatiquement (si elles sont disponibles au niveau régional) :
  
@@ -41,7 +43,7 @@ Lorsque vous créez un espace de travail les ressources Azure suivantes sont ajo
 
 
 ## <a name="prerequisites"></a>Conditions préalables
-Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree) dès aujourd’hui.
 
 ## <a name="portal"></a> Portail Azure
 

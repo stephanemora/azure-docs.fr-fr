@@ -10,7 +10,7 @@ ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: da796f8eeb6b24dfbbe8418cc728f09b424228cf
 ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59528490"
@@ -45,4 +45,4 @@ Performances Premium, à usage général v1 ou v2 les comptes de stockage ont le
 
 <sup>2</sup> Toutes les données (réponses) reçues d’un compte de stockage
 
-Si vous utilisez des comptes de stockage de performances premium pour disques non gérés et que votre application dépasse les objectifs d’évolutivité d’un compte de stockage unique, vous pouvez choisir de migrer vers des disques gérés. Si vous ne souhaitez pas migrer vers des disques gérés, générez votre application pour utiliser plusieurs comptes de stockage. Ensuite, partitionnez vos données sur ces comptes de stockage. Par exemple, si vous souhaitez attacher des disques de 51 To sur plusieurs machines virtuelles, répartissez-les entre deux comptes de stockage. La limite pour un compte de stockage Premium unique est de 35 To. Assurez-vous qu’un compte de stockage de performances premium n’a jamais plus de 35 To de disques alloués.
+Si vous utilisez des comptes de stockage de performances premium pour disques non gérés et que votre application dépasse les objectifs d’évolutivité d’un compte de stockage unique, vous pouvez choisir de migrer vers des disques gérés. Si vous ne souhaitez pas migrer vers des disques managés, générez votre application pour utiliser plusieurs comptes de stockage. Ensuite, partitionnez vos données sur ces comptes de stockage. Par exemple, si vous souhaitez attacher des disques de 51 To sur plusieurs machines virtuelles, répartissez-les entre deux comptes de stockage. La limite pour un compte de stockage Premium unique est de 35 To. Assurez-vous qu’un compte de stockage de performances premium n’a jamais plus de 35 To de disques alloués.

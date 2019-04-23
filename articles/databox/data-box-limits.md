@@ -10,7 +10,7 @@ ms.date: 02/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 147cf61dcd36edc75a936cf9b467fd89c8d8a965
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58082821"
@@ -71,7 +71,7 @@ Voici les tailles des objets Azure qui peuvent être écrits. Assurez-vous que t
 | Objet blob de blocs        | ~4.75 Tio                                                 |
 | Objet blob de pages         | 8 Tio <br> Chaque fichier chargé dans le format d’objet blob de pages doit être de 512 octets alignés (un multiple entier), sinon le chargement échoue. <br> Les disques VHD et VHDX sont de 512 octets alignés. |
 | Azure Files        | 1 Tio                                                      |
-| Disques gérés     | 4 Tio <br> Pour plus d’informations sur la taille et les limites, consultez : <li>[Objectifs d’évolutivité de SSDs Standard](../virtual-machines/windows/disks-types.md#standard-ssd)</li><li>[Objectifs d’extensibilité de Premium SSD](../virtual-machines/windows/disks-types.md#standard-hdd)</li><li>[Objectifs d’évolutivité de disques durs Standard.](../virtual-machines/windows/disks-types.md#premium-ssd)</li><li>[Tarification et facturation des disques gérés](../virtual-machines/windows/disks-types.md#billing)</li>                                                     |
+| Disques managés     | 4 Tio <br> Pour plus d’informations sur la taille et les limites, consultez : <li>[Objectifs d’évolutivité de SSDs Standard](../virtual-machines/windows/disks-types.md#standard-ssd)</li><li>[Objectifs d’extensibilité de Premium SSD](../virtual-machines/windows/disks-types.md#standard-hdd)</li><li>[Objectifs d’évolutivité de disques durs Standard.](../virtual-machines/windows/disks-types.md#premium-ssd)</li><li>[Tarification et facturation des disques gérés](../virtual-machines/windows/disks-types.md#billing)</li>                                                     |
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Conventions de nommage des objets blob de blocs,des objets blob de pages et des fichiers Azure
 

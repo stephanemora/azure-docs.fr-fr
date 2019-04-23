@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617816"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006180"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -24,7 +24,7 @@ Cet article vous explique comment, en tant que développeur d’appareils, vous 
 Pour effectuer les étapes décrites dans cet article, vous devez les ressources suivantes :
 
 1. Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
-1. Un appareil DevKit. Pour acheter un appareil DevKit, accédez à [MXChip IoT DevKit](http://mxchip.com/az3166).
+1. Un appareil DevKit. Pour acheter un appareil DevKit, accédez à [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
 ## <a name="sample-devkits-application"></a>Exemple d'application Devkits
 
@@ -208,12 +208,12 @@ Une application créée à partir du modèle d’application Exemples de Devkits
 | gyroscopeZ     | mdps   | -2 000   | 2000    | 0              |
 
 #### <a name="states"></a>États 
-| Nom          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
+| Name          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | État de l’appareil   | Vert  | Orange  | Rouge    | 
 
 #### <a name="events"></a>Événements 
-| Nom             | Nom complet      | 
+| Name             | Nom complet      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Bouton B enfoncé  | 
 
@@ -235,18 +235,18 @@ Paramètres de bascule
 
 ### <a name="properties"></a>properties
 
-| Type            | Nom complet | Nom du champ | Type de données |
+| type            | Nom complet | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
 | Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
 | Propriété d’appareil | Emplacement de l’appareil   | location  | location    |
-| Texte            | Fabriqué dans     | manufacturedIn   | S.O.       |
+| Text            | Fabriqué dans     | manufacturedIn   | S.O.       |
 
 ### <a name="commands"></a>Commandes
 
 | Nom complet | Nom du champ | Type de retour | Nom complet du champ d’entrée | Nom du champ d’entrée | Type de champ d’entrée |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| Echo         | echo       | texte        | valeur à afficher         | displayedValue   | texte             |
-| Compte à rebours    | countdown  | number      | Nombre à partir de               | countFrom        | number           |
+| Echo         | echo       | text        | valeur à afficher         | displayedValue   | text             |
+| compte à rebours    | countdown  | number      | Nombre à partir de               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

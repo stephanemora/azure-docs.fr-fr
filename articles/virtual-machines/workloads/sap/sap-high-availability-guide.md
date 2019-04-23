@@ -19,7 +19,7 @@ ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2b88ac9a728606581c3364ac536b6c3fc2691024
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58848766"
@@ -172,7 +172,7 @@ Pour simplifier le déploiement et la configuration, dans cet article, nous util
 ## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Conditions préalables
 Avant de commencer, assurez-vous que vous remplissez les conditions préalables décrites dans les sections suivantes. Veillez également à consulter toutes les ressources répertoriées dans la section [Ressources][sap-ha-guide-2].
 
-Dans cet article, nous utilisons des modèles Azure Resource Manager pour [SAP NetWeaver à trois niveaux à l’aide des disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). Pour une vue d’ensemble utile des modèles Azure Resource Manager SAP, consultez [cet article](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
+Dans cet article, nous utilisons des modèles Azure Resource Manager pour [SAP NetWeaver à trois niveaux à l’aide de la fonctionnalité Disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). Pour une vue d’ensemble utile des modèles Azure Resource Manager SAP, consultez [cet article](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
 ## <a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> Ressources
 Ces articles couvrent les déploiements SAP dans Azure :
@@ -514,7 +514,7 @@ Les sections suivantes fournissent plus de détails sur les modèles et les para
 
 Le modèle ASCS/SCS déploie deux machines virtuelles que vous pouvez utiliser pour créer un cluster de basculement Windows hébergeant plusieurs instances ASCS/SCS.
 
-Pour définir le modèle multi-SID ASCS/SCS, dans le [modèle multi-SID ASCS/SCS][sap-templates-3-tier-multisid-xscs-marketplace-image] ou [le modèle multi-SID ASCS/SCS à l’aide des disques gérés][sap-templates-3-tier-multisid-xscs-marketplace-image-md], entrez des valeurs pour les paramètres suivants :
+Pour définir le modèle multi-SID ASCS/SCS, dans le [modèle multi-SID ASCS/SCS][sap-templates-3-tier-multisid-xscs-marketplace-image] ou [le modèle multi-SID ASCS/SCS à l’aide de la fonctionnalité Disques managés][sap-templates-3-tier-multisid-xscs-marketplace-image-md], entrez des valeurs pour les paramètres suivants :
 
   - **Préfixe de ressource**.  Définissez le préfixe de ressource servant à attribuer un préfixe à toutes les ressources créées lors du déploiement. Comme les ressources n’appartiennent pas à un seul système SAP, le préfixe de la ressource n’est pas le SID d’un système SAP.  Le préfixe doit contenir entre **trois et six caractères**.
   - **Type de pile**. Sélectionnez le type de pile du système SAP. Selon le type de pile, Azure Load Balancer a une adresse IP privée (ABAP ou Java uniquement) ou deux adresses IP privées (ABAP + Java) par système SAP.
@@ -549,7 +549,7 @@ L’équilibrage de charge est configuré pour utiliser les ports de sondage sui
 
 Le modèle de base de données déploie une ou deux machines virtuelles que vous pouvez utiliser pour installer le système de gestion de base de données relationnelle (SGBDR) pour un système SAP. Par exemple, si vous déployez un modèle ASCS/SCS pour cinq systèmes SAP, vous devez déployer ce modèle cinq fois.
 
-Pour définir le modèle multi-SID de bases de données, dans le [modèle multi-SID de bases de données][sap-templates-3-tier-multisid-db-marketplace-image] ou [le modèle multi-SID de bases de données à l’aide des disques gérés][sap-templates-3-tier-multisid-db-marketplace-image-md], entrez des valeurs pour les paramètres suivants :
+Pour définir le modèle multi-SID de bases de données, dans le [modèle multi-SID de bases de données][sap-templates-3-tier-multisid-db-marketplace-image] ou [le modèle multi-SID de bases de données à l’aide de la fonctionnalité Disques managés][sap-templates-3-tier-multisid-db-marketplace-image-md], entrez des valeurs pour les paramètres suivants :
 
 - **ID du système SAP**. Entrez l’ID du système SAP que vous souhaitez installer. Cet ID sera utilisé comme préfixe pour les ressources déployées.
 - **Type de système d’exploitation**. Sélectionnez le système d’exploitation des machines virtuelles.
@@ -566,7 +566,7 @@ Pour définir le modèle multi-SID de bases de données, dans le [modèle multi-
 
 Le modèle de serveurs d’applications déploie plusieurs machines virtuelles utilisables comme des instances de serveurs d’applications SAP pour un système SAP. Par exemple, si vous déployez un modèle ASCS/SCS pour cinq systèmes SAP, vous devez déployer ce modèle cinq fois.
 
-Pour définir le modèle multi-SID des serveurs d’application, dans le [modèle multi-SID des serveurs d’application][sap-templates-3-tier-multisid-apps-marketplace-image] ou [le modèle multi-SID des serveurs d’application à l’aide des disques gérés][sap-templates-3-tier-multisid-apps-marketplace-image-md], entrez les valeurs des paramètres suivants :
+Pour définir le modèle multi-SID des serveurs d’application, dans le [modèle multi-SID des serveurs d’application][sap-templates-3-tier-multisid-apps-marketplace-image] ou [le modèle multi-SID des serveurs d’application à l’aide de la fonctionnalité Disques managés][sap-templates-3-tier-multisid-apps-marketplace-image-md], entrez les valeurs des paramètres suivants :
 
   -  **ID du système SAP**. Entrez l’ID du système SAP que vous souhaitez installer. Cet ID sera utilisé comme préfixe pour les ressources déployées.
   -  **Type de système d’exploitation**. Sélectionnez le système d’exploitation des machines virtuelles.

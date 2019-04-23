@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 4/11/2019
+ms.date: 4/20/2019
 ms.author: tamram
-ms.openlocfilehash: b3e2f018a3f1ba2563ba8cf2df6dfd4959be592e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: d96f400332b7953b34a157b3b52cf00bb20db76e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737070"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012498"
 ---
 | Ressource | Cible        |
 |----------|---------------|
@@ -23,4 +23,4 @@ ms.locfileid: "59737070"
 | Nombre maximal de stratégies d’accès stockées par conteneur d’objets blob | 5. |
 |Débit cible pour un objet blob unique |Jusqu'à des limites d’entrées/sorties de compte de stockage<sup>1</sup> |
 
-<sup>1</sup> débit d’objet unique dépend de plusieurs facteurs, y compris, mais sans limitation : d’accès concurrentiel, taille de l’opération, niveau de performance, la vitesse de la source pour les téléchargements et de destination pour les téléchargements.
+<sup>1</sup> débit d’objet unique dépend de plusieurs facteurs, y compris, mais sans limitation : d’accès concurrentiel, taille de la demande, niveau de performance, la vitesse de la source pour les téléchargements et de destination pour les téléchargements. Pour tirer parti des [objet blob de blocs de haut débit](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) améliorations des performances, utilisez une taille de demande Put Blob ou Put Block > 4 MiB (> 256 MiB pour stockage blob par blocs de performances premium ou pour le stockage Data Lake Gen2).

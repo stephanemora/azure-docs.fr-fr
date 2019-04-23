@@ -11,7 +11,7 @@ ms.author: nobun
 ms.custom: mvc
 ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
 ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58649966"
@@ -24,7 +24,7 @@ L’objectif de ce document est de vous aider à planifier et à exécuter une m
 
 ACS et AKS comportent des différences à certains niveaux clés, ce qui impacte la migration. Passez en revue les différences ci-dessous, et établissez un plan pour gérer ces différences avant de passer à la migration.
 
-* Les nœuds AKS utilisent des [disques managés](../virtual-machines/windows/managed-disks-overview.md)
+* Les nœuds AKS utilisent la fonctionnalité [Disques managés](../virtual-machines/windows/managed-disks-overview.md)
     * Les disques non managés doivent être convertis avant de pouvoir être joints aux nœuds AKS.
     * Les objets `StorageClass` personnalisés des disques Azure doivent passer de la valeur `unmanaged` à la valeur `managed`.
     * Tous les `PersistentVolumes` ont besoin d’utiliser `kind: Managed`.

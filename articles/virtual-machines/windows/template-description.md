@@ -240,7 +240,7 @@ En outre, notez dans l’exemple que l’index de la boucle est utilisé pour sp
 ```
 
 > [!NOTE] 
->Cet exemple utilise des disques gérés pour les machines virtuelles.
+>Cet exemple utilise des disques managés pour les machines virtuelles.
 >
 >
 
@@ -326,7 +326,7 @@ Les paramètres de configuration pour le disque du système d’exploitation son
 },
 ```
 
-### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Créer de nouvelles machines virtuelles à partir de disques gérés existants
+### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Créer de nouvelles machines virtuelles à partir de disques managés existants
 
 Si vous souhaitez créer des machines virtuelles à partir de disques existants, supprimez les éléments imageReference et osProfile puis définissez ces paramètres de disque :
 

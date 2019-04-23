@@ -18,7 +18,7 @@ ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: 18730f662f36000e1efc826c35bebde79dbf0e79
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58013617"
@@ -37,7 +37,7 @@ Cet article explique comment convertir des disques gérés Standard vers Premium
 
 ## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Basculer l’ensemble des disques gérés d’une machine virtuelle entre Standard et Premium
 
-Cet exemple montre comment convertir tous les disques d’une machine virtuelle à partir de Standard vers le stockage Premium ou de Premium vers le stockage Standard. Pour utiliser des disques gérés Premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage Premium. Cet exemple passe également à une taille qui prend en charge le stockage Premium.
+Cet exemple montre comment convertir tous les disques d’une machine virtuelle à partir de Standard vers le stockage Premium ou de Premium vers le stockage Standard. Pour utiliser des disques managés Premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage Premium. Cet exemple passe également à une taille qui prend en charge le stockage Premium.
 
  ```azurecli
 
@@ -74,7 +74,7 @@ az vm start --name $vmName --resource-group $rgName
 ```
 ## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Basculer les disques gérés individuels entre Standard et Premium
 
-Pour votre charge de travail de développement/test, vous souhaiterez avoir une combinaison de disques Standard et Premium pour réduire les coûts. Vous pouvez choisir de mettre à niveau uniquement ces disques qui ont besoin de meilleures performances. Cet exemple montre comment convertir un disque de machine virtuelle unique à partir de Standard vers le stockage Premium ou de Premium vers le stockage Standard. Pour utiliser des disques gérés Premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage Premium. Cet exemple passe également à une taille qui prend en charge le stockage Premium.
+Pour votre charge de travail de développement/test, vous souhaiterez avoir une combinaison de disques Standard et Premium pour réduire les coûts. Vous pouvez choisir de mettre à niveau uniquement ces disques qui ont besoin de meilleures performances. Cet exemple montre comment convertir un disque de machine virtuelle unique à partir de Standard vers le stockage Premium ou de Premium vers le stockage Standard. Pour utiliser des disques managés Premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage Premium. Cet exemple passe également à une taille qui prend en charge le stockage Premium.
 
  ```azurecli
 

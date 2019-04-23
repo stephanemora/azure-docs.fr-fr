@@ -10,20 +10,20 @@ ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
 ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58671762"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
-Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Managed Disks et les disques SSD Premium Azure.
+Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Disques managés et les disques SSD Premium Azure.
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Disques managés
 
 **Qu’est-ce qu’Azure Managed Disks ?**
 
-Managed Disks est une fonctionnalité qui simplifie la gestion des disques associés aux machines virtuelles Azure IaaS en prenant en charge pour vous la gestion des comptes de stockage. Pour plus d’informations, consultez la section [Vue d’ensemble des disques gérés](../articles/virtual-machines/windows/managed-disks-overview.md).
+La fonctionnalité Disques managés est une fonctionnalité qui simplifie la gestion des disques associés aux machines virtuelles Azure IaaS en prenant en charge pour vous la gestion des comptes de stockage. Pour plus d’informations, consultez la section [Vue d’ensemble de la fonctionnalité Disques managés](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 **Si je crée un disque géré standard à partir d’un disque dur virtuel existant de 80 Go, combien cela me coûte-t-il ?**
 
@@ -43,7 +43,7 @@ La tarification de ces 2 types de disques est identique.
 
 **Puis-je modifier le type de compte de stockage (Standard/Premium) de mes disques gérés ?**
 
-Oui. Vous pouvez modifier le type de compte de stockage de vos disques gérés en utilisant le portail Azure, PowerShell ou l’interface Azure CLI.
+Oui. Vous pouvez modifier le type de compte de stockage de vos disques managés en utilisant le portail Azure, PowerShell ou l’interface Azure CLI.
 
 **Puis-je utiliser un fichier VHD dans un compte de stockage Azure pour créer un disque géré avec un autre abonnement ?**
 
@@ -55,7 +55,7 @@ Non.
 
 **Existe-t-il des restrictions de mise à l’échelle pour les clients utilisant des disques gérés ?**
 
-Managed Disks élimine les restrictions associées aux comptes de stockage. Toutefois, la limite maximale est de 50 000 disques managés par région et par type de disque pour un abonnement.
+La fonctionnalité Disques managés élimine les restrictions associées aux comptes de stockage. Toutefois, la limite maximale est de 50 000 disques managés par région et par type de disque pour un abonnement.
 
 **Puis-je prendre une capture instantanée incrémentielle d’un disque géré ?**
 
@@ -63,7 +63,7 @@ Non. La fonctionnalité actuelle de capture instantanée crée une copie complè
 
 **Les machines virtuelles d’un groupe à haute disponibilité peuvent-elles consister en une combinaison de disques gérés et non gérés ?**
 
-Non. Les machines virtuelles d’un groupe à haute disponibilité doivent utiliser exclusivement des disques gérés ou non gérés. Lorsque vous créez un groupe à haute disponibilité, vous pouvez définir le type de disques à utiliser.
+Non. Les machines virtuelles d’un groupe à haute disponibilité doivent utiliser exclusivement des disques managés ou non managés. Lorsque vous créez un groupe à haute disponibilité, vous pouvez définir le type de disques à utiliser.
 
 **Les disques gérés sont-ils l’option par défaut dans le portail Azure ?**
 
@@ -75,7 +75,7 @@ Oui. Vous pouvez tout à fait créer un disque vide. Un disque géré peut être
 
 **Par défaut, combien de domaines d’erreurs sont pris en charge pour les groupes à haute disponibilité utilisant Managed Disks ?**
 
-En fonction de la région où se trouve le groupe à haute disponibilité qui utilise Managed Disks, le nombre de domaines d’erreurs pris en charge peut être de 2 ou 3.
+En fonction de la région où se trouve le groupe à haute disponibilité qui utilise la fonctionnalité Disques managés, le nombre de domaines d’erreurs pris en charge peut être de 2 ou 3.
 
 **Comment est configuré le compte de stockage Standard pour les diagnostics ?**
 
@@ -83,7 +83,7 @@ Vous configurez un compte de stockage privé pour les diagnostics de machine vir
 
 **Quel type de prise en charge du contrôle d’accès en fonction du rôle est disponible pour Managed Disks ?**
 
-Managed Disks prend en charge trois rôles principaux par défaut :
+La fonctionnalité Disques managés prend en charge trois rôles principaux par défaut :
 
 * Propriétaire : Gérer tout, y compris l’accès
 * Collaborateur : Gérer tout sauf les accès
@@ -95,11 +95,11 @@ Vous pouvez générer un URI de signature d’accès partagé (SAP) en lecture s
 
 **Puis-je créer une copie de mon disque géré ?**
 
-Les clients peuvent prendre une capture instantanée de leurs disques gérés, qu’ils utilisent pour créer un autre disque géré.
+Les clients peuvent prendre une capture instantanée de leurs disques managés, qu’ils utilisent pour créer un autre disque managé.
 
 **Les disques non gérés sont-ils encore pris en charge ?**
 
-Oui, les disques managés et non managés sont pris en charge. Nous vous recommandons d’utiliser des disques gérés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques gérés.
+Oui, les disques managés et non managés sont pris en charge. Nous vous recommandons d’utiliser des disques managés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques managés.
 
 **Puis-je localiser conjointement des disques managés et non sur la même machine virtuelle ?**
 
@@ -111,7 +111,7 @@ Oui.
 
 **Puis-je créer des disques gérés disposant du stockage localement redondant, géoredondant ou redondant interzone ?**
 
-Actuellement, Azure Managed Disks prend uniquement en charge les disques gérés disposant du stockage localement redondant.
+Actuellement, Azure Disques managés prend uniquement en charge les disques managés disposant du stockage localement redondant.
 
 **Puis-je réduire la taille de mes disques gérés ?**
 
@@ -175,7 +175,7 @@ L’exemple suivant illustre la section *properties.storageProfile.osDisk* d’u
 Si vous souhaitez un exemple de modèle complet de création d’un disque SSD Standard, consultez [Créer une machine virtuelle à partir d’une image Windows avec des disques de données SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 **Puis-je convertir mes disques existants en disques SSD standard ?**
-Oui, vous pouvez. Reportez-vous à [Convertir le stockage Managed Disks Azure de standard en premium, et vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) pour des recommandations générales relatives à la conversion des disques gérés. Et utilisez la valeur suivante pour mettre à jour le type de disque vers un disque SSD standard.
+Oui, vous pouvez. Reportez-vous à [Convertir le stockage de disques managés Azure de standard en premium, et vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) pour des recommandations générales relatives à la conversion de la fonctionnalité Disques managés. Et utilisez la valeur suivante pour mettre à jour le type de disque vers un disque SSD standard.
 -AccountType StandardSSD_LRS
 
 **Quel est l’avantage d’utiliser des disques SSD Standard au lieu des disques HDD ?**
@@ -187,7 +187,7 @@ Non, les disques SSD Standard sont disponibles seulement comme disques managés.
 **Les disques SSD standard prennent-ils en charge les « SLA de machine virtuelle à instance unique » ?**
 Non, les disques SSD standard n’ont pas de SLA de machine virtuelle à instance unique. Utiliser des disques SSD Premium pour une instance unique de contrat SLA de machine virtuelle.
 
-## <a name="migrate-to-managed-disks"></a>Migrer vers Managed Disks
+## <a name="migrate-to-managed-disks"></a>Migrer vers la fonctionnalité Disques managés
 
 **La migration a-t-elle un impact sur les performances des disques managés ?**
 
@@ -215,7 +215,7 @@ Non. Vous pouvez exporter un instantané d’objet blob de pages en tant qu’ob
 
 **Puis-je basculer mes machines locales protégées par Azure Site Recovery vers une machine virtuelle avec Managed Disks ?**
 
-Oui, vous pouvez choisir de basculer vers une machine virtuelle avec Managed Disks.
+Oui, vous pouvez choisir de basculer vers une machine virtuelle avec la fonctionnalité Disques managés.
 
 **La migration impacte-t-elle les machines virtuelles Azure protégées par Azure Site Recovery par le biais de la réplication Azure vers Azure ?**
 
@@ -225,7 +225,7 @@ Oui. Actuellement, Azure Site Recovery Azure pour la protection Azure pour les m
 
 Oui
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks et Storage Service Encryption
+## <a name="managed-disks-and-storage-service-encryption"></a>Disques managés et Storage Service Encryption
 
 **Azure Storage Encryption est-il activé par défaut lors de la création d’un disque géré ?**
 
@@ -241,7 +241,7 @@ Non.
 
 **Storage Service Encryption est-il disponible dans toutes les régions ?**
 
-Non. Il est disponible dans toutes les régions où Managed Disks est disponible. Managed Disks est disponible dans toutes les zones publiques et en Allemagne. Il est également disponible en Chine, mais uniquement pour les clés gérées par Microsoft, pas pour les clés gérées par le client.
+Non. Il est disponible dans toutes les régions où la fonctionnalité Disques managés est disponible. La fonctionnalité Disques managés est disponible dans toutes les zones publiques et en Allemagne. Il est également disponible en Chine, mais uniquement pour les clés gérées par Microsoft, pas pour les clés gérées par le client.
 
 **Comment puis-je savoir si mon disque géré est chiffré ?**
 
@@ -249,7 +249,7 @@ Vous pouvez déterminer l’heure de création d’un disque géré depuis le po
 
 **Comment puis-je chiffrer mes disques existants qui ont été créés avant le 10 juin 2017 ?**
 
-À compter du 10 juin 2017, les nouvelles données écrites sur des disques gérés existants sont chiffrées automatiquement. Nous avons également l’intention de chiffrer les données existantes, et le chiffrement aura lieu de manière asynchrone en arrière-plan. Si vous devez chiffrer des données existantes maintenant, créez une copie de votre disque. Les nouveaux disques seront chiffrés.
+À compter du 10 juin 2017, les nouvelles données écrites sur des disques managés existants sont chiffrées automatiquement. Nous avons également l’intention de chiffrer les données existantes, et le chiffrement aura lieu de manière asynchrone en arrière-plan. Si vous devez chiffrer des données existantes maintenant, créez une copie de votre disque. Les nouveaux disques seront chiffrés.
 
 * [Copier les disques gérés à l’aide de l’interface Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 * [Copier les disques gérés à l’aide de PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
@@ -290,7 +290,7 @@ Les limites combinées pour le cache et le disque SSD local d’une machine de l
 
 **Le disque local SSD est-il pris en charge pour les machines virtuelles Managed Disks ?**
 
-Le disque local SSD est un stockage temporaire inclus avec une machine virtuelle Managed Disks. Ce stockage temporaire n’occasionne aucun frais supplémentaire. Nous vous déconseillons d’utiliser ce disque SSD local pour stocker les données de vos applications, car il n’est pas rendu persistant dans le stockage d’objets Blob Azure.
+Le disque local SSD est un stockage temporaire inclus avec une machine virtuelle de la fonctionnalité Disques managés. Ce stockage temporaire n’occasionne aucun frais supplémentaire. Nous vous déconseillons d’utiliser ce disque SSD local pour stocker les données de vos applications, car il n’est pas rendu persistant dans le stockage d’objets Blob Azure.
 
 **L’utilisation de la fonction TRIM sur les disques Premium a-t-elle des répercussions ?**
 

@@ -19,7 +19,7 @@ ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58480008"
@@ -316,11 +316,11 @@ Vous pouvez également automatiser le déploiement du serveur de fichiers avec m
 > Dans l’interface utilisateur du modèle Resource Manager de serveur de fichiers avec montée en puissance parallèle, vous devez spécifier dans le nombre de machines virtuelles.
 >
 
-### <a name="use-managed-disks"></a>Utiliser des disques gérés
+### <a name="use-managed-disks"></a>Utiliser des disques managés
 
-Le modèle Azure Resource Manager permettant de déployer le serveur de fichiers avec montée en puissance parallèle avec des espaces de stockage direct et des disques Azure Managed Disks est disponible sur [GitHub][arm-sofs-s2d-managed-disks].
+Le modèle Azure Resource Manager permettant de déployer le serveur de fichiers avec montée en puissance parallèle avec des espaces de stockage direct et Azure Disques managés est disponible sur [GitHub][arm-sofs-s2d-managed-disks].
 
-Nous vous recommandons d’utiliser des disques Managed Disks.
+Nous vous recommandons d’utiliser la fonctionnalité Disques managés.
 
 ![Figure 1 : Écran de l’interface utilisateur pour le modèle de Scale-Out File Server Resource Manager avec des disques gérés][sap-ha-guide-figure-8010]
 

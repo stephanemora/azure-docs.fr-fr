@@ -9,7 +9,7 @@ ms.date: 11/28/2018
 ms.author: lastcoolnameleft
 ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58098625"
@@ -116,7 +116,7 @@ L’approche centralisée consiste à utiliser un point de stockage commun perme
 
 ![Réplication asynchrone basée sur l’infrastructure](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
 
-Si vous utilisez Azure Managed Disks, les solutions de réplication et de reprise d’activité disponibles incluent l’utilisation d’une des approches suivantes :
+Si vous utilisez Azure Disques managés, les solutions de réplication et de reprise d’activité disponibles incluent l’utilisation d’une des approches suivantes :
 
 * [Ark sur Azure](https://github.com/heptio/ark/blob/master/docs/azure-config.md)
 * [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)

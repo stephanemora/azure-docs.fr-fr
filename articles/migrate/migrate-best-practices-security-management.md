@@ -9,7 +9,7 @@ ms.date: 12/08/2018
 ms.author: raynew
 ms.openlocfilehash: afcd180146bc349bda9375f10eb56f85f67ccb52
 ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/27/2019
 ms.locfileid: "58498735"
@@ -539,7 +539,7 @@ En cas de problème au niveau de l’infrastructure de calcul dans Azure, une ap
 - [Apprenez-en davantage](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution) sur la récupération d’urgence et la géodistribution pour les fonctions Azure.
 
 
-## <a name="best-practice-use-managed-disks-and-availability-sets"></a>Meilleure pratique : Utiliser des disques gérés et des groupes à haute disponibilité
+## <a name="best-practice-use-managed-disks-and-availability-sets"></a>Meilleure pratique : Utiliser des disques managés et des groupes à haute disponibilité
 
 Azure utilise des groupes à haute disponibilité pour regrouper logiquement les machines virtuelles et pour isoler les machines virtuelles d’un groupe d’autres ressources. Les machines virtuelles d’un groupe à haute disponibilité sont réparties sur plusieurs domaines d’erreur avec des sous-systèmes séparés, pour se protéger contre les défaillances locales, et elles sont également réparties sur plusieurs domaines de mise à jour de sorte que toutes les machines virtuelles d’un groupe redémarrent en même temps.
 

@@ -9,7 +9,7 @@ ms.date: 02/28/2019
 ms.author: iainfou
 ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59678786"
@@ -181,7 +181,7 @@ Il existe deux ressources Kubernetes qui vous permettent de gérer ces types d�
 
 Le développement d’applications modernes s’adresse souvent aux applications sans état, mais vous pouvez utiliser des *ressources StatefulSet* pour les applications avec état, telles que les applications qui incluent des composants de base de données. Une ressource StatefulSet est similaire à un déploiement, car un ou plusieurs pods identiques sont créés et gérés. Les réplicas d’une ressource StatefulSet suivent une approche séquentielle et sans perte de données du déploiement, de la mise à l’échelle, des mises à niveau et des arrêts. Avec une ressource StatefulSet, la convention de nommage, les noms de réseau et le stockage persistent quand les réplicas sont replanifiés.
 
-Vous définissez l’application au format YAML en utilisant `kind: StatefulSet`, puis le contrôleur StatefulSet gère le déploiement et la gestion des réplicas requis. Les données sont écrites dans un stockage persistant, fourni par Azure Managed Disks ou Azure Files. Avec une ressource StatefulSet, le stockage permanent sous-jacent demeure, même quand la ressource est supprimée.
+Vous définissez l’application au format YAML en utilisant `kind: StatefulSet`, puis le contrôleur StatefulSet gère le déploiement et la gestion des réplicas requis. Les données sont écrites dans un stockage persistant, fourni par Azure Disques managés ou Azure Files. Avec une ressource StatefulSet, le stockage permanent sous-jacent demeure, même quand la ressource est supprimée.
 
 Pour plus d’informations, consultez [Kubernetes StatefulSets][kubernetes-statefulsets] (Ressources StatefulSet Kubernetes).
 

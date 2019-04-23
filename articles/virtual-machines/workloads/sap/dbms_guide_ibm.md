@@ -18,7 +18,7 @@ ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5cbecdb39a35339bd0b3f4d3d29d7893cdab0ac6
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496860"
@@ -343,7 +343,7 @@ Pour plus d’informations sur les produits SAP et les types de machines virtuel
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM Db2 pour Linux, UNIX et instructions de Configuration de Windows pour les Installations SAP sur des machines virtuelles Azure
 ### <a name="storage-configuration"></a>Configuration du stockage
-Tous les fichiers de base de données doivent être stockés sur le système de fichiers NTFS basé sur les disques directement attachés. Ces disques sont montés sur la machine virtuelle Azure, et sont basés sur le stockage d’objets blob de pages Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou sur des disques managés (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Tous les types de lecteurs réseau ou de partages distants tels que les services de fichiers Azure suivants ne sont **PAS** pris en charge pour les fichiers de base de données : 
+Tous les fichiers de base de données doivent être stockés sur le système de fichiers NTFS basé sur les disques directement attachés. Ces disques sont montés sur la machine virtuelle Azure, et sont basés sur le stockage d’objets blob de pages Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou sur la fonctionnalité Disques managés (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Tous les types de lecteurs réseau ou de partages distants tels que les services de fichiers Azure suivants ne sont **PAS** pris en charge pour les fichiers de base de données : 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>

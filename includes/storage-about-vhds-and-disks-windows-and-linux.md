@@ -10,7 +10,7 @@ ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: aa740cfb203f50dc97a06359774dae367a20252b
 ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/16/2019
 ms.locfileid: "58116014"
@@ -54,13 +54,13 @@ Les disques SSD Premium s’appuient sur des SSD, et offrent de hautes performan
 
 Les disques non gérés sont le type de disques utilisé traditionnellement par les machines virtuelles. Avec ces disques, vous créez votre propre compte de stockage et spécifiez ce dernier lors de la création du disque. Veillez à ne pas placer un trop grand nombre de disques dans le même compte de stockage, car vous risquez de dépasser les [objectifs d’extensibilité](../articles/storage/common/storage-scalability-targets.md) du compte de stockage (20 000 E/S par seconde, par exemple), avec pour conséquence la limitation des machines virtuelles. Avec les disques non gérés, vous devez déterminer comment maximiser l’utilisation d’un ou plusieurs comptes de stockage pour obtenir des performances optimales de vos machines virtuelles.
 
-### <a name="managed-disks"></a>Disques gérés
+### <a name="managed-disks"></a>Disques managés
 
-Managed Disks gère la création/gestion du compte de stockage en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez simplement la taille du disque et le niveau de performances (Standard/Premium) et Azure crée et gère le disque pour vous. Lorsque vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé.
+La fonctionnalité Disques managés gère la création/gestion du compte de stockage en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez simplement la taille du disque et le niveau de performances (Standard/Premium) et Azure crée et gère le disque pour vous. Lorsque vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé.
 
-Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble des disques gérés](../articles/virtual-machines/windows/managed-disks-overview.md).
+Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur la fonctionnalité Disques managés, consultez [Vue d’ensemble de la fonctionnalité Disques managés](../articles/virtual-machines/windows/managed-disks-overview.md).
 
-Nous vous recommandons d’utiliser Azure Managed Disks pour les nouvelles machines virtuelles et de convertir vos anciens disques non gérés en disques gérés afin de tirer parti des nombreuses fonctionnalités disponibles dans Managed Disks.
+Nous vous recommandons d’utiliser Azure Disques managés pour les nouvelles machines virtuelles et de convertir vos anciens disques non managés en disques managés afin de tirer parti des nombreuses fonctionnalités disponibles dans les disques managés.
 
 ### <a name="disk-comparison"></a>Comparaison des disques
 
@@ -71,6 +71,6 @@ Le tableau suivant offre une comparaison des niveaux HDD Standard, SSD Standard 
 | Type de disque | SSD (Solid State Drive) | SSD (Solid State Drive) | Disques durs  
 | Présentation  | Stockage hautes performances et à faible latence sur disque SSD pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S ou qui hébergent un environnement de production stratégique |Performances et fiabilité plus homogènes qu’un HDD. Optimisé pour les charges de travail à faibles E/S| Disque basé sur HDD économique pour l’accès peu fréquent
 | Scénario  | Charges de travail de production et sensibles aux performances |Serveurs web, applications d’entreprise peu utilisées et Dev/Test| Sauvegarde, non critique, accès peu fréquent
-| Taille du disque | P4 : 32 Gio (disques managés uniquement)<br>P6 : 64 Gio (disques managés uniquement)<br>P10 : 128 Go<br>P15 : 256 Gio (disques managés uniquement)<br>P20 : 512 Go<br>P30 : 1 024 Gio<br>P40 : 2 048 Gio<br>P50 : 4 095 Gio<br>P60 : 8 192 Gio * (8 Tio)<br>P70 : 16 384 Gio * (16 Tio)<br>P80 : 32 767 Gio * (32 Tio) |Disques managés uniquement :<br>E4 : 32 Gio<br>E6 : 64 Gio<br>E10 : 128 Go<br>E15 : 256 Gio<br>E20 : 512 Go<br>E30 : 1 024 Gio<br>E40 : 2 048 Gio<br>E50 : 4 095 Gio<br>E60 : 8 192 Gio * (8 Tio)<br>E70 : 16 384 Gio * (16 Tio)<br> E80 : 32 767 Gio * (32 Tio) | Disques non managés : 1 Gio – 4 Tio (4 095 Gio) <br><br>Disques gérés :<br> S4 : 32 Gio <br>S6 : 64 Gio <br>S10 : 128 Go <br>S15 : 256 Gio <br>S20 : 512 Go <br>S30 : 1 024 Gio <br>S40 : 2 048 Gio<br>S50 : 4 095 Gio<br>S60 : 8 192 Gio * (8 Tio)<br>S70 : 16 384 Gio * (16 Tio)<br>S80 : 32 767 Gio * (32 Tio)
+| Taille du disque | P4 : 32 Gio (disques managés uniquement)<br>P6 : 64 Gio (disques managés uniquement)<br>P10 : 128 Go<br>P15 : 256 Gio (disques managés uniquement)<br>P20 : 512 Go<br>P30 : 1 024 Gio<br>P40 : 2 048 Gio<br>P50 : 4 095 Gio<br>P60 : 8 192 Gio * (8 Tio)<br>P70 : 16 384 Gio * (16 Tio)<br>P80 : 32 767 Gio * (32 Tio) |Disques managés uniquement :<br>E4 : 32 Gio<br>E6 : 64 Gio<br>E10 : 128 Go<br>E15 : 256 Gio<br>E20 : 512 Go<br>E30 : 1 024 Gio<br>E40 : 2 048 Gio<br>E50 : 4 095 Gio<br>E60 : 8 192 Gio * (8 Tio)<br>E70 : 16 384 Gio * (16 Tio)<br> E80 : 32 767 Gio * (32 Tio) | Disques non managés : 1 Gio – 4 Tio (4 095 Gio) <br><br>Disques managés :<br> S4 : 32 Gio <br>S6 : 64 Gio <br>S10 : 128 Go <br>S15 : 256 Gio <br>S20 : 512 Go <br>S30 : 1 024 Gio <br>S40 : 2 048 Gio<br>S50 : 4 095 Gio<br>S60 : 8 192 Gio * (8 Tio)<br>S70 : 16 384 Gio * (16 Tio)<br>S80 : 32 767 Gio * (32 Tio)
 | Débit max. par disque | P4 : 25 Mio/s<br> P6 : 50 Mio/s<br> P10 : 100 Mio/s<br> P15 : 125 Mio/s<br> P20 : 150 Mio/s<br> P30 : 200 Mio/s<br> P40-P50 : 250 Mio/s<br> P60 : 480 Mio/s *<br> P70-P80 : 750 Mio/s * | E10-E50 : Jusqu’à 60 Mio/s<br> E60 : Jusqu’à 300 Mio/s *<br> E70-E80 : 500 Mio/s *| S4 - S50 : Jusqu’à 60 Mio/s<br> S60 : Jusqu’à 300 Mio/s *<br> S70-S80 : Jusqu’à 500 Mio/s *
 | Nb max. d’E/S par seconde par disque | P4 : 120 IOPS<br> P6 : 240 IOPS<br> P10 : 500 E/S par seconde<br> P15 : 1 100 IOPS<br> P20 : 2 300 IOPS<br> P30 : 5 000 E/S par seconde<br> P40-P50 : 7 500 E/S PAR SECONDE<br> P60 : 12 500 IOPS *<br> P70 : 15 000 IOPS *<br> P80 : 20 000 IOPS * | E10-E50 : Jusqu’à 500 IOPS<br> E60 : Jusqu’à 1 300 IOPS *<br> E70-E80 : Jusqu’à 2 000 IOPS* | S4-S50 : Jusqu’à 500 IOPS<br> S60 : Jusqu’à 1 300 IOPS *<br> S70-S80 : Jusqu’à 2 000 IOPS*

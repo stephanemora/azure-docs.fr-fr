@@ -10,7 +10,7 @@ ms.author: yuemlu
 ms.custom: include file
 ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
 ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/16/2019
 ms.locfileid: "58114740"
@@ -29,11 +29,11 @@ Il existe deux façons de créer des disques Standard pour les machines virtuell
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md) : Cette fonctionnalité gère les comptes de stockage que vous utilisez pour les disques de machines virtuelles. Vous spécifiez le type (SSD Premium, SSD Standard ou HDD Standard) et la taille de disque dont vous avez besoin, et Azure crée et gère le disque pour vous. Vous n’avez pas à vous occuper de placer les disques sur plusieurs comptes de stockage pour être sûr de rester dans les limites de scalabilité des comptes de stockage : Azure le fait pour vous.
 
-Même si les deux types de disques sont disponibles, nous vous recommandons d’utiliser des disques gérés pour tirer parti de leurs nombreuses fonctionnalités.
+Même si les deux types de disques sont disponibles, nous vous recommandons d’utiliser les disques managés pour tirer parti de leurs nombreuses fonctionnalités.
 
 Pour une prise en main du stockage Standard Azure, consultez [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/) . 
 
-Pour plus d’informations sur la création d’une machine virtuelle Managed Disks, consultez l’un des articles suivants.
+Pour plus d’informations sur la création d’une machine virtuelle de la fonctionnalité Disques managés, consultez l’un des articles suivants.
 
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 * [Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)](../articles/virtual-machines/linux/quick-create-cli.md)
@@ -50,13 +50,13 @@ Examinons certaines des fonctionnalités du stockage Standard. Pour plus d’inf
 
 **Objet blob de pages Standard** : Les objets blob de pages Standard sont utilisés pour stocker les disques persistants des machines virtuelles et sont également accessibles directement via REST comme d’autres types d’objets blob Azure. Les [objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) sont une collection de pages de 512 octets optimisées pour les opérations de lecture et d’écriture aléatoires. 
 
-**Réplication du stockage :** Dans la plupart des régions, les données d’un compte de stockage standard peuvent être répliquées localement ou géorépliquées entre plusieurs centres de données. Les quatre types de réplication disponibles sont le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant avec accès en lecture (RA-GRS). Actuellement, les disques gérés dans le stockage Standard prennent seulement en charge le stockage localement redondant (LRS). Pour plus d'informations, consultez [Réplication Azure Storage](../articles/storage/common/storage-redundancy.md).
+**Réplication du stockage :** Dans la plupart des régions, les données d’un compte de stockage standard peuvent être répliquées localement ou géorépliquées entre plusieurs centres de données. Les quatre types de réplication disponibles sont le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant avec accès en lecture (RA-GRS). Actuellement, les disques managés dans le stockage Standard prennent seulement en charge le stockage localement redondant (LRS). Pour plus d'informations, consultez [Réplication Azure Storage](../articles/storage/common/storage-redundancy.md).
 
 ## <a name="scalability-and-performance-targets"></a>Cibles de performance et d’évolutivité
 
 Dans cette section, nous allons décrire les objectifs de performances et d’extensibilité à prendre en considération lors de l’utilisation du stockage Standard.
 
-### <a name="account-limits--does-not-apply-to-managed-disks"></a>Limites de compte : ne s’applique pas aux disques gérés
+### <a name="account-limits--does-not-apply-to-managed-disks"></a>Limites de compte : ne s’applique pas aux disques managés
 
 | **Ressource** | **Limite par défaut** |
 |--------------|-------------------|
@@ -71,7 +71,7 @@ Dans cette section, nous allons décrire les objectifs de performances et d’ex
 
 Pour plus d'informations, consultez [Objectifs d'extensibilité et de performances d'Azure Storage](../articles/storage/common/storage-scalability-targets.md).
 
-Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, générez votre application pour qu’elle utilise plusieurs comptes de stockage et partitionnez vos données sur ces comptes. Alternativement, vous pouvez utiliser des disques gérés Azure, auquel cas Azure gère pour vous le partitionnement et le positionnement de vos données.
+Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, générez votre application pour qu’elle utilise plusieurs comptes de stockage et partitionnez vos données sur ces comptes. Alternativement, vous pouvez utiliser Azure Disques managés, auquel cas Azure gère pour vous le partitionnement et le positionnement de vos données.
 
 ### <a name="standard-disks-limits"></a>Limites des disques Standard
 
@@ -93,9 +93,9 @@ Pour conserver des copies géoredondantes de vos captures instantanées, vous po
 
 Pour plus d’informations sur l’exécution d’opérations REST sur les objets blob de pages dans les comptes de stockage Standard, consultez [API REST des services d’Azure Storage](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
-### <a name="managed-disks"></a>Disques gérés
+### <a name="managed-disks"></a>Disques managés
 
-Une capture instantanée d’un disque géré est une copie en lecture seule du disque géré qui est stockée comme un disque géré Standard. Pour le moment, les captures instantanées incrémentielles ne sont pas prises en charge pour les disques gérés, mais elles le seront dans le futur.
+Une capture instantanée d’un disque géré est une copie en lecture seule du disque géré qui est stockée comme un disque géré Standard. Pour le moment, les captures instantanées incrémentielles ne sont pas prises en charge pour la fonctionnalité Disques managés, mais elles le seront dans le futur.
 
 Si un disque géré est associé à une machine virtuelle, certaines opérations d’API ne sont pas autorisées sur les disques. Par exemple, vous ne pouvez pas générer une signature d’accès partagé (SAP) pour effectuer une opération de copie alors que le disque est associé à une machine virtuelle. Au lieu de cela, commencez par créer une capture instantanée du disque, puis réalisez-en une copie. Sinon, vous pouvez aussi dissocier le disque, puis générer une signature d’accès partagé (SAP) pour réaliser l’opération de copie.
 
@@ -104,14 +104,14 @@ Si un disque géré est associé à une machine virtuelle, certaines opérations
 Les considérations de facturation suivantes s’appliquent à l’utilisation du stockage Standard :
 
 * Taille des données/disques non gérés du stockage standard
-* Disques gérés Standard
+* Disques managés Standard
 * Captures instantanées du stockage Standard
 * Transferts de données sortantes
 * Transactions
 
 **Données de stockage non managées et taille de disque :** Pour les disques non managés et les autres données (objets blob, tables, files d’attente et fichiers), vous êtes facturé uniquement pour la quantité d’espace utilisée. Par exemple, si vous avez une machine virtuelle dont les objets blob de pages sont configurés sur 127 Go, mais que la machine virtuelle n’utilise réellement que 10 Go d’espace, vous êtes facturé pour 10 Go d’espace. Nous prenons en charge le stockage Standard jusqu’à 8 191 Go et les disques non gérés Standard jusqu’à 4 095 Go. 
 
-**Disques managés :** La facturation des disques managés standard dépend du provisionnement de leur taille. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille provisionnée de 200 Gio, vous êtes facturé le prix du type de disque S15.
+**Disques managés :** La facturation des disques managés standard dépend du provisionnement de leur taille. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Disques managés la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille provisionnée de 200 Gio, vous êtes facturé le prix du type de disque S15.
 
 Les tailles signalées par un astérisque sont actuellement en préversion.
 
@@ -126,7 +126,7 @@ Les tailles signalées par un astérisque sont actuellement en préversion.
 
 **Transaction** : Azure facture 0,0036 $ par tranche de 100 000 transactions de stockage standard. Les transactions comprennent les opérations de lecture et d’écriture pour le stockage.
 
-Pour plus d’informations sur la tarification du stockage Standard, des machines virtuelles et des disques gérés, consultez :
+Pour plus d’informations sur la tarification du stockage Standard, des machines virtuelles et de la fonctionnalité Disques managés, consultez :
 
 * [Tarification d’Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
 * [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/)
@@ -136,7 +136,7 @@ Pour plus d’informations sur la tarification du stockage Standard, des machine
 
 Les machines virtuelles avec disques non gérés peuvent être sauvegardées à l’aide de Sauvegarde Azure. [Détails supplémentaires](../articles/backup/backup-azure-vms-first-look-arm.md).
 
-Vous pouvez également utiliser le service Sauvegarde Azure avec Managed Disks pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Vous pouvez en savoir plus sur ce point dans [Using Azure Backup service for VMs with Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Utilisation du service Azure Backup pour les machines virtuelles avec disques gérés).
+Vous pouvez également utiliser le service Sauvegarde Azure avec la fonctionnalité Disques managés pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Vous pouvez en savoir plus sur ce point dans [Utilisation du service Sauvegarde Azure pour les machines virtuelles avec la fonctionnalité Disques managés](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

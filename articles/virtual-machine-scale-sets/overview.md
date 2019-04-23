@@ -47,7 +47,7 @@ Les groupes identiques de machines virtuelles Azure fournissent les fonctionnali
 
 - **Fonctionne à grande échelle**
     - Les groupes identiques peuvent prendre en charge jusqu’à 1 000 instances de machines virtuelles. Si vous créez et chargez vos propres images de machine virtuelle personnalisées, la limite est de 600 instances de machine virtuelle.
-    - Pour des performances optimales avec des charges de travail de production, utilisez les [disques managés Azure](../virtual-machines/windows/managed-disks-overview.md).
+    - Pour des performances optimales avec des charges de travail de production, utilisez [Azure Disques managés](../virtual-machines/windows/managed-disks-overview.md).
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Différences entre les machines virtuelles et les groupes identiques

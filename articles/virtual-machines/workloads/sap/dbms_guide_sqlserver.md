@@ -18,7 +18,7 @@ ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881084"
@@ -553,7 +553,7 @@ Ce guide offre de nombreuses recommandations. Nous vous invitons à les parcouri
 1. Utilisez la dernière version du système SGBD, comme SQL Server 2017, qui présente les avantages les plus intéressants dans Azure. 
 2. Planifiez avec soin votre paysage de système SAP dans Azure, afin de trouver l’équilibre entre la disposition des fichiers de données et les restrictions d’Azure :
    * Évitez d’utiliser un trop grand nombre de disques. Cependant, vous devez en configurer suffisamment pour atteindre le nombre d’E/S par seconde nécessaire.
-   * Si vous n’utilisez pas de disques managés, n’oubliez pas que les E/S par seconde sont limitées pour chaque compte Stockage Azure, et que les comptes de stockage sont limités au sein de chaque abonnement Azure ([plus d’informations ici][azure-subscription-service-limits]). 
+   * Si vous n’utilisez pas la fonctionnalité Disques managés, n’oubliez pas que les E/S par seconde sont limitées pour chaque compte Stockage Azure, et que les comptes de stockage sont limités au sein de chaque abonnement Azure ([plus d’informations ici][azure-subscription-service-limits]). 
    * N’effectuez une agrégation par bandes que si vous devez obtenir un débit supérieur.
 3. N’installez pas vos logiciels et ne placez pas les fichiers nécessitant une persistance sur le lecteur D:\, car il n’est pas permanent. Les données placées sur ce lecteur ne sont pas conservées après le redémarrage de Windows.
 4. N’utilisez pas la mise en cache de disque Azure pour le stockage Azure standard.

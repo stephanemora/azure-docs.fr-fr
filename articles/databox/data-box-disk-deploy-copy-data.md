@@ -60,9 +60,9 @@ Procédez comme suit pour vous connecter et copier des données à partir de vot
     |---------|---------|---------|------------------|
     |Compte de stockage     |GPv1 ou GPv2                 | N/D | BlockBlob <br> PageBlob <br> AzureFile        |
     |Compte de stockage     |Compte de stockage d’objets blob         | N/D | BlockBlob        |
-    |Disques gérés     |N/D | GPv1 ou GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
-    |Compte de stockage <br> Disques gérés     |GPv1 ou GPv2 | GPv1 ou GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
-    |Compte de stockage <br> Disques gérés    |Compte de stockage d’objets blob | GPv1 ou GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |Disques managés     |N/D | GPv1 ou GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |Compte de stockage <br> Disques managés     |GPv1 ou GPv2 | GPv1 ou GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |Compte de stockage <br> Disques managés    |Compte de stockage d’objets blob | GPv1 ou GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
 
     La capture d’écran ci-dessous montre un exemple de commande où figure un compte de stockage GPv2 :
 

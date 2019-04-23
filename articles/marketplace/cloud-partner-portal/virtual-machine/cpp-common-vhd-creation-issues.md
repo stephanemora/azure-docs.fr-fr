@@ -27,7 +27,7 @@ Le forum aux questions (FAQ) suivant traite des problèmes courants rencontrés 
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Comment créer une machine virtuelle à partir du Portail Azure à l’aide du disque dur virtuel qui est chargé vers le stockage Premium ?
 
-Pour le moment, Place de marché Microsoft Azure ne prend pas en charge la création d’offres de machine virtuelle à partir d’images résidant sur le stockage géré ou depuis le Stockage Premium Azure.  Pour plus d’informations sur ces options de stockage, voir la page [Vue d’ensemble d’Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+Pour le moment, Place de marché Microsoft Azure ne prend pas en charge la création d’offres de machine virtuelle à partir d’images résidant sur le stockage géré ou depuis le Stockage Premium Azure.  Pour plus d’informations sur ces options de stockage, voir la page [Vue d’ensemble d’Azure Disques managés](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>Peut-on utiliser des machines virtuelles de 2e génération pour les offres ?

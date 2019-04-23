@@ -18,7 +18,7 @@ ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58002691"
@@ -45,7 +45,7 @@ La conception qui en résulte doit comprendre :
 
 * Un compte et un abonnement Azure
 * un seul groupe de ressources.
-* Azure Managed Disks
+* Azure Disques managés
 * un réseau virtuel avec deux sous-réseaux ;
 * Des groupes à haute disponibilité pour machines virtuelles avec un rôle similaire
 * Machines virtuelles
@@ -62,7 +62,7 @@ Tous les éléments ci-dessus sont conformes aux conventions de dénomination :
 Adventure Works Cycles utilise son abonnement d’entreprise, nommé Adventure Works Enterprise Subscription, pour fournir des informations de facturation pour cette charge de travail informatique.
 
 ## <a name="storage"></a>Stockage
-Adventure Works Cycles a déterminé que des disques managés Azure doivent être utilisés. Lors de la création de machines virtuelles, les deux niveaux de stockage disponibles sont utilisés :
+Adventure Works Cycles a déterminé qu’Azure Disques managés doivent être utilisés. Lors de la création de machines virtuelles, les deux niveaux de stockage disponibles sont utilisés :
 
 * **Stockage standard** pour les serveurs web, les serveurs d’applications et les contrôleurs de domaine et leurs disques de données.
 * **Stockage Premium** pour les serveurs de cluster partitionné MongoDB et leurs disques de données.
@@ -109,7 +109,7 @@ Voici la configuration obtenue.
 Cette configuration comprend :
 
 * un réseau virtuel cloud avec deux sous-réseaux (FrontEnd et BackEnd) ;
-* des disques managés Azure utilisant à la fois des disques Standard et Premium
+* Azure Disques managés utilisant à la fois des disques Standard et Premium
 * quatre groupes à haute disponibilité, un pour chaque niveau du magasin en ligne ;
 * les machines virtuelles pour les quatre niveaux ;
 * un jeu d’équilibrage de charge externe pour le trafic Web basé sur HTTPS depuis Internet vers les serveurs web ;

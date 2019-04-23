@@ -8,7 +8,7 @@ ms.date: 02/19/2019
 ms.author: raynew
 ms.openlocfilehash: 012a352b00de2e2d1bf64fd18125ddd10faba5cd
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58122805"
@@ -81,7 +81,7 @@ Pour le dimensionnement basé sur les performances, Azure Migrate commence par l
 - **Stockage** : Azure Migrate tente de mapper chaque disque attaché à la machine à un disque dans Azure.
 
     > [!NOTE]
-    > Azure Migrate prend uniquement en charge les disques gérés pour l’évaluation.
+    > Azure Migrate prend uniquement en charge les disques managés pour l’évaluation.
 
     - Pour obtenir les E/S disque par seconde (IOPS) et le débit (MBps) effectifs, Azure Migrate multiplie les E/S disque par seconde et le débit par le facteur de confort. En fonction des valeurs effectives d’IOPS et de débit, Azure Migrate détermine si le disque doit être mappé à un disque standard ou premium dans Azure.
     - Si Azure Migrate ne parvient pas à trouver un disque avec les IOPS et le débit requis, il marque la machine comme inadaptée à Azure. [En savoir plus](../azure-subscription-service-limits.md#storage-limits) sur les limites par disque et par machine virtuelle dans Azure.

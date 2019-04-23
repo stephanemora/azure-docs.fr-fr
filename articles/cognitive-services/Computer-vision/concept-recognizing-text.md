@@ -1,5 +1,5 @@
 ---
-title: Reconnaître du texte imprimé et manuscrit - Vision par ordinateur
+title: Reconnaître le texte imprimé/main, vision par ordinateur
 titleSuffix: Azure Cognitive Services
 description: Concepts liés à la reconnaissance du texte imprimé et manuscrit dans des images à l’aide de l’API Vision par ordinateur.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
-ms.translationtype: MT
+ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588973"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998230"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconnaître le texte imprimé et manuscrit
 
@@ -45,13 +45,11 @@ Si vous utilisez un abonnement gratuit de couche, l’API de lecture traitera un
 
 ## <a name="ocr-optical-character-recognition-api"></a>OCR (reconnaissance optique de caractères) API
 
-API de reconnaissance optique de caractères (OCR) de vision par ordinateur est similaire à l’API de lecture, mais il s’exécute de façon synchrone et n’est pas optimisée pour les documents volumineux. Il utilise un modèle de reconnaissance antérieur mais d’autres langages.
-
-L'OCR prend en charge 25 langues : arabe, chinois simplifié, chinois traditionnel, tchèque, danois, néerlandais, anglais, finnois, français, allemand, grec, hongrois, italien, japonais, coréen, norvégien, polonais, portugais, roumain, russe, serbe (cyrillique et latin), slovaque, espagnol, suédois et turc. L'OCR identifie automatiquement la langue du texte détecté.
+API de reconnaissance optique de caractères (OCR) de vision par ordinateur est similaire à l’API de lecture, mais il s’exécute de façon synchrone et n’est pas optimisée pour les documents volumineux. Il utilise un modèle de reconnaissance antérieur mais fonctionne avec plusieurs langues ; consultez [prise en charge linguistique](language-support.md#text-recognition) pour obtenir une liste complète des langues prises en charge.
 
 Si nécessaire, l'OCR corrige la rotation du texte reconnu en renvoyant le décalage de rotation en degrés autour de l'axe horizontal de l'image. OCR fournit également les coordonnées de cadre de chaque mot, comme indiqué dans l’illustration suivante.
 
-![Diagramme illustrant une image en rotation et le texte en cours de lecture et délimité](./Images/vision-overview-ocr.png)
+![Une image en rotation et son texte en cours et des lectures délimitée](./Images/vision-overview-ocr.png)
 
 Consultez le [documents de référence de reconnaissance optique de caractères](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) pour en savoir plus.
 

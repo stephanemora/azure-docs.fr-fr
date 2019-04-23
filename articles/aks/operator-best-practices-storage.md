@@ -9,7 +9,7 @@ ms.date: 12/04/2018
 ms.author: iainfou
 ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
 ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/27/2019
 ms.locfileid: "58496172"
@@ -48,7 +48,7 @@ Azure Files est actuellement disponible pour le niveau de performance Standard. 
 - Les disques *Premium* sont assortis de disques SSD hautes performances. Les disques Premium sont recommandés pour toutes les charges de travail de production.
 - Les disques *Standard* sont assortis de disques rotatifs ordinaires (HDD) et sont adaptés en cas de données d’archivage ou rarement utilisées.
 
-Identifiez les besoins de performances de votre application et les modèles d’accès pour choisir le niveau de stockage approprié. Pour plus d’informations sur les tailles et les niveaux de performance des disques managés, consultez [Vue d’ensemble d’Azure Managed Disks][managed-disks].
+Identifiez les besoins de performances de votre application et les modèles d’accès pour choisir le niveau de stockage approprié. Pour plus d’informations sur les tailles et les niveaux de performance des disques managés, consultez [Vue d’ensemble d’Azure Disques managés][managed-disks].
 
 ### <a name="create-and-use-storage-classes-to-define-application-needs"></a>Créer et utiliser des classes de stockage pour définir les besoins des applications
 

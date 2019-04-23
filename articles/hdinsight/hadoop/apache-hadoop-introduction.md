@@ -65,7 +65,7 @@ HDInsight permet d’exécuter des requêtes interactives sur des pétaoctets de
 
 ### <a name="internet-of-things-iot"></a>Internet des objets (IoT)
 
-Vous pouvez utiliser HDInsight pour traiter des données de diffusion en continu reçues en temps réel depuis divers appareils. Pour plus d’informations, [lire ce billet de blog Azure annonçant la version préliminaire publique de Apache Kafka sur HDInsight avec Azure Managed Disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
+Vous pouvez utiliser HDInsight pour traiter des données de diffusion en continu reçues en temps réel depuis divers appareils. Pour plus d’informations, [lire ce billet de blog Azure annonçant la version préliminaire publique de Apache Kafka sur HDInsight avec Azure Disques Managés](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
 
 ![Architecture HDInsight : Internet des objets](./media/apache-hadoop-introduction/hdinsight-architecture-iot.png "Architecture HDInsight IoT") 
 

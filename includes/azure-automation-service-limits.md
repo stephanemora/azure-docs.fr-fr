@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 61f82771e53ac9bb594484b29bb109a03cee674b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553728"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012497"
 ---
 #### <a name="process-automation"></a>Automatisation de processus
 
@@ -22,6 +22,7 @@ ms.locfileid: "57553728"
 | Nombre maximal de nouvelles tâches qui peuvent être envoyées toutes les 30 secondes par compte Azure Automation (travaux non planifiés) |100 |Lorsque cette limite est atteinte, les demandes suivantes pour créer une tâche échouent. Le client reçoit une réponse d’erreur.|
 | Nombre maximal de travaux simultanés pendant la même instance de temps par compte Automation (travaux non planifiés) |200 |Lorsque cette limite est atteinte, les demandes suivantes pour créer une tâche échouent. Le client reçoit une réponse d’erreur.|
 | Taille maximale de stockage de métadonnées du travail pour une période de 30 jours propagée | 10 Go (environ 4 millions travaux)|Lorsque cette limite est atteinte, les demandes suivantes pour créer une tâche échouent. |
+| Limite de flux de travail maximale|1 Mo|Un seul flux ne peut pas être supérieur à 1 Mo.|
 | Nombre maximal de modules qui peuvent être importés toutes les 30 secondes par compte Automation |5. ||
 | Taille maximale d’un module |100 Mo ||
 | Travail de l’exécution, niveau gratuit |500 minutes par abonnement et par mois ||

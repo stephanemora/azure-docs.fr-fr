@@ -18,7 +18,7 @@ ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57995173"
@@ -355,7 +355,7 @@ Avant de continuer, envisagez les décisions de conception suivantes.
 
 * **Stockage - Disques gérés Azure**
 
-   Pour le stockage de la machine virtuelle, utilisez des disques gérés Azure. Microsoft recommande des machines virtuelles Managed Disks pour SQL Server. Les disques managés gèrent le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec Managed Disks sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, voir la page [Azure Managed Disks overview](../managed-disks-overview.md) (Vue d’ensemble d’Azure Managed Disks). Pour plus de détails sur les disques gérés dans un groupe à haute disponibilité, consultez [Utilisation de disques gérés pour les machines virtuelles dans le groupe à haute disponibilité](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Pour le stockage de la machine virtuelle, utilisez Azure Disques managés. Microsoft recommande des machines virtuelles de la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, voir la page [Azure Managed Disks overview](../managed-disks-overview.md) (Vue d’ensemble d’Azure Disques managés). Pour plus de détails sur la fonctionnalité Disques managés dans un groupe à haute disponibilité, consultez [Utilisation de la fonctionnalité Disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Réseau - Adresses IP privées en production**
 

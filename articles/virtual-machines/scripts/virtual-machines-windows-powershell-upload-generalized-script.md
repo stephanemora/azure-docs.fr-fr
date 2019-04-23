@@ -1,6 +1,6 @@
 ---
 title: Exemple de script PowerShell - Chargement d’un disque dur virtuel généralisé sur Azure | Microsoft Docs
-description: Exemple de script PowerShell pour charger un disque dur virtuel généralisé sur Azure et créer une machine virtuelle à l’aide du modèle de déploiement Resource Manager et de Managed Disks.
+description: Exemple de script PowerShell pour charger un disque dur virtuel généralisé sur Azure et créer une machine virtuelle à l’aide du modèle de déploiement Resource Manager et de la fonctionnalité Disques managés.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn

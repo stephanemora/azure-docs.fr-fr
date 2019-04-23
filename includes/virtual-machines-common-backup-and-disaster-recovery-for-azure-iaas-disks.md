@@ -112,7 +112,7 @@ Pour les disques non managés, vous pouvez utiliser le type de stockage pour les
 | Scénario | Réplication automatique | Solution de récupération d’urgence |
 | --- | --- | --- |
 | Disques SSD Premium | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) |
-| Disques gérés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) |
+| Disques managés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) |
 | Disques de stockage localement redondants non managés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) |
 | Disques de stockage géoredondants non managés | Inter-région ([stockage géoredondant](../articles/storage/common/storage-redundancy-grs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/)<br/>[Captures instantanées cohérentes](#alternative-solution-consistent-snapshots) |
 | Disques de stockage géoredondants avec accès en lecture non managés | Inter-région ([stockage géoredondant avec accès en lecture](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/)<br/>[Captures instantanées cohérentes](#alternative-solution-consistent-snapshots) |

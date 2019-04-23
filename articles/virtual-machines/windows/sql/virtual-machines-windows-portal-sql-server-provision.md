@@ -17,7 +17,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259199"
@@ -122,7 +122,7 @@ Sur le **disques** , configurez vos options de disque.
 * Sous **avancé**, sélectionnez **Oui** sous utilisation **Managed Disks**.
 
    > [!NOTE]
-   > Microsoft recommande Managed Disks pour SQL Server. Les disques managés gèrent le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec Managed Disks sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Managed Disks][../managed-disks-overview.md). Pour plus de détails sur les disques gérés dans un groupe à haute disponibilité, consultez [utiliser des disques gérés pour les machines virtuelles dans le groupe à haute disponibilité] (.. /Manage-Availability.MD.
+   > Microsoft recommande la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Disques managés][../managed-disks-overview.md). Pour plus de détails sur les disques gérés dans un groupe à haute disponibilité, consultez [utiliser des disques gérés pour les machines virtuelles dans le groupe à haute disponibilité] (.. /Manage-Availability.MD.
 
 ![Paramètres de disque de machine virtuelle SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   

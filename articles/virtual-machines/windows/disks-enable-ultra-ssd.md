@@ -1,5 +1,5 @@
 ---
-title: Disques Ultra pour machines virtuelles Windows - Azure Managed Disks | Microsoft Docs
+title: Disques Ultra pour machines virtuelles Windows - Azure Disques managés | Microsoft Docs
 description: En savoir plus sur les disques Ultra SSD pour les machines virtuelles Azure
 services: virtual-machines-windows
 author: roygara

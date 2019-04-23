@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545397"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150011"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -130,14 +130,6 @@ Pour plus d’informations sur la vérification des autorisations d’accès uti
 ### <a name="enable-network-watcher"></a>Activer Network Watcher
 
 Pour analyser le trafic, vous devez disposer d’un service Network Watcher, ou devez [activer un Network Watcher](network-watcher-create.md) dans chaque région hébergeant des groupes de sécurité réseau que vous souhaitez analyser. Traffic Analytics peut être activé pour les groupes de sécurité réseau hébergés dans les [régions prises en charge](#supported-regions).
-
-### <a name="re-register-the-network-resource-provider"></a>Inscrire à nouveau le fournisseur de ressources réseau
-
-Pour pouvoir utiliser les analyses de trafic, vous devez inscrire à nouveau votre fournisseur de ressources réseau. Cliquez sur **Try it** (Essayer) dans la zone de code suivante pour ouvrir Azure Cloud Shell. Cloud Shell vous connecte automatiquement à votre abonnement Azure. Une fois Cloud Shell ouvert, entrez la commande suivante pour inscrire à nouveau le fournisseur de ressources réseau :
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
-```
 
 ### <a name="select-a-network-security-group"></a>Sélectionner un groupe de sécurité réseau
 

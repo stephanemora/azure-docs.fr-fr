@@ -1,6 +1,6 @@
 ---
 title: Copie d’une machine virtuelle Linux à l’aide d’Azure CLI | Microsoft Docs
-description: Apprenez à créer une copie de votre machine virtuelle Azure Linux à l’aide d’Azure CLI et de Managed Disks.
+description: Apprenez à créer une copie de votre machine virtuelle Azure Linux à l’aide d’Azure CLI et de la fonctionnalité Disques managés.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.date: 10/17/2018
 ms.author: cynthn
 ms.openlocfilehash: abc8c09a51104c81b827afb7055531df98691714
 ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56731342"
 ---
-# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Créer une copie de machine virtuelle Linux à l’aide d’Azure CLI et de Managed Disks
+# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Créer une copie de machine virtuelle Linux à l’aide d’Azure CLI et de la fonctionnalité Disques managés
 
 Cet article vous explique comment créer une copie de votre machine virtuelle Azure exécutant Linux avec l’interface Azure CLI et le modèle de déploiement Azure Resource Manager. 
 
@@ -50,7 +50,7 @@ az vm deallocate \
 
 Pour copier une machine virtuelle, vous devez créer une copie du disque dur virtuel sous-jacent. Ce processus crée un disque dur virtuel spécialisé (VHD) en tant que disque managé qui contient la même configuration et les mêmes paramètres que la machine virtuelle source.
 
-Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble d’Azure Managed Disks](../windows/managed-disks-overview.md). 
+Pour plus d’informations sur Azure Disques managés, consultez [Vue d’ensemble d’Azure Disques managés](../windows/managed-disks-overview.md). 
 
 1.  Répertoriez chaque machine virtuelle et le nom de leur disque de système d’exploitation avec la commande [az vm list](/cli/azure/vm#az-vm-list). L’exemple suivant répertorie toutes les machines virtuelles dans le groupe de ressources nommé *myResourceGroup* :
     
@@ -75,7 +75,7 @@ Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble 
          --name myCopiedDisk --source myDisk
     ``` 
 
-1.  Examinez les disques gérés qui appartiennent désormais à votre groupe de ressources, à l’aide de la commande [az disk list](/cli/azure/disk#az-disk-list). L’exemple suivant répertorie les disques gérés dans le groupe de ressources nommé *myResourceGroup* :
+1.  Examinez les disques managés qui appartiennent désormais à votre groupe de ressources, à l’aide de la commande [az disk list](/cli/azure/disk#az-disk-list). L’exemple suivant répertorie les disques managés dans le groupe de ressources nommé *myResourceGroup* :
 
     ```azurecli
     az disk list --resource-group myResourceGroup --output table

@@ -6,7 +6,7 @@ ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
 ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58261373"
@@ -22,7 +22,7 @@ Le tableau suivant illustre les par défaut et les limites maximales du nombre d
 
 > | Ressource | Limite par défaut  | Limite maximale |
 > | --- | --- | --- |
-> | Disques gérés Standard | 25 000 | 50 000 |
+> | Disques managés Standard | 25 000 | 50 000 |
 > | Disques managés SSD Standard | 25 000 | 50 000 |
 > | Managed Disks Premium | 25 000 | 50 000 |
 > | Standard_LRS instantanés | 25 000 | 50 000 |

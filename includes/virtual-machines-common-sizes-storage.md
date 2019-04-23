@@ -5,22 +5,27 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c5e6a44409e082f10a532759e3403f6b5801fdca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 6c83298b102d6782647f3baebf6f98e43cb3ad7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551571"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011841"
 ---
 Les tailles de machines virtuelles à stockage optimisé offrent un débit de disque et d’E/S élevé. Elles sont idéales pour les bases de données Big Data, SQL, NoSQL ainsi que pour l’entreposage de données et les grandes bases de données transactionnelles.  Cassandra, MongoDB, Cloudera et Redis en sont des exemples. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage local et la bande passante réseau pour chaque taille optimisée.
 
 La série Lsv2 offre un stockage NVMe local directement mappé, à haut débit et faible latence. Elle est dotée du [processeur AMD EPYC&trade; 7551](https://www.amd.com/en/products/epyc-7000-series) avec une augmentation de la fréquence de tous les cœurs de 2,55 GHz et une augmentation maximale de 3 GHz. Les machines virtuelles de la série Lsv2 comprennent entre 8 et 80 processeurs virtuels dans une configuration de multithreading simultané.  Il existe 8 Gio de mémoire par processeur virtuel et un périphérique NVMe SSD M.2 de 1,92 To pour 8 processeurs virtuels, avec une limite maximale de 19,2 To (10 x 1,92 To) sur le L80s v2.
 
 > [!NOTE]
-> Les machines virtuelles de série Lsv2 sont optimisés pour utiliser le disque local sur le nœud directement attaché à la machine virtuelle et non à l’aide de disques de données durables. Cela permet d’augmenter les IOPS/le débit de vos charges de travail. La série Lsv2 ne prend pas en charge la création d’un cache local pour augmenter l’IOPS réalisables par des disques de données durables. Le débit élevé et les e/s du disque local, les machines virtuelles de série Lsv2 parfaits pour les magasins NoSQL tels que Apache Cassandra et MongoDB laquelle répliquer les données sur plusieurs machines virtuelles pour obtenir une persistance en cas de défaillance d’une machine virtuelle unique.
+> Les machines virtuelles de série Lsv2 sont optimisés pour utiliser le disque local sur le nœud directement attaché à la machine virtuelle et non à l’aide de disques de données durables. Cela permet d’augmenter les IOPS/le débit de vos charges de travail. Lsv2 et la série Ls ne prennent pas en charge la création d’un cache local pour augmenter l’IOPs réalisables par des disques de données durables.
+>
+> Le débit élevé et les e/s du disque local, les machines virtuelles de la série Ls et le Lsv2 parfaits pour les magasins NoSQL tels que Apache Cassandra et MongoDB laquelle répliquer les données sur plusieurs machines virtuelles pour obtenir une persistance en cas de défaillance d’une machine virtuelle unique.
+>
+> Pour plus d’informations, consultez [optimiser les performances sur les machines virtuelles de série Lsv2](../articles/virtual-machines/linux/storage-performance.md).  
+
 
 ## <a name="lsv2-series"></a>Série Lsv2
 
@@ -49,6 +54,6 @@ Mise en cache du Stockage Premium : Non pris en charge
 ## <a name="size-table-definitions"></a>Définitions des tailles de tables
 
 - La capacité de stockage est indiquée en unités de Gio ou 1 024^3 octets. Lors de la comparaison de disques mesurés en Go (1 000^3 octets) à des disques mesurés en Gio (1 024^3) n’oubliez pas que les indications de capacité en Gio peuvent sembler plus petites. Par exemple, 1 023 Gio = 1 098,4 Go
-- Le débit de disque est mesuré en opérations d’entrée/sortie par seconde (IOPS) et Mbit/s où Mbit/s = 10^6 octets par seconde.
+- Le débit de disque est mesuré en opérations d’entrée/sortie par seconde (IOPS) et MBps où MBps = 10^6 octets par seconde.
 - Si vous souhaitez obtenir des performances optimales pour vos machines virtuelles, vous devez limiter le nombre de disques de données à 2 disques par processeur virtuel.
 - La **bande passante réseau attendue** est la [bande passante agrégée maximale qui est allouée par type de machine virtuelle](../articles/virtual-network/virtual-machine-network-throughput.md) entre toutes les cartes réseau, pour toutes les destinations. Les limites supérieures ne sont pas garanties, mais servent de points de repère pour sélectionner le type de machine virtuelle adapté à l’application prévue. Les performances réseau réelles dépendent de nombreux facteurs, notamment la congestion du réseau, les charges de l’application, ainsi que les paramètres réseau. Pour plus d’informations sur l’optimisation du débit du réseau, consultez [Optimisation du débit du réseau pour Windows et Linux](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md). Pour atteindre la performance réseau attendue sous Linux ou Windows, il peut être nécessaire de sélectionner une version spécifique ou d’optimiser votre machine virtuelle. Pour plus d’informations, consultez [Tester de manière fiable le débit d’une machine virtuelle](../articles/virtual-network/virtual-network-bandwidth-testing.md).

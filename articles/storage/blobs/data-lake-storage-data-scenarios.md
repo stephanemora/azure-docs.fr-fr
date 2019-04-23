@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: ec97cf903a37465f98007750fc41edc0952ab3a6
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 9deaa2f1e381dffbd85b0ee150c5782098a9db6b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889594"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006809"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Storage Gen2 pour le Big Data
 
@@ -73,7 +73,7 @@ Ce tableau montre comment octroyer l'accès à chacun des services ou outils Azu
 |Apache DistCp | Affecter un rôle à une identité managée affectée par l’utilisateur | [Créer un cluster HDInsight avec Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Data Factory| Attribuer un rôle à une identité managée affectée par l'utilisateur<br>**ou**<br> Attribuer un rôle à un principal de service<br>**ou**<br> Utiliser une clé de compte de stockage | [Propriétés du service lié](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| Affecter un rôle à une identité managée affectée par l’utilisateur | [Créer un cluster HDInsight avec Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
-|Azure Databricks| Attribuer un rôle à un principal de service | [Guide pratique pour Utiliser le portail pour créer une application Azure AD et un principal de service ayant accès aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
+|Azure Databricks| Attribuer un rôle à un principal de service | [Procédure : Utiliser le portail pour créer une application Azure AD et un principal de service ayant accès aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Pour octroyer l'accès à des fichiers et dossiers spécifiques, consultez ces articles.
 
@@ -142,7 +142,7 @@ Voici une liste d'outils que vous pouvez utiliser pour ingérer des données ass
 |---|--|
 |Apache DistCp | [Utiliser DistCp pour copier des données entre Azure Storage Blob et Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |Outil AzCopy | [Transférer des données avec AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure Data Factory | [Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l'aide d'Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) |
+|Azure Data Factory | [Copier des données vers ou à partir d’Azure Data Lake Storage Gen2 à l’aide d’Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Données stockées localement ou dans des clusters IaaS Hadoop
 
@@ -170,7 +170,7 @@ Voici une liste d'outils que vous pouvez utiliser pour exécuter des travaux d'a
 |Outil | Assistance |
 |---|--|
 |Azure HDInsight | [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Démarrage rapide : Analyser des données dans Azure Data Lake Storage Gen2 à l'aide d'Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutoriel : Extraire, transformer et charger des données à l'aide d'Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Démarrage rapide : Analyser des données dans Azure Data Lake Storage Gen2 à l'aide d'Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutoriel : Extraire, transformer et charger des données à l'aide d'Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>Visualiser les données
 

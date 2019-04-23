@@ -10,12 +10,12 @@ ms.author: ramankum
 ms.custom: include file
 ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58115387"
 ---
-# <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Stockage Premium hautes performances et disques gérés pour machines virtuelles
+# <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Stockage Premium hautes performances et disques managés pour machines virtuelles
 
 Le stockage Premium Azure offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles avec des charges de travail qui utilisent beaucoup d’entrée/sortie (E/S). Les disques de machine virtuelle qui utilisent le stockage Premium stockent les données sur des disques SSD. Pour tirer parti de la vitesse et des performances des disques de stockage Premium, vous pouvez migrer les disques de machines virtuelles existantes vers le stockage Premium.
 
@@ -34,13 +34,13 @@ Azure propose deux façons de créer des disques de Stockage Premium pour les ma
 
 * **Disques gérés**
 
-    Lorsque vous choisissez [Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md), Azure gère les comptes de stockage que vous utilisez pour vos disques de machine virtuelle. Vous spécifiez le type de disque (Premium ou Standard) et la taille de disque dont vous avez besoin. Azure crée et gère le disque pour vous. Vous n’avez pas à positionner les disques sur plusieurs comptes de stockage afin de garantir le respect des limites d’extensibilité de vos comptes de stockage. Azure gère cela à votre place.
+    Lorsque vous choisissez [Azure Disques managés](../articles/virtual-machines/windows/managed-disks-overview.md), Azure gère les comptes de stockage que vous utilisez pour vos disques de machine virtuelle. Vous spécifiez le type de disque (Premium ou Standard) et la taille de disque dont vous avez besoin. Azure crée et gère le disque pour vous. Vous n’avez pas à positionner les disques sur plusieurs comptes de stockage afin de garantir le respect des limites d’extensibilité de vos comptes de stockage. Azure gère cela à votre place.
 
-Nous vous recommandons de choisir des disques gérés, pour tirer parti de leurs nombreuses fonctionnalités.
+Nous vous recommandons de choisir des disques managés, pour tirer parti de leurs nombreuses fonctionnalités.
 
 Pour la prise en main du Stockage Premium, [Créez votre compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/). 
 
-Pour plus d’informations sur la migration de vos machines virtuelles existantes vers le stockage Premium, consultez [Convertir une machine virtuelle à partir de disques non gérés vers des disques gérés](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) ou [Convertir une machine virtuelle Linux à partir de disques non gérés vers des disques gérés](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
+Pour plus d’informations sur la migration de vos machines virtuelles existantes vers le stockage Premium, consultez [Convertir une machine virtuelle à partir de disques non managés vers des disques managés](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) ou [Convertir une machine virtuelle Linux à partir de disques non managés vers des disques managés](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
 > Le stockage Premium est disponible dans la plupart des régions. Pour obtenir la liste des régions disponibles, consultez la ligne dédiée au **Stockage sur disque** de la section [Disponibilité des produits par région](https://azure.microsoft.com/regions/#services).
@@ -51,7 +51,7 @@ Voici certaines des fonctionnalités du stockage Premium :
 
 * **Disques de stockage Premium**
 
-    Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique. Le Stockage Premium prend en charge un large éventail de machines virtuelles Azure. Dans la version mise à la disposition générale, vous avez le choix entre huit tailles de disques :  P4 (32 Gio), P6 (64 Gio), P10 (128 Gio), P15 (256 Gio), P20 (512 Gio), P30 (1 024 Gio), P40 (2 048 Gio), P50 (4 095 Gio). Sans oublier les trois tailles de disques de la préversion : P60 8 192 Gio (8 Tio), P70 16 348 Gio (16 Tio), P80 32 767 Gio (32 Tio). Les tailles de disque P4, P6, P15, P60, P70 et P80 ne sont actuellement prises en charge que par Managed Disks. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle. Nous donnons plus de détails sur ces spécifications dans [Objectifs de performance et d’extensibilité du stockage Premium](#scalability-and-performance-targets).
+    Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique. Le Stockage Premium prend en charge un large éventail de machines virtuelles Azure. Dans la version mise à la disposition générale, vous avez le choix entre huit tailles de disques :  P4 (32 Gio), P6 (64 Gio), P10 (128 Gio), P15 (256 Gio), P20 (512 Gio), P30 (1 024 Gio), P40 (2 048 Gio), P50 (4 095 Gio). Sans oublier les trois tailles de disques de la préversion : P60 8 192 Gio (8 Tio), P70 16 348 Gio (16 Tio), P80 32 767 Gio (32 Tio). Les tailles de disque P4, P6, P15, P60, P70 et P80 ne sont actuellement prises en charge que par la fonctionnalité Disques managés. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle. Nous donnons plus de détails sur ces spécifications dans [Objectifs de performance et d’extensibilité du stockage Premium](#scalability-and-performance-targets).
 
 * **Objets blob de pages Premium**
 
@@ -144,10 +144,10 @@ Les objectifs d’extensibilité des comptes de stockage Premium sont les suivan
 
 Pour plus d’informations, consultez [Objectifs d’extensibilité et de performances de stockage Azure](../articles/storage/common/storage-scalability-targets.md).
 
-Si vous utilisez des comptes de stockage Premium pour des disques non gérés et que votre application dépasse les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez envisager la migration vers des disques gérés. Si vous ne souhaitez pas migrer vers des disques gérés, générez votre application pour utiliser plusieurs comptes de stockage. Ensuite, partitionnez vos données sur ces comptes de stockage. Par exemple, si vous souhaitez attacher des disques de 51 To sur plusieurs machines virtuelles, répartissez-les entre deux comptes de stockage. La limite pour un compte de stockage Premium unique est de 35 To. Vérifiez qu’un compte de stockage Premium n’a jamais plus de 35 To de disques configurés.
+Si vous utilisez des comptes de stockage Premium pour des disques non managés et que votre application dépasse les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez envisager la migration vers des disques managés. Si vous ne souhaitez pas migrer vers des disques managés, générez votre application pour utiliser plusieurs comptes de stockage. Ensuite, partitionnez vos données sur ces comptes de stockage. Par exemple, si vous souhaitez attacher des disques de 51 To sur plusieurs machines virtuelles, répartissez-les entre deux comptes de stockage. La limite pour un compte de stockage Premium unique est de 35 To. Vérifiez qu’un compte de stockage Premium n’a jamais plus de 35 To de disques configurés.
 
 ### <a name="premium-storage-disk-limits"></a>Limites des disques de stockage Premium
-Lorsque vous configurez un disque de stockage Premium, la taille du disque détermine la valeur maximale d’E/S par seconde et le débit (bande passante). Dans la version mise à la disposition générale, Azure propose huit types de disques de stockage Premium : P4 (Managed Disks uniquement), P6 (Managed Disks uniquement), P10, P15 (Managed Disks uniquement), P20, P30, P40 et P50. La préversion propose également trois tailles de disques : P60, P70 et P80. Chaque type de disque de stockage Premium a des limites d’E/S par seconde et de débit spécifiques. Les limites pour ces types de disques sont décrites dans le tableau suivant :
+Lorsque vous configurez un disque de stockage Premium, la taille du disque détermine la valeur maximale d’E/S par seconde et le débit (bande passante). Dans la version mise à la disposition générale, Azure propose huit types de disques de stockage Premium : P4 (fonctionnalité Disques managés uniquement), P6 (fonctionnalité Disques managés uniquement), P10, P15 (fonctionnalité Disques managés uniquement), P20, P30, P40 et P50. La préversion propose également trois tailles de disques : P60, P70 et P80. Chaque type de disque de stockage Premium a des limites d’E/S par seconde et de débit spécifiques. Les limites pour ces types de disques sont décrites dans le tableau suivant :
 
 Les tailles signalées par un astérisque sont actuellement en préversion.
 
@@ -239,9 +239,9 @@ Pour conserver des copies géo-redondantes de vos captures instantanées, vous p
 
 Pour plus d’informations sur l’exécution d’opérations REST sur les objets blob de pages dans les comptes de stockage Premium, consultez [Opérations de service blob avec le stockage Premium Azure ](https://go.microsoft.com/fwlink/?LinkId=521969).
 
-### <a name="managed-disks"></a>Disques gérés
+### <a name="managed-disks"></a>Disques managés
 
-Une capture instantanée d’un disque géré est une copie en lecture seule du disque géré. La capture instantanée est stockée comme un disque géré standard. Actuellement, les [instantanés incrémentiels](../articles/virtual-machines/windows/incremental-snapshots.md) ne sont pas pris en charge pour les disques gérés. Pour savoir comment réaliser une capture instantanée d’un disque géré, consultez [Créer une copie d’un disque dur virtuel stocké en tant que disque Azure géré à l’aide de captures instantanées gérées dans Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md) ou [Créer une copie d’un disque dur virtuel stocké en tant que disque Azure géré à l’aide de captures instantanées gérées dans Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md).
+Une capture instantanée d’un disque géré est une copie en lecture seule du disque géré. La capture instantanée est stockée comme un disque géré standard. Actuellement, les [instantanés incrémentiels](../articles/virtual-machines/windows/incremental-snapshots.md) ne sont pas pris en charge pour les disques managés. Pour savoir comment réaliser une capture instantanée d’un disque géré, consultez [Créer une copie d’un disque dur virtuel stocké en tant que disque Azure géré à l’aide de captures instantanées gérées dans Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md) ou [Créer une copie d’un disque dur virtuel stocké en tant que disque Azure géré à l’aide de captures instantanées gérées dans Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md).
 
 Si un disque géré est attaché à une machine virtuelle, certaines opérations d’API ne sont pas autorisées sur les disques. Par exemple, vous ne pouvez pas générer une signature d’accès partagé (SAP) pour effectuer une opération de copie alors que le disque est associé à une machine virtuelle. Au lieu de cela, commencez par créer une capture instantanée du disque, puis réalisez-en une copie. Sinon, vous pouvez aussi détacher le disque, puis générer une signature d’accès partagé (SAP) pour réaliser l’opération de copie.
 
@@ -306,7 +306,7 @@ Les considérations de facturation suivantes s’appliquent lorsque vous utilise
 
     Les [Transferts de données sortantes](https://azure.microsoft.com/pricing/details/data-transfers/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
 
-Pour plus d’informations sur la tarification du stockage Premium, les machines virtuelles prises en charge par le stockage Premium et les disques gérés, consultez ces articles :
+Pour plus d’informations sur la tarification du stockage Premium, les machines virtuelles prises en charge par le stockage Premium et les disques managés, consultez ces articles :
 
 * [Tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/)
 * [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/)
@@ -316,7 +316,7 @@ Pour plus d’informations sur la tarification du stockage Premium, les machines
 
 Pour la récupération d’urgence régionale, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide de [Sauvegarde Azure](../articles/backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme coffre de sauvegarde.
 
-Pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde, utilisez Sauvegarde Azure. Vous pouvez utiliser la sauvegarde avec des disques gérés et non gérés. Pour plus d’informations, consultez [Sauvegarde Azure de machines virtuelles avec des disques non gérés](../articles/backup/backup-azure-vms-first-look-arm.md) et [Sauvegarde Azure de machines virtuelles avec des disques gérés](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
+Pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde, utilisez Sauvegarde Azure. Vous pouvez utiliser la sauvegarde avec des disques managés et non managés. Pour plus d’informations, consultez [Sauvegarde Azure de machines virtuelles avec des disques non managés](../articles/backup/backup-azure-vms-first-look-arm.md) et [Sauvegarde Azure de machines virtuelles avec des disques managés](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

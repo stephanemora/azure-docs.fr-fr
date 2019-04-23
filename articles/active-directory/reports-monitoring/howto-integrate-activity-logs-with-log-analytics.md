@@ -1,6 +1,6 @@
 ---
-title: Diffuser en continu les journaux d’activité Azure Active Directory vers les journaux d’activité Azure Monitor (préversion) | Microsoft Docs
-description: Découvrez comment intégrer des journaux d’activité Azure Active Directory aux journaux d’activité Azure Monitor (préversion).
+title: Stream des journaux Azure Active Directory dans les journaux d’Azure Monitor | Microsoft Docs
+description: Découvrez comment intégrer des journaux Azure Active Directory avec les journaux d’Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 056a529101ffc39170ea057832bcd50b283505be
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436267"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010933"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Intégrer des journaux d’activité Azure AD aux journaux d’activité Azure Monitor (préversion)
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Intégrer des journaux Azure AD avec les journaux d’Azure Monitor
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Les journaux d’activité Azure Monitor vous permettent d’interroger les données pour trouver des événements particuliers, analyser les tendances et effectuer une corrélation entre différentes sources de données. Avec l’intégration des journaux d’activité d’Azure AD aux journaux d’activité Azure Monitor, vous pouvez maintenant effectuer les tâches suivantes :
 
@@ -37,8 +39,6 @@ La vidéo suivante issue d’une session Ignite montre les avantages de l’util
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
 Cet article explique comment intégrer des journaux d’activité Azure Active Directory (Azure AD) à Azure Monitor.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="supported-reports"></a>Rapports pris en charge
 
@@ -60,7 +60,7 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 * Utilisateur considéré comme *administrateur général* ou *administrateur de la sécurité* pour un locataire Azure AD.
 * Espace de travail Log Analytics dans votre abonnement Azure. Découvrez comment [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-azure-monitor-logs"></a>Envoyer des journaux d’activité aux journaux d’activité Azure Monitor
+## <a name="send-logs-to-azure-monitor"></a>Envoyer des journaux à Azure Monitor
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
 

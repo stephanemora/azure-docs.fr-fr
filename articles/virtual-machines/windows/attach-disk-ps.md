@@ -18,7 +18,7 @@ ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: a42fec94a23db82192cf05a47080d982a0857056
 ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56729040"
@@ -40,7 +40,7 @@ Commencez par passer en revue ces conseils :
 
 Cet exemple montre comment ajouter un disque de données vide à une machine virtuelle existante.
 
-### <a name="using-managed-disks"></a>Utilisation de disques gérés
+### <a name="using-managed-disks"></a>Utilisation de disques managés
 
 ```azurepowershell-interactive
 $rgName = 'myResourceGroup'
@@ -58,7 +58,7 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -Managed
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
-### <a name="using-managed-disks-in-an-availability-zone"></a>Utilisation de disques gérés dans un groupe à haute disponibilité
+### <a name="using-managed-disks-in-an-availability-zone"></a>Utilisation de disques managés dans un groupe à haute disponibilité
 
 Pour créer un disque dans une zone de disponibilité, utilisez [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) avec le paramètre `-Zone`. L’exemple suivant crée un disque dans la zone *1*.
 

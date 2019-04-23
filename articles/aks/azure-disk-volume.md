@@ -9,7 +9,7 @@ ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 02a863a4ddf59fb36c5f2ae7f3092896d2e1d860
 ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/05/2019
 ms.locfileid: "57337989"
@@ -52,7 +52,7 @@ az disk create \
 ```
 
 > [!NOTE]
-> Les disques Azure sont facturés par référence (SKU) pour une taille donnée. Ces références (SKU) comprise 32GiB pour S4 ou P4 disques à 32TiB pour les disques S80 ou P80 (en version préliminaire). Le débit et les performances d’E/S d’un disque managé Premium dépendent à la fois de la référence SKU et de la taille d’instance des nœuds dans le cluster AKS. Consultez [Tarification et performances des disques managés][managed-disk-pricing-performance].
+> Les disques Azure sont facturés par référence (SKU) pour une taille donnée. Ces références (SKU) comprise 32GiB pour S4 ou P4 disques à 32TiB pour les disques S80 ou P80 (en version préliminaire). Le débit et les performances d’E/S d’un disque managé Premium dépendent à la fois de la référence SKU et de la taille d’instance des nœuds dans le cluster AKS. Consultez [Tarification et performances de la fonctionnalité Disques managés][managed-disk-pricing-performance].
 
 L’ID de ressource de disque s’affiche une fois la commande complétée avec succès, comme illustré dans l’exemple de sortie suivant. Cet ID de disque est utilisé pour monter le disque à l’étape suivante.
 

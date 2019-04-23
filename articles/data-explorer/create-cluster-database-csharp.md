@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
 ms.openlocfilehash: 1489048619fa8d650b30659a00ae7679c8d5109d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050694"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Créer un cluster et une base de données Azure Data Explorer en utilisant C#
 
 > [!div class="op_single_selector"]
-> * [Portail](create-cluster-database-portal.md)
-> * [Interface de ligne de commande](create-cluster-database-cli.md)
+> * [Portal](create-cluster-database-portal.md)
+> * [INTERFACE DE LIGNE DE COMMANDE](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
@@ -122,4 +122,4 @@ Vous disposez maintenant d’un cluster et d’une base de données.
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Ingérer des données à l’aide du kit SDK .NET Standard Azure Data Explorer (préversion)](net-standard-ingest-data.md)
+> [Démarrage rapide : Ingérer des données avec le SDK .NET Standard dans Azure Data Explorer (préversion)](net-standard-ingest-data.md)

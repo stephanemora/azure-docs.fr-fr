@@ -18,7 +18,7 @@ ms.locfileid: "58001997"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Utiliser Terraform pour créer un groupe de machines virtuelles Azure identiques à partir d’une image Packer personnalisée
 
-Dans ce didacticiel, vous allez utiliser [Terraform](https://www.terraform.io/) pour créer et déployer un [groupe de machines virtuelles Azure identiques](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview), créé avec une image personnalisée générée à l’aide de [Packer](https://www.packer.io/intro/index.html) et comprenant des disques gérés qui utilisent le [langage de configuration Hashicorp](https://www.terraform.io/docs/configuration/syntax.html) (HCL).  
+Dans ce didacticiel, vous allez utiliser [Terraform](https://www.terraform.io/) pour créer et déployer un [groupe de machines virtuelles Azure identiques](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview), créé avec une image personnalisée générée à l’aide de [Packer](https://www.packer.io/intro/index.html) et comprenant des disques managés qui utilisent le [langage de configuration Hashicorp](https://www.terraform.io/docs/configuration/syntax.html) (HCL).  
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 

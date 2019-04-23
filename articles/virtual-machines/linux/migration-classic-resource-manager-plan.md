@@ -17,7 +17,7 @@ ms.date: 04/01/2017
 ms.author: kasing
 ms.openlocfilehash: de2279d7f24400142f9d47ecf25378e7e4c47f9e
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58111971"
@@ -184,7 +184,7 @@ Maintenant que vous êtes en mode Azure Resource Manager, tirez le meilleur part
 
 Points importants à prendre en compte :
 
-- Groupez la migration avec d’autres activités.  La plupart des clients choisissent une fenêtre de maintenance des applications.  Dans ce cas, vous pouvez utiliser ce temps d’arrêt pour activer d’autres fonctionnalités d’Azure Resource Manager, comme le chiffrement et la migration vers Managed Disks.
+- Groupez la migration avec d’autres activités.  La plupart des clients choisissent une fenêtre de maintenance des applications.  Dans ce cas, vous pouvez utiliser ce temps d’arrêt pour activer d’autres fonctionnalités d’Azure Resource Manager, comme le chiffrement et la migration vers la fonctionnalité Disques managés.
 - Repassez en revue les raisons techniques et commerciales d’Azure Resource Manager ; activez les services supplémentaires disponibles uniquement sur Azure Resource Manager qui s’appliquent à votre environnement.
 - Modernisez votre environnement avec les services PaaS.
 

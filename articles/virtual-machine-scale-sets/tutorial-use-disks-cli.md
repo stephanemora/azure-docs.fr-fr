@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Créer et utiliser des disques pour les groupes identiques avec Azure CLI | Microsoft Docs'
-description: Découvrez comment utiliser Azure CLI pour créer et utiliser Managed Disks avec un groupe de machines virtuelles identiques, notamment comment ajouter, préparer, répertorier et détacher les disques.
+description: Découvrez comment utiliser Azure CLI pour créer et utiliser la fonctionnalité Disques managés avec un groupe de machines virtuelles identiques, notamment comment ajouter, préparer, répertorier et détacher les disques.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn

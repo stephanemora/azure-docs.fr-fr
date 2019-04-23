@@ -10,7 +10,7 @@ ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: 0b2d242519e7e8981a905d6adb1f3c0f091afe38
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59698943"
@@ -42,9 +42,9 @@ Le conseiller Azure intègre des recommandations quant aux meilleures pratiques 
 
 Pour plus d’informations sur les recommandations App Services, consultez [Meilleures pratiques pour Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
-## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Utiliser Managed Disks pour éviter la limitation des E/S de disque
+## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Utiliser la fonctionnalité Disques managés pour éviter la limitation des E/S de disque
 
-Advisor identifie les machines virtuelles appartenant à un compte de stockage qui atteint sa cible de scalabilité. Cette condition rend les machines virtuelles sensibles à la limitation des E/S. Advisor recommande l'utilisation de Managed Disks pour prévenir toute détérioration des performances.
+Advisor identifie les machines virtuelles appartenant à un compte de stockage qui atteint sa cible de scalabilité. Cette condition rend les machines virtuelles sensibles à la limitation des E/S. Advisor recommande l'utilisation de la fonctionnalité Disques managés pour prévenir toute détérioration des performances.
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Améliorer les performances et la fiabilité des disques de machine virtuelle en utilisant le stockage Premium
 

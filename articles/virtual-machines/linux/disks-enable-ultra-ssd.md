@@ -1,5 +1,5 @@
 ---
-title: Disques Ultra pour machines virtuelles Linux - Azure Managed Disks | Microsoft Docs
+title: Disques Ultra pour machines virtuelles Linux - Disques managés Azure | Microsoft Docs
 description: En savoir plus sur les disques managés Ultra pour machines virtuelles Azure
 services: virtual-machines-linux
 author: roygara

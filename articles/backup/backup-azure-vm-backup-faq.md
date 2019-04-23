@@ -10,7 +10,7 @@ ms.date: 03/22/2019
 ms.author: sogup
 ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885262"
@@ -109,7 +109,7 @@ Oui, vous pouvez utiliser des sauvegardes effectuées avant la migration des dis
 - Toutefois, vous pouvez restaurer des disques et les utiliser pour créer une machine virtuelle gérée.
 
 ### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Comment restaurer une machine virtuelle à un point de restauration antérieur à la migration de la machine virtuelle vers des disques managés ?
-Par défaut, un travail de restauration de machine virtuelle crée une machine virtuelle avec des disques non managés. Pour créer une machine virtuelle avec des disques gérés :
+Par défaut, un travail de restauration de machine virtuelle crée une machine virtuelle avec des disques non managés. Pour créer une machine virtuelle avec des disques managés :
 1. [Effectuez une restauration vers des disques non managés](tutorial-restore-disk.md#restore-a-vm-disk).
 2. [Convertissez les disques restaurés en disques managés](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
 3. [Créez une machine virtuelle avec des disques managés](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).

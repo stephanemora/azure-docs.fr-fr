@@ -1106,7 +1106,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                         <li>
                                             <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                                 <img src="media/index/managed-disks.svg" alt="" />
-                                                <p>Managed Disks</p>
+                                                <p>Disques managés</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2477,7 +2477,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Managed Disks</h3>
+                                                    <h3>Disques managés</h3>
                                                     <p>Stockage sur disque persistant et sécurisé pour machines virtuelles Azure</p>
                                                 </div>
                                             </div>

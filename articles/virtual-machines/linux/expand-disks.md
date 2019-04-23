@@ -17,7 +17,7 @@ ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 737c72e6225cdfc9fdeec59810ffd9100c48d1ad
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58181756"
@@ -45,7 +45,7 @@ Dans les exemples ci-après, remplacez les exemples de nom de paramètre, tels q
     > [!NOTE]
     > La machine virtuelle doit être libérée pour développer le disque dur virtuel. L’arrêt de la machine virtuelle avec `az vm stop` ne libère pas les ressources de calcul. Pour publier les ressources de calcul, utilisez `az vm deallocate`.
 
-1. Affichez la liste des disques gérés dans un groupe de ressources avec la commande [az disk list](/cli/azure/disk#az-disk-list). L’exemple suivant affiche la liste des disques managés dans le groupe de ressources nommé *myResourceGroup* :
+1. Affichez la liste des disques managés dans un groupe de ressources avec la commande [az disk list](/cli/azure/disk#az-disk-list). L’exemple suivant affiche la liste des disques managés dans le groupe de ressources nommé *myResourceGroup* :
 
     ```azurecli
     az disk list \
@@ -64,7 +64,7 @@ Dans les exemples ci-après, remplacez les exemples de nom de paramètre, tels q
     ```
 
     > [!NOTE]
-    > Lorsque vous étendez un disque managé, la taille mise à jour est arrondie à la taille de disque managé la plus proche. Pour obtenir un tableau des tailles et des niveaux de disques gérés disponibles, consultez [Vue d’ensemble des disques gérés Azure - Tarification et facturation](../windows/managed-disks-overview.md).
+    > Lorsque vous étendez un disque managé, la taille mise à jour est arrondie à la taille de disque managé la plus proche. Pour obtenir un tableau des tailles et des niveaux de disques managés disponibles, consultez [Vue d’ensemble d’Azure Disques managés - Tarification et facturation](../windows/managed-disks-overview.md).
 
 1. Démarrez votre machine virtuelle avec [az vm start](/cli/azure/vm#az-vm-start). L’exemple suivant démarre la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
 

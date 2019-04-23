@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 7f850cdfe99fce81c9be045b4882dc42bf2aa5f0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551096"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001879"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurer un conteneur Linux personnalisé pour Azure App Service
 
@@ -121,7 +121,9 @@ Activer le stockage persistant en définissant le `WEBSITES_ENABLE_APP_SERVICE_S
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-Dans votre *docker-compose.yml* de fichiers, mappez le `volumes` option `${WEBAPP_STORAGE_HOME}`. `WEBAPP_STORAGE_HOME` est une variable d’environnement d’App Service mappée sur le stockage persistant de votre application. Par exemple : 
+Dans votre *docker-compose.yml* de fichiers, mappez le `volumes` option `${WEBAPP_STORAGE_HOME}`. 
+
+`WEBAPP_STORAGE_HOME` est une variable d’environnement d’App Service mappée sur le stockage persistant de votre application. Par exemple : 
 
 ```yaml
 wordpress:
@@ -130,6 +132,19 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
+```
+
+### <a name="use-custom-storage-in-docker-compose"></a>Utilisation du stockage personnalisé dans Docker Compose
+
+Stockage Azure (Azure Files ou objets Blob Azure) peut être monté avec des applications à plusieurs conteneurs à l’aide de l’id personnalisé. Pour afficher le nom personnalisé-id, exécutez [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
+
+Dans votre *docker-compose.yml* de fichiers, mappez le `volumes` option `custom-id`. Par exemple : 
+
+```yaml
+wordpress:
+  image: wordpress:latest
+  volumes:
+  - <custom-id>:<path_in_container>
 ```
 
 ### <a name="preview-limitations"></a>Limitations de la version préliminaire
@@ -187,4 +202,4 @@ Les options de configuration suivantes sont prises en charge pour Kubernetes :
 > [Tutoriel : Déployer à partir du référentiel de conteneurs privé](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Application de plusieurs conteneurs WordPress](tutorial-multi-container-app.md)
+> [Tutoriel : Application WordPress avec plusieurs conteneurs](tutorial-multi-container-app.md)

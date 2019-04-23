@@ -18,7 +18,7 @@ ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5182b621779cf31f3c7da99674ab24fe6efe702d
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58850807"
@@ -354,9 +354,9 @@ Si l’espace libre disponible n’est pas suffisant, le disque peut être [redi
 Pour déterminer la quantité appropriée d’espace pour les fichiers temporaires, vous pouvez regarder les tailles de ces fichiers sur des systèmes existants.
 
 ### <a name="storage-configuration"></a>Configuration du stockage
-Une seule instance d’Oracle utilisant des disques au format NTFS est prise en charge. Tous les fichiers de base de données doivent être stockés sur le système de fichiers NTFS sur des disques managés (recommandé) ou sur des disques durs virtuels. Ces disques sont montés sur la machine virtuelle Azure et sont basés sur le [stockage d’objets blob de pages Azure](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) ou sur [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Une seule instance d’Oracle utilisant des disques au format NTFS est prise en charge. Tous les fichiers de base de données doivent être stockés sur le système de fichiers NTFS sur la fonctionnalité Disques managés (recommandé) ou sur des disques durs virtuels. Ces disques sont montés sur la machine virtuelle Azure et sont basés sur le [stockage d’objets blob de pages Azure](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) ou sur [Azure Disques managés](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
 
-Nous recommandons fortement l’utilisation d’[Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Nous vous recommandons également d'utiliser des [disques SSD Premium](../../windows/disks-types.md) pour vos déploiements d'Oracle Database.
+Nous recommandons fortement l’utilisation d’[Azure Disques managés](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Nous vous recommandons également d'utiliser des [disques SSD Premium](../../windows/disks-types.md) pour vos déploiements d'Oracle Database.
 
 Les lecteurs réseau ou les partages distants comme les services de fichiers Azure ne sont pas pris en charge pour les fichiers Oracle Database. Pour plus d'informations, consultez les pages suivantes :
 
@@ -365,7 +365,7 @@ Les lecteurs réseau ou les partages distants comme les services de fichiers Azu
 - [Conservation des connexions vers les fichiers Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
-Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou sur des disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec Oracle Database.
+Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou sur la fonctionnalité Disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec Oracle Database.
 
 Il existe des quotas sur le débit d’IOPS pour les disques Azure. Ce concept est expliqué dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). Les quotas exacts dépendent du type de machine virtuelle que vous utilisez. Une liste des types de machines virtuelles avec leurs quotas est disponible dans [Tailles des machines virtuelles Windows dans Azure][virtual-machines-sizes-windows].
 
@@ -443,7 +443,7 @@ Dans ce cas, nous vous recommandons d’installer/placer les répertoires Oracle
 
 ### <a name="storage-configuration"></a>Configuration du stockage
 
-Les systèmes de fichiers ext4, xfs ou Oracle ASM sont pris en charge pour les fichiers d’Oracle Database sur Azure. Tous les fichiers de base de données doivent être stockés sur ces systèmes de fichiers basés sur les disques durs virtuels ou les disques managés. Ces disques sont montés sur la machine virtuelle Azure et sont basés sur le [stockage d’objets blob de pages Azure](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou sur [Azure Managed Disks](../../windows/managed-disks-overview.md).
+Les systèmes de fichiers ext4, xfs ou Oracle ASM sont pris en charge pour les fichiers d’Oracle Database sur Azure. Tous les fichiers de base de données doivent être stockés sur ces systèmes de fichiers basés sur les disques durs virtuels ou la fonctionnalité Disques managés. Ces disques sont montés sur la machine virtuelle Azure et sont basés sur le [stockage d’objets blob de pages Azure](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou sur [Azure Disques managés](../../windows/managed-disks-overview.md).
 
 Pour les noyaux Oracle Linux UEK, UEK version 4 ou ultérieure est nécessaire afin de prendre en charge les [disques SSD Premium Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching).
 
@@ -455,7 +455,7 @@ Les lecteurs réseau ou les partages distants comme les services de fichiers Azu
 
 - [Conservation des connexions vers les fichiers Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou des disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec Oracle Database.
+Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou la fonctionnalité Disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec Oracle Database.
 
  Il existe des quotas sur le débit d’IOPS pour les disques Azure. Ce concept est expliqué dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). Les quotas exacts dépendent du type de machine virtuelle qui est utilisé. Pour obtenir une liste des types de machines virtuelles avec leurs quotas, consultez [Tailles des machines virtuelles Linux dans Azure][virtual-machines-sizes-linux].
 

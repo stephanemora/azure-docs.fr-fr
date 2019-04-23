@@ -49,7 +49,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>Déploiement d’une machine virtuelle et connexion de la carte réseau virtuelle
-Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’indicateur `--nics` connecte la carte réseau virtuelle à la machine virtuelle lors du déploiement sur Azure. L’exemple suivant crée une machine virtuelle nommée `myVM` avec Azure Managed Disks et joint la carte réseau virtuelle nommée `myNic` à partir de l’étape précédente :
+Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’indicateur `--nics` connecte la carte réseau virtuelle à la machine virtuelle lors du déploiement sur Azure. L’exemple suivant crée une machine virtuelle nommée `myVM` avec Azure Disques managés et joint la carte réseau virtuelle nommée `myNic` à partir de l’étape précédente :
 
 ```azurecli
 az vm create \
@@ -149,7 +149,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Déployer la machine virtuelle dans l’infrastructure de réseau virtuel
 Nous disposons désormais d’un réseau virtuel, d’un sous-réseau intégré au réseau virtuel et d’un groupe de sécurité réseau jouant le rôle de pare-feu qui protège notre sous-réseau en bloquant l’ensemble du trafic entrant, à l’exception du port 22 pour SSH, et d’une carte réseau virtuelle. Vous pouvez maintenant déployer une machine virtuelle au sein de cette infrastructure réseau existante.
 
-Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’exemple suivant crée une machine virtuelle nommée `myVM` avec Azure Managed Disks et joint la carte réseau virtuelle nommée `myNic` à partir de l’étape précédente :
+Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’exemple suivant crée une machine virtuelle nommée `myVM` avec Azure Disques managés et joint la carte réseau virtuelle nommée `myNic` à partir de l’étape précédente :
 
 ```azurecli
 az vm create \

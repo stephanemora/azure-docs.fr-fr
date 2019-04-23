@@ -1,6 +1,6 @@
 ---
-title: Journaux d’activité Azure Active Directory dans Azure Monitor (préversion) | Microsoft Docs
-description: Introduction aux journaux d’activité Azure Active Directory dans Azure Monitor (préversion)
+title: Journaux d’activité de Active Directory Azure dans Azure Monitor | Microsoft Docs
+description: Ouvre une présentation d’activité Azure Active Directory dans Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0469f69f026c578de9598401e69262279669d19f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 7fbb90e95c07c66f45d49076f0570ac028c37244
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436300"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011399"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Journaux d’activité Azure Active Directory dans Azure Monitor (préversion)
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Journaux d’activité de AD Azure dans Azure Monitor
 
-Vous pouvez maintenant acheminer les journaux d’activité Azure Active Directory (Azure AD) vers plusieurs points de terminaison pour une rétention à long terme et l’analyse des données. La préversion publique des journaux d’activité Azure AD dans Azure Monitor vous permet de :
+Vous pouvez acheminer les journaux d’activité Azure Active Directory (Azure AD) vers plusieurs points de terminaison pour le long terme rétention des données et les insights. Cette fonctionnalité vous permet de :
 
 * Archiver les journaux d’activité Azure AD vers un compte de stockage Azure afin conserver les données pendant longtemps.
 * Diffuser les journaux d’activité Azure AD vers un Event Hub Azure pour analyser des données à l’aide des outils populaires de Security Information and Event Management (SIEM), comme Splunk et QRadar.

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/15/2019
-ms.openlocfilehash: 708df64802ace17fa77b4e0a695c9f1c3bd18a77
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 958a3249fd2e8af9faeb827f07efc21c8184a100
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610226"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006979"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrer des charges de travail Azure HDInsight 3.6 Hive HDInsight 4.0
 
@@ -54,7 +54,31 @@ Votre charge de travail Hive peut inclure une combinaison de ACID et les tables 
 alter table myacidtable compact 'major';
 ```
 
-Cette compression est nécessaire car les tables 3.6 de HDInsight et HDInsight 4.0 ACID comprennent des deltas ACID différents. Compactage applique vierge qui garantit la cohérence de la table. Une fois que le compactage est terminé, les étapes précédentes pour la migration de metastore et de la table sera suffisant pour utiliser les tables de HDInsight 3.6 ACID dans HDInsight 4.0.
+Cette compression est nécessaire, car les tables de la version 3.6 de HDInsight et HDInsight 4.0 ACID comprennent les deltas ACID différemment. Compactage applique vierge qui garantit la cohérence. La section 4 de la [documentation sur la migration de la ruche](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-upgrade-major/content/prepare_hive_for_upgrade.html) contient des conseils pour la compression en bloc des tables de HDInsight 3.6 ACID.
+
+Une fois que vous avez terminé les étapes de migration et de compactage de metastore, vous pouvez migrer l’entrepôt réelle. Après avoir effectué la migration de l’entrepôt Hive, l’entrepôt HDInsight 4.0 aura les propriétés suivantes :
+
+* Les tables externes dans HDInsight 3.6 sera tables externes dans HDInsight 4.0
+* Non transactionnel des tables gérées dans HDInsight 3.6 sera tables externes dans HDInsight 4.0
+* Transactionnelles géré les tables dans HDInsight 3.6 seront être géré dans HDInsight 4.0
+
+Vous devrez peut-être ajuster les propriétés de votre entrepôt avant d’exécuter la migration. Par exemple, si vous prévoyez que certains table est accessible par un tiers (par exemple, un cluster HDInsight 3.6), cette table doit être externe une fois la migration est terminée. Dans HDInsight, 4.0, toutes les tables gérés sont transactionnelles. Par conséquent, les tables gérés dans HDInsight 4.0 doivent uniquement être accessible par les clusters HDInsight 4.0.
+
+Une fois que les propriétés de la table sont définies correctement, exécutez l’outil de migration de l’entrepôt Hive à partir d’un des nœuds principaux du cluster à l’aide de l’interpréteur de commandes SSH :
+
+1. Se connecter à votre nœud principal du cluster à l’aide de SSH. Pour obtenir des instructions, consultez [se connecter à HDInsight à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Ouvrez un interpréteur de commandes de connexion en tant que l’utilisateur Hive en exécutant `sudo su - hive`
+1. Déterminer la version de la pile Hortonworks Data Platform en exécutant `ls /usr/hdp`. Ceci affichera une chaîne de version que vous devez utiliser dans la commande suivante.
+1. Exécutez la commande suivante à partir de l’interpréteur de commandes. Remplacez `${{STACK_VERSION}}` avec la chaîne de version de l’étape précédente :
+
+```bash
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+```
+
+Une fois l’outil de migration terminée, votre entrepôt Hive sera prêt pour HDInsight 4.0. 
+
+> [!Important]
+> Tables gérées dans 4.0 HDInsight (y compris les tables migrées à partir de 3.6) ne doivent pas être accessible par d’autres services ou les applications, y compris les clusters HDInsight 3.6.
 
 ## <a name="secure-hive-across-hdinsight-versions"></a>Sécurisez Hive sur les versions de HDInsight
 
@@ -74,9 +98,9 @@ Dans HDInsight 4.0, HiveCLI a été remplacée par Beeline. HiveCLI est un clien
 
 Dans HDInsight 3.6, le client de l’interface graphique utilisateur permettant d’interagir avec le serveur Hive est l’affichage Ambari Hive. HDInsight 4.0 remplace la vue Hive avec Hortonworks données Analytique Studio (DAS). DAS n’est pas fourni avec les clusters de HDInsight out-of-box et n’est pas un package officiellement pris en charge. Toutefois, DAS peut être installé sur le cluster comme suit :
 
-1. Téléchargez le [script d’installation du package DAS](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-mpack.sh) et exécutez-le sur les deux nœuds principaux du cluster. Ne pas exécuter ce script comme une action de script.
-2. Téléchargez le [script d’installation de service DAS](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-component.sh) et exécutez-le en tant qu’une action de script. Sélectionnez **nœuds principaux** comme type de nœud de choix à partir de l’interface d’action de script.
-3. Une fois que l’action de script est terminée, accédez à Ambari et sélectionnez **données Analytique Studio** à partir de la liste des services. Tous les services DAS sont arrêtés. Dans l’angle supérieur droit, sélectionnez **Actions** et **Démarrer**. Vous pouvez maintenant exécuter et déboguer les requêtes avec DAS.
+Lancez une action de script sur votre cluster, avec « Nœuds principaux » comme type de nœud pour l’exécution. Collez l’URI suivant dans la zone de texte marqué « URI de Script Bash » : https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+
 
 Une fois DAS est installé, si vous ne voyez pas les requêtes que vous avez exécuté dans la visionneuse de requêtes, procédez comme suit :
 

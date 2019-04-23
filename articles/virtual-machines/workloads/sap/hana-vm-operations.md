@@ -18,7 +18,7 @@ ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: acccc553c5b63b2acd0f9793b0397b25145449dd
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59699328"
@@ -143,7 +143,7 @@ Le tableau suivant présente les configurations recommandées.
 
 Vérifiez si le débit de stockage pour les différents volumes suggérés répond à la charge de travail que vous souhaitez exécuter. Si la charge de travail nécessite plus grands volumes pour/Hana/Data et/Hana/log, augmentez le nombre de disques durs virtuels le stockage Azure premium. Dimensionnement d’un volume avec plusieurs disques durs virtuels que répertoriées augmente les e/s et un débit d’e/s dans les limites du type de machine virtuelle Azure.
 
-L’Accélérateur des écritures fonctionne uniquement en association avec [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Au minimum, les disques de stockage Azure premium constituant le volume/Hana/log doivent être déployés en tant que disques gérés.
+L’Accélérateur des écritures fonctionne uniquement en association avec des [disques managés Azure](https://azure.microsoft.com/services/managed-disks/). Au minimum, les disques de stockage Azure premium constituant le volume/Hana/log doivent être déployés en tant que disques gérés.
 
 Il existe des limites pour les disques durs virtuels par machine virtuelle accélérateur des écritures pouvant prendre en charge le stockage Azure premium. Les limites actuelles sont :
 

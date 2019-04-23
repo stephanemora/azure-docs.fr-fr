@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 7fc0d3a2e29a2aaa06d88f25828ff676d615939d
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579153"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149561"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
@@ -23,12 +23,39 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
 + [**Kit de développement logiciel (SDK) principal pour Python**](https://aka.ms/aml-sdk) d’Azure Machine Learning
 + [**Kit de développement logiciel (SDK) de préparation de données**](https://aka.ms/data-prep-sdk) Azure Machine Learning
 
+## <a name="2019-04-17"></a>2019-04-17
+
+### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Kit de développement logiciel v1.1.2 de préparation des données d’Azure Machine Learning
+
+Remarque : Kit de développement Python de préparation des données n’est plus installe `numpy` et `pandas` packages. Consultez [mis à jour les instructions d’installation](https://aka.ms/aml-data-prep-installation).
+
++ **Nouvelles fonctionnalités**
+  + Vous pouvez maintenant utiliser la transformation de tableau croisé dynamique.
+    + Guide pratique : [Bloc-notes de tableau croisé dynamique](https://aka.ms/aml-data-prep-pivot-nb)
+  + Vous pouvez maintenant utiliser des expressions régulières dans des fonctions natives.
+    + Exemples :
+      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+  + Vous pouvez maintenant utiliser `to_upper`  et `to_lower`  fonctions dans le langage d’expression.
+  + Vous pouvez maintenant voir le nombre de valeurs uniques de chaque colonne dans un profil de données.
+  + Pour certaines des étapes lecteur couramment utilisés, vous pouvez maintenant passer dans le `infer_column_types` argument. Si elle est définie sur `True`, la préparation des données tentera de détecter et de convertir automatiquement les types de colonne.
+    + `inference_arguments` est désormais déconseillée.
+  + Vous pouvez maintenant appeler `Dataflow.shape`.
+
++ **Correctifs de bogues et améliorations**
+  + `keep_columns` accepte désormais un argument facultatif supplémentaire `validate_column_exists`, qui vérifie si le résultat de `keep_columns` contiendra toutes les colonnes.
+  + Toutes les étapes de lecteur (qui lit à partir d’un fichier) acceptent désormais un argument facultatif supplémentaire `verify_exists`.
+  + Amélioration des performances de lecture de données pandas et d’obtention de profils de données.
+  + Correction d’un bogue où le découpage d’une seule étape à partir d’un flux de données a échoué avec un index unique.
+
 ## <a name="2019-04-15"></a>2019-04-15
 
 ### <a name="azure-portal"></a>Portail Azure
++ **Nouvelles fonctionnalités**
   + Vous pouvez désormais soumettre à nouveau un Script existant exécuté sur un cluster de calcul à distance existant. 
   + Vous pouvez maintenant exécuter un pipeline publié avec les nouveaux paramètres sous l’onglet de Pipelines. 
   + Détails de l’exécution prend désormais en charge une nouvelle visionneuse de fichier d’instantané. Vous pouvez afficher un instantané du répertoire lorsque vous avez envoyé une exécution spécifique. Vous pouvez également télécharger le bloc-notes a été soumis pour démarrer l’exécution.
+   + Vous pouvez désormais annuler les exécutions de parent à partir du portail Azure.
 
 ## <a name="2019-04-08"></a>2019-04-08
 

@@ -15,7 +15,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 6c3accdd74ce3277181f6cdfc890de0d8c55bf07
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59549537"
@@ -1217,7 +1217,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Compute/snapshots/write | Créer ou mettre à jour une capture instantanée |
 > | Action | Microsoft.Compute/unregister/action | Désinscrit un abonnement du fournisseur de ressources Microsoft.Compute |
 > | Action | Microsoft.Compute/virtualMachines/capture/action | Capturer la machine virtuelle en copiant les disques durs virtuels et générer un modèle qui peut être utilisé pour créer des machines virtuelles similaires |
-> | Action | Microsoft.Compute/virtualMachines/convertToManagedDisks/action | Convertir les disques basés sur des objets blob de la machine virtuelle en disques gérés |
+> | Action | Microsoft.Compute/virtualMachines/convertToManagedDisks/action | Convertir les disques basés sur des objets blob de la machine virtuelle en disques managés |
 > | Action | Microsoft.Compute/virtualMachines/deallocate/action | Mettre hors tension la machine virtuelle et libérer les ressources de calcul |
 > | Action | Microsoft.Compute/virtualMachines/delete | Supprimer la machine virtuelle |
 > | Action | Microsoft.Compute/virtualMachines/extensions/delete | Supprimer l’extension de machine virtuelle |

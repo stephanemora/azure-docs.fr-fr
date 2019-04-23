@@ -108,9 +108,9 @@ Pour modifier la stratégie précédente pour autoriser toute image Windows Serv
 
 Pour plus d’informations sur les champs de la stratégie, consultez les [alias de stratégie](../../governance/policy/concepts/definition-structure.md#aliases).
 
-## <a name="managed-disks"></a>Disques gérés
+## <a name="managed-disks"></a>Disques managés
 
-Pour exiger l’utilisation de disques gérés, employez la stratégie suivante :
+Pour exiger l’utilisation de disques managés, employez la stratégie suivante :
 
 ```json
 {

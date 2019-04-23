@@ -26,7 +26,7 @@ ms.locfileid: "55734179"
 Cet article vous explique comment déplacer une machine virtuelle Linux entre des groupes de ressources ou des abonnements. Le déplacement d’une machine virtuelle entre abonnements peut être pratique si vous avez créé une machine virtuelle dans un abonnement personnel, et que vous souhaitez à présent la déplacer vers l’abonnement de votre entreprise.
 
 > [!IMPORTANT]
->Vous ne pouvez pas déplacer des disques managés Azure pour l’instant. 
+>Vous ne pouvez pas déplacer Azure Disques managés pour l’instant. 
 >
 >De nouveaux ID de ressource sont créés dans le cadre du déplacement. Une fois que la machine virtuelle a été déplacée, vous devez mettre à jour vos outils et vos scripts pour utiliser les nouveaux ID de ressource. 
 > 

@@ -47,16 +47,16 @@ Certaines fonctionnalités sont actuellement disponibles uniquement dans les mac
 
 ## <a name="storage"></a>Stockage
 
-### <a name="scale-sets-with-azure-managed-disks"></a>Groupes identiques avec Azure Managed Disks
-Les groupes identiques peuvent être créés avec [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) plutôt qu’à partir des comptes de stockage Azure traditionnels. Managed Disks permet de bénéficier des avantages suivants :
+### <a name="scale-sets-with-azure-managed-disks"></a>Groupes identiques avec Azure Disques managés
+Les groupes identiques peuvent être créés avec [Azure Disques managés](../virtual-machines/windows/managed-disks-overview.md) plutôt qu’à partir des comptes de stockage Azure traditionnels. La fonctionnalité Disques managés permet de bénéficier des avantages suivants :
 - Vous n’êtes pas obligé de créer au préalable un ensemble de comptes de stockage Azure pour les machines virtuelles du groupe identique.
 - Vous pouvez définir des [disques de données associés](virtual-machine-scale-sets-attached-disks.md) pour les machines virtuelles de votre groupe identique.
 - Les groupes identiques peuvent être configurés pour [prendre en charge jusqu’à 1 000 machines virtuelles par groupe](virtual-machine-scale-sets-placement-groups.md). 
 
-Si vous avez déjà un modèle, vous pouvez également [le mettre à jour pour qu’il utilise Managed Disks](virtual-machine-scale-sets-convert-template-to-md.md).
+Si vous avez déjà un modèle, vous pouvez également [le mettre à jour pour qu’il utilise la fonctionnalité Disques managés](virtual-machine-scale-sets-convert-template-to-md.md).
 
 ### <a name="user-managed-storage"></a>Stockage géré par l’utilisateur
-Un groupe identique qui n’est pas défini avec Azure Managed Disks repose sur les comptes de stockage créés par l’utilisateur pour stocker les disques du système d’exploitation des machines virtuelles dans le groupe. Un rapport de 20 machines virtuelles maximum par compte de stockage est recommandé pour atteindre la valeur d’E/S maximale, mais aussi pour tirer parti du _sur-approvisionnement_ (voir ci-dessous). Il est également recommandé de répartir dans l’alphabet les premiers caractères des noms de comptes de stockage. Cette méthode améliore la répartition sur les différents systèmes internes. 
+Un groupe identique qui n’est pas défini avec Azure Disques managés repose sur les comptes de stockage créés par l’utilisateur pour stocker les disques du système d’exploitation des machines virtuelles dans le groupe. Un rapport de 20 machines virtuelles maximum par compte de stockage est recommandé pour atteindre la valeur d’E/S maximale, mais aussi pour tirer parti du _sur-approvisionnement_ (voir ci-dessous). Il est également recommandé de répartir dans l’alphabet les premiers caractères des noms de comptes de stockage. Cette méthode améliore la répartition sur les différents systèmes internes. 
 
 
 ## <a name="overprovisioning"></a>Sur-approvisionnement
@@ -67,11 +67,11 @@ Bien que le sur-approvisionnement améliore les taux de réussite de l’approvi
 Si votre groupe identique utilise le stockage géré par l’utilisateur et que vous désactivez le sur-approvisionnement, vous pouvez avoir plus de 20 machines virtuelles par compte de stockage, mais il n’est pas recommandé de dépasser 40 pour des raisons de performances d’E/S. 
 
 ## <a name="limits"></a>limites
-Un groupe identique, basé sur une image de la Place de marché (également appelée image de plateforme) et configuré pour utiliser Azure Managed Disks, peut prendre en charge jusqu’à 1 000 machines virtuelles. Si vous configurez votre groupe identique pour prendre en charge plus de 100 machines virtuelles, tous les scénarios ne fonctionnent pas de la même manière (par exemple l’équilibrage de charge). Pour plus d’informations, consultez [Utilisation de grands groupes de machines virtuelles identiques](virtual-machine-scale-sets-placement-groups.md). 
+Un groupe identique, basé sur une image de la Place de marché (également appelée image de plateforme) et configuré pour utiliser Azure Disques managés, peut prendre en charge jusqu’à 1 000 machines virtuelles. Si vous configurez votre groupe identique pour prendre en charge plus de 100 machines virtuelles, tous les scénarios ne fonctionnent pas de la même manière (par exemple l’équilibrage de charge). Pour plus d’informations, consultez [Utilisation de grands groupes de machines virtuelles identiques](virtual-machine-scale-sets-placement-groups.md). 
 
 Un groupe identique configuré avec des comptes de stockage gérés par l’utilisateur est actuellement limité à 100 machines virtuelles (et 5 comptes de stockage sont recommandés pour cette échelle).
 
-Un groupe identique basé sur une image personnalisée (créée par vous-même) peut prendre en charge jusqu’à 600 machines virtuelles s’il est configuré avec Azure Managed Disks. Si le groupe identique est configuré avec des comptes de stockage gérés par l’utilisateur, il doit créer tous les disques durs virtuels du disque du système d’exploitation dans un même compte de stockage. Par conséquent, le nombre maximal recommandé de machines virtuelles dans un groupe identique basé sur une image personnalisée et dont le stockage est géré par l’utilisateur est de 20. Si vous désactivez le sur-approvisionnement, vous pouvez aller jusqu’à 40.
+Un groupe identique basé sur une image personnalisée (créée par vous-même) peut prendre en charge jusqu’à 600 machines virtuelles s’il est configuré avec Azure Disques Managés. Si le groupe identique est configuré avec des comptes de stockage gérés par l’utilisateur, il doit créer tous les disques durs virtuels du disque du système d’exploitation dans un même compte de stockage. Par conséquent, le nombre maximal recommandé de machines virtuelles dans un groupe identique basé sur une image personnalisée et dont le stockage est géré par l’utilisateur est de 20. Si vous désactivez le sur-approvisionnement, vous pouvez aller jusqu’à 40.
 
 Si vous souhaitez avoir plus de machines virtuelles que ne l’autorisent ces limites, vous devez déployer plusieurs groupes identiques, comme indiqué dans [ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 

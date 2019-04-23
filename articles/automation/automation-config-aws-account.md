@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 04/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2866891bba80cbf4227907145f4f803ab123fd85
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 419d5643981083c8e06a68e780e95db8ba5ee2c7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549420"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998139"
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Authentification des Runbooks avec Amazon Web Services
 
@@ -30,7 +30,7 @@ Pour vous authentifier avec AWS, vous devez spécifier un ensemble d’informati
 
 Pour qu’Azure Automation communique avec AWS, vous devez d’abord récupérer vos informations d’identification AWS et les stocker en tant que ressources dans Azure Automation. Exécutez les opérations décrites dans le document AWS [Managing Access Keys for your AWS Account](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) (Gestion des clés d’accès de votre compte AWS) pour créer une clé d’accès et copiez **l’ID de clé d’accès** et la **clé d’accès secrète** (vous pouvez également télécharger votre fichier de clés pour le stocker dans un endroit sûr).
 
-Une fois que vous avez créé et copié vos clés de sécurité AWS, vous devez créer une ressource Informations d’identification avec un compte Azure Automation pour les stocker en toute sécurité et les référencer avec vos Runbooks. Suivez les étapes décrites dans la section : **Pour créer une ressource d’informations d’identification** de l’article [Ressources d’informations d’identification dans Azure Automation](/shared-resources/credentials.md#to-create-a-new-credential-asset-with-the-azure-portal), et entrez les informations suivantes :
+Une fois que vous avez créé et copié vos clés de sécurité AWS, vous devez créer une ressource Informations d’identification avec un compte Azure Automation pour les stocker en toute sécurité et les référencer avec vos Runbooks. Suivez les étapes décrites dans la section : **Pour créer une ressource d’informations d’identification** de l’article [Ressources d’informations d’identification dans Azure Automation](shared-resources/credentials.md#to-create-a-new-credential-asset-with-the-azure-portal), et entrez les informations suivantes :
 
 1. Dans la zone **Nom**, entrez **AWScred** ou une valeur appropriée, suivant vos normes d’affectation de noms.
 2. Dans la zone **Nom d’utilisateur**, entrez votre **ID de clé d’accès** et votre **clé d’accès secrète** dans les zones **Mot de passe** et **Confirmer le mot de passe**.

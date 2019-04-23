@@ -1,6 +1,6 @@
 ---
 title: Créer une image managée dans Azure | Microsoft Docs
-description: Créer une image managée d’une machine virtuelle ou d’un disque dur virtuel généralisé(e) dans Azure. Les images peuvent être utilisées pour créer différentes machines virtuelles utilisant des disques gérés.
+description: Créer une image managée d’une machine virtuelle ou d’un disque dur virtuel généralisé(e) dans Azure. Les images peuvent être utilisées pour créer différentes machines virtuelles utilisant des disques managés.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -17,14 +17,14 @@ ms.date: 09/27/2018
 ms.author: cynthn
 ms.openlocfilehash: aa1858a27d4df413deb562391251a523c28673ad
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59787937"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
-Une ressource d’image managée peut être créée à partir d’une machine virtuelle généralisée stockée en tant que disque managé ou non managé dans un compte de stockage. L’image peut ensuite être utilisée pour créer plusieurs machines virtuelles. Pour plus d'informations sur la facturation des images managées, reportez-vous à [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/). 
+Une ressource d’image managée peut être créée à partir d’une machine virtuelle généralisée stockée en tant que disque managé ou non managé dans un compte de stockage. L’image peut ensuite être utilisée pour créer plusieurs machines virtuelles. Pour plus d'informations sur la facturation des images managées, reportez-vous à [Tarification de la fonctionnalité Disques managés](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -86,7 +86,7 @@ Pour généraliser votre machine virtuelle Windows, procédez comme suit :
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-La création d’une image directement à partir de la machine virtuelle permet de s’assurer que celle-ci comprend tous les disques associés à la machine virtuelle, y compris le disque du système d’exploitation et tous les disques de données. Cet exemple montre comment créer une image gérée à partir d’une machine virtuelle qui utilise des disques gérés.
+La création d’une image directement à partir de la machine virtuelle permet de s’assurer que celle-ci comprend tous les disques associés à la machine virtuelle, y compris le disque du système d’exploitation et tous les disques de données. Cet exemple montre comment créer une image gérée à partir d’une machine virtuelle qui utilise des disques managés.
 
 Avant de commencer, assurez-vous que vous disposez de la dernière version du module Azure PowerShell. Pour trouver la version, exécutez `Get-Module -ListAvailable Az` dans PowerShell. Si vous devez procéder à une mise à niveau, voir [Installer Azure PowerShell sur Windows avec PowerShellGet](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, exécutez `Connect-AzAccount` pour créer une connexion avec Azure.
 

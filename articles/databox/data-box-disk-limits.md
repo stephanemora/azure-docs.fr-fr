@@ -10,7 +10,7 @@ ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58791641"
@@ -74,7 +74,7 @@ Voici les tailles des objets Azure qui peuvent être écrits. Assurez-vous que t
 | Objet blob de blocs        | ~4.75 Tio                                                 |
 | Objet blob de pages         | 8 Tio <br> (Chaque fichier chargé dans le format de l’objet Blob de pages doit être alignés de 512 octets, sinon le téléchargement échoue. <br> Le VHD et VHDX sont alignées de 512 octets.) |
 |Azure Files        | 1 Tio <br> Bande passante taille de partage est de 5 to     |
-| Disques gérés     |4 Tio <br> Pour plus d’informations sur la taille et les limites, consultez : <li>[Objectifs d’évolutivité pour les disques gérés](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Disques managés     |4 Tio <br> Pour plus d’informations sur la taille et les limites, consultez : <li>[Objectifs d’évolutivité pour les disques gérés](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Conventions de nommage des objets blob de blocs,des objets blob de pages et des fichiers Azure

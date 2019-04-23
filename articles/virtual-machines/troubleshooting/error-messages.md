@@ -14,7 +14,7 @@ ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
 ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57437596"
@@ -63,8 +63,8 @@ Cette section répertorie les messages d’erreur pouvant apparaître lors de la
 |  ArtifactVersionNotFound  |  Aucune des versions trouvées dans le référentiel d'artefacts ne correspond à la version demandée « {0} » pour l'extension de machine virtuelle avec le serveur de publication « {1} » et le type « {2} ».  |
 |  AttachDiskWhileBeingDetached  |  Impossible d’attacher le disque de données « {0} » à la machine virtuelle « {1} », car il est actuellement en cours de détachement. Veuillez attendre que le disque soit complètement détaché, puis réessayez.  |
 |  BadRequest  |  Les groupes à haute disponibilité alignés ne sont pas encore pris en charge dans cette région.  |
-|  BadRequest  |  L’ajout d’une machine virtuelle comportant des disques gérés à un groupe à haute disponibilité non géré ou l’ajout d’une machine virtuelle comportant des disques basés sur des objets blob à un groupe à haute disponibilité géré n’est pas pris en charge. Créez un groupe à haute disponibilité avec la propriété « managed » définie afin de lui ajouter une machine virtuelle comportant des disques gérés.  |
-|  BadRequest  |  Les disques gérés ne sont pas pris en charge dans cette région.  |
+|  BadRequest  |  L’ajout d’une machine virtuelle comportant des disques managés à un groupe à haute disponibilité non géré ou l’ajout d’une machine virtuelle comportant des disques basés sur des objets blob à un groupe à haute disponibilité géré n’est pas pris en charge. Créez un groupe à haute disponibilité avec la propriété « managed » définie afin de lui ajouter une machine virtuelle comportant des disques managés.  |
+|  BadRequest  |  Les disques managés ne sont pas pris en charge dans cette région.  |
 |  BadRequest  |  Plusieurs VMExtensions par gestionnaire non prises en charge pour le type de système d’exploitation « {0} ». VMExtension « {1} » avec le gestionnaire « {2} » déjà ajoutée ou spécifiée dans l’entrée.  |
 |  BadRequest  |  L'opération « {0} » n'est pas prise en charge sur la ressource « {1} » avec des disques managés.  |
 |  CertificateImproperlyFormatted  |  La représentation JSON du secret récupérée auprès de {0} a un champ de données qui n’est pas un fichier PFX correctement mis en forme ou bien le mot de passe fourni ne décode pas correctement le fichier PFX.  |
@@ -143,7 +143,7 @@ Cette section répertorie les messages d’erreur pouvant apparaître lors de la
 |  OperationNotAllowed  |  Les mises à jour d’encryptionSettings ne sont pas autorisées quand la machine virtuelle est allouée. Réessayez une fois la machine virtuelle libérée.  |
 |  OperationNotAllowed  |  L’ajout d’un disque géré à une machine virtuelle comportant des disques basés sur des objets blob n’est pas pris en charge.  |
 |  OperationNotAllowed  |  Le nombre maximal de disques de données autorisés à être attachés à une machine virtuelle de cette taille est de {0}.  |
-|  OperationNotAllowed  |  L’ajout d’un disque basé sur un objet blob à une machine virtuelle comportant des disques gérés n’est pas pris en charge.  |
+|  OperationNotAllowed  |  L’ajout d’un disque basé sur un objet blob à une machine virtuelle comportant des disques managés n’est pas pris en charge.  |
 |  OperationNotAllowed  |  L’opération « {0} » n’est pas autorisée sur l’image « {1} », car l’image est marquée pour suppression. Vous pouvez uniquement réessayer l’opération de suppression (ou attendre la fin de l’opération en cours).  |
 |  OperationNotAllowed  |  L'opération « {0} » n'est pas autorisée sur la machine virtuelle « {1} », car cette dernière est généralisée.  |
 |  OperationNotAllowed  |  L'opération « {0} » n'est pas autorisée car la collection de points de restauration « {1} » est marquée pour suppression.  |
@@ -163,7 +163,7 @@ Cette section répertorie les messages d’erreur pouvant apparaître lors de la
 |  OperationNotAllowed  |  Les extensions de groupe de machines virtuelles identiques du gestionnaire « {0} » ne peuvent être supprimées que lors de la suppression du groupe de machines virtuelles identiques.  |
 |  OperationNotAllowed  |  La machine virtuelle « {0} » utilise déjà des disques managés.  |
 |  OperationNotAllowed  |  La machine virtuelle « {0} » appartient au groupe à haute disponibilité « Classique » « {1} ». Mettez à jour le groupe à haute disponibilité pour utiliser la référence « Aligné », puis réessayez la conversion.  |
-|  OperationNotAllowed  |  La machine virtuelle créée à partir d’une image ne peut pas posséder de disques basés sur des objets blob. Tous les disques doivent être gérés.  |
+|  OperationNotAllowed  |  La machine virtuelle créée à partir d’une image ne peut pas posséder de disques basés sur des objets blob. Tous les disques doivent être managés.  |
 |  OperationNotAllowed  |  L’opération de capture ne peut pas être effectuée, car la machine virtuelle n’est pas généralisée.  |
 |  OperationNotAllowed  |  Les opérations de gestion sur la machine virtuelle « {0} » ne sont pas autorisées, car les disques de machine virtuelle sont convertis en disques managés.  |
 |  OperationNotAllowed  |  Une opération en cours change l’état d’alimentation de la machine virtuelle {0} et le définit sur {1}. Après un certain temps, effectuez l’opération {2}.  |

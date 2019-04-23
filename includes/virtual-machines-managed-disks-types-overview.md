@@ -10,14 +10,14 @@ ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
 ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/22/2019
 ms.locfileid: "58395582"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quels sont les types de disque disponibles dans Azure ?
 
-Azure Managed Disks propose actuellement quatre types de disque, trois mis à la disposition générale (GA) et un en préversion. Ces quatre types de disque répondent à des scénarios clients qui leur sont propres.
+Les disques managés Azure proposent actuellement quatre types de disque, trois mis à la disposition générale (GA) et un en préversion. Ces quatre types de disque répondent à des scénarios clients qui leur sont propres.
 
 ## <a name="disk-comparison"></a>Comparaison des disques
 

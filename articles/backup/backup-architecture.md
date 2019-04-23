@@ -10,7 +10,7 @@ ms.date: 02/19/2019
 ms.author: raynew
 ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
 ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/22/2019
 ms.locfileid: "58368950"
@@ -190,7 +190,7 @@ Lorsque vous restaurez des machines virtuelles Azure à l’aide de stockage pre
 Vous pouvez sauvegarder des machines virtuelles Azure avec des disques gérés :
 
 - Pour sauvegarder des machines virtuelles avec disques managés, vous devez procéder de la même façon que pour toute autre machine virtuelle Azure. Vous pouvez sauvegarder la machine virtuelle directement à partir des paramètres de machine virtuelle, ou vous pouvez activer la sauvegarde pour des machines virtuelles dans le coffre Recovery Services.
-- Vous pouvez sauvegarder des machines virtuelles sur des disques gérés par le biais des collections RestorePoint basées sur des disques gérés.
+- Vous pouvez sauvegarder des machines virtuelles sur des disques managés par le biais des collections RestorePoint basées sur des disques managés.
 - Sauvegarde Azure prend également en charge la sauvegarde des machines virtuelles avec des disques gérés qui ont été chiffrées à l’aide d’Azure Disk Encryption.
 
 Lorsque vous restaurez des machines virtuelles avec des disques gérés, vous pouvez restaurer à une machine virtuelle complète avec des disques gérés ou à un compte de stockage :

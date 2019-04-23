@@ -19,7 +19,7 @@ ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58008693"
@@ -298,7 +298,7 @@ Vous devez tenir compte de certains éléments quand vous utilisez des zones de 
 - Vous ne pouvez pas utiliser l’[équilibreur de charge de base](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) pour créer des solutions de cluster de basculement basées sur les services de cluster de basculement Windows ou Linux Pacemaker. À la place, vous devez utiliser la [référence SKU Standard Load Balancer d’Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
 - Les zones de disponibilité Azure ne donnent aucune garantie d’une certaine distance entre les différentes zones dans une région
 - La latence du réseau entre les différentes zones de disponibilité Azure dans les différentes régions Azure peut varier selon la région. Il est tout à fait possible que vous, en tant que client, puissiez raisonnablement exécuter la couche Application SAP déployée sur différentes zones parce que la latence du réseau d’une zone vers la machine virtuelle SGBD active est encore acceptable du point de vue de l’impact sur les processus métier. En revanche, il est possible aussi que la latence entre la machine virtuelle SGBD active dans une zone et une instance d’application SAP sur une machine virtuelle dans une autre zone soit trop intrusive et inacceptable pour les processus métier SAP. Par conséquent, les architectures de déploiement doivent être différentes avec une architecture active/active pour l’application ou une architecture active/passive si la latence est trop forte.
-- L’utilisation d’[Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) est obligatoire pour le déploiement dans les zones de disponibilité Azure 
+- L’utilisation de [disques managés Azure](https://azure.microsoft.com/services/managed-disks/) est obligatoire pour le déploiement dans les zones de disponibilité Azure 
 
 
 ### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>Maintenance planifiée et non planifiée des machines virtuelles
@@ -318,12 +318,12 @@ Stockage Azure conservant trois images des données par défaut, l’utilisation
 
 Pour plus d’informations, consultez [Réplication de Stockage Azure][azure-storage-redundancy].
 
-### <a name="azure-managed-disks"></a>Azure Managed Disks
+### <a name="azure-managed-disks"></a>Azure Disques managés
 Les disques managés sont des ressources dans Azure Resource Manager qui peuvent être utilisées à la place des disques durs virtuels (VHD) stockés dans les comptes de stockage Azure. Les disques managés sont automatiquement alignés sur un groupe à haute disponibilité de la machine virtuelle à laquelle ils sont attachés. Ils améliorent la disponibilité de votre machine virtuelle et des services qui sont exécutés sur celle-ci.
 
-Pour plus d’informations, consultez [Vue d’ensemble d’Azure Managed Disks][azure-storage-managed-disks-overview].
+Pour plus d’informations, consultez [Vue d’ensemble d’Azure Disques managés][azure-storage-managed-disks-overview].
 
-Nous vous recommandons d’utiliser des disques gérés, car ils simplifient le déploiement et la gestion de vos machines virtuelles.
+Nous vous recommandons d’utiliser des disques managés, car ils simplifient le déploiement et la gestion de vos machines virtuelles.
 
 
 
@@ -378,7 +378,7 @@ Pour plus d’informations, consultez la section [Groupes à haute disponibilit�
 **Disques non managés uniquement :** Comme le compte de stockage Azure constitue un point de défaillance unique potentiel, il est important de disposer d’au moins deux comptes de stockage Azure sur lesquels au moins deux machines virtuelles sont distribuées. Dans une configuration idéale, les disques de chaque machine virtuelle exécutant une instance de dialogue SAP sont déployés dans un compte de stockage différent.
 
 > [!IMPORTANT]
-> Nous vous recommandons vivement d’utiliser des disques gérés Azure pour vos installations à haute disponibilité SAP. Étant donné que les disques gérés s’alignent automatiquement avec le groupe à haute disponibilité de la machine virtuelle à laquelle ils sont joints, ils augmentent la disponibilité de votre machine virtuelle et des services exécutés sur celle-ci.  
+> Nous vous recommandons vivement d’utiliser des disques managés Azure pour vos installations à haute disponibilité SAP. Étant donné que les disques managés s’alignent automatiquement avec le groupe à haute disponibilité de la machine virtuelle à laquelle ils sont joints, ils augmentent la disponibilité de votre machine virtuelle et des services exécutés sur celle-ci.  
 >
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Architecture de haute disponibilité pour une instance SAP ASCS/SCS sur Windows

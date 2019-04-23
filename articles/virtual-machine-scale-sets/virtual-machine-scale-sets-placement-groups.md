@@ -17,7 +17,7 @@ ms.date: 11/9/2017
 ms.author: rajraj
 ms.openlocfilehash: 98032291d9b9d1b0885e7442b882a7f62f9ccd59
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58123434"
@@ -38,7 +38,7 @@ Pour déterminer si votre application peut utiliser efficacement de grands group
 - Si vous prévoyez de déployer un grand nombre de machines virtuelles, il ne sera peut-être pas nécessaire d’augmenter vos limites de quota de processeurs virtuels de calcul. 
 - Les groupes identiques créés à partir d’images d’Azure Marketplace peuvent monter en puissance jusqu'à 1 000 machines virtuelles.
 - Les groupes identiques créés à partir d’images personnalisées (images de machine virtuelle que vous créez et téléchargez vous-même) peuvent actuellement monter en puissance jusqu’à 600 machines virtuelles.
-- Les grands groupes identiques requièrent Azure Managed Disks. Les groupes identiques qui ne sont pas créés avec Managed Disks nécessitent plusieurs comptes de stockage (un toutes les 20 machines virtuelles). Les grands groupes identiques sont conçus pour fonctionner exclusivement avec Managed Disks afin de réduire vos frais de gestion de stockage et d’éviter tout risque d’exécution dans les limites d’abonnement des comptes de stockage. 
+- Les grands groupes identiques requièrent Azure Disques managés. Les groupes identiques qui ne sont pas créés avec la fonctionnalité Disques managés nécessitent plusieurs comptes de stockage (un toutes les 20 machines virtuelles). Les grands groupes identiques sont conçus pour fonctionner exclusivement avec la fonctionnalité Disques managés afin de réduire vos frais de gestion de stockage et d’éviter tout risque d’exécution dans les limites d’abonnement des comptes de stockage. 
 - L’équilibrage de charge de type Couche 4 avec les groupes identiques composés de plusieurs groupes de placement nécessite la [Référence SKU standard d’Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md). La référence SKU standard Load Balancer fournit des avantages supplémentaires, tels que la possibilité d’équilibrer la charge parmi plusieurs groupes identiques. La référence (SKU) standard requiert également que le groupe identique soit associé à un groupe de sécurité réseau, sans quoi les pools NAT ne fonctionneront pas correctement. Si vous devez utiliser la référence SKU de base Azure Load Balancer, veillez à ce que le groupe identique soit configuré pour utiliser un seul groupe de placement, ce qui est le paramètre par défaut.
 - L’équilibrage de charge de type Couche 7 avec Azure Application Gateway est pris en charge pour tous les groupes identiques.
 - Un groupe identique est défini avec un seul sous-réseau. Vérifiez que votre sous-réseau dispose d’un espace d’adressage suffisamment grand pour toutes les machines virtuelles requises. Par défaut, un groupe identique surprovisionne (c’est-à-dire qu’il crée des machines virtuelles supplémentaires au moment du déploiement ou de la montée en charge pour lesquelles vous n’êtes pas facturé) afin d’améliorer les performances et la fiabilité du déploiement. Prévoyez un espace d’adressage 20 % supérieur au nombre de machines virtuelles que vous envisagez d’atteindre.
@@ -61,7 +61,7 @@ La commande _vmss create_ inclut par défaut des valeurs de configuration si vou
 az vmss create --help
 ```
 
-Si vous créez un grand groupe identique en composant un modèle Azure Resource Manager, assurez-vous que le modèle crée un groupe identique basé sur Azure Managed Disks. Vous pouvez définir la propriété _singlePlacementGroup_ sur _false_ dans la section des _propriétés_ de la ressource _Microsoft.Compute/virtualMachineScaleSets_. Le fragment JSON suivant présente le début d’un modèle de groupe identique, y compris la capacité de 1 000 machines virtuelles et le paramètre _"singlePlacementGroup" : false_ :
+Si vous créez un grand groupe identique en composant un modèle Azure Resource Manager, assurez-vous que le modèle crée un groupe identique basé sur Azure Disques managés. Vous pouvez définir la propriété _singlePlacementGroup_ sur _false_ dans la section des _propriétés_ de la ressource _Microsoft.Compute/virtualMachineScaleSets_. Le fragment JSON suivant présente le début d’un modèle de groupe identique, y compris la capacité de 1 000 machines virtuelles et le paramètre _"singlePlacementGroup" : false_ :
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",

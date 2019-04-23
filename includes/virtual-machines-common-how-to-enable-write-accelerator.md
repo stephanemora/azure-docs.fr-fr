@@ -10,14 +10,14 @@ ms.author: raiye
 ms.custom: include file
 ms.openlocfilehash: 72d9ec52732a78e39f6481e2cb2d40f17f86f028
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58494900"
 ---
 # <a name="enable-write-accelerator"></a>Activer l’Accélérateur des écritures
 
-L’Accélérateur des écritures est une fonctionnalité de disque des machines virtuelles Série M sur stockage Premium avec des Azure Managed Disks exclusivement. Comme son nom l’indique, cette fonctionnalité vise à améliorer la latence d’E/S des écritures dans le stockage Azure Premium. L’Accélérateur des écritures est particulièrement adapté lorsque les mises à jour du fichier journal doivent être conservées sur disque dans un système à hautes performances pour répondre aux besoins des bases de données modernes.
+L’Accélérateur des écritures est une fonctionnalité de disque des machines virtuelles Série M sur stockage Premium avec Azure Disques managés exclusivement. Comme son nom l’indique, cette fonctionnalité vise à améliorer la latence d’E/S des écritures dans le stockage Azure Premium. L’Accélérateur des écritures est particulièrement adapté lorsque les mises à jour du fichier journal doivent être conservées sur disque dans un système à hautes performances pour répondre aux besoins des bases de données modernes.
 
 L’Accélérateur des écritures est généralement disponible pour les machines virtuelles Série M dans le cloud public.
 
@@ -25,7 +25,7 @@ L’Accélérateur des écritures est généralement disponible pour les machine
 
 Utilisez l’Accélérateur des écritures pour les volumes qui stockent le journal des transactions ou les journaux d’activité de restauration d’un SGBD (système de gestion de base de données). Il n’est pas recommandé d’utiliser l’Accélérateur des écritures pour les volumes de données d’une SGBD car la fonctionnalité a été optimisée pour être utilisée sur les disques journaux.
 
-L’Accélérateur des écritures fonctionne uniquement en association avec [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/).
+L’Accélérateur des écritures fonctionne uniquement en association avec des [disques managés Azure](https://azure.microsoft.com/services/managed-disks/).
 
 > [!IMPORTANT]
 > L’activation de l’Accélérateur des écritures sur le disque système de la machine virtuelle provoque le redémarrage de la machine virtuelle.

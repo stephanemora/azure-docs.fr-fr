@@ -10,7 +10,7 @@ ms.author: yuemlu
 ms.subservice: common
 ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
 ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/22/2019
 ms.locfileid: "58372316"
@@ -18,7 +18,7 @@ ms.locfileid: "58372316"
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migration vers le stockage Azure Premium (disques non gérés)
 
 > [!NOTE]
-> Cet article explique comment migrer une machine virtuelle qui utilise des disques standard non gérés vers une machine virtuelle qui utilise des disques premium non gérés. Nous vous recommandons d’utiliser Azure Managed Disks pour les nouvelles machines virtuelles et de convertir vos anciens disques non gérés en disques gérés. Azure Managed Disks gère les comptes de stockage sous-jacents à votre place. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+> Cet article explique comment migrer une machine virtuelle qui utilise des disques standard non gérés vers une machine virtuelle qui utilise des disques premium non gérés. Nous vous recommandons d’utiliser Azure Disques managés pour les nouvelles machines virtuelles et de convertir vos anciens disques non managés en disques managés. Azure Disques managés gère les comptes de stockage sous-jacents à votre place. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Disques managés](../../virtual-machines/windows/managed-disks-overview.md).
 >
 
 Azure Premium Storage offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d'E/S. Vous pouvez migrer les disques de machine virtuelle de votre application dans Azure Premium Storage pour tirer parti de la vitesse et des performances de ces disques.

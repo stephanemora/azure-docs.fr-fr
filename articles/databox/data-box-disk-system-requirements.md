@@ -10,7 +10,7 @@ ms.date: 02/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
 ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/05/2019
 ms.locfileid: "57407624"
@@ -77,7 +77,7 @@ Voici une liste des types de stockage pris en charge pour téléchargé vers Azu
 | Objet blob de blocs Azure | |
 | Objet blob de pages Azure  | |
 | Azure Files  | |
-| Managed Disks | |
+| Disques managés | |
 
 
 ## <a name="next-step"></a>Étape suivante

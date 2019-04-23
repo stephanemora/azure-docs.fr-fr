@@ -5,16 +5,16 @@ author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/11/2018
+ms.date: 04/18/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 2e59699b667215d4b09e4d87c1776431631348e8
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754247"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007693"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Surveiller l’utilisation et l’estimation des coûts dans Azure Monitor
 
@@ -102,155 +102,14 @@ L’estimation des coûts montre les effets de ces modifications.
 
 ## <a name="moving-to-the-new-pricing-model"></a>Transition vers le nouveau modèle de tarification
 
-Si vous avez décidé d’adopter le nouveau modèle de tarification pour un abonnement, sélectionnez l’option **Sélection d’un modèle de tarification** en haut de la page **Utilisation et estimation des coûts** :
+Si vous avez décidé d’adopter le nouveau modèle de tarification pour un abonnement donné, accédez à chaque ressource Application Insights, ouvrez le **l’utilisation et estimation des coûts** et veillez à ce qu’il figure dans le niveau tarifaire de base et accédez à chaque Analytique de journal espace de travail, ouvrez le **niveau tarifaire** page et remplacez le **par Go (2018)** niveau tarifaire. 
 
-![Capture d’écran de l’utilisation de la surveillance et de l’estimation des coûts dans le nouveau modèle de tarification](./media/usage-estimated-costs/006.png)
-
-La page **Sélection d’un modèle de tarification** s’ouvre. Elle affiche la liste de tous les abonnements que vous avez consultés sur la page précédente :
-
-![Capture d’écran de sélection d’un modèle de tarification](./media/usage-estimated-costs/007.png)
-
-Pour basculer un abonnement vers le nouveau modèle de tarification, il vous suffit de cocher la case et de sélectionner **Enregistrer**. Vous pouvez revenir à l’ancien modèle de tarification de la même façon. Notez que les autorisations du propriétaire ou du contributeur de l’abonnement sont requises pour changer le modèle de tarification.
+> [!NOTE]
+> L’exigence que toutes les ressources Application Insights et les espaces de travail Analytique de journal dans un abonnement donné adoptent le modèle de tarification plus récent a été supprimé, ce qui permet une plus grande flexibilité et facilitent la configuration. 
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Automatisation de la transition vers le nouveau modèle de tarification
 
-Les scripts ci-dessous requièrent le module Azure PowerShell. Pour vérifier si vous disposez de la dernière version, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
+Comme indiqué ci-dessus, le n’est plus nécessaire de déplacer toutes les ressources de surveillance dans un abonnement vers le nouveau modèle tarifaire en même temps et donc le ``migratetonewpricingmodel`` action n’aura plus aucun effet. Vous pouvez maintenant passer ressources Application Insights et des espaces de travail Analytique de journal séparément dans les niveaux tarifaires plus récente.  
 
-Une fois la dernière version d’Azure PowerShell installée, vous devez d’abord exécuter ``Connect-AzAccount``.
+Automatisation de cette modification est documenté pour Application Insights à l’aide de [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) avec ``-PricingPlan "Basic"`` et à l’aide de l’Analytique de journal [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) avec ``-sku "PerGB2018"``. 
 
-``` PowerShell
-# To check if your subscription is eligible to adjust pricing models.
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-```
-
-Le résultat True sous isGrandFatherableSubscription indique que le modèle de tarification de cet abonnement peut être déplacé entre les modèles de tarification. L’absence de valeur sous optedInDate, signifie que cet abonnement est actuellement configuré avec l’ancien modèle de tarification.
-
-```
-isGrandFatherableSubscription optedInDate
------------------------------ -----------
-                         True            
-```
-
-Pour migrer cet abonnement vers le nouveau modèle de tarification, exécutez :
-
-```powershell
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action migratetonewpricingmodel `
- -Force
-```
-
-Pour vérifier la réussite de la modification, exécutez à nouveau :
-
-```powershell
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-```
-
-Si la migration a réussi, le résultat ressemble à ce qui suit :
-
-```
-isGrandFatherableSubscription optedInDate                      
------------------------------ -----------                      
-                         True 2018-05-31T13:52:43.3592081+00:00
-```
-
-optInDate contient maintenant un timestamp indiquant à quel moment cet abonnement a été migré vers le nouveau modèle de tarification.
-
-Si vous devez revenir à l’ancien modèle de tarification, exécutez :
-
-```powershell
- $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action rollbacktolegacypricingmodel `
- -Force
-```
-
-Si vous exécutez à nouveau le script précédent comportant ``-Action listmigrationdate``, vous obtiendrez une valeur optedInDate vide, indiquant que votre abonnement a été renvoyé vers l’ancien modèle de tarification.
-
-Si vous avez plusieurs abonnements à migrer hébergés sous le même locataire, vous pouvez créer votre propre variante en utilisant des parties des scripts suivants :
-
-```powershell
-#Query tenant and create an array comprised of all of your tenants subscription IDs
-$TenantId = <Your-tenant-id>
-$Tenant =Get-AzSubscription -TenantId $TenantId
-$Subscriptions = $Tenant.Id
-```
-
-Pour vérifier si tous les abonnements du locataire ont le droit d’être basés sur le nouveau modèle de tarification, vous pouvez exécuter :
-
-```powershell
-Foreach ($id in $Subscriptions)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-}
-```
-
-Vous pouvez davantage affiner le script en créant un script qui génère trois tableaux. Un tableau se compose de tous les ID d’abonnements qui ont ```isGrandFatherableSubscription``` définie sur True et optedInDate n’a pas actuellement une valeur. Le deuxième tableau contient les abonnements actuellement basés sur le nouveau modèle de tarification. Et un troisième tableau rempli uniquement avec l’ID d’abonnement dans votre client qui ne sont pas éligibles pour le nouveau modèle de tarification :
-
-```powershell
-[System.Collections.ArrayList]$Eligible= @{}
-[System.Collections.ArrayList]$NewPricingEnabled = @{}
-[System.Collections.ArrayList]$NotEligible = @{}
-
-Foreach ($id in $Subscriptions)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-$Result= Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-
-     if ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $False)
-     {
-     $Eligible.Add($id)
-     }
-
-     elseif ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $True)
-     {
-     $NewPricingEnabled.Add($id)
-     }
-
-     elseif ($Result.isGrandFatherableSubscription -eq $False)
-     {
-     $NotEligible.add($id)
-     }
-}
-```
-
-> [!NOTE]
-> En fonction du nombre d’abonnements, l’exécution du script ci-dessus peut prendre un certain temps. En raison de l’utilisation de la méthode .add(), la fenêtre PowerShell renvoie les valeurs qui s’incrémentent lorsque des éléments sont ajoutés à chaque tableau.
-
-Maintenant que vos abonnements sont divisés en trois tableaux, vous devez examiner attentivement les résultats. Vous pouvez effectuer une copie de sauvegarde du contenu des tableaux afin de pouvoir annuler facilement les modifications ultérieurement si nécessaire. Si vous décidez de convertir tous les abonnements éligibles actuellement basés sur l’ancien modèle de tarification vers le nouveau modèle de tarification, vous pouvez maintenant effectuer cette tâche avec :
-
-```powershell
-Foreach ($id in $Eligible)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action migratetonewpricingmodel `
- -Force
-}
-
-```

@@ -26,9 +26,9 @@ Voici les caractéristiques spécifiques de Kafka sur HDInsight :
 
 * Microsoft propose un contrat de niveau de service (SLA) à 99,9 % sur la durée de fonctionnement de Kafka. Pour plus d’informations, consultez le document [Informations sur le contrat SLA de HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* Il utilise Azure Managed Disks comme magasin de stockage pour Kafka. Les disques managés peuvent fournir jusqu’à 16 To de stockage par répartiteur Kafka. Pour plus d’informations sur la configuration des disques managés avec Kafka dans HDInsight, consultez [Augmenter la scalabilité d’Apache Kafka dans HDInsight](apache-kafka-scalability.md).
+* Il utilise Azure Disques managés comme magasin de stockage pour Kafka. Les disques managés peuvent fournir jusqu’à 16 To de stockage par répartiteur Kafka. Pour plus d’informations sur la configuration des disques managés avec Kafka dans HDInsight, consultez [Augmenter la scalabilité d’Apache Kafka dans HDInsight](apache-kafka-scalability.md).
 
-    Pour plus d’informations sur les disques gérés, consultez [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Pour plus d’informations sur les disques managés, consultez [Azure Disques managés](../../virtual-machines/windows/managed-disks-overview.md).
 
 * Kafka a été conçu avec une vision unidimensionnelle du rack. Azure sépare chaque rack en deux dimensions : les domaines de mise à jour et les domaines d’erreur. Microsoft fournit des outils permettant de rééquilibrer les partitions et les réplicas Kafka entre les domaines de mise à jour et les domaines d’erreur. 
 

@@ -1,6 +1,6 @@
 ---
 title: Augmenter l’échelle pour Apache Kafka - Azure HDInsight
-description: Découvrez comment configurer des disques gérés pour un cluster Apache Kafka sur Azure HDInsight afin d’accroître l’extensibilité.
+description: Découvrez comment configurer des disques managés pour un cluster Apache Kafka sur Azure HDInsight afin d’accroître l’extensibilité.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -20,11 +20,11 @@ ms.locfileid: "53581501"
 
 Découvrez comment configurer le nombre de disques managés utilisés par [Apache Kafka](https://kafka.apache.org/) sur HDInsight.
 
-Kafka sur HDInsight utilise le disque local des machines virtuelles dans le cluster HDInsight. Étant donné que Kafka fait une utilisation intensive des E/S, le service [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) est utilisé pour fournir un haut débit et un espace de stockage plus important pour chaque nœud. Si des disques durs virtuels (VHD) traditionnels ont été utilisés pour Kafka, chaque nœud est limité à 1 To. Grâce aux disques gérés, vous pouvez utiliser plusieurs disques afin d’atteindre une capacité de 16 To pour chaque nœud du cluster.
+Kafka sur HDInsight utilise le disque local des machines virtuelles dans le cluster HDInsight. Étant donné que Kafka fait une utilisation intensive des E/S, [Azure Disques managés](../../virtual-machines/windows/managed-disks-overview.md) est utilisé pour fournir un haut débit et un espace de stockage plus important pour chaque nœud. Si des disques durs virtuels (VHD) traditionnels ont été utilisés pour Kafka, chaque nœud est limité à 1 To. Grâce aux disques managés, vous pouvez utiliser plusieurs disques afin d’atteindre une capacité de 16 To pour chaque nœud du cluster.
 
-Le diagramme ci-après compare l’utilisation de Kafka sur HDInsight avant les disques gérés et celle de Kafka sur HDInsight avec les disques gérés :
+Le diagramme ci-après compare l’utilisation de Kafka sur HDInsight avant les disques managés et celle de Kafka sur HDInsight avec les disques managés :
 
-![Diagramme illustrant l’utilisation de Kafka sur HDInsight avec un seul VHD par machine virtuelle et avec plusieurs disques gérés par machine virtuelle](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
+![Diagramme illustrant l’utilisation de Kafka sur HDInsight avec un seul VHD par machine virtuelle et avec plusieurs disques managés par machine virtuelle](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
 ## <a name="configure-managed-disks-azure-portal"></a>Configurer les disques managés : Portail Azure
 

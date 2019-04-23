@@ -15,7 +15,7 @@ ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: f580bf02b222f01a3d5aad1254f208791ea22b38
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046973"
@@ -69,7 +69,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>Scénarios pris en charge pour le chiffrement de disque
-* Le chiffrement de groupes de machines virtuelles identiques est pris en charge uniquement pour les groupes identiques créés avec des disques managés ; il ne l’est pas pour les groupes identiques de disques natifs (ou non managés).
+* Le chiffrement de groupes de machines virtuelles identiques est pris en charge uniquement pour les groupes identiques créés avec des disques managés, il ne l’est pas pour les groupes identiques de disques natifs (ou non managés).
 * Le chiffrement de groupes de machines virtuelles identiques est pris en charge pour un volume de données d’un groupe de machines virtuelles identiques Linux. Le chiffrement de disque de systèmes d’exploitation n’est PAS pris en charge dans la préversion actuelle pour Linux.
 * Créer une nouvelle image de machine virtuelle de machines virtuelles identiques et les opérations de mise à niveau ne sont pas pris en charge dans la version préliminaire actuelle.
 

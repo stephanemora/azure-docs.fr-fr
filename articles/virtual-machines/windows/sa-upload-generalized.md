@@ -18,7 +18,7 @@ ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: cd81eb3d62332bba67f0056a6f7b49279bc50c4f
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59788810"
@@ -29,7 +29,7 @@ Cette rubrique décrit le chargement d’un disque non géré généralisé sur 
 
 Si vous souhaitez créer une machine virtuelle à partir d’un disque dur virtuel spécialisé qui se trouve dans un compte de stockage, consultez [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé](sa-create-vm-specialized.md).
 
-Cette rubrique décrit l’utilisation de comptes de stockage, mais nous recommandons aux clients de plutôt passer à l’utilisation de Managed Disks. Pour obtenir une présentation complète de la préparation, du chargement et de la création d’une machine virtuelle à l’aide de disques managés, consultez [Créer une machine virtuelle à partir d’un disque dur virtuel généralisé chargé sur Azure à l’aide de Managed Disks](upload-generalized-managed.md).
+Cette rubrique décrit l’utilisation de comptes de stockage, mais nous recommandons aux clients de plutôt passer à l’utilisation de la fonctionnalité Disques managés. Pour obtenir une présentation complète de la préparation, du chargement et de la création d’une machine virtuelle à l’aide de disques managés, consultez [Créer une machine virtuelle à partir d’un disque dur virtuel généralisé chargé sur Azure à l’aide de la fonctionnalité Disques managés](upload-generalized-managed.md).
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 

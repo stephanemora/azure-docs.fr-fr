@@ -17,7 +17,7 @@ ms.date: 10/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 6483fa8737ee3de6a60c4e4646fefec30ae702b6
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58006645"
@@ -84,7 +84,7 @@ Consultez également les [notes d’installation Linux](create-upload-generic.md
 
 ## <a name="option-1-upload-a-vhd"></a>Option 1 : Télécharger un disque dur virtuel
 
-Vous pouvez charger un disque dur virtuel personnalisé s’exécutant sur un ordinateur local ou que vous avez exporté à partir d’un autre cloud. Pour utiliser un VHD afin de créer une machine virtuelle Azure, vous devez le charger dans un compte de stockage et créer un disque managé à partir de ce VHD. Pour plus d’informations, voir la page [Azure Managed Disks overview](../windows/managed-disks-overview.md) (Vue d’ensemble d’Azure Managed Disks).
+Vous pouvez charger un disque dur virtuel personnalisé s’exécutant sur un ordinateur local ou que vous avez exporté à partir d’un autre cloud. Pour utiliser un VHD afin de créer une machine virtuelle Azure, vous devez le charger dans un compte de stockage et créer un disque managé à partir de ce VHD. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Disques managés](../windows/managed-disks-overview.md).
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
