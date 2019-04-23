@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
 ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009425"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Démarrage rapide : reconnaissance vocale à l’aide du SDK Speech pour .NET Core
@@ -32,7 +32,7 @@ Vous avez besoin d’une clé d’abonnement au service Speech pour suivre ce gu
 
 Ce démarrage rapide nécessite :
 
-* [SDK .NET Core](https://dotnet.microsoft.com/download)
+* [Kit de développement logiciel (SDK) .NET Core](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 

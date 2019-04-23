@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280755"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Didacticiel : Intégration d’Azure Active Directory à Wingspan eTMF
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Wingspan eTMF à Azure AD, vous devez ajouter Wingspan eTMF à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Wingspan eTMF à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Wingspan eTMF à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,9 +105,9 @@ Pour configurer l’authentification unique Azure AD auprès de Wingspan eTMF, 
 
     ![Informations d’authentification unique dans Domaine et URL Wingspan eTMF](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<customer name>.<instance name>.mywingspan.com/saml`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<customer name>.<instance name>.mywingspan.com/saml`.
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `http://saml.<instance name>.wingspan.com/shibboleth`
+    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `http://saml.<instance name>.wingspan.com/shibboleth`
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<customer name>.<instance name>.mywingspan.com/`
 

@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6304f4afa05850ced8b88bb81c0f94e4a31fb5be
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277259"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Didacticiel : Intégration d’Azure Active Directory à Jostle
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Jostle à Azure AD, vous devez ajouter Jostle à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Jostle à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Jostle à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD auprès de Jostle, effectue
 
     b. Dans la zone **Identificateur**, tapez l’URL : `https://jostle.us`
 
-    c. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
+    c. Dans la zone **URL de réponse**, tapez l’URL : `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
 
 5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 

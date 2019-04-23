@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: e30308ac2cda643cc0157f5e718157f6599751d6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283543"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Créer une affectation de stratégie pour identifier les ressources non conformes avec Azure CLI
@@ -56,7 +56,7 @@ La commande précédente utilise les informations suivantes :
 
 - **Name** : nom réel de l’attribution.  Pour cet exemple, *audit-vm-manageddisks* a été utilisé.
 - **DisplayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser *Auditer des machines virtuelles sans attribution de disques managés*.
-- **Policy** : ID de définition de la stratégie, que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie *Auditer les machines virtuelles qui n’utilisent pas de disques managés*. Pour obtenir l’ID de définition de stratégie, exécutez cette commande : `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **Policy** : ID de définition de la stratégie, que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie *Auditer les machines virtuelles qui n’utilisent pas de disques managés*. Pour obtenir l’ID de définition de stratégie, exécutez cette commande : `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Scope** : une étendue détermine les ressources ou le regroupement de ressources sur lequel l’attribution de stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources. Assurez-vous de remplacer &lt;scope&gt; par le nom de votre groupe de ressources.
 
 ## <a name="identify-non-compliant-resources"></a>Identifier les ressources non conformes
@@ -116,7 +116,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 Dans ce démarrage rapide, vous avez affecté une définition de stratégie pour identifier les ressources non conformes de votre environnement Azure.
 
-Pour en savoir plus sur l’affectation de stratégies visant à vérifier que les nouvelles ressources sont conformes, suivez le tutoriel :
+Pour en savoir plus sur l’affectation de stratégies pour vérifier que les nouvelles ressources sont conformes, suivez le didacticiel :
 
 > [!div class="nextstepaction"]
 > [Création et gestion des stratégies](./tutorials/create-and-manage.md)

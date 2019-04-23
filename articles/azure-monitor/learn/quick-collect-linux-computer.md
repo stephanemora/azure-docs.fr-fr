@@ -15,10 +15,10 @@ ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 15b7c052d0e4d51cb033607c156a55c581f722b1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893960"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configurer l’agent Log Analytics pour les ordinateurs Linux dans un environnement hybride
@@ -72,7 +72,7 @@ Les étapes suivantes configurent le programme d’installation de l’agent pou
 
 Si votre ordinateur Linux a besoin d’un serveur proxy pour communiquer avec Log Analytics, la configuration du proxy peut être spécifiée sur la ligne de commande en incluant `-p [protocol://][user:password@]proxyhost[:port]`.  La propriété *proxyhost* accepte un nom de domaine complet ou l’adresse IP du serveur proxy. 
 
-Par exemple :  `https://user01:password@proxy01.contoso.com:30443`
+Par exemple : `https://user01:password@proxy01.contoso.com:30443`
 
 1. Pour configurer l’ordinateur Linux en vue d’une connexion à Log Analytics, exécutez la commande suivante en fournissant l’ID de l’espace de travail et la clé primaire copiés précédemment. La commande suivante télécharge l’agent, valide sa somme de contrôle et l’installe. 
     

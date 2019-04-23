@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 19d9624c5bb60f47ef4bfa1b0629327780c2a9c7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266292"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutoriel : Intégration d’Azure Active Directory à Small Improvements
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Small Improvements avec Azure AD, vous devez ajouter Small Improvements à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Small Improvements à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Small Improvements à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec Small Improvements, e
 
     ![Informations d’authentification unique dans Domaine et URL Small Improvements](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<subdomain>.small-improvements.com`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.small-improvements.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<subdomain>.small-improvements.com`
 
@@ -207,7 +207,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Pour se connecter à Small Improvements, les utilisateurs d’Azure AD doivent être approvisionnés dans Small Improvements. Dans le cas de Small Improvements, l’approvisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à votre site d’entreprise Small Improvements en tant qu’administrateur.
 

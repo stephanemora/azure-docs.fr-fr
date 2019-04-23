@@ -19,10 +19,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881883"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Démarrage rapide : Créer une application Xamarin qui intègre la connexion Microsoft
@@ -130,7 +130,7 @@ Presque toute la logique d’authentification de l’application réside dans `D
     ...
     ```
 
-    `AcquireTokenAsync(...)` tente tout d’abord de retourner un jeton pour la ressource demandée (l’API Graph dans ce cas) sans inviter les utilisateurs à entrer leurs informations d’identification (par le biais de la mise en cache ou de l’actualisation des anciens jetons). Si nécessaire, il affiche la page de connexion d’Azure AD aux utilisateurs avant d’acquérir le jeton demandé.
+    `AcquireTokenAsync(...)` tente tout d’abord de renvoyer un jeton pour la ressource demandée (l’API Graph dans ce cas) sans inviter les utilisateurs à entrer leurs informations d’identification (par le biais de la mise en cache ou de l’actualisation des anciens jetons). Si nécessaire, il affiche la page de connexion d’Azure AD aux utilisateurs avant d’acquérir le jeton demandé.
 4. Joignez le jeton d’accès à la demande de l’API Graph, dans l’en-tête **Autorisation** :
 
     ```csharp

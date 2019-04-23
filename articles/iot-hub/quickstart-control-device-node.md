@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/27/2019
 ms.openlocfilehash: 1fca4f6e3aacfee52f348f338806b98d6e61994b
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006427"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (Node.js)
@@ -165,4 +165,4 @@ Dans ce guide de démarrage rapide, vous avez appelé une méthode directe sur u
 Pour savoir comment acheminer les messages appareil-à-cloud vers différentes destinations dans le cloud, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Router les données de télémétrie vers différents points de terminaison en vue de leur traitement](tutorial-routing.md)
+> [Didacticiel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](tutorial-routing.md)

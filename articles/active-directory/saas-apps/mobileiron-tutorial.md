@@ -16,10 +16,10 @@ ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e37b35f87920016f81bda60fe8a9b6f1714eaae
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Didacticiel : Intégration d’Azure Active Directory à MobileIron
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de MobileIron à Azure AD, vous devez ajouter MobileIron à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter MobileIron à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter MobileIron à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -194,7 +194,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Pour se connecter à MobileIron, les utilisateurs de Azure AD doivent être approvisionnés dans MobileIron.  
 Dans le cas de MobileIron, l’approvisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous au site d’entreprise MobileIron en tant qu’administrateur.
 

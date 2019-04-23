@@ -16,10 +16,10 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1f493120431481423892706fa2a9352b322c500
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Didacticiel : Intégration d’Azure Active Directory à CylancePROTECT
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de CylancePROTECT à Azure AD, vous devez ajouter CylancePROTECT, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-**Pour ajouter CylancePROTECT à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter CylancePROTECT à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 

@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879962"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS
@@ -259,5 +259,5 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 Vous pouvez à présent aborder d’autres scénarios. Nous vous suggérons de suivre les étapes ci-après :
 
-* [Sécurisation d’une API web Node.JS avec Azure AD](quickstart-v1-nodejs-webapi.md)
+* [Sécurisation d’une API web Node.js avec Azure AD](quickstart-v1-nodejs-webapi.md)
 * En savoir plus sur l’[activation d’une authentification unique (SSO) entre applications sur iOS à l’aide de la bibliothèque ADAL](howto-v1-enable-sso-ios.md)  

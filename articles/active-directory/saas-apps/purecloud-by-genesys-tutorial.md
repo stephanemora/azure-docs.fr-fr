@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 764ad8f1ca19238e1986d1d187d19c405963a832
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267393"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Didacticiel : Intégration d’Azure Active Directory à PureCloud by Genesys
@@ -260,7 +260,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Pour permettre aux utilisateurs Azure AD de se connecter à PureCloud by Genesys, vous devez les provisionner dans PureCloud by Genesys. Dans PureCloud by Genesys, le provisionnement se fait manuellement.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à PureCloud by Genesys en tant qu’administrateur.
 

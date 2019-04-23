@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/01/2019
 ms.openlocfilehash: 4099d6ea12774fec2b24895b42d8e780bd36e2a4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917343"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Démarrage rapide : Créer un cluster Apache Kafka sur HDInsight
@@ -169,7 +169,7 @@ Dans cette section, vous allez obtenir les informations sur l’hôte grâce à 
     export clusterNameA='CLUSTERNAME'
     ```
 
-3. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, la stocke dans une variable, puis affiche le nom avec la casse correcte et le nom que vous avez indiqué. Entrez la commande suivante :
+3. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, la stocke dans une variable, puis affiche le nom avec la casse correcte et le nom que vous avez fourni précédemment. Entrez la commande suivante :
 
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')

@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
 ms.openlocfilehash: 4b546b91634e153fa0074adfb863596a1bf36242
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006435"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil dans Node.js par le biais de flux d’appareil IoT Hub (préversion)
@@ -150,7 +150,7 @@ Vous pouvez ensuite mettre fin au programme en appuyant de nouveau sur Entrée.
 
 Dans ce guide de démarrage rapide, vous avez configuré un hub IoT, inscrit un appareil, établi un flux d’appareil entre des applications côté appareil et service, puis utilisé le flux pour envoyer des données dans les deux sens entre les applications.
 
-Utilisez les liens ci-dessous pour en savoir plus sur les flux d’appareils :
+Utilisez les liens ci-dessous pour en savoir plus sur les flux d’appareil :
 
 > [!div class="nextstepaction"]
 > [Vue d’ensemble des flux d’appareil](./iot-hub-device-streams-overview.md)

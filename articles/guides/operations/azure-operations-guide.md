@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
 ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051168"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
@@ -473,7 +473,7 @@ Vous pouvez connecter le réseau local à un réseau virtuel Azure par le biais 
 Le réseau virtuel Azure étant connecté à votre réseau local, les réseaux virtuels entre locaux ne doivent utiliser qu’une partie de l’espace d’adressage utilisé par votre organisation. De la même façon que les différents locaux de l’entreprise se voient affecter un sous-réseau IP spécifique, Azure devient un emplacement supplémentaire lorsque vous étendez votre réseau.
 Il existe plusieurs options pour déployer un réseau virtuel.
 
-- [Portail](../..//virtual-network/quick-create-portal.md)
+- [Portal](../..//virtual-network/quick-create-portal.md)
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 

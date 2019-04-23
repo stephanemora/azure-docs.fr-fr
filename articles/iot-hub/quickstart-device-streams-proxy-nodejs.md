@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
 ms.openlocfilehash: a459473e04f9cbf3b11b75f3b9dbea2732455084
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005435"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Démarrage rapide : SSH/RDP sur des flux d’appareil IoT Hub à l’aide d’une application proxy Node.js (préversion)
@@ -151,7 +151,7 @@ Utilisez à présent votre programme client RDP pour vous connecter au proxy de 
 
 Dans ce guide de démarrage rapide, vous avez configuré un hub IoT, inscrit un appareil et déployé un programme de proxy de service pour autoriser le trafic RDP et SSH vers un appareil IoT. Le trafic RDP et SSH est traité par tunnel par le biais d’un flux d’appareil via IoT Hub. Ainsi, la nécessité d’une connectivité directe à l’appareil est supprimée.
 
-Utilisez les liens ci-dessous pour en savoir plus sur les flux d’appareils :
+Utilisez les liens ci-dessous pour en savoir plus sur les flux d’appareil :
 
 > [!div class="nextstepaction"]
 > [Vue d’ensemble des flux d’appareil](./iot-hub-device-streams-overview.md)

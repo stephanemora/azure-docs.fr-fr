@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361810"
 ---
 # <a name="what-is-azure-backup"></a>Qu’est-ce qu’Azure Backup ?
@@ -58,9 +58,9 @@ Les deux services fournissent des fonctionnalités complémentaires mais différ
 
 Utilisez les points du tableau pour vous aider à déterminer vos besoins en continuité d’activité et de reprise d’activité (BCDR).
 
-**Objectif** | **Détails** | **Opérateurs de comparaison**
+**Objectif** | **Détails** | **Comparaison**
 --- | --- | ---
-**Sauvegarde/Conservation des données** | Les données de sauvegarde peuvent être conservées et stockées pendant des jours, des mois, voire même des années si nécessaire du point de vue de la conformité. | Les solutions de sauvegarde comme le service Sauvegarde Azure vous permettent de choisir précisément les données que vous voulez sauvegarder et de paramétrer avec précision les stratégies de sauvegarde et de conservation.<br/><br/> Site Recovery ne permet pas la même précision dans les ajustements.
+**Conservation/sauvegarde de données** | Les données de sauvegarde peuvent être conservées et stockées pendant des jours, des mois, voire même des années si nécessaire du point de vue de la conformité. | Les solutions de sauvegarde comme le service Sauvegarde Azure vous permettent de choisir précisément les données que vous voulez sauvegarder et de paramétrer avec précision les stratégies de sauvegarde et de conservation.<br/><br/> Site Recovery ne permet pas la même précision dans les ajustements.
 **Objectif de point de récupération (RPO)** | Quantité de perte de données acceptable si la récupération doit être exécutée. | Les sauvegardes ont un objectif de point de récupération (RPO) plus variable.<br/><br/> Les sauvegardes de machines virtuelles ont généralement un RPO d’un jour, contre seulement 15 minutes pour les sauvegardes de base de données.<br/><br/> Site Recovery fournit un RPO faible car la réplication est continue ou fréquente, de sorte que le delta entre la source et la copie de réplica est faible.
 **Objectif de délai de récupération (RTO)** |Quantité de temps nécessaire pour effectuer une récupération ou une restauration complète. | Un RPO plus long est généralement synonyme pour la solution de sauvegarde d’une bien plus grande quantité de données à traiter, ce qui rallonge d’autant le RTO. Par exemple, il peut falloir plusieurs jours pour restaurer des données à partir de bandes, selon le temps nécessaire au transport de la bande depuis un site externe.
 
@@ -68,7 +68,7 @@ Utilisez les points du tableau pour vous aider à déterminer vos besoins en con
 
 La Sauvegarde Azure peut sauvegarder aussi bien les machines locales que les machines virtuelles Azure.
 
-**Ordinateur** | **Scénario de sauvegarde**
+**Machine** | **Scénario de sauvegarde**
 --- | ---
 **Sauvegarde locale** |  1) Exécutez l’agent Microsoft Azure Recovery Services (MARS) de Sauvegarde Azure sur des machines Windows locales pour sauvegarder des fichiers individuels et l’état du système. <br/><br/>2) Sauvegardez les machines locales sur un serveur de sauvegarde, comme DPM (System Center Data Protection Manager) ou MABS (Microsoft Azure Backup Server), puis configurez le serveur de sauvegarde pour la sauvegarde dans un coffre Recovery Services du service Sauvegarde Azure dans Azure.
 **Machines virtuelles Azure** | 1) Activez la sauvegarde pour les machines virtuelles Azure individuelles. Quand vous activez la sauvegarde, Sauvegarde Azure installe une extension de l’agent de machine virtuelle Azure qui s’exécute sur la machine virtuelle. L’agent sauvegarde la totalité de la machine virtuelle.<br/><br/> 2) Exécutez l’agent MARS sur une machine virtuelle Azure. C’est pratique si vous voulez sauvegarder des fichiers et des dossiers individuels sur la machine virtuelle.<br/><br/> 3) Sauvegardez une machine virtuelle Azure sur un serveur DPM ou MABS s’exécutant dans Azure. Sauvegardez ensuite le serveur DPM/MABS dans un coffre avec Sauvegarde Azure.
@@ -86,10 +86,10 @@ Découvrez plus d’informations sur le [fonctionnement de la sauvegarde](backup
 
 ## <a name="what-can-i-back-up"></a>Que puis-je sauvegarder ?
 
-**Ordinateur** | **Méthode de sauvegarde** | **Sauvegarder**
+**Machine** | **Méthode de sauvegarde** | **Sauvegarder**
 --- | --- | ---
 **Machines virtuelles Windows locales** | Exécuter l’agent MARS | Sauvegardez des fichiers, des dossiers, l’état du système.<br/><br/> Machines Linux non prises en charge.
-**Machines locales** | sauvegarder dans DPM/MABS | Sauvegarder tout ce qui est protégé par [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) ou [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), notamment les fichiers/dossiers/partages/volumes et les données spécifiques aux applications.
+**Ordinateurs locaux** | sauvegarder dans DPM/MABS | Sauvegarder tout ce qui est protégé par [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) ou [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), notamment les fichiers/dossiers/partages/volumes et les données spécifiques aux applications.
 **Machines virtuelles Azure** | Exécuter l’extension de sauvegarde de l’agent de machine virtuelle Azure | Sauvegarder la totalité de la machine virtuelle
 **Machines virtuelles Azure** | Exécuter l’agent MARS | Sauvegardez des fichiers, des dossiers, l’état du système.<br/><br/> Machines Linux non prises en charge.
 **Machines virtuelles Azure** | Sauvegarder sur MABS/DPM s’exécutant dans Azure | Sauvegarder tout ce qui est protégé par [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) ou [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807), notamment les fichiers/dossiers/partages/volumes et les données spécifiques aux applications.
@@ -100,18 +100,18 @@ Découvrez plus d’informations sur le [fonctionnement de la sauvegarde](backup
 --- | ---
 **Sauvegarder des machines virtuelles Azure** | Aucun agent n’est nécessaire. L’extension de machine virtuelle Azure pour la sauvegarde est installée sur la machine virtuelle Azure quand vous exécutez la première sauvegarde de la machine virtuelle Azure.<br/><br/> Prise en charge pour les machines Windows et Linux.
 **Sauvegarde de machines Windows locales** | Téléchargez, installez et exécutez l’agent MARS directement sur la machine.
-**Sauvegarder des machines virtuelles Azure avec l’agent MARS** | Téléchargez, installez et exécutez l’agent MARS directement sur la machine. L’agent MARS peut s’exécuter en même temps que l’extension de sauvegarde.
-**Sauvegarder des machines locales et des machines virtuelles Azure dans DPM/MABS** | L’agent de protection DPM ou MABS s’exécute sur les ordinateurs que vous voulez protéger. L’agent MARS s’exécute sur le serveur DPM/MABS pour sauvegarder sur Azure.
+**Sauvegarde de machines virtuelles Azure avec l’agent MARS** | Téléchargez, installez et exécutez l’agent MARS directement sur la machine. L’agent MARS peut s’exécuter en même temps que l’extension de sauvegarde.
+**Sauvegarder des machines locales et des machines virtuelles Azure vers DPM/MABS** | L’agent de protection DPM ou MABS s’exécute sur les ordinateurs que vous voulez protéger. L’agent MARS s’exécute sur le serveur DPM/MABS pour sauvegarder sur Azure.
 
 ## <a name="which-backup-agent-should-i-use"></a>Quel agent de sauvegarde dois-je utiliser ?
 
-**Sauvegarde** | **Solution** | **Limitation**
+**Sauvegarde** | **Solution** | **Limite**
 --- | --- | ---
-**Je veux sauvegarder l’intégralité d’une machine virtuelle Azure** | Activez la sauvegarde pour la machine virtuelle. L’extension de sauvegarde est automatiquement configurée sur la machine virtuelle Azure Windows ou Linux. | La totalité de la machine virtuelle est sauvegardée <br/><br/> Pour les machines virtuelles Windows, la sauvegarde est cohérente au niveau application. Pour Linux, la sauvegarde est cohérente au niveau fichier. Si vous avez besoin que les applications soient prises en compte pour les machines virtuelles Linux, vous devez le configurer avec des scripts personnalisés.
+**Je veux sauvegarder la totalité d’une machine virtuelle Azure** | Activez la sauvegarde pour la machine virtuelle. L’extension de sauvegarde est automatiquement configurée sur la machine virtuelle Azure Windows ou Linux. | La totalité de la machine virtuelle est sauvegardée <br/><br/> Pour les machines virtuelles Windows, la sauvegarde est cohérente au niveau application. Pour Linux, la sauvegarde est cohérente au niveau fichier. Si vous avez besoin que les applications soient prises en compte pour les machines virtuelles Linux, vous devez le configurer avec des scripts personnalisés.
 **Je veux sauvegarder des fichiers/dossiers spécifiques sur la machine virtuelle Azure** | Déployez l’agent MARS sur la machine virtuelle.
 **Je veux sauvegarder directement des machines Windows locales** | Installez l’agent MARS sur la machine. | Vous pouvez sauvegarder des fichiers, des dossiers et l’état du système dans Azure. Les sauvegardes ne tiennent pas compte des applications.
 **Je veux sauvegarder directement des machines Linux locales** | Vous devez déployer DPM ou MABS pour effectuer une sauvegarde dans Azure. | La sauvegarde de l’hôte Linux n’est pas prise en charge. Vous pouvez uniquement sauvegarder les machines invitées Linux qui sont hébergées dans Hyper-V ou VMWare.
-**Je veux sauvegarder des applications exécutées localement** | Pour les sauvegardes tenant compte des applications, les machines doivent être protégées par DPM ou MABS.
+**Je veux sauvegarder des applications s’exécutant en local** | Pour les sauvegardes tenant compte des applications, les machines doivent être protégées par DPM ou MABS.
 **Je veux des paramètres de sauvegarde et de récupération précis et flexibles pour les machines virtuelles Azure** | Protégez les machines virtuelles Azure avec MABS/DPM s’exécutant dans Azure afin de bénéficier d’une flexibilité supplémentaire pour la planification des sauvegardes et d’une flexibilité totale pour la protection et la restauration de fichiers, de dossiers, de volumes, d’applications et de l’état du système.
 
 

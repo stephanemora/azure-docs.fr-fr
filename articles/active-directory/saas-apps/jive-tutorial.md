@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 5073961e15b3d0dcf0df0fd97d3f8a4568f79eb5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>Didacticiel : Intégration d’Azure Active Directory avec Jive
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Jive avec Azure AD, vous devez ajouter Jive disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Jive à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Jive à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Jive, effectuez les �
 
     ![Informations d’authentification unique dans Domaine et URL Jive](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<instance name>.jivecustom.com`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<instance name>.jivecustom.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<instance name>.jiveon.com`
 
@@ -228,4 +228,4 @@ Quand vous cliquez sur la vignette Jive dans le volet d’accès, vous devez êt
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[Configurer l’approvisionnement des utilisateurs](jive-provisioning-tutorial.md)
+[Configurer l’approvisionnement de l’utilisateur](jive-provisioning-tutorial.md)

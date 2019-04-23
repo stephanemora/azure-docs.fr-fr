@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: a18971125724e6e2fdc6b37de15894efb8b9071a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258944"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Didacticiel : Intégration d'Azure Active Directory à SD Elements
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de SD Elements avec Azure AD, vous devez ajouter SD Elements disponible dans la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter SD Elements à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter SD Elements à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -233,7 +233,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans SD Elements. Dans le cas de SD Elements, la création d'utilisateurs SD Elements est une tâche manuelle.
 
-**Pour créer un utilisateur appelé Britta Simon dans SD Elements, effectuez les étapes suivantes :**
+**Pour créer un utilisateur appelé Britta Simon dans SD Elements, procédez comme suit :**
 
 1. Dans une autre fenêtre de navigateur, connectez-vous à votre site d’entreprise SD Elements en tant qu’administrateur.
 

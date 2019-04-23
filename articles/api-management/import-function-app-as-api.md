@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
 ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046051"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importer une application de fonction Azure en tant qu’API dans Gestion des API Azure
@@ -184,4 +184,4 @@ Vous pouvez également appeler des opérations à partir du portail des dévelop
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Transformer et protéger une API publiée](transform-api.md)
+> [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: dbd7189b1761a9ea88ce32dae3d7b45a88301ff6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Didacticiel : Intégration d'Azure Active Directory à UserVoice
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de UserVoice avec Azure AD, vous devez ajouter UserVoice disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter UserVoice à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter UserVoice à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec UserVoice, effectuez l
 
     ![Informations d’authentification unique dans Domaine et URL UserVoice](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<tenantname>.UserVoice.com`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenantname>.UserVoice.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<tenantname>.UserVoice.com`
 

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/26/2019
 ms.openlocfilehash: 58b4acb3ebfc1ff22c04dafb3063f197d2866311
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005850"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (Python)
@@ -178,4 +178,4 @@ Dans ce guide de démarrage rapide, vous avez appelé une méthode directe sur u
 Pour savoir comment acheminer les messages appareil-à-cloud vers différentes destinations dans le cloud, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Router les données de télémétrie vers différents points de terminaison en vue de leur traitement](tutorial-routing.md)
+> [Didacticiel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](tutorial-routing.md)

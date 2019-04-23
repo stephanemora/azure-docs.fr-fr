@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: da643a4d7a1dc74385b3854c1952af5ba93bd241
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358100"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
@@ -32,7 +32,7 @@ c
 Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que vous avez déjà effectué les tâches des didacticiels précédents :
 
 1. [Préparer Azure](tutorial-prepare-azure.md)
-2. [Préparer un Hyper-V local](tutorial-prepare-on-premises-hyper-v.md)
+2. [Préparer un serveur Hyper-V local](tutorial-prepare-on-premises-hyper-v.md)
 
 
 
@@ -144,4 +144,4 @@ Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comp
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Exécuter une simulation de récupération d'urgence](tutorial-dr-drill-azure.md)
+> [Effectuer un test de récupération d’urgence](tutorial-dr-drill-azure.md)

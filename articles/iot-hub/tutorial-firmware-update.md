@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008900"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Didacticiel : Implémenter un processus de mise à jour de microprogramme d’appareil
@@ -116,7 +116,7 @@ L’application back-end crée la configuration suivante :
 La configuration inclut les sections suivantes :
 
 * `content` spécifie les propriétés souhaitées du microprogramme envoyées aux appareils sélectionnés.
-* `metrics` spécifie les requêtes à exécuter pour signaler l’état de la mise à jour du microprogramme.
+* `metrics` spécifie les requêtes qui vont exécuter le rapport d’état de la mise à jour du microprogramme.
 * `targetCondition` sélectionne les appareils qui vont recevoir la mise à jour du microprogramme.
 * `priorty` définit la priorité relative de cette configuration sur d’autres configurations.
 

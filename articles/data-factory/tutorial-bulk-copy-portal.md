@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 444269aa7ca2b0a82b78e8437b7884ef8833c665
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279786"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copier plusieurs tables en bloc à l’aide d’Azure Data Factory
@@ -418,4 +418,4 @@ Dans ce didacticiel, vous avez effectué les étapes suivantes :
 
 Passez au tutoriel suivant pour découvrir comment copier des données de manière incrémentielle d’une source vers une destination :
 > [!div class="nextstepaction"]
->[Copier les données de façon incrémentielle](tutorial-incremental-copy-portal.md)
+>[Copier des données de façon incrémentielle](tutorial-incremental-copy-portal.md)

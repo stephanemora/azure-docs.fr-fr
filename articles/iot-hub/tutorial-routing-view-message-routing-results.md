@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045831"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Didacticiel : Partie 2 : Visualiser les messages routés
@@ -274,7 +274,7 @@ Connectez-vous à votre compte [Power BI](https://powerbi.microsoft.com/). Accé
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Utiliser Azure CLI pour nettoyer des ressources
 
-Pour supprimer le groupe de ressources, utilisez la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` a été défini à **ContosoResources** au début de ce tutoriel.
+Pour supprimer le groupe de ressources, utilisez la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` a été défini sur **ContosoResources** au début de ce tutoriel.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -282,7 +282,7 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Utiliser PowerShell pour nettoyer les ressources
 
-Pour supprimer le groupe de ressources, utilisez la commande [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` a été défini à **ContosoResources** au début de ce tutoriel.
+Pour supprimer le groupe de ressources, utilisez la commande [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` a été défini sur **ContosoResources** au début de ce tutoriel.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
@@ -292,12 +292,12 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Dans ce tutoriel en deux parties, vous avez appris à utiliser le routage des messages pour router des messages IoT Hub vers différentes destinations en effectuant les tâches suivantes.  
 
-**Partie I : Créer des ressources, configurer le routage des messages**
+**Partie I : Créer des ressources, configurer le routage des messages**
 > [!div class="checklist"]
-> * Créez les ressources : un hub IoT, un compte de stockage, une file d’attente Service Bus et un appareil simulé.
-> * Configurez les points de terminaison et les routes des messages dans IoT Hub pour le compte de stockage et la file d’attente Service Bus.
+> * Créer les ressources : un hub IoT, un compte de stockage, une file d’attente Service Bus et un appareil simulé.
+> * Configurer les points de terminaison et les routes des messages dans IoT Hub pour le compte de stockage et la file d’attente Service Bus.
 
-**Partie II : Envoyer des messages au hub, voir les résultats routés**
+**Partie II : Envoyer les messages au hub, visualiser les résultats routés**
 > [!div class="checklist"]
 > * Créer une application logique qui est déclenchée et qui envoie un e-mail lors de l’ajout d’un message à la file d’attente Service Bus.
 > * Télécharger et exécuter une application qui simule l’envoi de messages par un appareil IoT au Hub pour les différentes options de routage.

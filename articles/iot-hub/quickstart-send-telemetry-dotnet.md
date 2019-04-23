@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.openlocfilehash: f339d2e3e329ae40ca8bb8bf651d698c73482a7d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049266"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application back-end (C#)
@@ -162,4 +162,4 @@ Dans ce guide de démarrage rapide, vous avez configuré un IoT Hub, inscrit un 
 Pour savoir comment contrôler votre appareil simulé à partir d’une application back-end, passez au démarrage rapide suivant.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-dotnet.md)
+> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-dotnet.md)

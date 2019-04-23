@@ -8,10 +8,10 @@ ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275440"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
@@ -37,7 +37,7 @@ Azure Migrate vous aide à :
 - Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
 -  Vous ne pouvez créer un projet Azure Migrate que dans les zones géographiques suivantes. Toutefois, cela ne restreint pas votre capacité à créer des évaluations pour d’autres emplacements Azure cibles.
 
-    **Geography** | **Emplacement de stockage**
+    **Zone géographique** | **Emplacement de stockage**
     --- | ---
     Azure Government | Gouvernement américain - Virginie
     Asie | Asie Sud-Est ou Asie Est
@@ -65,7 +65,7 @@ Les paramètres d’évaluation peuvent être personnalisés selon vos besoins. 
 **Critère de dimensionnement** | Le dimensionnement peut être basé sur l’**historique des performances** des machines virtuelles locales (par défaut), ou **localement** sans tenir compte de l’historique des performances.
 **Historique des performances** | Par défaut, Azure Migrate évalue les performances des machines locales à l’aide de l’historique des performances du dernier jour, avec une valeur de centile de 95 %.
 **Facteur de confort** | Azure Migrate considère une mémoire tampon (facteur de confort) au cours de l’évaluation. Cette mémoire tampon est appliquée sur des données d’utilisation de l’ordinateur pour les machines virtuelles (processeur, mémoire, disque et réseau). Le facteur de confort prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation future.<br/><br/> Par exemple, une machine virtuelle de 10 cœurs avec 20 % d’utilisation correspond normalement à une machine virtuelle à 2 cœurs. Toutefois, avec un facteur de confort de 2.0x, le résultat est une machine virtuelle de 4 cœurs. Le paramètre de confort par défaut est 1.3x.
-**Série de la machine virtuelle** | Les séries de machine virtuelle utilisées pour les estimations de taille. Par exemple, si vous disposez d’un environnement de production que vous ne souhaitez pas migrer vers des machines virtuelles de série A dans Azure, vous pouvez exclure la série A de la liste ou des séries. Le dimensionnement est uniquement basé sur les séries sélectionnées.   
+**Séries de machine virtuelle** | Les séries de machine virtuelle utilisées pour les estimations de taille. Par exemple, si vous disposez d’un environnement de production que vous ne souhaitez pas migrer vers des machines virtuelles de série A dans Azure, vous pouvez exclure la série A de la liste ou des séries. Le dimensionnement est uniquement basé sur les séries sélectionnées.   
 **Devise** | Devise de facturation. La valeur par défaut est le dollar américain.
 **Remise (%)** | Remise propre à un abonnement cumulable avec l’offre Azure. Le paramètre par défaut est 0 %.
 **Durée de fonctionnement de la machine virtuelle** | Si vos machines virtuelles ne s’exécutent pas 24/7 dans Azure, vous pouvez spécifier leur durée d’exécution (nombre de jours par mois et nombre d’heures par jour) ; l’estimation des coûts sera calculée en fonction. La valeur par défaut est de 31 jours par mois et de 24 heures par jour.

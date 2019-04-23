@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
 ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009397"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Démarrage rapide : reconnaissance vocale à l’aide du SDK Speech pour Java
@@ -43,7 +43,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 Si vous exécutez Windows (64 bits), vérifiez que vous avez installé Microsoft Visual C++ Redistributable pour votre plateforme.
-* [Télécharger Microsoft Visual C++ Redistributable pour Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+* [Télécharger Redistributable Visual C++ pour Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 
 ## <a name="create-and-configure-project"></a>Créer et configurer un projet
@@ -84,6 +84,6 @@ Des exemples supplémentaires, qui montrent notamment comment lire une entrée o
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Démarrage rapide : Traduire une entrée vocale, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [Démarrage rapide : traduire une entrée vocale, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
 - [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
 - [Personnaliser les modèles de langage](how-to-customize-language-model.md)

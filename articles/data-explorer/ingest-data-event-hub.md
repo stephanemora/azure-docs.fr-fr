@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 02/02/2018
 ms.openlocfilehash: 52bdbe6d34fb631cd4b2205dfad25399fe0e43fb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048385"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer
@@ -38,7 +38,7 @@ Dans ce guide de démarrage rapide, vous générez des exemples de données et l
 
 1. Pour créer un hub d’événements, utilisez le bouton suivant pour démarrer le déploiement. Cliquez avec le bouton droit et sélectionnez **Ouvrir dans une nouvelle fenêtre** pour pouvoir suivre le reste des étapes de l’article.
 
-    [![DDéployer sur Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Déployer sur Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     Le bouton **Déployer sur Azure** vous amène dans le portail Azure pour remplir un formulaire de déploiement.
 
@@ -203,4 +203,4 @@ Si vous ne prévoyez pas de réutiliser votre hub d’événements, nettoyez **t
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
+> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)

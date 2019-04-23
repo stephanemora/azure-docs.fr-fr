@@ -16,10 +16,10 @@ ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: 4f5fbbb9d06f9fcb8858625b57957fc18c5c1f1f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046904"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Didacticiel : Diagnostiquer un problème de communication existant entre des réseaux à l’aide du portail Azure
@@ -115,4 +115,4 @@ Si vous avez créé une passerelle VPN à l’aide du script de la section [Pré
 Dans ce didacticiel, vous avez découvert comment diagnostiquer un problème lié à une passerelle de réseau virtuel. Vous souhaiterez peut-être enregistrer la communication réseau vers et depuis une machine virtuelle afin de pouvoir rechercher des anomalies dans le journal. Passez au didacticiel suivant pour savoir comment procéder.
 
 > [!div class="nextstepaction"]
-> [Journaliser le trafic réseau depuis et vers une machine virtuelle](network-watcher-nsg-flow-logging-portal.md)
+> [Consigner le trafic réseau vers et à partir d’une machine virtuelle](network-watcher-nsg-flow-logging-portal.md)

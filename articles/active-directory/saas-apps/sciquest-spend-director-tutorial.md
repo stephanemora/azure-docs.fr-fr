@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 371ea6609181b84ff8554b9e2f1a5047d2d48c48
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Didacticiel : Intégration d’Azure Active Directory à SciQuest Spend Director
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de SciQuest Spend Director avec Azure AD, vous devez ajouter SciQuest Spend Director, qui est disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter SciQuest Spend Director à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter SciQuest Spend Director à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,9 +106,9 @@ Pour configurer l’authentification unique Azure AD avec SciQuest Spend Directo
 
     ![Informations d’authentification unique dans Domaine et URL SciQuest Spend Director](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`.
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<companyname>.sciquest.com`
+    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<companyname>.sciquest.com`
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
 

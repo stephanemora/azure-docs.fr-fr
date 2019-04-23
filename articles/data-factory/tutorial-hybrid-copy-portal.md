@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: abnarain
 ms.openlocfilehash: 7e09c36128c3471ce9df33b2a78eb14fab89435b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256989"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure
@@ -337,4 +337,4 @@ Pour obtenir la liste des magasins de données pris en charge par Data Factory, 
 Pour découvrir comment copier des données en bloc d’une source vers une destination, passez au didacticiel suivant :
 
 > [!div class="nextstepaction"]
->[Copier les données en vrac](tutorial-bulk-copy-portal.md)
+>[Copier des données en bloc](tutorial-bulk-copy-portal.md)

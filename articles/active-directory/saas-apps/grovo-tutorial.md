@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: fc0ef38193bbd6e5044764a26a5793a4d115348d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Didacticiel : Intégration d’Azure Active Directory à Grovo
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Grovo à Azure AD, vous devez ajouter Grovo, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-**Pour ajouter Grovo à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Grovo à partir de la galerie, suivez ces étapes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec Grovo, effectuez les 
 
     c. Cliquez sur **Définir des URL supplémentaires**.
 
-    d. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<subdomain>.grovo.com`
+    d. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<subdomain>.grovo.com`
 
 5. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service**, procédez comme suit :
 

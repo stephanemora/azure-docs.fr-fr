@@ -14,17 +14,17 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
 ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280103"
 ---
 # <a name="overview-of-azure-notebooks"></a>Vue d’ensemble d’Azure Notebooks
 
 Azure Notebooks est un service hébergé gratuit à l’aide duquel vous pouvez développer et exécuter des notebooks Jupyter dans le cloud sans aucune installation. [Jupyter](https://jupyter.org/) (anciennement IPython) est un projet open source qui vous permet de combiner facilement du texte Markdown, du code exécutable, des données persistantes, des graphiques et des visualisations dans un canevas partageable appelé *notebook* (image tirée de jupyter.org) :
 
-[![EExemples de notebooks Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Exemples de notebooks Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Fort de cette solide combinaison de code, de graphiques et de texte explicatif, Jupyter est devenu populaire dans de nombreuses utilisations, notamment les instructions de science des données, le nettoyage et la transformation des données, la simulation numérique, la modélisation statistique et le développement de modèles Machine Learning.
 
@@ -115,7 +115,7 @@ Pour discuter de vos questions sur Azure Notebooks, signalez un problème dans l
   
   - [Créer et cloner des projets](create-clone-jupyter-notebooks.md)
   - [Configurer et gérer des projets](configure-manage-azure-notebooks-projects.md)
-  - [Installer des packages à partir d’un bloc-notes](install-packages-jupyter-notebook.md)
+  - [Installer des packages à partir d’un notebook](install-packages-jupyter-notebook.md)
   - [Présenter un diaporama](present-jupyter-notebooks-slideshow.md)
   - [Utiliser des fichiers de données](work-with-project-data-files.md)
   - [Accéder aux ressources de données](access-data-resources-jupyter-notebooks.md)

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.openlocfilehash: fc219d9e3e5b365f341b2997804586e67275c1b7
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046510"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (.NET)
@@ -174,4 +174,4 @@ Dans ce guide de démarrage rapide, vous avez appelé une méthode directe sur u
 Pour savoir comment acheminer les messages appareil-à-cloud vers différentes destinations dans le cloud, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Router les données de télémétrie vers différents points de terminaison en vue de leur traitement](tutorial-routing.md)
+> [Didacticiel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](tutorial-routing.md)

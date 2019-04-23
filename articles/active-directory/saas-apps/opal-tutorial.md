@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 05be19ba59c5e392ce75d465a90b0946a9160c00
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>Didacticiel : Intégration d’Azure Active Directory à Opal
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Opal à Azure AD, vous devez ajouter Opal à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Opal à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Opal à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec Opal, effectuez les é
 
     ![Informations d’authentification unique dans Opal Domain and URLs (Domaines et URL Opal)](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `Opal`
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `Opal`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<subdomain>.ouropal.com/auth/saml/callback`
 

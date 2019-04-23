@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: ad6bf2576d7f033f8ae029338dc94635dbba0fe7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Didacticiel : Intégration d’Azure Active Directory à IQNavigator VMS
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’IQNavigator à Azure AD, vous devez ajouter IQNavigator à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter IQNavigator VMS à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter IQNavigator VMS à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,13 +105,13 @@ Pour configurer l’authentification unique Azure AD avec IQNavigator VMS, effe
 
     ![Informations d’authentification unique dans Domaine et URL IQNavigator VMS](common/idp-relay.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `iqn.com`
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `iqn.com`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
 
     c. Cliquez sur **Définir des URL supplémentaires**.
 
-    d. Dans la zone de texte **État de relais**, tapez une URL en utilisant le modèle suivant : `https://<subdomain>.iqnavigator.com`
+    d. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<subdomain>.iqnavigator.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’état de relais réels. Pour obtenir ces valeurs, contactez [l’équipe de support client IQNavigator VMS](https://www.beeline.com/iqn-product-support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

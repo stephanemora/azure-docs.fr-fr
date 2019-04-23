@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
 ms.openlocfilehash: a418966ce72876d58d39b939ecb7dd5a05e41b9b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008977"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en JavaScript dans un navigateur avec le kit SDK Speech
@@ -110,4 +110,4 @@ Pour lancer l’application, ouvrez le navigateur web de votre choix, accédez �
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Explorer des exemples JavaScript sur GitHub](https://aka.ms/csspeech/samples)
+> [Explorer des exemples Java sur GitHub](https://aka.ms/csspeech/samples)

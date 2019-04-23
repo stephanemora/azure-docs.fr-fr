@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044859"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Didacticiel : Superviser les journaux d’activité et les métriques du Pare-feu Azure
@@ -99,7 +99,7 @@ Vous pouvez afficher et analyser les données du journal d’activité en utilis
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Afficher et analyser les journaux d’activité de règles et d’application et de réseau
 
-Les [journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) collectent les compteurs et les fichiers journaux des événements. Il inclut des visualisations et des fonctionnalités puissantes de recherche pour analyser vos journaux d’activité.
+Les [journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) collectent les compteurs et les fichiers journaux des événements. Il inclut des visualisations et des fonctionnalités puissantes de recherche pour analyser vos journaux d’activité.
 
 Pour accéder aux exemples de requêtes d’analytique des journaux d’activité de Pare-feu Azure, consultez [Exemples d’analytique des journaux d’activité de pare-feu](log-analytics-samples.md).
 
@@ -116,7 +116,7 @@ Accédez à un Pare-feu Azure, sous **Supervision** cliquez sur **Métriques**. 
 Maintenant que vous avez configuré votre pare-feu pour collecter des journaux d’activité, vous pouvez explorer les journaux d’activité Azure Monitor pour voir vos données.
 
 > [!div class="nextstepaction"]
-> [Solutions de supervision réseau dans les journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)
+> [Solutions de supervision réseau dans les journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

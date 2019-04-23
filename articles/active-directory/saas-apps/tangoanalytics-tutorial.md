@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 7252fcd0ce3e12c411729002e9594d1a75a49885
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tango-analytics"></a>Didacticiel : Intégration d'Azure Active Directory à Tango Analytics
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Tango Analytics à Azure AD, vous devez ajouter Tango Analytics à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Tango Analytics à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Tango Analytics à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 

@@ -16,10 +16,10 @@ ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278698"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à l’échelle un cluster Service Fabric dans Azure
@@ -39,7 +39,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Superviser un cluster](service-fabric-tutorial-monitor-cluster.md)
 > * Mettre à l’échelle un cluster
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Suppression d'un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Supprimer un cluster](service-fabric-tutorial-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

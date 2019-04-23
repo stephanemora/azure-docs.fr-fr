@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273156"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Définir et affecter un blueprint Azure avec l’API REST
@@ -70,8 +70,8 @@ La première étape de la définition d’un modèle standard à des fins de con
 
 Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par vos propres valeurs :
 
-- `{YourMG}` - Remplacer par l’ID de votre groupe d’administration
-- `{subscriptionId}` - Remplacer par votre ID d’abonnement
+- Remplacer `{YourMG}` par l’ID de votre groupe d’administration
+- Remplacer `{subscriptionId}` par votre ID d’abonnement
 
 > [!NOTE]
 > Les blueprints peuvent aussi être créés au niveau de l’abonnement. Pour plus d’informations, consultez cet [exemple de création de blueprint au niveau de l’abonnement](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -336,9 +336,9 @@ Une fois qu’un blueprint a été publié à l’aide de l’API REST, il peut 
 
 Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par vos propres valeurs :
 
-- `{tenantId}` - Remplacer par l’ID de votre locataire
-- `{YourMG}` - Remplacer par l’ID de votre groupe d’administration
-- `{subscriptionId}` - Remplacer par votre ID d’abonnement
+- Remplacer `{tenantId}` par l’ID de votre locataire
+- Remplacer `{YourMG}` par l’ID de votre groupe d’administration
+- Remplacer `{subscriptionId}` par votre ID d’abonnement
 
 1. Octroyez au principal de service Azure Blueprint le rôle **Propriétaire** sur l’abonnement cible. L’ID d’application est statique (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mais l’ID de principal de service varie en fonction du locataire. Vous pouvez demander les détails de votre locataire à l’aide de l’API REST suivante. Elle utilise [l’API Graph Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) qui a une autorisation différente.
 

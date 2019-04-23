@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
 ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009269"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en Objective-C sur iOS à l’aide du SDK Speech
@@ -61,7 +61,7 @@ Dans les boîtes de dialogue qui suivent, effectuez les sélections suivantes :
         ![Framework ajouté](media/sdk/qs-objectivec-framework.png)
         1. Accédez à l’onglet **Build Settings** (paramètres de Build) et activez tous les paramètres (**All**).
         1. Ajoutez le répertoire `$(SRCROOT)/..` aux chemins de recherche de framework (*Framework Search Paths*) sous l’en-tête **Search Paths** (chemins de recherche).
-        ![Paramètre de chemin de recherche de framework](media/sdk/qs-objectivec-framework-search-paths.png)
+        ![Paramètre de chemin de recherche de frameworks](media/sdk/qs-objectivec-framework-search-paths.png)
 
 ## <a name="set-up-the-ui"></a>Configurer l’interface utilisateur
 

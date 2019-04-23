@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 060e071a5c54baa607733cd4fe7342fd981cf827
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Didacticiel : Intégration d'Azure Active Directory à Skills Base
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Skills Base à Azure AD, vous devez ajouter Skills Base à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter Skills Base à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Skills Base à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 

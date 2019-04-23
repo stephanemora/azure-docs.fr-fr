@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257448"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Didacticiel : Créer un pool d’hôtes avec la Place de marché Azure
@@ -125,4 +125,4 @@ Voici les clients actuellement pris en charge :
 Maintenant que vous avez créé un pool d’hôtes et affecté des utilisateurs pour accéder à son bureau, vous pouvez également remplir votre pool d’hôtes avec des applications RemoteApp. Pour en savoir plus sur la façon de gérer des applications dans Windows Virtual Desktop, consultez le tutoriel Gérer les groupes d’applications.
 
 > [!div class="nextstepaction"]
-> [Tutoriel Gérer les groupes d’applications](./manage-app-groups.md)
+> [Gérer les groupes d’applications](./manage-app-groups.md)

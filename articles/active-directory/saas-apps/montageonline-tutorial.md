@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 28d52a6eb5018aac8ebeb48b0a2a60a1dd9e1a43
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260253"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Didacticiel : Intégration d’Azure Active Directory à Montage Online
@@ -106,15 +106,15 @@ Pour configurer l’authentification unique Azure AD avec Montage Online, effect
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
 
-    Pour l’environnement de production : `https://<subdomain>.montageonline.co.nz/`
+    Pour l’environnement de production : `https://<subdomain>.montageonline.co.nz/`
 
-    Pour l’environnement de test : `https://build-<subdomain>.montageonline.co.nz/`
+    Pour l’environnement de test : `https://build-<subdomain>.montageonline.co.nz/`
 
     b. Dans la zone de texte **Identificateur**, tapez une URL :
 
-    Pour l’environnement de production : `MOL_Azure`
+    Pour l’environnement de production : `MOL_Azure`
 
-    Pour l’environnement de test : `MOL_Azure_Build`
+    Pour l’environnement de test : `MOL_Azure_Build`
 
     > [!NOTE] 
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Montage Online](https://www.montage.co.nz/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

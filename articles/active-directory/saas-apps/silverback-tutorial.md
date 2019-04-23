@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Didacticiel : Intégration d’Azure Active Directory à Silverback
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Silverback à Azure AD, vous devez ajouter Silverback, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-**Pour ajouter Silverback à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Silverback à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,9 +105,9 @@ Pour configurer l’authentification unique Azure AD auprès de Silverback, effe
 
     ![Informations d’authentification unique dans Domaine et URL Silverback](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<YOURSILVERBACKURL>.com/ssp`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<YOURSILVERBACKURL>.com/ssp`.
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<YOURSILVERBACKURL>.com`
+    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `<YOURSILVERBACKURL>.com`
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
@@ -201,7 +201,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Silverback, vous devez les approvisionner dans Silverback. Dans Silverback, l’approvisionnement est une tâche manuelle.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à votre serveur Silverback en tant qu’administrateur.
 

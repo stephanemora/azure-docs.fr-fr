@@ -9,10 +9,10 @@ ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049136"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Didacticiel : Étendre les serveurs de fichiers Windows avec Azure File Sync
@@ -253,7 +253,7 @@ Vous avez déployé le service Azure Sync et installé l’agent sur la machine 
 
 L’inscription de votre serveur Windows Server à un service de synchronisation de stockage a pour effet d’établir une relation d’approbation entre votre serveur (ou cluster) et le service de synchronisation de stockage. Un serveur peut être inscrit à un seul service de synchronisation de stockage. Il peut se synchroniser avec d’autres serveurs et partages de fichiers Azure qui sont eux-mêmes associés à ce service de synchronisation de stockage.
 
-L’interface utilisateur d’inscription du serveur s’ouvre normalement automatiquement après l’installation de l’agent Azure File Sync. Si ce n’est pas le cas, vous pouvez l’ouvrir manuellement à partir de son emplacement de fichier : `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
+L’interface utilisateur d’inscription du serveur s’ouvre normalement automatiquement après l’installation de l’agent Azure File Sync. Si ce n’est pas le cas, ouvrez-la manuellement à partir de son emplacement de fichier : `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
 
 1. Une fois que l’interface utilisateur d’inscription du serveur s’est ouverte sur la machine virtuelle, sélectionnez **OK**.
 1. Sélectionnez **Connexion** pour commencer.
@@ -308,7 +308,7 @@ Un point de terminaison de serveur représente un emplacement spécifique sur un
    | ----- | ----- |
    | Valeur | Description |
    | **Serveur inscrit** | Nom du serveur que vous avez créé. Utilisez le serveur *afsvm101918* dans ce tutoriel. |
-   | **path** | Chemin Windows Server vers le lecteur que vous avez créé. Utilisez le chemin *f:\filestosync* dans ce tutoriel. |
+   | **Chemin d’accès** | Chemin Windows Server vers le lecteur que vous avez créé. Utilisez le chemin *f:\filestosync* dans ce tutoriel. |
    | **Hiérarchisation cloud** | Laissez le champ désactivé pour ce didacticiel. |
    | **Espace libre du volume** | Laissez le champ vide pour ce didacticiel. |
 
@@ -327,4 +327,4 @@ Vos fichiers sont maintenant synchronisés entre le partage de fichiers Azure et
 Dans ce tutoriel, vous avez appris les étapes de base à suivre pour étendre la capacité de stockage d’un serveur Windows à l’aide d’Azure File Sync. Pour plus de détails concernant la planification d’un déploiement Azure File Sync, consultez .
 
 > [!div class="nextstepaction"]
-> [Planifier le déploiement d’Azure File Sync](./storage-sync-files-planning.md)
+> [Planification d’un déploiement de synchronisation de fichiers Azure](./storage-sync-files-planning.md)

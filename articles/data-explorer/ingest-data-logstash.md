@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 01/14/2019
 ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046408"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Démarrage rapide : Ingérer des données depuis Logstash vers Azure Data Explorer
@@ -108,7 +108,7 @@ output {
 
 | Nom du paramètre | Description |
 | --- | --- |
-| **chemin d’accès** | Le plug-in Logstash écrit des événements dans des fichiers temporaires avant de les envoyer à Azure Data Explorer. Ce paramètre inclut un chemin indiquant l’emplacement auquel les fichiers doivent être écrits, ainsi qu’une expression temporelle de rotation de fichiers qui déclenche un chargement vers le service Azure Data Explorer.|
+| **path** | Le plug-in Logstash écrit des événements dans des fichiers temporaires avant de les envoyer à Azure Data Explorer. Ce paramètre inclut un chemin indiquant l’emplacement auquel les fichiers doivent être écrits, ainsi qu’une expression temporelle de rotation de fichiers qui déclenche un chargement vers le service Azure Data Explorer.|
 | **ingest_url** | Point de terminaison Kusto pour la communication liée à l’ingestion.|
 | **app_id**, **app_key** et **app_tenant**| Informations d’identification nécessaires pour la connexion à Azure Data Explorer. Veillez à utiliser une application dotée de privilèges d’ingestion. |
 | **database**| Nom de la base de données où placer des événements. |
@@ -147,4 +147,4 @@ Exécutez la commande suivante dans votre base de données pour nettoyer la tabl
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Rédiger des requêtes](write-queries.md)
+> [Écrire des requêtes](write-queries.md)

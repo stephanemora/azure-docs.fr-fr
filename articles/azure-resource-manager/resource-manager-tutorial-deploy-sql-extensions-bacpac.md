@@ -14,10 +14,10 @@ ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 7339c975bf979907bd1f9bbb46546b58ef7ae6e5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282353"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutoriel : Importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager
@@ -175,4 +175,4 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 Dans ce didacticiel, vous avez déployé un SQL Server, une SQL Database, et avez importé un fichier BACPAC. Le fichier BACPAC est stocké dans un compte de stockage Azure. Toute personne en possession de l'URL peut y accéder. Pour savoir comment sécuriser le fichier BACPAC (artefact), consultez
 
 > [!div class="nextstepaction"]
-> [Sécuriser les artefacts](./resource-manager-tutorial-secure-artifacts.md)
+> [Sécuriser des artefacts](./resource-manager-tutorial-secure-artifacts.md)

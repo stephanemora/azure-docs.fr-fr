@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264027"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Création d'un service Azure Search dans le portail
@@ -22,7 +22,7 @@ La Recherche Azure est une ressource autonome utilisée pour ajouter une expéri
 
 Dans cet article, découvrez comment créer une ressource de Recherche Azure dans le [portail Microsoft Azure](https://portal.azure.com/).
 
-[![AGIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![GIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Vous préférez PowerShell ? Utilisez le [modèle de service](https://azure.microsoft.com/resources/templates/101-azure-search-create/) Azure Resource Manager. Pour obtenir de l’aide et bien démarrer, consultez [Gérer votre service Recherche Azure avec PowerShell](search-manage-powershell.md).
 
@@ -143,4 +143,4 @@ Il n’est pas nécessaire de disposer d’un second service pour la haute dispo
 Après avoir approvisionné un service Recherche Azure, vous pouvez rester dans le portail et créer votre premier index.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Importer des données, indexer et exécuter des requêtes dans le portail](search-get-started-portal.md)
+> [Tutoriel : importer des données, indexer et exécuter des requêtes dans le portail](search-get-started-portal.md)

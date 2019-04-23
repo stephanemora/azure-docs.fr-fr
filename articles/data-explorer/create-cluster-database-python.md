@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
 ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045199"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Créer un cluster et une base de données Azure Data Explorer en utilisant Python
 
 > [!div class="op_single_selector"]
-> * [Portail](create-cluster-database-portal.md)
-> * [Interface de ligne de commande](create-cluster-database-cli.md)
+> * [Portal](create-cluster-database-portal.md)
+> * [INTERFACE DE LIGNE DE COMMANDE](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
@@ -106,8 +106,8 @@ Si le résultat contient `provisioningState` avec la valeur `Succeeded`, alors l
    | nom_cluster | *mykustocluster* | Nom du cluster dans lequel la base de données est créée.|
    | database_name | *mykustodatabase* | Nom de votre base de données.|
    | resource_group_name | *testrg* | Nom du groupe de ressources dans lequel sera créé le cluster. |
-   | soft_delete_period | *3650 jours, 0:00:00* | Durée pendant laquelle les données restent disponibles pour les requêtes. |
-   | hot_cache_period | *3650 jours, 0:00:00* | Durée pendant laquelle les données sont conservées dans le cache. |
+   | soft_delete_period | *3650 days, 0:00:00* | Durée pendant laquelle les données restent disponibles pour les requêtes. |
+   | hot_cache_period | *3650 days, 0:00:00* | Durée pendant laquelle les données sont conservées dans le cache. |
 
 1. Exécutez la commande suivante pour voir la base de données que vous avez créée :
 
@@ -129,4 +129,4 @@ Vous disposez maintenant d’un cluster et d’une base de données.
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure](python-ingest-data.md)
+> [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python d’Azure Data Explorer](python-ingest-data.md)

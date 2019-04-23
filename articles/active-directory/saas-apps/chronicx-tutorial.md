@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 499cbcada19728a0d0eba1831460ea38245b7f5c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267410"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Didacticiel : Intégration d’Azure Active Directory à ChronicX®
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de ChronicX® à Azure AD, vous devez ajouter ChronicX® à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter ChronicX® à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter ChronicX® à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,9 +106,9 @@ Pour configurer l’authentification unique Azure AD auprès de ChronicX®, effe
 
     ![Informations d’authentification unique dans Domaine et URL ChronicX®](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<subdomain>.chronicx.com/ups/processlogonSSO.jsp`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.chronicx.com/ups/processlogonSSO.jsp`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL : `ups.chronicx.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `ups.chronicx.com`
 
     > [!NOTE]
     >La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe du support technique de ChronicX®](https://www.casebank.com/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

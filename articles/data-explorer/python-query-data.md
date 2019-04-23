@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
 ms.openlocfilehash: 4de8f68e0384742cea4ce50ccd23a7455b186893
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048739"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Démarrage rapide : Interroger des données à l’aide de la bibliothèque Python d’Azure Data Explorer
@@ -97,4 +97,4 @@ Vous devriez voir les dix premiers résultats de la table StormEvents.
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure](python-ingest-data.md)
+> [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python d’Azure Data Explorer](python-ingest-data.md)

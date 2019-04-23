@@ -10,10 +10,10 @@ ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 ms.openlocfilehash: 4c759462d603a35e738f76a505abd04b832afc3f
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426339"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Bien démarrer avec l’utilisation d’Azure Dev Spaces conjointement à .NET Core
@@ -105,7 +105,7 @@ Pour l’heure, vous disposez d’une application web de base qui peut s’exéc
     ```
 
 La commande `azds prep` d’Azure CLI génère des ressources Docker et Kubernetes avec les paramètres par défaut :
-* `./Dockerfile` décrit l’image conteneur de l’application, ainsi que la façon dont le code source est généré et s’exécute dans le conteneur.
+* `./Dockerfile` décrit l’image du conteneur de l’application et la façon dont le code source est généré et s’exécute dans le conteneur.
 * Un [graphique Helm](https://docs.helm.sh) sous `./charts/webfrontend` décrit la façon dont le conteneur est déployé dans Kubernetes.
 
 Pour l’instant, il n’est pas nécessaire de comprendre l’ensemble du contenu de ces fichiers. Il est cependant important de noter que **les mêmes ressources de configuration en tant que code Kubernetes et Docker peuvent être utilisées du développement jusqu’à la production, ce qui assure une meilleure cohérence dans les différents environnements.**
@@ -145,7 +145,7 @@ Ouvrez cette URL dans une fenêtre de navigateur. Vous devriez alors voir l’ap
 ### <a name="update-a-content-file"></a>Mettre à jour un fichier de contenu
 Azure Dev Spaces vous permet non seulement d’obtenir un code s’exécutant dans Kubernetes, mais également de visualiser rapidement et de façon itérative la prise en compte des modifications de votre code dans un environnement Kubernetes dans le cloud.
 
-1. Recherchez le fichier `./Views/Home/Index.cshtml` et procédez à une modification du code HTML. Par exemple, remplacez la ligne 70 indiquant `<h2>Application uses</h2>` par une chaîne telle que : `<h2>Hello k8s in Azure!</h2>`
+1. Recherchez le fichier `./Views/Home/Index.cshtml` et procédez à une modification du code HTML. Par exemple, remplacez la ligne 70 indiquant `<h2>Application uses</h2>` par une chaîne telle que : `<h2>Hello k8s in Azure!</h2>`
 1. Enregistrez le fichier . Quelques instants plus tard, la fenêtre de terminal affiche un message indiquant qu’un fichier du conteneur en cours d’exécution a été mis à jour.
 1. Accédez à votre navigateur et actualisez la page. La page web doit afficher le code HTML mis à jour.
 
@@ -155,7 +155,7 @@ Que s’est-il passé ? Les modifications des fichiers de contenu, comme HTML et
 La mise à jour des fichiers de code nécessite un peu plus de travail, car une application .NET Core doit régénérer et produire les fichiers binaires d’application mis à jour.
 
 1. Dans la fenêtre de terminal, appuyez sur `Ctrl+C` (pour arrêter `azds up`).
-1. Ouvrez le fichier de code nommé `Controllers/HomeController.cs`, puis modifiez le message qui s’affiche sur la page À propos de : `ViewData["Message"] = "Your application description page.";`
+1. Ouvrez le fichier de code nommé `Controllers/HomeController.cs`, puis modifiez le message qui doit s’afficher sur la page À propos de : `ViewData["Message"] = "Your application description page.";`
 1. Enregistrez le fichier .
 1. Exécutez `azds up` dans la fenêtre de terminal. 
 

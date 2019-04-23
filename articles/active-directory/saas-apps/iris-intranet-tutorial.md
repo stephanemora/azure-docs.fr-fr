@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 93fd14d1148ce29731087cba5cd20f5ff1bcd4a2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268974"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iris-intranet"></a>Didacticiel : Intégration d’Azure Active Directory à Iris Intranet
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Iris Intranet, effectu
 
     ![Informations d’authentification unique dans Domaine et URL Iris Intranet](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<SUBDOMAIN>.irisintranet.com`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.irisintranet.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.irisintranet.com`
 

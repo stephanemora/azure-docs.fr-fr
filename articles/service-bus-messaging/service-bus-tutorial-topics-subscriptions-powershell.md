@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 845fc32d527158258304a92c6855017c9d8c0492
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049555"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Didacticiel : Mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements
@@ -143,7 +143,7 @@ Cette section contient plus de détails sur ce que fait l’exemple de code.
 
 ### <a name="get-connection-string-and-queue"></a>Obtention de la chaîne de connexion et de la file d’attente
 
-Les noms de chaîne de connexion et de file d’attente sont passés à la méthode `Main()` en tant qu’arguments de ligne de commande. `Main()` déclare deux variables de chaîne pour contenir les valeurs suivantes :
+Les noms de chaîne de connexion et de file d’attente sont passés à la méthode `Main()` en tant qu’arguments de ligne de commande. `Main()` déclare deux variables de chaîne pour contenir les valeurs suivantes :
 
 ```csharp
 static void Main(string[] args)
@@ -289,4 +289,4 @@ Passez au prochain tutoriel pour en savoir plus sur les fonctionnalités de publ
 > [Mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Installer et configurer Azure PowerShell]: /powershell/azure/install-Az-ps
+[Installation et configuration d’Azure PowerShell]: /powershell/azure/install-Az-ps

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Didacticiel : Intégration d’Azure Active Directory à Citrix Netscaler
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Citrix Netscaler, effe
 
     ![Informations d’authentification unique dans Domaine et URL Citrix Netscaler](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<<Your FQDN>>`
 

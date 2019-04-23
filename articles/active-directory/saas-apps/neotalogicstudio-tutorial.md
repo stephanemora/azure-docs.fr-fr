@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 926deea2f9754febb76e8ccc81933a792f3a9dbc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283169"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Didacticiel : Intégration d’Azure Active Directory à Neota Logic Studio
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD avec Neota Logic Studio, e
 
     ![Informations d’authentification unique pour Domaine et URL Neota Logic Studio](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<sub domain>.neotalogic.com/a/<sub application>`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<sub domain>.neotalogic.com/a/<sub application>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<sub domain>.neotalogic.com/wb`
 

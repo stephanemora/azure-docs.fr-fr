@@ -15,10 +15,10 @@ ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 27102cd6b8e98b0f8b2b4940b92d4e4c4580a9cd
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904064"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrer une application ASP.NET vers Azure App Service à l’aide d’un conteneur Windows (préversion)
@@ -121,7 +121,7 @@ Configurez le nouveau registre de conteneurs en fonction des valeurs suggérées
 | ----------------- | ------------ | ----|
 |**Préfixe DNS**| Conservez le nom généré du registre ou remplacez-le par un autre nom unique. |  |
 |**Groupe de ressources**| Cliquez sur **Nouveau**, tapez **myResourceGroup**, puis cliquez sur **OK**. |  |
-|**SKU**| De base | [Niveaux de tarification](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**Référence (SKU)**| De base | [Niveaux de tarification](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Emplacement du registre**| Europe Ouest | |
 
 ![Configurer un registre de conteneurs Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
@@ -142,7 +142,7 @@ Dans l’interface de création, configurez les paramètres selon le tableau sui
 
 | Paramètre  | Valeur suggérée | Pour plus d’informations |
 | ----------------- | ------------ | ----|
-|**Nom de l'application**| Tapez un nom unique. | L’URL de l’application web est `http://<app_name>.azurewebsites.net`, où `<app_name>` est le nom de votre application. |
+|**Nom de l’application**| Tapez un nom unique. | L’URL de l’application web est `http://<app_name>.azurewebsites.net`, où `<app_name>` est le nom de votre application. |
 |**Groupe de ressources**| Sélectionnez **Utiliser l’existant**, puis tapez **myResourceGroup**. |  |
 |**SE**| Windows (préversion) | |
 
@@ -180,7 +180,7 @@ Attendez quelques minutes et réessayez, jusqu’à obtenir la page d’accueil 
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-**Félicitations !** Vous avez migré une application ASP.NET vers Azure App Service dans un conteneur Windows.
+**Félicitations !** Vous avez migré une application ASP.NET vers Azure App Service dans un conteneur Windows.
 
 ## <a name="see-container-start-up-logs"></a>Consulter les journaux d’activité de démarrage du conteneur
 

@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 95a138a6dd499df18789e9b587e770a9b7bf7dab
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279667"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Didacticiel : Intégration d'Azure Active Directory à Meta Networks Connector
@@ -114,9 +114,9 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
 
     ![Informations d’authentification unique dans Domaine et URL Meta Networks Connector](common/both-advanced-urls.png)
 
-    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`.
 
-    b. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
+    b. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. La procédure est expliquée plus loin dans le tutoriel.

@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0dec40027441432845d44828eb61e6b9e0ff081
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281520"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Didacticiel : Intégration d’Azure Active Directory à Lecorpio
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD auprès de Lecorpio, effect
 
     ![Informations d’authentification unique relatives au domaine et aux URL Lecorpio](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<instance name>.lecorpio.com/<customer name>`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<instance name>.lecorpio.com/<customer name>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<instance name>.lecorpio.com/<customer name>`
 

@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 42e8e7bdd52dcb8f236d94e7f931c91cd21605fd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278953"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Créer une affectation de stratégie pour identifier les ressources non conformes
@@ -76,7 +76,7 @@ Si des ressources existantes ne sont pas conformes à cette nouvelle affectation
 
 Si une condition est évaluée par rapport à vos ressources existantes et génère la valeur true, ces ressources sont marquées comme non conformes à la stratégie. Le tableau suivant montre comment les différents effets des stratégies fonctionnent avec l’évaluation des conditions pour l’état de conformité résultant. Même si vous ne voyez pas la logique d’évaluation dans le portail Azure, les résultats d’état de conformité sont affichés. Le résultat d’état de conformité est soit conforme, soit non conforme.
 
-| **État de la ressource** | **Résultat** | **Évaluation de a stratégie** | **État de conformité** |
+| **État de la ressource** | **Effet** | **Évaluation de la stratégie** | **État de conformité** |
 | --- | --- | --- | --- |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non conforme |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |

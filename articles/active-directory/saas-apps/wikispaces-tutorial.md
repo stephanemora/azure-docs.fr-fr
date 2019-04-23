@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 1d57ec0299aa541d1642d77421e85c6fbdf070c7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Didacticiel : Intégration d’Azure AD à Wikispaces
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Wikispaces à Azure AD, vous devez ajouter Wikispaces à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Wikispaces à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Wikispaces à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD auprès de Wikispaces, effe
 
     ![Informations d’authentification unique dans Domaine et URL Wikispaces](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<companyname>.wikispaces.net`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.wikispaces.net`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://session.wikispaces.net/<instancename>`
 

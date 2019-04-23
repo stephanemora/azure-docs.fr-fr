@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 7f5996b41da68adc83c26e836c9fb1a175107337
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277799"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Didacticiel : Intégration d'Azure Active Directory à Infogix Data3Sixty Govern
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Infogix Data3Sixty Go
 
     ![Informations d’authentification unique dans Domaine et URL Infogix Data3Sixty Govern](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://data3sixty.com/ui`
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://data3sixty.com/ui`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<subdomain>.data3sixty.com/sso/acs`
 

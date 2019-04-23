@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8e1199826601f8f2ddd82164dac1a20013d9b7bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Didacticiel : Intégration d’Azure Active Directory à Klue
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Klue à Azure AD, vous devez ajouter Klue à partir de la galerie à votre liste d’applications SaaS managées.
 
-**Pour ajouter Klue à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Klue à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 

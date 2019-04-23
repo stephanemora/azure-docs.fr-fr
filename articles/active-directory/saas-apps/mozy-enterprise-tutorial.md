@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: a0f21165af0bcbd8bda28f0eae20d3ee837f3be9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory à Mozy Enterprise
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Mozy Enterprise à Azure AD, vous devez ajouter Mozy Enterprise à votre liste d’applications SaaS gérées, depuis la galerie.
 
-**Pour ajouter Mozy Enterprise à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Mozy Enterprise à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 

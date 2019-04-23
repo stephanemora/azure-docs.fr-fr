@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
 ms.openlocfilehash: b8cf0891bd2a11a4ea46cc9fb8bad266862b6971
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005374"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Démarrage rapide : Envoyer des données de télémétrie IoT à partir d’un appareil Android
@@ -129,5 +129,5 @@ Dans ce guide de démarrage rapide, vous avez configuré un hub IoT, inscrit un 
 Pour savoir comment contrôler votre appareil simulé à partir d’une application back-end, passez au démarrage rapide suivant.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-android.md)
+> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-android.md)
 

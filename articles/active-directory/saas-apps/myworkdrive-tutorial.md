@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: d16aa8442f71845e7b46377c6c290212f9c400a3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280500"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Didacticiel : Intégration d’Azure Active Directory à MyWorkDrive
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de MyWorkDrive à Azure AD, vous devez ajouter MyWorkDrive à partir de la galerie à votre liste d’applications SaaS managées.
 
-**Pour ajouter MyWorkDrive à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter MyWorkDrive à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -115,9 +115,9 @@ Pour configurer l’authentification unique Azure AD avec MyWorkDrive, procédez
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Entrez le nom d’hôte du serveur MyWorkDrive de votre propre société : p. ex.
     > 
-    > URL de réponse : `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
+    > URL de réponse : `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
     > 
-    > URL de connexion :`https://yourserver.yourdomain.com/Account/Login-saml`
+    > URL de connexion :`https://yourserver.yourdomain.com/Account/Login-saml`
     > 
     > Contactez l’[équipe de support MyWorkDrive](mailto:support@myworkdrive.com) si vous avez des doutes sur la façon de configurer vos propres nom d’hôte et certificat SSL pour ces valeurs.
 

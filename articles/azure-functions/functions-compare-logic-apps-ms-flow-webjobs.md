@@ -13,10 +13,10 @@ ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: ea99c7fe9bc7fd8d6e4e26baa0afe45505949098
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895645"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Que sont les services Microsoft Flow, Logic Apps, Functions et WebJobs ?
@@ -62,7 +62,7 @@ Vous pouvez mélanger et associer les services lorsque vous créez une orchestra
 | Développement | Orienté code (impératif) | Orienté concepteur (déclaratif) |
 | Connectivité | [Environ une douzaine de types de liaison intégrés](functions-triggers-bindings.md#supported-bindings), écriture de code pour les liaisons personnalisées | [Grande collection de connecteurs](../connectors/apis-list.md), [Enterprise Integration Pack pour les scénarios B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [intégration de connecteurs personnalisés](../logic-apps/custom-connector-overview.md) |
 | Actions | Chaque activité est une fonction Azure ; écriture de code pour les fonctions de l’activité |[Grande collection d’actions prédéfinies](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| Surveillance | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [journaux Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| Surveillance | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [journaux d’activité Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | gestion | [API REST](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | Contexte d’exécution | Exécution possible [en local](functions-runtime-overview.md) ou dans le cloud | Exécution uniquement dans le cloud|
 
@@ -87,8 +87,8 @@ Azure Functions repose sur le Kit de développement logiciel (SDK) WebJobs, donc
 |[Modèle d’application sans serveur](https://azure.microsoft.com/solutions/serverless/) avec [mise à l’échelle automatique](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
 |[Développement et test dans un navigateur](functions-create-first-azure-function.md) |✔||
 |[Paiement à l’utilisation](functions-scale.md#consumption-plan)|✔||
-|[Intégration à Logic Apps](functions-twitter-email.md)|✔||
-| Événements déclencheurs |[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hubs d'événements Azure](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hubs d'événements Azure](functions-bindings-event-hubs.md)<br>[Système de fichiers](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+|[Intégration avec Logic Apps](functions-twitter-email.md)|✔||
+| Événements déclencheurs |[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Système de fichiers](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | Langues prises en charge  |C#<br>F#<br>JavaScript<br>Java (préversion) |C#<sup>1</sup>|
 |Gestionnaires de package|NPM et NuGet|NuGet<sup>2</sup>|
 
@@ -119,15 +119,15 @@ L’intégration entre Microsoft Flow, Logic Apps et Functions continue de s’a
 
 Vous pouvez obtenir des informations supplémentaires sur les services d’intégration par le biais des liens suivants :
 
-* [Leveraging Azure Functions & Azure App Service for integration scenarios, de Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Integrations Made Simple, de Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Leveraging Azure Functions &amp; Azure App Service for integration scenarios (Tirer parti d’Azure Functions et Azure App Service pour les scénarios d’intégration), par Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [Integrations Made Simple (Les intégrations simplifiées), par Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webcast en direct sur Logic Apps](https://aka.ms/logicappslive)
-* [Questions fréquentes (FAQ) sur Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+* [Forum aux questions sur Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Commencez en créant votre premier flux, application logique ou application de fonction. Sélectionnez l’un des liens suivants :
 
-* [Bien démarrer avec Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
+* [Prise en main de Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Créer votre première fonction Azure](functions-create-first-azure-function.md)

@@ -12,10 +12,10 @@ ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 26248616c6b490de00028d8ecc8a0e225da0c0a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257108"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Qu'est-ce que le service Azure Machine Learning ?
@@ -32,7 +32,7 @@ Les prévisions ou prédictions générées à partir de Machine Learning peuven
 
 Le service Azure Machine Learning fournit un environnement cloud que vous pouvez utiliser pour préparer les données, entraîner, tester, déployer, gérer et suivre des modèles Machine Learning.
 
-[![AWorkflow Azure Machine Learning Service](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Workflow Azure Machine Learning service](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Le service Azure Machine Learning prend entièrement en charge les technologies open source. Vous pouvez utiliser des dizaines de milliers de packages Python open source avec des composants de machine learning. Par exemple : PyTorch, TensorFlow et scikit-learn.
 La prise en charge d’outils complets facilite l’exploration et la préparation interactive des données, puis le développement et le test de modèles. Par exemple : [les notebooks Jupyter](https://jupyter.org) ou l’extension [Azure Machine Learning pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
@@ -89,8 +89,8 @@ Vous obtenez des crédits à dépenser en services Azure. Une fois ceux-ci épui
 - [Créez un espace de travail du service Machine Learning](setup-create-workspace.md) pour démarrer.
 
 - Suivez les tutoriels complets : 
-  + [Effectuer l’apprentissage d’un modèle de classification d’images avec Azure Machine Learning service](tutorial-train-models-with-aml.md) 
-  + [Préparer des données et utiliser le Machine Learning automatisé pour entraîner automatiquement un modèle de régression](tutorial-data-prep.md)
+  + [Entraîner un modèle de classification d’images avec le service Azure Machine Learning](tutorial-train-models-with-aml.md) 
+  + [Préparer des données et utiliser le machine learning automatisé pour entraîner automatiquement un modèle de régression](tutorial-data-prep.md)
 
 - Utilisez le [kit de développement logiciel (SDK) de préparation des données d’Azure Machine Learning](https://aka.ms/data-prep-sdk) pour préparer vos données.
 

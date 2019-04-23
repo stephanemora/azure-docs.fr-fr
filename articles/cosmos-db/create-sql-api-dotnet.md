@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/05/2019
 ms.openlocfilehash: 7ecb2269243ae96b629a20a26956e6220a2e616c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280840"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Démarrage rapide : Générer une application web .NET à l’aide d’un compte d’API SQL dans Azure Cosmos DB
@@ -21,7 +21,7 @@ ms.locfileid: "59280840"
 > * [.NET](create-sql-api-dotnet.md)
 > * [.NET (préversion)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
-> * [Node.js](create-sql-api-nodejs.md)
+> * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
@@ -229,5 +229,5 @@ Cette étape est facultative. Dans ce guide de démarrage rapide, vous avez cré
 Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer une base de données et une collection à l’aide de l’Explorateur de données, et à exécuter une application web .NET pour mettre à jour vos données. Vous pouvez maintenant importer des données supplémentaires dans votre compte Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importer des données dans Azure Cosmos DB](import-data.md)
+> [Importer des données dans Azure Cosmos DB](import-data.md)
 

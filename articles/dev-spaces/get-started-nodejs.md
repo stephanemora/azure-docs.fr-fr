@@ -10,10 +10,10 @@ ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 ms.openlocfilehash: dc84844738e501a30f73104a76ff80bf00adff24
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425818"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Bien démarrer avec l’utilisation d’Azure Dev Spaces conjointement à Node.js
@@ -105,7 +105,7 @@ Pour l’heure, vous disposez d’une application web de base qui peut s’exéc
     ```
 
 La commande `azds prep` d’Azure CLI génère des ressources Docker et Kubernetes avec les paramètres par défaut :
-* `./Dockerfile` décrit l’image conteneur de l’application, ainsi que la façon dont le code source est généré et s’exécute dans le conteneur.
+* `./Dockerfile` décrit l’image du conteneur de l’application et la façon dont le code source est généré et s’exécute dans le conteneur.
 * Un [graphique Helm](https://docs.helm.sh) sous `./charts/webfrontend` décrit la façon dont le conteneur est déployé dans Kubernetes.
 
 Pour l’instant, il n’est pas nécessaire de comprendre l’ensemble du contenu de ces fichiers. Il est cependant important de noter que **les mêmes ressources de configuration en tant que code Kubernetes et Docker peuvent être utilisées du développement jusqu’à la production, ce qui assure une meilleure cohérence dans les différents environnements.**
@@ -160,7 +160,7 @@ Que s’est-il passé ? Les modifications des fichiers de contenu, comme HTML et
 Ouvrez l’application web sur un appareil mobile à l’aide de l’URL publique pour webfrontend. Nous vous suggérons de copier l’URL sur votre poste de travail et de l’envoyer à votre appareil pour ne pas avoir à entrer la grande adresse. Quand l’application web se charge sur votre appareil mobile, notez que l’interface utilisateur ne s’affiche pas correctement sur un petit appareil.
 
 Pour résoudre ce problème, vous allez ajouter une balise META `viewport` :
-1. Ouvrez le fichier `./public/index.html`
+1. Ouvrez le fichier `./public/index.html`.
 1. Ajoutez une balise META `viewport` dans l’élément `head` existant :
 
     ```html

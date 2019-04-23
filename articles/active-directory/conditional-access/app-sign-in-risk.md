@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5defdf2d33d32042775271fe01aba377687ae75
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891563"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Démarrage rapide : Bloquer l’accès lorsqu’un risque de session est détecté avec l’accès conditionnel Azure Active Directory  
@@ -44,7 +44,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
 
 L’objectif de cette étape consiste à vérifier que votre compte test peut accéder à votre locataire à l’aide du navigateur Tor.
 
-**Pour tester la connexion :**
+**Pour tester la connexion :**
 
 1. Connectez-vous à votre [portail Azure](https://portal.azure.com) en tant que **Alain Charon**.
 1. Déconnectez-vous.

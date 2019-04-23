@@ -13,10 +13,10 @@ ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
 ms.openlocfilehash: fb17afa4bfe8c00c91cc8fb33ab3326452065a9e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885415"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Didacticiel : Utiliser Azure Key Vault avec une machine virtuelle Windows dans .NET
@@ -107,7 +107,7 @@ Ce secret stocke la valeur **MySecret**.
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 Vous pouvez créer une machine virtuelle à l’aide de l’une des méthodes suivantes :
 
-* [L’interface Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
+* [L’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 * [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
 * [Le portail Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
@@ -226,4 +226,4 @@ Quand ils ne sont plus nécessaires, supprimez la machine virtuelle et le coffre
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [API REST d’Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
+> [API REST Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)

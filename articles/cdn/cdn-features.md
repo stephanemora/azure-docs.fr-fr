@@ -16,10 +16,10 @@ ms.date: 03/25/2019
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: d78b10edd005a593b4ebe4f34ca2280ccdfdaa04
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918907"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparer les caractéristiques du produit CDN Azure
@@ -68,7 +68,7 @@ Le tableau suivant répertorie les fonctionnalités disponibles avec chaque prod
 | [Performances de nœuds Edge](cdn-edge-performance.md)  |  | | |**&#x2713;** |
 | [Alertes en temps réel](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
-| **Simplicité d'utilisation** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
+| **Simplicité d’utilisation** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | Intégration facile à divers services Azure tels que [Stockage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) et [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Gestion via [REST API](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) ou [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Types MIME de compression](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |Par défaut uniquement |Configurable |Configurable  |Configurable  |

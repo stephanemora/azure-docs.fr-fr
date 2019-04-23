@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: bd1ed30d56e8d23057e560b1180c35e0a29542b6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274941"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Didacticiel : Intégration d’Azure Active Directory avec InTime
@@ -51,7 +51,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration d’InTime avec Azure AD, vous devez ajouter InTime disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter InTime à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter InTime à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec InTime, effectuez les
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL : `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL : `https://auth.intimesoft.com/auth/realms/master`
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://auth.intimesoft.com/auth/realms/master`
 
 5. Votre application InTime s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application InTime s’attend à ce que **nameidentifier** soit mappé avec **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
 

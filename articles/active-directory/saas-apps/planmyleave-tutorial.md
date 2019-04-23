@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 8581b7f940aceca4e3ab85e44f83bf0bebb1b6f5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Didacticiel : Intégration de PlanMyLeave à Azure Active Directory
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de PlanMyLeave à Azure AD, vous devez ajouter PlanMyLeave depuis la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter PlanMyLeave à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter PlanMyLeave à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec PlanMyLeave, effectuez
 
     ![Informations d’authentification unique dans Domaine et URL PlanMyLeave](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<company-name>.planmyleave.com/Login.aspx`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<company-name>.planmyleave.com/Login.aspx`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<company-name>.planmyleave.com`
 

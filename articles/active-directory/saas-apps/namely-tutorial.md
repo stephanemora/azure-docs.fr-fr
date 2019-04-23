@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 7298c8a9220332f1361e673b5000c2df37a88865
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Didacticiel : Intégration d'Azure Active Directory à Namely
@@ -50,7 +50,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Namely avec Azure AD, vous devez ajouter Namely disponible à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Namely à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Namely à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD avec Namely, procédez com
 
     ![Informations d’authentification unique dans Domaine et URL Namely](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<subdomain>.namely.com`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.namely.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<subdomain>.namely.com/saml/metadata`
 
@@ -208,7 +208,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Namely.
 
-**Pour créer un utilisateur appelé Britta Simon dans Namely, effectuez les étapes suivantes :**
+**Pour créer un utilisateur appelé Britta Simon dans Namely, procédez comme suit :**
 
 1. Connectez-vous à votre site d’entreprise Namely en tant qu’administrateur.
 

@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Didacticiel : Intégration d’Azure Active Directory à Pluralsight
@@ -52,7 +52,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Pluralsight à Azure AD, vous devez ajouter Pluralsight depuis la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Pluralsight à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Pluralsight à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Pluralsight, effectuez
 
     ![Informations d’authentification unique dans Domaine et URL Pluralsight](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<instancename>.pluralsight.com/sso/<companyname>`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<instancename>.pluralsight.com/sso/<companyname>`.
 
     b. Dans la zone **Identificateur**, tapez une URL : `www.pluralsight.com`
 

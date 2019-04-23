@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ms.openlocfilehash: 2823cee863941926fffe332295328d6ecfb54001
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264724"
 ---
 # <a name="sample---allowed-region-locations"></a>Exemple - Emplacements régionaux autorisés
@@ -22,7 +22,7 @@ Vous pouvez déployer cette exemple de stratégie à l’aide des éléments sui
 
 - [Portail Azure](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
-- [Azure CLI](#azure-cli)
+- [Interface de ligne de commande Azure](#azure-cli)
 - [API REST](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]

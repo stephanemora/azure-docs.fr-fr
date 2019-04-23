@@ -10,10 +10,10 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265013"
 ---
 # <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Démarrage rapide : Créer un pipeline d’indexation basé sur l’intelligence artificielle à l’aide de compétences cognitives et d’exemples de données
@@ -33,9 +33,9 @@ Dans ce guide de démarrage rapide, créez votre premier pipeline d’enrichisse
 Ce guide de démarrage rapide est exécuté dans le service gratuit. Par conséquent, le nombre de transactions gratuites par jour est limité à 20 documents. Si vous souhaitez suivre ce guide de démarrage rapide plusieurs fois dans la même journée, utilisez un ensemble de fichiers plus petit.
 
 > [!NOTE]
-> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez attacher une ressource Cognitive Services facturable. Les frais augmentent lorsque vous appelez des API dans Cognitive Services, et lorsque vous extrayez des images lors du décodage des documents dans la Recherche Azure. L’extraction du texte des documents n’entraîne aucuns frais.
+> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez attacher une ressource Cognitive Services facturable. Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
 >
-> L’exécution de qualifications intégrées est facturée selon le [paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les tarifs de l’extraction d’images sont ceux de la préversion. Ils sont décrits dans la page [Tarification de Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). En savoir [plus](cognitive-search-attach-cognitive-services.md).
+> L’exécution de qualifications intégrées est facturée selon le [paiement à l’utilisation existant de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont basés sur le niveau tarifaire de la préversion, comme indiqué dans la [page de tarification du service Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). En savoir [plus](cognitive-search-attach-cognitive-services.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -183,4 +183,4 @@ Selon la façon dont vous avez approvisionné la ressource Cognitive Services, v
 Vous pouvez également réutiliser les exemples de données et de services créés et apprendre à effectuer les mêmes tâches par programme dans le tutoriel suivant. 
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Découvrir les API REST de la recherche cognitive](cognitive-search-tutorial-blob.md)
+> [Tutoriel : Découvrir les API REST de la recherche cognitive](cognitive-search-tutorial-blob.md)

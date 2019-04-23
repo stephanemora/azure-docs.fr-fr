@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268668"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Créer une carte de recherche interactive avec Azure Maps
@@ -73,7 +73,7 @@ Les tutoriels expliquent en détail comment utiliser et configurer Azure Maps av
 Dans ce guide de démarrage rapide, vous avez créé votre compte Azure Maps ainsi qu’une application de démonstration. Pour en savoir plus sur Azure Maps, consultez les tutoriels suivants :
 
 > [!div class="nextstepaction"]
-> [Rechercher des points d’intérêt à proximité avec Azure Maps](tutorial-search-location.md)
+> [Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps](tutorial-search-location.md)
 
 Pour obtenir d’autres exemples de code et bénéficier d’une expérience de codage interactive, consultez ces guides :
 
@@ -81,4 +81,4 @@ Pour obtenir d’autres exemples de code et bénéficier d’une expérience de 
 > [Rechercher une adresse à l’aide du service de recherche Azure Maps](how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Utiliser le Map Control Azure Maps](how-to-use-map-control.md)
+> [Utiliser la bibliothèque Map Control d’Azure Maps](how-to-use-map-control.md)

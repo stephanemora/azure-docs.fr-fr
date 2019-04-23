@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c37a58cb9f9d1082d02854f43e511e5431d90c13
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894249"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Démarrage rapide : Exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud
@@ -42,7 +42,7 @@ Pour suivre le scénario décrit dans ce démarrage rapide, vous avez besoin de 
 
 L’objectif de cette étape consiste à obtenir une impression de l’expérience de connexion sans stratégie d’accès conditionnel.
 
-**Pour tester la connexion :**
+**Pour tester la connexion :**
 
 1. [Connectez-vous](https://portal.azure.com/) à votre portail Azure en tant que Isabella Simonsen.
 1. Déconnectez-vous.
@@ -51,7 +51,7 @@ L’objectif de cette étape consiste à obtenir une impression de l’expérien
 
 Cette section explique comment configurer des conditions d’utilisation. Lorsque vous créez des conditions d’utilisation, vous sélectionnez une valeur pour **Appliquer avec des modèles de stratégie d’accès conditionnel**. Sélectionnez **Stratégie personnalisée** pour ouvrir la boîte de dialogue permettant de créer une nouvelle stratégie d’accès conditionnel. Cette étape est possible dès que vos conditions d’utilisation sont créées.
 
-**Pour créer vos conditions d’utilisation :**
+**Pour créer vos conditions d’utilisation :**
 
 1. Dans Microsoft Word, créez un nouveau document.
 

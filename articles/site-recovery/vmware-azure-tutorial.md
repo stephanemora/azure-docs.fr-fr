@@ -10,10 +10,10 @@ ms.date: 4/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357884"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
@@ -195,4 +195,4 @@ Activez la réplication des machines virtuelles comme suit :
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir activé la réplication, exécutez une simulation pour vérifier que tout fonctionne comme prévu.
 > [!div class="nextstepaction"]
-> [Exécuter une simulation de récupération d'urgence](site-recovery-test-failover-to-azure.md)
+> [Effectuer un test de récupération d’urgence](site-recovery-test-failover-to-azure.md)

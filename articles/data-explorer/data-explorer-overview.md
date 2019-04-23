@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: 02b239922f481240341225ea68d8d0ee7492c48b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044172"
 ---
 # <a name="what-is-azure-data-explorer"></a>Qu’est-ce que l’Explorateur de données Azure ?
@@ -44,19 +44,19 @@ Le diagramme suivant montre les différents aspects de l’utilisation de l’Ex
 
 L’utilisation de l’Explorateur de données Azure suit généralement ce schéma :
 
-1. **Créer une base de données :** Créez un *cluster*, puis une ou plusieurs *bases de données* dans ce cluster. [Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md)
+1. **Créer une base de données :** Créez un *cluster*, puis une ou plusieurs *bases de données* dans ce cluster. [Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md)
 
-1. **Ingérer des données :** Chargez des données dans des tables de base de données pour pouvoir exécuter des requêtes dessus. [Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer](ingest-data-event-hub.md)
+1. **Ingérer des données :** Chargez des données dans des tables de base de données pour pouvoir exécuter des requêtes dessus. [Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer](ingest-data-event-hub.md)
 
-1. **Interroger la base de données :** Utilisez notre application web pour exécuter, consulter et partager des requêtes et des résultats. Il est disponible dans le portail Azure en tant qu’application autonome. Vous pouvez aussi envoyer des requêtes par programmation (à l’aide d’un kit SDK) ou à un point de terminaison de l’API REST. [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
+1. **Interroger la base de données :** Utilisez notre application web pour exécuter, consulter et partager des requêtes et des résultats. Il est disponible dans le portail Azure en tant qu’application autonome. Vous pouvez aussi envoyer des requêtes par programmation (à l’aide d’un kit SDK) ou à un point de terminaison de l’API REST. [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
 
 ## <a name="query-experience"></a>Expérience des requêtes
 
 Une requête dans l’Explorateur de données Azure est une demande en lecture seule qui permet de traiter des données et de retourner les résultats de ce traitement, sans modifier les données ou les métadonnées. Vous continuez à affiner vos requêtes tant que vous n’avez pas terminé votre analyse. Azure Data Explorer simplifie ce processus grâce à son expérience de requête ad hoc très rapide.
 
-L’Explorateur de données Azure gère de grandes quantités de données structurées, semi-structurées (types imbriqués similaires à JSON) et non structurées (texte libre). Il vous permet de rechercher des termes spécifiques, de localiser des événements particuliers et d’effectuer des calculs de style métriques sur des données structurées. L’Explorateur de données Azure fait le lien entre les journaux texte non structurés et les nombres et dimensions structurés en extrayant les valeurs d’exécution des champs de texte de forme libre. L’exploration des données est simplifiée en combinant l’indexation rapide de texte, le stockage des colonnes et les opérations chronologiques.
+L’Explorateur de données Azure gère de grandes quantités de données structurées, semi-structurées (types imbriqués similaires à JSON) et non structurées (texte libre). Il vous permet de rechercher des termes spécifiques, de localiser des événements particuliers et d’effectuer des calculs de style métriques sur des données structurées. L’Explorateur de données Azure fait le lien entre les journaux d’activité texte non structurés et les nombres et dimensions structurés en extrayant les valeurs d’exécution des champs de texte de forme libre. L’exploration des données est simplifiée en combinant l’indexation rapide de texte, le stockage des colonnes et les opérations chronologiques.
 
-Les fonctionnalités Azure Data Explorer sont étendues par d’autres services qui s’appuient sur son puissant langage de requête, notamment les [journaux Azure Monitor](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/) et [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
+Les fonctionnalités Azure Data Explorer sont étendues par d’autres services qui s’appuient sur son puissant langage de requête, notamment les [journaux d’activité Azure Monitor](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/) et [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
 
 ## <a name="feedback"></a>Commentaires
 
@@ -70,8 +70,8 @@ Nous aimerions beaucoup avoir votre avis sur l’Explorateur de données Azure e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md)
+[Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md)
 
-[Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer](ingest-data-event-hub.md)
+[Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer](ingest-data-event-hub.md)
 
-[Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
+[Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)

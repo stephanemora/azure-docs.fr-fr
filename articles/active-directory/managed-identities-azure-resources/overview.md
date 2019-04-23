@@ -16,10 +16,10 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261460"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Que sont les identités gérées pour les ressources Azure ?
@@ -73,7 +73,7 @@ Le diagramme suivant illustre le fonctionnement des identités de service admini
     1. Met à jour le point de terminaison d’identité Azure Instance Metadata Service avec l’ID client et le certificat du Principal de service.
     1. Provisionne l’extension de machine virtuelle (dont l’abandon est prévu en janvier 2019), et ajoute l’ID client et le certificat du principal de service. (Cette étape sera bientôt abandonnée).
 4. Maintenant que la machine virtuelle possède une identité, utilisez les informations du Principal de service pour accorder aux ressources Azure l’accès à la machine virtuelle. Pour appeler Azure Resource Manager, utilisez le contrôle d’accès en fonction du rôle (RBAC) dans Azure AD pour attribuer le rôle approprié au principal de service de la machine virtuelle. Pour appeler Key Vault, accordez à votre code un accès au secret spécifique ou à la clé dans Key Vault.
-5. Le code exécuté sur la machine virtuelle peut demander un jeton au point de terminaison d’Azure Instance Metadata Service, qui est accessible uniquement à partir de la machine virtuelle : `http://169.254.169.254/metadata/identity/oauth2/token`
+5. Votre code en cours d’exécution sur la machine virtuelle peut demander un jeton à partir du point de terminaison d’Azure Instance Metadata Service, accessible uniquement à partir de la machine virtuelle : `http://169.254.169.254/metadata/identity/oauth2/token`
     - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Pour vous authentifier à Azure Resource Manager, utilisez `resource=https://management.azure.com/`.
     - Le paramètre de version d’API spécifie la version IMDS, utilisez api-version=2018-02-01 ou version ultérieure.
 
@@ -95,7 +95,7 @@ Le diagramme suivant illustre le fonctionnement des identités de service admini
    > [!Note]
    > Vous pouvez également effectuer cette étape avant l’étape 3.
 
-5. Le code exécuté sur la machine virtuelle peut demander un jeton au point de terminaison d’identité d’Azure Instance Metadata Service, qui est accessible uniquement à partir de la machine virtuelle : `http://169.254.169.254/metadata/identity/oauth2/token`
+5. Votre code en cours d’exécution sur la machine virtuelle peut demander un jeton à partir du point de terminaison d’identité d’Azure Instance Metadata Service, accessible uniquement à partir de la machine virtuelle : `http://169.254.169.254/metadata/identity/oauth2/token`
     - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Pour vous authentifier à Azure Resource Manager, utilisez `resource=https://management.azure.com/`.
     - Le paramètre ID client spécifie l’identité pour laquelle le jeton est demandé. Cela est nécessaire pour lever l’ambiguïté lorsque plusieurs identités attribuées par l’utilisateur se trouvent sur une même machine virtuelle.
     - Le paramètre de version d’API spécifie la version d’Azure Instance Metadata Service. Utilisez la version `api-version=2018-02-01` ou ultérieure.
@@ -118,17 +118,17 @@ Découvrez comment utiliser une identité managée avec une machine virtuelle Wi
 * [Accéder à Azure Data Lake Store](tutorial-windows-vm-access-datalake.md)
 * [Accéder à Azure Resource Manager](tutorial-windows-vm-access-arm.md)
 * [Accéder à SQL Azure](tutorial-windows-vm-access-sql.md)
-* [Accéder au Stockage Azure à l’aide d’une clé d’accès](tutorial-windows-vm-access-storage.md)
-* [Accéder au Stockage Azure à l’aide d’une signature d’accès partagé](tutorial-windows-vm-access-storage-sas.md)
-* [Accéder à une ressource non-Azure AD avec Azure Key Vault](tutorial-windows-vm-access-nonaad.md)
+* [Accéder au stockage Azure à l’aide d’une clé d’accès](tutorial-windows-vm-access-storage.md)
+* [Accéder au stockage Azure à l’aide d’une signature d’accès partagé](tutorial-windows-vm-access-storage-sas.md)
+* [Accéder à une ressource non Azure AD avec Azure Key Vault](tutorial-windows-vm-access-nonaad.md)
 
 Découvrez comment utiliser une identité managée avec une machine virtuelle Linux :
 
 * [Accéder à Azure Data Lake Store](tutorial-linux-vm-access-datalake.md)
 * [Accéder à Azure Resource Manager](tutorial-linux-vm-access-arm.md)
-* [Accéder au Stockage Azure à l’aide d’une clé d’accès](tutorial-linux-vm-access-storage.md)
-* [Accéder au Stockage Azure à l’aide d’une signature d’accès partagé](tutorial-linux-vm-access-storage-sas.md)
-* [Accéder à une ressource non-Azure AD avec Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
+* [Accéder au stockage Azure à l’aide d’une clé d’accès](tutorial-linux-vm-access-storage.md)
+* [Accéder au stockage Azure à l’aide d’une signature d’accès partagé](tutorial-linux-vm-access-storage-sas.md)
+* [Accéder à une ressource non Azure AD avec Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
 
 Découvrez comment utiliser une identité managée avec d’autres services Azure :
 
@@ -136,7 +136,7 @@ Découvrez comment utiliser une identité managée avec d’autres services Azur
 * [Azure Functions](/azure/app-service/overview-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Hubs d'événements Azure](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Gestion des API Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 
@@ -148,5 +148,5 @@ Les identités managées pour les ressources Azure peuvent servir à l’authent
 
 Bien démarrer avec la fonctionnalité des identités managées pour les ressources Azure grâce aux guides de démarrage rapide suivants :
 
-* [Utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder à Resource Manager](tutorial-windows-vm-access-arm.md)
-* [Utiliser l’identité managée affectée par le système d’une machine virtuelle Linux pour accéder à Azure Resource Manager](tutorial-linux-vm-access-arm.md)
+* [Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Resource Manager](tutorial-windows-vm-access-arm.md)
+* [Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder à Azure Resource Manager](tutorial-linux-vm-access-arm.md)
