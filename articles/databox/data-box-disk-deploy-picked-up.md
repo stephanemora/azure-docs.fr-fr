@@ -10,10 +10,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425948"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Didacticiel : Retourner des disques Azure Data Box et vérifier le chargement des données dans Azure
@@ -156,8 +156,8 @@ Vérifiez que vos données se trouvent dans les comptes de stockage avant de les
 
 - Votre ou vos comptes de stockage Azure. Lorsque vous copiez les données sur Data Box, selon le type, les données sont chargées vers l’un des chemins d’accès ci-après dans votre compte Stockage Azure.
 
-  - Pour les objets blob de blocs et les objets blob de pages : `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-  - Pour les Fichiers Azure : `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+  - Pour les objets blob de blocs et de pages : `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+  - Pour les fichiers Azure : `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
     Vous pouvez également accéder à votre compte de stockage Azure dans le Portail Azure et naviguer à partir de cet emplacement.
 
@@ -200,6 +200,6 @@ Ce didacticiel vous a apporté des connaissances sur les disques Azure Data Box,
 Passez au guide pratique suivant pour savoir comment gérer des disques Data Box via le portail Azure.
 
 > [!div class="nextstepaction"]
-> [Utiliser le portail Azure pour administrer Azure Data Box Disk](./data-box-portal-ui-admin.md)
+> [Utiliser le portail Azure pour administrer le disque Azure Data Box](./data-box-portal-ui-admin.md)
 
 

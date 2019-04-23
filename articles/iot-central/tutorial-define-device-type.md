@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e4c5942dfba62a2c869e4eeceb9018fc926d9de9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 884381cc3b9aaeec29f5697485cd90c28b2bd97e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259537"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681248"
 ---
-# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Tutoriel : Définir un nouveau type d’appareil dans votre application Azure IoT Central (nouvelle conception d’interface utilisateur)
+# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Didacticiel : Définir un nouveau type d’appareil dans votre application Azure IoT Central
 
 Ce didacticiel vous indique comment utiliser un modèle d’appareil pour définir un nouveau type d’appareil dans votre application Microsoft Azure IoT Central en votre qualité de générateur. Un modèle d’appareil définit la télémétrie, l’état, les propriétés et les paramètres pour votre type d’appareil.
 
@@ -323,7 +323,7 @@ Les *propriétés d’application* vous permettent de stocker des informations c
     | -------------------- | ----------------------- |
     | Nom d’affichage         | Version du microprogramme        |
     | Nom du champ           | firmwareVersion         |
-    | Type de données            | texte                    |
+    | Type de données            | text                    |
     | Description          | La version du microprogramme du climatiseur |
 
     ![Configurer la version du microprogramme](./media/tutorial-define-device-type/configureproperties3.png)
@@ -338,7 +338,7 @@ Les *propriétés d’application* vous permettent de stocker des informations c
     | -------------------- | ----------------------- |
     | Nom d’affichage         | Numéro de série           |
     | Nom du champ           | serialNumber            |
-    | Type de données            | texte                    |
+    | Type de données            | text                    |
     | Description          | Le numéro de série du climatiseur  |
 
     ![Configurer le numéro de série](./media/tutorial-define-device-type/configureproperties4.png)
@@ -363,7 +363,7 @@ Vous utilisez les _commandes_ pour permettre à un opérateur d’exécuter des 
     | Nom d’affichage         | Commande echo    |
     | Nom du champ           | echo            |
     | Délai d’expiration par défaut      | 30              |
-    | Type d’affichage         | texte            |
+    | Type d’affichage         | text            |
     | Description          | Commande d’appareil  |  
 
     Vous pouvez ajouter des entrées supplémentaires à la commande en sélectionnant **+** pour **Champs d’entrée**.

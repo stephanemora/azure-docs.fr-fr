@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: jowargo
 ms.openlocfilehash: 4cbfc67bc66e84b4743f3326db40872241e5d474
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59506401"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787013"
 ---
 # <a name="azure-notification-hubs-and-the-google-firebase-cloud-messaging-fcm-migration"></a>Azure Notification Hubs et la migration de Google Firebase Cloud Messaging (FCM)
 
@@ -55,7 +55,7 @@ Si vous créez un nouveau projet FCM et ne pas attacher au projet GCM existant, 
 
 **Q :** Comment puis-je transition vers le nouveau SDK de FCM et bibliothèques sans interrompre les utilisateurs existants ?
 
-R : Mettre à niveau à tout moment. Google n’a pas encore annoncé toute dépréciation des bibliothèques et les kits de développement logiciel existant GCM. Afin de vous empêcher le fractionnement des notifications push aux utilisateurs existants, assurez-vous que lorsque vous créez le nouveau projet Firebase que vous associez à votre projet GCM existant. Ainsi, les nouveaux Firebase secrets fonctionnera pour les utilisateurs qui exécutent les anciennes versions de votre application avec les bibliothèques et les kits de développement logiciel GCM, ainsi que les nouveaux utilisateurs de votre application avec les bibliothèques et les kits de développement logiciel FCM.
+R : Mettre à niveau à tout moment. Google n’a pas encore annoncé toute dépréciation des bibliothèques et les kits de développement logiciel existant GCM. Afin de vous empêcher le fractionnement des notifications push aux utilisateurs existants, assurez-vous que lorsque vous créez le nouveau projet Firebase que vous associez à votre projet GCM existant. Ainsi, les nouveaux Firebase secrets fonctionnera pour les utilisateurs qui exécutent les anciennes versions de votre application avec les bibliothèques et les kits de développement logiciel GCM, ainsi que les nouveaux utilisateurs de votre application avec les bibliothèques et les kits de développement logiciel FCM.
 
 **Q :** Quand puis-je utiliser des schémas et des nouvelles fonctionnalités FCM pour mes notifications ?
 

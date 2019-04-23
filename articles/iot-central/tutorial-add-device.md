@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425931"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Didacticiel : Ajouter un appareil réel à votre application Azure IoT Central
@@ -358,8 +358,8 @@ En tant qu’opérateur, vous pouvez apprendre à :
 
 En tant que développeur d’appareils, vous pouvez apprendre à :
 
-* [Préparer et connecter un appareil DevKit (C)](howto-connect-devkit.md)
+* [Préparer et connecter un appareil DevKit (C)](howto-connect-devkit.md)
 * [Préparer et connecter un Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
 * [Préparer et connecter un Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
-* [Préparer et connecter un appareil Windows 10 IoT Standard (C#)](howto-connect-windowsiotcore.md)
+* [Préparer et connecter un appareil Windows 10 IoT Core (C#)](howto-connect-windowsiotcore.md)
 * [Connecter un client Node.js générique à votre application Azure IoT Central](howto-connect-nodejs.md)

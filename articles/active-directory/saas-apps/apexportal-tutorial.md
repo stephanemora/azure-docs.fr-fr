@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Apex Portal | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Apex Portal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Apex Portal.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,20 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ffd7207367d0bbdd670fb8402775b26952ae5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d9f83e0b6136a27c0cd519a345e085040f47cc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852591"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Didacticiel : Intégration d’Azure Active Directory à Apex Portal
 
@@ -68,7 +69,7 @@ Pour configurer l’intégration d’Apex Portal à Azure AD, vous devez ajouter
 
 4. Dans la zone de recherche, tapez **Apex Portal**, sélectionnez **Apex Portal** dans le volet des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![Apex Portal dans la liste des résultats](common/search-new-app.png)
+    ![Apex Portal dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -106,9 +107,9 @@ Pour configurer l’authentification unique Azure AD auprès d’Apex Portal, e
 
     ![Informations d’authentification unique Domaine et URL Apex Portal](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<customer name>.apexportal.net/saml/sso.aspx`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<customer name>.apexportal.net/saml/sso.aspx`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique Apex Portal](mailto:support@apexanalytix.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -120,7 +121,7 @@ Pour configurer l’authentification unique Azure AD auprès d’Apex Portal, e
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
     | Nom | Attribut source|
-    | ------------------- | -------------------- |
+    | -------- | --------- |
     | FIRSTNAME | user.givenname |
     | LASTNAME | user.surname |
     | MAIL | user.mail |
@@ -180,8 +181,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon\@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com.
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -233,4 +233,3 @@ Quand vous cliquez sur la vignette Apex Portal dans le volet d’accès, vous de
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

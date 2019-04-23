@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: dc3543af0a10c83d8ca212957a6345c8a70cd58b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7fc42b24090b5fc68176fea2c7b993643ea24200
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279939"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678222"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>Didacticiel : Personnaliser la vue de l’opérateur d’Azure IoT Central (nouvelle conception d’interface utilisateur)
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Didacticiel : Personnaliser la vue de l’opérateur d’Azure IoT Central
 
 Ce didacticiel vous montre, en tant que générateur, comment personnaliser la vue de l’opérateur de votre application. Lorsque vous apportez une modification à l’application en tant que générateur, vous pouvez afficher un aperçu de vue de l’opérateur dans l’application Microsoft Azure IoT Central.
 
@@ -160,5 +160,5 @@ Dans ce didacticiel, vous avez appris à personnaliser la vue de l’opérateur 
 
 Maintenant que vous avez appris à personnaliser la vue de l’opérateur de l’application, les étapes suivantes suggérées consistent à :
 
-* [Superviser vos appareils (en tant qu’opérateur)](tutorial-monitor-devices.md)
-* [Ajouter un nouvel appareil à votre application (en tant qu’opérateur et développeur d’appareil)](tutorial-add-device.md)
+* [Surveiller vos appareils (en tant qu’opérateur)](tutorial-monitor-devices.md)
+* [Ajouter un appareil à votre application (en tant qu’opérateur et développeur d’appareil)](tutorial-add-device.md)

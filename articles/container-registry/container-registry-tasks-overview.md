@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256190"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789106"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatiser les mises à jour correctives du système d’exploitation et du framework avec ACR Tasks
 
@@ -99,7 +99,7 @@ Pour en savoir plus sur les tâches à plusieurs étapes, consultez [Run multi-s
 
 Lorsque vous êtes prêt à automatiser le système d’exploitation et la mise à jour corrective du framework en créant vos images de conteneur dans le cloud, Découvrez les trois parties [série de didacticiels ACR tâches](container-registry-tutorial-quick-task.md).
 
-Si vous le souhaitez installer le [Extension Docker pour Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) et le [compte Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension pour travailler avec vos registres de conteneurs Azure. Extraire et envoyer des images à un Registre de conteneurs Azure ou exécuter des tâches d’ACR, tout dans Visual Studio Code.
+Si vous le souhaitez, vous pouvez installer l’[extension Docker pour Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) et l’extension [Compte Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) pour utiliser vos registres de conteneurs Azure. Dans Visual Studio Code, vous pouvez tirer (pull) et envoyer (push) des images vers un registre de conteneurs Azure, et exécuter ACR Tasks.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

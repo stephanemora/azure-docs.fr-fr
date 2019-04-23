@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: backup
 manager: carmonm
 ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426611"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
@@ -112,6 +112,6 @@ Lorsqu’une nouvelle stratégie est appliquée sur les partages de fichiers, le
 
 ## <a name="see-also"></a>Voir aussi
 Cette information concerne uniquement la sauvegarde des fichiers Azure, pour en savoir plus sur les autres zones de Azure Backup, consultez certaines de ces autres FAQ relatives à la sauvegarde :
--  [FAQ sur le coffre Recovery Services](backup-azure-backup-faq.md)
--  [FAQ sur la sauvegarde des machines virtuelles Azure](backup-azure-vm-backup-faq.md)
--  [Forum aux questions sur l’agent Azure Backup](backup-azure-file-folder-backup-faq.md)
+-  [FAQ du coffre Recovery Services](backup-azure-backup-faq.md)
+-  [FAQ sur la sauvegarde de la machine virtuelle Azure](backup-azure-vm-backup-faq.md)
+-  [FAQ sur l’Agent Azure Backup](backup-azure-file-folder-backup-faq.md)
