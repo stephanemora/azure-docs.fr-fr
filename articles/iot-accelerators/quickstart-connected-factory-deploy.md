@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491268"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Démarrage rapide : Essayer une solution cloud pour gérer mes appareils IoT industriels
@@ -64,7 +64,7 @@ Cliquez sur **Accepter** pour accepter la demande d’autorisation. Le tableau d
 
 Il s’ouvre par défaut sur le *tableau de bord*. Utilisez le menu sur le côté gauche de la page pour accéder à d’autres zones du portail :
 
-[![STableau de bord des solutions](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
+[![Tableau de bord des solutions](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
 Le tableau de bord vous permet de gérer vos appareils IoT industriels. Usine connectée utilise une hiérarchie pour afficher une configuration d’usine globale. Au niveau supérieur de la hiérarchie figure l’entreprise qui contient un ou plusieurs fabriques. Chaque fabrique contient des chaînes de production et chaque chaîne de production est constituée de postes. À chaque niveau, vous pouvez afficher le TRG et les KPI, publier de nouveaux nœuds pour la télémétrie et réagir aux alarmes.
 
@@ -74,13 +74,13 @@ Sur le tableau de bord, vous pouvez observer :
 
 Le panneau **Taux de rendement global** affiche les valeurs TRG pour l’ensemble de l’entreprise, ou l’usine/la ligne de production/le poste que vous visualisez. Cette valeur est agrégée à partir de la vue du poste au niveau de l’entreprise. La données d’OEE et ses éléments constitutifs peuvent être analysés de manière plus approfondie.
 
-[![OTaux de rendement global](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
+[![Taux de rendement global](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
 Le TRG évalue l’efficacité du processus de fabrication à l’aide de paramètres opérationnels liés à la production. L’OEE est une mesure standard du secteur calculée en multipliant le taux de disponibilité, le taux de performance et le taux de qualité : OEE = disponibilité x performance x qualité.
 
 Vous pouvez analyser de façon plus approfondie le TRG pour tout niveau des données de la hiérarchie. Cliquez sur le pourcentage de TRG, disponibilité, performance ou qualité. Un panneau de contexte s’affiche avec des visualisations présentant des données sur différentes échelles de temps :
 
-[![ODétails du taux de rendement global](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
+[![Détails du taux de rendement global](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
 
 Vous pouvez cliquer sur un graphique pour procéder à une analyse plus approfondie des données.
 
@@ -88,11 +88,11 @@ Vous pouvez cliquer sur un graphique pour procéder à une analyse plus approfon
 
 Le panneau **Indicateurs de performance clés** affiche le nombre d’unités produites par heure et l’énergie (kWh) utilisée par l’ensemble de l’entreprise ou l’usine/la ligne de production/le poste que vous visualisez. Ces valeurs est agrégées à partir d’une vue du poste au niveau de l’entreprise.
 
-[![KIndicateurs de performance clés](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
+[![Indicateurs de performance clés](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
 
 Vous pouvez analyser de façon plus approfondie les KPI pour tout niveau des données de la hiérarchie. Cliquez sur le pourcentage de TRG, disponibilité, performance ou qualité. Un panneau de contexte s’affiche avec des visualisations présentant des données sur différentes échelles de temps :
 
-[![KDétail PI](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
+[![Détails des KPI](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
 
 Vous pouvez cliquer sur un graphique pour procéder à une analyse plus approfondie des données.
 
@@ -100,7 +100,7 @@ Vous pouvez cliquer sur un graphique pour procéder à une analyse plus approfon
 
 Un panneau **Emplacements d’usine** qui indique l’état, l’emplacement et la configuration de production actuelle dans la solution. Lorsque vous utilisez l’accélérateur de solution pour la première fois, le tableau de bord présente un ensemble simulé d’usines. Chaque simulation de ligne de production se compose de trois serveurs OPC UA réels qui exécutent des tâches simulées et partagent des données. Pour plus d’informations sur OPC UA, consultez [FAQ sur l’accélérateur de solution Usine connectée](iot-accelerators-faq-cf.md) :
 
-[![FEmplacements des usines](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
+[![Emplacements des usines](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
 Vous pouvez parcourir la hiérarchie de la solution et afficher les valeurs TRG et les indicateurs de performance clés à chaque niveau :
 
@@ -112,19 +112,19 @@ Vous pouvez parcourir la hiérarchie de la solution et afficher les valeurs TRG 
 
 1. Cliquez sur **EnergyConsumption**. Vous pouvez observer des graphiques représentant cette valeur sur différentes échelles de temps. Vous pouvez cliquer sur un graphique pour procéder à une analyse plus approfondie des données.
 
-[![VAfficher la consommation d’énergie](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
+[![Afficher la consommation d’énergie](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
 
 ### <a name="map"></a>Mappage
 
 Si votre abonnement a accès à [l’API Bing Cartes](iot-accelerators-faq-cf.md), la carte *Usines* vous présente l’emplacement géographique et l’état de toutes les usines de la solution. Cliquez sur les emplacements indiqués sur la carte pour accéder aux détails de l’emplacement.
 
-[![Map](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
+[![Carte](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 
 ### <a name="alarms"></a>Alarmes
 
 Le panneau **Alarmes** présente les alarmes générées lorsqu’une valeur rapportée ou une valeur TRG/KPI calculée excède un seuil. Ce panneau affiche des alarmes à chaque niveau de la hiérarchie, du niveau du poste à l’entreprise. Chaque alarme contient une description, la date, l’heure, l’emplacement et le nombre d’occurrences :
 
-[![AAlarmes](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
+[![Alarmes](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
 Vous pouvez analyser les données qui ont provoqué l’alarme à partir du tableau de bord. Si vous êtes un administrateur, vous pouvez effectuer des actions par défaut sur les alarmes :
 
@@ -133,7 +133,7 @@ Vous pouvez analyser les données qui ont provoqué l’alarme à partir du tabl
 
 Cliquez sur l’une des alarmes ; dans la liste déroulante **Choisir une action**, choisissez **Confirmer la réception de l’alerte**, puis cliquez sur **Appliquer** :
 
-[![AConfirmer la réception de l’alerte](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
+[![Confirmer la réception de l’alerte](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
 
 Pour approfondir l’analyse des données d’alarme, cliquez sur le graphique dans le panneau des alarmes.
 
@@ -154,4 +154,4 @@ Dans ce démarrage rapide, vous avez déployé l’accélérateur de solution Us
 Pour découvrir comment utiliser d’autres fonctionnalités du tableau de bord pour gérer vos appareils IoT industriels, passez au guide pratique suivant :
 
 > [!div class="nextstepaction"]
-> [Utiliser le tableau de bord de l’usine connectée](iot-accelerators-connected-factory-dashboard.md)
+> [Utiliser le tableau de bord Usine connectée](iot-accelerators-connected-factory-dashboard.md)

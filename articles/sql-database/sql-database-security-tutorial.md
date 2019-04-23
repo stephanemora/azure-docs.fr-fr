@@ -12,10 +12,10 @@ manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496435"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Didacticiel : Sécuriser une base de données unique ou en pool
@@ -141,7 +141,7 @@ Pour définir l’administrateur Azure AD :
 
 Pour plus d’informations sur la configuration d’Azure AD, consultez :
 
-- [Intégrer vos identités locales à Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Intégrer des identités locales à Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Ajouter votre propre nom de domaine à Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
 - [Microsoft Azure prend désormais en charge la fédération avec Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administration de votre annuaire Azure AD](../active-directory/fundamentals/active-directory-administer.md)
@@ -350,4 +350,4 @@ Dans ce tutoriel, vous avez appris à renforcer la sécurité de votre base de d
 Passez au tutoriel suivant pour apprendre à implémenter la géodistribution.
 
 > [!div class="nextstepaction"]
->[Implémenter une base de données géo-distribuée](sql-database-implement-geo-distributed-database.md)
+>[Mettre en œuvre une base de données réparties géographiquement](sql-database-implement-geo-distributed-database.md)

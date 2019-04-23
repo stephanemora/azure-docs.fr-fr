@@ -8,10 +8,10 @@ ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490316"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
@@ -56,7 +56,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 4. Créez un groupe de ressources.
 5. Spécifiez la zone géographique dans laquelle vous souhaitez créer le projet, puis cliquez sur **Créer**. Vous pouvez créer un projet Azure Migrate uniquement dans les zones géographiques suivantes. Toutefois, vous pouvez toujours planifier votre migration pour n'importe quel emplacement Azure cible. La zone géographique spécifiée pour le projet est utilisée uniquement pour stocker les métadonnées collectées à partir des machines virtuelles locales.
 
-**Geography** | **Emplacement de stockage**
+**Zone géographique** | **Emplacement de stockage**
 --- | ---
 Azure Government | Gouvernement américain - Virginie
 Asie | Asie Sud-Est
@@ -98,7 +98,7 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
 1. Sur l’ordinateur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Le code de hachage généré doit correspondre aux paramètres ci-après.
 
 #### <a name="continuous-discovery"></a>Détection continue

@@ -10,7 +10,7 @@ ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59551608"
@@ -188,7 +188,7 @@ Mise en cache du Stockage Premium :  Pris en charge
 <sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbit/s) avec une machine virtuelle de la série DSv2 peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d'informations, consultez [Conception pour de hautes performances](../articles/virtual-machines/windows/premium-storage-performance.md).  
 <sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.  
 <sup>3</sup> Tailles avec nombre de cœurs limité disponibles.  
-<sup>4</sup> 25 000 Mbit/s avec mise en réseau accélérée. 
+<sup>4</sup> 25 000 Mbits/s avec accélération réseau. 
 
 <br>
 
