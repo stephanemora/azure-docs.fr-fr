@@ -9,11 +9,11 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283441"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794985"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
@@ -138,7 +138,7 @@ Pour créer une **tâche de correction**, effectuez les étapes suivantes :
 
 1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
 
-   ![Rechercher une stratégie dans tous les Services](../media/remediate-resources/search-policy.png)
+   ![Rechercher Stratégie dans Tous les services](../media/remediate-resources/search-policy.png)
 
 1. Sélectionnez **Correction** sur le côté gauche de la page Azure Policy.
 

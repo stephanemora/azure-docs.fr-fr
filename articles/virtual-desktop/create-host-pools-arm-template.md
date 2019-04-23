@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279225"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796424"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Créer un pool d’hôtes avec le modèle Azure Resource Manager
 
@@ -77,4 +77,4 @@ L’UPN (nom d’utilisateur principal) de l’utilisateur doit correspondre à 
 Une fois ces étapes terminées, les utilisateurs ajoutés au groupe d’applications de bureau peuvent se connecter à Windows Virtual Desktop avec les clients Bureau à distance pris en charge et voir une ressource pour le bureau d’une session.
 
 >[!IMPORTANT]
->Pour vous aider à sécuriser votre environnement de bureau virtuel Windows dans Azure, nous vous recommandons de que vous n’ouvrez pas le port entrant 3389 sur vos machines virtuelles. Bureau virtuel Windows ne nécessite pas un port entrant ouvert 3389 pour les utilisateurs à accéder aux machines virtuelles du pool de l’hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser [machine virtuelle l’accès juste-à-temps](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>Pour contribuer à sécuriser votre environnement Windows Virtual Desktop dans Azure, nous vous recommandons de ne pas ouvrir le port entrant 3389 sur vos machines virtuelles. Windows Virtual Desktop ne nécessite pas l’ouverture du port entrant 3389 pour permettre aux utilisateurs d’accéder aux machines virtuelles du pool hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser un [accès à la machine virtuelle juste-à-temps](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).

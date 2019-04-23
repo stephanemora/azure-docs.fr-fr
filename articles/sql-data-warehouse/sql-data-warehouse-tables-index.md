@@ -12,11 +12,11 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: eab64d9494ef2d2838e16c55eed6ecf0db9736e9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270045"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797939"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexation de tables dans SQL Data Warehouse
 
@@ -216,7 +216,7 @@ Une fois que les tables ont été chargées avec des données, suivez les étape
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Reconstruire des index pour améliorer la qualité de segment
 
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Étape 1 : Identifier ou créer un utilisateur qui utilise la classe de ressources appropriée
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Étape 1 : Identifier ou créer un utilisateur qui utilise la classe de ressources appropriée
 
 Un moyen rapide d’améliorer immédiatement la qualité de segment consiste à reconstruire l’index.  La requête SQL renvoyée par la vue ci-dessus renvoie une instruction ALTER INDEX REBUILD, qui peut être utilisée pour reconstruire vos index. Lors de la reconstruction de vos index, veillez à allouer suffisamment de mémoire à la session qui reconstruit votre index.  Pour ce faire, augmentez la classe de ressources d’un utilisateur qui dispose des autorisations pour reconstruire l’index sur cette table conformément aux valeurs minimum recommandées.
 
@@ -226,7 +226,7 @@ Voici un exemple montrant comment allouer davantage de mémoire à un utilisateu
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Étape 2 : Reconstruire les index columnstore en cluster avec un utilisateur de la classe de ressources la plus élevée
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Étape 2 : Reconstruire les index columnstore en cluster avec un utilisateur de la classe de ressources la plus élevée
 
 Connectez-vous en tant qu’utilisateur à l’étape 1 (p. ex., LoadUser), qui est maintenant à l’aide d’une classe de ressources supérieure, et exécutez les instructions ALTER INDEX. N’oubliez pas que cet utilisateur possède l’autorisation ALTER sur les tables où l’index est reconstruit. Ces exemples illustrent comment reconstruire l’index columnstore entier ou comment reconstruire une partition unique. Sur des tables volumineuses, il est plus pratique de reconstruire les index une seule partition à la fois.
 
@@ -254,7 +254,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 
 La reconstruction d’un index dans SQL Data Warehouse est une opération hors connexion.  Pour plus d’informations sur la reconstruction d’index, consultez la section ALTER INDEX REBUILD dans [Columnstore Indexes Defragmentation](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) (Défragmentation d’index columnstore) et [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Étape 3 : Vérifier que la qualité de segment columnstore en cluster a été améliorée
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Étape 3 : Vérifier que la qualité de segment columnstore en cluster a été améliorée
 
 Réexécutez la requête qui a identifié la table présentant une qualité de segment médiocre, et vérifiez que la qualité de segment a été améliorée.  Si la qualité de segment n’a pas été améliorée, cela peut signifier que les lignes de votre table sont très larges.  Utilisez une classe de ressources supérieure ou une base de données DWU lors de la reconstruction de vos index.
 

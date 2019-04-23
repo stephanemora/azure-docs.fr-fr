@@ -1,57 +1,50 @@
-items:
 - name: Documentation Avere vFXT
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: En quoi consiste Avere vFXT pour Azure ?
-    href: avere-vfxt-overview.md
+    - name: "En quoi consiste Avere vFXT pour Azure\_?"
+      href: avere-vfxt-overview.md
 - name: Concepts
   items:
-  - name: Planifier votre système Avere vFXT
-    href: avere-vfxt-deploy-plan.md
-  - name: Vue d’ensemble du déploiement Avere vFXT
-    href: avere-vfxt-deploy-overview.md
+    - name: Planifier votre système Avere vFXT
+      href: avere-vfxt-deploy-plan.md
+    - name: Vue d’ensemble du déploiement Avere vFXT
+      href: avere-vfxt-deploy-overview.md
 - name: Guides pratiques
   items:
-  - name: Se préparer à la création du système Avere vFXT
-    href: avere-vfxt-prereqs.md
-  - name: Déployer le cluster vFXT
-    href: avere-vfxt-deploy.md
-  - name: Accéder à l’outil de configuration du cluster
-    href: avere-vfxt-cluster-gui.md
-  - name: Activer les chargements de données de support
-    href: avere-vfxt-enable-support.md
-  - name: Configurer le stockage
-    href: avere-vfxt-add-storage.md
-  - name: Monter le cluster Avere vFXT
-    href: avere-vfxt-mount-clients.md
-  - name: Déplacer des données vers le cluster Avere vFXT
-    href: avere-vfxt-data-ingest.md
-  - name: Gérer le cluster Avere vFXT
-    href: avere-vfxt-manage-cluster.md
-  - name: Personnaliser le paramétrage du cluster
-    href: avere-vfxt-tuning.md
+    - name: Se préparer à la création du système Avere vFXT
+      href: avere-vfxt-prereqs.md
+    - name: Déployer le cluster vFXT
+      href: avere-vfxt-deploy.md
+    - name: Accéder à l’outil de configuration du cluster
+      href: avere-vfxt-cluster-gui.md
+    - name: Activer les chargements de données de support
+      href: avere-vfxt-enable-support.md
+    - name: Configurer le stockage
+      href: avere-vfxt-add-storage.md
+    - name: Monter le cluster Avere vFXT
+      href: avere-vfxt-mount-clients.md
+    - name: Déplacer des données vers le cluster Avere vFXT
+      href: avere-vfxt-data-ingest.md
+    - name: Gérer le cluster Avere vFXT
+      href: avere-vfxt-manage-cluster.md
+    - name: Personnaliser le paramétrage du cluster
+      href: avere-vfxt-tuning.md
 - name: Ressources
   items:
-  - name: Aide avec votre système
-    href: avere-vfxt-open-ticket.md
-  - name: Projets de démonstration
-    href: avere-vfxt-demo-links.md
-  - name: FAQ Avere vFXT pour Azure
-    href: avere-vfxt-faq.md
-  - name: Documentation complémentaire
-    items:
-    - name: Documentation supplémentaire
-      href: avere-vfxt-additional-resources.md
-    - name: Configuration d’un DNS pour le cluster Avere
-      href: avere-vfxt-configure-dns.md
-    - name: Autoriser les utilisateurs non propriétaires à déployer Avere vFXT
-      href: avere-vfxt-non-owner.md
-  - name: Livres blancs
-    href: avere-vfxt-whitepapers.md
-ms.openlocfilehash: df511c29ca2477206e2e4ddf9e1fd440da47dedc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257550"
+    - name: Aide avec votre système
+      href: avere-vfxt-open-ticket.md
+    - name: Projets de démonstration
+      href: avere-vfxt-demo-links.md
+    - name: FAQ Avere vFXT pour Azure
+      href: avere-vfxt-faq.md
+    - name: Documentation complémentaire
+      items:
+        - name: Documentation supplémentaire
+          href: avere-vfxt-additional-resources.md
+        - name: Configuration d’un DNS pour le cluster Avere
+          href: avere-vfxt-configure-dns.md
+        - name: Autoriser les utilisateurs non propriétaires à déployer Avere vFXT
+          href: avere-vfxt-non-owner.md
+    - name: Livres blancs
+      href: avere-vfxt-whitepapers.md
