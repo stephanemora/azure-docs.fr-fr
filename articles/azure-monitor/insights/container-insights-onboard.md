@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: f41198761604a16e5d8a983f8bf2200b32c06fb9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 22c063cb4eade00db1e400787aa7e46000bb03d3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58906019"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995334"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Procédure d’intégration d’Azure Monitor pour les conteneurs  
 
@@ -36,7 +36,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - **Un espace de travail Analytique de journal.** Vous pouvez le créer lorsque vous activez la supervision de votre nouveau cluster AKS ou lorsque vous laissez l’expérience d’intégration créer un espace de travail par défaut dans le groupe de ressources par défaut de l’abonnement de cluster AKS. Si vous choisissez de le créer vous-même, vous pouvez le créer via [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../../azure-monitor/learn/quick-create-workspace.md).
 - Vous êtes membre de la **rôle de contributeur Log Analytique** pour activer la surveillance de conteneur. Pour plus d’informations sur la façon de contrôler l’accès à un espace de travail Log Analytics, consultez [Gérer les espaces de travail](../../azure-monitor/platform/manage-access.md).
-- Vous êtes membre de la **[propriétaire](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** rôle sur la ressource de cluster AKS. 
+- Vous êtes membre de la **[propriétaire](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.md#owner)** rôle sur la ressource de cluster AKS. 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

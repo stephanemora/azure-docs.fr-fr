@@ -19,7 +19,7 @@ ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 28b3851a52ec5fe69eaa531e2e08f66fb73cb1e0
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57997975"
@@ -308,7 +308,7 @@ Si vous souhaitez utiliser un partage de fichiers avec montée en puissance para
 * Nous vous recommandons de prévoir trois nœuds de cluster (ou plus) pour un partage de fichiers avec montée en puissance parallèle, avec une mise en miroir triple.
     Cette configuration offre une meilleure extensibilité et une meilleure résilience du stockage que la configuration basée sur un partage de fichiers avec montée en puissance parallèle avec deux nœuds de cluster et une mise en miroir double.
 * Vous devez utiliser des disques Azure Premium.
-* Nous vous recommandons d’utiliser des disques Azure Managed Disks.
+* Nous vous recommandons d’utiliser Azure Disques managés.
 * Nous vous recommandons de formater les volumes à l’aide du système ReFS (Resilient File System).
     * Pour plus d’informations, consultez le document [SAP Note 1869038 - SAP support for ReFs filesystem][1869038] (Note SAP n° 1869038 - Prise en charge SAP du système de fichiers ReFs) et la section [Choix du système de fichiers][planning-volumes-s2d-choosing-filesystem] de l’article Planification des volumes dans les espaces de stockage direct.
     * Veillez à installer la [mise à jour cumulative Microsoft KB4025334][kb4025334].

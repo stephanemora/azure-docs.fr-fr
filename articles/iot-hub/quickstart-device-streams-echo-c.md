@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: a1500b274ba34ca92631158f37b1a8c8241dd439
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: b5d93219009554efe6931a02097dcb9085e8da9d
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006244"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500241"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil dans C par le biais de flux d’appareil IoT Hub (préversion)
 
@@ -54,25 +54,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement
 
-Pour ce guide de démarrage rapide, vous devez utiliser le [kit SDK Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). Vous allez préparer un environnement de développement pour cloner et générer le [SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c) à partir de GitHub. Le kit SDK sur GitHub comprend l’exemple de code utilisé dans ce guide de démarrage rapide. 
+Pour ce guide de démarrage rapide, vous devez utiliser le [kit SDK Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). Vous allez préparer un environnement de développement pour cloner et générer le [SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c) à partir de GitHub. Le kit SDK sur GitHub comprend l’exemple de code utilisé dans ce guide de démarrage rapide.
 
-1. Téléchargez le [système de génération CMake](https://cmake.org/download/). Vérifiez le fichier binaire téléchargé à l’aide de la valeur de hachage de chiffrement qui correspond à la version que vous téléchargez. Les valeurs de hachage de chiffrement sont également accessibles à partir du lien de téléchargement de CMake déjà fourni.
-
-    Dans l’exemple suivant, Windows PowerShell a été utilisé pour vérifier le hachage de chiffrement pour la version 3.13.4 de la distribution MSI x64 :
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    Les valeurs de hachage suivantes pour la version 3.13.4 étaient celles indiquées sur le site de CMake au moment de la rédaction de cet article :
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. Téléchargez le [système de génération CMake](https://cmake.org/download/).
 
     Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
 
@@ -82,7 +66,7 @@ Pour ce guide de démarrage rapide, vous devez utiliser le [kit SDK Azure IoT de
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    Pour le moment, ce référentiel a une taille d’environ 220 Mo.
+    Cette opération peut prendre plusieurs minutes.
 
 3. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. 
 

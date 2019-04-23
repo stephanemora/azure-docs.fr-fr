@@ -1,10 +1,10 @@
 ---
-title: Générer une application Node.js avec MongoDB sur Linux - Azure App Service | Microsoft Docs
-description: Apprenez comment faire fonctionner une application Node.js dans Azure App Service sur Linux, avec une connexion à une base de données Cosmos DB, via une chaîne de connexion MongoDB.
+title: Node.js (MEAN.js) avec MongoDB sur Linux - Azure App Service | Microsoft Docs
+description: Apprenez comment faire fonctionner une application Node.js dans Azure App Service sur Linux, avec une connexion à une base de données Cosmos DB, via une chaîne de connexion MongoDB. MEAN.js est utilisé dans le tutoriel.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 10/10/2017
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 73f810072fce9345208593342df597b72c522a73
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3a5f6b5b1f66542a534c9016c5d9d60a1273975f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894510"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544797"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Générer une application Node.js et MongoDB dans Azure App Service sur Linux
 
@@ -32,7 +32,7 @@ ms.locfileid: "57894510"
 
 ![Application MEAN.js exécutée dans Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Vous apprendrez à :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer une base de données à l’aide de l’API Azure Cosmos DB pour MongoDB
@@ -131,10 +131,10 @@ Au cours de cette étape, vous allez créer un compte de base de données à l�
 
 Dans Cloud Shell, créez un compte Cosmos DB à l’aide de la commande [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
-Dans la commande suivante, remplacez l’espace réservé *\<nom_cosmosdb>* par un nom unique Cosmos DB. Ce nom est utilisé en tant que point de terminaison Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`. Pour cette raison, le nom doit être unique sur l’ensemble des comptes Cosmos DB dans Azure. Le nom ne peut contenir que des minuscules, des chiffres, le tiret -) et doit compter entre 3 et 50 caractères.
+Dans la commande suivante, remplacez l’espace réservé *\<cosmosdb-name>* par un nom unique Cosmos DB. Ce nom est utilisé en tant que point de terminaison Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`. Pour cette raison, le nom doit être unique sur l’ensemble des comptes Cosmos DB dans Azure. Le nom ne peut contenir que des minuscules, des chiffres, le tiret -) et doit compter entre 3 et 50 caractères.
 
 ```azurecli-interactive
-az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
+az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
 ```
 
 Le paramètre *--kind MongoDB* prend en charge les connexions clientes MongoDB.
@@ -150,7 +150,7 @@ Une fois le compte Cosmos DB créé, Azure CLI affiche des informations similai
     "maxStalenessPrefix": 100
   },
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
+  "documentEndpoint": "https://<cosmosdb-name>.documents.azure.com:443/",
   "failoverPolicies":
   ...
   < Output truncated for readability >
@@ -166,7 +166,7 @@ Pendant cette étape, vous connectez votre exemple d’application MEAN.js à la
 Pour se connecter à la base de données Cosmos DB, vous avez besoin de la clé de la base de données. Dans Cloud Shell, utilisez la commande [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) pour récupérer la clé primaire.
 
 ```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
+az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
 ```
 
 L’interface de ligne de commande Azure montre des informations semblables à ce qui suit :
@@ -188,12 +188,12 @@ Copiez la valeur de `primaryMasterKey`. Vous aurez besoin de ces informations da
 
 Dans votre référentiel MEAN.js local, dans le dossier _config/env/_, créez un fichier nommé _local-production.js_. _.gitignore_ est configuré pour conserver ce fichier en dehors du référentiel.
 
-Copiez-y le code ci-après. Veillez à remplacer les deux espaces réservés *\<nom_cosmosdb>* par le nom de votre base de données Cosmos DB, et remplacez l’espace réservé *\<clé_primaire_principale>* par la clé que vous avez copiée à l’étape précédente.
+Copiez-y le code ci-après. Veillez à remplacer les deux espaces réservés *\<cosmosdb-name>* par le nom de votre base de données Cosmos DB, et remplacez l’espace réservé *\<primary-master-key>* par la clé que vous avez copiée à l’étape précédente.
 
 ```javascript
 module.exports = {
   db: {
-    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false'
+    uri: 'mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false'
   }
 };
 ```
@@ -226,7 +226,7 @@ MEAN.JS
 
 Environment:     production
 Server:          http://0.0.0.0:8443
-Database:        mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false
+Database:        mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false
 App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
@@ -259,13 +259,13 @@ Par défaut, le projet MEAN.js conserve _config/env/local-production.js_ hors du
 
 Pour définir les paramètres de l’application, utilisez la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell.
 
-L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application Azure. Remplacez les espaces réservés *\<app_name>*, *\<cosmosdb_name>*, et *\<primary_master_key>*.
+L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application Azure. Remplacez les espaces réservés *\<app-name>*, *\<cosmosdb-name>*, et *\<primary-master-key>*.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
-Dans le code Node.js, vous accédez à ce paramètre d’application avec `process.env.MONGODB_URI`, comme vous accéderiez à n’importe quelle variable d’environnement. 
+Dans le code Node.js, vous [accédez à ce paramètre d’application](configure-language-nodejs.md#access-environment-variables) avec `process.env.MONGODB_URI`, comme vous accéderiez à n’importe quelle variable d’environnement.
 
 Dans votre référentiel MEAN.js local, ouvrez _config/env/production.js_ (et non pas _config/env/local-production.js_), qui a une configuration propre à l’environnement de production. L’application MEAN.js par défaut est déjà configurée pour utiliser la variable d’environnement `MONGODB_URI` que vous avez créée.
 
@@ -296,7 +296,7 @@ remote: Handling node.js deployment.
 .
 .
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
  * [new branch]      master -> master
 ```
 
@@ -305,14 +305,14 @@ Vous remarquerez peut-être que le processus de déploiement exécute [Gulp](htt
 - _.deployment_ : ce fichier indique à App Service d’exécuter `bash deploy.sh` en tant que script de déploiement personnalisé.
 - _deploy.sh_ : le script de déploiement personnalisé. Si vous examinez le fichier, vous verrez qu’il exécute `gulp prod` après `npm install` et `bower install`.
 
-Vous pouvez utiliser cette approche pour ajouter une étape à votre déploiement Git. Si vous redémarrez votre application Azure à un moment donné, App Service ne réexécute pas ces tâches d’automatisation.
+Vous pouvez utiliser cette approche pour ajouter une étape à votre déploiement Git. Si vous redémarrez votre application Azure à un moment donné, App Service ne réexécute pas ces tâches d’automatisation. Pour plus d’informations, consultez [Exécuter Grunt/Bower/Gulp](configure-language-nodejs.md#run-gruntbowergulp).
 
 ### <a name="browse-to-the-azure-app"></a>Accéder à l’application Azure
 
 Accédez à l’application déployée à l’aide de votre navigateur web.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Cliquez sur **S’inscrire** dans le menu supérieur et créez un utilisateur fictif.
@@ -451,6 +451,10 @@ Une fois le `git push` terminé, accédez à votre application Azure et testez l
 
 Si vous avez ajouté des articles précédemment, vous pouvez toujours les visualiser. Les données existantes dans votre Cosmos DB ne sont pas perdues. De plus, les mises à jour que vous appliquez au schéma de données n’affectent pas vos données existantes.
 
+## <a name="stream-diagnostic-logs"></a>Diffuser les journaux de diagnostic
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+
 ## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
 Accédez au [portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
@@ -482,4 +486,9 @@ Vous avez appris à effectuer les opérations suivantes :
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
-> [Mapper un nom DNS personnalisé existant à Azure App Service](../app-service-web-tutorial-custom-domain.md)
+> [Tutoriel : Mappage d’un nom DNS personnalisé à une application](../app-service-web-tutorial-custom-domain.md)
+
+Ou consultez les autres ressources :
+
+> [!div class="nextstepaction"]
+> [Configurer une application Node.js](configure-language-nodejs.md)

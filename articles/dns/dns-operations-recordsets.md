@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 61871ada0679a68b7f9d872a0df36d22cfb1f0de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fedab8cc45fff6d7830f67e7a23786b5952f83a0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491200"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995963"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gérer les enregistrements et jeux d’enregistrements DNS dans Azure DNS à l’aide d’Azure PowerShell
 
@@ -390,7 +390,7 @@ Chaque applet de commande demande une confirmation si la variable de préférenc
 
 Vous pouvez remplacer le paramétrage actuel de `$ConfirmPreference` par le paramètre `-Confirm`. Si vous spécifiez les paramètres `-Confirm` ou `-Confirm:$True`, les applets de commande vous invitent à confirmer l’exécution. Si vous spécifiez le paramètre `-Confirm:$False`, l’applet de commande ne demande pas de confirmation. 
 
-Pour plus d’informations sur les paramètres `-Confirm` et `$ConfirmPreference`, voir [À propos des variables de préférence](/powershell/module/microsoft.powershell.core/about/about_preference_variables.1).
+Pour plus d’informations sur les paramètres `-Confirm` et `$ConfirmPreference`, voir [À propos des variables de préférence](/powershell/module/microsoft.powershell.core/about/about_preference_variables).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

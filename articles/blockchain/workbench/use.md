@@ -5,19 +5,19 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 55207e1eb8fe1b88df7f9bfb84a1da505d0e0252
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 89c83ed6d02a60978bd54fb97d37063e34f6c0c7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332215"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578848"
 ---
-# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutoriel : Utilisation d’applications dans Azure Blockchain Workbench
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Didacticiel : Utilisation d’applications dans Azure Blockchain Workbench
 
 Vous pouvez utiliser Blockchain Workbench pour créer et exécuter des opérations sur des contrats. Vous pouvez également afficher les détails du contrat, tels que l’état et l’historique des transactions.
 
@@ -40,9 +40,9 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 Vous devez vous connecter en tant que membre de Blockchain Workbench. Si aucune application n’est répertoriée, cela signifie que vous êtes bien membre de Blockchain Workbench, mais que vous n’êtes membre d’aucune application. L’administrateur Blockchain Workbench peut attribuer des membres à des applications.
 
-## <a name="create-new-contract"></a>Créer un contrat 
+## <a name="create-new-contract"></a>Créer un contrat
 
-Pour créer un contrat, vous devez avoir été désigné comme un **initiateur** de contrat. Pour plus d’informations sur les rôles d’application et les initiateurs de contrat, consultez la section [Flux de travail dans la vue d’ensemble de la configuration](configuration.md#workflows). Pour plus d’informations sur l’affectation de membres à des rôles d’application, consultez [Ajouter un membre à l’application](manage-users.md#add-member-to-application).
+Pour créer un contrat, vous devez être un membre désigné comme **initiateur** de contrat. Pour plus d’informations sur les rôles d’application et les initiateurs de contrat, consultez la section [Flux de travail dans la vue d’ensemble de la configuration](configuration.md#workflows). Pour plus d’informations sur l’affectation de membres à des rôles d’application, consultez [Ajouter un membre à l’application](manage-users.md#add-member-to-application).
 
 1. Dans la section des applications Blockchain Workbench, sélectionnez la vignette d’application qui contient le contrat que vous souhaitez créer. La liste des contrats actifs s’affiche.
 

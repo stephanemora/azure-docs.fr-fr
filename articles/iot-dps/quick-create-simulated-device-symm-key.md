@@ -3,18 +3,18 @@ title: Ce guide de démarrage rapide montre comment utiliser une clé symétriqu
 description: Dans ce guide de démarrage rapide, vous allez utiliser le SDK device pour C pour créer un appareil simulé qui utilise une clé symétrique avec le service Azure IoT Hub Device Provisioning
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/29/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6517f93035010be7fe8937c3ff34d54147f51e6f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 93fc426d9de027100e70502bcf6ea3aad2c44e10
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481737"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500207"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Démarrage rapide : Provisionner un appareil simulé avec des clés symétriques
 
@@ -46,23 +46,7 @@ Dans cette section, vous allez préparer un environnement de développement pour
 
 Le SDK inclut l’exemple de code pour un appareil simulé. Cet appareil simulé tente le provisionnement durant la séquence de démarrage de l’appareil.
 
-1. Téléchargez le [système de génération CMake](https://cmake.org/download/). Vérifiez le fichier binaire téléchargé à l’aide de la valeur de hachage de chiffrement qui correspond à la version que vous téléchargez. Les valeurs de hachage de chiffrement sont également accessibles à partir du lien de téléchargement de CMake déjà fourni.
-
-    Dans l’exemple suivant, Windows PowerShell a été utilisé pour vérifier le hachage de chiffrement pour la version 3.13.4 de la distribution MSI x64 :
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    Les valeurs de hachage suivantes pour la version 3.13.4 étaient celles indiquées sur le site de CMake au moment de la rédaction de cet article :
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. Téléchargez le [système de génération CMake](https://cmake.org/download/).
 
     Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
 
@@ -71,7 +55,7 @@ Le SDK inclut l’exemple de code pour un appareil simulé. Cet appareil simulé
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    Pour le moment, ce référentiel a une taille d’environ 220 Mo. Attendez-vous à ce que cette opération prenne plusieurs minutes.
+    Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
 
 3. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. 
@@ -221,4 +205,4 @@ Si vous envisagez de continuer à manipuler et explorer l’exemple de client d�
 Dans ce guide de démarrage rapide, vous avez créé un appareil simulé sur un ordinateur Windows. Vous l’avez également provisionné sur votre hub IoT à l’aide d’une clé symétrique avec le service Azure IoT Hub Device Provisioning sur le portail. Pour apprendre à inscrire un appareil par programmation, passez au guide de démarrage rapide sur l’inscription par programmation des appareils X.509. 
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide d’Azure : Inscrire des appareils X.509 auprès du service Azure IoT Hub Device Provisioning](quick-enroll-device-x509-java.md)
+> [Démarrage rapide d’Azure : Inscrire des appareils X.509 auprès du service Azure IoT Hub Device Provisioning](quick-enroll-device-x509-java.md)

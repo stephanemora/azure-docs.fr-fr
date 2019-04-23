@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/18/2019
 ms.author: juliako
-ms.openlocfilehash: 27a4a30dd0eb449726a99d02f2409632aa327567
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 68e09ec6ce4aeb91e00c2a15caa8ec81f40064c1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683424"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997187"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Se connecter à l’API de Media Services v3 - Java
 
@@ -59,22 +59,22 @@ Lorsque vous exécutez la commande, le `pom.xml`, `App.java`, et d’autres fich
 1. Ajoutez les dépendances nécessaires
 
     ```xml
-    <dependency>
-      <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
-      <artifactId>azure-mgmt-media</artifactId>
-      <version>1.0.0-beta</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.rest</groupId>
-      <artifactId>client-runtime</artifactId>
-      <version>1.6.5</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-client-authentication</artifactId>
-      <version>1.6.5</version>
-    </dependency>
-    ```
+   <dependency>
+     <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
+     <artifactId>azure-mgmt-media</artifactId>
+     <version>1.0.0-beta-3</version>
+   </dependency>
+   <dependency>
+     <groupId>com.microsoft.rest</groupId>
+     <artifactId>client-runtime</artifactId>
+     <version>1.6.6</version>
+   </dependency>
+   <dependency>
+     <groupId>com.microsoft.azure</groupId>
+     <artifactId>azure-client-authentication</artifactId>
+     <version>1.6.6</version>
+   </dependency>
+```
 
 ## <a name="connect-to-the-java-client"></a>Se connecter au client Java
 

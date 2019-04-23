@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001282"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526739"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Créer un modèle de base Terraform dans Azure à l’aide de Yeoman
 
@@ -73,8 +73,8 @@ Le modèle Yeoman génère des fichiers dans le **répertoire actif**. Pour cett
 1. Accédez au répertoire parent qui doit contenir le nouveau répertoire vide que nous sommes sur le point de créer.
 1. Entrez `mkdir <new-directory-name>`.
 
-    >[!NOTE]
-    >Remplacez <new-directory-name> par le nom de votre nouveau répertoire. Dans cet exemple, nous avons nommé le nouveau répertoire `GeneratorDocSample`.
+    > [!NOTE]
+    > Remplacez `<new-directory-name>` par le nom de votre propre répertoire. Dans cet exemple, nous avons nommé le nouveau répertoire `GeneratorDocSample`.
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
@@ -250,7 +250,7 @@ Tous ces éléments sont préinstallés dans Cloud Shell.
 
 1. Créez le dossier $GOPATH s’il n’existe pas déjà : Entrez `mkdir ~/go`.
 
-1. Créez un dossier dans le dossier $GOPATH : Entrez `mkdir ~/go/src`. Ce dossier est utilisé pour stocker et organiser les différents dossiers de projet que vous pouvez créer, notamment le dossier <your-module-name> que nous allons créer à l’étape suivante.
+1. Créez un dossier dans le dossier $GOPATH : Entrez `mkdir ~/go/src`. Ce dossier est utilisé pour stocker et organiser les différents dossiers de projet que vous pouvez créer, notamment le dossier `<your-module-name>` que nous allons créer à l’étape suivante.
 
 1. Créez un dossier où stocker votre module Terraform : Entrez `mkdir ~/go/src/<your-module-name>`.
 

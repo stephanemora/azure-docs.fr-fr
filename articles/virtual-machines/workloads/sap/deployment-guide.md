@@ -18,7 +18,7 @@ ms.date: 09/26/2018
 ms.author: sedusch
 ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58850888"
@@ -435,7 +435,7 @@ L’assistant vous guide pour configurer les paramètres requis pour créer la m
 1. **Paramètres**:
    * **Stockage**
      * **Type de disque** : Sélectionnez le type du disque du système d’exploitation. Si vous souhaitez utiliser un stockage Premium pour vos disques de données, nous recommandons d’utiliser également le stockage Premium pour le disque du système d’exploitation.
-     * **Utiliser des disques managés** : Si vous souhaitez utiliser des disques managés, sélectionnez Oui. Pour plus d’informations sur les disques managés, lisez le chapitre [Disques managés][planning-guide-managed-disks] du guide de planification.
+     * **Utiliser des disques managés** : Si vous souhaitez utiliser la fonctionnalité Disques managés, sélectionnez Oui. Pour plus d’informations sur la fonctionnalité Disques managés, lisez le chapitre [Disques managés][planning-guide-managed-disks] du guide de planification.
      * **Compte de stockage** : Sélectionnez un compte de stockage existant ou créez-en un. Notez que tous les types de stockage ne peuvent pas être utilisés pour l’exécution d’applications SAP. Pour plus d’informations sur les types de stockage, consultez [Structure de stockage d’une machine virtuelle pour les déploiements SGBDR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
    * **Réseau**
      * **Réseau virtuel** et **Sous-réseau** : Pour intégrer la machine virtuelle à votre intranet, sélectionnez le réseau virtuel connecté à votre réseau local.
@@ -462,7 +462,7 @@ Vous pouvez créer une machine virtuelle à l’aide de l’un des modèles SAP 
   Pour créer un système à deux niveaux avec une seule machine virtuelle, utilisez ce modèle.
 * [**Modèle de configuration à deux niveaux (une seule machine virtuelle) - Disques managés** (sap-2-tier-marketplace-image-md)][sap-templates-2-tier-marketplace-image-md]
 
-  Pour créer un système à deux niveaux avec une seule machine virtuelle et des disques managés, utilisez ce modèle.
+  Pour créer un système à deux niveaux avec une seule machine virtuelle et la fonctionnalité Disques managés, utilisez ce modèle.
 * [**Modèle de configuration à trois niveaux (plusieurs machines virtuelles)** (sap-3-tier-marketplace-image)][sap-templates-3-tier-marketplace-image]
 
   Pour créer un système à trois niveaux avec plusieurs machines virtuelles, utilisez ce modèle.
@@ -527,7 +527,7 @@ Vérifiez si l’analyse fonctionne comme décrit dans [Vérifications et résol
 
 Après avoir créé et déployé la machine virtuelle, vous devez installer les composants logiciels requis dans la machine virtuelle. En raison de la séquence de déploiement/d’installation de logiciels dans ce type de déploiement de machine virtuelle, le logiciel à installer doit déjà être disponible, soit dans Azure, soit sur une autre machine virtuelle, ou en tant que disque qui peut être lié. Sinon, envisagez un scénario intersite dans lequel la connectivité aux ressources locales (partages d’installation) est acquise.
 
-Une fois que vous avez déployé votre machine virtuelle dans Azure, utilisez les mêmes instructions et outils pour installer les logiciels SAP sur votre machine virtuelle comme vous le feriez dans un environnement local. Pour installer les logiciels SAP sur une machine virtuelle Azure, SAP et Microsoft recommandent de charger et stocker le support d’installation SAP sur des disques durs virtuels Azure ou sur des disques managés, ou de créer une machine virtuelle Azure faisant office de serveur de fichiers contenant tous les supports d’installation SAP nécessaires.
+Une fois que vous avez déployé votre machine virtuelle dans Azure, utilisez les mêmes instructions et outils pour installer les logiciels SAP sur votre machine virtuelle comme vous le feriez dans un environnement local. Pour installer les logiciels SAP sur une machine virtuelle Azure, SAP et Microsoft recommandent de charger et stocker le support d’installation SAP sur des disques durs virtuels Azure ou sur la fonctionnalité Disques managés, ou de créer une machine virtuelle Azure faisant office de serveur de fichiers contenant tous les supports d’installation SAP nécessaires.
 
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Scénario 2 : Déploiement d’une machine virtuelle avec une image personnalisée pour SAP
 
@@ -575,7 +575,7 @@ L’assistant vous guide pour configurer les paramètres requis pour créer la m
 1. **Paramètres**:
    * **Stockage**
      * **Type de disque** : Sélectionnez le type du disque du système d’exploitation. Si vous souhaitez utiliser un stockage Premium pour vos disques de données, nous recommandons d’utiliser également le stockage Premium pour le disque du système d’exploitation.
-     * **Utiliser des disques managés** : Si vous souhaitez utiliser des disques managés, sélectionnez Oui. Pour plus d’informations sur les disques managés, lisez le chapitre [Disques managés][planning-guide-managed-disks] du guide de planification.
+     * **Utiliser des disques managés** : Si vous souhaitez utiliser la fonctionnalité Disques managés, sélectionnez Oui. Pour plus d’informations sur la fonctionnalité Disques managés, lisez le chapitre [Disques managés][planning-guide-managed-disks] du guide de planification.
    * **Réseau**
      * **Réseau virtuel** et **Sous-réseau** : Pour intégrer la machine virtuelle à votre intranet, sélectionnez le réseau virtuel connecté à votre réseau local.
      * **Adresse IP publique** : Sélectionnez l’adresse IP publique que vous voulez utiliser ou entrez les paramètres nécessaires pour en créer une. Vous pouvez utiliser une adresse IP publique pour accéder à votre machine virtuelle via Internet. Assurez-vous également de créer un groupe de sécurité réseau pour sécuriser l’accès à votre machine virtuelle.

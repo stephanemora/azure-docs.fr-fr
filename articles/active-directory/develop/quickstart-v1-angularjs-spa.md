@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c508c402707663489fc383dccd958559df6b217f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194680"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544938"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Démarrage rapide : Générer une application monopage AngularJS pour la connexion à et la déconnexion avec Azure Active Directory
 
@@ -45,6 +45,9 @@ Pour générer l’application fonctionnelle complète, vous devez :
 1. Inscrire votre application auprès d’Azure AD.
 2. Installer la bibliothèque ADAL et configurer l’application à page unique.
 3. Utilisez la bibliothèque ADAL pour sécuriser les pages dans l’application à page unique.
+
+> [!NOTE]
+> Si vous devez activer les connexions pour les comptes personnels en plus des comptes professionnels et scolaires, vous pouvez utiliser le *[point de la plateforme d’identités Microsoft](azure-ad-endpoint-comparison.md)*. Pour plus d’informations, consultez [ce tutoriel JavaScript SPA](tutorial-v2-javascript-spa.md) ainsi que [cet article](active-directory-v2-limitations.md), qui expliquent ce que sont les *points de terminaison de la plateforme d’identité Microsoft*. 
 
 ## <a name="prerequisites"></a>Prérequis
 

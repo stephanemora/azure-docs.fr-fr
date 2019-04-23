@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791539"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998649"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Comment configurer des alertes pour les problèmes de performances dans Azure Monitor pour les conteneurs
 Azure Monitor pour les conteneurs surveille les performances des charges de travail de conteneur qui sont déployés sur Azure Container Instances ou sur managed Kubernetes clusters qui sont hébergés sur Azure Kubernetes Service (AKS).
@@ -285,5 +285,5 @@ Suivez ces étapes pour créer une alerte de journal dans Azure Monitor en utili
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vue [connecter des exemples de requêtes](container-insights-analyze.md#search-logs-to-analyze-data) pour en savoir plus sur les requêtes prédéfinies et des exemples pour évaluer ou personnaliser pour d’autres scénarios d’alerte.
-* Pour en savoir plus sur Azure Monitor et comment surveiller d’autres aspects de votre cluster AKS, consultez [vue Azure Kubernetes Service health](container-insights-analyze.md).
+- Vue [connecter des exemples de requêtes](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples pour évaluer ou personnaliser pour génération d’alertes, la visualisation ou l’analyse de vos clusters.
+- Pour en savoir plus sur Azure Monitor et comment surveiller d’autres aspects de votre cluster AKS, consultez [vue Azure Kubernetes Service health](container-insights-analyze.md).

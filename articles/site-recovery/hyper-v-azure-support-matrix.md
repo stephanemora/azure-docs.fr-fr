@@ -10,7 +10,7 @@ ms.date: 03/18/2019
 ms.author: raynew
 ms.openlocfilehash: ea9f6a65ae804d4d2e5004ff4e2c61a2a85b976d
 ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/21/2019
 ms.locfileid: "58317219"
@@ -142,7 +142,7 @@ Pare-feu et réseaux virtuels de stockage Azure configurés dans le compte de st
 --- | --- | ---
 Groupes à haute disponibilité | OUI | OUI
 HUB | OUI | OUI  
-Disques gérés | Oui, pour le basculement.<br/><br/> La restauration automatique des disques managés n’est pas prise en charge. | Oui, pour le basculement.<br/><br/> La restauration automatique des disques managés n’est pas prise en charge.
+Disques managés | Oui, pour le basculement.<br/><br/> La restauration automatique des disques managés n’est pas prise en charge. | Oui, pour le basculement.<br/><br/> La restauration automatique des disques managés n’est pas prise en charge.
 
 ## <a name="azure-vm-requirements"></a>Exigences des machines virtuelles Azure
 

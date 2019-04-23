@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337128"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995572"
 ---
-# <a name="categorize-images"></a>Classer des images
+# <a name="categorize-images-by-subject-matter"></a>Catégoriser les images par sujet
 
 Outre les balises et les descriptions, Vision par ordinateur renvoie des catégories basées sur la taxonomie détectées dans une image. Contrairement aux balises, les catégories sont organisées selon une hiérarchie héréditaire parent/enfant, et elles sont moins nombreuses (86 contre des milliers de balises). Tous les noms de catégorie sont en anglais. La catégorisation peut se faire par elle-même ou à côté du modèle de balises plus récentes.
 
@@ -53,7 +53,7 @@ Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au 
 
 Le tableau suivant illustre un ensemble d’images type et la catégorie renvoyée par Vision par ordinateur pour chacune d’entre elles.
 
-| Image | Catégorie |
+| Image | Category |
 |-------|----------|
 | ![Quatre personnes réunies comme une famille](./Images/family_photo.png) | people_group |
 | ![Chiot assis dans un champ herbeux](./Images/cute_dog.png) | animal_dog |

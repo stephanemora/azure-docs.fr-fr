@@ -16,20 +16,20 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 23d1e53785ece50943d732db12b4cf460ba6752a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: e813b26a91d25fbaa1298acd455f27d2cac705f6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767479"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997051"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Créer une machine virtuelle Windows dans une zone de disponibilité avec le portail Azure
 
 Cet article aborde l’utilisation du portail Azure pour créer une machine virtuelle dans une zone de disponibilité Azure. Une [zone de disponibilité](../../availability-zones/az-overview.md) est une zone physiquement séparée dans une région Azure. Utilisez les zones de disponibilité pour protéger vos applications et vos données dans l’éventualité peu probable d’une défaillance ou d’une perte d’un centre de données entier.
 
-Pour utiliser une zone de disponibilité, créez votre machine virtuelle dans une [région Azure prise en charge](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+Pour utiliser une zone de disponibilité, créez votre machine virtuelle dans une [région Azure prise en charge](../../availability-zones/az-overview.md#services-support-by-region).
 
-## <a name="log-in-to-azure"></a>Connexion à Azure 
+## <a name="sign-in-to-azure"></a>Connexion à Azure 
 
 Connectez-vous au portail Azure sur https://portal.azure.com.
 

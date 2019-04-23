@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 57b20f9d694ae0581988762735c35cb65012fd8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e50243c15b5b783976374bc8b8861a0245ce1b05
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992369"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996371"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Console série de machine virtuelle pour Windows
 
@@ -123,7 +123,7 @@ Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows
     ![Ouvrir l’instance PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>Utiliser la console série pour les appels NMI
-Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques. Aujourd’hui, les programmeurs et les administrateurs système utilisent souvent les NMI comme mécanisme de débogage ou de dépannage des systèmes qui ne répondent pas.
+Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques. Aujourd'hui, les programmeurs et les administrateurs système utilisent souvent interruption non programmable comme un mécanisme pour déboguer ou de dépanner des systèmes qui ne répondent pas.
 
 Vous pouvez utiliser la console série pour envoyer une NMI à une machine virtuelle Azure à l’aide de l’icône de clavier dans la barre de commandes. Une fois que la NMI est remise, la configuration de machine virtuelle contrôle le mode de réponse du système. Windows peut être configuré pour se bloquer et créer un fichier de vidage mémoire lors de la réception d’une NMI.
 

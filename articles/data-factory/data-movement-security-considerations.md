@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099982"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996121"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,9 +137,9 @@ Le tableau suivant récapitule les recommandations pour la configuration du rés
 
 | Source      | Destination                              | Configuration réseau                    | Installation du runtime d’intégration                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | VPN IPSec (de point à site ou de site à site) | Le runtime d’intégration auto-hébergé peut être installé en local ou sur une machine virtuelle Azure au sein d’un réseau virtuel. |
-| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | ExpressRoute (homologation privée)           | Le runtime d’intégration auto-hébergé peut être installé en local ou sur une machine virtuelle Azure au sein d’un réseau virtuel. |
-| Local | Services Azure disposant d’un point de terminaison public | ExpressRoute (homologation publique)            | Le runtime d’intégration auto-hébergé doit être installé en local. |
+| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | VPN IPSec (de point à site ou de site à site) | Le runtime d’intégration auto-hébergé doit être installé sur une machine virtuelle Azure dans le réseau virtuel.  |
+| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | ExpressRoute (homologation privée)           | Le runtime d’intégration auto-hébergé doit être installé sur une machine virtuelle Azure dans le réseau virtuel.  |
+| Local | Services Azure disposant d’un point de terminaison public | ExpressRoute (homologation Microsoft)            | Le runtime d’intégration auto-hébergé peut être installé en local ou sur une machine virtuelle Azure. |
 
 Les images suivantes décrivent l’utilisation du runtime d’intégration auto-hébergé pour le déplacement de données entre une base de données locale et les services Azure à l’aide d’ExpressRoute et d’un VPN IPSec (avec un réseau virtuel) :
 
@@ -174,7 +174,7 @@ Le tableau suivant indique les exigences de ports entrants pour le pare-feu Wind
 
 | Ports entrants | Description                              |
 | ------------- | ---------------------------------------- |
-| 8050 (TCP)    | Requis par la cmdlet de chiffrement PowerShell comme décrit dans la rubrique[Chiffrer des informations d’identification pour des banques de données locales dans Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md) et par l’application du gestionnaire des informations d’identification pour définir en toute sécurité les informations d’identification pour les banques de données locales sur le runtime d’intégration auto-hébergé. |
+| 8060 (TCP)    | Requis par la cmdlet de chiffrement PowerShell comme décrit dans la rubrique[Chiffrer des informations d’identification pour des banques de données locales dans Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md) et par l’application du gestionnaire des informations d’identification pour définir en toute sécurité les informations d’identification pour les banques de données locales sur le runtime d’intégration auto-hébergé. |
 
 ![Configuration requise des ports de la passerelle](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
@@ -193,7 +193,7 @@ Les banques de données cloud suivantes exigent que vous mettiez sur liste verte
 
 **Le runtime d’intégration auto-hébergé peut-il être partagé entre différentes fabriques de données ?**
 
-Nous ne prenons pas encore en charge cette fonctionnalité. mais y travaillons activement.
+Oui. Plus de détails [ici](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/).
 
 **Quelle sont les exigences de ports pour assurer un bon fonctionnement du runtime d’intégration auto-hébergé ?**
 

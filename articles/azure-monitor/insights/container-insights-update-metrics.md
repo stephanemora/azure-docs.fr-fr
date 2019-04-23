@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 15be0039006d322c3d5e19d4ef141d1543c7b1c0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 2f500ea127d3f2042e7c97eeace592b4da8d8d0e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580672"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995980"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Comment mettre à jour d’Azure Monitor pour les conteneurs pour activer les mesures
 Azure Monitor pour les conteneurs introduit la prise en charge pour la collecte de mesures à partir des nœuds de clusters Azure Kubernetes service (AKS) et les blocs et en les écrivant dans le magasin de métriques Azure Monitor. Cette modification vise à fournir la rapidité d’exécution améliorée lors de la présentation des calculs d’agrégation (Avg, Count, Max, Min, Sum) dans les graphiques de performances, prise en charge de l’épinglage des graphiques de performances dans les tableaux de bord portail Azure et prend en charge les alertes de métrique.
@@ -35,7 +35,7 @@ Le cluster pour prendre en charge ces nouvelles fonctionnalités de la mise à j
 Soit traiter affecte le **surveillance du serveur de publication métriques** rôle au principal de service du cluster afin que les données collectées par l’agent peut être publié dans votre ressource de clusters. Surveillance des métriques de serveur de publication a l’autorisation uniquement aux métriques de push à la ressource, il ne peut pas modifier n’importe quel état, mettre à jour de la ressource ou lire toutes les données. Pour plus d’informations sur le rôle, consultez [rôle surveillance du serveur de publication métriques](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## <a name="prerequisites"></a>Conditions préalables 
-Avant de commencer, assurez-vous que vous êtes un membre de la **[propriétaire](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** rôle sur la ressource de cluster AKS pour activer la collecte de nœud et pod des métriques de performances personnalisés. 
+Avant de commencer, assurez-vous que vous êtes un membre de la **[propriétaire](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.md#owner)** rôle sur la ressource de cluster AKS pour activer la collecte de nœud et pod des métriques de performances personnalisés. 
 
 Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI version 2.0.59 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 5482ea720ea8d21230587dd9216bd006bf4e5a6e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 3be1da54b16a24ce3c4431dfe26eb778cea5c83d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650646"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545261"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Didacticiel : Accéder à un laboratoire de salle de classe dans Azure Lab Services
 Dans ce didacticiel, vous vous connectez en tant qu’étudiant à une machine virtuelle dans un laboratoire de classe. 
@@ -32,7 +32,7 @@ Dans ce didacticiel, vous effectuez les actions suivantes :
 
 ## <a name="use-the-registration-link"></a>Utiliser le lien d’inscription
 
-1. Accédez à **l’URL d’inscription** que vous avez reçue du professeur/formateur. Vous n’avez pas besoin d’utiliser l’URL d’inscription après avoir effectué l’enregistrement. À la place, utilisez l’URL : [https://labs.azure.com](https://labs.azure.com). 
+1. Accédez à **l’URL d’inscription** que vous avez reçue du professeur/formateur. Vous n’avez pas besoin d’utiliser l’URL d’inscription après avoir effectué l’enregistrement. À la place, utilisez l’URL : [https://labs.azure.com](https://labs.azure.com). Notez qu’Internet Explorer 11 n’est pas encore pris en charge. 
 1. Connectez-vous au service à l’aide de votre compte scolaire pour terminer l’inscription. 
 2. Une fois l’inscription terminée, confirmez que vous visualisez bien les machines virtuelles du laboratoire auquel vous avez accès. 
 3. Attendez que la machine virtuelle soit prête, puis **démarrez-la**. Ce processus prend un certain temps.  

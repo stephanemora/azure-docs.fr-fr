@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313073"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998615"
 ---
 # <a name="detect-color-schemes-in-images"></a>Détecter les jeux de couleurs dans les images
 
@@ -30,7 +30,7 @@ La Vision par ordinateur retourne également une valeur booléenne qui indique s
 
 L’exemple suivant illustre la réponse JSON retournée par Vision par ordinateur lors de la détection du jeu de couleurs de l’image d’exemple. Dans ce cas, l’exemple d’image n’est pas en noir et blanc, mais les couleurs de premier plan et d’arrière-plan dominantes sont le noir, tandis que les couleurs dominantes de l’image dans son ensemble sont le noir et le blanc.
 
-![Montagne extérieur](./Images/mountain_vista.png)
+![Mountain extérieur au coucher du soleil, avec la silhouette d’une personne](./Images/mountain_vista.png)
 
 ```json
 {

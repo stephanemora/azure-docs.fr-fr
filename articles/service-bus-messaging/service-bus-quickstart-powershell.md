@@ -8,36 +8,34 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: ef510ca88f1b305125c7840932641c8a2359d8c9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 31b1b852c92ad671564fd54520af3f3a23b3e3c2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045239"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499799"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser Azure PowerShell pour créer une file d’attente Service Bus
-Microsoft Azure Service Bus est un courtier de messages d’intégration d’entreprise qui offre des services de messagerie sécurisée et une fiabilité absolue. Un scénario classique Service Bus implique généralement le découplage de deux ou plusieurs applications, services ou processus, et le transfert des modifications de données ou d’état. Ces scénarios peuvent impliquer la planification de plusieurs traitements par lots dans d’autres applications ou services, ou le déclenchement du traitement des commandes. Par exemple, une société de vente au détail peut envoyer ses données de point de vente à un back-office ou un centre de distribution régional pour des mises à jour de l’inventaire et un réapprovisionnement. Dans ce scénario, l’application cliente envoie et reçoit des messages depuis une file d’attente Service Bus.
-
-![file d'attente](./media/service-bus-quickstart-powershell/quick-start-queue.png)
-
 Ce démarrage rapide montre comment envoyer et recevoir des messages vers et depuis une file d’attente Service Bus, en utilisant PowerShell pour créer un espace de noms de messagerie et une file d’attente au sein de cet espace de noms, et pour obtenir les informations d’identification sur cet espace de noms. La procédure montre ensuite comment envoyer et recevoir des messages depuis cette file d’attente à l’aide de la [bibliothèque .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][] avant de commencer.
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur.
+- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][] avant de commencer. 
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur. Vous utilisez Visual Studio pour générer un exemple qui envoie des messages à une file d’attente et reçoit un message de celle-ci. L’exemple consiste à tester la file d’attente que vous avez créée dans le portail. 
 - [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
 
-Pour ce démarrage rapide, vous devez disposer de la version la plus récente d’Azure PowerShell. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation et configuration d’Azure PowerShell][].
+Pour ce démarrage rapide, vous devez disposer de la version la plus récente d’Azure PowerShell. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation et configuration d’Azure PowerShell][]. Si vous êtes familiarisé avec Azure Cloud Shell, vous pouvez l’utiliser sans installer Azure PowerShell sur votre ordinateur. Pour plus d’informations sur Azure Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../cloud-shell/overview.md)
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 1. Tout d’abord, installez le module PowerShell pour Service Bus, si ce n’est pas déjà fait :
 
@@ -45,7 +43,7 @@ Pour ce démarrage rapide, vous devez disposer de la version la plus récente d�
    Install-Module Az.ServiceBus
    ```
 
-2. Exécutez la commande suivante pour vous connecter à Azure :
+2. Exécutez la commande ci-après pour vous connecter à Azure :
 
    ```azurepowershell-interactive
    Login-AzAccount
@@ -130,7 +128,7 @@ Cette section contient plus de détails sur ce que fait l’exemple de code.
 
 ### <a name="get-connection-string-and-queue"></a>Obtention de la chaîne de connexion et de la file d’attente
 
-Les noms de chaîne de connexion et de file d’attente sont passés à la méthode `Main()` en tant qu’arguments de ligne de commande. `Main()` déclare deux variables de chaîne pour contenir ces valeurs :
+Les noms de chaîne de connexion et de file d’attente sont passés à la méthode `Main()` en tant qu’arguments de ligne de commande. `Main()` déclare deux variables de chaîne pour contenir les valeurs suivantes :
 
 ```csharp
 static void Main(string[] args)
@@ -167,7 +165,7 @@ La méthode `Main()` commence ensuite la boucle de messages asynchrones, `MainAs
 
 ### <a name="message-loop"></a>Boucle de messages
 
-La méthode MainAsync() crée un client de file d’attente avec les arguments de ligne de commande, appelle un gestionnaire de réception de messages nommé `RegisterOnMessageHandlerAndReceiveMessages()`, puis envoie l’ensemble des messages :
+La méthode MainAsync() crée un client de file d’attente avec les arguments de ligne de commande, appelle un gestionnaire de réception de messages nommé `RegisterOnMessageHandlerAndReceiveMessages()`, puis envoie l’ensemble des messages :
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -259,10 +257,10 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez créé un espace de noms Service Bus et d’autres ressources nécessaires pour envoyer et recevoir des messages depuis une file d’attente. Pour en savoir plus sur l’écriture de code pour envoyer et recevoir des messages, continuez le tutoriel suivant pour Service Bus :
+Dans cet article, vous avez créé un espace de noms Service Bus et d’autres ressources nécessaires pour envoyer et recevoir des messages depuis une file d’attente. Pour en savoir plus sur l’écriture de code afin d’envoyer et de recevoir des messages, passez aux tutoriels de la section **Envoyer et recevoir des messages**. 
 
 > [!div class="nextstepaction"]
-> [Mettre à jour l’inventaire à l’aide d’Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Envoyer et recevoir des messages](service-bus-dotnet-get-started-with-queues.md)
 
 [compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Installer et configurer Azure PowerShell]: /powershell/azure/install-Az-ps

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 01095ac4ed8e362f1a89a53b10b5da6a547feb57
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218631"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000128"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Vérification des meilleures pratiques Kubernetes dans votre cluster
 
@@ -27,7 +27,7 @@ L’[outil kube-advisor][kube-advisor-github] est un conteneur unique conçu pou
 
 ## <a name="running-kube-advisor"></a>Exécution de kube-advisor
 
-Pour exécuter l’outil sur un cluster configuré pour le [contrôle d’accès en fonction du rôle (RBAC)](aad-integration.md), à l’aide des commandes suivantes. La première commande crée un compte de service Kubernetes. La deuxième commande exécute l’outil dans un pod à l’aide de ce compte de service et configure le pod pour qu’il soit supprimé après sa fermeture. 
+Pour exécuter l’outil sur un cluster configuré pour le [contrôle d’accès en fonction du rôle (RBAC)](azure-ad-integration.md), à l’aide des commandes suivantes. La première commande crée un compte de service Kubernetes. La deuxième commande exécute l’outil dans un pod à l’aide de ce compte de service et configure le pod pour qu’il soit supprimé après sa fermeture. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

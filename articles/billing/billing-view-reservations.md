@@ -1,7 +1,6 @@
 ---
 title: Afficher les réservations pour les ressources Azure| Microsoft Docs
 description: Découvrez comment afficher les réservations Azure dans le portail Azure.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,31 +10,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650221"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995521"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Afficher les réservations Azure dans le portail Azure
 
 Selon votre type d’abonnement et les autorisations, il existe deux manières d’afficher les réservations pour Azure.
 
-## <a name="view-reservations-as-owner-or-reader"></a>Afficher les réservations en tant que propriétaire ou lecteur
+## <a name="view-purchased-reservations"></a>Afficher les réservations achetées
 
-Par défaut, lorsque vous achetez une réservation, l’administrateur de compte et vous pouvez afficher la réservation. L’administrateur de compte et vous obtenez automatiquement le rôle de propriétaire sur la réservation. Pour autoriser d’autres personnes à afficher la réservation, vous devez les ajouter en tant que **propriétaire** ou **lecteur** sur la réservation. Pour plus d’informations, consultez la rubrique [Ajouter ou modifier les utilisateurs qui peuvent gérer une réservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
- 
+Par défaut, lorsque vous achetez une réservation, l’administrateur de compte et vous pouvez afficher la réservation. Le compte administrateur et obtiennent automatiquement le rôle de propriétaire de la commande de réservation et de la réservation. Pour autoriser d’autres personnes afficher la réservation, vous devez les ajouter en tant qu’un **propriétaire** ou **lecteur** sur la commande de réservation ou de la réservation.
+
+Pour plus d’informations, consultez la rubrique [Ajouter ou modifier les utilisateurs qui peuvent gérer une réservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+
 Pour afficher une réservation en tant que propriétaire ou lecteur, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Effectuez une recherche sur **réservations**.
-
-    ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-view-reservation/portal-reservation-search.png)
-
-1. Vous obtenez une liste des réservations où vous avez le rôle de propriétaire ou de lecteur.
+2. Effectuez une recherche sur **réservations**.
+    ![Capture d’écran montrant la recherche du portail Azure](./media/billing-view-reservation/portal-reservation-search.png)  
+3. La liste affiche toutes les réservations où vous avez le rôle de propriétaire ou de lecteur. Chaque réservation affiche le dernier pourcentage d’utilisation connus.  
+    ![Exemple montrant une liste des réservations](./media/billing-view-reservation/view-reservations.png)
+4. Sélectionnez une réservation et voir la tendance d’utilisation pour les cinq derniers jours.  
+    ![Tendance d’utilisation d’exemple montrant réservation](./media/billing-view-reservation/reservation-utilization.png)
+5. Vous pouvez également obtenir le [l’utilisation de réservation](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) à l’aide de l’API d’utilisation d’Instance réservée et avec le [pack de contenu Power BI de Microsoft Azure consommation Insights](/power-bi/service-connect-to-azure-consumption-insights).
 
 Si vous avez besoin de modifier la portée d’une réservation, de la fractionner ou de changer les utilisateurs autorisés à la gérer, consultez la rubrique [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md).
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 850fce4e04ce07a323e830d2daf74ea1a324f1a0
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906070"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489380"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Sauvegarder une machine virtuelle dans Azure avec PowerShell
 
@@ -29,7 +29,7 @@ Ce guide de démarrage rapide nécessite le module AZ Azure PowerShell version 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-and-register"></a>Se connecter et s’inscrire
+## <a name="sign-in-and-register"></a>Se connecter et s’inscrire
 
 1. Connectez-vous à votre abonnement Azure avec la commande `Connect-AzAccount` et suivez les instructions à l’écran.
 
@@ -51,9 +51,9 @@ Lorsque vous créez le coffre :
 
 - Pour l’emplacement et le groupe de ressources, spécifiez l’emplacement et le groupe de ressources de la machine virtuelle que vous souhaitez sauvegarder.
 - Si vous avez utilisé cet [exemple de script](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) pour créer la machine virtuelle, le groupe de ressources est **myResourceGroup**, la machine virtuelle est **myVM** et les ressources se trouvent dans la région **WestEurope**.
-- La sauvegarde Azure gère automatiquement le stockage des données sauvegardées. Par défaut, le coffre utilise [le stockage géoredondant (GRS)](../storage/common/storage-redundancy-grs.md). La géoredondance s’assure que les données sauvegardées sont répliquées dans une région Azure secondaire, à des centaines de kilomètres de la région primaire.
+- La sauvegarde Azure gère automatiquement le stockage des données sauvegardées. Par défaut, le coffre utilise [le stockage géoredondant (GRS)](../storage/common/storage-redundancy-grs.md). La géoredondance garantit que les données sauvegardées sont répliquées dans une région Azure secondaire, à des centaines de kilomètres de la région primaire.
 
-À présent, créez un coffre.
+À présent, créez un coffre :
 
 
 1. Utilisez [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) pour créer le coffre :
@@ -162,7 +162,7 @@ Si vous n’avez plus besoin de sauvegarder la machine virtuelle, vous pouvez la
 - Si vous voulez essayer de restaurer la machine virtuelle, ignorez cette opération de nettoyage.
 - Si vous avez utilisé une machine virtuelle existante, vous pouvez ignorer l’applet de commande finale [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour laisser en place le groupe de ressources et la machine virtuelle.
 
-Désactivez la protection, supprimez les points de restauration et le coffre. Ensuite, vous pouvez supprimer le groupe de ressources et les ressources de machine virtuelle associées, comme suit :
+Désactivez la protection, supprimez les points de restauration et le coffre. Supprimez ensuite le groupe de ressources et les ressources de machine virtuelle associées comme suit :
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints

@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 09809270d6b42a5491d322628f1d98c580f65206
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7de83b14617245eb2c046eb7cd2f5f26c509517c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915921"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999567"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Comment créer et localiser les points d’ancrage à l’aide des ancres Spatial Azure en C++ / c++ / NDK
 
@@ -32,14 +32,14 @@ Azure Spatial Anchors vous permet de partager des ancres dans le monde entre dif
 - Les télécharger vers le cloud.
 - Recherchez et supprimez les ancres spatiale de cloud.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser ce guide, assurez-vous que vous avez :
 
 - Lisez la page [Vue d’ensemble d’Azure Spatial Anchors](../overview.md).
 - Effectuez l’un des [guides de démarrage rapide de 5 minutes](../index.yml).
 - Une connaissance élémentaire sur C++ et le <a href="https://developer.android.com/ndk/" target="_blank">Android Native Development Kit</a>.
-- Une connaissance élémentaire sur <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.5.
+- Une connaissance élémentaire sur <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: fe8f9f271599d688878d61aee64273690d02c2b8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685759"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000706"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier un déploiement de Proxy d’Application Azure AD
 
@@ -158,7 +158,7 @@ Les éléments suivants de la conception doivent augmenter la réussite de votre
 3. Ensuite, ajoutez la méthode d’authentification unique pour votre application et testez à nouveau pour valider l’accès.
 4. Appliquer l’accès conditionnel et les stratégies d’authentification Multifacteur en fonction des besoins. Tester et valider l’accès.
 
-**Outils de dépannage**: Lors du dépannage, toujours commencer par la validation de l’accès à l’application publiée à partir du navigateur sur l’hôte de connecteur et vérifiez que l’application fonctionne comme prévu. Simple votre installation, plus il est facile de déterminer la cause racine, vous devez donc essayer de reproduire les problèmes avec une configuration minimale, telles que l’utilisation qu’un seul connecteur et sans l’authentification unique. Dans certains cas, des outils tels que Fiddler de Telerik de débogage web peut s’avérer indispensable pour résoudre les problèmes d’accès ou le contenu dans les applications accédées via un proxy. Fiddler peut également agir comme un proxy à l’aide de trace et de déboguer le trafic pour les plateformes mobiles tels qu’iOS et Android, et pratiquement tout ce qui peut être configuré pour le routage via un proxy. Consultez le [guide de dépannage](/application-proxy-troubleshoot.md) pour plus d’informations.
+**Outils de dépannage**: Lors du dépannage, toujours commencer par la validation de l’accès à l’application publiée à partir du navigateur sur l’hôte de connecteur et vérifiez que l’application fonctionne comme prévu. Simple votre installation, plus il est facile de déterminer la cause racine, vous devez donc essayer de reproduire les problèmes avec une configuration minimale, telles que l’utilisation qu’un seul connecteur et sans l’authentification unique. Dans certains cas, des outils tels que Fiddler de Telerik de débogage web peut s’avérer indispensable pour résoudre les problèmes d’accès ou le contenu dans les applications accédées via un proxy. Fiddler peut également agir comme un proxy à l’aide de trace et de déboguer le trafic pour les plateformes mobiles tels qu’iOS et Android, et pratiquement tout ce qui peut être configuré pour le routage via un proxy. Consultez le [guide de dépannage](application-proxy-troubleshoot.md) pour plus d’informations.
 
 ## <a name="implement-your-solution"></a>Mettre en œuvre votre Solution
 

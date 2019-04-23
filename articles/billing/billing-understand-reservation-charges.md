@@ -1,7 +1,6 @@
 ---
 title: Comprendre la remise de réservations pour les bases de données SQL Azure | Microsoft Docs
 description: Découvrez comment une remise de réservation est appliquée à l’exécution de bases de données SQL Azure.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,22 +10,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 4b4c6b390e9b3a0cf764f998523fe3c1cdc66026
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649439"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997425"
 ---
-# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Comprendre comment une remise de réservation est appliquée aux bases de données SQL Azure
+# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Comment une remise de réservation est appliquée aux bases de données SQL Azure
 
 Quand vous achetez une capacité réservée Azure SQL Database, la remise de réservation est automatiquement appliquée aux bases de données SQL qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre les coûts de calcul de votre base de données SQL. Les frais de logiciel, de stockage et de réseau vous sont facturés aux tarifs normaux. Vous pouvez couvrir les coûts de licence pour les bases de données SQL avec [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Pour Azure Reserved Virtual Machine Instances, consultez [Comprendre la remise Azure Reserved VM Instances](billing-understand-vm-reservation-charges.md).
 
-## <a name="reservation-discount-applied-to-sql-databases"></a>Remise de réservation appliquée aux bases de données SQL
+## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est appliquée
+
+Une remise de réservation est «*utilisation-it-ou-perdre-it*». Par conséquent, si vous n’avez pas les ressources correspondantes pour toutes les heures, puis vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas effectuer transférer heures réservées inutilisées.
+
+Lorsque vous arrêtez une ressource, la remise de réservation s’applique automatiquement à une autre ressource correspondante dans la portée spécifiée. Si aucune ressource correspondante ne se trouvent dans la portée spécifiée, les heures réservées sont *perdues*.
+
+## <a name="discount-applied-to-sql-databases"></a>Remise appliquée aux bases de données SQL
 
  La remise de capacité réservée SQL Database est appliquée aux bases de données SQL en cours d’exécution sur une base horaire. La réservation que vous achetez est associée au calcul utilisé par les bases de données SQL en cours d’exécution. Pour les bases de données SQL qui ne s’exécutent pas pendant une heure entière, la réservation est automatiquement appliquée aux autres bases de données SQL qui correspondent aux attributs de la réservation. La remise peut être appliquée à des bases de données SQL qui s’exécutent simultanément. Si aucune base de données SQL s’exécutant pendant une heure entière ne correspond aux attributs de la réservation, vous ne bénéficiez pas pleinement de la remise de réservation pour cette heure.
 
@@ -40,7 +45,11 @@ Dans le reste de ces exemples, nous supposons que la capacité réservée SQL Da
 - Scénario 3 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 30. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Les deux sont couvertes par la remise de réservation.
 - Scénario 4 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 45. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique aux calculs utilisés pendant la période restante.
 
-Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](https://go.microsoft.com/fwlink/?linkid=862757).
+Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](billing-understand-reserved-instance-usage-ea.md).
+
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
+
+Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -52,8 +61,4 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 - [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
-- [Comprendre l’utilisation d’une réservations pour les abonnements CSP](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
-
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+- [Comprendre l’utilisation d’une réservations pour les abonnements CSP](/partner-center/azure-reservations)

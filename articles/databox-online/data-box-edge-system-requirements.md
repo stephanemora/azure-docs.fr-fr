@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006346"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996745"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Configuration requise Edge de zone de données Azure
 
@@ -82,7 +82,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 | Modèle d’URL                      | Composant ou fonctionnalité                     |   
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registre de conteneurs Microsoft (obligatoire)               |
+| https :\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registre de conteneurs Microsoft (obligatoire)               |
 | https://\*.azurecr.io                     | Registres de conteneurs personnels et tiers (facultatif) | 
 | https://\*.azure-devices.net              | Accès IoT Hub (obligatoire)                             | 
 
@@ -94,7 +94,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 | Modèle d’URL                      | Composant ou fonctionnalité                     |  
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registre de conteneurs Microsoft (obligatoire)               |
+| https :\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registre de conteneurs Microsoft (obligatoire)               |
 | https://\*.azure-devices.us              | Accès IoT Hub (obligatoire)           |
 | https://\*.azurecr.us                    | Registres de conteneurs personnels et tiers (facultatif) | 
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59505573"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997306"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte (préversion)
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser la reconnaissance d’entité nommée dans Analytique de texte
 
-L’[API Reconnaissance d’entité](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) accepte un texte non structuré et, pour chaque document JSON, retourne la liste des entités dont l’ambiguïté est levée avec des liens vers des informations supplémentaires sur le web (Wikipedia et Bing). 
+Le [API de reconnaissance d’entités nommé](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) prend le texte non structuré et pour chaque document JSON, retourne une liste d’éviter toute ambiguïtées des entités avec des liens vers d’autres informations sur le web (Wikipedia et Bing). 
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Liaison d’entités et reconnaissance d’entité nommée
 
@@ -28,12 +28,10 @@ Analytique de texte `entities` prend en charge de point de terminaison toutes de
 ### <a name="entity-linking"></a>Liaison d’entités
 La liaison d’entités est la possibilité d’identifier une entité présente dans un texte et de lever l’ambiguïté sur son identité (par exemple, en déterminant si « Mars » fait référence à la planète ou au dieu romain de la guerre). Ce processus nécessite la présence d’une base de connaissances à laquelle les entités reconnues sont liées. Wikipédia est utilisé en tant que base de connaissances pour le point de terminaison `entities` d’Analyse de texte.
 
-Dans Analyse de texte [version 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634), une seule liaison d’entités est disponible.
-
 ### <a name="named-entity-recognition-ner"></a>Reconnaissance d’entité nommée (NER)
 La reconnaissance d’entité nommée (NER) est la capacité d’identifier différentes entités dans du texte et de les classer en classes prédéfinies. Les classes d’entités prises en charge sont répertoriées ci-dessous.
 
-Dans la préversion d’Analyse de texte [version 2.1](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), la liaison d’entités et la reconnaissance d’entité nommée (NER) sont disponibles.
+Dans l’Analytique de texte [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), liaison d’entité et la reconnaissance d’entités nommées (NER) sont disponibles.
 
 ### <a name="language-support"></a>Support multilingue
 
@@ -41,7 +39,7 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Types pris en charge pour la reconnaissance d’entité nommée
 
-| Type  | Subtype | Exemples |
+| type  | Subtype | Exemples |
 |:-----------   |:------------- |:---------|
 | Personne        | N/A\*         | « Jeff », « Bill Gates »     |
 | Lieu      | N/A\*         | « Redmond, Washington », « Paris »  |
@@ -54,14 +52,14 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 | Quantité      | Devise      | « 10,99 $ »     | 
 | Quantité      | Dimension     | « 10 miles », « 40 cm »     | 
 | Quantité      | Température   | « 32 degrés »    |
-| DateTime      | N/A\*         | « 6 h 30 le 4 février 2012 »      | 
-| DateTime      | Date          | « 2 mai 2017 », « 02/05/2017 »   | 
-| DateTime      | Temps          | « 8 h », « 8:00 »  | 
-| DateTime      | DateRange     | « Du 2 au 5 mai »    | 
-| DateTime      | TimeRange     | « De 18 à 19 h »     | 
-| DateTime      | Duration      | « 1 minute et 45 secondes »   | 
-| DateTime      | Définir           | « Chaque mardi »     | 
-| DateTime      | TimeZone      |    | 
+| Datetime      | N/A\*         | « 6 h 30 le 4 février 2012 »      | 
+| Datetime      | Date          | « 2 mai 2017 », « 02/05/2017 »   | 
+| Datetime      | Temps          | « 8 h », « 8:00 »  | 
+| Datetime      | DateRange     | « Du 2 au 5 mai »    | 
+| Datetime      | TimeRange     | « De 18 à 19 h »     | 
+| Datetime      | Duration      | « 1 minute et 45 secondes »   | 
+| Datetime      | Définir           | « Chaque mardi »     | 
+| Datetime      | TimeZone      |    | 
 | URL           | N/A\*         | « https :\//www.bing.com »    |
 | Email         | N/A\*         | "support@contoso.com" |
 
@@ -71,7 +69,7 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 
 ## <a name="preparation"></a>Préparation
 
-Vous devez disposer de documents JSON dans le format : id, texte, langue
+Vous devez disposer des documents JSON au format suivant : ID, le texte, de langage
 
 Pour connaître les langues actuellement prises en charge, consultez [cette liste](../text-analytics-supported-languages.md).
 
@@ -90,20 +88,20 @@ La taille des documents doit être inférieure à 5 120 caractères par docume
 }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
+## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
 
 Vous trouverez plus d’informations sur la définition d’une demande dans [Guide pratique pour appeler l’API Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
 
-+ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API de liaison d’entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API de liaison d’entités](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ Définissez le point de terminaison HTTP pour l’extraction d’entité. Il doit inclure la ressource `/entities` : `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Définissez le point de terminaison HTTP pour l’extraction d’entité. Il doit inclure la ressource `/entities` : `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 + Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
 
 + Dans le corps de la demande, fournissez la collection de documents JSON que vous avez préparée pour cette analyse.
 
 > [!Tip]
-> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) pour structurer une demande et la publier dans le service.
+> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) pour structurer une demande et la publier dans le service.
 
 ## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
@@ -280,18 +278,16 @@ Voici un exemple de sortie de liaison d'entités :
 
 Dans cet article, vous avez vu les concepts et le flux de travail de liaison d'entités à l’aide de l’API Analyse de texte dans Cognitive Services. En résumé :
 
-+ L’[API Entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) est disponible pour les langues sélectionnées.
-+ Les documents JSON figurant dans le corps de la demande incluent un id, un texte et un code de langue.
++ L’[API Entités](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) est disponible pour les langues sélectionnées.
++ Documents JSON dans le corps de la requête incluent un ID, texte et le code langue.
 + La demande POST s’effectue sur un point de terminaison `/entities`, à l’aide [d’une clé d’accès et d’un point de terminaison](text-analytics-how-to-access-key.md) personnalisés valides pour votre abonnement.
 + La sortie de réponse, qui se compose d’entités liées (y compris des scores de confiance, des décalages et des liens web, pour chaque ID de document), peut être utilisée dans n’importe quelle application.
-
-## <a name="see-also"></a>Voir aussi 
-
- [Vue d’ensemble d’Analyse de texte](../overview.md)  
- [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
- [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [API Analyse de texte](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [API Analyse de texte](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+* [Vue d’ensemble d’Analyse de texte](../overview.md)  
+* [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
+* [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 

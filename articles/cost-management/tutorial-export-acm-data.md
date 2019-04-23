@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/10/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014134"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496792"
 ---
-# <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
+# <a name="tutorial-create-and-manage-exported-data"></a>Didacticiel : Créer et gérer des données exportées
 
 Si vous avez lu le tutoriel Analyse du coût, vous êtes familiarisé avec le téléchargement manuel de vos données Cost Management. Cependant, vous pouvez créer une tâche récurrente qui exporte automatiquement sur une base quotidienne, hebdomadaire ou mensuelle vos données Cost Management dans un stockage Azure. Les données exportées sont au format CSV, et elles contiennent toutes les informations collectées par Cost Management. Vous pouvez ensuite utiliser les données exportées dans Stockage Azure avec des systèmes externes et les combiner avec vos propres données personnalisées. Vous pouvez aussi utiliser vos données exportées dans un système externe, comme un tableau de bord ou un autre système financier.
 
@@ -75,6 +75,10 @@ Il existe trois types d’options d’exportation :
 
 **Personnalisé** : permet de planifier des exportations hebdomadaires et mensuelles avec des options de cumul hebdomadaire ou mensuel à ce jour. *L’exportation initiale s’exécute immédiatement.*
 
+Si vous avez un abonnement de paiement à l’utilisation, MSDN ou Visual Studio, votre période de facturation peut ne pas être alignée sur le mois calendaire. Pour ces types d’abonnements et groupes de ressources, vous pouvez créer une exportation alignée sur votre période de facturation ou sur les mois calendaires. Pour créer une exportation alignée sur votre mois de facturation, accédez à **Personnalisé**, puis sélectionnez **Période de facturation à ce jour**.  Pour créer une exportation alignée sur le mois calendaire, sélectionnez **Cumul mensuel jusqu'à ce jour**.
+>
+>
+
 ![Nouvelle exportation - Onglet de base montrant une sélection d’exportation en cumul hebdomadaire personnalisée](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
 ## <a name="verify-that-data-is-collected"></a>Vérifier que les données sont collectées
@@ -92,6 +96,7 @@ Dans l’Explorateur Stockage, accédez au conteneur que vous voulez ouvrir, pui
 Le fichier s’ouvre avec le programme ou l’application configuré pour ouvrir les fichiers avec l’extension CSV. Voici un exemple dans Excel.
 
 ![Exemples de données CSV exportées affichées dans Excel](./media/tutorial-export-acm-data/example-export-data.png)
+
 
 ## <a name="access-exported-data-from-other-systems"></a>Accéder à des données exportées à partir d’autres systèmes
 

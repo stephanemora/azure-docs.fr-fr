@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485150"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000723"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, les processus, la latence des connexions entrantes et sortantes, ainsi que les ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.
@@ -299,22 +299,22 @@ Les enregistrements inclus dans ces tables sont générés à partir des donnée
 
 | Propriété | Description |
 |:--|:--|
-|Direction |Direction de la connexion (valeur *inbound* ou *outbound*) |
-|Ordinateur |Nom de domaine complet (FQDN) de l’ordinateur |
-|Process |Identité du processus ou de groupes de processus initialisant/acceptant la connexion |
-|SourceIp |Adresse IP de la source |
-|DestinationIp |Adresse IP de la destination |
-|DestinationPort |Numéro de port de la destination |
-|Protocole |Protocole utilisé pour la connexion.  La valeur est *tcp*. |
+| `Direction` |Direction de la connexion (valeur *inbound* ou *outbound*) |
+| `Machine` |Nom de domaine complet (FQDN) de l’ordinateur |
+| `Process` |Identité du processus ou de groupes de processus initialisant/acceptant la connexion |
+| `SourceIp` |Adresse IP de la source |
+| `DestinationIp` |Adresse IP de la destination |
+| `DestinationPort` |Numéro de port de la destination |
+| `Protocol` |Protocole utilisé pour la connexion.  La valeur est *tcp*. |
 
 Pour prendre en compte l’impact du regroupement, les informations sur le nombre de connexions physiques groupées sont fournies dans les propriétés suivantes de l’enregistrement :
 
 | Propriété | Description |
 |:--|:--|
-|LinksEstablished |Nombre de connexions réseau physiques qui ont été établies dans la fenêtre de temps de rapport |
-|LinksTerminated |Nombre de connexions réseau physiques qui ont pris fin dans la fenêtre de temps de rapport |
-|LinksFailed |Nombre de connexions réseau physiques qui ont échoué dans la fenêtre de temps de rapport. Actuellement, ces informations sont disponibles pour les connexions sortantes uniquement. |
-|LinksLive |Nombre de connexions réseau physiques qui ont été ouvertes à la fin de la fenêtre de temps de rapport|
+| `LinksEstablished` |Nombre de connexions réseau physiques qui ont été établies dans la fenêtre de temps de rapport |
+| `LinksTerminated` |Nombre de connexions réseau physiques qui ont pris fin dans la fenêtre de temps de rapport |
+| `LinksFailed` |Nombre de connexions réseau physiques qui ont échoué dans la fenêtre de temps de rapport. Actuellement, ces informations sont disponibles pour les connexions sortantes uniquement. |
+| `LinksLive` |Nombre de connexions réseau physiques qui ont été ouvertes à la fin de la fenêtre de temps de rapport|
 
 #### <a name="metrics"></a>Mesures
 
@@ -322,12 +322,12 @@ En plus des métriques concernant le nombre de connexions, des informations sur 
 
 | Propriété | Description |
 |:--|:--|
-|BytesSent |Nombre total d’octets qui ont été envoyés dans la fenêtre de temps de rapport |
-|BytesReceived |Nombre total d’octets qui ont été reçus dans la fenêtre de temps de rapport |
-|Réponses |Nombre de réponses observées dans la fenêtre de temps de rapport. 
-|ResponseTimeMax |Temps de réponse le plus long (en millisecondes) observé dans la fenêtre de temps de rapport.  En l’absence de valeur, la propriété est vide.|
-|ResponseTimeMin |Temps de réponse le plus court (en millisecondes) observé dans la fenêtre de temps de rapport.  En l’absence de valeur, la propriété est vide.|
-|ResponseTimeSum |Somme de tous les temps de réponse (en millisecondes) observés dans la fenêtre de temps de rapport.  En l’absence de valeur, la propriété est vide.|
+| `BytesSent` |Nombre total d’octets qui ont été envoyés dans la fenêtre de temps de rapport |
+| `BytesReceived` |Nombre total d’octets qui ont été reçus dans la fenêtre de temps de rapport |
+| `Responses` |Nombre de réponses observées dans la fenêtre de temps de rapport. 
+| `ResponseTimeMax` |Temps de réponse le plus long (en millisecondes) observé dans la fenêtre de temps de rapport.  En l’absence de valeur, la propriété est vide.|
+| `ResponseTimeMin` |Temps de réponse le plus court (en millisecondes) observé dans la fenêtre de temps de rapport.  En l’absence de valeur, la propriété est vide.|
+| `ResponseTimeSum` |Somme de tous les temps de réponse (en millisecondes) observés dans la fenêtre de temps de rapport.  En l’absence de valeur, la propriété est vide.|
 
 Le troisième type de données rapportées est le temps de réponse : le temps passé par un appelant à attendre qu’une requête envoyée sur une connexion soit traitée par le point de terminaison distant et que ce dernier y réponde. Le temps de réponse rapporté est une estimation du temps de réponse réel du protocole d’application sous-jacent. Il est calculé à l’aide d’une méthode heuristique basée sur l’observation du flux de données entre la source et la destination d’une connexion réseau physique. Sur le plan conceptuel, il s’agit de la différence entre le moment auquel le dernier octet d’une requête quitte l’expéditeur et celui auquel le dernier octet de la réponse lui revient. Ces deux timestamps sont utilisés pour délimiter les événements de requête et de réponse sur une connexion physique donnée. La différence entre eux représente le temps de réponse d’une requête unique. 
 
@@ -348,26 +348,26 @@ Pour plus de commodité, l’adresse IP de l’extrémité distante d’une conn
 
 | Propriété | Description |
 |:--|:--|
-|RemoteCountry |Nom du pays hébergeant RemoteIp.  Par exemple, *États-Unis* |
-|RemoteLatitude |Latitude de géolocalisation.  Par exemple, *47,68*. |
-|RemoteLongitude |Longitude de géolocalisation.  Par exemple, *-122,12*. |
+| `RemoteCountry` |Nom du pays hébergeant RemoteIp.  Par exemple, *États-Unis* |
+| `RemoteLatitude` |Latitude de géolocalisation.  Par exemple, *47,68*. |
+| `RemoteLongitude` |Longitude de géolocalisation.  Par exemple, *-122,12*. |
 
 #### <a name="malicious-ip"></a>Adresses IP malveillantes
 Chaque propriété RemoteIp de la table *VMConnection* est comparée à un ensemble d’adresses IP associées à une activité malveillante connue. Si la propriété RemoteIp est identifiée comme malveillante, les propriétés suivantes de l’enregistrement sont renseignées (elles sont vides lorsque l’adresse IP n’est pas considérée comme malveillante) :
 
 | Propriété | Description |
 |:--|:--|
-|MaliciousIP |Adresse RemoteIp |
-|IndicatorThreadType |L’indicateur de menace détecté est l’une des valeurs suivantes :  *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA* ou *Watchlist*.   |
-|Description |Description de la menace observée. |
-|TLPLevel |Niveau de protocole TLP (Traffic Light Protocol) est réglé sur l’une des valeurs définies, *Blanc*, *Vert*, *Orange*, *Rouge*. |
-|Confiance |Les valeurs sont comprises dans la fourchette *0 – 100*. |
-|Severity |Les valeurs sont comprises dans la fourchette *0 – 5*,  dans laquelle *5* correspond à la gravité maximale et *0* à l’absence de gravité. La valeur par défaut est *3*.  |
-|FirstReportedDateTime |La première fois que le fournisseur a déclaré l’indicateur. |
-|LastReportedDateTime |La dernière fois que l’indicateur a été vu par Interflow. |
-|IsActive |Indique les indicateurs sont désactivés avec la valeur *True* ou la valeur *False*. |
-|ReportReferenceLink |Liens vers des rapports relatifs à un observable donné. |
-|AdditionalInformation |Fournit des informations supplémentaires, s’il y a lieu, sur la menace observée. |
+| `MaliciousIp` |Adresse RemoteIp |
+| `IndicatorThreadType` |L’indicateur de menace détecté est l’une des valeurs suivantes :  *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA* ou *Watchlist*.   |
+| `Description` |Description de la menace observée. |
+| `TLPLevel` |Niveau de protocole TLP (Traffic Light Protocol) est réglé sur l’une des valeurs définies, *Blanc*, *Vert*, *Orange*, *Rouge*. |
+| `Confidence` |Les valeurs sont comprises dans la fourchette *0 – 100*. |
+| `Severity` |Les valeurs sont comprises dans la fourchette *0 – 5*,  dans laquelle *5* correspond à la gravité maximale et *0* à l’absence de gravité. La valeur par défaut est *3*.  |
+| `FirstReportedDateTime` |La première fois que le fournisseur a déclaré l’indicateur. |
+| `LastReportedDateTime` |La dernière fois que l’indicateur a été vu par Interflow. |
+| `IsActive` |Indique les indicateurs sont désactivés avec la valeur *True* ou la valeur *False*. |
+| `ReportReferenceLink` |Liens vers des rapports relatifs à un observable donné. |
+| `AdditionalInformation` |Fournit des informations supplémentaires, s’il y a lieu, sur la menace observée. |
 
 ### <a name="servicemapcomputercl-records"></a>Enregistrements ServiceMapComputer_CL
 Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventaire pour les serveurs incluant des agents Service Map. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
@@ -399,7 +399,7 @@ Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventai
 
 | Propriété | Description |
 |:--|:--|
-| `Type | *ServiceMapProcess_CL* |
+| `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
 | `ResourceId` | Identificateur unique d’un processus au sein de l’espace de travail |
 | `ResourceName_s` | identificateur unique d’un processus au sein de la machine sur laquelle il s’exécute|

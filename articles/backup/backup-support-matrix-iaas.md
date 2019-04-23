@@ -10,7 +10,7 @@ ms.date: 02/24/2019
 ms.author: raynew
 ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496093"
@@ -159,7 +159,7 @@ Sauvegarder la cohérence Multimachine virtuelle | Sauvegarde Azure ne fournit p
 Disques de données de machine virtuelle Azure | Sauvegarder une machine virtuelle avec 16 disques de données ou moins. <br/><br/> Prise en charge des disques d’une taille maximale de 4 To
 Taille de disque de données | La taille maximale d’un disque individuel est de 4 095 Go.<br/><br/> Si vos coffres exécutent la dernière version de la sauvegarde Azure (appelée la restauration instantanée), des tailles de disque jusqu'à 4 To sont pris en charge. [Plus d’informations](backup-instant-restore-capability.md)  
 Type de stockage | Premium de disque dur, disque SSD standard, disque SSD standard. <br/><br/> Disque SSD standard est prise en charge si vos coffres sont mis à niveau vers la dernière version de la sauvegarde de machine virtuelle Azure (connue en tant que la restauration instantanée). [Plus d’informations](backup-instant-restore-capability.md)
-Disques gérés |  Pris en charge.
+Disques managés |  Pris en charge.
 Disques chiffrés |  Pris en charge.<br/><br/> Les machines virtuelles Azure activées avec Azure Disk Encryption (avec ou sans l’application Azure AD) peuvent être sauvegardées.<br/><br/> Les machines virtuelles chiffrées ne peuvent pas être récupérées au niveau fichier/dossier. Vous devez récupérer la machine virtuelle entière.<br/><br/> Vous pouvez activer le chiffrement sur des machines virtuelles qui sont déjà protégées par Sauvegarde Azure.
 Disques avec l’accélérateur d’écriture activé | Non pris en charge.<br/><br/> Si vous exécutez la dernière version de la sauvegarde de machine virtuelle Azure (appelée [Restauration instantanée](backup-instant-restore-capability.md)), vous pouvez exclure de la sauvegarde les disques avec l’accélérateur d’écriture activé.
 Sauvegarder les disques dédupliqués | Non pris en charge.

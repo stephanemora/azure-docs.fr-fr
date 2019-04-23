@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339009"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994484"
 ---
 # <a name="detect-domain-specific-content"></a>Détecter le contenu spécifique à un domaine
 
@@ -30,7 +30,7 @@ Vous pouvez analyser une image à l'aide du modèle spécifique au domaine chois
 
 Voici un exemple de réponse JSON renvoyé par l'API **models/celebrities/analyze** pour l'image donnée :
 
-![Satya Nadella debout](./images/satya.jpeg)
+![Satya Nadella permanent, souriant](./images/satya.jpeg)
 
 ```json
 {
@@ -100,7 +100,7 @@ La réponse JSON suivante montre comment une analyse spécifique à un domaine p
 
 Le service Vision par ordinateur prend actuellement en charge les modèles spécifiques à un domaine suivants :
 
-| Nom | Description |
+| Name | Description |
 |------|-------------|
 | celebrities | Reconnaissance des célébrités, prise en charge pour les images classées dans la catégorie `people_` |
 | landmarks | Reconnaissance des points de repère, prise en charge pour les images classées dans les catégories `outdoor_` ou `building_` |

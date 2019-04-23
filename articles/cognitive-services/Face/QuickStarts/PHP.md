@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 0c48b85e48153eb70400fc6da4822271f49b7fbe
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630177"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490444"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et PHP
 
@@ -26,6 +26,7 @@ Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azur
 - Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
 - Un éditeur de code tel que [Visual Studio Code](https://code.visualstudio.com/download).
 - Package PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2).
+- Un navigateur web compatible PHP. Si vous n'avez pas configuré cela, vous pouvez le faire en installant et en configurant [XAMPP](https://www.apachefriends.org/) sur votre ordinateur.
 
 ## <a name="initialize-the-html-file"></a>Initialiser le fichier HTML
 

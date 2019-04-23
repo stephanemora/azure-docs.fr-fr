@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496877"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995657"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Surveiller l’activité d’abonnement avec le journal d’activité Azure
 
@@ -65,6 +65,9 @@ Voici ce que vous pouvez faire avec le journal d’activité :
 * Interrogez-le via l’applet de commande PowerShell, l’interface de ligne de commande ou l’API REST.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Interroger le journal d’activité dans le portail Azure
+
+> [!NOTE] 
+> Le journal d’activité stocke les journaux dans le serveur principal pendant 90 jours. Si vous souhaitez conserver les données allant au-delà de cela, configurez un **profil de journal** comme décrit ci-dessous. 
 
 À l’intérieur du portail Azure, vous pouvez afficher votre journal d’activité à plusieurs endroits :
 * Le **Journal d’activité** auquel vous avez accès en recherchant le Journal d’activité sous **Tous les services** dans le volet de navigation de gauche.

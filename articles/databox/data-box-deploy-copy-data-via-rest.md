@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 412bf66902f156c6c8720a720973f97d1d7b1d8f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 79854c71410c7e796961f23c8c31a4d0809cd69c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751614"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527980"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Didacticiel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST  
 
@@ -79,7 +79,7 @@ Utilisez le portail Azure pour télécharger le certificat.
 
 1. Connectez-vous au portail Azure.
 2. Affichez votre commande Data Box, puis accédez à **Général > Détails de l’appareil**.
-3. Sous **informations d’identification de l’appareil**, accédez à **Accès d’API**. Cliquez sur **Télécharger**. Cette action télécharge un fichier de certificat **<your order name>.cer**. **Enregistrez** ce fichier. Vous installerez ce certificat sur l’ordinateur hôte ou client que vous utiliserez pour vous connecter à l’appareil.
+3. Sous **informations d’identification de l’appareil**, accédez à **Accès d’API**. Cliquez sur **Télécharger**. Cette action télécharge un fichier de certificat **\<your order name>.cer**. **Enregistrez** ce fichier. Vous installerez ce certificat sur l’ordinateur hôte ou client que vous utiliserez pour vous connecter à l’appareil.
 
     ![Télécharger le certificat dans le portail Azure](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  

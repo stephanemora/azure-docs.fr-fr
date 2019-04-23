@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497925"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996507"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -61,7 +61,7 @@ En cas de partage avec d’autres machines virtuelles, la taille du compte de st
 Chaque machine virtuelle Azure Stack est fournie avec un stockage sur disque temporaire qui est disponible pour l’utilisateur en tant que volume `D:\`. Il est possible de configurer la zone de transit locale dont Sauvegarde Azure a besoin de façon à ce qu’elle réside sur `D:\`, et de placer le cache sur `C:\`. De cette façon, aucun stockage ne doit être effectué à l’écart des disques de données attachés à la machine virtuelle d’un serveur de sauvegarde Azure.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Stockage de données de sauvegarde sur disque local et dans Azure
-Un serveur de sauvegarde Azure stocke les données de sauvegarde sur des disques Azure attachés à la machine virtuelle à des fins de récupération opérationnelle. Une fois les disques et l’espace de stockage attachés à la machine virtuelle, le serveur de sauvegarde Azure gère le stockage pour vous. Le volume de stockage de données de sauvegarde varie selon le nombre et la taille des disques attachés à chaque [machine virtuelle Azure Stack](../azure-stack/user/azure-stack-storage-overview.md). Chaque taille de machine virtuelle Azure Stack est associée à un nombre maximal de disques pouvant être attachés à la machine virtuelle. Par exemple, la taille A2 correspond à quatre disques. La taille A3 correspond à huit disques. La taille A4 correspond à seize disques. Ici encore, la taille et le nombre de disques déterminent la capacité totale du pool de stockage de sauvegarde.
+Un serveur de sauvegarde Azure stocke les données de sauvegarde sur des disques Azure attachés à la machine virtuelle à des fins de récupération opérationnelle. Une fois les disques et l’espace de stockage attachés à la machine virtuelle, le serveur de sauvegarde Azure gère le stockage pour vous. Le volume de stockage de données de sauvegarde varie selon le nombre et la taille des disques attachés à chaque [machine virtuelle Azure Stack](/azure-stack/user/azure-stack-storage-overview). Chaque taille de machine virtuelle Azure Stack est associée à un nombre maximal de disques pouvant être attachés à la machine virtuelle. Par exemple, la taille A2 correspond à quatre disques. La taille A3 correspond à huit disques. La taille A4 correspond à seize disques. Ici encore, la taille et le nombre de disques déterminent la capacité totale du pool de stockage de sauvegarde.
 
 > [!IMPORTANT]
 > Vous ne devez **pas** conserver des données de récupération (sauvegarde) opérationnelle sur des disques attachés à un serveur de sauvegarde Azure pendant plus de cinq jours.
@@ -73,7 +73,7 @@ Pour stocker des données de sauvegarde dans Azure, créez ou utilisez un coffre
  
 ### <a name="scaling-deployment"></a>Déploiement avec mise à l’échelle
 Si vous souhaitez mettre à l’échelle votre déploiement, vous disposez des options suivantes :
-  - Monter en puissance : augmenter la taille de la machine virtuelle du serveur de sauvegarde Azure en passant de la série A à la série D, et augmenter le stockage local [conformément aux instructions relatives à la machine virtuelle Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
+  - Monter en puissance : augmenter la taille de la machine virtuelle du serveur de sauvegarde Azure en passant de la série A à la série D, et augmenter le stockage local [conformément aux instructions relatives à la machine virtuelle Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
   - Décharger des données : envoyer des données plus anciennes vers Azure en ne conservant que les données les plus récentes sur le stockage attaché au serveur de sauvegarde Azure.
   - Monter en charge : ajouter des serveurs de sauvegarde Azure pour protéger les charges de travail.
 

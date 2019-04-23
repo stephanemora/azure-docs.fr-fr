@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 733d27549542d3ebdd0cfba429aeaaab9f8be473
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370302"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000927"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Couverture de géocodage Azure Maps
 
@@ -106,14 +106,14 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Fidji                                                |                  |                |              |      ✓     |          ✓         |
 | Polynésie française                                    |                 |                |              |      ✓     |          ✓         |
 | Heard et McDonald (îles)                   |                 |                |              |      ✓     |          ✓         |
-| Hong Kong (R.A.S.)                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Hong Kong (R.A.S.)                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonésie                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Inde                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japon                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Corée du Sud                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macao (R.A.S.)                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macao R.A.S.                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malaisie                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Micronésie                                          |                 |                |              |      ✓     |          ✓         |
 | Mongolie                                            |                 |                |              |      ✓     |          ✓         |
@@ -189,7 +189,7 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lituanie                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxembourg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| République de Macédoine                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macédoine du Nord                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malte                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606886"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994773"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Définir des variables d’environnement dans les instances de conteneur
 
@@ -143,18 +143,15 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Exemple du portail Azure
 
-Pour définir des variables d’environnement lorsque vous démarrez un conteneur dans le portail Azure, spécifiez-les dans la page **Configuration** lors de la création du conteneur.
+Pour définir les variables d’environnement lorsque vous démarrez un conteneur dans le portail Azure, indiquez-les dans la **avancé** page lorsque vous créez le conteneur.
 
-Lorsque vous effectuez un déploiement à partir du portail, vous êtes limité à trois variables, que vous devez entrer au format suivant : `"variableName":"value"`
-
-Pour voir un exemple, démarrer le [aci-wordcount] [ aci-wordcount] conteneur avec la *NumWords* et *MinLength* variables.
-
-1. Dans **Configuration**, définissez la **Stratégie de redémarrage** sur *En cas d’échec*.
-2. Entrez `"NumWords":"5"` pour la première variable, sélectionnez **Oui** sous **Ajouter des variables d’environnement supplémentaires**, puis entrez `"MinLength":"8"` pour la deuxième variable. Sélectionnez **OK** pour vérifier, puis déployer le conteneur.
+1. Sur le **avancé** , définissez le **stratégie de redémarrage** à *en cas d’échec*
+2. Sous **variables d’environnement**, entrez `NumWords` avec la valeur `5` pour la première variable, puis entrez `MinLength` avec la valeur `8` pour la deuxième variable. 
+1. Sélectionnez **révision + créer** pour vérifier, puis déployer le conteneur.
 
 ![Page du portail montrant le bouton d’activation et les zones de texte des variables d’environnement][portal-env-vars-01]
 
-Pour afficher les journaux d’activité du conteneur, sous **Paramètres**, sélectionnez **Conteneurs**, puis **Journaux d’activité**. Comme pour la sortie des sections CLI et PowerShell précédentes, vous voyez que le comportement du script a été modifié par les variables d’environnement. Seuls cinq mots sont affichés, chacun avec une longueur minimale de huit caractères.
+Pour afficher les journaux du conteneur, sous **paramètres** sélectionnez **conteneurs**, puis **journaux**. Comme pour la sortie des sections CLI et PowerShell précédentes, vous voyez que le comportement du script a été modifié par les variables d’environnement. Seuls cinq mots sont affichés, chacun avec une longueur minimale de huit caractères.
 
 ![Sortie du journal du conteneur dans le portail][portal-env-vars-02]
 

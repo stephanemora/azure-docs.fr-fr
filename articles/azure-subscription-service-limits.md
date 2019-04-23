@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: a32ebb3fc2448b189aa5970446e2ceb29aed51e2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: b09de67cddcec26a1083bb64d13b9bbc47c3d5e5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838780"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998479"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Au fil du temps, la liste est étendue et mis à jour pour couvrir plusieurs services.
@@ -58,7 +58,7 @@ Dans la liste suivante des limites, une nouvelle table reflète des différences
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Search](#azure-search-limits)
+* [Recherche Azure](#azure-search-limits)
 * [Service Azure SignalR](#azure-signalr-service-limits)
 * [Sauvegarde](#backup-limits)
 * [Batch](#batch-limits)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 57630d1fa95c2133e592f691add8c515ca718afb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833429"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999465"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Résoudre les problèmes de restauration automatique sur l’infrastructure locale à partir d’Azure
 
@@ -56,7 +56,7 @@ Pour résoudre ce problème :
 
 Pour résoudre ce problème :
 
-Pour reprotéger une machine virtuelle basculée, la machine virtuelle Azure doit être exécutée de sorte que le service Mobilité s’inscrive auprès du serveur de configuration local et puisse démarrer la réplication en communiquant avec le serveur de processus. Si la machine ne se trouve pas sur le bon réseau ou n’est pas en cours d’exécution (état suspendu ou arrêtée), le serveur de configuration ne peut pas contacter le service Mobilité sur la machine virtuelle pour démarrer la reprotection.
+Pour reprotéger une machine virtuelle basculée, la machine virtuelle Azure doit être exécutée de sorte que le service Mobilité s’inscrive auprès du serveur de configuration local et puisse démarrer la réplication en communiquant avec le serveur de processus. Si l’ordinateur se trouve sur un réseau incorrect ou n’est pas en cours d’exécution (pas répondre ou arrêté), le serveur de configuration ne peut pas atteindre le Service mobilité sur la machine virtuelle pour commencer la reprotection.
 
 * Redémarrez la machine virtuelle pour qu’elle puisse recommencer à communiquer localement.
 * Redémarrez le travail de reprotection après le démarrage de la machine virtuelle Azure.

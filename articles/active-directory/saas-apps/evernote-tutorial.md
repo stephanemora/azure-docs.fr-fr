@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Evernote | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Evernote | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Evernote.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 04/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d8b4c20ee7aa932109c0e89904456fea8dd437
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854702"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499918"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutoriel : Intégration d’Azure Active Directory avec Evernote
+# <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Didacticiel : Intégration d’Azure Active Directory avec Evernote
 
 Dans ce didacticiel, vous allez apprendre à intégrer Evernote à Azure Active Directory (Azure AD).
 L’intégration d’Evernote avec Azure AD vous offre les avantages suivants :
@@ -61,7 +61,7 @@ Pour configurer l’intégration d’Evernote à Azure AD, vous devez, à parti
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+3. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
@@ -101,7 +101,7 @@ Pour configurer l’authentification unique Azure AD avec Evernote, effectuez l
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez l’étape suivante :
 
     ![Informations d’authentification unique dans Domaine et URL Evernote](common/idp-identifier.png)
 
@@ -117,7 +117,17 @@ Pour configurer l’authentification unique Azure AD avec Evernote, effectuez l
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-7. Dans la section **Configurer Evernote**, copiez la ou les URL appropriées en fonction de vos besoins.
+7. Pour modifier les options **Certificat de signature**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Certificat de signature SAML**.
+
+    ![image](common/edit-certificate.png) 
+
+    ![image](./media/evernote-tutorial/samlassertion.png)
+
+    a. Sélectionnez l’option **Signer la réponse et l’assertion SAML** dans **Option de signature**.
+
+    b. Cliquez sur **Enregistrer**.
+
+8. Dans la section **Configurer Evernote**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -169,8 +179,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 

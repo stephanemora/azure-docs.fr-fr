@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525923"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998451"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -92,20 +92,22 @@ Azure Files offre deux niveaux de performances : standard et premium.
 |Europe Nord  | Non  |
 |Europe Ouest   | Oui|
 |Asie       | Oui|
+|Asie Est     | Non  |
 |Japon Est    | Non  |
+|Japon Ouest    | Non  |
 |Centre de la Corée | Non  |
 |Australie Est| Non  |
 
 ### <a name="provisioned-shares"></a>Partages approvisionnés
 
-Partages de fichiers Premium (version préliminaire) sont configurés selon un ratio Gio/IOPS/débit fixe. Pour chaque Gio approvisionné, le partage reçoit un débit d’une IOPS et de 0,1 Mio/s, dans les limites maximales autorisées par partage. L’approvisionnement minimal autorisé est de 100 Gio avec un minimum d’E/S par seconde/débit. Taille du partage peut être augmentée à toute heure et une réduction à tout moment, mais peut être réduite à une fois toutes les 24 heures depuis l’augmentation de la dernière.
+Partages de fichiers Premium (version préliminaire) sont configurés selon un ratio Gio/IOPS/débit fixe. Pour chaque Gio approvisionné, le partage reçoit un débit d’une IOPS et de 0,1 Mio/s, dans les limites maximales autorisées par partage. L’approvisionnement minimal autorisé est de 100 Gio avec un minimum d’E/S par seconde/débit.
 
 Dans la mesure du possible, tous les partages peuvent atteindre en rafale jusqu’à trois IOPS par Gio de stockage approvisionné pendant 60 minutes ou plus, selon la taille du partage. Les nouveaux partages démarrent avec le crédit de rafale complète basé sur la capacité approvisionnée.
 
-Tous les partages peuvent croître jusqu'à au moins 100 débit d’e/s et la cible de 100 Mio/s. Partages doivent être approvisionnés incréments de 1 Go. Taille minimale est de 100 Go, la taille suivante est GIO 101 et ainsi de suite.
+Partages doivent être approvisionnés incréments de 1 Go. Taille minimale est de 100 Go, la taille suivante est GIO 101 et ainsi de suite.
 
 > [!TIP]
-> Ligne de base d’e/s = 100 + 1 * approvisionné Gio. (Jusqu'à un maximum de 100 000 e/s).
+> Ligne de base d’e/s = 1 * approvisionné Gio. (Jusqu'à un maximum de 100 000 e/s).
 >
 > Limite de rafale = 3 * ligne de base d’e/s. (Jusqu'à un maximum de 100 000 e/s).
 >
@@ -113,13 +115,13 @@ Tous les partages peuvent croître jusqu'à au moins 100 débit d’e/s et la ci
 >
 > taux d’entrée = 40 Mio/s + 0.04 * approvisionné Gio
 
-Taille du partage peut être augmentée à toute heure et une réduction à tout moment, mais peut être réduite à une fois toutes les 24 heures depuis l’augmentation de la dernière. Modifications de mise à l’échelle d’IOPS/débit entreront en vigueur dans les 24 heures après le changement de taille.
+Taille du partage peut être augmentée à tout moment, mais peut être diminuée uniquement après 24 heures depuis l’augmentation de la dernière. Après avoir attendu sans augmenter la taille des dernières 24 heures, vous pouvez réduire la taille du partage autant de fois jusqu'à ce que vous l’augmentez à nouveau. Modifications de mise à l’échelle d’IOPS/débit entreront en vigueur après quelques minutes après le changement de taille.
 
 Le tableau suivant illustre quelques exemples de ces formules pour les tailles de partage configuré :
 
 (Tailles dénoté par un * sont en version préliminaire publique limitée)
 
-|Capacité (Go) | IOPS de base | Limite de rafale | Sortie (Mio/s) | Entrée (Mio/s) |
+|Capacité (Go) | IOPS de base | Rafale d’e/s | Sortie (Mio/s) | Entrée (Mio/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Jusqu’à 300     | 66   | 44   |
 |500         | 500     | Jusqu'à 1 500   | 90   | 60   |
@@ -136,10 +138,10 @@ Actuellement, taille de partage de fichier jusqu'à 5 To est en version prélimi
 
 Partages de fichiers Premium peuvent croître leur IOPS jusqu'à un facteur de trois. Rupture est automatisé et fonctionne selon un système de crédit. Fonctionne sur une mesure du possible et la limite de croissance de rupture n’est pas une garantie, de partages de fichiers peuvent croître *jusqu'à* la limite.
 
-Crédits s’accumulent dans un compartiment de rafale chaque fois que le trafic pour vos partages de fichiers est sous la ligne de base e/s. Par exemple, un partage de Gio 100 a planifié 100 e/s. Si le trafic réel sur le partage a été 40 e/s pour un intervalle de 1 seconde spécifique, les IOPS inutilisés 60 sont créditées dans un compartiment en rafale. Ces crédits seront ensuite être utilisées lors d’opérations dépasserait la ligne de base e/s.
+Crédits s’accumulent dans un compartiment de rafale chaque fois que le trafic pour votre partage de fichiers est sous la ligne de base e/s. Par exemple, un partage de Gio 100 a planifié 100 e/s. Si le trafic réel sur le partage a été 40 e/s pour un intervalle de 1 seconde spécifique, les IOPS inutilisés 60 sont créditées dans un compartiment en rafale. Ces crédits seront ensuite être utilisées lors d’opérations dépasserait la ligne de base e/s.
 
 > [!TIP]
-> Taille du compartiment de limite de rafale = Baseline_IOPS * 2 * 3600.
+> Taille du compartiment en rafale = Baseline_IOPS * 2 * 3600.
 
 Chaque fois qu’un partage dépasse la ligne de base e/s et a des crédits dans un compartiment de rafale, il sera expédié. Partages peuvent continuer à croître tant que restant crédits, bien que les partages inférieures à 50 TIO restera uniquement atteint la limite de croissance pour atteindre une heure. Partages supérieur à 50 TIO techniquement de dépasser cette limite d’une heure, les deux heures, mais cela repose sur le nombre de crédits de rafale à recevoir. Chaque e/s au-delà de la ligne de base e/s consomme un crédit et une fois que tous les crédits consommés le partage retourne à la ligne de base e/s.
 
@@ -147,9 +149,9 @@ Les crédits de partage ont trois états :
 
 - Comptabiliser, lorsque le partage de fichiers est inférieure à la ligne de base e/s à l’aide.
 - En baisse, lorsque le partage de fichiers est de rupture.
-- E/s restant à zéro, lorsqu’il n’y a aucune ligne de base ou crédits sont en cours d’utilisation.
+- E/s reste constante, lorsqu’il n’y a aucune ligne de base ou crédits sont en cours d’utilisation.
 
-Nouveau début de partages de fichier avec le nombre total de crédits dans le compartiment de sa croissance.
+Nouveau début de partages de fichier avec le nombre total de crédits dans le compartiment de sa croissance. Les crédits de rafale ne seront pas provisionnées si le partage IOPS chutent en dessous de la ligne de base e/s en raison de la limitation par le serveur.
 
 ## <a name="file-share-redundancy"></a>Redondance de partage de fichiers
 

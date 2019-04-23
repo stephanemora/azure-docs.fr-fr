@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: 269a66441529efee358cea22bb4f98b81a4b2f23
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: b257c1dbbed225bee9adfdb427bd036f0230ea47
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586322"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565059"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB : Générer une application Python à l’aide du compte d’API SQL Azure Cosmos DB
 
@@ -26,15 +26,15 @@ ms.locfileid: "56586322"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des documents ainsi que des bases de données de clés/valeurs et de graphiques. Toutes ces opérations bénéficient de la distribution et la mise à l’échelle d’Azure Cosmos DB.
 
-Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte [d’API SQL](sql-api-introduction.md) Azure Cosmos DB, une base de données de documents, ainsi qu’un conteneur. Ensuite, vous créez et exécutez une application console à l’aide du kit SDK Python pour [l’API SQL](sql-api-sdk-python.md). Ce guide de démarrage rapide utilise la version 3.0 du [kit SDK Python].(https://pypi.org/project/azure-cosmos)
+Ce démarrage rapide explique comment créer, à l’aide du portail Azure, un compte [API SQL](sql-api-introduction.md) d’Azure Cosmos DB, une base de données de documents, ainsi qu’un conteneur. Ensuite, vous créez et exécutez une application console à l’aide du kit SDK Python pour [l’API SQL](sql-api-sdk-python.md). Ce guide de démarrage rapide utilise la version 3.0 du [kit SDK Python].(https://pypi.org/project/azure-cosmos)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)][!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Python 3.6](https://www.python.org/downloads/) avec \<l’emplacement d’installation\>\Python36 et \<l’emplacement d’installation>\Python36\Scripts ajoutés à votre chemin d’accès. 
+* [Python 3.6](https://www.python.org/downloads/), avec l’exécutable `python` disponible dans votre `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Extension Python pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -98,7 +98,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 ## <a name="review-the-code"></a>Vérifier le code
 
-Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). 
+Cette étape est facultative. En savoir plus sur les ressources de base de données créées dans le code, ou passer directement à [Mettre à jour votre chaîne de connexion](#update-your-connection-string).
 
 Notez que si vous avez déjà utilisé la version précédente du kit SDK Python, vous connaissez peut-être les termes « collection » et « document ». Étant donné qu’Azure Cosmos DB prend en charge plusieurs modèles d’API, les versions 3.0 et ultérieures du kit SDK Python utilisent les termes génériques « conteneur » (qui peut être une collection, un graphe ou une table) et « élément » (qui décrit le contenu du conteneur).
 

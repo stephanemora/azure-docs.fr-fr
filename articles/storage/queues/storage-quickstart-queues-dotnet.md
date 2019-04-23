@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: tamram
 ms.openlocfilehash: f16c4438dfb2feb70dece0b95f8afc701c5a3d66
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009306"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Démarrage rapide : Utiliser .NET pour créer une file d’attente dans le stockage Azure
@@ -269,6 +269,6 @@ Consultez ces ressources supplémentaires sur le développement .NET avec les fi
 Dans ce guide de démarrage rapide, vous avez découvert comment ajouter des messages à une file d’attente, afficher un aperçu des messages d’une file d’attente, et enlever et traiter des messages de la file d’attente à l’aide de .NET. 
 
 > [!div class="nextstepaction"]
-> [Communication entre applications avec le stockage File d’attente Azure](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Communiquer entre des applications avec le stockage File d’attente Azure](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - Pour en savoir plus sur .NET Core, consultez [Prise en main de .NET en 10 minutes](https://www.microsoft.com/net/learn/get-started/).

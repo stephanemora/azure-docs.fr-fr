@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 03/01/2019
-ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093886"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998275"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de ressources SQL Database des serveurs Azure SQL Database
 
@@ -75,7 +75,7 @@ En cas d’utilisation élevée de workers ou de sessions, voici certaines des o
 - Optimiser les requêtes afin de réduire l’utilisation des ressources de chaque requête si la cause de l’utilisation du travail accrue est un problème de contention des ressources de calcul. Pour plus d’informations, consultez la page [Paramétrage/Compréhension de requêtes](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="transaction-log-rate-governance"></a>Gouvernance de taux de journaux de transaction 
-Gouvernance de taux de journaux de transaction est un processus dans la base de données SQL Azure permet de limiter le taux d’ingestion élevés pour les charges de travail telles que bulk insert, SELECT INTO, et génère des index. Ces limites sont suivies et appliquées au niveau de seconde pour le taux de génération d’enregistrements journal, limitation de débit, quel que soit le nombre d’IOs peut être émis sur les fichiers de données.  Taux de génération de journaux de transaction actuellement une échelle linéaire jusqu'à un point qui dépendent du matériel, avec le journal maximal taux autorisée est 48 Mo/s avec le modèle d’achat de Vcores. 
+Gouvernance de taux de journaux de transaction est un processus dans la base de données SQL Azure permet de limiter le taux d’ingestion élevés pour les charges de travail telles que bulk insert, SELECT INTO, et génère des index. Ces limites sont suivies et appliquées au niveau de seconde pour le taux de génération d’enregistrements journal, limitation de débit, quel que soit le nombre d’IOs peut être émis sur les fichiers de données.  Taux de génération de journaux de transaction actuellement une échelle linéaire jusqu'à un point qui dépendent du matériel, avec le journal maximal taux autorisé est de 96 Mo/s avec le modèle d’achat de Vcores. 
 
 > [!NOTE]
 > IOs physiques réels pour les fichiers journaux des transactions ne sont pas régies ou limitées. 
@@ -98,7 +98,7 @@ Le trafic de mise en forme governor journal taux est présenté par le biais de 
 |||
 
 Lorsqu’il rencontre une limite de débit de journal qui est entravent l’évolutivité de votre choix, envisagez les options suivantes :
-- Monter en puissance vers un niveau supérieur afin d’obtenir le taux de journal 48 Mo/s maximal. 
+- Monter en puissance vers un niveau supérieur afin d’obtenir le taux de journal 96 Mo/s maximal. 
 - Si les données en cours de chargement sont temporaires, par exemple, de mise en attente dans un processus ETL, il peut être chargé dans tempdb (qui est minimale). 
 - Pour les scénarios d’analyse, charger dans une table columnstore en cluster couvert. Cela réduit le taux de journal requis en raison de la compression. Cette technique augmente l’utilisation du processeur et s’applique uniquement aux jeux de données qui bénéficient de l’index cluster columnstore. 
 

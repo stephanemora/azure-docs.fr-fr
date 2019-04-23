@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 6b100846ec08ca1bdda49d0d7bce9eb78ecf019b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798687"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996779"
 ---
 # <a name="security-groups"></a>Groupes de sécurité
 <a name="network-security-groups"></a>
@@ -32,7 +32,7 @@ Un groupe de sécurité réseau contient le nombre des règles souhaité (ou auc
 
 |Propriété  |Explication  |
 |---------|---------|
-|Nom|Nom unique au sein du groupe de sécurité réseau.|
+|Name|Nom unique au sein du groupe de sécurité réseau.|
 |Priorité | Nombre compris entre 100 et 4096. Les règles sont traitées dans l’ordre croissant, car les nombres les plus faibles sont prioritaires. Une fois que le trafic correspond à une règle, le traitement s’arrête. Par conséquent, les règles avec des priorités plus faibles (des nombres plus élevés) et ayant les mêmes attributs que les règles de priorité supérieure ne sont pas traitées.|
 |Source ou destination| Tout, ou adresse IP, bloc de routage CIDR (10.0.0.0/24, par exemple), une [balise de service](#service-tags) ou [groupe de sécurité d’application](#application-security-groups) individuel(le). Si vous spécifiez une adresse pour une ressource Azure, spécifiez l’adresse IP privée assignée à la ressource. Les groupes de sécurité réseau sont traités une fois qu’Azure a converti une adresse IP publique en adresse IP privée pour le trafic entrant, et avant qu’Azure ne convertisse une adresse IP privée en une adresse IP publique pour le trafic sortant. En savoir plus sur les [adresses IP](virtual-network-ip-addresses-overview-arm.md) Azure. En spécifiant une plage, une balise de service ou un groupe de sécurité d’application, vous pouvez créer moins des règles de sécurité. La possibilité de spécifier plusieurs adresses IP individuelles et plages (vous ne pouvez pas spécifier plusieurs balises de service ou groupes d’applications) dans une règle est désignée sous le nom de [règles de sécurité augmentée](#augmented-security-rules). Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs adresses IP et plages d’adresses IP dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique. En savoir plus sur les [modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 |Protocole     | TCP, UDP ou Tout, ce qui inclut (sans s'y limiter) TCP, UDP et ICMP. Vous ne pouvez pas spécifier ICMP seul. Si vous avez besoin d’ICMP, vous devez donc utiliser Tout. |
@@ -57,7 +57,7 @@ Les règles de sécurité augmentée simplifient la définition de la sécurité
 
  Vous pouvez utiliser les balises de service suivantes dans la définition de règle de sécurité. Leurs noms varient légèrement selon les [modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** pour le mode classique) : Cette balise inclut l’espace d’adressage du réseau virtuel (toutes les plages CIDR définies pour le réseau virtuel), tous les espaces d’adressage locaux connectés, ainsi que les réseaux virtuels [appairés](virtual-network-peering-overview.md) ou réseaux virtuels connectés à une [passerelle de réseau virtuel](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** pour le mode classique) : Cette balise inclut l’espace d’adressage de réseau virtuel (toutes les plages CIDR définies pour le réseau virtuel), tous les espaces d’adresse en local, connectés et [homologués](virtual-network-peering-overview.md) réseaux virtuels ou réseau virtuel connecté à un [virtuel passerelle de réseau](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et utilisés sur des préfixes d’adresse [itinéraires définis par l’utilisateur](virtual-networks-udr-overview.md).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** pour le mode classique) : Cette balise par défaut indique l’équilibreur de charge de l’infrastructure d’Azure. Elle est translatée vers l’[adresse IP virtuelle de l’hôte](security-overview.md#azure-platform-considerations) (168.63.129.16) d’où proviennent les sondes d’intégrité d’Azure. Vous pouvez remplacer cette règle si vous n’utilisez pas l’équilibreur de charge Azure.
 * **Internet** (Resource Manager) (**INTERNET** pour le mode classique) : Cette balise par défaut indique l’espace d’adresse IP qui se trouve en dehors du réseau virtuel et est accessible sur les réseaux Internet publics. La plage d’adresse inclut l’[espace de l’adresse IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureCloud** (Resource Manager uniquement) : Cette balise désigne l’espace d’adressage IP pour Azure, notamment l’ensemble des [adresses IP publiques du centre de données](https://www.microsoft.com/download/details.aspx?id=41653). Si vous spécifiez *AzureCloud* comme valeur, le trafic est autorisé ou refusé pour les adresses IP publiques Azure. Si vous souhaitez uniquement autoriser l’accès à AzureCloud dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région. Par exemple, pour autoriser l’accès uniquement à Azure AzureCloud dans la région USA Est, vous pouvez spécifier *AzureCloud.EastUS* en tant que balise de service. 

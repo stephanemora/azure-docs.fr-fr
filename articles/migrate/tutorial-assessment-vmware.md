@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313105"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490316"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -56,7 +56,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 4. Créez un groupe de ressources.
 5. Spécifiez la zone géographique dans laquelle vous souhaitez créer le projet, puis cliquez sur **Créer**. Vous pouvez créer un projet Azure Migrate uniquement dans les zones géographiques suivantes. Toutefois, vous pouvez toujours planifier votre migration pour n'importe quel emplacement Azure cible. La zone géographique spécifiée pour le projet est utilisée uniquement pour stocker les métadonnées collectées à partir des machines virtuelles locales.
 
-**Zone géographique** | **Emplacement de stockage**
+**Geography** | **Emplacement de stockage**
 --- | ---
 Azure Government | Gouvernement américain - Virginie
 Asie | Asie Sud-Est
@@ -98,7 +98,7 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
 1. Sur l’ordinateur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Le code de hachage généré doit correspondre aux paramètres ci-après.
 
 #### <a name="continuous-discovery"></a>Détection continue
@@ -194,6 +194,9 @@ Importez le fichier téléchargé sur le serveur vCenter.
     - Spécifiez le nom (FQDN) ou l’adresse IP du serveur vCenter.
     - Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte en lecture seule que le collecteur utilisera pour découvrir les machines virtuelles sur le serveur vCenter.
     - Dans **Étendue de la collecte**, sélectionnez une étendue pour la découverte des machines virtuelles. Le collecteur peut uniquement découvrir les machines virtuelles situées dans l’étendue spécifiée. L’étendue peut être définie sur un dossier, un centre de données ou un cluster spécifique. Elle ne doit pas contenir plus de 1 500 machines virtuelles. [En savoir plus](how-to-scale-assessment.md) sur la manière dont vous pouvez découvrir un environnement plus large.
+
+       > [!NOTE]
+       > **Étendue de collection** répertorie uniquement les dossiers des hôtes et clusters. Les dossiers de machines virtuelles ne peuvent pas être directement sélectionnés comme étendue de collection. Toutefois, vous pouvez les trouver en utilisant un compte vCenter qui a accès aux machines virtuelles individuelles. [En savoir plus](https://docs.microsoft.com/azure/migrate/how-to-scale-assessment#set-up-permissions) sur la façon d'étendre à un dossier de machines virtuelles.
 
 7. Dans **Specify migration project** (Spécifier un projet de migration), spécifiez l’ID et la clé du projet Azure Migrate que vous avez copiés à partir du portail. Si vous ne les avez pas copiés, ouvrez le portail Azure à partir de la machine virtuelle collector. Dans la page **Vue d’ensemble** du projet, cliquez sur **Découvrir des machines**, puis copiez les valeurs.  
 8. Dans **Afficher la progression de la collecte**, surveillez l’état de la détection. [En savoir plus](https://docs.microsoft.com/azure/migrate/concepts-collector) sur les données collectées par le collecteur Azure Migrate.

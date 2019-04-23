@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ff2ea89c257a4941c801f3056450e005a9b37039
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969666"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996048"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Régions disponibles pour votre appareil StorSimple
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Les centres de données Azure fonctionnent dans différentes zones géographiques du monde pour répondre aux besoins de performances, aux obligations et aux préférences des clients pour ce qui est de l’emplacement des données. Une zone géographique Azure est une zone définie du monde contenant au moins une région Azure. Une région Azure est une zone géographique contenant un ou plusieurs centres de données.
 
@@ -69,7 +69,7 @@ Si vous utilisez un appareils physique StorSimple 8100 ou 8600, il est disponibl
 
 | #  | Pays        | #  | Pays     | #  | Pays      | #  | Pays              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australie      | 16 | Hong Kong (R.A.S.)   | 31 | Nouvelle-Zélande  | 46 | Afrique du Sud         |
+| 1  | Australie      | 16 | Hong Kong (R.A.S.)| 31 | Nouvelle-Zélande  | 46 | Afrique du Sud         |
 | 2  | Autriche        | 17 | Hongrie     | 32 | Nigeria      | 47 | Corée du Sud          |
 | 3  | Bahreïn        | 18 | Islande     | 33 | Norvège       | 48 | Espagne                |
 | 4  | Belgique        | 19 | Inde       | 34 | Pérou         | 49 | Sri Lanka            |
@@ -80,7 +80,7 @@ Si vous utilisez un appareils physique StorSimple 8100 ou 8600, il est disponibl
 | 9  | République tchèque | 24 | Japon       | 39 | Qatar        | 54 | Turquie               |
 | 10 | Danemark        | 25 | Kenya       | 40 | Roumanie      | 55 | Ukraine              |
 | 11 | Égypte          | 26 | Koweït      | 41 | Russie       | 56 | Émirats Arabes Unis |
-| 12 | Finlande        | 27 | Macao (R.A.S.)       | 42 | Arabie Saoudite | 57 | Royaume-Uni       |
+| 12 | Finlande        | 27 | Macao R.A.S.   | 42 | Arabie Saoudite | 57 | Royaume-Uni       |
 | 13 | France         | 28 | Malaisie    | 43 | Singapour    | 58 | États-Unis        |
 | 14 | Allemagne        | 29 | Mexique      | 44 | Slovaquie     | 59 | Vietnam              |
 | 15 | Grèce         | 30 | Pays-bas | 45 | Slovénie     | 60 | Croatie              |

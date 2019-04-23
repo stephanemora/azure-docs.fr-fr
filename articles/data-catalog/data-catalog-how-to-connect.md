@@ -2,21 +2,21 @@
 title: Guide pratique pour se connecter aux sources de données dans Azure Data Catalog
 description: Article de procédure relatif à la connexion aux sources de données détectées avec Azure Data Catalog.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 973077b56f1a777d917a94f9c1470e6f8c15a489
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405052"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000570"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Connexion aux sources de données
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 **Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. L’utilisation des données représente un aspect clé de ce scénario. Lorsqu’un utilisateur détecte une source de données et en comprend l’objet, l’étape suivante consiste à se connecter à la source de données pour pouvoir exploiter les données correspondantes.
 
 ## <a name="data-source-locations"></a>Emplacements des sources de données

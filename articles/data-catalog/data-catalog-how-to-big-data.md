@@ -2,21 +2,21 @@
 title: Utilisation des sources de données « volumineuses » dans Azure Data Catalog
 description: Article de procédure expliquant comment utiliser Azure Data Catalog avec des sources de données « volumineuses », notamment le Stockage Blob Azure, Azure Data Lake et les fichiers Hadoop HDFS.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 626d1568-0780-4726-bad1-9c5000c6b31a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 42b002e3494d84084979f2f5b27e9679e61cbeb5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b6b419d575e2164fc683b8e6b5020572db74d1b4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407720"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998666"
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Utilisation des sources de données volumineuses dans Azure Data Catalog
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 **Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. Il vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données, et à permettre aux organisations de mieux exploiter leurs sources données existantes, y compris le Big Data.
 
 **Azure Data Catalog** prend en charge l’inscription d’objets et de répertoire de Stockage d’objets blob Azure ainsi que des fichiers et des répertoires HDFS Hadoop. La nature semi-structurée des sources de données offre une grande flexibilité. Toutefois, pour réellement profiter de leur enregistrement dans **Azure Data Catalog**, les utilisateurs doivent comprendre comment sont organisées les sources de données.

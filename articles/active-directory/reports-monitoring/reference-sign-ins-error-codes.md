@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf777917bc2e09f08cbfaac6334bf9bda198f01
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439383"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996167"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -174,9 +174,11 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |81012|Ce n’est pas un état d’erreur. Cela indique que l’utilisateur qui tente de se connecter à Azure AD est différent de l’utilisateur connecté à l’appareil. Vous pouvez ignorer sans problème ce code dans les journaux d’activité.|
 |90010|La requête n’est pas prise en charge pour diverses raisons. Par exemple, la requête est effectuée à l’aide d’une méthode de requête non prise en charge (seule la méthode POST est prise en charge) ou l’algorithme de signature de jeton demandé n’est pas pris en charge. Contactez le développeur de l’application.|
 |90014| Un champ obligatoire du message de protocole n’a pas été renseigné. Contactez le propriétaire de l’application. Si vous êtes le propriétaire de l’application, vérifiez que vous disposez de tous les paramètres nécessaires pour la requête de connexion. |
+|90051| Jeton de délégation non valide. ID de Cloud national non valide ({cloudId}) est spécifié.|
 |90072| Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous, puis connectez-vous avec un autre compte Azure AD.|
 |90094| L’accès nécessite des autorisations d’administrateur. Demandez à l’administrateur de votre locataire de donner son consentement pour cette application.|
 |500133| L’intervalle de temps de l’assertion n’est pas valide. Vérifiez que le jeton d’accès n’est pas arrivé à expiration avant de l’utiliser pour l’assertion de l’utilisateur, ou demandez-en un nouveau.|
+|530021|Application ne respecte pas les exigences d’applications approuvées de l’accès conditionnel.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

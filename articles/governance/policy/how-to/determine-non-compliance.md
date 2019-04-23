@@ -3,16 +3,16 @@ title: Déterminer les causes de non-conformité
 description: Lorsqu’une ressource est non conforme, il existe plusieurs raisons. Découvrez comment trouver ce qui a provoqué la non-conformité.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 03/30/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276097"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995000"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Déterminer les causes de non-conformité
 
@@ -124,6 +124,8 @@ Dans le cadre d’un nouveau **version préliminaire publique**, au cours des 14
    ![Stratégie modification historique Visual Diff sur la page de l’historique de modification](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Le _différentiel visuel_ aide à identifier les modifications apportées à une ressource. Les modifications détectées ne peuvent pas être liées à l’état de conformité actuel de la ressource.
+
+Modification des données d’historique sont fournies par [graphique des ressources Azure](../../resource-graph/overview.md). Pour interroger ces informations en dehors du portail Azure, consultez [obtenir les modifications des ressources](../../resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

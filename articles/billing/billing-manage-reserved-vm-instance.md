@@ -1,24 +1,23 @@
 ---
 title: Gérer les réservations Azure | Microsoft Docs
 description: Découvrez comment changer l’étendue de l’abonnement et gérer l’accès pour les réservations Azure.
-services: billing
+ms.service: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
 editor: ''
-ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904439"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994948"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -29,7 +28,19 @@ Si vous avez acheté Azure Reserved Virtual Machine Instances, vous pouvez modif
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="change-the-scope-for-a-reservation"></a>Modifier l’étendue d’une réservation
+## <a name="reservation-order-and-reservation"></a>Réservation et l’ordre de réservation
+
+Lorsque vous achetez d’une réservation, deux objets sont créés : **Ordre de réservation** et **réservation**.
+
+Au moment de l’achat, un ordre de réservation a une réservation sous celui-ci. Créent des actions telles que le fractionnement, fusion, remboursement partiel ou exchange nouvelles réservations sous la **de réservation**.
+
+Pour afficher une commande de réservation, accédez à **réservations** > sélectionnez la réservation, puis cliquez sur le **ID de commande de réservation**.
+
+![Exemple de détails de commande de réservation indiquant l’ID de commande de réservation ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+Une réservation hérite des autorisations de son ordre de réservation.
+
+## <a name="change-the-reservation-scope"></a>Modifier l’étendue de réservation
 
  Votre remise de réservation s’applique aux machines virtuelles, bases de données SQL, Azure Cosmos DB ou autres ressources qui correspondent à votre réservation et l’exécutent dans l’étendue de réservation. Le contexte de facturation dépend de l’abonnement utilisé pour acheter la réservation.
 
@@ -47,9 +58,12 @@ L’étendue s’applique uniquement aux abonnements MS-AZR-0003P ou MS-AZR-0023
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Ajouter ou modifier les utilisateurs qui peuvent gérer une réservation
 
-Vous pouvez déléguer la gestion d’une réservation en ajoutant des utilisateurs aux rôles de la réservation. Par défaut, la personne qui a acheté la réservation et l’administrateur de compte disposent tous les deux du rôle de propriétaire sur la réservation.
+Vous pouvez déléguer la gestion de la réservation en ajoutant des utilisateurs aux rôles sur l’ordre de réservation ou la réservation. Par défaut, la personne qui place l’ordre de réservation et l’administrateur de compte ont le rôle de propriétaire sur l’ordre de réservation et la réservation.
 
-Vous pouvez gérer l’accès aux réservations, indépendamment des abonnements qui bénéficient de la remise de réservation. Lorsque vous accordez des autorisations de gestion pour une réservation, cela ne veut pas dire que vous octroyez des droits sur la gestion de l’abonnement. Et si vous accordez des autorisations de gestion d’un abonnement dans les limites de l’étendue de la réservation, vous n’octroyez aucun droit permettant de gérer la réservation.
+Vous pouvez gérer l’accès aux commandes de réservations et les réservations indépendamment des abonnements qui bénéficient de la remise de réservation. Lorsque vous accordez des autorisations pour gérer une demande de réservation ou la réservation, il ne les autorisez à gérer l’abonnement. De même, si vous accordez des autorisations pour gérer un abonnement dans l’étendue de la réservation, il ne donne pas les droits pour gérer l’ordre de réservation ou la réservation.
+
+Pour effectuer un échange ou un remboursement, l’utilisateur doit avoir accès à l’ordre de réservation. Lorsqu’il accorde une personne, il convient d’accorder des autorisations à l’ordre de réservation, pas la réservation.
+
 
 Pour déléguer la gestion de l’accès à une réservation :
 

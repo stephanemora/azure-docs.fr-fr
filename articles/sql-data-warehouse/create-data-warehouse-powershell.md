@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 11/16/2018
+ms.date: 4/11/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 01a1c1fef5dd2dabf99677d59126caf41e1f6885
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d76f7ac6c8b60e2dec7d7d95cf419e1352b97f15
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900605"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545126"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Démarrage rapide : créer et interroger un entrepôt de données SQL Azure avec Azure PowerShell
 
@@ -103,8 +103,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## <a name="create-a-data-warehouse-with-sample-data"></a>Créer un entrepôt de données avec un exemple de données
-Cet exemple crée un entrepôt de données à l’aide de variables préalablement définies.  Il spécifie que l’objectif du service est DW400, ce qui correspond à un point de départ peu coûteux pour votre entrepôt de données. 
+## <a name="create-a-data-warehouse"></a>Créer un entrepôt de données
+Cet exemple crée un entrepôt de données à l’aide de variables préalablement définies.  Il spécifie que l’objectif du service est DW100c, ce qui correspond à un point de départ peu coûteux pour votre entrepôt de données. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -112,7 +112,7 @@ New-AzSqlDatabase `
     -ServerName $servername `
     -DatabaseName $databasename `
     -Edition "DataWarehouse" `
-    -RequestedServiceObjectiveName "DW400" `
+    -RequestedServiceObjectiveName "DW100c" `
     -CollationName "SQL_Latin1_General_CP1_CI_AS" `
     -MaxSizeBytes 10995116277760
 ```
@@ -128,7 +128,7 @@ Les paramètres obligatoires sont :
 Les paramètres facultatifs sont :
 
 - **CollationName** : s’il n’est pas spécifié, le classement par défaut est SQL_Latin1_General_CP1_CI_AS. Le classement ne peut pas être modifié sur une base de données.
-- **MaxSizeBytes** : par défaut, la taille maximale d’une base de données est de 10 Go.
+- **MaxSizeBytes** : par défaut, la taille maximale d’une base de données est de 240 To. La taille maximale limite les données rowstore. Il y a un stockage illimité pour les données en colonnes.
 
 Pour plus d’informations sur les options de paramètre, consultez [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 

@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: f6693de861658c7174614e80906ee83633fcb313
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501090"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995623"
 ---
 # <a name="creating-and-using-resource-files"></a>Création et utilisation des fichiers de ressources
 
@@ -72,7 +72,7 @@ Une alternative à la génération d’une URL SAS consiste à activer l’accè
 
 Au lieu de la configuration et la création d’une URL SAS, vous pouvez utiliser le nom de votre conteneur de stockage Azure à accéder à vos données d’objet blob. Le conteneur de stockage utilisé doit dans le compte de stockage Azure lié à votre compte Batch, appelé compte autostorage. En utilisant le nom de conteneur de stockage d’un compte autostorage vous permet d’ignorer la configuration et la création d’une URL SAS pour accéder à un conteneur de stockage.
 
-Dans cet exemple, nous partons du principe que les données à utiliser pour la création de fichier de ressources sont déjà un compte de stockage Azure lié à votre compte Batch. Si vous n’avez pas un compte autostorage, consultez les étapes décrites dans [créer un compte Batch](/create-a-batch-account.md) pour plus d’informations sur la façon de créer et lier un compte.
+Dans cet exemple, nous partons du principe que les données à utiliser pour la création de fichier de ressources sont déjà un compte de stockage Azure lié à votre compte Batch. Si vous n’avez pas un compte autostorage, consultez les étapes décrites dans [créer un compte Batch](batch-account-create-portal.md) pour plus d’informations sur la façon de créer et lier un compte.
 
 En utilisant un compte de stockage lié, vous n’avez pas besoin créer et configurer une URL SAS à un conteneur de stockage. Au lieu de cela, indiquez le nom du conteneur de stockage dans votre compte de stockage lié.
 

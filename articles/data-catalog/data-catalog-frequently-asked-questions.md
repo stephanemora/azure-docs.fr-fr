@@ -2,18 +2,18 @@
 title: Forum Aux Questions Azure Data Catalog
 description: Forum Aux Questions sur Azure Data Catalog, y compris sur les fonctionnalités de détection de source de données, d’annotation et de gestion.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231462"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998448"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
 Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
@@ -27,10 +27,10 @@ Data Catalog résout les problèmes de découverte des sources de données et d
 ## <a name="what-are-its-target-audiences"></a>Quel est le public cible ?
 Data Catalog est conçu pour les utilisateurs, techniciens ou non, notamment :
 
-* les développeurs de données et les professionnels du décisionnel et de l’analyse : personnes chargées de produire des données et du contenu d’analyse que d’autres utiliseront ;
-* les gestionnaires de données : personnes qui disposent de connaissances sur les données, ce qu’elles signifient et comment elles sont censées être utilisées ;
-* les consommateurs de données : personnes qui doivent être en mesure de découvrir, de comprendre et de se connecter facilement aux données dont elles ont besoin pour effectuer leur travail à l’aide de l’outil de leur choix ;
-* l’équipe informatique centrale : personnes qui doivent rendre détectables des centaines de sources de données pour les utilisateurs professionnels et qui ont besoin de superviser l’utilisation de données et les personnes utilisant ces données.
+* Les développeurs de données et aux professionnels BI et analytique : Personnes qui sont chargés de produire des données et analytique du contenu d’autres utiliseront.
+* Gestionnaires de données : Personnes qui disposent de connaissances sur les données, ce que cela signifie et comment elle est destinée à être utilisée.
+* Consommateurs de données : Les personnes qui doivent être en mesure de découvrir facilement, comprendre et se connecter aux données dont ils ont besoin pour effectuer leur travail, à l’aide de l’outil de leur choix.
+* Centre informatique : Personnes qui ont besoin de rendre des centaines de sources de données détectables par les utilisateurs professionnels, et qui ont besoin de superviser l’utilisation de données et par qui.
 
 ## <a name="what-is-its-availability-by-region"></a>Quelle est la disponibilité du service par région ?
 Les services Data Catalog sont actuellement disponibles dans les centres de données suivants :

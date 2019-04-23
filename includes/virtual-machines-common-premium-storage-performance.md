@@ -10,7 +10,7 @@ ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59737076"
@@ -231,7 +231,7 @@ Lorsque vous exécutez Linux avec Premium Storage, vérifiez les dernières mise
 
 ## <a name="premium-storage-disk-sizes"></a>Tailles de disques Stockage Premium
 
-Azure Premium Storage offre trois tailles de disque qui sont actuellement en version préliminaire et les huit tailles de disque de la disponibilité générale. Chaque taille de disque a une limite de mise à l’échelle différents pour les e/s, la bande passante et de stockage. Choisissez la taille de disque Premium Storage adaptée aux exigences de l’application et à la taille de machine virtuelle à grande échelle. Le tableau ci-dessous répertorie les tailles de 11 disque et de leurs fonctionnalités. Les tailles P4, P6, P15, P60, P70 et P80 ne sont actuellement prises en charge que par Managed Disks.
+Azure Premium Storage offre trois tailles de disque qui sont actuellement en version préliminaire et les huit tailles de disque de la disponibilité générale. Chaque taille de disque a une limite de mise à l’échelle différents pour les e/s, la bande passante et de stockage. Choisissez la taille de disque Premium Storage adaptée aux exigences de l’application et à la taille de machine virtuelle à grande échelle. Le tableau ci-dessous répertorie les tailles de 11 disque et de leurs fonctionnalités. Les tailles P4, P6, P15, P60, P70 et P80 ne sont actuellement prises en charge que par la fonctionnalité Disques managés.
 
 | Type de disque Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|

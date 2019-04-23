@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 6be897cc1ae11b8d3032e3ffc669eac05dafe5b2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522313"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995997"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -67,30 +67,31 @@ Pour plus d’informations sur les environnements de service d’intégration, c
 
 Pour fonctionner correctement et rester accessible, votre environnement de service d’intégration (ISE) doit disposer de ports spécifiques sur votre réseau virtuel. Dans le cas contraire, si un de ces ports n'est pas disponible, vous risquez de perdre l’accès à votre ISE, et ce dernier peut cesser de fonctionner. Lorsque vous utilisez un ISE dans un réseau virtuel, il arrive souvent qu'un ou plusieurs ports soient bloqués. Pour les connexions entre votre ISE et le système de destination, le connecteur que vous utilisez peut également avoir ses propres exigences en matière de port. Par exemple, si vous communiquez avec un système FTP en utilisant le connecteur FTP, assurez-vous que le port que vous utilisez sur ce système FTP, comme le port 21 pour l’envoi de commandes, est disponible.
 
-Pour contrôler le trafic entre les sous-réseaux du réseau virtuel dans lequel vous déployez votre ISE, vous pouvez configurer [groupes de sécurité réseau](../virtual-network/security-overview.md) pour ces sous-réseaux par [filtrage du trafic réseau entre les sous-réseaux](../virtual-network/tutorial-filter-network-traffic.md). Ces tableaux décrivent les ports du réseau virtuel que votre ISE utilise et où ces ports sont utilisés. La [balise de service](../virtual-network/security-overview.md#service-tags) représente un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité.
+Pour contrôler le trafic entre les sous-réseaux du réseau virtuel dans lequel vous déployez votre ISE, vous pouvez configurer [groupes de sécurité réseau](../virtual-network/security-overview.md) pour ces sous-réseaux par [filtrage du trafic réseau entre les sous-réseaux](../virtual-network/tutorial-filter-network-traffic.md). Ces tableaux décrivent les ports du réseau virtuel que votre ISE utilise et où ces ports sont utilisés. Le [balises de service Gestionnaire de ressources](../virtual-network/security-overview.md#service-tags) représente un groupe de préfixes d’adresses IP qui aident à réduire la complexité lors de la création de règles de sécurité.
 
 > [!IMPORTANT]
 > Pour la communication interne à l’intérieur de vos sous-réseaux, ISE nécessite que vous ouvrez tous les ports au sein de ces sous-réseaux.
 
 | Objectif | Direction | Ports | Balise du service source | Identification de destination | Notes |
 |---------|-----------|-------|--------------------|-------------------------|-------|
-| Communication depuis Azure Logic Apps | Règle de trafic sortant | 80 & 443 | VIRTUAL_NETWORK | INTERNET | Le port dépend du service externe avec lequel communique le service Logic Apps |
-| Azure Active Directory | Règle de trafic sortant | 80 & 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
-| Dépendance du Stockage Azure | Règle de trafic sortant | 80 & 443 | VIRTUAL_NETWORK | Stockage | |
-| Communication intersubnet | Trafic entrant et sortant | 80 & 443 | VIRTUAL_NETWORK | VIRTUAL_NETWORK | Pour la communication entre les sous-réseaux |
-| Communication vers Azure Logic Apps | Trafic entrant | 443 | INTERNET  | VIRTUAL_NETWORK | L’adresse IP de l’ordinateur ou un service qui appelle n’importe quel déclencheur de requête ou un webhook qui existe dans votre application logique. Fermeture ou de blocage de ce port empêche les appels HTTP vers logic apps avec déclencheurs de demande.  |
-| Exécution de l’historique de l’application logique | Trafic entrant | 443 | INTERNET  | VIRTUAL_NETWORK | L’adresse IP de l’ordinateur à partir duquel vous affichez l’application logique de l’historique d’exécution. Bien que la fermeture ou de blocage de ce port ne vous empêche pas d’afficher l’historique d’exécution, vous ne pouvez pas afficher les entrées et sorties de chaque étape que l’historique d’exécution. |
-| Gestion des connexions | Règle de trafic sortant | 443 | VIRTUAL_NETWORK  | INTERNET | |
-| Publier des journaux de diagnostic et métriques | Règle de trafic sortant | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
-| Concepteur Logic Apps - Propriétés dynamiques | Trafic entrant | 454 | INTERNET  | VIRTUAL_NETWORK | Les demandes proviennent d’applications logique [point de terminaison d’accès entrant des adresses IP dans cette région](../logic-apps/logic-apps-limits-and-config.md#inbound). |
-| Dépendance de gestion App Service | Trafic entrant | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
-| Déploiement du connecteur | Trafic entrant | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Nécessaire pour le déploiement et la mise à jour des connecteurs. Fermeture ou de blocage de ce port entraîne des déploiements ISE à échouer et empêche les correctifs ou mises à jour du connecteur. |
-| Dépendance SQL Azure | Règle de trafic sortant | 1433 | VIRTUAL_NETWORK | SQL |
-| Azure Resource Health | Règle de trafic sortant | 1886 | VIRTUAL_NETWORK | INTERNET | Pour la publication de l’état d’intégrité dans Resource Health |
-| Gestion des API - Point de terminaison de gestion | Trafic entrant | 3443 | APIManagement  | VIRTUAL_NETWORK | |
-| Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Règle de trafic sortant | 5672 | VIRTUAL_NETWORK  | Event Hub | |
-| Accès aux instances du Cache Azure pour Redis entre instances de rôle | Trafic entrant <br>Règle de trafic sortant | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | En outre, pour ISE travailler avec le Cache Azure pour Redis, vous devez ouvrir ces [décrites dans le Cache de Azure pour Redis Forum aux questions sur les ports entrants et sortants](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Azure Load Balancer | Trafic entrant | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
+| Communication depuis Azure Logic Apps | Règle de trafic sortant | 80 & 443 | VirtualNetwork | Internet | Le port dépend du service externe avec lequel communique le service Logic Apps |
+| Azure Active Directory | Règle de trafic sortant | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
+| Dépendance du Stockage Azure | Règle de trafic sortant | 80 & 443 | VirtualNetwork | Stockage | |
+| Communication intersubnet | Trafic entrant et sortant | 80 & 443 | VirtualNetwork | VirtualNetwork | Pour la communication entre les sous-réseaux |
+| Communication vers Azure Logic Apps | Trafic entrant | 443 | Internet  | VirtualNetwork | L’adresse IP de l’ordinateur ou un service qui appelle n’importe quel déclencheur de requête ou un webhook qui existe dans votre application logique. Fermeture ou de blocage de ce port empêche les appels HTTP vers logic apps avec déclencheurs de demande.  |
+| Exécution de l’historique de l’application logique | Trafic entrant | 443 | Internet  | VirtualNetwork | L’adresse IP de l’ordinateur à partir duquel vous affichez l’application logique de l’historique d’exécution. Bien que la fermeture ou de blocage de ce port ne vous empêche pas d’afficher l’historique d’exécution, vous ne pouvez pas afficher les entrées et sorties de chaque étape que l’historique d’exécution. |
+| Gestion des connexions | Règle de trafic sortant | 443 | VirtualNetwork  | Internet | |
+| Publier des journaux de diagnostic et métriques | Règle de trafic sortant | 443 | VirtualNetwork  | AzureMonitor | |
+| Communication à partir d’Azure Traffic Manager | Trafic entrant | 443 | AzureTrafficManager | VirtualNetwork | |
+| Concepteur Logic Apps - Propriétés dynamiques | Trafic entrant | 454 | Internet  | VirtualNetwork | Les demandes proviennent d’applications logique [point de terminaison d’accès entrant des adresses IP dans cette région](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Dépendance de gestion App Service | Trafic entrant | 454 & 455 | AppServiceManagement | VirtualNetwork | |
+| Déploiement du connecteur | Trafic entrant | 454 & 3443 | Internet  | VirtualNetwork | Nécessaire pour le déploiement et la mise à jour des connecteurs. Fermeture ou de blocage de ce port entraîne des déploiements ISE à échouer et empêche les correctifs ou mises à jour du connecteur. |
+| Dépendance SQL Azure | Règle de trafic sortant | 1433 | VirtualNetwork | SQL |
+| Azure Resource Health | Règle de trafic sortant | 1886 | VirtualNetwork | Internet | Pour la publication de l’état d’intégrité dans Resource Health |
+| Gestion des API - Point de terminaison de gestion | Trafic entrant | 3443 | APIManagement  | VirtualNetwork | |
+| Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Règle de trafic sortant | 5672 | VirtualNetwork  | Event Hub | |
+| Accès aux instances du Cache Azure pour Redis entre instances de rôle | Trafic entrant <br>Règle de trafic sortant | 6379-6383 | VirtualNetwork  | VirtualNetwork | En outre, pour ISE travailler avec le Cache Azure pour Redis, vous devez ouvrir ces [décrites dans le Cache de Azure pour Redis Forum aux questions sur les ports entrants et sortants](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | Trafic entrant | * | AzureLoadBalancer | VirtualNetwork |  |
 ||||||
 
 <a name="create-environment"></a>

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881016"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999448"
 ---
 # <a name="streaming-endpoints"></a>Points de terminaison de diffusion en continu
 
@@ -39,7 +39,7 @@ Il existe deux types de **points de terminaison de streaming** : **Standard** e
 
 Le tableau décrit les types :  
 
-|Type|Unités d’échelle|Description|
+|type|Unités d’échelle|Description|
 |--------|--------|--------|  
 |**Point de terminaison de streaming Standard** (recommandé)|0|La valeur par défaut est le point de terminaison de diffusion en continu un **Standard** type, mais peut être remplacé par le type Premium.<br/> Le type Standard est l’option recommandée pour pratiquement tous les scénarios de diffusion en continu et la taille du public. Le type **Standard** met automatiquement à l’échelle la bande passante sortante. Le débit à partir de ce type de point de terminaison de diffusion en continu est jusqu'à 600 Mbits/s. Les fragments vidéo mis en cache dans le CDN, n’utilisez pas la bande passante de point de terminaison de diffusion en continu.<br/>Pour les clients avec des exigences extrêmement hautes, Media Services offre des points de terminaison de streaming **Premium**, qui peuvent être utilisés à des fins de scale out de la capacité pour les audiences Internet les plus étendues. Si vous pensez que le grand public et des utilisateurs simultanés, contactez-nous à amsstreaming\@microsoft.com pour obtenir des conseils sur la nécessité de déplacer vers le **Premium** type. |
 |**Point de terminaison de streaming Premium**|>0|Les points de terminaison de streaming **Premium** sont conçus pour les charges de travail avancées et fournissent une capacité de bande passante dédiée et scalable. Vous passez à un type **Premium** en ajustant les `scaleUnits`. Les `scaleUnits` vous offrent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbits/s. Quand vous utilisez le type **Premium**, chaque unité activée fournit une capacité de bande passante supplémentaire à l’application. |
@@ -52,7 +52,6 @@ Fonctionnalité|standard|Premium
 ---|---|---
 Gratuit les 15 premiers jours| Oui |Non 
 Débit |Jusqu'à 600 Mbits/s lorsqu’Azure CDN n’est pas utilisé. Mis à l’échelle avec CDN.|200 Mbits/s par unité de streaming (SU). Mis à l’échelle avec CDN.
-Contrat SLA | 99.9|99,9 (200 Mbits/s par SU).
 CDN|Azure CDN, CDN tiers ou sans CDN.|Azure CDN, CDN tiers ou sans CDN.
 La facturation est calculée sur la base d'un taux| Quotidien|Quotidien
 Chiffrement dynamique|Oui|Oui
@@ -86,7 +85,7 @@ Cette section fournit des détails sur certaines des propriétés de la diffusio
 
     Les zones DNS attendues à utiliser dans l’enregistrement de vérification pour les différentes régions Azure sont les suivantes :
   
-  - Amérique du Nord, Europe, Singapour, Hong Kong (R.A.S.), Japon :
+  - Amérique du Nord, Europe, Singapour, RAS de Hong Kong, Japon :
       
     - `media.azure.net`
     - `verifydns.media.azure.net`

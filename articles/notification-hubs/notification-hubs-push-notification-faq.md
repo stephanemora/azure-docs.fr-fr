@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 60dbef0f0d6532c9cd30c59902236b7ae4e70b0e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524189"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998921"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifications Push avec Azure Notification Hubs : Questions fréquentes (FAQ)
 
@@ -53,17 +53,6 @@ Pour les niveaux De base et Standard de Notification Hubs, les applications corr
 
 > [!NOTE]
 > Étant donné que les notifications Push dépendent de Platform Notification System tiers (APNS d’Apple, FCM de Google, etc.), il n’existe aucun contrat de niveau de service pour la remise de ces messages. Une fois que Notification Hubs a envoyé les lots aux Platform Notification Systems (contrat de niveau de service garanti), il est de la responsabilité de ces derniers de remettre les notifications Push (aucun contrat de niveau de service garanti).
-
-### <a name="which-customers-are-using-notification-hubs"></a>Quels sont vos clients du service Notification Hubs ?
-
-De nombreux clients utilisent Notification Hubs. Parmi les plus importants figurent les suivants :
-
-* Sotchi 2014 : Des centaines de groupes d’intérêt, plus de 3 millions d’appareils et plus de 150 millions de notifications distribuées en deux semaines. [Étude de cas : Sochi]
-* Skanska : [Étude de cas : Skanska]
-* Seattle Times : [Étude de cas : Seattle Times]
-* Mural.ly : [Étude de cas : Mural.ly]
-* 7digital : [Étude de cas : 7Digital]
-* Applications Bing : des dizaines de millions d’appareils envoient 3 millions de notifications par jour.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Comment mettre à niveau ou rétrograder mon concentrateur ou mon espace de noms pour modifier son niveau ?
 
@@ -219,11 +208,6 @@ Vous pouvez également accéder par programme métriques. Pour plus d’informat
 [Portail Azure]: https://portal.azure.com
 [Tarification de Concentrateurs de notification]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Étude de cas : Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[Étude de cas : Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[Étude de cas : Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Étude de cas : Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[Étude de cas : 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [API REST de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Didacticiels de prise en main de Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [didacticiel sur les applications Chrome]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/

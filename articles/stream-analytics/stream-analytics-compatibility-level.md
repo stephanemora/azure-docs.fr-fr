@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.openlocfilehash: b5c833798f8533e7c6fbe3595a726ac6ce56e2d2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: e4bbfdbcf7a295089570d4c8b77b07fd7270b3fd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682812"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998258"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Niveau de compatibilité pour les travaux Azure Stream Analytics
 
@@ -75,7 +75,7 @@ Pour plus d’informations, consultez [met à jour aux fonctionnalités géospat
 
 **Niveaux précédents :** Le comportement upsert était *insérer ou fusionner*.
 
-**niveau 1.2 :** Intégration d’API en bloc native avec sortie CosmosDB optimise le débit et gère efficacement la limitation des demandes.
+**niveau 1.2 :** Intégration d’API en bloc native avec sortie CosmosDB optimise le débit et gère efficacement la limitation des demandes. Pour plus d’informations, consultez [la sortie Azure Stream Analytique à Azure Cosmos DB page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 
 Le comportement d’upsert est *insérer ou remplacer*.
 

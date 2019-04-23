@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: a89a7e3abbb94465a2ea5eb61eda3e967c26d1f0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fcff4ff141dbac84d0b96c166c36018b0cc09d8e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680824"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997561"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -137,7 +137,7 @@ Oui. Le pare-feu, le sous-réseau, le réseau virtuel et l’adresse IP publique
 
 Non. Les règles NAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](/articles/firewall/rule-processing.md).
 
-## <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Pour les caractères génériques fonctionnement dans une cible de la règle application FQDN ?
+## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Comment les caractères génériques ne fonctionnent pas dans une cible de la règle application FQDN ?
 
 Si vous configurez ***. contoso.com**, il permet de *anyvalue*. contoso.com, mais pas contoso.com (l’extrémité de domaine). Si vous souhaitez autoriser l’extrémité de domaine, vous devez le configurer explicitement comme un nom de domaine complet de la cible.
 

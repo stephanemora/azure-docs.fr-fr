@@ -2,17 +2,17 @@
 title: Guide pratique pour afficher les ressources de données associées dans Azure Data Catalog
 description: Cet article explique comment afficher les ressources de données associées à la ressource de données sélectionnée dans Azure Data Catalog.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: e68dc22943b7a53693320528f91670d9229b806f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b01c328812113ad721b7632978ad28e54a6a3ef1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958330"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996473"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Comment afficher les ressources de données associées dans Azure Data Catalog
 Azure Data Catalog vous permet d’afficher les ressources de données associées à la ressource de données sélectionnée, ainsi que les relations qui sont établies entre elles. 

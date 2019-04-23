@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501635"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996016"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
 
@@ -94,6 +94,15 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
 Le traitement par lot n’affecte pas le nombre d’opérations de messagerie facturables et est disponible uniquement pour le protocole client Service Bus utilisant la bibliothèque [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). Le protocole HTTP ne prend pas en charge le traitement par lot.
+
+> [!NOTE]
+> Paramètre BatchFlushInterval garantit que le traitement par lot est implicite du point de vue de l’application. par exemple, l’application SendAsync() et CompleteAsync() appelle et ne met pas les appels de lot spécifiques.
+>
+> Le traitement par lots du côté client EXPLICIT peut être implémentée en utilisant le sous - appel de méthode 
+> ```csharp
+> Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
+> ```
+> Ici, la taille combinée des messages doit être inférieure à la taille maximale prise en charge par le niveau tarifaire.
 
 ## <a name="batching-store-access"></a>Accès au dispositif de stockage de traitement par lot
 

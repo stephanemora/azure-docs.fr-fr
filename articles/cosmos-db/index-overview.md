@@ -1,64 +1,99 @@
 ---
 title: Indexation dans Azure Cosmos DB
 description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB.
-author: rimman
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: ecf53251020ce1b639a5bf8da65f5d31ff699db9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265693"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996728"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
+# <a name="indexing-in-azure-cosmos-db---overview"></a>L’indexation dans Azure Cosmos DB - vue d’ensemble
 
-Azure Cosmos DB est une base de données indépendante des schémas qui vous permet d’itérer rapidement sur votre application sans avoir à vous soucier de la gestion des schémas ou des index. Par défaut, Azure Cosmos DB indexe automatiquement tous les éléments dans votre conteneur sans demander de schéma ni d’index secondaire aux développeurs.
+Azure Cosmos DB est une base de données indépendante du schéma qui vous permet d’effectuer une itération sur votre application sans avoir à gérer avec la gestion des schémas ou index. Par défaut, Azure Cosmos DB indexe automatiquement chaque propriété pour tous les éléments dans votre [conteneur](databases-containers-items.md#azure-cosmos-containers) sans avoir à définir n’importe quel schéma ou configurer des index secondaires.
 
-## <a name="items-as-trees"></a>Éléments sous forme d’arborescences
+L’objectif de cet article est d’expliquer comment Azure Cosmos DB indexe les données et comment il utilise des index pour améliorer les performances de requête. Il est recommandé de suivre cette section avant d’Explorer la personnalisation [stratégies d’indexation](index-policy.md).
 
-En projetant les éléments dans un conteneur en tant que documents JSON et qui les représente sous forme d’arborescences, Azure Cosmos DB normalise la structure et les valeurs d’instance entre les éléments dans le concept unificateur d’un **dynamiquement encodé structure de chemin d’accès** . Dans cette représentation, chaque contrôle label dans un document JSON, qui inclut les noms de propriétés et leurs valeurs, devient un nœud de l’arborescence. Les feuilles de l’arborescence contient les valeurs réelles et les nœuds intermédiaires contiennent les informations de schéma. L’illustration suivante représente les arborescences créés pour deux éléments (1 et 2) dans un conteneur Azure Cosmos :
+## <a name="from-items-to-trees"></a>À partir d’éléments aux arborescences
 
-![Représentation sous forme d’arborescence de deux éléments différents dans un conteneur Azure Cosmos](./media/index-overview/indexing-as-tree.png)
+Chaque fois qu’un élément est stocké dans un conteneur, son contenu est projeté comme un document JSON, puis converti en une représentation sous forme d’arborescence. Cela signifie que chaque propriété de cet élément est représentée en tant que nœud dans une arborescence. Un nœud racine de pseudo est créé en tant que parent pour toutes les propriétés de premier niveau de l’élément. Les nœuds feuille contiennent des valeurs scalaires réelles effectuées par un élément.
 
-Un nœud racine de pseudo est créé en tant que parent pour les nœuds eux-mêmes correspondant aux étiquettes dans le document JSON en dessous. Les structures de données imbriquées déterminent la hiérarchie dans l’arborescence. Des nœuds artificiels intermédiaires étiquetés avec des valeurs numériques (par exemple, 0, 1,...) sont utilisés pour représenter les énumérations et les index de tableau.
+Par exemple, prenez en compte cet élément :
 
-## <a name="index-paths"></a>Chemins d’accès de l’index
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
 
-Azure Cosmos DB projette les éléments dans un conteneur Azure Cosmos en tant que documents JSON et index sous forme d’arborescences. Vous pouvez ensuite paramétrer les stratégies d’index pour les chemins d’accès dans l’arborescence. Vous pouvez choisir d’inclure ou d’exclure des chemins dans l’indexation. Il peut en résulter de meilleures performances d’écriture et un plus petit stockage des index pour les scénarios où les modèles de requête sont connus à l’avance. Pour plus d’informations, consultez [chemins d’Index](index-paths.md).
+Il serait représenté par l’arborescence suivante :
 
-## <a name="indexing-under-the-hood"></a>Indexation : Sous le capot
+![L’élément précédent représenté sous forme d’arborescence](./media/index-overview/item-as-tree.png)
 
-Base de données Azure Cosmos s’applique *l’indexation automatique* aux données, où chaque chemin d’accès dans une arborescence est indexé, sauf si vous configurez pour exclure certains chemins d’accès.
+Notez la manière dont les tableaux sont encodés dans l’arborescence : chaque entrée dans un tableau Obtient un nœud intermédiaire étiqueté avec l’index de cette entrée dans le tableau (0, 1 etc..).
 
-La base de données Azure Cosmos utilise une structure de données d’index inversé afin de stocker les informations de chaque élément et de faciliter une représentation efficace pour l’interrogation. L’arborescence d’index est un document qui est construit avec l’union de toutes les arborescences qui représentent les éléments individuels dans un conteneur. L’arborescence d’index augmente au fil du temps, comme les nouveaux éléments sont ajoutés ou des éléments existants sont mis à jour dans le conteneur. Contrairement à l’indexation de base de données relationnelle, Azure Cosmos DB ne redémarre pas l’indexation à partir de zéro, comme les nouveaux champs sont introduits. Nouveaux éléments sont ajoutés à la structure d’index existante. 
+## <a name="from-trees-to-property-paths"></a>À partir d’arborescences pour les chemins d’accès de propriété
 
-Chaque nœud de l’arborescence d’index est une entrée d’index contenant les valeurs d’étiquette et la position, appelés le *terme*et les ID d’éléments, appelés les *validations*. Les validations dans les accolades (par exemple {1,2}) dans la figure de l’index inversé correspondent aux éléments tels que *Document1* et *Document2* contenant la valeur de l’étiquette donnée. Le fait de traiter les étiquettes de schéma et les valeurs d’instance uniformément est que tout est compressé dans un index de grande taille. Une valeur d’instance qui se trouve toujours dans les feuilles n’est pas répétée ; elle peut figurer dans différents rôles entre les éléments, comporter des étiquettes de schéma différentes, mais il s’agit de la même valeur. L’illustration suivante montre l’indexation inversé pour deux éléments différents :
+Pourquoi Azure Cosmos DB transforme des éléments dans des arborescences parce, car elle permet les propriétés devant être référencés par leurs chemins d’accès au sein de ces arborescences. Pour obtenir le chemin d’accès pour une propriété, nous pouvons parcourir l’arborescence à partir du nœud racine à cette propriété et concaténer les étiquettes de chaque nœud traversé.
 
-![Indexation vue de l’intérieur, index inversé](./media/index-overview/inverted-index.png)
+Voici les chemins d’accès pour chaque propriété de l’élément de l’exemple décrit ci-dessus :
 
-> [!NOTE]
-> L’index inversé peut sembler similaire aux structures d’indexation utilisées dans un moteur de recherche dans le domaine de la récupération d’informations. Avec cette méthode, Azure Cosmos DB vous permet de rechercher dans votre base de données n’importe quel élément, quelle que soit sa structure de schéma.
+    /locations/0/country: "Germany"
+    /locations/0/city: "Berlin"
+    /locations/1/country: "France"
+    /locations/1/city: "Paris"
+    /headquarters/country: "Belgium"
+    /headquarters/employees: 250
+    /exports/0/city: "Moscow"
+    /exports/1/city: "Athens"
 
-Pour le chemin normalisé, l’index encode la voie directe d’un bout à l’autre, de la racine à la valeur, avec les informations de type de la valeur. Le chemin d’accès et la valeur sont codées pour fournir différents types d’indexation (plage, spatiaux, etc.). L’encodage de la valeur est conçu pour fournir une valeur unique ou une composition d’un ensemble de chemins.
+Quand un élément est écrit, Azure Cosmos DB indexe efficacement le chemin d’accès de chaque propriété et sa valeur correspondante.
+
+## <a name="index-kinds"></a>Types d’index
+
+Azure Cosmos DB prend actuellement en charge deux types d’index :
+
+Le **plage** type d’index est utilisé pour :
+
+- requêtes d’égalité : `SELECT * FROM container c WHERE c.property = 'value'`
+- les requêtes de plage : `SELECT * FROM container c WHERE c.property > 'value'` (convient `>`, `<`, `>=`, `<=`, `!=`)
+- `ORDER BY` requêtes : `SELECT * FROM container c ORDER BY c.property`
+- `JOIN` requêtes : `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+
+Index de plage peuvent être utilisés sur des valeurs scalaires (chaîne ou nombre).
+
+Le **spatial** type d’index est utilisé pour :
+
+- requêtes géospatiales à distance : `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
+- Geospatial dans des requêtes : `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+
+Les index spatiaux peuvent être utilisés sur correctement mis en forme [GeoJSON](geospatial.md) objets. Points, LineStrings et polygones sont actuellement pris en charge.
 
 ## <a name="querying-with-indexes"></a>Interrogation avec des index
 
-L’index inversé permet à une requête d’identifier les documents qui correspondent au prédicat de requête rapidement. En traitant le schéma et les valeurs d’instance uniformément en termes de chemins d’accès, l’index inversé est également une arborescence. Par conséquent, l’index et les résultats peuvent être sérialisés dans un document JSON valide et retournés comme documents eux-mêmes, car ils sont retournés dans la représentation sous forme d’arborescence. Cette méthode permet de traiter de manière récursive les résultats pour des requêtes supplémentaires. L’image suivante illustre un exemple d’indexation dans une requête de pointage :  
+Les chemins d’accès extraites lors de l’indexation des données facilitent la recherche de l’index lors du traitement d’une requête. En mettant en correspondance le `WHERE` clause d’une requête avec la liste des chemins d’accès indexés, il est possible d’identifier les éléments qui correspondent au prédicat de requête de très rapidement.
 
-![Exemple de requête de pointage](./media/index-overview/index-point-query.png)
+Par exemple, considérez la requête suivante : `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Le prédicat de requête (filtrage sur les éléments, où n’importe quel emplacement a « France » en tant que son pays) renverrait le chemin d’accès mis en surbrillance en rouge ci-dessous :
 
-Pour une requête de plage, *GermanTax* est un [fonction définie par l’utilisateur](stored-procedures-triggers-udfs.md#udfs) exécuté en tant que partie du traitement des requêtes. La fonction définie par l’utilisateur est toute fonction JavaScript inscrite, qui peut fournir une logique de programmation riche intégrée dans la requête. L’image suivante illustre un exemple d’indexation dans une requête de plage :
+![Mise en correspondance un chemin d’accès spécifique au sein d’une arborescence](./media/index-overview/matching-path.png)
 
-![Exemple de requête de plage](./media/index-overview/index-range-query.png)
+> [!NOTE]
+> Un `ORDER BY` clause *toujours* a besoin d’une plage d’index et échoue si le chemin d’accès, elle fait référence à n’en possède pas.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez plus en détail l’indexation dans les articles suivants :
 
 - [Stratégie d’indexation](index-policy.md)
-- [Types d’index](index-types.md)
-- [Chemins des index](index-paths.md)
 - [Guide pratique pour gérer la stratégie d’indexation](how-to-manage-indexing-policy.md)

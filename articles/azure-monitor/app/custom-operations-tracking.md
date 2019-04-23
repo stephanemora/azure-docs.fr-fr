@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 8e082f15cff616b9dc63fbf4ad51e94d078a04f3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: MT
+ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811288"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995538"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights
 
@@ -31,7 +31,7 @@ Ce document fournit des conseils sur la façon d’effectuer le suivi d’opéra
 - Application Insights pour applications web (exécute ASP.NET) version 2.4 et versions ultérieures.
 - Application Insights pour ASP.NET Core version 2.1 et versions ultérieures.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Une opération est un élément de travail logique exécuté par une application. Il a un nom, une heure de début, une durée, un résultat et un contexte d’exécution tel qu’un nom d’utilisateur, des propriétés et un résultat. Si l’opération A a été initiée par l’opération B, l’opération B est alors définie en tant que parent pour A. Une opération ne peut avoir qu’un seul parent, mais il peut avoir de nombreuses opérations enfants. Pour plus d’informations sur les opérations et la corrélation de télémétrie, consultez [Corrélation de télémétrie d’Application Azure Insights](correlation.md).
 
 Dans le kit SDK .NET d’Application Insights, l’opération est décrite par la classe abstraite [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) et par ses descendants [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) et [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
@@ -230,7 +230,7 @@ Vous pouvez également mettre en corrélation l’ID d’opération Application 
 Cet exemple montre comment effectuer le suivi de l’opération `Enqueue`. Vous pouvez :
 
  - **Mettre en corrélation les nouvelles tentatives (le cas échéant)**  : elles ont toutes un parent commun qui est l’opération `Enqueue`. Dans le cas contraire, elles sont comptabilisées en tant qu’enfants de la demande entrante. S’il existe plusieurs demandes logiques pour la file d’attente, il pourrait être difficile de trouver quel appel a généré de nouvelles tentatives.
- - **Mettre en corrélation les journaux de stockage Azure (si nécessaire)**  : elles sont mises en corrélation avec la télémétrie Application Insights.
+ - **Mettre en corrélation les journaux d’activité de stockage Azure (si nécessaire)**  : elles sont mises en corrélation avec la télémétrie Application Insights.
 
 L’opération `Enqueue` est l’enfant d’une opération parent (par exemple, une demande HTTP entrante). L’appel de dépendance HTTP est l’enfant de l’opération `Enqueue` et le petit-enfant de la demande entrante :
 
@@ -384,12 +384,13 @@ Avec des files d’attente, vous pouvez retirer plusieurs messages de la file d�
 Chaque traitement de message doit être traité dans son propre flux de contrôle asynchrone. Pour plus d’informations, consultez la section [Suivi des dépendances sortantes](#outgoing-dependencies-tracking).
 
 ## <a name="long-running-background-tasks"></a>Tâches en arrière-plan à long terme
+
 Certaines applications démarrent des opérations à long terme qui peuvent être dues à des demandes de l’utilisateur. Du point de vue du traçage/de l’instrumentation, ce n’est pas différent de l’instrumentation des demandes ou des dépendances : 
 
 ```csharp
 async Task BackgroundTask()
 {
-    var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>(taskName);
     operation.Telemetry.Type = "Background";
     try
     {
@@ -414,9 +415,9 @@ async Task BackgroundTask()
 }
 ```
 
-Dans cet exemple, `telemetryClient.StartOperation` crée `RequestTelemetry` et remplit le contexte de corrélation. Supposons que vous avez une opération parent qui a été créée par les demandes entrantes qui ont planifié l’opération. Tant que `BackgroundTask` démarre dans le même flux de contrôle asynchrone en tant que demande entrante, elle est mise en corrélation avec cette opération parent. `BackgroundTask` et tous les éléments de télémétrie imbriqués sont automatiquement mis en corrélation avec la demande à son origine, même après la fin de la demande.
+Dans cet exemple, `telemetryClient.StartOperation` crée `DependencyTelemetry` et remplit le contexte de corrélation. Supposons que vous avez une opération parent qui a été créée par les demandes entrantes qui ont planifié l’opération. Tant que `BackgroundTask` démarre dans le même flux de contrôle asynchrone en tant que demande entrante, elle est mise en corrélation avec cette opération parent. `BackgroundTask` et tous les éléments de télémétrie imbriqués sont automatiquement mis en corrélation avec la demande à son origine, même après la fin de la demande.
 
-Lorsque la tâche démarre à partir du thread en arrière-plan qui n’a pas d’opération (`Activity`) associée, `BackgroundTask` n’a pas de parent. Toutefois, il peut avoir plusieurs opérations imbriquées. Tous les éléments de télémétrie signalés à partir de la tâche sont mis en corrélation avec l’élément `RequestTelemetry` créé dans l’élément `BackgroundTask`.
+Lorsque la tâche démarre à partir du thread en arrière-plan qui n’a pas d’opération (`Activity`) associée, `BackgroundTask` n’a pas de parent. Toutefois, il peut avoir plusieurs opérations imbriquées. Tous les éléments de télémétrie signalés à partir de la tâche sont mis en corrélation avec l’élément `DependencyTelemetry` créé dans l’élément `BackgroundTask`.
 
 ## <a name="outgoing-dependencies-tracking"></a>Suivi des dépendances sortantes
 Vous pouvez effectuer le suivi de votre propre genre de dépendance ou d’une opération qui n’est pas prise en charge par Application Insights.

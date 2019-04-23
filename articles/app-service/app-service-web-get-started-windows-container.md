@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8bc213c14553bc73c7eb7fffcb1c1dcad924aaed
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c1b3282417cd95f1aaff472890ec655e4c5a983f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906053"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546270"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Exécuter un conteneur Windows personnalisé dans Azure (préversion)
 
@@ -130,7 +130,7 @@ Attendez quelques minutes et réessayez, jusqu'à accéder à la page d’accuei
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
-**Félicitations !** Vous exécutez votre premier conteneur Windows personnalisé dans Azure App Service.
+**Félicitations !** Vous exécutez votre premier conteneur Windows personnalisé dans Azure App Service.
 
 ## <a name="see-container-start-up-logs"></a>Consulter les journaux d’activité de démarrage du conteneur
 
@@ -179,7 +179,7 @@ Pour indiquer à App Service qu’il faut tirer la nouvelle image de Docker Hub,
 Vous êtes libre d’utiliser une autre image Docker personnalisée pour exécuter votre application. Toutefois, vous devez choisir l’[image parente](https://docs.docker.com/develop/develop-images/baseimages/) correcte pour l’infrastructure que vous souhaitez : 
 
 - Pour déployer des applications .NET Framework, utilisez une image parente basée sur la version Windows Server Core 2019 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc). 
-- Pour déployer des applications .NET Core, utilisez une image parente basée sur la version Windows Server Nano 1809 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc). 
+- Pour déployer des applications .NET Core, utilisez une image parente basée sur la version Windows Server Nano 1809 [Semi-Annual Servicing Channel (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel). 
 
 Le téléchargement d’une image parente lors du démarrage de l’application peut prendre un certain temps. Toutefois, vous pouvez réduire le temps de démarrage en utilisant l’une des images parentes suivantes déjà mises en cache dans Azure App Service :
 

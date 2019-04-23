@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 5d2d5948d817cbe80d00b74ef104ebaffcb511fb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297462"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995810"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copier des données depuis Office 365 avec Azure Data Factory (préversion) 
 
@@ -27,7 +27,7 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data Fac
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-Pour l’instant, au sein d’une seule activité de copie, vous pouvez seulement **copier des données depuis Office 365 dans [Stockage Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) et [Azure Data Lake Storage Gen2 (préversion)](connector-azure-data-lake-storage.md) au format JSON** (type setOfObjects). Si vous voulez charger des données Office 365 dans d’autres types de banques de données ou dans d’autres formats, vous pouvez faire suivre la première activité de copie d’une autre activité de copie pour charger les données dans une des [banques de données de destination ADF prises en charge](copy-activity-overview.md#supported-data-stores-and-formats) (reportez-vous à la colonne « prise en charge en tant que récepteur »du tableau « Banques de données et formats pris en charge »).
+Pour l’instant, au sein d’une seule activité de copie vous pouvez uniquement **copier des données à partir d’Office 365 dans [stockage Blob Azure](connector-azure-blob-storage.md), [Gen1 de stockage Azure Data Lake](connector-azure-data-lake-store.md), et [Azure Data Lake Storage Gen2 ](connector-azure-data-lake-storage.md) au format JSON** (de type setOfObjects). Si vous voulez charger des données Office 365 dans d’autres types de banques de données ou dans d’autres formats, vous pouvez faire suivre la première activité de copie d’une autre activité de copie pour charger les données dans une des [banques de données de destination ADF prises en charge](copy-activity-overview.md#supported-data-stores-and-formats) (reportez-vous à la colonne « prise en charge en tant que récepteur »du tableau « Banques de données et formats pris en charge »).
 
 >[!IMPORTANT]
 >- L’abonnement Azure contenant la fabrique de données et la banque de données réceptrice doit être sous le même locataire Azure Active Directory (Azure AD) que le locataire Office 365.
@@ -35,7 +35,7 @@ Pour l’instant, au sein d’une seule activité de copie, vous pouvez seulemen
 >-  Si vous chargez des données Office 365 dans **Stockage Blob Azure** comme destination, veillez à utiliser **[l’authentification de principal du service](connector-azure-blob-storage.md#service-principal-authentication)** quand vous définissez le service lié à Stockage Blob Azure, et non pas des authentifications de [clé de compte](connector-azure-blob-storage.md#account-key-authentication), de [signature d’accès partagé](connector-azure-blob-storage.md#shared-access-signature-authentication) ou d’[identités managées pour les ressources Azure](connector-azure-blob-storage.md#managed-identity).
 >-  Si vous chargez des données Office 365 dans **Azure Data Lake Storage Gen1**, veillez à utiliser [**l’authentification de principal du service**](connector-azure-data-lake-store.md#use-service-principal-authentication) quand vous définissez le service lié à Azure Data Lake Storage Gen1, et non pas une authentification d’[identités managées pour les ressources Azure](connector-azure-data-lake-store.md#managed-identity).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour copier des données depuis Office 365 dans Azure, vous devez effectuer les étapes prérequises suivantes :
 
@@ -79,7 +79,7 @@ Les propriétés prises en charge pour le service lié Office 365 sont les suiva
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **Office365** | Oui |
+| type | La propriété type doit être définie sur : **Office365** | Oui |
 | office365TenantId | ID de locataire Azure auquel le compte Office 365 appartient. | Oui |
 | servicePrincipalTenantId | Spécifiez les informations du locataire où se trouve votre application web Azure AD. | Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | OUI |
@@ -119,8 +119,8 @@ Pour copier des données depuis Office 365, les propriétés suivantes sont pris
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **Office365Table** | Oui |
-| TableName | Nom du jeu de données à extraire d’Office 365. Cliquez [ici](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) pour obtenir la liste des jeux de données Office 365 disponibles pour l’extraction. | Oui |
+| type | La propriété type du jeu de données doit être définie sur : **Office365Table** | Oui |
+| tableName | Nom du jeu de données à extraire d’Office 365. Cliquez [ici](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) pour obtenir la liste des jeux de données Office 365 disponibles pour l’extraction. | Oui |
 | predicate | Expression de prédicat qui peut être utilisée pour filtrer les lignes spécifiques à extraire d’Office 365.  Cliquez [ici](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) pour découvrir comment déterminer les colonnes qui peuvent être utilisées pour le filtrage de prédicat de chaque table et le format d’expression du filtre. | Non <br>(Si aucun prédicat n’est fourni, le comportement par défaut est l’extraction des données pour les 30 derniers jours) |
 
 **Exemple**

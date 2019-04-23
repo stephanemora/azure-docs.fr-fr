@@ -6,30 +6,29 @@ documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
-ms.assetid: 780eec4d-7ee1-48b7-b29f-cd0b8cb41ed3
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14291a6e8f9c4cde3c8777969047ebaa77e42b59
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500445"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999805"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Plateforme d’identité Microsoft et le flux de code d’appareil OAuth 2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Prend en charge de la plateforme Microsoft identity le [octroi de code d’appareil](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), ce qui permet aux utilisateurs de se connecter à des appareils avec contraintes d’entrée comme une télévision intelligente, appareils IoT ou imprimante.  Pour activer ce flux, l’appareil exige que l’utilisateur consulte une page web dans son navigateur sur un autre appareil pour se connecter.  Lorsque l’utilisateur est connecté, l’appareil peut obtenir des jetons d’accès et actualiser les jetons si nécessaire.  
+L’identité plateforme pour prendre en charge la [octroi de code d’appareil](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), ce qui permet aux utilisateurs de se connecter à des appareils avec contraintes d’entrée comme une télévision intelligente, appareils IoT ou imprimante.  Pour activer ce flux, l’appareil exige que l’utilisateur consulte une page web dans son navigateur sur un autre appareil pour se connecter.  Lorsque l’utilisateur est connecté, l’appareil peut obtenir des jetons d’accès et actualiser les jetons si nécessaire.  
 
 > [!IMPORTANT]
 > À ce stade, le point de terminaison Microsoft identity platform prend uniquement en charge le flux de l’appareil pour les locataires Azure AD, mais les comptes non personnels.  Cela signifie que vous devez utiliser un point de terminaison configuré en tant que client, ou la `organizations` point de terminaison.  
@@ -43,11 +42,11 @@ Prend en charge de la plateforme Microsoft identity le [octroi de code d’appar
 
 Le flux de code d’appareil complet est similaire à l’illustration suivante. Nous décrirons en détail chacune des étapes plus loin dans cet article.
 
-![Flux de code d’appareil](media/v2-oauth2-device-flow/v2-oauth-device-flow.png)
+![Flux de code d’appareil](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
 ## <a name="device-authorization-request"></a>Requête d’autorisation d’appareil
 
-Le client doit d’abord rechercher sur le serveur d’authentification un appareil et un code utilisateur, utilisés pour lancer l’authentification.  Le client collecte cette requête à partir du point de terminaison `/devicecode`. Dans cette requête, le client doit également inclure les autorisations dont il a besoin d’obtenir auprès de l’utilisateur.  À partir du moment où cette requête est envoyée, l’utilisateur ne dispose que de 15 minutes pour se connecter (la valeur habituelle de `expires_in`). N’effectuez cette requête que lorsque l’utilisateur a indiqué qu’il est prêt à se connecter.
+Le client doit d’abord vérifier avec le serveur d’authentification pour un appareil et le code utilisateur qui est utilisé pour lancer l’authentification. Le client collecte cette requête à partir du point de terminaison `/devicecode`. Dans cette requête, le client doit également inclure les autorisations dont il a besoin d’obtenir auprès de l’utilisateur. À partir du moment où cette requête est envoyée, l’utilisateur ne dispose que de 15 minutes pour se connecter (la valeur habituelle de `expires_in`). N’effectuez cette requête que lorsque l’utilisateur a indiqué qu’il est prêt à se connecter.
 
 > [!TIP]
 > Essayez d'exécuter cette requête dans Postman !
@@ -76,13 +75,13 @@ Une réponse réussie est un objet JSON contenant les informations requises pour
 
 | Paramètre | Format | Description |
 | ---              | --- | --- |
-|`device_code`     | Chaîne | Chaîne longue utilisée pour vérifier la session entre le client et le serveur d’autorisation.  Elle est utilisée par le client pour demander le jeton d’accès au serveur d’autorisation. |
-|`user_code`       | Chaîne | Chaîne courte présentée à l’utilisateur, utilisée pour identifier la session sur un appareil secondaire.|
+|`device_code`     | String | Chaîne longue utilisée pour vérifier la session entre le client et le serveur d’autorisation. Le client utilise ce paramètre pour demander le jeton d’accès à partir du serveur d’autorisation. |
+|`user_code`       | String | Une chaîne courte indiquée à l’utilisateur qui est utilisé pour identifier la session sur un appareil secondaire.|
 |`verification_uri`| URI | URI auquel l’utilisateur doit accéder avec le `user_code` pour pouvoir se connecter. |
-|`verification_uri_complete`|URI| URI combinant le `user_code` et le `verification_uri`, utilisé pour la transmission non textuelle à l’utilisateur (par exemple, via Bluetooth sur un appareil ou via un code QR).  |
-|`expires_in`      |  int| Nombre de secondes avant l’expiration de `device_code` et `user_code`. |
+|`verification_uri_complete`| URI | Un URI qui combine le `user_code` et `verification_uri`, utilisé pour la transmission non textuelles à l’utilisateur (par exemple, via Bluetooth sur un appareil, ou via un code QR).  |
+|`expires_in`      | int | Nombre de secondes avant l’expiration de `device_code` et `user_code`. |
 |`interval`        | int | Nombre de secondes d’attente du client entre chaque requête d’interrogation. |
-| `message`        | Chaîne | Chaîne lisible par l’homme contenant des instructions pour l’utilisateur.  Elle peut être localisée en incluant un **paramètre de requête** dans la requête sous la forme `?mkt=xx-XX`, en remplissant le code de langue approprié. |
+| `message`        | String | Chaîne lisible par l’homme contenant des instructions pour l’utilisateur. Elle peut être localisée en incluant un **paramètre de requête** dans la requête sous la forme `?mkt=xx-XX`, en remplissant le code de langue approprié. |
 
 ## <a name="authenticating-the-user"></a>Authentification de l’utilisateur
 
@@ -107,15 +106,14 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 ### <a name="expected-errors"></a>Erreurs attendues
 
-Étant donné que le flux de code d’appareil est un protocole d’interrogation, votre client doit s’attendre à recevoir des erreurs avant que l’utilisateur ait terminé l’authentification.  
+Le flux de code d’appareil étant un protocole d’interrogation de votre client doit s’attendre à recevoir des erreurs avant que l’utilisateur ait terminé l’authentification.  
 
 | Error | Description | Action du client |
 | ------ | ----------- | -------------|
-| `authorization_pending` | L’utilisateur n’a pas encore terminé l’authentification, mais n’a pas annulé le flux. | Répétez la requête après `interval` secondes minimum. |
+| `authorization_pending` | L’utilisateur n’a pas terminé l’authentification, mais n’a pas annulé le flux. | Répétez la requête après `interval` secondes minimum. |
 | `authorization_declined` | L’utilisateur final a refusé la requête d’autorisation.| Arrêtez l’interrogation et revenez à un état non authentifié.  |
-| `bad_verification_code`|Le `device_code` envoyé au point de terminaison `/token` n’a pas été reconnu. | Vérifiez que le client envoie le `device_code` approprié dans la requête. |
-| `expired_token` | `expires_in` secondes minimum se sont écoulées, et l’authentification n’est plus possible avec ce `device_code`. | Arrêtez l’interrogation et revenez à un état non authentifié. |
-
+| `bad_verification_code`| Le `device_code` envoyé à la `/token` point de terminaison n’est pas reconnu. | Vérifiez que le client envoie le `device_code` approprié dans la requête. |
+| `expired_token` | `expires_in` secondes minimum se sont écoulées, et l’authentification n’est plus possible avec ce `device_code`. | Arrêter d’interrogation et revenir à un état non authentifié. |
 
 ### <a name="successful-authentication-response"></a>Réponse d’authentification réussie
 
@@ -134,11 +132,11 @@ Une réponse de jeton réussie se présente ainsi :
 
 | Paramètre | Format | Description |
 | --------- | ------ | ----------- |
-| `token_type` | Chaîne| Toujours Porteur. |
+| `token_type` | String| Toujours Porteur. |
 | `scope` | Chaînes séparées par un espace | Si un jeton d’accès est retourné, répertorie les étendues pour lesquelles le jeton d’accès est valide. |
 | `expires_in`| int | Nombre de secondes avant lequel le jeton d’accès fourni est valide. |
 | `access_token`| Chaîne opaque | Émise pour les [étendues](v2-permissions-and-consent.md) qui ont été demandées.  |
 | `id_token`   | JWT | Émis si le paramètre `scope` d’origine inclut l’étendue `openid`.  |
 | `refresh_token` | Chaîne opaque | Émise si le paramètre `scope` d’origine inclut `offline_access`.  |
 
-Le jeton d’actualisation peut être utilisé pour acquérir de nouveaux jetons d’accès et actualiser des jetons à l’aide du même flux détaillé dans la [documentation du flux de code OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+Vous pouvez utiliser le jeton d’actualisation pour acquérir de nouveaux jetons d’accès et actualisation des jetons à l’aide du même flux documenté dans la [documentation de flux de OAuth Code](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  

@@ -17,7 +17,7 @@ ms.author: rogirdh
 ms.custom: seodec18
 ms.openlocfilehash: 945ba9b2ba4dbc22941ca6b105417f591f2dd837
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58012744"
@@ -51,7 +51,7 @@ Les utilisateurs peuvent également choisir de baser leurs solutions sur une ima
 Selon la note de prise en charge d’Oracle [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards Enterprise One versions 9.2 et ultérieures est pris en charge sur **toute offre de cloud public** conforme aux `Minimum Technical Requirements` (MTR).  Vous devez créer des images personnalisées répondant à leurs spécifications MTR pour la compatibilité des applications logicielles et des systèmes d’exploitation. 
 
 ## <a name="oracle-database-virtual-machine-images"></a>Images de machines virtuelles Oracle Database
-Oracle prend en charge l’exécution des éditions Standard d’Oracle DB 12.1 dans Azure sur des images de machine virtuelle basées sur Oracle Linux.  Pour optimiser les performances des charges de travail de production des bases de données Oracle sur Azure, veillez à dimensionner correctement l’image de machine virtuelle et à utiliser des disques gérés (Managed Disks) sauvegardés par Stockage Premium. Pour obtenir des instructions sur la façon d’obtenir rapidement une base de données Oracle opérationnelle dans Azure à l’aide de l’image de machine virtuelle publiée d’Oracle, [essayez de suivre la procédure de démarrage rapide de base de données Oracle](oracle-database-quick-create.md).
+Oracle prend en charge l’exécution des éditions Standard d’Oracle DB 12.1 dans Azure sur des images de machine virtuelle basées sur Oracle Linux.  Pour optimiser les performances des charges de travail de production des bases de données Oracle sur Azure, veillez à dimensionner correctement l’image de machine virtuelle et à utiliser des disques managés (fonctionnalité Disques managés) sauvegardés par Stockage Premium. Pour obtenir des instructions sur la façon d’obtenir rapidement une base de données Oracle opérationnelle dans Azure à l’aide de l’image de machine virtuelle publiée d’Oracle, [essayez de suivre la procédure de démarrage rapide de base de données Oracle](oracle-database-quick-create.md).
 
 ### <a name="attached-disk-configuration-options"></a>Options de configuration des disques connectés
 

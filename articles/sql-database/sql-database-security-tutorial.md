@@ -1,6 +1,6 @@
 ---
 title: Sécuriser une base de données unique ou en pool dans Azure SQL Database | Microsoft Docs
-description: Découvrez les techniques et les fonctionnalités permettant de sécuriser une base de données unique ou en pool dans Azure SQL Database.
+description: Un tutoriel qui vous apprend les techniques et les fonctionnalités permettant de sécuriser une base de données unique ou en pool dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,23 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seoapril2019
+ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893269"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496435"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Didacticiel : Sécuriser une base de données unique ou en pool
+
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
+
+> [!div class="checklist"]
+> - Créer des règles de pare-feu au niveau du serveur et de la base de données
+> - Configurer un administrateur Azure Active Directory (AD)
+> - Gérer l’accès utilisateur avec l’authentification SQL, l’authentification Azure AD et des chaînes de connexion sécurisées
+> - Activer des fonctionnalités de sécurité, comme Advanced Data Security, l’audit, le masquage des données et le chiffrement
 
 Azure SQL Database sécurise les données dans une base de données unique ou en pool en vous permettant de :
 
@@ -28,14 +37,6 @@ Azure SQL Database sécurise les données dans une base de données unique ou en
 
 > [!NOTE]
 > Une base de données SQL Azure sur une instance managée se sécurise à l’aide de règles de sécurité réseau et de points de terminaison privés, comme décrit dans [Instance managée de base de données SQL Azure](sql-database-managed-instance-index.yml) et [Architecture de connectivité](sql-database-managed-instance-connectivity-architecture.md).
-
-Vous pouvez renforcer la sécurité de votre base de données en quelques étapes simples. Ce didacticiel vous montre comment effectuer les opérations suivantes :
-
-> [!div class="checklist"]
-> - Créer des règles de pare-feu au niveau du serveur et de la base de données
-> - Configurer un administrateur Azure Active Directory (AD)
-> - Gérer l’accès utilisateur avec l’authentification SQL, l’authentification Azure AD et des chaînes de connexion sécurisées
-> - Activer des fonctionnalités de sécurité, comme Advanced Data Security, l’audit, le masquage des données et le chiffrement
 
 Pour plus d’informations, consultez les articles [Vue d’ensemble de la sécurité dans Azure SQL Database](/azure/sql-database/sql-database-security-index) et [Capacités](sql-database-security-overview.md).
 
@@ -140,7 +141,7 @@ Pour définir l’administrateur Azure AD :
 
 Pour plus d’informations sur la configuration d’Azure AD, consultez :
 
-- [Intégrer des identités locales à Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Intégrer vos identités locales à Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Ajouter votre propre nom de domaine à Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
 - [Microsoft Azure prend désormais en charge la fédération avec Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administration de votre annuaire Azure AD](../active-directory/fundamentals/active-directory-administer.md)
@@ -264,7 +265,7 @@ Si des activités anormales sont détectées, vous recevez un e-mail contenant p
 
 ### <a name="auditing"></a>Audit
 
-La fonctionnalité d’audit effectue le suivi des événements de la base de données. Elle écrit ces événements dans un journal d’audit, soit dans un stockage Azure, les journaux d’activité Azure Monitor ou un hub d’événements. L’audit vous aide à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des violations potentielles de la sécurité.
+La fonctionnalité d’audit effectue le suivi des événements de la base de données. Elle écrit ces événements dans un journal d’audit, soit dans un stockage Azure, les journaux d'activité Azure Monitor ou un hub d’événements. L’audit vous aide à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des violations potentielles de la sécurité.
 
 Pour activer l’audit :
 
@@ -349,4 +350,4 @@ Dans ce tutoriel, vous avez appris à renforcer la sécurité de votre base de d
 Passez au tutoriel suivant pour apprendre à implémenter la géodistribution.
 
 > [!div class="nextstepaction"]
->[Mettre en œuvre une base de données réparties géographiquement](sql-database-implement-geo-distributed-database.md)
+>[Implémenter une base de données géo-distribuée](sql-database-implement-geo-distributed-database.md)
