@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: magoedte
 ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282285"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791539"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Comment configurer des alertes pour les problèmes de performances dans Azure Monitor pour les conteneurs
 Azure Monitor pour les conteneurs surveille les performances des charges de travail de conteneur qui sont déployés sur Azure Container Instances ou sur managed Kubernetes clusters qui sont hébergés sur Azure Kubernetes Service (AKS).
