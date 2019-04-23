@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
 ms.openlocfilehash: d209d73d67af96e99589dddcb71b6b50214356ee
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877276"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Didacticiel : Créer une base de connaissances puis répondre à une question à l’aide de C#
@@ -36,7 +36,7 @@ Ce démarrage rapide fait appel aux API QnA Maker :
 * [Obtenir les détails de l’opération](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 * [Obtenir des détails sur la base de connaissances](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
 * [Obtenir des points de terminaison sur la base de connaissances](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
-* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
+* [Publier](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -158,7 +158,7 @@ Le _point de terminaison principal_ est transféré en tant qu’en-tête afin d
 
 |Nom de l’en-tête|Valeur de l’en-tête|
 |--|--|
-|Authorization|`Endpoint` + **point de terminaison principal**<br>Exemple : `Endpoint xxxxxxx`<br>Remarquez l’espace entre le texte de `Endpoint` et la valeur du point de terminaison principal. 
+|Authorization|`Endpoint` + **point de terminaison principal**<br>Exemple : `Endpoint xxxxxxx`<br>Remarquez l’espace entre le texte de `Endpoint` et la valeur du point de terminaison principal. 
 
 Le corps de la requête doit transférer le JSON approprié :
 
