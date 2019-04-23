@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 10e8a7dd256f796160b81b8ec1f566c5ed7e4cad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5abc2e673438a1ffa22e8d010bf2ee395cd521ae
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750203"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149926"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutoriel : Créer le rendu d’une scène avec Azure Batch 
 
@@ -33,7 +33,7 @@ Dans ce didacticiel, vous créer le rendu d’une scène 3ds Max avec Batch à l
 
 Vous avez besoin d’un abonnement de paiement à l’utilisation ou autre option d’achat Azure pour utiliser les applications de rendu dans Batch sur une base de paiement à l’utilisation. **Les licences de paiement à l’utilisation ne sont pas prises en charge si vous utilisez une offre Azure gratuite qui propose un crédit monétaire.**
 
-La scène 3ds Max pour ce didacticiel se trouve sur [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), ainsi qu’un exemple de script Batch et les fichiers de configuration JSON. La scène 3ds Max est issue des [exemples de fichiers Autodesk 3ds Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Les exemples de fichier Autodesk 3ds Max sont disponibles sous licence Commons Attribution-NonCommercial-Share Alike. Copyright © Autodesk, Inc.)
+La scène 3ds Max pour ce didacticiel se trouve sur [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), ainsi qu’un exemple de script Batch et les fichiers de configuration JSON. La scène 3ds Max est issue des [exemples de fichiers Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Les exemples de fichier Autodesk 3ds Max sont disponibles sous licence Commons Attribution-NonCommercial-Share Alike. Copyright © Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
