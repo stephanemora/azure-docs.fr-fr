@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: cc2a0177525013736445db5fd1befa478dc9b9b8
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916850"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798568"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Résoudre les problèmes de déploiement de service cloud
 Lorsque vous déployez un package d’application de service cloud sur Azure, vous pouvez obtenir des informations concernant le déploiement dans le volet **Propriétés** du portail Azure. Vous pouvez utiliser les détails figurant dans ce volet pour faciliter la résolution des problèmes du service cloud, et vous pouvez fournir ces informations au support Azure lors de l’ouverture d’une nouvelle demande de support.

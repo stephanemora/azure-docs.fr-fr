@@ -11,13 +11,13 @@ ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.openlocfilehash: ff3549ce77a2b691dcaaa94b6a59e9c011ff6e21
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053001"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796101"
 ---
-# <a name="add-remove-and-sort-favorites"></a>Ajouter, supprimer et trier les Favoris
+# <a name="add-remove-and-sort-favorites"></a>Ajouter, supprimer et trier des favoris
 
 Ajouter ou supprimer des éléments à partir de votre **favoris** liste afin que vous pouvez rapidement accéder aux services que vous utilisez le plus souvent. Nous avons déjà ajouté certains services communs à votre **favoris** liste, mais vous aurez probablement envie de le personnaliser. Vous êtes la seule personne qui peut voir les modifications que vous apportez à **favoris**.
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505649"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796526"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilisation de services externes à partir du service de gestion des API Azure
 Les stratégies disponibles dans le service Gestion des API Azure permettent d’exécuter un large éventail de tâches utiles reposant strictement sur la requête entrante, la réponse sortante et les informations de configuration de base. En revanche, la possibilité d’interagir avec des services externes à partir des stratégies de gestion des API ouvre bien davantage d’opportunités.
