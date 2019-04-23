@@ -80,9 +80,9 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 |Propriété|type|Description|  
 |--------------|----------|-----------------|  
-|Pagination|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection de produits.|  
-|Filtrage|Entité [Filtering](api-management-template-data-model-reference.md#Filtering).|Informations de filtrage de la page Liste de produits.|  
-|Produits|Collection d’entités [Product](api-management-template-data-model-reference.md#Product).|Produits visibles par l’utilisateur actuel.|  
+|Paging|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection de produits.|  
+|Filtering|Entité [Filtering](api-management-template-data-model-reference.md#Filtering).|Informations de filtrage de la page Liste de produits.|  
+|Products|Collection d’entités [Product](api-management-template-data-model-reference.md#Product).|Produits visibles par l’utilisateur actuel.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   
@@ -205,14 +205,14 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 |Propriété|type|Description|  
 |--------------|----------|-----------------|  
-|Produit|[Produit](api-management-template-data-model-reference.md#Product)|Produit spécifié.|  
+|Product|[Produit](api-management-template-data-model-reference.md#Product)|Produit spécifié.|  
 |IsDeveloperSubscribed|booléenne|Si l’utilisateur actuel est abonné à ce produit.|  
 |SubscriptionState|number|État de l’abonnement. Les états possibles sont :<br /><br /> -   `0 - suspended` : l’abonnement est bloqué et l’abonné ne peut appeler aucune API du produit.<br />-   `1 - active` : l’abonnement est actif.<br />-   `2 - expired` : l’abonnement a atteint sa date d’expiration et a été désactivé.<br />-   `3 - submitted` : la demande d’abonnement a été effectuée par le développeur, mais n’a pas encore été approuvée ou rejetée.<br />-   `4 - rejected` : la demande d’abonnement a été refusée par un administrateur.<br />-   `5 - cancelled` : l’abonnement a été annulé par le développeur ou l’administrateur.|  
 |limites|array|Cette propriété est déconseillée et ne doit pas être utilisée.|  
 |DelegatedSubscriptionEnabled|booléenne|Indique si la [délégation](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) est activée pour cet abonnement.|  
 |DelegatedSubscriptionUrl|chaîne|Si la délégation est activée, indique l’URL de l’abonnement délégué.|  
 |IsAgreed|booléenne|Si le produit est associé à un contrat, indique si l’utilisateur actuel a accepté les termes du contrat.|  
-|Abonnements|Collection d’entités [Subscription summary](api-management-template-data-model-reference.md#SubscriptionSummary).|Abonnements au produit.|  
+|Subscriptions|Collection d’entités [Subscription summary](api-management-template-data-model-reference.md#SubscriptionSummary).|Abonnements au produit.|  
 |Apis|Collection d’entités [API](api-management-template-data-model-reference.md#API).|API dans ce produit.|  
 |CannotAddBecauseSubscriptionNumberLimitReached|booléenne|Indique si l’utilisateur actuel est autorisé à s’abonner à ce produit en fonction de la limite d’abonnement.|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|booléenne|Indique si l’utilisateur actuel est autorisé à s’abonner à ce produit en fonction de l’autorisation ou non de plusieurs abonnements.|  

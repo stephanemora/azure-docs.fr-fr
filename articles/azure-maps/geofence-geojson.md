@@ -35,7 +35,7 @@ Les données de la limite géographique ou d’un ensemble de limites géographi
 | startTime | DateTime  | true | Date et heure de début de la période de validité. |
 | endTime   | DateTime  | true |  Date et heure de fin de la période de validité. |
 | recurrenceType | string | false |   Le type de périodicité de la période. La valeur peut être `Daily`, `Weekly`, `Monthly` ou `Yearly`. La valeur par défaut est `Daily`.|
-| businessDayOnly | Booléen | false |  Indiquer si les données sont uniquement valides pendant les jours ouvrés. La valeur par défaut est `false`.|
+| businessDayOnly | Boolean | false |  Indiquer si les données sont uniquement valides pendant les jours ouvrés. La valeur par défaut est `false`.|
 
 
 * Toutes les valeurs des coordonnées sont représentées sous forme [latitude, longitude] définies dans `WGS84`.
