@@ -243,7 +243,7 @@ Les propriétés des planifications de travail sont décrites dans le tableau su
 | Propriété | Description |
 |:--- |:--- |
 | schedule name |Entité **name** unique portant le nom de la planification. |
-| runbook name |Entité **name** unique portant le nom du runbook.  |
+| runbook name  |Entité **name** unique portant le nom du runbook.  |
 
 
 

@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880591"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798978"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Intégration de réseau virtuel dans Azure Data Lake Storage Gen1
 
@@ -83,7 +83,7 @@ Voici quelques options disponibles :
 
 ## <a name="configuration"></a>Configuration
 
-### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Étape 1 : Configurer votre réseau virtuel pour qu’il utilise un point de terminaison de service Azure AD
+### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Étape 1 : Configurer votre réseau virtuel pour qu’il utilise un point de terminaison de service Azure AD
 
 1.  Accédez au portail Azure et connectez-vous à votre compte.
  
@@ -107,7 +107,7 @@ Voici quelques options disponibles :
  
     ![Ajout réussi du point de terminaison fournisseur](media/data-lake-store-network-security/config-vnet-4.png)
 
-### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>Étape 2 : Configurer le réseau virtuel ou sous-réseau autorisé pour votre compte Data Lake Storage Gen1
+### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>Étape 2 : Configurer le réseau virtuel ou sous-réseau autorisé pour votre compte Data Lake Storage Gen1
 
 1.  Après avoir configuré votre réseau virtuel, [créez un compte Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) dans votre abonnement. Vous pouvez également accéder à un compte Data Lake Storage Gen1 existant. Le compte Data Lake Storage Gen1 doit se trouver dans la même région que le réseau virtuel.
  

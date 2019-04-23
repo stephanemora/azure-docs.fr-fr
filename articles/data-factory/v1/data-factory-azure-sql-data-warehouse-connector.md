@@ -316,9 +316,9 @@ Data Factory crée la table dans le magasin de destination portant le même nom 
 | Binary | Binary |
 | Varbinary | Varbinary (jusqu’à 8 000) |
 | Date | Date |
-| DateTime | DateTime |
+| Datetime | Datetime |
 | DateTime2 | DateTime2 |
-| Time | Time |
+| Temps | Temps |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | Text | Varchar (jusqu'à 8 000) |
@@ -349,9 +349,9 @@ Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
+| date |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -365,7 +365,7 @@ Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object * |
@@ -376,7 +376,7 @@ Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |Xml |
 
 Vous pouvez également mapper les colonnes du jeu de données source sur les colonnes du jeu de données récepteur dans la définition de l’activité de copie. Pour plus d’informations, consultez [Mappage de colonnes de jeux de données dans Azure Data Factory](data-factory-map-columns.md).
 

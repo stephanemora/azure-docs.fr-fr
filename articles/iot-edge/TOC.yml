@@ -1,222 +1,215 @@
-items:
 - name: Documentation Azure IoT Edge
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: À propos d’Azure IoT Edge
-    href: about-iot-edge.md
+    - name: À propos d’Azure IoT Edge
+      href: about-iot-edge.md
 - name: Démarrages rapides
-  items:
-  - name: Déployer du code sur un appareil Linux
-    href: quickstart-linux.md
-  - name: Déployer du code sur un appareil Windows
-    href: quickstart.md
   expanded: true
+  items:
+    - name: Déployer du code sur un appareil Linux
+      href: quickstart-linux.md
+    - name: Déployer du code sur un appareil Windows
+      href: quickstart.md
 - name: Tutoriels
   items:
-  - name: Filtrer des données avec Azure Functions
-    href: tutorial-deploy-function.md
-  - name: Rechercher des moyennes avec ASA
-    href: tutorial-deploy-stream-analytics.md
-  - name: Attribuer un score avec Azure Machine Learning service
-    href: tutorial-deploy-machine-learning.md
-  - name: Classer des images avec Service Vision personnalisée
-    href: tutorial-deploy-custom-vision.md
-  - name: Stocker des données localement avec SQL
-    href: tutorial-store-data-sql-server.md
-  - name: Développer des modules de code personnalisés
-    items:
-    - name: C#
-      href: tutorial-csharp-module.md
-    - name: Python
-      href: tutorial-python-module.md
-    - name: Node.js
-      href: tutorial-node-module.md
-    - name: Java
-      href: tutorial-java-module.md
-    - name: C
-      href: tutorial-c-module.md
+    - name: Filtrer des données avec Azure Functions
+      href: tutorial-deploy-function.md
+    - name: Rechercher des moyennes avec ASA
+      href: tutorial-deploy-stream-analytics.md
+    - name: Attribuer un score avec Azure Machine Learning service
+      href: tutorial-deploy-machine-learning.md
+    - name: Classer des images avec Service Vision personnalisée
+      href: tutorial-deploy-custom-vision.md
+    - name: Stocker des données localement avec SQL
+      href: tutorial-store-data-sql-server.md
+    - name: Développer des modules de code personnalisés
+      items:
+        - name: 'C#'
+          href: tutorial-csharp-module.md
+        - name: Python
+          href: tutorial-python-module.md
+        - name: Node.js
+          href: tutorial-node-module.md
+        - name: Java
+          href: tutorial-java-module.md
+        - name: C
+          href: tutorial-c-module.md
 - name: Concepts
   items:
-  - name: Runtime IoT Edge
-    href: iot-edge-runtime.md
-  - name: Modules IoT Edge
-    items:
-    - name: Présentation des modules Azure IoT Edge
-      href: iot-edge-modules.md
-    - name: Propriétés du hub et de l’agent Edge
-      href: module-edgeagent-edgehub.md
-  - name: Développement
-    items:
-    - name: Développer des modules
-      href: module-development.md
-    - name: Environnement de développement
-      href: development-environment.md
-  - name: Déploiement
-    items:
-    - name: Manifeste de déploiement
-      href: module-composition.md
-    - name: Déploiements automatiques
-      href: module-deployment-monitoring.md
-  - name: Fonctionnalités hors ligne
-    href: offline-capabilities.md
-  - name: Appareil IoT Edge en tant que passerelle
-    href: iot-edge-as-gateway.md
-  - name: Sécurité
-    items:
-    - name: Sécurisation d’Azure IoT Edge
-      href: security.md
-    - name: Gestionnaire de sécurité IoT Edge
-      href: iot-edge-security-manager.md
-    - name: Certificats IoT Edge
-      href: iot-edge-certs.md
-  - name: Prise en charge de plateformes
-    href: support.md
-  - name: Liste de contrôle pour le déploiement de production
-    href: production-checklist.md
-  - name: Glossaire IoT Edge
-    href: iot-edge-glossary.md
+    - name: Runtime IoT Edge
+      href: iot-edge-runtime.md
+    - name: "Modules IoT\_Edge"
+      items:
+        - name: Présentation des modules Azure IoT Edge
+          href: iot-edge-modules.md
+        - name: Propriétés du hub et de l’agent Edge
+          href: module-edgeagent-edgehub.md
+    - name: Développement
+      items:
+        - name: Développer des modules
+          href: module-development.md
+        - name: Environnement de développement
+          href: development-environment.md
+    - name: Déploiement
+      items:
+        - name: Manifeste de déploiement
+          href: module-composition.md
+        - name: Déploiements automatiques
+          href: module-deployment-monitoring.md
+    - name: Fonctionnalités hors ligne
+      href: offline-capabilities.md
+    - name: Appareil IoT Edge en tant que passerelle
+      href: iot-edge-as-gateway.md
+    - name: Sécurité
+      items:
+        - name: Sécurisation d’Azure IoT Edge
+          href: security.md
+        - name: Gestionnaire de sécurité IoT Edge
+          href: iot-edge-security-manager.md
+        - name: Certificats IoT Edge
+          href: iot-edge-certs.md
+    - name: Prise en charge de plateformes
+      href: support.md
+    - name: Liste de contrôle pour le déploiement de production
+      href: production-checklist.md
+    - name: Glossaire IoT Edge
+      href: iot-edge-glossary.md
 - name: Guides pratiques
   items:
-  - name: Enregistrer un appareil Edge
-    items:
-    - name: Portail Azure
-      href: how-to-register-device-portal.md
-    - name: Azure CLI
-      href: how-to-register-device-cli.md
-    - name: Visual Studio Code
-      href: how-to-register-device-vscode.md
-  - name: Installer et gérer IoT Edge
-    items:
-    - name: Linux X64
-      href: how-to-install-iot-edge-linux.md
-    - name: Linux ARM32
-      href: how-to-install-iot-edge-linux-arm.md
-    - name: Windows X64
-      href: how-to-install-iot-edge-windows.md
-    - name: Machine virtuelle Ubuntu
-      href: how-to-install-iot-edge-ubuntuvm.md
-    - name: Mettre à jour la version du runtime
-      href: how-to-update-iot-edge.md
-  - name: Provisionnement automatique avec DPS
-    items:
-    - name: Linux
-      href: how-to-auto-provision-simulated-device-linux.md
-    - name: " Windows"
-      href: how-to-auto-provision-simulated-device-windows.md
-  - name: Développer et déboguer des modules personnalisés
-    items:
-    - name: Visual Studio 2017
-      href: how-to-visual-studio-develop-module.md
-    - name: Visual Studio Code
-      href: how-to-vs-code-develop-module.md
-  - name: Déployer des modules
-    items:
-    - name: Portail Azure
-      href: how-to-deploy-modules-portal.md
-    - name: Azure CLI
-      href: how-to-deploy-modules-cli.md
-    - name: Visual Studio Code
-      href: how-to-deploy-modules-vscode.md
-  - name: Déployer et surveiller à l’échelle
-    items:
-    - name: Portail Azure
-      href: how-to-deploy-monitor.md
-    - name: Azure CLI
-      href: how-to-deploy-monitor-cli.md
-  - name: Utiliser des appareils de périmètre en tant que passerelles
-    items:
-    - name: Configurer une passerelle transparente
-      href: how-to-create-transparent-gateway.md
-    - name: Connecter un appareil en aval
-      href: how-to-connect-downstream-device.md
-    - name: Passerelle de protocole Modbus
-      href: deploy-modbus-gateway.md
-  - name: Configurer une prise en charge de proxy
-    href: how-to-configure-proxy-support.md
-  - name: Stocker des données en périphérie
-    items:
-    - name: Stockage d’objets Blob Azure sur IoT Edge
-      href: how-to-store-data-blob.md
-  - name: Gérer avec les outils DevOps
-    items:
-    - name: Azure DevOps Projects
-      href: how-to-devops-project.md
-    - name: Azure DevOps
-      href: how-to-ci-cd.md
-    - name: Plug-in IoT Edge pour Jenkins
-      href: how-to-devops-plugins.md
-  - name: Résolution des problèmes
-    href: troubleshoot.md
+    - name: Enregistrer un appareil Edge
+      items:
+        - name: Portail Azure
+          href: how-to-register-device-portal.md
+        - name: Azure CLI
+          href: how-to-register-device-cli.md
+        - name: Visual Studio Code
+          href: how-to-register-device-vscode.md
+    - name: Installer et gérer IoT Edge
+      items:
+        - name: Linux X64
+          href: how-to-install-iot-edge-linux.md
+        - name: Linux ARM32
+          href: how-to-install-iot-edge-linux-arm.md
+        - name: "Windows\_X64"
+          href: how-to-install-iot-edge-windows.md
+        - name: Machine virtuelle Ubuntu
+          href: how-to-install-iot-edge-ubuntuvm.md
+        - name: Mettre à jour la version du runtime
+          href: how-to-update-iot-edge.md
+    - name: Provisionnement automatique avec DPS
+      items:
+        - name: Linux
+          href: how-to-auto-provision-simulated-device-linux.md
+        - name: Windows
+          href: how-to-auto-provision-simulated-device-windows.md
+    - name: Développer et déboguer des modules personnalisés
+      items:
+        - name: Visual Studio 2017
+          href: how-to-visual-studio-develop-module.md
+        - name: Visual Studio Code
+          href: how-to-vs-code-develop-module.md
+    - name: Déployer des modules
+      items:
+        - name: Portail Azure
+          href: how-to-deploy-modules-portal.md
+        - name: Azure CLI
+          href: how-to-deploy-modules-cli.md
+        - name: Visual Studio Code
+          href: how-to-deploy-modules-vscode.md
+    - name: Déployer et surveiller à l’échelle
+      items:
+        - name: Portail Azure
+          href: how-to-deploy-monitor.md
+        - name: Azure CLI
+          href: how-to-deploy-monitor-cli.md
+    - name: Utiliser des appareils de périmètre en tant que passerelles
+      items:
+        - name: Configurer une passerelle transparente
+          href: how-to-create-transparent-gateway.md
+        - name: Connecter un appareil en aval
+          href: how-to-connect-downstream-device.md
+        - name: Passerelle de protocole Modbus
+          href: deploy-modbus-gateway.md
+    - name: Configurer une prise en charge de proxy
+      href: how-to-configure-proxy-support.md
+    - name: Stocker des données en périphérie
+      items:
+        - name: Stockage d’objets Blob Azure sur IoT Edge
+          href: how-to-store-data-blob.md
+    - name: Gérer avec les outils DevOps
+      items:
+        - name: Azure DevOps Projects
+          href: how-to-devops-project.md
+        - name: Azure DevOps
+          href: how-to-ci-cd.md
+        - name: Plug-in IoT Edge pour Jenkins
+          href: how-to-devops-plugins.md
+    - name: Résolution des problèmes
+      href: troubleshoot.md
 - name: Rubriques connexes
   items:
-  - name: solutions
-    items:
-    - name: Accélérateurs de solution IoT
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Services de plateforme
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: Service IoT Hub Device Provisioning
-      href: /azure/iot-dps
-    - name: Cartes
-      href: /azure/azure-maps
-    - name: Kits de développement logiciel (SDK) IoT Service
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: Kits de développement logiciel (SDK) IoT Device
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: solutions
+      items:
+        - name: Accélérateurs de solution IoT
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Services de plateforme
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: Service IoT Hub Device Provisioning
+          href: /azure/iot-dps
+        - name: Cartes
+          href: /azure/azure-maps
+        - name: Kits de développement logiciel (SDK) IoT Service
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Kits de développement logiciel (SDK) IoT Device
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:
-  - name: Exemples Azure IoT pour C# (.NET)
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
-  - name: Exemples Azure IoT pour Node.js
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
-  - name: Exemples Azure IoT pour Java
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
-  - name: Exemples Azure IoT pour Python
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
-  - name: Exemples Azure IoT pour la plateforme iOS
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
-  - name: Catalogue d’appareils certifiés Azure pour l’IoT
-    href: https://catalog.azureiotsolutions.com/
-  - name: Centre de développement Azure IoT
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Azure IoT Edge pour VS Code
-    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
-  - name: Azure IoT Hub Toolkit pour VS Code
-    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
-  - name: Outil DeviceExplorer
-    href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
-  - name: Outil iothub-diagnostics
-    href: https://github.com/Azure/iothub-diagnostics
-  - name: Forum MSDN
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge
-  - name: Tarifs
-    href: https://azure.microsoft.com/pricing/details/iot-hub/
-  - name: Calculatrice de prix
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Mises à jour de service
-    href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
-  - name: Études de cas techniques
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 8cd65cf2752162d2ffe000faf4c94327466edaa5
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850749"
+    - name: 'Exemples Azure IoT pour C# (.NET)'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: Exemples Azure IoT pour Node.js
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: Exemples Azure IoT pour Java
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: Exemples Azure IoT pour Python
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: Exemples Azure IoT pour la plateforme iOS
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
+    - name: Catalogue d’appareils certifiés Azure pour l’IoT
+      href: 'https://catalog.azureiotsolutions.com/'
+    - name: Centre de développement Azure IoT
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Azure IoT Edge pour VS Code
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge'
+    - name: Azure IoT Hub Toolkit pour VS Code
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit'
+    - name: Outil DeviceExplorer
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: Outil iothub-diagnostics
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Études de cas techniques
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

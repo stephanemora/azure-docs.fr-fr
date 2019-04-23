@@ -1,85 +1,78 @@
-items:
 - name: Documentation Azure Databricks
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Présentation d’Azure Databricks
-    href: what-is-azure-databricks.md
+    - name: Présentation d’Azure Databricks
+      href: what-is-azure-databricks.md
 - name: Démarrages rapides
-  items:
-  - name: Créer un espace de travail Databricks - Portail
-    href: quickstart-create-databricks-workspace-portal.md
-  - name: Créer un espace de travail Databricks - Modèle Resource Manager
-    href: quickstart-create-databricks-workspace-resource-manager-template.md
-  - name: Créer un espace de travail Databricks - Réseau virtuel
-    href: quickstart-create-databricks-workspace-vnet-injection.md
   expanded: true
+  items:
+    - name: Créer un espace de travail Databricks - Portail
+      href: quickstart-create-databricks-workspace-portal.md
+    - name: Créer un espace de travail Databricks - Modèle Resource Manager
+      href: quickstart-create-databricks-workspace-resource-manager-template.md
+    - name: Créer un espace de travail Databricks - Réseau virtuel
+      href: quickstart-create-databricks-workspace-vnet-injection.md
 - name: Tutoriels
   items:
-  - name: Interroger SQL Server exécuté dans un conteneur Docker
-    href: vnet-injection-sql-server.md
-  - name: Effectuer des opérations ETL
-    href: databricks-extract-load-sql-data-warehouse.md
-  - name: Diffuser en continu des données à l’aide d’Event Hubs
-    href: databricks-stream-from-eventhubs.md
-  - name: Analyse des sentiments à l’aide de Cognitive Services
-    href: databricks-sentiment-analysis-cognitive-services.md
-  - name: Diffuser en continu des données depuis HDInsight Kafka
-    href: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
+    - name: Interroger SQL Server exécuté dans un conteneur Docker
+      href: vnet-injection-sql-server.md
+    - name: Effectuer des opérations ETL
+      href: databricks-extract-load-sql-data-warehouse.md
+    - name: Diffuser en continu des données à l’aide d’Event Hubs
+      href: databricks-stream-from-eventhubs.md
+    - name: Analyse des sentiments à l’aide de Cognitive Services
+      href: databricks-sentiment-analysis-cognitive-services.md
+    - name: Diffuser en continu des données depuis HDInsight Kafka
+      href: 'https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html'
 - name: Guides pratiques
   items:
-  - name: Créer un cluster Spark
-    href: https://docs.azuredatabricks.net/user-guide/clusters/index.html
-  - name: Utiliser des notebooks
-    href: https://docs.azuredatabricks.net/user-guide/notebooks/index.html
-  - name: Exécuter les travaux Spark
-    href: https://docs.azuredatabricks.net/user-guide/jobs.html
-  - name: Se connecter aux sources de données
-    href: databricks-connect-to-data-sources.md
-  - name: Utiliser l’injection de réseau virtuel
-    href: vnet-injection.md
-  - name: Utiliser avec Azure Data Factory
-    href: ../data-factory/transform-data-using-databricks-notebook.md
-    maintainContext: true
-  - name: Connexion à Excel, R et Python
-    href: connect-databricks-excel-python-r.md
-  - name: Utiliser la CLI Databricks à partir d’Azure Cloud Shell
-    href: databricks-cli-from-azure-cloud-shell.md
-  - name: Utiliser des outils décisionnels
-    href: https://docs.azuredatabricks.net/user-guide/bi/index.html
-  - name: Planifier la récupération d'urgence
-    href: howto-regional-disaster-recovery.md
-  - name: Guide MLflow
-    href: https://docs.azuredatabricks.net/applications/mlflow/index.html
+    - name: Créer un cluster Spark
+      href: 'https://docs.azuredatabricks.net/user-guide/clusters/index.html'
+    - name: Utiliser des notebooks
+      href: 'https://docs.azuredatabricks.net/user-guide/notebooks/index.html'
+    - name: Exécuter les travaux Spark
+      href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
+    - name: Se connecter aux sources de données
+      href: databricks-connect-to-data-sources.md
+    - name: Utiliser l’injection de réseau virtuel
+      href: vnet-injection.md
+    - name: Utiliser avec Azure Data Factory
+      href: ../data-factory/transform-data-using-databricks-notebook.md
+      maintainContext: true
+    - name: 'Connexion à Excel, R et Python'
+      href: connect-databricks-excel-python-r.md
+    - name: Utiliser la CLI Databricks à partir d’Azure Cloud Shell
+      href: databricks-cli-from-azure-cloud-shell.md
+    - name: Utiliser des outils décisionnels
+      href: 'https://docs.azuredatabricks.net/user-guide/bi/index.html'
+    - name: Planifier la récupération d'urgence
+      href: howto-regional-disaster-recovery.md
+    - name: Guide MLflow
+      href: 'https://docs.azuredatabricks.net/applications/mlflow/index.html'
 - name: Informations de référence
   items:
-  - name: API REST
-    href: /rest/api/databricks
-  - name: Modèle Resource Manager
-    href: /azure/templates/microsoft.databricks/workspaces
+    - name: API REST
+      href: /rest/api/databricks
+    - name: Modèle Resource Manager
+      href: /azure/templates/microsoft.databricks/workspaces
 - name: Ressources
   items:
-  - name: Questions courantes
-    href: frequently-asked-questions-databricks.md
-  - name: Notes de publication
-    href: https://docs.azuredatabricks.net/release-notes/index.html
-  - name: Documentation Databricks
-    href: https://docs.azuredatabricks.net/user-guide/index.html
-  - name: Guide du développeur R
-    href: ../machine-learning/r-developers-guide.md
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/?category=analytics
-  - name: Tarifs
-    href: https://azure.microsoft.com/pricing/details/databricks/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-databricks
-  - name: Disponibilité des régions
-    href: https://azure.microsoft.com/regions/services/
-  - name: Options de support
-    href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 1f0b7bcc369a3f857fe974f8b8ec68b801516589
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256394"
+    - name: Questions courantes
+      href: frequently-asked-questions-databricks.md
+    - name: Notes de publication
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
+    - name: Documentation Databricks
+      href: 'https://docs.azuredatabricks.net/user-guide/index.html'
+    - name: Guide du développeur R
+      href: ../machine-learning/r-developers-guide.md
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/databricks/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
+    - name: Disponibilité des régions
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Options de support
+      href: 'https://azure.microsoft.com/support/options/'

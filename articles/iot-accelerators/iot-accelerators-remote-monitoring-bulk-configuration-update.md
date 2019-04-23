@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
 ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009665"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799035"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Didacticiel : Gérer vos appareils connectés en bloc
 
@@ -41,9 +41,9 @@ If this is going to be a tutorial - we need to split this include into two so th
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de l’accélérateur de solution Monitoring à distance dans votre abonnement Azure.
+Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de l’accélérateur de solution de supervision à distance dans votre abonnement Azure.
 
-Si vous n’avez pas encore déployé l’accélérateur de solution Monitoring à distance, vous devez suivre le guide de démarrage rapide [Déployer une solution de monitoring à distance cloud](quickstart-remote-monitoring-deploy.md).
+Si vous n’avez pas encore déployé l’accélérateur de solution de supervision à distance, vous devez suivre le guide de démarrage rapide [Déployer une solution de supervision à distance cloud](quickstart-remote-monitoring-deploy.md).
 
 Vous avez besoin d’un compte de stockage Azure pour héberger vos fichiers de microprogramme. Vous pouvez utiliser un compte de stockage existant ou [créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) dans votre abonnement.
 
@@ -63,9 +63,9 @@ Vous devez également connecter au moins un appareil DevKit IoT à votre accél�
 
 ## <a name="navigate-to-the-dashboard"></a>Accédez au tableau de bord.
 
-Pour afficher le tableau de bord de solution de surveillance à distance dans votre navigateur, accédez d’abord à [Accélérateurs de solution Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators#dashboard). Vous pouvez être invité à vous connecter les informations d’identification de votre abonnement Azure.
+Pour afficher le tableau de bord de solution de supervision à distance dans votre navigateur, accédez d’abord à [Accélérateurs de solution Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators#dashboard). Vous pouvez être invité à vous connecter les informations d’identification de votre abonnement Azure.
 
-Puis cliquez sur **Lancer** sur la vignette de l’accélérateur de solution de surveillance à distance que vous avez déployé dans le [Démarrage rapide](quickstart-remote-monitoring-deploy.md).
+Puis cliquez sur **Lancer** sur la vignette de l’accélérateur de solution de supervision à distance que vous avez déployé dans le [Démarrage rapide](quickstart-remote-monitoring-deploy.md).
 
 ## <a name="create-a-device-group"></a>Créer un groupe d’appareils
 

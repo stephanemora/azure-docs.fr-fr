@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
 ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470370"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797173"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutoriel de baking Project Acoustics Unreal
 Ce document décrit le processus de soumission d’un baking acoustique à l’aide de l’extension de l’éditeur Unreal.
