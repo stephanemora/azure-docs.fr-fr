@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 6624ded670ef506dfef225a8b595da2e5ea19427
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051612"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794399"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnostiquer un problème de routage réseau d’une machine virtuelle - Azure PowerShell
 
@@ -63,7 +63,7 @@ Pour tester une communication réseau avec Network Watcher, commencez par active
 
 ## <a name="enable-network-watcher"></a>Activer Network Watcher
 
-Si vous avez déjà un network watcher activé dans la région est des États-Unis, utilisez [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) pour récupérer l’Observateur réseau. L’exemple suivant récupère un observateur réseau existant nommé *NetworkWatcher_eastus* se trouvant dans le groupe de ressources *NetworkWatcherRG* :
+Si vous avez déjà un observateur réseau activé dans la région USA Est, utilisez [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) pour le récupérer. L’exemple suivant récupère un observateur réseau existant nommé *NetworkWatcher_eastus* se trouvant dans le groupe de ressources *NetworkWatcherRG* :
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzNetworkWatcher `
@@ -71,7 +71,7 @@ $networkWatcher = Get-AzNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Si vous ne disposez pas d’un network watcher activé dans la région est des États-Unis, utilisez [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) pour créer un network watcher dans la région est des États-Unis :
+Si vous n’avez pas encore d’observateur réseau activé dans la région USA Est, utilisez [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) pour créer un observateur réseau dans cette région :
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzNetworkWatcher `
@@ -135,7 +135,7 @@ Comme vous pouvez le voir dans la sortie précédente, la route avec **AddressPr
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient :
+Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour le supprimer ainsi que toutes les ressources qu’il contient :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
