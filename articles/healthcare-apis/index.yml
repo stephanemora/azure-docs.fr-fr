@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation de l’API Azure pour FHIR Preview
+metadata:
+  title: Documentation de l’API Azure pour FHIR Preview
+  meta.description: Learn how Azure API for FHIR can power healthcare iteroperability in Azure.
+  services: healthcare-apis
+  author: hansenms
+  manager: dougseven
+  ms.author: mihansen
+  ms.service: healthcare-apis
+  ms.topic: landing-page
+  ms.date: 02/07/2019
+abstract:
+  description: 'L’API Azure pour FHIR® Preview est une API conforme, complètement managée et basée sur des standards pour les données médicales, qui vous permet de créer des systèmes intégrant l’analytique, le machine learning et l’intelligence actionnable avec vos données médicales.'
+sections:
+  - title: null
+    items:
+      - type: paragraph
+        text: FHIR&reg; est la marque déposée de HL7 et est utilisé avec l’autorisation de HL7.
+  - title: "Démarrages en 5\_minutes"
+    items:
+      - type: paragraph
+        text: Découvrir comment l’API Azure pour FHIR Preview peut assurer l’interopérabilité des données médicales dans Azure en sélectionnant un lien sous forme de flèche <img src="media/index/link.jpg" height="15" width="15"></img>.
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/portal.svg
+            title: Portail Azure
+          - image:
+              src: media/index/powershell.svg
+            title: Azure PowerShell
+          - image:
+              src: media/index/cli.svg
+            title: Azure CLI
+        rows:
+          - title: Déployer l’API Azure pour FHIR
+            values:
+              - href: fhir-paas-portal-quickstart.md
+              - href: fhir-paas-powershell-quickstart.md
+              - href: fhir-paas-cli-quickstart.md
+          - title: Déployer le serveur FHIR open source
+            values:
+              - href: fhir-oss-portal-quickstart.md
+              - href: fhir-oss-powershell-quickstart.md
+              - href: fhir-oss-cli-quickstart.md

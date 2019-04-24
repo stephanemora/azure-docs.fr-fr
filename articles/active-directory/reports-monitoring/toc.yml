@@ -1,126 +1,121 @@
-items:
 - name: Documentation sur les rapports et l’analyse
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Que sont les rapports Azure AD ?
-    href: overview-reports.md
-  - name: Qu’est-ce que la surveillance Azure AD ?
-    href: overview-monitoring.md
+    - name: Que sont les rapports Azure AD ?
+      href: overview-reports.md
+    - name: "Qu’est-ce que la surveillance Azure AD\_?"
+      href: overview-monitoring.md
 - name: Démarrages rapides
-  items:
-  - name: Rapports
-    items:
-    - name: Télécharger un rapport de connexion
-      href: quickstart-download-sign-in-report.md
-    - name: Télécharger un rapport d’audit
-      href: quickstart-download-audit-report.md
-    - name: Configurer des emplacements nommés
-      href: quickstart-configure-named-locations.md
-    - name: Installer un pack de contenu Power BI
-      href: quickstart-install-power-bi-content-pack.md
-  - name: Surveillance
-    items:
-    - name: Acheminer des journaux d’activité vers un compte de stockage
-      href: quickstart-azure-monitor-route-logs-to-storage-account.md
   expanded: true
+  items:
+    - name: Rapports
+      items:
+        - name: Télécharger un rapport de connexion
+          href: quickstart-download-sign-in-report.md
+        - name: Télécharger un rapport d’audit
+          href: quickstart-download-audit-report.md
+        - name: Configurer des emplacements nommés
+          href: quickstart-configure-named-locations.md
+        - name: Installer un pack de contenu Power BI
+          href: quickstart-install-power-bi-content-pack.md
+    - name: Surveillance
+      items:
+        - name: Acheminer des journaux d’activité vers un compte de stockage
+          href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: Tutoriels
   items:
-  - name: Rapports
-    items:
-    - name: Accéder à une API de création de rapports avec des certificats
-      href: tutorial-access-api-with-certificates.md
-  - name: Surveillance
-    items:
-    - name: Transmettre en continu des journaux d’activité vers un Event Hub
-      href: tutorial-azure-monitor-stream-logs-to-event-hub.md
-    - name: Intégrer les journaux d’activité à Splunk
-      href: tutorial-integrate-activity-logs-with-splunk.md
+    - name: Rapports
+      items:
+        - name: Accéder à une API de création de rapports avec des certificats
+          href: tutorial-access-api-with-certificates.md
+    - name: Surveillance
+      items:
+        - name: Transmettre en continu des journaux d’activité vers un Event Hub
+          href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+        - name: Intégrer les journaux d’activité à Splunk
+          href: tutorial-integrate-activity-logs-with-splunk.md
 - name: Concepts
   items:
-  - name: Rapports
-    items:
-    - name: Journaux d’audit
-      href: concept-audit-logs.md
-    - name: Journaux d’activité de connexion
-      href: concept-sign-ins.md
-    - name: Connexions risquées
-      href: concept-risky-sign-ins.md
-    - name: Événements à risque
-      href: concept-risk-events.md
-    - name: Les utilisateurs à risque
-      href: concept-user-at-risk.md
-    - name: API de création de rapports
-      href: concept-reporting-api.md
-  - name: Surveillance
-    items:
-    - name: Journaux d’activité Azure AD dans Azure Monitor
-      href: concept-activity-logs-azure-monitor.md
+    - name: Rapports
+      items:
+        - name: Journaux d’audit
+          href: concept-audit-logs.md
+        - name: Journaux d’activité de connexion
+          href: concept-sign-ins.md
+        - name: Connexions risquées
+          href: concept-risky-sign-ins.md
+        - name: Événements à risque
+          href: concept-risk-events.md
+        - name: Les utilisateurs à risque
+          href: concept-user-at-risk.md
+        - name: API de création de rapports
+          href: concept-reporting-api.md
+    - name: Surveillance
+      items:
+        - name: Journaux d’activité Azure AD dans Azure Monitor
+          href: concept-activity-logs-azure-monitor.md
 - name: Guides pratiques
-  items:
-  - name: Rapports
-    items:
-    - name: Rechercher des rapports d’activité
-      href: howto-find-activity-reports.md
-    - name: Résoudre les erreurs de connexion pour un utilisateur
-      href: howto-troubleshoot-sign-in-errors.md
-    - name: Corriger les problèmes d’utilisateurs avec indicateur de risque
-      href: howto-remediate-users-flagged-for-risk.md
-    - name: Utiliser le pack de contenu Power BI pour les rapports Azure AD
-      href: howto-power-bi-content-pack.md
-    - name: Configurer les composants requis pour l’API de création de rapports
-      href: howto-configure-prerequisites-for-reporting-api.md
-  - name: Surveillance
-    items:
-    - name: Intégrer les journaux d’activité aux journaux d’activité Azure Monitor
-      href: howto-integrate-activity-logs-with-log-analytics.md
-    - name: Analyser les journaux d’activité dans les journaux d’activité Azure Monitor
-      href: howto-analyze-activity-logs-log-analytics.md
-    - name: Installer et utiliser les vues Log Analytics pour Azure AD
-      href: howto-install-use-log-analytics-views.md
-    - name: Intégrer les journaux d’activité à SumoLogic
-      href: howto-integrate-activity-logs-with-sumologic.md
-    - name: Intégrer les journaux d’activité à ArcSight
-      href: howto-integrate-activity-logs-with-arcsight.md
-  - name: Résolution des problèmes
-    items:
-    - name: Données d’audit manquantes
-      href: troubleshoot-missing-audit-data.md
-    - name: Données manquantes dans les téléchargements
-      href: troubleshoot-missing-data-download.md
-    - name: Ne peut pas accéder aux API Graph pour la création de rapports
-      href: troubleshoot-graph-api.md
-    - name: Erreurs dans le pack de contenu Power BI
-      href: troubleshoot-content-pack.md
   expanded: true
+  items:
+    - name: Rapports
+      items:
+        - name: Rechercher des rapports d’activité
+          href: howto-find-activity-reports.md
+        - name: Résoudre les erreurs de connexion pour un utilisateur
+          href: howto-troubleshoot-sign-in-errors.md
+        - name: Corriger les problèmes d’utilisateurs avec indicateur de risque
+          href: howto-remediate-users-flagged-for-risk.md
+        - name: Utiliser le pack de contenu Power BI pour les rapports Azure AD
+          href: howto-power-bi-content-pack.md
+        - name: Configurer les composants requis pour l’API de création de rapports
+          href: howto-configure-prerequisites-for-reporting-api.md
+        - name: Guide pratique pour utiliser des classeurs Azure Monitor
+          href: howto-use-azure-monitor-workbooks.md
+    - name: Surveillance
+      items:
+        - name: Intégrer les journaux d’activité aux journaux d’activité Azure Monitor
+          href: howto-integrate-activity-logs-with-log-analytics.md
+        - name: Analyser les journaux d’activité dans les journaux d’activité Azure Monitor
+          href: howto-analyze-activity-logs-log-analytics.md
+        - name: Installer et utiliser les vues Log Analytics pour Azure AD
+          href: howto-install-use-log-analytics-views.md
+        - name: Intégrer les journaux d’activité à SumoLogic
+          href: howto-integrate-activity-logs-with-sumologic.md
+        - name: Intégrer les journaux d’activité à ArcSight
+          href: howto-integrate-activity-logs-with-arcsight.md
+    - name: Résolution des problèmes
+      items:
+        - name: Données d’audit manquantes
+          href: troubleshoot-missing-audit-data.md
+        - name: Données manquantes dans les téléchargements
+          href: troubleshoot-missing-data-download.md
+        - name: Ne peut pas accéder aux API Graph pour la création de rapports
+          href: troubleshoot-graph-api.md
+        - name: Erreurs dans le pack de contenu Power BI
+          href: troubleshoot-content-pack.md
 - name: Informations de référence
-  items:
-  - name: Rapports
-    items:
-    - name: Informations de référence sur l’API des journaux d’audit
-      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
-    - name: Informations de référence sur l’API des journaux d’activité de connexion
-      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
-    - name: Activités d’audit
-      href: reference-audit-activities.md
-    - name: Stratégies de conservation des données
-      href: reference-reports-data-retention.md
-    - name: Latences en termes de création de rapports
-      href: reference-reports-latencies.md
-    - name: Code d’erreur de connexion
-      href: reference-sign-ins-error-codes.md
-    - name: Questions fréquentes (FAQ)
-      href: reports-faq.md
-  - name: Surveillance
-    items:
-    - name: Schéma du journal d’audit
-      href: reference-azure-monitor-audit-log-schema.md
-    - name: Schéma du journal de connexion
-      href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: 746e3834189b9c0c478f7bbcd8b72e6760c288f6
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293768"
+  items:
+    - name: Rapports
+      items:
+        - name: Informations de référence sur l’API des journaux d’audit
+          href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
+        - name: Informations de référence sur l’API des journaux d’activité de connexion
+          href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
+        - name: Activités d’audit
+          href: reference-audit-activities.md
+        - name: Stratégies de conservation des données
+          href: reference-reports-data-retention.md
+        - name: Latences en termes de création de rapports
+          href: reference-reports-latencies.md
+        - name: Code d’erreur de connexion
+          href: reference-sign-ins-error-codes.md
+        - name: Questions fréquentes (FAQ)
+          href: reports-faq.md
+    - name: Surveillance
+      items:
+        - name: Schéma du journal d’audit
+          href: reference-azure-monitor-audit-log-schema.md
+        - name: Schéma du journal de connexion
+          href: reference-azure-monitor-sign-ins-log-schema.md

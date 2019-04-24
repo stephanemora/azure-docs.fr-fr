@@ -17,18 +17,18 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7ed2830b704d379e2ecc5a5e548f831800af56d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: d9d2e9aa5e5e805b302763f5417110cdd078eb3b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526382"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997595"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Démarrage rapide : Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Ce démarrage rapide contient un exemple de code qui montre comment une application de plateforme Windows universelle (UWP) peut connecter des utilisateurs avec des comptes personnels, professionnels et scolaires, obtenir un jeton d’accès et appeler l’API Microsoft Graph.
+Ce guide de démarrage rapide contient un exemple de code qui montre comment une application de plateforme Windows universelle (UWP) peut connecter des utilisateurs avec des comptes personnels ou des comptes professionnels et scolaires, obtenir un jeton d’accès et appeler l’API Microsoft Graph.
 
 ![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-uwp/uwp-intro.svg)
 
@@ -72,7 +72,7 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Étape 2 : Télécharger votre projet Visual Studio
 
- - [Télécharger le projet Visual Studio 2017](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+ - [Télécharger le projet Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
 
@@ -89,7 +89,7 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 > - `Enter_the_Application_Id_here` - est l’ID de l’application pour l’application que vous avez inscrite.
 >
 > > [!TIP]
-> > Pour connaître les valeurs du champ *ID d’application*, accédez à la page **Vue d’ensemble**.
+> > Pour connaître la valeur du champ *ID d’application*, accédez à la section **Vue d’ensemble** du portail.
 
 #### <a name="step-4-run-your-application"></a>Étape 4 : Exécuter votre application
 
@@ -97,7 +97,7 @@ Si vous voulez suivre le guide de démarrage rapide sur votre ordinateur Windows
 
 1. Dans la barre d’outils Visual Studio, choisissez la bonne plateforme (probablement **x64** ou **x86**, mais pas ARM).
    > Notez que l’appareil cible passe de *Appareil* à *Machine locale*.
-1. Sélectionnez Déboguer | **Démarrer sans débogage**
+1. Sélectionnez Déboguer | **Démarrer sans débogage**.
 
 ## <a name="more-information"></a>Plus d’informations
 
@@ -119,7 +119,7 @@ Vous pouvez ajouter la référence de MSAL en ajoutant le code suivant :
 using Microsoft.Identity.Client;
 ```
 
-Ensuite, initialisez MSAL à l’aide du code suivant :
+MSAL est ensuite initialisé à l’aide du code suivant :
 
 ```csharp
 public static IPublicClientApplication PublicClientApp;
@@ -133,11 +133,11 @@ PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
 
 ### <a name="requesting-tokens"></a>Demande de jetons
 
-MSAL propose deux méthodes pour acquérir des jetons de manière interactive : `AcquireTokenInteractive` et `AcquireTokenSilent`.
+MSAL utilise deux méthodes d’acquisition de jetons dans une application UWP : `AcquireTokenInteractive` et `AcquireTokenSilent`.
 
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
 
-Certaines situations nécessitent d’obliger les utilisateurs à interagir avec un point de terminaison de la plateforme d’identités Microsoft via une fenêtre contextuelle pour valider leurs informations d’identification ou donner leur consentement. Voici quelques exemples :
+Certaines situations nécessitent d’obliger les utilisateurs à interagir avec un point de terminaison de la plateforme d’identités Microsoft par le biais d’une fenêtre contextuelle pour valider leurs informations d’identification ou donner leur consentement. Voici quelques exemples :
 
 - Lorsque des utilisateurs se connectent pour la première fois à l’application
 - Quand les utilisateurs doivent de nouveau entrer leurs informations d’identification, car le mot de passe a expiré
@@ -155,7 +155,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
 
-Vous ne voulez pas obliger l’utilisateur à valider ses informations d’identification à chaque fois qu’il doit accéder à une ressource. La plupart du temps, vous souhaitez que les acquisitions et renouvellements de jetons se fassent sans aucune interaction de l’utilisateur. Vous pouvez utiliser la méthode `AcquireTokenSilent` pour obtenir des jetons pour accéder aux ressources protégées après la méthode `AcquireTokenAsync` initiale :
+Utilisez la méthode `AcquireTokenSilent` pour obtenir des jetons d’accès aux ressources protégées après la méthode `AcquireTokenAsync` initiale. Vous ne voulez pas obliger l’utilisateur à valider ses informations d’identification chaque fois qu’il doit accéder à une ressource. La plupart du temps, vous voulez que les acquisitions et renouvellements de jetons se fassent sans aucune interaction de l’utilisateur.
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

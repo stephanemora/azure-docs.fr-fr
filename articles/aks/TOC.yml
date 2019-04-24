@@ -108,8 +108,6 @@
         - name: Supprimer un cluster AKS
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: AKS activé pour Azure AD
-          href: aad-integration.md
         - name: Créer des nœuds virtuels (préversion)
           items:
             - name: Azure CLI
@@ -172,8 +170,18 @@
           href: control-kubeconfig-access.md
         - name: Sécuriser le trafic de pod avec des stratégies réseau (préversion)
           href: use-network-policies.md
+        - name: Utiliser des stratégies de sécurité des pods (préversion)
+          href: use-pod-security-policies.md
         - name: Mettre à jour les informations d’identification du principal de service de cluster
           href: update-credentials.md
+        - name: Activer l’intégration d’Azure Active Directory
+          items:
+            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
+              href: azure-ad-integration-cli.md
+            - name: Utilisation du portail Azure
+              href: azure-ad-integration.md
+        - name: Utiliser le contrôle d’accès en fonction du rôle (RBAC) Kubernetes avec l’intégration d’Azure AD
+          href: azure-ad-rbac.md
         - name: S’authentifier avec ACR
           href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true

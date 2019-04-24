@@ -18,10 +18,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0a40c9ee06751edfb7b218cf15275019c142545
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491319"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Démarrage rapide : acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console à l’aide de l’identité de l’application
@@ -96,13 +96,13 @@ Ce guide de démarrage rapide nécessite [.NET Core 2.2](https://www.microsoft.
     "ClientSecret": "Enter_the_Client_Secret_Here"
     ```
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
-    > > [Générer un nouvelle clé secrète client]()
+    > > [Générer un nouveau secret client]()
     
     > [!div renderon="docs"]
     >> Où :
-    >> * `Enter_the_Application_Id_Here` - est l’**ID d’application (client)** pour l’application que vous avez inscrite.
-    >> * `Enter_the_Tenant_Id_Here` - remplacez cette valeur par l’**ID du locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
-    >> * `Enter_the_Client_Secret_Here` - remplacez cette valeur par la clé secrète client créée à l’étape 1.
+    >> * `Enter_the_Application_Id_Here` : est l’**ID d’application (client)** pour l’application que vous avez inscrite.
+    >> * `Enter_the_Tenant_Id_Here` : remplacez cette valeur par l’**ID du locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
+    >> * `Enter_the_Client_Secret_Here` : remplacez cette valeur par le secret client créé à l’étape 1.
 
     > [!div renderon="docs"]
     > > [!TIP]
@@ -132,8 +132,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Où :
->> * `Enter_the_Tenant_Id_Here` - remplacez cette valeur par l’**ID du locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` - est l’**ID d’application (client)** pour l’application que vous avez inscrite.
+>> * `Enter_the_Tenant_Id_Here` : remplacez cette valeur par l’**ID du locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
+>> * `Enter_the_Application_Id_Here` : est l’**ID d’application (client)** pour l’application que vous avez inscrite.
 
 > [!NOTE]
 > Vous pouvez recevoir l’erreur *« AADSTS50011 : aucune adresse de réponse n’est inscrite pour l’application »* après avoir accordé le consentement pour l’application à l’aide de l’URL précédente. La raison est que cette application et l’URL n’ont pas d’URI de redirection. Vous pouvez ignorer l’erreur.
@@ -220,7 +220,7 @@ Pour plus d’informations, consultez la [documentation de référence sur `Acqu
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Exemple de démon .NET core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+> [Exemple de démon .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 En savoir plus sur les autorisations et le consentement :
 
