@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60243642"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -153,7 +153,7 @@ La deuxième solution consiste à créer et à exécuter un script de déploieme
 >[!IMPORTANT]
 >Si un Agent d’authentification est installé sur un ordinateur virtuel, vous ne pouvez pas cloner la Machine virtuelle pour le programme d’installation d’un autre Agent d’authentification. Cette méthode est **non pris en charge**.
 
-## <a name="step-5-configure-smart-lockout-capability"></a>Étape 5 : Configurer la fonctionnalité de verrouillage intelligent
+## <a name="step-5-configure-smart-lockout-capability"></a>Étape 5 : Configurer la fonctionnalité de verrouillage intelligent
 
 Verrouillage intelligent permet de verrouiller les mauvais acteurs qui essaient de deviner les mots de passe des utilisateurs ou à l’aide de méthodes de force brute pour obtenir dans. En configurant les paramètres de verrouillage intelligent dans Azure AD et / ou des paramètres de verrouillage appropriée dans Active Directory local, les attaques peuvent être filtrés avant qu’ils atteignent l’Active Directory. Lecture [cet article](../authentication/howto-password-smart-lockout.md) pour en savoir plus sur la façon de configurer les paramètres de verrouillage intelligent sur votre locataire pour protéger vos comptes d’utilisateur.
 

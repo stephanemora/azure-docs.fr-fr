@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292212"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problèmes de connexion à une application de la galerie configurée pour l’authentification unique fédérée
 
@@ -127,11 +127,11 @@ Pour affecter un ou plusieurs utilisateurs à une application directement, suive
 
 1. Pointez sur **l’utilisateur** dans la liste pour afficher une **case à cocher**. Cliquez sur la case à cocher en regard de la photo de profil ou le logo pour ajouter l’utilisateur à l’utilisateur le **sélectionnés** liste.
 
-1. **Facultatif :** Si vous souhaitez **ajouter plusieurs utilisateurs**, tapez un autre nom complet ou une adresse dans e-mail le **recherche par nom ou adresse e-mail** zone de recherche, puis cliquez sur la case à cocher pour ajouter l’utilisateur à la **sélectionnés**  liste.
+1. **Facultatif** : Si vous souhaitez **ajouter plusieurs utilisateurs**, tapez un autre nom complet ou une adresse dans e-mail le **recherche par nom ou adresse e-mail** zone de recherche, puis cliquez sur la case à cocher pour ajouter l’utilisateur à la **sélectionnés**  liste.
 
 1. Lorsque vous avez fini de sélectionner les utilisateurs, cliquez sur le **sélectionnez** pour les ajouter à la liste des utilisateurs et groupes à affecter à l’application.
 
-1. **Facultatif :** Cliquez sur le **sélectionner un rôle** sélecteur dans la **ajouter une attribution** volet pour sélectionner un rôle à affecter aux utilisateurs que vous avez sélectionné.
+1. **Facultatif** : Cliquez sur le **sélectionner un rôle** sélecteur dans la **ajouter une attribution** volet pour sélectionner un rôle à affecter aux utilisateurs que vous avez sélectionné.
 
 1. Cliquez sur le bouton **Attribuer** pour affecter l’application aux utilisateurs sélectionnés.
 

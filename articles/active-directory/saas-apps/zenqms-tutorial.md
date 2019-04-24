@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à ZenQMS | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à ZenQMS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ZenQMS.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 08/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5d2e734ff9bd34a176d08e36019c826dac355bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60239522"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Didacticiel : Intégration d’Azure Active Directory à ZenQMS
 

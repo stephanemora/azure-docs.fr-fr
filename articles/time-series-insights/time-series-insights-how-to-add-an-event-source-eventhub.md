@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: d4a80358535429f53b582abe8560757028159070
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197797"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Ajouter une source d’événement Event Hub à votre environnement Time Series Insights
 
@@ -25,7 +25,7 @@ Cet article explique comment utiliser le Portail Azure pour ajouter une source d
 > [!NOTE]
 > Les étapes décrites dans cet article s’appliquent à la fois aux environnements Time Series Insights - GA et Time Series Insights - Préversion.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Créez un environnement Time Series Insights. Pour plus d’informations, consultez [Créer un environnement Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 - Créez un hub d’événements. Pour plus d’informations sur Event Hubs, consultez [Créer un espace de noms Event Hubs et un Event Hub à l’aide du portail Azure](../event-hubs/event-hubs-create.md).

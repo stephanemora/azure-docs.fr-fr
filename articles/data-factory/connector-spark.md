@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 370da046e5a964d91b668ea80730b8d331065d29
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019960"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322870"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copier des données de Spark avec Azure Data Factory 
 
@@ -41,7 +41,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Spark :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **Spark** | Oui |
+| type | La propriété type doit être définie sur : **Spark** | Oui |
 | host | Adresse IP ou nom d’hôte du serveur Spark.  | Oui |
 | port | Port TCP utilisé par le serveur Spark pour écouter les connexions clientes. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | Oui |
 | serverType | Type de serveur Spark. <br/>Les valeurs autorisées sont les suivantes : **SharkServer**, **SharkServer2**, **SparkThriftServer** | Non  |
@@ -86,8 +86,8 @@ Pour copier des données de Spark, affectez la valeur **SparkObject** à la prop
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **SparkObject** | Oui |
-| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **SparkObject** | Oui |
+| tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -115,7 +115,7 @@ Pour copier des données de Spark, affectez la valeur **SparkSource** au type so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **SparkSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **SparkSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Shmoop For Schools | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Shmoop For Schools | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Shmoop For Schools.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4091b20e97ca76629260a7420beecb77412b0d39
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310691"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutoriel : Intégration d’Azure Active Directory à Shmoop For Schools
+# <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Didacticiel : Intégration d’Azure Active Directory à Shmoop For Schools
 
 Dans ce didacticiel, vous allez apprendre à intégrer Shmoop For Schools à Azure Active Directory (Azure AD).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à itslearning | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à itslearning | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et itslearning.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 06/17/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a12fb0123e96c592a8af9fe04f6ff17f8fea62a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900758"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60270169"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Didacticiel : Intégration d’Azure Active Directory à itslearning
 
@@ -34,7 +34,7 @@ L’intégration d’itslearning à Azure AD vous offre les avantages suivants 
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à itslearning, vous avez besoin des éléments suivants :
 

@@ -15,11 +15,11 @@ ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e57a953f99a5e0259c346836c156a0e4fe3e4c03
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293370"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs
 
@@ -32,7 +32,7 @@ Toutes les applications sont affectées à un groupe de connecteurs. Si vous ne 
 >[!TIP] 
 >Si vous avez un grand déploiement de proxy d’application, n’affectez aucune application au groupe de connecteurs par défaut. Ainsi, les nouveaux connecteurs ne reçoivent pas de trafic live tant que vous ne les affectez pas à un groupe de connecteurs actif. Cette configuration vous permet également de passer des connecteurs en mode inactif en les réintégrant au groupe par défaut, pour que vous puissiez en effectuer la maintenance sans impacter vos utilisateurs.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour regrouper vos connecteurs, vous devez vous assurer que vous avez [installé plusieurs connecteurs](application-proxy-add-on-premises-application.md). Lorsque vous installez un nouveau connecteur, il est automatiquement ajouté au groupe de connecteurs **par défaut**.
 
 ## <a name="create-connector-groups"></a>Créer des groupes de connecteurs

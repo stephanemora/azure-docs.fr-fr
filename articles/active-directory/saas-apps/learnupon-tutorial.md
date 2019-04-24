@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à LearnUpon | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à LearnUpon | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LearnUpon.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 06/23/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70d4e507087e645c9bfd41e7ef6b90098079ab1d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202432"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60259037"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutoriel : Intégration d'Azure Active Directory à LearnUpon
+# <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Didacticiel : Intégration d'Azure Active Directory à LearnUpon
 
 Dans ce didacticiel, vous allez apprendre à intégrer LearnUpon à Azure Active Directory (Azure AD).
 

@@ -9,14 +9,14 @@ ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 74666149824627308b6c5b026e0c9ba7a7750ada
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523611"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346295"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportement des alertes SMS dans les groupes d’actions
-## <a name="overview"></a>Présentation ##
+## <a name="overview"></a>Vue d'ensemble ##
 Les groupes d’actions vous permettent de configurer une liste d’actions. Ces groupes sont utilisés lors de la définition d’alertes, ce qui permet de s’assurer qu’un groupe d’actions particulier est notifié au déclenchement de l’alerte. Une des actions prises en charge est le SMS ; les notifications par SMS prennent en charge la communication bidirectionnelle. Un utilisateur peut répondre à un SMS pour :
 
 - **Se désabonner des alertes :** un utilisateur peut annuler son abonnement à toutes les alertes par SMS pour tous les groupes d’actions ou un groupe d’actions particulier.
