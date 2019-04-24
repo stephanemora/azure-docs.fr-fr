@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 9a61b5d25d554ea7e39490b0ca64cde3dcb396d6
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b0a8deb5f656fafde358dbcf2e1a2724f1a84113
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61225435"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Documentation sur les machines virtuelles Linux
 
@@ -25,7 +25,7 @@ Découvrez comment déployer un serveur web NGINX au sein d’une machine virtue
 
 - [Portail Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [interface de ligne de commande Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Interface de ligne de commande Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="step-by-step-tutorials"></a>Didacticiels pas à pas
 
@@ -52,7 +52,7 @@ Découvrez comment déployer, gérer et mettre à l’échelle des machines virt
 
 Déployez votre première application dans Azure.
 
-- [interface de ligne de commande Azure](/azure/virtual-machines/virtual-machines-linux-cli-samples)
+- [Interface de ligne de commande Azure](/azure/virtual-machines/virtual-machines-linux-cli-samples)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-powershell-samples)
 
 ## <a name="more"></a>En savoir plus
