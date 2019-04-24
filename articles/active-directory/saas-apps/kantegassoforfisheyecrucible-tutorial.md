@@ -16,13 +16,13 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e8205fe300cb88dc9cced5f5a75e692700f9f34b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166336"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60265047"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Tutoriel : Intégration d'Azure Active Directory à Kantega SSO pour FishEye/Crucible
+# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Didacticiel : Intégration d'Azure Active Directory à Kantega SSO pour FishEye/Crucible
 
 Ce didacticiel explique comment intégrer Kantega SSO pour FishEye/Crucible avec Azure Active Directory (Azure AD).
 

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7ca486768cf56059328801b1b4b1036bb8aeece8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201334"
 ---
 # <a name="authentication-requests-and-responses"></a>Authentification, requêtes et réponses
 
@@ -91,7 +91,7 @@ Cette rubrique traite des caractéristiques du service Azure Key Vault. Pour obt
 
 ```  
 
-## <a name="authentication"></a>Authentication  
+## <a name="authentication"></a>Authentification  
  Toutes les requêtes auprès d’Azure Key Vault DOIVENT être authentifiées. Azure Key Vault prend en charge les jetons d’accès Azure Active Directory qui peuvent être obtenus à l’aide d’OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Pour plus d’informations sur l’enregistrement de votre application et l’authentification permettant d’utiliser Azure Key Vault, consultez [Register your client application with Azure AD (Inscrire votre application cliente avec Azure AD)](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).

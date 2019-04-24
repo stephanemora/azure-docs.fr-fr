@@ -9,11 +9,11 @@ ms.date: 03/26/2019
 ms.author: nikiest
 ms.subservice: logs
 ms.openlocfilehash: 890f2224a4053ec8cad65b44b85eab0e31be3b64
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236781"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Collecter et utiliser des données de journaux à partir de vos ressources Azure
 

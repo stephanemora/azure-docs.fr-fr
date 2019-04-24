@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
 ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58115387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232759"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Stockage Premium hautes performances et disques managés pour machines virtuelles
 

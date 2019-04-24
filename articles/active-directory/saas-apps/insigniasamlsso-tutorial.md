@@ -17,11 +17,11 @@ ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc492142200c7fd028360d01c2602904531550dc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60271769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutoriel : Intégration d’Azure Active Directory à Insignia SAML SSO
 
@@ -35,7 +35,7 @@ L’intégration d’Insignia SAML SSO dans Azure AD vous offre les avantages su
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Insignia SAML SSO, vous avez besoin des éléments suivants :
 

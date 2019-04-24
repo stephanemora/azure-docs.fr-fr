@@ -11,11 +11,11 @@ ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: dbd57e53fbaec4368e3c8ce9600bce1d37bcab8f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317324"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Présentation des stratégies personnalisées du pack de démarrage Azure AD B2C Custom Policy
 

@@ -16,13 +16,13 @@ ms.date: 06/17/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5d83ab0c14da772551a8f33704e0e776be5ebb6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60274528"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Tutoriel : Intégration d’Azure Active Directory à Icertis Contract Management Platform
+# <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Didacticiel : Intégration d’Azure Active Directory à Icertis Contract Management Platform
 
 Dans ce didacticiel, vous allez apprendre à intégrer Icertis Contract Management Platform dans Azure AD (Azure Active Directory).
 
