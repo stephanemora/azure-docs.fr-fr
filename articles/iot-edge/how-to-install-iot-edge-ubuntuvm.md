@@ -11,7 +11,7 @@ ms.date: 03/29/2019
 ms.author: gregman
 ms.openlocfilehash: 7062bd2dbd8c375b8dd3fad348e5cc26de8f36d2
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59698586"
@@ -37,8 +37,8 @@ Au premier démarrage, Azure IoT Edge sur la Machine virtuelle Ubuntu préinstal
     1.  Sélectionnez votre nouvelle ressource de machine virtuelle sur le Portail Azure et ouvrez l’option **Exécuter la commande**.
     1.  Sélectionnez l’option **RunShellScript**.
     1.  Exécutez le script ci-dessous dans la fenêtre Commande avec la chaîne de connexion de votre appareil : `/etc/iotedge/configedge.sh “{device_connection_string}”`.
-    1.  Sélectionner **Exécuter**.
-    1.  Attendez quelques instants ; l’écran devrait alors présenter un message de réussite indiquant que la chaîne de connexion a été correctement définie.
+    1.  Sélectionnez **Exécuter**.
+    1.  Attendez quelques instants ; l’écran devrait alors présenter un message indiquant que la chaîne de connexion a été correctement définie.
 
 
 ## <a name="deploy-from-the-azure-portal"></a>Déployer à partir du portail Azure
