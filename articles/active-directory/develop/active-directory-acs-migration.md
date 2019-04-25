@@ -18,17 +18,17 @@ ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301051"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Activation Effectuer une migration à partir d’Azure Access Control Service
 
 Microsoft Azure Access Control Service (ACS), un service d’Azure Active Directory (Azure AD), sera mis hors-service le 7 novembre 2018. Les applications et services qui utilisent actuellement Access Control Service doivent être entièrement migrés vers un autre mécanisme d’authentification d’ici-là. Cet article fournit des recommandations aux clients actuels qui prévoient de ne plus utiliser Access Control Service. Si vous n’utilisez pas Access Control Service, aucune action n’est requise de votre part.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Access Control Service est un service d’authentification de cloud qui permet d’authentifier les utilisateurs et de les autoriser à accéder à vos applications et services web. Il permet également de sortir de votre code, de nombreuses fonctionnalités d’authentification et d’autorisation. Access Control Service est principalement utilisé par les développeurs et architectes de clients Microsoft .NET, d’applications web ASP.NET et des services web WCF (Windows Communication Foundation).
 

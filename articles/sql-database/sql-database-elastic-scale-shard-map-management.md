@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332311"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Monter en charge les bases de données avec le Gestionnaire de cartes de partitions
 
@@ -58,7 +58,7 @@ L’infrastructure élastique prend en charge les types suivants en tant que cl�
 | long |long |
 | GUID |uuid |
 | byte[]  |byte[] |
-| Datetime | timestamp |
+| datetime | timestamp |
 | intervalle de temps | duration|
 | datetimeoffset |offsetdatetime |
 

@@ -14,11 +14,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486949"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Déplacer des données à l’aide de l’activité de copie
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "55821318"
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Activité de copie dans V2](../copy-activity-overview.md).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Dans Azure Data Factory, vous pouvez utiliser l’activité de copie pour copier des données entre des magasins de données locaux et cloud. Une fois les données copiées, elles peuvent être transformées et analysées plus avant. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
 
 ![Rôle d’activité de copie](media/data-factory-data-movement-activities/copy-activity.png)

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/18/2018
 ms.author: aljo
 ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664235"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394023"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Création de votre première application Java Service Fabric Reliable Actors
 > [!div class="op_single_selector"]
@@ -185,7 +185,7 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-## <a name="build-the-application"></a>Créer l’application
+## <a name="build-the-application"></a>Création de l'application
 Les modèles Yeoman Service Fabric incluent un script de build pour [Gradle](https://gradle.org/), que vous pouvez utiliser pour générer l’application à partir du terminal.
 Les dépendances Java Service Fabric ont été extraites de Maven. Pour générer et travailler sur les applications Java Service Fabric, assurez-vous d’avoir installé JDK et Gradle. S’ils ne sont pas installés, consultez [Prise en main de Service Fabric avec Linux](service-fabric-get-started-linux.md#set-up-java-development) pour obtenir des instructions sur l’installation de JDK et Gradle.
 

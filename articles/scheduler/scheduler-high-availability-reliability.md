@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 50ab6cfefe4a7df9d671e7fd1287aa16b803f260
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533393"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Haute disponibilité et fiabilité pour Azure Scheluler
 
@@ -73,6 +73,6 @@ Pour découvrir comment configurer un autre point de terminaison, consultez [err
 ## <a name="see-also"></a>Voir aussi
 
 * [Présentation d’Azure Scheduler](scheduler-intro.md)
-* [Concepts, terminologie et hiérarchie d’entités](scheduler-concepts-terms.md)
+* [Concepts, terminologie et hiérarchie des entités](scheduler-concepts-terms.md)
 * [Créer des planifications complexes et des récurrences avancées](scheduler-advanced-complexity.md)
 * [Limites, quotas, valeurs par défaut et codes d’erreur](scheduler-limits-defaults-errors.md)

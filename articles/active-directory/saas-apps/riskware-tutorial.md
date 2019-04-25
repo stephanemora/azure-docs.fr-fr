@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Riskware | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Riskware | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Riskware.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60349158"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutoriel : Intégration d’Azure Active Directory à Riskware
+# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Didacticiel : Intégration d’Azure Active Directory à Riskware
 
 Dans ce tutoriel, vous allez apprendre à intégrer Riskware à Azure Active Directory (Azure AD).
 

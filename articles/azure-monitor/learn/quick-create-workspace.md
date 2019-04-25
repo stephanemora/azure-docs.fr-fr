@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: a68e40b7b1caf184fabb5df62d8b461fa2fa11e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539239"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Créer un espace de travail Log Analytics dans le portail Azure
 Utilisez le menu **Espaces de travail Log Analytics** pour créer un espace de travail Log Analytics à l’aide du portail Azure. Un espace de travail Log Analytics est un environnement unique pour les données de journal d’activité Azure Monitor. Chaque espace de travail dispose d’un référentiel de données et d’une configuration propres. Les sources de données et les solutions sont configurées de façon à stocker leurs données dans un espace de travail particulier. Vous devez avoir un espace de travail Log Analytics si vous souhaitez collecter des données à partir des sources suivantes :
@@ -52,7 +52,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
    * Sélectionnez un **Emplacement** disponible.  Pour plus d’informations, consultez qui [Analytique de journal est disponible dans des régions](https://azure.microsoft.com/regions/services/) et recherchez Azure Monitor à partir de la **rechercher un produit** champ.  
    * Si vous créez un espace de travail dans un nouvel abonnement créé après le 2 avril 2018, il utilisera automatiquement le plan tarifaire *Par Go* et l’option pour sélectionner un niveau de tarification ne sera pas disponible.  Si vous créez un espace de travail pour un abonnement existant créé avant le 2 avril, ou pour un abonnement lié à une inscription à un Contrat Entreprise existante, sélectionnez le niveau tarifaire de votre choix.  Pour plus d’informations sur les différents niveaux proposés, consultez le [détail des tarifs de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Créer le panneau de ressources d’Analytique de journal](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
+        ![Créer le panneau de ressources Log Analytics](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
 
 3. Après avoir entré les informations requises dans le volet **Espace de travail Log Analytics**, cliquez sur **OK**.  
 

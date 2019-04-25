@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995643"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332753"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Onglet Place de marché de machine virtuelle
 
@@ -61,10 +61,10 @@ Cette deuxième section est divisée en trois sous-sections suivantes : **Logos
 | **Large**                  | Image bitmap .ico de 255x115 pixels                                                    |
 | **Bannière**                  | Image bitmap de 815x290.  Facultatif. En revanche, une fois l’icône de bannière chargée, il n’est plus possible de la supprimer. |
 | *Captures d’écran*  | Facultatif ; cinq captures d’écran maximum par référence SKU. |
-| **Nom**                  | Nom ou le titre <!-- TODO - max char length? none specified in UI -->                               |
+| **Name**                  | Nom ou le titre <!-- TODO - max char length? none specified in UI -->                               |
 | **Image**                 | Image de capture d’écran, 533x324 pixels                                         |
 | *Vidéos*  |  |
-| **Nom**                  | Nom ou le titre  <!-- TODO - max char length? -->                              |
+| **Name**                  | Nom ou le titre  <!-- TODO - max char length? -->                              |
 | **Lien**                  | URL de la vidéo, hébergée sur YouTube ou Vimeo                                        |
 | **Vidéo miniature**             | Image bitmap de 533x324 pixels                                                               |
 |  |  |

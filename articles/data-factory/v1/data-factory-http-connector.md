@@ -13,11 +13,11 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017257"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318476"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Déplacer des données à partir d’une source HTTP à l’aide d’Azure Data Factory
 

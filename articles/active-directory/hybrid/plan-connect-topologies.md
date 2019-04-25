@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383759"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203412"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copier des données à partir de ServiceNow avec Azure Data Factory
 
@@ -41,7 +41,7 @@ Les propriétés prises en charge pour le service lié ServiceNow sont les suiva
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **ServiceNow** | Oui |
+| type | La propriété type doit être définie sur : **ServiceNow** | Oui |
 | endpoint | Point de terminaison du serveur ServiceNow (`http://<instance>.service-now.com`).  | Oui |
 | authenticationType | Type d’authentification à utiliser. <br/>Les valeurs autorisées sont les suivantes : **Basic**, **OAuth2** | Oui |
 | username | Nom d’utilisateur utilisé pour la connexion au serveur ServiceNow pour l’authentification De base et OAuth2.  | Oui |
@@ -80,8 +80,8 @@ Pour copier des données de ServiceNow, affectez la valeur **ServiceNowObject** 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **ServiceNowObject** | Oui |
-| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **ServiceNowObject** | Oui |
+| tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -109,7 +109,7 @@ Pour copier des données à partir de ServiceNow, définissez le type de source 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur : **ServiceNowSource** | Oui |
+| type | La propriété type de la source de l’activité de copie doit être définie sur : **ServiceNowSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Actual.alm_asset"`. | Non (si « tableName » est spécifié dans dataset) |
 
 Notez les points suivants au moment de spécifier le schéma et la colonne pour ServiceNow dans la requête, et **reportez-vous à la section [Conseils sur les performances](#performance-tips) pour en savoir plus sur l’implication des performances de copie**.

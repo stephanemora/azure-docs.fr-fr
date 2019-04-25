@@ -3,7 +3,7 @@ title: Exemples de transformations de revendications JSON pour le schéma Infras
 description: Exemples de transformations de revendications JSON pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 88d447f86dd54fc9479a6d7d2006b9a8639ad09e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089231"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396845"
 ---
 # <a name="json-claims-transformations"></a>Transformations de revendications JSON
 
@@ -191,7 +191,7 @@ Convertit des données XML au format JSON.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | xml | string | ClaimTypes qui sont utilisés par la transformation de revendication pour convertir les données XML au format JSON. |
+| InputClaim | Xml | string | ClaimTypes qui sont utilisés par la transformation de revendication pour convertir les données XML au format JSON. |
 | OutputClaim | json | string | ClaimType généré après l’appel de cette ClaimsTransformation, les données au format JSON. |
 
 ```XML

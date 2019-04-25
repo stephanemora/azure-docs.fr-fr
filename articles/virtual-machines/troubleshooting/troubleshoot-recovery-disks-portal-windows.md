@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
 ms.openlocfilehash: ec2da7d9f659f32c40f7a2685ab08be4eec27ed5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320827"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide du portail Azure
 Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser le portail Azure pour connecter votre disque dur virtuel à une autre machine virtuelle Windows pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine.

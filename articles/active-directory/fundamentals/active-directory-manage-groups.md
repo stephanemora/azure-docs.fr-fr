@@ -14,11 +14,11 @@ ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c2bffad4254815d2ed51d9bbc14b32a521b5537
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193864"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248491"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gérer l’accès aux applications et aux ressources à l’aide de groupes Azure Active Directory
 Azure Active Directory (Azure AD) vous permet de gérer vos ressources, applications locales et applications informatiques à l’aide de groupes de votre organisation. Vos ressources peuvent faire partie du répertoire, telles que les autorisations de gestion des objets via des rôles dans le répertoire, ou être externes au répertoire, comme les applications Software as a Service (SaaS), les services Azure, les sites SharePoint et les ressources locales.

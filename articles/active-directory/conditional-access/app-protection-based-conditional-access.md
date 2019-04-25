@@ -19,11 +19,11 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60355991"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Exiger la stratégie de protection des applications pour accéder aux applications de cloud avec l’accès conditionnel (version préliminaire)
 
@@ -31,7 +31,7 @@ Vos employés utilisent des appareils mobiles pour des tâches à la fois person
 
 Cet article explique comment configurer des stratégies d’accès conditionnel qui peuvent nécessiter une stratégie de protection d’application avant de pouvoir accéder aux données.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Avec l’[accès conditionnel Azure AD](overview.md), vous pouvez préciser les méthodes d’accès des utilisateurs autorisés aux ressources. Par exemple, vous pouvez limiter l’accès à vos applications cloud aux appareils approuvés.
 
@@ -66,7 +66,7 @@ Cet article suppose de connaître :
 - Comment [configurer votre stratégie d’accès conditionnel](app-based-mfa.md)
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour créer une stratégie d’accès conditionnel basé sur la protection des applications, vous devez :
 

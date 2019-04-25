@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 04/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 06a3469507631d032535bce62b01d964e99dc603
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60334792"
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>Notes de publication de StorSimple Virtual Array Update 0.4
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Les notes suivantes identifient les problèmes majeurs existants et les problèmes résolus dans les mises à jour Microsoft Azure StorSimple Virtual Array.
 
@@ -53,7 +53,7 @@ Update 0.4 est principalement une version de correctif de bogue comprenant quelq
 
 Le tableau suivant récapitule les problèmes corrigés dans cette version.
 
-|  Non. | Fonctionnalité | Problème |
+| Non. | Fonctionnalité | Problème |
 | --- | --- | --- |
 | 1 |Performances de sauvegarde|Dans les versions antérieures, les sauvegardes impliquant de nombreux fichiers prenaient un certain temps (en fonction des jours). Dans cette version, les sauvegardes complètes et incrémentielles voient une réduction significative de leur temps d’exécution. |
 | 2 |Package de prise en charge|Le disque, le processeur, la mémoire, le réseau et les statistiques de cloud sont maintenant journalisés dans les journaux d’activité de support, ce qui rend les packages de support très efficace pour résoudre les problèmes liés aux appareils.|
@@ -65,7 +65,7 @@ Le tableau suivant récapitule les problèmes corrigés dans cette version.
 
 Le tableau suivant récapitule les problèmes connus pour StorSimple Virtual Array et décrit les problèmes signalés dans les notes de version des versions précédentes. 
 
-|  Non. | Fonctionnalité | Problème | Solution de contournement/commentaires |
+| Non. | Fonctionnalité | Problème | Solution de contournement/commentaires |
 | --- | --- | --- | --- |
 | **1.** |Mises à jour |Les appareils virtuels créés dans la version préliminaire ne peuvent pas être mis à jour vers une version à disponibilité générale prise en charge. |Ces appareils virtuels doivent être basculés vers la version à disponibilité générale à l'aide d'un flux de travail de récupération d'urgence (DR). |
 | **2.** |Disque de données configuré |Une fois que vous avez configuré un disque de données d'une certaine spécifiée et créé l'appareil virtuel StorSimple correspondant, vous ne devez pas développer, ni réduire le disque de données. Toute tentative de ce type entraîne la perte de toutes les données aux niveaux locaux de l’appareil. | |

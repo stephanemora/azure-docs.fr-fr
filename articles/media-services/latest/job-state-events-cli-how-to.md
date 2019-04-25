@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: f6243bbc21466361aed7cbb7193f3a7b7c7e539f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322663"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Créer et superviser des événements Azure Media Services avec Event Grid à partir d’Azure CLI
 
@@ -24,7 +24,7 @@ Azure Event Grid est un service de gestion d’événements pour le cloud. Ce se
 
 Dans cet article, vous allez utiliser Azure CLI pour vous abonner à des événements pour votre compte Azure Media Services. Vous déclencherez ensuite des événements pour en examiner le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Dans cet article, vous allez envoyer les événements à une application web qui collecte et affiche les messages.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure actif. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 - Installez et utilisez l’interface CLI localement. Vous devez disposer d’Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 

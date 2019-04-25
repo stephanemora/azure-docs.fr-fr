@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397939"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Guide pratique pour remplir le formulaire Détails de la vitrine
 ===========================================
@@ -36,13 +36,13 @@ Ce résumé apparaît sur AppSource dans la présentation des applications, ains
 
 ### <a name="offer-description"></a>Description de l’offre
 
-Cette description apparaît sur AppSource, juste en dessous de votre **Résumé de l’offre**. Dans la description de votre solution, ne vous focalisez pas sur la technologie sous-jacente ni sur les fonctionnalités opérationnelles. Les prospects pourront en découvrir les détails ultérieurement. Votre principal objectif est de convertir les prospects, c’est-à-dire de les encourager à passer à l’action. La meilleure technique consiste à évoquer le problème auquel ils sont probablement confrontés et de souligner les bienfaits qu’ils tireront de votre solution dès qu’ils commenceront à l’utiliser. Exposez clairement une issue favorable et un résultat convaincant. Nous vous recommandons d’ajouter un lien vers la page d’accueil de votre application à la fin de la description. Le maximum autorisé est de 1 300 caractères.
+Cette description apparaît sur AppSource, juste en dessous de votre **Résumé de l’offre**. Dans la description de votre solution, ne vous focalisez pas sur la technologie sous-jacente ni sur les fonctionnalités opérationnelles. Les prospects pourront en découvrir les détails ultérieurement. Votre principal objectif est de convertir les prospects, c’est-à-dire de les encourager à passer à l’action. La meilleure technique consiste à évoquer le problème auquel ils sont probablement confrontés et de souligner les bienfaits qu’ils tireront de votre solution dès qu’ils commenceront à l’utiliser. Exposez clairement une issue favorable et un résultat convaincant. Nous vous recommandons d’ajouter un lien vers la page d’accueil de votre application à la fin de la description. Le maximum autorisé est de 1 300 caractères
 
 ### <a name="industries"></a>Secteurs d’activité
 
 Sélectionnez le secteur d’activité auquel s’adresse essentiellement votre application. Si votre application vise plusieurs secteurs d’activité, vous pouvez laisser ce champ vide.
 
-### <a name="categories"></a>Catégories
+### <a name="categories"></a>Categories
 
 Sélectionnez les catégories qui se rapportent à votre application. Sélectionnez au moins une catégorie et trois au maximum. Choisissez-les avec soin, car les clients sur AppSource peuvent effectuer des recherches en fonction des catégories.
 
@@ -68,7 +68,7 @@ Sélectionnez les langues prises en charge par votre application. Si votre appli
 
 ### <a name="app-version"></a>Version de l’application
 
-Entrez le numéro de version de votre application.
+Entrez le numéro de version de votre application
 
 ### <a name="products-your-app-works-with-max-3"></a>Produits utilisés par votre application (3 max.)
 
@@ -80,11 +80,11 @@ Fournissez une clé de masquage permettant d’afficher votre offre intermédiai
 
 ### <a name="offer-logo-png-format-48x48"></a>Logo de l’offre (format .png, 48 x 48)
 
-Ce logo apparaîtra dans la présentation de l’application sur AppSource ou dans les résultats de l’application, après avoir effectué une recherche. *Seul le format png est autorisé.*  Chargez une image png d’une résolution de 48 \* 48 px.
+Ce logo apparaîtra dans la présentation de l’application sur AppSource ou dans les résultats de l’application, après avoir effectué une recherche. *Seul le format png est autorisé.*  Chargez une image png d’une résolution de 48 \* 48 px
 
 ### <a name="offer-logo-png-format-216x216"></a>Logo de l’offre (format .png, 216 x 216)
 
-Il apparaîtra sur AppSource dans la page détaillée de votre application. *Seul le format png est autorisé.* Chargez une image png d’une résolution de 216 \* 216 px.
+Il apparaîtra sur AppSource dans la page détaillée de votre application. *Seul le format png est autorisé.* Chargez une image png d’une résolution de 216 \* 216 px
 
 ### <a name="video"></a>Vidéo
 
@@ -101,7 +101,7 @@ Vous pouvez charger au maximum trois documents au format PDF. Vous devez indique
 ![Chargement de documents](./media/d365-financials/image010.png)
 
 
-### <a name="screenshots"></a>Captures d’écran
+### <a name="screenshots"></a>Captures d’écran.
 
 Vous devez obligatoirement fournir au minimum trois captures d’écran et cinq au maximum. Créez des captures d’écran dans le bac à sable Finances et choisissez celles qui incluent des données de démonstration réalistes et qui évoquent quelque chose d’intéressant et de séduisant.
 
@@ -117,9 +117,9 @@ Entrez les conditions d’utilisation de votre application. Les clients AppSourc
 
 Vous devez prévoir une page de support spécifique qui propose aux clients différentes options de contact : téléphone, message électronique et dans l’idéal, conversation en direct, si possible.
 
-### <a name="lead-destination"></a>Destination des prospects
+### <a name="lead-destination"></a>Destination du prospect
 
-Sélectionnez un système CRM dans lequel vos prospects seront stockés. Sélectionnez ici \"Table Azure\" si vous disposez de l’un des systèmes CRM suivants : Salesforce, Marketo, Microsoft Dynamics CRM. Le système CRM que vous sélectionnez ici est celui dans lequel nous écrirons les détails des utilisateurs finaux qui essaient votre application sur AppSource (prospects). Cliquez ci-dessous sur l’URL correspondant au système CRM que vous sélectionnez pour savoir comment compléter le jeu de champs suivant.
+Sélectionnez un système CRM dans lequel vos prospects seront stockés. Sélectionnez \"Table Azure\" ici si vous avez un des systèmes CRM suivants : Salesforce, Marketo, Microsoft Dynamics CRM. Le système CRM que vous sélectionnez ici est celui dans lequel nous écrirons les détails des utilisateurs finaux qui essaient votre application sur AppSource (prospects). Cliquez ci-dessous sur l’URL correspondant au système CRM que vous sélectionnez pour savoir comment compléter le jeu de champs suivant.
 
 -   [Table Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 16cb27ab330118d1bb59cf4f3d782bf55fa28d43
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779740"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60517115"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Surveiller la connectivité des appareils à l’aide du IoT Central Explorer d’Azure
 
@@ -23,7 +23,7 @@ Utilisez l’interface CLI d’IoT Central Explorer pour consulter les messages 
 
 [Visitez le référentiel CTOI-explorer dans GitHub.](https://aka.ms/iotciotcexplorercligithub)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 + Node.js version 8.x ou ultérieure - https://nodejs.org
 + Un administrateur de votre application doit générer un jeton d’accès que vous pouvez utiliser dans l’Explorateur de CTOI

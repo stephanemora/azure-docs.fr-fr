@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325423"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : Dictionnaire de la terminologie cloud sur la plateforme Azure
 
 Le glossaire Microsoft Azure est un petit dictionnaire de la terminologie des technologies cloud pour la plateforme Azure. Voir aussi :
 
-* [Microsoft Azure et Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Définitions des services Azure et de leurs équivalents AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
+* [Microsoft Azure et Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -définitions des services Azure et leurs équivalents AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Termes de cloud computing](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - Termes généraux liés aux technologies cloud.
 
 ## <a name="account"></a>account

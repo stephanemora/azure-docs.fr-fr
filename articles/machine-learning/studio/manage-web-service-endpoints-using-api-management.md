@@ -11,14 +11,14 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347257"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gérer les services web Azure Machine Learning Studio à l’aide de Gestion des API
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Ce guide décrit la prise en main rapide de la gestion de vos services web Azure Machine Learning Studio grâce à Gestion des API.
 
 ## <a name="what-is-azure-api-management"></a>Qu’est-ce que Gestion des API Azure ?
@@ -168,7 +168,7 @@ Après l’appel d’une opération, le portail des développeurs affiche **l’
 ### <a name="creating-the-experiment"></a>Création de l’expérience
 Vous trouverez ci-dessous les étapes de création d’une expérience AzureML simple et de son déploiement comme service web. Le service web prend comme entrée une colonne de texte arbitraire et retourne un ensemble de fonctionnalités représentées sous forme d’entiers. Par exemple : 
 
-| Texte | Texte haché |
+| Text | Texte haché |
 | --- | --- |
 | C’est une belle journée |1 1 2 2 0 2 0 1 |
 

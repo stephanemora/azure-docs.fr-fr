@@ -15,17 +15,17 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
 ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918890"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324516"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Sécurisation des ressources CDN Azure avec l’authentification du jeton
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 L’authentification du jeton est un mécanisme qui vous permet d’empêcher Azure Content Delivery Network (CDN) de fournir des ressources à des clients non autorisés. L’authentification par jeton vise généralement à empêcher le *hotlinking* de contenu, dans le cadre duquel un autre site web, par exemple, un forum de discussion, utilise vos ressources sans autorisation. Le « hotlinking » peut avoir un impact sur vos coûts de distribution de contenu. En activant l’authentification du jeton sur CDN, les requêtes sont authentifiées par le serveur de périphérie CDN avant que CDN livre le contenu. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à SECURE DELIVER - Secure | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à SECURE DELIVER - Secure | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SECURE DELIVER.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e08c8c4c576f9dd0ee6896b7adf53279afc9f53c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60340170"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>Tutoriel : Intégration d’Azure Active Directory à SECURE DELIVER
+# <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>Didacticiel : Intégration d’Azure Active Directory à SECURE DELIVER
 
 Dans ce didacticiel, découvrez comment intégrer SECURE DELIVER avec Azure Active Directory (Azure AD).
 

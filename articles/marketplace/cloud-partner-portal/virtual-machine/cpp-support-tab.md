@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 35ac9d0c4b0188724c91cdcf4f33b645dd92e98a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343209"
 ---
 # <a name="virtual-machine-support-tab"></a>Onglet Support de machine virtuelle
 
-Dans l’onglet **Support** de la page **Nouvelle offre**, vous pouvez indiquer les ressources de support utilisateur et technique associées à votre offre.  L’onglet est divisé en trois zones : **Ingénierie**, **Support technique**, et **URL du support technique**.
+Dans l’onglet **Support** de la page **Nouvelle offre**, vous pouvez indiquer les ressources de support utilisateur et technique associées à votre offre.  Il est divisé en trois zones : **Ingénierie**, **clientèle**, et **prennent en charge les URL**.
 
 ![Onglet Support du formulaire Nouvelle offre pour les machines virtuelles](./media/publishvm_012.png)
 
@@ -31,12 +31,12 @@ Où :
 
 |  **Champ**                |     **Description**                                                          |
 |  ---------                |     ---------------                                                          |
-| *Contact ingénierie*  |  Sert de contact technique entre Microsoft et votre organisation | 
-| **Nom**                  | Nom de la personne ou du groupe qui assure le support technique/ingénierie     |
+| *Engineering Contact* (Contact ingénierie)  |  Sert de contact technique entre Microsoft et votre organisation | 
+| **Name**                  | Nom de la personne ou du groupe qui assure le support technique/ingénierie     |
 | **E-mail**                 | Adresse e-mail de ce contact technique                                      |
 | **Téléphone**                 | Numéro de téléphone du support technique                                           |
 | *Support technique*  | Reçoit les tickets de support ouverts par les clients dans Azure |
-| **Nom**                  | Nom de la personne ou du groupe qui assure le support technique                  |
+| **Name**                  | Nom de la personne ou du groupe qui assure le support technique                  |
 | **E-mail**                 | Adresse e-mail du support technique                                            |
 | **Téléphone**                 | Numéro de téléphone du support technique                                            |
 | *URL de support technique*  | Sites de support utilisés par Microsoft lorsque vos clients ouvrent des tickets de support |

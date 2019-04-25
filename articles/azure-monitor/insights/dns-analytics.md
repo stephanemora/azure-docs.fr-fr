@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.openlocfilehash: 6dd5872d5ec3e79e3c76b1807aea946015fb0eac
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60496364"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Rassembler des informations sur votre infrastructure DNS avec la solution DNS Analytics (préversion)
 
@@ -189,4 +189,4 @@ Vous pouvez créer fournir des commentaires de deux façons :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Interrogez les journaux](../log-query/log-query-overview.md) pour afficher des enregistrements de journal DNS détaillés.
+[Interrogez les journaux d’activité](../log-query/log-query-overview.md) pour afficher des enregistrements de journal d’activité DNS détaillés.

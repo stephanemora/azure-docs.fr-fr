@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ec7fc3a7877cf0bffac0043a74c34d6f0f04826b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362371"
 ---
 <a name="seller-insights-faq"></a>FAQ sur Seller Insights
 ===================
@@ -36,7 +36,7 @@ Les définitions des valeurs métriques du fichier de transactions se trouvent d
 <a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Consultation des détails des transactions des clients pour lesquelles j’ai été payé
 -------------------------------------------------------------
 
-Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Payout Status** (État de paiement), puis appliquez le filtre pour afficher uniquement la valeur « Paid Out » (Versé). Les colonnes suivantes sont affichées et contiennent les détails du client : **Nom de la société**, **E-mail du client**, **Pays du client**, **État du client** et **Code postal du client**.
+Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Payout Status** (État de paiement), puis appliquez le filtre pour afficher uniquement la valeur « Paid Out » (Versé). Les colonnes suivantes seront affiche alors avec les détails du client : **Nom de la société**, **E-mail client**, **pays client**, **l’état du client**, et **Code Postal du client**.
 
 
 <a name="calculate-my-open-accounts-receivable"></a>Calcul de mes comptes clients ouverts
@@ -48,7 +48,7 @@ Après avoir téléchargé vos transactions à partir du module Payout (Revenu),
 <a name="calculate-revenue-by-customer-usage-period"></a>Calcul du revenu par période d’utilisation de client
 ------------------------------------------
 
-Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Transaction Status** (État de transaction), puis appliquez le filtre pour afficher uniquement la valeur « Paid » (Payé).   Pour chaque transaction répertoriée, la colonne intitulée **Montant du paiement (DE)** représente le montant qui vous a été payé.  Pour estimer la période d’utilisation associée à la transaction, utilisez la colonne **Date de facturation**, qui est une approximation du dernier jour d’utilisation de la période à laquelle s’applique la transaction.
+Après avoir téléchargé vos transactions à partir du module de paiement, localisez la colonne intitulée **état de la Transaction**et filtrer la valeur « Payant ».   Pour chaque transaction dans la liste, la colonne intitulée **paiement quantité (PC)** représente le montant qui vous ont été payé.  Pour estimer la période d’utilisation associée à la transaction, utilisez la colonne **Date de facturation**, qui est une approximation du dernier jour de l’utilisation de la période à laquelle s’applique la transaction.
 
 
 <a name="calculate-your-bad-debt"></a>Calcul de votre créance irrécouvrable

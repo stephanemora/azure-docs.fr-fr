@@ -11,11 +11,11 @@ ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
 ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402698"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Nouveautés dans Azure SQL Data Warehouse Mai 2018 
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en mai 2018. 

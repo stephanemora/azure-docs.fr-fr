@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60241696"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Modification du mot de passe du compte de service de synchronisation Azure AD
 Si vous modifiez le mot de passe du service Azure AD Connect Sync, le service de synchronisation ne sera pas en mesure de démarrer correctement jusqu'à ce que vous abandonniez la clé de chiffrement et réinitialisiez le mot de passe du service Azure AD Connect Sync. 

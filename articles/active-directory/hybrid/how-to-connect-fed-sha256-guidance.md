@@ -17,14 +17,14 @@ ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa597c8b458305946aa298631726df3da317534
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244421"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Modifier l’algorithme de hachage de signature pour l’approbation de partie de confiance Office 365
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Azure Active Directory Federation Services (AD FS) signe ses jetons dans Microsoft Azure Active Directory pour vous assurer qu’ils sont infalsifiables. Cette signature peut reposer sur SHA1 ou SHA256. Azure Active Directory prend désormais en charge les jetons signés avec un algorithme SHA256 et recommande de configurer l’algorithme de signature de jetons SHA256 pour un niveau de sécurité optimal. Cet article décrit comment configurer l’algorithme de signature de jetons sur le niveau de sécurité le plus élevé, SHA256.
 
 >[!NOTE]

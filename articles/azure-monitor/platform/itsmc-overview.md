@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118048"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395803"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connecter Azure aux outils ITSM à l’aide du connecteur de gestion des services informatiques
 
@@ -192,14 +192,14 @@ ServiceDeskWorkItemType_s="Incident"
 - Fermé par
 - Source
 - Affecté à
-- Catégorie
+- Category
 - Intitulé
 - Description
 - Date de création
 - Date de fermeture
 - Date de résolution
 - Date de dernière modification
-- Ordinateur
+- Computer
 
 
 **Élément de travail :** **Demandes de modification**
@@ -215,7 +215,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Affecté à
 - Intitulé
 - Type
-- Catégorie
+- Category
 - State
 - Escalade
 - État conflictuel
@@ -233,7 +233,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Date de début du travail
 - Date de fin du travail
 - Description
-- Ordinateur
+- Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Données de sortie pour un incident ServiceNow
 
@@ -249,13 +249,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | Fermé par |
 | Source_s| Type de contact |
 | AssignedTo_s | Affecté à  |
-| Category_s | Catégorie |
+| Category_s | Category |
 | Title_s|  Brève description |
 | Description_s|  Notes |
 | CreatedDate_t|  Ouvert |
 | ClosedDate_t| Fermé|
 | ResolvedDate_t|Résolu|
-| Ordinateur  | Élément de configuration |
+| Computer  | Élément de configuration |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Données de sortie pour une demande de modification ServiceNow
 
@@ -267,7 +267,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Affecté à  |
 | Title_s|  Brève description |
 | Type_s|  Type |
-| Category_s|  Catégorie |
+| Category_s|  Category |
 | CRState_s|  État|
 | Urgency_s|  Urgence |
 | Priority_s| Priorité|
@@ -280,7 +280,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | Date de début réelle |
 | WorkEndDate_t | Date de fin réelle|
 | Description_s | Description |
-| Ordinateur  | Élément de configuration |
+| Computer  | Élément de configuration |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Dépanner les connexions ITSM

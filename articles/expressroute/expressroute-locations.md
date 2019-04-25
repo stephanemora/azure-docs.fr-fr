@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2019
 ms.author: pareshmu
-ms.openlocfilehash: 0dcf1ab67368fa07eadaae261d19dec573574541
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 948d57ffc557aad1d1828cb6b6f45471880a810c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002151"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363873"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -143,7 +143,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/cloud-interconnect)** | Pris en charge | Pris en charge | Kuala Lumpur |
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Pris en charge |Pris en charge |Sao Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Hong Kong (r.a.s.), Londres, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
-| **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Pris en charge |Non pris en charge |Londres, Singapour |
+| **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Pris en charge |Pris en charge |Londres, Singapour |
 | **Vodafone Idea** | Pris en charge | Pris en charge | Mumbai, Mumbai2 |
 | **[Zayo](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Denver, Londres, Los Angeles, Montréal, New York, Paris, Seattle, Silicon Valley, Toronto, Washington DC |
 

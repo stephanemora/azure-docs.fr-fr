@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472140"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Créer un groupe dynamique et vérifier l’état
 
@@ -50,7 +50,7 @@ Si la règle que vous avez entré n’est pas valide, une explication de la rais
 
 ## <a name="turn-on-or-off-welcome-email"></a>Activer ou désactiver l’e-mail de bienvenue
 
-Lorsqu’un nouveau groupe Office 365 est créé, une notification de bienvenue est envoyée les utilisateurs qui sont ajoutés au groupe. Ultérieurement, si des attributs d’un utilisateur ou un périphérique changent, toutes les règles de groupe dynamique dans l’organisation sont traitées pour les modifications d’appartenance. Les utilisateurs qui sont ajoutés puis également recevoir la notification de bienvenue. Vous pouvez désactiver ce comportement dans [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Lorsqu’un nouveau groupe Office 365 est créé, une notification de bienvenue est envoyée les utilisateurs qui sont ajoutés au groupe. Ultérieurement, si des attributs d’un utilisateur ou un périphérique changent, toutes les règles de groupe dynamique dans l’organisation sont traitées pour les modifications d’appartenance. Les utilisateurs qui sont alors ajoutés reçoivent également la notification de bienvenue. Vous pouvez désactiver ce comportement dans [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="check-processing-status-for-a-rule"></a>Vérifier le statut de traitement d’une règle
 
@@ -69,7 +69,7 @@ Les messages d’état suivants peuvent être affichés pour l’état **Traitem
 Les messages d’état suivants peuvent être affichés pour l’état **Dernière mise à jour de l’appartenance** :
 
 * &lt;**Date et heure**&gt; : date et heure de la dernière mise à jour de l’appartenance.
-* **En cours** : les mises à jour sont en cours d’exécution.
+* **En cours** : les mises à jour sont en cours d’exécution.
 * **Inconnue** : La dernière mise à jour ne peut pas être récupérée. Le groupe peut être à nouveau.
 
 Si une erreur se produit lors du traitement de la règle d’appartenance pour un groupe spécifique, une alerte s’affiche en haut de la page **Vue d’ensemble** du groupe. Si aucune mise à jour d’appartenance dynamique en attente ne peut être traitée pour tous les groupes au sein du locataire pendant plus de 24 heures, une alerte s’affiche en haut de **Tous les groupes**.

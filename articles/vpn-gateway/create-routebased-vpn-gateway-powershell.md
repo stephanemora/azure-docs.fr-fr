@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8622de88b1edc7b0f5eb2571a55415837ad28dc7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 4775a3eb12f48026cca78856a6197e89ddd2c75d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390118"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Création d’une passerelle VPN basée sur un itinéraire à l’aide de PowerShell
 

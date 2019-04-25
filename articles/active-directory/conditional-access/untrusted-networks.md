@@ -19,11 +19,11 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ebf8cb1c3b49975356389c7c9444aff319326f74
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301102"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Activation Exiger une authentification multifacteur (MFA) pour l’accès à partir de réseaux non approuvés disposant d’un accès conditionnel   
 
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) active l’authentification unique aux apparei
 
 Cet article vous donne les informations dont vous avez besoin pour configurer une stratégie d’accès conditionnel qui requiert l’authentification MFA pour l’accès à partir de réseaux non approuvés. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose de connaître : 
 

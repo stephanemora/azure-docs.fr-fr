@@ -10,11 +10,11 @@ ms.date: 03/13/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: fa7f5d3fb38eb1dbca51dec9b73dca3c998436aa
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57905324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60500348"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gérer les Modules dans Azure Automation
 
@@ -55,7 +55,7 @@ Vous pouvez également importer des modules à partir de la galerie PowerShell d
 
 Voici une liste des applets de commande interne `Orchestrator.AssetManagement.Cmdlets` module est importé dans chaque compte Automation. Ces applets de commande sont accessibles dans vos runbooks et les configurations DSC et vous permettent d’interagir avec vos ressources au sein de votre compte Automation. En outre, les applets de commande internes vous permettent de récupérer des secrets à partir de chiffré **Variable** valeurs, **informations d’identification**et chiffrées **connexion** champs. Les applets de commande Azure PowerShell ne sont pas en mesure de récupérer ces informations secrètes. Ces applets de commande ne nécessitent pas à se connecter à Azure implicitement lors de leur utilisation. Cela est utile pour les scénarios où vous avez une connexion, comme un compte d’identification que vous devez utiliser pour s’authentifier auprès d’Azure.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |

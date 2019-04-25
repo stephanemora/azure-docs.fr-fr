@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531047"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Notes de publication de StorSimple série 8000 Update 2.2
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Les notes de publication suivantes décrivent les nouvelles fonctionnalités et identifient les problèmes critiques non résolus relatifs à StorSimple série 8000 Update 2.2. Elles contiennent également une liste des mises à jour du logiciel StorSimple incluses dans cette version.
 
 La solution Update 2.2 peut être appliquée à n’importe quel appareil StorSimple exécutant le logiciel Release (GA), des versions Update 0.1 à Update 2.1. La version d’appareil associée à Update 2.2 est 6.3.9600.17708.

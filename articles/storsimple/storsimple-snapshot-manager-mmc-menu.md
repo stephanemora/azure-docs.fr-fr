@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 48f439a566a8067e153aab4fb789937d2f91268d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be761f0a2e59878139ae54dba62634a53b172711
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109967"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302997"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Utilisez les actions du menu MMC dans Gestionnaire d’instantanés StorSimple
 
@@ -87,7 +87,7 @@ Vous pouvez utiliser l’action **Exporter la liste** pour enregistrer une liste
    1. Dans la zone **Nom de fichier** , tapez un nom pour le fichier CSV ou cliquez sur la flèche pour effectuer une sélection dans la liste déroulante.
    2. Dans la zone **Type de fichier** , cliquez sur la flèche et sélectionnez un type de fichier dans la liste déroulante.
    3. Pour enregistrer uniquement les éléments sélectionnés, sélectionnez les lignes puis cliquez sur la case à cocher **Enregistrer uniquement les lignes sélectionnées** . Pour enregistrer toutes les listes exportées, désactivez la case à cocher **Enregistrer uniquement les lignes sélectionnées** .
-   4. Cliquez sur **Save**.
+   4. Cliquez sur **Enregistrer**.
       
       ![Exporter la liste dans un fichier de valeurs séparées par des virgules](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 

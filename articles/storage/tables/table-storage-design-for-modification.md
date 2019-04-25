@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325882"
 ---
 # <a name="design-for-data-modification"></a>Conception pour la modification de données
 Cet article décrit les conceptions qui permettent d’optimiser les insertions, les mises à jour et les suppressions. Dans certains cas, vous devez évaluer le compromis entre les conceptions optimisées pour l'interrogation et celles optimisées pour la modification des données, comme vous le feriez dans les conceptions de bases de données relationnelles (bien que les techniques permettant de gérer les compromis de conception sont différentes dans une base de données relationnelle). La section Modèles de conception de table décrit plusieurs modèles de conception détaillés pour le service de Table et apporte des informations sur certains de ces compromis. En pratique, vous constaterez que les nombreuses conceptions optimisées pour l'interrogation des entités fonctionnent aussi bien pour la modification des entités.  

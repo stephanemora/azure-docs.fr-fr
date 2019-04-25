@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371720"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurer votre compte de facturation d’un contrat de client de Microsoft
 
@@ -225,7 +225,7 @@ Les abonnements Azure qui sont transférées à partir de l’inscription de vot
 
    ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Sélectionnez une section de la facture. Selon votre accès, vous devrez peut-être sélectionner un compte de facturation ou d’un profil de facturation.  Dans le compte de facturation ou le profil de facturation, sélectionnez **sections de facture** et ensuite une section de la facture.
+3. Sélectionnez une section de la facture. Selon votre accès, vous devrez peut-être sélectionner un compte de facturation ou un profil de facturation.  Dans le compte de facturation ou le profil de facturation, sélectionnez **sections de facture** et ensuite une section de la facture.
 
     ![Capture d’écran montrant la liste de transition de facture section post](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
 

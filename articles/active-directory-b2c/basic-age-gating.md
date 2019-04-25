@@ -3,7 +3,7 @@ title: Activer la vérification de l’âge dans Azure Active Directory B2C | Mi
 description: Découvrez comment identifier les mineurs à l’aide de votre application.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383930"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Activer la vérification de l'âge dans Azure Active Directory B2C
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60538253"
 ---
 # <a name="get-started-with-the-query-action"></a>Prise en main de l’action de requête
 L’action de requête vous permet d’utiliser des lots et des tableaux pour obtenir des flux de travail afin d’effectuer les tâches suivantes :
