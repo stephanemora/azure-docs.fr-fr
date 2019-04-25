@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 9ba52951565c910138a5a49ecc97ad5748411e6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4303b79a7ee69d029504bf6ca2359f6e6070e5b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370157"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Comprendre votre facture Microsoft Azure
 Pour comprendre votre facture Azure, comparez-la avec le fichier détaillé sur l’utilisation quotidienne et les rapports de gestion des coûts dans le portail Azure.
@@ -46,7 +46,7 @@ Vos frais d’utilisation sont affichés au niveau du compteur. Les termes suiva
  | Facture (PDF) | Utilisation détaillée (CSV)|
  | --- | --- |
 |Cycle de facturation | Période de facturation |
- |Nom |Catégorie du compteur |
+ |Name |Catégorie du compteur |
  |Type |Sous-catégorie du compteur |
  |Ressource |Nom du compteur |
  |Région |Région du compteur |

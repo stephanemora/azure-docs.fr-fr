@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 7f60371fb533526ef5bdb154d0c08dface9c0d1f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393949"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Développer des applications Service Fabric en Java avec Visual Studio Code
 
@@ -30,7 +30,7 @@ Cet article vous montre comment générer, déployer et déboguer une applicatio
 > [!IMPORTANT]
 > Vous pouvez développer des applications Service Fabric en Java sur des machines Windows, mais ne pouvez les déployer que sur des clusters Azure Linux. Le débogage des applications Java n’est pas pris en charge sur Windows.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez déjà installé VS Code, l’extension Service Fabric Reliable Services pour VS Code et toutes les dépendances requises pour votre environnement de développement. Pour plus d’informations, consultez [Bien démarrer](./service-fabric-get-started-vs-code.md#prerequisites).
 
@@ -49,7 +49,7 @@ Ouvrez Visual Studio Code.  Cliquez sur l’icône Explorer dans la **barre d’
 
 ![Application Voting en Java dans l’espace de travail](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
-## <a name="build-the-application"></a>Créer l’application
+## <a name="build-the-application"></a>Création de l'application
 
 1. Appuyez sur (Ctrl+Maj+p) pour ouvrir la **Palette de commandes** dans VS Code.
 2. Recherchez puis sélectionnez la commande **Service Fabric : Générer une application**. La sortie de la génération est envoyée au terminal intégré.

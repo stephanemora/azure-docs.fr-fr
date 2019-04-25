@@ -9,11 +9,11 @@ ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
 ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345852"
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiver le journal d’activité Azure
 Dans cet article, nous vous expliquons comment vous pouvez utiliser le portail Azure, les applets de commande PowerShell ou l’interface de ligne de commande multiplateforme pour archiver votre [**journal d’activité Azure dans un compte de stockage**](../../azure-monitor/platform/activity-logs-overview.md). Cette option est utile si vous souhaitez conserver votre journal d’activité pendant une période supérieure à 90 jours (en disposant d’un contrôle total sur la stratégie de rétention) à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours sans que l’archivage ne soit activé.
@@ -155,7 +155,7 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 | Nom de l'élément | Description |
 | --- | --- |
 | time |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
-| ResourceId |ID de ressource de la ressource affectée. |
+| resourceId |ID de ressource de la ressource affectée. |
 | operationName |Nom de l’opération. |
 | category |Catégorie de l’action, par ex. Écriture, Lecture, Action. |
 | resultType |Le type du résultat, par ex. Réussite, échec, démarrage |

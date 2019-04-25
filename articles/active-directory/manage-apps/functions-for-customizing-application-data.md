@@ -15,11 +15,11 @@ ms.date: 01/21/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed081b32fd8ac464f7ec66f97c6867708a6f8533
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291430"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -50,8 +50,8 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-| **suffix** |Obligatoire |Chaîne |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
+| **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
+| **suffix** |Obligatoire |String |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -63,9 +63,9 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-| **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obligatoire |Chaîne |Format de la date de sortie. |
+| **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
+| **inputFormat** |Obligatoire |String |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Obligatoire |String |Format de la date de sortie. |
 
 - - -
 ### <a name="join"></a>Join
@@ -79,8 +79,8 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **separator** |Obligatoire |Chaîne |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
-| **source1  … sourceN** |Requis, nombre de fois variable |Chaîne |Valeurs de chaîne à joindre ensemble. |
+| **separator** |Obligatoire |String |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
+| **source1  … sourceN** |Requis, nombre de fois variable |String |Valeurs de chaîne à joindre ensemble. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -90,9 +90,9 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut. |
+| **source** |Obligatoire |String |Généralement le nom de l’attribut. |
 | **start** |Obligatoire |integer |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
 | **length** |Obligatoire |integer |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source**, la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
 
@@ -104,9 +104,9 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne | Généralement un attribut de nom ou de prénom. |
+| **source** |Obligatoire |String | Généralement un attribut de nom ou de prénom. |
 
 - - -
 ### <a name="not"></a>not
@@ -116,7 +116,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
 
@@ -145,13 +145,13 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-| **oldValue** |Facultatif |Chaîne |Valeur à remplacer dans **source** ou **template**. |
-| **regexPattern** |Facultatif |Chaîne |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand replacementPropertyName est utilisé, modèle pour extraire la valeur de la propriété de remplacement. |
-| **regexGroupName** |Facultatif |Chaîne |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe comme replacementValue à partir de la propriété de remplacement uniquement quand replacementPropertyName est utilisé. |
-| **replacementValue** |Facultatif |Chaîne |Nouvelle valeur par laquelle remplacer l’ancienne. |
-| **replacementAttributeName** |Facultatif |Chaîne |Nom de l’attribut à utiliser pour la valeur de remplacement, quand la source n’a aucune valeur. |
-| **template** |Facultatif |Chaîne |Lorsque la valeur **template** est fournie, nous recherchons **oldValue** dans le modèle et la remplaçons par la valeur source. |
+| **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
+| **oldValue** |Facultatif |String |Valeur à remplacer dans **source** ou **template**. |
+| **regexPattern** |Facultatif |String |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand replacementPropertyName est utilisé, modèle pour extraire la valeur de la propriété de remplacement. |
+| **regexGroupName** |Facultatif |String |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe comme replacementValue à partir de la propriété de remplacement uniquement quand replacementPropertyName est utilisé. |
+| **replacementValue** |Facultatif |String |Nouvelle valeur par laquelle remplacer l’ancienne. |
+| **replacementAttributeName** |Facultatif |String |Nom de l’attribut à utiliser pour la valeur de remplacement, quand la source n’a aucune valeur. |
+| **template** |Facultatif |String |Lorsque la valeur **template** est fournie, nous recherchons **oldValue** dans le modèle et la remplaçons par la valeur source. |
 
 - - -
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -166,9 +166,9 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |Chaîne | Liste des règles de génération de valeur unique à évaluer. |
+| **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |String | Liste des règles de génération de valeur unique à évaluer. |
 
 
 - - -
@@ -181,7 +181,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obligatoire |Chaîne |Objet **[appRoleAssignments]**. |
+| **[appRoleAssignments]** |Obligatoire |String |Objet **[appRoleAssignments]**. |
 
 - - -
 ### <a name="split"></a>Split
@@ -193,8 +193,8 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
-| **délimiteur** |Obligatoire |Chaîne |Spécifie le caractère qui sera utilisé pour fractionner la chaîne (exemple : « , ») |
+| **source** |Obligatoire |String |**source** à mettre à jour. |
+| **délimiteur** |Obligatoire |String |Spécifie le caractère qui sera utilisé pour fractionner la chaîne (exemple : « , ») |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -206,7 +206,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
+| **source** |Obligatoire |String |**source** à mettre à jour. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -218,10 +218,10 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |**Source** à mettre à jour. |
-| **defaultValue** |Facultatif |Chaîne |Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
-| **key** |Obligatoire |Chaîne |**Key** avec laquelle comparer la valeur **source**. |
-| **value** |Obligatoire |Chaîne |Valeur de remplacement pour la **source** correspondant à la clé. |
+| **source** |Obligatoire |String |**Source** à mettre à jour. |
+| **defaultValue** |Facultatif |String |Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
+| **key** |Obligatoire |String |**Key** avec laquelle comparer la valeur **source**. |
+| **value** |Obligatoire |String |Valeur de remplacement pour la **source** correspondant à la clé. |
 
 - - -
 ### <a name="tolower"></a>ToLower
@@ -233,8 +233,8 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source |
-| **culture** |Facultatif |Chaîne |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
+| **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source |
+| **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
 
 - - -
 ### <a name="toupper"></a>ToUpper
@@ -244,10 +244,10 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-| **culture** |Facultatif |Chaîne |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
+| **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
+| **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
 
 ## <a name="examples"></a>Exemples
 ### <a name="strip-known-domain-name"></a>Supprimer un nom de domaine connu

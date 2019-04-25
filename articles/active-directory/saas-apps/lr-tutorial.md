@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à LoginRadius | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à LoginRadius | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LoginRadius.
 services: active-directory
 documentationCenter: na
@@ -17,11 +17,11 @@ ms.date: 03/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cddd239bba7d9b0f0a90e23f146263777806b187
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192300"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60256265"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Didacticiel : Intégration d’Azure Active Directory à LoginRadius
 
@@ -35,7 +35,7 @@ L’intégration de LoginRadius avec Azure AD offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec LoginRadius, vous aurez besoin des éléments suivants :
 

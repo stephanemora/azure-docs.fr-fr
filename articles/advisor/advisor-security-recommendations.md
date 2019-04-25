@@ -13,11 +13,11 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: 290af605525d552e73c5f3a7a961593689326946
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467678"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Mieux sécuriser les ressources avec Azure Advisor
 

@@ -9,11 +9,11 @@ ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
 ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681724"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392464"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du stockage Blob Azure
 
@@ -115,8 +115,8 @@ Chaque règle au sein de la stratégie a plusieurs paramètres :
 
 | Nom du paramètre | Type de paramètre | Notes | Obligatoire |
 |----------------|----------------|-------|----------|
-| Nom           | Chaîne |Un nom de règle peut contenir jusqu'à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
-| Activé | Booléen | Une valeur booléenne facultative pour permettre une règle pour être temporaire est désactivé. Valeur par défaut est true si elle n’est pas définie. | False | 
+| Nom           | String |Un nom de règle peut contenir jusqu'à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
+| Activé | Boolean | Une valeur booléenne facultative pour permettre une règle pour être temporaire est désactivé. Valeur par défaut est true si elle n’est pas définie. | False | 
 | Type           | Une valeur enum | Le type actuel valid est `Lifecycle`. | True |
 | Définition     | Un objet qui définit la règle du cycle de vie | Chaque définition se compose d’un jeu de filtres et d’un jeu d’actions. | True |
 

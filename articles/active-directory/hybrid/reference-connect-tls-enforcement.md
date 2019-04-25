@@ -4,23 +4,23 @@ description: Cet article répertorie toutes les versions d’Azure AD Connect et
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: reference
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/28/2018
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+origin.date: 10/28/2018
+ms.date: 12/05/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: ff4e170f8f5d8e30004b94bbcfdb0ca3e8c3e04d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189172"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386259"
 ---
 # <a name="tls-12-enforcement-for-azure-ad-connect"></a>Mise en œuvre du protocole TLS 1.2 pour Azure AD Connect
 
@@ -110,4 +110,5 @@ Vous pouvez utiliser le script PowerShell suivant pour désactiver le protocole 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
+- [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
+

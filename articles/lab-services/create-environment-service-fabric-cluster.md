@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: enewman
 ms.openlocfilehash: 9848f197800c391285c4065685b910685f0ac64b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57319064"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60312077"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Créer un environnement avec un cluster autonome Service Fabric dans Azure DevTest Labs
 Cet article fournit des informations sur la façon de créer un environnement avec un cluster Service Fabric autonome dans Azure DevTest Labs. 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 DevTest Labs peuvent créer des environnements de test autonome tel que défini par les modèles Azure Resource Manager. Ces environnements contiennent les deux ressources IaaS, comme les machines virtuelles et les ressources PaaS, comme Service Fabric. DevTest Labs vous permet de gérer les machines virtuelles dans un environnement en fournissant des commandes permettant de contrôler les machines virtuelles. Ces commandes vous permettent de démarrer ou arrêter une machine virtuelle sur une planification. De même, DevTest Labs peut également vous aider à gérer des clusters Service Fabric dans un environnement. Vous pouvez démarrer ou arrêter un cluster Service Fabric dans un environnement manuellement ou via une planification.
 
 ## <a name="create-a-service-fabric-cluster"></a>Créer un cluster Service Fabric

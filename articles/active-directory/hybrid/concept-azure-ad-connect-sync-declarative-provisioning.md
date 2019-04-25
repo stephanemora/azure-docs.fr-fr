@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60246329"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Synchronisation d’Azure AD Connect : Présentation de l’approvisionnement déclaratif
 Cette rubrique présente le modèle de configuration dans Azure AD Connect. Ce modèle est appelé « approvisionnement déclaratif » et vous permet de modifier la configuration en toute simplicité. De nombreux éléments décrits dans cette rubrique sont des éléments avancés, non indispensables pour la plupart des scénarios clients.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 L’approvisionnement déclaratif correspond au traitement des objets provenant d’un répertoire source connecté. Il détermine comment l’objet et les attributs doivent être transformés à partir d’une source vers une cible. Les objets sont traités dans un pipeline de synchronisation identique pour les règles de trafic entrant et sortant. Les règles de trafic entrant vont d’un espace de connecteur au métaverse et les règles de trafic sortant vont du métaverse vers un espace de connecteur.
 
 ![Pipeline de synchronisation](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  

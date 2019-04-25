@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: yizhon
 ms.openlocfilehash: 8e36cee9857c00fcb618a8491595432fb0fd60fd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400109"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Développer pour la plateforme Android Things à l’aide des Kits de développement logiciel (SDK) Azure IoT
 
@@ -20,7 +20,7 @@ Les [Kits de développement logiciel (SDK) Azure IoT Hub](https://docs.microsoft
 
 Ce didacticiel décrit les étapes à suivre pour créer une application côté appareil sur Android Things à l’aide du Kit de développement logiciel (SDK) Java Azure IoT.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Matériel compatible Android Things avec le système d’exploitation Android Things en cours d’exécution.  Pour savoir comment flasher le système d’exploitation Android Things, vous pouvez suivre la [documentation d’Android Things](https://developer.android.com/things/get-started/kits#flash-at).  Assurez-vous que votre appareil Android Things est connecté à Internet et dispose des périphériques essentiels tels qu’un clavier, un écran et une souris.  Ce didacticiel utilise Raspberry Pi 3.
 

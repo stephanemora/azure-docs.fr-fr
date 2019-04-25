@@ -16,11 +16,11 @@ ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
 ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442544"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier un déploiement de Proxy d’Application Azure AD
 
@@ -32,7 +32,7 @@ Cet article inclut les ressources que vous avez besoin pour planifier, de foncti
 
 La section suivante fournit une vue générale de la planification des éléments qui effectueront une configuration pour une expérience de déploiement efficace de clé. 
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Vous devez respecter les conditions préalables suivantes avant de commencer votre implémentation. Vous pouvez voir plus d’informations sur la configuration de votre environnement, y compris de ces conditions préalables, dans ce [didacticiel](application-proxy-add-on-premises-application.md).
 

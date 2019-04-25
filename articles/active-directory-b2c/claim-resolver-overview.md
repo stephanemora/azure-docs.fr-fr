@@ -3,7 +3,7 @@ title: À propos des résolveurs de revendication dans les stratégies personnal
 description: Découvrez comment sont utilisés les résolveurs de revendication dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 44ac4a5fd14d262fdbd1f6fcd36bb2351d08f754
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313832"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -65,14 +65,14 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 
 | Revendication | Description | Exemples |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |Paramètre de chaîne de requête `acr_values`. | N/A |
+| {OIDC:AuthenticationContextReferences} |Paramètre de chaîne de requête `acr_values`. | S.O. |
 | {OIDC:ClientId} |Paramètre de chaîne de requête `client_id`. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Paramètre de chaîne de requête `domain_hint`. | facebook.com |
 | {OIDC:LoginHint} |  Paramètre de chaîne de requête `login_hint`. | someone@contoso.com |
-| {OIDC:MaxAge} | Le `max_age`. | N/A |
+| {OIDC:MaxAge} | Le `max_age`. | S.O. |
 | {OIDC:Nonce} |Paramètre de chaîne de requête `Nonce`. | defaultNonce |
 | {OIDC:Prompt} | Paramètre de chaîne de requête `prompt`. | se connecter |
-| {OIDC:Resource} |Paramètre de chaîne de requête `resource`. | N/A |
+| {OIDC:Resource} |Paramètre de chaîne de requête `resource`. | S.O. |
 | {OIDC:scope} |Paramètre de chaîne de requête `scope`. | openid |
 
 ### <a name="context"></a>Context
@@ -95,13 +95,13 @@ Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2
 | {OAUTH-KV:campaignId} | Paramètre de chaîne de requête. | hawaii |
 | {OAUTH-KV:app_session} | Paramètre de chaîne de requête. | A3C5R |
 | {OAUTH-KV:loyalty_number} | Paramètre de chaîne de requête. | 1234 |
-| {OAUTH-KV : n’importe quelle chaîne de requête personnalisée} | Paramètre de chaîne de requête. | N/A |
+| {OAUTH-KV : n’importe quelle chaîne de requête personnalisée} | Paramètre de chaîne de requête. | S.O. |
 
 ### <a name="oauth2"></a>OAuth2
 
 | Revendication | Description | Exemples |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | Jeton d’accès. | N/A |
+| {oauth2:access_token} | Jeton d’accès. | S.O. |
 
 ## <a name="how-to-use-claim-resolvers"></a>Comment utiliser des résolveurs de revendication
 

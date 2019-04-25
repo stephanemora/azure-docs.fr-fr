@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916578"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392396"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Définir et récupérer des propriétés et métadonnées d’objet
 
@@ -27,7 +27,7 @@ La récupération des valeurs des propriétés et des métadonnées d’une ress
 > [!IMPORTANT]
 > Si vous constatez que les valeurs de propriété ou de métadonnées pour une ressource de stockage n’ont pas été complétées, vérifiez que votre code appelle l’une des méthodes **FetchAttributes** ou **FetchAttributesAsync**.
 >
-> Paires nom/valeur de métadonnées sont des en-têtes HTTP valides et par conséquent, doivent respecter toutes les restrictions régissant les en-têtes HTTP. Les noms de métadonnées doivent être des noms d’en-tête HTTP valides peuvent contenir uniquement des caractères ASCII et doivent respecter la casse. Les valeurs de métadonnées contenant des caractères non-ASCII doivent être codée en Base64 ou encodé en URL.
+> Paires nom/valeur de métadonnées sont des en-têtes HTTP valides et par conséquent, doivent respecter toutes les restrictions régissant les en-têtes HTTP. Les noms de métadonnées doivent être des noms d’en-tête HTTP valides et valide C# identificateurs, peut contenir uniquement des caractères ASCII et doit respecter la casse. Les valeurs de métadonnées contenant des caractères non-ASCII doivent être codée en Base64 ou encodé en URL.
 
 ## <a name="setting-and-retrieving-properties"></a>Définition et récupération de propriétés
 Pour récupérer des valeurs de propriétés, appelez la méthode **FetchAttributesAsync** sur votre blob ou votre conteneur pour renseigner les propriétés, puis lisez les valeurs.

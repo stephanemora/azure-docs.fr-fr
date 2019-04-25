@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369961"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Comprendre les termes figurant sur votre facture Microsoft Azure
 
@@ -99,7 +99,7 @@ Le tableau suivant décrit les en-têtes de colonne Frais d’utilisation indiqu
 
 | Terme |Description |
 | --- | --- |
-| Nom |Identifie le service de niveau supérieur pour l’utilisation |
+| Name |Identifie le service de niveau supérieur pour l’utilisation |
 | Type |Définit le type de service Azure pouvant affecter le tarif |
 | Ressource |Identifie l’unité de mesure du compteur consommé |
 | Région |Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement |

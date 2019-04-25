@@ -10,11 +10,11 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 7f969ab6059140ec32c9c5bf5045c546602a3c15
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57411351"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404703"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostiquer et résoudre les problèmes lors de l’utilisation d’Azure Cosmos DB .NET SDK
 Cet article traite des problèmes courants, les solutions de contournement, les étapes de diagnostic et les outils lorsque vous utilisez le [.NET SDK](sql-api-sdk-dotnet.md) avec des comptes de l’API SQL Azure Cosmos DB.

@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60382667"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrer de la fédération à l’authentification directe pour Azure Active Directory
 
@@ -218,7 +218,7 @@ Vous avez planifié votre solution. Vous pouvez maintenant l’implémenter. L�
 * Préparation pour l’authentification unique fluide.
 * Changement de la méthode de connexion pour l’authentification directe et activation de l’authentification unique fluide.
 
-### <a name="step-1-prepare-for-seamless-sso"></a>Étape 1 : Préparer pour l’authentification unique fluide
+### <a name="step-1-prepare-for-seamless-sso"></a>Étape 1 : Préparer pour l’authentification unique fluide
 
 Pour que vos appareils utilisent l’authentification unique fluide, vous devez ajouter une URL Azure AD aux paramètres de zone intranet des utilisateurs via une stratégie de groupe dans Active Directory.
 
@@ -229,7 +229,7 @@ Effectuez les étapes pour [déployer](https://docs.microsoft.com/azure/active-d
 > [!IMPORTANT]
 > Ce changement ne modifie pas la façon dont vos utilisateurs se connectent à Azure AD. Cependant, il est important d’appliquer cette configuration à tous vos appareils avant de continuer. Les utilisateurs qui se connectent sur des appareils qui n’ont pas reçu cette configuration doivent simplement entrer un nom d’utilisateur et un mot de passe pour se connecter à Azure AD.
 
-### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>Étape 2 : Changer la méthode de connexion pour l’authentification directe et activer l’authentification unique fluide
+### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>Étape 2 : Changer la méthode de connexion pour l’authentification directe et activer l’authentification unique fluide
 
 Vous avez deux options pour changer la méthode de connexion pour l’authentification directe et activer l’authentification unique fluide.
 

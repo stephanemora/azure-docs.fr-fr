@@ -14,11 +14,11 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312136"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309172"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Déplacer des données depuis Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,7 +69,7 @@ Le tableau suivant décrit les éléments JSON spécifiques au service lié Sale
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété type doit être définie sur : **Salesforce**. |Oui |
+| type |La propriété type doit être définie sur : **Salesforce**. |Oui |
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br><br> -La valeur par défaut est « https :\//login.salesforce.com ». <br> - Pour copier des données du bac à sable, spécifiez « https://test.salesforce.com ». <br> - Pour copier des données du domaine personnalisé, spécifiez, par exemple : « https://[domain].my.salesforce.com ». |Non  |
 | username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
 | password |Spécifiez le mot de passe du compte d’utilisateur. |Oui |
@@ -286,25 +286,25 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, vo
 
 | Type Salesforce | Type basé sur .NET |
 | --- | --- |
-| Numérotation automatique |Chaîne |
-| Case à cocher |Booléen |
+| Numérotation automatique |String |
+| Case à cocher |Boolean |
 | Devise |Decimal |
-| Date |DateTime |
-| Date/Heure |DateTime |
-| Email |Chaîne |
-| ID |Chaîne |
-| Relation de recherche |Chaîne |
-| Liste déroulante à sélection multiple |Chaîne |
+| Date |Datetime |
+| Date/Heure |Datetime |
+| Email |String |
+| ID |String |
+| Relation de recherche |String |
+| Liste déroulante à sélection multiple |String |
 | Number |Decimal |
 | Pourcentage |Decimal |
-| Téléphone |Chaîne |
-| Liste déroulante |Chaîne |
-| Texte |Chaîne |
-| Zone de texte |Chaîne |
-| Zone de texte (long) |Chaîne |
-| Zone de texte (enrichi) |Chaîne |
-| Texte (chiffré) |Chaîne |
-| URL |Chaîne |
+| Téléphone |String |
+| Liste déroulante |String |
+| Text |String |
+| Zone de texte |String |
+| Zone de texte (long) |String |
+| Zone de texte (enrichi) |String |
+| Texte (chiffré) |String |
+| URL |String |
 
 > [!NOTE]
 > Pour savoir comment mapper des colonnes d’un jeu de données source sur des colonnes d’un jeu de données récepteur, consultez [Mappage de colonnes des jeux de données dans Azure Data Factory](data-factory-map-columns.md).

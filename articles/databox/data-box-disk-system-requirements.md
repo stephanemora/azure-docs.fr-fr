@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387466"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Configuration système requise pour Azure Data Box Disk
 
@@ -62,7 +62,7 @@ Voici une liste des types de stockage pris en charge pour le disque Data Box.
 | --- | --- |
 | Classique | standard |
 | Usage général  |Standard ; V1 et V2 sont pris en charge. Les niveaux chaud et froid sont tous les deux pris en charge. |
-| Compte de stockage BLOB | |
+| Compte de stockage d’objets blob | |
 
 >[!NOTE]
 > Les comptes Azure Data Lake Storage Gen 2 ne sont pas pris en charge.

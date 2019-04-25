@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60341640"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Lexique Azure SQL Database
 
@@ -28,7 +28,7 @@ ms.locfileid: "55990068"
 ||Pool élastique|[Pool élastique](sql-database-elastic-pool.md)|
 ||Instance gérée|[instance gérée](sql-database-managed-instance.md)|
 |Objets serveur|Serveur Azure SQL Database ou serveur de base de données|[Serveur de base de données](sql-database-servers.md)|
-||Serveur SQL Database Managed Instance, serveur Managed Instance ou instance de serveur|[instance gérée](sql-database-managed-instance.md)|
+||Serveur SQL Database Managed Instance, serveur Managed Instance ou instance de serveur|[Instance gérée](sql-database-managed-instance.md)|
 Objets de base de données|Base de données SQL Azure|Toute base de données dans Azure SQL Database|
 ||Base de données unique|Base de données créée à l’aide de l’option de déploiement de base de données unique|
 ||Base de données regroupée|Base de données créée au sein d’un pool élastique ou déplacée vers un tel pool|

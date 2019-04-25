@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401651"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimisation de votre environnement avec la solution System Center Operations Manager Health Check (préversion)
 
@@ -302,4 +302,4 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Rechercher dans les journaux](../../azure-monitor/log-query/log-query-overview.md) pour savoir comment analyser les données et recommandations détaillées de System Center Operations Manager Health Check.
+- [Rechercher dans les journaux d’activité](../../azure-monitor/log-query/log-query-overview.md) pour savoir comment analyser les données et recommandations détaillées de System Center Operations Manager Health Check.

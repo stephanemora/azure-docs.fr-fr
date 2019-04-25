@@ -13,17 +13,17 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 04/19/2019
 ms.openlocfilehash: 8eb924b3dc6ff912db402596c763dd69b85147a3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390713"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Gérer le chiffrement Transparent des données dans une Instance gérée à l’aide de votre propre clé Azure Key Vault (version préliminaire)
 
 Cet exemple de script PowerShell configure Transparent Data Encryption (TDE) dans le scénario de Bring Your Own Key (version préliminaire) pour Azure SQL Managed Instance, à l’aide d’une clé Azure Key Vault. Pour en savoir plus sur la prise en charge TDE avec Bring Your Own Key (BYOK), consultez [Azure SQL Transparent Data Encryption : prise en charge du service Bring Your Own Key](../transparent-data-encryption-byok-azure-sql.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Une Instance gérée existante. Consultez [utiliser PowerShell pour créer une base de données Azure SQL managed instance](sql-database-create-configure-managed-instance-powershell.md).
 

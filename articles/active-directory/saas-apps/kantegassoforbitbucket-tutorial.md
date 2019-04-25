@@ -16,13 +16,13 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7f24c211e057447782c7fab596c9be73106c552
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60266087"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Tutoriel : Intégration d’Azure Active Directory avec Kantega SSO pour Bitbucket
+# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour Bitbucket
 
 Dans ce didacticiel, vous allez apprendre à intégrer Kantega SSO pour Bitbucket avec Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de Kantega SSO pour Bitbucket avec Azure AD offre les avantages
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Kantega SSO pour Bitbucket, vous avez besoin des éléments suivants :
 

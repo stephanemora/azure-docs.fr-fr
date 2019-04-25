@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 31c559c1ab314b7e1f29bd96f74d6d82cfcc0420
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392827"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
 > [!div class="op_single_selector"]
@@ -65,6 +65,6 @@ Après avoir ajouté le suivi ETW personnalisé à votre code de service, vous p
 ## <a name="next-steps"></a>Étapes suivantes
 Le code de traçage que vous avez ajouté à votre application ci-dessus pour le diagnostic local fonctionnera avec les outils que vous pouvez utiliser pour afficher ces événements lors de l’exécution de votre application sur un cluster Azure. Consultez ces articles qui traitent des différentes options pour les outils et décrivent comment vous pouvez les configurer.
 
-* [Collecte des journaux avec Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md)
+* [Collecte des journaux avec Diagnostics Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Agrégation et collection d’événements avec EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
 

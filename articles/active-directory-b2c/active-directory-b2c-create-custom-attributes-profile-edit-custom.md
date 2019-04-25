@@ -3,7 +3,7 @@ title: Ajouter vos propres attributs à des stratégies personnalisées dans Azu
 description: Procédure pas à pas sur l’utilisation des propriétés d’extension et des attributs personnalisés, ainsi que sur la manière de les inclure dans l’interface utilisateur.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 41c3db1c9a7295d939aa34a36f86c0dfa9fecd91
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386140"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C : Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil
 
@@ -23,7 +23,7 @@ ms.locfileid: "59797122"
 
 Dans cet article, vous allez créer un attribut personnalisé dans votre annuaire Azure Active Directory (Azure AD) B2C. Vous allez utiliser ce nouvel attribut comme revendication personnalisée dans le parcours de l’utilisateur pour modifier des profils.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes de l’article [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371306"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Comprendre les termes du contrat sur votre utilisation d’Azure et vos frais CSV pour un contrat de client de Microsoft
 
@@ -107,7 +107,7 @@ publisherType | Type de serveur de publication (valeurs : firstParty, thirdPart
 publisherName | Serveur de publication pour les services de place de marché
 resourceGroupId | Identificateur unique du groupe de ressources associé à la ressource
 nom_groupe_ressources | Nom du groupe de ressources associé à la ressource
-ResourceId | Identificateur unique pour l’instance de ressource
+resourceId | Identificateur unique pour l’instance de ressource
 resourceType | Type d’instance de la ressource
 resourceLocation | Identifie l’emplacement du centre de données où la ressource est en cours d’exécution.
 location | Emplacement normalisée de la ressource si les emplacements de ressources différents sont configurés pour les mêmes régions

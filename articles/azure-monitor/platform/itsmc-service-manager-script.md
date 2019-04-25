@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.openlocfilehash: 64769ebb1bd9a5fb0f051cc6eca4e59cd41fccc9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395014"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Créer l’application web Service Manager à l’aide du script automatisé
 
@@ -39,7 +39,7 @@ Enregistrez ces valeurs. Vous en aurez besoin lorsque vous créerez une connexio
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
  Windows Management Framework 5.0 ou version ultérieure.
 Par défaut, Windows 10 a la version 5.1. Vous pouvez télécharger l’infrastructure [ici](https://www.microsoft.com/download/details.aspx?id=50395) :

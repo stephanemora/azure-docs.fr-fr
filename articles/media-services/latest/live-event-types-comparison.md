@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
 ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322282"
 ---
 # <a name="live-event-types-comparison"></a>Comparaison des types d’événements en direct
 
@@ -57,7 +57,7 @@ Le tableau suivant compare les fonctionnalités des deux types d’événements 
 
 ## <a name="system-presets"></a>Présélections de système
 
-Lorsque vous utilisez l’encodage en temps réel (Live un événement défini sur **Standard**), la présélection d’encodage définit comment le flux entrant est codé en plusieurs débits binaires ou couches. Actuellement, la seule valeur autorisée pour la présélection est *Default720p* (valeur par défaut).
+Quand vous utilisez l’encodage en temps réel (événement en direct défini sur **Standard**), la valeur d’encodage prédéfinie définit comment le flux entrant est encodé en plusieurs débits binaires ou couches. Actuellement, la seule valeur autorisée pour la présélection est *Default720p* (valeur par défaut).
 
 **Default720p** encode la vidéo dans les 6 couches suivantes.
 
@@ -73,7 +73,7 @@ Lorsque vous utilisez l’encodage en temps réel (Live un événement défini s
 | 200 |340 |192 |30 |Élevé |Video_340x192_200kbps |
 
 > [!NOTE]
-> Si vous devez utiliser une présélection d’encodage personnalisée en direct, veuillez contacter amshelp@microsoft.com. Vous devez spécifier la table souhaitée de résolution et des débits binaires. Vérifiez qu’il n'existe qu’une seule couche à 720p et au maximum 6 couches.
+> Si vous devez utiliser une valeur d’encodage prédéfinie en direct personnalisée, veuillez contacter amshelp@microsoft.com. Vous devez spécifier la table de résolution et de débits binaires souhaitée. Vérifiez qu’il n’existe qu’une seule couche à 720p, et au maximum six couches.
 
 ### <a name="output-audio-stream"></a>Flux audio de sortie
 

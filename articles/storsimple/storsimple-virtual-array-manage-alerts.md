@@ -16,15 +16,15 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895462"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302729"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utiliser StorSimple Device Manager pour gérer les alertes liées au StorSimple Virtual Array
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 La fonctionnalité Alertes dans le service StorSimple Device Manager vous permet d’examiner et d’effacer en temps réel les alertes relatives au StorSimple Virtual Array. Vous pouvez utiliser les alertes du panneau **Résumé de service** afin de surveiller de manière centralisée les problèmes d’état d’intégrité de vos instances StorSimple Virtual Array et de la solution globale Microsoft Azure StorSimple.
 

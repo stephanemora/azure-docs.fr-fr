@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à LinkedIn Elevate | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à LinkedIn Elevate | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LinkedIn Elevate.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ca8e537f261b59fb4e069d47d24e21abbdeca46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60260026"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutoriel : Intégration d'Azure Active Directory à LinkedIn Elevate
+# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Didacticiel : Intégration d'Azure Active Directory à LinkedIn Elevate
 
 Dans ce didacticiel, vous allez apprendre à intégrer LinkedIn Elevate à Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de LinkedIn Elevate à Azure AD vous offre les avantages suivan
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec LinkedIn Elevate, vous avez besoin des éléments suivants :
 

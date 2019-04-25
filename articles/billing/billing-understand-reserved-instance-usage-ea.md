@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370693"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Comprendre l’utilisation d’une réservation Azure pour votre Accord de Mise en Œuvre Entreprise
 

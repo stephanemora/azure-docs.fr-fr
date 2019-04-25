@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2ac43b472758f3403bc87bf3d64321eb97109f53
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335559"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Remplacement du comportement HTTP à l’aide du moteur de règles Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Le moteur de règles Azure CDN vous permet de personnaliser la gestion des requêtes HTTP. Par exemple, le blocage de la livraison de certains types de contenu, définir une stratégie de mise en cache ou modifier un en-tête HTTP. Ce didacticiel présente la création d’une règle qui modifie le comportement de mise en cache des ressources CDN. Pour plus d’informations sur la syntaxe de moteur de règles, consultez [Référence du moteur de règles Azure CDN](cdn-rules-engine-reference.md).
 
 ## <a name="access"></a>Access
@@ -102,4 +102,4 @@ Pour accéder au moteur de règles, vous devez d’abord sélectionner **Gérer*
 * [Conditions de correspondance du moteur de règles](cdn-rules-engine-reference-match-conditions.md)
 * [Expressions conditionnelles du moteur de règles](cdn-rules-engine-reference-conditional-expressions.md)
 * [Fonctionnalités du moteur de règles](cdn-rules-engine-reference-features.md)
-* [Azure Friday : les nouvelles fonctionnalités Premium puissantes du CDN Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vidéo)
+* [Azure Friday : Nouvelles fonctionnalités premium puissantes de Azure CDN](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vidéo)

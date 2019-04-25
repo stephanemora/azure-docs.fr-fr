@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
 ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332601"
 ---
 # <a name="azure-security-center-search"></a>Recherche Azure Security Center
 Azure Security Center utilise [Azure Monitor enregistre recherche](../log-analytics/log-analytics-log-searches.md) pour récupérer et analyser vos données de sécurité. Journaux d’analyse Azure inclut un langage de requête pour rapidement récupérer et consolider les données. À partir du centre de sécurité, vous pouvez utiliser la recherche de journaux Azure Monitor pour construire des requêtes et analyser les données collectées.

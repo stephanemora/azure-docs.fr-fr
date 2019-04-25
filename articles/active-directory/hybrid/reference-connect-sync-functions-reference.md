@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381142"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronisation d’Azure AD Connect : Référence des fonctions
 Dans Azure AD Connect, les fonctions servent à manipuler une valeur d’attribut pendant la synchronisation.  
@@ -148,7 +148,7 @@ Retourne True si les attributs ont la même valeur.
 **Syntaxe :**  
 `dt CDate(str value)`
 
-* Valeur : Chaîne comportant une date, une heure, et éventuellement, un fuseau horaire
+* Valeur : Chaîne comportant une date, une heure, et éventuellement, un fuseau horaire
 
 **Remarques :**  
  La chaîne renvoyée est toujours au format UTC.

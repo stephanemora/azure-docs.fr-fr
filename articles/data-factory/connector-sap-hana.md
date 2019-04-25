@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022969"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343764"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copier des données de SAP HANA à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Plus précisément, ce connecteur SAP HANA prend en charge ce qui suit :
 > [!NOTE]
 > Pour copier des données **vers** une banque de données SAP HANA, utilisez le connecteur ODBC générique. Pour plus de détails, voir [Récepteur SAP HANA](connector-odbc.md#sap-hana-sink). Notez que les services liés pour les connecteurs SAP HANA et ODBC sont de types différents et qu’ils ne peuvent donc pas être réutilisées.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser ce connecteur SAP HANA, vous devez :
 
@@ -58,7 +58,7 @@ Les propriétés prises en charge pour le service lié SAP HANA sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **SapHana** | Oui |
+| type | La propriété type doit être définie sur : **SapHana** | Oui |
 | serveur | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | Oui |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données SAP HANA.<br/>Les valeurs autorisées sont les suivantes : **Basic** et **Windows** | Oui |
 | userName | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
@@ -121,7 +121,7 @@ Pour copier des données de SAP HANA, définissez **RelationalSource** comme typ
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
 | query | Spécifie la requête SQL pour lire les données de l’instance SAP HANA. | Oui |
 
 **Exemple :**
@@ -162,23 +162,23 @@ Lors de la copie de données de SAP HANA, les mappages suivants sont utilisés e
 
 | Type de données SAP HANA | Type de données intermédiaires de Data Factory |
 |:--- |:--- |
-| ALPHANUM | Chaîne |
+| ALPHANUM | String |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
 | BOOLEAN | Byte |
 | CLOB | Byte[] |
 | DATE | Datetime |
-| DÉCIMAL | Décimal |
+| DÉCIMAL | Decimal |
 | DOUBLE | Single |
 | INT | Int32 |
-| NVARCHAR | Chaîne |
+| NVARCHAR | String |
 | REAL | Single |
 | SECONDDATE | Datetime |
 | SMALLINT | Int16 |
-| TEMPS | intervalle de temps |
+| TEMPS | TimeSpan |
 | TIMESTAMP | Datetime |
 | TINYINT | Byte |
-| VARCHAR | Chaîne |
+| VARCHAR | String |
 
 ## <a name="known-limitations"></a>Limites connues
 

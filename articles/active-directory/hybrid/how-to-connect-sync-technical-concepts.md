@@ -4,24 +4,24 @@ description: Explique les concepts techniques liés à Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 01/15/2018
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 01/15/2018
+ms.date: 11/12/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347570"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Synchronisation d’Azure AD Connect : Concepts techniques
 Cet article est un résumé de la rubrique [Présentation de l’architecture](how-to-connect-sync-technical-concepts.md).
@@ -34,11 +34,11 @@ S’appuyant sur MIIS, ILM et FIM, les services Azure Active Directory Sync four
 
 Les sections suivantes fournissent plus de détails sur les aspects suivants du service de synchronisation FIM :
 
-* Connecteur
-* Flux d’attributs
-* Espace de connecteur
-* Métaverse
-* Approvisionnement
+- Connecteur
+- Flux d’attributs
+- Espace de connecteur
+- Métaverse
+- Approvisionnement
 
 ## <a name="connector"></a>Connecteur
 Les modules de code utilisés pour communiquer avec un annuaire connecté sont appelés connecteurs (anciennement agents de gestion).
@@ -87,8 +87,9 @@ Cela établit intrinsèquement un lien, et le flux d’attributs peut se produir
 Chaque fois qu’une règle détermine qu’un nouvel objet d’espace de connecteur doit être créé, on emploie le terme d’« approvisionnement ». Toutefois, étant donné que cette opération n’a lieu que dans l’espace de connecteur, elle n’est reportée dans la source de données connectée qu’une fois qu’une exportation est effectuée.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Synchronisation Azure AD Connect : personnaliser les options de synchronisation](how-to-connect-sync-whatis.md)
-* [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
+- [Synchronisation Azure AD Connect : personnaliser les options de synchronisation](how-to-connect-sync-whatis.md)
+- [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
+

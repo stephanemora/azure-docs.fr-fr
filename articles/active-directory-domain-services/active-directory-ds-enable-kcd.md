@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 5569344a2df560036b99dea40c466302f5e6fe4c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359368"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurer la délégation Kerberos contrainte (KCD) sur un domaine managé
 De nombreuses applications doivent accéder à des ressources dans le contexte de l’utilisateur. Active Directory prend en charge un mécanisme, appelé délégation Kerberos, qui rend possible ce cas d’utilisation. En outre, vous pouvez limiter la délégation afin que seules des ressources spécifiques soient accessibles dans le contexte de l’utilisateur. Les domaines gérés des services de domaine Azure AD diffèrent des domaines Active Directory traditionnels dans la mesure où ils sont verrouillés de façon mieux sécurisée.

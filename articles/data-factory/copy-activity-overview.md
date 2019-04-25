@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267148"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387711"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-data-movement-activities.md)
@@ -182,9 +182,9 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 | rowsSkipped | Nombre de lignes incompatibles ignorées. Vous pouvez activer la fonctionnalité en définissant « enableSkipIncompatibleRow » sur true. | Valeur Int64 (aucune unité) |
 | throughput | Taux de transfert des données | Nombre à virgule flottante exprimé en **Ko/s** |
 | copyDuration | Durée de la copie | Valeur Int32 en secondes |
-| sqlDwPolyBase | Si PolyBase est utilisé lors de la copie de données dans SQL Data Warehouse. | Booléen |
-| redshiftUnload | Si UNLOAD est utilisé lors de la copie de données à partir de Redshift. | Booléen |
-| hdfsDistcp | Si DistCp est utilisé lors de la copie de données à partir de HDFS. | Booléen |
+| sqlDwPolyBase | Si PolyBase est utilisé lors de la copie de données dans SQL Data Warehouse. | Boolean |
+| redshiftUnload | Si UNLOAD est utilisé lors de la copie de données à partir de Redshift. | Boolean |
+| hdfsDistcp | Si DistCp est utilisé lors de la copie de données à partir de HDFS. | Boolean |
 | effectiveIntegrationRuntime | Affichez la ou les infrastructures Integration Runtime permettant de dynamiser l’exécution d’activité au format « `<IR name> (<region if it's Azure IR>)` ». | Texte (chaîne) |
 | usedDataIntegrationUnits | Unités d’intégration de données effectives pendant la copie. | Valeur Int32 |
 | usedParallelCopies | Nombre effectif de parallelCopies pendant la copie. | Valeur Int32|

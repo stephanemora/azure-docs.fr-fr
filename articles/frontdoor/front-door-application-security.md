@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193915"
 ---
 # <a name="application-layer-security-with-front-door"></a>Sécurité de la couche Application avec Front Door
 Azure Front Door Service fournit une fonction de protection des applications web pour protéger vos applications web contre les attaques réseau et les attaques de vulnérabilités web courantes, comme l’injection de code SQL ou l’exécution de script de site à site (XSS). Activée pour les frontends HTTP(S), la sécurité de la couche Application de Front Door est distribuée mondialement et toujours activée, ce qui empêche les attaques malveillantes au niveau du périmètre de réseau, loin de vos backends. Avec une sécurité accrue et une optimisation des performances, Front Door offre des expériences web rapides et sécurisées pour vos utilisateurs finaux.

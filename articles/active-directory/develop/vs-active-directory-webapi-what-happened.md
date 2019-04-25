@@ -14,11 +14,11 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f4946251cf72d7869ec5fc2f0fd844b9c06ac34
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353276"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory de Visual Studio)
 
@@ -34,7 +34,7 @@ Pour plus d’informations sur l’utilisation du service connecté, consultez [
 
 Affecte les références *.NET du fichier projet et `packages.config` (références NuGet).
 
-| Type | Informations de référence |
+| Type | Référence |
 | --- | --- |
 | .NET ; NuGet | Microsoft.Owin |
 | .NET ; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -47,7 +47,7 @@ Affecte les références *.NET du fichier projet et `packages.config` (référen
 
 Références supplémentaires si l’option **Lire les données d’annuaire** est sélectionnée :
 
-| Type | Informations de référence |
+| Type | Référence |
 | --- | --- |
 | .NET ; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 uniquement) |
@@ -61,7 +61,7 @@ Références supplémentaires si l’option **Lire les données d’annuaire** e
 
 Les références suivantes sont supprimées (projets ASP.NET 4 uniquement, comme dans Visual Studio 2015) :
 
-| Type | Informations de référence |
+| Type | Référence |
 | --- | --- |
 | .NET ; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET ; NuGet | Microsoft.AspNet.Identity.EntityFramework |

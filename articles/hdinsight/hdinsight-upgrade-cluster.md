@@ -4,22 +4,25 @@ description: Découvrez comment mettre à niveau le cluster HDInsight vers une v
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
-ms.author: omidm
+ms.author: v-yiso
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/04/2017
+origin.date: 04/04/2017
+ms.date: 02/04/2019
 ms.openlocfilehash: 266de596633201b5590a6433d078cc05f2a267b4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994519"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306167"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Mettre à niveau le cluster HDInsight
 Pour tirer parti des dernières fonctionnalités proposées par HDInsight, nous vous recommandons de mettre à niveau les clusters HDInsight vers la version la plus récente. Suivez les instructions ci-dessous pour mettre à niveau vos clusters HDInsight.
 
-> [!NOTE]  
+> [!NOTE]
 > Pour obtenir des informations sur les versions HDInsight prises en charge, consultez [Quels sont les différents composants Hadoop disponibles avec HDInsight ?](hdinsight-component-versioning.md#supported-hdinsight-versions).
+>
+>
 
 ## <a name="upgrade-tasks"></a>Tâches de mise à niveau
 Le workflow pour mettre à niveau un cluster HDInsight est le suivant :

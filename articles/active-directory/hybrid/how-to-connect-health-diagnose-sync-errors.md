@@ -15,15 +15,15 @@ ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885315"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60349979"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostiquer et corriger les erreurs de synchronisation d’attribut en double
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Allant plus loin dans la mise en évidence des erreurs de synchronisation, Azure Active Directory (Azure AD) Connect Health permet la correction en libre-service des erreurs. Il résout les erreurs de synchronisation d’attribut en double et corrige les objets qui sont orphelins à partir d’Azure AD.
 La fonctionnalité de diagnostic présente les avantages suivants :
 - Elle fournit une procédure de diagnostic qui limite les erreurs de synchronisation d’attribut en double. Elle fournit également des correctifs spécifiques.

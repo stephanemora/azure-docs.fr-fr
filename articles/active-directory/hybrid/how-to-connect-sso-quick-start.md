@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60242718"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -31,7 +31,7 @@ L’authentification unique transparente (Seamless SSO) Azure Active Directory (
 
 Pour déployer l’authentification unique transparente, procédez comme suit.
 
-## <a name="step-1-check-the-prerequisites"></a>Étape 1 : Vérifier les prérequis
+## <a name="step-1-check-the-prerequisites"></a>Étape 1 : Vérifier les prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -98,7 +98,7 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 >[!NOTE]
 > Si vous utilisez des architectures Pass-the-Hash et réduction des risques de vol d’informations d’identification dans votre environnement local, apporter les modifications nécessaires pour vous assurer que le `AZUREADSSOACC` compte d’ordinateur ne s’arrête pas dans le conteneur de mise en quarantaine. 
 
-## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
+## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
 Vous pouvez déployer progressivement l’authentification unique fluide pour vos utilisateurs en suivant les instructions fournies ci-dessous. Vous commencez par ajouter l’URL Azure AD ci-après aux paramètres de la zone Intranet de tous les utilisateurs ou des utilisateurs sélectionnés en utilisant la stratégie de groupe dans Active Directory :
 
@@ -214,7 +214,7 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
    - Connectez-vous à `https://myapps.microsoft.com/contoso.onmicrosoft.com` dans une nouvelle session de navigateur privée. Remplacez *contoso* par le nom de votre locataire.
    - Connectez-vous à `https://myapps.microsoft.com/contoso.com` dans une nouvelle session de navigateur privée. Remplacez *contoso.com* par un domaine vérifié (pas un domaine fédéré) dans votre locataire.
 
-## <a name="step-5-roll-over-keys"></a>Étape 5 : Substituer les clés
+## <a name="step-5-roll-over-keys"></a>Étape 5 : Substituer les clés
 
 À l’étape 2, Azure AD Connect crée des comptes d’ordinateurs (représentant Azure AD) dans toutes les forêts Azure Directory sur lesquelles vous avez activé l’authentification unique transparente. Pour en savoir plus, consultez [Authentification unique transparente Azure Active Directory : immersion technique](how-to-connect-sso-how-it-works.md).
 

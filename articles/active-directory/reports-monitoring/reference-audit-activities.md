@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437678"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285485"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
@@ -32,7 +32,7 @@ L’architecture de création de rapports dans Azure AD comprend les composants 
 
 - **Rapports d’activité** 
     - [Connexions](concept-sign-ins.md) – Fournit des informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs
-    - [Journaux d’audit](concept-audit-logs.md) : traçabilité proposée via des journaux pour toutes les modifications effectuées par diverses fonctionnalités au sein d’Azure AD. 
+    - [Journaux d’audit](concept-audit-logs.md) : traçabilité proposée via des journaux d’activité pour toutes les modifications effectuées par diverses fonctionnalités au sein d’Azure AD. 
     
 - **Rapports de sécurité** 
     - [Connexions risquées](concept-risky-sign-ins.md) : une connexion risquée est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. 
@@ -135,11 +135,11 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Gestion des applications|AdminPolicyDatas-SetResources|
 |Gestion des applications|AdminUserJourneys-GetResources|
 |Gestion des applications|AdminUserJourneys-RemoveResources|
-|Authentication|AdminUserJourneys-SetResources|
-|Authentication|Créer un IdentityProvider|
-|Authentication|Créer une application V1|
-|Authentication|Créer une application V2|
-|Authentication|Créer un domaine personnalisé dans le locataire|
+|Authentification|AdminUserJourneys-SetResources|
+|Authentification|Créer un IdentityProvider|
+|Authentification|Créer une application V1|
+|Authentification|Créer une application V2|
+|Authentification|Créer un domaine personnalisé dans le locataire|
 |Authorization|Créer un AdminUserJourney|
 |Authorization|Créer une ressource json localisée|
 |Authorization|Créer un IDP personnalisé|

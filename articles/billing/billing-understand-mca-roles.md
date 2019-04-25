@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370888"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Comprendre les rôles d’administrateur de contrat de client de Microsoft dans Azure
 
@@ -163,7 +163,7 @@ Les tableaux suivants indiquent le rôle que vous avez besoin pour effectuer des
 |Gérer la facturation pour les produits pour la section de la facture comme Annuler, de désactiver le renouvellement automatique et bien plus encore|✔|✔|✘|✘|✘|✘|✘|
 |Section de facture de modification pour les produits|✔|✔|✘|✘|✘|✘|✘|
 
-### <a name="manage-subscriptions-for-invoice-section"></a>Gérer les abonnements pour la section de la facture
+### <a name="manage-subscriptions-for-invoice-section"></a>Gérer les abonnements pour la section de facture
 
 |Tâches|Propriétaire de section de facture|Contributeur de section de facture|Lecteur de section de facture|Créateur de l'abonnement Azure|Propriétaire de compte de facturation|Collaborateur du compte de facturation|Lecteur du compte de facturation
 |---|---|---|---|---|---|---|---|

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
 ms.openlocfilehash: 394370738bc7996a221300540e68404986d91310
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322248"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schémas des journaux de diagnostic
 
@@ -38,7 +38,7 @@ Pour obtenir une description détaillée du schéma de niveau supérieur de jour
 
 Ces propriétés sont spécifiques au schéma de journal de remise de clé.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |keyId|ID de la clé demandée.|
 |keyType|Peut être l’une des valeurs suivantes : « Clear » (aucun chiffrement), « FairPlay », « PlayReady » ou « Widevine ».|

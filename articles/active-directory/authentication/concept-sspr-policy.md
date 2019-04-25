@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359022"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de mot de passe dans Azure Active Directory
 
@@ -50,7 +50,7 @@ La stratégie à deux verrous nécessite deux éléments de données d’authent
   * Administrateur de services de proxy d’application
   * Administrateur Dynamics 365
   * Administrateur de services Power BI
-  * Administrateur d'authentification
+  * Administrateur d’authentification
   * Administrateur de l’authentification privilégié
 
 * Si 30 jours se sont écoulés dans un abonnement d’essai ; ou

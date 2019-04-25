@@ -9,11 +9,11 @@ ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
 ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347453"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -27,7 +27,7 @@ Les alertes vous avertissent de façon proactive lorsque des conditions signific
 
 Cet article décrit l'expérience d'alerte unifiée d'Azure Monitor, qui inclut désormais les alertes gérées par Log Analytics et Application Insights. La [précédente expérience d’alerte](alerts-classic.overview.md) et les anciens types d’alertes sont appelés **alertes classiques**. Vous pouvez afficher cette expérience antérieure et les type d’alerte plus anciens en cliquant sur **Afficher les alertes classiques** en haut de la page d’alerte. 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Le diagramme ci-dessous représente le flux des alertes. 
 

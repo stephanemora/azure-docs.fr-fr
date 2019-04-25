@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335423"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Déplacer des données depuis Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -336,12 +336,12 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | DÉCIMAL |Decimal |
 | REAL |Single |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |Chaîne |
-| CHAR |Chaîne |
-| VARCHAR |Chaîne |
-| DATE |DateTime |
-| TIMESTAMP |DateTime |
-| TEXTE |Chaîne |
+| BOOLEAN |String |
+| CHAR |String |
+| VARCHAR |String |
+| DATE |Datetime |
+| TIMESTAMP |Datetime |
+| TEXTE |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour savoir comment mapper des colonnes du jeu de données source à des colonnes du jeu de données récepteur, consultez [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).
