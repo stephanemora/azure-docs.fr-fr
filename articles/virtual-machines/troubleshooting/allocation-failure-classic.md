@@ -13,11 +13,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7cd7897e3a0b940bbc636b2fbc3dbbc13b7cf540
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748423"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505543"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Étapes de résolution des problèmes d’allocation dans le modèle de déploiement Classic
 
@@ -116,7 +116,7 @@ New_General* ou New_VMSizeNotSupported*
 
 **Cause de l’épinglage au cluster**
 
-Avant l’introduction des réseaux virtuels régionaux, vous avez dû associer un réseau virtuel à un groupe d’affinités. Les ressources de calcul placées dans un groupe d’affinités sont donc liées aux mêmes contraintes que celles décrites dans le « scénario d’allocation : groupe d’affinités (proximité entre la machine virtuelle et le service) » ci-dessus. Les ressources de calcul sont liées à un cluster.
+Avant l’introduction des réseaux virtuels régionaux, vous avez dû associer un réseau virtuel à un groupe d’affinités. Par conséquent, de calcul ressources placées dans un groupe d’affinités sont liés aux mêmes contraintes comme décrit dans le « scénario d’Allocation : Groupe d’affinités (proximité de la machine virtuelle/service) » ci-dessus. Les ressources de calcul sont liées à un cluster.
 
 **Solution de contournement**
 

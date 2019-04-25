@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 0c4702dada17e759d89c33be99b3155f4b15ad9e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399857"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328882"
 ---
 # <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop Preview
 
@@ -25,7 +25,7 @@ Configuration de la méthode d’équilibrage de charge pour un pool d’hôte v
 
 L’équilibrage de charge de prioritaire est la configuration par défaut pour les nouveaux pools hôte non persistant. L’équilibrage de charge de prioritaire distribue les nouvelles sessions utilisateur sur tous les hôtes de session disponible dans le pool de l’hôte. Lors de la configuration d’équilibrage de charge prioritaire, vous pouvez définir une limite maximale d’une session par l’hôte de session dans le pool de l’hôte.
 
-Tout d’abord, [télécharger et importer le module PowerShell de bureau virtuel Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell si vous n’avez pas déjà.
+Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell.
 
 Pour configurer un pool d’hôte pour effectuer prioritaire équilibreur de charge sans ajustement de la limite maximale d’une session, exécutez l’applet de commande PowerShell suivante :
 

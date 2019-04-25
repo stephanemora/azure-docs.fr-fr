@@ -10,16 +10,16 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60334111"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analyser les journaux d’activité des sites web à l’aide d’Azure Data Lake Analytics
 Découvrez comment analyser les journaux d’activité des sites web à l’aide de Data Lake Analytics, en particulier pour découvrir quels points d’accès ont rencontré des erreurs lorsqu’ils ont essayé de visiter le site web.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * **Visual Studio 2015 ou Visual Studio 2013**.
 * **[Data Lake Tools pour Visual Studio](https://aka.ms/adltoolsvs)**.
 

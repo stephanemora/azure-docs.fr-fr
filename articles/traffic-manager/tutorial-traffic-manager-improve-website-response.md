@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
 ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329850"
 ---
-# <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutoriel : Améliorer la réponse d’un site web à l’aide de Traffic Manager
+# <a name="tutorial-improve-website-response-using-traffic-manager"></a>Didacticiel : Améliorer la réponse d’un site web à l’aide de Traffic Manager
 
 Ce didacticiel explique comment utiliser Traffic Manager pour créer un site web très réactif en dirigeant le trafic utilisateur vers le site web avec la latence la plus faible. En règle générale, le centre de données dont la latence est la plus faible est géographiquement le plus proche.
 

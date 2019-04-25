@@ -13,11 +13,11 @@ ms.reviewer: MightyPen
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: ad66253d33b2e99f0be79bfaddc86b3274f5cab0
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337786"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Utilisation de l’OLTP en mémoire pour améliorer les performances de votre SQL Database
 
@@ -29,7 +29,7 @@ ms.locfileid: "58258919"
 
 Suivez ces étapes pour adopter OLTP en mémoire dans votre base de données existante.
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Étape 1 : vérifiez que vous utilisez une base de données de niveau Premium ou Critique pour l'entreprise
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Étape 1 : vérifiez que vous utilisez une base de données de niveau Premium ou Critique pour l'entreprise
 
 OLTP en mémoire est pris en charge uniquement dans les bases de données du niveau Premium et Critique pour l’entreprise. In-Memory est pris en charge si le résultat retourné est 1 (et nom 0) :
 
@@ -41,7 +41,7 @@ L’acronyme *XTP* signifie *Extreme Transaction Processing (Traitement de trans
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Étape 2 : identifiez les objets à migrer vers In-Memory OLTP
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Étape 2 : identifiez les objets à migrer vers In-Memory OLTP
 SSMS inclut un rapport de **présentation d’analyse des performances des transactions** que vous pouvez exécuter sur une base de données avec une charge de travail active. Le rapport identifie les tables et procédures stockées candidates pour la migration vers In-Memory OLTP.
 
 Dans SSMS, pour générer le rapport :
@@ -67,7 +67,7 @@ Pour faciliter le test, modifiez votre base de données comme suit :
         MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
    ```
 
-## <a name="step-4-migrate-tables"></a>Étape 4 : migrez les tables
+## <a name="step-4-migrate-tables"></a>Étape 4 : migrez les tables
 Vous devez créer et remplir une copie de mémoire optimisée de la table que vous souhaitez tester. Vous pouvez le créer en utilisant soit :
 
 * L’Assistant Optimisation de mémoire pratique en SSMS.
@@ -151,7 +151,7 @@ Les étapes de la migration sont les suivantes :
 4. Renommez l’ancienne procédure stockée en utilisant SP_RENAME. Ou FAITES-LE SIMPLEMENT GLISSER (DROP).
 5. Exécutez le script CREATE PROCEDURE T-SQL modifié.
 
-## <a name="step-6-run-your-workload-in-test"></a>Étape 6 : exécutez votre charge de travail en mode test
+## <a name="step-6-run-your-workload-in-test"></a>Étape 6 : exécutez votre charge de travail en mode test
 L’exécution d’une charge de travail dans votre base de données de test est similaire à la charge de travail qui s’exécute dans votre base de données de production. Cela doit révéler les gains de performances générés par votre utilisation de la fonction In-Memory pour les tables et les procédures stockées.
 
 Les principaux attributs de la charge de travail sont :

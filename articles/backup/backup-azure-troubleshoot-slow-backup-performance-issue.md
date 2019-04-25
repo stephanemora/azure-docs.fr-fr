@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337627"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Résolution des problèmes de sauvegarde lente de fichiers et de dossiers dans Azure Backup
 Cet article apporte des conseils visant à vous aider à diagnostiquer la cause du ralentissement des performances de sauvegarde des fichiers et des dossiers avec Azure Backup. Lorsque vous utilisez l’agent Azure Backup pour sauvegarder des fichiers, le processus de sauvegarde peut prendre plus longtemps que prévu. Ce ralentissement peut être dû à une ou plusieurs des raisons suivantes :
@@ -31,7 +31,7 @@ Par ailleurs, nous vous recommandons vivement de passer en revue le [Forum aux q
 
 <a id="cause1"></a>
 
-## <a name="cause-performance-bottlenecks-on-the-computer"></a>Cause : goulots d’étranglement de performances sur l’ordinateur
+## <a name="cause-performance-bottlenecks-on-the-computer"></a>Cause : Goulots d’étranglement de performances sur l’ordinateur
 La présence de goulots d’étranglement sur l’ordinateur en cours de sauvegarde peut engendrer des retards. Par exemple, la capacité de l’ordinateur à lire le disque ou à écrire dessus ou encore la disponibilité de la bande passante pour l’envoi de données peuvent créer des goulots d’étranglement.
 
 Windows fournit un outil intégré appelé [Analyseur de performances](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Performance Monitor ou Perfmon) pour détecter les goulots d’étranglement.
@@ -55,7 +55,7 @@ Voici quelques compteurs de performances et plages qui peuvent être utiles pour
 
 <a id="cause2"></a>
 
-## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Cause : un autre processus ou logiciel antivirus interfère avec Azure Backup
+## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Cause : Un autre processus ou un logiciel antivirus interfère avec Azure Backup
 Nous avons vu plusieurs exemples dans lesquels d’autres processus au sein du système Windows ont dégradé les performances du processus de l’agent Azure Backup. Par exemple, si vous utilisez l’agent Azure Backup et un autre programme pour sauvegarder des données ou si un logiciel antivirus est en cours d’exécution et qu’il verrouille les fichiers à sauvegarder, plusieurs verrouillages sur les fichiers peuvent provoquer des conflits. Dans ce cas, la sauvegarde risque d’échouer ou l’opération peut prendre plus longtemps que prévu.
 
 La meilleure recommandation dans ce scénario consiste à désactiver l’autre programme de sauvegarde pour déterminer si le temps de sauvegarde de l’agent Azure Backup évolue. En règle générale, s’assurer que plusieurs opérations de sauvegarde n’interfèrent pas l’une sur l’autre est suffisant pour empêcher les conflits.
@@ -68,12 +68,12 @@ Pour les programmes antivirus, nous vous recommandons d’exclure les fichiers e
 
 <a id="cause3"></a>
 
-## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Cause : l’agent de sauvegarde est en cours d’exécution sur une machine virtuelle Azure
+## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Cause : Agent de sauvegarde en cours d’exécution sur une machine virtuelle Azure
 Si vous exécutez l’agent de sauvegarde sur une machine virtuelle, les performances seront plus lentes par rapport à une exécution sur un ordinateur physique. Cela s’explique par les limitations liées aux opérations d’E/S par seconde.  Toutefois, vous pouvez optimiser les performances en basculant les lecteurs de données sauvegardées vers un stockage premium Azure. Nous travaillons à la résolution de ce problème. Le correctif sera disponible dans une version ultérieure.
 
 <a id="cause4"></a>
 
-## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Cause : vous sauvegardez un grand nombre de fichiers (plusieurs millions)
+## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Cause : Sauvegarde d’un grand nombre (plusieurs millions) de fichiers
 Le déplacement d’un volume important de données prend plus de temps que le déplacement d’un volume plus restreint de données. Dans certains cas, la durée de la sauvegarde dépend non seulement de la taille des données, mais également du nombre de fichiers ou de dossiers. Cela se vérifie plus particulièrement lorsque des millions de petits fichiers (de quelques octets à quelques kilo-octets) sont sauvegardés.
 
 Ce comportement se produit parce qu’Azure catalogue vos fichiers pendant que vous sauvegardez les données et les déplacez dans Azure. Dans certains cas rares, l’opération de catalogage peut prendre plus longtemps que prévu.

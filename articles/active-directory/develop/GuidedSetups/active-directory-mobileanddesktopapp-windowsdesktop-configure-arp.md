@@ -17,11 +17,11 @@ ms.author: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc9b5cbc4904c6b2238e56742381feb4d2811437
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301139"
 ---
 # <a name="add-the-applications-registration-information-to-your-app"></a>Ajouter les informations d’inscription de l’application à votre application
 Dans cette étape, vous devez ajouter l’ID d’application à votre projet.
